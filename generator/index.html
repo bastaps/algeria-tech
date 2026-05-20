@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="nuit">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algeria Tech Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- ── UPLOAD ─────────────────────────────────────────────── -->
+  <div id="scr-upload" class="scr active">
+    <header class="gen-header">
+      <a href="../index.html" class="gen-logo">
+        <span class="logo-mark">✦</span>
+        <span>Algeria<em>Tech</em> <span class="logo-sub">Generator</span></span>
+      </a>
+      <div class="theme-picker">
+        <span class="tp-lbl">Thème</span>
+        <div class="tp-dots">
+          <button class="tp-dot active" data-theme="nuit"      title="Nuit Algérienne"></button>
+          <button class="tp-dot"        data-theme="desert"    title="Désert Solaire"></button>
+          <button class="tp-dot"        data-theme="emeraude"  title="Émeraude"></button>
+          <button class="tp-dot"        data-theme="ocean"     title="Océan Profond"></button>
+          <button class="tp-dot"        data-theme="corporate" title="Corporate Pro"></button>
+        </div>
+      </div>
+    </header>
+
+    <main class="gen-main">
+      <div class="hero-blk">
+        <div class="hero-tag">✦ Algeria Tech · Générateur IA</div>
+        <h1 class="hero-title">
+          Vos documents,<br>
+          <span class="hero-accent">transformés</span><br>
+          en infographies
+        </h1>
+        <p class="hero-sub">PDF · PowerPoint · Word · TXT — Qualité ARPCE</p>
+      </div>
+
+      <div id="drop-zone" class="drop-zone">
+        <div class="dz-inner">
+          <div class="dz-icon">
+            <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="40" cy="40" r="36" stroke="currentColor" stroke-width="1.5" stroke-dasharray="6 4" class="dz-circle"/>
+              <path d="M40 22V54" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M26 40L40 54L54 40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M20 60H60" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <p class="dz-title">Glissez votre fichier ici</p>
+          <p class="dz-sub">ou <button class="link-btn" id="browse-btn">parcourez</button></p>
+          <div class="dz-fmts">
+            <span>📄 PDF</span>
+            <span>📊 PPTX</span>
+            <span>📝 Word</span>
+            <span>📰 TXT</span>
+          </div>
+        </div>
+        <input type="file" id="file-input" accept=".pdf,.ppt,.pptx,.doc,.docx,.txt" hidden>
+      </div>
+
+      <div id="file-list" class="file-list" hidden></div>
+
+      <div class="opts-row">
+        <span class="opts-lbl">Type de rapport</span>
+        <div class="pills">
+          <button class="pill active" data-type="auto">🤖 Auto</button>
+          <button class="pill" data-type="telecom">📡 Télécoms</button>
+          <button class="pill" data-type="startup">🚀 Startup</button>
+          <button class="pill" data-type="rapport">📋 Rapport</button>
+          <button class="pill" data-type="presse">📰 Presse</button>
+        </div>
+      </div>
+
+      <button id="gen-btn" class="gen-btn" disabled>
+        <span class="gen-btn-shine"></span>
+        <span class="gen-btn-txt">
+          <span class="gen-btn-ico">✦</span>
+          Générer l'infographie
+        </span>
+      </button>
+    </main>
+  </div>
+
+  <!-- ── CHARGEMENT ──────────────────────────────────────────── -->
+  <div id="scr-loading" class="scr" hidden>
+    <div class="loading-cnt">
+      <div class="load-orb">
+        <div class="lo-r r1"></div>
+        <div class="lo-r r2"></div>
+        <div class="lo-r r3"></div>
+        <div class="lo-core">✦</div>
+      </div>
+      <div class="load-title">Génération en cours…</div>
+      <div id="load-step" class="load-step">Lecture du document</div>
+      <div class="load-track"><div id="load-bar" class="load-bar"></div></div>
+      <div class="load-hint">Three.js · Chart.js · 5 thèmes · Export PDF</div>
+    </div>
+  </div>
+
+  <!-- ── RÉSULTAT — Infographie créée ─────────────────────── -->
+  <div id="scr-result" class="scr" hidden>
+    <div class="res-ctrl">
+      <div class="res-brand"><span style="color:var(--accent)">✦</span> Algeria<strong>Tech</strong> Generator</div>
+      <div class="res-actions">
+        <button class="rbtn" id="btn-back">↩ Nouveau document</button>
+        <button class="rbtn rbtn-a" id="btn-dl">🔗 Ouvrir</button>
+      </div>
+    </div>
+    <div class="res-success">
+      <div class="res-check">✦</div>
+      <h2 class="res-heading">Infographie <em>prête</em></h2>
+      <p id="result-title" class="res-title-text"></p>
+      <p class="res-url-label">Accessible sur votre site :</p>
+      <code id="result-url" class="res-url"></code>
+      <div class="res-btns">
+        <a id="btn-open" class="rbtn rbtn-a" href="#" target="_blank" rel="noopener">🚀 Ouvrir l'infographie</a>
+        <a class="rbtn" href="/infographies/" target="_blank">📋 Toutes les infographies</a>
+      </div>
+      <p class="res-note">L'infographie est automatiquement ajoutée à votre site dans la section <strong>Infographies</strong>.</p>
+    </div>
+  </div>
+
+  <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js"}}</script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

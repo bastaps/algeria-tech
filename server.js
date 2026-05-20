@@ -423,9 +423,12 @@ app.delete('/api/veille/:id', (req, res) => {
 app.get('/health', (req, res) => res.json({ status: 'ok', uptime: process.uptime(), timestamp: new Date().toISOString() }));
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// GÉNÉRATEUR D'INFOGRAPHIES — POST /api/generate
-// Retourne un HTML complet autonome (Three.js 3D + Chart.js + 5 thèmes)
 // ═══════════════════════════════════════════════════════════════════════════════
+// GÉNÉRATEUR D'INFOGRAPHIES PREMIUM — POST /api/generate
+// Crée un dossier multi-fichiers dans infographies/ (qualité blueprint)
+// + met à jour interactifs-list.json automatiquement
+// ═══════════════════════════════════════════════════════════════════════════════
+const { buildInfographie } = require('./generator/infographie-builder');
 const genUpload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 30 * 1024 * 1024 } }).single('file');
 
 app.post('/api/generate', (req, res) => {
@@ -433,15 +436,22 @@ app.post('/api/generate', (req, res) => {
         if (err) return res.status(400).json({ error: 'Upload: ' + err.message });
         if (!req.file) return res.status(400).json({ error: 'Aucun fichier reçu' });
         try {
-            const text  = await extractText(req.file.buffer, req.file.originalname);
-            const type  = req.body.type  || 'auto';
-            const theme = req.body.theme || 'nuit';
-            const data  = analyseDoc(text, type, req.file.originalname);
-            const html  = generateReport(data, theme);
-            res.setHeader('Content-Type', 'text/html; charset=utf-8');
-            res.send(html);
+            const text = await extractText(req.file.buffer, req.file.originalname);
+            const type = req.body.type || 'auto';
+            const data = analyseDoc(text, type, req.file.originalname);
+
+            // Construction de l'infographie premium multi-fichiers
+            const result = await buildInfographie(data, { type });
+
+            console.log(`[generate] ✓ Infographie créée : ${result.url}`);
+            res.json({
+                url:   result.url,
+                slug:  result.slug,
+                title: result.title,
+                path:  result.path
+            });
         } catch(e) {
-            console.error('[generate]', e.message);
+            console.error('[generate]', e.message, e.stack);
             res.status(500).json({ error: e.message });
         }
     });
