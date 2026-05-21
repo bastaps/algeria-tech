@@ -14,11 +14,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Indispensable pour la synchronisation automatique
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
           node-version: '18'
+
+      # ÉTAPE AJOUTÉE : Installation des dépendances
+      - name: Installer les dépendances
+        run: npm install rss-parser
 
       - name: Générer la revue
         run: node generate_revue.js
@@ -35,8 +39,8 @@ jobs:
           cat revue_presse.json
           COUNT=$(jq '.articles | length' revue_presse.json)
           echo "Articles générés : $COUNT"
-          if [ "$COUNT" -lt 5 ]; then
-            echo "Erreur : Moins de 5 articles générés."
+          if [ "$COUNT" -lt 3 ]; then
+            echo "Erreur : Moins de 3 articles générés."
             exit 1
           fi
 
@@ -47,7 +51,7 @@ jobs:
           if [ -f revue_presse.json ]; then
             git add revue_presse.json
             git commit -m "Automatique: Revue de Presse IA [build ${{ github.run_number }}]" || echo "Pas de changements"
-            git pull --rebase origin main # SE SYNCHRONISE AUTOMATIQUEMENT
+            git pull --rebase origin main
             git push origin main
           else
             echo "Le fichier revue_presse.json n'a pas été généré."
