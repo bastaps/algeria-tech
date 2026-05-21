@@ -385,3 +385,283 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
 .revue-card-tag[data-cat="Cybersécurité"] { background: #dc2626; }
 .revue-card-tag[data-cat="Réseaux"]       { background: #0369a1; }
 /* === FIN AJOUT REVUE PRESSE === */
+
+/* ================================================================
+   REVUE DE PRESSE — REFONTE GRAND JOURNAL (Le Monde · Guardian · NYT)
+   Append pur — aucune ligne existante modifiée
+   ================================================================ */
+
+/* ── Wrapper principal ────────────────────────────────────────── */
+.revue-wrapper {
+    padding: 0 !important;
+    border-top: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background: var(--bg-white) !important;
+    overflow: hidden;
+}
+
+/* ── Masthead éditorial ───────────────────────────────────────── */
+.revue-masthead {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 30px 40px 20px;
+    border-bottom: 3px double var(--text-dark);
+    margin-bottom: 0;
+    gap: 20px;
+}
+body.dark-mode .revue-masthead { border-bottom-color: #f1f5f9; }
+.revue-masthead-brand { display: flex; flex-direction: column; gap: 4px; }
+.revue-masthead-label {
+    font-size: 0.6rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 3px; color: var(--secondary); margin-bottom: 2px;
+}
+.revue-masthead-title {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    font-size: 2.2rem; font-weight: 700; letter-spacing: -0.5px;
+    line-height: 1; color: var(--text-dark);
+}
+.revue-masthead-title span { color: var(--secondary); }
+.revue-masthead-subtitle {
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 2px;
+    color: var(--text-muted); font-weight: 500;
+}
+.revue-masthead-date {
+    text-align: right; font-size: 0.82rem; color: var(--text-muted);
+    font-style: italic; line-height: 1.6;
+}
+.revue-masthead-date strong { display: block; font-style: normal; font-weight: 700;
+    color: var(--text-dark); font-size: 0.9rem; }
+
+/* ── Synthèse éditoriale ──────────────────────────────────────── */
+.revue-synthese-bloc {
+    padding: 22px 40px 24px;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+}
+.revue-synthese-eyelet {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.6rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 2.5px; color: var(--secondary); margin-bottom: 10px;
+}
+.revue-synthese-eyelet::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+}
+.revue-synthese-text {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-size: 1.05rem !important; line-height: 1.8 !important;
+    color: var(--text-dark) !important; font-style: italic !important;
+    max-width: 900px; padding: 0 !important; border: none !important;
+    background: transparent !important;
+}
+
+/* ── Filtres journaux ─────────────────────────────────────────── */
+.revue-toolbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 40px; border-bottom: 1px solid var(--border);
+    flex-wrap: wrap; gap: 12px;
+}
+.revue-filters-journal { display: flex; flex-wrap: wrap; gap: 5px; }
+.revue-filter-journal {
+    padding: 5px 13px; border-radius: 2px;
+    border: 1.5px solid var(--border); background: transparent;
+    color: var(--text-muted); font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.8px; text-transform: uppercase; cursor: pointer;
+    transition: all 0.18s;
+}
+.revue-filter-journal:hover { border-color: var(--text-dark); color: var(--text-dark); }
+.revue-filter-journal.active {
+    background: var(--text-dark); color: #fff; border-color: var(--text-dark);
+}
+body.dark-mode .revue-filter-journal.active { background: #f1f5f9; color: #0f172a; }
+.revue-count-journal {
+    font-size: 0.7rem; color: var(--text-light); white-space: nowrap;
+    text-transform: uppercase; letter-spacing: 1.5px;
+}
+
+/* ── Article à la UNE ─────────────────────────────────────────── */
+.revue-une {
+    display: grid; grid-template-columns: 3fr 2fr;
+    gap: 0; border-bottom: 2px solid var(--border);
+    margin-bottom: 0;
+}
+.revue-une-left {
+    padding: 32px 40px 32px 40px;
+    border-right: 1px solid var(--border);
+    display: flex; flex-direction: column; justify-content: center; gap: 14px;
+}
+.revue-une-cat {
+    font-size: 0.62rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 2.5px; color: var(--secondary);
+}
+.revue-une-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 2rem; font-weight: 700; line-height: 1.2;
+    color: var(--text-dark);
+    border-left: 5px solid var(--secondary); padding-left: 16px;
+}
+.revue-une-accroche {
+    font-size: 1rem; line-height: 1.7; color: var(--text-muted);
+    font-style: italic; max-width: 520px;
+}
+.revue-une-link {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 11px 24px; background: var(--text-dark); color: #fff !important;
+    font-size: 0.72rem; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 1.5px; border-radius: 2px; text-decoration: none;
+    width: fit-content; transition: all 0.2s;
+}
+.revue-une-link:hover { background: var(--secondary); transform: translateX(4px); }
+.revue-une-right {
+    padding: 32px 32px 32px 28px;
+    display: flex; flex-direction: column; gap: 14px;
+    background: var(--bg); justify-content: center;
+}
+.revue-une-source-row {
+    display: flex; align-items: center; gap: 10px;
+    padding-bottom: 14px; border-bottom: 1px dashed var(--border);
+}
+.revue-une-logo {
+    width: 32px; height: 32px; border-radius: 6px; object-fit: contain;
+    background: #fff; padding: 3px; box-shadow: 0 0 0 1px var(--border);
+    flex-shrink: 0;
+}
+.revue-une-source-name {
+    font-weight: 700; font-size: 0.9rem; color: var(--text-dark); flex: 1;
+}
+.revue-une-pays {
+    font-size: 0.65rem; font-weight: 800; padding: 3px 8px; border-radius: 3px;
+}
+.revue-une-pays.dz { background: rgba(0,98,60,0.12); color: #00623c; }
+.revue-une-pays.fr { background: rgba(26,115,232,0.1); color: var(--accent); }
+.revue-une-ai-badge {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 0.62rem; text-transform: uppercase; letter-spacing: 1.5px;
+    color: #7c3aed; font-weight: 700;
+}
+.revue-ai-pulse {
+    width: 7px; height: 7px; border-radius: 50%; background: #7c3aed;
+    animation: pulse 2s infinite;
+}
+.revue-une-resume {
+    font-size: 0.88rem; color: var(--text-muted); line-height: 1.65;
+    display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ── Grille 3 colonnes ────────────────────────────────────────── */
+.revue-grid-journal {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    padding: 0 0 0 40px;
+}
+.revue-card-journal {
+    padding: 22px 28px 22px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex; flex-direction: column; gap: 10px;
+    transition: background 0.18s;
+}
+.revue-card-journal:nth-child(3n+2),
+.revue-card-journal:nth-child(3n) {
+    padding-left: 24px;
+    border-left: 1px solid var(--border);
+}
+.revue-card-journal:hover { background: rgba(0,98,51,0.025); }
+
+/* Badge catégorie coloré */
+.revue-card-cat {
+    display: inline-block; font-size: 0.58rem; font-weight: 800;
+    text-transform: uppercase; letter-spacing: 2px;
+    padding: 3px 8px; border-radius: 2px; color: #fff; width: fit-content;
+}
+.revue-card-cat.cat-ia            { background: #7c3aed; }
+.revue-card-cat.cat-telecoms      { background: #006233; }
+.revue-card-cat.cat-startups      { background: #d97706; }
+.revue-card-cat.cat-innovation    { background: #10b981; }
+.revue-card-cat.cat-numerique     { background: #0891b2; }
+.revue-card-cat.cat-cybersecurite { background: #dc2626; }
+.revue-card-cat.cat-reseaux       { background: #0369a1; }
+.revue-card-cat.cat-default       { background: var(--accent); }
+
+.revue-card-title-journal {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.02rem; font-weight: 700; line-height: 1.35;
+    color: var(--text-dark);
+    display: -webkit-box; -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical; overflow: hidden;
+}
+.revue-card-accroche-journal {
+    font-size: 0.8rem; color: var(--text-muted); font-style: italic;
+    line-height: 1.5; border-left: 2px solid var(--border); padding-left: 8px;
+    display: -webkit-box; -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical; overflow: hidden;
+}
+.revue-card-footer-journal {
+    display: flex; align-items: center; gap: 7px; margin-top: auto;
+    padding-top: 10px; border-top: 1px dashed var(--border);
+}
+.revue-card-logo-sm {
+    width: 16px; height: 16px; border-radius: 2px; object-fit: contain;
+    flex-shrink: 0;
+}
+.revue-card-source-sm {
+    font-size: 0.7rem; font-weight: 600; color: var(--text-muted);
+    flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.revue-card-pays-sm {
+    font-size: 0.6rem; font-weight: 700; padding: 2px 6px; border-radius: 2px; flex-shrink: 0;
+}
+.revue-card-pays-sm.dz { background: rgba(0,98,60,0.1); color: #00623c; }
+.revue-card-pays-sm.fr { background: rgba(26,115,232,0.1); color: var(--accent); }
+.revue-card-lire {
+    font-size: 0.68rem; font-weight: 800; color: var(--secondary);
+    text-decoration: none; white-space: nowrap; flex-shrink: 0;
+}
+.revue-card-lire:hover { text-decoration: underline; }
+
+/* ── Pied de page édition ─────────────────────────────────────── */
+.revue-footer-edition {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 14px 40px; border-top: 2px solid var(--border); margin-top: 2px;
+    flex-wrap: wrap; gap: 10px;
+}
+.revue-footer-sources {
+    font-size: 0.7rem; color: var(--text-light);
+    text-transform: uppercase; letter-spacing: 1.5px;
+}
+.revue-footer-ai {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 0.72rem; color: var(--text-muted); font-style: italic;
+}
+
+/* ── Vide ─────────────────────────────────────────────────────── */
+.revue-empty-journal {
+    padding: 40px; text-align: center; color: var(--text-muted);
+    font-style: italic; grid-column: 1 / -1;
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+    .revue-une { grid-template-columns: 1fr; }
+    .revue-une-left { border-right: none; border-bottom: 1px solid var(--border); }
+    .revue-grid-journal { grid-template-columns: repeat(2, 1fr); }
+    .revue-card-journal:nth-child(3n+2),
+    .revue-card-journal:nth-child(3n) { padding-left: 0; border-left: none; }
+    .revue-card-journal:nth-child(even) { padding-left: 20px; border-left: 1px solid var(--border); }
+}
+@media (max-width: 768px) {
+    .revue-masthead,
+    .revue-synthese-bloc,
+    .revue-toolbar,
+    .revue-une-left,
+    .revue-une-right,
+    .revue-footer-edition { padding-left: 16px !important; padding-right: 16px !important; }
+    .revue-grid-journal { grid-template-columns: 1fr; padding: 0 16px; }
+    .revue-card-journal:nth-child(n) { padding-left: 0 !important; border-left: none !important; padding-right: 0; }
+    .revue-une-title { font-size: 1.4rem; }
+    .revue-masthead-title { font-size: 1.6rem; }
+    .revue-masthead { flex-direction: column; align-items: flex-start; }
+}
+/* ================================================================
+   FIN REFONTE GRAND JOURNAL
+   ================================================================ */

@@ -831,3 +831,163 @@ setInterval(loadVeille, 60000);
     }
 })();
 // === FIN AJOUT REVUE PRESSE ===
+
+// ================================================================
+//  REVUE DE PRESSE — RENDU GRAND JOURNAL (override renderRevueCards)
+//  Append pur — aucune ligne existante modifiée
+// ================================================================
+(function () {
+
+    // ── Police éditoriale Playfair Display ──────────────────────
+    if (!document.getElementById('playfair-font')) {
+        var lk = document.createElement('link');
+        lk.id = 'playfair-font';
+        lk.rel = 'stylesheet';
+        lk.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&display=swap';
+        document.head.appendChild(lk);
+    }
+
+    // ── Catégorie → classe CSS ──────────────────────────────────
+    function catCls(cat) {
+        var m = {
+            'IA':'ia','Télécoms':'telecoms','Startups':'startups',
+            'Innovation':'innovation','Numérique':'numerique',
+            'Cybersécurité':'cybersecurite','Réseaux':'reseaux'
+        };
+        return m[cat] || 'default';
+    }
+
+    // ── Render article à la UNE ─────────────────────────────────
+    function renderUne(a) {
+        var pc = a.pays === 'DZ' ? 'dz' : 'fr';
+        var pl = a.pays === 'DZ' ? '🇩🇿 Algérie' : '🌐 International';
+        return '<div class="revue-une">'
+            + '<div class="revue-une-left">'
+            +   '<span class="revue-une-cat">' + a.categorie + '</span>'
+            +   '<h2 class="revue-une-title">' + a.titre + '</h2>'
+            +   '<p class="revue-une-accroche">' + (a.accroche || a.resume) + '</p>'
+            +   '<a href="' + a.url + '" target="_blank" rel="noopener" class="revue-une-link">'
+            +     'Lire l\'article &nbsp;&#8594;'
+            +   '</a>'
+            + '</div>'
+            + '<div class="revue-une-right">'
+            +   '<div class="revue-une-source-row">'
+            +     '<img class="revue-une-logo" src="' + a.logo + '" alt="' + a.source + '" onerror="this.style.display=\'none\'">'
+            +     '<span class="revue-une-source-name">' + a.source + '</span>'
+            +     '<span class="revue-une-pays ' + pc + '">' + pl + '</span>'
+            +   '</div>'
+            +   '<div class="revue-une-ai-badge"><span class="revue-ai-pulse"></span>Analyse Mistral AI</div>'
+            +   '<p class="revue-une-resume">' + (a.resume || a.accroche) + '</p>'
+            + '</div>'
+            + '</div>';
+    }
+
+    // ── Render carte standard ────────────────────────────────────
+    function renderCard(a) {
+        var cc = catCls(a.categorie);
+        var pc = a.pays === 'DZ' ? 'dz' : 'fr';
+        var pl = a.pays === 'DZ' ? '🇩🇿 DZ' : '🌐 Intl';
+        return '<div class="revue-card-journal">'
+            + '<span class="revue-card-cat cat-' + cc + '">' + a.categorie + '</span>'
+            + '<h3 class="revue-card-title-journal">' + a.titre + '</h3>'
+            + '<p class="revue-card-accroche-journal">' + (a.accroche || a.resume) + '</p>'
+            + '<div class="revue-card-footer-journal">'
+            +   '<img class="revue-card-logo-sm" src="' + a.logo + '" alt="' + a.source + '" onerror="this.style.display=\'none\'">'
+            +   '<span class="revue-card-source-sm">' + a.source + '</span>'
+            +   '<span class="revue-card-pays-sm ' + pc + '">' + pl + '</span>'
+            +   '<a href="' + a.url + '" target="_blank" rel="noopener" class="revue-card-lire">Lire &#8594;</a>'
+            + '</div>'
+            + '</div>';
+    }
+
+    // ── Override principal ───────────────────────────────────────
+    renderRevueCards = function () {
+        var container = document.getElementById('revueContent');
+        if (!container || !_revueData) return;
+
+        // Filtre actif
+        var articles = _revueData.articles.filter(function (a) {
+            if (_revueFilter === 'all') return true;
+            if (_revueFilter === 'DZ')  return a.pays === 'DZ';
+            if (_revueFilter === 'FR')  return a.pays === 'FR';
+            return a.categorie === _revueFilter;
+        });
+
+        // Boutons filtres avec compteurs
+        var cats = [];
+        _revueData.articles.forEach(function (a) {
+            if (cats.indexOf(a.categorie) === -1) cats.push(a.categorie);
+        });
+        cats.sort();
+        var fBtns = [
+            { key: 'all', label: 'Toutes' },
+            { key: 'DZ',  label: '🇩🇿 Algérie' },
+            { key: 'FR',  label: '🌐 International' }
+        ].concat(cats.map(function (c) { return { key: c, label: c }; }));
+
+        var nbSources = _revueData.totalSources || 16;
+        var hero  = articles[0];
+        var reste = articles.slice(1);
+
+        var html = '';
+
+        // Masthead
+        html += '<div class="revue-masthead">'
+            + '<div class="revue-masthead-brand">'
+            +   '<span class="revue-masthead-label">✦ Édition quotidienne</span>'
+            +   '<div class="revue-masthead-title">Revue de <span>Presse</span></div>'
+            +   '<div class="revue-masthead-subtitle">TIC &amp; Télécoms · Algérie &amp; International</div>'
+            + '</div>'
+            + '<div class="revue-masthead-date">'
+            +   '<strong>' + _revueData.date + '</strong>'
+            +   nbSources + ' sources surveillées'
+            + '</div>'
+            + '</div>';
+
+        // Synthèse
+        html += '<div class="revue-synthese-bloc">'
+            + '<div class="revue-synthese-eyelet">✦ Synthèse éditoriale</div>'
+            + '<p class="revue-synthese-text">' + _revueData.synthese + '</p>'
+            + '</div>';
+
+        // Filtres + compteur
+        html += '<div class="revue-toolbar">'
+            + '<div class="revue-filters-journal">'
+            + fBtns.map(function (f) {
+                return '<button class="revue-filter-journal' + (_revueFilter === f.key ? ' active' : '')
+                    + '" onclick="setRevueFilter(\'' + f.key + '\')">' + f.label + '</button>';
+              }).join('')
+            + '</div>'
+            + '<span class="revue-count-journal">'
+            + articles.length + ' article' + (articles.length > 1 ? 's' : '')
+            + '</span>'
+            + '</div>';
+
+        // Article à la UNE
+        if (hero) html += renderUne(hero);
+
+        // Grille
+        html += '<div class="revue-grid-journal">';
+        if (reste.length) {
+            reste.forEach(function (a) { html += renderCard(a); });
+        } else {
+            html += '<p class="revue-empty-journal">Aucun article pour ce filtre.</p>';
+        }
+        html += '</div>';
+
+        // Pied édition
+        html += '<div class="revue-footer-edition">'
+            + '<span class="revue-footer-sources">' + nbSources + ' sources · Mis à jour quotidiennement</span>'
+            + '<span class="revue-footer-ai">'
+            +   '<span class="revue-ai-pulse"></span>'
+            +   'Sélection et analyse par Mistral AI'
+            + '</span>'
+            + '</div>';
+
+        container.innerHTML = html;
+    };
+
+})();
+// ================================================================
+//  FIN REFONTE GRAND JOURNAL
+// ================================================================
