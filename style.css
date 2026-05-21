@@ -359,3 +359,29 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
     .revue-filter-btn { font-size: 0.75rem; padding: 5px 11px; }
 }
 /* === FIN [REVUE DE PRESSE IA] === */
+
+/* === [REVUE DE PRESSE IA] COULEURS CATÉGORIES + POLISH VISUELS (ajout pur — aucune ligne existante modifiée) === */
+.revue-accroche {
+    border-left: 2px solid var(--border);
+    padding-left: 10px;
+    margin-top: 4px;
+}
+.revue-source-logo {
+    background: var(--bg);
+    padding: 1px;
+    border-radius: 3px;
+    box-shadow: 0 0 0 1px var(--border);
+}
+.revue-pays-badge {
+    letter-spacing: 0.3px;
+    flex-shrink: 0;
+}
+/* Couleurs injectées via JS MutationObserver (data-cat-ok) */
+.revue-card-tag[data-cat="IA"]            { background: #7c3aed; }
+.revue-card-tag[data-cat="Télécoms"]      { background: #006233; }
+.revue-card-tag[data-cat="Startups"]      { background: #d97706; }
+.revue-card-tag[data-cat="Innovation"]    { background: #10b981; }
+.revue-card-tag[data-cat="Numérique"]     { background: #0891b2; }
+.revue-card-tag[data-cat="Cybersécurité"] { background: #dc2626; }
+.revue-card-tag[data-cat="Réseaux"]       { background: #0369a1; }
+/* === FIN AJOUT REVUE PRESSE === */

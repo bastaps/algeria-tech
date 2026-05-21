@@ -806,3 +806,28 @@ window.playYouTubeVideo = function(vId) {
 };
 
 setInterval(loadVeille, 60000);
+
+// === REVUE PRESSE — COULEURS CATÉGORIES PAR MUTATION OBSERVER (ajout pur — aucune ligne existante modifiée) ===
+(function () {
+    const CAT_COLORS = {
+        'IA': 'IA', 'Télécoms': 'Télécoms', 'Startups': 'Startups',
+        'Innovation': 'Innovation', 'Numérique': 'Numérique',
+        'Cybersécurité': 'Cybersécurité', 'Réseaux': 'Réseaux'
+    };
+    function paintCategories() {
+        document.querySelectorAll('.revue-card:not([data-cat-ok])').forEach(function (card) {
+            var tag = card.querySelector('.revue-card-tag');
+            if (!tag) return;
+            var cat = tag.textContent.trim();
+            if (CAT_COLORS[cat]) {
+                tag.setAttribute('data-cat', cat);
+                card.setAttribute('data-cat-ok', '1');
+            }
+        });
+    }
+    var revueEl = document.getElementById('revueContent');
+    if (revueEl) {
+        new MutationObserver(paintCategories).observe(revueEl, { childList: true, subtree: true });
+    }
+})();
+// === FIN AJOUT REVUE PRESSE ===
