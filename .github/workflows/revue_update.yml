@@ -12,19 +12,33 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Indispensable pour la synchronisation automatique
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: '18'
 
       - name: Générer la revue
         run: node generate_revue.js
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          SERPER_API_KEY: ${{ secrets.SERPER_API_KEY }}
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+
+      - name: Validation et Affichage des logs
+        run: |
+          if [ ! -s revue_presse.json ]; then
+            echo "Erreur : Fichier vide ou inexistant"
+            exit 1
+          fi
+          echo "--- CONTENU DU FICHIER GÉNÉRÉ ---"
+          cat revue_presse.json
+          COUNT=$(jq '.articles | length' revue_presse.json)
+          echo "Articles générés : $COUNT"
+          if [ "$COUNT" -lt 5 ]; then
+            echo "Erreur : Moins de 5 articles générés."
+            exit 1
+          fi
 
       - name: Sauvegarder sur GitHub
         run: |
@@ -32,7 +46,7 @@ jobs:
           git config --local user.name "GitHub Action"
           if [ -f revue_presse.json ]; then
             git add revue_presse.json
-            git commit -m "Automatique: Nouvelle Revue de Presse IA" || echo "Pas de changements"
+            git commit -m "Automatique: Revue de Presse IA [build ${{ github.run_number }}]" || echo "Pas de changements"
             git pull --rebase origin main # SE SYNCHRONISE AUTOMATIQUEMENT
             git push origin main
           else

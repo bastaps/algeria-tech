@@ -1,0 +1,68 @@
+<!-- Vignette cliquable pour intégration dans une grille infographies -->
+<a href="index.html" class="telecom-card" target="_blank" rel="noopener">
+    <img src="thumbnail.jpg" alt="Observatoire du Marché de la Téléphonie Fixe Algérie 2025T3" width="1200" height="800" loading="lazy">
+    <div class="telecom-card-overlay">
+        <h3 class="telecom-card-title">Observatoire du Marché de la Téléphonie Fixe Algérie 2025T3</h3>
+        <p class="telecom-card-meta">Algeria Tech Premium · Full · 21 May 2026</p>
+    </div>
+</a>
+
+<style>
+.telecom-card {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    text-decoration: none;
+    background: linear-gradient(135deg, #0a0e1a, #111729);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    aspect-ratio: 3 / 2;
+}
+
+.telecom-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.5);
+}
+
+.telecom-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.telecom-card:hover img {
+    transform: scale(1.05);
+}
+
+.telecom-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(15, 15, 35, 0.95));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+    color: #F4EDE0;
+}
+
+.telecom-card-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0 0 8px 0;
+    line-height: 1.3;
+}
+
+.telecom-card-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #A89880;
+    margin: 0;
+}
+</style>

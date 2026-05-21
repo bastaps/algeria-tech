@@ -335,9 +335,27 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
 .revue-card p { font-size: 0.9rem; color: var(--text-muted); }
 .revue-card-link { margin-top: auto; display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--accent); font-weight: 600; text-decoration: none; }
 .revue-card-link:hover { text-decoration: underline; }
+/* ── Filtres ─────────────────────────────────────────────────────────────── */
+.revue-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.revue-filter-btn { padding: 6px 14px; border-radius: 20px; border: 1.5px solid var(--border); background: var(--bg); color: var(--text-muted); font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: var(--transition); }
+.revue-filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+.revue-filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.revue-count { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 20px; }
+/* ── Source logo + badge ─────────────────────────────────────────────────── */
+.revue-card-source { display: flex; align-items: center; gap: 8px; }
+.revue-source-logo { width: 20px; height: 20px; border-radius: 4px; object-fit: contain; flex-shrink: 0; }
+.revue-source-name { font-size: 0.78rem; font-weight: 600; color: var(--text-muted); flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.revue-pays-badge { font-size: 0.68rem; font-weight: 700; padding: 2px 7px; border-radius: 10px; white-space: nowrap; }
+.revue-pays-badge.dz { background: rgba(0,98,60,0.1); color: #00623c; }
+.revue-pays-badge.fr { background: rgba(26,115,232,0.1); color: var(--accent); }
+/* ── Accroche IA ─────────────────────────────────────────────────────────── */
+.revue-accroche { font-size: 0.9rem; color: var(--text-muted); font-style: italic; line-height: 1.55; }
+.revue-empty { text-align: center; color: var(--text-muted); padding: 30px; font-style: italic; }
 @media (max-width: 768px) {
     .revue-wrapper { padding: 20px; }
     .revue-grid { grid-template-columns: 1fr; }
     .revue-intro { font-size: 0.95rem; padding: 15px; }
+    .revue-filters { gap: 6px; }
+    .revue-filter-btn { font-size: 0.75rem; padding: 5px 11px; }
 }
 /* === FIN [REVUE DE PRESSE IA] === */

@@ -106,9 +106,9 @@ app.get('/api/infographies/interactifs', (req, res) => {
                     const folderFiles = fsSync.readdirSync(itemPath);
                     const thumbnailFile = folderFiles.find(f => {
                         const ext = path.extname(f).toLowerCase();
-                        return f.toLowerCase().includes('thumbnail') && (ext === '.jpg' || ext === '.jpeg' || ext === '.png');
+                        return f.toLowerCase().includes('thumbnail') && (ext === '.jpg' || ext === '.jpeg' || ext === '.png' || ext === '.svg' || ext === '.webp');
                     });
-                    
+
                     interactifs.push({
                         name: item,
                         title: title,
@@ -120,7 +120,7 @@ app.get('/api/infographies/interactifs', (req, res) => {
                 }
             }
         }
-        
+
         res.json(interactifs.sort((a, b) => b.modified - a.modified));
     } catch (e) { res.status(500).json({ error: e.message }); }
 });
@@ -197,7 +197,7 @@ app.get('/api/generate-static-files', (req, res) => {
                         const folderFiles = fsSync.readdirSync(itemPath);
                         const thumbnailFile = folderFiles.find(f => {
                             const ext = path.extname(f).toLowerCase();
-                            return f.toLowerCase().includes('thumbnail') && (ext === '.jpg' || ext === '.jpeg' || ext === '.png');
+                            return f.toLowerCase().includes('thumbnail') && (ext === '.jpg' || ext === '.jpeg' || ext === '.png' || ext === '.svg' || ext === '.webp');
                         });
                         
                         interactifs.push({
@@ -438,10 +438,11 @@ app.post('/api/generate', (req, res) => {
         try {
             const text = await extractText(req.file.buffer, req.file.originalname);
             const type = req.body.type || 'auto';
+            const animType = req.body.animationType || '';
             const data = analyseDoc(text, type, req.file.originalname);
 
             // Construction de l'infographie premium multi-fichiers
-            const result = await buildInfographie(data, { type });
+            const result = await buildInfographie(data, { type, animType });
 
             console.log(`[generate] ✓ Infographie créée : ${result.url}`);
             res.json({
@@ -489,9 +490,9 @@ function analyseDoc(text, type, filename) {
 
     return {
         title:     findTitle(lines, filename),
-        subtitle:  findSubtitle(lines),
+        subtitle:  findSubtitle(lines, findTitle(lines, filename)),
         date:      findDate(text),
-        source:    path.basename(filename, path.extname(filename)).replace(/[-_]/g,' '),
+        source:    fixEncoding(path.basename(filename, path.extname(filename)).replace(/[-_]/g,' ')),
         docType:   dtype,
         typeLabel: { telecom:'Télécommunications', startup:'Startups & Innovation',
                      rapport:'Rapport Officiel', presse:'Article de Presse' }[dtype] || 'Document',
@@ -516,15 +517,71 @@ function detectType(t) {
           presse: sc('selon')+sc('déclaré')+sc('annonce')+sc('communiqué')+sc('source')}[a]))[0];
 }
 
-function findTitle(lines, fn) {
-    for (const l of lines.slice(0,15)) if (l.length > 8 && l.length < 120 && !/^\d{4}$/.test(l) && !/^page\s/i.test(l)) return l;
-    return path.basename(fn, path.extname(fn)).replace(/[-_]/g,' ');
+function fixEncoding(s) {
+    // Repair Latin-1 mojibake from filenames with UTF-8 accented chars
+    try {
+        const fixed = Buffer.from(s, 'latin1').toString('utf8');
+        // Only use if it looks better (no replacement chars)
+        return fixed.includes('�') ? s : fixed;
+    } catch { return s; }
 }
-function findSubtitle(lines) {
-    let seen = false;
-    for (const l of lines.slice(0,20)) {
-        if (!seen && l.length > 8) { seen = true; continue; }
-        if (seen && l.length > 12 && l.length < 160) return l;
+
+function findTitle(lines, fn) {
+    // Boilerplate to skip (Algerian administrative headers + contact info)
+    const BOILER = /^(REPUBLIQUE|AUTORITE|MINISTERE|POSTE\s|COMMUNICATIONS?\s+ELECTRONIQUES?|REGULATION|ARPCE|ARPT|CONSEIL\s|MINISTRE|HAUT\s+COMMISSARIAT|AGENCE\s+NATIONALE|SECRETARIAT)/i;
+    const SKIP   = line =>
+        BOILER.test(line) ||
+        /^\d{1,4}[.,):\s]/.test(line)  ||  // street/numbered lines  "01, Rue…"
+        /@/.test(line)                  ||  // email
+        /^www\.|https?:\/\//i.test(line)||  // URL
+        /^[\+\d\s\-\/()]{8,}$/.test(line)  ||  // phone number or address code
+        /^page\s/i.test(line)           ||
+        line.length <= 3;
+    // Preferred keywords signalling the real report title — must look like a title
+    // (all-caps OR starts with the keyword)
+    const PREFER_KW = /OBSERVATOIRE|RAPPORT\s+|MARCH[EÉ]\s+DE|[EÉ]TUDE\s+|BILAN\s+|ENQU[EÊ]TE\s+|NOTE\s+DE\s|TABLEAU\s+DE\s+BORD|SYNTH[EÈ]SE\s|MONITOR/i;
+    const isTitle   = l => l.length > 8 && (
+        l.trim() === l.trim().toUpperCase() ||          // ALL CAPS
+        /^(OBSERVATOIRE|RAPPORT|MARCH|[EÉ]TUDE|BILAN|ENQU|NOTE\s+DE|TABLEAU|SYNTH|MONITOR)/i.test(l.trim())
+    );
+
+    // Pass 1 — preferred keyword + title-like structure in first 80 lines
+    for (const l of lines.slice(0, 80)) {
+        if (!SKIP(l) && l.length < 150 && PREFER_KW.test(l) && isTitle(l)) return l.trim();
+    }
+    // Pass 2 — first clean non-boilerplate sentence in first 30 lines
+    //          merge consecutive short lines that form a single title (split by PDF layout)
+    let candidate = '', candidateLen = 0;
+    for (const l of lines.slice(0, 30)) {
+        if (SKIP(l)) { if (candidate) break; continue; }
+        if (candidate) {
+            // merge if both parts together still look like a title
+            const merged = candidate + ' ' + l.trim();
+            if (merged.length < 130) { candidate = merged; candidateLen++; }
+            if (candidateLen >= 2) break; // max 2 parts
+        } else {
+            candidate = l.trim();
+            candidateLen = 1;
+            if (l.trim().length >= 20) break; // long enough on its own
+        }
+    }
+    if (candidate) return candidate;
+    // Fallback — filename (repair potential UTF-8/Latin-1 mojibake)
+    const raw = path.basename(fn, path.extname(fn)).replace(/[-_]/g, ' ');
+    return fixEncoding(raw);
+}
+function findSubtitle(lines, title) {
+    const BOILER = /^(REPUBLIQUE|AUTORITE|MINISTERE|POSTE\s|ARPCE|ARPT)/i;
+    for (const l of lines.slice(0, 50)) {
+        const lt = l.trim();
+        if (!lt || lt === title) continue;
+        if (lt.length > 12 && lt.length < 160
+            && !BOILER.test(lt)
+            && !/@/.test(lt)
+            && !/^www\.|https?:\/\//i.test(lt)
+            && !/^\d{1,4}[.,):\s]/.test(lt)
+            && !/^[\+\d\s\-\/()]{8,}$/.test(lt)
+            && !/^page\s/i.test(lt)) return lt;
     }
     return '';
 }
@@ -594,21 +651,79 @@ function fmtNum(n) {
 
 function extractPoints(lines) {
     const pts = [];
-    const bRe = /^[-•·▪▸➤✓✔►*]\s+(.+)/;
-    const nRe = /^\d+[.)]\s+(.+)/;
+    const seen = new Set();
+
+    // Filtre qualité : longueur, unicité, pas de contenu TOC/boilerplate
+    const BOIL = /^(republique|autorite|ministere|poste\s|arpce|arpt|sommaire|table des|liste des|chapitre|annexe|figure\s|tableau\s\d|page\s\d)/i;
+    const isTOC = l => /\.{4,}\s*\d+\s*$/.test(l); // "Titre ............... 4"
+    const add = (s) => {
+        const t = s.trim().replace(/\s+/g, ' ');
+        if (t.length < 35 || t.length > 300) return;
+        if (BOIL.test(t)) return;
+        if (isTOC(t)) return;
+        const key = t.substring(0, 45).toLowerCase();
+        if (seen.has(key)) return;
+        seen.add(key);
+        pts.push(t);
+    };
+
+    // ── Passe 1 : listes à puces / numérotées (contenu structuré)
+    const bRe = /^[-•·▪▸➤✓✔►*►◆◇]\s+(.+)/;
+    const nRe = /^\d+[.)]\s+(.{30,})/;
     for (const l of lines) {
         if (pts.length >= 8) break;
         const b = l.match(bRe), n = l.match(nRe);
-        if (b && b[1].length > 15) { pts.push(b[1]); continue; }
-        if (n && n[1].length > 15) { pts.push(n[1]); continue; }
+        if (b && b[1].length > 35) add(b[1]);
+        else if (n) add(n[1]);
     }
-    if (pts.length < 3) {
+
+    // ── Passe 2 : phrases analytiques avec chiffres + vocabulaire sectoriel
+    const KW_TELECOM = /%|million|milliard|Mbps|Gbps|DA\b|abonné|opérateur|réseau|marché|parc|pénétration|ARPU|4G|5G|haut débit|accès|couverture/i;
+    const KW_START   = /^(Le\s|La\s|Les\s|L'|Au\s|En\s|Sur\s|Avec\s|Pour\s|Dans\s|Cette\s|Ce\s|Un\s|Une\s|Il\s|Elle\s)/i;
+    if (pts.length < 5) {
         for (const l of lines) {
-            if (pts.length >= 7) break;
-            if (l.length > 40 && l.length < 200 && !pts.includes(l) && /\d|%/.test(l)) pts.push(l);
+            if (pts.length >= 8) break;
+            if (l.length < 40 || l.length > 260) continue;
+            if (/\d/.test(l) && KW_TELECOM.test(l) && KW_START.test(l.trim())) add(l);
         }
     }
-    return [...new Set(pts)].slice(0,8);
+
+    // ── Passe 3 : phrases avec données numériques significatives
+    if (pts.length < 5) {
+        for (const l of lines) {
+            if (pts.length >= 8) break;
+            if (l.length > 45 && l.length < 230 && /\d{4,}|[\d,]+\s*%/.test(l) && !/^\d{1,4}\s/.test(l.trim())) add(l);
+        }
+    }
+
+    // ── Passe 4 : phrases de conclusion / synthèse institutionnelle
+    if (pts.length < 3) {
+        const CONCL = /^(En\s+(conclusion|résumé|synthèse)|Il\s+(ressort|convient|apparaît)|L'analyse\s|Cette\s+étude\s|Le\s+rapport\s+souligne|Les\s+résultats\s|On\s+(constate|observe|note)|La\s+tendance\s|Le\s+marché\s+(?:a\s+enregistré|affiche|présente|démontre|confirme))/i;
+        for (const l of lines) {
+            if (pts.length >= 7) break;
+            if (l.length > 50 && l.length < 280 && CONCL.test(l.trim()) && !isTOC(l)) add(l);
+        }
+    }
+
+    // ── Passe 5 : synthèse générative à partir des statistiques détectées
+    // Si on a peu de points extraits, on génère des phrases analytiques à partir
+    // des chiffres trouvés dans le texte
+    if (pts.length < 3) {
+        const numRe = /([A-ZÀ-ÿa-z][A-ZÀ-ÿa-z\s\/\-]{3,35}?)\s+(\d[\d\s]{2,}[\d])(?:\s*(millions?|milliards?|%|abonnés?|DA))?/g;
+        const fullText = lines.join(' ');
+        for (const m of fullText.matchAll(numRe)) {
+            if (pts.length >= 7) break;
+            const label = m[1].trim().replace(/\s+/g, ' ');
+            const value = m[2].trim().replace(/\s+/g, ' ');
+            const unit  = m[3] || '';
+            if (label.length < 5 || label.length > 40) continue;
+            if (BOIL.test(label)) continue;
+            const synth = `L'indicateur « ${cap(label)} » ressort à ${value}${unit ? ' ' + unit : ''} pour la période analysée.`;
+            add(synth);
+        }
+    }
+
+    return [...new Set(pts)].slice(0, 8);
 }
 
 function extractSections(lines) {

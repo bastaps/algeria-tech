@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Observatoire du Marché de la Téléphonie Mobile en Algérie — T3 2025 — Algeria Tech</title>
+  <meta name="description" content="Rapport trimestriel ARPCE — 3ème trimestre 2025 · Télécommunications · T3-2025">
+  <meta name="theme-color" content="#0a0e1a">
+  <meta property="og:title" content="Observatoire du Marché de la Téléphonie Mobile en Algérie — T3 2025">
+  <meta property="og:description" content="Rapport trimestriel ARPCE — 3ème trimestre 2025">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
+  <script>setTimeout(function(){var l=document.getElementById('loader');if(l&&!l.classList.contains('hidden'))l.classList.add('hidden');},6000);</script>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader" role="status">
+  <div class="loader-content">
+    <div class="loader-mark"></div>
+    <div class="loader-text">Algeria Tech · Télécommunications</div>
+    <div class="loader-bar"></div>
+  </div>
+</div>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a href="/infographies/" class="brand">
+      <span class="brand-mark">A</span>
+      <span><em>Algeria Tech</em> · Télécommunications</span>
+    </a>
+    <nav aria-label="Sections">
+      <ul class="section-nav">
+        <li><a href="#vue-ensemble">Vue d'ensemble</a></li>
+        <li><a href="#indicateurs">Indicateurs</a></li>
+        <li><a href="#evolution">Évolution</a></li>
+        <li><a href="#repartition">Répartition</a></li>
+        <li><a href="#synthese">Synthèse</a></li>
+      </ul>
+    </nav>
+    <div class="topbar-actions">
+      <button id="btn-share" class="btn btn-ghost" aria-label="Partager">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      </button>
+      <button id="btn-export-pdf" class="btn btn-gold">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        PDF
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="mc">
+
+<!-- ── HERO ─────────────────────────────────────────────────────────────────── -->
+<section class="section hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-content reveal">
+      <span class="eyebrow">── ARPCE — Autorité de Régulation · T3-2025 ──</span>
+      <h1 class="display-1">
+        Observatoire du Marché de la Téléphonie<br><em class="gold">Mobile en Algérie —</em><br>T3 2025
+      </h1>
+      <p class="lead">Rapport trimestriel ARPCE — 3ème trimestre 2025</p>
+      <p class="hero-analyse reveal">L'étude du document « Observatoire du Marché de la Téléphonie Mobile en Algérie — T3 2025 » fournit un éclairage stratégique sur le secteur des télécommunications et du numérique pour la période T3-2025. L'indicateur structurant de cette période, « Parc total abonnés mobiles », s'établit à 52,85 millions — chiffre qui, rapporté à la population nationale, traduit un taux de pénétration de 87,3 % et témoigne d'une maturité accélérée du marché mobile. Sur le plan concurrentiel, la structure du marché révèle une concentration notable autour de « Taux de couverture 4G » (87,3 %), caractéristique d'un marché en phase de consolidation où les barrières à l'entrée demeurent élevées. L'analyse transversale des données, articulée autour de 3 points clés identifiés, offre une grille de lecture multidimensionnelle pour comprendre les enjeux structurels de ce marché.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+        <span class="hero-meta-label">Parc total abonnés mobiles</span>
+        <span class="hero-meta-value">
+          <span class="counter" data-target="52847000" data-decimals="0">0</span>
+          <small style="font-size:.7em;opacity:.7"> abonnés</small>
+        </span>
+      </div><div class="hero-meta-item">
+        <span class="hero-meta-label">Taux de pénétration mobile</span>
+        <span class="hero-meta-value">
+          <span class="counter" data-target="115.4" data-decimals="2">0</span>
+          <small style="font-size:.7em;opacity:.7"> %</small>
+        </span>
+      </div><div class="hero-meta-item">
+        <span class="hero-meta-label">Part de marché Mobilis</span>
+        <span class="hero-meta-value">
+          <span class="counter" data-target="45.2" data-decimals="2">0</span>
+          <small style="font-size:.7em;opacity:.7"> %</small>
+        </span>
+      </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Période</span>
+          <span class="hero-meta-value">T3-2025</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Type</span>
+          <span class="hero-meta-value">Télécommunications</span>
+        </div>
+      </div>
+      <div class="hero-cta">
+        <a href="#vue-ensemble" class="btn btn-gold">Explorer les données →</a>
+        <a href="#synthese" class="btn btn-ghost">Points clés</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div id="scene3d" class="scene3d-container"></div>
+      <div class="scene-hint">🖱 Glisser · Zoomer · Survoler pour les KPIs</div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+<!-- ── VUE D'ENSEMBLE (KPIs) ─────────────────────────────────────────────────── -->
+<section class="section" id="vue-ensemble">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">01 · Vue d'ensemble</span>
+      <h2 class="display-2">Indicateurs <span class="gold">clés</span></h2>
+      <p class="lead">Métriques extraites automatiquement depuis le document source · ARPCE — Autorité de Régulation.</p>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card reveal" style="transition-delay:0s">
+        <div class="kpi-icon">👥</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="52847000" data-decimals="0">52,85 M</span>
+          <span class="kpi-unit">abonnés</span>
+        </div>
+        <div class="kpi-label">Parc total abonnés mobiles</div>
+        
+      </div>
+      <div class="kpi-card reveal" style="transition-delay:0.08s">
+        <div class="kpi-icon">📶</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="115.4" data-decimals="2">115</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">Taux de pénétration mobile</div>
+        
+      </div>
+      <div class="kpi-card reveal" style="transition-delay:0.16s">
+        <div class="kpi-icon">🏆</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="45.2" data-decimals="2">45</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">Part de marché Mobilis</div>
+        
+      </div>
+      <div class="kpi-card reveal" style="transition-delay:0.24s">
+        <div class="kpi-icon">📊</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="31.1" data-decimals="2">31</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">Part de marché Djezzy</div>
+        
+      </div>
+      <div class="kpi-card reveal" style="transition-delay:0.32s">
+        <div class="kpi-icon">📈</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="23.7" data-decimals="2">24</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">Part de marché Ooredoo</div>
+        
+      </div>
+      <div class="kpi-card reveal" style="transition-delay:0.4s">
+        <div class="kpi-icon">📡</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="87.3" data-decimals="2">87</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">Taux de couverture 4G</div>
+        
+      </div></div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+
+<!-- ── INDICATEURS ───────────────────────────────────────────────────────────── -->
+<section class="section section-alt" id="indicateurs">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">02 · Analyse</span>
+      <h2 class="display-2">Indicateurs <em class="gold">détaillés</em></h2>
+      <p class="lead chart-analysis">L'analyse comparative des 4 indicateurs extraits met en exergue « Parc total abonnés mobiles » comme variable dominante du corpus, avec 52,85 millions, soit 100.0 % de la valeur agrégée. L'amplitude considérable entre les valeurs extrêmes — facteur 1699261 entre « Parc total abonnés mobiles » et « Part de marché Djezzy » — souligne l'hétérogénéité structurelle des indicateurs et la coexistence de segments à niveaux de maturité très distincts. Dans le contexte des marchés émergents des TIC, ces métriques constituent des signaux avancés de la trajectoire sectorielle et guident l'allocation des investissements infrastructurels.</p>
+    </div>
+    <div class="charts-row charts-2col">
+      <div class="chart-card glass-card reveal">
+        <h3 class="chart-title">Répartition par catégorie</h3>
+        <div class="chart-wrap tall"><canvas id="chart-indicateurs"></canvas></div>
+      </div>
+      <div class="chart-card glass-card reveal" style="transition-delay:.1s">
+        <h3 class="chart-title">Analyse comparative · valeurs & parts relatives</h3>
+        <div class="chart-wrap tall"><canvas id="chart-comparatif"></canvas></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+
+<!-- ── ÉVOLUTION ─────────────────────────────────────────────────────────────── -->
+<section class="section" id="evolution">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">03 · Évolution temporelle</span>
+      <h2 class="display-2">Tendance <span class="gold">temporelle</span></h2>
+      <p class="lead chart-analysis">Sur la séquence T3-2023–T3-2025, la courbe d'évolution adopte une trajectoire haussière avec une variation globale de +12,0 % entre le point d'observation initial et le dernier relevé. Le taux de croissance annuel composé (TCAC) s'établit à 1,4 %, reflétant une progression organique régulière, cohérente avec la phase de maturité du marché. La moyenne mobile superposée filtre les oscillations de court terme pour faire ressortir la direction structurelle : les fondamentaux demeurent solides et présagent d'une continuation de la dynamique positive, sous réserve de la stabilité de l'environnement macro-économique.</p>
+    </div>
+    <div class="chart-card glass-card chart-wide reveal">
+      <h3 class="chart-title">Parc abonnés (millions) avec moyenne mobile</h3>
+      <div class="chart-wrap tall"><canvas id="chart-evolution"></canvas></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+
+<!-- ── RÉPARTITION ───────────────────────────────────────────────────────────── -->
+<section class="section section-alt" id="repartition">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">04 · Répartition</span>
+      <h2 class="display-2">Distribution <em class="gold">relative</em></h2>
+      <p class="lead chart-analysis">La structure du marché révèle une concentration forte, voire oligopolistique sur certains segments, avec « Taux de couverture 4G » accaparant 87,3 % de l'ensemble. Avec un indice de Herfindahl-Hirschman (HHI) estimé à 11193, ce marché présente des caractéristiques de concentration élevée qui interroge sur l'intensité de la pression concurrentielle et les marges de manœuvre des acteurs secondaires. La bipolarisation du marché est notable : les deux premiers acteurs cumulent 76.3 % des parts, laissant un espace résiduel limité aux opérateurs de niche et aux entrants potentiels.</p>
+    </div>
+    <div class="charts-row charts-2col">
+      <div class="chart-card glass-card reveal">
+        <h3 class="chart-title">Répartition proportionnelle (parts de marché %)</h3>
+        <div class="chart-wrap"><canvas id="chart-repartition"></canvas></div>
+      </div>
+      <div class="chart-card glass-card reveal" style="transition-delay:.1s">
+        <h3 class="chart-title">Indicateur dominant vs reste du marché</h3>
+        <div class="chart-wrap"><canvas id="chart-distribution"></canvas></div>
+      </div>
+    </div>
+    <div class="chart-card glass-card chart-wide reveal" style="margin-top:1.5rem">
+      <h3 class="chart-title">Comparaison horizontale</h3>
+      <div class="chart-wrap"><canvas id="chart-barh"></canvas></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+
+<!-- ── POINTS CLÉS ───────────────────────────────────────────────────────────── -->
+<section class="section" id="analyse">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Synthèse · Points clés</span>
+      <h2 class="display-2">Éléments <em class="gold">essentiels</em></h2>
+      <p class="lead">Extraits automatiquement du document source · ARPCE — Autorité de Régulation.</p>
+    </div>
+    <div class="findings-grid">
+      <div class="finding-item reveal" style="transition-delay:0s">
+        <span class="finding-bullet">✦</span>
+        <span>Le parc mobile national atteint 52,8 millions d'abonnés au troisième trimestre 2025, enregistrant une progression de 2,1 % par rapport au trimestre précédent.</span>
+      </div>
+      <div class="finding-item reveal" style="transition-delay:0.07s">
+        <span class="finding-bullet">✦</span>
+        <span>La technologie 4G consolide sa position dominante avec 68,4 % des connexions actives, au détriment progressif du segment 3G.</span>
+      </div>
+      <div class="finding-item reveal" style="transition-delay:0.14s">
+        <span class="finding-bullet">✦</span>
+        <span>Le segment prépayé représente 95,75 % du parc total, confirmant la structure du marché algérien.</span>
+      </div></div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+
+<!-- ── SYNTHÈSE ──────────────────────────────────────────────────────────────── -->
+<section class="section section-alt" id="synthese">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Conclusions</span>
+      <h2 class="display-2">Synthèse <span class="gold">finale</span></h2>
+      <p class="lead chart-analysis">En synthèse, l'examen croisé des indicateurs issus de « Observatoire du Marché de la Téléphonie Mobile en Algérie — T3 20… » pour la période T3-2025 dégage un ensemble de conclusions structurantes pour la compréhension du marché des TIC. Parmi les enseignements majeurs, on retiendra en premier lieu que le parc mobile national atteint 52,8 millions d'abonnés au troisième trimestre 2025, enregistrant une progression de 2,1 % par rap…. Par ailleurs, la technologie 4G consolide sa position dominante avec 68,4 % des connexions actives, au détriment p…. La dynamique concurrentielle, caractérisée par le positionnement de « Taux de couverture 4G » à 87,3 %, dessine les contours d'un marché en cours de consolidation, dont les équilibres seront déterminés par les prochaines décisions d'investissement et les orientations réglementaires. La tendance haussière confirmée sur la période, avec un TCAC de 1,4 %, ouvre des perspectives prometteuses et légitime les stratégies d'expansion engagées par les opérateurs du secteur.</p>
+    </div>
+    <div class="synth-grid">
+      <div class="synth-card reveal" style="transition-delay:0s">
+        <div class="synth-chiffre">
+          <span class="counter" data-target="52847000" data-decimals="0">0</span>
+          <small> abonnés</small>
+        </div>
+        <div class="synth-label">Parc total abonnés mobiles</div>
+        <p class="synth-desc">Le parc mobile national atteint 52,8 millions d'abonnés au troisième trimestre 2025, enregistrant une progression de 2,1 % par rapport au trimestre pr</p>
+      </div>
+      <div class="synth-card reveal" style="transition-delay:0.1s">
+        <div class="synth-chiffre">
+          <span class="counter" data-target="115.4" data-decimals="2">0</span>
+          <small> %</small>
+        </div>
+        <div class="synth-label">Taux de pénétration mobile</div>
+        <p class="synth-desc">La technologie 4G consolide sa position dominante avec 68,4 % des connexions actives, au détriment progressif du segment 3G.</p>
+      </div>
+      <div class="synth-card reveal" style="transition-delay:0.2s">
+        <div class="synth-chiffre">
+          <span class="counter" data-target="45.2" data-decimals="2">0</span>
+          <small> %</small>
+        </div>
+        <div class="synth-label">Part de marché Mobilis</div>
+        <p class="synth-desc">Le segment prépayé représente 95,75 % du parc total, confirmant la structure du marché algérien.</p>
+      </div></div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+
+  <section class="section section-doc" id="section-0">
+    <div class="container">
+      <div class="data-block glass-card reveal">
+        <span class="data-block-eyebrow">Extrait · Document source</span>
+        <h3>Analyse du marché mobile</h3>
+        <p class="section-analysis">Le marché algérien de la téléphonie mobile continue sa progression avec 52,8 millions d'abonnés enregistrés au troisième trimestre 2025. Cette dynamique est portée par le déploiement accéléré des réseaux 4G qui couvrent désormais 95% du territoire national, générant une migration progressive de la clientèle vers les forfaits data enrichis.</p>
+      </div>
+    </div>
+  </section>
+
+<!-- ── FOOTER PREMIUM ────────────────────────────────────────────────────────── -->
+<footer class="footer-premium">
+  <div class="container">
+    <div class="footer-glass">
+      <div class="footer-col footer-col-brand">
+        <div class="footer-logo">
+          <span class="footer-logo-mark">✦</span>
+          <span>Algeria<em>Tech</em></span>
+        </div>
+        <p class="footer-tagline">Moteur BI Premium · Three.js · Chart.js · v4</p>
+        <div class="footer-badges">
+          <span class="footer-badge">🔒 Données locales</span>
+          <span class="footer-badge">📊 Chart.js 4</span>
+          <span class="footer-badge">🌐 Three.js 0.160</span>
+        </div>
+      </div>
+      <div class="footer-col footer-col-meta">
+        <h4 class="footer-col-title">Informations source</h4>
+        <dl class="footer-dl">
+          <dt>Document</dt><dd>ARPCE — Autorité de Régulation</dd>
+          <dt>Période</dt><dd>T3-2025</dd>
+          <dt>Domaine</dt><dd>Télécommunications</dd>
+          <dt>Généré le</dt><dd>21 mai 2026</dd>
+        </dl>
+      </div>
+      <div class="footer-col footer-col-actions">
+        <h4 class="footer-col-title">Exporter</h4>
+        <div class="footer-action-btns">
+          <button id="btn-export-json" class="btn btn-ghost footer-action-btn">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M17 13l-5 5-5-5"/><path d="M12 18V4M7 9H4a1 1 0 00-1 1v6a1 1 0 001 1h12a1 1 0 001-1v-6a1 1 0 00-1-1h-3"/></svg>
+            JSON
+          </button>
+          <button id="btn-export-pdf-f" class="btn btn-ghost footer-action-btn" onclick="document.getElementById('btn-export-pdf')?.click()">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="3" y="3" width="14" height="14" rx="2"/><path d="M7 10h6M10 7v6"/></svg>
+            PDF
+          </button>
+        </div>
+        <p class="footer-legal">Infographie générée automatiquement par Algeria Tech Generator v4. Aucune donnée n'est transmise à des serveurs externes.</p>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <span>© 2026 Algeria Tech · Tous droits réservés</span>
+      <span>Algeria Tech Generator v4 · BI Premium</span>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<!-- FAB -->
+<div class="fab-stack">
+  <button id="fab-top" class="fab" title="Haut de page">↑</button>
+  <button id="fab-fullscreen" class="fab" title="Plein écran">⛶</button>
+</div>
+
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

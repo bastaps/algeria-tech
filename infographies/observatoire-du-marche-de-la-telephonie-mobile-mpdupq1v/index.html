@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Observatoire du Marché de la Téléphonie Mobile en Algérie — T3 2025 · Algeria Tech</title>
+  <meta name="description" content="Synthèse interactive du marché mobile algérien au T3 2025 — 55,94 millions d'abonnés ; Mobilis 41,97 % ; Djezzy 31,75 % ; Ooredoo 26,29 %. Source ARPCE.">
+  <meta name="theme-color" content="#0a0e1a">
+  <meta property="og:title" content="Observatoire du Marché de la Téléphonie Mobile en Algérie — T3 2025">
+  <meta property="og:description" content="55,94 M abonnés · Mobilis 41,97 % · Djezzy 31,75 % · Ooredoo 26,29 % · Source ARPCE">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
+  <!-- Fallback : masque le loader après 6s même si les modules ES échouent -->
+  <script>setTimeout(function(){var l=document.getElementById('loader');if(l&&!l.classList.contains('hidden'))l.classList.add('hidden');},6000);</script>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader" role="status">
+  <div class="loader-content">
+    <div class="loader-mark"></div>
+    <div class="loader-text">Algeria Tech · Télécommunications</div>
+    <div class="loader-bar"></div>
+  </div>
+</div>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a href="/infographies/" class="brand">
+      <span class="brand-mark">A</span>
+      <span><em>Algeria Tech</em> · Télécommunications</span>
+    </a>
+    <nav aria-label="Sections">
+      <ul class="section-nav">
+        <li><a href="#vue-ensemble">Vue d'ensemble</a></li>
+        <li><a href="#indicateurs">Indicateurs</a></li>
+        <li><a href="#repartition">Répartition</a></li>
+        <li><a href="#analyse">Analyse</a></li>
+        <li><a href="#synthese">Synthèse</a></li>
+      </ul>
+    </nav>
+    <div class="topbar-actions">
+      <button id="btn-share" class="btn btn-ghost" aria-label="Partager">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      </button>
+      <button id="btn-export-pdf" class="btn btn-gold">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        PDF
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="mc">
+
+<!-- ── HERO ── -->
+<section class="section hero" id="hero">
+  <div class="container hero" style="padding-top:0">
+    <div class="hero-content reveal" style="text-align:center">
+      <span class="eyebrow">ARPCE · T3 2025 — Algérie</span>
+      <h1 class="display-1">
+        OBSERVATOIRE DU MARCHÉ<br>
+        <em class="gold">DE LA TÉLÉPHONIE MOBILE EN ALGÉRIE</em>
+      </h1>
+      <p class="lead">Synthèse interactive des indicateurs clés du marché mobile algérien au 3<sup>e</sup> trimestre 2025 — <strong>55,94 millions d'abonnés</strong>, triopolice Mobilis / Djezzy / Ooredoo, avec 95,75 % d'abonnés prépayés. Source&nbsp;: ARPCE.</p>
+      <div class="hero-meta" style="justify-content:center">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Mobilis (ATM)</span>
+          <span class="hero-meta-value">
+            <span class="counter" data-target="23477942" data-decimals="0">0</span>
+            <small style="font-size:.7em;opacity:.7"> abonnés</small>
+          </span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Djezzy (OTA)</span>
+          <span class="hero-meta-value">
+            <span class="counter" data-target="17758639" data-decimals="0">0</span>
+            <small style="font-size:.7em;opacity:.7"> abonnés</small>
+          </span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Ooredoo (WTA)</span>
+          <span class="hero-meta-value">
+            <span class="counter" data-target="14704505" data-decimals="0">0</span>
+            <small style="font-size:.7em;opacity:.7"> abonnés</small>
+          </span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Période</span>
+          <span class="hero-meta-value">T3 2025</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Source</span>
+          <span class="hero-meta-value">ARPCE</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div id="scene3d" class="scene3d-container"></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ── VUE D'ENSEMBLE (KPIs) ── -->
+<section class="section" id="vue-ensemble">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">01 · Vue d'ensemble</span>
+      <h2 class="display-2">Indicateurs <span class="gold">clés</span></h2>
+      <p class="lead">Au T3 2025, le marché mobile algérien regroupe <strong>55,94 millions d'abonnés</strong> répartis entre trois opérateurs : Mobilis (ATM) leader à 41,97 %, Djezzy (OTA) à 31,75 % et Ooredoo (WTA) à 26,29 %. Le modèle prépayé reste ultra-dominant à 95,75 %.</p>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card reveal" style="transition-delay:0s">
+        <div class="kpi-icon">📱</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="55941086" data-decimals="0">55,94 M</span>
+          <span class="kpi-unit">abonnés</span>
+        </div>
+        <div class="kpi-label">Total abonnés mobile</div>
+      </div>
+      <div class="kpi-card reveal" style="transition-delay:0.08s">
+        <div class="kpi-icon">📶</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="23477942" data-decimals="0">23,48 M</span>
+          <span class="kpi-unit">abonnés</span>
+        </div>
+        <div class="kpi-label">Mobilis (ATM)</div>
+        <div class="kpi-trend">▲ Leader du marché</div>
+      </div>
+      <div class="kpi-card reveal" style="transition-delay:0.16s">
+        <div class="kpi-icon">📶</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="17758639" data-decimals="0">17,76 M</span>
+          <span class="kpi-unit">abonnés</span>
+        </div>
+        <div class="kpi-label">Djezzy (OTA)</div>
+      </div>
+      <div class="kpi-card reveal" style="transition-delay:0.24s">
+        <div class="kpi-icon">📶</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="14704505" data-decimals="0">14,70 M</span>
+          <span class="kpi-unit">abonnés</span>
+        </div>
+        <div class="kpi-label">Ooredoo (WTA)</div>
+      </div>
+      <div class="kpi-card reveal" style="transition-delay:0.32s">
+        <div class="kpi-icon">💳</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="95.75" data-decimals="2">95,75</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">Abonnés prépayés</div>
+      </div>
+      <div class="kpi-card reveal" style="transition-delay:0.4s">
+        <div class="kpi-icon">📋</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="4.25" data-decimals="2">4,25</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">Abonnés postpayés</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ── INDICATEURS (barres + comparatif) ── -->
+<section class="section section-alt" id="indicateurs">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">02 · Analyse</span>
+      <h2 class="display-2">Indicateurs <em class="gold">détaillés</em></h2>
+      <p class="lead">L'analyse comparative des trois opérateurs révèle un écart de <strong>5,72 millions d'abonnés</strong> entre Mobilis et Djezzy. Avec 23,48 M contre 17,76 M (Djezzy) et 14,70 M (Ooredoo), Mobilis maintient une avance structurelle de 10 points que la dynamique concurrentielle n'a pas entamée au T3 2025.</p>
+    </div>
+    <div class="charts-row charts-2col">
+      <div class="chart-card reveal">
+        <h3 class="chart-title">Valeurs par indicateur</h3>
+        <div class="chart-wrap tall"><canvas id="chart-indicateurs"></canvas></div>
+      </div>
+      <div class="chart-card reveal" style="transition-delay:.1s">
+        <h3 class="chart-title">Analyse comparative</h3>
+        <div class="chart-wrap tall"><canvas id="chart-comparatif"></canvas></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+<!-- ── EVOLUTION ── -->
+<section class="section" id="evolution">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">03 · Évolution</span>
+      <h2 class="display-2">Tendance <span class="gold">temporelle</span></h2>
+      <p class="lead">La répartition par opérateur au T3 2025 illustre un triopolice stable : Mobilis (ATM) à 23,48 M, Djezzy (OTA) à 17,76 M, Ooredoo (WTA) à 14,70 M. Ces positions reflètent les dynamiques historiques du marché algérien depuis l'ouverture à la concurrence en 2001-2004.</p>
+    </div>
+    <div class="chart-card chart-wide reveal">
+      <h3 class="chart-title">Répartition par catégorie avec moyenne mobile</h3>
+      <div class="chart-wrap tall"><canvas id="chart-evolution"></canvas></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+<!-- ── REPARTITION ── -->
+<section class="section section-alt" id="repartition">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">04 · Répartition</span>
+      <h2 class="display-2">Distribution <em class="gold">relative</em></h2>
+      <p class="lead">Les parts de marché au T3 2025 confirment un triopolice équilibré : <strong>Mobilis 41,97 %</strong>, <strong>Djezzy 31,75 %</strong>, <strong>Ooredoo 26,29 %</strong>. L'écart de 15,68 points entre le leader et le troisième acteur indique un marché compétitif où aucun opérateur ne dispose d'une position dominante écrasante.</p>
+    </div>
+    <div class="charts-row charts-2col">
+      <div class="chart-card reveal">
+        <h3 class="chart-title">Répartition en proportions</h3>
+        <div class="chart-wrap"><canvas id="chart-repartition"></canvas></div>
+      </div>
+      <div class="chart-card reveal" style="transition-delay:.1s">
+        <h3 class="chart-title">Indicateur dominant</h3>
+        <div class="chart-wrap"><canvas id="chart-distribution"></canvas></div>
+      </div>
+    </div>
+    <div class="chart-card chart-wide reveal" style="margin-top:1.5rem">
+      <h3 class="chart-title">Barres comparatives</h3>
+      <div class="chart-wrap"><canvas id="chart-barh"></canvas></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+<!-- ── POINTS CLÉS ── -->
+<section class="section" id="analyse">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Synthèse · Points clés</span>
+      <h2 class="display-2">Éléments <em class="gold">essentiels</em></h2>
+      <p class="lead">Enseignements clés tirés de l’Observatoire ARPCE T3 2025.</p>
+    </div>
+    <div class="findings-grid">
+      <div class="finding-item reveal" style="transition-delay:0s">
+        <span class="finding-bullet">✦</span>
+        <span>Le marché mobile algérien franchit les <strong>55,94 millions d’abonnés</strong> au T3 2025 — un chiffre supérieur à la population totale (~45 M), reflétant la prévalence du multi-équipement et des doubles SIM.</span>
+      </div>
+      <div class="finding-item reveal" style="transition-delay:0.07s">
+        <span class="finding-bullet">✦</span>
+        <span><strong>Mobilis (ATM)</strong> confirme son leadership avec 23,48 millions d’abonnés et <strong>41,97 %</strong> de parts de marché, soit 10 points d’avance sur Djezzy — une position concurrentielle portée par un réseau 4G étendu à l’échelle nationale.</span>
+      </div>
+      <div class="finding-item reveal" style="transition-delay:0.14s">
+        <span class="finding-bullet">✦</span>
+        <span><strong>Djezzy (OTA)</strong> se positionne en dauphin avec 17,76 millions d’abonnés (31,75 %), tandis qu’<strong>Ooredoo (WTA)</strong> complète le triopolice avec 14,70 millions (26,29 %) — un marché équilibré à trois acteurs régulés par l’ARPCE.</span>
+      </div>
+      <div class="finding-item reveal" style="transition-delay:0.21s">
+        <span class="finding-bullet">✦</span>
+        <span>Le modèle <strong>prépayé domine structurellement à 95,75 %</strong> contre seulement 4,25 % de postpayés — un levier de croissance majeur pour les offres data illimitée, le roaming international et les services IoT à valeur ajoutée.</span>
+      </div>
+      <div class="finding-item reveal" style="transition-delay:0.28s">
+        <span class="finding-bullet">✦</span>
+        <span>La répartition des parts de marché (41,97 % + 31,75 % + 26,29 % = 100 %) atteste d’un marché mature sans opérateur dominant de manière écrasante, favorable à une concurrence saine et à l’innovation tarifaire.</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+
+<!-- ── SYNTHESE ── -->
+<section class="section section-alt" id="synthese">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Conclusions</span>
+      <h2 class="display-2">Synthèse <span class="gold">finale</span></h2>
+    </div>
+    <div class="synth-grid">
+      <div class="synth-card reveal" style="transition-delay:0s">
+        <div class="synth-chiffre">
+          <span class="counter" data-target="41.97" data-decimals="2">41,97</span>
+          <small>%</small>
+        </div>
+        <div class="synth-label">Leadership Mobilis (ATM)</div>
+        <p class="synth-desc">Avec 23,48 millions d’abonnés, Mobilis (ATM) domine le marché mobile algérien. Son avance de 10 points sur Djezzy témoigne d’une position concurrentielle solide, portée par un réseau 4G étendu et une offre tarifaire accessible à l’ensemble du territoire national.</p>
+      </div>
+      <div class="synth-card reveal" style="transition-delay:0.1s">
+        <div class="synth-chiffre">
+          <span class="counter" data-target="55941086" data-decimals="0">0</span>
+          <small> abonnés</small>
+        </div>
+        <div class="synth-label">55,94 millions d’abonnés</div>
+        <p class="synth-desc">Le marché mobile algérien affiche une taille imposante de 55,94 millions d’abonnés actifs. Ce chiffre, supérieur à la population totale (~45 M habitants), traduit la prévalence du multi-équipement et des usages SIM multiples dans les pratiques professionnelles et personnelles.</p>
+      </div>
+      <div class="synth-card reveal" style="transition-delay:0.2s">
+        <div class="synth-chiffre">
+          <span class="counter" data-target="95.75" data-decimals="2">95,75</span>
+          <small>%</small>
+        </div>
+        <div class="synth-label">Prépayé ultra-dominant</div>
+        <p class="synth-desc">Neuf abonnés sur dix sont en prépayé. Cette structure, typique des marchés à forte sensibilité prix, offre une opportunité aux trois opérateurs pour développer des forfaits postpayés et des services à valeur ajoutée — data illimitée, roaming international, IoT — afin d’améliorer l’ARPU moyen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-brand"><span class="footer-mark">✦</span> Algeria<em>Tech</em></div>
+      <p class="footer-copy">Infographie générée par Algeria Tech Generator · 2026</p>
+    </div>
+    <div class="footer-meta">
+      <span>Source : ARPCE — Algérie</span>
+      <span>Période : T3 2025</span>
+      <span>Téléphonie Mobile</span>
+    </div>
+    <div class="footer-actions">
+      <button id="btn-export-json" class="btn btn-ghost" style="font-size:.78rem">JSON</button>
+      <button onclick="exportCSV&&exportCSV()" class="btn btn-ghost" style="font-size:.78rem">CSV</button>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<!-- FAB -->
+<div class="fab-stack">
+  <button id="fab-top" class="fab" title="Haut de page" aria-label="Haut de page">↑</button>
+  <button id="fab-fullscreen" class="fab" title="Plein écran" aria-label="Plein écran">⛶</button>
+</div>
+
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

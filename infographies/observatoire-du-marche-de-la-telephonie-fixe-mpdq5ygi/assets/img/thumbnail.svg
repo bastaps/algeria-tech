@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0e1a"/>
+      <stop offset="50%" stop-color="#111729"/>
+      <stop offset="100%" stop-color="#0a0e1a"/>
+    </linearGradient>
+    <radialGradient id="aurora1" cx="0.85" cy="0.15" r="0.7">
+      <stop offset="0%" stop-color="#d4a437" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#d4a437" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aurora2" cx="0.15" cy="0.9" r="0.55">
+      <stop offset="0%" stop-color="#2d8a5f" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#2d8a5f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d4a437"/>
+      <stop offset="100%" stop-color="#ecd28a"/>
+    </linearGradient>
+    <linearGradient id="markGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d4a437"/>
+      <stop offset="100%" stop-color="#b85042"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="softglow"><feGaussianBlur stdDeviation="3"/></filter>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect width="1200" height="800" fill="url(#aurora1)"/>
+  <rect width="1200" height="800" fill="url(#aurora2)"/>
+  <rect x="20" y="20" width="1160" height="760" fill="none" stroke="rgba(255,255,255,0.05)" rx="24"/>
+  <g transform="translate(820, 120)" opacity="0.7">
+    <line x1="60" y1="0" x2="60" y2="460" stroke="#2d8a5f" stroke-width="3" opacity="0.5"/>
+    <line x1="200" y1="40" x2="200" y2="460" stroke="#2d8a5f" stroke-width="3" opacity="0.5"/>
+    <line x1="340" y1="20" x2="340" y2="460" stroke="#2d8a5f" stroke-width="3" opacity="0.4"/>
+    <line x1="40" y1="80" x2="80" y2="80" stroke="#d4a437" stroke-width="2" opacity="0.8"/>
+    <line x1="40" y1="110" x2="80" y2="110" stroke="#d4a437" stroke-width="2" opacity="0.8"/>
+    <line x1="180" y1="100" x2="220" y2="100" stroke="#d4a437" stroke-width="2" opacity="0.7"/>
+    <line x1="180" y1="130" x2="220" y2="130" stroke="#d4a437" stroke-width="2" opacity="0.7"/>
+    <line x1="320" y1="90" x2="360" y2="90" stroke="#d4a437" stroke-width="2" opacity="0.6"/>
+    <path d="M 60 85 Q 130 100 200 105" fill="none" stroke="#ecd28a" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 60 115 Q 130 128 200 133" fill="none" stroke="#ecd28a" stroke-width="1.5" opacity="0.6"/>
+    <path d="M 200 105 Q 270 110 340 95" fill="none" stroke="#ecd28a" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="60" cy="85" r="4" fill="#d4a437"/>
+    <circle cx="60" cy="115" r="4" fill="#d4a437"/>
+    <circle cx="200" cy="105" r="4" fill="#d4a437"/>
+    <circle cx="200" cy="133" r="4" fill="#d4a437"/>
+    <circle cx="340" cy="95" r="4" fill="#d4a437"/>
+    <circle cx="60" cy="0" r="6" fill="#d4a437" filter="url(#glow)"/>
+    <circle cx="200" cy="40" r="6" fill="#2d8a5f" filter="url(#glow)"/>
+    <circle cx="340" cy="20" r="6" fill="#d4a437" filter="url(#glow)"/>
+    <line x1="0" y1="460" x2="380" y2="460" stroke="#1a2238" stroke-width="2"/>
+  </g>
+  <g transform="translate(60, 56)">
+    <rect width="52" height="52" rx="11" fill="url(#markGrad)"/>
+    <text x="26" y="35" text-anchor="middle" font-family="JetBrains Mono, Courier New, monospace" font-size="18" font-weight="700" fill="#0a0e1a">☎</text>
+    <text x="72" y="24" font-family="Fraunces, Georgia, serif" font-size="15" font-style="italic" fill="#f4ede0">Algeria Tech</text>
+    <text x="72" y="44" font-family="JetBrains Mono, monospace" font-size="11" font-weight="500" fill="#64748b" letter-spacing="0.15em">INFOGRAPHIE INTERACTIVE</text>
+  </g>
+  <g transform="translate(60, 190)">
+    <line x1="0" y1="8" x2="32" y2="8" stroke="#d4a437" stroke-width="1.5"/>
+    <text x="44" y="13" font-family="JetBrains Mono, monospace" font-size="13" font-weight="500" letter-spacing="0.2em" fill="#d4a437">ARPCE · T3 2025</text>
+  </g>
+  <text x="60" y="295" font-family="Fraunces, Georgia, serif" font-size="58" font-weight="500" fill="#f4ede0" letter-spacing="-0.02em">Observatoire du Marché</text>
+  <text x="60" y="360" font-family="Fraunces, Georgia, serif" font-size="48" font-weight="400" font-style="italic" fill="url(#goldGrad)" letter-spacing="-0.01em">de la Téléphonie Fixe</text>
+  <line x1="60" y1="390" x2="750" y2="390" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <g transform="translate(60, 420)">
+    <g>
+      <text x="0" y="0" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="0.15em" fill="#64748b">ABONNÉS TOTAUX</text>
+      <text x="0" y="48" font-family="Fraunces, Georgia, serif" font-size="52" font-weight="400" fill="#d4a437" letter-spacing="-0.02em">7,50 M</text>
+    </g>
+    <g transform="translate(300, 0)">
+      <text x="0" y="0" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="0.15em" fill="#64748b">RÉSIDENTIELS</text>
+      <text x="0" y="48" font-family="Fraunces, Georgia, serif" font-size="52" font-weight="400" fill="#2d8a5f" letter-spacing="-0.02em">92,85%</text>
+    </g>
+    <g transform="translate(570, 0)">
+      <text x="0" y="0" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="0.15em" fill="#64748b">PÉNÉTRATION</text>
+      <text x="0" y="48" font-family="Fraunces, Georgia, serif" font-size="52" font-weight="400" fill="#ecd28a" letter-spacing="-0.02em">66,12%</text>
+    </g>
+  </g>
+  <g transform="translate(60, 540)">
+    <rect width="690" height="3" rx="1.5" fill="#1a2238"/>
+    <rect width="624" height="3" rx="1.5" fill="url(#goldGrad)"/>
+    <text x="0" y="22" font-family="JetBrains Mono, monospace" font-size="11" fill="#64748b" letter-spacing="0.1em">6 964 516 abonnés résidentiels sur 7 501 156</text>
+  </g>
+  <g transform="translate(60, 590)">
+    <rect width="340" height="36" rx="8" fill="rgba(212,164,55,0.08)" stroke="rgba(212,164,55,0.25)" stroke-width="1"/>
+    <text x="16" y="23" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="0.1em" fill="#d4a437">SOURCE : ARPCE — ALGÉRIE T3 2025</text>
+  </g>
+  <g transform="translate(60, 690)">
+    <rect width="300" height="50" rx="12" fill="url(#goldGrad)"/>
+    <text x="150" y="31" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" letter-spacing="0.15em" fill="#0a0e1a">EXPLORER →</text>
+  </g>
+  <text x="380" y="718" font-family="JetBrains Mono, monospace" font-size="11" letter-spacing="0.1em" fill="#354265">GRAPHIQUES INTERACTIFS · 3D · EXPORTS CSV / PDF</text>
+</svg>

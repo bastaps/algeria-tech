@@ -1,5 +1,139 @@
 {
-  "date": "19/05/2026",
-  "synthese": "La revue de presse est en cours de préparation. Elle sera disponible sous peu.",
-  "articles": []
+  "date": "jeudi 21 mai",
+  "synthese": "Les actualités tech des dernières 24h mêlent tensions géopolitiques, innovations industrielles et défis de l'IA. L'Algérie se distingue par des avancées économiques et des polémiques internationales, tandis que l'IA et les télécoms dominent les débats technologiques en Europe. Les startups et la cybersécurité restent des enjeux majeurs pour les professionnels du secteur.",
+  "articles": [
+    {
+      "titre": "“C’est maintenant ou jamais” : ce Franco-Algérien lance un incubateur de startups en Algérie",
+      "resume": "",
+      "url": "https://www.tsa-algerie.dz/cest-maintenant-ou-jamais-ce-franco-algerien-lance-un-incubateur-de-startups-en-algerie/",
+      "date": "2026-05-21T08:44:47.000Z",
+      "source": "TSA Algérie",
+      "logo": "https://www.google.com/s2/favicons?domain=tsa-algerie.dz&sz=32",
+      "pays": "DZ",
+      "accroche": "Un Franco-Algérien lance un incubateur pour dynamiser l'écosystème startup algérien.",
+      "categorie": "Startups"
+    },
+    {
+      "titre": "L’Algérie exporte des batteries automobiles vers le Cameroun",
+      "resume": "La première opération d’exportation de batteries automobiles fabriquées localement vers le Cameroun a été lancée, mercredi 20 mai, à Aïn M’lila, (wila",
+      "url": "https://algerie-eco.com/2026/05/20/lalgerie-exporte-des-batteries-automobiles-vers-le-cameroun/",
+      "date": "2026-05-20T22:23:37.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "L'Algérie exporte ses batteries automobiles vers le Cameroun, un pas vers l'industrie locale.",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Sonatrach signe deux mémorandums d’entente avec des sociétés omanaises",
+      "resume": "Le groupe Sonatrach a annoncé, ce mercredi, la signature de deux mémorandums d’entente avec les deux sociétés omanaises Petrogas Exploration & Product",
+      "url": "https://algerie-eco.com/2026/05/20/sonatrach-signe-deux-memorandums-dentente-avec-des-societes-omanaises/",
+      "date": "2026-05-20T21:39:40.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Sonatrach renforce ses partenariats énergétiques avec des sociétés omanaises.",
+      "categorie": "Numérique"
+    },
+    {
+      "titre": "Production de batterie Fabcom Algérie : Opération d’exportation vers le Cameroun",
+      "resume": "L’industrie automobile algérienne franchit un nouveau cap à l’international. Depuis Aïn M’lila, dans la wilaya d’Oum El Bouaghi, la première opération",
+      "url": "https://elwatan.dz/production-de-batterie-fabcom-algerie-operation-dexportation-vers-le-cameroun/",
+      "date": "2026-05-21T09:52:31.000Z",
+      "source": "El Watan",
+      "logo": "https://www.google.com/s2/favicons?domain=elwatan-dz.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Fabcom Algérie exporte ses batteries vers le Cameroun, boostant l'économie locale.",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Kyutai et ELLIS Tübingen lancent KE:SAI, un labo européen dédié à l’IA physique",
+      "resume": "Kyutai et ELLIS Institute Tübingen unissent leurs forces pour créer KE:SAI, un laboratoire dédié à l'IA physique et aux systèmes autonomes. Premier pr",
+      "url": "https://www.silicon.fr/data-ia-1372/kyutai-et-ellis-institute-lancent-kesai-un-labo-dedie-ia-physique-et-robotique-227275",
+      "date": "2026-05-20T14:05:31.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Kyutai et ELLIS Tübingen créent un labo européen dédié à l'IA physique.",
+      "categorie": "IA"
+    },
+    {
+      "titre": "L’IA, une lente mue pour Google Search… sauf en France",
+      "resume": "La « feuille de route IA » de Google Search s'allonge, tandis que le déploiement en France reste au point mort.\nThe post L’IA, une lente mue pour Goog",
+      "url": "https://www.silicon.fr/data-ia-1372/lia-une-lente-mue-pour-google-search-sauf-en-france-227243",
+      "date": "2026-05-20T13:43:23.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Google Search peine à intégrer l'IA en France, contrairement à d'autres marchés.",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Free ne recrute plus de nouveaux abonnés dans le fixe et le mobile",
+      "resume": "Alors que Bouygues Telecom et Orange profitent de la fuite des clients de SFR, Free fait du surplace au premier trimestre. Sa maison mère, iliad, enre",
+      "url": "https://www.zdnet.fr/actualites/free-ne-recrute-plus-de-nouveaux-abonnes-dans-le-fixe-et-le-mobile-495392.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-05-21T09:42:23.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Free stoppe le recrutement de nouveaux abonnés en fixe et mobile, un tournant stratégique.",
+      "categorie": "Télécoms"
+    },
+    {
+      "titre": "Linus Torvalds a une « relation amour-haine avec l'IA »",
+      "resume": "Le créateur de Linux considère l'IA comme une arme à double tranchant pour les programmeurs.",
+      "url": "https://www.zdnet.fr/actualites/linus-torvalds-a-une-relation-amour-haine-avec-lia-495388.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-05-21T09:07:24.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Linus Torvalds avoue une relation complexe avec l'intelligence artificielle.",
+      "categorie": "IA"
+    },
+    {
+      "titre": "51 % des pros affirment que la surcharge de travail liée à l'IA réduit leur productivité : comment y remédier",
+      "resume": "Les professionnels s'inquiètent de la faible qualité des résultats générés par l'IA. Pour éviter le travail bâclé, voici quelques mesures prônées par",
+      "url": "https://www.zdnet.fr/actualites/51-des-pros-affirment-que-la-surcharge-de-travail-liee-a-lia-reduit-leur-productivite-comment-y-remedier-495386.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-05-21T08:47:07.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "51% des pros voient l'IA comme un frein à leur productivité, selon une étude.",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Bouygues Telecom écœure la concurrence avec un nouveau forfait mobile tonitruant",
+      "resume": "Pour les personnes qui veulent un forfait mobile pas cher et complet, la nouvelle offre que propose en ce moment Bouygues Telecom via sa marque sans e",
+      "url": "https://www.01net.com/bons-plans/bouygues-telecom-ecoeure-la-concurrence-avec-un-nouveau-forfait-mobile-tonitruant.html",
+      "date": "2026-05-21T10:51:23.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Bouygues Telecom frappe fort avec un forfait mobile ultra-compétitif.",
+      "categorie": "Télécoms"
+    },
+    {
+      "titre": "Pizzas froides, retards de livraison : comment l’IA de Pizza Hut aurait fait perdre 100 millions de dollars à l’entreprise",
+      "resume": "L'intelligence artificielle devait révolutionner la livraison de pizzas chez Pizza Hut, mais elle aurait tourné au fiasco industriel à 100 millions de",
+      "url": "https://www.01net.com/actualites/pizzas-froides-retards-livraison-comment-ia-pizza-hut-aurait-fait-perdre-100-millions-dollars-entreprise.html",
+      "date": "2026-05-21T10:39:34.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "L'IA de Pizza Hut aurait coûté 100 millions de dollars à l'enseigne.",
+      "categorie": "IA"
+    },
+    {
+      "titre": "« Aucune hésitation » : une IA d’OpenAI a terrassé un problème de géométrie vieux de 80 ans",
+      "resume": "Le 20 mai 2026, OpenAI a affirmé qu’un de ses modèles d’IA avait contribué à réfuter une conjecture mathématique formulée par Paul Erdős en 1946. Le p",
+      "url": "https://www.numerama.com/tech/2257419-aucune-hesitation-une-ia-dopenai-a-terrasse-un-probleme-de-geometrie-vieux-de-80-ans.html",
+      "date": "2026-05-21T08:35:45.000Z",
+      "source": "Numerama",
+      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
+      "pays": "FR",
+      "accroche": "Une IA d'OpenAI résout un problème de géométrie vieux de 80 ans.",
+      "categorie": "IA"
+    }
+  ],
+  "lastUpdated": "2026-05-21T11:06:30.750Z"
 }

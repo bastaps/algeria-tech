@@ -1,42 +1,99 @@
 const fs = require('fs');
-const https = require('https');
 const path = require('path');
+const Parser = require('rss-parser');
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const SERPER_API_KEY = process.env.SERPER_API_KEY;
+const parser = new Parser({
+    headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AlgeriaTech-RevueBot/11.0' },
+    timeout: 15000,
+});
+
+// CHANGEMENT : On utilise MISTRAL_API_KEY
+const MISTRAL_API_KEY = process.env.MISTRAL_API_KEY;
 const OUTPUT_FILE = path.join(__dirname, 'revue_presse.json');
 
-async function searchWebDZ(query) {
-    return new Promise((resolve) => {
-        const data = JSON.stringify({ "q": `${query}`, "gl": "dz", "hl": "fr", "tbs": "qdr:d" });
-        const options = {
-            hostname: 'google.serper.dev',
-            path: '/search',
-            method: 'POST',
-            headers: { 'X-API-KEY': SERPER_API_KEY, 'Content-Type': 'application/json' }
-        };
-        const req = https.request(options, res => {
-            let result = '';
-            res.on('data', chunk => result += chunk);
-            res.on('end', () => { try { resolve(JSON.parse(result)); } catch (e) { resolve({organic:[]}); } });
-        });
-        req.on('error', () => resolve({organic:[]}));
-        req.write(data);
-        req.end();
-    });
+if (!MISTRAL_API_KEY) {
+    console.error("❌ MISTRAL_API_KEY non définie. Tapez : $env:MISTRAL_API_KEY='VOTRE_CLE'");
+    process.exit(1);
 }
 
-async function callGemini(prompt) {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+const SOURCES = [
+    { url: 'https://itmag.dz/feed/',                       name: 'ITMAG.dz',         pays: 'DZ' },
+    { url: 'https://dz-tech.news/fr/feed/',                name: 'DZ-Tech',          pays: 'DZ' },
+    { url: 'https://www.tsa-algerie.dz/feed/',             name: 'TSA Algérie',      pays: 'DZ' },
+    { url: 'https://lesenjeuxeco.dz/category/tic/feed/',   name: 'Les Enjeux Éco',   pays: 'DZ' },
+    { url: 'https://www.algerie360.com/category/high-tech/feed/', name: 'Algérie360 Tech', pays: 'DZ' },
+    { url: 'https://www.algerie-eco.com/feed/',            name: 'Algérie Éco',      pays: 'DZ' },
+    { url: 'https://www.aps.dz/fr/algerie/education-et-technologie?format=feed&type=rss', name: 'APS', pays: 'DZ' },
+    { url: 'https://elwatan-dz.com/feed',                  name: 'El Watan',         pays: 'DZ' },
+    { url: 'https://www.silicon.fr/feed',                  name: 'Silicon.fr',       pays: 'FR' },
+    { url: 'https://www.zdnet.fr/feed/',                   name: 'ZDNet France',     pays: 'FR' },
+    { url: 'https://www.usine-digitale.fr/rss/',           name: 'Usine Digitale',   pays: 'FR' },
+    { url: 'https://www.frandroid.com/feed',               name: 'Frandroid',        pays: 'FR' },
+    { url: 'https://www.01net.com/feed/',                  name: '01net',            pays: 'FR' },
+    { url: 'https://www.numerama.com/feed/',               name: 'Numerama',         pays: 'FR' },
+    { url: 'https://www.usinenouvelle.com/rss/',           name: "L'Usine Nouvelle", pays: 'FR' },
+    { url: 'https://www.journaldunet.com/telecharger/rss/ebusiness.xml', name: 'Journal du Net', pays: 'FR' }
+];
+
+const TECH_KW = ['tic', 'télécom', 'mobile', 'startup', 'innovation', 'tech', 'numérique', 'internet', 'data', 'ia', 'intelligence artificielle', 'fibre', 'algérie', '5g', '4g', 'réseau', 'digital', 'cybersécurité', 'cloud', 'djezzy', 'ooredoo', 'mobilis'];
+
+function logoUrl(sourceName) {
+    const domainMap = { 'ITMAG.dz': 'itmag.dz', 'DZ-Tech': 'dz-tech.news', 'TSA Algérie': 'tsa-algerie.dz', 'Les Enjeux Éco': 'lesenjeuxeco.dz', 'Algérie360 Tech': 'algerie360.com', 'APS': 'aps.dz', 'El Watan': 'elwatan-dz.com', 'Algérie Éco': 'algerie-eco.com', 'Silicon.fr': 'silicon.fr', 'ZDNet France': 'zdnet.fr', 'Usine Digitale': 'usine-digitale.fr', 'Frandroid': 'frandroid.com', '01net': '01net.com', 'Numerama': 'numerama.com', "L'Usine Nouvelle": 'usinenouvelle.com', 'Journal du Net': 'journaldunet.com' };
+    return `https://www.google.com/s2/favicons?domain=${domainMap[sourceName] || 'google.com'}&sz=32`;
+}
+
+async function fetchRSS(source) {
+    try {
+        const feed = await parser.parseURL(source.url);
+        const yesterday = new Date(Date.now() - 24 * 60 * 60 * 1000);
+        return feed.items
+            .filter(item => {
+                const pubDate = new Date(item.isoDate || item.pubDate);
+                if (pubDate < yesterday) return false;
+                const text = (item.title + ' ' + (item.contentSnippet || '')).toLowerCase();
+                return TECH_KW.some(k => text.includes(k));
+            })
+            .map(item => ({
+                titre: item.title.trim(),
+                resume: (item.contentSnippet || '').substring(0, 150).replace(/<[^>]+>/g, '').trim(),
+                url: item.link,
+                date: item.isoDate || new Date().toISOString(),
+                source: source.name,
+                logo: logoUrl(source.name),
+                pays: source.pays,
+            }))
+            .slice(0, 3);
+    } catch(e) { return []; }
+}
+
+// ── APPEL API MISTRAL (Plus stable que Gemini) ──────────────────────────────
+async function callMistral(prompt) {
+    const https = require('https');
+    const endpoint = 'https://api.mistral.ai/v1/chat/completions';
+    
     const payload = JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-        generationConfig: { temperature: 0.7, response_mime_type: "application/json" }
+        model: "mistral-small-latest",
+        messages: [{ role: "user", content: prompt }],
+        response_format: { type: "json_object" }, // Mistral supporte le JSON natif
+        temperature: 0.1
     });
+
     return new Promise((resolve, reject) => {
-        const req = https.request(url, { method: 'POST', headers: { 'Content-Type': 'application/json' } }, res => {
+        const req = https.request(endpoint, {
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${MISTRAL_API_KEY}`
+            }
+        }, res => {
             let data = '';
             res.on('data', chunk => data += chunk);
-            res.on('end', () => { try { resolve(JSON.parse(data)); } catch (e) { reject(e); } });
+            res.on('end', () => {
+                try {
+                    if (res.statusCode !== 200) reject(new Error(`Mistral Error ${res.statusCode}: ${data}`));
+                    else resolve(JSON.parse(data));
+                } catch(e) { reject(new Error("Erreur JSON Mistral")); }
+            });
         });
         req.on('error', reject);
         req.write(payload);
@@ -44,37 +101,49 @@ async function callGemini(prompt) {
     });
 }
 
-async function startFouille() {
-    console.log("🔍 Fouille large de la presse algérienne...");
-    try {
-        // On cherche sur des thèmes très larges pour être sûr d'avoir des résultats
-        const results = await Promise.all([
-            searchWebDZ("actualité Algérie"),
-            searchWebDZ("économie numérique Algérie"),
-            searchWebDZ("الجزائر")
-        ]);
+async function processWithMistral(rawArticles) {
+    const input = rawArticles.map((a, i) => ({ i, t: a.titre.substring(0, 100), s: a.source }));
+    const prompt = `Agis en rédacteur AlgérieTech. Analyse cette liste d'articles tech des dernières 24h.
+    1. Sélectionne les 12 articles les plus marquants.
+    2. Pour chaque article: crée une accroche pro (15 mots) et une catégorie (Télécoms, IA, Startups, Numérique, Cybersécurité, Réseaux, ou Innovation).
+    3. Rédige une synthèse globale de 3 phrases.
+    Data:${JSON.stringify(input)}
+    Réponds EXCLUSIVEMENT en JSON pur: {"synthese":"...", "selected":[{"i":0, "accroche":"...", "categorie":"..."}]}`;
 
-        let rawNews = [];
-        results.forEach(res => { if(res.organic) res.organic.forEach(item => rawNews.push(item)); });
+    const response = await callMistral(prompt);
+    const aiResult = JSON.parse(response.choices[0].message.content);
+    
+    const finalArticles = aiResult.selected.map(sel => {
+        const orig = rawArticles[sel.i];
+        return orig ? { ...orig, accroche: sel.accroche, categorie: sel.categorie } : null;
+    }).filter(Boolean);
 
-        const prompt = `Tu es rédacteur en chef. Analyse ces news du jour en Algérie : ${JSON.stringify(rawNews.slice(0, 50))}
-        1. Rédige une synthèse de 3 phrases sur l'actualité en Algérie. Priorise la Tech, sinon prends l'économie.
-        2. Sélectionne obligatoirement les 5 articles les plus importants.
-        3. Réponds UNIQUEMENT par un objet JSON pur.
-        Format : { "date": "${new Date().toLocaleDateString('fr-FR', {weekday:'long', day:'numeric', month:'long'})}", "synthese": "...", "articles": [{ "titre": "...", "resume": "...", "categorie": "...", "url": "..." }] }`;
-
-        const aiResponse = await callGemini(prompt);
-        if (aiResponse.candidates && aiResponse.candidates[0].content) {
-            let text = aiResponse.candidates[0].content.parts[0].text;
-            const jsonMatch = text.match(/\{[\s\S]*\}/);
-            if (jsonMatch) {
-                fs.writeFileSync(OUTPUT_FILE, jsonMatch[0]);
-                console.log("✅ Revue de presse mise à jour.");
-            } else { throw new Error("JSON non détecté"); }
-        }
-    } catch (e) {
-        console.error("❌ Erreur:", e.message);
-        // On ne change pas le fichier si l'IA échoue pour garder la version précédente
-    }
+    return {
+        date: new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' }),
+        synthese: aiResult.synthese,
+        articles: finalArticles,
+        lastUpdated: new Date().toISOString()
+    };
 }
-startFouille();
+
+async function main() {
+    console.log('📡 SCAN RSS (Mistral Edition - 24H)...');
+    const allResults = await Promise.all(SOURCES.map(async s => {
+        const items = await fetchRSS(s);
+        if (items.length > 0) console.log(`  • ${s.name.padEnd(20)} ✅ ${items.length} articles trouvés`);
+        return items;
+    }));
+
+    let rawArticles = allResults.flat();
+    if (rawArticles.length === 0) {
+        console.log('ℹ️ Aucun article récent trouvé.');
+        return;
+    }
+
+    console.log(`🤖 IA MISTRAL SUR ${rawArticles.length} ARTICLES...`);
+    const result = await processWithMistral(rawArticles);
+    fs.writeFileSync(OUTPUT_FILE, JSON.stringify(result, null, 2));
+    console.log(`\n✅ SUCCÈS : revue_presse.json généré par Mistral !`);
+}
+
+main().catch(e => console.error('\n❌ ERREUR :', e.message));

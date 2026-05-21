@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Observatoire du Marché de la Téléphonie Fixe Algérie 2025T3 — Infographie Interactive</title>
+    <meta name="description" content="Infographie interactive sur le secteur des TIC/Télécoms — Thème Algeria Tech Premium">
+    <meta name="theme-color" content="#0a0e1a">
+    <meta property="og:title" content="Observatoire du Marché de la Téléphonie Fixe Algérie 2025T3">
+    <meta property="og:description" content="Synthèse interactive · Source : tmpb0ytarax.csv">
+    <meta property="og:type" content="website">
+
+    <!-- Cache-busting : empêche le navigateur de servir d'anciennes versions -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/styles.css?v=21May2026">
+    <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js" defer></script>
+<link rel="stylesheet" href="assets/css/design-themes.css">
+</head>
+<body data-design="quantum">
+
+<!-- LOADER -->
+<div id="loader" class="loader">
+    <div class="loader-content">
+        <div class="loader-spinner"></div>
+        <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+        <p class="loader-text">Chargement de Algeria Tech Premium…</p>
+    </div>
+</div>
+
+<!-- TOPBAR -->
+<header class="topbar">
+    <div class="container topbar-inner">
+        <a href="#hero" class="brand">
+            <span class="brand-mark">🇩🇿</span>
+            <span><em>Observatoire du Marché de la Tél</em></span>
+        </a>
+        <nav class="section-nav">
+            <a href="#kpis">KPIs</a>
+            <a href="#charts">Graphiques</a>
+            
+            <a href="#scene3d">3D</a>
+            <a href="#data">Données</a>
+            <a href="#exports">Exports</a>
+        </nav>
+        <div class="topbar-actions">
+            <button id="btn-fullscreen" class="btn btn-icon" title="Plein écran">⛶</button>
+            <button id="btn-share" class="btn btn-icon" title="Partager">🔗</button>
+        </div>
+    </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="section hero" id="hero">
+    <div class="aurora-bg"></div>
+    <div class="container">
+        <div class="hero-content reveal" style="text-align:center">
+            <span class="eyebrow">tmpb0ytarax.csv · 21 May 2026</span>
+            <h1 class="hero-title">Observatoire du Marché de la Téléphonie Fixe Algérie 2025T3</h1>
+            <p class="hero-lead">Synthèse interactive · Source : tmpb0ytarax.csv</p>
+            
+            <div class="hero-kpi-row">
+                
+                <div class="hero-kpi-chip">
+                    <span class="hero-kpi-icon">📊</span>
+                    <span class="hero-kpi-val">1</span>
+                    <span class="hero-kpi-lbl">Valeur</span>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- KPIs -->
+<section class="section" id="kpis">
+    <div class="container">
+        <h2 class="section-title reveal">Indicateurs clés</h2>
+        <p class="section-lead reveal">Les données indiquent une dynamique de marché à analyser sur les prochains trimestres.</p>
+        <div class="kpis-grid">
+            
+            <div class="kpi-card reveal" style="transition-delay:0.0s">
+                <div class="kpi-icon">📊</div>
+                
+                <div class="kpi-value" data-count-to="1">1</div>
+                
+                
+                <div class="kpi-label">Valeur</div>
+                
+                <div class="kpi-trend up">
+                    ▲
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+<!-- CHARTS -->
+<section class="section" id="charts">
+    <div class="container">
+        <h2 class="section-title reveal">Visualisations</h2>
+        <p class="section-lead reveal">L'analyse des indicateurs clés révèle des tendances structurelles significatives.</p>
+        <div class="charts-grid">
+            
+            <div class="chart-block reveal" style="transition-delay:0.0s">
+                <div class="chart-title">Valeur par Periode</div>
+                <canvas id="chart-1" width="400" height="300"></canvas>
+            </div>
+            
+            <div class="chart-block reveal" style="transition-delay:0.1s">
+                <div class="chart-title">Répartition · Point 8</div>
+                <canvas id="chart-2" width="400" height="300"></canvas>
+            </div>
+            
+            <div class="chart-block reveal" style="transition-delay:0.2s">
+                <div class="chart-title">Évolution sur 8 points</div>
+                <canvas id="chart-3" width="400" height="300"></canvas>
+            </div>
+            
+            <div class="chart-block reveal" style="transition-delay:0.30000000000000004s">
+                <div class="chart-title">Vue polaire · Valeur</div>
+                <canvas id="chart-4" width="400" height="300"></canvas>
+            </div>
+            
+            <div class="chart-block reveal" style="transition-delay:0.4s">
+                <div class="chart-title">Tendance · Valeur</div>
+                <canvas id="chart-8" width="400" height="300"></canvas>
+            </div>
+            
+            <div class="chart-block reveal" style="transition-delay:0.5s">
+                <div class="chart-title">Répartition · Point 1</div>
+                <canvas id="chart-9" width="400" height="300"></canvas>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+<!-- ELEMENTS ESSENTIELS -->
+<section class="section" id="analyse">
+    <div class="container">
+        <h2 class="section-title reveal">Éléments <em>essentiels</em></h2>
+        <div class="findings-grid reveal">
+            
+            <div class="finding-item reveal" style="transition-delay:0.0s">
+                <span class="finding-bullet" style="color:#D4A437;margin-right:.75rem;font-size:1rem;">✦</span>
+                <span>Les données indiquent une dynamique de marché à analyser sur les prochains trimestres.</span>
+            </div>
+            
+            <div class="finding-item reveal" style="transition-delay:0.07s">
+                <span class="finding-bullet" style="color:#D4A437;margin-right:.75rem;font-size:1rem;">✦</span>
+                <span>L'analyse des indicateurs clés révèle des tendances structurelles significatives.</span>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+<!-- SYNTHESE FINALE -->
+<section class="section" id="synthese" style="background:#111729">
+    <div class="container">
+        <h2 class="section-title reveal">Synthèse <em>finale</em></h2>
+        <div class="synth-grid reveal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2rem">
+            
+            <div class="synth-card reveal" style="background:#0a0e1a;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:2rem;transition-delay:0.0s">
+                <div style="font-family:'Fraunces',Georgia,serif;font-size:2.2rem;font-weight:400;color:#D4A437;margin-bottom:.5rem">1</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:.8rem;letter-spacing:.15em;color:#B85042;text-transform:uppercase;margin-bottom:1rem">Valeur</div>
+                <p style="font-size:.9rem;line-height:1.75;color:rgba(255,255,255,.65)">Valeur de référence pour la période considérée, à mettre en perspective avec les tendances régionales.</p>
+            </div>
+            
+            <div class="synth-card reveal" style="background:#0a0e1a;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:2rem;transition-delay:0.1s">
+                <div style="font-family:'Fraunces',Georgia,serif;font-size:2.2rem;font-weight:400;color:#D4A437;margin-bottom:.5rem">—</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:.8rem;letter-spacing:.15em;color:#B85042;text-transform:uppercase;margin-bottom:1rem">Contexte du marché</div>
+                <p style="font-size:.9rem;line-height:1.75;color:rgba(255,255,255,.65)">L'analyse de ce rapport permet d'identifier les tendances structurelles clés du secteur pour la période considérée.</p>
+            </div>
+            
+            <div class="synth-card reveal" style="background:#0a0e1a;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:2rem;transition-delay:0.2s">
+                <div style="font-family:'Fraunces',Georgia,serif;font-size:2.2rem;font-weight:400;color:#D4A437;margin-bottom:.5rem">—</div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:.8rem;letter-spacing:.15em;color:#B85042;text-transform:uppercase;margin-bottom:1rem">Contexte du marché</div>
+                <p style="font-size:.9rem;line-height:1.75;color:rgba(255,255,255,.65)">L'analyse de ce rapport permet d'identifier les tendances structurelles clés du secteur pour la période considérée.</p>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- 3D SCENE -->
+<section class="section" id="scene3d">
+    <div class="container">
+        <h2 class="section-title reveal">Visualisation 3D</h2>
+        <div class="scene3d-container reveal">
+            <div id="scene3d-canvas" style="width: 100%; height: 600px; border-radius: 16px; overflow: hidden; background: linear-gradient(135deg, #0a0e1a, #111729);"></div>
+            <p class="scene-hint" style="text-align: center; margin-top: 16px; color: var(--text-dim); font-size: 12px;">
+                Glisser pour pivoter · Molette pour zoomer · Survoler les éléments pour plus d'infos
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- DATA -->
+<section class="section" id="data">
+    <div class="container">
+        <h2 class="section-title reveal">Données détaillées</h2>
+        
+        <div class="data-block reveal">
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            
+                            <th>Periode</th>
+                            
+                            <th>Valeur</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            
+                            <td class="">Point 1</td>
+                            
+                            <td class="num">3</td>
+                            
+                        </tr>
+                        
+                        <tr>
+                            
+                            <td class="">Point 2</td>
+                            
+                            <td class="num">202</td>
+                            
+                        </tr>
+                        
+                        <tr>
+                            
+                            <td class="">Point 3</td>
+                            
+                            <td class="num">5</td>
+                            
+                        </tr>
+                        
+                        <tr>
+                            
+                            <td class="">Point 4</td>
+                            
+                            <td class="num">3</td>
+                            
+                        </tr>
+                        
+                        <tr>
+                            
+                            <td class="">Point 5</td>
+                            
+                            <td class="num">202</td>
+                            
+                        </tr>
+                        
+                        <tr>
+                            
+                            <td class="">Point 6</td>
+                            
+                            <td class="num">5</td>
+                            
+                        </tr>
+                        
+                        <tr>
+                            
+                            <td class="">Point 7</td>
+                            
+                            <td class="num">1</td>
+                            
+                        </tr>
+                        
+                        <tr>
+                            
+                            <td class="">Point 8</td>
+                            
+                            <td class="num">1</td>
+                            
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+        
+    </div>
+</section>
+
+<!-- EXPORTS -->
+<section class="section" id="exports">
+    <div class="container">
+        <h2 class="section-title reveal">Exporter & Partager</h2>
+        <div class="exports-buttons reveal">
+            <button id="export-csv" class="btn btn-primary">📊 CSV</button>
+            <button id="export-json" class="btn btn-primary">📄 JSON</button>
+            <button id="export-pdf" class="btn btn-primary">📑 PDF</button>
+            <button id="export-pptx" class="btn btn-primary">📋 PPTX</button>
+            <button id="export-share" class="btn btn-secondary">🔗 Partager</button>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="container">
+        <p>© 2026 · Infographie générée automatiquement · Thème Algeria Tech Premium</p>
+        <p>Source: tmpb0ytarax.csv · Données interactives · Full</p>
+    </div>
+</footer>
+
+<!-- FLOATING ACTIONS -->
+<div class="fab-stack">
+    <button id="fab-fullscreen" class="fab" title="Plein écran (F)">⛶</button>
+    <button id="fab-top" class="fab" title="Retour en haut">↑</button>
+</div>
+
+<!-- DESIGN SWITCHER -->
+<div class="design-panel-wrap">
+    <button id="design-toggle" title="Changer le design">🎨</button>
+    <div id="design-panel-box">
+        <h4>Design visuel</h4>
+        <button class="design-swatch active" data-design="quantum">
+            <span class="design-icon">⚡</span>
+            <span class="design-info">
+                <span class="design-label">Quantum</span>
+                <span class="design-desc">5G · Néon violet</span>
+            </span>
+        </button>
+        <button class="design-swatch" data-design="cosmos">
+            <span class="design-icon">🛰</span>
+            <span class="design-info">
+                <span class="design-label">Cosmos</span>
+                <span class="design-desc">Espace · Satellites</span>
+            </span>
+        </button>
+        <button class="design-swatch" data-design="neon">
+            <span class="design-icon">🌆</span>
+            <span class="design-info">
+                <span class="design-label">NeonCity</span>
+                <span class="design-desc">Cyberpunk · Néon</span>
+            </span>
+        </button>
+        <button class="design-swatch" data-design="bloom">
+            <span class="design-icon">🌸</span>
+            <span class="design-info">
+                <span class="design-label">Bloom</span>
+                <span class="design-desc">Startup · Lumineux</span>
+            </span>
+        </button>
+        <button class="design-swatch" data-design="enterprise">
+            <span class="design-icon">🏢</span>
+            <span class="design-info">
+                <span class="design-label">Enterprise</span>
+                <span class="design-desc">Corporate · Pro</span>
+            </span>
+        </button>
+    </div>
+</div>
+
+<!-- AI PANEL -->
+<div class="ai-panel-wrap">
+    <button id="ai-toggle" title="Assistant IA Claude">🤖</button>
+    <div id="ai-chat-box">
+        <div class="ai-header">
+            <div class="ai-header-info">
+                <div>
+                    <h3>Assistant IA</h3>
+                    <p>Posez vos questions sur les données</p>
+                </div>
+            </div>
+            <span class="ai-model-badge">Claude</span>
+        </div>
+        <div class="ai-key-row">
+            <input type="password" id="ai-key-input" placeholder="sk-ant-…" autocomplete="off">
+            <button id="ai-key-save">Sauver</button>
+        </div>
+        <div class="ai-messages" id="ai-messages"></div>
+        <div class="ai-quick-btns">
+            <button class="ai-quick" data-prompt="Résume les données en 3 points clés.">Résumé</button>
+            <button class="ai-quick" data-prompt="Quels sont les KPIs les plus importants ?">KPIs</button>
+            <button class="ai-quick" data-prompt="Quelle tendance observe-t-on dans les données ?">Tendance</button>
+        </div>
+        <div class="ai-input-row">
+            <input type="text" id="ai-user-input" placeholder="Votre question…">
+            <button id="ai-send">➤</button>
+        </div>
+    </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast"></div>
+
+<script type="importmap">
+{
+    "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+}
+</script>
+
+<script type="module" src="assets/js/main.js?v=21May2026"></script>
+<script type="module" src="assets/js/exports.js?v=21May2026"></script>
+
+<script>
+// Design panel toggle (non-module for simplicity)
+document.getElementById('design-toggle')?.addEventListener('click', e => {
+    e.stopPropagation();
+    document.getElementById('design-panel-box')?.classList.toggle('open');
+});
+document.addEventListener('click', e => {
+    const box = document.getElementById('design-panel-box');
+    const toggle = document.getElementById('design-toggle');
+    if (box && !box.contains(e.target) && e.target !== toggle) box.classList.remove('open');
+});
+// Expose showToast globally for JS modules
+window.showToast = function(msg, type) {
+    const t = document.getElementById('toast');
+    if (!t) return;
+    t.textContent = msg;
+    t.style.background = type === 'error' ? '#ef4444' : 'linear-gradient(135deg,var(--primary),var(--secondary))';
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2500);
+};
+</script>
+
+<noscript>
+<div style="padding: 2rem; background: #ef4444; color: white; text-align: center; font-family: monospace;">
+    Cette infographie nécessite JavaScript activé. Veuillez activer JavaScript ou télécharger la version PDF.
+</div>
+</noscript>
+
+<script type="module">import{applyDesign}from"./assets/js/design-themes.js";applyDesign("quantum");</script>
+</body>
+</html>

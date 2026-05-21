@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Algeria Tech Generator</title>
+  <title>Algeria Tech Generator — BI Premium</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,400&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -12,36 +12,33 @@
 <body>
   <canvas id="bg-canvas"></canvas>
 
-  <!-- ── UPLOAD ─────────────────────────────────────────────── -->
+  <!-- ── UPLOAD ─────────────────────────────────────────────────────── -->
   <div id="scr-upload" class="scr active">
     <header class="gen-header">
       <a href="../index.html" class="gen-logo">
         <span class="logo-mark">✦</span>
-        <span>Algeria<em>Tech</em> <span class="logo-sub">Generator</span></span>
+        <span>Algeria<em>Tech</em> <span class="logo-sub">Generator BI</span></span>
       </a>
-      <div class="theme-picker">
-        <span class="tp-lbl">Thème</span>
-        <div class="tp-dots">
-          <button class="tp-dot active" data-theme="nuit"      title="Nuit Algérienne"></button>
-          <button class="tp-dot"        data-theme="desert"    title="Désert Solaire"></button>
-          <button class="tp-dot"        data-theme="emeraude"  title="Émeraude"></button>
-          <button class="tp-dot"        data-theme="ocean"     title="Océan Profond"></button>
-          <button class="tp-dot"        data-theme="corporate" title="Corporate Pro"></button>
-        </div>
+      <div class="header-right">
+        <span class="version-badge">v4 · Premium</span>
+        <a href="/infographies/" class="rbtn" target="_blank">📋 Mes infographies</a>
       </div>
     </header>
 
     <main class="gen-main">
+
+      <!-- Hero -->
       <div class="hero-blk">
-        <div class="hero-tag">✦ Algeria Tech · Générateur IA</div>
+        <div class="hero-tag">✦ Algeria Tech · Moteur BI Premium · Intelligence Artificielle</div>
         <h1 class="hero-title">
           Vos documents,<br>
           <span class="hero-accent">transformés</span><br>
           en infographies
         </h1>
-        <p class="hero-sub">PDF · PowerPoint · Word · TXT — Qualité ARPCE</p>
+        <p class="hero-sub">PDF · PowerPoint · Word · TXT — Rendu qualité ARPCE · Three.js 3D · Chart.js · Export PDF</p>
       </div>
 
+      <!-- Drop Zone -->
       <div id="drop-zone" class="drop-zone">
         <div class="dz-inner">
           <div class="dz-icon">
@@ -53,12 +50,9 @@
             </svg>
           </div>
           <p class="dz-title">Glissez votre fichier ici</p>
-          <p class="dz-sub">ou <button class="link-btn" id="browse-btn">parcourez</button></p>
+          <p class="dz-sub">ou <button class="link-btn" id="browse-btn">parcourez</button> · Max 30 Mo</p>
           <div class="dz-fmts">
-            <span>📄 PDF</span>
-            <span>📊 PPTX</span>
-            <span>📝 Word</span>
-            <span>📰 TXT</span>
+            <span>📄 PDF</span><span>📊 PPTX</span><span>📝 Word</span><span>📰 TXT</span>
           </div>
         </div>
         <input type="file" id="file-input" accept=".pdf,.ppt,.pptx,.doc,.docx,.txt" hidden>
@@ -66,10 +60,11 @@
 
       <div id="file-list" class="file-list" hidden></div>
 
+      <!-- Type de rapport -->
       <div class="opts-row">
         <span class="opts-lbl">Type de rapport</span>
         <div class="pills">
-          <button class="pill active" data-type="auto">🤖 Auto</button>
+          <button class="pill active" data-type="auto">🤖 Auto-détection</button>
           <button class="pill" data-type="telecom">📡 Télécoms</button>
           <button class="pill" data-type="startup">🚀 Startup</button>
           <button class="pill" data-type="rapport">📋 Rapport</button>
@@ -77,17 +72,129 @@
         </div>
       </div>
 
+      <!-- ── 10 Thèmes visuels ───────────────────────────────────────── -->
+      <div class="opts-section">
+        <div class="opts-row-header">
+          <span class="opts-lbl">🎨 Thème visuel</span>
+          <span class="opts-count" id="theme-label">Nuit Algérienne</span>
+        </div>
+        <div class="theme-grid">
+          <button class="theme-card active" data-theme="nuit"      title="Nuit Algérienne">
+            <span class="tc-swatch" style="background:linear-gradient(135deg,#0a0e1a 50%,#d4a437)"></span>
+            <span class="tc-name">🌙 Nuit</span>
+          </button>
+          <button class="theme-card" data-theme="desert"    title="Désert Solaire">
+            <span class="tc-swatch" style="background:linear-gradient(135deg,#1a0a03 50%,#f97316)"></span>
+            <span class="tc-name">🏜️ Désert</span>
+          </button>
+          <button class="theme-card" data-theme="emeraude"  title="Émeraude Algérien">
+            <span class="tc-swatch" style="background:linear-gradient(135deg,#020d06 50%,#10b981)"></span>
+            <span class="tc-name">💚 Émeraude</span>
+          </button>
+          <button class="theme-card" data-theme="ocean"     title="Océan Profond">
+            <span class="tc-swatch" style="background:linear-gradient(135deg,#010b18 50%,#06b6d4)"></span>
+            <span class="tc-name">🌊 Océan</span>
+          </button>
+          <button class="theme-card" data-theme="corporate" title="Corporate Pro">
+            <span class="tc-swatch" style="background:linear-gradient(135deg,#0f1629 50%,#1d4ed8)"></span>
+            <span class="tc-name">💼 Corporate</span>
+          </button>
+          <button class="theme-card" data-theme="rouge"     title="Rouge Premium">
+            <span class="tc-swatch" style="background:linear-gradient(135deg,#160307 50%,#dc2626)"></span>
+            <span class="tc-name">🔴 Rouge</span>
+          </button>
+          <button class="theme-card" data-theme="aurore"    title="Aurore Boréale">
+            <span class="tc-swatch" style="background:linear-gradient(135deg,#0f0318 50%,#a855f7)"></span>
+            <span class="tc-name">🌸 Aurore</span>
+          </button>
+          <button class="theme-card" data-theme="cyber"     title="Cyber Neon">
+            <span class="tc-swatch" style="background:linear-gradient(135deg,#000a00 50%,#22c55e)"></span>
+            <span class="tc-name">🤖 Cyber</span>
+          </button>
+          <button class="theme-card" data-theme="ivoire"    title="Ivoire & Or">
+            <span class="tc-swatch" style="background:linear-gradient(135deg,#1a1508 50%,#eab308)"></span>
+            <span class="tc-name">⚡ Ivoire</span>
+          </button>
+          <button class="theme-card" data-theme="dz"        title="Algeria Gold">
+            <span class="tc-swatch" style="background:linear-gradient(135deg,#006233 50%,#d4a437)"></span>
+            <span class="tc-name">🇩🇿 Algeria</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ── 10 Animations 3D ───────────────────────────────────────── -->
+      <div class="opts-section">
+        <div class="opts-row-header">
+          <span class="opts-lbl">🎬 Animation 3D interactive</span>
+          <span class="opts-count" id="anim-label">Constellation KPI</span>
+        </div>
+        <div class="anim-grid">
+          <button class="anim-card active" data-anim="constellation">
+            <span class="ac-icon">✨</span>
+            <span class="ac-name">Constellation</span>
+            <span class="ac-desc">Orbites cristal</span>
+          </button>
+          <button class="anim-card" data-anim="antennes">
+            <span class="ac-icon">📡</span>
+            <span class="ac-name">Signaux</span>
+            <span class="ac-desc">Champ d'antennes</span>
+          </button>
+          <button class="anim-card" data-anim="globe">
+            <span class="ac-icon">🌐</span>
+            <span class="ac-name">Globe</span>
+            <span class="ac-desc">Globe numérique</span>
+          </button>
+          <button class="anim-card" data-anim="hexagones">
+            <span class="ac-icon">⬡</span>
+            <span class="ac-name">Hexagones</span>
+            <span class="ac-desc">Tours de données</span>
+          </button>
+          <button class="anim-card" data-anim="vagues">
+            <span class="ac-icon">🌊</span>
+            <span class="ac-name">Vagues</span>
+            <span class="ac-desc">Flux de données</span>
+          </button>
+          <button class="anim-card" data-anim="cube">
+            <span class="ac-icon">🧊</span>
+            <span class="ac-name">Cubes BI</span>
+            <span class="ac-desc">Cubes financiers</span>
+          </button>
+          <button class="anim-card" data-anim="neural">
+            <span class="ac-icon">🕸</span>
+            <span class="ac-name">Neural</span>
+            <span class="ac-desc">Réseau neuronal</span>
+          </button>
+          <button class="anim-card" data-anim="particules">
+            <span class="ac-icon">💫</span>
+            <span class="ac-name">Particules</span>
+            <span class="ac-desc">Flux quantique</span>
+          </button>
+          <button class="anim-card" data-anim="pyramide">
+            <span class="ac-icon">🔺</span>
+            <span class="ac-name">Pyramide</span>
+            <span class="ac-desc">Strates KPI</span>
+          </button>
+          <button class="anim-card" data-anim="cristal">
+            <span class="ac-icon">💎</span>
+            <span class="ac-name">Cristal</span>
+            <span class="ac-desc">Géodes de données</span>
+          </button>
+        </div>
+      </div>
+
       <button id="gen-btn" class="gen-btn" disabled>
         <span class="gen-btn-shine"></span>
         <span class="gen-btn-txt">
           <span class="gen-btn-ico">✦</span>
-          Générer l'infographie
+          Générer l'infographie Premium
         </span>
       </button>
+
+      <p class="gen-footer-note">Algeria Tech Generator v4 · Three.js 3D · Chart.js · Export PDF/JSON · Raycaster hover</p>
     </main>
   </div>
 
-  <!-- ── CHARGEMENT ──────────────────────────────────────────── -->
+  <!-- ── CHARGEMENT ─────────────────────────────────────────────────── -->
   <div id="scr-loading" class="scr" hidden>
     <div class="loading-cnt">
       <div class="load-orb">
@@ -99,14 +206,14 @@
       <div class="load-title">Génération en cours…</div>
       <div id="load-step" class="load-step">Lecture du document</div>
       <div class="load-track"><div id="load-bar" class="load-bar"></div></div>
-      <div class="load-hint">Three.js · Chart.js · 5 thèmes · Export PDF</div>
+      <div class="load-hint">Three.js 3D · Chart.js · 10 thèmes · Export PDF</div>
     </div>
   </div>
 
-  <!-- ── RÉSULTAT — Infographie créée ─────────────────────── -->
+  <!-- ── RÉSULTAT ───────────────────────────────────────────────────── -->
   <div id="scr-result" class="scr" hidden>
     <div class="res-ctrl">
-      <div class="res-brand"><span style="color:var(--accent)">✦</span> Algeria<strong>Tech</strong> Generator</div>
+      <div class="res-brand"><span style="color:var(--accent)">✦</span> Algeria<strong>Tech</strong> Generator BI</div>
       <div class="res-actions">
         <button class="rbtn" id="btn-back">↩ Nouveau document</button>
         <button class="rbtn rbtn-a" id="btn-dl">🔗 Ouvrir</button>
@@ -122,7 +229,7 @@
         <a id="btn-open" class="rbtn rbtn-a" href="#" target="_blank" rel="noopener">🚀 Ouvrir l'infographie</a>
         <a class="rbtn" href="/infographies/" target="_blank">📋 Toutes les infographies</a>
       </div>
-      <p class="res-note">L'infographie est automatiquement ajoutée à votre site dans la section <strong>Infographies</strong>.</p>
+      <p class="res-note">L'infographie est automatiquement ajoutée à votre site dans la section <strong>Infographies</strong> et à l'index interactif.</p>
     </div>
   </div>
 

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e1a"/>
+      <stop offset="100%" style="stop-color:#111729"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#D4A437"/>
+      <stop offset="100%" style="stop-color:#2D8A5F"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="0" y="560" width="1200" height="4" fill="url(#accent)"/>
+  <rect x="80" y="80" width="4" height="80" fill="#D4A437" opacity=".6"/>
+  <text x="104" y="118" font-family="Georgia,serif" font-size="13" fill="#D4A437" letter-spacing="4" opacity=".8" text-transform="uppercase">ALGERIA TECH · INFOGRAPHIE INTERACTIVE</text>
+  <text x="100" y="240" font-family="Georgia,serif" font-size="48" font-style="italic" fill="#f4ede0" font-weight="400">Observatoire du Marché d</text>
+  <text x="100" y="302" font-family="Georgia,serif" font-size="48" font-style="italic" fill="#D4A437" font-weight="400">e la Téléphonie Mobile e</text>
+  <text x="100" y="400" font-family="monospace" font-size="14" fill="#94a3b8" letter-spacing="2">Three.js 3D · Chart.js · Raycaster · Export PDF</text>
+  <circle cx="1060" cy="290" r="120" fill="#D4A437" opacity=".04"/>
+  <circle cx="1060" cy="290" r="80" fill="#D4A437" opacity=".06"/>
+  <circle cx="1060" cy="290" r="45" fill="#D4A437" opacity=".12"/>
+  <circle cx="1060" cy="290" r="18" fill="#D4A437" opacity=".7"/>
+  <text x="100" y="580" font-family="monospace" font-size="12" fill="#64748b">Algeria Tech Generator v3 · 2026</text>
+</svg>

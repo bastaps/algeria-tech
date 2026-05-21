@@ -120,7 +120,7 @@ async function loadArticles() {
         // Garde les articles en cache affichÃ©s â†’ pas de page blanche
         if (allArticles.length === 0) {
             const grid = document.getElementById('newsGrid');
-            if (grid) grid.innerHTML = `<div style="text-align:center; padding:20px; color: #d97706;"><h3>âš ï¸  Connexion lente ou temporaire</h3><p>Les articles rÃ©cents sont toujours visibles. Le serveur se rÃ©veilleâ€¦</p></div>`;
+            if (grid) grid.innerHTML = `<div style="text-align:center; padding:20px; color: #d97706;"><h3>âš ï¸  Connexion lente ou temporaire</h3><p>Les articles rÃ©cents sont toujours visibles. Le serveur se rÃ©veilleâ€¦</p></div>`;
         }
     }
 }
@@ -340,33 +340,81 @@ window.showRevue = function() {
     window.scrollTo({top: 0, behavior: 'smooth'});
 };
 
+let _revueData = null;
+let _revueFilter = 'all';
+
 async function loadRevue() {
     const container = document.getElementById('revueContent');
     const dateEl = document.getElementById('revueLastUpdate');
     if(!container) return;
     try {
-        // Chargement du fichier JSON généré par le robot
-        const res = await fetch('revue_presse.json');
+        const res = await fetch('revue_presse.json?t=' + Date.now());
         if(!res.ok) throw new Error('Revue non disponible');
         const data = await res.json();
-        if(dateEl) dateEl.textContent = `Mise à jour : ${data.date}`;
-        container.innerHTML = `
-            <div class="revue-intro">${data.synthese}</div>
-            <div class="revue-grid">
-                ${data.articles.map(a => `
-                    <div class="revue-card">
-                        <span class="revue-card-tag">${a.categorie}</span>
-                        <h3>${a.titre}</h3>
-                        <p>${a.resume}</p>
-                        <a href="${a.url}" target="_blank" class="revue-card-link">Lire la source <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                `).join('')}
-            </div>
-        `;
+        if(!data.articles || data.articles.length === 0) throw new Error('Données incomplètes');
+
+        _revueData = data;
+        _revueFilter = 'all';
+        if(dateEl) dateEl.textContent = `Édition du ${data.date}`;
+
+        renderRevueCards();
     } catch(e) {
-        container.innerHTML = '<div class="revue-loading"><i class="fas fa-exclamation-triangle"></i><p>La revue de presse sera disponible prochainement (Génération automatique à 06h00).</p></div>';
+        container.innerHTML = '<div class="revue-loading"><i class="fas fa-exclamation-triangle"></i><p>La revue de presse sera disponible prochainement (génération automatique à 06h00).</p></div>';
     }
 }
+
+function renderRevueCards() {
+    const container = document.getElementById('revueContent');
+    if(!container || !_revueData) return;
+
+    const articles = _revueData.articles.filter(a => {
+        if(_revueFilter === 'all') return true;
+        if(_revueFilter === 'DZ') return a.pays === 'DZ';
+        if(_revueFilter === 'FR') return a.pays === 'FR';
+        return a.categorie === _revueFilter;
+    });
+
+    const cats = [...new Set(_revueData.articles.map(a => a.categorie))].sort();
+    const filterBtns = [
+        { key: 'all', label: 'Toutes' },
+        { key: 'DZ',  label: '🇩🇿 Algérie' },
+        { key: 'FR',  label: '🌐 International' },
+        ...cats.map(c => ({ key: c, label: c }))
+    ];
+
+    container.innerHTML = `
+        <div class="revue-intro">${_revueData.synthese}</div>
+        <div class="revue-filters">
+            ${filterBtns.map(f => `
+                <button class="revue-filter-btn${_revueFilter === f.key ? ' active' : ''}"
+                        onclick="setRevueFilter('${f.key}')">${f.label}</button>
+            `).join('')}
+        </div>
+        <p class="revue-count">${articles.length} article${articles.length > 1 ? 's' : ''} · ${_revueData.totalSources || 20} sources surveillées</p>
+        <div class="revue-grid">
+            ${articles.length ? articles.map(a => `
+                <div class="revue-card" data-pays="${a.pays || ''}">
+                    <div class="revue-card-source">
+                        <img class="revue-source-logo" src="${a.logo || ''}" alt="${a.source}" onerror="this.style.display='none'">
+                        <span class="revue-source-name">${a.source}</span>
+                        <span class="revue-pays-badge ${a.pays === 'DZ' ? 'dz' : 'fr'}">${a.pays === 'DZ' ? '🇩🇿 DZ' : '🌐 Intl'}</span>
+                    </div>
+                    <span class="revue-card-tag">${a.categorie}</span>
+                    <h3>${a.titre}</h3>
+                    <p class="revue-accroche">${a.accroche || a.resume}</p>
+                    <a href="${a.url}" target="_blank" rel="noopener" class="revue-card-link">
+                        Lire l'article <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            `).join('') : '<p class="revue-empty">Aucun article pour ce filtre.</p>'}
+        </div>
+    `;
+}
+
+window.setRevueFilter = function(key) {
+    _revueFilter = key;
+    renderRevueCards();
+};
 
 // ===== PAGINATION ET FILTRES =====
 function renderPagination(arts) {
@@ -397,7 +445,7 @@ window.filterByCategory = function(cat, ev) {
     document.getElementById('articlePage').style.display = 'none';
     document.getElementById('veilleSection').style.display = 'none';
     document.getElementById('revueSection').style.display = 'none';
-    // Mise Ã  jour de l'onglet actif dans la navigation
+    // Mise Ã  jour de l'onglet actif dans la navigation
     document.querySelectorAll('.main-nav a').forEach(a => {
         const text = a.innerText.trim();
         a.classList.toggle('active', text === cat || (cat === 'all' && text === 'Accueil'));
@@ -563,7 +611,7 @@ window.submitArticle = async function(e) {
 };
 
 async function deleteArticle() {
-    if (!confirm("âš ï¸  Supprimer dÃ©finitivement cet article ?  ")) return;
+    if (!confirm("âš ï¸  Supprimer dÃ©finitivement cet article ?  ")) return;
     try {
         showToast('â ³ Suppression...');
         const response = await fetch(`${API_BASE}/api/delete-article/${currentEditingId}`, { method: 'DELETE' });
@@ -641,7 +689,7 @@ async function loadVeille() {
         veilleData = await res.json();
         renderVeilleTable();
         if(loader) loader.style.display = 'none';
-    } catch(e) { console.error(e); if(loader) loader.textContent = 'âš ï¸  Impossible de synchroniser la veille.'; }
+    } catch(e) { console.error(e); if(loader) loader.textContent = 'âš ï¸  Impossible de synchroniser la veille.'; }
 }
 
 function renderVeilleTable() {
@@ -719,9 +767,9 @@ async function loadYouTubeVideos() {
         } else if (data.error) {
              let msg = data.error.message;
             if (data.error.code === 403) {
-                msg = "L'accÃ¨s Ã  l'API YouTube est bloquÃ©. VÃ©rifiez que 'YouTube Data API v3' est bien activÃ©e dans votre console Google Cloud.";
+                msg = "L'accÃ¨s Ã  l'API YouTube est bloquÃ©. VÃ©rifiez que 'YouTube Data API v3' est bien activÃ©e dans votre console Google Cloud.";
             }
-            grid.innerHTML = `<p style="text-align:center; padding:20px; color:red;">âš ï¸  ${msg} (Code: ${data.error.code})</p>`;
+            grid.innerHTML = `<p style="text-align:center; padding:20px; color:red;">âš ï¸  ${msg} (Code: ${data.error.code})</p>`;
         } else {
             grid.innerHTML = '<p style="text-align:center; padding:20px;">Aucune vidÃ©o trouvÃ©e sur YouTube.</p>';
         }

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OBSERVATOIRE DU MARCHÉ SYNTHÈSE GÉNÉRÉE PAR IA — Algeria Tech</title>
+<meta name="description" content="Total Abonnés (M) 60,46 Part Mobile (%) 88,72 Part Fixe (%) 11,28">
+<meta name="theme-color" content="#010b18">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,400&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scrollbar-color:#06b6d4 #041524;scrollbar-width:thin}
+html::-webkit-scrollbar{width:6px}html::-webkit-scrollbar-track{background:#041524}html::-webkit-scrollbar-thumb{background:#06b6d4;border-radius:3px}
+body{font-family:'Manrope',sans-serif;line-height:1.65;color:#e0f7ff;background:#010b18;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at top right,rgba(6,182,212,.09),transparent 52%),radial-gradient(ellipse at bottom left,rgba(14,165,233,.06),transparent 52%);z-index:-2;pointer-events:none}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.035 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");opacity:.5;z-index:-1;pointer-events:none;mix-blend-mode:overlay}
+a{color:#06b6d4;text-decoration:none}
+/* Loader */
+#loader{position:fixed;inset:0;z-index:9999;background:#010b18;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.4rem;transition:opacity .6s,visibility .6s}
+#loader.out{opacity:0;visibility:hidden;pointer-events:none}
+.ld-ring{width:52px;height:52px;border:2px solid #082030;border-top-color:#06b6d4;border-radius:50%;animation:spin .85s linear infinite}
+.ld-txt{font-family:'JetBrains Mono',monospace;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:#06b6d4}
+.ld-track{width:180px;height:2px;background:#082030;border-radius:99px;overflow:hidden}
+.ld-fill{height:100%;background:#06b6d4;animation:lfill 1.8s ease-in-out forwards}
+/* Topbar */
+.topbar{position:sticky;top:0;z-index:100;backdrop-filter:blur(20px) saturate(1.4);background:rgba(1,11,24,.88);border-bottom:1px solid rgba(6,182,212,.13);padding:.85rem 2rem}
+.tb-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:.55rem;font-family:'JetBrains Mono',monospace;font-size:.78rem;letter-spacing:.06em;color:#7dd3fc}
+.bmark{width:26px;height:26px;background:#06b6d4;border-radius:5px;display:flex;align-items:center;justify-content:center;color:#010b18;font-weight:700;font-size:.82rem;flex-shrink:0}
+.snav{list-style:none;display:flex;gap:.25rem;flex-wrap:wrap}
+.snav a{font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:#7dd3fc;padding:.28rem .6rem;border-radius:5px;transition:background .2s,color .2s}
+.snav a:hover{background:rgba(6,182,212,.1);color:#e0f7ff}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem 1rem;border-radius:7px;font-family:'Manrope',sans-serif;font-size:.78rem;font-weight:600;cursor:pointer;transition:all .2s;border:1px solid transparent;text-decoration:none}
+.btn-g{background:#06b6d4;color:#010b18;border-color:#06b6d4}
+.btn-g:hover{box-shadow:0 0 22px rgba(6,182,212,.45);transform:translateY(-1px)}
+.btn-gh{background:transparent;color:#7dd3fc;border-color:rgba(6,182,212,.22)}
+.btn-gh:hover{border-color:#06b6d4;color:#e0f7ff}
+/* Layout */
+.wrap{max-width:1280px;margin:0 auto;padding:0 2rem}
+.sec{padding:4.5rem 0}
+.sec-alt{background:#041524}
+.divider{height:1px;background:linear-gradient(to right,transparent,rgba(6,182,212,.2),transparent);margin:0 2rem}
+/* Typo */
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:#06b6d4;display:block;margin-bottom:.7rem}
+.d1{font-family:'Fraunces',Georgia,serif;font-size:clamp(2.6rem,5vw,4.2rem);font-weight:500;line-height:1.06;color:#e0f7ff;margin-bottom:1.4rem}
+.d2{font-family:'Fraunces',Georgia,serif;font-size:clamp(1.5rem,2.8vw,2.2rem);font-weight:500;line-height:1.12;color:#e0f7ff;margin-bottom:.9rem}
+.lead{font-size:1rem;line-height:1.75;color:#7dd3fc;max-width:66ch}
+.gold{color:#06b6d4} .em{color:#0ea5e9} em{color:#06b6d4}
+/* Hero */
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;min-height:calc(100vh - 58px);padding:3rem 0}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr}}
+.hero-3d{position:relative;height:500px;border-radius:18px;overflow:hidden;background:#041524;box-shadow:0 0 80px -20px rgba(6,182,212,.28),0 0 0 1px rgba(6,182,212,.1)}
+#scene3d{width:100%;height:100%}
+.scene-hint{position:absolute;bottom:.9rem;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;color:#7dd3fc;opacity:.5;text-transform:uppercase;pointer-events:none;white-space:nowrap}
+.hero-meta{display:flex;gap:1.4rem;margin-top:1.8rem;flex-wrap:wrap}
+.hm-item{display:flex;flex-direction:column;gap:.18rem}
+.hm-lbl{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:#7dd3fc}
+.hm-val{font-family:'JetBrains Mono',monospace;font-size:1.35rem;font-weight:700;color:#06b6d4}
+/* KPI */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:rgba(6,182,212,.08);border:1px solid rgba(6,182,212,.08);border-radius:14px;overflow:hidden;margin-top:2rem}
+.kpi{padding:1.7rem 1.5rem;background:#041524;position:relative;overflow:hidden;transition:background .2s}
+.kpi::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:#06b6d4;transform:scaleX(0);transition:transform .4s}
+.kpi:hover{background:rgba(6,182,212,.06)}.kpi:hover::after{transform:scaleX(1)}
+.kpi-lbl{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:#7dd3fc;margin-bottom:.55rem}
+.kpi-val{font-family:'JetBrains Mono',monospace;font-size:2.3rem;font-weight:700;color:#06b6d4;line-height:1;letter-spacing:-.03em}
+.kpi-val .u{font-size:.92rem;font-weight:400;color:#06b6d4;opacity:.8;margin-left:.15rem}
+.kpi-tr{margin-top:.4rem;font-size:.72rem;font-family:'JetBrains Mono',monospace;color:#0ea5e9;font-weight:500}
+/* Data blocks */
+.db{background:#041524;border:1px solid rgba(6,182,212,.1);border-radius:14px;padding:1.7rem;box-shadow:0 18px 55px -18px rgba(0,0,0,.4);transition:border-color .2s}
+.db:hover{border-color:rgba(6,182,212,.26)}
+.db-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.3rem}
+.db-hd h3{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:500;color:#e0f7ff}
+.chart-wrap{position:relative;height:270px}
+.chart-wrap.tall{height:330px}
+.chart-wrap.short{height:220px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:1.4rem}
+@media(max-width:700px){.split{grid-template-columns:1fr}}
+/* Tableau */
+.tbl-wrap{overflow-x:auto;margin-top:1.4rem;border-radius:9px;border:1px solid rgba(6,182,212,.08)}
+table{width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:.78rem}
+th{padding:.75rem 1rem;text-align:left;background:rgba(6,182,212,.06);color:#06b6d4;font-weight:500;letter-spacing:.06em;font-size:.68rem;text-transform:uppercase;border-bottom:1px solid rgba(6,182,212,.1)}
+td{padding:.65rem 1rem;color:#7dd3fc;border-bottom:1px solid rgba(255,255,255,.04)}
+td.n{text-align:right;color:#e0f7ff;font-weight:500}
+tr:hover td{background:rgba(6,182,212,.04)} tr:last-child td{border-bottom:none}
+/* Findings */
+.fl{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:.9rem;margin-top:1.4rem}
+.fi{display:flex;align-items:flex-start;gap:.85rem;padding:1rem 1.2rem;background:#041524;border:1px solid rgba(6,182,212,.08);border-radius:11px;transition:border-color .2s,transform .18s}
+.fi:hover{border-color:rgba(6,182,212,.3);transform:translateX(4px)}
+.fi-bul{color:#06b6d4;font-size:.82rem;flex-shrink:0;margin-top:.1rem}
+.fi-txt{font-size:.86rem;line-height:1.65;color:#7dd3fc}
+/* Thème badge */
+.tbadge{display:inline-flex;align-items:center;gap:.35rem;font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:#06b6d4;border:1px solid rgba(6,182,212,.22);padding:.22rem .65rem;border-radius:99px;background:rgba(6,182,212,.06);margin-bottom:.9rem}
+/* Footer */
+footer{padding:2.2rem 2rem;border-top:1px solid rgba(6,182,212,.1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;background:#041524}
+.ft-brand{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#7dd3fc}
+.ft-brand strong{color:#06b6d4}
+/* Reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.rv.on{opacity:1;transform:none}
+/* Animations */
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes lfill{0%{width:0}75%{width:88%}100%{width:100%}}
+</style>
+</head>
+<body>
+
+<div id="loader"><div class="ld-ring"></div><div class="ld-txt">Algeria Tech Generator</div><div class="ld-track"><div class="ld-fill"></div></div></div>
+
+<header class="topbar">
+  <div class="tb-inner">
+    <div class="brand"><div class="bmark">✦</div><span>Algeria<strong style="color:#06b6d4">Tech</strong> Generator</span></div>
+    <nav><ul class="snav"><li><a href="#hero">Accueil</a></li><li><a href="#kpis">Indicateurs</a></li><li><a href="#graphiques">Graphiques</a></li><li><a href="#distribution">Distribution</a></li><li><a href="#synthese">Synthèse</a></li></ul></nav>
+    <div style="display:flex;gap:.5rem;flex-shrink:0">
+      <button class="btn btn-gh" onclick="window.close()||history.back()">← Retour</button>
+      <button id="btnpdf" class="btn btn-g" onclick="exportPDF()">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        PDF
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="mc">
+
+<!-- ══ HERO ══════════════════════════════════════════════════════════════════ -->
+<section class="sec sec-alt" id="hero">
+  <div class="wrap hero-grid">
+    <div class="rv">
+      <span class="eyebrow">Source · Rapport IA Final</span>
+      <div class="tbadge">✦ Thème Océan Profond</div>
+      <h1 class="d1">OBSERVATOIRE DU MARCHÉ SYNTHÈSE GÉNÉRÉE PAR IA</h1>
+      <p class="lead">Total Abonnés (M) 60,46 Part Mobile (%) 88,72 Part Fixe (%) 11,28</p>
+      <div class="hero-meta">
+        
+        <div class="hm-item">
+          <span class="hm-lbl">Période</span>
+          <span class="hm-val" style="font-size:.95rem;color:#7dd3fc">2026</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-3d rv" style="transition-delay:.18s">
+      <div id="scene3d" aria-label="Constellation 3D — fonction IA et données"></div>
+      <div class="scene-hint">Glisser · Zoomer · Explorer</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ KPIs ══════════════════════════════════════════════════════════════════ -->
+<section class="sec" id="kpis">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">01 · Vue d'ensemble</span>
+      <h2 class="d2">Les chiffres clés</h2>
+      <p class="lead">Indicateurs extraits et analysés depuis <em>Rapport IA Final</em>.</p>
+    </div>
+    <div class="kpi-grid"></div>
+    
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ GRAPHIQUE PRINCIPAL ═══════════════════════════════════════════════════ -->
+<section class="sec sec-alt" id="graphiques">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">02 · Analyse des données</span>
+      <h2 class="d2">Tendance estimée</h2>
+      <p class="lead">Visualisation des valeurs identifiées dans le document.</p>
+    </div>
+    <div class="db rv" style="margin-top:1.5rem">
+      <div class="db-hd"><h3>Tendance estimée</h3></div>
+      <div class="chart-wrap tall"><canvas id="chart-main"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══ DISTRIBUTIONS ═════════════════════════════════════════════════════════ -->
+<section class="sec" id="distribution">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">03 · Répartitions</span>
+      <h2 class="d2">Analyse de distribution</h2>
+      <p class="lead">Décomposition des indicateurs extraits du document.</p>
+    </div>
+    <div class="split">
+      <div class="db rv">
+        <div class="db-hd"><h3>Répartition</h3></div>
+        <div class="chart-wrap"><canvas id="chart-d1"></canvas></div>
+      </div>
+      <div class="db rv" style="transition-delay:.1s">
+        <div class="db-hd"><h3>Bilan</h3></div>
+        <div class="chart-wrap"><canvas id="chart-d2"></canvas></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<div class="divider"></div>
+<section class="sec sec-alt" id="evolution">
+  <div class="wrap">
+    <div class="rv"><span class="eyebrow">04 · Évolution temporelle</span>
+    <h2 class="d2">Tendance générale</h2>
+    <p class="lead" style="margin-bottom:1.5rem">Analyse de la tendance sur la période identifiée dans le document.</p></div>
+    <div class="db rv">
+      <div class="db-hd"><h3>Courbe d'évolution + moyenne mobile</h3></div>
+      <div class="chart-wrap tall"><canvas id="chart-line"></canvas></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="sec" id="synthese">
+  <div class="wrap">
+    <div class="rv"><span class="eyebrow">Synthèse · Points clés</span>
+    <h2 class="d2">Éléments essentiels du document</h2>
+    <p class="lead" style="margin-bottom:1.4rem">Extraits automatiquement à partir du document source.</p></div>
+    <div class="fl">
+    <div class="fi rv" style="transition-delay:0s"><span class="fi-bul">✦</span><span class="fi-txt">Total Abonnés (M) 60,46 Part Mobile (%) 88,72 Part Fixe (%) 11,28</span></div>
+    </div>
+  </div>
+</section><div class="divider"></div>
+
+
+<section class="sec sec-alt">
+  <div class="wrap"><div class="db rv">
+    <div class="db-hd"><h3>OBSERVATOIRE DU MARCHÉ SYNTHÈSE GÉNÉRÉE PAR IA</h3></div>
+    <p style="font-size:.9rem;line-height:1.78;color:#7dd3fc">Total Abonnés (M) 60,46 Part Mobile (%) 88,72 Part Fixe (%) 11,28 Visualisation des Parts de Marché</p>
+  </div></div>
+</section><div class="divider"></div>
+
+</div><!-- /#mc -->
+
+<footer>
+  <div class="ft-brand">Généré par <strong>Algeria Tech Generator</strong> · Thème Océan Profond · 20 mai 2026</div>
+  <button class="btn btn-g" onclick="exportPDF()">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Exporter PDF
+  </button>
+</footer>
+
+<script type="module">
+import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
+import { OrbitControls } from 'https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js';
+
+(function initScene3D(){
+  const cont = document.getElementById('scene3d');
+  if(!cont) return;
+  const W=cont.clientWidth, H=cont.clientHeight;
+
+  const scene  = new THREE.Scene();
+  scene.fog    = new THREE.FogExp2("#010b18", 0.038);
+
+  const cam    = new THREE.PerspectiveCamera(50, W/H, 0.1, 100);
+  cam.position.set(0, 2, 13);
+
+  const rend   = new THREE.WebGLRenderer({antialias:true, alpha:true, powerPreference:'high-performance'});
+  rend.setSize(W,H);
+  rend.setPixelRatio(Math.min(devicePixelRatio,2));
+  rend.setClearColor(0,0);
+  cont.appendChild(rend.domElement);
+
+  /* Lumières */
+  scene.add(new THREE.AmbientLight(0xffffff,.22));
+  const lA=new THREE.PointLight(440020,3.0,38); lA.position.set(5,5,6);   scene.add(lA);
+  const lB=new THREE.PointLight(959977,2.0,30); lB.position.set(-6,-3,5); scene.add(lB);
+  const lC=new THREE.PointLight(3718648,1.2,24); lC.position.set(0,7,-4);  scene.add(lC);
+
+  /* Cristal icosaèdre — cœur du marché */
+  const cGeo = new THREE.IcosahedronGeometry(2.0,2);
+  scene.add(new THREE.Mesh(cGeo, new THREE.MeshStandardMaterial({color:440020,metalness:.75,roughness:.18,transparent:true,opacity:.16})));
+  const wire = new THREE.Mesh(new THREE.IcosahedronGeometry(2.06,2),
+    new THREE.MeshBasicMaterial({color:440020,wireframe:true,transparent:true,opacity:.38}));
+  scene.add(wire);
+
+  /* Anneau orbital */
+  const ring=new THREE.Mesh(new THREE.TorusGeometry(5.2,.045,6,80),
+    new THREE.MeshBasicMaterial({color:440020,transparent:true,opacity:.14}));
+  ring.rotation.x=Math.PI*.34; scene.add(ring);
+
+  /* 3 orbes (opérateurs / segments) */
+  const orbCfg=[
+    {r:5.0,spd:.44,phi:0,           sz:.62,col:440020},
+    {r:6.8,spd:.28,phi:Math.PI*.66, sz:.48,col:959977},
+    {r:8.4,spd:.18,phi:Math.PI*1.3, sz:.38,col:3718648}
+  ];
+  const orbs=orbCfg.map(o=>{
+    const m=new THREE.Mesh(new THREE.SphereGeometry(o.sz,14,14),
+      new THREE.MeshStandardMaterial({color:o.col,emissive:o.col,emissiveIntensity:.45,metalness:.55,roughness:.3}));
+    scene.add(m); return {...o,mesh:m};
+  });
+
+  /* Lignes cristal→orbes */
+  const lMat=new THREE.LineBasicMaterial({color:440020,transparent:true,opacity:.16});
+  const connLines=orbs.map(()=>{
+    const g=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(),new THREE.Vector3()]);
+    const l=new THREE.Line(g,lMat.clone()); scene.add(l); return l;
+  });
+
+  /* Champ de particules */
+  const N=2000, pp=new Float32Array(N*3), pc=new Float32Array(N*3);
+  const c1=new THREE.Color(440020), c2=new THREE.Color(959977);
+  for(let i=0;i<N;i++){
+    pp[i*3]=(Math.random()-.5)*55; pp[i*3+1]=(Math.random()-.5)*55; pp[i*3+2]=(Math.random()-.5)*35-5;
+    const mx=Math.random(); pc[i*3]=c1.r+(c2.r-c1.r)*mx; pc[i*3+1]=c1.g+(c2.g-c1.g)*mx; pc[i*3+2]=c1.b+(c2.b-c1.b)*mx;
+  }
+  const pG=new THREE.BufferGeometry();
+  pG.setAttribute('position',new THREE.BufferAttribute(pp,3));
+  pG.setAttribute('color',   new THREE.BufferAttribute(pc,3));
+  scene.add(new THREE.Points(pG,new THREE.PointsMaterial({size:.1,vertexColors:true,transparent:true,opacity:.58})));
+
+  /* Surface mathématique (fonction IA) — grille sinusoïdale */
+  const gRes=40, gSize=12;
+  const gVerts=new Float32Array((gRes+1)*(gRes+1)*3);
+  let vi=0;
+  for(let iy=0;iy<=gRes;iy++) for(let ix=0;ix<=gRes;ix++){
+    const x=(ix/gRes-.5)*gSize, z=(iy/gRes-.5)*gSize;
+    const y=Math.sin(x*1.1)*Math.cos(z*1.1)*.55+Math.sin(x*2.3+1.2)*Math.cos(z*1.7)*.25;
+    gVerts[vi++]=x; gVerts[vi++]=y-4; gVerts[vi++]=z;
+  }
+  const gIdx=[];
+  for(let iy=0;iy<gRes;iy++) for(let ix=0;ix<gRes;ix++){
+    const a=iy*(gRes+1)+ix;
+    gIdx.push(a,a+1,a+gRes+1, a+1,a+gRes+2,a+gRes+1);
+  }
+  const fGeo=new THREE.BufferGeometry();
+  fGeo.setAttribute('position',new THREE.BufferAttribute(gVerts,3));
+  fGeo.setIndex(gIdx);
+  fGeo.computeVertexNormals();
+  scene.add(new THREE.Mesh(fGeo,new THREE.MeshStandardMaterial({color:959977,wireframe:true,transparent:true,opacity:.1})));
+
+  /* OrbitControls */
+  const ctrl=new OrbitControls(cam,rend.domElement);
+  ctrl.enableDamping=true; ctrl.dampingFactor=.06;
+  ctrl.minDistance=5; ctrl.maxDistance=22;
+  ctrl.autoRotate=true; ctrl.autoRotateSpeed=.65;
+
+  /* Resize */
+  new ResizeObserver(()=>{
+    const w=cont.clientWidth,h=cont.clientHeight;
+    rend.setSize(w,h); cam.aspect=w/h; cam.updateProjectionMatrix();
+  }).observe(cont);
+
+  /* Boucle */
+  let tick=0;
+  (function loop(){
+    requestAnimationFrame(loop); tick+=.008;
+    wire.rotation.y+=.003; wire.rotation.x+=.001;
+    orbs.forEach((o,i)=>{
+      o.phi+=o.spd*.01;
+      o.mesh.position.set(Math.cos(o.phi)*o.r, Math.sin(o.phi*.7)*2, Math.sin(o.phi)*o.r*.54);
+      connLines[i].geometry.setFromPoints([new THREE.Vector3(0,0,0),o.mesh.position.clone()]);
+    });
+    ring.rotation.z+=.0018;
+    ctrl.update();
+    rend.render(scene,cam);
+  })();
+})();
+</script>
+<script>
+/* ── Thème Chart.js ─────────────────────────────────────────────────────── */
+function chartTheme(){
+  if(!window.Chart) return;
+  Chart.defaults.font.family="'Manrope',sans-serif";
+  Chart.defaults.font.size=12;
+  Chart.defaults.color='#7dd3fc';
+  Chart.defaults.borderColor='rgba(255,255,255,0.04)';
+  Chart.defaults.plugins.legend.labels.color='#e0f7ff';
+  Chart.defaults.plugins.legend.labels.font={family:"'JetBrains Mono',monospace",size:10};
+  Chart.defaults.plugins.tooltip.backgroundColor='rgba(1,11,24,.95)';
+  Chart.defaults.plugins.tooltip.titleColor='#06b6d4';
+  Chart.defaults.plugins.tooltip.bodyColor='#e0f7ff';
+  Chart.defaults.plugins.tooltip.borderColor='rgba(6,182,212,.35)';
+  Chart.defaults.plugins.tooltip.borderWidth=1;
+  Chart.defaults.plugins.tooltip.padding=12;
+  Chart.defaults.plugins.tooltip.cornerRadius=8;
+}
+
+/* ── Graphique principal ─────────────────────────────────────────────────── */
+function initMain(){
+  const ctx=document.getElementById('chart-main');
+  if(!ctx||!window.Chart) return;
+  const pal=["#06b6d4","#38bdf8","#0ea5e9","#7dd3fc","#0284c7","#bae6fd"];
+  new Chart(ctx,{
+    type:'bar',
+    data:{
+      labels:["T3-2024","T4-2024","T1-2025","T2-2025","T3-2025"],
+      datasets:[{
+        label:"Tendance estimée",
+        data:[50.6,51.3,51.7,52.4,53.6],
+        backgroundColor:["T3-2024","T4-2024","T1-2025","T2-2025","T3-2025"].map((_,i)=>pal[i%pal.length]+'bb'),
+        borderColor:     ["T3-2024","T4-2024","T1-2025","T2-2025","T3-2025"].map((_,i)=>pal[i%pal.length]),
+        borderWidth:1, borderRadius:7,
+        hoverBackgroundColor:["T3-2024","T4-2024","T1-2025","T2-2025","T3-2025"].map((_,i)=>pal[i%pal.length]),
+      }]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:false}},
+      scales:{x:{grid:{color:"rgba(255,255,255,0.04)"},ticks:{color:"#7dd3fc"}},y:{grid:{color:"rgba(255,255,255,0.04)"},ticks:{color:"#7dd3fc"}}},
+      animation:{duration:1200,easing:'easeOutQuart'}
+    }
+  });
+}
+
+/* ── Donut 1 ─────────────────────────────────────────────────────────────── */
+function initD1(){
+  const ctx=document.getElementById('chart-d1');
+  if(!ctx||!window.Chart) return;
+  const pal=["#06b6d4","#38bdf8","#0ea5e9","#7dd3fc","#0284c7","#bae6fd"];
+  new Chart(ctx,{
+    type:'doughnut',
+    data:{labels:["Mobile 4G","Internet fixe","FTTH","ADSL"],datasets:[{data:[88.7,11.3,37.6,32.3],backgroundColor:pal.slice(0,["Mobile 4G","Internet fixe","FTTH","ADSL"].length),borderColor:'#041524',borderWidth:3,hoverOffset:8}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'60%',
+      plugins:{legend:{position:'bottom',labels:{padding:12,font:{size:10}}}},
+      animation:{duration:1100,easing:'easeOutQuart'}}
+  });
+}
+
+/* ── Donut 2 ─────────────────────────────────────────────────────────────── */
+function initD2(){
+  const ctx=document.getElementById('chart-d2');
+  if(!ctx||!window.Chart) return;
+  const pal=["#06b6d4","#38bdf8","#0ea5e9","#7dd3fc","#0284c7","#bae6fd"];
+  new Chart(ctx,{
+    type:'doughnut',
+    data:{labels:["Couverture 4G","Non couvert"],datasets:[{data:[98,2],backgroundColor:pal.slice(0,["Couverture 4G","Non couvert"].length),borderColor:'#041524',borderWidth:3,hoverOffset:8}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'60%',
+      plugins:{legend:{position:'bottom',labels:{padding:12,font:{size:10}}}},
+      animation:{duration:1100,easing:'easeOutQuart'}}
+  });
+}
+
+
+/* ── Courbe d'évolution ──────────────────────────────────────────────────── */
+function initLine(){
+  const ctx=document.getElementById('chart-line');
+  if(!ctx||!window.Chart) return;
+  const vals=[50.6,53.87,57,60.66,65.15];
+  const avg=vals.reduce((a,b)=>a+b,0)/vals.length;
+  new Chart(ctx,{
+    type:'line',
+    data:{
+      labels:["T3-2024","T4-2024","T1-2025","T2-2025","T3-2025"],
+      datasets:[
+        {label:"Tendance générale",data:vals,
+         borderColor:'#06b6d4',backgroundColor:'rgba(6,182,212,.08)',
+         tension:.35,pointRadius:5,pointBackgroundColor:'#06b6d4',
+         pointBorderColor:'#010b18',pointBorderWidth:2,fill:true},
+        {label:'Moyenne',data:vals.map(()=>avg),
+         borderColor:'rgba(14,165,233,.5)',borderDash:[5,3],
+         tension:0,pointRadius:0,fill:false,borderWidth:1.5}
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:true}},
+      scales:{x:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#7dd3fc'}},
+              y:{grid:{color:'rgba(255,255,255,0.04)'},ticks:{color:'#7dd3fc'}}},
+      animation:{duration:1300,easing:'easeOutQuart'}
+    }
+  });
+}
+
+/* ── Compteurs animés ────────────────────────────────────────────────────── */
+function counters(){
+  document.querySelectorAll('.cnt[data-t]').forEach(el=>{
+    const tg=parseFloat(el.dataset.t)||0;
+    const dc=parseInt(el.dataset.dc)||0;
+    if(!tg) return;
+    const dur=1800, t0=performance.now();
+    (function tick(now){
+      const p=Math.min((now-t0)/dur,1);
+      const e=1-Math.pow(1-p,3);
+      const v=tg*e;
+      el.textContent=(dc>0?v.toFixed(dc):Math.round(v)).toLocaleString('fr-FR');
+      if(p<1) requestAnimationFrame(tick);
+    })(performance.now());
+  });
+}
+
+/* ── Reveal au scroll ────────────────────────────────────────────────────── */
+function reveal(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach((e,i)=>{ if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('on'),i*65); obs.unobserve(e.target); } });
+  },{threshold:.1,rootMargin:'0px 0px -35px 0px'});
+  document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+}
+
+/* ── Export PDF ──────────────────────────────────────────────────────────── */
+window.exportPDF=async function(){
+  const btn=document.getElementById('btnpdf');
+  if(btn){btn.textContent='⏳…';btn.disabled=true}
+  try{
+    const {jsPDF}=window.jspdf;
+    const el=document.getElementById('mc');
+    const cv=await html2canvas(el,{scale:1.4,useCORS:true,backgroundColor:'#010b18'});
+    const img=cv.toDataURL('image/jpeg',.9);
+    const pdf=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
+    const pw=pdf.internal.pageSize.getWidth();
+    const ph=cv.height*pw/cv.width;
+    const pg=pdf.internal.pageSize.getHeight();
+    let y=0;
+    while(y<ph){if(y>0)pdf.addPage();pdf.addImage(img,'JPEG',0,-y,pw,ph);y+=pg;}
+    pdf.save('algeria-tech-rapport.pdf');
+  }catch(e){alert('Export PDF : '+e.message);}
+  finally{if(btn){btn.textContent='PDF';btn.disabled=false}}
+};
+
+/* ── Loader ──────────────────────────────────────────────────────────────── */
+function hideLoader(){ setTimeout(()=>{ const l=document.getElementById('loader'); if(l)l.classList.add('out'); },1300); }
+
+/* ── Init ────────────────────────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded',()=>{
+  chartTheme(); initMain(); initD1(); initD2();
+  initLine();
+  counters(); reveal(); hideLoader();
+});
+</script>
+</body>
+</html>

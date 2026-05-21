@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Observatoire du Marché de la Téléphonie Fixe en Algérie — T3 2025 · Algeria Tech</title>
+  <meta name="description" content="Synthèse interactive du marché de la téléphonie fixe en Algérie — T3 2025 : 7,5 millions d'abonnés, part résidentielle 92,85 %, taux de pénétration 66,12 %. Source ARPCE.">
+  <meta name="theme-color" content="#0a0e1a">
+  <meta property="og:title" content="Observatoire du Marché de la Téléphonie Fixe en Algérie — T3 2025">
+  <meta property="og:description" content="7,5 millions d'abonnés · 92,85 % résidentiels · Taux de pénétration 66,12 % · Source ARPCE">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
+  <!-- Fallback : masque le loader après 6s même si les modules ES échouent -->
+  <script>setTimeout(function(){var l=document.getElementById('loader');if(l&&!l.classList.contains('hidden'))l.classList.add('hidden');},6000);</script>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader" role="status">
+  <div class="loader-content">
+    <div class="loader-mark"></div>
+    <div class="loader-text">Algeria Tech · Télécommunications</div>
+    <div class="loader-bar"></div>
+  </div>
+</div>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a href="/infographies/" class="brand">
+      <span class="brand-mark">A</span>
+      <span><em>Algeria Tech</em> · Télécommunications</span>
+    </a>
+    <nav aria-label="Sections">
+      <ul class="section-nav">
+        <li><a href="#vue-ensemble">Vue d'ensemble</a></li>
+        <li><a href="#indicateurs">Indicateurs</a></li>
+        <li><a href="#repartition">Répartition</a></li>
+        <li><a href="#analyse">Analyse</a></li>
+        <li><a href="#synthese">Synthèse</a></li>
+      </ul>
+    </nav>
+    <div class="topbar-actions">
+      <button id="btn-share" class="btn btn-ghost" aria-label="Partager">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      </button>
+      <button id="btn-export-pdf" class="btn btn-gold">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        PDF
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="mc">
+
+<!-- ── HERO ── -->
+<section class="section hero" id="hero">
+  <div class="container hero" style="padding-top:0">
+    <div class="hero-content reveal" style="text-align:center">
+      <span class="eyebrow">ARPCE · T3 2025 — Algérie</span>
+      <h1 class="display-1">
+        OBSERVATOIRE DU MARCHÉ<br>
+        <em class="gold">DE LA TÉLÉPHONIE FIXE EN ALGÉRIE</em>
+      </h1>
+      <p class="lead">Synthèse interactive des indicateurs clés du marché fixe algérien au 3<sup>e</sup> trimestre 2025 — <strong>7,5 millions d'abonnés</strong>, dominé à 92,85 % par le segment résidentiel, avec un taux de pénétration de 66,12 %. Source&nbsp;: ARPCE.</p>
+      <div class="hero-meta" style="justify-content:center">
+        <div class="hero-meta-item">
+        <span class="hero-meta-label">Total des abonnés</span>
+        <span class="hero-meta-value">
+          <span class="counter" data-target="7501156" data-decimals="0">0</span>
+          <small style="font-size:.7em;opacity:.7"> abonnés</small>
+        </span>
+      </div><div class="hero-meta-item">
+        <span class="hero-meta-label">Abonnés résidentiels</span>
+        <span class="hero-meta-value">
+          <span class="counter" data-target="6964516" data-decimals="0">0</span>
+          <small style="font-size:.7em;opacity:.7"> abonnés</small>
+        </span>
+      </div><div class="hero-meta-item">
+        <span class="hero-meta-label">Abonnés professionnels</span>
+        <span class="hero-meta-value">
+          <span class="counter" data-target="536640" data-decimals="0">0</span>
+          <small style="font-size:.7em;opacity:.7"> abonnés</small>
+        </span>
+      </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Période</span>
+          <span class="hero-meta-value">T3 2025</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Source</span>
+          <span class="hero-meta-value">ARPCE</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div id="scene3d" class="scene3d-container"></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ── VUE D'ENSEMBLE (KPIs) ── -->
+<section class="section" id="vue-ensemble">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">01 · Vue d'ensemble</span>
+      <h2 class="display-2">Indicateurs <span class="gold">clés</span></h2>
+      <p class="lead">Au T3 2025, le marché fixe algérien totalise <strong>7 501 156 abonnés</strong>, avec une structure dominée à <strong>92,85 %</strong> par le segment résidentiel. Le taux de pénétration résidentielle s'établit à <strong>66,12 %</strong>, traduisant une couverture avancée des foyers par Algérie Télécom.</p>
+    </div>
+    <div class="kpi-grid">
+      
+      <div class="kpi-card reveal" style="transition-delay:0s">
+        <div class="kpi-icon">☎️</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="7501156" data-decimals="0">7,50 M</span>
+          <span class="kpi-unit">abonnés</span>
+        </div>
+        <div class="kpi-label">Total abonnés fixe</div>
+
+      </div>
+      <div class="kpi-card reveal" style="transition-delay:0.08s">
+        <div class="kpi-icon">🏠</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="6964516" data-decimals="0">6,96 M</span>
+          <span class="kpi-unit">abonnés</span>
+        </div>
+        <div class="kpi-label">Abonnés résidentiels</div>
+
+      </div>
+      <div class="kpi-card reveal" style="transition-delay:0.16s">
+        <div class="kpi-icon">🏢</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="536640" data-decimals="0">536 640</span>
+          <span class="kpi-unit">abonnés</span>
+        </div>
+        <div class="kpi-label">Abonnés professionnels</div>
+
+      </div>
+      <div class="kpi-card reveal" style="transition-delay:0.24s">
+        <div class="kpi-icon">📊</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="92.85" data-decimals="2">92,85</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">Part résidentielle</div>
+        <div class="kpi-trend">▲ Segment dominant</div>
+      </div>
+      <div class="kpi-card reveal" style="transition-delay:0.32s">
+        <div class="kpi-icon">📊</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="7.15" data-decimals="2">7,15</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">Part professionnelle</div>
+
+      </div>
+      <div class="kpi-card reveal" style="transition-delay:0.4s">
+        <div class="kpi-icon">📡</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="66.12" data-decimals="2">66,12</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">Taux de pénétration</div>
+        <div class="kpi-trend">→ Résidentielle</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ── INDICATEURS (barres + comparatif) ── -->
+<section class="section section-alt" id="indicateurs">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">02 · Analyse</span>
+      <h2 class="display-2">Indicateurs <em class="gold">détaillés</em></h2>
+      <p class="lead">L'analyse des valeurs absolues révèle un parc résidentiel de <strong>6 964 516 lignes</strong> contre <strong>536 640 lignes professionnelles</strong>. Ce ratio de 13 pour 1 caractérise un marché encore peu digitalisé côté entreprises, offrant un gisement pour les services PABX-IP et la convergence fixe-mobile.</p>
+    </div>
+    <div class="charts-row charts-2col">
+      <div class="chart-card reveal">
+        <h3 class="chart-title">Valeurs par indicateur</h3>
+        <div class="chart-wrap tall"><canvas id="chart-indicateurs"></canvas></div>
+      </div>
+      <div class="chart-card reveal" style="transition-delay:.1s">
+        <h3 class="chart-title">Analyse comparative</h3>
+        <div class="chart-wrap tall"><canvas id="chart-comparatif"></canvas></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+<!-- ── STRUCTURE DU PARC ── -->
+<section class="section" id="evolution">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">03 · Structure du parc</span>
+      <h2 class="display-2">Composition <span class="gold">T3 2025</span></h2>
+      <p class="lead">Le parc total de <strong>7 501 156 abonnés</strong> se décompose en <strong>6 964 516 résidentiels</strong> (92,85 %) et <strong>536 640 professionnels</strong> (7,15 %). Cette répartition stable depuis plusieurs trimestres reflète la priorité accordée par Algérie Télécom à la connectivité des ménages dans le cadre de la stratégie nationale haut débit.</p>
+    </div>
+    <div class="chart-card chart-wide reveal">
+      <h3 class="chart-title">Volume d'abonnés par segment (T3 2025)</h3>
+      <div class="chart-wrap tall"><canvas id="chart-evolution"></canvas></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+<!-- ── REPARTITION ── -->
+<section class="section section-alt" id="repartition">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">04 · Répartition</span>
+      <h2 class="display-2">Distribution <em class="gold">relative</em></h2>
+      <p class="lead">La répartition résidentiel / professionnel (92,85 % / 7,15 %) place l'Algérie dans un profil typique des marchés en transition numérique. Avec seulement 7 abonnés professionnels pour 100 abonnés résidentiels, le segment entreprise constitue le principal levier de croissance qualitative du fixe algérien.</p>
+    </div>
+    <div class="charts-row charts-2col">
+      <div class="chart-card reveal">
+        <h3 class="chart-title">Répartition en proportions</h3>
+        <div class="chart-wrap"><canvas id="chart-repartition"></canvas></div>
+      </div>
+      <div class="chart-card reveal" style="transition-delay:.1s">
+        <h3 class="chart-title">Indicateur dominant</h3>
+        <div class="chart-wrap"><canvas id="chart-distribution"></canvas></div>
+      </div>
+    </div>
+    <div class="chart-card chart-wide reveal" style="margin-top:1.5rem">
+      <h3 class="chart-title">Barres comparatives</h3>
+      <div class="chart-wrap"><canvas id="chart-barh"></canvas></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+<!-- ── POINTS CLÉS ── -->
+<section class="section" id="analyse">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">05 · Analyse</span>
+      <h2 class="display-2">Éléments <em class="gold">essentiels</em></h2>
+      <p class="lead">Enseignements clés tirés de l'Observatoire ARPCE T3 2025.</p>
+    </div>
+    <div class="findings-grid">
+      <div class="finding-item reveal" style="transition-delay:0s">
+        <span class="finding-bullet">✦</span>
+        <span>Le marché algérien de la téléphonie fixe atteint <strong>7 501 156 abonnés</strong> au T3 2025, confirmant la résilience du fixe face à la concurrence du mobile.</span>
+      </div>
+      <div class="finding-item reveal" style="transition-delay:0.07s">
+        <span class="finding-bullet">✦</span>
+        <span>La structure du parc est à très forte dominante résidentielle : <strong>92,85 %</strong> des lignes appartiennent à des particuliers (6 964 516 abonnés), soit 9 abonnés sur 10.</span>
+      </div>
+      <div class="finding-item reveal" style="transition-delay:0.14s">
+        <span class="finding-bullet">✦</span>
+        <span>Le segment professionnel reste sous-représenté avec <strong>7,15 %</strong> du parc (536 640 abonnés), inférieur aux standards régionaux pour un marché de cette taille.</span>
+      </div>
+      <div class="finding-item reveal" style="transition-delay:0.21s">
+        <span class="finding-bullet">✦</span>
+        <span>Le taux de pénétration résidentielle de <strong>66,12 %</strong> positionne l'Algérie dans la moyenne des marchés en transition numérique, avec un potentiel de croissance résiduel.</span>
+      </div>
+      <div class="finding-item reveal" style="transition-delay:0.28s">
+        <span class="finding-bullet">✦</span>
+        <span>La migration progressive vers la fibre optique (FTTH/FTTB) constitue le principal vecteur de modernisation et de croissance du réseau fixe algérien.</span>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+
+<!-- ── SYNTHESE ── -->
+<section class="section section-alt" id="synthese">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Conclusions</span>
+      <h2 class="display-2">Synthèse <span class="gold">finale</span></h2>
+    </div>
+    <div class="synth-grid">
+      <div class="synth-card reveal" style="transition-delay:0s">
+        <div class="synth-chiffre">
+          <span class="counter" data-target="7501156" data-decimals="0">0</span>
+          <small> abonnés</small>
+        </div>
+        <div class="synth-label">Marché en consolidation</div>
+        <p class="synth-desc">Le parc fixe algérien atteint 7,5 millions d'abonnés au T3 2025. Cette base solide témoigne de la résilience du fixe dans un marché dominé par le mobile, soutenue par les déploiements FTTH et la politique de couverture universelle portée par l'ARPCE.</p>
+      </div>
+      <div class="synth-card reveal" style="transition-delay:0.1s">
+        <div class="synth-chiffre">
+          <span class="counter" data-target="92.85" data-decimals="2">0</span>
+          <small>%</small>
+        </div>
+        <div class="synth-label">Dominance résidentielle</div>
+        <p class="synth-desc">9 abonnés sur 10 sont des particuliers. Cette concentration structurelle sur le grand public illustre la priorité accordée à la connectivité des foyers. Les 6 964 516 abonnés résidentiels constituent le socle du marché fixe algérien.</p>
+      </div>
+      <div class="synth-card reveal" style="transition-delay:0.2s">
+        <div class="synth-chiffre">
+          <span class="counter" data-target="7.15" data-decimals="2">0</span>
+          <small>%</small>
+        </div>
+        <div class="synth-label">Potentiel professionnel</div>
+        <p class="synth-desc">Avec 536 640 abonnés professionnels, le segment entreprise représente un gisement de croissance. Ce ratio, inférieur aux standards régionaux, révèle un potentiel dans les services dédiés : lignes PABX-IP, groupements téléphoniques et convergence fixe-mobile.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>
+      <div class="footer-brand"><span class="footer-mark">✦</span> Algeria<em>Tech</em></div>
+      <p class="footer-copy">Infographie générée par Algeria Tech Generator · 2026</p>
+    </div>
+    <div class="footer-meta">
+      <span>Source : ARPCE — Algérie</span>
+      <span>Période : T3 2025</span>
+      <span>Téléphonie Fixe</span>
+    </div>
+    <div class="footer-actions">
+      <button id="btn-export-json" class="btn btn-ghost" style="font-size:.78rem">JSON</button>
+      <button onclick="exportCSV&&exportCSV()" class="btn btn-ghost" style="font-size:.78rem">CSV</button>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<!-- FAB -->
+<div class="fab-stack">
+  <button id="fab-top" class="fab" title="Haut de page" aria-label="Haut de page">↑</button>
+  <button id="fab-fullscreen" class="fab" title="Plein écran" aria-label="Plein écran">⛶</button>
+</div>
+
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
