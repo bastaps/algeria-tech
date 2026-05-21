@@ -1,3 +1,19 @@
+// ===== MENU MOBILE =====
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('mobileMenuOverlay');
+    const isOpen = menu.classList.contains('open');
+    if (isOpen) {
+        menu.classList.remove('open');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    } else {
+        menu.classList.add('open');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
 // ===== CONFIGURATION GLOBALE =====
 let allArticles = [];
 const ITEMS_PER_PAGE = 6;

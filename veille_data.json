@@ -3,14 +3,38 @@
   "feed": [
     {
       "id": "aHR0cHM6Ly90ZWNo",
-      "title": "This young startup is taking on a fragrance industry that hasn’t changed in a almost half century",
+      "title": "Convective Capital raises an $85 million fund to build disaster resilience",
+      "url": "https://techcrunch.com/2026/05/21/convective-capital-raises-an-85-million-fund-to-build-disaster-resilience/",
+      "tags": [
+        "Presse",
+        "Automatique"
+      ],
+      "date": "2026-05-21 17:41:20",
+      "source": "techcrunch.com",
+      "isManual": false
+    },
+    {
+      "id": "aHR0cHM6Ly93d3cu",
+      "title": "Les modèles de fondation tabulaires émergent en alternative au ML",
+      "url": "https://www.silicon.fr/data-ia-1372/modeles-fondation-tabulaires-227322",
+      "tags": [
+        "Presse",
+        "Automatique"
+      ],
+      "date": "2026-05-21 16:52:36",
+      "source": "silicon.fr",
+      "isManual": false
+    },
+    {
+      "id": "aHR0cHM6Ly90ZWNo",
+      "title": "This young startup is taking on a fragrance industry that hasn’t changed in almost half a century",
       "url": "https://techcrunch.com/2026/05/21/a-new-fragrance-company-raises-2-million-to-find-new-scent-molecules/",
       "tags": [
-        "Tech",
-        "Actualité"
+        "Presse",
+        "Automatique"
       ],
       "date": "2026-05-21 16:00:00",
-      "source": "TechCrunch",
+      "source": "techcrunch.com",
       "isManual": false
     },
     {
@@ -18,11 +42,11 @@
       "title": "I Cloned Myself With Gemini’s AI Avatar Tool. The Result Was Unnervingly Me",
       "url": "https://www.wired.com/story/i-cloned-myself-with-geminis-ai-avatar-tool-the-result-was-unnervingly-me/",
       "tags": [
-        "Tech",
-        "Actualité"
+        "Presse",
+        "Automatique"
       ],
       "date": "2026-05-21 15:48:24",
-      "source": "WIRED",
+      "source": "wired.com",
       "isManual": false
     },
     {
@@ -30,11 +54,11 @@
       "title": "En France, l’inquiétante envolée des émissions de CO₂ des data centers",
       "url": "https://www.lemonde.fr/economie/article/2026/05/21/en-france-l-inquietante-envolee-des-emissions-de-co-des-data-centers_6691905_3234.html",
       "tags": [
-        "Tech",
-        "Actualité"
+        "Presse",
+        "Automatique"
       ],
       "date": "2026-05-21 15:40:03",
-      "source": "Pixels : Toute l’actualité sur Le Monde.fr.",
+      "source": "lemonde.fr",
       "isManual": false
     },
     {
@@ -42,11 +66,11 @@
       "title": "Spotify will reserve tickets for top fans of an artists in a bid to drum up engagement",
       "url": "https://techcrunch.com/2026/05/21/spotify-will-reserve-tickets-for-top-fans-of-an-artists-in-a-bid-to-drum-up-engagement/",
       "tags": [
-        "Tech",
-        "Actualité"
+        "Presse",
+        "Automatique"
       ],
       "date": "2026-05-21 15:26:00",
-      "source": "TechCrunch",
+      "source": "techcrunch.com",
       "isManual": false
     },
     {
@@ -54,11 +78,11 @@
       "title": "Nvidia, architecte et financier de l’écosystème IA",
       "url": "https://www.silicon.fr/business-1367/nvidia-architecte-et-financier-de-lecosysteme-ia-227323",
       "tags": [
-        "Tech",
-        "Actualité"
+        "Presse",
+        "Automatique"
       ],
       "date": "2026-05-21 14:52:20",
-      "source": "Silicon.fr",
+      "source": "silicon.fr",
       "isManual": false
     },
     {
@@ -66,35 +90,11 @@
       "title": "Le transhumaniste suédois Nick Bostrom redoute un « retour de balancier trop fort contre l’IA »",
       "url": "https://www.lemonde.fr/economie/article/2026/05/21/le-transhumaniste-suedois-nick-bostrom-redoute-un-retour-de-balancier-trop-fort-contre-l-ia_6691896_3234.html",
       "tags": [
-        "Tech",
-        "Actualité"
+        "Presse",
+        "Automatique"
       ],
       "date": "2026-05-21 14:00:12",
-      "source": "Pixels : Toute l’actualité sur Le Monde.fr.",
-      "isManual": false
-    },
-    {
-      "id": "aHR0cHM6Ly90ZWNo",
-      "title": "Hark raises $700M Series A for its secretive “universal” AI interface",
-      "url": "https://techcrunch.com/2026/05/21/hark-raises-700m-series-a-for-its-secretive-universal-ai-interface/",
-      "tags": [
-        "Tech",
-        "Actualité"
-      ],
-      "date": "2026-05-21 14:00:00",
-      "source": "TechCrunch",
-      "isManual": false
-    },
-    {
-      "id": "aHR0cHM6Ly90ZWNo",
-      "title": "Maka Kids is redefining kids’ screen time with a streaming app optimized for well-being, not engagement",
-      "url": "https://techcrunch.com/2026/05/21/maka-kids-is-redefining-kids-screen-time-with-a-streaming-app-optimized-for-well-being-not-engagement/",
-      "tags": [
-        "Tech",
-        "Actualité"
-      ],
-      "date": "2026-05-21 14:00:00",
-      "source": "TechCrunch",
+      "source": "lemonde.fr",
       "isManual": false
     },
     {
@@ -102,23 +102,11 @@
       "title": "Grok ne séduit pas les agences fédérales : un risque pour SpaceX ?",
       "url": "https://www.silicon.fr/business-1367/grok-ne-seduit-pas-les-agences-federales-un-risque-pour-spacex-227311",
       "tags": [
-        "Tech",
-        "Actualité"
+        "Presse",
+        "Automatique"
       ],
       "date": "2026-05-21 13:55:33",
-      "source": "Silicon.fr",
-      "isManual": false
-    },
-    {
-      "id": "aHR0cHM6Ly90ZWNo",
-      "title": "Wayve’s self-driving tech is headed to US cars made by Stellantis",
-      "url": "https://techcrunch.com/2026/05/21/wayves-self-driving-tech-is-headed-to-us-cars-made-by-stellantis/",
-      "tags": [
-        "Tech",
-        "Actualité"
-      ],
-      "date": "2026-05-21 13:46:07",
-      "source": "TechCrunch",
+      "source": "silicon.fr",
       "isManual": false
     },
     {
@@ -126,23 +114,11 @@
       "title": "Test Sony 1000X The Collexion : un nouveau casque haut de gamme qui incarne le luxe pratique",
       "url": "https://www.zdnet.fr/guide-achat/test-sony-1000x-the-collexion-un-nouveau-casque-haut-de-gamme-qui-incarne-le-luxe-pratique-495356.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
       "tags": [
-        "Tech",
-        "Actualité"
+        "Presse",
+        "Automatique"
       ],
       "date": "2026-05-21 13:41:11",
-      "source": "ZDNET",
-      "isManual": false
-    },
-    {
-      "id": "aHR0cHM6Ly90ZWNo",
-      "title": "With aluminum prices up 20%, recycling startups bet on AI to cash in",
-      "url": "https://techcrunch.com/2026/05/21/with-aluminum-prices-up-20-recycling-startups-bet-on-ai-to-cash-in/",
-      "tags": [
-        "Tech",
-        "Actualité"
-      ],
-      "date": "2026-05-21 13:38:42",
-      "source": "TechCrunch",
+      "source": "zdnet.fr",
       "isManual": false
     },
     {
@@ -150,11 +126,11 @@
       "title": "« Le potentiel de dangerosité de l’IA est-il tel qu’on doive encadrer l’exploitation d’une pareille innovation ? »",
       "url": "https://www.lemonde.fr/idees/article/2026/05/21/le-potentiel-de-dangerosite-de-l-ia-est-il-tel-qu-on-doive-encadrer-l-exploitation-d-une-pareille-innovation_6691887_3232.html",
       "tags": [
-        "Tech",
-        "Actualité"
+        "Presse",
+        "Automatique"
       ],
       "date": "2026-05-21 13:00:11",
-      "source": "Pixels : Toute l’actualité sur Le Monde.fr.",
+      "source": "lemonde.fr",
       "isManual": false
     },
     {
@@ -162,23 +138,11 @@
       "title": "Les exigences matérielles de VCF 9.1 interpellent",
       "url": "https://www.silicon.fr/cloud-1370/vmware-vcf-9-1-exigences-materielles-227295",
       "tags": [
-        "Tech",
-        "Actualité"
+        "Presse",
+        "Automatique"
       ],
       "date": "2026-05-21 12:24:07",
-      "source": "Silicon.fr",
-      "isManual": false
-    },
-    {
-      "id": "aHR0cHM6Ly93d3cu",
-      "title": "11 Best Meal Delivery Services, Tested by an Ex-Restaurant Critic",
-      "url": "https://www.wired.com/gallery/best-meal-kit-services-1/",
-      "tags": [
-        "Tech",
-        "Actualité"
-      ],
-      "date": "2026-05-21 12:02:00",
-      "source": "WIRED",
+      "source": "silicon.fr",
       "isManual": false
     },
     {
@@ -186,11 +150,23 @@
       "title": "Best Duffel Bags: Eastpak, Patagonia, Baboon to the Moon (2026)",
       "url": "https://www.wired.com/gallery/best-duffel-bags/",
       "tags": [
-        "Tech",
-        "Actualité"
+        "Presse",
+        "Automatique"
       ],
       "date": "2026-05-21 12:02:00",
-      "source": "WIRED",
+      "source": "wired.com",
+      "isManual": false
+    },
+    {
+      "id": "aHR0cHM6Ly93d3cu",
+      "title": "11 Best Meal Delivery Services, Tested by an Ex-Restaurant Critic",
+      "url": "https://www.wired.com/gallery/best-meal-kit-services-1/",
+      "tags": [
+        "Presse",
+        "Automatique"
+      ],
+      "date": "2026-05-21 12:02:00",
+      "source": "wired.com",
       "isManual": false
     },
     {
@@ -198,11 +174,11 @@
       "title": "GUERRE DE L’IA &lt;BR&gt; LE BAL DES TITANS DE LA TECH, GRANDEUR, DECADENCE ET LICENCIEMENT",
       "url": "https://www.itmag.dz/2026/05/21/guerre-de-lia-br-le-bal-des-titans-de-la-tech-grandeur-decadence-et-licenciement/",
       "tags": [
-        "Tech",
-        "Actualité"
+        "Presse",
+        "Automatique"
       ],
       "date": "2026-05-21 11:12:09",
-      "source": "Futur Algérie – Futur Algérie",
+      "source": "itmag.dz",
       "isManual": false
     },
     {
@@ -210,11 +186,11 @@
       "title": "Publicités trompeuses : Que Choisir attaque Meta, TikTok et Google devant l’Arcom",
       "url": "https://www.silicon.fr/business-1367/publicites-trompeuses-que-choisir-attaque-meta-tiktok-et-google-devant-larcom-227301",
       "tags": [
-        "Tech",
-        "Actualité"
+        "Presse",
+        "Automatique"
       ],
       "date": "2026-05-21 11:12:03",
-      "source": "Silicon.fr",
+      "source": "silicon.fr",
       "isManual": false
     },
     {
@@ -1800,7 +1776,31 @@
       "date": "2026-05-19 04:36:31",
       "source": "zdnet.fr",
       "isManual": false
+    },
+    {
+      "id": "aHR0cHM6Ly93d3cu",
+      "title": "« Infostealers » : comment vos mots de passe sont vendus quotidiennement pour quelques euros",
+      "url": "https://www.lemonde.fr/pixels/article/2026/05/19/infostealers-comment-vos-mots-de-passe-sont-vendus-quotidiennement-pour-quelques-euros_6691434_4408996.html",
+      "tags": [
+        "Tech",
+        "Actualité"
+      ],
+      "date": "2026-05-19 04:30:14",
+      "source": "Pixels : Toute l’actualité sur Le Monde.fr.",
+      "isManual": false
+    },
+    {
+      "id": "aHR0cHM6Ly93d3cu",
+      "title": "OpenAI gagne son procès contre Musk : Quel impact sur la roadmap et les API ?",
+      "url": "https://www.zdnet.fr/actualites/openai-gagne-son-proces-contre-musk-quel-impact-sur-la-roadmap-et-les-api-495200.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "tags": [
+        "Presse",
+        "Automatique"
+      ],
+      "date": "2026-05-19 04:21:30",
+      "source": "zdnet.fr",
+      "isManual": false
     }
   ],
-  "lastUpdated": "2026-05-21T16:34:50.937Z"
+  "lastUpdated": "2026-05-21T18:06:04.703Z"
 }

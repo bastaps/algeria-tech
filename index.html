@@ -64,6 +64,9 @@
                         <input type="text" id="searchInput" placeholder="Rechercher...">
                     </div>
                     <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+                    <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
+                        <span></span><span></span><span></span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -282,6 +285,39 @@
             </form>
         </div>
     </div>
+
+    <!-- MENU MOBILE -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="toggleMobileMenu()"></div>
+    <nav class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="logo">
+                <div class="logo-icon">AT</div>
+                <div class="logo-text"><h1>Algeria <span>Tech</span></h1><p>By Basta</p></div>
+            </div>
+            <button class="mobile-menu-close" onclick="toggleMobileMenu()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="mobile-search">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Rechercher un article..." oninput="document.getElementById('searchInput').value=this.value; document.getElementById('searchInput').dispatchEvent(new Event('input'))">
+        </div>
+        <ul class="mobile-nav-list">
+            <li><a href="#" onclick="goHome(); toggleMobileMenu()"><i class="fas fa-home"></i> Accueil</a></li>
+            <li><a href="#" onclick="filterByCategory('Algérie'); toggleMobileMenu()"><i class="fas fa-flag"></i> Algérie</a></li>
+            <li><a href="#" onclick="filterByCategory('Télécoms'); toggleMobileMenu()"><i class="fas fa-satellite-dish"></i> Télécoms</a></li>
+            <li><a href="#" onclick="filterByCategory('Mobile'); toggleMobileMenu()"><i class="fas fa-mobile-alt"></i> Mobile</a></li>
+            <li><a href="#" onclick="filterByCategory('Startups'); toggleMobileMenu()"><i class="fas fa-rocket"></i> Startups</a></li>
+            <li><a href="#" onclick="filterByCategory('Innovation'); toggleMobileMenu()"><i class="fas fa-lightbulb"></i> Innovation</a></li>
+            <li><a href="#" onclick="filterByCategory('Entreprises'); toggleMobileMenu()"><i class="fas fa-building"></i> Entreprises</a></li>
+            <li class="mobile-nav-divider"></li>
+            <li><a href="#" onclick="filterByCategory('Vidéo'); toggleMobileMenu()"><i class="fas fa-play-circle"></i> Vidéo</a></li>
+            <li><a href="infographies/index.html"><i class="fas fa-chart-bar"></i> Infographies</a></li>
+            <li><a href="#" onclick="showVeille(); toggleMobileMenu()"><i class="fas fa-rss"></i> Veille</a></li>
+            <li><a href="#" onclick="showRevue(); toggleMobileMenu()"><i class="fas fa-robot"></i> Revue de Presse IA</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+            <button class="mobile-theme-btn" onclick="toggleTheme()"><i class="fas fa-moon"></i> Changer le thème</button>
+        </div>
+    </nav>
 
     <div class="loading-overlay" id="loader"><div class="loader"></div><div class="loading-text">Chargement...</div></div>
     <div class="toast" id="toast"></div>
