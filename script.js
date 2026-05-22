@@ -391,7 +391,9 @@ function renderRevueCards() {
     const container = document.getElementById('revueContent');
     if(!container || !_revueData) return;
 
-    const articles = _revueData.articles.filter(a => {
+    const showArchives = _revueFilter === 'archives';
+
+    const articles = showArchives ? [] : _revueData.articles.filter(a => {
         if(_revueFilter === 'all') return true;
         if(_revueFilter === 'DZ') return a.pays === 'DZ';
         if(_revueFilter === 'FR') return a.pays === 'FR';
@@ -403,36 +405,105 @@ function renderRevueCards() {
         { key: 'all', label: 'Toutes' },
         { key: 'DZ',  label: '🇩🇿 Algérie' },
         { key: 'FR',  label: '🌐 International' },
-        ...cats.map(c => ({ key: c, label: c }))
+        ...cats.map(c => ({ key: c, label: c })),
+        { key: 'archives', label: '📁 Archives', extra: 'archives-btn' }
     ];
 
-    container.innerHTML = `
-        <div class="revue-intro">${_revueData.synthese}</div>
-        <div class="revue-filters">
-            ${filterBtns.map(f => `
-                <button class="revue-filter-btn${_revueFilter === f.key ? ' active' : ''}"
-                        onclick="setRevueFilter('${f.key}')">${f.label}</button>
-            `).join('')}
-        </div>
-        <p class="revue-count">${articles.length} article${articles.length > 1 ? 's' : ''} · ${_revueData.totalSources || 20} sources surveillées</p>
-        <div class="revue-grid">
-            ${articles.length ? articles.map(a => `
-                <div class="revue-card" data-pays="${a.pays || ''}">
-                    <div class="revue-card-source">
-                        <img class="revue-source-logo" src="${a.logo || ''}" alt="${a.source}" onerror="this.style.display='none'">
-                        <span class="revue-source-name">${a.source}</span>
-                        <span class="revue-pays-badge ${a.pays === 'DZ' ? 'dz' : 'fr'}">${a.pays === 'DZ' ? '🇩🇿 DZ' : '🌐 Intl'}</span>
-                    </div>
-                    <span class="revue-card-tag">${a.categorie}</span>
-                    <h3>${a.titre}</h3>
-                    <p class="revue-accroche">${a.accroche || a.resume}</p>
-                    <a href="${a.url}" target="_blank" rel="noopener" class="revue-card-link">
-                        Lire l'article <i class="fas fa-external-link-alt"></i>
-                    </a>
+    const catSlug = cat => ({ 'IA':'cat-ia','Télécoms':'cat-telecoms','Startups':'cat-startups','Innovation':'cat-innovation','Numérique':'cat-numerique','Cybersécurité':'cat-cybersecurite','Réseaux':'cat-reseaux' }[cat] || 'cat-default');
+
+    const une = articles[0];
+    const rest = articles.slice(1);
+
+    const headerHtml = `
+        <div class="revue-header-sticky">
+            <div class="revue-masthead">
+                <div class="revue-masthead-brand">
+                    <span class="revue-masthead-label">✦ ÉDITION QUOTIDIENNE</span>
+                    <span class="revue-masthead-title">Revue de <span>Presse</span></span>
+                    <span class="revue-masthead-subtitle">TIC &amp; Télécoms · Algérie &amp; International</span>
                 </div>
-            `).join('') : '<p class="revue-empty">Aucun article pour ce filtre.</p>'}
-        </div>
-    `;
+                <div class="revue-masthead-date">
+                    <strong>${_revueData.date}</strong>
+                    TIC &amp; TÉLÉCOMS
+                </div>
+            </div>
+            <div class="revue-toolbar">
+                <div class="revue-filters-journal">
+                    ${filterBtns.map(f => `
+                        <button class="revue-filter-journal${_revueFilter === f.key ? ' active' : ''}${f.extra ? ' '+f.extra : ''}"
+                                onclick="setRevueFilter('${f.key}')">${f.label}</button>
+                    `).join('')}
+                </div>
+                <span class="revue-count-journal">${articles.length} article${articles.length !== 1 ? 's' : ''} · ${_revueData.totalSources || 20} sources</span>
+            </div>
+        </div>`;
+
+    const syntheseHtml = `
+        <div class="revue-synthese-bloc">
+            <div class="revue-synthese-eyelet"><i class="fas fa-robot"></i> Synthèse IA</div>
+            <p class="revue-synthese-text">${_revueData.synthese}</p>
+        </div>`;
+
+    const uneHtml = une ? `
+        <div class="revue-une">
+            <div class="revue-une-left">
+                <span class="revue-une-cat">${une.categorie}</span>
+                <a href="${une.url}" target="_blank" rel="noopener" class="revue-une-title-link">
+                    <h2 class="revue-une-title">${une.titre}</h2>
+                </a>
+                <p class="revue-une-accroche">${une.accroche || une.resume}</p>
+            </div>
+            <div class="revue-une-right">
+                <div class="revue-une-source-row">
+                    <img class="revue-une-logo" src="${une.logo || ''}" alt="${une.source}" onerror="this.style.display='none'">
+                    <span class="revue-une-source-name">${une.source}</span>
+                    <span class="revue-une-pays ${une.pays === 'DZ' ? 'dz' : 'fr'}">${une.pays === 'DZ' ? '🇩🇿 DZ' : '🌐 Intl'}</span>
+                </div>
+                <div class="revue-une-ai-badge">
+                    <span class="revue-ai-pulse"></span> Sélectionné par IA
+                </div>
+                <p class="revue-une-resume">${une.resume || une.accroche}</p>
+            </div>
+        </div>` : '';
+
+    const gridHtml = rest.length ? `
+        <div class="revue-grid-journal">
+            ${rest.map(a => `
+                <div class="revue-card-journal">
+                    <span class="revue-card-cat ${catSlug(a.categorie)}">${a.categorie}</span>
+                    <a href="${a.url}" target="_blank" rel="noopener" class="revue-card-title-link">
+                        <h3 class="revue-card-title-journal">${a.titre}</h3>
+                    </a>
+                    <p class="revue-card-accroche-journal">${a.accroche || a.resume}</p>
+                    <div class="revue-card-footer-journal">
+                        <img class="revue-card-logo-sm" src="${a.logo || ''}" alt="${a.source}" onerror="this.style.display='none'">
+                        <span class="revue-card-source-sm">${a.source}</span>
+                        <span class="revue-card-pays-sm ${a.pays === 'DZ' ? 'dz' : 'fr'}">${a.pays === 'DZ' ? '🇩🇿' : '🌐'}</span>
+                        <a href="${a.url}" target="_blank" rel="noopener" class="revue-card-lire">Lire →</a>
+                    </div>
+                </div>
+            `).join('')}
+        </div>` : (!showArchives ? '<p class="revue-empty-journal">Aucun article pour ce filtre.</p>' : '');
+
+    const archiveHtml = showArchives ? `
+        <div class="revue-archive-picker">
+            <h4>📁 Consulter une édition archivée</h4>
+            <p>Les éditions précédentes sont disponibles depuis le lendemain de leur publication.</p>
+            <div class="revue-archive-row">
+                <input type="date" id="revueArchiveDate" class="revue-archive-input" max="${new Date().toISOString().slice(0,10)}">
+                <button class="revue-archive-btn" onclick="loadRevueArchive()">Charger cette édition</button>
+            </div>
+        </div>` : '';
+
+    const footerHtml = `
+        <div class="revue-footer-edition">
+            <span class="revue-footer-sources">${_revueData.totalSources || 20} sources surveillées · Mise à jour quotidienne</span>
+            <div class="revue-footer-ai">
+                <span class="revue-ai-pulse"></span> Sélection &amp; synthèse par IA Mistral
+            </div>
+        </div>`;
+
+    container.innerHTML = headerHtml + syntheseHtml + (showArchives ? archiveHtml : uneHtml + gridHtml) + footerHtml;
 }
 
 window.setRevueFilter = function(key) {
@@ -879,206 +950,4 @@ setInterval(loadVeille, 60000);
 })();
 // === FIN AJOUT REVUE PRESSE ===
 
-// ================================================================
-//  REVUE DE PRESSE — RENDU GRAND JOURNAL (override renderRevueCards)
-//  Append pur — aucune ligne existante modifiée
-// ================================================================
-(function () {
-
-    // ── Police éditoriale Playfair Display ──────────────────────
-    if (!document.getElementById('playfair-font')) {
-        var lk = document.createElement('link');
-        lk.id = 'playfair-font';
-        lk.rel = 'stylesheet';
-        lk.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&display=swap';
-        document.head.appendChild(lk);
-    }
-
-    // ── Normalisation des catégories (encodage Mistral) ─────────
-    function normCat(cat) {
-        if (!cat) return 'Innovation';
-        var fixes = {
-            'Numérique':'Mobile','Num??rique':'Mobile','Num?rique':'Mobile',
-            'Numerique':'Mobile','numérique':'Mobile',
-            'Télécoms':'Télécoms','T?l?coms':'Télécoms',
-            'Cybersécurité':'Cybersécurité','Cybers?curit?':'Cybersécurité',
-            'Réseaux':'Réseaux','R?seaux':'Réseaux'
-        };
-        return fixes[cat] || cat;
-    }
-
-    // ── Catégorie → classe CSS ──────────────────────────────────
-    function catCls(cat) {
-        var normalized = normCat(cat);
-        var m = {
-            'IA':'ia','Télécoms':'telecoms','Startups':'startups',
-            'Innovation':'innovation','Mobile':'numerique',
-            'Cybersécurité':'cybersecurite','Réseaux':'reseaux'
-        };
-        return m[normalized] || 'default';
-    }
-
-    // ── Render article à la UNE ─────────────────────────────────
-    function renderUne(a) {
-        var cat = normCat(a.categorie);
-        var pc = a.pays === 'DZ' ? 'dz' : 'fr';
-        var pl = a.pays === 'DZ' ? '🇩🇿 Algérie' : '🌐 International';
-        return '<div class="revue-une">'
-            + '<div class="revue-une-left">'
-            +   '<span class="revue-une-cat">' + cat + '</span>'
-            +   '<h2 class="revue-une-title">' + a.titre + '</h2>'
-            +   '<p class="revue-une-accroche">' + (a.accroche || a.resume) + '</p>'
-            +   '<a href="' + a.url + '" target="_blank" rel="noopener" class="revue-une-link">'
-            +     'Lire l\'article &nbsp;&#8594;'
-            +   '</a>'
-            + '</div>'
-            + '<div class="revue-une-right">'
-            +   '<div class="revue-une-source-row">'
-            +     '<img class="revue-une-logo" src="' + a.logo + '" alt="' + a.source + '" onerror="this.style.display=\'none\'">'
-            +     '<span class="revue-une-source-name">' + a.source + '</span>'
-            +     '<span class="revue-une-pays ' + pc + '">' + pl + '</span>'
-            +   '</div>'
-            +   '<p class="revue-une-resume">' + (a.resume || a.accroche) + '</p>'
-            + '</div>'
-            + '</div>';
-    }
-
-    // ── Render carte standard ────────────────────────────────────
-    function renderCard(a) {
-        var cc = catCls(normCat(a.categorie));
-        var pc = a.pays === 'DZ' ? 'dz' : 'fr';
-        var pl = a.pays === 'DZ' ? '🇩🇿 DZ' : '🌐 Intl';
-        return '<div class="revue-card-journal">'
-            + '<span class="revue-card-cat cat-' + cc + '">' + a.categorie + '</span>'
-            + '<h3 class="revue-card-title-journal">' + a.titre + '</h3>'
-            + '<p class="revue-card-accroche-journal">' + (a.accroche || a.resume) + '</p>'
-            + '<div class="revue-card-footer-journal">'
-            +   '<img class="revue-card-logo-sm" src="' + a.logo + '" alt="' + a.source + '" onerror="this.style.display=\'none\'">'
-            +   '<span class="revue-card-source-sm">' + a.source + '</span>'
-            +   '<span class="revue-card-pays-sm ' + pc + '">' + pl + '</span>'
-            +   '<a href="' + a.url + '" target="_blank" rel="noopener" class="revue-card-lire">Lire &#8594;</a>'
-            + '</div>'
-            + '</div>';
-    }
-
-    // ── Override principal ───────────────────────────────────────
-    renderRevueCards = function () {
-        var container = document.getElementById('revueContent');
-        if (!container || !_revueData) return;
-
-        // Filtre actif
-        // Boutons filtres — construits en premier (nécessaires pour le mode Archives aussi)
-        var cats = [];
-        _revueData.articles.forEach(function (a) {
-            var c = normCat(a.categorie);
-            if (cats.indexOf(c) === -1) cats.push(c);
-        });
-        cats.sort();
-        var fBtns = [
-            { key: 'all', label: 'Toutes' },
-            { key: 'DZ',  label: '🇩🇿 Algérie' },
-            { key: 'FR',  label: '🌐 International' }
-        ].concat(cats.map(function (c) { return { key: c, label: c }; }))
-         .concat([{ key: 'archives', label: '📁 Archives', cls: 'archives-btn' }]);
-
-        // ── Helper : rendu barre filtres ────────────────────────────
-        function filterBar() {
-            return '<div class="revue-toolbar">'
-                + '<div class="revue-filters-journal">'
-                + fBtns.map(function(f) {
-                    return '<button class="revue-filter-journal'
-                        + (_revueFilter === f.key ? ' active' : '')
-                        + (f.cls ? ' ' + f.cls : '')
-                        + '" onclick="setRevueFilter(\'' + f.key + '\')">' + f.label + '</button>';
-                  }).join('')
-                + '</div>'
-                + '<span class="revue-count-journal" id="revueCount"></span>'
-                + '</div>';
-        }
-
-        // ── Helper : rendu masthead compact ─────────────────────────
-        function mastheadHtml(dateLabel) {
-            return '<div class="revue-masthead">'
-                + '<div class="revue-masthead-brand">'
-                +   '<span class="revue-masthead-label">✶ Edition quotidienne</span>'
-                +   '<div class="revue-masthead-title">Revue de <span>Presse</span></div>'
-                +   '<div class="revue-masthead-subtitle">TIC &amp; Télécoms · Algérie &amp; International</div>'
-                + '</div>'
-                + '<div class="revue-masthead-date"><strong>' + dateLabel + '</strong></div>'
-                + '</div>';
-        }
-
-        // Mode Archives : afficher le sélecteur de date
-        if (_revueFilter === 'archives') {
-            var today = new Date().toISOString().split('T')[0];
-            container.innerHTML = '<div class="revue-header-sticky">'
-                + mastheadHtml('Archives')
-                + filterBar()
-                + '</div>'
-                + '<div class="revue-grid-journal">'
-                + '<div class="revue-archive-picker">'
-                + '<h4>📅 Consulter une édition précédente</h4>'
-                + '<p>Les archives sont disponibles à partir du lendemain de leur génération.</p>'
-                + '<div class="revue-archive-row">'
-                + '<input type="date" class="revue-archive-input" id="revueArchiveDate" max="' + today + '">'
-                + '<button class="revue-archive-btn" onclick="loadRevueArchive()">Consulter cette édition</button>'
-                + '</div>'
-                + '</div></div>';
-            return;
-        }
-
-        var articles = _revueData.articles.filter(function (a) {
-            if (_revueFilter === 'all') return true;
-            if (_revueFilter === 'DZ')  return a.pays === 'DZ';
-            if (_revueFilter === 'FR')  return a.pays === 'FR';
-            return normCat(a.categorie) === _revueFilter;
-        });
-
-        var nbSources = _revueData.totalSources || 16;
-        var hero  = articles[0];
-        var reste = articles.slice(1);
-
-        var html = '';
-
-        // ── Bloc sticky : Titre + Catégories ────────────────────────
-        html += '<div class="revue-header-sticky">';
-        html += mastheadHtml(_revueData.date);
-        html += filterBar();
-        html += '</div>';
-
-        // ── Synthèse (hors sticky) ───────────────────────────────────
-        html += '<div class="revue-synthese-bloc">'
-            + '<div class="revue-synthese-eyelet">✦ Synthèse · '
-            + articles.length + ' article' + (articles.length > 1 ? 's' : '') + ' · '
-            + nbSources + ' sources</div>'
-            + '<p class="revue-synthese-text">' + _revueData.synthese + '</p>'
-            + '</div>';
-
-        // Article à la UNE
-        if (hero) html += renderUne(hero);
-
-        // Grille
-        html += '<div class="revue-grid-journal">';
-        if (reste.length) {
-            reste.forEach(function (a) { html += renderCard(a); });
-        } else {
-            html += '<p class="revue-empty-journal">Aucun article pour ce filtre.</p>';
-        }
-        html += '</div>';
-
-        // Pied édition
-        html += '<div class="revue-footer-edition">'
-            + '<span class="revue-footer-sources">' + nbSources + ' sources · Mis à jour chaque matin à 05h00</span>'
-            + '<span class="revue-footer-ai">'
-            +   '<span class="revue-ai-pulse"></span>'
-            +   'Sélection éditoriale automatique'
-            + '</span>'
-            + '</div>';
-
-        container.innerHTML = html;
-    };
-
-})();
-// ================================================================
-//  FIN REFONTE GRAND JOURNAL
-// ================================================================
+// (ancien override supprimé — renderRevueCards défini à la ligne ~390)

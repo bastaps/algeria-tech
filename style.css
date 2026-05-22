@@ -552,7 +552,7 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
 
 /* === [REVUE DE PRESSE IA] STYLES MODERNES === */
 .revue-wrapper { margin: 40px auto; padding: 35px; background: var(--bg-white); border-radius: var(--radius); box-shadow: var(--shadow-md); border-top: 4px solid var(--accent); }
-.revue-container { margin-top: 25px; line-height: 1.8; color: var(--text-dark); }
+.revue-container { margin-top: 0; line-height: 1.8; color: var(--text-dark); }
 .revue-loading { text-align: center; padding: 40px; color: var(--text-muted); display: flex; flex-direction: column; gap: 15px; align-items: center; }
 .revue-loading i { font-size: 2rem; color: var(--accent); }
 .revue-intro { background: rgba(26, 115, 232, 0.05); padding: 25px; border-radius: var(--radius); margin-bottom: 30px; border-left: 5px solid var(--accent); font-size: 1.05rem; }
@@ -624,12 +624,11 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
 .revue-wrapper {
     padding: 0 !important;
     border-top: none !important;
-    /* espace pour que le contenu ne se cache pas sous le sticky */
     scroll-margin-top: 80px;
     box-shadow: none !important;
     border-radius: 0 !important;
     background: var(--bg-white) !important;
-    overflow: hidden;
+    /* overflow must NOT be hidden — it breaks position:sticky on children */
 }
 
 /* ── Bloc header sticky (Titre + Catégories) ──────────────────── */
@@ -693,7 +692,7 @@ body.dark-mode .revue-masthead { border-bottom-color: #f1f5f9; }
 .revue-synthese-text {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
     font-size: 1.05rem !important; font-weight: 500 !important; line-height: 1.75 !important;
-    color: var(--text-dark) !important; font-style: italic !important;
+    color: var(--text-dark) !important; font-style: normal !important;
     max-width: 900px; padding: 0 !important; border: none !important;
     background: transparent !important;
 }
@@ -725,38 +724,48 @@ body.dark-mode .revue-filter-journal.active { background: #f1f5f9; color: #0f172
 /* ── Article à la UNE ─────────────────────────────────────────── */
 .revue-une {
     display: grid; grid-template-columns: 3fr 2fr;
-    gap: 0; border-bottom: 2px solid var(--border);
-    margin-bottom: 0;
+    gap: 0;
+    margin: 16px 40px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+.revue-une:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    border-color: transparent;
 }
 .revue-une-left {
-    padding: 20px 32px 20px 40px;
+    padding: 18px 24px 18px 28px;
     border-right: 1px solid var(--border);
-    display: flex; flex-direction: column; justify-content: center; gap: 10px;
+    display: flex; flex-direction: column; justify-content: center; gap: 8px;
 }
 .revue-une-cat {
     font-size: 0.62rem; font-weight: 800; text-transform: uppercase;
     letter-spacing: 2.5px; color: var(--secondary);
 }
+
+/* Lien titre UNE — sans décoration, sombre, survol vert */
+a.revue-une-title-link {
+    text-decoration: none; color: inherit; display: block;
+}
 .revue-une-title {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 1.35rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.4px;
+    font-size: 1.2rem; font-weight: 800; line-height: 1.25; letter-spacing: -0.4px;
     color: var(--text-dark);
-    border-left: 5px solid var(--secondary); padding-left: 16px;
+    border-left: 4px solid var(--secondary); padding-left: 14px;
+    transition: color 0.25s ease;
 }
+a.revue-une-title-link:hover .revue-une-title { color: var(--secondary); }
+
 .revue-une-accroche {
-    font-size: 1rem; line-height: 1.7; color: var(--text-muted);
+    font-size: 0.92rem; line-height: 1.65; color: var(--text-muted);
     font-weight: 500; max-width: 520px;
 }
-.revue-une-link {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 11px 24px; background: var(--text-dark); color: #fff !important;
-    font-size: 0.72rem; font-weight: 800; text-transform: uppercase;
-    letter-spacing: 1.5px; border-radius: 2px; text-decoration: none;
-    width: fit-content; transition: all 0.2s;
-}
-.revue-une-link:hover { background: var(--secondary); transform: translateX(4px); }
 .revue-une-right {
-    padding: 20px 28px 20px 24px;
+    padding: 16px 22px 16px 20px;
     display: flex; flex-direction: column; gap: 10px;
     background: var(--bg); justify-content: center;
 }
@@ -792,20 +801,25 @@ body.dark-mode .revue-filter-journal.active { background: #f1f5f9; color: #0f172
     overflow: hidden;
 }
 
-/* ── Grille 3 colonnes ────────────────────────────────────────── */
+/* ── Grille 3 colonnes — style cartes modernes ────────────────── */
 .revue-grid-journal {
     display: grid; grid-template-columns: repeat(3, 1fr);
-    padding: 0 0 0 40px;
+    gap: 16px;
+    padding: 20px 40px 28px;
 }
 .revue-card-journal {
-    padding: 13px 20px 13px 0;
-    border-bottom: 1px solid var(--border);
+    padding: 16px 18px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--bg-white);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     display: flex; flex-direction: column; gap: 10px;
-    transition: background 0.18s;
+    transition: all 0.3s ease;
 }
+/* Cartes uniformes — pas de séparateurs de colonnes style journal */
 .revue-card-journal:nth-child(3n+2),
 .revue-card-journal:nth-child(3n) {
-    padding-left: 16px;
+    padding-left: 18px;
     border-left: 1px solid var(--border);
 }
 .revue-card-journal:hover { background: rgba(0,98,51,0.025); }
@@ -949,7 +963,7 @@ body.dark-mode .revue-filter-journal.active { background: #f1f5f9; color: #0f172
 /* Cards grille : entrée en cascade */
 .revue-card-journal {
     animation: revueFadeIn 0.35s ease both;
-    transition: background 0.18s ease, box-shadow 0.18s ease;
+    transition: all 0.3s ease;
 }
 .revue-card-journal:nth-child(1)  { animation-delay: 0.04s; }
 .revue-card-journal:nth-child(2)  { animation-delay: 0.08s; }
@@ -963,30 +977,30 @@ body.dark-mode .revue-filter-journal.active { background: #f1f5f9; color: #0f172
 .revue-card-journal:nth-child(10) { animation-delay: 0.40s; }
 .revue-card-journal:nth-child(11) { animation-delay: 0.44s; }
 
-/* Hover card : accent vert en bordure gauche + ombre fine */
+/* Hover card : effet carte physique — élévation + ombre profonde */
 .revue-card-journal:hover {
-    background: rgba(0, 98, 51, 0.03);
-    box-shadow: inset 3px 0 0 var(--secondary), 0 2px 10px rgba(0,0,0,0.07);
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.13);
+    border-color: transparent;
+    background: var(--bg-white);
 }
 .revue-card-journal:hover .revue-card-lire {
     color: var(--secondary);
     letter-spacing: 0.8px;
 }
 .revue-card-title-journal {
-    transition: color 0.18s ease;
+    transition: color 0.25s ease;
 }
 .revue-card-journal:hover .revue-card-title-journal {
     color: var(--secondary);
 }
 
-/* Hover UNE */
-.revue-une-link {
-    transition: background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+/* Lien titre carte — sans style lien par défaut */
+a.revue-card-title-link {
+    text-decoration: none; color: inherit; display: block;
 }
-.revue-une-link:hover {
-    background: var(--secondary);
-    transform: translateX(6px);
-    box-shadow: 0 4px 14px rgba(0,98,51,0.25);
+a.revue-card-title-link:hover .revue-card-title-journal {
+    color: var(--secondary);
 }
 
 /* Hover filtres catégories */
@@ -1013,16 +1027,19 @@ body.dark-mode .revue-filter-journal.active { background: #f1f5f9; color: #0f172
 /* ══ FIN ANIMATIONS ════════════════════════════════════════════════ */
 
 @media (max-width: 768px) {
-    .revue-header-sticky { top: 68px; } /* header mobile plus compact */
+    .revue-header-sticky { top: 68px; }
     .revue-masthead,
     .revue-synthese-bloc,
     .revue-toolbar,
-    .revue-une-left,
-    .revue-une-right,
     .revue-footer-edition { padding-left: 16px !important; padding-right: 16px !important; }
-    .revue-grid-journal { grid-template-columns: 1fr; padding: 0 16px; }
-    .revue-card-journal:nth-child(n) { padding-left: 0 !important; border-left: none !important; padding-right: 0; }
-    .revue-une-title { font-size: 1.3rem; }
+    .revue-une { margin: 10px 16px 0 !important; border-radius: 10px; }
+    .revue-une-left { padding: 14px 16px !important; }
+    .revue-une-right { padding: 14px 16px !important; }
+    .revue-grid-journal { grid-template-columns: 1fr; gap: 12px; padding: 14px 16px 20px; }
+    .revue-card-journal:nth-child(n) { padding-left: 16px !important; border-left: none !important; border-radius: 10px; }
+    .revue-card-journal:hover { transform: none; box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    .revue-une:hover { transform: none; box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+    .revue-une-title { font-size: 1.1rem; }
     .revue-masthead-title { font-size: 1.2rem; }
     .revue-masthead { flex-direction: row; align-items: center; padding: 8px 16px 6px; }
     .revue-toolbar { padding: 4px 16px 8px; }
