@@ -4,7 +4,8 @@
   "description": "Backend Algeria Tech + Générateur d'Infographies",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "node build.js"
   },
   "dependencies": {
     "@octokit/rest": "^19.0.5",
