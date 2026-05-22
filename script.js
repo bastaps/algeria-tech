@@ -414,28 +414,30 @@ function renderRevueCards() {
     const une = articles[0];
     const rest = articles.slice(1);
 
-    const headerHtml = `
-        <div class="revue-header-sticky">
-            <div class="revue-masthead">
-                <div class="revue-masthead-brand">
-                    <span class="revue-masthead-label">✦ ÉDITION QUOTIDIENNE</span>
-                    <span class="revue-masthead-title">Revue de <span>Presse</span></span>
-                    <span class="revue-masthead-subtitle">TIC &amp; Télécoms · Algérie &amp; International</span>
-                </div>
-                <div class="revue-masthead-date">
-                    <strong>${_revueData.date}</strong>
-                    TIC &amp; TÉLÉCOMS
-                </div>
+    // Masthead (titre + date) — défile normalement
+    const mastheadHtml = `
+        <div class="revue-masthead">
+            <div class="revue-masthead-brand">
+                <span class="revue-masthead-label">✦ ÉDITION QUOTIDIENNE</span>
+                <span class="revue-masthead-title">Revue de <span>Presse</span></span>
+                <span class="revue-masthead-subtitle">TIC &amp; Télécoms · Algérie &amp; International</span>
             </div>
-            <div class="revue-toolbar">
-                <div class="revue-filters-journal">
-                    ${filterBtns.map(f => `
-                        <button class="revue-filter-journal${_revueFilter === f.key ? ' active' : ''}${f.extra ? ' '+f.extra : ''}"
-                                onclick="setRevueFilter('${f.key}')">${f.label}</button>
-                    `).join('')}
-                </div>
-                <span class="revue-count-journal">${articles.length} article${articles.length !== 1 ? 's' : ''} · ${_revueData.totalSources || 20} sources</span>
+            <div class="revue-masthead-date">
+                <strong>${_revueData.date}</strong>
+                TIC &amp; TÉLÉCOMS
             </div>
+        </div>`;
+
+    // Toolbar (filtres) — élément frère INDÉPENDANT, sticky dans tout #revueContent
+    const toolbarHtml = `
+        <div class="revue-toolbar">
+            <div class="revue-filters-journal">
+                ${filterBtns.map(f => `
+                    <button class="revue-filter-journal${_revueFilter === f.key ? ' active' : ''}${f.extra ? ' '+f.extra : ''}"
+                            onclick="setRevueFilter('${f.key}')">${f.label}</button>
+                `).join('')}
+            </div>
+            <span class="revue-count-journal">${articles.length} article${articles.length !== 1 ? 's' : ''} · ${_revueData.totalSources || 20} sources</span>
         </div>`;
 
     const syntheseHtml = `
@@ -503,7 +505,7 @@ function renderRevueCards() {
             </div>
         </div>`;
 
-    container.innerHTML = headerHtml + syntheseHtml + (showArchives ? archiveHtml : uneHtml + gridHtml) + footerHtml;
+    container.innerHTML = mastheadHtml + toolbarHtml + syntheseHtml + (showArchives ? archiveHtml : uneHtml + gridHtml) + footerHtml;
 }
 
 window.setRevueFilter = function(key) {

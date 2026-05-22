@@ -632,27 +632,21 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
 }
 
 /* ── Bloc header sticky (Titre + Catégories) ──────────────────── */
-.revue-header-sticky {
-    position: sticky;
-    top: 78px; /* hauteur du .header principal Algeria Tech */
-    z-index: 50;
-    background: var(--bg-white);
-    border-bottom: 2px solid var(--border);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-}
-body.dark-mode .revue-header-sticky { background: var(--bg-white); }
+/* .revue-header-sticky n'existe plus dans le DOM rendu — conservé pour compatibilité */
+.revue-header-sticky { position: static; }
 
-/* ── Masthead éditorial ───────────────────────────────────────── */
+/* ── Masthead éditorial — défile normalement ─────────────────── */
 .revue-masthead {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 10px 40px 8px;
-    border-bottom: none;
+    border-bottom: 1px solid var(--border);
     margin-bottom: 0;
     gap: 20px;
+    background: var(--bg-white);
 }
-body.dark-mode .revue-masthead { border-bottom-color: #f1f5f9; }
+body.dark-mode .revue-masthead { background: var(--bg-white); border-bottom-color: rgba(255,255,255,0.08); }
 .revue-masthead-brand { display: flex; flex-direction: column; gap: 4px; }
 .revue-masthead-label {
     font-size: 0.6rem; font-weight: 800; text-transform: uppercase;
@@ -697,12 +691,20 @@ body.dark-mode .revue-masthead { border-bottom-color: #f1f5f9; }
     background: transparent !important;
 }
 
-/* ── Filtres journaux ─────────────────────────────────────────── */
+/* ── Filtres journaux — SEUL élément sticky ───────────────────── */
 .revue-toolbar {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 6px 40px 10px; border-bottom: none;
+    padding: 6px 40px 10px;
     flex-wrap: wrap; gap: 8px;
+    /* sticky : colle sous le .header principal (≈78px) */
+    position: sticky;
+    top: 78px;
+    z-index: 50;
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
 }
+body.dark-mode .revue-toolbar { background: var(--bg); }
 .revue-filters-journal { display: flex; flex-wrap: wrap; gap: 5px; }
 .revue-filter-journal {
     padding: 5px 13px; border-radius: 2px;
@@ -733,8 +735,8 @@ body.dark-mode .revue-filter-journal.active { background: #f1f5f9; color: #0f172
     transition: all 0.3s ease;
 }
 .revue-une:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    transform: translateY(-6px);
+    box-shadow: 0 28px 70px rgba(0,0,0,0.22);
     border-color: transparent;
 }
 .revue-une-left {
@@ -977,10 +979,10 @@ a.revue-une-title-link:hover .revue-une-title { color: var(--secondary); }
 .revue-card-journal:nth-child(10) { animation-delay: 0.40s; }
 .revue-card-journal:nth-child(11) { animation-delay: 0.44s; }
 
-/* Hover card : effet carte physique — élévation + ombre profonde */
+/* Hover card : élévation flagrante — carte qui décolle vraiment */
 .revue-card-journal:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.13);
+    transform: translateY(-7px);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.22);
     border-color: transparent;
     background: var(--bg-white);
 }
@@ -1027,7 +1029,7 @@ a.revue-card-title-link:hover .revue-card-title-journal {
 /* ══ FIN ANIMATIONS ════════════════════════════════════════════════ */
 
 @media (max-width: 768px) {
-    .revue-header-sticky { top: 68px; }
+    .revue-toolbar { top: 68px; } /* header mobile plus compact */
     .revue-masthead,
     .revue-synthese-bloc,
     .revue-toolbar,
