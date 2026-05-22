@@ -981,23 +981,39 @@ setInterval(loadVeille, 60000);
         ].concat(cats.map(function (c) { return { key: c, label: c }; }))
          .concat([{ key: 'archives', label: '📁 Archives', cls: 'archives-btn' }]);
 
-        // Mode Archives : afficher le sélecteur de date
-        if (_revueFilter === 'archives') {
-            var today = new Date().toISOString().split('T')[0];
-            container.innerHTML = '<div class="revue-masthead">'
+        // ── Helper : rendu barre filtres ────────────────────────────
+        function filterBar() {
+            return '<div class="revue-toolbar">'
+                + '<div class="revue-filters-journal">'
+                + fBtns.map(function(f) {
+                    return '<button class="revue-filter-journal'
+                        + (_revueFilter === f.key ? ' active' : '')
+                        + (f.cls ? ' ' + f.cls : '')
+                        + '" onclick="setRevueFilter(\'' + f.key + '\')">' + f.label + '</button>';
+                  }).join('')
+                + '</div>'
+                + '<span class="revue-count-journal" id="revueCount"></span>'
+                + '</div>';
+        }
+
+        // ── Helper : rendu masthead compact ─────────────────────────
+        function mastheadHtml(dateLabel) {
+            return '<div class="revue-masthead">'
                 + '<div class="revue-masthead-brand">'
-                +   '<span class="revue-masthead-label">✦ Édition quotidienne</span>'
                 +   '<div class="revue-masthead-title">Revue de <span>Presse</span></div>'
                 +   '<div class="revue-masthead-subtitle">TIC &amp; Télécoms · Algérie &amp; International</div>'
                 + '</div>'
-                + '<div class="revue-masthead-date"><strong>Archives</strong></div>'
+                + '<div class="revue-masthead-date"><strong>' + dateLabel + '</strong></div>'
+                + '</div>';
+        }
+
+        // Mode Archives : afficher le sélecteur de date
+        if (_revueFilter === 'archives') {
+            var today = new Date().toISOString().split('T')[0];
+            container.innerHTML = '<div class="revue-header-sticky">'
+                + mastheadHtml('Archives')
+                + filterBar()
                 + '</div>'
-                + '<div class="revue-toolbar"><div class="revue-filters-journal">'
-                + fBtns.map(function(f) {
-                    return '<button class="revue-filter-journal' + (_revueFilter===f.key?' active':'') + (f.cls?' '+f.cls:'')
-                        + '" onclick="setRevueFilter(\'' + f.key + '\')">' + f.label + '</button>';
-                  }).join('')
-                + '</div></div>'
                 + '<div class="revue-grid-journal">'
                 + '<div class="revue-archive-picker">'
                 + '<h4>📅 Consulter une édition précédente</h4>'
@@ -1023,36 +1039,18 @@ setInterval(loadVeille, 60000);
 
         var html = '';
 
-        // Masthead
-        html += '<div class="revue-masthead">'
-            + '<div class="revue-masthead-brand">'
-            +   '<span class="revue-masthead-label">✦ Édition quotidienne</span>'
-            +   '<div class="revue-masthead-title">Revue de <span>Presse</span></div>'
-            +   '<div class="revue-masthead-subtitle">TIC &amp; Télécoms · Algérie &amp; International</div>'
-            + '</div>'
-            + '<div class="revue-masthead-date">'
-            +   '<strong>' + _revueData.date + '</strong>'
-            +   nbSources + ' sources surveillées'
-            + '</div>'
-            + '</div>';
+        // ── Bloc sticky : Titre + Catégories ────────────────────────
+        html += '<div class="revue-header-sticky">';
+        html += mastheadHtml(_revueData.date);
+        html += filterBar();
+        html += '</div>';
 
-        // Synthèse
+        // ── Synthèse (hors sticky) ───────────────────────────────────
         html += '<div class="revue-synthese-bloc">'
-            + '<div class="revue-synthese-eyelet">✦ Synthèse éditoriale</div>'
+            + '<div class="revue-synthese-eyelet">✦ Synthèse · '
+            + articles.length + ' article' + (articles.length > 1 ? 's' : '') + ' · '
+            + nbSources + ' sources</div>'
             + '<p class="revue-synthese-text">' + _revueData.synthese + '</p>'
-            + '</div>';
-
-        // Filtres + compteur
-        html += '<div class="revue-toolbar">'
-            + '<div class="revue-filters-journal">'
-            + fBtns.map(function (f) {
-                return '<button class="revue-filter-journal' + (_revueFilter === f.key ? ' active' : '') + (f.cls ? ' ' + f.cls : '')
-                    + '" onclick="setRevueFilter(\'' + f.key + '\')">' + f.label + '</button>';
-              }).join('')
-            + '</div>'
-            + '<span class="revue-count-journal">'
-            + articles.length + ' article' + (articles.length > 1 ? 's' : '')
-            + '</span>'
             + '</div>';
 
         // Article à la UNE

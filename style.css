@@ -624,19 +624,32 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
 .revue-wrapper {
     padding: 0 !important;
     border-top: none !important;
+    /* espace pour que le contenu ne se cache pas sous le sticky */
+    scroll-margin-top: 80px;
     box-shadow: none !important;
     border-radius: 0 !important;
     background: var(--bg-white) !important;
     overflow: hidden;
 }
 
+/* ── Bloc header sticky (Titre + Catégories) ──────────────────── */
+.revue-header-sticky {
+    position: sticky;
+    top: 78px; /* hauteur du .header principal Algeria Tech */
+    z-index: 50;
+    background: var(--bg-white);
+    border-bottom: 2px solid var(--border);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+body.dark-mode .revue-header-sticky { background: var(--bg-white); }
+
 /* ── Masthead éditorial ───────────────────────────────────────── */
 .revue-masthead {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
-    padding: 30px 40px 20px;
-    border-bottom: 3px double var(--text-dark);
+    padding: 10px 40px 8px;
+    border-bottom: none;
     margin-bottom: 0;
     gap: 20px;
 }
@@ -648,13 +661,13 @@ body.dark-mode .revue-masthead { border-bottom-color: #f1f5f9; }
 }
 .revue-masthead-title {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 2.2rem; font-weight: 900; letter-spacing: -1.5px;
+    font-size: 1.45rem; font-weight: 900; letter-spacing: -0.8px;
     line-height: 1; color: var(--text-dark);
 }
 .revue-masthead-title span { color: var(--secondary); }
 .revue-masthead-subtitle {
-    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 2px;
-    color: var(--text-muted); font-weight: 500;
+    font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1.8px;
+    color: var(--text-muted); font-weight: 600;
 }
 .revue-masthead-date {
     text-align: right; font-size: 0.82rem; color: var(--text-muted);
@@ -665,7 +678,7 @@ body.dark-mode .revue-masthead { border-bottom-color: #f1f5f9; }
 
 /* ── Synthèse éditoriale ──────────────────────────────────────── */
 .revue-synthese-bloc {
-    padding: 22px 40px 24px;
+    padding: 14px 40px 16px;
     border-bottom: 1px solid var(--border);
     background: var(--bg);
 }
@@ -688,8 +701,8 @@ body.dark-mode .revue-masthead { border-bottom-color: #f1f5f9; }
 /* ── Filtres journaux ─────────────────────────────────────────── */
 .revue-toolbar {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 40px; border-bottom: 1px solid var(--border);
-    flex-wrap: wrap; gap: 12px;
+    padding: 6px 40px 10px; border-bottom: none;
+    flex-wrap: wrap; gap: 8px;
 }
 .revue-filters-journal { display: flex; flex-wrap: wrap; gap: 5px; }
 .revue-filter-journal {
@@ -716,9 +729,9 @@ body.dark-mode .revue-filter-journal.active { background: #f1f5f9; color: #0f172
     margin-bottom: 0;
 }
 .revue-une-left {
-    padding: 32px 40px 32px 40px;
+    padding: 20px 32px 20px 40px;
     border-right: 1px solid var(--border);
-    display: flex; flex-direction: column; justify-content: center; gap: 14px;
+    display: flex; flex-direction: column; justify-content: center; gap: 10px;
 }
 .revue-une-cat {
     font-size: 0.62rem; font-weight: 800; text-transform: uppercase;
@@ -743,8 +756,8 @@ body.dark-mode .revue-filter-journal.active { background: #f1f5f9; color: #0f172
 }
 .revue-une-link:hover { background: var(--secondary); transform: translateX(4px); }
 .revue-une-right {
-    padding: 32px 32px 32px 28px;
-    display: flex; flex-direction: column; gap: 14px;
+    padding: 20px 28px 20px 24px;
+    display: flex; flex-direction: column; gap: 10px;
     background: var(--bg); justify-content: center;
 }
 .revue-une-source-row {
@@ -785,14 +798,14 @@ body.dark-mode .revue-filter-journal.active { background: #f1f5f9; color: #0f172
     padding: 0 0 0 40px;
 }
 .revue-card-journal {
-    padding: 22px 28px 22px 0;
+    padding: 13px 20px 13px 0;
     border-bottom: 1px solid var(--border);
     display: flex; flex-direction: column; gap: 10px;
     transition: background 0.18s;
 }
 .revue-card-journal:nth-child(3n+2),
 .revue-card-journal:nth-child(3n) {
-    padding-left: 24px;
+    padding-left: 16px;
     border-left: 1px solid var(--border);
 }
 .revue-card-journal:hover { background: rgba(0,98,51,0.025); }
@@ -826,8 +839,8 @@ body.dark-mode .revue-filter-journal.active { background: #f1f5f9; color: #0f172
     -webkit-box-orient: vertical; overflow: hidden;
 }
 .revue-card-footer-journal {
-    display: flex; align-items: center; gap: 7px; margin-top: auto;
-    padding-top: 10px; border-top: 1px dashed var(--border);
+    display: flex; align-items: center; gap: 6px; margin-top: auto;
+    padding-top: 7px; border-top: 1px dashed var(--border);
 }
 .revue-card-logo-sm {
     width: 16px; height: 16px; border-radius: 2px; object-fit: contain;
@@ -918,6 +931,7 @@ body.dark-mode .revue-filter-journal.active { background: #f1f5f9; color: #0f172
     .revue-card-journal:nth-child(even) { padding-left: 20px; border-left: 1px solid var(--border); }
 }
 @media (max-width: 768px) {
+    .revue-header-sticky { top: 68px; } /* header mobile plus compact */
     .revue-masthead,
     .revue-synthese-bloc,
     .revue-toolbar,
@@ -926,9 +940,12 @@ body.dark-mode .revue-filter-journal.active { background: #f1f5f9; color: #0f172
     .revue-footer-edition { padding-left: 16px !important; padding-right: 16px !important; }
     .revue-grid-journal { grid-template-columns: 1fr; padding: 0 16px; }
     .revue-card-journal:nth-child(n) { padding-left: 0 !important; border-left: none !important; padding-right: 0; }
-    .revue-une-title { font-size: 1.4rem; }
-    .revue-masthead-title { font-size: 1.6rem; }
-    .revue-masthead { flex-direction: column; align-items: flex-start; }
+    .revue-une-title { font-size: 1.3rem; }
+    .revue-masthead-title { font-size: 1.2rem; }
+    .revue-masthead { flex-direction: row; align-items: center; padding: 8px 16px 6px; }
+    .revue-toolbar { padding: 4px 16px 8px; }
+    .revue-filters-journal { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 2px; }
+    .revue-filter-journal { white-space: nowrap; flex-shrink: 0; }
 }
 /* ================================================================
    FIN REFONTE GRAND JOURNAL
