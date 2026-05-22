@@ -105,7 +105,7 @@ async function processWithMistral(rawArticles) {
     const input = rawArticles.map((a, i) => ({ i, t: a.titre.substring(0, 100), s: a.source }));
     const prompt = `Agis en rédacteur AlgérieTech. Analyse cette liste d'articles tech des dernières 24h.
     1. Sélectionne les 12 articles les plus marquants.
-    2. Pour chaque article: crée une accroche pro (15 mots) et une catégorie (Télécoms, IA, Startups, Numérique, Cybersécurité, Réseaux, ou Innovation).
+    2. Pour chaque article: crée une accroche pro (15 mots) et une catégorie (Télécoms, IA, Startups, Mobile, Cybersécurité, Réseaux, ou Innovation).
     3. Rédige une synthèse globale de 3 phrases.
     Data:${JSON.stringify(input)}
     Réponds EXCLUSIVEMENT en JSON pur: {"synthese":"...", "selected":[{"i":0, "accroche":"...", "categorie":"..."}]}`;

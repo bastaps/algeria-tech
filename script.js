@@ -57,88 +57,88 @@ function updateLiveClock() {
 updateLiveClock();
 setInterval(updateLiveClock, 1000);
 
-// ===== CHARGEMENT DES ARTICLES =====
+// ===== CHARGEMENT DES ARTICLES (statique via articles.json) =====
 async function loadArticles() {
-    // Affiche d'abord les articles en cache (si disponibles) pour UX immÃ©diate
-    if (allArticles.length > 0) {
-        renderHero(allArticles);
-        renderGrid(allArticles.slice(0, ITEMS_PER_PAGE));
-        renderTicker(allArticles);
-        renderTrending();
-        renderTags();
-        renderPagination(allArticles);
-        initCounters();
+
+    // ── 1. Affichage instantané depuis le cache localStorage ──
+    const cached = localStorage.getItem(‘at_articles_cache’);
+    if (cached) {
+        try {
+            allArticles = JSON.parse(cached);
+            allArticles.forEach(a => {
+                a.views = articleViews[a.id] || Math.floor(Math.random() * 500) + 50;
+            });
+            _renderAll(allArticles);
+        } catch (e) {
+            localStorage.removeItem(‘at_articles_cache’);
+        }
     } else {
-        const grid = document.getElementById('newsGrid');
-        if (grid) grid.innerHTML = '<p style="text-align:center; padding:20px;">Chargement des derniers articlesâ€¦</p>';
+        const grid = document.getElementById(‘newsGrid’);
+        if (grid) grid.innerHTML = ‘<p style="text-align:center;padding:20px;">Chargement…</p>’;
     }
 
-    // Fonction utilitaire avec timeout et retry
-    const fetchWithTimeout = async (url, options = {}, timeout = 8000, retries = 1) => {
-        for (let i = 0; i <= retries; i++) {
-            try {
-                const controller = new AbortController();
-                const id = setTimeout(() => controller.abort(), timeout);
-                const res = await fetch(url, { ...options, signal: controller.signal });
-                clearTimeout(id);
-                return res;
-            } catch (err) {
-                if (i === retries) throw err;
-                await new Promise(r => setTimeout(r, 1000)); // pause avant retry
-            }
-        }
-    };
-
+    // ── 2. Fetch articles.json depuis Cloudflare CDN (~80ms) ──
     try {
-        const listResponse = await fetchWithTimeout(`${API_BASE}/api/articles`, {}, 8000, 1);
-        if (!listResponse.ok) throw new Error(`HTTP ${listResponse.status}: ${listResponse.statusText}`);
-        const articleFiles = await listResponse.json();
-        allArticles = [];
-        const articlePromises = articleFiles.map(async (fileName) => {
-            try {
-                const res = await fetchWithTimeout(`${API_BASE}/api/article-content/${fileName}`, {}, 8000, 1);
-                if (res.ok) {
-                    const text = await res.text();
-                    const art = parseMarkdownFile(text);
-                    art.id = fileName.replace('.md', '');
-                    if (!isLocal && art.image && !art.image.startsWith('http')) {
-                        art.image = `https://raw.githubusercontent.com/bastaps/algeria-tech/main/${art.image}`;
-                    }
-                    art.views = articleViews[art.id] || Math.floor(Math.random() * 500) + 50;
-                    return art;
-                }
-            } catch (err) {
-                console.warn("Article non chargÃ© (timeout/retry Ã©chouÃ©): ", fileName, err);
-            }
-            return null;
-        });
-        const results = await Promise.all(articlePromises);
-        allArticles = results.filter(a => a !== null);
-        allArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
+        const res = await fetch(‘/articles.json’);
+        if (!res.ok) throw new Error(‘articles.json introuvable’);
+        const data = await res.json();
 
-        if (allArticles.length === 0) {
-            console.warn("Aucun article trouvÃ© aprÃ¨s appel API. ");
-            const grid = document.getElementById('newsGrid');
-            if (grid) grid.innerHTML = '<p style="text-align:center; padding:20px;">Aucun article disponible pour le moment.</p>';
-            return;
-        }
+        allArticles = data.map(a => ({
+            ...a,
+            views: articleViews[a.id] || Math.floor(Math.random() * 500) + 50
+            // rawContent conservé — contenu HTML parsé à la demande (openArticle)
+        }));
 
-        // RafraÃ®chit l'affichage avec les nouveaux articles
-        renderHero(allArticles);
-        renderGrid(allArticles.slice(0, ITEMS_PER_PAGE));
-        renderTicker(allArticles);
-        renderTrending();
-        renderTags();
-        renderPagination(allArticles);
-        initCounters();
+        // Mise en cache pour la prochaine visite (sans contenu HTML pour économiser l’espace)
+        localStorage.setItem(‘at_articles_cache’, JSON.stringify(allArticles));
+
+        _renderAll(allArticles);
+
     } catch (e) {
-        console.error('Erreur critique de chargement (API indisponible):', e);
-        // Garde les articles en cache affichÃ©s â†’ pas de page blanche
+        console.error(‘articles.json indisponible:’, e);
+
+        // ── 3. Fallback : API Render (si articles.json absent) ──
         if (allArticles.length === 0) {
-            const grid = document.getElementById('newsGrid');
-            if (grid) grid.innerHTML = `<div style="text-align:center; padding:20px; color: #d97706;"><h3>âš ï¸  Connexion lente ou temporaire</h3><p>Les articles rÃ©cents sont toujours visibles. Le serveur se rÃ©veilleâ€¦</p></div>`;
+            const grid = document.getElementById(‘newsGrid’);
+            if (grid) grid.innerHTML = ‘<div style="text-align:center;padding:20px;color:#d97706;">⚠️ Chargement en cours…</div>’;
+            try {
+                const r = await fetch(`${API_BASE}/api/articles`, { signal: AbortSignal.timeout(15000) });
+                if (r.ok) {
+                    const files = await r.json();
+                    const promises = files.map(async (f) => {
+                        try {
+                            const ar = await fetch(`${API_BASE}/api/article-content/${f}`, { signal: AbortSignal.timeout(8000) });
+                            if (!ar.ok) return null;
+                            const txt = await ar.text();
+                            const art = parseMarkdownFile(txt);
+                            art.id = f.replace(‘.md’, ‘’);
+                            if (art.image && !art.image.startsWith(‘http’))
+                                art.image = `https://raw.githubusercontent.com/bastaps/algeria-tech/main/${art.image}`;
+                            art.views = articleViews[art.id] || Math.floor(Math.random() * 500) + 50;
+                            return art;
+                        } catch { return null; }
+                    });
+                    allArticles = (await Promise.all(promises)).filter(Boolean);
+                    allArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    _renderAll(allArticles);
+                }
+            } catch (e2) {
+                if (allArticles.length === 0 && grid)
+                    grid.innerHTML = ‘<p style="text-align:center;padding:20px;">Impossible de charger les articles.</p>’;
+            }
         }
     }
+}
+
+// Render complet (DRY — évite la répétition)
+function _renderAll(arts) {
+    renderHero(arts);
+    renderGrid(arts.slice(0, ITEMS_PER_PAGE));
+    renderTicker(arts);
+    renderTrending();
+    renderTags();
+    renderPagination(arts);
+    initCounters();
 }
 
 // Parser Markdown
@@ -228,6 +228,14 @@ window.openArticle = function(id) {
         adminBtn.innerHTML = '<i class="fas fa-pencil-alt"></i>';
         adminBtn.title = "Modifier cet article";
     }
+    // Parse markdown à la demande (lazy) — non fait au chargement initial
+    if (!art.contenu && art.rawContent) {
+        art.contenu = (typeof marked !== 'undefined')
+            ? marked.parse(art.rawContent, { breaks: true, gfm: true })
+            : art.rawContent;
+        art.readingTime = Math.ceil(art.rawContent.split(/\s+/).length / 200);
+    }
+
     art.views++;
     articleViews[id] = art.views;
     localStorage.setItem('articleViews', JSON.stringify(articleViews));
@@ -339,7 +347,7 @@ window.showVeille = function() {
     window.scrollTo({top: 0, behavior: 'smooth'});
 };
 
-// ===== NAVIGATION REVUE DE PRESSE IA =====
+// ===== NAVIGATION REVUE DE PRESSE =====
 window.showRevue = function() {
     if (synth) synth.cancel();
     currentFilter = 'all';
@@ -430,6 +438,29 @@ function renderRevueCards() {
 window.setRevueFilter = function(key) {
     _revueFilter = key;
     renderRevueCards();
+};
+
+// ── Chargement d'une édition archivée ────────────────────────────
+window.loadRevueArchive = function() {
+    var input = document.getElementById('revueArchiveDate');
+    if (!input || !input.value) return;
+    var date = input.value; // format YYYY-MM-DD
+    var container = document.getElementById('revueContent');
+    if (container) container.innerHTML = '<div class="revue-loading"><i class="fas fa-spinner fa-spin"></i><p>Chargement de l\'édition du ' + date + '…</p></div>';
+    fetch('archives/' + date + '.json?t=' + Date.now())
+        .then(function(r) {
+            if (!r.ok) throw new Error('Archive non trouvée');
+            return r.json();
+        })
+        .then(function(data) {
+            _revueData = data;
+            _revueFilter = 'all';
+            renderRevueCards();
+        })
+        .catch(function() {
+            if (container) container.innerHTML = '<div class="revue-loading"><i class="fas fa-exclamation-triangle"></i>'
+                + '<p>Archive du <strong>' + date + '</strong> non disponible.<br>Les archives sont générées chaque matin à partir du lendemain.</p></div>';
+        });
 };
 
 // ===== PAGINATION ET FILTRES =====
@@ -863,23 +894,38 @@ setInterval(loadVeille, 60000);
         document.head.appendChild(lk);
     }
 
+    // ── Normalisation des catégories (encodage Mistral) ─────────
+    function normCat(cat) {
+        if (!cat) return 'Innovation';
+        var fixes = {
+            'Numérique':'Mobile','Num??rique':'Mobile','Num?rique':'Mobile',
+            'Numerique':'Mobile','numérique':'Mobile',
+            'Télécoms':'Télécoms','T?l?coms':'Télécoms',
+            'Cybersécurité':'Cybersécurité','Cybers?curit?':'Cybersécurité',
+            'Réseaux':'Réseaux','R?seaux':'Réseaux'
+        };
+        return fixes[cat] || cat;
+    }
+
     // ── Catégorie → classe CSS ──────────────────────────────────
     function catCls(cat) {
+        var normalized = normCat(cat);
         var m = {
             'IA':'ia','Télécoms':'telecoms','Startups':'startups',
-            'Innovation':'innovation','Numérique':'numerique',
+            'Innovation':'innovation','Mobile':'numerique',
             'Cybersécurité':'cybersecurite','Réseaux':'reseaux'
         };
-        return m[cat] || 'default';
+        return m[normalized] || 'default';
     }
 
     // ── Render article à la UNE ─────────────────────────────────
     function renderUne(a) {
+        var cat = normCat(a.categorie);
         var pc = a.pays === 'DZ' ? 'dz' : 'fr';
         var pl = a.pays === 'DZ' ? '🇩🇿 Algérie' : '🌐 International';
         return '<div class="revue-une">'
             + '<div class="revue-une-left">'
-            +   '<span class="revue-une-cat">' + a.categorie + '</span>'
+            +   '<span class="revue-une-cat">' + cat + '</span>'
             +   '<h2 class="revue-une-title">' + a.titre + '</h2>'
             +   '<p class="revue-une-accroche">' + (a.accroche || a.resume) + '</p>'
             +   '<a href="' + a.url + '" target="_blank" rel="noopener" class="revue-une-link">'
@@ -892,7 +938,6 @@ setInterval(loadVeille, 60000);
             +     '<span class="revue-une-source-name">' + a.source + '</span>'
             +     '<span class="revue-une-pays ' + pc + '">' + pl + '</span>'
             +   '</div>'
-            +   '<div class="revue-une-ai-badge"><span class="revue-ai-pulse"></span>Analyse Mistral AI</div>'
             +   '<p class="revue-une-resume">' + (a.resume || a.accroche) + '</p>'
             + '</div>'
             + '</div>';
@@ -900,7 +945,7 @@ setInterval(loadVeille, 60000);
 
     // ── Render carte standard ────────────────────────────────────
     function renderCard(a) {
-        var cc = catCls(a.categorie);
+        var cc = catCls(normCat(a.categorie));
         var pc = a.pays === 'DZ' ? 'dz' : 'fr';
         var pl = a.pays === 'DZ' ? '🇩🇿 DZ' : '🌐 Intl';
         return '<div class="revue-card-journal">'
@@ -922,24 +967,55 @@ setInterval(loadVeille, 60000);
         if (!container || !_revueData) return;
 
         // Filtre actif
-        var articles = _revueData.articles.filter(function (a) {
-            if (_revueFilter === 'all') return true;
-            if (_revueFilter === 'DZ')  return a.pays === 'DZ';
-            if (_revueFilter === 'FR')  return a.pays === 'FR';
-            return a.categorie === _revueFilter;
-        });
-
-        // Boutons filtres avec compteurs
+        // Boutons filtres — construits en premier (nécessaires pour le mode Archives aussi)
         var cats = [];
         _revueData.articles.forEach(function (a) {
-            if (cats.indexOf(a.categorie) === -1) cats.push(a.categorie);
+            var c = normCat(a.categorie);
+            if (cats.indexOf(c) === -1) cats.push(c);
         });
         cats.sort();
         var fBtns = [
             { key: 'all', label: 'Toutes' },
             { key: 'DZ',  label: '🇩🇿 Algérie' },
             { key: 'FR',  label: '🌐 International' }
-        ].concat(cats.map(function (c) { return { key: c, label: c }; }));
+        ].concat(cats.map(function (c) { return { key: c, label: c }; }))
+         .concat([{ key: 'archives', label: '📁 Archives', cls: 'archives-btn' }]);
+
+        // Mode Archives : afficher le sélecteur de date
+        if (_revueFilter === 'archives') {
+            var today = new Date().toISOString().split('T')[0];
+            container.innerHTML = '<div class="revue-masthead">'
+                + '<div class="revue-masthead-brand">'
+                +   '<span class="revue-masthead-label">✦ Édition quotidienne</span>'
+                +   '<div class="revue-masthead-title">Revue de <span>Presse</span></div>'
+                +   '<div class="revue-masthead-subtitle">TIC &amp; Télécoms · Algérie &amp; International</div>'
+                + '</div>'
+                + '<div class="revue-masthead-date"><strong>Archives</strong></div>'
+                + '</div>'
+                + '<div class="revue-toolbar"><div class="revue-filters-journal">'
+                + fBtns.map(function(f) {
+                    return '<button class="revue-filter-journal' + (_revueFilter===f.key?' active':'') + (f.cls?' '+f.cls:'')
+                        + '" onclick="setRevueFilter(\'' + f.key + '\')">' + f.label + '</button>';
+                  }).join('')
+                + '</div></div>'
+                + '<div class="revue-grid-journal">'
+                + '<div class="revue-archive-picker">'
+                + '<h4>📅 Consulter une édition précédente</h4>'
+                + '<p>Les archives sont disponibles à partir du lendemain de leur génération.</p>'
+                + '<div class="revue-archive-row">'
+                + '<input type="date" class="revue-archive-input" id="revueArchiveDate" max="' + today + '">'
+                + '<button class="revue-archive-btn" onclick="loadRevueArchive()">Consulter cette édition</button>'
+                + '</div>'
+                + '</div></div>';
+            return;
+        }
+
+        var articles = _revueData.articles.filter(function (a) {
+            if (_revueFilter === 'all') return true;
+            if (_revueFilter === 'DZ')  return a.pays === 'DZ';
+            if (_revueFilter === 'FR')  return a.pays === 'FR';
+            return normCat(a.categorie) === _revueFilter;
+        });
 
         var nbSources = _revueData.totalSources || 16;
         var hero  = articles[0];
@@ -970,7 +1046,7 @@ setInterval(loadVeille, 60000);
         html += '<div class="revue-toolbar">'
             + '<div class="revue-filters-journal">'
             + fBtns.map(function (f) {
-                return '<button class="revue-filter-journal' + (_revueFilter === f.key ? ' active' : '')
+                return '<button class="revue-filter-journal' + (_revueFilter === f.key ? ' active' : '') + (f.cls ? ' ' + f.cls : '')
                     + '" onclick="setRevueFilter(\'' + f.key + '\')">' + f.label + '</button>';
               }).join('')
             + '</div>'
@@ -993,10 +1069,10 @@ setInterval(loadVeille, 60000);
 
         // Pied édition
         html += '<div class="revue-footer-edition">'
-            + '<span class="revue-footer-sources">' + nbSources + ' sources · Mis à jour quotidiennement</span>'
+            + '<span class="revue-footer-sources">' + nbSources + ' sources · Mis à jour chaque matin à 05h00</span>'
             + '<span class="revue-footer-ai">'
             +   '<span class="revue-ai-pulse"></span>'
-            +   'Sélection et analyse par Mistral AI'
+            +   'Sélection éditoriale automatique'
             + '</span>'
             + '</div>';
 

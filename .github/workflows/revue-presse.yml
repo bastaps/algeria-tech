@@ -26,6 +26,17 @@ jobs:
       - name: Installer les dépendances
         run: npm ci
 
+      - name: Archiver l'édition de la veille
+        run: |
+          if [ -f revue_presse.json ]; then
+            YESTERDAY=$(date -d "yesterday" +%Y-%m-%d)
+            mkdir -p archives
+            cp revue_presse.json archives/$YESTERDAY.json
+            echo "✅ Archivé : archives/$YESTERDAY.json"
+          else
+            echo "ℹ️  Pas de revue existante à archiver."
+          fi
+
       - name: Générer la revue de presse via Mistral
         env:
           MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}

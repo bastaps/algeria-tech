@@ -555,7 +555,7 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
 .revue-container { margin-top: 25px; line-height: 1.8; color: var(--text-dark); }
 .revue-loading { text-align: center; padding: 40px; color: var(--text-muted); display: flex; flex-direction: column; gap: 15px; align-items: center; }
 .revue-loading i { font-size: 2rem; color: var(--accent); }
-.revue-intro { background: rgba(26, 115, 232, 0.05); padding: 25px; border-radius: var(--radius); margin-bottom: 30px; border-left: 5px solid var(--accent); font-style: italic; font-size: 1.05rem; }
+.revue-intro { background: rgba(26, 115, 232, 0.05); padding: 25px; border-radius: var(--radius); margin-bottom: 30px; border-left: 5px solid var(--accent); font-size: 1.05rem; }
 .revue-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 25px; }
 .revue-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; transition: var(--transition); display: flex; flex-direction: column; gap: 12px; }
 .revue-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--accent); }
@@ -578,8 +578,8 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
 .revue-pays-badge.dz { background: rgba(0,98,60,0.1); color: #00623c; }
 .revue-pays-badge.fr { background: rgba(26,115,232,0.1); color: var(--accent); }
 /* ── Accroche IA ─────────────────────────────────────────────────────────── */
-.revue-accroche { font-size: 0.9rem; color: var(--text-muted); font-style: italic; line-height: 1.55; }
-.revue-empty { text-align: center; color: var(--text-muted); padding: 30px; font-style: italic; }
+.revue-accroche { font-size: 0.9rem; color: var(--text-muted); line-height: 1.55; }
+.revue-empty { text-align: center; color: var(--text-muted); padding: 30px; }
 @media (max-width: 768px) {
     .revue-wrapper { padding: 20px; }
     .revue-grid { grid-template-columns: 1fr; }
@@ -647,8 +647,8 @@ body.dark-mode .revue-masthead { border-bottom-color: #f1f5f9; }
     letter-spacing: 3px; color: var(--secondary); margin-bottom: 2px;
 }
 .revue-masthead-title {
-    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
-    font-size: 2.2rem; font-weight: 700; letter-spacing: -0.5px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 2.2rem; font-weight: 900; letter-spacing: -1.5px;
     line-height: 1; color: var(--text-dark);
 }
 .revue-masthead-title span { color: var(--secondary); }
@@ -658,10 +658,10 @@ body.dark-mode .revue-masthead { border-bottom-color: #f1f5f9; }
 }
 .revue-masthead-date {
     text-align: right; font-size: 0.82rem; color: var(--text-muted);
-    font-style: italic; line-height: 1.6;
+    line-height: 1.6; font-weight: 500;
 }
-.revue-masthead-date strong { display: block; font-style: normal; font-weight: 700;
-    color: var(--text-dark); font-size: 0.9rem; }
+.revue-masthead-date strong { display: block; font-weight: 800;
+    color: var(--text-dark); font-size: 0.9rem; letter-spacing: -0.3px; }
 
 /* ── Synthèse éditoriale ──────────────────────────────────────── */
 .revue-synthese-bloc {
@@ -678,8 +678,8 @@ body.dark-mode .revue-masthead { border-bottom-color: #f1f5f9; }
     content: ''; flex: 1; height: 1px; background: var(--border);
 }
 .revue-synthese-text {
-    font-family: 'Playfair Display', Georgia, serif !important;
-    font-size: 1.05rem !important; line-height: 1.8 !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-size: 1.05rem !important; font-weight: 500 !important; line-height: 1.75 !important;
     color: var(--text-dark) !important; font-style: italic !important;
     max-width: 900px; padding: 0 !important; border: none !important;
     background: transparent !important;
@@ -725,14 +725,14 @@ body.dark-mode .revue-filter-journal.active { background: #f1f5f9; color: #0f172
     letter-spacing: 2.5px; color: var(--secondary);
 }
 .revue-une-title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 2rem; font-weight: 700; line-height: 1.2;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.9rem; font-weight: 900; line-height: 1.15; letter-spacing: -0.8px;
     color: var(--text-dark);
     border-left: 5px solid var(--secondary); padding-left: 16px;
 }
 .revue-une-accroche {
     font-size: 1rem; line-height: 1.7; color: var(--text-muted);
-    font-style: italic; max-width: 520px;
+    font-weight: 500; max-width: 520px;
 }
 .revue-une-link {
     display: inline-flex; align-items: center; gap: 10px;
@@ -813,14 +813,14 @@ body.dark-mode .revue-filter-journal.active { background: #f1f5f9; color: #0f172
 .revue-card-cat.cat-default       { background: var(--accent); }
 
 .revue-card-title-journal {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.02rem; font-weight: 700; line-height: 1.35;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.98rem; font-weight: 700; line-height: 1.35; letter-spacing: -0.2px;
     color: var(--text-dark);
     display: -webkit-box; -webkit-line-clamp: 3;
     -webkit-box-orient: vertical; overflow: hidden;
 }
 .revue-card-accroche-journal {
-    font-size: 0.8rem; color: var(--text-muted); font-style: italic;
+    font-size: 0.8rem; color: var(--text-muted); font-weight: 500;
     line-height: 1.5; border-left: 2px solid var(--border); padding-left: 8px;
     display: -webkit-box; -webkit-line-clamp: 2;
     -webkit-box-orient: vertical; overflow: hidden;
@@ -860,13 +860,52 @@ body.dark-mode .revue-filter-journal.active { background: #f1f5f9; color: #0f172
 }
 .revue-footer-ai {
     display: flex; align-items: center; gap: 7px;
-    font-size: 0.72rem; color: var(--text-muted); font-style: italic;
+    font-size: 0.72rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.3px;
 }
 
 /* ── Vide ─────────────────────────────────────────────────────── */
 .revue-empty-journal {
     padding: 40px; text-align: center; color: var(--text-muted);
-    font-style: italic; grid-column: 1 / -1;
+    font-weight: 500; grid-column: 1 / -1;
+}
+
+/* ── Archives picker ──────────────────────────────────────────── */
+.revue-archive-picker {
+    padding: 40px; text-align: center; grid-column: 1 / -1;
+    border: 2px dashed var(--border); border-radius: var(--radius);
+    margin: 20px 40px;
+}
+.revue-archive-picker h4 {
+    font-size: 1rem; font-weight: 700; color: var(--text-dark);
+    margin-bottom: 18px; letter-spacing: -0.2px;
+}
+.revue-archive-picker p {
+    font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;
+}
+.revue-archive-row {
+    display: flex; align-items: center; justify-content: center;
+    gap: 10px; flex-wrap: wrap;
+}
+.revue-archive-input {
+    padding: 8px 14px; border: 1.5px solid var(--border);
+    border-radius: var(--radius); font-family: 'Inter', sans-serif;
+    font-size: 0.88rem; font-weight: 500; color: var(--text-dark);
+    background: var(--bg-white); cursor: pointer;
+}
+.revue-archive-input:focus { outline: none; border-color: var(--accent); }
+.revue-archive-btn {
+    padding: 9px 20px; background: var(--text-dark); color: #fff;
+    border: none; border-radius: var(--radius); cursor: pointer;
+    font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 700;
+    letter-spacing: 0.3px; transition: background 0.18s;
+}
+.revue-archive-btn:hover { background: var(--secondary); }
+.revue-filter-journal.archives-btn {
+    border-color: var(--secondary); color: var(--secondary);
+}
+.revue-filter-journal.archives-btn.active,
+.revue-filter-journal.archives-btn:hover {
+    background: var(--secondary); color: #fff; border-color: var(--secondary);
 }
 
 /* ── Responsive ───────────────────────────────────────────────── */
