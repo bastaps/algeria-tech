@@ -739,7 +739,7 @@ body.dark-mode .revue-filter-journal.active { background: #f1f5f9; color: #0f172
 }
 .revue-une-title {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 1.9rem; font-weight: 900; line-height: 1.15; letter-spacing: -0.8px;
+    font-size: 1.35rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.4px;
     color: var(--text-dark);
     border-left: 5px solid var(--secondary); padding-left: 16px;
 }
@@ -930,6 +930,88 @@ body.dark-mode .revue-filter-journal.active { background: #f1f5f9; color: #0f172
     .revue-card-journal:nth-child(3n) { padding-left: 0; border-left: none; }
     .revue-card-journal:nth-child(even) { padding-left: 20px; border-left: 1px solid var(--border); }
 }
+/* ══ ANIMATIONS & HOVER EFFECTS (Revue de Presse) ════════════════ */
+@keyframes revueFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Article UNE : entrée douce */
+.revue-une {
+    animation: revueFadeIn 0.45s ease both;
+}
+
+/* Synthèse : apparition rapide */
+.revue-synthese-bloc {
+    animation: revueFadeIn 0.3s ease both;
+}
+
+/* Cards grille : entrée en cascade */
+.revue-card-journal {
+    animation: revueFadeIn 0.35s ease both;
+    transition: background 0.18s ease, box-shadow 0.18s ease;
+}
+.revue-card-journal:nth-child(1)  { animation-delay: 0.04s; }
+.revue-card-journal:nth-child(2)  { animation-delay: 0.08s; }
+.revue-card-journal:nth-child(3)  { animation-delay: 0.12s; }
+.revue-card-journal:nth-child(4)  { animation-delay: 0.16s; }
+.revue-card-journal:nth-child(5)  { animation-delay: 0.20s; }
+.revue-card-journal:nth-child(6)  { animation-delay: 0.24s; }
+.revue-card-journal:nth-child(7)  { animation-delay: 0.28s; }
+.revue-card-journal:nth-child(8)  { animation-delay: 0.32s; }
+.revue-card-journal:nth-child(9)  { animation-delay: 0.36s; }
+.revue-card-journal:nth-child(10) { animation-delay: 0.40s; }
+.revue-card-journal:nth-child(11) { animation-delay: 0.44s; }
+
+/* Hover card : accent vert en bordure gauche + ombre fine */
+.revue-card-journal:hover {
+    background: rgba(0, 98, 51, 0.03);
+    box-shadow: inset 3px 0 0 var(--secondary), 0 2px 10px rgba(0,0,0,0.07);
+}
+.revue-card-journal:hover .revue-card-lire {
+    color: var(--secondary);
+    letter-spacing: 0.8px;
+}
+.revue-card-title-journal {
+    transition: color 0.18s ease;
+}
+.revue-card-journal:hover .revue-card-title-journal {
+    color: var(--secondary);
+}
+
+/* Hover UNE */
+.revue-une-link {
+    transition: background 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+}
+.revue-une-link:hover {
+    background: var(--secondary);
+    transform: translateX(6px);
+    box-shadow: 0 4px 14px rgba(0,98,51,0.25);
+}
+
+/* Hover filtres catégories */
+.revue-filter-journal {
+    transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.revue-filter-journal:hover:not(.active) {
+    border-color: var(--secondary);
+    color: var(--secondary);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0,98,51,0.15);
+}
+.revue-filter-journal.active {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    transform: translateY(-1px);
+}
+
+/* Wrapper : pas de marge parasite */
+.revue-wrapper {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* ══ FIN ANIMATIONS ════════════════════════════════════════════════ */
+
 @media (max-width: 768px) {
     .revue-header-sticky { top: 68px; } /* header mobile plus compact */
     .revue-masthead,

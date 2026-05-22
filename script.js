@@ -1000,6 +1000,7 @@ setInterval(loadVeille, 60000);
         function mastheadHtml(dateLabel) {
             return '<div class="revue-masthead">'
                 + '<div class="revue-masthead-brand">'
+                +   '<span class="revue-masthead-label">✶ Edition quotidienne</span>'
                 +   '<div class="revue-masthead-title">Revue de <span>Presse</span></div>'
                 +   '<div class="revue-masthead-subtitle">TIC &amp; Télécoms · Algérie &amp; International</div>'
                 + '</div>'
