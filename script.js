@@ -61,7 +61,7 @@ setInterval(updateLiveClock, 1000);
 async function loadArticles() {
 
     // ── 1. Affichage instantané depuis le cache localStorage ──
-    const cached = localStorage.getItem(‘at_articles_cache’);
+    const cached = localStorage.getItem('at_articles_cache');
     if (cached) {
         try {
             allArticles = JSON.parse(cached);
@@ -70,17 +70,17 @@ async function loadArticles() {
             });
             _renderAll(allArticles);
         } catch (e) {
-            localStorage.removeItem(‘at_articles_cache’);
+            localStorage.removeItem('at_articles_cache');
         }
     } else {
-        const grid = document.getElementById(‘newsGrid’);
-        if (grid) grid.innerHTML = ‘<p style="text-align:center;padding:20px;">Chargement…</p>’;
+        const grid = document.getElementById('newsGrid');
+        if (grid) grid.innerHTML = '<p style="text-align:center;padding:20px;">Chargement…</p>';
     }
 
     // ── 2. Fetch articles.json depuis Cloudflare CDN (~80ms) ──
     try {
-        const res = await fetch(‘/articles.json’);
-        if (!res.ok) throw new Error(‘articles.json introuvable’);
+        const res = await fetch('/articles.json');
+        if (!res.ok) throw new Error('articles.json introuvable');
         const data = await res.json();
 
         allArticles = data.map(a => ({
@@ -89,18 +89,18 @@ async function loadArticles() {
             // rawContent conservé — contenu HTML parsé à la demande (openArticle)
         }));
 
-        // Mise en cache pour la prochaine visite (sans contenu HTML pour économiser l’espace)
-        localStorage.setItem(‘at_articles_cache’, JSON.stringify(allArticles));
+        // Mise en cache pour la prochaine visite (sans contenu HTML pour économiser l'espace)
+        localStorage.setItem('at_articles_cache', JSON.stringify(allArticles));
 
         _renderAll(allArticles);
 
     } catch (e) {
-        console.error(‘articles.json indisponible:’, e);
+        console.error('articles.json indisponible:', e);
 
         // ── 3. Fallback : API Render (si articles.json absent) ──
         if (allArticles.length === 0) {
-            const grid = document.getElementById(‘newsGrid’);
-            if (grid) grid.innerHTML = ‘<div style="text-align:center;padding:20px;color:#d97706;">⚠️ Chargement en cours…</div>’;
+            const grid = document.getElementById('newsGrid');
+            if (grid) grid.innerHTML = '<div style="text-align:center;padding:20px;color:#d97706;">⚠️ Chargement en cours…</div>';
             try {
                 const r = await fetch(`${API_BASE}/api/articles`, { signal: AbortSignal.timeout(15000) });
                 if (r.ok) {
@@ -111,8 +111,8 @@ async function loadArticles() {
                             if (!ar.ok) return null;
                             const txt = await ar.text();
                             const art = parseMarkdownFile(txt);
-                            art.id = f.replace(‘.md’, ‘’);
-                            if (art.image && !art.image.startsWith(‘http’))
+                            art.id = f.replace('.md', '');
+                            if (art.image && !art.image.startsWith('http'))
                                 art.image = `https://raw.githubusercontent.com/bastaps/algeria-tech/main/${art.image}`;
                             art.views = articleViews[art.id] || Math.floor(Math.random() * 500) + 50;
                             return art;
@@ -124,7 +124,7 @@ async function loadArticles() {
                 }
             } catch (e2) {
                 if (allArticles.length === 0 && grid)
-                    grid.innerHTML = ‘<p style="text-align:center;padding:20px;">Impossible de charger les articles.</p>’;
+                    grid.innerHTML = '<p style="text-align:center;padding:20px;">Impossible de charger les articles.</p>';
             }
         }
     }
