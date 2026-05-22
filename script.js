@@ -447,7 +447,8 @@ function renderRevueCards() {
         </div>`;
 
     const uneHtml = une ? `
-        <div class="revue-une">
+        <div class="revue-une" style="--revue-glow:${glowByCategorie(une.categorie)}">
+            <div class="revue-card-shine"></div>
             <div class="revue-une-left">
                 <span class="revue-une-cat">${une.categorie}</span>
                 <a href="${une.url}" target="_blank" rel="noopener" class="revue-une-title-link">
@@ -471,7 +472,8 @@ function renderRevueCards() {
     const gridHtml = rest.length ? `
         <div class="revue-grid-journal">
             ${rest.map(a => `
-                <div class="revue-card-journal">
+                <div class="revue-card-journal" style="--revue-glow:${glowByCategorie(a.categorie)}">
+                    <div class="revue-card-shine"></div>
                     <span class="revue-card-cat ${catSlug(a.categorie)}">${a.categorie}</span>
                     <a href="${a.url}" target="_blank" rel="noopener" class="revue-card-title-link">
                         <h3 class="revue-card-title-journal">${a.titre}</h3>
@@ -506,6 +508,101 @@ function renderRevueCards() {
         </div>`;
 
     container.innerHTML = mastheadHtml + toolbarHtml + syntheseHtml + (showArchives ? archiveHtml : uneHtml + gridHtml) + footerHtml;
+
+    // Activer le moteur de lévitation 3D après chaque rendu
+    initRevueTilt3D();
+}
+
+// ── Couleur de lueur par catégorie ────────────────────────────────
+function glowByCategorie(cat) {
+    const map = {
+        'IA':              'rgba(123,47,247,0.22)',
+        'Télécoms':        'rgba(0,212,255,0.22)',
+        'Télécommunications': 'rgba(0,212,255,0.22)',
+        'Startups':        'rgba(217,119,6,0.22)',
+        'Innovation':      'rgba(16,185,129,0.22)',
+        'Numérique':       'rgba(8,145,178,0.22)',
+        'Cybersécurité':   'rgba(220,38,38,0.22)',
+        'Cyber':           'rgba(220,38,38,0.22)',
+        'Réseaux':         'rgba(3,105,161,0.22)',
+        'Régulation':      'rgba(245,158,11,0.22)',
+        'Économie':        'rgba(16,185,129,0.22)',
+    };
+    return map[cat] || 'rgba(0,98,51,0.20)';
+}
+
+// ── Moteur de lévitation 3D "Quantum Cards" ───────────────────────
+function initRevueTilt3D() {
+    const MAX_TILT  = 13;   // degrés max de rotation X/Y
+    const SCALE     = 1.04; // grossissement au survol
+    const LIFT      = 26;   // translateZ en pixels
+    const EASE_OUT  = 'transform 0.65s cubic-bezier(0.23,1,0.32,1), box-shadow 0.55s ease, border-color 0.3s ease';
+
+    // Sélectionner cartes + UNE
+    const targets = document.querySelectorAll('.revue-card-journal, .revue-une');
+
+    targets.forEach(function(card) {
+        // Éviter les doublons si renderRevueCards est rappelé
+        if (card._tilt3d) return;
+        card._tilt3d = true;
+
+        var shine = card.querySelector('.revue-card-shine');
+
+        card.addEventListener('mouseenter', function() {
+            // Désactiver la transition pendant le mouvement pour une fluidité totale
+            card.style.transition = 'none';
+        });
+
+        card.addEventListener('mousemove', function(e) {
+            var r  = card.getBoundingClientRect();
+            var x  = e.clientX - r.left;
+            var y  = e.clientY - r.top;
+            var cx = r.width  / 2;
+            var cy = r.height / 2;
+
+            var rotY =  ((x - cx) / cx) * MAX_TILT;
+            var rotX = -((y - cy) / cy) * MAX_TILT;
+
+            // Décalage directionnel des ombres selon l'angle de tilt
+            var offX = (rotY / MAX_TILT) * 18;
+            var offY = (-rotX / MAX_TILT) * 18;
+            var glow = getComputedStyle(card).getPropertyValue('--revue-glow').trim()
+                       || 'rgba(0,212,255,0.22)';
+
+            card.style.transform = [
+                'perspective(900px)',
+                'rotateX(' + rotX + 'deg)',
+                'rotateY(' + rotY + 'deg)',
+                'translateZ(' + LIFT + 'px)',
+                'scale(' + SCALE + ')'
+            ].join(' ');
+
+            card.style.boxShadow = [
+                (offX * 0.5) + 'px ' + (offY * 0.5 + 14) + 'px 28px rgba(0,0,0,0.20)',
+                offX + 'px ' + (offY + 38) + 'px 65px rgba(0,0,0,0.14)',
+                (offX * 0.3) + 'px ' + (offY * 0.3 + 48) + 'px 75px ' + glow,
+                '0 75px 110px -28px rgba(0,212,255,0.16)',
+                'inset 0 1px 0 rgba(255,255,255,0.5)'
+            ].join(', ');
+
+            card.style.borderColor = 'transparent';
+
+            // Reflet spéculaire qui suit le curseur
+            if (shine) {
+                shine.style.setProperty('--mx', ((x / r.width)  * 100).toFixed(1) + '%');
+                shine.style.setProperty('--my', ((y / r.height) * 100).toFixed(1) + '%');
+            }
+        });
+
+        card.addEventListener('mouseleave', function() {
+            // Reset avec spring easing
+            card.style.transition = EASE_OUT;
+            card.style.transform  = 'perspective(900px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale(1)';
+            card.style.boxShadow  = '0 2px 8px rgba(0,0,0,0.05)';
+            card.style.borderColor = '';
+            setTimeout(function() { card.style.transition = ''; }, 700);
+        });
+    });
 }
 
 window.setRevueFilter = function(key) {

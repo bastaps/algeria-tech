@@ -733,11 +733,12 @@ body.dark-mode .revue-filter-journal.active { background: #f1f5f9; color: #0f172
     border: 1px solid var(--border);
     box-shadow: 0 2px 12px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
+    position: relative; will-change: transform;
 }
+/* UNE : transform + box-shadow gérés par le moteur JS 3D */
 .revue-une:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 28px 70px rgba(0,0,0,0.22);
     border-color: transparent;
+    z-index: 10;
 }
 .revue-une-left {
     padding: 18px 24px 18px 28px;
@@ -817,6 +818,7 @@ a.revue-une-title-link:hover .revue-une-title { color: var(--secondary); }
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     display: flex; flex-direction: column; gap: 10px;
     transition: all 0.3s ease;
+    position: relative; will-change: transform;
 }
 /* Cartes uniformes — pas de séparateurs de colonnes style journal */
 .revue-card-journal:nth-child(3n+2),
@@ -979,12 +981,11 @@ a.revue-une-title-link:hover .revue-une-title { color: var(--secondary); }
 .revue-card-journal:nth-child(10) { animation-delay: 0.40s; }
 .revue-card-journal:nth-child(11) { animation-delay: 0.44s; }
 
-/* Hover card : élévation flagrante — carte qui décolle vraiment */
+/* Hover card : transform + shadows gérés par le moteur JS 3D (initRevueTilt3D) */
 .revue-card-journal:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 24px 60px rgba(0,0,0,0.22);
     border-color: transparent;
     background: var(--bg-white);
+    z-index: 10;
 }
 .revue-card-journal:hover .revue-card-lire {
     color: var(--secondary);
@@ -1024,6 +1025,98 @@ a.revue-card-title-link:hover .revue-card-title-journal {
 .revue-wrapper {
     margin-top: 0 !important;
     margin-bottom: 0 !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   LÉVITATION 3D — "Quantum Cards" (moteur JS : initRevueTilt3D)
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Rotation du dégradé de bordure */
+@keyframes gradientBorderSpin {
+    0%   { background-position: 0%   50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0%   50%; }
+}
+
+/* Couche 1 : bordure gradient tournante (2px) */
+.revue-card-journal::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 14px;
+    background: linear-gradient(135deg,
+        #00d4ff 0%,
+        #7b2ff7 33%,
+        #00e676 66%,
+        #00d4ff 100%
+    );
+    background-size: 300% 300%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    animation: gradientBorderSpin 3s ease infinite;
+    pointer-events: none;
+}
+.revue-card-journal:hover::before { opacity: 1; }
+
+/* Couche 2 : halo externe coloré (catégorie via --revue-glow) */
+.revue-card-journal::after {
+    content: '';
+    position: absolute;
+    inset: -16px;
+    border-radius: 28px;
+    background: radial-gradient(ellipse at center,
+        var(--revue-glow, rgba(0,212,255,0.18)) 0%,
+        transparent 70%
+    );
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    filter: blur(8px);
+    pointer-events: none;
+}
+.revue-card-journal:hover::after { opacity: 1; }
+
+/* Couche 3 : reflet spéculaire (suit le curseur via JS) */
+.revue-card-shine {
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.28s ease;
+    background: radial-gradient(
+        circle at var(--mx, 50%) var(--my, 50%),
+        rgba(255,255,255,0.42) 0%,
+        rgba(255,255,255,0.06) 38%,
+        transparent 65%
+    );
+    z-index: 1;
+}
+.revue-card-journal:hover .revue-card-shine,
+.revue-une:hover .revue-card-shine { opacity: 1; }
+
+/* Contenu des cartes au-dessus du reflet */
+.revue-card-journal .revue-card-cat,
+.revue-card-journal a.revue-card-title-link,
+.revue-card-journal .revue-card-accroche-journal,
+.revue-card-journal .revue-card-footer-journal {
+    position: relative; z-index: 2;
+}
+
+/* Mobile : effet 3D désactivé (pas de mousemove sur touch) */
+@media (max-width: 768px) {
+    .revue-card-journal::before,
+    .revue-card-journal::after,
+    .revue-card-shine { display: none !important; }
+    .revue-card-journal:hover {
+        transform: translateY(-3px) !important;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
+    }
+    .revue-une:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12) !important;
+    }
 }
 
 /* ══ FIN ANIMATIONS ════════════════════════════════════════════════ */
