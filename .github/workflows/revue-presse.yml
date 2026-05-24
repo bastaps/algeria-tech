@@ -49,7 +49,7 @@ jobs:
         run: |
           git config user.name "Algeria Tech Bot"
           git config user.email "bot@algeria-tech.dz"
-          git add revue_presse.json articles.json
+          git add revue_presse.json articles.json archives/
           if git diff --staged --quiet; then
             echo "Aucun changement détecté, pas de commit nécessaire."
           else
