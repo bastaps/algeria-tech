@@ -21,8 +21,51 @@ body.dark-mode {
 --bg-white: #1e293b;
 --text-dark: #f1f5f9;
 --text-muted: #94a3b8;
+--text-light: #cbd5e1;
 --border: #334155;
+--shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+--shadow-md: 0 4px 12px rgba(0,0,0,0.35);
+--shadow-lg: 0 10px 30px rgba(0,0,0,0.45);
 }
+
+/* ── Mode Nuit : forçage global accessibilité ──────────────────── */
+body.dark-mode p,
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3,
+body.dark-mode h4, body.dark-mode h5, body.dark-mode h6,
+body.dark-mode li, body.dark-mode dt, body.dark-mode dd,
+body.dark-mode td, body.dark-mode th, body.dark-mode caption,
+body.dark-mode label, body.dark-mode blockquote,
+body.dark-mode strong, body.dark-mode b,
+body.dark-mode em, body.dark-mode i { color: var(--text-dark); }
+
+/* Contenu article (marked.parse) : override inline styles externes */
+body.dark-mode .article-text *:not(a[class]):not(.tag-filter):not(.category-tag) {
+    color: #f1f5f9 !important;
+    background-color: transparent !important;
+}
+
+/* Exceptions : garder les couleurs sémantiques sur les éléments dédiés */
+body.dark-mode .article-text a { color: #60a5fa !important; }
+body.dark-mode .article-text code,
+body.dark-mode .article-text pre { background: #0f172a !important; color: #7dd3fc !important; border-color: #334155 !important; }
+body.dark-mode .article-text blockquote { border-left-color: var(--primary) !important; background: rgba(255,255,255,0.04) !important; }
+
+/* Inputs, textarea, select */
+body.dark-mode input:not([type="submit"]):not([type="button"]):not([type="checkbox"]),
+body.dark-mode textarea,
+body.dark-mode select { color: var(--text-dark); background: var(--bg-white); border-color: var(--border); }
+
+/* Cartes & widgets */
+body.dark-mode .article-card,
+body.dark-mode .veille-card,
+body.dark-mode .revue-card,
+body.dark-mode .related-card { background: var(--bg-white); }
+
+body.dark-mode .article-card h3,
+body.dark-mode .related-card h4,
+body.dark-mode .revue-card h3 { color: var(--text-dark); }
+
+body.dark-mode .voice-select { background: var(--bg-white); color: var(--text-dark); border-color: var(--border); }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
 font-family: 'Inter', 'Cairo', sans-serif;
