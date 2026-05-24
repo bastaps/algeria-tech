@@ -25,6 +25,26 @@ let currentEditingId = null;
 let isResetting = false;
 const synth = window.speechSynthesis;
 let currentUtterance = null;
+
+// ── TTS Config (Web Speech API — 100% gratuit) ───────────────────
+const TTS_CONFIG = {
+    rate: 1.0,           // vitesse de lecture (0.5 – 2.0)
+    wpm:  160            // mots/min estimés pour le sync visuel
+};
+let _ttsAudio = null;    // référence globale (stoppable depuis navigation)
+
+function cleanTextForTTS(raw) {
+    return raw
+        .replace(/<[^>]*>/g, ' ')          // balises HTML
+        .replace(/#{1,6} */g, '')           // titres Markdown
+        .replace(/[*_~`]+/g, '')            // gras/italique/code
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // liens Markdown → texte seul
+        .replace(/[-–—]{2,}/g, ', ')        // tirets longs → pause naturelle
+        .replace(/[|\\^<>{}\[\]@]/g, '')    // caractères parasites
+        .replace(/\.{2,}/g, '.')            // points multiples
+        .replace(/ {2,}/g, ' ')             // espaces multiples
+        .trim();
+}
 const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 const REMOTE_API = 'https://dz-tech-press-api.onrender.com';
 const API_BASE = isLocal ? '' : REMOTE_API;
@@ -276,40 +296,141 @@ window.openArticle = function(id) {
     } else if (relBox) { relBox.style.display = 'none'; }
 };
 
-// ===== LOGIQUE AUDIO =====
+// ===== LOGIQUE AUDIO (TTS Premium + Highlighting) =====
 function initAudioReader(textToRead) {
+    const playBtn   = document.getElementById('listenBtn');
+    const stopBtn   = document.getElementById('stopBtn');
+    const statusEl  = document.querySelector('.audio-status');
+    const stickyBar = document.getElementById('stickyAudio');
+    const articleText = document.querySelector('.article-text');
+
+    // ── Nettoyage du texte (pas de #, *, -, etc.) ────────────────
+    const cleanText = cleanTextForTTS(textToRead).substring(0, 4090);
+
+    // ── Construction des segments DOM + timestamps estimés ───────
+    const domSegs = articleText
+        ? Array.from(articleText.querySelectorAll('p, h2, h3, li'))
+              .filter(el => el.textContent.trim().length > 15)
+        : [];
+
+    let cursor = 0;
+    // Le titre est lu en premier (≈ 15 premiers mots du cleanText)
+    cursor += (Math.min(cleanText.split(' ').length, 15) / TTS_CONFIG.wpm) * 60;
+
+    const segments = domSegs.map(el => {
+        const wc  = el.textContent.trim().split(/\s+/).length;
+        const dur = (wc / TTS_CONFIG.wpm) * 60;
+        const seg = { el, start: cursor, end: cursor + dur };
+        cursor += dur;
+        return seg;
+    });
+
+    // ── Helpers UI ────────────────────────────────────────────────
+    function resetUI() {
+        if (playBtn)   playBtn.style.display  = 'flex';
+        if (stopBtn)   stopBtn.style.display  = 'none';
+        if (statusEl)  statusEl.textContent   = 'AUDIO';
+        if (stickyBar) stickyBar.classList.remove('playing');
+        domSegs.forEach(el => el.classList.remove('tts-reading', 'tts-read'));
+        if (_ttsAudio) {
+            _ttsAudio.pause();
+            try { URL.revokeObjectURL(_ttsAudio.src); } catch(e) {}
+            _ttsAudio = null;
+        }
+        if (synth) synth.cancel();
+    }
+
+    function highlightAt(time) {
+        let activeEl = null;
+        segments.forEach(seg => {
+            if (time >= seg.start && time < seg.end) {
+                seg.el.classList.add('tts-reading');
+                seg.el.classList.remove('tts-read');
+                activeEl = seg.el;
+            } else if (time >= seg.end) {
+                seg.el.classList.remove('tts-reading');
+                seg.el.classList.add('tts-read');
+            } else {
+                seg.el.classList.remove('tts-reading', 'tts-read');
+            }
+        });
+        if (activeEl) activeEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // ── Sélection intelligente de la meilleure voix française ───────
+    function getBestVoice() {
+        const voices = synth.getVoices();
+        // Priorité : Neural > Microsoft > Google > fr-FR > fr-*
+        return voices.find(v => /neural/i.test(v.name)    && v.lang.startsWith('fr'))
+            || voices.find(v => /microsoft/i.test(v.name) && v.lang.startsWith('fr'))
+            || voices.find(v => /google/i.test(v.name)    && v.lang.startsWith('fr'))
+            || voices.find(v => v.lang === 'fr-FR')
+            || voices.find(v => v.lang.startsWith('fr'))
+            || null;
+    }
+
+    // ── Lecture Web Speech API ────────────────────────────────────
+    function startSpeech() {
+        if (!synth) return;
+        synth.cancel(); // annule toute lecture en cours
+
+        if (playBtn)   playBtn.style.display  = 'none';
+        if (stopBtn)   stopBtn.style.display  = 'flex';
+        if (statusEl)  statusEl.textContent   = '▶ AUDIO';
+        if (stickyBar) stickyBar.classList.add('playing');
+
+        const utt  = new SpeechSynthesisUtterance(cleanText); // cleanText déjà filtré
+        utt.lang   = 'fr-FR';
+        utt.rate   = TTS_CONFIG.rate;
+
+        utt.onboundary = (e) => {
+            if (e.name !== 'word' || cursor === 0) return;
+            highlightAt((e.charIndex / cleanText.length) * cursor);
+        };
+        utt.onend   = resetUI;
+        utt.onerror = resetUI;
+
+        // Chrome charge les voix de façon asynchrone au premier appel
+        function speak() {
+            const best = getBestVoice();
+            if (best) utt.voice = best;
+            synth.speak(utt);
+        }
+
+        if (synth.getVoices().length > 0) {
+            speak();
+        } else {
+            synth.addEventListener('voiceschanged', speak, { once: true });
+            setTimeout(speak, 500); // garde-fou si voiceschanged ne se déclenche pas
+        }
+    }
+
+    // ── Bindings ──────────────────────────────────────────────────
+    if (playBtn) playBtn.onclick = startSpeech;
+    if (stopBtn) stopBtn.onclick = resetUI;
+    window.triggerAudio = () => {
+        synth?.speaking ? resetUI() : startSpeech();
+    };
+}
+
+// ── Stop global (Web Speech) ─────────────────────────────────────
+function stopAllAudio() {
+    if (synth) synth.cancel();
+    const statusEl = document.querySelector('.audio-status');
+    if (statusEl)  statusEl.textContent = 'AUDIO';
+    const stickyBar = document.getElementById('stickyAudio');
+    if (stickyBar)  stickyBar.classList.remove('playing');
     const playBtn = document.getElementById('listenBtn');
     const stopBtn = document.getElementById('stopBtn');
-    const stickyContainer = document.getElementById('stickyAudio');
-    const cleanText = textToRead.replace(/<[^>]*>/g, '').replace(/\n/g, ' ').trim();
-    function resetAudioUI() {
-        if(playBtn) playBtn.style.display = 'flex';
-        if(stopBtn) stopBtn.style.display = 'none';
-        if(stickyContainer) stickyContainer.classList.remove('playing');
-    }
-    window.triggerAudio = () => {
-        if (synth.speaking) { synth.cancel(); resetAudioUI(); } else { startReading(); }
-    };
-    function startReading() {
-        synth.cancel();
-        currentUtterance = new SpeechSynthesisUtterance(cleanText);
-        currentUtterance.lang = 'fr-FR';
-        currentUtterance.onstart = () => {
-            if(playBtn) playBtn.style.display = 'none';
-            if(stopBtn) stopBtn.style.display = 'flex';
-            if(stickyContainer) stickyContainer.classList.add('playing');
-        };
-        currentUtterance.onend = resetAudioUI;
-        currentUtterance.onerror = resetAudioUI;
-        synth.speak(currentUtterance);
-    }
-    if(playBtn) playBtn.onclick = startReading;
-    if(stopBtn) stopBtn.onclick = () => { synth.cancel(); resetAudioUI(); };
+    if (playBtn) playBtn.style.display = 'flex';
+    if (stopBtn) stopBtn.style.display = 'none';
+    document.querySelectorAll('.tts-reading, .tts-read')
+        .forEach(el => el.classList.remove('tts-reading', 'tts-read'));
 }
 
 // ===== RETOUR ACCUEIL =====
 window.goHome = function() {
-    if (synth) synth.cancel();
+    stopAllAudio();
     currentEditingId = null;
     currentFilter = 'all';
     currentPage = 1;
@@ -333,7 +454,7 @@ window.goHome = function() {
 
 // ===== NAVIGATION VEILLE =====
 window.showVeille = function() {
-    if (synth) synth.cancel();
+    stopAllAudio();
     currentFilter = 'all';
     currentPage = 1;
     document.getElementById('mainContent').style.display = 'none';
@@ -349,7 +470,7 @@ window.showVeille = function() {
 
 // ===== NAVIGATION REVUE DE PRESSE =====
 window.showRevue = function() {
-    if (synth) synth.cancel();
+    stopAllAudio();
     currentFilter = 'all';
     currentPage = 1;
     document.getElementById('mainContent').style.display = 'none';
