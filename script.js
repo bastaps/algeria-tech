@@ -35,15 +35,47 @@ let _ttsAudio = null;    // référence globale (stoppable depuis navigation)
 
 function cleanTextForTTS(raw) {
     return raw
-        .replace(/<[^>]*>/g, ' ')          // balises HTML
-        .replace(/#{1,6} */g, '')           // titres Markdown
-        .replace(/[*_~`]+/g, '')            // gras/italique/code
+        .replace(/<[^>]*>/g, ' ')               // balises HTML
+        .replace(/#{1,6} */g, '')                // titres Markdown
+        .replace(/[*_~`]+/g, '')                 // gras/italique/code
         .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // liens Markdown → texte seul
-        .replace(/[-–—]{2,}/g, ', ')        // tirets longs → pause naturelle
-        .replace(/[|\\^<>{}\[\]@]/g, '')    // caractères parasites
-        .replace(/\.{2,}/g, '.')            // points multiples
-        .replace(/ {2,}/g, ' ')             // espaces multiples
+        .replace(/[-–—]{2,}/g, ', ')             // tirets longs → pause naturelle
+        .replace(/[|\\^<>{}\[\]@]/g, '')         // caractères parasites
+        .replace(/\.{2,}/g, '.')                 // points multiples
+        .replace(/ {2,}/g, ' ')                  // espaces multiples
         .trim();
+}
+
+// ── Population du sélecteur de voix ──────────────────────────────
+function populateVoiceSelect() {
+    const sel = document.getElementById('voiceSelect');
+    if (!sel) return;
+
+    const rank = v => /neural/i.test(v.name)    ? 0
+                    : /microsoft/i.test(v.name)  ? 1
+                    : /google/i.test(v.name)      ? 2
+                    : 3;
+
+    const frVoices = synth.getVoices()
+        .filter(v => v.lang.startsWith('fr'))
+        .sort((a, b) => rank(a) - rank(b));
+
+    if (!frVoices.length) return;
+
+    sel.innerHTML = frVoices.map(v => {
+        const ico   = rank(v) === 0 ? '⭐' : rank(v) === 1 ? '🔵' : rank(v) === 2 ? '🔴' : '🔈';
+        const label = v.name
+            .replace(/Microsoft\s*/i, '')
+            .replace(/\s*Online\s*(Natural)?\s*/i, '')
+            .trim()
+            .substring(0, 18); // tronqué pour la sidebar
+        return `<option value="${v.name}">${ico} ${label}</option>`;
+    }).join('');
+}
+
+if (synth) {
+    synth.addEventListener('voiceschanged', populateVoiceSelect);
+    if (synth.getVoices().length) populateVoiceSelect();
 }
 const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 const REMOTE_API = 'https://dz-tech-press-api.onrender.com';
@@ -331,12 +363,7 @@ function initAudioReader(textToRead) {
         if (stopBtn)   stopBtn.style.display  = 'none';
         if (statusEl)  statusEl.textContent   = 'AUDIO';
         if (stickyBar) stickyBar.classList.remove('playing');
-        domSegs.forEach(el => el.classList.remove('tts-reading', 'tts-read'));
-        if (_ttsAudio) {
-            _ttsAudio.pause();
-            try { URL.revokeObjectURL(_ttsAudio.src); } catch(e) {}
-            _ttsAudio = null;
-        }
+        domSegs.forEach(el => el.classList.remove('reading-active', 'reading-done'));
         if (synth) synth.cancel();
     }
 
@@ -344,23 +371,29 @@ function initAudioReader(textToRead) {
         let activeEl = null;
         segments.forEach(seg => {
             if (time >= seg.start && time < seg.end) {
-                seg.el.classList.add('tts-reading');
-                seg.el.classList.remove('tts-read');
+                seg.el.classList.add('reading-active');
+                seg.el.classList.remove('reading-done');
                 activeEl = seg.el;
             } else if (time >= seg.end) {
-                seg.el.classList.remove('tts-reading');
-                seg.el.classList.add('tts-read');
+                seg.el.classList.remove('reading-active');
+                seg.el.classList.add('reading-done');
             } else {
-                seg.el.classList.remove('tts-reading', 'tts-read');
+                seg.el.classList.remove('reading-active', 'reading-done');
             }
         });
+        // Auto-scroll : paragraphe actif centré dans la fenêtre
         if (activeEl) activeEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
-    // ── Sélection intelligente de la meilleure voix française ───────
-    function getBestVoice() {
+    // ── Résolution de la voix : select > auto-detect ──────────────
+    function resolveVoice() {
+        const sel = document.getElementById('voiceSelect');
         const voices = synth.getVoices();
-        // Priorité : Neural > Microsoft > Google > fr-FR > fr-*
+        if (sel && sel.value) {
+            const picked = voices.find(v => v.name === sel.value);
+            if (picked) return picked;
+        }
+        // Fallback : meilleure voix FR détectée automatiquement
         return voices.find(v => /neural/i.test(v.name)    && v.lang.startsWith('fr'))
             || voices.find(v => /microsoft/i.test(v.name) && v.lang.startsWith('fr'))
             || voices.find(v => /google/i.test(v.name)    && v.lang.startsWith('fr'))
@@ -372,16 +405,17 @@ function initAudioReader(textToRead) {
     // ── Lecture Web Speech API ────────────────────────────────────
     function startSpeech() {
         if (!synth) return;
-        synth.cancel(); // annule toute lecture en cours
+        synth.cancel();
 
         if (playBtn)   playBtn.style.display  = 'none';
         if (stopBtn)   stopBtn.style.display  = 'flex';
         if (statusEl)  statusEl.textContent   = '▶ AUDIO';
         if (stickyBar) stickyBar.classList.add('playing');
 
-        const utt  = new SpeechSynthesisUtterance(cleanText); // cleanText déjà filtré
-        utt.lang   = 'fr-FR';
-        utt.rate   = TTS_CONFIG.rate;
+        // cleanText est déjà nettoyé (pas de #, *, -, |…)
+        const utt = new SpeechSynthesisUtterance(cleanText);
+        utt.lang  = 'fr-FR';
+        utt.rate  = TTS_CONFIG.rate;
 
         utt.onboundary = (e) => {
             if (e.name !== 'word' || cursor === 0) return;
@@ -390,19 +424,16 @@ function initAudioReader(textToRead) {
         utt.onend   = resetUI;
         utt.onerror = resetUI;
 
-        // Chrome charge les voix de façon asynchrone au premier appel
         function speak() {
-            const best = getBestVoice();
-            if (best) utt.voice = best;
+            const voice = resolveVoice();
+            if (voice) utt.voice = voice;
             synth.speak(utt);
         }
 
-        if (synth.getVoices().length > 0) {
-            speak();
-        } else {
-            synth.addEventListener('voiceschanged', speak, { once: true });
-            setTimeout(speak, 500); // garde-fou si voiceschanged ne se déclenche pas
-        }
+        // Chrome charge les voix en asynchrone au premier appel
+        synth.getVoices().length > 0
+            ? speak()
+            : synth.addEventListener('voiceschanged', speak, { once: true });
     }
 
     // ── Bindings ──────────────────────────────────────────────────
@@ -424,8 +455,8 @@ function stopAllAudio() {
     const stopBtn = document.getElementById('stopBtn');
     if (playBtn) playBtn.style.display = 'flex';
     if (stopBtn) stopBtn.style.display = 'none';
-    document.querySelectorAll('.tts-reading, .tts-read')
-        .forEach(el => el.classList.remove('tts-reading', 'tts-read'));
+    document.querySelectorAll('.reading-active, .reading-done')
+        .forEach(el => el.classList.remove('reading-active', 'reading-done'));
 }
 
 // ===== RETOUR ACCUEIL =====

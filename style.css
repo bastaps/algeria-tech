@@ -189,6 +189,50 @@ padding: 0 15px; width: 100px; border: 1px solid var(--border); transition: var(
 .article-meta span { display: flex; align-items: center; gap: 6px; }
 .meta-audio-btn { background: var(--bg); color: var(--primary); border: 1px solid var(--primary); padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 700; cursor: pointer; margin-left: auto; display: flex; align-items: center; gap: 6px; transition: var(--transition); }
 .meta-audio-btn:hover { background: var(--primary); color: #fff; }
+
+/* ── Lecteur Audio : Highlighting ───────────────────────────────── */
+.article-text p.reading-active,
+.article-text h2.reading-active,
+.article-text h3.reading-active,
+.article-text li.reading-active {
+    background: linear-gradient(90deg, rgba(0,82,204,0.10) 0%, transparent 85%);
+    border-left: 3px solid var(--primary);
+    padding-left: 14px;
+    margin-left: -17px;
+    border-radius: 0 6px 6px 0;
+    transition: background 0.18s ease;
+}
+.article-text p.reading-done,
+.article-text h2.reading-done,
+.article-text h3.reading-done,
+.article-text li.reading-done {
+    opacity: 0.42;
+    transition: opacity 0.3s ease;
+}
+
+/* ── Sélecteur de voix (sidebar) ─────────────────────────────────── */
+.voice-select {
+    width: 62px;
+    font-size: 0.5rem;
+    background: var(--bg-white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 2px;
+    color: var(--text-dark);
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.2s;
+    line-height: 1.3;
+}
+.voice-select:focus,
+.voice-select:hover { border-color: var(--primary); }
+.audio-sticky-bar.playing .voice-select { border-color: var(--primary); }
+
+/* ── Status & pulse ──────────────────────────────────────────────── */
+.audio-status { font-size: 0.6rem; font-weight: 800; color: var(--text-muted); letter-spacing: 1px; transition: color 0.2s; }
+.audio-sticky-bar.playing .audio-status { color: var(--primary); animation: tts-pulse 1.4s ease-in-out infinite; }
+@keyframes tts-pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
 .reading-time { background: var(--bg); padding: 4px 10px; border-radius: 4px; font-size: 0.8rem; color: var(--text-dark); }
 .article-body h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.3; margin-bottom: 20px; color: var(--text-dark); }
 .article-body h2 { font-size: 1.5rem; color: var(--primary); margin: 30px 0 15px; border-left: 4px solid var(--secondary); padding-left: 15px; }
