@@ -45,11 +45,14 @@ function logoUrl(sourceName) {
 async function fetchRSS(source) {
     try {
         const feed = await parser.parseURL(source.url);
-        const yesterday = new Date(Date.now() - 24 * 60 * 60 * 1000);
+        const cutoff = Date.now() - 24 * 60 * 60 * 1000; // timestamp ms — STRICT 24h
         return feed.items
             .filter(item => {
-                const pubDate = new Date(item.isoDate || item.pubDate);
-                if (pubDate < yesterday) return false;
+                const rawDate = item.isoDate || item.pubDate;
+                if (!rawDate) return false;                          // pas de date → rejeté
+                const pubTs = new Date(rawDate).getTime();
+                if (isNaN(pubTs))      return false;                 // date invalide → rejeté
+                if (pubTs < cutoff)    return false;                 // > 24h → rejeté
                 const text = (item.title + ' ' + (item.contentSnippet || '')).toLowerCase();
                 return TECH_KW.some(k => text.includes(k));
             })
@@ -57,13 +60,16 @@ async function fetchRSS(source) {
                 titre: item.title.trim(),
                 resume: (item.contentSnippet || '').substring(0, 150).replace(/<[^>]+>/g, '').trim(),
                 url: item.link,
-                date: item.isoDate || new Date().toISOString(),
+                date: item.isoDate || item.pubDate,
                 source: source.name,
                 logo: logoUrl(source.name),
                 pays: source.pays,
             }))
             .slice(0, 3);
-    } catch(e) { return []; }
+    } catch(e) {
+        console.warn(`  ⚠️  ${source.name} : ${e.message}`);
+        return [];
+    }
 }
 
 // ── APPEL API MISTRAL (Plus stable que Gemini) ──────────────────────────────
@@ -127,23 +133,30 @@ async function processWithMistral(rawArticles) {
 }
 
 async function main() {
-    console.log('📡 SCAN RSS (Mistral Edition - 24H)...');
+    console.log('📡 SCAN RSS — FILTRE STRICT 24H...');
+    const cutoffDisplay = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
+    console.log(`   Seuil : articles publiés après ${cutoffDisplay}`);
+
     const allResults = await Promise.all(SOURCES.map(async s => {
         const items = await fetchRSS(s);
-        if (items.length > 0) console.log(`  • ${s.name.padEnd(20)} ✅ ${items.length} articles trouvés`);
+        if (items.length > 0) console.log(`  • ${s.name.padEnd(22)} ✅ ${items.length} art.`);
+        else                   console.log(`  • ${s.name.padEnd(22)} — 0 (aucun dans les 24h)`);
         return items;
     }));
 
     let rawArticles = allResults.flat();
     if (rawArticles.length === 0) {
-        console.log('ℹ️ Aucun article récent trouvé.');
-        return;
+        console.error('❌ Aucun article dans les 24 dernières heures. Aucun fichier écrit.');
+        process.exit(1); // Échec visible dans GitHub Actions → notification
     }
 
-    console.log(`🤖 IA MISTRAL SUR ${rawArticles.length} ARTICLES...`);
+    console.log(`\n🤖 IA MISTRAL SUR ${rawArticles.length} ARTICLES...`);
     const result = await processWithMistral(rawArticles);
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify(result, null, 2));
-    console.log(`\n✅ SUCCÈS : revue_presse.json généré par Mistral !`);
+    console.log(`\n✅ SUCCÈS : revue_presse.json généré (${result.articles.length} articles retenus).`);
 }
 
-main().catch(e => console.error('\n❌ ERREUR :', e.message));
+main().catch(e => {
+    console.error('\n❌ ERREUR FATALE :', e.message);
+    process.exit(1); // Exit code 1 → GitHub Actions marque le job en échec
+});

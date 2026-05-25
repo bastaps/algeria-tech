@@ -26,15 +26,33 @@ jobs:
       - name: Installer les dépendances
         run: npm ci
 
-      - name: Archiver l'édition de la veille
+      - name: Archiver l'édition existante (avant écrasement)
         run: |
-          if [ -f revue_presse.json ]; then
-            YESTERDAY=$(date -d "yesterday" +%Y-%m-%d)
-            mkdir -p archives
-            cp revue_presse.json archives/$YESTERDAY.json
-            echo "✅ Archivé : archives/$YESTERDAY.json"
-          else
+          if [ ! -f revue_presse.json ]; then
             echo "ℹ️  Pas de revue existante à archiver."
+            exit 0
+          fi
+
+          # Lire la date depuis lastUpdated dans le JSON (plus fiable que "yesterday")
+          ARCHIVE_DATE=$(node -e "
+            try {
+              const j = JSON.parse(require('fs').readFileSync('revue_presse.json','utf8'));
+              const d = j.lastUpdated;
+              if (d && !isNaN(new Date(d).getTime())) {
+                console.log(new Date(d).toISOString().substring(0, 10));
+              } else { process.exit(1); }
+            } catch(e) { process.exit(1); }
+          " 2>/dev/null) || ARCHIVE_DATE=$(date -d "yesterday" +%Y-%m-%d)
+
+          echo "📅 Date d'archive détectée : $ARCHIVE_DATE"
+          mkdir -p archives
+
+          ARCHIVE_FILE="archives/${ARCHIVE_DATE}.json"
+          if [ ! -f "$ARCHIVE_FILE" ]; then
+            cp revue_presse.json "$ARCHIVE_FILE"
+            echo "✅ Archivé : $ARCHIVE_FILE"
+          else
+            echo "ℹ️  Archive $ARCHIVE_FILE déjà présente — ignorée (pas d'écrasement)."
           fi
 
       - name: Générer la revue de presse via Mistral
@@ -49,7 +67,11 @@ jobs:
         run: |
           git config user.name "Algeria Tech Bot"
           git config user.email "bot@algeria-tech.dz"
-          git add revue_presse.json articles.json archives/
+
+          # Toujours stager archives/ (même si revue n'a pas changé)
+          git add revue_presse.json articles.json
+          git add archives/ 2>/dev/null || true
+
           if git diff --staged --quiet; then
             echo "Aucun changement détecté, pas de commit nécessaire."
           else
