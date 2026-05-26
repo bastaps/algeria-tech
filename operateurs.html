@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opérateurs Mobiles | Algeria Tech</title>
+    <link rel="stylesheet" href="operateurs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- ══ HEADER ══════════════════════════════════════════════════ -->
+<header class="op-header">
+    <div class="brand-group">
+        <a href="/" class="back-btn" title="Retour à l'accueil">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <a href="/" class="site-brand">Algeria<span>Tech</span></a>
+    </div>
+
+    <div class="header-center">
+        <h1 class="header-title">
+            <span class="pulse-signal"><i class="fas fa-signal"></i></span>
+            Opérateurs Mobiles
+        </h1>
+        <p class="header-sub">Algérie &nbsp;·&nbsp; Télécoms &nbsp;·&nbsp; Innovation</p>
+    </div>
+
+    <!-- Bouton thème -->
+    <button class="theme-btn" id="themeBtn" title="Changer le thème">
+        <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+
+    <!-- Toggle global Actualités / Communiqués -->
+    <div class="global-toggle" id="globalToggle">
+        <span class="tgl-label active" id="lbl-actu">
+            <i class="fas fa-newspaper"></i> Actualités
+        </span>
+        <button class="tgl-pill" id="typeToggle" data-type="actualite" aria-label="Changer le type de contenu">
+            <span class="tgl-thumb"></span>
+        </button>
+        <span class="tgl-label" id="lbl-comm">
+            <i class="fas fa-bullhorn"></i> Communiqués
+        </span>
+    </div>
+</header>
+
+<!-- ══ TRIPLE HUB ══════════════════════════════════════════════ -->
+<main class="triple-hub" id="tripleHub">
+
+    <!-- ── Mobilis ─────────────────────────────────────── -->
+    <section class="op-col col-mobilis" data-op="mobilis">
+        <div class="col-fx"></div>
+
+        <div class="col-head">
+            <div class="icon-cluster">
+                <div class="p-ring p-ring-1"></div>
+                <div class="p-ring p-ring-2"></div>
+                <div class="op-emblem">
+                    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="mg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00C853"/>
+                                <stop offset="100%" stop-color="#007A36"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="64" height="64" rx="14" fill="url(#mg)"/>
+                        <text x="50%" y="44%" dominant-baseline="middle" text-anchor="middle"
+                              fill="white" font-size="8.5" font-weight="800" font-family="Arial,sans-serif"
+                              letter-spacing="0.5">MOBILIS</text>
+                        <rect x="14" y="40" width="36" height="2.5" rx="1.25" fill="rgba(255,255,255,0.35)"/>
+                        <rect x="18" y="45" width="28" height="2" rx="1" fill="rgba(255,255,255,0.2)"/>
+                    </svg>
+                </div>
+                <div class="net-bars">
+                    <span class="nb nb1"></span><span class="nb nb2"></span>
+                    <span class="nb nb3"></span><span class="nb nb4"></span>
+                </div>
+            </div>
+            <div class="op-name">Mobilis</div>
+            <div class="op-tagline">L'opérateur national</div>
+            <div class="op-count" id="cnt-mobilis">—</div>
+            <div class="expand-hint"><i class="fas fa-chevron-right"></i> Survolez</div>
+        </div>
+
+        <div class="col-feed" id="feed-mobilis">
+            <div class="feed-loading">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Djezzy ──────────────────────────────────────── -->
+    <section class="op-col col-djezzy" data-op="djezzy">
+        <div class="col-fx"></div>
+
+        <div class="col-head">
+            <div class="icon-cluster">
+                <div class="p-ring p-ring-1"></div>
+                <div class="p-ring p-ring-2"></div>
+                <div class="op-emblem">
+                    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="dg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#FF1744"/>
+                                <stop offset="100%" stop-color="#B71C1C"/>
+                            </linearGradient>
+                        </defs>
+                        <rect width="64" height="64" rx="14" fill="#111"/>
+                        <rect width="64" height="64" rx="14" fill="url(#dg)" opacity="0.9"/>
+                        <text x="50%" y="44%" dominant-baseline="middle" text-anchor="middle"
+                              fill="white" font-size="9" font-weight="800" font-family="Arial,sans-serif"
+                              letter-spacing="0.5">DJEZZY</text>
+                        <line x1="10" y1="42" x2="54" y2="42" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                        <line x1="14" y1="47" x2="50" y2="47" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                    </svg>
+                </div>
+                <div class="net-bars">
+                    <span class="nb nb1"></span><span class="nb nb2"></span>
+                    <span class="nb nb3"></span><span class="nb nb4"></span>
+                </div>
+            </div>
+            <div class="op-name">Djezzy</div>
+            <div class="op-tagline">Toujours plus proche</div>
+            <div class="op-count" id="cnt-djezzy">—</div>
+            <div class="expand-hint"><i class="fas fa-chevron-right"></i> Survolez</div>
+        </div>
+
+        <div class="col-feed" id="feed-djezzy">
+            <div class="feed-loading">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Ooredoo ─────────────────────────────────────── -->
+    <section class="op-col col-ooredoo" data-op="ooredoo">
+        <div class="col-fx"></div>
+
+        <div class="col-head">
+            <div class="icon-cluster">
+                <div class="p-ring p-ring-1"></div>
+                <div class="p-ring p-ring-2"></div>
+                <div class="op-emblem">
+                    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <radialGradient id="og" cx="40%" cy="40%">
+                                <stop offset="0%" stop-color="#FF4D5E"/>
+                                <stop offset="100%" stop-color="#C0001A"/>
+                            </radialGradient>
+                        </defs>
+                        <rect width="64" height="64" rx="14" fill="url(#og)"/>
+                        <circle cx="32" cy="32" r="14" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+                        <circle cx="32" cy="32" r="8"  fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                        <text x="50%" y="70%" dominant-baseline="middle" text-anchor="middle"
+                              fill="white" font-size="7" font-weight="800" font-family="Arial,sans-serif"
+                              letter-spacing="0.3">OOREDOO</text>
+                    </svg>
+                </div>
+                <div class="net-bars">
+                    <span class="nb nb1"></span><span class="nb nb2"></span>
+                    <span class="nb nb3"></span><span class="nb nb4"></span>
+                </div>
+            </div>
+            <div class="op-name">Ooredoo</div>
+            <div class="op-tagline">Enriching Lives</div>
+            <div class="op-count" id="cnt-ooredoo">—</div>
+            <div class="expand-hint"><i class="fas fa-chevron-right"></i> Survolez</div>
+        </div>
+
+        <div class="col-feed" id="feed-ooredoo">
+            <div class="feed-loading">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ══ FAB : créer un communiqué ═══════════════════════════════ -->
+<button class="comm-fab" id="commFab" title="Nouveau communiqué">
+    <i class="fas fa-plus"></i>
+</button>
+
+<!-- ══ MODAL CRÉATION / ÉDITION COMMUNIQUÉ ═════════════════════ -->
+<div class="comm-modal" id="commModal">
+    <div class="comm-backdrop" id="commBackdrop"></div>
+    <div class="comm-panel">
+        <div class="comm-panel-head">
+            <h2 id="commModalTitle"><i class="fas fa-bullhorn"></i> Nouveau Communiqué</h2>
+            <button class="comm-close" id="commClose" aria-label="Fermer"><i class="fas fa-times"></i></button>
+        </div>
+        <form id="commForm" class="comm-form" autocomplete="off">
+            <input type="hidden" id="commEditId">
+
+            <!-- Sélecteur opérateur -->
+            <div class="cf-group">
+                <label class="cf-label">Opérateur <span class="req">*</span></label>
+                <div class="op-selector" id="opSelector">
+                    <button type="button" class="op-btn op-mob" data-op="Mobilis">Mobilis</button>
+                    <button type="button" class="op-btn op-dj"  data-op="Djezzy">Djezzy</button>
+                    <button type="button" class="op-btn op-oo"  data-op="Ooredoo">Ooredoo</button>
+                </div>
+                <input type="hidden" id="commOperateur">
+            </div>
+
+            <!-- Titre -->
+            <div class="cf-group">
+                <label class="cf-label" for="commTitre">Titre <span class="req">*</span></label>
+                <input class="cf-input" type="text" id="commTitre" required placeholder="Titre du communiqué">
+            </div>
+
+            <!-- Date + Heure -->
+            <div class="cf-row">
+                <div class="cf-group">
+                    <label class="cf-label" for="commDate">Date <span class="req">*</span></label>
+                    <input class="cf-input" type="date" id="commDate" required>
+                </div>
+                <div class="cf-group">
+                    <label class="cf-label" for="commHeure">Heure <span class="req">*</span></label>
+                    <input class="cf-input" type="time" id="commHeure" required>
+                </div>
+            </div>
+
+            <!-- Extrait -->
+            <div class="cf-group">
+                <label class="cf-label" for="commExtrait">Extrait <span class="req">*</span></label>
+                <textarea class="cf-input" id="commExtrait" rows="2" required placeholder="Résumé court"></textarea>
+            </div>
+
+            <!-- Image -->
+            <div class="cf-group">
+                <label class="cf-label">Image</label>
+                <div class="cf-file-wrap">
+                    <label class="cf-file-btn" for="commImage"><i class="fas fa-image"></i> Choisir une image</label>
+                    <input type="file" id="commImage" accept="image/*" style="display:none">
+                    <span class="cf-file-name" id="commImageName">Aucun fichier</span>
+                </div>
+                <input type="hidden" id="commExistingImage">
+            </div>
+
+            <!-- Contenu -->
+            <div class="cf-group">
+                <label class="cf-label" for="commContenu">Contenu <span class="req">*</span></label>
+                <textarea class="cf-input" id="commContenu" rows="7" required placeholder="Corps du communiqué (Markdown supporté)"></textarea>
+            </div>
+
+            <!-- Tags supplémentaires -->
+            <div class="cf-group">
+                <label class="cf-label" for="commTags">Tags supplémentaires</label>
+                <input class="cf-input" type="text" id="commTags" placeholder="ex: 5G, Innovation, Réseau">
+                <small class="cf-hint">Le tag de l'opérateur est ajouté automatiquement.</small>
+            </div>
+
+            <!-- Actions -->
+            <div class="cf-actions">
+                <button type="button" class="cf-btn-cancel" id="commCancel">Annuler</button>
+                <button type="submit" class="cf-btn-submit" id="commSubmit">
+                    <i class="fas fa-paper-plane"></i>
+                    <span id="commSubmitLabel">Publier le Communiqué</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- ══ MODAL ARTICLE (lecture) ═════════════════════════════════ -->
+<div class="art-modal" id="artModal" role="dialog" aria-modal="true">
+    <div class="art-modal-backdrop" id="modalBackdrop"></div>
+    <div class="art-modal-panel" id="modalPanel">
+        <button class="art-modal-close" id="modalClose" aria-label="Fermer">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="art-modal-body" id="modalBody"></div>
+    </div>
+</div>
+
+<script src="operateurs.js"></script>
+</body>
+</html>

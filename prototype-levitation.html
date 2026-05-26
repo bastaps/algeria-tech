@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algeria Tech — Prototype Lévitation 3D</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* ═══════════════════════════════════════════════════
+           BASE RESET & TOKENS
+        ═══════════════════════════════════════════════════ */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --cyan:    #00d4ff;
+            --violet:  #7b2ff7;
+            --green:   #00e676;
+            --dark:    #0f172a;
+            --mid:     #334155;
+            --muted:   #64748b;
+            --border:  #e2e8f0;
+            --bg:      #f1f5f9;
+            --white:   #ffffff;
+            --radius:  14px;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            min-height: 100vh;
+            padding: 48px 24px 80px;
+            color: var(--dark);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ═══════════════════════════════════════════════════
+           HEADER PROTOTYPE
+        ═══════════════════════════════════════════════════ */
+        .proto-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .proto-eyelet {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--cyan);
+            background: rgba(0, 212, 255, 0.08);
+            border: 1px solid rgba(0, 212, 255, 0.25);
+            padding: 5px 14px;
+            border-radius: 100px;
+            margin-bottom: 18px;
+        }
+
+        .proto-title {
+            font-size: 2.4rem;
+            font-weight: 900;
+            color: var(--dark);
+            line-height: 1.15;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .proto-title span {
+            background: linear-gradient(135deg, var(--cyan), var(--violet));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .proto-subtitle {
+            font-size: 0.92rem;
+            color: var(--muted);
+            font-weight: 400;
+        }
+
+        .proto-subtitle strong {
+            color: var(--mid);
+            font-weight: 600;
+        }
+
+        /* Indicateur hover */
+        .hover-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 24px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: 8px 20px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--muted);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--cyan);
+            border-radius: 50%;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50%       { transform: scale(1.4); opacity: 0.6; }
+        }
+
+        /* ═══════════════════════════════════════════════════
+           GRID
+        ═══════════════════════════════════════════════════ */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        /* ═══════════════════════════════════════════════════
+           CARD WRAP — isolates perspective per card
+        ═══════════════════════════════════════════════════ */
+        .card-wrap {
+            perspective: 900px;
+            perspective-origin: center center;
+        }
+
+        .card-wrap.span-2 { grid-column: span 2; }
+
+        /* ═══════════════════════════════════════════════════
+           CARD CORE
+        ═══════════════════════════════════════════════════ */
+        .card {
+            position: relative;
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 24px;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transform-style: preserve-3d;
+            cursor: pointer;
+            will-change: transform;
+            /* Transition désactivée pendant le mouvement, activée au leave */
+        }
+
+        /* ── Couche 1 : Bordure gradient animée ── */
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: calc(var(--radius) + 2px);
+            background: conic-gradient(
+                from var(--angle, 0deg),
+                var(--cyan),
+                var(--violet),
+                var(--green),
+                var(--cyan)
+            );
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+
+        /* On anime la variable CSS --angle via JS */
+        .card:hover::before { opacity: 1; }
+
+        /* ── Couche 2 : Halo externe diffus ── */
+        .card::after {
+            content: '';
+            position: absolute;
+            inset: -12px;
+            border-radius: calc(var(--radius) + 12px);
+            background: radial-gradient(
+                ellipse at center,
+                var(--card-glow, rgba(0,212,255,0.18)) 0%,
+                transparent 70%
+            );
+            z-index: -2;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            filter: blur(8px);
+        }
+
+        .card:hover::after { opacity: 1; }
+
+        /* ── Reflet de lumière spéculaire (suit la souris) ── */
+        .card-shine {
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            background: radial-gradient(
+                circle at var(--mx, 50%) var(--my, 50%),
+                rgba(255,255,255,0.45) 0%,
+                rgba(255,255,255,0.08) 35%,
+                transparent 65%
+            );
+            z-index: 2;
+        }
+
+        .card:hover .card-shine { opacity: 1; }
+
+        /* ═══════════════════════════════════════════════════
+           CARD CONTENT — preserve-3d pour les éléments internes
+        ═══════════════════════════════════════════════════ */
+        .card-cat {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 6px;
+            margin-bottom: 14px;
+            transform: translateZ(10px);
+        }
+
+        .cat-ia       { background: #ede9fe; color: #6d28d9; }
+        .cat-telecoms { background: #e0f2fe; color: #0369a1; }
+        .cat-dz       { background: #d1fae5; color: #047857; }
+        .cat-cyber    { background: #fee2e2; color: #b91c1c; }
+
+        .card-title-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transform: translateZ(22px);
+        }
+
+        .card-title {
+            font-size: 0.98rem;
+            font-weight: 700;
+            line-height: 1.45;
+            color: var(--dark);
+            margin-bottom: 12px;
+            transition: color 0.2s ease;
+        }
+
+        .card-title-link:hover .card-title { color: #0099cc; }
+
+        .card-excerpt {
+            font-size: 0.83rem;
+            color: var(--muted);
+            line-height: 1.65;
+            margin-bottom: 18px;
+            flex-grow: 1;
+            transform: translateZ(12px);
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 12px;
+            margin-top: auto;
+            transform: translateZ(18px);
+        }
+
+        .card-source {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .source-logo {
+            width: 22px;
+            height: 22px;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.58rem;
+            font-weight: 900;
+            color: var(--mid);
+            letter-spacing: -0.02em;
+        }
+
+        .source-name {
+            font-size: 0.76rem;
+            font-weight: 600;
+            color: var(--mid);
+        }
+
+        .card-lire {
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: #0099cc;
+            text-decoration: none;
+            letter-spacing: 0.03em;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transform: translateZ(28px);
+            transition: gap 0.2s ease, color 0.2s ease;
+        }
+
+        .card-lire:hover {
+            color: var(--cyan);
+            gap: 8px;
+        }
+
+        /* ═══════════════════════════════════════════════════
+           UNE (grande carte)
+        ═══════════════════════════════════════════════════ */
+        .card.card-une {
+            padding: 32px 36px;
+            display: flex;
+            flex-direction: column;
+            min-height: 260px;
+        }
+
+        .card-une .card-title { font-size: 1.35rem; font-weight: 800; line-height: 1.35; }
+        .card-une .card-excerpt { font-size: 0.9rem; }
+        .card-une .card-lire { font-size: 0.82rem; }
+
+        /* Bandeau horizontal dans l'UNE */
+        .card-une-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .badge-une {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 4px;
+            background: var(--dark);
+            color: var(--white);
+        }
+
+        /* ═══════════════════════════════════════════════════
+           BARRE DESIGN EXPLICATIONS
+        ═══════════════════════════════════════════════════ */
+        .design-legend {
+            max-width: 1140px;
+            margin: 52px auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .legend-item {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 18px 20px;
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+        }
+
+        .legend-item h3 {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-item p {
+            font-size: 0.77rem;
+            color: var(--muted);
+            line-height: 1.55;
+        }
+
+        .legend-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ═══════════════════════════════════════════════════
+           TOGGLE DARK MODE (démo)
+        ═══════════════════════════════════════════════════ */
+        .dm-toggle {
+            position: fixed;
+            top: 20px;
+            right: 24px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: 8px 16px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            color: var(--mid);
+            z-index: 100;
+            transition: all 0.2s ease;
+        }
+
+        .dm-toggle:hover { background: var(--dark); color: var(--white); border-color: var(--dark); }
+
+        /* Dark mode */
+        body.dark {
+            --bg:    #0a0f1e;
+            --white: #111827;
+            --dark:  #f8fafc;
+            --mid:   #cbd5e1;
+            --muted: #94a3b8;
+            --border: #1e293b;
+        }
+
+        body.dark .proto-title { color: #f8fafc; }
+        body.dark .card-title  { color: #f1f5f9; }
+        body.dark .card-footer { border-color: #1e293b; }
+        body.dark .source-logo { background: linear-gradient(135deg, #1e293b, #334155); }
+        body.dark .legend-item h3 { color: #f1f5f9; }
+        body.dark .badge-une { background: var(--cyan); color: var(--dark); }
+    </style>
+</head>
+<body>
+
+<button class="dm-toggle" onclick="document.body.classList.toggle('dark')">
+    🌗 Dark mode
+</button>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header class="proto-header">
+    <div class="proto-eyelet">✦ Prototype Interactif · Algeria Tech</div>
+    <h1 class="proto-title">Revue de <span>Presse</span></h1>
+    <p class="proto-subtitle">TIC &amp; Télécoms · Algérie &amp; International · <strong>Passez la souris sur les cartes</strong></p>
+    <div class="hover-indicator">
+        <div class="pulse-dot"></div>
+        Hover activé — tilt 3D en temps réel · Essayez les coins extrêmes des cartes
+    </div>
+</header>
+
+<!-- ═══════════════ GRILLE ARTICLES ═══════════════ -->
+<div class="cards-grid">
+
+    <!-- ── UNE ── -->
+    <div class="card-wrap span-2">
+        <div class="card card-une" data-glow="rgba(0,212,255,0.22)">
+            <div class="card-shine"></div>
+            <div class="card-une-badge">
+                <span class="badge-une">★ À la une</span>
+                <span class="card-cat cat-telecoms">📡 Télécoms</span>
+            </div>
+            <a class="card-title-link" href="#">
+                <h2 class="card-title">Algérie Télécom lance son réseau 5G expérimental à Alger : une révolution pour la connectivité nationale et les usages professionnels</h2>
+            </a>
+            <p class="card-excerpt">Le groupe public de télécommunications annonce le déploiement de sa première cellule 5G opérationnelle dans la capitale, promettant des débits 10× supérieurs à la 4G actuelle et une latence réduite à moins de 5 ms pour les applications critiques, l'IoT industriel et la vidéo 8K.</p>
+            <div class="card-footer">
+                <div class="card-source">
+                    <div class="source-logo">AT</div>
+                    <span class="source-name">Algérie Télécom · il y a 2h</span>
+                </div>
+                <a class="card-lire" href="#">Lire l'article →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── IA ── -->
+    <div class="card-wrap">
+        <div class="card" data-glow="rgba(123,47,247,0.22)">
+            <div class="card-shine"></div>
+            <span class="card-cat cat-ia">🤖 Intelligence Artificielle</span>
+            <a class="card-title-link" href="#">
+                <h3 class="card-title">L'ANIE déploie une IA générative pour accélérer les démarches des startups Tech algériennes</h3>
+            </a>
+            <p class="card-excerpt">L'Agence nationale pour l'investissement mise sur GPT Enterprise pour réduire les délais administratifs de 60%.</p>
+            <div class="card-footer">
+                <div class="card-source">
+                    <div class="source-logo">AN</div>
+                    <span class="source-name">ANIE</span>
+                </div>
+                <a class="card-lire" href="#">Lire →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── DZ 1 ── -->
+    <div class="card-wrap">
+        <div class="card" data-glow="rgba(0,230,118,0.22)">
+            <div class="card-shine"></div>
+            <span class="card-cat cat-dz">🇩🇿 Algérie</span>
+            <a class="card-title-link" href="#">
+                <h3 class="card-title">Djezzy et Ooredoo mutualisent leurs infrastructures RAN dans 12 wilayas pour réduire les zones blanches</h3>
+            </a>
+            <p class="card-excerpt">Un accord de partage de réseau radio pour couvrir les zones à faible densité et optimiser les coûts opérationnels de 35%.</p>
+            <div class="card-footer">
+                <div class="card-source">
+                    <div class="source-logo">DJ</div>
+                    <span class="source-name">Djezzy</span>
+                </div>
+                <a class="card-lire" href="#">Lire →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── CYBER ── -->
+    <div class="card-wrap">
+        <div class="card" data-glow="rgba(239,68,68,0.22)">
+            <div class="card-shine"></div>
+            <span class="card-cat cat-cyber">🔐 Cybersécurité</span>
+            <a class="card-title-link" href="#">
+                <h3 class="card-title">Le CSIRT Algeria renforce la protection des infrastructures critiques avec un SOC 24/7</h3>
+            </a>
+            <p class="card-excerpt">Centre de réponse aux incidents cyber doté d'une équipe de 80 analystes surveillant en permanence les réseaux sensibles.</p>
+            <div class="card-footer">
+                <div class="card-source">
+                    <div class="source-logo">CS</div>
+                    <span class="source-name">CSIRT</span>
+                </div>
+                <a class="card-lire" href="#">Lire →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── INTL ── -->
+    <div class="card-wrap">
+        <div class="card" data-glow="rgba(0,212,255,0.22)">
+            <div class="card-shine"></div>
+            <span class="card-cat cat-telecoms">🌐 International</span>
+            <a class="card-title-link" href="#">
+                <h3 class="card-title">Le câble sous-marin MEDUSA connecte l'Algérie à l'Europe à 100 Tbps dès 2026</h3>
+            </a>
+            <p class="card-excerpt">La nouvelle dorsale transatlantique atterrit à Annaba et multiplie par 8 la capacité internationale de l'Algérie.</p>
+            <div class="card-footer">
+                <div class="card-source">
+                    <div class="source-logo">MD</div>
+                    <span class="source-name">MEDUSA Cable</span>
+                </div>
+                <a class="card-lire" href="#">Lire →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── IA 2 ── -->
+    <div class="card-wrap">
+        <div class="card" data-glow="rgba(123,47,247,0.22)">
+            <div class="card-shine"></div>
+            <span class="card-cat cat-ia">🤖 IA</span>
+            <a class="card-title-link" href="#">
+                <h3 class="card-title">Huawei installe un Data Center IA de 500 GPU à Sidi Abdallah pour le Maghreb</h3>
+            </a>
+            <p class="card-excerpt">Le géant chinois renforce sa présence avec un centre de calcul pour les LLM dédiés à l'Afrique du Nord.</p>
+            <div class="card-footer">
+                <div class="card-source">
+                    <div class="source-logo">HW</div>
+                    <span class="source-name">Huawei Algeria</span>
+                </div>
+                <a class="card-lire" href="#">Lire →</a>
+            </div>
+        </div>
+    </div>
+
+</div><!-- /.cards-grid -->
+
+<!-- ═══════════════ LÉGENDE DESIGN ═══════════════ -->
+<div class="design-legend">
+    <div class="legend-item">
+        <h3><span class="legend-dot" style="background: linear-gradient(135deg,#00d4ff,#7b2ff7);"></span> Tilt 3D temps réel</h3>
+        <p>La carte pivote sur X/Y (±14°) en suivant le curseur à la milliseconde via <code>mousemove</code>. Chaque coin réagit différemment — essayez les extrêmes.</p>
+    </div>
+    <div class="legend-item">
+        <h3><span class="legend-dot" style="background: conic-gradient(#00d4ff,#7b2ff7,#00e676);"></span> Bordure gradient rotatif</h3>
+        <p>Dégradé <strong>cyan → violet → vert</strong> qui tourne en continu autour de la carte. Rappelle les circuits électroniques et les flux de données réseau.</p>
+    </div>
+    <div class="legend-item">
+        <h3><span class="legend-dot" style="background: radial-gradient(circle, #fff 0%, #00d4ff 100%);"></span> 4 couches d'ombres + halo</h3>
+        <p>Ombre noire proche → ombre noire diffuse → lueur colorée (propre à chaque catégorie) → halo externe flou. La carte semble réellement flotter.</p>
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     MOTEUR 3D JAVASCRIPT
+════════════════════════════════════════════════════ -->
+<script>
+(function() {
+    /* ── Paramètres ── */
+    const MAX_TILT  = 14;    // degrés max de rotation
+    const SCALE     = 1.045; // grossissement au hover
+    const LIFT      = 28;    // pixels de translateZ
+    const SPEED_IN  = 0;     // pas de transition pendant le mouvement (fluide)
+    const SPEED_OUT = 'transform 0.65s cubic-bezier(0.23,1,0.32,1), box-shadow 0.55s ease, border-color 0.3s ease';
+
+    /* ── Rotation du gradient de bordure (CSS custom property) ── */
+    let angle = 0;
+    function rotateBorder() {
+        angle = (angle + 0.8) % 360;
+        document.querySelectorAll('.card:hover').forEach(c => {
+            c.style.setProperty('--angle', angle + 'deg');
+        });
+        requestAnimationFrame(rotateBorder);
+    }
+    rotateBorder();
+
+    /* ── Application de l'effet par carte ── */
+    document.querySelectorAll('.card').forEach(card => {
+        const shine = card.querySelector('.card-shine');
+        const glow  = card.dataset.glow || 'rgba(0,212,255,0.20)';
+
+        /* Ombres multi-couches préparées */
+        function buildShadow(rotX, rotY) {
+            // Direction de la lumière simulée selon le tilt
+            const offsetX = (rotY /  MAX_TILT) * 20;
+            const offsetY = (-rotX / MAX_TILT) * 20;
+            return [
+                /* 1. Ombre noire proche — donne la base physique */
+                `${offsetX * 0.5}px ${offsetY * 0.5 + 16}px 30px rgba(0,0,0,0.22)`,
+                /* 2. Ombre noire diffuse — crée la profondeur */
+                `${offsetX}px ${offsetY + 40}px 70px rgba(0,0,0,0.16)`,
+                /* 3. Ombre colorée catégorie — signature tech */
+                `${offsetX * 0.3}px ${offsetY * 0.3 + 50}px 80px ${glow}`,
+                /* 4. Halo cyan très diffus — effet de lévitation */
+                `0 80px 120px -30px rgba(0,212,255,0.18)`,
+                /* 5. Bordure blanche intérieure — finition premium */
+                `inset 0 1px 0 rgba(255,255,255,0.5)`,
+            ].join(', ');
+        }
+
+        card.addEventListener('mouseenter', () => {
+            /* Désactiver transitions → fluidité totale du tilt */
+            card.style.transition = 'none';
+        });
+
+        card.addEventListener('mousemove', (e) => {
+            const r  = card.getBoundingClientRect();
+            const x  = e.clientX - r.left;
+            const y  = e.clientY - r.top;
+            const cx = r.width  / 2;
+            const cy = r.height / 2;
+
+            /* Angles de rotation — limités à ±MAX_TILT */
+            const rotY =  ((x - cx) / cx) * MAX_TILT;
+            const rotX = -((y - cy) / cy) * MAX_TILT;
+
+            /* Transform 3D principal */
+            card.style.transform = [
+                `perspective(900px)`,
+                `rotateX(${rotX}deg)`,
+                `rotateY(${rotY}deg)`,
+                `translateZ(${LIFT}px)`,
+                `scale(${SCALE})`,
+            ].join(' ');
+
+            /* Ombres directionnelles */
+            card.style.boxShadow  = buildShadow(rotX, rotY);
+            card.style.borderColor = 'transparent';
+            card.style.zIndex     = '10';
+
+            /* Reflet spéculaire qui suit la souris */
+            const pctX = ((x / r.width)  * 100).toFixed(1) + '%';
+            const pctY = ((y / r.height) * 100).toFixed(1) + '%';
+            shine.style.setProperty('--mx', pctX);
+            shine.style.setProperty('--my', pctY);
+        });
+
+        card.addEventListener('mouseleave', () => {
+            /* Reset doux avec spring easing */
+            card.style.transition = SPEED_OUT;
+            card.style.transform  = 'perspective(900px) rotateX(0deg) rotateY(0deg) translateZ(0px) scale(1)';
+            card.style.boxShadow  = '0 2px 8px rgba(0,0,0,0.05)';
+            card.style.borderColor = '';
+            card.style.zIndex     = '';
+
+            /* Réactiver transition proprement après animation */
+            setTimeout(() => { card.style.transition = ''; }, 680);
+        });
+    });
+})();
+</script>
+
+</body>
+</html>

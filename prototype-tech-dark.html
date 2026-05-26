@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algeria Tech — Tech Dark</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Syne', 'sans-serif'],
+            body: ['Space Grotesk', 'system-ui', 'sans-serif'],
+            mono: ['Space Mono', 'monospace'],
+          },
+          colors: {
+            bg: '#050a0f',
+            surface: '#0d1520',
+            card: '#111b28',
+            border: '#1e3348',
+            cyan: '#00f5ff',
+            cyanDim: '#00c4cc',
+            purple: '#9b59ff',
+            green: '#00ff88',
+            text: '#e2e8f0',
+            muted: '#64748b',
+          },
+          boxShadow: {
+            glow: '0 0 20px rgba(0,245,255,0.15)',
+            glowPurple: '0 0 20px rgba(155,89,255,0.2)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #050a0f; }
+    .scan-line {
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,245,255,0.01) 2px, rgba(0,245,255,0.01) 4px);
+      pointer-events: none;
+    }
+    .glow-cyan { text-shadow: 0 0 20px rgba(0,245,255,0.5); }
+    .glow-border { box-shadow: 0 0 0 1px rgba(0,245,255,0.2), 0 0 20px rgba(0,245,255,0.05); }
+    .cyber-tag { background: rgba(0,245,255,0.1); border: 1px solid rgba(0,245,255,0.3); color: #00f5ff; }
+    .hero-gradient { background: linear-gradient(135deg, rgba(0,245,255,0.08) 0%, rgba(155,89,255,0.08) 100%); }
+    .article-bg { background: linear-gradient(to bottom, transparent, rgba(0,245,255,0.03)); }
+    .grid-line {
+      background-image: linear-gradient(rgba(0,245,255,0.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0,245,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .progress-bar { width: 100%; height: 2px; background: linear-gradient(to right, #00f5ff, #9b59ff); }
+    .tag-purple { background: rgba(155,89,255,0.15); border: 1px solid rgba(155,89,255,0.3); color: #9b59ff; }
+    .tag-green { background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.3); color: #00ff88; }
+    .card-hover { transition: all 0.25s ease; }
+    .card-hover:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(0,245,255,0.1), 0 8px 32px rgba(0,0,0,0.4); border-color: rgba(0,245,255,0.3) !important; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    .cursor-blink { display: inline-block; animation: blink 1s infinite; }
+    @keyframes pulse-glow { 0%, 100% { box-shadow: 0 0 8px rgba(0,245,255,0.4); } 50% { box-shadow: 0 0 20px rgba(0,245,255,0.8); } }
+    .live-dot { animation: pulse-glow 2s infinite; width: 8px; height: 8px; border-radius: 50%; background: #00ff88; }
+  </style>
+</head>
+<body class="bg-bg text-text font-body antialiased grid-line">
+
+  <!-- SCAN LINE OVERLAY -->
+  <div class="fixed inset-0 scan-line pointer-events-none z-50 opacity-30"></div>
+
+  <!-- TOP STATUS BAR -->
+  <div class="bg-surface border-b border-border py-2 px-6 flex items-center justify-between text-xs font-mono text-muted overflow-hidden">
+    <div class="flex items-center gap-4">
+      <span class="text-cyan">SYS://algeria-tech.dz</span>
+      <span class="hidden sm:block">v3.2.1</span>
+      <span class="hidden md:block text-green">● ONLINE</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <span>DIM. 25.05.2026 — 14:32:07</span>
+      <span class="hidden sm:flex items-center gap-1"><span class="live-dot"></span><span class="text-green ml-1">LIVE</span></span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="bg-surface border-b border-border sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 lg:px-8 py-0">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+          <div class="relative">
+            <div class="w-9 h-9 border border-cyan flex items-center justify-center" style="clip-path: polygon(0 0, 85% 0, 100% 15%, 100% 100%, 0 100%);">
+              <span class="font-display font-black text-cyan text-sm glow-cyan">AT</span>
+            </div>
+          </div>
+          <div>
+            <span class="font-display font-black text-xl tracking-tight text-white">ALGERIA</span>
+            <span class="font-display font-black text-xl tracking-tight text-cyan glow-cyan">TECH</span>
+          </div>
+        </div>
+
+        <!-- Nav -->
+        <nav class="hidden lg:flex items-center">
+          <a href="#" class="px-4 h-16 flex items-center text-xs font-mono uppercase tracking-widest text-cyan border-b-2 border-cyan">FEED</a>
+          <a href="#" class="px-4 h-16 flex items-center text-xs font-mono uppercase tracking-widest text-muted hover:text-cyan transition border-b-2 border-transparent hover:border-cyan/50">TÉLÉCOMS</a>
+          <a href="#" class="px-4 h-16 flex items-center text-xs font-mono uppercase tracking-widest text-muted hover:text-cyan transition border-b-2 border-transparent hover:border-cyan/50">STARTUPS</a>
+          <a href="#" class="px-4 h-16 flex items-center text-xs font-mono uppercase tracking-widest text-muted hover:text-cyan transition border-b-2 border-transparent hover:border-cyan/50">AI_DATA</a>
+          <a href="#" class="px-4 h-16 flex items-center text-xs font-mono uppercase tracking-widest text-muted hover:text-cyan transition border-b-2 border-transparent hover:border-cyan/50">CYBERSEC</a>
+          <a href="#" class="px-4 h-16 flex items-center text-xs font-mono uppercase tracking-widest text-muted hover:text-cyan transition border-b-2 border-transparent hover:border-cyan/50">DOSSIERS</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <div class="hidden md:flex items-center gap-2 bg-card border border-border px-3 py-1.5 rounded-none" style="clip-path: polygon(0 0, 95% 0, 100% 20%, 100% 100%, 0 100%);">
+            <svg class="w-4 h-4 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/></svg>
+            <span class="text-xs font-mono text-muted">SEARCH_</span>
+          </div>
+          <button class="cyber-tag text-xs font-mono font-bold px-4 py-2 hover:bg-cyan/20 transition uppercase tracking-widest" style="clip-path: polygon(5% 0, 100% 0, 100% 70%, 95% 100%, 0 100%, 0 30%);">SUBSCRIBE</button>
+        </div>
+      </div>
+    </div>
+    <div class="progress-bar"></div>
+  </header>
+
+  <!-- HERO -->
+  <section class="max-w-7xl mx-auto px-4 lg:px-8 py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-4">
+
+      <!-- Main Hero -->
+      <div class="lg:col-span-3 relative overflow-hidden bg-card border border-border card-hover cursor-pointer group" style="clip-path: polygon(0 0, 97% 0, 100% 3%, 100% 100%, 3% 100%, 0 97%);">
+        <div class="absolute inset-0 hero-gradient"></div>
+        <div class="relative overflow-hidden h-56 lg:h-72">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&h=500&fit=crop" class="w-full h-full object-cover opacity-40 group-hover:opacity-55 group-hover:scale-105 transition-all duration-500" alt="hero" />
+          <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent 30%, #111b28 100%);"></div>
+        </div>
+        <div class="relative p-6 lg:p-8 -mt-16">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="cyber-tag text-xs font-mono px-2 py-0.5 uppercase tracking-widest">[FEATURED]</span>
+            <span class="text-xs font-mono text-muted">24.05.2026</span>
+            <span class="text-xs font-mono text-muted">·</span>
+            <span class="text-xs font-mono text-cyan">8 MIN_READ</span>
+          </div>
+          <h1 class="font-display text-3xl lg:text-4xl font-black text-white leading-tight mb-3">
+            10M FOYERS EN FIBRE OPTIQUE<span class="text-cyan glow-cyan">_</span>
+          </h1>
+          <p class="text-sm font-body text-muted leading-relaxed mb-5">
+            450 milliards DZD déployés pour couvrir l'Algérie en très haut débit. Le pays se repositionne comme leader africain du numérique d'ici 2027.
+          </p>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=32&h=32&fit=crop&crop=face" class="w-8 h-8 rounded-none border border-cyan/40" alt="author" />
+            <span class="text-xs font-mono text-text">KARIM_BENALI</span>
+            <span class="text-cyan text-xs">▶ LIRE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Side stories -->
+      <div class="lg:col-span-2 flex flex-col gap-4">
+        <div class="bg-card border border-border card-hover cursor-pointer group overflow-hidden flex-1" style="clip-path: polygon(0 0, 96% 0, 100% 8%, 100% 100%, 0 100%);">
+          <div class="relative h-28 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=600&h=220&fit=crop" class="w-full h-full object-cover opacity-30 group-hover:opacity-50 group-hover:scale-105 transition-all duration-300" alt="yassir" />
+            <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent, #111b28);"></div>
+          </div>
+          <div class="p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="tag-purple text-xs font-mono px-2 py-0.5 uppercase">[STARTUP]</span>
+            </div>
+            <h3 class="font-display text-lg font-black text-white leading-tight">YASSIR_RAISE_150M$ — EXPANSION PANAFRICAINE</h3>
+            <p class="text-xs font-mono text-muted mt-2">22.05 · 5 MIN</p>
+          </div>
+        </div>
+        <div class="bg-card border border-border card-hover cursor-pointer group overflow-hidden flex-1" style="clip-path: polygon(0 0, 96% 0, 100% 8%, 100% 100%, 0 100%);">
+          <div class="relative h-28 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&h=220&fit=crop" class="w-full h-full object-cover opacity-30 group-hover:opacity-50 group-hover:scale-105 transition-all duration-300" alt="ai" />
+            <div class="absolute inset-0" style="background: linear-gradient(to bottom, transparent, #111b28);"></div>
+          </div>
+          <div class="p-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="tag-green text-xs font-mono px-2 py-0.5 uppercase">[AI_INFRA]</span>
+            </div>
+            <h3 class="font-display text-lg font-black text-white leading-tight">DJEZZY × HUAWEI — RÉSEAU COGNITIF NATIONAL</h3>
+            <p class="text-xs font-mono text-muted mt-2">21.05 · 4 MIN</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATA STATS BAR -->
+  <div class="bg-card border-y border-border py-3 mb-8">
+    <div class="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-2 lg:grid-cols-4 gap-0 divide-x divide-border">
+      <div class="px-6 flex items-center gap-3">
+        <div>
+          <p class="text-xs font-mono text-muted uppercase tracking-widest">Abonnés Mobile</p>
+          <p class="font-display font-black text-cyan text-xl glow-cyan">48.2M<span class="cursor-blink text-cyan/50">_</span></p>
+        </div>
+      </div>
+      <div class="px-6 flex items-center gap-3">
+        <div>
+          <p class="text-xs font-mono text-muted uppercase tracking-widest">Pénétration Internet</p>
+          <p class="font-display font-black text-purple text-xl">71.4%</p>
+        </div>
+      </div>
+      <div class="hidden lg:flex px-6 items-center gap-3">
+        <div>
+          <p class="text-xs font-mono text-muted uppercase tracking-widest">Sites actifs .dz</p>
+          <p class="font-display font-black text-green text-xl">128K</p>
+        </div>
+      </div>
+      <div class="hidden lg:flex px-6 items-center gap-3">
+        <div>
+          <p class="text-xs font-mono text-muted uppercase tracking-widest">Startups recensées</p>
+          <p class="font-display font-black text-cyan text-xl">340+</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT + SIDEBAR -->
+  <div class="max-w-7xl mx-auto px-4 lg:px-8 pb-12 grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+    <!-- ARTICLE GRID -->
+    <main class="lg:col-span-3">
+
+      <div class="flex items-center gap-3 mb-5">
+        <span class="font-mono text-cyan text-xs">//</span>
+        <h2 class="font-display font-black text-lg uppercase tracking-widest">LATEST_FEEDS</h2>
+        <div class="flex-1 h-px bg-border"></div>
+        <span class="text-xs font-mono text-cyan cyber-tag px-2 py-0.5">LIVE ●</span>
+      </div>
+
+      <!-- 3-col grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+
+        <article class="bg-card border border-border card-hover cursor-pointer group overflow-hidden" style="clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 0 100%);">
+          <div class="relative h-36 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1569396116180-210c182bedb8?w=400&h=230&fit=crop" class="w-full h-full object-cover opacity-35 group-hover:opacity-55 group-hover:scale-105 transition-all duration-300" alt="5G" />
+            <span class="absolute top-2 left-2 cyber-tag text-xs font-mono px-2 py-0.5 uppercase">[5G]</span>
+          </div>
+          <div class="p-4">
+            <h3 class="font-display font-black text-base text-white leading-tight mb-2">MOBILIS_5G — LAUNCH COMMERCIAL x5 CITIES</h3>
+            <p class="text-xs font-body text-muted leading-relaxed mb-3">Alger, Oran, Constantine, Annaba, Sétif : déploiement commercial imminent.</p>
+            <div class="flex items-center justify-between text-xs font-mono text-muted border-t border-border pt-3 mt-auto">
+              <span class="text-cyan/70">SOFIANE_L</span><span>19.05 · 6M</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="bg-card border border-border card-hover cursor-pointer group overflow-hidden" style="clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 0 100%);">
+          <div class="relative h-36 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=230&fit=crop" class="w-full h-full object-cover opacity-35 group-hover:opacity-55 group-hover:scale-105 transition-all duration-300" alt="cyber" />
+            <span class="absolute top-2 left-2 tag-purple text-xs font-mono px-2 py-0.5 uppercase">[CYBERSEC]</span>
+          </div>
+          <div class="p-4">
+            <h3 class="font-display font-black text-base text-white leading-tight mb-2">ARPCE — NEW DIRECTIVE INFRA_CRITIQUE v2.0</h3>
+            <p class="text-xs font-body text-muted leading-relaxed mb-3">Cadre réglementaire renforcé pour les opérateurs d'infrastructures sensibles.</p>
+            <div class="flex items-center justify-between text-xs font-mono text-muted border-t border-border pt-3">
+              <span class="text-purple/70">AMINA_C</span><span>18.05 · 7M</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="bg-card border border-border card-hover cursor-pointer group overflow-hidden" style="clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 0 100%);">
+          <div class="relative h-36 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=230&fit=crop" class="w-full h-full object-cover opacity-35 group-hover:opacity-55 group-hover:scale-105 transition-all duration-300" alt="fintech" />
+            <span class="absolute top-2 left-2 tag-green text-xs font-mono px-2 py-0.5 uppercase">[FINTECH]</span>
+          </div>
+          <div class="p-4">
+            <h3 class="font-display font-black text-base text-white leading-tight mb-2">CIB × BARIDIMOB — 10M ACTIVE_USERS REACHED</h3>
+            <p class="text-xs font-body text-muted leading-relaxed mb-3">Le mobile payment explose en Algérie sur fond de e-commerce en plein essor.</p>
+            <div class="flex items-center justify-between text-xs font-mono text-muted border-t border-border pt-3">
+              <span class="text-green/70">HOCINE_A</span><span>17.05 · 5M</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="bg-card border border-border card-hover cursor-pointer group overflow-hidden" style="clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 0 100%);">
+          <div class="relative h-36 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=230&fit=crop" class="w-full h-full object-cover opacity-35 group-hover:opacity-55 group-hover:scale-105 transition-all duration-300" alt="datacenter" />
+            <span class="absolute top-2 left-2 cyber-tag text-xs font-mono px-2 py-0.5 uppercase">[INFRA]</span>
+          </div>
+          <div class="p-4">
+            <h3 class="font-display font-black text-base text-white leading-tight mb-2">DC_NATIONAL_ALG — 5K SERVERS ONLINE</h3>
+            <p class="text-xs font-body text-muted leading-relaxed mb-3">Le data center souverain d'Alger entre en production avec 5 000 serveurs.</p>
+            <div class="flex items-center justify-between text-xs font-mono text-muted border-t border-border pt-3">
+              <span class="text-cyan/70">RIAD_M</span><span>16.05 · 6M</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="bg-card border border-border card-hover cursor-pointer group overflow-hidden" style="clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 0 100%);">
+          <div class="relative h-36 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=230&fit=crop" class="w-full h-full object-cover opacity-35 group-hover:opacity-55 group-hover:scale-105 transition-all duration-300" alt="digital" />
+            <span class="absolute top-2 left-2 tag-green text-xs font-mono px-2 py-0.5 uppercase">[E-GOV]</span>
+          </div>
+          <div class="p-4">
+            <h3 class="font-display font-black text-base text-white leading-tight mb-2">ÉTAT_CIVIL — 48W FULLY DIGITIZED</h3>
+            <p class="text-xs font-body text-muted leading-relaxed mb-3">Les 48 wilayas connectées à la plateforme nationale d'état civil numérique.</p>
+            <div class="flex items-center justify-between text-xs font-mono text-muted border-t border-border pt-3">
+              <span class="text-green/70">SARA_M</span><span>15.05 · 3M</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="bg-card border border-border card-hover cursor-pointer group overflow-hidden" style="clip-path: polygon(0 0, 95% 0, 100% 5%, 100% 100%, 0 100%);">
+          <div class="relative h-36 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&h=230&fit=crop" class="w-full h-full object-cover opacity-35 group-hover:opacity-55 group-hover:scale-105 transition-all duration-300" alt="matrix" />
+            <span class="absolute top-2 left-2 tag-purple text-xs font-mono px-2 py-0.5 uppercase">[ANALYSE]</span>
+          </div>
+          <div class="p-4">
+            <h3 class="font-display font-black text-base text-white leading-tight mb-2">ALG_NUMÉRIQUE_2030 — STATUS_REPORT</h3>
+            <p class="text-xs font-body text-muted leading-relaxed mb-3">Bilan à mi-parcours du plan de transformation digitale nationale.</p>
+            <div class="flex items-center justify-between text-xs font-mono text-muted border-t border-border pt-3">
+              <span class="text-purple/70">MALIK_O</span><span>14.05 · 10M</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- DOSSIER CTA -->
+      <div class="relative bg-card border border-cyan/30 overflow-hidden p-8 card-hover cursor-pointer" style="clip-path: polygon(0 0, 98% 0, 100% 4%, 100% 100%, 2% 100%, 0 96%); box-shadow: 0 0 40px rgba(0,245,255,0.08);">
+        <div class="absolute inset-0 hero-gradient"></div>
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan to-transparent opacity-60"></div>
+        <div class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple to-transparent opacity-40"></div>
+        <div class="relative grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div>
+            <div class="flex items-center gap-2 mb-4">
+              <span class="font-mono text-cyan text-xs">//</span>
+              <span class="cyber-tag text-xs font-mono px-2 py-0.5 uppercase tracking-widest">DOSSIER EXCLUSIF</span>
+            </div>
+            <h3 class="font-display font-black text-2xl lg:text-3xl text-white mb-3">
+              LA GUERRE DES OPÉRATEURS<span class="text-cyan">_</span>
+            </h3>
+            <p class="text-sm font-body text-muted leading-relaxed mb-5">
+              Djezzy, Mobilis, Ooredoo : parts de marché, qualité réseau, prix, innovation. Notre analyse comparative 2026 en profondeur sur les trois géants du secteur.
+            </p>
+            <a href="#" class="inline-flex items-center gap-2 cyber-tag text-xs font-mono px-5 py-3 uppercase tracking-widest hover:bg-cyan/20 transition">
+              ACCÉDER AU DOSSIER <span class="text-cyan">→</span>
+            </a>
+          </div>
+          <div class="hidden lg:block relative h-48 overflow-hidden rounded-none border border-border">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=300&fit=crop" class="w-full h-full object-cover opacity-25" alt="dossier" />
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="text-center">
+                <p class="font-mono text-cyan text-xs mb-1 opacity-60">CHARGEMENT_DONNÉES</p>
+                <div class="flex gap-1 justify-center">
+                  <span class="w-2 h-6 bg-cyan opacity-90"></span>
+                  <span class="w-2 h-10 bg-purple opacity-80"></span>
+                  <span class="w-2 h-4 bg-cyan opacity-70"></span>
+                  <span class="w-2 h-8 bg-green opacity-90"></span>
+                  <span class="w-2 h-5 bg-cyan opacity-60"></span>
+                  <span class="w-2 h-12 bg-purple opacity-80"></span>
+                  <span class="w-2 h-3 bg-green opacity-70"></span>
+                  <span class="w-2 h-9 bg-cyan opacity-90"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="lg:col-span-1 space-y-5">
+
+      <!-- Terminal widget -->
+      <div class="bg-card border border-border" style="clip-path: polygon(0 0, 94% 0, 100% 6%, 100% 100%, 0 100%);">
+        <div class="flex items-center gap-2 px-4 py-2 border-b border-border bg-surface">
+          <div class="flex gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-500/60"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-yellow-500/60"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-green/40"></span>
+          </div>
+          <span class="font-mono text-xs text-muted">TRENDING_FEED</span>
+        </div>
+        <div class="p-4 space-y-3">
+          <div class="border-b border-border pb-3">
+            <p class="font-mono text-xs text-cyan mb-1">&gt; 01_TRENDING</p>
+            <a href="#" class="text-sm font-body text-text hover:text-cyan transition leading-snug block">Ooredoo Q1 2026 : record financier historique</a>
+          </div>
+          <div class="border-b border-border pb-3">
+            <p class="font-mono text-xs text-purple mb-1">&gt; 02_HOT</p>
+            <a href="#" class="text-sm font-body text-text hover:text-cyan transition leading-snug block">Startups algériennes : offensive sur le marché MENA</a>
+          </div>
+          <div class="border-b border-border pb-3">
+            <p class="font-mono text-xs text-green mb-1">&gt; 03_READ</p>
+            <a href="#" class="text-sm font-body text-text hover:text-cyan transition leading-snug block">IA générative : quel cadre réglementaire pour l'Algérie ?</a>
+          </div>
+          <div>
+            <p class="font-mono text-xs text-cyan mb-1">&gt; 04_VIRAL</p>
+            <a href="#" class="text-sm font-body text-text hover:text-cyan transition leading-snug block">E-commerce algérien : 2 milliards USD de volume annuel</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="bg-card border border-purple/30 p-5" style="clip-path: polygon(0 0, 94% 0, 100% 6%, 100% 100%, 0 100%); box-shadow: 0 0 20px rgba(155,89,255,0.08);">
+        <p class="font-mono text-xs text-purple mb-1">// SUBSCRIBE</p>
+        <h3 class="font-display font-black text-lg text-white mb-2">NEWSLETTER_HEBDO</h3>
+        <p class="text-xs font-body text-muted mb-4">5 actus tech incontournables. Chaque lundi. Aucun spam.</p>
+        <input type="email" placeholder="user@domain.dz" class="w-full bg-surface border border-border text-text text-xs font-mono px-3 py-2.5 mb-3 focus:outline-none focus:border-cyan/50 transition" />
+        <button class="w-full cyber-tag text-xs font-mono font-bold py-3 hover:bg-cyan/20 transition uppercase tracking-widest">INITIALIZE_SUB →</button>
+      </div>
+
+      <!-- Tags -->
+      <div class="bg-card border border-border p-5" style="clip-path: polygon(0 0, 94% 0, 100% 6%, 100% 100%, 0 100%);">
+        <p class="font-mono text-xs text-cyan mb-3">// TAGS_INDEX</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="cyber-tag text-xs font-mono px-2.5 py-1 hover:bg-cyan/20 cursor-pointer transition">#5G</span>
+          <span class="tag-purple text-xs font-mono px-2.5 py-1 hover:bg-purple/20 cursor-pointer transition">#cybersec</span>
+          <span class="tag-green text-xs font-mono px-2.5 py-1 hover:bg-green/10 cursor-pointer transition">#fintech</span>
+          <span class="cyber-tag text-xs font-mono px-2.5 py-1 hover:bg-cyan/20 cursor-pointer transition">#telecom</span>
+          <span class="tag-purple text-xs font-mono px-2.5 py-1 hover:bg-purple/20 cursor-pointer transition">#AI_data</span>
+          <span class="tag-green text-xs font-mono px-2.5 py-1 hover:bg-green/10 cursor-pointer transition">#startup</span>
+          <span class="cyber-tag text-xs font-mono px-2.5 py-1 hover:bg-cyan/20 cursor-pointer transition">#e-gov</span>
+          <span class="tag-purple text-xs font-mono px-2.5 py-1 hover:bg-purple/20 cursor-pointer transition">#infra</span>
+        </div>
+      </div>
+
+      <!-- Socials -->
+      <div class="bg-card border border-border p-5" style="clip-path: polygon(0 0, 94% 0, 100% 6%, 100% 100%, 0 100%);">
+        <p class="font-mono text-xs text-cyan mb-3">// SOCIAL_LINKS</p>
+        <div class="space-y-2">
+          <a href="#" class="flex items-center justify-between px-3 py-2 border border-border hover:border-cyan/40 hover:bg-surface transition group">
+            <span class="font-mono text-xs text-muted group-hover:text-cyan">TWITTER/X</span>
+            <span class="font-mono text-xs text-cyan opacity-0 group-hover:opacity-100 transition">→</span>
+          </a>
+          <a href="#" class="flex items-center justify-between px-3 py-2 border border-border hover:border-purple/40 hover:bg-surface transition group">
+            <span class="font-mono text-xs text-muted group-hover:text-purple">LINKEDIN</span>
+            <span class="font-mono text-xs text-purple opacity-0 group-hover:opacity-100 transition">→</span>
+          </a>
+          <a href="#" class="flex items-center justify-between px-3 py-2 border border-border hover:border-cyan/40 hover:bg-surface transition group">
+            <span class="font-mono text-xs text-muted group-hover:text-cyan">TELEGRAM</span>
+            <span class="font-mono text-xs text-cyan opacity-0 group-hover:opacity-100 transition">→</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-surface border-t border-border">
+    <div class="max-w-7xl mx-auto px-4 lg:px-8 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="col-span-2 md:col-span-1">
+        <div class="flex items-center gap-2 mb-3">
+          <div class="w-7 h-7 border border-cyan flex items-center justify-center">
+            <span class="font-display font-black text-cyan text-xs glow-cyan">AT</span>
+          </div>
+          <span class="font-display font-black text-lg text-white">ALGERIA<span class="text-cyan glow-cyan">TECH</span></span>
+        </div>
+        <p class="text-xs font-mono text-muted leading-relaxed">// Le média de référence sur l'écosystème numérique et technologique algérien.</p>
+      </div>
+      <div>
+        <h4 class="font-mono text-xs text-cyan uppercase tracking-widest mb-3">RUBRIQUES</h4>
+        <ul class="space-y-2 text-xs font-mono text-muted">
+          <li><a href="#" class="hover:text-cyan transition">actualites/</a></li>
+          <li><a href="#" class="hover:text-cyan transition">analyses/</a></li>
+          <li><a href="#" class="hover:text-cyan transition">dossiers/</a></li>
+          <li><a href="#" class="hover:text-cyan transition">interviews/</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-mono text-xs text-purple uppercase tracking-widest mb-3">À PROPOS</h4>
+        <ul class="space-y-2 text-xs font-mono text-muted">
+          <li><a href="#" class="hover:text-purple transition">equipe/</a></li>
+          <li><a href="#" class="hover:text-purple transition">charte/</a></li>
+          <li><a href="#" class="hover:text-purple transition">contact/</a></li>
+          <li><a href="#" class="hover:text-purple transition">publicite/</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-mono text-xs text-green uppercase tracking-widest mb-3">LÉGAL</h4>
+        <ul class="space-y-2 text-xs font-mono text-muted">
+          <li><a href="#" class="hover:text-green transition">mentions-legales/</a></li>
+          <li><a href="#" class="hover:text-green transition">confidentialite/</a></li>
+          <li><a href="#" class="hover:text-green transition">cgu/</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-border py-4 text-center">
+      <p class="text-xs font-mono text-muted">© 2026 ALGERIA_TECH. ALL_RIGHTS_RESERVED. — <span class="text-cyan">PROTOTYPE_UI : TECH_DARK_MODE</span></p>
+    </div>
+  </footer>
+
+</body>
+</html>

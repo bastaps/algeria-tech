@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algeria Tech — Modern News</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Playfair Display', 'Georgia', 'serif'],
+            body: ['Source Serif 4', 'Georgia', 'serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            ink: '#1a1a1a',
+            muted: '#6b7280',
+            accent: '#c0392b',
+            pale: '#f9f7f4',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-ink font-body antialiased">
+
+  <!-- TOP BAR -->
+  <div class="border-b border-gray-200 py-2 px-6 flex items-center justify-between text-xs font-sans text-muted">
+    <span>Dimanche 25 Mai 2026</span>
+    <div class="flex gap-4">
+      <a href="#" class="hover:text-ink transition">Abonnement</a>
+      <a href="#" class="hover:text-ink transition">Newsletter</a>
+      <a href="#" class="hover:text-ink transition">Podcast</a>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="border-b-2 border-ink py-6 px-6 lg:px-20">
+    <div class="max-w-6xl mx-auto flex flex-col items-center gap-2">
+      <div class="w-full flex items-center justify-between mb-2">
+        <nav class="hidden md:flex gap-6 text-xs font-sans font-medium uppercase tracking-widest text-muted">
+          <a href="#" class="hover:text-ink transition">Actualités</a>
+          <a href="#" class="hover:text-ink transition">Startups</a>
+          <a href="#" class="hover:text-ink transition">IA & Data</a>
+        </nav>
+        <h1 class="font-serif text-4xl lg:text-5xl font-black tracking-tight text-center">Algeria Tech</h1>
+        <div class="hidden md:flex gap-3 items-center">
+          <button class="text-xs font-sans border border-ink px-4 py-1.5 hover:bg-ink hover:text-white transition">S'abonner</button>
+          <svg class="w-5 h-5 text-muted cursor-pointer hover:text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/></svg>
+        </div>
+      </div>
+      <nav class="flex gap-6 text-sm font-sans border-t border-gray-200 pt-3 w-full justify-center flex-wrap">
+        <a href="#" class="text-accent font-semibold">Télécoms</a>
+        <a href="#" class="hover:text-accent transition">Infrastructure</a>
+        <a href="#" class="hover:text-accent transition">5G & Réseaux</a>
+        <a href="#" class="hover:text-accent transition">Cybersécurité</a>
+        <a href="#" class="hover:text-accent transition">Fintech</a>
+        <a href="#" class="hover:text-accent transition">E-Gov</a>
+        <a href="#" class="hover:text-accent transition">Opinion</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="max-w-6xl mx-auto px-6 lg:px-20 py-12 border-b border-gray-200">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-0">
+      <!-- Main Story -->
+      <div class="lg:col-span-2 lg:pr-10 lg:border-r border-gray-200">
+        <span class="text-xs font-sans font-semibold uppercase tracking-widest text-accent">À la Une</span>
+        <h2 class="font-serif text-4xl lg:text-5xl font-bold leading-tight mt-2 mb-4">
+          L'Algérie déploie son réseau fibre optique national : 10 millions de foyers connectés d'ici 2027
+        </h2>
+        <p class="font-body text-lg text-gray-700 leading-relaxed mb-6">
+          Le ministère de la Numérisation annonce un investissement record de 450 milliards de dinars pour couvrir l'ensemble du territoire national en très haut débit, une ambition qui place l'Algérie parmi les leaders africains du numérique.
+        </p>
+        <div class="flex items-center gap-4 text-sm font-sans text-muted mb-6">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=40&h=40&fit=crop&crop=face" class="w-8 h-8 rounded-full object-cover" alt="author" />
+          <span>Par <strong class="text-ink">Karim Benali</strong></span>
+          <span>·</span>
+          <span>24 Mai 2026</span>
+          <span>·</span>
+          <span>8 min de lecture</span>
+        </div>
+        <div class="relative overflow-hidden rounded-sm">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&h=500&fit=crop" class="w-full h-72 object-cover" alt="fibre optique" />
+          <div class="absolute bottom-0 left-0 right-0 h-1 bg-accent"></div>
+        </div>
+      </div>
+      <!-- Secondary Stories -->
+      <div class="lg:col-span-1 lg:pl-10 flex flex-col gap-6 mt-8 lg:mt-0">
+        <article class="border-b border-gray-200 pb-6">
+          <span class="text-xs font-sans text-accent font-semibold uppercase tracking-widest">Startups</span>
+          <h3 class="font-serif text-xl font-bold leading-snug mt-1 mb-2 hover:text-accent cursor-pointer transition">
+            Yassir lève 150 M$ : le super-app algérien s'attaque au marché panafricain
+          </h3>
+          <p class="text-sm font-sans text-muted">22 Mai 2026 · 5 min</p>
+        </article>
+        <article class="border-b border-gray-200 pb-6">
+          <span class="text-xs font-sans text-accent font-semibold uppercase tracking-widest">IA & Data</span>
+          <h3 class="font-serif text-xl font-bold leading-snug mt-1 mb-2 hover:text-accent cursor-pointer transition">
+            Djezzy et Huawei signent un accord pour déployer l'IA dans les réseaux mobiles algériens
+          </h3>
+          <p class="text-sm font-sans text-muted">21 Mai 2026 · 4 min</p>
+        </article>
+        <article>
+          <span class="text-xs font-sans text-accent font-semibold uppercase tracking-widest">E-Gov</span>
+          <h3 class="font-serif text-xl font-bold leading-snug mt-1 mb-2 hover:text-accent cursor-pointer transition">
+            L'état civil entièrement numérisé : 48 wilayas basculées sur la plateforme nationale
+          </h3>
+          <p class="text-sm font-sans text-muted">20 Mai 2026 · 3 min</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT + SIDEBAR -->
+  <div class="max-w-6xl mx-auto px-6 lg:px-20 py-10 grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+    <!-- ARTICLE GRID -->
+    <main class="lg:col-span-2">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="font-serif text-2xl font-bold">Derniers Articles</h2>
+        <a href="#" class="text-sm font-sans text-accent hover:underline">Voir tout →</a>
+      </div>
+
+      <div class="space-y-8">
+        <!-- Article 1 -->
+        <article class="grid grid-cols-5 gap-5 pb-8 border-b border-gray-200">
+          <div class="col-span-3">
+            <span class="text-xs font-sans text-accent font-semibold uppercase tracking-widest">5G & Réseaux</span>
+            <h3 class="font-serif text-xl font-bold leading-snug mt-1 mb-2 hover:text-accent cursor-pointer transition">
+              Mobilis annonce le lancement commercial de la 5G dans 5 grandes villes algériennes
+            </h3>
+            <p class="text-sm font-body text-gray-600 leading-relaxed mb-3">Alger, Oran, Constantine, Annaba et Sétif seront les premières villes à bénéficier du réseau 5G avant la fin de l'année 2026.</p>
+            <div class="flex items-center gap-3 text-xs font-sans text-muted">
+              <span>Sofiane Larbi</span><span>·</span><span>19 Mai 2026</span><span>·</span><span>6 min</span>
+            </div>
+          </div>
+          <div class="col-span-2">
+            <img src="https://images.unsplash.com/photo-1569396116180-210c182bedb8?w=400&h=260&fit=crop" class="w-full h-full object-cover rounded-sm" alt="5G" />
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="grid grid-cols-5 gap-5 pb-8 border-b border-gray-200">
+          <div class="col-span-3">
+            <span class="text-xs font-sans text-accent font-semibold uppercase tracking-widest">Cybersécurité</span>
+            <h3 class="font-serif text-xl font-bold leading-snug mt-1 mb-2 hover:text-accent cursor-pointer transition">
+              ARPCE renforce le cadre réglementaire de la cybersécurité nationale avec une nouvelle directive
+            </h3>
+            <p class="text-sm font-body text-gray-600 leading-relaxed mb-3">L'Autorité de régulation publie un guide obligatoire pour les opérateurs d'infrastructures critiques face aux menaces croissantes.</p>
+            <div class="flex items-center gap-3 text-xs font-sans text-muted">
+              <span>Amina Chérif</span><span>·</span><span>18 Mai 2026</span><span>·</span><span>7 min</span>
+            </div>
+          </div>
+          <div class="col-span-2">
+            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&h=260&fit=crop" class="w-full h-full object-cover rounded-sm" alt="cybersecurity" />
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="grid grid-cols-5 gap-5 pb-8 border-b border-gray-200">
+          <div class="col-span-3">
+            <span class="text-xs font-sans text-accent font-semibold uppercase tracking-widest">Fintech</span>
+            <h3 class="font-serif text-xl font-bold leading-snug mt-1 mb-2 hover:text-accent cursor-pointer transition">
+              CIB et Baridimob franchissent la barre des 10 millions d'utilisateurs actifs
+            </h3>
+            <p class="text-sm font-body text-gray-600 leading-relaxed mb-3">La démocratisation du paiement mobile s'accélère en Algérie, portée par les jeunes générations et le commerce en ligne.</p>
+            <div class="flex items-center gap-3 text-xs font-sans text-muted">
+              <span>Hocine Aït</span><span>·</span><span>17 Mai 2026</span><span>·</span><span>5 min</span>
+            </div>
+          </div>
+          <div class="col-span-2">
+            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=260&fit=crop" class="w-full h-full object-cover rounded-sm" alt="fintech" />
+          </div>
+        </article>
+
+        <!-- Article 4 -->
+        <article class="grid grid-cols-5 gap-5">
+          <div class="col-span-3">
+            <span class="text-xs font-sans text-accent font-semibold uppercase tracking-widest">Infrastructure</span>
+            <h3 class="font-serif text-xl font-bold leading-snug mt-1 mb-2 hover:text-accent cursor-pointer transition">
+              Le data center national d'Alger entre en service : capacité de 5 000 serveurs dès l'ouverture
+            </h3>
+            <p class="text-sm font-body text-gray-600 leading-relaxed mb-3">Une infrastructure souveraine majeure pour héberger les données de l'État et accueillir les entreprises tech nationales.</p>
+            <div class="flex items-center gap-3 text-xs font-sans text-muted">
+              <span>Riad Mekki</span><span>·</span><span>16 Mai 2026</span><span>·</span><span>6 min</span>
+            </div>
+          </div>
+          <div class="col-span-2">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=260&fit=crop" class="w-full h-full object-cover rounded-sm" alt="datacenter" />
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="lg:col-span-1 space-y-8">
+      <!-- Newsletter -->
+      <div class="bg-pale p-6">
+        <h3 class="font-serif text-lg font-bold mb-2">Newsletter Hebdomadaire</h3>
+        <p class="text-sm font-sans text-muted mb-4">Les 5 actualités tech algériennes à ne pas manquer, chaque lundi.</p>
+        <input type="email" placeholder="votre@email.com" class="w-full border border-gray-300 px-3 py-2 text-sm font-sans mb-3 focus:outline-none focus:border-ink" />
+        <button class="w-full bg-ink text-white text-sm font-sans py-2.5 hover:bg-gray-800 transition">S'inscrire</button>
+      </div>
+
+      <!-- Trending -->
+      <div>
+        <h3 class="font-serif text-lg font-bold border-b-2 border-ink pb-2 mb-4">Tendances</h3>
+        <ol class="space-y-4">
+          <li class="flex gap-3">
+            <span class="font-serif text-3xl font-black text-gray-200 leading-none">01</span>
+            <a href="#" class="text-sm font-body font-semibold leading-snug hover:text-accent transition">Ooredoo Algérie : bilan financier Q1 2026 dépasse les prévisions</a>
+          </li>
+          <li class="flex gap-3">
+            <span class="font-serif text-3xl font-black text-gray-200 leading-none">02</span>
+            <a href="#" class="text-sm font-body font-semibold leading-snug hover:text-accent transition">Les startups algériennes à la conquête du marché MENA en 2026</a>
+          </li>
+          <li class="flex gap-3">
+            <span class="font-serif text-3xl font-black text-gray-200 leading-none">03</span>
+            <a href="#" class="text-sm font-body font-semibold leading-snug hover:text-accent transition">Carte blanche : Faut-il réguler l'IA générative en Algérie ?</a>
+          </li>
+          <li class="flex gap-3">
+            <span class="font-serif text-3xl font-black text-gray-200 leading-none">04</span>
+            <a href="#" class="text-sm font-body font-semibold leading-snug hover:text-accent transition">Le e-commerce algérien pèse désormais 2 milliards USD annuels</a>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Dossier Spécial -->
+      <div class="border border-gray-200 p-5">
+        <span class="text-xs font-sans font-semibold uppercase tracking-widest text-accent">Dossier Spécial</span>
+        <h3 class="font-serif text-xl font-bold leading-snug mt-2 mb-3">Algérie Numérique 2030 : où en sommes-nous ?</h3>
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=200&fit=crop" class="w-full h-32 object-cover mb-3" alt="digital" />
+        <p class="text-sm font-sans text-muted mb-3">Un bilan exhaustif en 7 volets sur la transformation digitale du pays.</p>
+        <a href="#" class="text-sm font-sans font-semibold text-accent hover:underline">Lire le dossier →</a>
+      </div>
+
+      <!-- Tags -->
+      <div>
+        <h3 class="font-serif text-lg font-bold border-b-2 border-ink pb-2 mb-4">Thèmes</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="text-xs font-sans border border-gray-300 px-3 py-1.5 hover:bg-ink hover:text-white cursor-pointer transition">5G</span>
+          <span class="text-xs font-sans border border-gray-300 px-3 py-1.5 hover:bg-ink hover:text-white cursor-pointer transition">ARPCE</span>
+          <span class="text-xs font-sans border border-gray-300 px-3 py-1.5 hover:bg-ink hover:text-white cursor-pointer transition">Télécoms</span>
+          <span class="text-xs font-sans border border-gray-300 px-3 py-1.5 hover:bg-ink hover:text-white cursor-pointer transition">Startups</span>
+          <span class="text-xs font-sans border border-gray-300 px-3 py-1.5 hover:bg-ink hover:text-white cursor-pointer transition">Intelligence Artificielle</span>
+          <span class="text-xs font-sans border border-gray-300 px-3 py-1.5 hover:bg-ink hover:text-white cursor-pointer transition">Fintech</span>
+          <span class="text-xs font-sans border border-gray-300 px-3 py-1.5 hover:bg-ink hover:text-white cursor-pointer transition">Cybersécurité</span>
+          <span class="text-xs font-sans border border-gray-300 px-3 py-1.5 hover:bg-ink hover:text-white cursor-pointer transition">E-Gov</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t-2 border-ink mt-10 bg-pale">
+    <div class="max-w-6xl mx-auto px-6 lg:px-20 py-10 grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="col-span-2 md:col-span-1">
+        <h2 class="font-serif text-2xl font-black mb-3">Algeria Tech</h2>
+        <p class="text-sm font-sans text-muted leading-relaxed">Le média de référence sur l'écosystème numérique et technologique algérien.</p>
+      </div>
+      <div>
+        <h4 class="font-sans text-xs font-semibold uppercase tracking-widest mb-3">Rubriques</h4>
+        <ul class="space-y-2 text-sm font-sans text-muted">
+          <li><a href="#" class="hover:text-ink transition">Actualités</a></li>
+          <li><a href="#" class="hover:text-ink transition">Analyses</a></li>
+          <li><a href="#" class="hover:text-ink transition">Interviews</a></li>
+          <li><a href="#" class="hover:text-ink transition">Dossiers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-sans text-xs font-semibold uppercase tracking-widest mb-3">À Propos</h4>
+        <ul class="space-y-2 text-sm font-sans text-muted">
+          <li><a href="#" class="hover:text-ink transition">Équipe</a></li>
+          <li><a href="#" class="hover:text-ink transition">Charte éditoriale</a></li>
+          <li><a href="#" class="hover:text-ink transition">Contact</a></li>
+          <li><a href="#" class="hover:text-ink transition">Publicité</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-sans text-xs font-semibold uppercase tracking-widest mb-3">Suivez-nous</h4>
+        <ul class="space-y-2 text-sm font-sans text-muted">
+          <li><a href="#" class="hover:text-ink transition">Twitter / X</a></li>
+          <li><a href="#" class="hover:text-ink transition">LinkedIn</a></li>
+          <li><a href="#" class="hover:text-ink transition">Telegram</a></li>
+          <li><a href="#" class="hover:text-ink transition">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-200 py-4 px-6 text-center text-xs font-sans text-muted">
+      © 2026 Algeria Tech. Tous droits réservés. — Prototype UI : Style Modern News
+    </div>
+  </footer>
+
+</body>
+</html>

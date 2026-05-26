@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OBSERVATOIRE DU MARCHÉ DE LA TÉLÉPHONIE FIXE — Algeria Tech</title>
+  <meta name="description" content="AUTORITÉ DE RÉGULATION DE LA POSTE ET DES COMMUNICATIONS ELECTRONIQUES · Télécommunications · 2025">
+  <meta name="theme-color" content="#0a0e1a">
+  <meta property="og:title" content="OBSERVATOIRE DU MARCHÉ DE LA TÉLÉPHONIE FIXE">
+  <meta property="og:description" content="AUTORITÉ DE RÉGULATION DE LA POSTE ET DES COMMUNICATIONS ELECTRONIQUES">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
+  <script>setTimeout(function(){var l=document.getElementById('loader');if(l&&!l.classList.contains('hidden'))l.classList.add('hidden');},6000);</script>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader" role="status">
+  <div class="loader-content">
+    <div class="loader-mark"></div>
+    <div class="loader-text">Algeria Tech · Télécommunications</div>
+    <div class="loader-bar"></div>
+  </div>
+</div>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a href="/infographies/" class="brand">
+      <span class="brand-mark">A</span>
+      <span><em>Algeria Tech</em> · Télécommunications</span>
+    </a>
+    <nav aria-label="Sections">
+      <ul class="section-nav">
+        <li><a href="#vue-ensemble">Vue d'ensemble</a></li>
+        <li><a href="#indicateurs">Indicateurs</a></li>
+        <li><a href="#evolution">Évolution</a></li>
+        <li><a href="#repartition">Répartition</a></li>
+        <li><a href="#synthese">Synthèse</a></li>
+      </ul>
+    </nav>
+    <div class="topbar-actions">
+      <button id="btn-share" class="btn btn-ghost" aria-label="Partager">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      </button>
+      <button id="btn-export-pdf" class="btn btn-gold">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        PDF
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="mc">
+
+<!-- ── HERO ─────────────────────────────────────────────────────────────────── -->
+<section class="section hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-content reveal">
+      <span class="eyebrow">── Observatoire du Marché de la Téléphonie Fixe Algérie 2025T3 · 2025 ──</span>
+      <h1 class="display-1">
+        OBSERVATOIRE DU MARCHÉ DE<br><em class="gold">LA TÉLÉPHONIE</em><br>FIXE
+      </h1>
+      <p class="lead">AUTORITÉ DE RÉGULATION DE LA POSTE ET DES COMMUNICATIONS ELECTRONIQUES</p>
+      <p class="hero-analyse reveal">L'étude du document « OBSERVATOIRE DU MARCHÉ DE LA TÉLÉPHONIE FIXE » fournit un éclairage stratégique sur le secteur des télécommunications et du numérique pour la période 2025. L'indicateur structurant de cette période, « Total des abonnés », s'établit à 7,50 millions — chiffre qui positionne le marché national des télécommunications dans une trajectoire de maturité affirmée. Sur le plan concurrentiel, la structure du marché révèle une concentration notable autour de « Total des abonnés de la téléph » (92,8 %), caractéristique d'un marché en phase de consolidation où les barrières à l'entrée demeurent élevées. L'analyse transversale des données, articulée autour de 7 points clés identifiés, offre une grille de lecture multidimensionnelle pour comprendre les enjeux structurels de ce marché.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+        <span class="hero-meta-label">Total des abonnés</span>
+        <span class="hero-meta-value">
+          <span class="counter" data-target="7501156" data-decimals="0">0</span>
+          <small style="font-size:.7em;opacity:.7"> abonnés</small>
+        </span>
+      </div><div class="hero-meta-item">
+        <span class="hero-meta-label">Abonnés résidentiels</span>
+        <span class="hero-meta-value">
+          <span class="counter" data-target="6964516" data-decimals="0">0</span>
+          <small style="font-size:.7em;opacity:.7"> abonnés</small>
+        </span>
+      </div><div class="hero-meta-item">
+        <span class="hero-meta-label">Abonnés professionnels</span>
+        <span class="hero-meta-value">
+          <span class="counter" data-target="536640" data-decimals="0">0</span>
+          <small style="font-size:.7em;opacity:.7"> k</small>
+        </span>
+      </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Période</span>
+          <span class="hero-meta-value">2025</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Type</span>
+          <span class="hero-meta-value">Télécommunications</span>
+        </div>
+      </div>
+      <div class="hero-cta">
+        <a href="#vue-ensemble" class="btn btn-gold">Explorer les données →</a>
+        <a href="#synthese" class="btn btn-ghost">Points clés</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div id="scene3d" class="scene3d-container"></div>
+      <div class="scene-hint">🖱 Glisser · Zoomer · Survoler pour les KPIs</div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+<!-- ── VUE D'ENSEMBLE (KPIs) ─────────────────────────────────────────────────── -->
+<section class="section" id="vue-ensemble">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">01 · Vue d'ensemble</span>
+      <h2 class="display-2">Indicateurs <span class="gold">clés</span></h2>
+      <p class="lead">Métriques extraites automatiquement depuis le document source · Observatoire du Marché de la Téléphonie Fixe Algérie 2025T3.</p>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card reveal" style="transition-delay:0s">
+        <div class="kpi-icon">👥</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="7501156" data-decimals="0">7,50 M</span>
+          <span class="kpi-unit">abonnés</span>
+        </div>
+        <div class="kpi-label">Total des abonnés</div>
+        
+      </div>
+      <div class="kpi-card reveal" style="transition-delay:0.08s">
+        <div class="kpi-icon">👥</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="6964516" data-decimals="0">6,96 M</span>
+          <span class="kpi-unit">abonnés</span>
+        </div>
+        <div class="kpi-label">Abonnés résidentiels</div>
+        
+      </div>
+      <div class="kpi-card reveal" style="transition-delay:0.16s">
+        <div class="kpi-icon">👥</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="536640" data-decimals="0">536640</span>
+          <span class="kpi-unit">k</span>
+        </div>
+        <div class="kpi-label">Abonnés professionnels</div>
+        
+      </div>
+      <div class="kpi-card reveal" style="transition-delay:0.24s">
+        <div class="kpi-icon">📈</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="92.85" data-decimals="2">93</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">Total des abonnés de la téléph</div>
+        <div class="kpi-trend">▼ 92,85%</div>
+      </div>
+      <div class="kpi-card reveal" style="transition-delay:0.32s">
+        <div class="kpi-icon">📉</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="7.15" data-decimals="2">7</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">Taux</div>
+        <div class="kpi-trend">▼ 7,15%</div>
+      </div>
+      <div class="kpi-card reveal" style="transition-delay:0.4s">
+        <div class="kpi-icon">📈</div>
+        <div class="kpi-value">
+          <span class="counter" data-target="66.12" data-decimals="2">66</span>
+          <span class="kpi-unit">%</span>
+        </div>
+        <div class="kpi-label">Taux</div>
+        <div class="kpi-trend">▼ 66,12%</div>
+      </div></div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+
+<!-- ── INDICATEURS ───────────────────────────────────────────────────────────── -->
+<section class="section section-alt" id="indicateurs">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">02 · Analyse</span>
+      <h2 class="display-2">Indicateurs <em class="gold">détaillés</em></h2>
+      <p class="lead chart-analysis">L'analyse comparative des 4 indicateurs extraits met en exergue « Total des abonnés » comme variable dominante du corpus, avec 7,50 millions, soit 50.0 % de la valeur agrégée. L'amplitude considérable entre les valeurs extrêmes — facteur 80788 entre « Total des abonnés » et « Total des abonnés de la téléph » — souligne l'hétérogénéité structurelle des indicateurs et la coexistence de segments à niveaux de maturité très distincts. Dans le contexte des marchés émergents des TIC, ces métriques constituent des signaux avancés de la trajectoire sectorielle et guident l'allocation des investissements infrastructurels.</p>
+    </div>
+    <div class="charts-row charts-2col">
+      <div class="chart-card glass-card reveal">
+        <h3 class="chart-title">Répartition par catégorie</h3>
+        <div class="chart-wrap tall"><canvas id="chart-indicateurs"></canvas></div>
+      </div>
+      <div class="chart-card glass-card reveal" style="transition-delay:.1s">
+        <h3 class="chart-title">Analyse comparative · valeurs & parts relatives</h3>
+        <div class="chart-wrap tall"><canvas id="chart-comparatif"></canvas></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+
+<!-- ── ÉVOLUTION ─────────────────────────────────────────────────────────────── -->
+<section class="section" id="evolution">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">03 · Évolution temporelle</span>
+      <h2 class="display-2">Tendance <span class="gold">temporelle</span></h2>
+      <p class="lead chart-analysis">Sur la séquence Abonnés–Résidentiels, la courbe d'évolution adopte une trajectoire baissière avec une variation globale de -14,4 % entre le point d'observation initial et le dernier relevé. Le taux de croissance annuel composé (TCAC) s'établit à -3,1 %, signalant une compression progressive des volumes qui appelle une analyse approfondie des facteurs structurels sous-jacents. Le sommet de la série, observé en Total des abonnés, souligne une phase d'accélération conjoncturelle, potentiellement liée à des effets de saisonnalité ou à l'impact d'événements réglementaires ou promotionnels. La moyenne mobile superposée filtre les oscillations de court terme pour faire ressortir la direction structurelle : la pression structurelle sur les volumes est confirmée et appelle des mesures correctives proactives de la part des acteurs du marché.</p>
+    </div>
+    <div class="chart-card glass-card chart-wide reveal">
+      <h3 class="chart-title">Répartition par catégorie avec moyenne mobile</h3>
+      <div class="chart-wrap tall"><canvas id="chart-evolution"></canvas></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+
+<!-- ── RÉPARTITION ───────────────────────────────────────────────────────────── -->
+<section class="section section-alt" id="repartition">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">04 · Répartition</span>
+      <h2 class="display-2">Distribution <em class="gold">relative</em></h2>
+      <p class="lead chart-analysis">La structure du marché révèle une concentration forte, voire oligopolistique sur certains segments, avec « Total des abonnés de la téléph » accaparant 92,8 % de l'ensemble. Avec un indice de Herfindahl-Hirschman (HHI) estimé à 13044, ce marché présente des caractéristiques de concentration élevée qui interroge sur l'intensité de la pression concurrentielle et les marges de manœuvre des acteurs secondaires. La bipolarisation du marché est notable : les deux premiers acteurs cumulent 100.0 % des parts, laissant un espace résiduel limité aux opérateurs de niche et aux entrants potentiels.</p>
+    </div>
+    <div class="charts-row charts-2col">
+      <div class="chart-card glass-card reveal">
+        <h3 class="chart-title">Répartition proportionnelle (parts de marché %)</h3>
+        <div class="chart-wrap"><canvas id="chart-repartition"></canvas></div>
+      </div>
+      <div class="chart-card glass-card reveal" style="transition-delay:.1s">
+        <h3 class="chart-title">Indicateur dominant vs reste du marché</h3>
+        <div class="chart-wrap"><canvas id="chart-distribution"></canvas></div>
+      </div>
+    </div>
+    <div class="chart-card glass-card chart-wide reveal" style="margin-top:1.5rem">
+      <h3 class="chart-title">Comparaison horizontale</h3>
+      <div class="chart-wrap"><canvas id="chart-barh"></canvas></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+
+<!-- ── POINTS CLÉS ───────────────────────────────────────────────────────────── -->
+<section class="section" id="analyse">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Synthèse · Points clés</span>
+      <h2 class="display-2">Éléments <em class="gold">essentiels</em></h2>
+      <p class="lead">Extraits automatiquement du document source · Observatoire du Marché de la Téléphonie Fixe Algérie 2025T3.</p>
+    </div>
+    <div class="findings-grid">
+      <div class="finding-item reveal" style="transition-delay:0s">
+        <span class="finding-bullet">✦</span>
+        <span>Situation du parc de la téléphonie fixe</span>
+      </div>
+      <div class="finding-item reveal" style="transition-delay:0.07s">
+        <span class="finding-bullet">✦</span>
+        <span>Nombre mensuel moyen de minutes par abonné (MOU)</span>
+      </div>
+      <div class="finding-item reveal" style="transition-delay:0.14s">
+        <span class="finding-bullet">✦</span>
+        <span>A fin Septembre 2025, les abonnés résidentiels aux réseaux de la téléphonie fixe</span>
+      </div>
+      <div class="finding-item reveal" style="transition-delay:0.21000000000000002s">
+        <span class="finding-bullet">✦</span>
+        <span>représentent 92,85% du total des abonnés de la téléphonie fixe, contre 7,15%</span>
+      </div>
+      <div class="finding-item reveal" style="transition-delay:0.28s">
+        <span class="finding-bullet">✦</span>
+        <span>Répartition du trafic sortant généré par destination (T3-2025)</span>
+      </div>
+      <div class="finding-item reveal" style="transition-delay:0.35000000000000003s">
+        <span class="finding-bullet">✦</span>
+        <span>Taux d’évolution +15,36% +13,78% +16,29% +14,01%</span>
+      </div></div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+
+<!-- ── SYNTHÈSE ──────────────────────────────────────────────────────────────── -->
+<section class="section section-alt" id="synthese">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Conclusions</span>
+      <h2 class="display-2">Synthèse <span class="gold">finale</span></h2>
+      <p class="lead chart-analysis">En synthèse, l'examen croisé des indicateurs issus de « OBSERVATOIRE DU MARCHÉ DE LA TÉLÉPHONIE FIXE » pour la période 2025 dégage un ensemble de conclusions structurantes pour la compréhension du marché des TIC. Parmi les enseignements majeurs, on retiendra en premier lieu que trafic généré dans les réseaux de téléphonie fixe par destination. Par ailleurs, nombre mensuel moyen de minutes par abonné (MOU). La dynamique concurrentielle, caractérisée par le positionnement de « Total des abonnés de la téléph » à 92,8 %, dessine les contours d'un marché en cours de consolidation, dont les équilibres seront déterminés par les prochaines décisions d'investissement et les orientations réglementaires. La tendance baissière confirmée sur la période, avec un TCAC de -3,1 %, constitue un signal d'alerte qui nécessite une révision des stratégies de croissance et un renforcement des dispositifs d'innovation.</p>
+    </div>
+    <div class="synth-grid">
+      <div class="synth-card reveal" style="transition-delay:0s">
+        <div class="synth-chiffre">
+          <span class="counter" data-target="7501156" data-decimals="0">0</span>
+          <small> abonnés</small>
+        </div>
+        <div class="synth-label">Total des abonnés</div>
+        <p class="synth-desc">Situation du parc de la téléphonie fixe</p>
+      </div>
+      <div class="synth-card reveal" style="transition-delay:0.1s">
+        <div class="synth-chiffre">
+          <span class="counter" data-target="6964516" data-decimals="0">0</span>
+          <small> abonnés</small>
+        </div>
+        <div class="synth-label">Abonnés résidentiels</div>
+        <p class="synth-desc">Trafic généré dans les réseaux de téléphonie fixe par destination</p>
+      </div>
+      <div class="synth-card reveal" style="transition-delay:0.2s">
+        <div class="synth-chiffre">
+          <span class="counter" data-target="536640" data-decimals="0">0</span>
+          <small> k</small>
+        </div>
+        <div class="synth-label">Abonnés professionnels</div>
+        <p class="synth-desc">Nombre mensuel moyen de minutes par abonné (MOU)</p>
+      </div></div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+
+  <section class="section section-doc" id="section-0">
+    <div class="container">
+      <div class="data-block glass-card reveal">
+        <span class="data-block-eyebrow">Extrait · Document source</span>
+        <h3>OBSERVATOIRE DU MARCHÉ DE LA TÉLÉPHONIE FIXE</h3>
+        <p class="section-analysis">3 eme TRIMESTRE  2025 ARPCE/Observatoire du marché de la téléphonie fixe en Algérie/T3-2025                                                                       1 Sommaire 1. SITUATION DU PARC DE LA TELEPHONIE FIXE.....................................................1 1.1. PARC GLOBAL....................................................................................................1 1.2. REPARTI</p>
+      </div>
+    </div>
+  </section>
+
+<!-- ── FOOTER PREMIUM ────────────────────────────────────────────────────────── -->
+<footer class="footer-premium">
+  <div class="container">
+    <div class="footer-glass">
+      <div class="footer-col footer-col-brand">
+        <div class="footer-logo">
+          <span class="footer-logo-mark">✦</span>
+          <span>Algeria<em>Tech</em></span>
+        </div>
+        <p class="footer-tagline">Moteur BI Premium · Three.js · Chart.js · v4</p>
+        <div class="footer-badges">
+          <span class="footer-badge">🔒 Données locales</span>
+          <span class="footer-badge">📊 Chart.js 4</span>
+          <span class="footer-badge">🌐 Three.js 0.160</span>
+        </div>
+      </div>
+      <div class="footer-col footer-col-meta">
+        <h4 class="footer-col-title">Informations source</h4>
+        <dl class="footer-dl">
+          <dt>Document</dt><dd>Observatoire du Marché de la Téléphonie Fixe Algérie 2025T3</dd>
+          <dt>Période</dt><dd>2025</dd>
+          <dt>Domaine</dt><dd>Télécommunications</dd>
+          <dt>Généré le</dt><dd>22 mai 2026</dd>
+        </dl>
+      </div>
+      <div class="footer-col footer-col-actions">
+        <h4 class="footer-col-title">Exporter</h4>
+        <div class="footer-action-btns">
+          <button id="btn-export-json" class="btn btn-ghost footer-action-btn">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M17 13l-5 5-5-5"/><path d="M12 18V4M7 9H4a1 1 0 00-1 1v6a1 1 0 001 1h12a1 1 0 001-1v-6a1 1 0 00-1-1h-3"/></svg>
+            JSON
+          </button>
+          <button id="btn-export-pdf-f" class="btn btn-ghost footer-action-btn" onclick="document.getElementById('btn-export-pdf')?.click()">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="3" y="3" width="14" height="14" rx="2"/><path d="M7 10h6M10 7v6"/></svg>
+            PDF
+          </button>
+        </div>
+        <p class="footer-legal">Infographie générée automatiquement par Algeria Tech Generator v4. Aucune donnée n'est transmise à des serveurs externes.</p>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <span>© 2026 Algeria Tech · Tous droits réservés</span>
+      <span>Algeria Tech Generator v4 · BI Premium</span>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<!-- FAB -->
+<div class="fab-stack">
+  <button id="fab-top" class="fab" title="Haut de page">↑</button>
+  <button id="fab-fullscreen" class="fab" title="Plein écran">⛶</button>
+</div>
+
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

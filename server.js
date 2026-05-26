@@ -227,6 +227,9 @@ app.get('/api/generate-static-files', (req, res) => {
 });
 // === FIN [STATIC-GENERATOR] ===
 
+// === ROUTE OPÉRATEURS MOBILES ===
+app.get('/operateurs', (req, res) => res.sendFile(path.join(__dirname, 'operateurs.html')));
+
 // === SERVIR LES FICHIERS STATIQUES ===
 app.use(express.static('.', {
     setHeaders: (res, filepath) => {
@@ -271,9 +274,33 @@ async function generateArticlesList() {
     } catch (e) { console.error("Erreur liste:", e); }
 }
 
+async function regenerateArticlesJson() {
+    try {
+        const files = await fs.readdir('articles');
+        const articles = [];
+        for (const file of files.filter(f => f.endsWith('.md'))) {
+            try {
+                const text = await fs.readFile(path.join('articles', file), 'utf-8');
+                const parts = text.split('---');
+                if (parts.length < 3) continue;
+                const fm = parts[1];
+                const content = parts.slice(2).join('---').trim();
+                const get = (k) => { const m = fm.match(new RegExp(`${k}:\\s*(.*)`)); return m ? m[1].trim().replace(/^["']|["']$/g, '') : ''; };
+                const tagsMatch = fm.match(/tags:\s*\[(.*)\]/);
+                const tags = tagsMatch ? tagsMatch[1].split(',').map(t => t.trim().replace(/^["']|["']$/g, '')) : [];
+                const titre = get('titre');
+                if (!titre) continue;
+                articles.push({ id: file.replace('.md', ''), titre, date: get('date'), heure: get('heure'), categorie: get('categorie'), image: get('image'), video: get('video'), pdf: get('pdf'), extrait: get('extrait'), rawContent: content, tags, type: get('type') });
+            } catch (e) { console.warn(`Skipping ${file}:`, e.message); }
+        }
+        articles.sort((a, b) => new Date(`${b.date}T${b.heure || '00:00'}`) - new Date(`${a.date}T${a.heure || '00:00'}`));
+        await fs.writeFile('articles.json', JSON.stringify(articles));
+    } catch (e) { console.error("Erreur régénération articles.json:", e); }
+}
+
 app.post('/api/create-article', upload, async (req, res) => {
     try {
-        const { id, titre, categorie, date, heure, extrait, tags, contenu, video } = req.body;
+        const { id, titre, categorie, date, heure, extrait, tags, contenu, video, type } = req.body;
         let fileName = (id && id !== "null") ? `${id}.md` : `${Date.now()}.md`;
         let tagsFormatted = "";
         if (tags) tagsFormatted = tags.split(',').map(t => t.trim().replace(/"/g, '')).filter(t => t).map(t => `"${t}"`).join(', ');
@@ -284,7 +311,7 @@ app.post('/api/create-article', upload, async (req, res) => {
         let pdfPath = req.body.existingPdf || "";
         if (req.files && req.files.pdf) pdfPath = isCloud ? `documents/${Date.now()}-${req.files.pdf[0].originalname}` : `documents/${req.files.pdf[0].filename}`;
 
-        const frontMatter = `---\ntitre: "${titre.replace(/"/g, '\\"')}"\ncategorie: ${categorie}\ndate: ${date}\nheure: ${heure}\nimage: ${imagePath}\npdf: "${pdfPath}"\nvideo: "${video || ''}"\nextrait: "${extrait.replace(/"/g, '\\"')}"\ntags: [${tagsFormatted}]\n---\n\n${contenu}\n`;
+        const frontMatter = `---\ntitre: "${titre.replace(/"/g, '\\"')}"\ncategorie: ${categorie}\ndate: ${date}\nheure: ${heure}\nimage: ${imagePath}\npdf: "${pdfPath}"\nvideo: "${video || ''}"\nextrait: "${extrait.replace(/"/g, '\\"')}"\ntags: [${tagsFormatted}]\ntype: ${type || ''}\n---\n\n${contenu}\n`;
         
         if (isCloud) {
             if (req.files && req.files.image) await pushToGithub(imagePath, req.files.image[0].buffer, "Upload image", true);
@@ -294,6 +321,7 @@ app.post('/api/create-article', upload, async (req, res) => {
         } else {
             await fs.writeFile(path.join('articles', fileName), frontMatter);
             await generateArticlesList();
+            await regenerateArticlesJson();
             res.json({ success: true, message: "Enregistré localement" });
         }
     } catch (e) { console.error("Erreur API:", e); res.status(500).json({ message: e.message }); }
@@ -308,6 +336,7 @@ app.delete('/api/delete-article/:id', async (req, res) => {
         } else {
             await fs.unlink(path.join('articles', `${id}.md`));
             await generateArticlesList();
+            await regenerateArticlesJson();
         }
         res.json({ success: true });
     } catch (e) { res.status(500).json({ message: "Erreur suppression" }); }

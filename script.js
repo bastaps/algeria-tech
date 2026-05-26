@@ -135,11 +135,12 @@ async function loadArticles() {
         if (!res.ok) throw new Error('articles.json introuvable');
         const data = await res.json();
 
-        allArticles = data.map(a => ({
-            ...a,
-            views: articleViews[a.id] || Math.floor(Math.random() * 500) + 50
-            // rawContent conservé — contenu HTML parsé à la demande (openArticle)
-        }));
+        allArticles = data
+            .filter(a => a.type !== 'communique_officiel')  // réservés au Hub Opérateurs
+            .map(a => ({
+                ...a,
+                views: articleViews[a.id] || Math.floor(Math.random() * 500) + 50
+            }));
 
         // Mise en cache pour la prochaine visite (sans contenu HTML pour économiser l'espace)
         localStorage.setItem('at_articles_cache', JSON.stringify(allArticles));
