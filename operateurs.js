@@ -5,9 +5,9 @@
 
 /* ── Config opérateurs ──────────────────────────────────────── */
 const OPS = {
-  mobilis: { label: 'Mobilis',  ph: 'ph-mob', feedId: 'feed-mobilis', cntId: 'cnt-mobilis' },
-  djezzy : { label: 'Djezzy',   ph: 'ph-dj',  feedId: 'feed-djezzy',  cntId: 'cnt-djezzy'  },
-  ooredoo: { label: 'Ooredoo',  ph: 'ph-oo',  feedId: 'feed-ooredoo', cntId: 'cnt-ooredoo' },
+  mobilis: { label: 'Mobilis',  ph: 'ph-mob', feedId: 'feed-mobilis', cntId: 'cnt-mobilis', featuredId: 'featured-mobilis' },
+  djezzy : { label: 'Djezzy',   ph: 'ph-dj',  feedId: 'feed-djezzy',  cntId: 'cnt-djezzy',  featuredId: 'featured-djezzy'  },
+  ooredoo: { label: 'Ooredoo',  ph: 'ph-oo',  feedId: 'feed-ooredoo', cntId: 'cnt-ooredoo', featuredId: 'featured-ooredoo' },
 };
 
 const COMM_KEYS = ['communiqué', 'communique', 'officiel', 'press release', 'cp ', 'communiqué de presse'];
@@ -65,7 +65,61 @@ function renderAll() {
       ? base.filter(a => !isCommunique(a))
       : base.filter(a =>  isCommunique(a));
     renderFeed(opKey, filtered);
+    renderFeatured(opKey);
   });
+}
+
+/* ══════════════════════════════════════════════════════════════
+   FEATURED — Article le plus récent par opérateur
+   ══════════════════════════════════════════════════════════════ */
+
+/* Parse date article (YYYY-MM-DD ou DD/MM/YYYY) + heure */
+function parseArticleDate(article) {
+  const d = article.date  || '';
+  const h = article.heure || '00:00';
+  let dateStr = d;
+  if (/^\d{2}\/\d{2}\/\d{4}$/.test(d)) {
+    const [dd, mm, yyyy] = d.split('/');
+    dateStr = `${yyyy}-${mm}-${dd}`;
+  }
+  try { return new Date(`${dateStr}T${h}:00`); } catch(e) { return new Date(0); }
+}
+
+/* Retourne l'article le plus récent toutes catégories confondues */
+function getFeaturedArticle(opKey) {
+  const base = articlesForOp(opKey);
+  if (!base.length) return null;
+  return [...base].sort((a, b) => parseArticleDate(b) - parseArticleDate(a))[0];
+}
+
+/* Construit le HTML de la carte "À la Une" */
+function buildFeaturedCard(article, opKey) {
+  const hasImg  = article.image && article.image.trim();
+  const bgAttr  = hasImg ? `style="background-image:url('${esc(article.image)}')"` : '';
+  const bgClass = hasImg ? 'fc-bg' : 'fc-bg fc-bg-ph';
+
+  const age   = Date.now() - parseArticleDate(article).getTime();
+  const badge = age < 7 * 24 * 3600 * 1000 ? 'NOUVEAU' : 'À LA UNE';
+
+  return `
+    <div class="featured-card" onclick="openArticle('${esc(String(article.id))}')">
+      <div class="${bgClass}" ${bgAttr}></div>
+      <div class="fc-glass"></div>
+      <div class="fc-badge"><span class="fc-dot"></span>${badge}</div>
+      <div class="fc-content">
+        <p class="fc-title">${esc(article.titre)}</p>
+        <span class="fc-date"><i class="far fa-calendar"></i> ${esc(article.date || '')}</span>
+      </div>
+    </div>`;
+}
+
+/* Injecte la carte dans le slot HTML */
+function renderFeatured(opKey) {
+  const cfg  = OPS[opKey];
+  const wrap = document.getElementById(cfg.featuredId);
+  if (!wrap) return;
+  const article = getFeaturedArticle(opKey);
+  wrap.innerHTML = article ? buildFeaturedCard(article, opKey) : '';
 }
 
 function renderFeed(opKey, articles) {

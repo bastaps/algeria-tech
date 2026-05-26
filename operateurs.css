@@ -325,23 +325,26 @@ body {
 .col-head {
   position      : absolute;
   left          : 50%;
-  top           : 50%;
-  transform     : translate(-50%, -50%);
+  top           : 0;
+  transform     : translate(-50%, 0);
   width         : 100%;
   display       : flex;
   flex-direction: column;
   align-items   : center;
   gap           : 8px;
-  padding       : 0 20px;
+  padding       : 20px 20px 0;
   z-index       : 10;
   pointer-events: none;
   text-align    : center;
-  transition    : top .52s var(--spring), transform .52s var(--spring), padding .4s var(--smooth);
+  transition    : padding .4s var(--smooth);
 }
 .op-col.is-active .col-head {
-  top      : 0;
-  transform: translate(-50%, 0);
-  padding  : 22px 20px 0;
+  padding                : 22px 20px 14px;
+  background             : rgba(0,0,0,0.68);
+  backdrop-filter        : blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom          : 1px solid rgba(255,255,255,0.07);
+  /* assure que le contenu du feed qui défile en dessous est masqué */
 }
 
 /* ── Icon cluster ──────────────────────────────────────────── */
@@ -472,12 +475,163 @@ body {
 
 
 /* ══════════════════════════════════════════════════════════════
+   FEATURED WRAP  (bloc "À la Une" — toujours visible en col-head)
+   ══════════════════════════════════════════════════════════════ */
+.featured-wrap {
+  width         : 100%;
+  pointer-events: auto;        /* override col-head pointer-events:none */
+  margin-top    : 28px;        /* respiration logo ↔ article */
+  max-height    : 220px;       /* borne haute pour la transition collapse */
+  overflow      : hidden;
+  transition    : opacity .32s ease, transform .4s var(--smooth),
+                  max-height .48s var(--smooth), margin-top .4s var(--smooth);
+}
+
+/* ── Fade-out quand la colonne est ACTIVE (lecture du flux) ──── */
+.op-col.is-active .featured-wrap {
+  opacity       : 0;
+  max-height    : 0;
+  margin-top    : 0;
+  pointer-events: none;
+  transform     : translateY(-10px);
+}
+
+/* ── Masquer quand une AUTRE colonne est active (compressée) ─── */
+.triple-hub.is-hovered .op-col:not(.is-active) .featured-wrap {
+  opacity       : 0;
+  pointer-events: none;
+  transform     : scale(0.96);
+}
+
+/* ── Carte featured ─────────────────────────────────────────── */
+.featured-card {
+  position     : relative;
+  width        : 100%;
+  height       : 185px;
+  border-radius: 16px;
+  overflow     : hidden;
+  cursor       : pointer;
+  border       : 1px solid rgba(255,255,255,0.1);
+  transition   : transform .3s var(--out), box-shadow .3s, border-color .3s;
+}
+.featured-card:hover {
+  transform   : translateY(-3px) scale(1.015);
+  box-shadow  : 0 14px 44px rgba(0,0,0,0.55);
+}
+.col-mobilis .featured-card:hover { border-color: rgba(0,154,68,.5); }
+.col-djezzy  .featured-card:hover { border-color: rgba(227,6,19,.5);  }
+.col-ooredoo .featured-card:hover { border-color: rgba(226,0,26,.5);  }
+
+/* ── Couche image de fond ────────────────────────────────────── */
+.fc-bg {
+  position           : absolute;
+  inset              : 0;
+  background-size    : cover;
+  background-position: center;
+  transform          : scale(1.06);
+  transition         : transform .45s var(--out);
+}
+.featured-card:hover .fc-bg { transform: scale(1.13); }
+
+/* Placeholders brandés (sans image) */
+.col-mobilis .fc-bg.fc-bg-ph { background: linear-gradient(160deg,#002d12 0%,#005c26 50%,#009A44 100%); }
+.col-djezzy  .fc-bg.fc-bg-ph { background: linear-gradient(160deg,#1a0000 0%,#6b0008 50%,#E30613 100%); }
+.col-ooredoo .fc-bg.fc-bg-ph { background: linear-gradient(160deg,#1a0006 0%,#8B0010 50%,#E2001A 100%); }
+
+/* ── Glassmorphism overlay ────────────────────────────────────── */
+.fc-glass {
+  position: absolute;
+  inset   : 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.04) 0%,
+    rgba(0,0,0,0.18) 38%,
+    rgba(0,0,0,0.62) 72%,
+    rgba(0,0,0,0.88) 100%
+  );
+}
+
+/* ── Badge "À LA UNE" / "NOUVEAU" ────────────────────────────── */
+.fc-badge {
+  position               : absolute;
+  top                    : 10px;
+  left                   : 10px;
+  z-index                : 3;
+  display                : flex;
+  align-items            : center;
+  gap                    : 6px;
+  padding                : 4px 11px;
+  border-radius          : 20px;
+  font-size              : 8.5px;
+  font-weight            : 800;
+  letter-spacing         : 1.6px;
+  text-transform         : uppercase;
+  color                  : #fff;
+  background             : rgba(255,255,255,0.13);
+  backdrop-filter        : blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border                 : 1px solid rgba(255,255,255,0.24);
+  box-shadow             : 0 2px 10px rgba(0,0,0,0.35);
+}
+
+.fc-dot {
+  width        : 6px;
+  height       : 6px;
+  border-radius: 50%;
+  flex-shrink  : 0;
+  animation    : fc-pulse 1.8s ease-in-out infinite;
+}
+@keyframes fc-pulse {
+  0%,100% { opacity: 1;    transform: scale(1);    }
+  50%     { opacity: 0.42; transform: scale(0.72); }
+}
+.col-mobilis .fc-dot { background: var(--mob-light); box-shadow: 0 0 7px var(--mob-light); }
+.col-djezzy  .fc-dot { background: var(--dj-light);  box-shadow: 0 0 7px var(--dj-light);  }
+.col-ooredoo .fc-dot { background: var(--oo-light);  box-shadow: 0 0 7px var(--oo-light);  }
+
+/* ── Zone texte (glassmorphism bas de carte) ──────────────────── */
+.fc-content {
+  position               : absolute;
+  bottom                 : 0;
+  left                   : 0;
+  right                  : 0;
+  z-index                : 3;
+  padding                : 26px 13px 12px;
+  background             : rgba(8,8,8,0.38);
+  backdrop-filter        : blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top             : 1px solid rgba(255,255,255,0.09);
+}
+
+.fc-title {
+  font-size           : 12.5px;
+  font-weight         : 700;
+  line-height         : 1.38;
+  color               : #fff;
+  text-shadow         : 0 1px 8px rgba(0,0,0,0.7);
+  display             : -webkit-box;
+  -webkit-line-clamp  : 2;
+  -webkit-box-orient  : vertical;
+  overflow            : hidden;
+  margin-bottom       : 5px;
+}
+
+.fc-date {
+  display    : flex;
+  align-items: center;
+  gap        : 5px;
+  font-size  : 9px;
+  color      : rgba(255,255,255,0.52);
+}
+
+
+/* ══════════════════════════════════════════════════════════════
    COLUMN FEED  (cards, hidden until active)
    ══════════════════════════════════════════════════════════════ */
 .col-feed {
   position      : absolute;
   inset         : 0;
-  padding       : 178px 12px 18px;
+  padding       : 415px 12px 18px;   /* col-head (logo + 28px gap + featured 185px) */
   overflow-y    : auto;
   overflow-x    : hidden;
   display       : flex;
@@ -487,13 +641,15 @@ body {
   opacity       : 0;
   transform     : translateY(14px);
   pointer-events: none;
-  transition    : opacity .38s ease .16s, transform .38s ease .16s;
+  transition    : opacity .38s ease .16s, transform .38s ease .16s,
+                  padding-top .48s var(--smooth);
   scroll-behavior: smooth;
 }
 .op-col.is-active .col-feed {
   opacity       : 1;
   transform     : translateY(0);
   pointer-events: auto;
+  padding-top   : 200px;   /* featured effacé → header réduit ≈ 190px */
 }
 /* Slide animation during toggle switch */
 .col-feed.switching {
@@ -1169,6 +1325,8 @@ body.theme-bluenuit .art-modal-panel { background: #0f1320; }
   .op-name       { font-size: 15px; }
   .op-tagline    { display: none; }
   .expand-hint   { display: none; }
+
+  .featured-wrap { display: none; }
 
   .col-feed {
     position      : static !important;
