@@ -1,3 +1,4 @@
+try { require('dotenv').config(); } catch (e) {}
 const express = require('express');
 const multer = require('multer');
 const fs = require('fs').promises;
@@ -6,6 +7,7 @@ const path = require('path');
 const { Octokit } = require("@octokit/rest");
 const cors = require('cors');
 const https = require('https');
+const http = require('http');
 
 // ── Générateur d'infographies ─────────────────────────────────────────────────
 const pdfParse = require('pdf-parse');
@@ -15,6 +17,9 @@ const { generateReport } = require('./generator/html-template');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// ── CONFIGURATION IA (MISTRAL est l'alternative stable déjà présente dans votre projet) ──
+const MISTRAL_API_KEY = process.env.MISTRAL_API_KEY || "5AJzJhu9hZF0a7Q05tfbIxDF20NseEpd"; 
 
 app.use(cors({
     origin: ['https://algeria-tech.pages.dev', 'http://localhost:3000', 'http://127.0.0.1:3000'],
@@ -29,6 +34,7 @@ const REPO = "algeria-tech";
 const storage = isCloud ? multer.memoryStorage() : multer.diskStorage({
     destination: (req, file, cb) => {
         const dir = file.mimetype === 'application/pdf' ? 'documents/' : 'images/';
+        if (!fsSync.existsSync(dir)) fsSync.mkdirSync(dir, { recursive: true });
         cb(null, dir);
     },
     filename: (req, file, cb) => cb(null, Date.now() + path.extname(file.originalname))
@@ -230,8 +236,12 @@ app.get('/api/generate-static-files', (req, res) => {
 // === ROUTE OPÉRATEURS MOBILES ===
 app.get('/operateurs', (req, res) => res.sendFile(path.join(__dirname, 'operateurs.html')));
 
+// === ROUTE SMART INGEST ===
+app.get('/smart-ingest', (req, res) => res.sendFile(path.join(__dirname, 'smart-ingest.html')));
+app.get('/smart-ingest.html', (req, res) => res.sendFile(path.join(__dirname, 'smart-ingest.html')));
+
 // === SERVIR LES FICHIERS STATIQUES ===
-app.use(express.static('.', {
+app.use(express.static(__dirname, {
     setHeaders: (res, filepath) => {
         if (filepath.toLowerCase().endsWith('.pdf')) {
             res.setHeader('Content-Type', 'application/pdf');
@@ -298,6 +308,71 @@ async function regenerateArticlesJson() {
     } catch (e) { console.error("Erreur régénération articles.json:", e); }
 }
 
+// ── TRANSCRIPTION PDF ─────────────────────────────────────
+app.post('/api/transcribe-pdf', upload, async (req, res) => {
+    try {
+        if (!req.files || !req.files.pdf) {
+            return res.status(400).json({ error: 'Aucun fichier PDF fourni' });
+        }
+
+        const file = req.files.pdf[0];
+        const dataBuffer = file.buffer || await fs.readFile(file.path);
+        const data = await pdfParse(dataBuffer);
+        res.json({ text: data.text.trim() });
+    } catch (error) {
+        console.error('Erreur PDF:', error);
+        res.status(500).json({ error: 'Échec de l\'extraction du texte du PDF' });
+    }
+});
+
+// ── SMART GENERATE — Rédaction IA journalistique ─────────
+app.post('/api/smart-generate', express.json(), async (req, res) => {
+    const { text } = req.body || {};
+    if (!text) return res.status(400).json({ error: 'Texte source requis' });
+
+    const prompt = `Tu es un journaliste senior d'Algérie Tech, expert en télécoms.
+    Transforme ce texte en article de presse pro.
+    Zéro copier-coller, style factuel, enrichi du contexte algérien (Mobilis, Djezzy, Ooredoo).
+    Réponds EXCLUSIVEMENT en JSON pur avec ces clés : titre, lead, contenu (en markdown), tags (array de 3-5 tags), categorie (Algérie, Télécoms, Mobile, Startups, Innovation, Entreprises), video (si un lien YouTube/réseau social est présent dans la source, sinon "").
+    
+    SOURCE : ${text.substring(0, 4000)}`;
+
+    const payload = JSON.stringify({
+        model: "mistral-small-latest",
+        messages: [{ role: "user", content: prompt }],
+        response_format: { type: "json_object" },
+        temperature: 0.1
+    });
+
+    const options = {
+        hostname: 'api.mistral.ai',
+        path: '/v1/chat/completions',
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${MISTRAL_API_KEY}`,
+            'Content-Length': Buffer.byteLength(payload)
+        }
+    };
+
+    const request = https.request(options, (apiRes) => {
+        let data = '';
+        apiRes.on('data', (chunk) => data += chunk);
+        apiRes.on('end', () => {
+            try {
+                const result = JSON.parse(data);
+                if (result.error) throw new Error(result.error.message);
+                res.json(JSON.parse(result.choices[0].message.content));
+            } catch (e) { res.status(500).json({ error: "Erreur IA: " + e.message }); }
+        });
+    });
+
+    request.on('error', (e) => res.status(500).json({ error: "Réseau: " + e.message }));
+    request.write(payload);
+    request.end();
+});
+
+
 app.post('/api/create-article', upload, async (req, res) => {
     try {
         const { id, titre, categorie, date, heure, extrait, tags, contenu, video, type } = req.body;
@@ -305,13 +380,17 @@ app.post('/api/create-article', upload, async (req, res) => {
         let tagsFormatted = "";
         if (tags) tagsFormatted = tags.split(',').map(t => t.trim().replace(/"/g, '')).filter(t => t).map(t => `"${t}"`).join(', ');
         
-        let imagePath = req.body.existingImage || "";
-        if (req.files && req.files.image) imagePath = isCloud ? `images/${Date.now()}-${req.files.image[0].originalname}` : `images/${req.files.image[0].filename}`;
+        let imagePath = "";
+        if (req.files && req.files.image) {
+            imagePath = isCloud ? `images/${Date.now()}-${req.files.image[0].originalname}` : `images/${req.files.image[0].filename}`;
+        } else {
+            imagePath = req.body.existingImage || "";
+        }
         
         let pdfPath = req.body.existingPdf || "";
         if (req.files && req.files.pdf) pdfPath = isCloud ? `documents/${Date.now()}-${req.files.pdf[0].originalname}` : `documents/${req.files.pdf[0].filename}`;
 
-        const frontMatter = `---\ntitre: "${titre.replace(/"/g, '\\"')}"\ncategorie: ${categorie}\ndate: ${date}\nheure: ${heure}\nimage: ${imagePath}\npdf: "${pdfPath}"\nvideo: "${video || ''}"\nextrait: "${extrait.replace(/"/g, '\\"')}"\ntags: [${tagsFormatted}]\ntype: ${type || ''}\n---\n\n${contenu}\n`;
+        const frontMatter = `---\ntitre: "${titre.replace(/"/g, '\\"')}"\ncategorie: ${categorie}\ndate: ${date}\nheure: ${heure}\nimage: "${imagePath}"\npdf: "${pdfPath}"\nvideo: "${video || ''}"\nextrait: "${extrait.replace(/"/g, '\\"')}"\ntags: [${tagsFormatted}]\ntype: ${type || ''}\n---\n\n${contenu}\n`;
         
         if (isCloud) {
             if (req.files && req.files.image) await pushToGithub(imagePath, req.files.image[0].buffer, "Upload image", true);

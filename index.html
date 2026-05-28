@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Algeria Tech - L'actualité numérique en Algérie par Basta</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -262,6 +262,8 @@
                 <div class="image-preview" id="imagePreview"></div>
                 <div class="form-group"><label>Contenu <span class="required">*</span></label><textarea id="contenu" rows="8" required placeholder="Rédigez votre article ici (Markdown supporté)"></textarea></div>
                 <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="btn-transcribe-pdf" style="background: #2c3e50; color: white;"><i class="fas fa-magic"></i> Transcrire PDF</button>
+                    <input type="file" id="pdf-transcribe-input" accept=".pdf" style="display: none;">
                     <button type="button" class="btn-secondary" onclick="closeAdminPanel()">Annuler</button>
                     <button type="submit" class="btn-primary"><i class="fas fa-save"></i> Créer & Déployer</button>
                 </div>
@@ -321,6 +323,6 @@
 
     <div class="loading-overlay" id="loader"><div class="loader"></div><div class="loading-text">Chargement...</div></div>
     <div class="toast" id="toast"></div>
-    <script src="script.js"></script>
+    <script src="/script.js"></script>
 </body>
 </html>

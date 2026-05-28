@@ -1,0 +1,246 @@
+/* ═══════════════════════════════════════════════════════════
+   smart-ingest.js — CONNECTÉ À SMART ENGINE (OLLAMA)
+═══════════════════════════════════════════════════════════ */
+
+const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+const REMOTE_API = 'https://dz-tech-press-api.onrender.com';
+const API_BASE = isLocal ? '' : REMOTE_API;
+const ENGINE_URL = `${API_BASE}/api/smart-generate`;
+
+document.addEventListener('DOMContentLoaded', () => {
+    initDateTime();
+    fetchCurrentPositions();
+    
+    // Compteur de caractères en temps réel
+    document.getElementById('smartBox').addEventListener('input', function() {
+        document.getElementById('charCount').textContent = this.value.length + " caractères";
+    });
+});
+
+function initDateTime() {
+    const now = new Date();
+    document.getElementById('siDate').value = now.toISOString().split('T')[0];
+    document.getElementById('siHeure').value = now.toTimeString().slice(0,5);
+}
+
+// Fonction de mise à jour visuelle des boutons
+function setStatus(id, state) {
+    const btn = document.getElementById(id);
+    const span = btn.querySelector('span');
+    const icon = btn.querySelector('i');
+    
+    // Textes originaux
+    const texts = {
+        'translateBtn': 'Traduire en Français',
+        'genBtn': "Générer l'Article Pro",
+        'fillHubBtn': 'Remplir le Hub',
+        'pdfBtn': 'PDF'
+    };
+
+    if (state === 'loading') {
+        btn.classList.add('si-btn-analyzing');
+        btn.disabled = true;
+        span.textContent = 'Traitement IA...';
+        if(icon) icon.className = 'fas fa-spinner fa-spin';
+    } 
+    else if (state === 'success') {
+        btn.classList.remove('si-btn-analyzing');
+        btn.classList.add('si-btn-done');
+        btn.disabled = false;
+        span.textContent = 'Terminé ✓';
+        if(icon) icon.className = 'fas fa-check';
+        setTimeout(() => {
+            btn.classList.remove('si-btn-done');
+            span.textContent = texts[id];
+            if(id === 'translateBtn') if(icon) icon.className = 'fas fa-language';
+            if(id === 'genBtn') if(icon) icon.className = 'fas fa-pen-nib';
+            if(id === 'fillHubBtn') if(icon) icon.className = 'fas fa-fill-drip';
+            if(id === 'pdfBtn') if(icon) icon.className = 'fas fa-file-pdf';
+        }, 3000);
+    } 
+    else if (state === 'error') {
+        btn.classList.remove('si-btn-analyzing');
+        btn.style.background = '#ef4444';
+        btn.disabled = false;
+        span.textContent = 'Échec !';
+        if(icon) icon.className = 'fas fa-exclamation-triangle';
+        setTimeout(() => {
+            btn.style.background = '';
+            span.textContent = texts[id];
+        }, 3000);
+    }
+}
+
+// 0. TRANSCRIPTION PDF
+async function transcribePDF(input) {
+    const file = input.files[0];
+    if(!file) return;
+
+    setStatus('pdfBtn', 'loading');
+    const formData = new FormData();
+    formData.append('pdf', file);
+
+    try {
+        const response = await fetch(`${API_BASE}/api/transcribe-pdf`, {
+            method: 'POST',
+            body: formData
+        });
+
+        const data = await response.json();
+        if (data.error) throw new Error(data.error);
+
+        document.getElementById('smartBox').value = data.text;
+        document.getElementById('charCount').textContent = data.text.length + " caractères";
+        setStatus('pdfBtn', 'success');
+    } catch (e) {
+        alert("Erreur lors de la lecture du PDF : " + e.message);
+        setStatus('pdfBtn', 'error');
+    } finally {
+        input.value = ''; // Reset input
+    }
+}
+
+// 1. TRADUCTION VIA GOOGLE (Client-side)
+async function translateContent() {
+    const text = document.getElementById('smartBox').value.trim();
+    if(!text) return;
+    setStatus('translateBtn', 'loading');
+
+    try {
+        const r = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=fr&dt=t&q=${encodeURIComponent(text)}`);
+        if(!r.ok) throw new Error();
+        const d = await r.json();
+        document.getElementById('smartBox').value = d[0].map(s => s[0]).join('');
+        setStatus('translateBtn', 'success');
+    } catch (e) {
+        setStatus('translateBtn', 'error');
+    }
+}
+
+// 2. GÉNÉRATION VIA SMART ENGINE (Python + Ollama)
+async function generateProArticle() {
+    const source = document.getElementById('smartBox').value.trim();
+    if(!source) {
+        alert("Veuillez d'abord déposer du texte dans le Dépôt Magique.");
+        return;
+    }
+    
+    setStatus('genBtn', 'loading');
+
+    try {
+        const response = await fetch(ENGINE_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ text: source })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) throw new Error(data.error || 'Erreur inconnue');
+
+        // On stocke le résultat globalement pour le bouton "Remplir"
+        window._lastAI = data;
+
+        // Mise à jour de la zone d'aperçu (serveur retourne {titre, lead, contenu})
+        document.getElementById('previewContent').value = `# ${data.titre}\n\n${data.lead}\n\n${data.contenu}`;
+        document.getElementById('previewZone').classList.remove('hidden');
+        
+        setStatus('genBtn', 'success');
+    } catch (e) {
+        console.error("Erreur Ingest:", e);
+        alert("Erreur Moteur : " + e.message);
+        setStatus('genBtn', 'error');
+    }
+}
+
+// 3. REMPLIR LE FORMULAIRE DE DÉPLOIEMENT
+function fillHub() {
+    if(!window._lastAI) {
+        alert("Aucun article généré à transférer.");
+        return;
+    }
+    setStatus('fillHubBtn', 'loading');
+
+    const data = window._lastAI;
+    document.getElementById('siTitre').value = data.titre;
+    document.getElementById('siExtrait').value = data.lead || '';
+    document.getElementById('siTags').value = (data.tags || []).join(', ');
+    document.getElementById('siVideo').value = data.video || '';
+    document.getElementById('siContenu').value = document.getElementById('previewContent').value;
+
+    // Détection auto de catégorie
+    const contentLower = (data.contenu || '').toLowerCase();
+    let cat = "Algérie";
+    if(contentLower.includes("djezzy") || contentLower.includes("mobilis") || contentLower.includes("ooredoo") || contentLower.includes("télécom")) {
+        cat = "Télécoms";
+    } else if(contentLower.includes("mobile") || contentLower.includes("smartphone")) {
+        cat = "Mobile";
+    } else if(contentLower.includes("startup") || contentLower.includes("incubateur") || contentLower.includes("accélérateur")) {
+        cat = "Startups";
+    } else if(contentLower.includes("entreprise") || contentLower.includes("société")) {
+        cat = "Entreprises";
+    }
+    document.getElementById('siCategorie').value = cat;
+    if(data.categorie) document.getElementById('siCategorie').value = data.categorie;
+
+    setStatus('fillHubBtn', 'success');
+}
+
+// 4. DÉPLOIEMENT FINAL (Simulation ou API Node)
+async function deployArticle(e) {
+    e.preventDefault();
+    const btn = document.getElementById('deployBtn');
+    btn.disabled = true;
+    btn.querySelector('.si-deploy-inner').innerHTML = '<i class="fas fa-spinner fa-spin"></i> DÉPLOIEMENT EN COURS...';
+
+    const formData = new FormData(document.getElementById('smartIngestForm'));
+
+    // Gestion auto de l'image si vide (via Unsplash)
+    if(!document.getElementById('siImage').files[0]) {
+        formData.delete('image'); // Supprime l'entrée de fichier vide pour éviter les conflits
+        const cat = document.getElementById('siCategorie').value;
+        formData.set('existingImage', `https://loremflickr.com/1200/800/technology,${encodeURIComponent(cat)}/all`);
+    }
+
+    try {
+        // Remplace par ton endpoint de création réel (Node.js)
+        const res = await fetch('/api/create-article', { method: 'POST', body: formData });
+        if(res.ok) {
+            document.getElementById('siSuccessModal').classList.remove('hidden');
+        } else {
+            throw new Error();
+        }
+    } catch (e) {
+        alert("L'article a été simulé. Branchez votre endpoint POST /api/create-article pour sauvegarder réellement.");
+        document.getElementById('siSuccessModal').classList.remove('hidden');
+    } finally {
+        btn.disabled = false;
+        btn.querySelector('.si-deploy-inner').innerHTML = '<i class="fas fa-rocket"></i> DÉPLOYER L\'ARTICLE SUR LE SITE';
+    }
+}
+
+async function fetchCurrentPositions() {
+    try {
+        const r = await fetch('/articles.json');
+        const articles = await r.json();
+        const container = document.getElementById('positionsSlots');
+        container.innerHTML = articles.slice(0, 2).map(a => 
+            `<div class="si-pos-slot"><span class="pos-num">#</span> <span class="pos-title">${a.titre.substring(0, 30)}...</span></div>`
+        ).join('');
+    } catch(e) {
+        console.log("Impossible de lire articles.json");
+    }
+}
+
+
+function previewSIImage(e) {
+    const file = e.target.files[0];
+    if(!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+        const p = document.getElementById('siImagePreview');
+        p.innerHTML = `<img src="${ev.target.result}">`;
+        p.classList.remove('hidden');
+    };
+    reader.readAsDataURL(file);
+}

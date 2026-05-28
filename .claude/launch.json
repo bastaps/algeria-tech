@@ -1,17 +1,1 @@
-{
-  "version": "0.0.1",
-  "configurations": [
-    {
-      "name": "algeria-tech",
-      "runtimeExecutable": "node",
-      "runtimeArgs": ["server.js"],
-      "port": 3000
-    },
-    {
-      "name": "prototype",
-      "runtimeExecutable": "node",
-      "runtimeArgs": ["-e", "const h=require('http'),fs=require('fs'),path=require('path');h.createServer((req,res)=>{const f=path.join(__dirname,'prototype-levitation.html');fs.readFile(f,(e,d)=>{if(e){res.writeHead(404);res.end('Not found');}else{res.writeHead(200,{'Content-Type':'text/html'});res.end(d);}});}).listen(4500,()=>console.log('OK'));"],
-      "port": 4500
-    }
-  ]
-}
+{"version":"0.0.1","configurations":[{"name":"algeria-tech","runtimeExecutable":"node","runtimeArgs":["server.js"],"port":3000}]}

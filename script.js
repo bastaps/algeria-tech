@@ -949,6 +949,10 @@ window.submitArticle = async function(e) {
         const imgInput = document.getElementById('image');
         if (imgInput && imgInput.files.length > 0) {
             formData.append('image', imgInput.files[0]);
+        } else if (!currentEditingId) {
+            // Pas d'image choisie et nouvel article : on génère une illustration auto via Unsplash
+            const cat = document.getElementById('categorie').value || 'Algérie';
+            formData.append('existingImage', `https://loremflickr.com/1200/800/technology,${encodeURIComponent(cat)}/all`);
         }
 
         const pdfInput = document.getElementById('pdfFile');
