@@ -1,0 +1,139 @@
+{
+  "date": "vendredi 29 mai",
+  "synthese": "L'actualité tech des dernières 24h a été marquée par des avancées majeures en IA et cybersécurité, avec des investissements colossaux et des partenariats stratégiques. Les géants technologiques comme IBM, Mistral AI et Nvidia ont dominé les débats, tandis que les enjeux de souveraineté numérique et d'innovation se sont imposés. Les outils malveillants et les promesses technologiques ont également suscité des discussions sur les limites éthiques et sécuritaires.",
+  "articles": [
+    {
+      "titre": "Project Lightwell  : IBM et Red Hat investissent 5 milliards $ pour sécuriser la supply chain logicielle",
+      "resume": "IBM et Red Hat investissent 5 milliards $ dans le « Project Lightwell », une initiative associant 20 000 ingénieurs. Objectif : sécuriser les chaînes",
+      "url": "https://www.silicon.fr/open-source-1375/project-lightwell-ibm-et-red-hat-investissent-5-milliards-pour-securiser-la-supply-chain-logicielle-227417",
+      "date": "2026-05-28T14:34:02.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
+      "pays": "FR",
+      "accroche": "IBM et Red Hat injectent 5 milliards $ pour sécuriser la supply chain logicielle.",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Webedia-Elephant déploie Gemini Enterprise",
+      "resume": "Webedia-Elephant déploie Gemini Enterprise dans dix pays et lance un studio de création dédié à l'IA générative.\nThe post Webedia-Elephant déploie Gem",
+      "url": "https://www.silicon.fr/data-ia-1372/webedia-elephant-deploie-gemini-enterprise-227410",
+      "date": "2026-05-28T12:01:56.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Webedia-Elephant adopte Gemini Enterprise pour booster son IA conversationnelle.",
+      "categorie": "IA"
+    },
+    {
+      "titre": "BMW et Mistral AI entraînent un modèle d’IA sur les simulations de collision",
+      "resume": "BMW s'appuie sur plus d'un pétaoctet de données historiques pour développer une IA spécialisée dans l'ingénierie de sécurité.\nThe post BMW et Mistral",
+      "url": "https://www.silicon.fr/data-ia-1372/bmw-et-mistral-ai-entrainent-un-modele-dia-sur-les-simulations-de-collision-227403",
+      "date": "2026-05-28T10:54:42.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
+      "pays": "FR",
+      "accroche": "BMW et Mistral AI révolutionnent la sécurité automobile avec l'IA.",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Anthropic s’envole avant son introduction en bourse : une valorisation record qui dépasse OpenAI",
+      "resume": "La société américaine a levé 65 milliards de dollars lors d’un tour de table géant, portant sa valorisation à 965 milliards de dollars. Un niveau inéd",
+      "url": "https://www.zdnet.fr/actualites/anthropic-senvole-avant-son-introduction-en-bourse-une-valorisation-record-qui-depasse-openai-495787.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-05-29T06:00:49.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Anthropic dépasse OpenAI avec une valorisation record avant son IPO.",
+      "categorie": "Startups"
+    },
+    {
+      "titre": "ZD Tech : Tout ce qu'il faut savoir sur Kali365, l'outil vendu sur Telegram qui pirate Microsoft 365 en contournant la double authentification",
+      "resume": "Pour à peine 250 dollars par mois, l'outil pirate fait des ravages au sein des entreprises européennes en s'attaquant aux comptes Microsoft. Décryptag",
+      "url": "https://www.zdnet.fr/actualites/zd-tech-tout-ce-quil-faut-savoir-sur-kali365-loutil-vendu-sur-telegram-qui-pirate-microsoft-365-en-contournant-la-double-authentification-495725.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-05-29T05:30:56.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Kali365, l'outil Telegram qui pirate Microsoft 365, fait trembler les entreprises.",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Nouveaux modèles et suite Vibe, voici comment Mistral AI compte maîtriser toute la chaîne de l'IA",
+      "resume": "Lors de l’AI Now Summit, les fondateurs de Mistral AI ont souligné la transition du statut de fournisseur de modèles ouverts vers celui d’acteur indus",
+      "url": "https://www.zdnet.fr/actualites/nouveaux-modeles-et-suite-vibe-voici-comment-mistral-ai-compte-maitriser-toute-la-chaine-de-lia-495709.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-05-28T15:15:59.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Mistral AI dévoile ses nouveaux modèles et sa suite Vibe pour dominer l'IA.",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Comment Proton VPN a mis au point une protection de pointe sans ralentir le système ? [Sponso]",
+      "resume": "Pour se prémunir contre les arnaques en ligne, le hameçonnage et le piratage, Proton VPN est l'un des meilleurs de son secteur. Bien plus qu’un simple",
+      "url": "https://www.frandroid.com/services/vpn/3112585_comment-proton-vpn-a-mis-au-point-une-protection-de-pointe-sans-ralentir-le-systeme",
+      "date": "2026-05-29T05:31:00.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Proton VPN innove avec une protection ultra-rapide sans compromis sur la vitesse.",
+      "categorie": "Réseaux"
+    },
+    {
+      "titre": "Nvidia N1X : Lenovo gaffe et confirme la puce ARM avant le Computex",
+      "resume": "Lenovo a oublié de bien verrouiller un portail interne, et tout le monde y a vu deux entrées pointant vers une puce N1X que Nvidia n'a toujours pas an",
+      "url": "https://www.frandroid.com/marques/3117383_nvidia-n1x-lenovo-gaffe-et-confirme-la-puce-arm-avant-le-computex",
+      "date": "2026-05-29T04:10:00.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Lenovo confirme la puce ARM Nvidia N1X avant le Computex, un tournant pour le PC.",
+      "categorie": "Mobile"
+    },
+    {
+      "titre": "Samsung Odyssey G5 OLED, PlayStation VR2 et MacBook Neo en forte promo : les meilleurs bons plans du 28 mai 2026",
+      "resume": "Ce jeudi 28 mai 2026, plusieurs marchands comme Amazon, Boulanger ou Carrefour proposent d’excellentes réductions sur des produits tech majeurs.",
+      "url": "https://www.frandroid.com/bons-plans/3116833_samsung-odyssey-g5-oled-playstation-vr2-et-macbook-neo-en-forte-promo-les-meilleurs-bons-plans-du-28-mai-2026",
+      "date": "2026-05-28T16:44:00.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Samsung, PlayStation et MacBook en promo : les meilleurs bons plans tech du moment.",
+      "categorie": "Mobile"
+    },
+    {
+      "titre": "BMW condamne sa mythique M3, mais sa remplaçante électrique va frôler les 1 000 ch",
+      "resume": "Icone parmi les icones, la BMW M3 prendra sa retraite en 2027. La relève immédiate ne sera pas thermique mais électrique : en lieu et place des cylind",
+      "url": "https://www.01net.com/actualites/bmw-condamne-m3-thermique-remplacante-electrique-va-froler-1-000-ch.html",
+      "date": "2026-05-29T05:57:48.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "BMW mise sur une M3 électrique de 1000 ch pour remplacer sa légende thermique.",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Airbus choisit Mistral AI pour propulser l’IA dans ses avions et ses systèmes de défense",
+      "resume": "Trois ans et déjà dans les cockpits. La startup française vient de décrocher l'accès aux quatre divisions d'Airbus, et elle n'a pas l'intention de s'a",
+      "url": "https://www.01net.com/actualites/airbus-choisit-mistral-ai-propulser-ia-avions-systemes-defense.html",
+      "date": "2026-05-28T15:02:10.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Airbus choisit Mistral AI pour intégrer l'IA dans ses avions et systèmes de défense.",
+      "categorie": "IA"
+    },
+    {
+      "titre": "« Développer nos propres puces, ça devrait arriver à un moment donné » : Mistral AI pourrait bientôt se lancer dans les semi-conducteurs",
+      "resume": "Après les modèles de langage et les centres de données, la championne française de l'IA générative Mistral AI envisage de développer ses propres puces",
+      "url": "https://www.01net.com/actualites/developper-nos-propres-puces-ca-devrait-arriver-a-un-moment-donne-mistral-ai-pourrait-bientot-se-lancer-dans-les-semi-conducteurs.html",
+      "date": "2026-05-28T14:38:23.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Mistral AI envisage de développer ses propres puces pour une souveraineté technologique.",
+      "categorie": "Innovation"
+    }
+  ],
+  "lastUpdated": "2026-05-29T06:12:48.475Z"
+}
