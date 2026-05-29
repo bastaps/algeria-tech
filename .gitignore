@@ -3,6 +3,7 @@ node_modules/
 .env
 .env.local
 *.log
+.idea/
 .vscode/settings.json
 
 --- Ajouts pour régler l'erreur Cloudflare 25MB ---
