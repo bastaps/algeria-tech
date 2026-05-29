@@ -101,6 +101,13 @@ async function callMistral(prompt) {
                 } catch(e) { reject(new Error("Erreur JSON Mistral")); }
             });
         });
+
+        // Sécurité : si Mistral ne répond pas après 60s, on annule
+        req.setTimeout(60000, () => {
+            req.destroy();
+            reject(new Error("L'API Mistral a mis trop de temps à répondre (Timeout 60s)"));
+        });
+
         req.on('error', reject);
         req.write(payload);
         req.end();
