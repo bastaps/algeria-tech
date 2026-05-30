@@ -1,6 +1,6 @@
 {
   "date": "samedi 30 mai",
-  "synthese": "L'actualité tech des dernières 24h révèle une dynamique mondiale marquée par des avancées en IA et des défis énergétiques, tandis que l'Algérie se distingue par des innovations locales et des infrastructures critiques. Les géants technologiques comme Anthropic et Mistral AI redéfinissent les standards, mais les enjeux de cybersécurité et de souveraineté numérique restent prégnants. Les startups et les solutions mobiles locales montrent un écosystème en pleine effervescence, malgré les contraintes globales.",
+  "synthese": "Les dernières 24h dans la tech ont été marquées par des avancées majeures en IA et mobile, des alertes cybersécurité et des innovations locales. Les géants technologiques redéfinissent les standards tandis que les startups algériennes émergent avec des solutions durables. La cybersécurité et l'IA restent au cœur des débats stratégiques mondiaux.",
   "articles": [
     {
       "titre": "Anthropic lève 65 milliards et dépasse OpenAI en valorisation",
@@ -32,7 +32,7 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Les entreprises face au rationnement des coûts de l'IA : l'heure est grave.",
+      "accroche": "Les entreprises rationnent l'usage de l'IA face à l'explosion des coûts.",
       "categorie": "IA"
     },
     {
@@ -43,19 +43,19 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Exclure l'IA des résultats de recherche : la méthode simple et efficace.",
-      "categorie": "Innovation"
+      "accroche": "Exclure l'IA des résultats de recherche devient un jeu d'enfant.",
+      "categorie": "IA"
     },
     {
-      "titre": "« 25.0528, 121.5990 » : Nvidia et Microsoft postent les mêmes coordonnées GPS, voici ce qu’elles cachent",
-      "resume": "Nvidia et le compte officiel Windows ont publié le même message au même moment, agrémenté de deux nombres étranges. Ce sont des coordonnées GPS, et el",
-      "url": "https://www.frandroid.com/marques/3119333_25-0528-121-5990-nvidia-et-microsoft-postent-les-memes-coordonnees-gps-voici-ce-quelles-cachent",
-      "date": "2026-05-29T19:42:40.000Z",
+      "titre": "MediaTek Dimensity 7500 : les nouveaux cœurs Arm C1 débarquent avec une surprise",
+      "resume": "MediaTek prend Qualcomm de vitesse : son nouveau Dimensity 7500 est le premier processeur mobile à embarquer les cœurs Arm C1, normalement attendus en",
+      "url": "https://www.frandroid.com/marques/3119331_mediatek-dimensity-7500-les-nouveaux-coeurs-arm-c1-debarquent-avec-une-surprise",
+      "date": "2026-05-30T06:32:00.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Nvidia et Microsoft partagent les mêmes coordonnées GPS : mystère résolu.",
-      "categorie": "Innovation"
+      "accroche": "MediaTek Dimensity 7500 intègre des cœurs Arm C1 révolutionnaires.",
+      "categorie": "Mobile"
     },
     {
       "titre": "MSI Claw 8 EX AI Plus : la console portable qui inaugure la puce Intel Arc G3 Extreme",
@@ -65,7 +65,7 @@
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "MSI Claw 8 EX AI Plus : la console portable nouvelle génération avec puce Intel Arc.",
+      "accroche": "MSI Claw 8 EX AI Plus : la console portable avec puce Intel Arc G3 Extreme.",
       "categorie": "Mobile"
     },
     {
@@ -76,19 +76,19 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "ZTE lance le nubia Neo 5 GT, un smartphone gaming avec ventilateur intégré.",
+      "accroche": "ZTE nubia Neo 5 GT : smartphone gaming avec ventilateur et IA intégrée.",
       "categorie": "Mobile"
     },
     {
-      "titre": "Oura Ring 5 : la bague connectée qui veut surveiller votre pression artérielle la nuit",
-      "resume": "Plus petite de 40 %, dotée de 9 jours d’autonomie et capable de suivre la pression artérielle la nuit : Oura a dévoilé ce jeudi sa nouvelle Ring 5. Un",
-      "url": "https://www.01net.com/actualites/oura-ring-5-la-bague-connectee-qui-veut-surveiller-votre-pression-arterielle-la-nuit.html",
-      "date": "2026-05-29T09:02:06.000Z",
+      "titre": "Arnaque sur Android : 250 fausses applications vous abonnent à votre insu",
+      "resume": "Pendant dix mois, des pirates ont orchestré une arnaque d'une redoutable efficacité contre les utilisateurs Android. Baptisée « Premium Deception », l",
+      "url": "https://www.01net.com/actualites/arnaque-android-250-fausses-applications-vous-abonnent-votre-insu.html",
+      "date": "2026-05-30T07:00:18.000Z",
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Oura Ring 5 surveille votre pression artérielle pendant votre sommeil.",
-      "categorie": "Mobile"
+      "accroche": "250 applications Android frauduleuses abonnent les utilisateurs à leur insu.",
+      "categorie": "Cybersécurité"
     },
     {
       "titre": "Utiq, ce tracker poussé par les opérateurs télécoms qui vous piste même en navigation privée",
@@ -120,20 +120,20 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Deux étudiantes algériennes révolutionnent la stérilisation avec l'ozone.",
-      "categorie": "Startups"
+      "accroche": "Deux étudiantes algériennes inventent un stérilisateur à ozone révolutionnaire.",
+      "categorie": "Innovation"
     },
     {
-      "titre": "Lutte contre le piratage : le but contre son camp paradoxal de Canal+ devant la justice",
-      "resume": "En voulant forcer Google et Cisco à bloquer des sites de streaming illégal, Canal+ a utilisé un argument technique redoutable devant la Cour d'appel d",
-      "url": "https://www.numerama.com/politique/2262869-lutte-contre-le-piratage-le-but-contre-son-camp-paradoxal-de-canal-devant-la-justice.html",
-      "date": "2026-05-29T14:09:03.000Z",
-      "source": "Numerama",
-      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
+      "titre": "Mondial 2026 : alerte sur la gigantesque « surface d’attaque »",
+      "resume": "La Coupe du Monde 2026 va devoir éprouver la résilience d'une architecture informatique temporaire, hautement distribuée et soumise à une pression cyb",
+      "url": "https://www.silicon.fr/cybersecurite-1371/mondial-2026-alerte-sur-la-gigantesque-surface-attaque-227427",
+      "date": "2026-05-29T10:19:55.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Canal+ piégé par sa propre lutte contre le piratage devant la justice.",
+      "accroche": "Mondial 2026 : la cybersécurité face à une surface d'attaque colossale.",
       "categorie": "Cybersécurité"
     }
   ],
-  "lastUpdated": "2026-05-30T02:29:35.091Z"
+  "lastUpdated": "2026-05-30T07:35:18.981Z"
 }
