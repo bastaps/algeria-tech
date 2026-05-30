@@ -900,18 +900,11 @@ a.revue-une-title-link:hover .revue-une-title { color: var(--secondary); }
 }
 .revue-une-pays.dz { background: rgba(0,98,60,0.12); color: #00623c; }
 .revue-une-pays.fr { background: rgba(26,115,232,0.1); color: var(--accent); }
-.revue-une-ai-badge {
-    display: flex; align-items: center; gap: 6px;
-    font-size: 0.62rem; text-transform: uppercase; letter-spacing: 1.5px;
-    color: #7c3aed; font-weight: 700;
-}
-.revue-ai-pulse {
-    width: 7px; height: 7px; border-radius: 50%; background: #7c3aed;
-    animation: pulse 2s infinite;
-}
+.revue-une-ai-badge { display: none; }
+.revue-ai-pulse { display: none; }
 .revue-une-resume {
-    font-size: 0.88rem; color: var(--text-muted); line-height: 1.65;
-    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    font-size: 0.78rem; color: var(--text-muted); line-height: 1.4;
+    display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
