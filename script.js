@@ -1,3 +1,111 @@
+// === ADMIN VISIBILITY CONTROL ===
+const ADMIN_CONFIG = {
+    password: 'admin2026', // Change ce mot de passe si tu veux
+    unlockKey: 'AT_Admin_2026',
+    isLocalhost: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+};
+
+// Vérifier si admin est déverrouillé
+function isAdminUnlocked() {
+    if (ADMIN_CONFIG.isLocalhost) return true;
+    return localStorage.getItem(ADMIN_CONFIG.unlockKey) === 'unlocked';
+}
+
+// Déverrouiller l'admin
+function unlockAdmin() {
+    if (ADMIN_CONFIG.isLocalhost) return true;
+    
+    const input = prompt(' Accès Administration Algeria Tech\n\nEntrez le mot de passe:');
+    if (input === ADMIN_CONFIG.password) {
+        localStorage.setItem(ADMIN_CONFIG.unlockKey, 'unlocked');
+        updateAdminVisibility();
+        showToast('✅ Mode administrateur activé');
+        return true;
+    } else if (input !== null) {
+        showToast('❌ Mot de passe incorrect');
+        return false;
+    }
+    return false;
+}
+
+// Verrouiller l'admin
+function lockAdmin() {
+    if (ADMIN_CONFIG.isLocalhost) return;
+    localStorage.removeItem(ADMIN_CONFIG.unlockKey);
+    updateAdminVisibility();
+    showToast('🔒 Mode administrateur désactivé');
+}
+
+// Mettre à jour la visibilité des contrôles admin
+function updateAdminVisibility() {
+    const adminBtn = document.getElementById('adminBtn');
+    const unlockHint = document.getElementById('adminUnlockHint');
+    
+    if (ADMIN_CONFIG.isLocalhost) {
+        // Localhost : toujours visible
+        if (adminBtn) adminBtn.classList.remove('admin-hidden');
+        if (unlockHint) unlockHint.classList.add('admin-hidden');
+        return;
+    }
+    
+    // Production : dépend du déverrouillage
+    const unlocked = isAdminUnlocked();
+    
+    if (adminBtn) {
+        if (unlocked) {
+            adminBtn.classList.remove('admin-hidden');
+        } else {
+            adminBtn.classList.add('admin-hidden');
+        }
+    }
+    
+    if (unlockHint) {
+        if (unlocked) {
+            unlockHint.classList.remove('admin-hidden');
+            unlockHint.classList.add('unlocked');
+            unlockHint.innerHTML = '<i class="fas fa-lock-open"></i>';
+            unlockHint.title = 'Cliquez pour verrouiller';
+        } else {
+            unlockHint.classList.remove('admin-hidden', 'unlocked');
+            unlockHint.innerHTML = '<i class="fas fa-lock"></i>';
+            unlockHint.title = 'Cliquez pour déverrouiller l\'admin';
+        }
+    }
+}
+
+// Initialiser au chargement
+window.addEventListener('DOMContentLoaded', () => {
+    // Créer le bouton de déverrouillage discret
+    if (!ADMIN_CONFIG.isLocalhost && !document.getElementById('adminUnlockHint')) {
+        const unlockBtn = document.createElement('div');
+        unlockBtn.id = 'adminUnlockHint';
+        unlockBtn.className = 'admin-unlock-hint';
+        unlockBtn.innerHTML = '<i class="fas fa-lock"></i>';
+        unlockBtn.title = 'Cliquez pour déverrouiller l\'admin';
+        unlockBtn.onclick = () => {
+            if (isAdminUnlocked()) {
+                lockAdmin();
+            } else {
+                unlockAdmin();
+            }
+        };
+        document.body.appendChild(unlockBtn);
+    }
+    
+    // Mettre à jour la visibilité
+    setTimeout(updateAdminVisibility, 100);
+    
+    // Raccourci clavier : Ctrl+Shift+A pour déverrouiller
+    document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+            e.preventDefault();
+            if (!isAdminUnlocked()) {
+                unlockAdmin();
+            }
+        }
+    });
+});
+
 // ===== MENU MOBILE =====
 function toggleMobileMenu() {
     const menu = document.getElementById('mobileMenu');
@@ -901,10 +1009,17 @@ function initCounters() {
 
 // ===== GESTION ADMIN =====
 window.toggleAdminPanel = function() {
+    // Vérifier si admin est déverrouillé (production uniquement)
+    if (!ADMIN_CONFIG.isLocalhost && !isAdminUnlocked()) {
+        if (!unlockAdmin()) return;
+    }
+    
     const pass = prompt('Mot de passe Admin:');
-    if (pass !== ADMIN_PASSWORD) return showToast('  AccÃ¨s refusÃ©');
+    if (pass !== ADMIN_PASSWORD) return showToast('Accès refusé');
+    
     const modal = document.getElementById('adminModal');
     modal.classList.add('show');
+    
     if (currentEditingId) {
         const art = allArticles.find(a => a.id == currentEditingId);
         document.getElementById('titre').value = art.titre;
@@ -915,13 +1030,18 @@ window.toggleAdminPanel = function() {
         document.getElementById('video').value = art.video || '';
         document.getElementById('tags').value = art.tags.join(', ');
         document.getElementById('contenu').value = art.rawContent;
+        
         if (document.getElementById('imagePreview')) {
             document.getElementById('imagePreview').innerHTML = `<p style="font-size:0.8rem;margin-bottom:5px;">Image actuelle:</p><img src="${art.image}" style="max-width:100%; border-radius:8px;">`;
         }
+        
         if(!document.getElementById('delBtn')) {
             const delBtn = document.createElement('button');
-            delBtn.id = 'delBtn'; delBtn.type = 'button'; delBtn.className = 'btn-secondary';
-            delBtn.style.background = '#D21034'; delBtn.style.color = 'white';
+            delBtn.id = 'delBtn';
+            delBtn.type = 'button';
+            delBtn.className = 'btn-secondary';
+            delBtn.style.background = '#D21034';
+            delBtn.style.color = 'white';
             delBtn.innerHTML = '<i class="fas fa-trash"></i> Supprimer';
             delBtn.onclick = deleteArticle;
             document.querySelector('.form-actions').prepend(delBtn);
