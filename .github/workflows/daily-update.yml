@@ -1,0 +1,43 @@
+name: Algeria Tech Daily Update
+
+on:
+  schedule:
+    - cron: '0 6 * * *' # Exécution automatique tous les jours à 06:00 UTC
+  workflow_dispatch: # Permet de lancer la mise à jour manuellement depuis l'onglet Actions
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Veille Update
+        run: node update_veille.js
+
+      - name: Generate Press Review (Mistral IA)
+        run: node generate_revue.js
+        env:
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+
+      - name: Sync Articles Database
+        run: node build.js
+
+      - name: Commit and Push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "Algeria Tech Bot"
+          mkdir -p archives
+          cp revue_presse.json archives/$(date +%Y-%m-%d).json
+          git add veille_data.json revue_presse.json articles.json archives/
+          git commit -m "🤖 Auto-update: Veille, Revue de Presse & Articles [$(date +%Y-%m-%d)]" || echo "Rien à commiter"
+          git push

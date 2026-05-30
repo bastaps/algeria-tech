@@ -1,0 +1,48 @@
+Lancement outil smart-ingest
+PowerShell : node server ou npm start localhost:3000
+PowerShell : python e:\algeria-tech\smart_engine.py   ou    python smart_engine.py   localhost:3000\smart-ingest
+-----------------------------------------------------------------
+Lancement outil generator 
+PowerShell : node server ou npm start localhost:3000\generator 
+-----------------------------------------------------------------
+
+1. Pousser les mises à jour vers GitHub (Site & Données) Localhost:3000
+Copiez-collez ce bloc pour synchroniser votre travail local avec le dépôt distant et déclencher le déploiement Cloudflare :
+
+A copier coller tout le bloc suivant dans PowerShell 
+
+# On se place dans le dossier du projet
+cd "e:\algeria-tech"
+
+# On prépare les changements
+git add .
+
+# On met de côté temporairement vos modifs pour récupérer proprement celles du Bot IA
+git stash
+
+# On récupère la revue de presse du jour et on remet votre travail par dessus
+git pull origin main --rebase
+
+# On restaure vos modifications
+git stash pop
+
+# On valide et on envoie vers GitHub
+git add .
+git commit -m "Mise à jour Algeria Tech depuis localhost"
+git push origin main
+
+
+2. Mettre à jour l'application Android (Build APK)
+
+# On se place dans le dossier mobile
+cd "e:\algeria-tech\mobile"
+
+# On lance la compilation via Gradle
+.\gradlew.bat assembleDebug
+
+# Une fois terminé, l'APK se trouve ici :
+explorer "app\build\outputs\apk\debug"
+
+Quelques conseils pour votre flux de travail :
+Conflits JSON : Si le git pull échoue à cause d'un conflit sur articles.json ou revue_presse.json, c'est que le bot a travaillé en même temps que vous. Dans ce cas, tapez git checkout --ours . puis git add . et enfin git rebase --continue.
+Vérification : Une fois le push effectué, vous pouvez suivre le déploiement en direct sur votre tableau de bord Cloudflare Pages.
