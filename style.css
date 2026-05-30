@@ -639,8 +639,8 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
 
 /* === [REVUE DE PRESSE IA] STYLES MODERNES === */
 .revue-wrapper { margin: 40px auto; padding: 35px; background: var(--bg-white); border-radius: var(--radius); box-shadow: var(--shadow-md); border-top: 4px solid var(--accent); }
-.revue-container { margin-top: 0; line-height: 1.8; color: var(--text-dark); }
-.revue-loading { text-align: center; padding: 40px; color: var(--text-muted); display: flex; flex-direction: column; gap: 15px; align-items: center; }
+.revue-container { display: grid; grid-template-columns: 50% 50%; align-items: stretch; margin-top: 0; line-height: 1.8; color: var(--text-dark); }
+.revue-loading { grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--text-muted); display: flex; flex-direction: column; gap: 15px; align-items: center; }
 .revue-loading i { font-size: 2rem; color: var(--accent); }
 .revue-intro { background: rgba(26, 115, 232, 0.05); padding: 25px; border-radius: var(--radius); margin-bottom: 30px; border-left: 5px solid var(--accent); font-size: 1.05rem; }
 .revue-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 25px; }
@@ -724,10 +724,11 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
 
 /* ── Masthead éditorial — défile normalement ─────────────────── */
 .revue-masthead {
+    grid-column: 1 / -1;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 40px 8px;
+    padding: 6px 40px 4px;
     border-bottom: 1px solid var(--border);
     margin-bottom: 0;
     gap: 20px;
@@ -736,6 +737,7 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
 body.dark-mode .revue-masthead { background: var(--bg-white); border-bottom-color: rgba(255,255,255,0.08); }
 .revue-masthead-brand { display: flex; flex-direction: column; gap: 4px; }
 .revue-masthead-label {
+    display: flex; align-items: center; gap: 16px;
     font-size: 0.6rem; font-weight: 800; text-transform: uppercase;
     letter-spacing: 3px; color: var(--secondary); margin-bottom: 2px;
 }
@@ -758,9 +760,15 @@ body.dark-mode .revue-masthead { background: var(--bg-white); border-bottom-colo
 
 /* ── Synthèse éditoriale ──────────────────────────────────────── */
 .revue-synthese-bloc {
-    padding: 14px 40px 16px;
-    border-bottom: 1px solid var(--border);
+    grid-column: 1;
+    padding: 10px 16px 12px;
+    margin: 12px 8px 12px 40px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
     background: var(--bg);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.06);
+    position: relative;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 .revue-synthese-eyelet {
     display: flex; align-items: center; gap: 8px;
@@ -772,17 +780,29 @@ body.dark-mode .revue-masthead { background: var(--bg-white); border-bottom-colo
 }
 .revue-synthese-text {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-    font-size: 1.05rem !important; font-weight: 500 !important; line-height: 1.75 !important;
+    font-size: 0.92rem !important; font-weight: 500 !important; line-height: 1.35 !important;
     color: var(--text-dark) !important; font-style: normal !important;
     max-width: 900px; padding: 0 !important; border: none !important;
     background: transparent !important;
+    display: -webkit-box !important; -webkit-line-clamp: 4 !important; -webkit-box-orient: vertical !important; overflow: hidden !important;
+}
+
+.revue-synthese-bloc:hover {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08), 0 16px 40px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+}
+.revue-synthese-bloc:hover .revue-synthese-text {
+    display: block !important;
+    -webkit-line-clamp: unset !important;
+    overflow: visible !important;
 }
 
 /* ── Filtres journaux — SEUL élément sticky ───────────────────── */
 .revue-toolbar {
+    grid-column: 1 / -1;
     display: flex; align-items: center; justify-content: space-between;
-    padding: 6px 40px 10px;
-    flex-wrap: wrap; gap: 8px;
+    padding: 3px 40px 5px;
+    flex-wrap: wrap; gap: 6px;
     /* sticky : colle sous le .header principal (≈78px) */
     position: sticky;
     top: 78px;
@@ -794,7 +814,7 @@ body.dark-mode .revue-masthead { background: var(--bg-white); border-bottom-colo
 body.dark-mode .revue-toolbar { background: var(--bg); }
 .revue-filters-journal { display: flex; flex-wrap: wrap; gap: 5px; }
 .revue-filter-journal {
-    padding: 5px 13px; border-radius: 2px;
+    padding: 3px 10px; border-radius: 2px;
     border: 1.5px solid var(--border); background: transparent;
     color: var(--text-muted); font-size: 0.7rem; font-weight: 700;
     letter-spacing: 0.8px; text-transform: uppercase; cursor: pointer;
@@ -812,25 +832,27 @@ body.dark-mode .revue-filter-journal.active { background: #f1f5f9; color: #0f172
 
 /* ── Article à la UNE ─────────────────────────────────────────── */
 .revue-une {
+    grid-column: 2;
     display: grid; grid-template-columns: 3fr 2fr;
     gap: 0;
-    margin: 16px 40px 0;
+    margin: 16px 40px 16px 8px;
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid var(--border);
-    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05), 0 8px 24px rgba(0,0,0,0.07);
     transition: all 0.3s ease;
     position: relative; will-change: transform;
 }
 /* UNE : transform + box-shadow gérés par le moteur JS 3D */
 .revue-une:hover {
     border-color: transparent;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.14);
     z-index: 10;
 }
 .revue-une-left {
-    padding: 18px 24px 18px 28px;
+    padding: 12px 20px 12px 24px;
     border-right: 1px solid var(--border);
-    display: flex; flex-direction: column; justify-content: center; gap: 8px;
+    display: flex; flex-direction: column; justify-content: center; gap: 6px;
 }
 .revue-une-cat {
     font-size: 0.62rem; font-weight: 800; text-transform: uppercase;
@@ -843,7 +865,8 @@ a.revue-une-title-link {
 }
 .revue-une-title {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 1.2rem; font-weight: 800; line-height: 1.25; letter-spacing: -0.4px;
+    font-size: 1.0rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.3px;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
     color: var(--text-dark);
     border-left: 4px solid var(--secondary); padding-left: 14px;
     transition: color 0.25s ease;
@@ -851,17 +874,18 @@ a.revue-une-title-link {
 a.revue-une-title-link:hover .revue-une-title { color: var(--secondary); }
 
 .revue-une-accroche {
-    font-size: 0.92rem; line-height: 1.65; color: var(--text-muted);
+    font-size: 0.82rem; line-height: 1.4; color: var(--text-muted);
     font-weight: 500; max-width: 520px;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
 .revue-une-right {
-    padding: 16px 22px 16px 20px;
-    display: flex; flex-direction: column; gap: 10px;
+    padding: 10px 16px 10px 16px;
+    display: flex; flex-direction: column; gap: 6px;
     background: var(--bg); justify-content: center;
 }
 .revue-une-source-row {
     display: flex; align-items: center; gap: 10px;
-    padding-bottom: 14px; border-bottom: 1px dashed var(--border);
+    padding-bottom: 8px; border-bottom: 1px dashed var(--border);
 }
 .revue-une-logo {
     width: 32px; height: 32px; border-radius: 6px; object-fit: contain;
@@ -887,12 +911,13 @@ a.revue-une-title-link:hover .revue-une-title { color: var(--secondary); }
 }
 .revue-une-resume {
     font-size: 0.88rem; color: var(--text-muted); line-height: 1.65;
-    display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
 /* ── Grille 3 colonnes — style cartes modernes ────────────────── */
 .revue-grid-journal {
+    grid-column: 1 / -1;
     display: grid; grid-template-columns: repeat(3, 1fr);
     gap: 16px;
     padding: 20px 40px 28px;
@@ -903,7 +928,7 @@ a.revue-une-title-link:hover .revue-une-title { color: var(--secondary); }
     border: 1px solid var(--border);
     background: var(--bg-white);
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    display: flex; flex-direction: column; gap: 10px;
+    display: grid; grid-template-columns: auto 1fr; gap: 8px 10px;
     transition: all 0.3s ease;
     position: relative; will-change: transform;
 }
@@ -917,6 +942,7 @@ a.revue-une-title-link:hover .revue-une-title { color: var(--secondary); }
 
 /* Badge catégorie coloré */
 .revue-card-cat {
+    grid-column: 1; grid-row: 1; align-self: center;
     display: inline-block; font-size: 0.58rem; font-weight: 800;
     text-transform: uppercase; letter-spacing: 2px;
     padding: 3px 8px; border-radius: 2px; color: #fff; width: fit-content;
@@ -938,14 +964,15 @@ a.revue-une-title-link:hover .revue-une-title { color: var(--secondary); }
     -webkit-box-orient: vertical; overflow: hidden;
 }
 .revue-card-accroche-journal {
+    grid-column: 1 / -1; grid-row: 3;
     font-size: 0.8rem; color: var(--text-muted); font-weight: 500;
     line-height: 1.5; border-left: 2px solid var(--border); padding-left: 8px;
     display: -webkit-box; -webkit-line-clamp: 2;
     -webkit-box-orient: vertical; overflow: hidden;
 }
 .revue-card-footer-journal {
-    display: flex; align-items: center; gap: 6px; margin-top: auto;
-    padding-top: 7px; border-top: 1px dashed var(--border);
+    grid-column: 2; grid-row: 1; align-self: center;
+    display: flex; align-items: center; gap: 6px;
 }
 .revue-card-logo-sm {
     width: 16px; height: 16px; border-radius: 2px; object-fit: contain;
@@ -955,19 +982,15 @@ a.revue-une-title-link:hover .revue-une-title { color: var(--secondary); }
     font-size: 0.7rem; font-weight: 600; color: var(--text-muted);
     flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
-.revue-card-pays-sm {
-    font-size: 0.6rem; font-weight: 700; padding: 2px 6px; border-radius: 2px; flex-shrink: 0;
-}
+.revue-card-pays-sm { display: none; }
 .revue-card-pays-sm.dz { background: rgba(0,98,60,0.1); color: #00623c; }
 .revue-card-pays-sm.fr { background: rgba(26,115,232,0.1); color: var(--accent); }
-.revue-card-lire {
-    font-size: 0.68rem; font-weight: 800; color: var(--secondary);
-    text-decoration: none; white-space: nowrap; flex-shrink: 0;
-}
+.revue-card-lire { display: none; }
 .revue-card-lire:hover { text-decoration: underline; }
 
 /* ── Pied de page édition ─────────────────────────────────────── */
 .revue-footer-edition {
+    grid-column: 1 / -1;
     display: flex; justify-content: space-between; align-items: center;
     padding: 14px 40px; border-top: 2px solid var(--border); margin-top: 2px;
     flex-wrap: wrap; gap: 10px;
@@ -1028,7 +1051,9 @@ a.revue-une-title-link:hover .revue-une-title { color: var(--secondary); }
 
 /* ── Responsive ───────────────────────────────────────────────── */
 @media (max-width: 1024px) {
-    .revue-une { grid-template-columns: 1fr; }
+    .revue-container { grid-template-columns: 1fr; }
+    .revue-synthese-bloc { margin: 12px 20px; }
+    .revue-une { grid-column: 1; margin: 0 20px 12px; grid-template-columns: 1fr; }
     .revue-une-left { border-right: none; border-bottom: 1px solid var(--border); }
     .revue-grid-journal { grid-template-columns: repeat(2, 1fr); }
     .revue-card-journal:nth-child(3n+2),
@@ -1087,6 +1112,7 @@ a.revue-une-title-link:hover .revue-une-title { color: var(--secondary); }
 
 /* Lien titre carte — sans style lien par défaut */
 a.revue-card-title-link {
+    grid-column: 1 / -1; grid-row: 2;
     text-decoration: none; color: inherit; display: block;
 }
 a.revue-card-title-link:hover .revue-card-title-journal {
@@ -1214,7 +1240,8 @@ a.revue-card-title-link:hover .revue-card-title-journal {
     .revue-synthese-bloc,
     .revue-toolbar,
     .revue-footer-edition { padding-left: 16px !important; padding-right: 16px !important; }
-    .revue-une { margin: 10px 16px 0 !important; border-radius: 10px; }
+    .revue-synthese-bloc { margin: 10px 16px !important; border-radius: 10px; }
+    .revue-une { margin: 0 16px 10px !important; border-radius: 10px; }
     .revue-une-left { padding: 14px 16px !important; }
     .revue-une-right { padding: 14px 16px !important; }
     .revue-grid-journal { grid-template-columns: 1fr; gap: 12px; padding: 14px 16px 20px; }
