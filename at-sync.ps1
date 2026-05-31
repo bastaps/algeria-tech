@@ -26,7 +26,8 @@ public static class CtrlCGuard {
     [CtrlCGuard]::Register()
 
     # ── Fichiers auto-générés à ne jamais pousser ────────────────────────────
-    $AUTO_FILES = @("revue_presse.json", "articles.json", "veille_data.json")
+    # articles.json est EXCLU : il doit etre commite avec les articles de l'utilisateur
+    $AUTO_FILES = @("revue_presse.json", "veille_data.json")
 
     function Set-SkipWorktree {
         param([switch]$Enable)
