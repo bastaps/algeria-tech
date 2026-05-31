@@ -1,14 +1,14 @@
 try {
     Set-Location $PSScriptRoot
 
-    # ── Ctrl+C : empeche la fermeture, pose un flag, laisse les processus fils tranquilles ──
+    # ── Ctrl+C : empeche la fermeture, pose un flag ──────────────────────────
     $script:ctrlC = $false
-    $ctrlCHandler = [ConsoleCancelEventHandler]{
+    $script:ctrlCHandler = [ConsoleCancelEventHandler]{
         param($s, $e)
-        $e.Cancel        = $true          # PowerShell ne se ferme pas
-        $script:ctrlC    = $true          # on note l'appui
+        $e.Cancel     = $true
+        $script:ctrlC = $true
     }
-    [Console]::add_CancelKeyPress($ctrlCHandler)
+    [Console]::add_CancelKeyPress($script:ctrlCHandler)
 
     # ── Fichiers auto-générés à ne jamais pousser ────────────────────────────
     $AUTO_FILES = @("revue_presse.json", "articles.json", "veille_data.json")
@@ -49,13 +49,18 @@ try {
     do {
         $script:ctrlC = $false
         Show-Menu
-        $choice = Read-Host "Choisissez une option"
+        Write-Host "Choisissez une option : " -NoNewline -ForegroundColor White
 
-        if ($script:ctrlC) {
-            Write-Host "[CTRL+C] Retour au menu..." -ForegroundColor Yellow
+        # ReadKey = reponse instantanee, CancelKeyPress gere Ctrl+C
+        try { $key = [Console]::ReadKey($true) } catch { $key = $null }
+
+        if ($script:ctrlC -or ($null -eq $key)) {
+            Write-Host "`n[CTRL+C] Retour au menu..." -ForegroundColor Yellow
             Start-Sleep -Milliseconds 300
             continue
         }
+        $choice = $key.KeyChar.ToString().ToLower()
+        Write-Host $choice
 
         switch ($choice) {
 
@@ -165,16 +170,19 @@ try {
             # ── 4. START ─────────────────────────────────────────────────────
             "4" {
                 Write-Host "`n--- Lancement du serveur local ---" -ForegroundColor Cyan
-                # Charger la cle Mistral depuis .env si pas dans l'env
-                if (-not $env:MISTRAL_API_KEY -and (Test-Path ".env")) {
+                # Charger la cle Mistral depuis .env
+                $mistralKey = $env:MISTRAL_API_KEY
+                if (-not $mistralKey -and (Test-Path ".env")) {
                     Get-Content ".env" | ForEach-Object {
-                        if ($_ -match "^MISTRAL_API_KEY=(.+)$") {
-                            $env:MISTRAL_API_KEY = $matches[1]
-                            Write-Host "CLE Mistral chargee depuis .env" -ForegroundColor Gray
-                        }
+                        if ($_ -match "^MISTRAL_API_KEY=(.+)$") { $mistralKey = $matches[1] }
                     }
                 }
-                node server.js
+                # Lancer node dans une NOUVELLE fenetre : Ctrl+C n'affecte pas ce menu
+                $cmd = "cd '$($PWD.Path)'; `$env:MISTRAL_API_KEY='$mistralKey'; node server.js; pause"
+                Start-Process powershell -ArgumentList "-NoExit", "-Command", $cmd
+                Write-Host "Serveur lance dans une nouvelle fenetre (localhost:3000)." -ForegroundColor Green
+                Write-Host "Fermez cette fenetre ou faites Ctrl+C dedans pour arreter le serveur." -ForegroundColor DarkGray
+                Read-Host "`nAppuyez sur Entree pour continuer..."
             }
 
             # ── 5. STATUS ────────────────────────────────────────────────────
@@ -224,7 +232,7 @@ try {
 
     } while ($choice -ne "q" -and $choice -ne "Q")
 
-    [Console]::remove_CancelKeyPress($ctrlCHandler)
+    [Console]::remove_CancelKeyPress($script:ctrlCHandler)
 
 } catch {
     Write-Host "`nUNE ERREUR TECHNIQUE EST SURVENUE :" -ForegroundColor Red
