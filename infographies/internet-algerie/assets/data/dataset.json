@@ -1,0 +1,166 @@
+{
+  "kpis": [
+    {
+      "label": "Valeur",
+      "value": 202,
+      "unit": "",
+      "icon": "📊",
+      "total": 447,
+      "avg": 55.88,
+      "max": 202,
+      "min": 3,
+      "trend": "up",
+      "trend_pct": 6633.33
+    }
+  ],
+  "rows": [
+    {
+      "Periode": "Point 1",
+      "Valeur": 12
+    },
+    {
+      "Periode": "Point 2",
+      "Valeur": 5
+    },
+    {
+      "Periode": "Point 3",
+      "Valeur": 202
+    },
+    {
+      "Periode": "Point 4",
+      "Valeur": 6
+    },
+    {
+      "Periode": "Point 5",
+      "Valeur": 13
+    },
+    {
+      "Periode": "Point 6",
+      "Valeur": 4
+    },
+    {
+      "Periode": "Point 7",
+      "Valeur": 3
+    },
+    {
+      "Periode": "Point 8",
+      "Valeur": 202
+    }
+  ],
+  "columns": [
+    "Periode",
+    "Valeur"
+  ],
+  "label_column": "Periode",
+  "numeric_columns": [
+    "Valeur"
+  ],
+  "charts": [
+    {
+      "id": "chart-1",
+      "type": "line",
+      "title": "Évolution sur 8 points",
+      "labels": [
+        "Point 1",
+        "Point 2",
+        "Point 3",
+        "Point 4",
+        "Point 5",
+        "Point 6",
+        "Point 7",
+        "Point 8"
+      ],
+      "datasets": [
+        {
+          "label": "Valeur",
+          "data": [
+            12,
+            5,
+            202,
+            6,
+            13,
+            4,
+            3,
+            202
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chart-2",
+      "type": "bar",
+      "title": "Valeur par Periode",
+      "labels": [
+        "Point 1",
+        "Point 2",
+        "Point 3",
+        "Point 4",
+        "Point 5",
+        "Point 6",
+        "Point 7",
+        "Point 8"
+      ],
+      "datasets": [
+        {
+          "label": "Valeur",
+          "data": [
+            12,
+            5,
+            202,
+            6,
+            13,
+            4,
+            3,
+            202
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chart-3",
+      "type": "doughnut",
+      "title": "Répartition · Point 8",
+      "labels": [
+        "Valeur"
+      ],
+      "datasets": [
+        {
+          "label": "Valeurs",
+          "data": [
+            202
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chart-4",
+      "type": "polarArea",
+      "title": "Vue polaire · Valeur",
+      "labels": [
+        "Point 1",
+        "Point 2",
+        "Point 3",
+        "Point 4",
+        "Point 5",
+        "Point 6",
+        "Point 7",
+        "Point 8"
+      ],
+      "datasets": [
+        {
+          "label": "Valeur",
+          "data": [
+            12,
+            5,
+            202,
+            6,
+            13,
+            4,
+            3,
+            202
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L’ARPCE par les chiffres — Algeria Tech</title>
+  <meta name="description" content="L’ARPCE par les · Santé &amp; Médical · 2018">
+  <meta name="theme-color" content="#0a0e1a">
+  <meta property="og:title" content="L’ARPCE par les chiffres">
+  <meta property="og:description" content="L’ARPCE par les">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" defer></script>
+  <script>setTimeout(function(){var l=document.getElementById('loader');if(l&&!l.classList.contains('hidden'))l.classList.add('hidden');},6000);</script>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader" role="status">
+  <div class="loader-content">
+    <div class="loader-mark"></div>
+    <div class="loader-text">Algeria Tech · Santé &amp; Médical</div>
+    <div class="loader-bar"></div>
+  </div>
+</div>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a href="/infographies/" class="brand">
+      <span class="brand-mark">A</span>
+      <span><em>Algeria Tech</em> · Santé &amp; Médical</span>
+    </a>
+    <nav aria-label="Sections">
+      <ul class="section-nav">
+        
+      </ul>
+    </nav>
+    <div class="topbar-actions">
+      <button id="btn-share" class="btn btn-ghost" aria-label="Partager">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      </button>
+      <button id="btn-export-pdf" class="btn btn-gold">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        PDF
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="mc">
+
+<!-- ── HERO ─────────────────────────────────────────────────────────────────── -->
+<section class="section hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-content reveal">
+      <span class="eyebrow">── arpcechiffresalgerie · 2018 ──</span>
+      <h1 class="display-1">
+        L’ARPCE par<br><em class="gold">les chiffres</em>
+      </h1>
+      <p class="lead">L’ARPCE par les</p>
+      <p class="hero-analyse reveal">L'étude du document « L’ARPCE par les chiffres » fournit un éclairage stratégique sur le domaine analysé pour la période 2018. L'analyse transversale des données, articulée autour de 8 points clés identifiés, offre une grille de lecture multidimensionnelle pour comprendre les enjeux structurels de ce marché.</p>
+      <div class="hero-meta">
+        
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Période</span>
+          <span class="hero-meta-value">2018</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Type</span>
+          <span class="hero-meta-value">Santé &amp; Médical</span>
+        </div>
+      </div>
+      <div class="hero-cta">
+        <a href="#vue-ensemble" class="btn btn-gold">Explorer les données →</a>
+        <a href="#synthese" class="btn btn-ghost">Points clés</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div id="scene3d" class="scene3d-container"></div>
+      <div class="scene-hint">🖱 Glisser · Zoomer · Survoler pour les KPIs</div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+
+
+
+
+
+
+
+
+<!-- ── POINTS CLÉS ───────────────────────────────────────────────────────────── -->
+<section class="section" id="analyse">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Synthèse · Points clés</span>
+      <h2 class="display-2">Éléments <em class="gold">essentiels</em></h2>
+      <p class="lead">Extraits automatiquement du document source · arpcechiffresalgerie.</p>
+    </div>
+    <div class="findings-grid">
+      <div class="finding-item reveal" style="transition-delay:0s">
+        <span class="finding-bullet">✦</span>
+        <span>au public mobile de cinquième génération (5G) et la fourniture de</span>
+      </div>
+      <div class="finding-item reveal" style="transition-delay:0.07s">
+        <span class="finding-bullet">✦</span>
+        <span>cadre des missions qui lui sont assignées par la loi n° 18-04 du 10 mai 2018, on</span>
+      </div>
+      <div class="finding-item reveal" style="transition-delay:0.14s">
+        <span class="finding-bullet">✦</span>
+        <span>des opérateurs de la téléphonie fixe et mobile (2025-2026) ;</span>
+      </div>
+      <div class="finding-item reveal" style="transition-delay:0.21000000000000002s">
+        <span class="finding-bullet">✦</span>
+        <span>Mille trois cent trente-deux (1332) demandes d’information en matière</span>
+      </div>
+      <div class="finding-item reveal" style="transition-delay:0.28s">
+        <span class="finding-bullet">✦</span>
+        <span>d’interconnexion des opérateurs de la téléphonie fixe et mobile (2025-</span>
+      </div>
+      <div class="finding-item reveal" style="transition-delay:0.35000000000000003s">
+        <span class="finding-bullet">✦</span>
+        <span>Sept mille cent vingt (7120) réclamations ont été introduites et traitées avec</span>
+      </div></div>
+  </div>
+</section>
+<div class="divider"></div>
+
+
+
+
+
+  <section class="section section-doc" id="section-0">
+    <div class="container">
+      <div class="data-block glass-card reveal">
+        <span class="data-block-eyebrow">Extrait · Document source</span>
+        <h3>L’ARPCE décide </h3>
+        <p class="section-analysis">Cinquante-six (56) décisions ont été prises par l’Autorité de  régulation  dans  le cadre des missions qui lui sont assignées par la loi n° 18-04 du 10 mai 2018, on</p>
+      </div>
+    </div>
+  </section>
+  <section class="section section-doc section-alt" id="section-1">
+    <div class="container">
+      <div class="data-block glass-card reveal">
+        <span class="data-block-eyebrow">Extrait · Document source</span>
+        <h3>cite notamment </h3>
+        <p class="section-analysis">Une (1) décision portant approbation de la convention d’itinérance national pour l’acheminement des appels d’urgence ; Une   (1) décision   portant   procédure   de   contrôle   d'identification   des abonnés  des  opérateurs  de  communication  Electroniques  titulaires  de licences de téléphonie mobiles ; Trois  (3) décisions  portant  assignation  des  fréquences  dans  la  bande GSM 900 Mhz au</p>
+      </div>
+    </div>
+  </section>
+  <section class="section section-doc" id="section-2">
+    <div class="container">
+      <div class="data-block glass-card reveal">
+        <span class="data-block-eyebrow">Extrait · Document source</span>
+        <h3>L’ARPCE contrôle </h3>
+        <p class="section-analysis">Deux  (2) campagnes  de  contrôle  des  services  de  téléphonie  mobile, menées auprès des trois (3) opérateurs, couvrant l’autoroute Est–Ouest ainsi que six )6(routes nationales et six )6(autoroutes ; Cent  quarante-deux  (142) missions  de  contrôle  des opérateurs  de fourniture  de  services  de  communications  électroniques  relevant  du régime de l’autorisation générale ont été menées, aya</p>
+      </div>
+    </div>
+  </section>
+
+
+<section class="section section-alt" id="domain-charts">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Santé · Analyse clinique</span>
+      <h2 class="display-2">Indicateurs <em class="gold">médicaux</em></h2>
+    </div>
+    <div class="chart-card glass-card chart-wide reveal">
+      <h3 class="chart-title">Distribution démographique</h3>
+      <div class="chart-wrap tall"><canvas id="chart-stacked"></canvas></div>
+    </div>
+    <div class="charts-row charts-2col" style="margin-top:1.5rem">
+      <div class="chart-card glass-card reveal"><h3 class="chart-title">Tendance</h3><div class="chart-wrap"><canvas id="chart-line-area"></canvas></div></div>
+      <div class="chart-card glass-card reveal" style="transition-delay:.1s"><h3 class="chart-title">Radar clinique</h3><div class="chart-wrap"><canvas id="chart-radar"></canvas></div></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ── FOOTER PREMIUM ────────────────────────────────────────────────────────── -->
+<footer class="footer-premium">
+  <div class="container">
+    <div class="footer-glass">
+      <div class="footer-col footer-col-brand">
+        <div class="footer-logo">
+          <span class="footer-logo-mark">✦</span>
+          <span>Algeria<em>Tech</em></span>
+        </div>
+        <p class="footer-tagline">Moteur BI Premium · Three.js · Chart.js · v4</p>
+        <div class="footer-badges">
+          <span class="footer-badge">🔒 Données locales</span>
+          <span class="footer-badge">📊 Chart.js 4</span>
+          <span class="footer-badge">🌐 Three.js 0.160</span>
+        </div>
+      </div>
+      <div class="footer-col footer-col-meta">
+        <h4 class="footer-col-title">Informations source</h4>
+        <dl class="footer-dl">
+          <dt>Document</dt><dd>arpcechiffresalgerie</dd>
+          <dt>Période</dt><dd>2018</dd>
+          <dt>Domaine</dt><dd>Santé &amp; Médical</dd>
+          <dt>Généré le</dt><dd>31 mai 2026</dd>
+        </dl>
+      </div>
+      <div class="footer-col footer-col-actions">
+        <h4 class="footer-col-title">Exporter</h4>
+        <div class="footer-action-btns">
+          <button id="btn-export-json" class="btn btn-ghost footer-action-btn">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M17 13l-5 5-5-5"/><path d="M12 18V4M7 9H4a1 1 0 00-1 1v6a1 1 0 001 1h12a1 1 0 001-1v-6a1 1 0 00-1-1h-3"/></svg>
+            JSON
+          </button>
+          <button id="btn-export-pdf-f" class="btn btn-ghost footer-action-btn" onclick="document.getElementById('btn-export-pdf')?.click()">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><rect x="3" y="3" width="14" height="14" rx="2"/><path d="M7 10h6M10 7v6"/></svg>
+            PDF
+          </button>
+        </div>
+        <p class="footer-legal">Infographie générée automatiquement par Algeria Tech Generator v4. Aucune donnée n'est transmise à des serveurs externes.</p>
+      </div>
+    </div>
+    <div class="footer-bottom-bar">
+      <span>© 2026 Algeria Tech · Tous droits réservés</span>
+      <span>Algeria Tech Generator v4 · BI Premium</span>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<!-- FAB -->
+<div class="fab-stack">
+  <button id="fab-top" class="fab" title="Haut de page">↑</button>
+  <button id="fab-fullscreen" class="fab" title="Plein écran">⛶</button>
+</div>
+
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
