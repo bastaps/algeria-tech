@@ -1,27 +1,16 @@
 {
   "date": "dimanche 31 mai",
-  "synthese": "Les dernières 24h ont été marquées par des avancées technologiques majeures en Algérie et à l'international, avec un focus sur la digitalisation des services publics, l'innovation matérielle et les enjeux de cybersécurité. Les startups et les géants tech redéfinissent les standards, tandis que les risques liés aux arnaques en ligne et aux données personnelles restent une préoccupation centrale. L'Algérie accélère sa transition numérique, mais doit concilier souveraineté technologique et intégration mondiale.",
+  "synthese": "Les dernières 24h ont été marquées par des avancées technologiques majeures en Algérie et à l'international, avec un focus sur la souveraineté numérique, l'IA et les innovations télécoms. Les startups et les géants tech redéfinissent les standards, tandis que les risques cybernétiques et les arnaques en ligne persistent. Une dynamique d'innovation s'accompagne d'une vigilance accrue face aux défis sécuritaires et éthiques.",
   "articles": [
     {
-      "titre": "Équivalence des diplômes : le ministère de la Santé lance une plateforme numérique",
-      "resume": "Le ministère de la Santé a annoncé, ce samedi dans un communiqué, le lancement d’une plateforme numérique permettant aux titulaires de diplômes délivr",
-      "url": "https://algerie-eco.com/2026/05/30/equivalence-des-diplomes-le-ministere-de-la-sante-lance-une-plateforme-numerique/",
-      "date": "2026-05-30T18:23:19.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Le ministère de la Santé digitalise les équivalences de diplômes : une révolution administrative.",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "UFC : Ouverture de la plateforme de préinscriptions en licence et master",
-      "resume": "L’Université de la formation continue (UFC) a annoncé, samedi dans un communiqué, l’ouverture de la plateforme de préinscriptions en licence et master",
-      "url": "https://algerie-eco.com/2026/05/30/ufc-ouverture-de-la-plateforme-de-preinscriptions-en-licence-et-master/",
-      "date": "2026-05-30T17:39:01.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Plateforme de préinscriptions universitaires : l'Algérie mise sur le numérique pour simplifier l'accès.",
+      "titre": "La Commission européenne élève le logiciel libre au rang de levier de politique industrielle",
+      "resume": "La Commission va publier son projet sur la souveraineté technologique, incluant une stratégie open source de l'UE qui donne une priorité au logiciel l",
+      "url": "https://www.zdnet.fr/blogs/l-esprit-libre/la-commission-europeenne-eleve-le-logiciel-libre-au-rang-de-levier-de-politique-industrielle-495895.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-05-31T08:04:40.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "L'UE hisse le logiciel libre au rang de pilier industriel stratégique.",
       "categorie": "Innovation"
     },
     {
@@ -32,7 +21,7 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Souveraineté numérique : le Cianum plaide pour une alliance public-privé et des communs.",
+      "accroche": "Souveraineté numérique : public, privé et communs unis pour une stratégie commune.",
       "categorie": "Innovation"
     },
     {
@@ -43,7 +32,7 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Aerion s'impose comme le client mail ultime sous Linux : test et verdict.",
+      "accroche": "Aerion s'impose comme le client mail incontournable sous Linux.",
       "categorie": "Mobile"
     },
     {
@@ -54,8 +43,8 @@
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Nvidia N1X : une puce qui promet de redéfinir l'ère des PC et l'IA.",
-      "categorie": "Innovation"
+      "accroche": "Nvidia N1X : une puce qui redéfinit l'ère des PC et l'intelligence artificielle.",
+      "categorie": "IA"
     },
     {
       "titre": "J’ai transformé mon PC en développeur IA avec OpenClaw (et voici combien ça me coûte vraiment)",
@@ -76,7 +65,7 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Coupe du Monde 2026 : des milliers de faux sites FIFA ciblent les internautes.",
+      "accroche": "Coupe du Monde 2026 : des milliers de faux sites FIFA piègent les internautes.",
       "categorie": "Cybersécurité"
     },
     {
@@ -87,7 +76,7 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "RED by SFR bouscule le marché avec une fibre à 22,99 € : analyse.",
+      "accroche": "RED by SFR bouscule le marché avec une fibre à 22,99 €, révolution télécoms.",
       "categorie": "Télécoms"
     },
     {
@@ -98,7 +87,7 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "CNIL et Meta alertent : lunettes connectées et colliers IA menacent la vie privée.",
+      "accroche": "CNIL et Meta alertent sur les risques des lunettes connectées et colliers IA.",
       "categorie": "Cybersécurité"
     },
     {
@@ -109,7 +98,7 @@
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Bug Google Gemini : un coach sportif virtuel mis hors service par une IA défaillante.",
+      "accroche": "Google Gemini : un bug met en péril la relation avec un coach sportif.",
       "categorie": "IA"
     },
     {
@@ -120,7 +109,7 @@
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Ferrari électrique : un lancement qui devient un cas d'étude pour l'industrie.",
+      "accroche": "Ferrari électrique : un lancement qui devient un cas d'école marketing.",
       "categorie": "Innovation"
     },
     {
@@ -133,7 +122,18 @@
       "pays": "FR",
       "accroche": "Architecture 800V : la technologie qui révolutionne la recharge des voitures électriques.",
       "categorie": "Innovation"
+    },
+    {
+      "titre": "Équivalence des diplômes : le ministère de la Santé lance une plateforme numérique",
+      "resume": "Le ministère de la Santé a annoncé, ce samedi dans un communiqué, le lancement d’une plateforme numérique permettant aux titulaires de diplômes délivr",
+      "url": "https://algerie-eco.com/2026/05/30/equivalence-des-diplomes-le-ministere-de-la-sante-lance-une-plateforme-numerique/",
+      "date": "2026-05-30T18:23:19.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Ministère de la Santé lance une plateforme numérique pour l'équivalence des diplômes.",
+      "categorie": "Réseaux"
     }
   ],
-  "lastUpdated": "2026-05-31T07:44:43.234Z"
+  "lastUpdated": "2026-05-31T08:08:59.387Z"
 }
