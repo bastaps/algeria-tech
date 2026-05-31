@@ -165,24 +165,19 @@ function populateVoiceSelect() {
                     : /google/i.test(v.name)      ? 2
                     : 3;
 
-    const all     = synth.getVoices();
-    const frVoices = all.filter(v => v.lang.startsWith('fr')).sort((a, b) => rank(a) - rank(b));
+    const frVoices = synth.getVoices()
+        .filter(v => v.lang.startsWith('fr'))
+        .sort((a, b) => rank(a) - rank(b));
 
-    if (!frVoices.length && !all.length) return;
+    if (!frVoices.length) return;
 
-    // Sur Android il n'y a souvent qu'une voix FR : on complète avec toutes les voix dispo
-    const voices = frVoices.length >= 2
-        ? frVoices
-        : [...frVoices, ...all.filter(v => !v.lang.startsWith('fr')).sort((a, b) => rank(a) - rank(b))];
-
-    sel.innerHTML = voices.map(v => {
-        const isFr = v.lang.startsWith('fr');
-        const ico  = rank(v) === 0 ? '⭐' : rank(v) === 1 ? '🔵' : rank(v) === 2 ? '🔴' : (isFr ? '🔈' : '🌐');
+    sel.innerHTML = frVoices.map(v => {
+        const ico   = rank(v) === 0 ? '⭐' : rank(v) === 1 ? '🔵' : rank(v) === 2 ? '🔴' : '🔈';
         const label = v.name
             .replace(/Microsoft\s*/i, '')
             .replace(/\s*Online\s*(Natural)?\s*/i, '')
             .trim()
-            .substring(0, 22);
+            .substring(0, 18);
         return `<option value="${v.name}">${ico} ${label}</option>`;
     }).join('');
 }
