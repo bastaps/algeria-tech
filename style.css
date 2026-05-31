@@ -94,6 +94,7 @@ header { display: contents; }
 .header-content { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; gap: 12px; flex-wrap: nowrap; }
 .logo { display: flex; align-items: center; gap: 10px; cursor: pointer; }
 .logo-icon { width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; font-size: 1.4rem; }
+.logo-img { width: 48px; height: 48px; border-radius: 10px; object-fit: cover; flex-shrink: 0; }
 .logo-text h1 { font-size: 1.5rem; font-weight: 800; line-height: 1.1; }
 .logo-text h1 span { color: var(--secondary); }
 .logo-text p { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
@@ -542,6 +543,7 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
     .logo-text h1 { font-size: 1.2rem; }
     .logo-text p { display: none; }
     .logo-icon { width: 40px; height: 40px; font-size: 1.1rem; }
+    .logo-img { width: 40px; height: 40px; }
 
     /* Barre de recherche masquée sur mobile (dans menu) */
     .search-box { display: none; }
