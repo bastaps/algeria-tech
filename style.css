@@ -16,6 +16,53 @@
 --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 --article-bg: #0f172a;
 }
+
+/* ══════════════════════════════════════════════
+   iOS / IPHONE — OPTIMISATIONS GLOBALES
+══════════════════════════════════════════════ */
+
+/* 1. Supprime le flash bleu/gris au tap sur tous les éléments */
+* { -webkit-tap-highlight-color: transparent; }
+
+/* 2. Supprime le délai 300ms sur tous les éléments interactifs */
+a, button, [onclick], input, select, textarea,
+.logo, .tag-filter, .news-card, .hero-main,
+.hero-side-card > div, .back-to-top, .admin-btn,
+.tag-cloud-item, .mobile-menu-item, .revue-filter-btn {
+    touch-action: manipulation;
+}
+
+/* 3. Safe-area : header dégagé sous le notch (iPhone X→15 Pro Max) */
+.header {
+    padding-left:  env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+}
+.header-content {
+    padding-top: max(10px, env(safe-area-inset-top));
+}
+
+/* 4. Safe-area : boutons flottants dégagés de la barre home */
+.back-to-top { bottom: max(20px, calc(env(safe-area-inset-bottom) + 12px)); }
+.admin-btn   { bottom: max(20px, calc(env(safe-area-inset-bottom) + 12px)); }
+
+/* 5. Inputs ≥ 16px — empêche l'auto-zoom iOS à la saisie */
+@media (max-width: 768px) {
+    input, select, textarea { font-size: 16px !important; }
+}
+
+/* 6. Hover uniquement sur appareils avec pointeur précis (pas tactile) */
+@media (hover: none) {
+    .logo-img:hover                    { transform: none; }
+    .hero-main:hover img               { transform: none; }
+    .hero-side-card > div:hover img    { transform: none; }
+    .news-card:hover                   { transform: none; box-shadow: var(--shadow-sm); }
+    .tag-filter:hover                  { background: var(--bg-white); color: inherit; border-color: var(--border); }
+}
+
+/* 7. Scroll fluide iOS sur les conteneurs horizontaux */
+.tag-filters, .revue-filter-bar, .breaking-content {
+    -webkit-overflow-scrolling: touch;
+}
 body.dark-mode {
 --bg: #0f172a;
 --bg-white: #1e293b;
