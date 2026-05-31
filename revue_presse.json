@@ -1,139 +1,139 @@
 {
-  "date": "samedi 30 mai",
-  "synthese": "L'actualité tech des dernières 24h révèle une dynamique mondiale marquée par l'essor de l'IA et des innovations hardware, tandis que l'Algérie mise sur des solutions locales et des défis infrastructurels. Les géants technologiques redéfinissent les standards avec des levées de fonds historiques et des processeurs révolutionnaires, mais les risques cyber et les enjeux énergétiques persistent. Entre avancées scientifiques et alertes économiques, le secteur tech confirme son rôle central dans les transformations sociétales et industrielles.",
+  "date": "dimanche 31 mai",
+  "synthese": "Les dernières 24h ont été marquées par des avancées technologiques majeures en Algérie et à l'international, avec un focus sur la digitalisation des services publics, l'innovation matérielle et les enjeux de cybersécurité. Les startups et les géants tech redéfinissent les standards, tandis que les risques liés aux arnaques en ligne et aux données personnelles restent une préoccupation centrale. L'Algérie accélère sa transition numérique, mais doit concilier souveraineté technologique et intégration mondiale.",
   "articles": [
     {
-      "titre": "Anthropic lève 65 milliards et dépasse OpenAI en valorisation",
-      "resume": "Anthropic franchit un cap historique avec une valorisation de 965 milliards $, portée par une croissance commerciale sans précédent.\nThe post Anthropi",
-      "url": "https://www.silicon.fr/business-1367/anthropic-leve-65-milliards-et-depasse-openai-en-valorisation-227437",
-      "date": "2026-05-29T13:31:58.000Z",
-      "source": "Silicon.fr",
-      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Anthropic dépasse OpenAI avec une levée record de 65 milliards de dollars.",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Pourquoi Mistral AI construit son propre datacenter d’inférence ?",
-      "resume": "Opérationnel dès cet été, le site de 10 MW s'appuie sur les infrastructures de Digital Realty, les GPU NVIDIA GB300 et la plateforme de données de VAS",
-      "url": "https://www.silicon.fr/data-ia-1372/pourquoi-mistral-ai-construit-son-propre-datacenter-inference-227423",
-      "date": "2026-05-29T09:27:16.000Z",
-      "source": "Silicon.fr",
-      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Mistral AI investit dans son propre datacenter pour booster ses performances d'inférence.",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Facture de l'IA : l'heure du rationnement a sonné pour les entreprises",
-      "resume": "Face à l'explosion des coûts liés à la consommation de jetons, l'heure n'est plus à l'expérimentation débridée. Confrontés à des factures vertigineuse",
-      "url": "https://www.zdnet.fr/actualites/facture-de-lia-lheure-du-rationnement-a-sonne-pour-les-entreprises-495846.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-05-29T14:37:53.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Les entreprises rationnent l'IA : la facture devient ingérable sans optimisation.",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Anthropic vaut 5 fois ce que valaient Uber et Facebook réunis avant leur cotation",
-      "resume": "104 milliards pour Facebook, 82 pour Uber : à eux deux, les géants du Web valaient 186 milliards en arrivant en Bourse. Anthropic, elle, en pèse 965 a",
-      "url": "https://www.numerama.com/tech/2262343-anthropic-vaut-pres-de-5-fois-ce-que-valaient-uber-et-facebook-reunis-avant-leur-cotation.html",
-      "date": "2026-05-30T06:01:00.000Z",
-      "source": "Numerama",
-      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
-      "pays": "FR",
-      "accroche": "Anthropic vaut 5 fois Uber et Facebook réunis avant leur introduction en Bourse.",
-      "categorie": "Startups"
-    },
-    {
-      "titre": "Nvidia Vera : on sait enfin ce que vaut ce processeur ARM surpuissant face à Intel et AMD",
-      "resume": "Phoronix vient de publier les premiers benchmarks de Vera, le CPU 88 cœurs intégralement conçu en interne par Nvidia. Premier coup officiel sur le mar",
-      "url": "https://www.frandroid.com/marques/nvidia/3119543_nvidia-vera-on-sait-enfin-ce-que-vaut-ce-processeur-arm-surpuissant-face-a-intel-et-amd",
-      "date": "2026-05-30T08:13:54.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Nvidia Vera défie Intel et AMD avec un processeur ARM surpuissant.",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "MediaTek Dimensity 7500 : les nouveaux cœurs Arm C1 débarquent avec une surprise",
-      "resume": "MediaTek prend Qualcomm de vitesse : son nouveau Dimensity 7500 est le premier processeur mobile à embarquer les cœurs Arm C1, normalement attendus en",
-      "url": "https://www.frandroid.com/marques/3119331_mediatek-dimensity-7500-les-nouveaux-coeurs-arm-c1-debarquent-avec-une-surprise",
-      "date": "2026-05-30T06:32:00.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "MediaTek Dimensity 7500 intègre des cœurs Arm C1 pour des performances inédites.",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "ZTE présente le nubia Neo 5 GT un nouveau smartphone gaming équipé d’un ventilateur et d’une IA gaming",
-      "resume": "ZTE annonce la sortie d’un smartphone gaming, le Nubia Neo 5 GT. Proposé à moins de 400 €, il est disponible dès à présent.",
-      "url": "https://www.01net.com/actualites/zte-presente-le-nubia-neo-5-gt-un-nouveau-smartphone-gaming-equipe-dun-ventilateur-et-dune-ia-gaming.html",
-      "date": "2026-05-29T13:37:18.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "ZTE révolutionne le gaming avec le nubia Neo 5 GT et son ventilateur intégré.",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Arnaque sur Android : 250 fausses applications vous abonnent à votre insu",
-      "resume": "Pendant dix mois, des pirates ont orchestré une arnaque d'une redoutable efficacité contre les utilisateurs Android. Baptisée « Premium Deception », l",
-      "url": "https://www.01net.com/actualites/arnaque-android-250-fausses-applications-vous-abonnent-votre-insu.html",
-      "date": "2026-05-30T07:00:18.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "250 applications Android frauduleuses abonnent les utilisateurs à leur insu.",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "Utiq, ce tracker poussé par les opérateurs télécoms qui vous piste même en navigation privée",
-      "resume": "Présenté comme l'alternative européenne et vertueuse aux redoutés cookies tiers, Utiq s'invite peu à peu dans notre quotidien numérique. Des experts a",
-      "url": "https://www.zdnet.fr/actualites/utiq-ce-tracker-pousse-par-les-operateurs-telecoms-qui-vous-piste-meme-en-navigation-privee-495855.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-05-29T15:22:22.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Utiq, le tracker des opérateurs télécoms, contourne la navigation privée.",
-      "categorie": "Télécoms"
-    },
-    {
-      "titre": "Tesla l’a fait, les autres paniquent : le chantier colossal pour mettre à jour vos voitures à distance",
-      "resume": "D'ici 2030, les constructeurs promettent des voitures capables de s'améliorer après l'achat, grâce aux mises à jour logicielles et à l'intelligence ar",
-      "url": "https://www.frandroid.com/survoltes/voitures-electriques/3103829_tesla-la-fait-les-autres-paniquent-le-chantier-colossal-pour-mettre-a-jour-vos-voitures-a-distance",
-      "date": "2026-05-30T07:46:05.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Tesla innove avec des mises à jour à distance pour ses véhicules, un modèle suivi.",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Université de Sidi Bel Abbès : Deux étudiantes développent un appareil de stérilisation à l’ozone destiné aux secteurs agricole et industriel",
-      "resume": "Deux étudiantes de l’université Djillali Liabès de Sidi Bel Abbès ont mis au point un appareil de génération de gaz d’ozone destiné à des applications",
-      "url": "https://algerie-eco.com/2026/05/29/universite-de-sidi-bel-abbes-deux-etudiantes-developpent-un-appareil-de-sterilisation-a-lozone-destine-aux-secteurs-agricole-et-industriel/",
-      "date": "2026-05-29T18:06:43.000Z",
+      "titre": "Équivalence des diplômes : le ministère de la Santé lance une plateforme numérique",
+      "resume": "Le ministère de la Santé a annoncé, ce samedi dans un communiqué, le lancement d’une plateforme numérique permettant aux titulaires de diplômes délivr",
+      "url": "https://algerie-eco.com/2026/05/30/equivalence-des-diplomes-le-ministere-de-la-sante-lance-une-plateforme-numerique/",
+      "date": "2026-05-30T18:23:19.000Z",
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Deux étudiantes algériennes révolutionnent la stérilisation médicale avec l'ozone.",
+      "accroche": "Le ministère de la Santé digitalise les équivalences de diplômes : une révolution administrative.",
       "categorie": "Innovation"
     },
     {
-      "titre": "« 25.0528, 121.5990 » : pourquoi Nvidia, Microsoft et Arm ont tous publié ces mêmes coordonnées GPS en même temps",
-      "resume": "Trois comptes officiels Nvidia, le compte Windows et celui d'Arm ont publié au même moment un message énigmatique accompagné de deux nombres. Ce sont",
-      "url": "https://www.numerama.com/tech/2263419-25-0528-121-5990-pourquoi-nvidia-microsoft-et-arm-ont-tous-publie-ces-memes-coordonnees-gps-en-meme-temps.html",
-      "date": "2026-05-30T07:07:20.000Z",
+      "titre": "UFC : Ouverture de la plateforme de préinscriptions en licence et master",
+      "resume": "L’Université de la formation continue (UFC) a annoncé, samedi dans un communiqué, l’ouverture de la plateforme de préinscriptions en licence et master",
+      "url": "https://algerie-eco.com/2026/05/30/ufc-ouverture-de-la-plateforme-de-preinscriptions-en-licence-et-master/",
+      "date": "2026-05-30T17:39:01.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Plateforme de préinscriptions universitaires : l'Algérie mise sur le numérique pour simplifier l'accès.",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Souveraineté : le Cianum appelle à une coordination public, privé et communs numériques",
+      "resume": "Le Conseil de l’intelligence artificielle et du numérique préconise «de rompre les silos et sortir du dualisme public-privé par des coalitions», et de",
+      "url": "https://www.zdnet.fr/blogs/l-esprit-libre/souverainete-le-cianum-appelle-a-une-coordination-public-prive-et-communs-numeriques-495882.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-05-30T14:28:23.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Souveraineté numérique : le Cianum plaide pour une alliance public-privé et des communs.",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "J'ai testé des dizaines de clients mail sous Linux, Aerion s'impose comme le meilleur",
+      "resume": "Open source et axé sur la confidentialité, Aerion séduit par son interface claire et sa stabilité, sans sacrifier les fonctionnalités essentielles.",
+      "url": "https://www.zdnet.fr/pratique/jai-teste-des-dizaines-de-clients-mail-sous-linux-aerion-simpose-comme-le-meilleur-495765.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-05-30T12:02:50.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Aerion s'impose comme le client mail ultime sous Linux : test et verdict.",
+      "categorie": "Mobile"
+    },
+    {
+      "titre": "« Une nouvelle ère pour le PC » : pourquoi le pari N1X de Nvidia est plus qu’une puce de plus",
+      "resume": "À la veille du Computex 2026, Nvidia, Microsoft et Arm ont posté le même message au même moment. Derrière l'annonce, il y a une vraie bascule. Et quel",
+      "url": "https://www.frandroid.com/marques/3119629_une-nouvelle-ere-pour-le-pc-pourquoi-le-pari-n1x-de-nvidia-est-plus-quune-puce-de-plus",
+      "date": "2026-05-31T06:00:00.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Nvidia N1X : une puce qui promet de redéfinir l'ère des PC et l'IA.",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "J’ai transformé mon PC en développeur IA avec OpenClaw (et voici combien ça me coûte vraiment)",
+      "resume": "Je bidouille depuis vingt ans, mais je n'ai jamais su coder. Cette frustration vient d'éclater en vol. J'ai installé un agent IA autonome qui agit sur",
+      "url": "https://www.frandroid.com/comment-faire/tutoriaux/tutoriels-intelligence-artificielle-ia/3118107_jai-transforme-mon-pc-en-developpeur-ia-avec-openclaw-et-voici-combien-ca-me-coute-vraiment",
+      "date": "2026-05-30T17:01:00.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "OpenClaw transforme un PC en développeur IA : coût et performance révélés.",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Arnaque à la Coupe du Monde 2026 : des milliers de faux sites FIFA inondent Internet",
+      "resume": "La Coupe du Monde de football 2026 va bientôt commencer, et les pirates sont prêts. Des chercheurs en cybersécurité ont mis au jour plus de 4 300 faux",
+      "url": "https://www.01net.com/actualites/arnaque-coupe-monde-2026-milliers-faux-sites-fifa-inondent-internet.html",
+      "date": "2026-05-31T07:00:13.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Coupe du Monde 2026 : des milliers de faux sites FIFA ciblent les internautes.",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Fibre à 22,99 € : Comment RED by SFR ébranle le marché des télécoms ?",
+      "resume": "RED by SFR casse le marché de la fibre avec son offre folle à 22,99 euros par mois et sans engagement ! Découvrez les détails tout de suite !",
+      "url": "https://www.01net.com/bons-plans/fibre-a-2299-e-comment-red-by-sfr-ebranle-le-marche-des-telecoms.html",
+      "date": "2026-05-30T15:09:29.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "RED by SFR bouscule le marché avec une fibre à 22,99 € : analyse.",
+      "categorie": "Télécoms"
+    },
+    {
+      "titre": "La CNIL s’alarme des lunettes connectées, Meta en rajoute avec un collier IA",
+      "resume": "Alors que la CNIL alerte contre les lunettes connectées, Meta annonce un pendentif capable d'enregistrer vos conversations.",
+      "url": "https://www.01net.com/actualites/la-cnil-salarme-des-lunettes-connectees-meta-en-rajoute-avec-un-collier-ia.html",
+      "date": "2026-05-30T14:58:51.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "CNIL et Meta alertent : lunettes connectées et colliers IA menacent la vie privée.",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "J’ai failli perdre mon coach sportif à cause d’un bug de Google Gemini",
+      "resume": "Dans la newsletter ToujoursPlus de cette semaine, j'ai exposé une mésaventure qui m'est arrivée à cause d'un bug dans Gemini, l'IA de Google. Les leço",
+      "url": "https://www.numerama.com/tech/2262383-jai-failli-perdre-mon-coach-sportif-a-cause-dun-bug-de-google-gemini.html",
+      "date": "2026-05-31T07:36:12.000Z",
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Nvidia, Microsoft et Arm partagent des coordonnées GPS mystérieuses : quelle est la raison ?",
-      "categorie": "Réseaux"
+      "accroche": "Bug Google Gemini : un coach sportif virtuel mis hors service par une IA défaillante.",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Quand le lancement de la première Ferrari électrique se transforme en cas d’école",
+      "resume": "Depuis le Cybertruck, on n'avait jamais vu un tel rejet épidermique pour une nouveauté automobile. Personne n'aurait pu imaginer cela de la part de Fe",
+      "url": "https://www.numerama.com/vroom/2262101-quand-le-lancement-de-la-premiere-ferrari-electrique-se-transforme-en-cas-decole.html",
+      "date": "2026-05-31T06:44:00.000Z",
+      "source": "Numerama",
+      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
+      "pays": "FR",
+      "accroche": "Ferrari électrique : un lancement qui devient un cas d'étude pour l'industrie.",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Architecture 800 V : tout savoir sur la technologie qui permet de recharger sa voiture électrique en 10 minutes",
+      "resume": "L'architecture 800 V désigne un système de propulsion électrique fonctionnant à une tension deux fois supérieure à la norme courante de 400 V. Elle pe",
+      "url": "https://www.numerama.com/vroom/2261303-architecture-800-v-tout-savoir-sur-la-technologie-qui-permet-de-recharger-sa-voiture-electrique-en-10-minutes.html",
+      "date": "2026-05-30T14:50:00.000Z",
+      "source": "Numerama",
+      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
+      "pays": "FR",
+      "accroche": "Architecture 800V : la technologie qui révolutionne la recharge des voitures électriques.",
+      "categorie": "Innovation"
     }
   ],
-  "lastUpdated": "2026-05-30T08:34:58.293Z"
+  "lastUpdated": "2026-05-31T07:44:43.234Z"
 }
