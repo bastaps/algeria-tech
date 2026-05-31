@@ -24,8 +24,16 @@ const SOURCES = [
     { url: 'https://www.algerie360.com/category/high-tech/feed/', name: 'Algérie360 Tech', pays: 'DZ' },
     { url: 'https://www.algerie-eco.com/feed/',            name: 'Algérie Éco',      pays: 'DZ' },
     { url: 'https://www.aps.dz/fr/algerie/education-et-technologie?format=feed&type=rss', name: 'APS', pays: 'DZ' },
-    { url: 'https://elwatan-dz.com/feed',                  name: 'El Watan',         pays: 'DZ' },
-    { url: 'https://www.silicon.fr/feed',                  name: 'Silicon.fr',       pays: 'FR' },
+    { url: 'https://elwatan-dz.com/feed',                  name: 'El Watan',              pays: 'DZ' },
+    { url: 'https://www.android-dz.com/feed/',             name: 'Android DZ',            pays: 'DZ' },
+    { url: 'https://www.ntic-dz.com/feed/',                name: 'NTIC.dz',               pays: 'DZ' },
+    { url: 'https://www.ecomnewsmed.com/location/algerie/feed/', name: 'EcomNewsMed DZ',  pays: 'DZ' },
+    { url: 'https://www.algerietelecom.dz/fr/espace-presse/feed/', name: 'AT Presse',     pays: 'DZ' },
+    { url: 'https://www.indjazat.com/category/tic/feed/',  name: 'Indjazat TIC',          pays: 'DZ' },
+    { url: 'https://www.elmoudjahid.dz/fr/economie/feed/', name: 'El Moudjahid Éco',      pays: 'DZ' },
+    { url: 'https://www.lesoirdalgerie.com/mobiles/feed/', name: 'Le Soir Mobiles',        pays: 'DZ' },
+    { url: 'https://www.lesoirdalgerie.com/numerique-et-satellite/feed/', name: 'Le Soir Numérique', pays: 'DZ' },
+    { url: 'https://www.silicon.fr/feed',                  name: 'Silicon.fr',            pays: 'FR' },
     { url: 'https://www.zdnet.fr/feed/',                   name: 'ZDNet France',     pays: 'FR' },
     { url: 'https://www.usine-digitale.fr/rss/',           name: 'Usine Digitale',   pays: 'FR' },
     { url: 'https://www.frandroid.com/feed',               name: 'Frandroid',        pays: 'FR' },
@@ -38,7 +46,7 @@ const SOURCES = [
 const TECH_KW = ['tic', 'télécom', 'mobile', 'startup', 'innovation', 'tech', 'numérique', 'internet', 'data', 'ia', 'intelligence artificielle', 'fibre', 'algérie', '5g', '4g', 'réseau', 'digital', 'cybersécurité', 'cloud', 'djezzy', 'ooredoo', 'mobilis'];
 
 function logoUrl(sourceName) {
-    const domainMap = { 'ITMAG.dz': 'itmag.dz', 'DZ-Tech': 'dz-tech.news', 'TSA Algérie': 'tsa-algerie.dz', 'Les Enjeux Éco': 'lesenjeuxeco.dz', 'Algérie360 Tech': 'algerie360.com', 'APS': 'aps.dz', 'El Watan': 'elwatan-dz.com', 'Algérie Éco': 'algerie-eco.com', 'Silicon.fr': 'silicon.fr', 'ZDNet France': 'zdnet.fr', 'Usine Digitale': 'usine-digitale.fr', 'Frandroid': 'frandroid.com', '01net': '01net.com', 'Numerama': 'numerama.com', "L'Usine Nouvelle": 'usinenouvelle.com', 'Journal du Net': 'journaldunet.com' };
+    const domainMap = { 'ITMAG.dz': 'itmag.dz', 'DZ-Tech': 'dz-tech.news', 'TSA Algérie': 'tsa-algerie.dz', 'Les Enjeux Éco': 'lesenjeuxeco.dz', 'Algérie360 Tech': 'algerie360.com', 'APS': 'aps.dz', 'El Watan': 'elwatan-dz.com', 'Algérie Éco': 'algerie-eco.com', 'Android DZ': 'android-dz.com', 'NTIC.dz': 'ntic-dz.com', 'EcomNewsMed DZ': 'ecomnewsmed.com', 'AT Presse': 'algerietelecom.dz', 'Indjazat TIC': 'indjazat.com', 'El Moudjahid Éco': 'elmoudjahid.dz', 'Le Soir Mobiles': 'lesoirdalgerie.com', 'Le Soir Numérique': 'lesoirdalgerie.com', 'Silicon.fr': 'silicon.fr', 'ZDNet France': 'zdnet.fr', 'Usine Digitale': 'usine-digitale.fr', 'Frandroid': 'frandroid.com', '01net': '01net.com', 'Numerama': 'numerama.com', "L'Usine Nouvelle": 'usinenouvelle.com', 'Journal du Net': 'journaldunet.com' };
     return `https://www.google.com/s2/favicons?domain=${domainMap[sourceName] || 'google.com'}&sz=32`;
 }
 
