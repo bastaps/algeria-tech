@@ -141,9 +141,12 @@ public static class CtrlCGuard {
                 # 6. Remettre skip-worktree sur les fichiers auto
                 Set-SkipWorktree -Enable
 
-                # 7. Stager uniquement les fichiers TRACKED modifies (pas les auto-generes)
-                git add -u
-                # Exclure explicitement les fichiers auto du staging
+                # 7. Stager les fichiers modifies ET les nouveaux articles/images/documents
+                git add -u                                    # fichiers tracked modifies
+                git add articles/ 2>$null | Out-Null          # nouveaux .md (untracked)
+                git add images/ 2>$null | Out-Null            # nouvelles images articles
+                git add documents/ 2>$null | Out-Null         # nouveaux PDF
+                # Exclure uniquement les fichiers vraiment auto-generes
                 foreach ($f in $AUTO_FILES) {
                     git restore --staged $f 2>$null
                 }
