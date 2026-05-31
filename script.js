@@ -520,7 +520,9 @@ function initAudioReader(textToRead) {
     // ── Lecture Web Speech API ────────────────────────────────────
     function startSpeech() {
         if (!synth) return;
-        synth.cancel();
+
+        // Cancel uniquement si déjà en lecture (évite le bug iOS "cancel on idle")
+        if (synth.speaking || synth.pending) synth.cancel();
 
         if (playBtn)   playBtn.style.display  = 'none';
         if (stopBtn)   stopBtn.style.display  = 'flex';
@@ -538,19 +540,13 @@ function initAudioReader(textToRead) {
         utt.onend   = resetUI;
         utt.onerror = resetUI;
 
-        function speak() {
-            const voice = resolveVoice();
-            if (voice) utt.voice = voice;
-            synth.speak(utt);
-        }
+        // Voix appliquée si disponible, sinon voix système par défaut (Android)
+        const voice = resolveVoice();
+        if (voice) utt.voice = voice;
 
-        // iOS : cancel() coupe le contexte audio, speak() doit attendre un tick
-        const delay = /iPhone|iPad|iPod/i.test(navigator.userAgent) ? 150 : 0;
-        if (synth.getVoices().length > 0) {
-            setTimeout(speak, delay);
-        } else {
-            synth.addEventListener('voiceschanged', () => setTimeout(speak, delay), { once: true });
-        }
+        // DOIT être synchrone dans le handler du geste utilisateur.
+        // setTimeout (même 0ms) sort du contexte de geste → TTS bloqué silencieusement sur mobile.
+        synth.speak(utt);
     }
 
     // ── Bouton repli mobile ───────────────────────────────────────
@@ -565,11 +561,20 @@ function initAudioReader(textToRead) {
         collapseBtn.addEventListener('touchend', doCollapse, { passive: false });
     }
 
-    // ── Bindings (click + touchend pour mobile) ───────────────────
+    // ── Bindings anti-double-déclenchement (touchend + click) ────
+    // Sur mobile les deux events tirent pour un seul tap.
+    // touchend prend la main ; click est ignoré s'il suit un touchend récent.
+    let _lastTouchMs = 0;
     const _bindBtn = (btn, fn) => {
         if (!btn) return;
-        btn.addEventListener('click', fn);
-        btn.addEventListener('touchend', (e) => { e.preventDefault(); fn(); }, { passive: false });
+        btn.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            _lastTouchMs = Date.now();
+            fn();
+        }, { passive: false });
+        btn.addEventListener('click', () => {
+            if (Date.now() - _lastTouchMs > 500) fn();
+        });
     };
     _bindBtn(playBtn, startSpeech);
     _bindBtn(stopBtn, resetUI);
