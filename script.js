@@ -679,13 +679,12 @@ function renderRevueCards() {
     const mastheadHtml = `
         <div class="revue-masthead">
             <div class="revue-masthead-brand">
-                <span class="revue-masthead-label">✦ ÉDITION QUOTIDIENNE<span class="revue-count-journal">${articles.length} article${articles.length !== 1 ? 's' : ''} · ${_revueData.totalSources || 20} sources</span></span>
                 <span class="revue-masthead-title">Revue de <span>Presse</span></span>
                 <span class="revue-masthead-subtitle">TIC &amp; Télécoms · Algérie &amp; International</span>
             </div>
             <div class="revue-masthead-date">
-                <strong>${_revueData.date}</strong>
-                TIC &amp; TÉLÉCOMS
+                <div class="revue-masthead-date-line"><strong>${_revueData.date}</strong><span class="revue-masthead-label">✦ ÉDITION QUOTIDIENNE</span></div>
+                <span class="revue-count-journal">${articles.length} article${articles.length !== 1 ? 's' : ''} · ${_revueData.totalSources || 20} sources</span>
             </div>
         </div>`;
 
