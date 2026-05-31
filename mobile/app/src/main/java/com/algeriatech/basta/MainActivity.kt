@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 import android.app.Activity
 import android.os.Bundle
@@ -28,6 +29,8 @@ import androidx.compose.ui.platform.LocalContext
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 import androidx.compose.ui.viewinterop.AndroidView
 
 class MainActivity : ComponentActivity() {
@@ -36,7 +39,10 @@ class MainActivity : ComponentActivity() {
         setContent {
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -50,7 +56,10 @@ class MainActivity : ComponentActivity() {
                         settings.javaScriptEnabled = true
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                         settings.domStorageEnabled = true
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -60,6 +69,7 @@ class MainActivity : ComponentActivity() {
                         // REMPLACEZ PAR L'ADRESSE DE VOTRE SITE :
                         loadUrl("https://algeria-tech.pages.dev/")
                     }
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
                 }
@@ -101,6 +111,9 @@ class MainActivity : ComponentActivity() {
                 modifier = Modifier.fillMaxSize(),
                 factory = { webView }
 >>>>>>> 5896176 (Sauvegarde complète locale avant synchronisation)
+=======
+                }
+>>>>>>> Stashed changes
 =======
                 }
 >>>>>>> Stashed changes
