@@ -169,20 +169,22 @@ try {
 
             # ── 4. START ─────────────────────────────────────────────────────
             "4" {
-                Write-Host "`n--- Lancement du serveur local ---" -ForegroundColor Cyan
-                # Charger la cle Mistral depuis .env
-                $mistralKey = $env:MISTRAL_API_KEY
-                if (-not $mistralKey -and (Test-Path ".env")) {
+                Write-Host "`n--- Lancement du serveur local (Ctrl+C = retour menu) ---" -ForegroundColor Cyan
+                if (-not $env:MISTRAL_API_KEY -and (Test-Path ".env")) {
                     Get-Content ".env" | ForEach-Object {
-                        if ($_ -match "^MISTRAL_API_KEY=(.+)$") { $mistralKey = $matches[1] }
+                        if ($_ -match "^MISTRAL_API_KEY=(.+)$") {
+                            $env:MISTRAL_API_KEY = $matches[1]
+                            Write-Host "Cle Mistral chargee." -ForegroundColor Gray
+                        }
                     }
                 }
-                # Lancer node dans une NOUVELLE fenetre : Ctrl+C n'affecte pas ce menu
-                $cmd = "cd '$($PWD.Path)'; `$env:MISTRAL_API_KEY='$mistralKey'; node server.js; pause"
-                Start-Process powershell -ArgumentList "-NoExit", "-Command", $cmd
-                Write-Host "Serveur lance dans une nouvelle fenetre (localhost:3000)." -ForegroundColor Green
-                Write-Host "Fermez cette fenetre ou faites Ctrl+C dedans pour arreter le serveur." -ForegroundColor DarkGray
-                Read-Host "`nAppuyez sur Entree pour continuer..."
+                $script:ctrlC = $false
+                node server.js
+                if ($script:ctrlC) {
+                    Write-Host "`n[CTRL+C] Serveur arrete. Retour au menu..." -ForegroundColor Yellow
+                    $script:ctrlC = $false
+                    Start-Sleep -Milliseconds 300
+                }
             }
 
             # ── 5. STATUS ────────────────────────────────────────────────────
