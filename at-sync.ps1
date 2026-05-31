@@ -1,14 +1,29 @@
 try {
     Set-Location $PSScriptRoot
 
-    # ── Ctrl+C : empeche la fermeture, pose un flag ──────────────────────────
-    $script:ctrlC = $false
-    $script:ctrlCHandler = [ConsoleCancelEventHandler]{
-        param($s, $e)
-        $e.Cancel     = $true
-        $script:ctrlC = $true
+    # ── Ctrl+C : intercepteur C# natif (garantit e.Cancel=true sur le bon thread) ─
+    if (-not ([System.Management.Automation.PSTypeName]'CtrlCGuard').Type) {
+        Add-Type @"
+using System;
+public static class CtrlCGuard {
+    public static volatile bool Fired = false;
+    private static ConsoleCancelEventHandler _h;
+    public static void Register() {
+        _h = new ConsoleCancelEventHandler(Handler);
+        Console.CancelKeyPress += _h;
     }
-    [Console]::add_CancelKeyPress($script:ctrlCHandler)
+    public static void Unregister() {
+        if (_h != null) { Console.CancelKeyPress -= _h; _h = null; }
+    }
+    public static void Reset() { Fired = false; }
+    private static void Handler(object s, ConsoleCancelEventArgs e) {
+        e.Cancel = true;
+        Fired = true;
+    }
+}
+"@
+    }
+    [CtrlCGuard]::Register()
 
     # ── Fichiers auto-générés à ne jamais pousser ────────────────────────────
     $AUTO_FILES = @("revue_presse.json", "articles.json", "veille_data.json")
@@ -47,15 +62,16 @@ try {
     }
 
     do {
-        $script:ctrlC = $false
+        [CtrlCGuard]::Reset()
         Show-Menu
         Write-Host "Choisissez une option : " -NoNewline -ForegroundColor White
 
-        # ReadKey = reponse instantanee, CancelKeyPress gere Ctrl+C
+        # ReadKey = reponse instantanee sans Enter
         try { $key = [Console]::ReadKey($true) } catch { $key = $null }
 
-        if ($script:ctrlC -or ($null -eq $key)) {
+        if ([CtrlCGuard]::Fired -or ($null -eq $key)) {
             Write-Host "`n[CTRL+C] Retour au menu..." -ForegroundColor Yellow
+            [CtrlCGuard]::Reset()
             Start-Sleep -Milliseconds 300
             continue
         }
@@ -178,13 +194,11 @@ try {
                         }
                     }
                 }
-                $script:ctrlC = $false
-                node server.js
-                if ($script:ctrlC) {
-                    Write-Host "`n[CTRL+C] Serveur arrete. Retour au menu..." -ForegroundColor Yellow
-                    $script:ctrlC = $false
-                    Start-Sleep -Milliseconds 300
-                }
+                [CtrlCGuard]::Reset()
+                try { node server.js } catch { }
+                Write-Host "`n[Serveur arrete] Retour au menu..." -ForegroundColor Yellow
+                [CtrlCGuard]::Reset()
+                Start-Sleep -Milliseconds 500
             }
 
             # ── 5. STATUS ────────────────────────────────────────────────────
@@ -234,8 +248,10 @@ try {
 
     } while ($choice -ne "q" -and $choice -ne "Q")
 
-    [Console]::remove_CancelKeyPress($script:ctrlCHandler)
+    [CtrlCGuard]::Unregister()
 
+} catch [System.Management.Automation.PipelineStoppedException] {
+    # Fermeture propre via Ctrl+C au niveau superieur
 } catch {
     Write-Host "`nUNE ERREUR TECHNIQUE EST SURVENUE :" -ForegroundColor Red
     Write-Host $_.Exception.Message -ForegroundColor White

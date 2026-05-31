@@ -2,14 +2,10 @@
    smart-ingest.js — CONNECTÉ À SMART ENGINE (OLLAMA)
 ═══════════════════════════════════════════════════════════ */
 
-<<<<<<< HEAD
 const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 const REMOTE_API = 'https://dz-tech-press-api.onrender.com';
 const API_BASE = isLocal ? '' : REMOTE_API;
 const ENGINE_URL = `${API_BASE}/api/smart-generate`;
-=======
-const ENGINE_URL = '/api/smart-generate';
->>>>>>> 5896176 (Sauvegarde complète locale avant synchronisation)
 
 document.addEventListener('DOMContentLoaded', () => {
     initDateTime();
@@ -85,11 +81,7 @@ async function transcribePDF(input) {
     formData.append('pdf', file);
 
     try {
-<<<<<<< HEAD
         const response = await fetch(`${API_BASE}/api/transcribe-pdf`, {
-=======
-        const response = await fetch('/api/transcribe-pdf', {
->>>>>>> 5896176 (Sauvegarde complète locale avant synchronisation)
             method: 'POST',
             body: formData
         });
@@ -229,11 +221,7 @@ async function deployArticle(e) {
 
 async function fetchCurrentPositions() {
     try {
-<<<<<<< HEAD
         const r = await fetch('/articles.json');
-=======
-        const r = await fetch('articles.json');
->>>>>>> 5896176 (Sauvegarde complète locale avant synchronisation)
         const articles = await r.json();
         const container = document.getElementById('positionsSlots');
         container.innerHTML = articles.slice(0, 2).map(a => 

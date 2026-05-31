@@ -60,6 +60,12 @@ const PALETTES = {
   rapport:  ['#D4A437','#2D8A5F','#B85042','#4A6FA5','#94a3b8','#354265'],
   presse:   ['#0ea5e9','#D4A437','#B85042','#2D8A5F','#7c3aed','#94a3b8'],
 };
+PALETTES.finance  = ['#1d4ed8','#7c3aed','#10b981','#f59e0b','#ef4444','#94a3b8'];
+PALETTES.satellite= ['#7c3aed','#a78bfa','#c084fc','#38bdf8','#818cf8','#e879f9'];
+PALETTES.health   = ['#10b981','#0ea5e9','#f59e0b','#ef4444','#8b5cf6','#06b6d4'];
+PALETTES.energy   = ['#f59e0b','#22c55e','#3b82f6','#ef4444','#8b5cf6','#14b8a6'];
+PALETTES.industry = ['#64748b','#0ea5e9','#f59e0b','#10b981','#ef4444','#a855f7'];
+PALETTES.product  = ['#ec4899','#8b5cf6','#06b6d4','#10b981','#f97316','#3b82f6'];
 
 // ─── Moteur d'Intelligence Éditoriale — Algeria Tech Generator v4 ─────────────
 /**
@@ -817,6 +823,280 @@ export function initCharts() {
 `;
 }
 
+// ─── Génération charts.js — Version adaptée au domaine ───────────────────────
+function genChartsJSDomain(data, pal, domain) {
+  const hasTime = data.chartData && data.chartData.labels && data.chartData.labels.length >= 3;
+  const chartLabel = data.chartData ? (data.chartData.label || 'Évolution') : 'Indicateurs';
+
+  // Chart configs by domain
+  const domainCharts = {
+    finance: ['barComparatif', 'lineArea', 'stackedBar', 'radarIndicateurs', 'indicateurs', 'distribution'],
+    satellite: ['scatter', 'lineEvolution', 'radarIndicateurs', 'polarArea', 'indicateurs', 'repartition'],
+    health: ['stackedBar', 'lineArea', 'repartition', 'radarIndicateurs', 'indicateurs', 'distribution'],
+    energy: ['lineArea', 'stackedBar', 'repartition', 'indicateurs', 'barComparatif', 'radarIndicateurs'],
+    industry: ['indicateurs', 'barComparatif', 'radarIndicateurs', 'repartition', 'lineEvolution', 'distribution'],
+    product: ['repartition', 'radarIndicateurs', 'indicateurs', 'barH', 'distribution', 'barComparatif'],
+    telecom: ['indicateurs', 'repartition', 'distribution', hasTime ? 'lineEvolution' : 'barH', 'barComparatif', 'radarIndicateurs'],
+    startup: ['indicateurs', hasTime ? 'lineEvolution' : 'barComparatif', 'repartition', 'radarIndicateurs', 'distribution', 'barH'],
+    rapport: ['indicateurs', 'repartition', 'distribution', 'barComparatif', hasTime ? 'lineEvolution' : 'barH', 'radarIndicateurs'],
+    presse:  ['repartition', 'indicateurs', 'distribution', 'barH', 'barComparatif', 'lineEvolution'],
+  };
+
+  const order = domainCharts[domain] || domainCharts.rapport;
+
+  const chartFunctions = {
+    indicateurs: `
+function chartIndicateurs(ctx) {
+  const ind = DATASET.indicateurs;
+  if (!ind.length) return null;
+  return new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ind.map(d => d.label),
+      datasets: [{ label:'Valeur', data:ind.map(d=>d.valeur),
+        backgroundColor:ind.map(d=>d.couleur+'bb'), borderColor:ind.map(d=>d.couleur),
+        borderWidth:1, borderRadius:7 }]
+    },
+    options: { responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{display:false}, tooltip:{callbacks:{label:c=>fmt.kpi(c.parsed.y,ind[c.dataIndex]?.unite)+(ind[c.dataIndex]?.unite?' '+ind[c.dataIndex].unite:'')}}},
+      scales:{x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#94a3b8',maxRotation:35}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#94a3b8'}}},
+      animation:{duration:1400,easing:'easeOutQuart'} }
+  });
+}`,
+    repartition: `
+function chartRepartition(ctx) {
+  const rep = DATASET.repartition;
+  if (!rep.length) return null;
+  return new Chart(ctx, {
+    type: 'doughnut',
+    data: { labels:rep.map(d=>d.label), datasets:[{data:rep.map(d=>d.valeur),backgroundColor:rep.map(d=>d.couleur),borderColor:'#111729',borderWidth:3,hoverOffset:14}] },
+    options:{ responsive:true, maintainAspectRatio:false, cutout:'62%',
+      plugins:{legend:{position:'bottom',labels:{padding:12,usePointStyle:true}}, tooltip:{callbacks:{label:c=>fmt.pourcentSimple(c.parsed)+'%'}}},
+      animation:{animateRotate:true,animateScale:true,duration:1400} }
+  });
+}`,
+    distribution: `
+function chartDistribution(ctx) {
+  const rep = DATASET.repartition.slice(0,2);
+  if (rep.length < 2) return null;
+  const top = rep[0];
+  return new Chart(ctx, {
+    type:'doughnut',
+    data:{labels:[top.label,'Reste'],datasets:[{data:[top.valeur,Math.max(0,100-top.valeur)],backgroundColor:[top.couleur,'#1a2238'],borderColor:'#111729',borderWidth:3,hoverOffset:10}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'68%',
+      plugins:{legend:{position:'bottom',labels:{padding:10,usePointStyle:true}},tooltip:{callbacks:{label:c=>fmt.pourcentSimple(c.parsed)+'%'}}},
+      animation:{animateRotate:true,animateScale:true,duration:1200} }
+  });
+}`,
+    lineEvolution: hasTime ? `
+function chartEvolution(ctx) {
+  const ev = DATASET.evolution;
+  if (!ev.length) return null;
+  const vals = ev.map(d=>d.valeur);
+  const avg  = vals.reduce((a,b)=>a+b,0)/vals.length;
+  return new Chart(ctx, {
+    type:'line',
+    data:{labels:ev.map(d=>d.periode),datasets:[
+      {label:${JSON.stringify(chartLabel)},data:vals,borderColor:PALETTE[0],backgroundColor:PALETTE[0]+'18',tension:.35,pointRadius:5,pointBackgroundColor:PALETTE[0],pointBorderColor:'#111729',pointBorderWidth:2,fill:true},
+      {label:'Moyenne',data:vals.map(()=>avg),borderColor:'rgba(148,163,184,.5)',borderDash:[5,3],tension:0,pointRadius:0,fill:false,borderWidth:1.5}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:true}},
+      scales:{x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#94a3b8'}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#94a3b8'}}},
+      animation:{duration:1500,easing:'easeOutQuart'} }
+  });
+}` : '',
+    lineArea: `
+function chartLineArea(ctx) {
+  const ind = DATASET.indicateurs;
+  if (ind.length < 2) return null;
+  return new Chart(ctx, {
+    type:'line',
+    data:{labels:ind.map(d=>d.label),datasets:[
+      {label:'Tendance',data:ind.map(d=>d.valeur),borderColor:PALETTE[0],backgroundColor:PALETTE[0]+'22',tension:.45,pointRadius:6,pointBackgroundColor:PALETTE[0],fill:true},
+      {label:'Référence',data:ind.map(d=>d.valeur*0.9),borderColor:PALETTE[1]+'88',borderDash:[4,3],tension:.3,pointRadius:3,fill:false,borderWidth:1.5}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:true}},
+      scales:{x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#94a3b8'}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#94a3b8'}}},
+      animation:{duration:1400,easing:'easeOutQuart'} }
+  });
+}`,
+    barH: `
+function chartBarH(ctx) {
+  const rep = DATASET.repartition;
+  if (!rep.length) return null;
+  return new Chart(ctx, {
+    type:'bar',
+    data:{labels:rep.map(d=>d.label),datasets:[{label:'Part (%)',data:rep.map(d=>d.valeur),backgroundColor:rep.map(d=>d.couleur+'bb'),borderColor:rep.map(d=>d.couleur),borderWidth:1,borderRadius:5}]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false}},
+      scales:{x:{max:100,grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#94a3b8',callback:v=>v+'%'}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#f4ede0'}}},
+      animation:{duration:1300,easing:'easeOutQuart'} }
+  });
+}`,
+    barComparatif: `
+function chartComparatif(ctx) {
+  const ind = DATASET.indicateurs.slice(0,4);
+  if (ind.length < 2) return null;
+  const max = Math.max(...ind.map(d=>d.valeur));
+  return new Chart(ctx, {
+    type:'bar',
+    data:{labels:ind.map(d=>d.label),datasets:[
+      {label:'Valeur absolue',data:ind.map(d=>d.valeur),backgroundColor:ind.map(d=>d.couleur+'bb'),borderColor:ind.map(d=>d.couleur),borderWidth:1,borderRadius:6,yAxisID:'y'},
+      {label:'Part relative (%)',data:ind.map(d=>+(d.valeur/max*100).toFixed(1)),type:'line',borderColor:PALETTE[0],backgroundColor:'transparent',pointRadius:5,pointBackgroundColor:PALETTE[0],tension:.3,yAxisID:'y2'}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:true}},
+      scales:{y:{position:'left',grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#94a3b8'}},y2:{position:'right',grid:{display:false},ticks:{color:PALETTE[0],callback:v=>v+'%'}},x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#f4ede0'}}},
+      animation:{duration:1400,easing:'easeOutQuart'} }
+  });
+}`,
+    radarIndicateurs: `
+function chartRadar(ctx) {
+  const ind = DATASET.indicateurs.slice(0,6);
+  if (ind.length < 3) return null;
+  const max = Math.max(...ind.map(d=>d.valeur)) || 1;
+  return new Chart(ctx, {
+    type:'radar',
+    data:{labels:ind.map(d=>d.label),datasets:[
+      {label:'Indicateurs',data:ind.map(d=>+(d.valeur/max*100).toFixed(1)),borderColor:PALETTE[0],backgroundColor:PALETTE[0]+'33',pointBackgroundColor:PALETTE[0],pointBorderColor:'#fff',pointHoverBackgroundColor:'#fff',borderWidth:2}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,
+      scales:{r:{angleLines:{color:'rgba(255,255,255,.1)'},grid:{color:'rgba(255,255,255,.08)'},pointLabels:{color:'#94a3b8',font:{size:10}},ticks:{backdropColor:'transparent',color:'#64748b',font:{size:9}}}},
+      plugins:{legend:{display:false}},
+      animation:{duration:1400,easing:'easeOutQuart'} }
+  });
+}`,
+    stackedBar: `
+function chartStackedBar(ctx) {
+  const rep = DATASET.repartition.slice(0,4);
+  const ind = DATASET.indicateurs.slice(0,4);
+  if (!rep.length || !ind.length) return null;
+  return new Chart(ctx, {
+    type:'bar',
+    data:{labels:ind.map(d=>d.label),datasets:rep.map((r,i)=>({
+      label:r.label, data:ind.map(d=>+(d.valeur*r.valeur/100).toFixed(1)),
+      backgroundColor:r.couleur+'cc', borderColor:r.couleur, borderWidth:1, borderRadius:i===rep.length-1?6:0, stack:'stack0'
+    }))},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:true}},
+      scales:{x:{stacked:true,grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#94a3b8'}},y:{stacked:true,grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#94a3b8'}}},
+      animation:{duration:1400,easing:'easeOutQuart'} }
+  });
+}`,
+    polarArea: `
+function chartPolar(ctx) {
+  const ind = DATASET.indicateurs.slice(0,6);
+  if (!ind.length) return null;
+  const max = Math.max(...ind.map(d=>d.valeur)) || 1;
+  return new Chart(ctx, {
+    type:'polarArea',
+    data:{labels:ind.map(d=>d.label),datasets:[{data:ind.map(d=>+(d.valeur/max*100).toFixed(1)),backgroundColor:ind.map(d=>d.couleur+'99'),borderColor:ind.map(d=>d.couleur),borderWidth:2}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      scales:{r:{grid:{color:'rgba(255,255,255,.07)'},ticks:{backdropColor:'transparent',color:'#64748b',font:{size:9}}}},
+      plugins:{legend:{position:'bottom',labels:{padding:10,font:{size:10}}}},
+      animation:{animateRotate:true,animateScale:true,duration:1400} }
+  });
+}`,
+    scatter: `
+function chartScatter(ctx) {
+  const ind = DATASET.indicateurs;
+  if (ind.length < 2) return null;
+  return new Chart(ctx, {
+    type:'bubble',
+    data:{datasets:ind.map((d,i)=>({label:d.label,data:[{x:i,y:d.valeur,r:Math.max(4,Math.min(18,Math.sqrt(Math.abs(d.valeur)/10)||6))}],backgroundColor:d.couleur+'99',borderColor:d.couleur,borderWidth:2}))},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:true,position:'bottom',labels:{padding:8,font:{size:10}}}},
+      scales:{x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#94a3b8',callback:(_,i)=>ind[i]?.label||i}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:'#94a3b8'}}},
+      animation:{duration:1400,easing:'easeOutQuart'} }
+  });
+}`,
+  };
+
+  // Build chart switch cases
+  const chartIdMap = {
+    indicateurs:      'chart-indicateurs',
+    repartition:      'chart-repartition',
+    distribution:     'chart-distribution',
+    lineEvolution:    'chart-evolution',
+    lineArea:         'chart-line-area',
+    barH:             'chart-barh',
+    barComparatif:    'chart-comparatif',
+    radarIndicateurs: 'chart-radar',
+    stackedBar:       'chart-stacked',
+    polarArea:        'chart-polar',
+    scatter:          'chart-scatter',
+  };
+  const chartFuncMap = {
+    indicateurs:      'chartIndicateurs',
+    repartition:      'chartRepartition',
+    distribution:     'chartDistribution',
+    lineEvolution:    hasTime ? 'chartEvolution' : null,
+    lineArea:         'chartLineArea',
+    barH:             'chartBarH',
+    barComparatif:    'chartComparatif',
+    radarIndicateurs: 'chartRadar',
+    stackedBar:       'chartStackedBar',
+    polarArea:        'chartPolar',
+    scatter:          'chartScatter',
+  };
+
+  const activeCharts = order.filter(k => chartFuncMap[k]);
+  const usedFuncCode = [...new Set(activeCharts.map(k => chartFunctions[k]).filter(Boolean))].join('\n');
+
+  const switchCases = activeCharts
+    .filter(k => chartFuncMap[k])
+    .map(k => `        case '${chartIdMap[k]}': CHARTS[id] = ${chartFuncMap[k]}(ctx); break;`)
+    .join('\n');
+
+  return `/**
+ * Graphiques Chart.js — Domain: ${domain} — Algeria Tech Generator v4
+ */
+
+import { DATASET, fmt, PALETTE } from './data.js';
+
+function applyTheme() {
+  const C = window.Chart;
+  if (!C) return;
+  C.defaults.font.family       = "'Manrope', sans-serif";
+  C.defaults.font.size         = 12;
+  C.defaults.color             = '#94a3b8';
+  C.defaults.borderColor       = 'rgba(255,255,255,0.06)';
+  C.defaults.plugins.legend.labels.color = '#f4ede0';
+  C.defaults.plugins.legend.labels.font  = { family:"'JetBrains Mono',monospace", size:11 };
+  C.defaults.plugins.tooltip.backgroundColor = 'rgba(17,23,41,.95)';
+  C.defaults.plugins.tooltip.titleColor  = PALETTE[0];
+  C.defaults.plugins.tooltip.bodyColor   = '#f4ede0';
+  C.defaults.plugins.tooltip.borderColor = PALETTE[0] + '66';
+  C.defaults.plugins.tooltip.borderWidth = 1;
+  C.defaults.plugins.tooltip.padding     = 12;
+  C.defaults.plugins.tooltip.cornerRadius= 8;
+}
+
+const CHARTS = {};
+
+${usedFuncCode}
+
+export function initCharts() {
+  applyTheme();
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const id = entry.target.id;
+      if (CHARTS[id]) return;
+      const ctx = entry.target.getContext('2d');
+      switch (id) {
+${switchCases}
+      }
+      if (CHARTS[id]) obs.unobserve(entry.target);
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('canvas[id^="chart-"]').forEach(c => obs.observe(c));
+}
+`;
+}
+
 // ─── Génération scene3d.js — CONSTELLATION AVEC RAYCASTER (générique) ─────────
 
 function genScene3DConstellationJS(pal) {
@@ -1439,6 +1719,248 @@ export function initScene3D(container) {
 `;
 }
 
+// ─── Orbite Satellite ─────────────────────────────────────────────────────────
+function genScene3DSatelliteJS(pal) {
+  return `/**
+ * Scène 3D — Orbite Satellite
+ * Algeria Tech Generator v4
+ */
+import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
+import { OrbitControls } from 'https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js';
+import { DATASET, PALETTE } from './data.js';
+
+export function initScene3D(container) {
+  const w=container.clientWidth||600, h=container.clientHeight||480;
+  const scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(48,w/h,0.1,300);
+  camera.position.set(0,8,22);
+  const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true,powerPreference:'high-performance'});
+  renderer.setSize(w,h); renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  renderer.setClearColor(0,0); container.style.position='relative';
+  container.appendChild(renderer.domElement);
+
+  const c1=parseInt((PALETTE[0]||'#7c3aed').replace('#',''),16);
+  const c2=parseInt((PALETTE[1]||'#a78bfa').replace('#',''),16);
+
+  scene.add(new THREE.AmbientLight(0x111133,0.4));
+  const sun=new THREE.PointLight(0xfff8e0,3.5,120); sun.position.set(25,10,10); scene.add(sun);
+  const back=new THREE.PointLight(c1,1.2,60); back.position.set(-15,-8,-10); scene.add(back);
+
+  // Étoiles
+  const N=2500, sp=new Float32Array(N*3);
+  for(let i=0;i<N;i++){
+    const th=Math.random()*Math.PI*2, ph=Math.acos(2*Math.random()-1), r=60+Math.random()*80;
+    sp[i*3]=r*Math.sin(ph)*Math.cos(th); sp[i*3+1]=r*Math.cos(ph); sp[i*3+2]=r*Math.sin(ph)*Math.sin(th);
+  }
+  const sG=new THREE.BufferGeometry(); sG.setAttribute('position',new THREE.BufferAttribute(sp,3));
+  scene.add(new THREE.Points(sG,new THREE.PointsMaterial({size:.12,color:0xffffff,transparent:true,opacity:.7})));
+
+  // Planète
+  const planet=new THREE.Mesh(new THREE.SphereGeometry(4,56,56),
+    new THREE.MeshStandardMaterial({color:0x0a1628,metalness:.15,roughness:.85,transparent:true,opacity:.92}));
+  scene.add(planet);
+  const pw=new THREE.Mesh(new THREE.SphereGeometry(4.02,24,24),
+    new THREE.MeshBasicMaterial({color:c1,wireframe:true,transparent:true,opacity:.06}));
+  scene.add(pw);
+
+  // Anneaux planétaires
+  const ringGeo=new THREE.RingGeometry(5.5,5.65,64);
+  const ring1=new THREE.Mesh(ringGeo,new THREE.MeshBasicMaterial({color:c1,side:THREE.DoubleSide,transparent:true,opacity:.22}));
+  ring1.rotation.x=Math.PI*.42; scene.add(ring1);
+  const ring2=new THREE.Mesh(new THREE.RingGeometry(6.2,6.3,64),
+    new THREE.MeshBasicMaterial({color:c2,side:THREE.DoubleSide,transparent:true,opacity:.14}));
+  ring2.rotation.x=Math.PI*.42; scene.add(ring2);
+
+  // Satellites KPI
+  const kpis=DATASET.kpis.slice(0,3);
+  const SAT_COLORS=[c1,c2,parseInt((PALETTE[2]||'#c084fc').replace('#',''),16)];
+  const sats=kpis.map((kpi,i)=>{
+    const orbit=7+i*2.8;
+    const grp=new THREE.Group();
+    const body=new THREE.Mesh(new THREE.BoxGeometry(.5,.35,.25),
+      new THREE.MeshStandardMaterial({color:0x8899aa,metalness:.7,roughness:.2}));
+    const pL=new THREE.Mesh(new THREE.BoxGeometry(.06,1.5,.08),
+      new THREE.MeshStandardMaterial({color:SAT_COLORS[i],metalness:.4,roughness:.6,transparent:true,opacity:.85}));
+    const pR=new THREE.Mesh(new THREE.BoxGeometry(.06,1.5,.08),
+      new THREE.MeshStandardMaterial({color:SAT_COLORS[i],metalness:.4,roughness:.6,transparent:true,opacity:.85}));
+    pL.position.set(-0.9,0,0); pR.position.set(0.9,0,0);
+    const pl=new THREE.PointLight(SAT_COLORS[i],1.5,6);
+    grp.add(body,pL,pR,pl);
+    grp.userData={kpi,orbit,phi:(i/3)*Math.PI*2,speed:0.22+i*0.08,tilt:0.12+i*0.05};
+    // Orbite visuelle
+    const ops=[];
+    for(let s=0;s<=128;s++){const a=(s/128)*Math.PI*2;ops.push(new THREE.Vector3(Math.cos(a)*orbit,Math.sin(a)*orbit*0.12,Math.sin(a)*orbit));}
+    scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(ops),
+      new THREE.LineBasicMaterial({color:SAT_COLORS[i],transparent:true,opacity:.18})));
+    scene.add(grp);
+    return grp;
+  });
+
+  // Tooltip
+  const tt=document.createElement('div');
+  tt.style.cssText='position:absolute;pointer-events:none;background:rgba(10,14,26,.94);border:1px solid rgba(124,58,237,.6);border-radius:10px;padding:9px 16px;font-family:"Manrope",sans-serif;font-size:.72rem;color:#f4ede0;white-space:nowrap;opacity:0;transition:opacity .15s;z-index:20;text-align:center;line-height:1.6;transform:translate(-50%,-140%)';
+  container.appendChild(tt);
+  const ray=new THREE.Raycaster(); const mouse=new THREE.Vector2(9999,9999); let mxPx=0,myPx=0;
+  renderer.domElement.addEventListener('pointermove',e=>{
+    const r=renderer.domElement.getBoundingClientRect(); mxPx=e.clientX-r.left; myPx=e.clientY-r.top;
+    mouse.x=(mxPx/r.width)*2-1; mouse.y=-(myPx/r.height)*2+1;
+  });
+  renderer.domElement.addEventListener('pointerleave',()=>{mouse.set(9999,9999);tt.style.opacity='0';});
+
+  const ctrl=new OrbitControls(camera,renderer.domElement);
+  ctrl.enableDamping=true; ctrl.dampingFactor=.05; ctrl.autoRotate=true; ctrl.autoRotateSpeed=.35;
+  ctrl.minDistance=12; ctrl.maxDistance=32; ctrl.enablePan=false;
+  const ro=new ResizeObserver(()=>{const nw=container.clientWidth,nh=container.clientHeight;camera.aspect=nw/nh;camera.updateProjectionMatrix();renderer.setSize(nw,nh);});
+  ro.observe(container);
+
+  const clock=new THREE.Clock(); let fid;
+  (function animate(){
+    fid=requestAnimationFrame(animate); const t=clock.getElapsedTime();
+    planet.rotation.y+=.002; pw.rotation.y+=.002; ring1.rotation.z+=.001;
+    sats.forEach(s=>{
+      const d=s.userData;
+      d.phi+=d.speed*.008;
+      s.position.set(Math.cos(d.phi)*d.orbit, Math.sin(d.phi)*d.orbit*d.tilt, Math.sin(d.phi)*d.orbit);
+      s.rotation.y+=.015;
+    });
+    if(mouse.x!==9999){
+      ray.setFromCamera(mouse,camera);
+      const hits=ray.intersectObjects(sats,true);
+      if(hits.length){let p=hits[0].object;while(p&&!p.userData.kpi)p=p.parent;
+        if(p?.userData.kpi){const k=p.userData.kpi;
+          const val=typeof k.valeur==='number'?k.valeur.toLocaleString('fr-FR')+(k.unite?' '+k.unite:''):String(k.valeur??'')+(k.unite?' '+k.unite:'');
+          tt.innerHTML=\`<span style="color:#a78bfa;font-weight:700;display:block;margin-bottom:2px">\${k.label}</span><span style="color:#c4b5fd;font-size:.82em">\${val}</span>\`;
+          tt.style.left=mxPx+'px'; tt.style.top=myPx+'px'; tt.style.opacity='1';
+          renderer.domElement.style.cursor='crosshair';
+        } else {tt.style.opacity='0';renderer.domElement.style.cursor='';}
+      } else {tt.style.opacity='0';renderer.domElement.style.cursor='';}
+    }
+    ctrl.update(); renderer.render(scene,camera);
+  })();
+  return{dispose(){cancelAnimationFrame(fid);ro.disconnect();ctrl.dispose();renderer.dispose();
+    scene.traverse(o=>{if(o.geometry)o.geometry.dispose();if(o.material){if(Array.isArray(o.material))o.material.forEach(m=>m.dispose());else o.material.dispose();}});
+    if(renderer.domElement.parentNode)renderer.domElement.parentNode.removeChild(renderer.domElement);
+    if(tt.parentNode)tt.parentNode.removeChild(tt);}};
+}
+`;
+}
+
+// ─── Barres financières flottantes ────────────────────────────────────────────
+function genScene3DFinanceJS(pal) {
+  return `/**
+ * Scène 3D — Barres Financières
+ * Algeria Tech Generator v4
+ */
+import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
+import { OrbitControls } from 'https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js';
+import { DATASET, PALETTE } from './data.js';
+
+export function initScene3D(container) {
+  const w=container.clientWidth||600, h=container.clientHeight||480;
+  const scene=new THREE.Scene(); scene.fog=new THREE.FogExp2(0x0f1629,0.025);
+  const camera=new THREE.PerspectiveCamera(50,w/h,0.1,200);
+  camera.position.set(0,6,18); camera.lookAt(0,0,0);
+  const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true,powerPreference:'high-performance'});
+  renderer.setSize(w,h); renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+  renderer.setClearColor(0,0); container.style.position='relative';
+  container.appendChild(renderer.domElement);
+
+  const c1=parseInt((PALETTE[0]||'#1d4ed8').replace('#',''),16);
+  const c2=parseInt((PALETTE[1]||'#7c3aed').replace('#',''),16);
+  const c3=parseInt((PALETTE[2]||'#10b981').replace('#',''),16);
+
+  scene.add(new THREE.AmbientLight(0xffffff,.18));
+  const lA=new THREE.PointLight(c1,2.8,60); lA.position.set(-8,10,8); scene.add(lA);
+  const lB=new THREE.PointLight(c2,1.5,50); lB.position.set(10,-5,4); scene.add(lB);
+  const lC=new THREE.PointLight(c3,1.2,40); lC.position.set(0,8,-6); scene.add(lC);
+
+  // Grille sol
+  const gridH=new THREE.GridHelper(28,18,c1,c1);
+  gridH.material.transparent=true; gridH.material.opacity=.1; gridH.position.y=-2; scene.add(gridH);
+
+  // Barres KPI
+  const kpis=DATASET.kpis.slice(0,6);
+  const vals=kpis.map(k=>Math.abs(parseFloat(k.valeur))||1);
+  const maxV=Math.max(...vals)||1;
+  const COLS=[c1,c2,c3,c1,c2,c3];
+  const spacing=3.2, startX=(-(kpis.length-1)/2)*spacing;
+  const bars=[];
+
+  kpis.forEach((kpi,i)=>{
+    const bH=0.5+(vals[i]/maxV)*6.5;
+    const col=COLS[i];
+    const bar=new THREE.Mesh(new THREE.BoxGeometry(1.8,bH,1.8),
+      new THREE.MeshStandardMaterial({color:col,metalness:.45,roughness:.35,transparent:true,opacity:.88,emissive:col,emissiveIntensity:.08}));
+    bar.position.set(startX+i*spacing, bH/2-2, 0);
+    bar.userData={kpi,targetY:bH/2-2,bH};
+    const wire=new THREE.Mesh(new THREE.BoxGeometry(1.82,bH,1.82),
+      new THREE.MeshBasicMaterial({color:col,wireframe:true,transparent:true,opacity:.14}));
+    wire.position.copy(bar.position); scene.add(wire);
+
+    const cap=new THREE.Mesh(new THREE.BoxGeometry(1.8,.08,1.8),
+      new THREE.MeshStandardMaterial({color:col,emissive:col,emissiveIntensity:1.8}));
+    cap.position.set(startX+i*spacing, bH-2+.04, 0); scene.add(cap);
+
+    const pl=new THREE.PointLight(col,1.2,6); pl.position.set(startX+i*spacing, bH-2+.8, 0); scene.add(pl);
+
+    scene.add(bar); bars.push({bar,wire,cap,pl,bH,col});
+  });
+
+  // Particules
+  const N=1200, pp=new Float32Array(N*3);
+  for(let i=0;i<N;i++){pp[i*3]=(Math.random()-.5)*60;pp[i*3+1]=Math.random()*20-2;pp[i*3+2]=(Math.random()-.5)*40;}
+  const pG=new THREE.BufferGeometry(); pG.setAttribute('position',new THREE.BufferAttribute(pp,3));
+  scene.add(new THREE.Points(pG,new THREE.PointsMaterial({size:.065,color:c1,transparent:true,opacity:.35,blending:THREE.AdditiveBlending})));
+
+  // Tooltip
+  const tt=document.createElement('div');
+  tt.style.cssText='position:absolute;pointer-events:none;background:rgba(15,22,41,.95);border:1px solid rgba(29,78,216,.6);border-radius:10px;padding:9px 16px;font-family:"Manrope",sans-serif;font-size:.72rem;color:#e2e8f0;white-space:nowrap;opacity:0;transition:opacity .15s;z-index:20;text-align:center;line-height:1.6;transform:translate(-50%,-140%)';
+  container.appendChild(tt);
+  const ray=new THREE.Raycaster(); const mouse=new THREE.Vector2(9999,9999); let mxPx=0,myPx=0;
+  renderer.domElement.addEventListener('pointermove',e=>{
+    const r=renderer.domElement.getBoundingClientRect(); mxPx=e.clientX-r.left; myPx=e.clientY-r.top;
+    mouse.x=(mxPx/r.width)*2-1; mouse.y=-(myPx/r.height)*2+1;
+  });
+  renderer.domElement.addEventListener('pointerleave',()=>{mouse.set(9999,9999);tt.style.opacity='0';});
+
+  const ctrl=new OrbitControls(camera,renderer.domElement);
+  ctrl.enableDamping=true; ctrl.dampingFactor=.06; ctrl.autoRotate=true; ctrl.autoRotateSpeed=.4;
+  ctrl.minDistance=10; ctrl.maxDistance=28; ctrl.enablePan=false;
+  ctrl.maxPolarAngle=Math.PI*.46; ctrl.minPolarAngle=Math.PI*.14; ctrl.target.set(0,0,0);
+  const ro=new ResizeObserver(()=>{const nw=container.clientWidth,nh=container.clientHeight;camera.aspect=nw/nh;camera.updateProjectionMatrix();renderer.setSize(nw,nh);});
+  ro.observe(container);
+
+  const clock=new THREE.Clock(); let fid;
+  const hitTargets=bars.map(b=>b.bar);
+  (function animate(){
+    fid=requestAnimationFrame(animate); const t=clock.getElapsedTime();
+    lA.intensity=2.8+Math.sin(t*.8)*.4;
+    bars.forEach((b,i)=>{
+      const pulse=1+Math.sin(t*1.8+i*.7)*.02;
+      b.bar.scale.set(pulse,1,pulse); b.wire.scale.set(pulse,1,pulse);
+      b.cap.position.y=b.bH-2+Math.sin(t*2+i)*.06+.04;
+      b.pl.intensity=1.2+Math.sin(t*2.2+i*1.1)*.5;
+    });
+    if(mouse.x!==9999){
+      ray.setFromCamera(mouse,camera);
+      const hits=ray.intersectObjects(hitTargets,false);
+      if(hits.length){const k=hits[0].object.userData.kpi;
+        const val=typeof k.valeur==='number'?k.valeur.toLocaleString('fr-FR')+(k.unite?' '+k.unite:''):String(k.valeur??'')+(k.unite?' '+k.unite:'');
+        tt.innerHTML=\`<span style="color:#60a5fa;font-weight:700;display:block;margin-bottom:2px">\${k.label}</span><span style="color:#93c5fd;font-size:.82em">\${val}</span>\`;
+        tt.style.left=mxPx+'px'; tt.style.top=myPx+'px'; tt.style.opacity='1';
+        renderer.domElement.style.cursor='crosshair';
+      } else {tt.style.opacity='0';renderer.domElement.style.cursor='';}
+    }
+    ctrl.update(); renderer.render(scene,camera);
+  })();
+  return{dispose(){cancelAnimationFrame(fid);ro.disconnect();ctrl.dispose();renderer.dispose();
+    scene.traverse(o=>{if(o.geometry)o.geometry.dispose();if(o.material){if(Array.isArray(o.material))o.material.forEach(m=>m.dispose());else o.material.dispose();}});
+    if(renderer.domElement.parentNode)renderer.domElement.parentNode.removeChild(renderer.domElement);
+    if(tt.parentNode)tt.parentNode.removeChild(tt);}};
+}
+`;
+}
+
 // ─── Hexagones KPI ───────────────────────────────────────────────────────────
 function genScene3DHexagonsJS(pal) {
   return `/**
@@ -1949,8 +2471,21 @@ export function initScene3D(container) {
 
 function genScene3DJS(docType, pal, animType) {
   // animType explicite → priorité absolue
-  // sinon telecom → antennes par défaut
-  const type = animType || (docType === 'telecom' ? 'antennes' : 'constellation');
+  // sinon domaine → scène adaptée
+  const domainDefault = {
+    telecom:   'antennes',
+    satellite: 'satellite',
+    finance:   'finance',
+    internet:  'globe',
+    startup:   'hexagones',
+    energy:    'vagues',
+    health:    'neural',
+    industry:  'hexagones',
+    product:   'cube',
+    rapport:   'constellation',
+    presse:    'constellation',
+  };
+  const type = animType || domainDefault[docType] || 'constellation';
   switch (type) {
     case 'antennes':      return genScene3DAntennesJS();
     case 'globe':         return genScene3DGlobeJS(pal);
@@ -1958,10 +2493,12 @@ function genScene3DJS(docType, pal, animType) {
     case 'vagues':        return genScene3DVaguesJS(pal);
     case 'cube':          return genScene3DCubeJS(pal);
     case 'neural':        return genScene3DNeuralJS(pal);
+    case 'satellite':     return genScene3DSatelliteJS(pal);
+    case 'finance':       return genScene3DFinanceJS(pal);
     // Aliases → scènes existantes adaptées
-    case 'particules':    return genScene3DConstellationJS(pal);  // particules = constellation
-    case 'pyramide':      return genScene3DConstellationJS(pal);  // pyramide = constellation
-    case 'cristal':       return genScene3DConstellationJS(pal);  // cristal = constellation
+    case 'particules':    return genScene3DConstellationJS(pal);
+    case 'pyramide':      return genScene3DConstellationJS(pal);
+    case 'cristal':       return genScene3DConstellationJS(pal);
     case 'constellation':
     default:              return genScene3DConstellationJS(pal);
   }
@@ -2132,7 +2669,8 @@ export function toast(message, isError = false) {
 
 // ─── Génération index.html — LE CŒUR PREMIUM ──────────────────────────────────
 
-function genIndexHTML(data, slug, pal) {
+function genIndexHTML(data, slug, pal, domain) {
+  domain = domain || data.docType || 'rapport';
   const {
     title, subtitle, date, source, docType,
     stats = [], keyPoints = [], sections = []
@@ -2141,9 +2679,11 @@ function genIndexHTML(data, slug, pal) {
   const hasTime  = data.chartData && data.chartData.labels && data.chartData.labels.length >= 3;
   const typeLabels = {
     telecom:'Télécommunications', internet:'Internet & Réseaux',
-    startup:'Startups & Innovation', rapport:'Rapport Officiel', presse:'Article de Presse'
+    startup:'Startups & Innovation', rapport:'Rapport Officiel', presse:'Article de Presse',
+    finance:'Finance & Économie', satellite:'Satellite & Spatial', health:'Santé & Médical',
+    energy:'Énergie & Environnement', industry:'Industrie', product:'Produit & Innovation',
   };
-  const typeLabel = typeLabels[docType] || 'Rapport';
+  const typeLabel = typeLabels[docType] || typeLabels[domain] || 'Rapport';
 
   // ── Stratégie visuelle intelligente ───────────────────────────────────────
   const vs = detectVisualStrategy(data);
@@ -2230,6 +2770,111 @@ function genIndexHTML(data, slug, pal) {
   ].filter(Boolean).map(([href, label]) =>
     `<li><a href="${href}">${label}</a></li>`
   ).join('\n        ');
+
+  // ── Domain-specific chart sections ────────────────────────────────────────
+  const domainChartSections = {
+    finance: `
+<section class="section section-alt" id="domain-charts">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Finance · Analyse avancée</span>
+      <h2 class="display-2">Indicateurs <em class="gold">financiers</em></h2>
+    </div>
+    <div class="chart-card glass-card chart-wide reveal">
+      <h3 class="chart-title">Évolution &amp; Tendance</h3>
+      <div class="chart-wrap tall"><canvas id="chart-line-area"></canvas></div>
+    </div>
+    <div class="charts-row charts-2col" style="margin-top:1.5rem">
+      <div class="chart-card glass-card reveal"><h3 class="chart-title">Barres empilées</h3><div class="chart-wrap"><canvas id="chart-stacked"></canvas></div></div>
+      <div class="chart-card glass-card reveal" style="transition-delay:.1s"><h3 class="chart-title">Radar multidimensionnel</h3><div class="chart-wrap"><canvas id="chart-radar"></canvas></div></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>`,
+    satellite: `
+<section class="section section-alt" id="domain-charts">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Satellite · Analyse spatiale</span>
+      <h2 class="display-2">Données <em class="gold">orbitales</em></h2>
+    </div>
+    <div class="charts-row charts-2col">
+      <div class="chart-card glass-card reveal"><h3 class="chart-title">Corrélation orbitale</h3><div class="chart-wrap"><canvas id="chart-scatter"></canvas></div></div>
+      <div class="chart-card glass-card reveal" style="transition-delay:.1s"><h3 class="chart-title">Vue polaire</h3><div class="chart-wrap"><canvas id="chart-polar"></canvas></div></div>
+    </div>
+    <div class="chart-card glass-card chart-wide reveal" style="margin-top:1.5rem">
+      <h3 class="chart-title">Radar de couverture</h3>
+      <div class="chart-wrap"><canvas id="chart-radar"></canvas></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>`,
+    health: `
+<section class="section section-alt" id="domain-charts">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Santé · Analyse clinique</span>
+      <h2 class="display-2">Indicateurs <em class="gold">médicaux</em></h2>
+    </div>
+    <div class="chart-card glass-card chart-wide reveal">
+      <h3 class="chart-title">Distribution démographique</h3>
+      <div class="chart-wrap tall"><canvas id="chart-stacked"></canvas></div>
+    </div>
+    <div class="charts-row charts-2col" style="margin-top:1.5rem">
+      <div class="chart-card glass-card reveal"><h3 class="chart-title">Tendance</h3><div class="chart-wrap"><canvas id="chart-line-area"></canvas></div></div>
+      <div class="chart-card glass-card reveal" style="transition-delay:.1s"><h3 class="chart-title">Radar clinique</h3><div class="chart-wrap"><canvas id="chart-radar"></canvas></div></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>`,
+    energy: `
+<section class="section section-alt" id="domain-charts">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Énergie · Analyse sectorielle</span>
+      <h2 class="display-2">Mix <em class="gold">énergétique</em></h2>
+    </div>
+    <div class="chart-card glass-card chart-wide reveal">
+      <h3 class="chart-title">Évolution énergétique</h3>
+      <div class="chart-wrap tall"><canvas id="chart-line-area"></canvas></div>
+    </div>
+    <div class="charts-row charts-2col" style="margin-top:1.5rem">
+      <div class="chart-card glass-card reveal"><h3 class="chart-title">Mix énergétique</h3><div class="chart-wrap"><canvas id="chart-stacked"></canvas></div></div>
+      <div class="chart-card glass-card reveal" style="transition-delay:.1s"><h3 class="chart-title">Radar performance</h3><div class="chart-wrap"><canvas id="chart-radar"></canvas></div></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>`,
+    product: `
+<section class="section section-alt" id="domain-charts">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Produit · Analyse marché</span>
+      <h2 class="display-2">Positionnement <em class="gold">produit</em></h2>
+    </div>
+    <div class="charts-row charts-2col">
+      <div class="chart-card glass-card reveal"><h3 class="chart-title">Radar produit</h3><div class="chart-wrap"><canvas id="chart-radar"></canvas></div></div>
+      <div class="chart-card glass-card reveal" style="transition-delay:.1s"><h3 class="chart-title">Part de marché</h3><div class="chart-wrap"><canvas id="chart-barh"></canvas></div></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>`,
+    industry: `
+<section class="section section-alt" id="domain-charts">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Industrie · Analyse sectorielle</span>
+      <h2 class="display-2">Performance <em class="gold">industrielle</em></h2>
+    </div>
+    <div class="charts-row charts-2col">
+      <div class="chart-card glass-card reveal"><h3 class="chart-title">Radar performance</h3><div class="chart-wrap"><canvas id="chart-radar"></canvas></div></div>
+      <div class="chart-card glass-card reveal" style="transition-delay:.1s"><h3 class="chart-title">Distribution sectorielle</h3><div class="chart-wrap"><canvas id="chart-stacked"></canvas></div></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>`,
+  };
+  const domainChartsHTML = domainChartSections[domain] || '';
 
   // ── Titre H1 — découpe en 2-3 lignes pour l'effet éditorial ──────────────
   const words   = title.split(' ');
@@ -2454,6 +3099,8 @@ ${synthCards ? `
 ` : ''}
 
 ${sectionsHTML}
+
+${domainChartsHTML}
 
 <!-- ── FOOTER PREMIUM ────────────────────────────────────────────────────────── -->
 <footer class="footer-premium">
@@ -3023,7 +3670,10 @@ function genThumbnailSVG(title, pal) {
 async function buildInfographie(data, opts = {}) {
   const { docType = 'rapport' } = data;
   const animType = opts.animType || '';
-  const pal = PALETTES[docType] || PALETTES.rapport;
+
+  // Domain = docType extended with new domains
+  const domain = data.domain || docType;
+  const pal = PALETTES[domain] || PALETTES[docType] || PALETTES.rapport;
 
   const baseSlug = slugify(data.title || 'rapport');
   const slug     = baseSlug + '-' + Date.now().toString(36);
@@ -3037,11 +3687,11 @@ async function buildInfographie(data, opts = {}) {
   ensureDir(assetsImg);
 
   // Fichiers principaux
-  fs.writeFileSync(path.join(dir, 'index.html'),         genIndexHTML(data, slug, pal),    'utf8');
+  fs.writeFileSync(path.join(dir, 'index.html'),         genIndexHTML(data, slug, pal, domain), 'utf8');
   fs.writeFileSync(path.join(assetsCSS, 'styles.css'),   genExtraCSS(),                    'utf8');
   fs.writeFileSync(path.join(assetsJS, 'data.js'),       genDataJS(data, pal),             'utf8');
-  fs.writeFileSync(path.join(assetsJS, 'charts.js'),     genChartsJS(data, pal),           'utf8');
-  fs.writeFileSync(path.join(assetsJS, 'scene3d.js'),    genScene3DJS(docType, pal, animType), 'utf8');
+  fs.writeFileSync(path.join(assetsJS, 'charts.js'),     genChartsJSDomain(data, pal, domain), 'utf8');
+  fs.writeFileSync(path.join(assetsJS, 'scene3d.js'),    genScene3DJS(domain, pal, animType), 'utf8');
   fs.writeFileSync(path.join(assetsJS, 'main.js'),       genMainJS(!!(data.chartData?.labels?.length >= 3)), 'utf8');
   fs.writeFileSync(path.join(assetsJS, 'exports.js'),    genExportsJS(slug, data.title),   'utf8');
 
