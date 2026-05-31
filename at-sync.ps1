@@ -57,6 +57,7 @@ public static class CtrlCGuard {
         Write-Host "4. [START]  Lancer le serveur local (localhost:3000)"
         Write-Host "5. [STATUS] Verifier l'etat Git et les cles API"
         Write-Host "6. [BUILD]  Generer l'APK Android (Debug)"
+        Write-Host "7. [PUSH]   Pousser un contenu precis (article, image, revue, site...)"
         Write-Host "Q. Quitter"
         Write-Host "------------------------------------------"
         Write-Host "  [CTRL+C] depuis n'importe quelle option = retour ici" -ForegroundColor DarkGray
@@ -229,6 +230,143 @@ public static class CtrlCGuard {
                     Write-Host "OK Detectee ($($apiKey.Substring(0,4))...)" -ForegroundColor Green
                 } else {
                     Write-Host "MANQUANTE (generation auto revue desactivee)" -ForegroundColor Red
+                }
+
+                Read-Host "`nAppuyez sur Entree pour continuer..."
+            }
+
+            # ── 7. PUSH INTELLIGENT ──────────────────────────────────────────
+            "7" {
+                Write-Host "`n--- PUSH INTELLIGENT : que voulez-vous pousser ? ---" -ForegroundColor Cyan
+                Write-Host "  A. Article de presse  (articles/ + images/ + documents/)"
+                Write-Host "  B. Revue de presse    (revue_presse.json uniquement)"
+                Write-Host "  C. Modification site  (index.html / style.css / script.js)"
+                Write-Host "  D. Infographie        (infographies/<dossier>/)"
+                Write-Host "  E. Fichier(s) precis  (vous tapez le chemin)"
+                Write-Host "  X. Annuler"
+                Write-Host ""
+                Write-Host "Votre choix : " -NoNewline -ForegroundColor White
+                try { $pushKey = [Console]::ReadKey($true) } catch { $pushKey = $null }
+                $pushChoice = $pushKey.KeyChar.ToString().ToLower()
+                Write-Host $pushChoice
+
+                $filesToStage = @()
+                $commitPrefix = "PUSH"
+
+                switch ($pushChoice) {
+
+                    "a" {
+                        Write-Host "`nArticles + images + documents detectes :" -ForegroundColor Cyan
+                        git status --short | Where-Object { $_ -match "articles/|images/|documents/" }
+                        $filesToStage = @("articles/", "images/", "documents/")
+                        $commitPrefix = "DEPLOY Article"
+                    }
+
+                    "b" {
+                        Write-Host "`nRevue de presse :" -ForegroundColor Cyan
+                        git status --short | Where-Object { $_ -match "revue_presse|articles.json" }
+                        $filesToStage = @("revue_presse.json", "articles.json")
+                        $commitPrefix = "MAJ Revue de presse"
+                    }
+
+                    "c" {
+                        Write-Host "`nFichiers site detectes :" -ForegroundColor Cyan
+                        git status --short | Where-Object { $_ -match "\.html$|\.css$|\.js$|_headers|_redirects" }
+                        $filesToStage = @("index.html", "style.css", "script.js", "_headers", "_redirects")
+                        $commitPrefix = "MAJ Site"
+                    }
+
+                    "d" {
+                        $dossier = Read-Host "`nNom du dossier infographie (ex: observatoire-mobile-2026)"
+                        $dossier = $dossier.Trim()
+                        if (-not $dossier) { Write-Host "Annule." -ForegroundColor Yellow; break }
+                        $fullPath = "infographies/$dossier/"
+                        if (-not (Test-Path $fullPath)) {
+                            Write-Host "ERREUR : dossier '$fullPath' introuvable." -ForegroundColor Red
+                            Read-Host "Appuyez sur Entree pour continuer..."
+                            break
+                        }
+                        Write-Host "`nFichiers infographie :" -ForegroundColor Cyan
+                        git status --short | Where-Object { $_ -match "infographies/$dossier" }
+                        $filesToStage = @($fullPath)
+                        $commitPrefix = "DEPLOY Infographie $dossier"
+                    }
+
+                    "e" {
+                        $fichiers = Read-Host "`nChemin(s) a pousser (separes par des virgules)"
+                        if (-not $fichiers) { Write-Host "Annule." -ForegroundColor Yellow; break }
+                        $filesToStage = $fichiers -split "," | ForEach-Object { $_.Trim() }
+                        Write-Host "`nFichiers selectionnes :" -ForegroundColor Cyan
+                        $filesToStage | ForEach-Object { Write-Host "  - $_" }
+                        $commitPrefix = "MAJ"
+                    }
+
+                    default {
+                        Write-Host "Annule." -ForegroundColor Yellow
+                        Read-Host "`nAppuyez sur Entree pour continuer..."
+                        break
+                    }
+                }
+
+                if ($filesToStage.Count -eq 0) { break }
+
+                $msg = Read-Host "`nDescription du commit"
+                if (-not $msg) { $msg = "mise a jour" }
+
+                # Stage uniquement les fichiers selectionnes
+                Set-SkipWorktree -Enable:$false
+                Reset-AutoFiles
+
+                foreach ($f in $filesToStage) {
+                    git add $f 2>$null
+                }
+                # Toujours exclure les fichiers auto
+                foreach ($f in $AUTO_FILES) { git restore --staged $f 2>$null }
+                git restore --staged articles.json 2>$null
+
+                $staged = git diff --cached --name-only
+                if (-not $staged) {
+                    Write-Host "`nAucun changement a pousser pour cette selection." -ForegroundColor Yellow
+                    Set-SkipWorktree -Enable
+                    Read-Host "`nAppuyez sur Entree pour continuer..."
+                    break
+                }
+
+                Write-Host "`nFichiers qui seront commites :" -ForegroundColor Green
+                $staged | ForEach-Object { Write-Host "  + $_" -ForegroundColor White }
+
+                $confirm = Read-Host "`nConfirmer le push ? (O/n)"
+                if ($confirm -eq "n" -or $confirm -eq "N") {
+                    git restore --staged . 2>$null
+                    Set-SkipWorktree -Enable
+                    Write-Host "Annule." -ForegroundColor Yellow
+                    Read-Host "`nAppuyez sur Entree pour continuer..."
+                    break
+                }
+
+                git commit -m "$commitPrefix : $msg"
+
+                Write-Host "Synchronisation avec GitHub..." -ForegroundColor Cyan
+                $rebaseResult = git pull --rebase -X ours origin main 2>&1
+                Write-Host $rebaseResult
+
+                if ($LASTEXITCODE -ne 0) {
+                    Write-Host "ERREUR rebase. Abandon..." -ForegroundColor Red
+                    git rebase --abort 2>&1 | Out-Null
+                    Set-SkipWorktree -Enable
+                    Read-Host "Appuyez sur Entree pour continuer..."
+                    break
+                }
+
+                $pushResult = git push origin main 2>&1
+                Write-Host $pushResult
+
+                Set-SkipWorktree -Enable
+
+                if ($LASTEXITCODE -eq 0) {
+                    Write-Host "`nOK Push reussi sur GitHub et Cloudflare !" -ForegroundColor Green
+                } else {
+                    Write-Host "`nERREUR lors du push." -ForegroundColor Red
                 }
 
                 Read-Host "`nAppuyez sur Entree pour continuer..."
