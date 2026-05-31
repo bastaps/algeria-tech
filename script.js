@@ -676,6 +676,7 @@ function renderRevueCards() {
     const rest = articles.slice(1);
 
     // Masthead (titre + date) — défile normalement
+    const _annee = _revueData.lastUpdated ? new Date(_revueData.lastUpdated).getFullYear() : new Date().getFullYear();
     const mastheadHtml = `
         <div class="revue-masthead">
             <div class="revue-masthead-brand">
@@ -683,7 +684,7 @@ function renderRevueCards() {
                 <span class="revue-masthead-subtitle">TIC &amp; Télécoms · Algérie &amp; International</span>
             </div>
             <div class="revue-masthead-date">
-                <div class="revue-masthead-date-line"><strong>${_revueData.date}</strong><span class="revue-masthead-label">✦ ÉDITION QUOTIDIENNE</span></div>
+                <div class="revue-masthead-date-line"><span class="revue-masthead-label">✦ Édition quotidienne du <strong>${_revueData.date} ${_annee}</strong></span></div>
                 <span class="revue-count-journal">${articles.length} article${articles.length !== 1 ? 's' : ''} · ${_revueData.totalSources || 20} sources</span>
             </div>
         </div>`;
