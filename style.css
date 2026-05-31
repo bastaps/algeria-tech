@@ -270,6 +270,7 @@ padding: 0 15px; width: 100px; border: 1px solid var(--border); transition: var(
 .back-btn:hover { background: #b00d2b; transform: translateX(-5px); }
 .article-wrapper { display: flex; gap: 30px; max-width: 950px; margin: 0 auto; position: relative; align-items: flex-start; }
 .audio-sticky-bar { position: sticky; top: 100px; display: flex; flex-direction: column; align-items: center; gap: 10px; width: 60px; z-index: 10; }
+.audio-collapse-btn { display: none; }
 .audio-fab { width: 55px; height: 55px; border-radius: 50%; background: var(--primary); color: #fff; border: none; cursor: pointer; box-shadow: var(--shadow-md); font-size: 1.2rem; display: flex; align-items: center; justify-content: center; transition: var(--transition); }
 .audio-fab:hover { transform: scale(1.1); background: var(--primary-dark); }
 .audio-fab.stop { background: var(--secondary); }
@@ -685,11 +686,57 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
         width: auto;
         flex-direction: row;
         background: var(--bg-white);
-        padding: 10px;
+        padding: 8px 12px;
         border-radius: 40px;
         box-shadow: var(--shadow-lg);
+        transition: all 0.3s ease;
+        overflow: hidden;
+        max-width: 260px;
     }
     .audio-status { display: none; }
+
+    /* Bouton repli */
+    .audio-collapse-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: none;
+        background: var(--bg);
+        color: var(--text-muted);
+        font-size: 0.75rem;
+        cursor: pointer;
+        flex-shrink: 0;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+
+    /* État replié : seul le bouton repli visible */
+    .audio-sticky-bar.collapsed {
+        padding: 8px;
+        max-width: 46px;
+    }
+    .audio-sticky-bar.collapsed .audio-fab,
+    .audio-sticky-bar.collapsed #stopBtn,
+    .audio-sticky-bar.collapsed .voice-select {
+        display: none !important;
+    }
+    .audio-sticky-bar.collapsed .audio-collapse-btn i {
+        transform: rotate(180deg);
+    }
+
+    /* Cadenas : z-index suffisant + zone de tap agrandie */
+    .admin-unlock-hint {
+        z-index: 200;
+        width: 56px;
+        height: 56px;
+        bottom: 24px;
+        right: 24px;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
 
     /* Boutons admin/top */
     .admin-btn { bottom: 20px; right: 76px; width: 48px; height: 48px; }

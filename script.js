@@ -82,13 +82,14 @@ window.addEventListener('DOMContentLoaded', () => {
         unlockBtn.className = 'admin-unlock-hint';
         unlockBtn.innerHTML = '<i class="fas fa-lock"></i>';
         unlockBtn.title = 'Cliquez pour déverrouiller l\'admin';
-        unlockBtn.onclick = () => {
-            if (isAdminUnlocked()) {
-                lockAdmin();
-            } else {
-                unlockAdmin();
-            }
+        const _toggleAdmin = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (isAdminUnlocked()) { lockAdmin(); } else { unlockAdmin(); }
         };
+        unlockBtn.addEventListener('click', _toggleAdmin);
+        // touchend requis dans les WebViews Android (onclick seul ne fire pas)
+        unlockBtn.addEventListener('touchend', _toggleAdmin, { passive: false });
         document.body.appendChild(unlockBtn);
     }
     
@@ -164,19 +165,24 @@ function populateVoiceSelect() {
                     : /google/i.test(v.name)      ? 2
                     : 3;
 
-    const frVoices = synth.getVoices()
-        .filter(v => v.lang.startsWith('fr'))
-        .sort((a, b) => rank(a) - rank(b));
+    const all     = synth.getVoices();
+    const frVoices = all.filter(v => v.lang.startsWith('fr')).sort((a, b) => rank(a) - rank(b));
 
-    if (!frVoices.length) return;
+    if (!frVoices.length && !all.length) return;
 
-    sel.innerHTML = frVoices.map(v => {
-        const ico   = rank(v) === 0 ? '⭐' : rank(v) === 1 ? '🔵' : rank(v) === 2 ? '🔴' : '🔈';
+    // Sur Android il n'y a souvent qu'une voix FR : on complète avec toutes les voix dispo
+    const voices = frVoices.length >= 2
+        ? frVoices
+        : [...frVoices, ...all.filter(v => !v.lang.startsWith('fr')).sort((a, b) => rank(a) - rank(b))];
+
+    sel.innerHTML = voices.map(v => {
+        const isFr = v.lang.startsWith('fr');
+        const ico  = rank(v) === 0 ? '⭐' : rank(v) === 1 ? '🔵' : rank(v) === 2 ? '🔴' : (isFr ? '🔈' : '🌐');
         const label = v.name
             .replace(/Microsoft\s*/i, '')
             .replace(/\s*Online\s*(Natural)?\s*/i, '')
             .trim()
-            .substring(0, 18); // tronqué pour la sidebar
+            .substring(0, 22);
         return `<option value="${v.name}">${ico} ${label}</option>`;
     }).join('');
 }
@@ -521,7 +527,6 @@ function initAudioReader(textToRead) {
         if (statusEl)  statusEl.textContent   = '▶ AUDIO';
         if (stickyBar) stickyBar.classList.add('playing');
 
-        // cleanText est déjà nettoyé (pas de #, *, -, |…)
         const utt = new SpeechSynthesisUtterance(cleanText);
         utt.lang  = 'fr-FR';
         utt.rate  = TTS_CONFIG.rate;
@@ -539,15 +544,36 @@ function initAudioReader(textToRead) {
             synth.speak(utt);
         }
 
-        // Chrome charge les voix en asynchrone au premier appel
-        synth.getVoices().length > 0
-            ? speak()
-            : synth.addEventListener('voiceschanged', speak, { once: true });
+        // iOS : cancel() coupe le contexte audio, speak() doit attendre un tick
+        const delay = /iPhone|iPad|iPod/i.test(navigator.userAgent) ? 150 : 0;
+        if (synth.getVoices().length > 0) {
+            setTimeout(speak, delay);
+        } else {
+            synth.addEventListener('voiceschanged', () => setTimeout(speak, delay), { once: true });
+        }
     }
 
-    // ── Bindings ──────────────────────────────────────────────────
-    if (playBtn) playBtn.onclick = startSpeech;
-    if (stopBtn) stopBtn.onclick = resetUI;
+    // ── Bouton repli mobile ───────────────────────────────────────
+    const collapseBtn = document.getElementById('audioCollapseBtn');
+    if (collapseBtn && stickyBar) {
+        const doCollapse = (e) => {
+            e.preventDefault();
+            const collapsed = stickyBar.classList.toggle('collapsed');
+            collapseBtn.querySelector('i').className = collapsed ? 'fas fa-chevron-up' : 'fas fa-chevron-down';
+        };
+        collapseBtn.addEventListener('click', doCollapse);
+        collapseBtn.addEventListener('touchend', doCollapse, { passive: false });
+    }
+
+    // ── Bindings (click + touchend pour mobile) ───────────────────
+    const _bindBtn = (btn, fn) => {
+        if (!btn) return;
+        btn.addEventListener('click', fn);
+        btn.addEventListener('touchend', (e) => { e.preventDefault(); fn(); }, { passive: false });
+    };
+    _bindBtn(playBtn, startSpeech);
+    _bindBtn(stopBtn, resetUI);
+
     window.triggerAudio = () => {
         synth?.speaking ? resetUI() : startSpeech();
     };
