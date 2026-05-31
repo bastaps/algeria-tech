@@ -1,6 +1,15 @@
 try {
     Set-Location $PSScriptRoot
 
+    # ── Ctrl+C : empeche la fermeture, pose un flag, laisse les processus fils tranquilles ──
+    $script:ctrlC = $false
+    $ctrlCHandler = [ConsoleCancelEventHandler]{
+        param($s, $e)
+        $e.Cancel        = $true          # PowerShell ne se ferme pas
+        $script:ctrlC    = $true          # on note l'appui
+    }
+    [Console]::add_CancelKeyPress($ctrlCHandler)
+
     # ── Fichiers auto-générés à ne jamais pousser ────────────────────────────
     $AUTO_FILES = @("revue_presse.json", "articles.json", "veille_data.json")
 
@@ -38,22 +47,15 @@ try {
     }
 
     do {
+        $script:ctrlC = $false
         Show-Menu
-        Write-Host "Choisissez une option : " -NoNewline -ForegroundColor White
+        $choice = Read-Host "Choisissez une option"
 
-        # TreatControlCAsInput UNIQUEMENT pendant la lecture du menu
-        [Console]::TreatControlCAsInput = $true
-        $key = [Console]::ReadKey($true)
-        [Console]::TreatControlCAsInput = $false  # Restaure immediatement pour les processus fils
-
-        if (([int]$key.KeyChar -eq 3) -or ($key.Key -eq [ConsoleKey]::C -and ($key.Modifiers -band [ConsoleModifiers]::Control))) {
-            Write-Host "`n[CTRL+C] Retour au menu..." -ForegroundColor Yellow
+        if ($script:ctrlC) {
+            Write-Host "[CTRL+C] Retour au menu..." -ForegroundColor Yellow
             Start-Sleep -Milliseconds 300
-            $choice = ""
             continue
         }
-        $choice = $key.KeyChar.ToString().ToLower()
-        Write-Host $choice
 
         switch ($choice) {
 
@@ -221,6 +223,8 @@ try {
         }
 
     } while ($choice -ne "q" -and $choice -ne "Q")
+
+    [Console]::remove_CancelKeyPress($ctrlCHandler)
 
 } catch {
     Write-Host "`nUNE ERREUR TECHNIQUE EST SURVENUE :" -ForegroundColor Red
