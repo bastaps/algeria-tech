@@ -555,8 +555,43 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
     .hero-main { height: 260px; }
     .hero-overlay h2 { font-size: 1.25rem; }
     .hero-overlay p { display: none; }
-    .hero-side-card { grid-template-columns: 1fr; height: auto; }
-    .hero-side-card > div { height: 160px; }
+
+    /* Side cards : image droite réduite, titre gauche élargi */
+    .hero-side-card { grid-template-columns: 1fr; height: auto; gap: 10px; }
+    .hero-side-card > div {
+        height: 110px;
+        position: relative;
+        background: var(--bg-white);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+    }
+    .hero-side-card > div > img {
+        position: absolute;
+        right: 0; top: 0;
+        width: 38%; height: 100%;
+        object-fit: cover;
+    }
+    .hero-side-card .hero-overlay {
+        position: absolute;
+        left: 0; right: 38%; top: 0; bottom: 0;
+        background: var(--bg-white);
+        color: var(--text-dark);
+        padding: 10px 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+    }
+    .hero-side-card .hero-overlay h2 {
+        font-size: 0.92rem;
+        line-height: 1.35;
+        color: var(--text-dark);
+        -webkit-line-clamp: 3;
+        margin-bottom: 0;
+    }
+    .hero-side-card .hero-meta-tag { font-size: 0.62rem; padding: 2px 6px; }
+    .hero-side-card .category-tag  { font-size: 0.58rem; padding: 2px 6px; }
 
     /* Filtres scrollables horizontalement */
     .tag-filters {
