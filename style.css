@@ -95,7 +95,7 @@ header { display: contents; }
 .logo { display: flex; align-items: center; gap: 10px; cursor: pointer; align-self: stretch; margin: -15px 0; }
 .logo-icon { width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; font-size: 1.4rem; }
 .logo-img { height: 78px; width: 78px; border-radius: 0; object-fit: cover; flex-shrink: 0; transition: transform 0.25s ease; }
-.logo-img:hover { transform: scale(1.18); }
+.logo-img:hover { transform: scale(1.25); }
 .logo-text h1 { font-size: 1.5rem; font-weight: 800; line-height: 1.1; }
 .logo-text h1 span { color: var(--secondary); }
 .logo-text p { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
