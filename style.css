@@ -50,9 +50,9 @@ a, button, [onclick], input, select, textarea,
     input, select, textarea { font-size: 16px !important; }
 }
 
-/* 6. Hover uniquement sur appareils avec pointeur précis (pas tactile) */
+/* 6. Hover uniquement sur appareils avec pointeur précis (pas tactile)
+   Le logo est exclu : l'effet s'applique aussi au tap sur mobile */
 @media (hover: none) {
-    .logo-img:hover                    { transform: none; }
     .hero-main:hover img               { transform: none; }
     .hero-side-card > div:hover img    { transform: none; }
     .news-card:hover                   { transform: none; box-shadow: var(--shadow-sm); }
@@ -137,12 +137,12 @@ body.dark-mode .top-bar { background: #020617; }
 .top-bar-right a { color: #fff; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.1); transition: var(--transition); }
 .top-bar-right a:hover { background: var(--secondary); transform: translateY(-2px); }
 header { display: contents; }
-.header { background: var(--bg-white); box-shadow: var(--shadow-sm); position: sticky; top: 0; z-index: 1000; }
-.header-content { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; gap: 12px; flex-wrap: nowrap; }
-.logo { display: flex; align-items: center; gap: 10px; cursor: pointer; align-self: stretch; margin: -15px 0; }
+.header { background: var(--bg-white); box-shadow: var(--shadow-sm); position: sticky; top: 0; z-index: 1000; overflow: visible; }
+.header-content { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; gap: 12px; flex-wrap: nowrap; overflow: visible; }
+.logo { display: flex; align-items: center; gap: 10px; cursor: pointer; align-self: stretch; margin: -15px 0; overflow: visible; }
 .logo-icon { width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; font-size: 1.4rem; }
-.logo-img { height: 78px; width: 78px; border-radius: 0; object-fit: cover; flex-shrink: 0; transition: transform 0.25s ease; }
-.logo-img:hover { transform: scale(2.10); }
+.logo-img { height: 78px; width: 78px; border-radius: 0; object-fit: cover; flex-shrink: 0; transition: transform 0.25s ease; transform-origin: left top; }
+.logo-img:hover { transform: scale(2.10); z-index: 1001; position: relative; }
 .logo-text h1 { font-size: 1.5rem; font-weight: 800; line-height: 1.1; }
 .logo-text h1 span { color: var(--secondary); }
 .logo-text p { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
