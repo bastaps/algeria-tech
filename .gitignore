@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ﻿node_modules/
 .DS_Store
 .env
@@ -27,6 +28,37 @@ atom.xml
 articles.json
 revue_presse.json
 veille_data.json
+=======
+node_modules/
+.DS_Store
+.env
+.env.local
+*.log
+.idea/
+**/mobile/.idea/*
+.vscode/settings.json
+
+--- Ajouts pour régler l'erreur Cloudflare 25MB ---
+venv/
+backup_local_*/
+backup_conflicts/
+Ancien_Outil_Backup/
+*.mp4
+*.zip
+*.exe
+
+--- Empêcher le blocage par le flux RSS dynamique ---
+rss.xml
+feed.xml
+public/rss.xml
+public/feed.xml
+atom.xml
+
+# --- Protection des données de production ---
+articles.json
+revue_presse.json
+veille_data.json
+>>>>>>> Stashed changes
 =======
 node_modules/
 .DS_Store
