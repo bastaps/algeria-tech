@@ -1,9 +1,6 @@
 try {
     Set-Location $PSScriptRoot
 
-    # Ctrl+C intercepte en tant que touche (pas signal de fermeture)
-    [Console]::TreatControlCAsInput = $true
-
     # ── Fichiers auto-générés à ne jamais pousser ────────────────────────────
     $AUTO_FILES = @("revue_presse.json", "articles.json", "veille_data.json")
 
@@ -44,16 +41,19 @@ try {
         Show-Menu
         Write-Host "Choisissez une option : " -NoNewline -ForegroundColor White
 
-        # Lecture touche par touche — intercepte Ctrl+C sans fermer PowerShell
+        # TreatControlCAsInput UNIQUEMENT pendant la lecture du menu
+        [Console]::TreatControlCAsInput = $true
         $key = [Console]::ReadKey($true)
-        if ($key.Modifiers -band [ConsoleModifiers]::Control -and $key.Key -eq [ConsoleKey]::C) {
+        [Console]::TreatControlCAsInput = $false  # Restaure immediatement pour les processus fils
+
+        if (([int]$key.KeyChar -eq 3) -or ($key.Key -eq [ConsoleKey]::C -and ($key.Modifiers -band [ConsoleModifiers]::Control))) {
             Write-Host "`n[CTRL+C] Retour au menu..." -ForegroundColor Yellow
-            Start-Sleep -Milliseconds 400
+            Start-Sleep -Milliseconds 300
             $choice = ""
             continue
         }
         $choice = $key.KeyChar.ToString().ToLower()
-        Write-Host $choice   # echo
+        Write-Host $choice
 
         switch ($choice) {
 
@@ -76,9 +76,7 @@ try {
                 Write-Host "`nFichiers modifies (tracked) :" -ForegroundColor Cyan
                 git status --short
 
-                [Console]::TreatControlCAsInput = $false  # Read-Host a besoin du vrai Ctrl+C
                 $msg = Read-Host "`nMessage du commit (ex: MAJ CSS logo)"
-                [Console]::TreatControlCAsInput = $true   # on reprotege apres
                 if (-not $msg) { $msg = "Mise a jour" }
 
                 # 1. Enlever skip-worktree pour voir l'etat reel
