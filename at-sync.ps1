@@ -34,13 +34,14 @@ try {
         Write-Host "6. [BUILD]  Generer l'APK Android (Debug)"
         Write-Host "Q. Quitter"
         Write-Host "------------------------------------------"
+        Write-Host "  [CTRL+C] depuis n'importe quelle option = retour ici" -ForegroundColor DarkGray
     }
 
     do {
         Show-Menu
         $choice = Read-Host "Choisissez une option"
 
-        switch ($choice) {
+        try { switch ($choice) {
 
             # ── 1. SYNC ──────────────────────────────────────────────────────
             "1" {
@@ -203,6 +204,9 @@ try {
                 }
                 Read-Host "`nAppuyez sur Entree pour continuer..."
             }
+        } } catch [System.Management.Automation.PipelineStoppedException] {
+            Write-Host "`n[CTRL+C] Operation interrompue. Retour au menu..." -ForegroundColor Yellow
+            Start-Sleep -Milliseconds 600
         }
 
     } while ($choice -ne "q" -and $choice -ne "Q")
