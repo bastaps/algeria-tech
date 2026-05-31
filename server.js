@@ -502,6 +502,57 @@ async function updateVeilleFeeds() {
 updateVeilleFeeds();
 setInterval(updateVeilleFeeds, 4 * 60 * 60 * 1000);
 
+// ── REVUE DE PRESSE — Génération automatique à 06h00 heure algérienne (UTC+1) ──
+function msUntilNext6h() {
+    const now = new Date();
+    const next = new Date(now);
+    next.setHours(6, 0, 0, 0);
+    if (now >= next) next.setDate(next.getDate() + 1);
+    return next - now;
+}
+
+function isRevueStale() {
+    try {
+        const revue = JSON.parse(fsSync.readFileSync(path.join(__dirname, 'revue_presse.json'), 'utf8'));
+        if (!revue.lastUpdated) return true;
+        return new Date(revue.lastUpdated).toDateString() !== new Date().toDateString();
+    } catch (e) { return true; }
+}
+
+function genererRevuePresse() {
+    if (!isRevueStale()) {
+        console.log('[REVUE] Déjà à jour aujourd\'hui — génération ignorée.');
+        return;
+    }
+    if (!process.env.MISTRAL_API_KEY) {
+        console.warn('[REVUE] ⚠️  MISTRAL_API_KEY non définie — génération auto impossible.');
+        return;
+    }
+    console.log('[REVUE] 📰 Génération de la revue de presse du jour...');
+    const { spawn } = require('child_process');
+    const child = spawn(process.execPath, ['generate_revue.js'], {
+        cwd: __dirname,
+        env: { ...process.env },
+        stdio: 'inherit'
+    });
+    child.on('error', e => console.error('[REVUE] ❌ Erreur spawn:', e.message));
+    child.on('exit', code => {
+        if (code === 0) console.log('[REVUE] ✅ Revue du jour générée avec succès.');
+        else console.error(`[REVUE] ❌ Génération échouée (exit code ${code})`);
+    });
+}
+
+// Au démarrage : génère immédiatement si la revue est périmée (ex: redémarrage après 06h00)
+genererRevuePresse();
+
+// Schedule quotidien à 06h00 heure locale = heure algérienne (UTC+1, pas de changement d'heure)
+const _msUntil6h = msUntilNext6h();
+console.log(`[REVUE] ⏰ Prochaine génération dans ${Math.round(_msUntil6h / 3600000 * 10) / 10}h (06h00 Alger)`);
+setTimeout(() => {
+    genererRevuePresse();
+    setInterval(genererRevuePresse, 24 * 60 * 60 * 1000);
+}, _msUntil6h);
+
 app.get('/api/veille', (req, res) => res.json(loadVeilleData()));
 
 app.post('/api/veille', (req, res) => {
