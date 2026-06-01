@@ -1,6 +1,6 @@
 {
   "date": "lundi 1 juin",
-  "synthese": "Les dernières 24h ont été marquées par des avancées technologiques majeures en IA, robotique et cybersécurité, tandis que le marché des véhicules électriques et des smartphones continue de se réinventer. Les innovations hardware de Nvidia et Huawei redéfinissent les standards, mais des défis persistent en matière de sécurité et de réglementation. L'Algérie, quant à elle, reste focalisée sur des projets logistiques et administratifs, loin des tendances globales.",
+  "synthese": "Les dernières 24h ont été marquées par des avancées technologiques majeures en IA, cybersécurité et innovation matérielle, avec des annonces stratégiques de géants comme NVIDIA et Microsoft. Les enjeux de souveraineté numérique et de sécurité open source dominent les débats en Europe et aux États-Unis. En Algérie, les actualités tech restent centrées sur des mesures administratives et logistiques, loin des innovations globales.",
   "articles": [
     {
       "titre": "Android 15 bêta : Google doit-il abandonner son cycle annuel ?",
@@ -10,51 +10,62 @@
       "source": "Android DZ",
       "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "Android 15 en question : Google doit-il rompre avec son cycle annuel ?",
+      "accroche": "Android 15 en question : Google doit-il rompre son cycle annuel ?",
       "categorie": "Mobile"
     },
     {
-      "titre": "Samsung Galaxy : des millions de téléphones reçoivent des mises à jour gratuites majeures",
-      "resume": "Samsung déploie simultanément One UI 8.5 sur 15 millions d’appareils Galaxy dans trois régions majeures. Cette mise à…\nL’article Samsung Galaxy : des",
-      "url": "https://www.android-dz.com/samsung-galaxy-des-millions-de-telephones-recoivent-des-mises-a-jour-gratuites-majeures/",
-      "date": "2026-05-31T11:00:00.000Z",
-      "source": "Android DZ",
-      "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Samsung offre des mises à jour majeures à des millions de Galaxy : un geste rare.",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Robots militaires humanoïdes : vers un futur à la « Terminator » ?",
-      "resume": "Longtemps cantonnés à la science-fiction, les robots humanoïdes militaires se rapprochent progressivement du terrain. Aux États-Unis, une jeune pousse",
-      "url": "https://www.zdnet.fr/actualites/robots-militaires-humanoides-vers-un-futur-a-la-terminator-495918.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-01T06:30:00.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "titre": "Windows sur Arm : NVIDIA entre officiellement dans la danse",
+      "resume": "NVIDIA décline l'architecture DGX Spark en une famille de puces pour les PC Windows, tout en portant l'OS sur DGX Station.\nThe post Windows sur Arm :",
+      "url": "https://www.silicon.fr/workspace-1376/nvidia-spark-rtx-windows-227439",
+      "date": "2026-06-01T10:24:20.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Robots militaires humanoïdes : l’humanité à l’aube d’une ère « Terminator » ?",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Waymo met en service Ojai, son premier robotaxi conçu exclusivement pour cela",
-      "resume": "Produit en partenariat avec le constructeur chinois Zeekr et équipé du Driver de 6ᵉ génération, le véhicule marque une rupture avec l’approche des voi",
-      "url": "https://www.zdnet.fr/actualites/waymo-met-en-servi-ojai-son-premier-robotaxi-concu-de-zero-495913.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-01T06:02:12.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Waymo lance son premier robotaxi dédié : la mobilité autonome entre dans une nouvelle phase.",
+      "accroche": "NVIDIA rejoint la course aux processeurs Windows sur Arm, un tournant majeur.",
       "categorie": "Innovation"
     },
     {
-      "titre": "ZD Tech : Comment Huawei compte abandonner la loi de Moore pour produire des puces de 1,4 nm d'ici 2031",
-      "resume": "Privé des technologies occidentales, Huawei prépare une contre-attaque historique. Le géant chinois dévoile une stratégie inédite, promettant de produ",
-      "url": "https://www.zdnet.fr/actualites/zd-tech-comment-huawei-compte-abandonner-la-loi-de-moore-pour-produire-des-puces-de-14-nm-dici-2031-495727.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-01T05:30:17.000Z",
+      "titre": "Souveraineté numérique : L'Europe prépare son bouclier contre les géants US de la Tech",
+      "resume": "Face aux tensions géopolitiques et à l'hégémonie technologique américaine, l'Union européenne s'apprête à dévoiler un plan stratégique. L'objectif : r",
+      "url": "https://www.zdnet.fr/actualites/souverainete-numerique-leurope-prepare-son-bouclier-contre-les-geants-us-de-la-tech-495940.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-01T11:00:29.000Z",
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Huawei défie la loi de Moore avec des puces de 1,4 nm d’ici 2025.",
+      "accroche": "L'Europe renforce sa souveraineté numérique face aux géants américains de la Tech.",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "La sécurité open source est dans un état déplorable : IBM et Red Hat parient que 5 milliards de dollars et 20 000 ingénieurs pourront y remédier",
+      "resume": "Le projet Lightwell est une initiative basée sur l'IA visant à détecter et à corriger les failles de sécurité dans les logiciels libres à une échelle",
+      "url": "https://www.zdnet.fr/actualites/la-securite-open-source-est-dans-un-etat-deplorable-ibm-et-red-hat-parient-que-5-milliards-de-dollars-et-20-000-ingenieurs-pourront-y-remedier-495937.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-01T10:37:10.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Sécurité open source en crise : IBM et Red Hat investissent 5 milliards de dollars.",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "J'ai testé le service Windows 365 Cloud PC de Microsoft sur macOS, Android et iOS : voici ce que j'en ai pensé",
+      "resume": "Mais au fond, qui a besoin d'un PC dans le cloud ? Comment ça se passe dans la pratique ? Combien ça coûte vraiment ? J'ai les réponses à toutes ces q",
+      "url": "https://www.zdnet.fr/guide-achat/jai-teste-le-service-windows-365-cloud-pc-de-microsoft-sur-macos-android-et-ios-voici-ce-que-jen-ai-pense-495934.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-01T10:26:24.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Windows 365 Cloud PC testé : Microsoft révolutionne le travail hybride.",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Nvidia veut terrasser Apple et Qualcomm : voici la feuille de route RTX Spark jusqu’en 2030",
+      "resume": "Lors du Computex 2026, Jensen Huang, fondateur de Nvidia, a dévoilé une feuille de route à long terme impressionnante pour sa toute nouvelle plateform",
+      "url": "https://www.frandroid.com/marques/nvidia/3121029_nvidia-veut-terrasser-apple-et-qualcomm-voici-la-feuille-de-route-rtx-spark-jusquen-2030",
+      "date": "2026-06-01T10:25:03.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "NVIDIA dévoile sa feuille de route RTX Spark pour défier Apple et Qualcomm.",
       "categorie": "Innovation"
     },
     {
@@ -65,7 +76,7 @@
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "MG débarque en France avec ses voitures électriques IM5 et IM6 : l’alternative à Tesla ?",
+      "accroche": "MG débarque en France avec ses voitures électriques IM5 et IM6, alternative à Tesla.",
       "categorie": "Mobile"
     },
     {
@@ -76,64 +87,53 @@
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Une IA résout un manuscrit de 400 ans en 29 minutes : la science au service de l’histoire.",
+      "accroche": "Une IA résout un manuscrit secret vieux de 400 ans en seulement 29 minutes.",
       "categorie": "IA"
     },
     {
-      "titre": "Spliiit perd au tribunal : le partage de comptes entre inconnus semble vivre ses dernières heures",
-      "resume": "Le tribunal judiciaire de Paris a condamné la plateforme française Spliiit à verser une provision de 785 000 euros à Apple, Netflix et Disney pour con",
-      "url": "https://www.frandroid.com/services/3120999_spliiit-perd-au-tribunal-le-partage-de-comptes-entre-inconnus-semble-vivre-ses-dernieres-heures",
-      "date": "2026-06-01T09:52:36.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Spliiit condamné : le partage de comptes entre inconnus touche à sa fin.",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "Nvidia dévoile RTX Spark : la puce ARM qui pourrait révolutionner le marché des PC",
-      "resume": "Nvidia lance la RTX Spark, sa première puce ARM pour PC, marquant son entrée sur ce marché compétitif. La puce promet des performances élevées avec ju",
-      "url": "https://www.01net.com/actualites/nvidia-devoile-rtx-spark-la-puce-arm-qui-pourrait-revolutionner-le-marche-des-pc.html",
-      "date": "2026-06-01T09:54:08.000Z",
+      "titre": "Avec le DLSS 4.5, NVIDIA veut transformer vos jeux avec l’IA : voici les premiers titres compatibles",
+      "resume": "NVIDIA lance le DLSS 4.5 Ray Reconstruction pour améliorer le rendu graphique des jeux sur cartes GeForce RTX. Cette technologie vise à améliorer la p",
+      "url": "https://www.01net.com/actualites/avec-le-dlss-4-5-nvidia-veut-transformer-vos-jeux-avec-lia-voici-les-premiers-titres-compatibles.html",
+      "date": "2026-06-01T11:40:07.000Z",
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Nvidia RTX Spark : une puce ARM qui pourrait bouleverser le marché des PC.",
+      "accroche": "DLSS 4.5 de NVIDIA promet des jeux transformés grâce à l'IA dès maintenant.",
       "categorie": "Innovation"
     },
     {
-      "titre": "Recharge électrique : pourquoi vous payez parfois 10 fois plus cher qu’à domicile",
-      "resume": "L'association Que Choisir Ensemble documente des écarts de prix allant jusqu'à 490 % sur les bornes publiques et réclame transparence tarifaire, paiem",
-      "url": "https://www.01net.com/actualites/recharge-electrique-pourquoi-vous-payez-parfois-10-fois-plus-cher-qua-domicile.html",
-      "date": "2026-06-01T09:28:07.000Z",
+      "titre": "Galaxy Z Fold 8 : le futur pliant de Samsung aperçu en vrai, et il ne ressemble à rien de connu",
+      "resume": "Le Galaxy Z Fold 8 au format carré a été photographié en conditions réelles en Corée du Sud. Format large confirmé, double capteur, lancement attendu",
+      "url": "https://www.01net.com/actualites/galaxy-z-fold-8-le-futur-pliant-de-samsung-apercu-en-vrai-et-il-ne-ressemble-a-rien-de-connu.html",
+      "date": "2026-06-01T10:57:03.000Z",
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Recharge électrique : des prix exorbitants en station, pourquoi ?",
-      "categorie": "Réseaux"
+      "accroche": "Galaxy Z Fold 8 de Samsung : un design révolutionnaire qui défie les standards.",
+      "categorie": "Mobile"
     },
     {
-      "titre": "17 millions de PC, tablettes et smartphones piratés : un monstrueux botnet a été démantelé aux Pays-Bas",
-      "resume": "Les Pays-Bas viennent de démanteler l'un des plus grands botnets jamais enregistrés. Le réseau de 17 millions d'appareils infectés, piloté depuis plus",
-      "url": "https://www.01net.com/actualites/17-millions-pc-tablettes-smartphones-pirates-monstrueux-botnet-demantele-pays-bas.html",
-      "date": "2026-06-01T08:15:00.000Z",
+      "titre": "Drones, data centers, IA…. Au Sommet Choose France, des « investissements record » annoncés dans la tech",
+      "resume": "En amont de la 9e édition de Choose France, Emmanuel Macron a annoncé 91 milliards d'euros d'investissements : voici ceux qui concernent de près ou de",
+      "url": "https://www.01net.com/actualites/drones-data-centers-ia-au-sommet-choose-france-des-investissements-record-annonces-dans-la-tech.html",
+      "date": "2026-06-01T10:17:38.000Z",
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "17 millions d’appareils piratés : un botnet démantelé aux Pays-Bas.",
-      "categorie": "Cybersécurité"
+      "accroche": "Sommet Choose France : investissements records dans drones, data centers et IA.",
+      "categorie": "Innovation"
     },
     {
-      "titre": "Microsoft dévoile le Surface Laptop Ultra avec une puce Nvidia : le MacBook Pro a un vrai rival",
-      "resume": "Microsoft vient d'annoncer la machine la plus ambitieuse de l'histoire de sa gamme Surface : le Surface Laptop Ultra. Un PC portable haut de gamme ave",
-      "url": "https://www.numerama.com/tech/2263659-microsoft-devoile-le-surface-laptop-ultra-avec-une-puce-nvidia-le-macbook-pro-a-un-vrai-rival.html",
-      "date": "2026-06-01T09:19:28.000Z",
+      "titre": "500 000 euros réclamés : Tesla trainé en justice par des clients pour publicité mensongère sur le FSD",
+      "resume": "Un groupe de dix propriétaires de Tesla en Chine intente une action en justice collective contre le constructeur américain, réclamant plus de 3,95 mil",
+      "url": "https://www.numerama.com/vroom/2263667-500-000-euros-reclames-tesla-traine-en-justice-par-des-clients-pour-publicite-mensongere-sur-le-fsd.html",
+      "date": "2026-06-01T09:20:52.000Z",
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Microsoft Surface Laptop Ultra avec Nvidia : le MacBook Pro a un rival sérieux.",
+      "accroche": "Tesla traîné en justice pour publicité mensongère sur ses Full Self-Driving.",
       "categorie": "Mobile"
     }
   ],
-  "lastUpdated": "2026-06-01T10:11:28.958Z"
+  "lastUpdated": "2026-06-01T11:48:15.686Z"
 }
