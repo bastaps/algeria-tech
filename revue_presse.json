@@ -1,6 +1,6 @@
 {
   "date": "lundi 1 juin",
-  "synthese": "L'actualité tech des dernières 24h en Algérie et à l'international révèle des avancées majeures en innovation, IA et cybersécurité, avec des impacts concrets pour les utilisateurs. Les géants technologiques comme Google, Samsung et Huawei redéfinissent les standards, tandis que les startups et le marché mobile algérien évoluent sous l'effet des réglementations et des tendances globales. Les enjeux de sécurité et de performance dominent, avec des solutions innovantes pour les consommateurs et les entreprises.",
+  "synthese": "Les dernières 24h ont été marquées par des avancées technologiques majeures en IA, robotique et cybersécurité, tandis que le marché des véhicules électriques et des smartphones continue de se réinventer. Les innovations hardware de Nvidia et Huawei redéfinissent les standards, mais des défis persistent en matière de sécurité et de réglementation. L'Algérie, quant à elle, reste focalisée sur des projets logistiques et administratifs, loin des tendances globales.",
   "articles": [
     {
       "titre": "Android 15 bêta : Google doit-il abandonner son cycle annuel ?",
@@ -10,7 +10,7 @@
       "source": "Android DZ",
       "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "Android 15 en question : Google repense-t-il son cycle de mises à jour ?",
+      "accroche": "Android 15 en question : Google doit-il rompre avec son cycle annuel ?",
       "categorie": "Mobile"
     },
     {
@@ -21,7 +21,7 @@
       "source": "Android DZ",
       "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "Samsung offre des mises à jour majeures gratuites à des millions de Galaxy.",
+      "accroche": "Samsung offre des mises à jour majeures à des millions de Galaxy : un geste rare.",
       "categorie": "Mobile"
     },
     {
@@ -32,18 +32,18 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Robots militaires humanoïdes : l'armée du futur se rapproche-t-elle ?",
+      "accroche": "Robots militaires humanoïdes : l’humanité à l’aube d’une ère « Terminator » ?",
       "categorie": "IA"
     },
     {
-      "titre": "Waymo met en servi Ojai, son premier robotaxi conçu de zéro",
+      "titre": "Waymo met en service Ojai, son premier robotaxi conçu exclusivement pour cela",
       "resume": "Produit en partenariat avec le constructeur chinois Zeekr et équipé du Driver de 6ᵉ génération, le véhicule marque une rupture avec l’approche des voi",
       "url": "https://www.zdnet.fr/actualites/waymo-met-en-servi-ojai-son-premier-robotaxi-concu-de-zero-495913.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
       "date": "2026-06-01T06:02:12.000Z",
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Waymo lance son premier robotaxi conçu entièrement de zéro.",
+      "accroche": "Waymo lance son premier robotaxi dédié : la mobilité autonome entre dans une nouvelle phase.",
       "categorie": "Innovation"
     },
     {
@@ -54,30 +54,63 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Huawei défie la loi de Moore avec des puces de 1,4 nm d'ici 2025.",
+      "accroche": "Huawei défie la loi de Moore avec des puces de 1,4 nm d’ici 2025.",
       "categorie": "Innovation"
     },
     {
-      "titre": "Ce généreux forfait mobile anti-inflation est de nouveau disponible (mais pas pour longtemps) [Sponso]",
-      "resume": "Copieux, flexible et surtout pas cher, le forfait Oxygène fait son grand retour chez Prixtel. Attention à ne pas manquer l’occasion, cette offre étant",
-      "url": "https://www.frandroid.com/telecom/forfait-mobile/3116849_ce-genereux-forfait-mobile-anti-inflation-est-de-nouveau-disponible-mais-pas-pour-longtemps",
-      "date": "2026-06-01T09:15:00.000Z",
+      "titre": "L’alternative à Tesla ? MG arrive en France avec sa nouvelle gamme électrique IM5 et IM6",
+      "resume": "MG lance officiellement sa gamme de voitures électriques premium, MG IM, en France. La berline IM5 et le SUV IM6, déjà commercialisés au Royaume-Uni d",
+      "url": "https://www.frandroid.com/marques/mg/3120889_lalternative-a-tesla-mg-arrive-en-france-avec-sa-nouvelle-gamme-electrique-im5-et-im6",
+      "date": "2026-06-01T10:09:23.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Forfait mobile anti-inflation : une offre limitée à ne pas manquer.",
-      "categorie": "Télécoms"
+      "accroche": "MG débarque en France avec ses voitures électriques IM5 et IM6 : l’alternative à Tesla ?",
+      "categorie": "Mobile"
     },
     {
-      "titre": "Faut-il dire adieu à la souris ? Windows lance l’IA qui clique et tape à votre place depuis la barre des tâches grâce à Nvidia",
-      "resume": "NVIDIA et Microsoft annoncent OpenShell, un runtime qui transforme la barre des tâches Windows en lanceur d'agents IA capables d'agir tout seuls dans",
-      "url": "https://www.frandroid.com/os/windows/3120643_faut-il-dire-adieu-a-la-souris-windows-lance-lia-qui-clique-et-tape-a-votre-place-depuis-la-barre-des-taches-grace-a-nvidia",
-      "date": "2026-06-01T08:58:09.000Z",
+      "titre": "Une IA décode un manuscrit secret en 29 minutes : la fin d’un mystère vieux de 400 ans",
+      "resume": "Pendant quatre siècles, les historiens se sont cassés les dents sur ce manuscrit. Une intelligence artificielle a réussi à analyser, traduire et expli",
+      "url": "https://www.frandroid.com/culture-tech/intelligence-artificielle/3120699_une-ia-decode-un-manuscrit-secret-en-29-minutes-la-fin-dun-mystere-vieux-de-400-ans",
+      "date": "2026-06-01T09:54:50.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Windows intègre une IA pour cliquer et taper à votre place.",
+      "accroche": "Une IA résout un manuscrit de 400 ans en 29 minutes : la science au service de l’histoire.",
       "categorie": "IA"
+    },
+    {
+      "titre": "Spliiit perd au tribunal : le partage de comptes entre inconnus semble vivre ses dernières heures",
+      "resume": "Le tribunal judiciaire de Paris a condamné la plateforme française Spliiit à verser une provision de 785 000 euros à Apple, Netflix et Disney pour con",
+      "url": "https://www.frandroid.com/services/3120999_spliiit-perd-au-tribunal-le-partage-de-comptes-entre-inconnus-semble-vivre-ses-dernieres-heures",
+      "date": "2026-06-01T09:52:36.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Spliiit condamné : le partage de comptes entre inconnus touche à sa fin.",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Nvidia dévoile RTX Spark : la puce ARM qui pourrait révolutionner le marché des PC",
+      "resume": "Nvidia lance la RTX Spark, sa première puce ARM pour PC, marquant son entrée sur ce marché compétitif. La puce promet des performances élevées avec ju",
+      "url": "https://www.01net.com/actualites/nvidia-devoile-rtx-spark-la-puce-arm-qui-pourrait-revolutionner-le-marche-des-pc.html",
+      "date": "2026-06-01T09:54:08.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Nvidia RTX Spark : une puce ARM qui pourrait bouleverser le marché des PC.",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Recharge électrique : pourquoi vous payez parfois 10 fois plus cher qu’à domicile",
+      "resume": "L'association Que Choisir Ensemble documente des écarts de prix allant jusqu'à 490 % sur les bornes publiques et réclame transparence tarifaire, paiem",
+      "url": "https://www.01net.com/actualites/recharge-electrique-pourquoi-vous-payez-parfois-10-fois-plus-cher-qua-domicile.html",
+      "date": "2026-06-01T09:28:07.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Recharge électrique : des prix exorbitants en station, pourquoi ?",
+      "categorie": "Réseaux"
     },
     {
       "titre": "17 millions de PC, tablettes et smartphones piratés : un monstrueux botnet a été démantelé aux Pays-Bas",
@@ -87,41 +120,8 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Un botnet géant démantelé : 17 millions d'appareils piratés sauvés.",
+      "accroche": "17 millions d’appareils piratés : un botnet démantelé aux Pays-Bas.",
       "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "Pour 56€, votre vieux TV se transforme en Smart TV 4K avec Google TV intégré",
-      "resume": "Plutôt que d'acheter un nouveau téléviseur pour regarder la coupe du monde, voici la solution la plus économique et fiable pour faire évoluer votre vi",
-      "url": "https://www.01net.com/bons-plans/pour-56e-votre-vieux-tv-se-transforme-en-smart-tv-4k-avec-google-tv-integre.html",
-      "date": "2026-06-01T06:53:38.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Transformez votre TV en Smart TV 4K pour seulement 56€.",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Désolé si vous avez déjà un téléphone pliant : le Honor Magic V2 est vendu à -75% ⚡️",
-      "resume": "Alors que le Galaxy Z Fold7 de Samsung dépasse les 2000 euros, Honor vous donne une occasion de rêve pour acheter un smartphone pliant à moins de 500",
-      "url": "https://www.01net.com/bons-plans/desole-si-vous-avez-deja-un-telephone-pliant-le-honor-magic-v2-est-vendu-a-75.html",
-      "date": "2026-06-01T06:34:01.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Honor Magic V2 à -75% : le téléphone pliant le plus abordable du marché.",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "500 000 euros réclamés : Tesla trainé en justice par des clients pour publicité mensongère sur le FSD",
-      "resume": "Un groupe de dix propriétaires de Tesla en Chine intente une action en justice collective contre le constructeur américain, réclamant plus de 3,95 mil",
-      "url": "https://www.numerama.com/vroom/2263667-500-000-euros-reclames-tesla-traine-en-justice-par-des-clients-pour-publicite-mensongere-sur-le-fsd.html",
-      "date": "2026-06-01T09:20:52.000Z",
-      "source": "Numerama",
-      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
-      "pays": "FR",
-      "accroche": "Tesla traîné en justice pour publicité mensongère sur l'autonomie de ses véhicules.",
-      "categorie": "Startups"
     },
     {
       "titre": "Microsoft dévoile le Surface Laptop Ultra avec une puce Nvidia : le MacBook Pro a un vrai rival",
@@ -131,9 +131,9 @@
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Microsoft Surface Laptop Ultra : un rival sérieux pour le MacBook Pro.",
-      "categorie": "Innovation"
+      "accroche": "Microsoft Surface Laptop Ultra avec Nvidia : le MacBook Pro a un rival sérieux.",
+      "categorie": "Mobile"
     }
   ],
-  "lastUpdated": "2026-06-01T09:25:22.264Z"
+  "lastUpdated": "2026-06-01T10:11:28.958Z"
 }
