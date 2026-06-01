@@ -499,8 +499,10 @@ function initAudioReader(textToRead) {
     function resolveVoice() {
         const sel = document.getElementById('voiceSelect');
         const voices = synth.getVoices();
+        // Samsung : voiceschanged peut être manqué — repopuler à la demande
+        if (sel && sel.options.length <= 1 && voices.length) populateVoiceSelect();
         if (sel && sel.value) {
-            const picked = voices.find(v => v.name === sel.value);
+            const picked = voices.find(v => v.name === sel.value && v.lang.startsWith('fr'));
             if (picked) return picked;
         }
         // Fallback : meilleure voix FR détectée automatiquement
@@ -525,7 +527,6 @@ function initAudioReader(textToRead) {
         if (stickyBar) stickyBar.classList.add('playing');
 
         const utt = new SpeechSynthesisUtterance(cleanText);
-        utt.lang  = 'fr-FR';
         utt.rate  = TTS_CONFIG.rate;
 
         utt.onboundary = (e) => {
@@ -535,9 +536,10 @@ function initAudioReader(textToRead) {
         utt.onend   = resetUI;
         utt.onerror = resetUI;
 
-        // Voix appliquée si disponible, sinon voix système par défaut (Android)
+        // Voix FR appliquée en premier, lang forcé après pour Samsung
         const voice = resolveVoice();
         if (voice) utt.voice = voice;
+        utt.lang = 'fr-FR';
 
         // DOIT être synchrone dans le handler du geste utilisateur.
         // setTimeout (même 0ms) sort du contexte de geste → TTS bloqué silencieusement sur mobile.
