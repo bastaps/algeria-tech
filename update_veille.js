@@ -57,14 +57,26 @@ async function updateVeilleFeeds() {
     console.log('[VEILLE] --- DÉBUT DE LA MISE À JOUR ---');
     const data = loadVeilleData();
     
-    // Liste exhaustive des sources (11 sources nationales et internationales)
+    // Sources algériennes spécialisées TIC (16) + sources internationales (5)
     const feeds = [
+        // ── Algérie ──────────────────────────────────────────────────────────
         'https://www.tsa-algerie.dz/feed/',
         'https://lesenjeuxeco.dz/category/tic/feed/',
         'https://www.algerie360.com/category/high-tech/feed/',
         'https://www.aps.dz/fr/algerie/education-et-technologie?format=feed&type=rss',
         'https://itmag.dz/feed/',
         'https://dz-tech.news/fr/feed/',
+        'https://www.android-dz.com/feed/',
+        'https://www.ntic-dz.com/feed/',
+        'https://www.indjazat.com/category/tic/feed/',
+        'https://algerie-eco.com/feed/',
+        'https://www.ecomnewsmed.com/location/algerie/feed/',
+        'https://www.elwatan.com/feed/',
+        'https://www.elmoudjahid.dz/?format=feed&type=rss',
+        'https://www.lesoirdalgerie.com/mobiles/feed/',
+        'https://www.lesoirdalgerie.com/numerique-et-satellite/feed/',
+        'https://www.algerietelecom.dz/fr/espace-presse?format=feed&type=rss',
+        // ── International TIC ─────────────────────────────────────────────────
         'https://www.silicon.fr/feed',
         'https://www.zdnet.fr/feed/',
         'https://techcrunch.com/feed/',

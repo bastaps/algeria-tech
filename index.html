@@ -57,6 +57,7 @@
                                 <li><a href="infographies/index.html">Infographies</a></li>
                                 <li><a href="#" onclick="showVeille()" id="nav-veille">Veille</a></li>
                                 <li><a href="#" onclick="showRevue()" id="nav-revue">Revue de Presse</a></li>
+                                <li><a href="/actualites-tic"><i class="fas fa-share-alt" style="color:#E30613;margin-right:5px"></i>Veille Réseaux Sociaux</a></li>
                                 <li><a href="/operateurs"><i class="fas fa-signal" style="margin-right:5px;color:#00C853"></i>Opérateurs Mobiles</a></li>
                             </ul>
                         </li>
@@ -126,27 +127,85 @@
         </div>
     </main>
 
-    <section id="veilleSection" class="container veille-wrapper" style="display:none; margin: 40px auto;">
-        <div class="section-header">
-            <h2 class="section-title"><span class="icon"><i class="fas fa-rss"></i></span> Veille Technologique & Presse</h2>
-            <button class="tag-filter veille-add-btn" onclick="openVeilleModal('add')"><i class="fas fa-plus"></i> Ajouter un article</button>
+    <!-- ════════════════════════════════════════════════════
+         VEILLE V2 — Dashboard Thématique RSS
+         ════════════════════════════════════════════════════ -->
+    <section id="veilleSection" style="display:none; margin:0 auto;">
+      <div class="veille-v2">
+
+        <!-- ── Bande KPI ──────────────────────────────────── -->
+        <div class="v2-stats-bar">
+          <div class="container v2-stats-inner">
+            <div class="v2-kpis">
+              <div class="v2-kpi"><i class="fas fa-newspaper"></i><strong id="vs-total">—</strong><span>articles</span></div>
+              <div class="v2-kpi v2-kpi--dz"><i class="fas fa-map-marker-alt"></i><strong id="vs-dz">—</strong><span>Algérie</span></div>
+              <div class="v2-kpi v2-kpi--fr"><i class="fas fa-globe-africa"></i><strong id="vs-fr">—</strong><span>Francophones</span></div>
+              <div class="v2-kpi v2-kpi--tic"><i class="fas fa-microchip"></i><strong id="vs-tic">—</strong><span>TIC & Digital</span></div>
+            </div>
+            <div class="v2-stats-right">
+              <span class="v2-live-badge" id="vSyncLabel"><i class="fas fa-circle"></i> Live</span>
+              <button class="v2-add-btn" onclick="openVeilleModal('add')"><i class="fas fa-plus"></i> Ajouter</button>
+            </div>
+          </div>
         </div>
-        <div class="veille-table-container">
-            <table class="veille-table">
-                <thead>
-                    <tr>
-                        <th style="width: 150px;">Date</th>
-                        <th>Titre / Sujet</th>
-                        <th style="width: 180px;">Tags</th>
-                        <th style="width: 130px;">Source</th>
-                        <th style="width: 100px;">Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="veilleBody">
-                    <tr><td colspan="5" class="veille-loading" id="veilleLoading">Synchronisation de la veille...</td></tr>
-                </tbody>
-            </table>
+
+        <!-- ── Onglets Flux ───────────────────────────────── -->
+        <div class="v2-tabs-bar">
+          <div class="container">
+            <div class="v2-tabs" role="tablist">
+              <button class="v2-tab v2-tab--dz active" onclick="switchVeilleFlux('algerie',this)" data-flux="algerie">
+                <span>🇩🇿</span><span class="v2-tab-label">Algérie</span>
+                <span class="v2-tab-count" id="vtc-algerie">0</span>
+              </button>
+              <button class="v2-tab v2-tab--fr" onclick="switchVeilleFlux('francophone',this)" data-flux="francophone">
+                <span>🌍</span><span class="v2-tab-label">International Fr.</span>
+                <span class="v2-tab-count" id="vtc-francophone">0</span>
+              </button>
+              <button class="v2-tab v2-tab--tic" onclick="switchVeilleFlux('tic',this)" data-flux="tic">
+                <span>💻</span><span class="v2-tab-label">TIC & Digital</span>
+                <span class="v2-tab-count" id="vtc-tic">0</span>
+              </button>
+              <button class="v2-tab v2-tab--manuel" onclick="switchVeilleFlux('manuel',this)" data-flux="manuel">
+                <span>✏️</span><span class="v2-tab-label">Mes articles</span>
+                <span class="v2-tab-count" id="vtc-manuel">0</span>
+              </button>
+            </div>
+          </div>
         </div>
+
+        <!-- ── Filtres thématiques ────────────────────────── -->
+        <div class="v2-topics-bar">
+          <div class="container v2-topics-inner">
+            <button class="v2-pill active" onclick="filterVeilleTopic('all',this)">Tous</button>
+            <button class="v2-pill" onclick="filterVeilleTopic('Télécoms',this)">📡 Télécoms</button>
+            <button class="v2-pill" onclick="filterVeilleTopic('Mobile',this)">📱 Mobile</button>
+            <button class="v2-pill" onclick="filterVeilleTopic('Startups',this)">🚀 Startups</button>
+            <button class="v2-pill" onclick="filterVeilleTopic('IA',this)">🤖 IA</button>
+            <button class="v2-pill" onclick="filterVeilleTopic('Internet',this)">🌐 Internet</button>
+            <button class="v2-pill" onclick="filterVeilleTopic('Data',this)">📊 Data</button>
+            <button class="v2-pill" onclick="filterVeilleTopic('Cloud',this)">☁️ Cloud</button>
+            <button class="v2-pill" onclick="filterVeilleTopic('Cybersécurité',this)">🔒 Cyber</button>
+          </div>
+        </div>
+
+        <!-- ── Grille de cartes ───────────────────────────── -->
+        <div class="container v2-body">
+          <div id="veilleLoading" class="v2-loading-msg" style="display:none;">
+            <i class="fas fa-spinner fa-spin"></i> Synchronisation de la veille…
+          </div>
+          <div class="v2-cards" id="veilleCards"></div>
+          <div class="v2-empty" id="veilleEmpty" style="display:none;">
+            <i class="fas fa-satellite-dish"></i>
+            <p>Aucun article dans cette catégorie pour l'instant.</p>
+          </div>
+          <div class="v2-more-wrap" id="veilleMoreWrap" style="display:none;">
+            <button class="v2-more-btn" onclick="loadMoreVeille()">
+              <i class="fas fa-chevron-down"></i> Voir plus d'articles
+            </button>
+          </div>
+        </div>
+
+      </div>
     </section>
 
     <!-- Section Revue de Presse -->
@@ -218,6 +277,7 @@
                     <ul>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Newsletter</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Flux RSS</a></li>
+                        <li><a href="/actualites-tic"><i class="fas fa-share-alt"></i> Réseaux Sociaux TIC</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
@@ -319,6 +379,7 @@
             <li><a href="infographies/index.html"><i class="fas fa-chart-bar"></i> Infographies</a></li>
             <li><a href="#" onclick="showVeille(); toggleMobileMenu()"><i class="fas fa-rss"></i> Veille</a></li>
             <li><a href="#" onclick="showRevue(); toggleMobileMenu()"><i class="fas fa-newspaper"></i> Revue de Presse</a></li>
+            <li><a href="/actualites-tic"><i class="fas fa-share-alt" style="color:#E30613"></i> Veille Réseaux Sociaux</a></li>
         </ul>
         <div class="mobile-menu-footer">
             <button class="mobile-theme-btn" onclick="toggleTheme()"><i class="fas fa-moon"></i> Changer le thème</button>

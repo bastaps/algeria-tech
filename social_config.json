@@ -1,0 +1,503 @@
+{
+  "_doc": "Algeria Tech — Configuration sources TIC sociales v2. Màj via fetch_social.py",
+
+  "_rssapp_guide": [
+    "=== ACTIVER LES SOURCES FACEBOOK (gratuit, 10 min) ===",
+    "",
+    "ETAPE 1 — Créez votre flux RSS depuis n'importe quelle page Facebook :",
+    "  → Allez sur https://rss.app  (compte gratuit = 5 feeds)",
+    "  → Create RSS Feed → collez l'URL Facebook de la page",
+    "  → Copiez l'URL RSS générée (ex: https://rss.app/feeds/XXXXX.xml)",
+    "  → Collez-la dans 'rss_url' de la source correspondante ci-dessous",
+    "  → Pour plus de 5 feeds : créez un 2e compte gratuit",
+    "",
+    "ETAPE 2 — Ou utilisez le Facebook Graph API (optionnel, pour tous les posts) :",
+    "  → developers.facebook.com → My Apps → Create App",
+    "  → Graph API Explorer → Generate Token",
+    "  → Ajoutez dans .env : FB_APP_TOKEN=votre_token",
+    "  → Renseignez 'fb_page_id' avec le username de la page (déjà rempli ci-dessous)",
+    "",
+    "ETAPE 3 — Lancez la mise à jour :",
+    "  → PowerShell : cd E:\\algeria-tech && python fetch_social.py",
+    "  → Ou : .\\setup_scheduler.ps1  (automatise toutes les 2h)"
+  ],
+
+  "sources": [
+
+    {
+      "_section": "=== MINISTÈRES & GOUVERNEMENT ===",
+      "name": "Ministère de la Poste et des TIC",
+      "short": "MPT",
+      "category": "Ministère",
+      "icon": "🏛️",
+      "color": "#006233",
+      "website": "https://www.mpt.gov.dz",
+      "fb_page_url": "https://www.facebook.com/mpt.gov.dz",
+      "fb_page_id": "mpt.gov.dz",
+      "rss_url": "https://rss.app/feeds/ggiJjnT2sHJmB6MX.xml",
+      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "translate": true,
+      "enabled": true
+    },
+
+    {
+      "name": "Ministère de l'Enseignement Supérieur et de la Recherche",
+      "short": "MESRS",
+      "category": "Ministère",
+      "icon": "🎓",
+      "color": "#1B5E20",
+      "website": "https://www.mesrs.dz",
+      "fb_page_url": "https://www.facebook.com/mesrs.dz",
+      "fb_page_id": "mesrs.dz",
+      "rss_url": "https://rss.app/feeds/cp0OUYmTHjopEVG5.xml",
+      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "translate": true,
+      "enabled": true
+    },
+
+    {
+      "name": "Ministère de l'Économie de la Connaissance & Startups",
+      "short": "MKESME",
+      "category": "Ministère",
+      "icon": "🚀",
+      "color": "#0D47A1",
+      "website": "https://www.mkesme.dz",
+      "fb_page_url": "https://www.facebook.com/mkesme.dz",
+      "fb_page_id": "mkesme.dz",
+      "rss_url": "https://rss.app/feeds/uOmZ34nKPPCe16aC.xml",
+      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "translate": true,
+      "enabled": true
+    },
+
+    {
+      "_section": "=== INFRASTRUCTURE TIC ===",
+      "name": "Algérie Télécom",
+      "short": "AT",
+      "category": "Infrastructure",
+      "icon": "📡",
+      "color": "#0055A4",
+      "website": "https://www.algerietelecom.dz",
+      "fb_page_url": "https://www.facebook.com/AlgerieTelecom",
+      "fb_page_id": "AlgerieTelecom",
+      "rss_url": "https://rss.app/feeds/K4RMVGP3oLlI7tNG.xml",
+      "_rssapp": "RSS officiel + créez aussi le flux rss.app Facebook pour plus de contenu",
+      "translate": true,
+      "enabled": true
+    },
+
+    {
+      "name": "Algérie Poste",
+      "short": "AP",
+      "category": "Infrastructure",
+      "icon": "✉️",
+      "color": "#F9A825",
+      "website": "https://www.poste.dz",
+      "fb_page_url": "https://www.facebook.com/algerieposteofficiel",
+      "fb_page_id": "algerieposteofficiel",
+      "rss_url": "https://rss.app/feeds/8w13Cq1WJoPERlE2.xml",
+      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "translate": true,
+      "enabled": true
+    },
+
+    {
+      "name": "Algérie Télécom Satellite (ATS)",
+      "short": "ATS",
+      "category": "Infrastructure",
+      "icon": "🛰️",
+      "color": "#1A237E",
+      "website": "https://www.algersat.dz",
+      "fb_page_url": "https://www.facebook.com/atsofficiel",
+      "fb_page_id": "atsofficiel",
+      "rss_url": "https://rss.app/feeds/JVPc9ArTkOS5jZlY.xml",
+      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "translate": true,
+      "enabled": true
+    },
+
+    {
+      "name": "ARPCE (Autorité de Régulation)",
+      "short": "ARPC",
+      "category": "Infrastructure",
+      "icon": "⚖️",
+      "color": "#4A148C",
+      "website": "https://www.arpce.dz",
+      "fb_page_url": "https://www.facebook.com/ARPCE.DZ",
+      "fb_page_id": "ARPCE.DZ",
+      "rss_url": "https://rss.app/feeds/ONPtYJ8Hlza4A0LB.xml",
+      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "translate": true,
+      "enabled": true
+    },
+
+    {
+      "_section": "=== OPÉRATEURS MOBILES ===",
+      "name": "Ooredoo Algérie",
+      "short": "OR",
+      "category": "Opérateurs",
+      "icon": "📱",
+      "color": "#E30613",
+      "website": "https://www.ooredoo.dz",
+      "fb_page_url": "https://www.facebook.com/OoredooDZ",
+      "fb_page_id": "OoredooDZ",
+      "rss_url": "https://rss.app/feeds/6lQ2temSiGGbe7bp.xml",
+      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "translate": true,
+      "enabled": true
+    },
+
+    {
+      "name": "Djezzy",
+      "short": "DJ",
+      "category": "Opérateurs",
+      "icon": "📱",
+      "color": "#FF6B00",
+      "website": "https://www.djezzy.dz",
+      "fb_page_url": "https://www.facebook.com/djezzy",
+      "fb_page_id": "djezzy",
+      "rss_url": "https://rss.app/feeds/Fjx1HwUxC3W47VDP.xml",
+      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "translate": true,
+      "enabled": true
+    },
+
+    {
+      "name": "Mobilis",
+      "short": "MB",
+      "category": "Opérateurs",
+      "icon": "📱",
+      "color": "#00A651",
+      "website": "https://www.mobilis.dz",
+      "fb_page_url": "https://www.facebook.com/MobilisOfficielle",
+      "fb_page_id": "MobilisOfficielle",
+      "rss_url": "https://rss.app/feeds/OnAQ7VnFdY35K89F.xml",
+      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "translate": true,
+      "enabled": true
+    },
+
+    {
+      "_section": "=== ÉQUIPEMENTIERS & FABRICANTS ===",
+      "name": "Huawei Mobile DZ",
+      "short": "HMD",
+      "category": "Équipementiers",
+      "icon": "📲",
+      "color": "#CF0A2C",
+      "website": "https://consumer.huawei.com/dz",
+      "fb_page_url": "https://www.facebook.com/HuaweimobileDZ",
+      "fb_page_id": "HuaweimobileDZ",
+      "rss_url": "https://rss.app/feeds/lbWufhAUGOS9l9Ic.xml",
+      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "translate": true,
+      "enabled": true
+    },
+
+    {
+      "name": "Huawei Global",
+      "short": "HW",
+      "category": "Équipementiers",
+      "icon": "🔧",
+      "color": "#B71C1C",
+      "website": "https://www.huawei.com",
+      "fb_page_url": "https://www.facebook.com/huawei",
+      "fb_page_id": "huawei",
+      "rss_url": "https://rss.app/feeds/6g2nIf4f6Q7CgWCk.xml",
+      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "translate": true,
+      "enabled": true
+    },
+
+    {
+      "name": "Ericsson",
+      "short": "ER",
+      "category": "Équipementiers",
+      "icon": "🔧",
+      "color": "#009999",
+      "website": "https://www.ericsson.com",
+      "fb_page_url": "https://www.facebook.com/ericsson",
+      "fb_page_id": "ericsson",
+      "rss_url": "https://rss.app/feeds/IvGc0bYW2g6OKmxu.xml",
+      "translate": true,
+      "enabled": true
+    },
+
+    {
+      "name": "Nokia",
+      "short": "NK",
+      "category": "Équipementiers",
+      "icon": "🔧",
+      "color": "#124191",
+      "website": "https://www.nokia.com",
+      "fb_page_url": "https://www.facebook.com/Nokia",
+      "fb_page_id": "Nokia",
+      "rss_url": "https://www.nokia.com/about-us/news/releases/feed/",
+      "translate": true,
+      "enabled": true
+    },
+
+    {
+      "name": "Condor Electronics",
+      "short": "CD",
+      "category": "Équipementiers",
+      "icon": "📺",
+      "color": "#E65100",
+      "website": "https://www.condor.dz",
+      "fb_page_url": "https://www.facebook.com/Condor.Electromenager",
+      "fb_page_id": "Condor.Electromenager",
+      "rss_url": "https://rss.app/feeds/daNeVmpCcpX4SKYj.xml",
+      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "translate": true,
+      "enabled": true
+    },
+
+    {
+      "name": "Stream System",
+      "short": "SS",
+      "category": "Équipementiers",
+      "icon": "💻",
+      "color": "#37474F",
+      "website": "https://www.streamsystem.com",
+      "fb_page_url": "https://www.facebook.com/streamsystem",
+      "fb_page_id": "streamsystem",
+      "rss_url": "https://rss.app/feeds/rurKHRHqwCJ2GM2F.xml",
+      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "translate": true,
+      "enabled": true
+    },
+
+    {
+      "_section": "=== MÉDIAS TIC ALGÉRIENS ===",
+      "name": "TSA Algérie",
+      "short": "TSA",
+      "category": "Médias TIC",
+      "icon": "📰",
+      "color": "#C62828",
+      "website": "https://www.tsa-algerie.dz",
+      "fb_page_url": "https://www.facebook.com/TSAlgerie",
+      "fb_page_id": "TSAlgerie",
+      "rss_url": "https://www.tsa-algerie.dz/feed/",
+      "translate": false,
+      "enabled": true
+    },
+
+    {
+      "name": "Algérie 360",
+      "short": "A360",
+      "category": "Médias TIC",
+      "icon": "📰",
+      "color": "#1565C0",
+      "website": "https://www.algerie360.com",
+      "fb_page_url": "https://www.facebook.com/algerie360",
+      "fb_page_id": "algerie360",
+      "rss_url": "https://www.algerie360.com/category/high-tech/feed/",
+      "translate": false,
+      "enabled": true
+    },
+
+    {
+      "name": "ItMag DZ",
+      "short": "ITM",
+      "category": "Médias TIC",
+      "icon": "💡",
+      "color": "#00695C",
+      "website": "https://itmag.dz",
+      "fb_page_url": "https://www.facebook.com/itmag.dz",
+      "fb_page_id": "itmag.dz",
+      "rss_url": "https://itmag.dz/feed/",
+      "translate": false,
+      "enabled": true
+    },
+
+    {
+      "name": "Android DZ",
+      "short": "ADZ",
+      "category": "Médias TIC",
+      "icon": "🤖",
+      "color": "#33691E",
+      "website": "https://www.android-dz.com",
+      "fb_page_url": "https://www.facebook.com/androiddzcom",
+      "fb_page_id": "androiddzcom",
+      "rss_url": "https://www.android-dz.com/feed/",
+      "translate": false,
+      "enabled": true
+    },
+
+    {
+      "name": "NTIC-DZ",
+      "short": "NTC",
+      "category": "Médias TIC",
+      "icon": "🌐",
+      "color": "#01579B",
+      "website": "https://www.ntic-dz.com",
+      "fb_page_url": "https://www.facebook.com/nticdz",
+      "fb_page_id": "nticdz",
+      "rss_url": "https://www.ntic-dz.com/feed/",
+      "translate": false,
+      "enabled": true
+    },
+
+    {
+      "name": "Indjazat",
+      "short": "INJ",
+      "category": "Médias TIC",
+      "icon": "🏆",
+      "color": "#4527A0",
+      "website": "https://www.indjazat.com",
+      "fb_page_url": "https://www.facebook.com/indjazat",
+      "fb_page_id": "indjazat",
+      "rss_url": "https://www.indjazat.com/category/tic/feed/",
+      "translate": false,
+      "enabled": true
+    },
+
+    {
+      "name": "Algérie Éco",
+      "short": "AEC",
+      "category": "Médias TIC",
+      "icon": "📊",
+      "color": "#2E7D32",
+      "website": "https://algerie-eco.com",
+      "fb_page_url": "https://www.facebook.com/AlgerieEco",
+      "fb_page_id": "AlgerieEco",
+      "rss_url": "https://algerie-eco.com/feed/",
+      "translate": false,
+      "enabled": true
+    },
+
+    {
+      "name": "DZ Tech News",
+      "short": "DZT",
+      "category": "Médias TIC",
+      "icon": "⚡",
+      "color": "#006064",
+      "website": "https://dz-tech.news",
+      "fb_page_url": "https://www.facebook.com/dztechnews",
+      "fb_page_id": "dztechnews",
+      "rss_url": "https://dz-tech.news/fr/feed/",
+      "translate": false,
+      "enabled": true
+    },
+
+    {
+      "name": "El Watan Économie",
+      "short": "EW",
+      "category": "Médias TIC",
+      "icon": "📋",
+      "color": "#5D4037",
+      "website": "https://www.elwatan.com",
+      "fb_page_url": "https://www.facebook.com/elwatan",
+      "fb_page_id": "elwatan",
+      "rss_url": "https://www.elwatan.com/?feed=rss2",
+      "translate": false,
+      "enabled": true
+    },
+
+    {
+      "_section": "=== MÉDIAS TIC INTERNATIONAUX ===",
+      "name": "TechCrunch",
+      "short": "TC",
+      "category": "Tech International",
+      "icon": "🌍",
+      "color": "#1D8348",
+      "website": "https://techcrunch.com",
+      "fb_page_url": "https://www.facebook.com/techcrunch",
+      "fb_page_id": "techcrunch",
+      "rss_url": "https://techcrunch.com/feed/",
+      "translate": true,
+      "enabled": true
+    },
+
+    {
+      "name": "ZDNet France",
+      "short": "ZD",
+      "category": "Tech International",
+      "icon": "🌍",
+      "color": "#283593",
+      "website": "https://www.zdnet.fr",
+      "fb_page_url": "https://www.facebook.com/ZDNet",
+      "fb_page_id": "ZDNet",
+      "rss_url": "https://www.zdnet.fr/feed/",
+      "translate": false,
+      "enabled": true
+    },
+
+    {
+      "name": "The Verge",
+      "short": "VG",
+      "category": "Tech International",
+      "icon": "🌍",
+      "color": "#7B1FA2",
+      "website": "https://www.theverge.com",
+      "fb_page_url": "https://www.facebook.com/TheVerge",
+      "fb_page_id": "TheVerge",
+      "rss_url": "https://www.theverge.com/rss/index.xml",
+      "translate": true,
+      "enabled": false,
+      "_note": "Source en anglais — activez si souhaité (enabled: true)"
+    },
+
+    {
+      "name": "Silicon.fr",
+      "short": "SI",
+      "category": "Tech International",
+      "icon": "🌍",
+      "color": "#558B2F",
+      "website": "https://www.silicon.fr",
+      "fb_page_url": "https://www.facebook.com/silicon.fr",
+      "fb_page_id": "silicon.fr",
+      "rss_url": "https://www.silicon.fr/feed",
+      "translate": false,
+      "enabled": true
+    },
+
+    {
+      "name": "Le Monde Informatique",
+      "short": "LMI",
+      "category": "Tech International",
+      "icon": "🌍",
+      "color": "#1565C0",
+      "website": "https://www.lemondeinformatique.fr",
+      "fb_page_url": "https://www.facebook.com/LeMondeinformatique",
+      "fb_page_id": "LeMondeinformatique",
+      "rss_url": "https://www.lemondeinformatique.fr/flux-rss/thematique-reseaux-telecoms-47.xml",
+      "translate": false,
+      "enabled": true
+    }
+
+  ],
+
+  "_rssapp_3comptes": {
+    "_note": "RSS.app gratuit = 5 feeds/compte. Créez 3 comptes = 15 pages. Lance setup_rssapp.ps1 pour aide.",
+    "compte_1_operateurs": [
+      "→ https://www.facebook.com/OoredooDZ        (rss_url à mettre dans: Ooredoo Algérie)",
+      "→ https://www.facebook.com/djezzy           (rss_url à mettre dans: Djezzy)",
+      "→ https://www.facebook.com/MobilisOfficielle(rss_url à mettre dans: Mobilis)",
+      "→ https://www.facebook.com/mpt.gov.dz       (rss_url à mettre dans: Ministère de la Poste)",
+      "→ https://www.facebook.com/AlgerieTelecom   (rss_url à mettre dans: Algérie Télécom)"
+    ],
+    "compte_2_gouvernement": [
+      "→ https://www.facebook.com/algerieposteofficiel(rss_url: Algérie Poste)",
+      "→ https://www.facebook.com/atsofficiel         (rss_url: Algérie Télécom Satellite)",
+      "→ https://www.facebook.com/mkesme.dz           (rss_url: MKESME Startups)",
+      "→ https://www.facebook.com/mesrs.dz            (rss_url: MESRS)",
+      "→ https://www.facebook.com/HuaweimobileDZ      (rss_url: Huawei Mobile DZ)"
+    ],
+    "compte_3_equipementiers": [
+      "→ https://www.facebook.com/huawei              (rss_url: Huawei Global)",
+      "→ https://www.facebook.com/Condor.Electromenager(rss_url: Condor Electronics)",
+      "→ https://www.facebook.com/streamsystem        (rss_url: Stream System)",
+      "→ https://www.facebook.com/ARPCE.DZ            (rss_url: ARPCE Régulateur)"
+    ]
+  },
+
+  "_graph_api_option": {
+    "_note": "Alternative : UN SEUL token Facebook = TOUTES les pages. Gratuit, 5 min de config.",
+    "etape_1": "Allez sur https://developers.facebook.com → My Apps → Create App → Other → Business",
+    "etape_2": "Donnez un nom (ex: AlgeriaTechBot) → Créer",
+    "etape_3": "Tools → Graph API Explorer → Generate Access Token (App Token)",
+    "etape_4": "Copiez le token → ajoutez dans E:\\algeria-tech\\.env : FB_APP_TOKEN=votre_token",
+    "etape_5": "Testez : python test_fb_token.py",
+    "etape_6": "Lancez : python fetch_social.py (tous les fb_page_id sont déjà configurés)"
+  }
+}

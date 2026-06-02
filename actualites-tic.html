@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Actualités TIC — Algeria Tech</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Algeria Tech — Cyber Dark Dashboard ──────────────── */
+    :root {
+      --tic-bg: #060e1c;
+      --tic-card: rgba(10,22,42,0.9);
+      --tic-border: rgba(255,255,255,0.07);
+      --tic-text: #ddeaf8;
+      --tic-muted: #5a7896;
+      --tic-primary: #00c46a;
+      --tic-primary-dk: #006233;
+      --tic-red: #D21034;
+      --tic-surface: rgba(255,255,255,0.04);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--tic-bg);
+      color: var(--tic-text);
+      min-height: 100vh;
+    }
+
+    /* Grille tech en arrière-plan */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,196,106,0.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,196,106,0.028) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Halo vert en haut à gauche */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -15%;
+      left: -8%;
+      width: 580px;
+      height: 580px;
+      background: radial-gradient(ellipse, rgba(0,98,51,0.13) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .tic-header, .tic-tabs-wrap, .tic-main { position: relative; z-index: 1; }
+
+    /* ── Header ───────────────────────────────────────────── */
+    .tic-header {
+      display: block !important; /* annule header{display:contents} de style.css */
+      background: linear-gradient(135deg, #010d05 0%, #01200f 50%, #030e1e 100%);
+      border-bottom: 1px solid rgba(0,196,106,0.22);
+      box-shadow: 0 4px 40px rgba(0,0,0,0.7), 0 0 80px rgba(0,98,51,0.18);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      overflow: hidden;
+    }
+
+    /* Ligne shimmer tricolore en haut du header */
+    .tic-header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        #006233 15%, #006233 35%,
+        #ffffff 48%, #ffffff 52%,
+        #D21034 65%, #D21034 85%,
+        transparent 100%);
+      background-size: 300% 100%;
+      animation: flagShimmer 6s linear infinite;
+    }
+    @keyframes flagShimmer {
+      0%   { background-position: 100% 0; }
+      100% { background-position: -100% 0; }
+    }
+
+    /* Halo décoratif dans le header */
+    .tic-header::after {
+      content: '';
+      position: absolute;
+      right: -60px;
+      top: -60px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(ellipse, rgba(0,196,106,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .tic-header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    /* ── Logo Algeria Tech — cliquable ───────────────────── */
+    .tic-back {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 16px 7px 9px;
+      border-radius: 14px;
+      border: 1px solid rgba(0,196,106,0.28);
+      background: rgba(0,196,106,0.07);
+      transition: all .28s;
+      flex-shrink: 0;
+    }
+    .tic-back:hover {
+      border-color: rgba(0,196,106,0.55);
+      background: rgba(0,196,106,0.13);
+      box-shadow: 0 0 24px rgba(0,196,106,0.22), 0 0 0 1px rgba(0,196,106,0.12);
+      transform: translateX(-1px);
+    }
+    .tic-back-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #006233 0%, #00c46a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .8rem;
+      color: #fff;
+      flex-shrink: 0;
+      box-shadow: 0 0 12px rgba(0,196,106,0.4);
+    }
+    .tic-back-label { display: flex; flex-direction: column; }
+    .tic-back-label .brand-name {
+      font-size: .95rem;
+      font-weight: 900;
+      letter-spacing: -.6px;
+      color: #fff;
+      line-height: 1;
+    }
+    .tic-back-label .brand-sub {
+      font-size: .6rem;
+      color: rgba(0,196,106,0.75);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-top: 3px;
+    }
+
+    .tic-title-block { flex: 1; min-width: 0; }
+    .tic-title-block h1 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      letter-spacing: -.3px;
+    }
+    .tic-title-block p {
+      font-size: .7rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 3px;
+    }
+
+    .tic-live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #00c46a;
+      box-shadow: 0 0 10px #00c46a, 0 0 20px rgba(0,196,106,0.4);
+      animation: ticPulse 2s ease-in-out infinite;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    @keyframes ticPulse {
+      0%,100% { opacity:1; transform:scale(1); box-shadow:0 0 10px #00c46a, 0 0 20px rgba(0,196,106,0.4); }
+      50%      { opacity:.5; transform:scale(.65); box-shadow:0 0 4px #00c46a; }
+    }
+
+    .tic-header-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+    .tic-kpi-chip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0,196,106,0.08);
+      border: 1px solid rgba(0,196,106,0.22);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: .74rem;
+      color: rgba(255,255,255,0.8);
+    }
+    .tic-kpi-chip strong { font-weight: 800; color: #00c46a; }
+
+    .tic-refresh-btn {
+      background: rgba(0,196,106,0.09);
+      border: 1px solid rgba(0,196,106,0.28);
+      color: #00c46a;
+      padding: 7px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: .77rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all .22s;
+    }
+    .tic-refresh-btn:hover {
+      background: rgba(0,196,106,0.18);
+      border-color: rgba(0,196,106,0.5);
+      box-shadow: 0 0 18px rgba(0,196,106,0.25);
+    }
+    .tic-refresh-btn.spinning i { animation: spin .8s linear infinite; }
+    @keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+
+    .tic-last-update { font-size: .67rem; color: rgba(255,255,255,0.32); }
+
+    /* ── Category Tabs ────────────────────────────────────── */
+    .tic-tabs-wrap {
+      background: rgba(6,14,28,0.96);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(20px);
+    }
+    .tic-tabs {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 10px 28px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      align-items: center;
+    }
+    .tic-tabs::-webkit-scrollbar { display: none; }
+
+    .tic-tab {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.45);
+      font-size: .78rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: all .2s;
+      white-space: nowrap;
+      letter-spacing: .01em;
+    }
+    .tic-tab:hover {
+      color: rgba(255,255,255,0.82);
+      border-color: rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.07);
+    }
+    .tic-tab.active {
+      background: rgba(0,196,106,0.12);
+      border-color: rgba(0,196,106,0.42);
+      color: #00c46a;
+      box-shadow: 0 0 18px rgba(0,196,106,0.14), inset 0 0 8px rgba(0,196,106,0.06);
+    }
+    .tic-tab-count {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.38);
+      font-size: .6rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 10px;
+      min-width: 22px;
+      text-align: center;
+      transition: all .2s;
+    }
+    .tic-tab.active .tic-tab-count {
+      background: rgba(0,196,106,0.25);
+      color: #00c46a;
+    }
+
+    /* ── Main ─────────────────────────────────────────────── */
+    .tic-main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 22px 28px 60px;
+    }
+
+    /* ── Source chips ─────────────────────────────────────── */
+    .tic-sources-bar {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+      padding: 13px 16px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .tic-source-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.09);
+      background: rgba(255,255,255,0.04);
+      cursor: pointer;
+      font-size: .72rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      transition: all .18s;
+    }
+    .tic-source-btn:hover {
+      border-color: rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.85);
+      background: rgba(255,255,255,0.08);
+    }
+    .tic-source-btn.active { color: #fff; border-color: transparent; }
+    .tic-src-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+
+    /* ── Grid ─────────────────────────────────────────────── */
+    .tic-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    /* ── Card — ultra compact ─────────────────────────────── */
+    .tic-card {
+      background: rgba(10,20,40,0.88);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.07);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .25s, border-color .25s, box-shadow .25s;
+      position: relative;
+    }
+
+    /* Barre couleur verticale à gauche */
+    .tic-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 3px;
+      background: var(--card-color, #00c46a);
+      box-shadow: 1px 0 10px var(--card-color, #00c46a);
+    }
+
+    .tic-card:hover {
+      border-color: rgba(255,255,255,0.14);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.55), 0 0 1px rgba(255,255,255,0.04);
+      filter: brightness(1.06);
+    }
+
+    /* Images masquées pour réduire la hauteur de moitié */
+    .tic-card-img          { display: none; }
+    .tic-card-img-placeholder { display: none; }
+
+    /* En-tête carte — compact */
+    .tic-card-header {
+      padding: 11px 14px 7px 18px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .tic-card-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .58rem;
+      font-weight: 800;
+      color: #fff;
+      flex-shrink: 0;
+      letter-spacing: -.5px;
+    }
+    .tic-card-meta { flex: 1; min-width: 0; }
+    .tic-card-source {
+      font-size: .76rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .tic-card-date {
+      font-size: .62rem;
+      color: var(--tic-muted);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 1px;
+    }
+    .tic-cat-badge {
+      font-size: .58rem;
+      font-weight: 700;
+      padding: 2px 9px;
+      border-radius: 7px;
+      background: var(--card-color, #006233);
+      color: rgba(255,255,255,0.95);
+      white-space: nowrap;
+      flex-shrink: 0;
+      border: none;
+      box-shadow: 0 0 6px rgba(0,0,0,0.25);
+    }
+
+    /* Corps carte — compact */
+    .tic-card-body {
+      padding: 0 14px 9px 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    /* Onglets langue */
+    .tic-lang-tabs {
+      display: flex;
+      gap: 3px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding-bottom: 5px;
+    }
+    .tic-lang-btn {
+      padding: 2px 8px;
+      border: none;
+      background: none;
+      font-size: .62rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.32);
+      cursor: pointer;
+      border-radius: 5px;
+      transition: all .15s;
+      letter-spacing: .04em;
+    }
+    .tic-lang-btn:hover { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.7); }
+    .tic-lang-btn.active { background: var(--card-color, #00c46a); color: #fff; }
+
+    /* Texte — 2 lignes maximum */
+    .tic-card-text {
+      font-size: .8rem;
+      line-height: 1.48;
+      color: rgba(255,255,255,0.6);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex: 1;
+    }
+    .tic-card-text[dir="rtl"] { font-family: 'Cairo', sans-serif; font-size: .86rem; text-align: right; }
+
+    /* Pied de carte — compact */
+    .tic-card-footer {
+      padding: 6px 14px 9px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      margin-top: auto;
+    }
+    .tic-read-link {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: .7rem;
+      font-weight: 600;
+      color: var(--card-color, #00c46a);
+      text-decoration: none;
+      padding: 4px 11px;
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 6px;
+      background: rgba(255,255,255,0.04);
+      transition: all .18s;
+    }
+    .tic-read-link:hover {
+      background: var(--card-color, #00c46a);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 0 14px rgba(0,100,50,0.45);
+    }
+    .tic-no-link { font-size: .64rem; color: var(--tic-muted); font-style: italic; }
+
+    /* ── Vide ─────────────────────────────────────────────── */
+    .tic-empty {
+      text-align: center;
+      padding: 70px 20px;
+      color: var(--tic-muted);
+      grid-column: 1 / -1;
+    }
+    .tic-empty i { font-size: 2.8rem; opacity: .14; display: block; margin-bottom: 16px; }
+    .tic-empty h3 { font-size: .95rem; font-weight: 600; margin-bottom: 8px; color: rgba(255,255,255,0.45); }
+    .tic-empty p  { font-size: .82rem; }
+    .tic-empty code { background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 4px; font-size: .74rem; color: #00c46a; }
+
+    /* ── Skeleton ─────────────────────────────────────────── */
+    .tic-skeleton {
+      background: rgba(10,20,40,0.88);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 12px 14px 12px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+    }
+    .tic-skeleton::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 3px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 3px 0 0 3px;
+    }
+    .sk-line { background: rgba(255,255,255,0.07); border-radius: 4px; animation: skShimmer 1.8s ease-in-out infinite; }
+    .sk-line-short { height: 9px; width: 38%; }
+    .sk-line-med   { height: 11px; width: 70%; }
+    .sk-line-full  { height: 9px; width: 100%; }
+    .sk-avatar     { width: 28px; height: 28px; border-radius: 7px; background: rgba(255,255,255,0.07); animation: skShimmer 1.8s ease-in-out infinite; }
+    @keyframes skShimmer {
+      0%,100% { opacity: .7; }
+      50%      { opacity: .18; }
+    }
+
+    /* ── Setup panel ──────────────────────────────────────── */
+    .tic-setup-panel {
+      background: rgba(0,98,51,0.08);
+      border: 1px solid rgba(0,196,106,0.22);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 22px;
+    }
+    .tic-setup-panel h3 { font-size: .92rem; font-weight: 700; color: #00c46a; display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+    .tic-setup-steps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .tic-setup-step {
+      background: rgba(255,255,255,0.04);
+      border-radius: 10px;
+      padding: 12px 14px;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .tic-setup-step .step-num { font-size: .64rem; font-weight: 700; color: #00c46a; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+    .tic-setup-step h4 { font-size: .82rem; font-weight: 700; margin-bottom: 4px; color: rgba(255,255,255,0.85); }
+    .tic-setup-step p  { font-size: .74rem; color: var(--tic-muted); line-height: 1.4; }
+    .tic-setup-step a  { color: #00c46a; }
+
+    /* ── Load more ────────────────────────────────────────── */
+    .tic-more-wrap { display: flex; justify-content: center; margin-top: 30px; }
+    .tic-more-btn {
+      padding: 10px 40px;
+      border-radius: 30px;
+      border: 1px solid rgba(0,196,106,0.32);
+      background: rgba(0,196,106,0.08);
+      color: #00c46a;
+      font-weight: 700;
+      font-size: .82rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all .22s;
+      letter-spacing: .02em;
+    }
+    .tic-more-btn:hover {
+      background: rgba(0,196,106,0.16);
+      border-color: rgba(0,196,106,0.52);
+      box-shadow: 0 0 26px rgba(0,196,106,0.22);
+    }
+
+    /* ── Bouton Thème ─────────────────────────────────────── */
+    .tic-theme-btn {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 20px;
+      padding: 6px 13px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: all .22s;
+      color: rgba(255,255,255,0.65);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .03em;
+    }
+    .tic-theme-btn:hover {
+      background: rgba(255,255,255,0.11);
+      border-color: rgba(255,255,255,0.22);
+      color: #fff;
+    }
+    .theme-dots { display:flex; gap:4px; align-items:center; }
+    .td {
+      width: 11px; height: 11px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.22);
+      transition: all .2s;
+      flex-shrink: 0;
+    }
+    .td-dark  { background: #060e1c; }
+    .td-gris  { background: #52667a; }
+    .td-blanc { background: #f0f5fa; border-color: rgba(0,0,0,0.15); }
+    .td.td-active {
+      outline: 2px solid #00c46a;
+      outline-offset: 2px;
+      border-color: transparent;
+    }
+
+    /* ── Thème Gris ───────────────────────────────────────── */
+    body.t-gris { --tic-bg:#151e2c; --tic-text:#c0d4e8; --tic-muted:#6a8aaa; }
+    body.t-gris::before {
+      background-image:
+        linear-gradient(rgba(0,196,106,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,196,106,0.045) 1px, transparent 1px);
+    }
+    body.t-gris .tic-tabs-wrap { background: rgba(18,28,44,0.98); }
+    body.t-gris .tic-tab { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
+    body.t-gris .tic-card { background: rgba(24,36,56,0.97); border-color: rgba(255,255,255,0.09); }
+    body.t-gris .tic-card-source { color: rgba(255,255,255,0.88); }
+    body.t-gris .tic-card-text { color: rgba(255,255,255,0.66); }
+    body.t-gris .tic-sources-bar { background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); }
+    body.t-gris .tic-source-btn { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.52); }
+    body.t-gris .tic-skeleton { background: rgba(24,36,56,0.97); border-color: rgba(255,255,255,0.08); }
+    body.t-gris .sk-line, body.t-gris .sk-avatar { background: rgba(255,255,255,0.09); }
+
+    /* ── Thème Blanc / Pastel ─────────────────────────────── */
+    body.t-blanc {
+      --tic-bg: #eef3fa;
+      --tic-text: #1a2840;
+      --tic-muted: #3d5a73;
+      --tic-primary: #006233;
+      --tic-primary-dk: #004d27;
+    }
+    body.t-blanc::before {
+      background-image:
+        linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px);
+    }
+    body.t-blanc::after { opacity: 0; }
+    body.t-blanc .tic-tabs-wrap { background: rgba(240,246,252,0.98); border-bottom-color: #d8e4f0; }
+    body.t-blanc .tic-tab { background: rgba(0,0,0,0.04); border-color: #d8e4f0; color: #5a7896; }
+    body.t-blanc .tic-tab:hover { background: rgba(0,0,0,0.07); color: #1a2840; border-color: #c0d0e0; }
+    body.t-blanc .tic-tab.active { background: rgba(0,98,51,0.1); border-color: rgba(0,98,51,0.38); color: #006233; box-shadow: 0 0 16px rgba(0,98,51,0.1); }
+    body.t-blanc .tic-tab-count { background: rgba(0,0,0,0.07); color: #7090b0; }
+    body.t-blanc .tic-tab.active .tic-tab-count { background: rgba(0,98,51,0.18); color: #006233; }
+    body.t-blanc .tic-sources-bar { background: #fff; border-color: #d8e4f0; }
+    body.t-blanc .tic-source-btn { background: #f4f8fd; border-color: #d8e4f0; color: #6a86a0; }
+    body.t-blanc .tic-source-btn:hover { background: #e8f0f8; color: #1a2840; border-color: #b8cce0; }
+    body.t-blanc .tic-card { background: #fff; border-color: #d8e4f0; }
+    body.t-blanc .tic-card::before { box-shadow: none; }
+    body.t-blanc .tic-card:hover { box-shadow: 0 12px 36px rgba(0,40,80,0.12); filter: none; border-color: #c0d4e8; }
+    body.t-blanc .tic-card-source { color: #1a2840; }
+    body.t-blanc .tic-card-text { color: #4a6482; }
+    body.t-blanc .tic-card-date { color: #88a0b8; }
+    body.t-blanc .tic-lang-tabs { border-bottom-color: #ebf2f9; }
+    body.t-blanc .tic-lang-btn { color: #8ba0b8; }
+    body.t-blanc .tic-lang-btn:hover { background: #f0f6fc; color: #2a4060; }
+    body.t-blanc .tic-card-footer { border-top-color: #ebf2f9; }
+    body.t-blanc .tic-cat-badge { opacity: 0.85; box-shadow: none; }
+    body.t-blanc .tic-back-label .brand-name { color: #fff; font-weight: 900; }
+    body.t-blanc .tic-read-link { background: #f4f8fd; border-color: #d8e4f0; }
+    body.t-blanc .tic-read-link:hover { box-shadow: 0 0 14px rgba(0,98,51,0.3); }
+    body.t-blanc .tic-skeleton { background: #fff; border-color: #d8e4f0; }
+    body.t-blanc .tic-skeleton::before { background: #d8e4f0; }
+    body.t-blanc .sk-line, body.t-blanc .sk-avatar { background: #e8f0f8; }
+    body.t-blanc .tic-more-btn { border-color: rgba(0,98,51,0.3); color: #006233; }
+    body.t-blanc .tic-more-btn:hover { background: rgba(0,98,51,0.08); box-shadow: 0 0 20px rgba(0,98,51,0.18); }
+    body.t-blanc .tic-setup-panel { background: rgba(0,98,51,0.05); border-color: rgba(0,98,51,0.2); }
+    body.t-blanc .tic-setup-step { background: #f4f8fd; border-color: #d8e4f0; }
+    body.t-blanc .tic-setup-step h4 { color: #1a2840; }
+    body.t-blanc .tic-empty h3 { color: #3a5070; }
+    body.t-blanc .tic-empty code { background: #e8f0f8; color: #006233; }
+    body.t-blanc .tic-theme-btn { border-color: rgba(0,0,0,0.14); color: rgba(0,20,40,0.6); background: rgba(0,0,0,0.05); }
+    body.t-blanc .tic-theme-btn:hover { background: rgba(0,0,0,0.09); color: #1a2840; }
+
+    /* ── Responsive ───────────────────────────────────────── */
+    @media (max-width: 1024px) { .tic-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 640px) {
+      .tic-grid { grid-template-columns: 1fr; }
+      .tic-main { padding: 14px 14px 40px; }
+      .tic-header-inner { padding: 12px 16px; }
+      .tic-kpi-chip { display: none; }
+      .tic-setup-steps { grid-template-columns: 1fr; }
+      .tic-tabs { padding: 8px 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Header ─────────────────────────────────────────────────── -->
+  <header class="tic-header">
+    <div class="tic-header-inner">
+      <a href="/" class="tic-back">
+        <div class="tic-back-icon"><i class="fas fa-satellite-dish"></i></div>
+        <div class="tic-back-label">
+          <span class="brand-name">Algeria Tech</span>
+          <span class="brand-sub">← Accueil</span>
+        </div>
+      </a>
+      <div class="tic-title-block">
+        <h1><span class="tic-live-dot"></span> Actualités TIC Officielles</h1>
+        <p>Posts des opérateurs, institutions et équipementiers du secteur TIC algérien</p>
+      </div>
+      <div class="tic-header-right">
+        <div class="tic-kpi-chip"><strong id="totalCount">—</strong> <span>posts</span></div>
+        <span class="tic-last-update" id="lastUpdateLabel">Chargement…</span>
+        <button class="tic-refresh-btn" id="refreshBtn" onclick="refreshData()">
+          <i class="fas fa-sync-alt" id="refreshIcon"></i> Actualiser
+        </button>
+        <button class="tic-theme-btn" id="themeBtn" onclick="cycleTheme()" title="Changer de thème">
+          <span class="theme-dots">
+            <span class="td td-dark"  id="dot-dark"></span>
+            <span class="td td-gris"  id="dot-gris"></span>
+            <span class="td td-blanc" id="dot-blanc"></span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Category tabs ──────────────────────────────────────────── -->
+  <div class="tic-tabs-wrap">
+    <div class="tic-tabs" id="ticTabs">
+      <button class="tic-tab active" data-cat="all" onclick="switchCat('all',this)">
+        <i class="fas fa-globe"></i> Tous
+        <span class="tic-tab-count" id="cnt-all">0</span>
+      </button>
+      <button class="tic-tab" data-cat="Ministère" onclick="switchCat('Ministère',this)">
+        🏛️ Ministère<span class="tic-tab-count" id="cnt-Ministère">0</span>
+      </button>
+      <button class="tic-tab" data-cat="Opérateurs" onclick="switchCat('Opérateurs',this)">
+        📱 Opérateurs<span class="tic-tab-count" id="cnt-Opérateurs">0</span>
+      </button>
+      <button class="tic-tab" data-cat="Infrastructure" onclick="switchCat('Infrastructure',this)">
+        📡 Infrastructure<span class="tic-tab-count" id="cnt-Infrastructure">0</span>
+      </button>
+      <button class="tic-tab" data-cat="Équipementiers" onclick="switchCat('Équipementiers',this)">
+        🔧 Équipementiers<span class="tic-tab-count" id="cnt-Équipementiers">0</span>
+      </button>
+      <button class="tic-tab" data-cat="Régulateurs" onclick="switchCat('Régulateurs',this)">
+        ⚖️ Régulateurs<span class="tic-tab-count" id="cnt-Régulateurs">0</span>
+      </button>
+      <button class="tic-tab" data-cat="Médias TIC" onclick="switchCat('Médias TIC',this)">
+        📰 Médias DZ<span class="tic-tab-count" id="cnt-Médias TIC">0</span>
+      </button>
+      <button class="tic-tab" data-cat="Tech International" onclick="switchCat('Tech International',this)">
+        🌍 International<span class="tic-tab-count" id="cnt-Tech International">0</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ── Main ───────────────────────────────────────────────────── -->
+  <main class="tic-main">
+
+    <!-- Instructions de configuration (masqué dès qu'il y a du contenu) -->
+    <div class="tic-setup-panel" id="setupPanel" style="display:none;">
+      <h3><i class="fas fa-cog"></i> Configuration requise — Sources Facebook</h3>
+      <div class="tic-setup-steps">
+        <div class="tic-setup-step">
+          <div class="step-num">Option A · Recommandée · Gratuite</div>
+          <h4>RSS.app (5 feeds gratuits)</h4>
+          <p>1. Créez un compte sur <a href="https://rss.app" target="_blank">rss.app</a><br>
+             2. Collez l'URL de la page Facebook<br>
+             3. Copiez l'URL RSS → <code>social_config.json → rss_url</code></p>
+        </div>
+        <div class="tic-setup-step">
+          <div class="step-num">Option B · Facebook Developer</div>
+          <h4>Graph API (App Token)</h4>
+          <p>1. <a href="https://developers.facebook.com" target="_blank">developers.facebook.com</a><br>
+             2. Créez une App → Graph API Explorer<br>
+             3. Ajoutez <code>FB_APP_TOKEN=...</code> dans <code>.env</code></p>
+        </div>
+        <div class="tic-setup-step">
+          <div class="step-num">Lancer le script</div>
+          <h4>PowerShell</h4>
+          <p><code>cd E:\algeria-tech</code><br>
+             <code>python fetch_social.py</code><br>
+             Automatisation : <code>setup_scheduler.ps1</code></p>
+        </div>
+        <div class="tic-setup-step">
+          <div class="step-num">Fournir les liens</div>
+          <h4>Pages Facebook exactes</h4>
+          <p>Partagez les URLs exactes des pages Facebook des institutions TIC pour compléter <code>social_config.json</code></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Source filter chips -->
+    <div class="tic-sources-bar" id="sourcesBar" style="display:none;"></div>
+
+    <!-- Cards grid -->
+    <div class="tic-grid" id="ticGrid">
+      <!-- Skeletons initiaux -->
+      <div class="tic-skeleton">
+        <div style="display:flex;gap:10px;align-items:center;"><div class="sk-avatar"></div><div style="flex:1;display:flex;flex-direction:column;gap:6px;"><div class="sk-line sk-line-med"></div><div class="sk-line sk-line-short"></div></div></div>
+        <div class="sk-line sk-line-full"></div><div class="sk-line sk-line-full"></div><div class="sk-line sk-line-med"></div>
+      </div>
+      <div class="tic-skeleton">
+        <div style="display:flex;gap:10px;align-items:center;"><div class="sk-avatar"></div><div style="flex:1;display:flex;flex-direction:column;gap:6px;"><div class="sk-line sk-line-med"></div><div class="sk-line sk-line-short"></div></div></div>
+        <div class="sk-line sk-line-full"></div><div class="sk-line sk-line-full"></div><div class="sk-line sk-line-med"></div>
+      </div>
+      <div class="tic-skeleton">
+        <div style="display:flex;gap:10px;align-items:center;"><div class="sk-avatar"></div><div style="flex:1;display:flex;flex-direction:column;gap:6px;"><div class="sk-line sk-line-med"></div><div class="sk-line sk-line-short"></div></div></div>
+        <div class="sk-line sk-line-full"></div><div class="sk-line sk-line-full"></div><div class="sk-line sk-line-med"></div>
+      </div>
+    </div>
+
+    <!-- Load more -->
+    <div class="tic-more-wrap" id="moreWrap" style="display:none;">
+      <button class="tic-more-btn" onclick="loadMore()">
+        <i class="fas fa-chevron-down"></i> Charger plus
+      </button>
+    </div>
+  </main>
+
+  <script>
+  // ── State ──────────────────────────────────────────────────────────────────
+  let allPosts      = [];
+  let currentCat    = 'all';
+  let currentSource = '';
+  let shownCount    = 12;
+  const PAGE_SIZE   = 12;
+
+  // ── Relative date ──────────────────────────────────────────────────────────
+  function relDate(ds) {
+    try {
+      const d = Math.floor((Date.now() - new Date(ds)) / 60000);
+      if (d < 2)   return "À l'instant";
+      if (d < 60)  return `il y a ${d} min`;
+      const h = Math.floor(d / 60);
+      if (h < 24)  return `il y a ${h}h`;
+      const j = Math.floor(h / 24);
+      if (j < 7)   return `il y a ${j}j`;
+      return new Date(ds).toLocaleDateString('fr-FR', { day:'2-digit', month:'short', year:'numeric' });
+    } catch { return ''; }
+  }
+
+  // ── Text direction ─────────────────────────────────────────────────────────
+  function getDir(lang) { return lang === 'ar' ? 'rtl' : 'ltr'; }
+
+  // ── Escape HTML ───────────────────────────────────────────────────────────
+  function esc(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+  // ── Build card HTML ────────────────────────────────────────────────────────
+  function buildCard(post) {
+    const id   = post.id;
+    const col  = post.source_color || '#006233';
+    const txt  = post.text || {};
+    const srcLang = post.lang_source || 'fr';
+    const availLangs = ['fr','ar','en'].filter(l => txt[l] && txt[l].trim());
+    const defaultLang = availLangs.includes('fr') ? 'fr' : availLangs[0] || srcLang;
+
+    const langBtns = availLangs.map(l =>
+      `<button class="tic-lang-btn ${l===defaultLang?'active':''}" onclick="switchLang('${id}','${l}',this)" title="${{fr:'Français',ar:'عربي',en:'English'}[l]}">${{fr:'FR',ar:'AR',en:'EN'}[l]}</button>`
+    ).join('');
+
+    const textPanels = ['fr','ar','en'].map(l =>
+      txt[l] ? `<div class="tic-card-text" id="txt-${id}-${l}" style="${l!==defaultLang?'display:none':''}" dir="${getDir(l)}">${esc(txt[l])}</div>` : ''
+    ).join('');
+
+    const imgHtml = post.image
+      ? `<img class="tic-card-img" src="${esc(post.image)}" alt="${esc(post.source_name)}" loading="lazy" onerror="this.style.display='none'">`
+      : `<div class="tic-card-img-placeholder">${post.category_icon||'🏢'}</div>`;
+
+    const footerLink = post.url
+      ? `<a class="tic-read-link" href="${esc(post.url)}" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Voir l'original</a>`
+      : `<span class="tic-no-link"><i class="fas fa-clock"></i> Source en attente</span>`;
+
+    return `<div class="tic-card" style="--card-color:${col}">
+  ${imgHtml}
+  <div class="tic-card-header">
+    <div class="tic-card-avatar" style="background:${col}">${esc(post.source_short||'?')}</div>
+    <div class="tic-card-meta">
+      <div class="tic-card-source">${esc(post.source_name)}</div>
+      <div class="tic-card-date"><i class="fas fa-clock"></i> ${relDate(post.date)}</div>
+    </div>
+    <span class="tic-cat-badge">${esc(post.category_icon||'')} ${esc(post.category)}</span>
+  </div>
+  <div class="tic-card-body">
+    ${availLangs.length > 1 ? `<div class="tic-lang-tabs">${langBtns}</div>` : ''}
+    ${textPanels}
+  </div>
+  <div class="tic-card-footer">
+    ${footerLink}
+    <span style="font-size:.68rem;color:var(--tic-muted)">${esc(post.source_name)}</span>
+  </div>
+</div>`;
+  }
+
+  // ── Switch lang inside a card ──────────────────────────────────────────────
+  window.switchLang = function(postId, lang, btn) {
+    const card = btn.closest('.tic-card');
+    card.querySelectorAll('.tic-card-text').forEach(el => el.style.display = 'none');
+    card.querySelectorAll('.tic-lang-btn').forEach(b => b.classList.remove('active'));
+    const target = document.getElementById(`txt-${postId}-${lang}`);
+    if (target) target.style.display = 'block';
+    btn.classList.add('active');
+  };
+
+  // ── Get filtered posts ─────────────────────────────────────────────────────
+  function getFiltered() {
+    let posts = allPosts;
+    if (currentCat !== 'all')    posts = posts.filter(p => p.category === currentCat);
+    if (currentSource)           posts = posts.filter(p => p.source_name === currentSource);
+    return posts;
+  }
+
+  // ── Render grid ────────────────────────────────────────────────────────────
+  function renderGrid() {
+    const grid = document.getElementById('ticGrid');
+    const more = document.getElementById('moreWrap');
+    const filtered = getFiltered();
+
+    if (filtered.length === 0 && allPosts.length === 0) {
+      // Pas encore de données → afficher le panel de config
+      document.getElementById('setupPanel').style.display = 'block';
+      grid.innerHTML = `<div class="tic-empty">
+        <i class="fas fa-satellite-dish"></i>
+        <h3>Aucune source active</h3>
+        <p>Configurez les flux RSS dans <code>social_config.json</code><br>puis lancez <code>python fetch_social.py</code></p>
+      </div>`;
+      if (more) more.style.display = 'none';
+      return;
+    }
+
+    document.getElementById('setupPanel').style.display = 'none';
+
+    if (filtered.length === 0) {
+      grid.innerHTML = `<div class="tic-empty">
+        <i class="fas fa-filter"></i>
+        <h3>Aucun post pour cette catégorie</h3>
+        <p>Cette source n'a pas encore de contenu disponible.</p>
+      </div>`;
+      if (more) more.style.display = 'none';
+      return;
+    }
+
+    const visible = filtered.slice(0, shownCount);
+    grid.innerHTML = visible.map(buildCard).join('');
+    if (more) more.style.display = filtered.length > shownCount ? 'flex' : 'none';
+  }
+
+  // ── Update KPIs & tabs ─────────────────────────────────────────────────────
+  function updateKPIs(data) {
+    const stats = data.stats || {};
+    const total = data.total || 0;
+
+    const setEl = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+    setEl('totalCount', total);
+    setEl('cnt-all', total);
+
+    const cats = ['Ministère','Opérateurs','Infrastructure','Équipementiers','Régulateurs','Médias TIC','Tech International'];
+    cats.forEach(cat => setEl(`cnt-${cat}`, stats[cat] || 0));
+
+    if (data.lastUpdated) {
+      const d = new Date(data.lastUpdated);
+      document.getElementById('lastUpdateLabel').textContent = `Màj : ${relDate(data.lastUpdated)}`;
+    }
+  }
+
+  // ── Build source chips ─────────────────────────────────────────────────────
+  function buildSourceChips() {
+    const bar = document.getElementById('sourcesBar');
+    if (!bar) return;
+    const filtered = currentCat === 'all' ? allPosts : allPosts.filter(p => p.category === currentCat);
+    const sources = {};
+    filtered.forEach(p => {
+      if (!sources[p.source_name]) sources[p.source_name] = { count:0, color: p.source_color, short: p.source_short };
+      sources[p.source_name].count++;
+    });
+    const keys = Object.keys(sources);
+    if (keys.length <= 1) { bar.style.display = 'none'; return; }
+    bar.style.display = 'flex';
+    bar.innerHTML = `<button class="tic-source-btn ${!currentSource?'active':''}" style="${!currentSource?'background:var(--tic-primary);color:#fff;border-color:transparent':''}" onclick="filterSource('')">
+      Toutes sources
+    </button>` + keys.map(name => {
+      const s = sources[name];
+      const isActive = currentSource === name;
+      const style = isActive ? `background:${s.color};color:#fff;border-color:transparent` : '';
+      return `<button class="tic-source-btn" style="${style}" onclick="filterSource('${name.replace(/'/g,"\\'")}')">
+        <span class="tic-src-dot" style="background:${s.color}"></span>
+        ${esc(name)} <span style="opacity:.7">(${s.count})</span>
+      </button>`;
+    }).join('');
+  }
+
+  // ── Switch category ────────────────────────────────────────────────────────
+  window.switchCat = function(cat, btn) {
+    currentCat    = cat;
+    currentSource = '';
+    shownCount    = PAGE_SIZE;
+    document.querySelectorAll('.tic-tab').forEach(t => t.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    buildSourceChips();
+    renderGrid();
+  };
+
+  // ── Filter by source ───────────────────────────────────────────────────────
+  window.filterSource = function(name) {
+    currentSource = name;
+    shownCount = PAGE_SIZE;
+    buildSourceChips();
+    renderGrid();
+  };
+
+  // ── Load more ──────────────────────────────────────────────────────────────
+  window.loadMore = function() {
+    shownCount += PAGE_SIZE;
+    renderGrid();
+    window.scrollBy({ top: 300, behavior: 'smooth' });
+  };
+
+  // ── Load data ──────────────────────────────────────────────────────────────
+  async function loadData() {
+    try {
+      const res = await fetch(`/tic_social.json?t=${Date.now()}`);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      allPosts = data.posts || [];
+      allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+      updateKPIs(data);
+      buildSourceChips();
+      renderGrid();
+    } catch (e) {
+      console.error('[TIC] Erreur chargement:', e);
+      document.getElementById('ticGrid').innerHTML = `<div class="tic-empty">
+        <i class="fas fa-exclamation-triangle"></i>
+        <h3>Erreur de chargement</h3>
+        <p>Vérifiez que le serveur est démarré et que <code>tic_social.json</code> existe.</p>
+      </div>`;
+    }
+  }
+
+  // ── Refresh ────────────────────────────────────────────────────────────────
+  window.refreshData = async function() {
+    const btn  = document.getElementById('refreshBtn');
+    const icon = document.getElementById('refreshIcon');
+    btn.classList.add('spinning');
+    await loadData();
+    btn.classList.remove('spinning');
+  };
+
+  // ── Auto-refresh toutes les 2h ─────────────────────────────────────────────
+  const TWO_HOURS = 2 * 60 * 60 * 1000;
+  setInterval(loadData, TWO_HOURS);
+
+  // ── Gestion des thèmes ────────────────────────────────────────────────────
+  const TIC_THEMES = ['dark', 'gris', 'blanc'];
+  let ticThemeIdx = 0;
+
+  function applyTheme(idx) {
+    TIC_THEMES.forEach((t, i) => {
+      document.body.classList.toggle('t-' + t, i === idx && t !== 'dark');
+    });
+    // Highlight le bon dot
+    TIC_THEMES.forEach(t => {
+      const dot = document.getElementById('dot-' + t);
+      if (dot) dot.classList.toggle('td-active', TIC_THEMES[idx] === t);
+    });
+  }
+
+  window.cycleTheme = function() {
+    ticThemeIdx = (ticThemeIdx + 1) % TIC_THEMES.length;
+    applyTheme(ticThemeIdx);
+    localStorage.setItem('tic-color-theme', TIC_THEMES[ticThemeIdx]);
+  };
+
+  (function initTicTheme() {
+    const saved = localStorage.getItem('tic-color-theme') || 'dark';
+    ticThemeIdx = Math.max(TIC_THEMES.indexOf(saved), 0);
+    applyTheme(ticThemeIdx);
+  })();
+
+  // ── Init ───────────────────────────────────────────────────────────────────
+  loadData();
+  </script>
+</body>
+</html>

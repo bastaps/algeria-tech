@@ -744,31 +744,131 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
     .back-to-top { bottom: 20px; right: 20px; width: 44px; height: 44px; }
 }
 
-/* === [VEILLE] STYLES COMPACTS === */
-.veille-wrapper { margin: 40px auto; padding: 30px; background: var(--bg-white); border-radius: var(--radius); box-shadow: var(--shadow-sm); }
-.veille-add-btn { margin-left: auto; padding: 10px 20px; font-size: 0.9rem; }
-.veille-table-container { overflow-x: auto; margin-top: 20px; }
-.veille-table { width: 100%; border-collapse: collapse; text-align: left; background: var(--bg-white); table-layout: fixed; }
-.veille-table th { background: var(--bg); font-weight: 600; color: var(--text-muted); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 1px; padding: 10px 12px; border-bottom: 2px solid var(--border); }
-.veille-table td { padding: 8px 12px; vertical-align: middle; border-bottom: 1px solid var(--border); font-size: 0.85rem; color: var(--text-dark); }
-.veille-table tr { height: 38px; transition: background 0.2s; }
-.veille-table tr:hover { background: rgba(0, 98, 51, 0.05); }
-.veille-table td a { color: var(--primary); font-weight: 500; text-decoration: none; display: block; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: color 0.2s; }
-.veille-table td a:hover { color: var(--secondary); text-decoration: underline; }
-.veille-tag { display: inline-block; background: var(--bg); color: var(--text-muted); padding: 2px 8px; border-radius: 12px; font-size: 0.65rem; margin-right: 4px; margin-bottom: 2px; border: 1px solid var(--border); line-height: 1.1; }
-.veille-actions { display: flex; gap: 8px; align-items: center; justify-content: center; }
-.veille-btn { background: none; border: none; cursor: pointer; color: var(--text-muted); padding: 4px; border-radius: 4px; transition: var(--transition); font-size: 0.8rem; }
-.veille-btn:hover { background: var(--bg); color: var(--primary); transform: scale(1.1); }
-.veille-btn.edit:hover { color: var(--accent); }
-.veille-btn.delete:hover { color: var(--secondary); }
-.veille-loading { text-align: center; padding: 15px; color: var(--text-muted); font-style: italic; background: var(--bg); border-radius: 8px; margin-top: 10px; }
-.veille-source { font-size: 0.75rem; color: var(--text-light); font-weight: 500; }
-@media (max-width: 768px) {
-.veille-wrapper { padding: 15px; }
-.veille-table th, .veille-table td { padding: 8px 10px; font-size: 0.8rem; }
-.veille-table td a { max-width: 180px; }
+/* ═══════════════════════════════════════════════════
+   VEILLE V2 — Dashboard Thématique RSS
+   ═══════════════════════════════════════════════════ */
+.veille-v2 { background: var(--bg); }
+
+/* ── KPI bar ───────────────────────────────────── */
+.v2-stats-bar { background: var(--primary); color:#fff; padding:14px 0; border-bottom:3px solid var(--secondary); }
+.v2-stats-inner { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+.v2-kpis { display:flex; gap:28px; flex-wrap:wrap; align-items:center; }
+.v2-kpi { display:flex; align-items:center; gap:8px; font-size:0.82rem; opacity:0.92; }
+.v2-kpi i { font-size:0.75rem; opacity:0.6; }
+.v2-kpi strong { font-size:1.35rem; font-weight:800; line-height:1; }
+.v2-kpi span { font-size:0.72rem; opacity:0.72; }
+.v2-kpi--dz strong  { color:#fde68a; }
+.v2-kpi--fr strong  { color:#93c5fd; }
+.v2-kpi--tic strong { color:#c4b5fd; }
+.v2-stats-right { display:flex; align-items:center; gap:14px; flex-shrink:0; }
+.v2-live-badge { font-size:0.72rem; display:flex; align-items:center; gap:5px; background:rgba(255,255,255,.12); padding:4px 10px; border-radius:12px; opacity:.88; }
+.v2-live-badge .fa-circle { color:#4ade80; font-size:.5rem; animation:v2pulse 2s ease-in-out infinite; }
+@keyframes v2pulse { 0%,100%{opacity:1} 50%{opacity:.2} }
+.v2-add-btn { display:flex; align-items:center; gap:6px; padding:9px 20px; border-radius:22px; border:1.5px solid rgba(255,255,255,.4); background:rgba(255,255,255,.14); color:#fff; font-size:.82rem; font-weight:600; cursor:pointer; transition:all .18s; white-space:nowrap; }
+.v2-add-btn:hover { background:rgba(255,255,255,.28); transform:translateY(-1px); }
+
+/* ── Tabs ──────────────────────────────────────── */
+.v2-tabs-bar { background:var(--bg-white); border-bottom:2px solid var(--border); box-shadow:0 1px 6px rgba(0,0,0,.05); }
+.v2-tabs { display:flex; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+.v2-tabs::-webkit-scrollbar { display:none; }
+.v2-tab { display:flex; align-items:center; gap:7px; padding:15px 22px; border:none; background:none; color:var(--text-muted); font-size:.87rem; font-weight:600; cursor:pointer; border-bottom:3px solid transparent; transition:all .18s; white-space:nowrap; margin-bottom:-2px; }
+.v2-tab-label { display:inline; }
+.v2-tab-count { background:var(--bg); color:var(--text-muted); font-size:.68rem; font-weight:700; padding:2px 7px; border-radius:10px; min-width:22px; text-align:center; transition:all .18s; }
+.v2-tab:hover { color:var(--primary); background:rgba(0,98,51,.04); }
+.v2-tab--dz.active     { color:#006233; border-color:#006233; }
+.v2-tab--dz.active .v2-tab-count     { background:#006233; color:#fff; }
+.v2-tab--fr.active     { color:#1d4ed8; border-color:#1d4ed8; }
+.v2-tab--fr.active .v2-tab-count     { background:#1d4ed8; color:#fff; }
+.v2-tab--tic.active    { color:#7c3aed; border-color:#7c3aed; }
+.v2-tab--tic.active .v2-tab-count    { background:#7c3aed; color:#fff; }
+.v2-tab--manuel.active { color:#d97706; border-color:#d97706; }
+.v2-tab--manuel.active .v2-tab-count { background:#d97706; color:#fff; }
+
+/* ── Topic pills ───────────────────────────────── */
+.v2-topics-bar { background:var(--bg); padding:12px 0; border-bottom:1px solid var(--border); }
+.v2-topics-inner { display:flex; gap:8px; overflow-x:auto; scrollbar-width:none; -webkit-overflow-scrolling:touch; padding-bottom:2px; }
+.v2-topics-inner::-webkit-scrollbar { display:none; }
+.v2-pill { padding:6px 14px; border-radius:20px; border:1.5px solid var(--border); background:var(--bg-white); color:var(--text-muted); font-size:.78rem; font-weight:500; cursor:pointer; transition:all .18s; white-space:nowrap; }
+.v2-pill:hover { border-color:var(--primary); color:var(--primary); }
+.v2-pill.active { background:var(--primary); color:#fff; border-color:var(--primary); }
+
+/* ── Body ──────────────────────────────────────── */
+.v2-body { padding:30px 0 56px; }
+.v2-loading-msg { text-align:center; padding:32px; color:var(--text-muted); font-style:italic; }
+.v2-empty { text-align:center; padding:70px 20px; color:var(--text-muted); }
+.v2-empty i { font-size:2.8rem; opacity:.2; display:block; margin-bottom:14px; }
+.v2-empty p { font-size:.9rem; }
+
+/* ── Grid ──────────────────────────────────────── */
+.v2-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+
+/* ── Card ──────────────────────────────────────── */
+.v2-card { background:var(--bg-white); border-radius:14px; border:1px solid var(--border); padding:18px 18px 14px; display:flex; flex-direction:column; gap:11px; position:relative; overflow:hidden; transition:box-shadow .2s, transform .2s; }
+.v2-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; border-radius:14px 14px 0 0; background:var(--v2-accent, var(--primary)); }
+.v2-card:hover { box-shadow:0 10px 30px rgba(0,0,0,.1); transform:translateY(-2px); }
+.v2-card--dz     { --v2-accent:#006233; }
+.v2-card--fr     { --v2-accent:#1d4ed8; }
+.v2-card--tic    { --v2-accent:#7c3aed; }
+.v2-card--manuel { --v2-accent:#d97706; }
+
+.v2-card-header { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.v2-card-source { display:flex; align-items:center; gap:8px; min-width:0; }
+.v2-avatar { width:30px; height:30px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:.62rem; font-weight:800; color:#fff; flex-shrink:0; letter-spacing:-.5px; }
+.v2-src-name { font-size:.72rem; font-weight:600; color:var(--text-muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+.v2-badge { font-size:.66rem; font-weight:700; padding:3px 9px; border-radius:10px; white-space:nowrap; flex-shrink:0; }
+.v2-badge--Télécoms      { background:#e0f2fe; color:#0369a1; }
+.v2-badge--Mobile        { background:#dbeafe; color:#1d4ed8; }
+.v2-badge--Startups      { background:#ffedd5; color:#c2410c; }
+.v2-badge--IA            { background:#ede9fe; color:#6d28d9; }
+.v2-badge--Internet      { background:#d1fae5; color:#065f46; }
+.v2-badge--Data          { background:#e0e7ff; color:#3730a3; }
+.v2-badge--Cloud         { background:#e0f2fe; color:#0284c7; }
+.v2-badge--Cybersécurité { background:#fee2e2; color:#b91c1c; }
+.v2-badge--Numérique     { background:#f1f5f9; color:#334155; }
+.v2-badge--Tech          { background:#f3f4f6; color:#6b7280; }
+
+.v2-card-title { font-size:.89rem; font-weight:600; color:var(--text-dark); line-height:1.45; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; flex-grow:1; }
+.v2-card-title a { color:inherit; text-decoration:none; }
+.v2-card-title a:hover { color:var(--primary); text-decoration:underline; }
+
+.v2-card-footer { display:flex; align-items:center; justify-content:space-between; gap:8px; padding-top:6px; border-top:1px solid var(--border); margin-top:auto; }
+.v2-card-date { font-size:.7rem; color:var(--text-light); display:flex; align-items:center; gap:4px; }
+.v2-card-date i { font-size:.62rem; }
+.v2-card-acts { display:flex; gap:6px; }
+.v2-act-btn { padding:5px 12px; border-radius:7px; font-size:.74rem; font-weight:600; border:1.5px solid var(--border); background:var(--bg); color:var(--text-muted); cursor:pointer; text-decoration:none; display:flex; align-items:center; gap:5px; transition:all .16s; line-height:1; }
+.v2-act-btn:hover        { background:var(--primary); color:#fff; border-color:var(--primary); }
+.v2-act-btn.v2-edit:hover   { background:#f59e0b; color:#fff; border-color:#f59e0b; }
+.v2-act-btn.v2-delete:hover { background:var(--secondary); color:#fff; border-color:var(--secondary); }
+
+/* ── Voir plus ─────────────────────────────────── */
+.v2-more-wrap { display:flex; justify-content:center; margin-top:36px; }
+.v2-more-btn { padding:13px 40px; border-radius:30px; border:2px solid var(--primary); background:transparent; color:var(--primary); font-weight:700; font-size:.87rem; cursor:pointer; display:inline-flex; align-items:center; gap:8px; transition:all .2s; }
+.v2-more-btn:hover { background:var(--primary); color:#fff; }
+
+/* ── Dark mode ─────────────────────────────────── */
+body.dark-mode .v2-card { background:var(--bg-white); }
+body.dark-mode .v2-badge--Télécoms      { background:rgba(14,165,233,.15);  color:#38bdf8; }
+body.dark-mode .v2-badge--Mobile        { background:rgba(59,130,246,.15);  color:#60a5fa; }
+body.dark-mode .v2-badge--Startups      { background:rgba(249,115,22,.15);  color:#fb923c; }
+body.dark-mode .v2-badge--IA            { background:rgba(139,92,246,.15);  color:#a78bfa; }
+body.dark-mode .v2-badge--Internet      { background:rgba(16,185,129,.15);  color:#34d399; }
+body.dark-mode .v2-badge--Data          { background:rgba(99,102,241,.15);  color:#818cf8; }
+body.dark-mode .v2-badge--Cloud         { background:rgba(14,165,233,.15);  color:#38bdf8; }
+body.dark-mode .v2-badge--Cybersécurité { background:rgba(239,68,68,.15);   color:#f87171; }
+body.dark-mode .v2-badge--Numérique     { background:rgba(100,116,139,.15); color:#94a3b8; }
+body.dark-mode .v2-badge--Tech          { background:rgba(107,114,128,.15); color:#9ca3af; }
+
+/* ── Responsive ────────────────────────────────── */
+@media (max-width:1024px) { .v2-cards { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:640px) {
+  .v2-cards { grid-template-columns:1fr; }
+  .v2-kpis  { gap:16px; }
+  .v2-stats-inner { flex-direction:column; align-items:flex-start; gap:12px; }
+  .v2-tab   { padding:12px 14px; font-size:.8rem; }
+  .v2-tab-label { display:none; }
 }
-/* === FIN [VEILLE] STYLES === */
+/* ═══════════════════════════════════════════════════ */
 
 /* === [REVUE DE PRESSE IA] STYLES MODERNES === */
 .revue-wrapper { margin: 40px auto; padding: 35px; background: var(--bg-white); border-radius: var(--radius); box-shadow: var(--shadow-md); border-top: 4px solid var(--accent); }

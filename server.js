@@ -236,6 +236,10 @@ app.get('/api/generate-static-files', (req, res) => {
 // === ROUTE OPÉRATEURS MOBILES ===
 app.get('/operateurs', (req, res) => res.sendFile(path.join(__dirname, 'operateurs.html')));
 
+// === ROUTE ACTUALITÉS TIC ===
+app.get('/actualites-tic', (req, res) => res.sendFile(path.join(__dirname, 'actualites-tic.html')));
+app.get('/actualites-tic/', (req, res) => res.sendFile(path.join(__dirname, 'actualites-tic.html')));
+
 // === ROUTE SMART INGEST ===
 app.get('/smart-ingest', (req, res) => res.sendFile(path.join(__dirname, 'smart-ingest.html')));
 app.get('/smart-ingest.html', (req, res) => res.sendFile(path.join(__dirname, 'smart-ingest.html')));
@@ -457,11 +461,23 @@ function httpsGet(url) {
 async function updateVeilleFeeds() {
     const data = loadVeilleData();
     const feeds = [
+    // ── Algérie ──────────────────────────────────────────────────────────────
     'https://www.tsa-algerie.dz/feed/',
     'https://lesenjeuxeco.dz/category/tic/feed/',
     'https://www.algerie360.com/category/high-tech/feed/',
     'https://www.aps.dz/fr/algerie/education-et-technologie?format=feed&type=rss',
     'https://itmag.dz/feed/',
+    'https://www.android-dz.com/feed/',
+    'https://www.ntic-dz.com/feed/',
+    'https://www.indjazat.com/category/tic/feed/',
+    'https://algerie-eco.com/feed/',
+    'https://www.ecomnewsmed.com/location/algerie/feed/',
+    'https://www.elwatan.com/feed/',
+    'https://www.elmoudjahid.dz/?format=feed&type=rss',
+    'https://www.lesoirdalgerie.com/mobiles/feed/',
+    'https://www.lesoirdalgerie.com/numerique-et-satellite/feed/',
+    'https://www.algerietelecom.dz/fr/espace-presse?format=feed&type=rss',
+    // ── International TIC ────────────────────────────────────────────────────
     'https://www.silicon.fr/feed',
     'https://www.zdnet.fr/feed/',
     'https://techcrunch.com/feed/',

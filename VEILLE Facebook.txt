@@ -1,0 +1,25 @@
+
+"Voici les 15 flux RSS générés pour les pages Facebook. Peux-tu mettre à jour le fichier social_config.json et lancer la collecte via PowerShell ?"
+[Djezzy     : https://rss.app/feeds/Fjx1HwUxC3W47VDP.xml
+Ooredoo    : https://rss.app/feeds/6lQ2temSiGGbe7bp.xml
+Mobilis    : https://rss.app/feeds/OnAQ7VnFdY35K89F.xml
+At         : https://rss.app/feeds/K4RMVGP3oLlI7tNG.xml
+Ap         : https://rss.app/feeds/8w13Cq1WJoPERlE2.xml
+Ats        : https://rss.app/feeds/JVPc9ArTkOS5jZlY.xml
+
+
+Mpt        : https://rss.app/feeds/ggiJjnT2sHJmB6MX.xml
+Mesrs      : https://rss.app/feeds/cp0OUYmTHjopEVG5.xml
+Mekesme    : https://rss.app/feeds/uOmZ34nKPPCe16aC.xml
+Arpce      : https://rss.app/feeds/ONPtYJ8Hlza4A0LB.xml
+
+
+
+HuaweiM    : https://rss.app/feeds/lbWufhAUGOS9l9Ic.xml
+Huawei     : https://rss.app/feeds/6g2nIf4f6Q7CgWCk.xml
+Ericsson   : https://rss.app/feeds/IvGc0bYW2g6OKmxu.xml
+CondorE    : https://rss.app/feeds/daNeVmpCcpX4SKYj.xml
+StreamS    : https://rss.app/feeds/rurKHRHqwCJ2GM2F.xml]
+
+
+PS E:\algeria-tech> schtasks /query /tn "AlgeriaTech-SocialFeed"

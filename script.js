@@ -1200,7 +1200,112 @@ if (searchInput) {
 // ==========================================
 // [VEILLE] LOGIQUE FRONTEND
 // ==========================================
-let veilleData = { manual: [], feed: [] };
+let veilleData     = { manual: [], feed: [] };
+let vCurrentFlux   = 'algerie';
+let vCurrentTopic  = 'all';
+let vShown         = 15;
+const V_PAGE_SIZE  = 15;
+let vCurrentItems  = [];
+
+// Source → flux classification
+const V_ALGERIE_KW = ['tsa-algerie','lesenjeuxeco','algerie360','aps.dz','itmag','dz-tech','android-dz','ntic-dz','indjazat','algerie-eco','ecomnews','elmoudjahid','lesoirdalgerie','elwatan','algerietelecom'];
+const V_FRANCO_KW  = ['frenchweb','lemondeinformatique','journaldunet','usine-digitale','rfi.fr','01net','numerama','clubic'];
+const V_COLORS     = ['#006233','#D21034','#0891b2','#7c3aed','#ea580c','#059669','#dc2626','#4f46e5','#d97706','#be185d'];
+
+function classifyVeilleItem(item) {
+    if (item.isManual) return 'manuel';
+    const combined = ((item.url || '') + ' ' + (item.source || '')).toLowerCase();
+    const tags     = (item.tags || []).map(t => t.toLowerCase());
+    if (tags.includes('algérie') || tags.includes('algerie')) return 'algerie';
+    if (combined.includes('.dz') || V_ALGERIE_KW.some(k => combined.includes(k))) return 'algerie';
+    if (V_FRANCO_KW.some(k => combined.includes(k))) return 'francophone';
+    return 'tic';
+}
+
+function detectVeilleTopic(title) {
+    const t = (title || '').toLowerCase();
+    if (/t[eé]l[eé]com|op[eé]rateur|\bfibre\b|\b[45]g\b|r[eé]seau\b|\bfai\b|voip|gsm|lte/.test(t)) return 'Télécoms';
+    if (/\bmobile\b|smartphone|android|iphone|tablette|samsung|xiaomi/.test(t))                        return 'Mobile';
+    if (/startup|innovation|lev[eé]e|incubat|pitch|fintech|scale-up/.test(t))                          return 'Startups';
+    if (/intelligence artificielle|\bia\b|\bai\b|machine learning|gpt|chatgpt|llm/.test(t))            return 'IA';
+    if (/\binternet\b|haut d[eé]bit|adsl|vdsl|broadband/.test(t))                                     return 'Internet';
+    if (/\bdata\b|big data|donn[eé]es|analytique/.test(t))                                             return 'Data';
+    if (/cloud\b|saas|paas|h[eé]bergement|datacenter/.test(t))                                         return 'Cloud';
+    if (/cybers[eé]curit|hack\b|phishing|malware|ransomware/.test(t))                                  return 'Cybersécurité';
+    if (/num[eé]rique|digital|transformation/.test(t))                                                  return 'Numérique';
+    return 'Tech';
+}
+
+function veilleRelDate(ds) {
+    try {
+        const m = Math.floor((Date.now() - new Date(ds)) / 60000);
+        if (m < 2)  return "À l'instant";
+        if (m < 60) return `il y a ${m} min`;
+        const h = Math.floor(m / 60);
+        if (h < 24) return `il y a ${h}h`;
+        const d = Math.floor(h / 24);
+        if (d < 7)  return `il y a ${d}j`;
+        return new Date(ds).toLocaleDateString('fr-FR', { day:'2-digit', month:'short' });
+    } catch { return ''; }
+}
+
+function vAvatarInitials(src) {
+    const clean = (src || 'XX').replace(/\.(fr|dz|com|net|org|news|info)$/i,'').replace(/[^a-zA-ZÀ-ÿ]/g,' ').trim();
+    const w = clean.split(/\s+/).filter(Boolean);
+    return w.length >= 2 ? (w[0][0] + w[1][0]).toUpperCase() : clean.substring(0,2).toUpperCase();
+}
+
+function vAvatarColor(src) {
+    let h = 0;
+    for (let i = 0; i < src.length; i++) h = (h * 31 + src.charCodeAt(i)) | 0;
+    return V_COLORS[Math.abs(h) % V_COLORS.length];
+}
+
+function buildVeilleCard(item, flux) {
+    const topic   = detectVeilleTopic(item.title);
+    const relD    = veilleRelDate(item.date);
+    const initials = vAvatarInitials(item.source);
+    const color   = vAvatarColor(item.source || '');
+    const cls     = `v2-card--${flux === 'algerie' ? 'dz' : flux === 'francophone' ? 'fr' : flux === 'tic' ? 'tic' : 'manuel'}`;
+    const safeT   = (item.title || '').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    const safeU   = (item.url   || '').replace(/"/g,'&quot;');
+    const acts    = item.isManual
+        ? `<button class="v2-act-btn v2-edit"   onclick="openVeilleModal('edit','${item.id}')"><i class="fas fa-pencil-alt"></i></button>
+           <button class="v2-act-btn v2-delete" onclick="deleteVeilleArticle('${item.id}')"><i class="fas fa-trash"></i></button>`
+        : `<a class="v2-act-btn" href="${safeU}" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Lire</a>`;
+    return `<article class="v2-card ${cls}">
+  <div class="v2-card-header">
+    <div class="v2-card-source">
+      <div class="v2-avatar" style="background:${color}">${initials}</div>
+      <span class="v2-src-name">${(item.source||'').replace(/</g,'&lt;')}</span>
+    </div>
+    <span class="v2-badge v2-badge--${topic}">${topic}</span>
+  </div>
+  <div class="v2-card-title"><a href="${safeU}" target="_blank" rel="noopener noreferrer">${safeT}</a></div>
+  <div class="v2-card-footer">
+    <span class="v2-card-date"><i class="fas fa-clock"></i> ${relD}</span>
+    <div class="v2-card-acts">${acts}</div>
+  </div>
+</article>`;
+}
+
+function updateVeilleKPIs(cls) {
+    const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+    const total = cls.algerie.length + cls.francophone.length + cls.tic.length + cls.manuel.length;
+    set('vs-total', total);
+    set('vs-dz',    cls.algerie.length);
+    set('vs-fr',    cls.francophone.length);
+    set('vs-tic',   cls.tic.length);
+    set('vtc-algerie',     cls.algerie.length);
+    set('vtc-francophone', cls.francophone.length);
+    set('vtc-tic',         cls.tic.length);
+    set('vtc-manuel',      cls.manuel.length);
+    if (veilleData.lastUpdated) {
+        const el = document.getElementById('vSyncLabel');
+        if (el) el.innerHTML = `<i class="fas fa-circle"></i> ${veilleRelDate(veilleData.lastUpdated)}`;
+    }
+}
+
 async function loadVeille() {
     const loader = document.getElementById('veilleLoading');
     if(loader) loader.style.display = 'block';
@@ -1214,16 +1319,53 @@ async function loadVeille() {
 }
 
 function renderVeilleTable() {
-    const tbody = document.getElementById('veilleBody');
-    if(!tbody) return;
-    const all = [...veilleData.feed, ...veilleData.manual].sort((a,b) => new Date(b.date) - new Date(a.date));
-    tbody.innerHTML = all.map(a => {
-        const date = new Date(a.date).toLocaleDateString('fr-FR', { day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' });
-        const tagsHtml = (a.tags || []).map(t => `<span class="veille-tag">${t}</span>`).join('');
-        const actionsHtml = a.isManual ? `<button class="veille-btn edit" title="Modifier" onclick="openVeilleModal('edit', '${a.id}')"><i class="fas fa-pencil-alt"></i></button><button class="veille-btn delete" title="Supprimer" onclick="deleteVeilleArticle('${a.id}')"><i class="fas fa-trash"></i></button>` : `<button class="veille-btn" title="Ouvrir la source" onclick="window.open('${a.url}', '_blank')"><i class="fas fa-external-link-alt"></i></button>`;
-        return `<tr><td style="white-space:nowrap; font-size:0.8rem; color:var(--text-light);">${date}</td><td><a href="${a.url}" target="_blank" rel="noopener noreferrer">${a.title}</a></td><td>${tagsHtml}</td><td><span class="veille-source">${a.source}</span></td><td><div class="veille-actions">${actionsHtml}</div></td></tr>`;
-    }).join('');
+    const all = [...(veilleData.feed||[]), ...(veilleData.manual||[])].sort((a,b) => new Date(b.date) - new Date(a.date));
+    const classified = { algerie:[], francophone:[], tic:[], manuel:[] };
+    all.forEach(item => classified[classifyVeilleItem(item)].push(item));
+    updateVeilleKPIs(classified);
+
+    const grid  = document.getElementById('veilleCards');
+    const empty = document.getElementById('veilleEmpty');
+    const more  = document.getElementById('veilleMoreWrap');
+    if (!grid) return;
+
+    let items = classified[vCurrentFlux] || [];
+    if (vCurrentTopic !== 'all') items = items.filter(i => detectVeilleTopic(i.title) === vCurrentTopic);
+
+    vCurrentItems = items;
+    vShown = Math.min(V_PAGE_SIZE, items.length);
+    grid.innerHTML = items.slice(0, vShown).map(i => buildVeilleCard(i, vCurrentFlux)).join('');
+    if (empty) empty.style.display = vShown === 0 ? 'block' : 'none';
+    if (more)  more.style.display  = items.length > vShown ? 'flex' : 'none';
 }
+
+window.switchVeilleFlux = function(flux, btn) {
+    vCurrentFlux  = flux;
+    vCurrentTopic = 'all';
+    document.querySelectorAll('.v2-tab').forEach(t => t.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    document.querySelectorAll('.v2-pill').forEach(p => p.classList.remove('active'));
+    const first = document.querySelector('.v2-pill');
+    if (first) first.classList.add('active');
+    renderVeilleTable();
+};
+
+window.filterVeilleTopic = function(topic, btn) {
+    vCurrentTopic = topic;
+    document.querySelectorAll('.v2-pill').forEach(p => p.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    renderVeilleTable();
+};
+
+window.loadMoreVeille = function() {
+    const grid = document.getElementById('veilleCards');
+    const more = document.getElementById('veilleMoreWrap');
+    if (!grid) return;
+    const batch = vCurrentItems.slice(vShown, vShown + V_PAGE_SIZE);
+    vShown += batch.length;
+    grid.innerHTML += batch.map(i => buildVeilleCard(i, vCurrentFlux)).join('');
+    if (more) more.style.display = vShown >= vCurrentItems.length ? 'none' : 'flex';
+};
 
 window.openVeilleModal = function(mode = 'add', id = null) {
     const modal = document.getElementById('veilleModal');

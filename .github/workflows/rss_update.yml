@@ -23,10 +23,13 @@ jobs:
       - name: Mise à jour de la veille
         run: node update_veille.js
 
+      - name: Génération des flux RSS thématiques
+        run: node generate_rss_themes.js
+
       - name: Sauvegarde des changements sur GitHub
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add veille_data.json
-          git commit -m "Automatique: Mise à jour flux RSS" || echo "Pas de changements"
+          git add veille_data.json feeds/
+          git commit -m "Automatique: Mise à jour flux RSS + flux thématiques" || echo "Pas de changements"
           git push

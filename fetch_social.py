@@ -1,0 +1,565 @@
+"""
+Algeria Tech — TIC Social Media Aggregator
+==========================================
+Agrège les posts officiels des institutions et opérateurs TIC algériens.
+Sources : Flux RSS (officiels + rss.app) + Facebook Graph API (optionnel)
+Traduction : Mistral AI (clé déjà configurée dans .env)
+Automatisation : Windows Task Scheduler (toutes les 2h)
+
+Usage:
+  python fetch_social.py            → mise à jour complète
+  python fetch_social.py --no-translate → sans traduction (plus rapide)
+  python fetch_social.py --test     → affiche les sources sans sauvegarder
+"""
+
+import json
+import os
+import re
+import sys
+import time
+import hashlib
+import argparse
+from datetime import datetime, timezone
+from pathlib import Path
+from xml.etree import ElementTree as ET
+
+# Forcer UTF-8 sur Windows (PowerShell / cmd en CP1252 par defaut)
+if sys.stdout.encoding and sys.stdout.encoding.lower() not in ('utf-8', 'utf8'):
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+        sys.stderr.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
+
+try:
+    import requests
+except ImportError:
+    os.system(f'"{sys.executable}" -m pip install requests --user -q')
+    import requests
+
+try:
+    from bs4 import BeautifulSoup
+except ImportError:
+    os.system(f'"{sys.executable}" -m pip install beautifulsoup4 --user -q')
+    from bs4 import BeautifulSoup
+
+# ─── Chemins ──────────────────────────────────────────────────────────────────
+BASE_DIR    = Path(__file__).parent
+CONFIG_FILE = BASE_DIR / "social_config.json"
+OUTPUT_FILE = BASE_DIR / "tic_social.json"
+ENV_FILE    = BASE_DIR / ".env"
+
+# ─── Clés API (depuis .env ou variables d'environnement) ─────────────────────
+def load_env():
+    env = {}
+    if ENV_FILE.exists():
+        for line in ENV_FILE.read_text(encoding='utf-8').splitlines():
+            line = line.strip()
+            if '=' in line and not line.startswith('#'):
+                k, _, v = line.partition('=')
+                env[k.strip()] = v.strip()
+    env.update(os.environ)
+    return env
+
+ENV = load_env()
+MISTRAL_KEY = ENV.get("MISTRAL_API_KEY", "")
+FB_TOKEN    = ENV.get("FB_APP_TOKEN", "")
+
+HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AlgeriaTech-Bot/2.0',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'fr-DZ,fr;q=0.9,ar;q=0.8,en;q=0.7'
+}
+
+# ─── Catégories et ordre d'affichage ─────────────────────────────────────────
+CATEGORY_ORDER = ["Ministère", "Opérateurs", "Infrastructure", "Équipementiers", "Régulateurs", "Médias TIC"]
+
+# ─── Chargement config ────────────────────────────────────────────────────────
+def load_config():
+    if not CONFIG_FILE.exists():
+        print(f"[ERREUR] Fichier de config introuvable : {CONFIG_FILE}")
+        sys.exit(1)
+    return json.loads(CONFIG_FILE.read_text(encoding='utf-8'))
+
+# ─── Chargement données existantes ────────────────────────────────────────────
+def load_existing():
+    if OUTPUT_FILE.exists():
+        try:
+            return json.loads(OUTPUT_FILE.read_text(encoding='utf-8'))
+        except Exception:
+            pass
+    return {"posts": [], "lastUpdated": None, "stats": {}, "total": 0}
+
+# ─── Sauvegarde ───────────────────────────────────────────────────────────────
+def save_data(data):
+    data["lastUpdated"] = datetime.now(timezone.utc).isoformat()
+    data["total"]       = len(data["posts"])
+    stats = {}
+    for p in data["posts"]:
+        cat = p.get("category", "Autre")
+        stats[cat] = stats.get(cat, 0) + 1
+    data["stats"] = stats
+    OUTPUT_FILE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding='utf-8')
+    print(f"\n[✅] {len(data['posts'])} posts sauvegardés → {OUTPUT_FILE}")
+
+# ─── Détection de langue ──────────────────────────────────────────────────────
+def detect_lang(text: str) -> str:
+    if not text:
+        return 'fr'
+    # Arabe : plage Unicode [؀-ۿ]
+    ar_chars = len(re.findall(r'[؀-ۿ]', text))
+    if ar_chars > max(len(text) * 0.15, 5):
+        return 'ar'
+    # Mots anglais courants
+    en_words = {'the','and','is','are','we','our','for','of','to','an','with','this',
+                'has','have','will','can','its','in','at','by','on','new','been'}
+    words = set(text.lower().split())
+    if len(en_words & words) >= 3:
+        return 'en'
+    return 'fr'
+
+# ─── Traduction via Mistral ───────────────────────────────────────────────────
+def translate_mistral(text: str, source_lang: str, source_name: str) -> dict:
+    """Traduit dans les 2 autres langues via Mistral AI."""
+    if not MISTRAL_KEY:
+        print("  [!] MISTRAL_API_KEY non définie — traduction ignorée")
+        return {source_lang: text}
+
+    lang_names = {'ar': 'arabe', 'fr': 'français', 'en': 'anglais'}
+    targets = [l for l in ['ar', 'fr', 'en'] if l != source_lang]
+
+    prompt = (
+        f"Tu es un traducteur expert en TIC et télécommunications.\n"
+        f"Source : '{source_name}' (langue : {lang_names[source_lang]})\n\n"
+        f"Texte à traduire :\n{text[:700]}\n\n"
+        f"Traduis en {lang_names[targets[0]]} ET en {lang_names[targets[1]]}.\n"
+        f"Réponds UNIQUEMENT en JSON avec les clés : 'ar', 'fr', 'en'.\n"
+        f"Pour la langue source ({source_lang}), recopie le texte original."
+    )
+
+    try:
+        res = requests.post(
+            "https://api.mistral.ai/v1/chat/completions",
+            headers={"Authorization": f"Bearer {MISTRAL_KEY}", "Content-Type": "application/json"},
+            json={
+                "model": "mistral-small-latest",
+                "messages": [{"role": "user", "content": prompt}],
+                "response_format": {"type": "json_object"},
+                "temperature": 0.1,
+                "max_tokens": 800
+            },
+            timeout=30
+        )
+        result = res.json()
+        translations = json.loads(result['choices'][0]['message']['content'])
+        # Vérification minimale
+        for key in ['ar', 'fr', 'en']:
+            if key not in translations:
+                translations[key] = text if key == source_lang else ""
+        return translations
+    except Exception as e:
+        print(f"  [!] Traduction échouée ({e})")
+        return {source_lang: text, 'fr': text if source_lang != 'fr' else text}
+
+# ─── Nettoyage HTML ───────────────────────────────────────────────────────────
+def clean_html(html_text: str) -> str:
+    if not html_text:
+        return ""
+    soup = BeautifulSoup(html_text, 'html.parser')
+    text = soup.get_text(separator=' ', strip=True)
+    text = re.sub(r'\s{2,}', ' ', text)
+    return text.strip()
+
+# ─── ID unique ────────────────────────────────────────────────────────────────
+def make_id(url_or_text: str) -> str:
+    return hashlib.md5(url_or_text.encode('utf-8', errors='ignore')).hexdigest()[:16]
+
+# ─── Parser RSS/Atom universel ────────────────────────────────────────────────
+def parse_rss(content: bytes) -> list:
+    items = []
+    try:
+        root = ET.fromstring(content)
+    except ET.ParseError:
+        # Tentative avec BeautifulSoup si XML mal formé
+        try:
+            soup = BeautifulSoup(content, 'xml')
+            for item in soup.find_all('item')[:20]:
+                t = item.find('title')
+                l = item.find('link')
+                d = item.find('description') or item.find('summary')
+                pub = item.find('pubDate') or item.find('published') or item.find('updated')
+                items.append({
+                    'title': t.get_text(strip=True) if t else '',
+                    'link':  l.get_text(strip=True) if l else '',
+                    'desc':  clean_html(d.get_text() if d else ''),
+                    'date':  pub.get_text(strip=True) if pub else ''
+                })
+            return items
+        except Exception:
+            return []
+
+    ns = {
+        'atom':    'http://www.w3.org/2005/Atom',
+        'content': 'http://purl.org/rss/1.0/modules/content/',
+        'dc':      'http://purl.org/dc/elements/1.1/'
+    }
+
+    # RSS 2.0
+    for item in root.findall('.//item')[:20]:
+        title = item.findtext('title', '').strip()
+        link  = item.findtext('link', '').strip()
+        desc  = item.findtext('description', '') or item.findtext('content:encoded', '', ns)
+        pub   = item.findtext('pubDate', '') or item.findtext('dc:date', '', ns)
+        items.append({'title': title, 'link': link, 'desc': clean_html(desc), 'date': pub})
+
+    # Atom
+    if not items:
+        for entry in root.findall('atom:entry', ns)[:20]:
+            title   = entry.findtext('atom:title', '', ns).strip()
+            link_el = entry.find('atom:link', ns)
+            link    = (link_el.attrib.get('href', '') if link_el is not None else '')
+            content = (entry.findtext('atom:content', '', ns) or
+                       entry.findtext('atom:summary', '', ns))
+            pub     = (entry.findtext('atom:published', '', ns) or
+                       entry.findtext('atom:updated', '', ns))
+            items.append({'title': title, 'link': link, 'desc': clean_html(content), 'date': pub})
+
+    return items
+
+# ─── Fetch RSS ────────────────────────────────────────────────────────────────
+def fetch_rss(source: dict) -> list:
+    url = source.get('rss_url', '')
+    if not url:
+        return []
+
+    try:
+        res = requests.get(url, headers=HEADERS, timeout=15, allow_redirects=True)
+        res.raise_for_status()
+        parsed = parse_rss(res.content)
+        count = len(parsed)
+        print(f"  [RSS] ✓ {count} items ← {url[:60]}")
+        return parsed[:15]
+    except Exception as e:
+        print(f"  [RSS] ✗ {url[:50]} → {e}")
+        return []
+
+# ─── Fetch Facebook Graph API ─────────────────────────────────────────────────
+def fetch_facebook_api(source: dict) -> list:
+    """
+    Utilise le Facebook Graph API pour récupérer les posts d'une page publique.
+    Nécessite FB_APP_TOKEN dans .env (voir social_config.json pour instructions).
+    """
+    page_id = source.get('fb_page_id', '').strip()
+    token   = source.get('fb_token', '') or FB_TOKEN
+
+    if not page_id or not token:
+        return []
+
+    try:
+        res = requests.get(
+            f"https://graph.facebook.com/v18.0/{page_id}/posts",
+            params={
+                'access_token': token,
+                'fields': 'message,story,created_time,permalink_url,full_picture',
+                'limit': 10
+            },
+            headers=HEADERS,
+            timeout=15
+        )
+        data = res.json()
+
+        if 'error' in data:
+            err_msg = data['error'].get('message', 'Unknown error')
+            err_code = data['error'].get('code', '?')
+            if err_code in [190, 102]:
+                print(f"  [FB]  ✗ Token invalide/expiré — renouvelez FB_APP_TOKEN dans .env")
+            else:
+                print(f"  [FB]  ✗ API {err_code}: {err_msg[:80]}")
+            return []
+
+        posts_raw = data.get('data', [])
+        results = []
+        for post in posts_raw:
+            msg = post.get('message', '') or post.get('story', '')
+            if not msg:
+                continue
+            results.append({
+                'title':  msg[:120].replace('\n', ' ') + ('…' if len(msg) > 120 else ''),
+                'link':   post.get('permalink_url', ''),
+                'desc':   msg,
+                'date':   post.get('created_time', ''),
+                'image':  post.get('full_picture', '')
+            })
+        print(f"  [FB]  ✓ {len(results)} posts ← Graph API ({page_id})")
+        return results
+
+    except Exception as e:
+        print(f"  [FB]  ✗ Graph API erreur : {e}")
+        return []
+
+# ─── Fetch Facebook mbasic (scraping HTML simplifié — sans compte) ───────────
+def fetch_facebook_mbasic(source: dict) -> list:
+    """
+    Scrape les posts depuis mbasic.facebook.com — le site mobile allégé de Facebook.
+    Fonctionne pour les pages PUBLIQUES sans authentification.
+    Couvre TOUS les liens Facebook fournis sans limite de quota.
+    Délai respectueux : 1 s entre chaque page.
+    """
+    page_id = source.get('fb_page_id', '').strip()
+    if not page_id:
+        return []
+
+    # Headers mobile pour éviter d'être bloqué
+    mob_headers = {
+        'User-Agent': (
+            'Mozilla/5.0 (Linux; Android 12; SM-A536B) '
+            'AppleWebKit/537.36 (KHTML, like Gecko) '
+            'Chrome/112.0.0.0 Mobile Safari/537.36'
+        ),
+        'Accept':          'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'fr-DZ,fr;q=0.9,ar;q=0.8,en;q=0.5',
+        'Accept-Encoding': 'gzip, deflate',
+        'Connection':      'keep-alive',
+        'DNT':             '1',
+    }
+
+    urls_to_try = [
+        f"https://mbasic.facebook.com/{page_id}",
+        f"https://mbasic.facebook.com/pg/{page_id}/posts",
+    ]
+
+    items = []
+    for url in urls_to_try:
+        try:
+            res = requests.get(url, headers=mob_headers, timeout=20,
+                               allow_redirects=True)
+
+            # Détection du mur de connexion
+            if ('login' in res.url.lower()
+                    or res.status_code in (302, 301, 403)
+                    or 'se connecter' in res.text[:2000].lower()
+                    or 'log in' in res.text[:2000].lower()):
+                print(f"  [MBASIC] {page_id}: mur de connexion ou redirection")
+                break
+
+            soup = BeautifulSoup(res.text, 'html.parser')
+
+            # Essai de plusieurs sélecteurs selon la version mbasic
+            post_containers = (
+                soup.find_all('div', attrs={'data-ft': True})  # Version récente
+                or soup.find_all('div', id=lambda x: x and x.startswith('u_'))
+                or soup.select('article')
+                or soup.select('[data-store]')
+            )
+
+            seen_texts = set()
+            for container in post_containers[:15]:
+                # Extraire le texte principal
+                text_nodes = container.find_all(['p', 'span'], recursive=True)
+                text = ' '.join(
+                    n.get_text(separator=' ', strip=True)
+                    for n in text_nodes
+                    if n.get_text(strip=True)
+                ).strip()
+
+                if len(text) < 25 or text in seen_texts:
+                    continue
+
+                # Éliminer les menus / navigation / boutons courts
+                words = text.split()
+                if len(words) < 5:
+                    continue
+
+                seen_texts.add(text)
+
+                # Lien permanent du post
+                link = ''
+                for a in container.find_all('a', href=True):
+                    href = a['href']
+                    if '/permalink/' in href or '/posts/' in href:
+                        link = (f"https://www.facebook.com{href}"
+                                if href.startswith('/') else href)
+                        link = link.split('?')[0]  # retirer les params tracking
+                        break
+
+                # Date : mbasic affiche souvent un texte relatif ("il y a 3h")
+                date_str = datetime.now(timezone.utc).isoformat()
+
+                items.append({
+                    'title': text[:130] + ('…' if len(text) > 130 else ''),
+                    'link':  link,
+                    'desc':  text[:800],
+                    'date':  date_str,
+                    'image': ''
+                })
+
+            if items:
+                print(f"  [MBASIC] {page_id}: {len(items)} posts extraits")
+                break  # Succès sur cette URL, inutile d'essayer la suivante
+            else:
+                print(f"  [MBASIC] {page_id}: aucun post détecté sur {url}")
+
+            time.sleep(1)  # Délai respectueux entre requêtes
+
+        except Exception as e:
+            print(f"  [MBASIC] {page_id}: {e}")
+
+    return items[:12]
+
+# ─── Construire un objet post standardisé ────────────────────────────────────
+def build_post(raw: dict, source: dict, do_translate: bool) -> dict:
+    title   = raw.get('title', '')
+    desc    = raw.get('desc', '')
+    link    = raw.get('link', '')
+    date    = raw.get('date', datetime.now(timezone.utc).isoformat())
+    image   = raw.get('image', '')
+
+    # Texte principal = description si longue, sinon titre
+    main_text = desc if len(desc) > len(title) else title
+    if title and desc and desc != title:
+        main_text = title + (' — ' + desc[:300] if desc else '')
+
+    main_text = main_text.strip()
+    lang = detect_lang(main_text)
+
+    # Traduction
+    if do_translate and MISTRAL_KEY and main_text and len(main_text) > 15:
+        translations = translate_mistral(main_text, lang, source['name'])
+        time.sleep(0.3)  # éviter le rate-limiting Mistral
+    else:
+        translations = {lang: main_text}
+        for l in ['ar', 'fr', 'en']:
+            if l not in translations:
+                translations[l] = ''
+
+    uid = make_id(link or main_text[:80])
+
+    return {
+        'id':            uid,
+        'source_name':   source['name'],
+        'source_short':  source.get('short', source['name'][:2].upper()),
+        'source_color':  source.get('color', '#006233'),
+        'category':      source.get('category', 'Autre'),
+        'category_icon': source.get('icon', '🏢'),
+        'url':           link,
+        'image':         image,
+        'date':          date,
+        'lang_source':   lang,
+        'text':          translations
+    }
+
+# ─── Filtrage qualité ─────────────────────────────────────────────────────────
+TIC_KEYWORDS = [
+    'télécom', 'telecom', 'mobile', '5g', '4g', 'réseau', 'internet', 'fibre',
+    'numérique', 'digital', 'data', 'réseau', 'opérateur', 'infrastructure',
+    'satellite', 'tic', 'mpt', 'poste', 'connectivité', 'bandwidth', 'network',
+    'innovation', 'startup', 'tech', 'ia', 'intelligence artificielle', 'ai',
+    'cloud', 'cybersécurité', 'sécurité', 'logiciel', 'algorithme', 'signal',
+    'antenne', 'déploiement', 'couverture', 'haut débit', 'broadband',
+    'ooredoo', 'djezzy', 'mobilis', 'algérie télécom', 'algerietelecom',
+    'ericsson', 'huawei', 'nokia', 'arpce', 'arpt', 'algersat'
+]
+
+def is_tic_relevant(post: dict, source: dict) -> bool:
+    """
+    Filtre les posts non pertinents TIC.
+    Sources déjà spécialisées → on garde tout.
+    Sources généralistes → on filtre par mots-clés.
+    """
+    # Sources déjà TIC-spécialisées : on garde tout
+    if source.get('category') in ['Opérateurs', 'Infrastructure', 'Équipementiers', 'Régulateurs']:
+        return True
+
+    # Pour les autres : vérification des mots-clés
+    text_all = ' '.join(post.get('text', {}).values()).lower()
+    return any(kw in text_all for kw in TIC_KEYWORDS)
+
+# ─── Programme principal ──────────────────────────────────────────────────────
+def main():
+    parser = argparse.ArgumentParser(description='Algeria Tech — TIC Social Aggregator')
+    parser.add_argument('--no-translate', action='store_true', help='Désactiver la traduction Mistral')
+    parser.add_argument('--test',         action='store_true', help='Mode test (affiche sans sauvegarder)')
+    parser.add_argument('--source',       type=str, default='', help='Traiter une seule source (par nom)')
+    args = parser.parse_args()
+
+    do_translate = not args.no_translate
+
+    print("\n=== Algeria Tech - TIC Social Aggregator ===")
+    print(f"    {datetime.now().strftime('%d/%m/%Y %H:%M')}  | Traduction: {'OUI (Mistral)' if do_translate and MISTRAL_KEY else 'NON'}")
+    print("=" * 45 + "\n")
+
+    config    = load_config()
+    existing  = load_existing()
+    seen_ids  = {p['id'] for p in existing.get('posts', [])}
+    new_posts = []
+
+    sources = [s for s in config.get('sources', []) if s.get('enabled', True)]
+    if args.source:
+        sources = [s for s in sources if args.source.lower() in s['name'].lower()]
+
+    print(f"Sources actives : {len(sources)}")
+
+    for src in sources:
+        print(f"\n▶ {src['name']} [{src['category']}]")
+        raw_items = []
+
+        # ── Méthode 1 : Flux RSS officiel ou rss.app ─────────────────────────────
+        if src.get('rss_url'):
+            raw_items = fetch_rss(src)
+
+        # ── Méthode 2 : Facebook Graph API (si FB_APP_TOKEN dans .env) ────────
+        if src.get('fb_page_id') and FB_TOKEN:
+            fb_items = fetch_facebook_api(src)
+            existing_links = {r.get('link', '') for r in raw_items}
+            raw_items += [i for i in fb_items if i.get('link', '') not in existing_links]
+
+        # ── Méthode 3 : mbasic.facebook.com (scraping HTML, sans compte) ─────
+        # Activé automatiquement si pas de RSS ni de token — couvre TOUS les liens
+        if not raw_items and src.get('fb_page_id'):
+            mbasic_items = fetch_facebook_mbasic(src)
+            raw_items += mbasic_items
+
+        if not raw_items:
+            print(f"  [—] Aucune donnée disponible pour cette source")
+            continue
+
+        # Construire les posts
+        for raw in raw_items:
+            post = build_post(raw, src, do_translate)
+            if post['id'] in seen_ids:
+                continue
+            if not is_tic_relevant(post, src):
+                continue
+            seen_ids.add(post['id'])
+            new_posts.append(post)
+
+        print(f"  → {len([p for p in new_posts if p['source_name'] == src['name']])} nouveaux posts")
+
+    if args.test:
+        print(f"\n[MODE TEST] {len(new_posts)} nouveaux posts trouvés (non sauvegardés)")
+        for p in new_posts[:3]:
+            print(f"  • {p['source_name']} | {p['category']} | {p['text'].get('fr', '')[:80]}…")
+        return
+
+    # Fusion + déduplication + tri + limite 300
+    all_posts = new_posts + existing.get('posts', [])
+    all_posts.sort(key=lambda p: p.get('date', ''), reverse=True)
+    all_posts = all_posts[:300]
+
+    save_data({"posts": all_posts, "lastUpdated": None, "stats": {}, "total": 0})
+
+    # Résumé
+    print("\n--- Resume par categorie ---")
+    cat_counts = {}
+    for p in all_posts:
+        cat = p.get('category', 'Autre')
+        cat_counts[cat] = cat_counts.get(cat, 0) + 1
+    for cat in CATEGORY_ORDER:
+        if cat in cat_counts:
+            print(f"  {cat:<22} {cat_counts[cat]:>4} posts")
+
+    print(f"\n[TOTAL] {len(all_posts)} posts | {len(new_posts)} nouveaux ce cycle")
+    print("=" * 48 + "\n")
+
+if __name__ == "__main__":
+    main()
