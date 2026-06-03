@@ -1,29 +1,7 @@
 {
   "date": "mercredi 3 juin",
-  "synthese": "L'Algérie renforce sa souveraineté numérique avec des initiatives majeures en cybersécurité et télécoms, tandis que le marché tech mondial voit des avancées technologiques disruptives et des ajustements stratégiques. Les prix de la fibre en Algérie chutent spectaculairement, reflétant une dynamique locale contrastant avec les tendances globales. Les innovations en IA, mobile et cybersécurité dominent les débats, avec des impacts à la fois économiques et technologiques.",
+  "synthese": "Les dernières 24h ont été marquées par des avancées technologiques majeures en IA, cybersécurité et innovation matérielle, avec une forte présence de l'Algérie dans les énergies et l'industrie. Les géants tech comme Microsoft et Canonical redéfinissent les standards, tandis que les startups françaises et algériennes confirment leur dynamisme. La souveraineté numérique et l'interopérabilité des appareils dominent les débats.",
   "articles": [
-    {
-      "titre": "Lancement de la 2ème session nationale de formation des RSSI <BR> L’Algérie accélère sa souveraineté numérique",
-      "resume": "Une session de formation de trois jours destinée aux responsables de la sécurité des systèmes d’information (RSSI) des institutions de l’État et des o",
-      "url": "https://www.itmag.dz/2026/06/02/lancement-de-la-2eme-session-nationale-de-formation-des-rssi-br-lalgerie-accelere-sa-souverainete-numerique/",
-      "date": "2026-06-02T09:31:50.000Z",
-      "source": "ITMAG.dz",
-      "logo": "https://www.google.com/s2/favicons?domain=itmag.dz&sz=32",
-      "pays": "DZ",
-      "accroche": "L’Algérie forme ses RSSI pour une cybersécurité souveraine et ambitieuse.",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "Internet en Algérie : les prix de la fibre ont chuté de 91 %",
-      "resume": "Longtemps associée à des débits limités et à des tarifs jugés élevés, la connexion Internet en Algérie a connu une profonde évolution ces dernières an",
-      "url": "https://www.algerie360.com/internet-en-algerie-les-prix-de-la-fibre-ont-chute-de-91/",
-      "date": "2026-06-02T09:21:17.000Z",
-      "source": "Algérie360 Tech",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie360.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Fibre en Algérie : -91% sur les prix, révolution télécoms en marche.",
-      "categorie": "Télécoms"
-    },
     {
       "titre": "AirDrop Xiaomi : enfin l’interopérabilité iPhone-Android",
       "resume": "Apple vient de lever une barrière majeure de son écosystème fermé en autorisant Xiaomi à intégrer AirDrop sur…\nL’article AirDrop Xiaomi : enfin l’inte",
@@ -32,7 +10,7 @@
       "source": "Android DZ",
       "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "AirDrop Xiaomi : l’interopérabilité Android-iPhone enfin accessible.",
+      "accroche": "Xiaomi brise les barrières : AirDrop enfin compatible iPhone-Android !",
       "categorie": "Mobile"
     },
     {
@@ -43,8 +21,8 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Anthropic vise une IPO à 1 000 milliards $, l’IA entre en bourse.",
-      "categorie": "IA"
+      "accroche": "Anthropic vise une valorisation record de 1 000 milliards $ en Bourse.",
+      "categorie": "Startups"
     },
     {
       "titre": "Campus AI : la France se branche sur 3 gigawatts",
@@ -54,7 +32,29 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Campus IA français : 3 gigawatts pour booster l’innovation technologique.",
+      "accroche": "La France mise 3 gigawatts pour son futur campus dédié à l'IA.",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Auto-école en ligne : Ornikar rachète En Voiture Simone",
+      "resume": "En absorbant son principal concurrent, le leader francais de l'auto-ecole en ligne s'empare de 14 % du marche national. Cette fusion  illustre la matu",
+      "url": "https://www.zdnet.fr/actualites/auto-ecole-en-ligne-ornikar-rachete-en-voiture-simone-496065.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-03T10:22:05.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Ornikar rachète En Voiture Simone : la révolution des auto-écoles en ligne.",
+      "categorie": "Startups"
+    },
+    {
+      "titre": "« Ubuntu 26.04 est le système d'exploitation de l'ère des agents IA », dit Mark Shuttleworth (Canonical). Voici pourquoi",
+      "resume": "L'argumentaire de Canonical met l'accent sur les paquets Snaps et la sécurité.",
+      "url": "https://www.zdnet.fr/actualites/ubuntu-26-04-est-le-systeme-dexploitation-de-lere-des-agents-ia-dit-mark-shuttleworth-canonical-voici-pourquoi-496089.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-03T09:22:06.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Ubuntu 26.04 : Mark Shuttleworth annonce l'ère des agents IA.",
       "categorie": "Innovation"
     },
     {
@@ -65,75 +65,75 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Cybersécurité : les grands groupes français résistent aux cybermenaces.",
+      "accroche": "Cybersécurité : les grands groupes français résistent aux cyberattaques.",
       "categorie": "Cybersécurité"
     },
     {
-      "titre": "Les 4 PC équipés du Nvidia RTX Spark que j'ai le plus hâte d'essayer, dont le nouveau Microsoft Ultra",
-      "resume": "Nvidia vient d'annoncer la disponibilité de son nouveau processeur RTX Spark sur les modèles de toutes les grandes marques de PC. Voici les quatre mod",
-      "url": "https://www.zdnet.fr/actualites/les-4-pc-equipes-du-nvidia-rtx-spark-que-jai-le-plus-hate-dessayer-dont-le-nouveau-microsoft-ultra-496054.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-03T08:15:58.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Nvidia RTX Spark : les PC gaming redéfinissent les standards de performance.",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Antivirus pour ordinateur portable : comment bien protéger son PC en mobilité ?",
-      "resume": "Un PC portable est souvent plus vulnérable qu’un ordinateur de bureau, car on l’utilise dehors, dans les transports et les lieux publics. Il se connec",
-      "url": "https://www.zdnet.fr/guide-achat/antivirus-pour-ordinateur-portable-comment-bien-proteger-son-pc-en-mobilite-495845.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-03T08:00:29.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Antivirus en mobilité : protégez votre PC contre les cyberattaques.",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "iOS 27 : la fonctionnalité qui pourrait tout changer pour l’iPhone pliable",
-      "resume": "Apple travaillerait sur une fonctionnalité de multitâche baptisée « Parallel View » pour iOS 27. Prévue pour adapter l'affichage sur de grands écrans,",
-      "url": "https://www.frandroid.com/marques/apple/3123971_ios-27-la-fonctionnalite-qui-pourrait-tout-changer-pour-liphone-pliable",
-      "date": "2026-06-03T08:34:46.000Z",
+      "titre": "Asus ProArt P16 : ce laptop avec écran OLED tactile 3K de 16″ et une RTX 5070 défie le MacBook Pro 16 avec son prix en baisse de 20%",
+      "resume": "L'Asus ProArt P16 est une vraie station de travail mobile haut de gamme pensée pour les créateurs que vous retrouvez à 2 959,99 euros au lieu de 3 699",
+      "url": "https://www.frandroid.com/bons-plans/3124209_asus-proart-p16-ce-laptop-avec-ecran-oled-tactile-3k-de-16-et-une-rtx-5070-defie-le-macbook-pro-16-avec-son-prix-en-baisse-de-20",
+      "date": "2026-06-03T10:41:00.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "iOS 27 : une fonctionnalité révolutionnaire pour l’iPhone pliable.",
+      "accroche": "Asus ProArt P16 défie le MacBook Pro avec écran OLED et RTX 5070.",
       "categorie": "Mobile"
     },
     {
-      "titre": "Xiaomi était victime de rupture, il vient de rajouter des Pad 7 à -56% pour booster les ventes 🚀",
-      "resume": "La Xiaomi Pad 7 s'est vendue à plus de 10 000 exemplaires depuis le début des Summer Sales et vient de revenir en stock, mais chaque réapprovisionneme",
-      "url": "https://www.01net.com/bons-plans/xiaomi-etait-victime-de-rupture-il-vient-de-rajouter-des-pad-7-a-56-pour-booster-les-ventes.html",
-      "date": "2026-06-03T09:19:27.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "titre": "Aluminium photovoltaïque : l’incroyable technologie qui pourrait faire disparaître les panneaux solaires de nos toits",
+      "resume": "L’aluminium est devenu un élément clé de l’architecture et de la construction modernes. Ce matériau léger et résistant à la corrosion occupe surtout u",
+      "url": "https://www.frandroid.com/survoltes/3124045_aluminium-photovoltaique-lincroyable-technologie-qui-pourrait-faire-disparaitre-les-panneaux-solaires-de-nos-toits",
+      "date": "2026-06-03T10:16:27.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Xiaomi relance ses ventes avec des Pad 7 à -56%, coup marketing.",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Les gamers nomades ne jurent que par elle : la Retroid Pocket 5 se vend en masse à – 40%",
-      "resume": "La Retroid Pocket 5 est une console portable capable d'émuler de nombreuses consoles, notamment de salon. Outre cet aspect, elle a aussi accès aux tit",
-      "url": "https://www.01net.com/bons-plans/les-gamers-nomades-ne-jurent-que-par-elle-la-retroid-pocket-5-se-vend-en-masse-a-40.html",
-      "date": "2026-06-03T08:44:42.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Retroid Pocket 5 : la console portable à -40% qui séduit les gamers.",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Le Parlement européen remplace Google par Qwant : symbole fort, réalité plus nuancée",
-      "resume": "Le Parlement européen remplace Google par Qwant dès le 4 juin. Un symbole de souveraineté numérique, mais Qwant pèse moins de 1 % en France et reconst",
-      "url": "https://www.01net.com/actualites/le-parlement-europeen-remplace-google-par-qwant-symbole-fort-realite-plus-nuancee.html",
-      "date": "2026-06-03T08:39:38.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Parlement européen : Qwant remplace Google, symbole d’une souveraineté numérique.",
+      "accroche": "Aluminium photovoltaïque : une technologie révolutionnaire pour les panneaux solaires.",
       "categorie": "Innovation"
+    },
+    {
+      "titre": "Fuite massive ou coup de bluff ? Un pirate revendique le vol des données médicales de 34 millions de Français, l’Assurance Maladie dément",
+      "resume": "Un pirate affirme avoir dérobé les données personnelles de plus de 34 millions d'assurés français via le Dossier Médical Partagé (DMP), le carnet de s",
+      "url": "https://www.01net.com/actualites/fuite-massive-coup-bluff-pirate-revendique-vol-donnees-medicales-34-millions-francais-assurance-maladie-dement.html",
+      "date": "2026-06-03T10:39:25.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Fuite massive de données médicales : 34 millions de dossiers compromis ?",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "OnlyOffice 9.4 apporte Mistral AI sur mobile pour concurrencer Microsoft Office et Google Docs",
+      "resume": "OnlyOffice 9.4 intègre nativement Mistral AI sur mobile iOS. La suite bureautique open source renforce son alternative à Microsoft Office et Google Do",
+      "url": "https://www.01net.com/actualites/onlyoffice-9-4-apporte-mistral-ai-sur-mobile-pour-concurrencer-microsoft-office-et-google-docs.html",
+      "date": "2026-06-03T10:04:13.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "OnlyOffice 9.4 intègre Mistral AI pour concurrencer Microsoft et Google.",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Un data center consomme autant d’eau qu’un restaurant ? L’audacieuse promesse de Microsoft pour calmer la soif de l’IA",
+      "resume": "À la conférence Build 2026, Satya Nadella a frappé fort en affirmant que ses futurs data centers IA ne consommeraient pas plus d'eau à l'année qu'un s",
+      "url": "https://www.numerama.com/tech/2266343-un-data-center-consomme-autant-deau-quun-restaurant-laudacieuse-promesse-de-microsoft-pour-calmer-la-soif-de-lia.html",
+      "date": "2026-06-03T10:38:35.000Z",
+      "source": "Numerama",
+      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
+      "pays": "FR",
+      "accroche": "Microsoft promet des data centers moins gourmands en eau.",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Qwant remplace Google au Parlement européen : le vrai début de la souveraineté numérique ?",
+      "resume": "Le 4 juin, le Parlement européen remplacera Google par Qwant comme moteur de recherche par défaut sur ses ordinateurs. Une bascule qui intervient au m",
+      "url": "https://www.numerama.com/tech/2266357-qwant-remplace-google-au-parlement-europeen-le-vrai-debut-de-la-souverainete-numerique.html",
+      "date": "2026-06-03T10:15:03.000Z",
+      "source": "Numerama",
+      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
+      "pays": "FR",
+      "accroche": "Qwant remplace Google au Parlement européen : souveraineté numérique en marche.",
+      "categorie": "Télécoms"
     }
   ],
-  "lastUpdated": "2026-06-03T09:21:32.710Z"
+  "lastUpdated": "2026-06-03T11:13:08.699Z"
 }
