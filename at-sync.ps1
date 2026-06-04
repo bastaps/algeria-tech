@@ -93,12 +93,46 @@ public static class CtrlCGuard {
 
             # ── 1. SYNC ──────────────────────────────────────────────────────
             "1" {
-                Write-Host "`n--- Recuperation depuis GitHub ---" -ForegroundColor Yellow
-                git fetch origin main
-                git checkout origin/main -- archives/ revue_presse.json articles.json veille_data.json 2>&1 | Out-Null
-                # Reappliquer skip-worktree apres le checkout
+                Write-Host "`n--- Synchronisation GitHub → Localhost ---" -ForegroundColor Yellow
+
+                # Verifier s'il y a des modifications locales non committees
+                $localChanges = git status --porcelain
+                if ($localChanges) {
+                    Write-Host "`nModifications locales detectees :" -ForegroundColor Cyan
+                    git status --short
+                    Write-Host ""
+                    $choice = Read-Host "Mettre en attente (stash) pour continuer ? (O/n)"
+                    if ($choice -eq "n" -or $choice -eq "N") {
+                        Write-Host "Annule." -ForegroundColor Yellow
+                        Read-Host "`nAppuyez sur Entree pour continuer..."
+                        break
+                    }
+                    Reset-AutoFiles
+                    git stash push -m "sync_temp" 2>&1 | Out-Null
+                    Write-Host "Changements locaux mis en attente." -ForegroundColor Gray
+                }
+
+                # Pull complet depuis GitHub
+                Write-Host "Recuperation depuis GitHub..." -ForegroundColor Cyan
+                $pullResult = git pull --no-rebase origin main 2>&1
+                Write-Host $pullResult
+
+                if ($LASTEXITCODE -ne 0) {
+                    Write-Host "ERREUR lors du pull." -ForegroundColor Red
+                    git merge --abort 2>&1 | Out-Null
+                    git stash pop 2>&1 | Out-Null
+                    Read-Host "`nAppuyez sur Entree pour continuer..."
+                    break
+                }
+
+                # Regenerer articles.json depuis tous les .md (y compris ceux crees sur Cloudflare)
+                Invoke-RegenerateArticles
+
+                # Reappliquer skip-worktree
                 Set-SkipWorktree -Enable
-                Write-Host "OK Localhost est a jour avec GitHub." -ForegroundColor Green
+
+                Write-Host "`nOK Localhost est a jour avec GitHub." -ForegroundColor Green
+                Write-Host "(Articles crees sur Cloudflare cette semaine sont maintenant disponibles en local)" -ForegroundColor DarkGray
                 Read-Host "`nAppuyez sur Entree pour continuer..."
             }
 
