@@ -1034,6 +1034,133 @@ function initCounters() {
     document.querySelectorAll('.stat-number').forEach(c => obs.observe(c));
 }
 
+// ===== SMART HUB IA (boutons du modal admin) =====
+const HUB_API = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+    ? '' : 'https://dz-tech-press-api.onrender.com';
+
+let _hubLastAI = null;
+
+// Compteur de caractères hubSmartBox
+document.addEventListener('DOMContentLoaded', () => {
+    const box = document.getElementById('hubSmartBox');
+    if (box) box.addEventListener('input', () => {
+        document.getElementById('hubCharCount').textContent = box.value.length + ' caractères';
+    });
+});
+
+function hubSetStatus(btnId, state) {
+    const btn = document.getElementById(btnId);
+    if (!btn) return;
+    const icon = btn.querySelector('i');
+    const label = btn.querySelector('span');
+    const origTexts = { hubPdfBtn:'PDF', hubTranslateBtn:'Traduire', hubGenBtn:'Générer', hubFillBtn:'Remplir' };
+    const origIcons = { hubPdfBtn:'fas fa-file-pdf', hubTranslateBtn:'fas fa-language', hubGenBtn:'fas fa-pen-nib', hubFillBtn:'fas fa-fill-drip' };
+    if (state === 'loading') {
+        btn.disabled = true; btn.classList.add('hub-btn-loading');
+        if (icon) icon.className = 'fas fa-spinner fa-spin';
+        if (label) label.textContent = '...';
+    } else if (state === 'success') {
+        btn.disabled = false; btn.classList.remove('hub-btn-loading'); btn.classList.add('hub-btn-done');
+        if (icon) icon.className = 'fas fa-check';
+        if (label) label.textContent = 'OK ✓';
+        setTimeout(() => {
+            btn.classList.remove('hub-btn-done');
+            if (icon) icon.className = origIcons[btnId];
+            if (label) label.textContent = origTexts[btnId];
+        }, 2500);
+    } else if (state === 'error') {
+        btn.disabled = false; btn.classList.remove('hub-btn-loading');
+        if (icon) icon.className = 'fas fa-exclamation-triangle';
+        if (label) label.textContent = 'Erreur';
+        setTimeout(() => {
+            if (icon) icon.className = origIcons[btnId];
+            if (label) label.textContent = origTexts[btnId];
+        }, 2500);
+    }
+}
+
+// PDF → hubSmartBox
+window.hubTranscribePDF = async function(input) {
+    if (!input || !input.files[0]) return;
+    hubSetStatus('hubPdfBtn', 'loading');
+    const fd = new FormData();
+    fd.append('pdf', input.files[0]);
+    try {
+        const r = await fetch(`${HUB_API}/api/transcribe-pdf`, { method: 'POST', body: fd });
+        const d = await r.json();
+        if (d.error) throw new Error(d.error);
+        const box = document.getElementById('hubSmartBox');
+        box.value = d.text;
+        document.getElementById('hubCharCount').textContent = d.text.length + ' caractères';
+        hubSetStatus('hubPdfBtn', 'success');
+    } catch(e) {
+        showToast('Erreur lecture PDF : ' + e.message);
+        hubSetStatus('hubPdfBtn', 'error');
+    } finally { input.value = ''; }
+};
+
+// Traduire hubSmartBox → français
+window.hubTranslate = async function() {
+    const text = document.getElementById('hubSmartBox').value.trim();
+    if (!text) return showToast('Aucun texte à traduire.');
+    hubSetStatus('hubTranslateBtn', 'loading');
+    try {
+        const r = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=fr&dt=t&q=${encodeURIComponent(text)}`);
+        if (!r.ok) throw new Error();
+        const d = await r.json();
+        document.getElementById('hubSmartBox').value = d[0].map(s => s[0]).join('');
+        document.getElementById('hubCharCount').textContent = document.getElementById('hubSmartBox').value.length + ' caractères';
+        hubSetStatus('hubTranslateBtn', 'success');
+    } catch(e) {
+        showToast('Erreur traduction.'); hubSetStatus('hubTranslateBtn', 'error');
+    }
+};
+
+// Générer article via Smart Engine
+window.hubGenerate = async function() {
+    const source = document.getElementById('hubSmartBox').value.trim();
+    if (!source) return showToast('Collez un texte dans la zone IA avant de générer.');
+    hubSetStatus('hubGenBtn', 'loading');
+    try {
+        const r = await fetch(`${HUB_API}/api/smart-generate`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ text: source })
+        });
+        const d = await r.json();
+        if (!r.ok) throw new Error(d.error || 'Erreur inconnue');
+        _hubLastAI = d;
+        hubSetStatus('hubGenBtn', 'success');
+        showToast('Article généré ! Cliquez sur "Remplir" pour remplir le formulaire.');
+    } catch(e) {
+        showToast('Erreur génération : ' + e.message);
+        hubSetStatus('hubGenBtn', 'error');
+    }
+};
+
+// Remplir le formulaire depuis le résultat IA
+window.hubFill = function() {
+    if (!_hubLastAI) return showToast('Générez d\'abord un article avec le bouton "Générer".');
+    hubSetStatus('hubFillBtn', 'loading');
+    const d = _hubLastAI;
+    if (d.titre)   document.getElementById('titre').value   = d.titre;
+    if (d.lead)    document.getElementById('extrait').value = d.lead;
+    if (d.tags)    document.getElementById('tags').value    = Array.isArray(d.tags) ? d.tags.join(', ') : d.tags;
+    if (d.contenu) document.getElementById('contenu').value = `# ${d.titre || ''}\n\n${d.lead || ''}\n\n${d.contenu}`;
+    if (d.video)   document.getElementById('video').value   = d.video;
+    // Détection auto catégorie
+    const txt = ((d.contenu || '') + ' ' + (d.titre || '')).toLowerCase();
+    const cat = txt.includes('djezzy')||txt.includes('mobilis')||txt.includes('ooredoo')||txt.includes('télécom') ? 'Télécoms'
+              : txt.includes('mobile')||txt.includes('smartphone') ? 'Mobile'
+              : txt.includes('startup')||txt.includes('incubateur') ? 'Startups'
+              : txt.includes('entreprise')||txt.includes('société') ? 'Entreprises'
+              : txt.includes('innovation')||txt.includes('numérique') ? 'Innovation'
+              : 'Algérie';
+    document.getElementById('categorie').value = d.categorie || cat;
+    hubSetStatus('hubFillBtn', 'success');
+    showToast('Formulaire rempli ! Vérifiez et ajustez avant de déployer.');
+};
+
 // ===== GESTION ADMIN =====
 window.toggleAdminPanel = function() {
     // Vérifier si admin est déverrouillé (production uniquement)
@@ -1083,14 +1210,15 @@ window.submitArticle = async function(e) {
     if (e) e.preventDefault();
     try {
         const formData = new FormData();
-        formData.append('titre', document.getElementById('titre').value);
-        formData.append('categorie', document.getElementById('categorie').value); // Correction: suppression de l'espace aprÃ¨s 'categorie'
-        formData.append('date', document.getElementById('date').value);
-        formData.append('heure', document.getElementById('heure').value);
-        formData.append('extrait', document.getElementById('extrait').value);
-        formData.append('tags', document.getElementById('tags').value);
-        formData.append('contenu', document.getElementById('contenu').value);
-        formData.append('video', document.getElementById('video').value);
+        formData.append('titre',     document.getElementById('titre').value);
+        formData.append('categorie', document.getElementById('categorie').value);
+        formData.append('date',      document.getElementById('date').value);
+        formData.append('heure',     document.getElementById('heure').value);
+        formData.append('extrait',   document.getElementById('extrait').value);
+        formData.append('tags',      document.getElementById('tags').value);
+        formData.append('contenu',   document.getElementById('contenu').value);
+        formData.append('video',     document.getElementById('video').value);
+        formData.append('source',    document.getElementById('sourceUrl')?.value || '');
 
         // Correction: AccÃ¨s sÃ©curisÃ© aux fichiers pour Ã©viter les crashes si l'input est manquant
         const imgInput = document.getElementById('image');

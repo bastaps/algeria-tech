@@ -399,6 +399,29 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
 .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
 .btn-secondary { background: var(--border); color: var(--text-dark); flex: 1; }
 .btn-secondary:hover { background: var(--text-muted); color: #fff; }
+/* ── SMART HUB IA ───────────────────────────────────────────── */
+.hub-smart-zone { background: linear-gradient(135deg,#0d1b2a,#1a2940); border-radius: 12px; padding: 18px 20px; margin-bottom: 24px; border: 1px solid rgba(210,16,52,0.3); }
+.hub-smart-header { font-weight: 700; font-size: 0.95rem; color: #fff; display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+.hub-smart-header i { color: #D21034; font-size: 1.1rem; }
+.hub-smart-hint { font-weight: 400; font-size: 0.78rem; color: #8899aa; margin-left: 4px; }
+.hub-smart-zone .form-group label { color: #ccd6e0; font-size: 0.82rem; margin-bottom: 4px; }
+.hub-smart-zone input[type="url"],
+.hub-smart-zone textarea { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); color: #fff; border-radius: 8px; padding: 9px 12px; width: 100%; font-size: 0.88rem; }
+.hub-smart-zone input[type="url"]::placeholder,
+.hub-smart-zone textarea::placeholder { color: #556677; }
+.hub-smart-zone input[type="url"]:focus,
+.hub-smart-zone textarea:focus { outline: none; border-color: #D21034; background: rgba(255,255,255,0.1); }
+.hub-smart-actions { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.hub-btn { display: flex; align-items: center; gap: 6px; padding: 8px 14px; border: none; border-radius: 8px; cursor: pointer; font-size: 0.82rem; font-weight: 600; background: rgba(255,255,255,0.1); color: #ccd6e0; transition: all 0.2s; }
+.hub-btn:hover { background: rgba(255,255,255,0.18); color: #fff; transform: translateY(-1px); }
+.hub-btn i { font-size: 0.85rem; }
+.hub-btn-generate { background: linear-gradient(135deg,#1a3a5c,#0d2640); color: #7ec8f4; border: 1px solid rgba(126,200,244,0.25); }
+.hub-btn-generate:hover { background: linear-gradient(135deg,#1f4570,#12305a); }
+.hub-btn-fill { background: linear-gradient(135deg,#2d1a00,#4a2d00); color: #f4c86c; border: 1px solid rgba(244,200,108,0.25); }
+.hub-btn-fill:hover { background: linear-gradient(135deg,#3d2400,#5a3800); }
+.hub-btn-loading { opacity: 0.6; cursor: not-allowed; }
+.hub-btn-done { background: rgba(34,197,94,0.2) !important; color: #4ade80 !important; border: 1px solid rgba(74,222,128,0.3) !important; }
+/* ── FIN SMART HUB ─────────────────────────────────────────── */
 .loading-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--bg-white); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 20px; transition: opacity 0.5s ease; }
 .loading-overlay.hidden { opacity: 0; pointer-events: none; }
 .loader { width: 50px; height: 50px; border: 4px solid var(--border); border-top-color: var(--primary); border-radius: 50%; animation: spin 0.8s linear infinite; }

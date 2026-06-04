@@ -379,7 +379,7 @@ app.post('/api/smart-generate', express.json(), async (req, res) => {
 
 app.post('/api/create-article', upload, async (req, res) => {
     try {
-        const { id, titre, categorie, date, heure, extrait, tags, contenu, video, type } = req.body;
+        const { id, titre, categorie, date, heure, extrait, tags, contenu, video, type, source } = req.body;
         let fileName = (id && id !== "null") ? `${id}.md` : `${Date.now()}.md`;
         let tagsFormatted = "";
         if (tags) tagsFormatted = tags.split(',').map(t => t.trim().replace(/"/g, '')).filter(t => t).map(t => `"${t}"`).join(', ');
@@ -394,7 +394,7 @@ app.post('/api/create-article', upload, async (req, res) => {
         let pdfPath = req.body.existingPdf || "";
         if (req.files && req.files.pdf) pdfPath = isCloud ? `documents/${Date.now()}-${req.files.pdf[0].originalname}` : `documents/${req.files.pdf[0].filename}`;
 
-        const frontMatter = `---\ntitre: "${titre.replace(/"/g, '\\"')}"\ncategorie: ${categorie}\ndate: ${date}\nheure: ${heure}\nimage: "${imagePath}"\npdf: "${pdfPath}"\nvideo: "${video || ''}"\nextrait: "${extrait.replace(/"/g, '\\"')}"\ntags: [${tagsFormatted}]\ntype: ${type || ''}\n---\n\n${contenu}\n`;
+        const frontMatter = `---\ntitre: "${titre.replace(/"/g, '\\"')}"\ncategorie: ${categorie}\ndate: ${date}\nheure: ${heure}\nimage: "${imagePath}"\npdf: "${pdfPath}"\nvideo: "${video || ''}"\nsource: "${(source || '').replace(/"/g, '\\"')}"\nextrait: "${extrait.replace(/"/g, '\\"')}"\ntags: [${tagsFormatted}]\ntype: ${type || ''}\n---\n\n${contenu}\n`;
         
         if (isCloud) {
             if (req.files && req.files.image) await pushToGithub(imagePath, req.files.image[0].buffer, "Upload image", true);

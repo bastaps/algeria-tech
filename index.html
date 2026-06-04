@@ -299,6 +299,40 @@
         <div class="modal-content">
             <button class="modal-close" onclick="closeAdminPanel()"><i class="fas fa-times"></i></button>
             <h2><i class="fas fa-pen-nib"></i> Créer un nouvel article</h2>
+
+            <!-- ── ZONE SMART IA ─────────────────────────────── -->
+            <div class="hub-smart-zone">
+                <div class="hub-smart-header">
+                    <i class="fas fa-robot"></i> Assistant IA
+                    <span class="hub-smart-hint">Collez un texte source, importez un PDF ou entrez une URL — l'IA remplit le formulaire.</span>
+                </div>
+                <div class="form-group" style="margin-bottom:8px;">
+                    <label><i class="fas fa-link" style="color:#D21034"></i> URL source de l'article</label>
+                    <input type="url" id="sourceUrl" placeholder="https://site-source.com/article...">
+                </div>
+                <div class="form-group" style="margin-bottom:6px;">
+                    <label><i class="fas fa-paste" style="color:#D21034"></i> Texte brut à traiter</label>
+                    <textarea id="hubSmartBox" rows="4" placeholder="Collez ici le texte source (arabe, anglais, français)…"></textarea>
+                    <small id="hubCharCount" style="color:#888;font-size:0.75rem;">0 caractères</small>
+                </div>
+                <div class="hub-smart-actions">
+                    <button type="button" class="hub-btn" id="hubPdfBtn" onclick="document.getElementById('hub-pdf-input').click()">
+                        <i class="fas fa-file-pdf"></i><span>PDF</span>
+                    </button>
+                    <input type="file" id="hub-pdf-input" accept=".pdf" style="display:none" onchange="hubTranscribePDF(this)">
+                    <button type="button" class="hub-btn" id="hubTranslateBtn" onclick="hubTranslate()">
+                        <i class="fas fa-language"></i><span>Traduire</span>
+                    </button>
+                    <button type="button" class="hub-btn hub-btn-generate" id="hubGenBtn" onclick="hubGenerate()">
+                        <i class="fas fa-pen-nib"></i><span>Générer</span>
+                    </button>
+                    <button type="button" class="hub-btn hub-btn-fill" id="hubFillBtn" onclick="hubFill()">
+                        <i class="fas fa-fill-drip"></i><span>Remplir</span>
+                    </button>
+                </div>
+            </div>
+            <!-- ── FIN ZONE SMART IA ─────────────────────────── -->
+
             <form id="articleForm" onsubmit="submitArticle(event)">
                 <div class="form-group"><label>Titre <span class="required">*</span></label><input type="text" id="titre" required></div>
                 <div class="form-row">
@@ -326,10 +360,8 @@
                 <div class="image-preview" id="imagePreview"></div>
                 <div class="form-group"><label>Contenu <span class="required">*</span></label><textarea id="contenu" rows="8" required placeholder="Rédigez votre article ici (Markdown supporté)"></textarea></div>
                 <div class="form-actions">
-                    <button type="button" class="btn-secondary" id="btn-transcribe-pdf" style="background: #2c3e50; color: white;"><i class="fas fa-magic"></i> Transcrire PDF</button>
-                    <input type="file" id="pdf-transcribe-input" accept=".pdf" style="display: none;">
-                    <button type="button" class="btn-secondary" onclick="closeAdminPanel()">Annuler</button>
-                    <button type="submit" class="btn-primary"><i class="fas fa-save"></i> Créer & Déployer</button>
+                    <button type="button" class="btn-secondary" onclick="closeAdminPanel()"><i class="fas fa-times"></i> Annuler</button>
+                    <button type="submit" class="btn-primary"><i class="fas fa-rocket"></i> Créer & Déployer</button>
                 </div>
             </form>
         </div>
