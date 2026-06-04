@@ -60,6 +60,7 @@ public static class CtrlCGuard {
         Write-Host "5. [STATUS] Verifier l'etat Git et les cles API"
         Write-Host "6. [BUILD]  Generer l'APK Android (Debug)"
         Write-Host "7. [PUSH]   Pousser un contenu precis (article, image, revue, site...)"
+        Write-Host "8. [RESOLVE] Resoudre les conflits de fusion (ouvre les fichiers en conflit)"
         Write-Host "Q. Quitter"
         Write-Host "------------------------------------------"
         Write-Host "  [CTRL+C] depuis n'importe quelle option = retour ici" -ForegroundColor DarkGray
@@ -370,6 +371,51 @@ public static class CtrlCGuard {
                 } else {
                     Write-Host "`nERREUR lors du push." -ForegroundColor Red
                 }
+
+                Read-Host "`nAppuyez sur Entree pour continuer..."
+            }
+
+            # ── 8. RESOLVE CONFLICTS ─────────────────────────────────────────
+            "8" {
+                Write-Host "`n--- Resolution des conflits de fusion ---" -ForegroundColor Yellow
+
+                $conflictedFiles = git diff --name-only --diff-filter=U 2>&1
+                if (-not $conflictedFiles) {
+                    Write-Host "Aucun conflit detecte. Le depot est propre." -ForegroundColor Green
+                    Read-Host "`nAppuyez sur Entree pour continuer..."
+                    break
+                }
+
+                Write-Host "`nFichiers en conflit :" -ForegroundColor Red
+                $conflictedFiles | ForEach-Object { Write-Host "  >> $_" -ForegroundColor White }
+
+                # Choisir l'editeur disponible : VS Code > Notepad++ > Notepad
+                $editor = $null
+                if (Get-Command "code" -ErrorAction SilentlyContinue) {
+                    $editor = "code"
+                } elseif (Test-Path "C:\Program Files\Notepad++\notepad++.exe") {
+                    $editor = "C:\Program Files\Notepad++\notepad++.exe"
+                } elseif (Test-Path "C:\Program Files (x86)\Notepad++\notepad++.exe") {
+                    $editor = "C:\Program Files (x86)\Notepad++\notepad++.exe"
+                } else {
+                    $editor = "notepad"
+                }
+
+                Write-Host "`nOuverture dans : $editor" -ForegroundColor Cyan
+                $conflictedFiles | ForEach-Object {
+                    if (Test-Path $_) {
+                        Start-Process $editor $_
+                    }
+                }
+
+                Write-Host "`nAprès avoir corrigé les conflits dans l'éditeur :" -ForegroundColor Yellow
+                Write-Host "  1. Sauvegardez les fichiers"
+                Write-Host "  2. Revenez ici et choisissez [2. DEPLOY] pour commiter et pousser"
+                Write-Host ""
+                Write-Host "  Commandes manuelles utiles :" -ForegroundColor DarkGray
+                Write-Host "    git add <fichier>    # marquer comme resolu" -ForegroundColor DarkGray
+                Write-Host "    git merge --continue # finaliser le merge" -ForegroundColor DarkGray
+                Write-Host "    git merge --abort    # annuler le merge" -ForegroundColor DarkGray
 
                 Read-Host "`nAppuyez sur Entree pour continuer..."
             }
