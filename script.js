@@ -1251,6 +1251,40 @@ window.toggleAdminPanel = function() {
 
 window.closeAdminPanel = () => { document.getElementById('adminModal').classList.remove('show'); document.getElementById('delBtn')?.remove(); document.getElementById('imagePreview').innerHTML = ''; };
 
+// ── IMAGE AUTO : Unsplash Source par détection de thème ──────
+function getAutoImage(titre, tags, categorie) {
+    const txt = (titre + ' ' + tags + ' ' + categorie).toLowerCase();
+
+    // Règles thématiques (ordre : du plus spécifique au plus général)
+    const rules = [
+        { re: /drone|uav|pilote.*aérien|aérien.*piloté|télépilote/,        q: 'drone,aerial,technology'           },
+        { re: /écologie|environnement|vert|green|solaire|énergie renouvel/, q: 'ecology,green,environment,solar'   },
+        { re: /satellite|espace|spatial|orbite/,                            q: 'satellite,space,orbit'             },
+        { re: /intelligence artificielle|machine learning|\bia\b|\bai\b|chatgpt|llm|gpt|ollama/, q: 'artificial intelligence,robot,AI' },
+        { re: /cybersécurité|cyber|hack|sécurit|malware|ransomware/,        q: 'cybersecurity,security,lock'       },
+        { re: /cloud|data.?center|serveur|stockage|hébergement/,            q: 'cloud computing,data center,server'},
+        { re: /fintech|paiement|banking|banque|monétique/,                  q: 'fintech,payment,bank,digital'      },
+        { re: /startup|entrepreneur|incubateur|accélérateur|financement/,   q: 'startup,team,innovation,office'    },
+        { re: /5g|5 g|réseau mobile|antenne/,                               q: '5G,antenna,wireless,network'       },
+        { re: /fibre|haut débit|adsl|internet fixe/,                        q: 'fiber,broadband,cable,internet'    },
+        { re: /smartphone|mobile|android|ios|iphone|tablette/,              q: 'smartphone,mobile,screen'          },
+        { re: /ooredoo|djezzy|mobilis|algérie.?télécom|télécom/,            q: 'telecommunications,tower,network'  },
+        { re: /formation|accréditation|certification|éducation|école/,      q: 'education,training,learning'       },
+        { re: /inauguration|lancement|ouverture|cérémonie/,                 q: 'business,event,ceremony,launch'    },
+        { re: /innovation|numérique|digital|tech/,                          q: 'innovation,technology,digital'     },
+        { re: /algérie|alger|oran|constantine|annaba/,                      q: 'algeria,africa,technology,city'    },
+        { re: /entreprise|société|groupe|holding/,                          q: 'corporate,business,office,meeting' },
+    ];
+
+    let q = 'technology,digital,innovation'; // fallback
+    for (const { re, q: keyword } of rules) {
+        if (re.test(txt)) { q = keyword; break; }
+    }
+
+    // Unsplash Source : bien meilleur que loremflickr, pertinent par mots-clés
+    return `https://source.unsplash.com/1200x800/?${encodeURIComponent(q)}`;
+}
+
 // Correction de la fonction submitArticle
 window.submitArticle = async function(e) {
     if (e) e.preventDefault();
@@ -1271,41 +1305,11 @@ window.submitArticle = async function(e) {
         if (imgInput && imgInput.files.length > 0) {
             formData.append('image', imgInput.files[0]);
         } else if (!currentEditingId) {
-            // Pas d'image choisie : construire des mots-clés depuis le titre, les tags et la catégorie
-            const titre = document.getElementById('titre').value || '';
-            const tags  = document.getElementById('tags').value  || '';
-            const cat   = document.getElementById('categorie').value || '';
-
-            // Marques et termes tech reconnus dans le titre (loremflickr cherche mieux en anglais)
-            const techTerms = [
-                'Google','Apple','Microsoft','Samsung','Huawei','Meta','Amazon','OpenAI',
-                'Ooredoo','Djezzy','Mobilis','Algérie Télécom',
-                'Android','iOS','iPhone','Windows','Linux',
-                '5G','4G','WiFi','Bluetooth','eSIM','NFC',
-                'AI','IA','Cloud','API','CLI','IoT','blockchain','cybersecurity',
-                'satellite','fibre','réseau','network','data','startup','fintech'
-            ];
-            const found = techTerms.filter(t =>
-                titre.toLowerCase().includes(t.toLowerCase()) ||
-                tags.toLowerCase().includes(t.toLowerCase())
-            ).slice(0, 2);
-
-            // Mapping catégorie → termes anglais précis pour loremflickr
-            const catMap = {
-                'Télécoms'     : 'telecommunications',
-                'Mobile'       : 'smartphone',
-                'Startups'     : 'startup office',
-                'Innovation'   : 'innovation technology',
-                'Entreprises'  : 'business corporate',
-                'Cybersécurité': 'cybersecurity',
-                'IA'           : 'artificial intelligence',
-                'Cloud'        : 'cloud computing',
-                'Algérie'      : 'algeria digital',
-            };
-            const catKey = catMap[cat] || 'technology';
-
-            const keywords = [...found, catKey].join(',');
-            formData.append('existingImage', `https://loremflickr.com/1200/800/${encodeURIComponent(keywords)}/all`);
+            formData.append('existingImage', getAutoImage(
+                document.getElementById('titre').value || '',
+                document.getElementById('tags').value  || '',
+                document.getElementById('categorie').value || ''
+            ));
         }
 
         const pdfInput = document.getElementById('pdfFile');

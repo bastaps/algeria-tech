@@ -195,11 +195,29 @@ async function deployArticle(e) {
 
     const formData = new FormData(document.getElementById('smartIngestForm'));
 
-    // Gestion auto de l'image si vide (via Unsplash)
+    // Gestion auto de l'image si vide — même logique que getAutoImage de script.js
     if(!document.getElementById('siImage').files[0]) {
-        formData.delete('image'); // Supprime l'entrée de fichier vide pour éviter les conflits
-        const cat = document.getElementById('siCategorie').value;
-        formData.set('existingImage', `https://loremflickr.com/1200/800/technology,${encodeURIComponent(cat)}/all`);
+        formData.delete('image');
+        const titre = document.getElementById('siTitre')?.value || '';
+        const tags  = document.getElementById('siTags')?.value  || '';
+        const cat   = document.getElementById('siCategorie')?.value || '';
+        const txt   = (titre + ' ' + tags + ' ' + cat).toLowerCase();
+        const rules = [
+            { re: /drone|uav|pilote.*aérien/,            q: 'drone,aerial,technology'          },
+            { re: /écologie|environnement|vert|solaire/,  q: 'ecology,green,environment'        },
+            { re: /satellite|espace|spatial/,             q: 'satellite,space,orbit'            },
+            { re: /intelligence artificielle|\bia\b|\bai\b|chatgpt|llm/, q: 'artificial intelligence,AI' },
+            { re: /cybersécurité|cyber|sécurit/,          q: 'cybersecurity,security'           },
+            { re: /cloud|data.?center|serveur/,           q: 'cloud computing,server'           },
+            { re: /startup|entrepreneur|incubateur/,      q: 'startup,innovation,team'          },
+            { re: /5g|antenne|réseau mobile/,             q: '5G,antenna,network'               },
+            { re: /smartphone|mobile|android|ios/,        q: 'smartphone,mobile'                },
+            { re: /télécom|ooredoo|djezzy|mobilis/,       q: 'telecommunications,network'       },
+            { re: /formation|accréditation|certification/,q: 'education,training'               },
+        ];
+        let q = 'technology,digital,innovation';
+        for (const { re, q: kw } of rules) { if (re.test(txt)) { q = kw; break; } }
+        formData.set('existingImage', `https://source.unsplash.com/1200x800/?${encodeURIComponent(q)}`);
     }
 
     try {
