@@ -202,22 +202,12 @@ async function deployArticle(e) {
         const tags  = document.getElementById('siTags')?.value  || '';
         const cat   = document.getElementById('siCategorie')?.value || '';
         const txt   = (titre + ' ' + tags + ' ' + cat).toLowerCase();
-        const rules = [
-            { re: /drone|uav|pilote.*aérien/,            q: 'drone,aerial,technology'          },
-            { re: /écologie|environnement|vert|solaire/,  q: 'ecology,green,environment'        },
-            { re: /satellite|espace|spatial/,             q: 'satellite,space,orbit'            },
-            { re: /intelligence artificielle|\bia\b|\bai\b|chatgpt|llm/, q: 'artificial intelligence,AI' },
-            { re: /cybersécurité|cyber|sécurit/,          q: 'cybersecurity,security'           },
-            { re: /cloud|data.?center|serveur/,           q: 'cloud computing,server'           },
-            { re: /startup|entrepreneur|incubateur/,      q: 'startup,innovation,team'          },
-            { re: /5g|antenne|réseau mobile/,             q: '5G,antenna,network'               },
-            { re: /smartphone|mobile|android|ios/,        q: 'smartphone,mobile'                },
-            { re: /télécom|ooredoo|djezzy|mobilis/,       q: 'telecommunications,network'       },
-            { re: /formation|accréditation|certification/,q: 'education,training'               },
-        ];
-        let q = 'technology,digital,innovation';
-        for (const { re, q: kw } of rules) { if (re.test(txt)) { q = kw; break; } }
-        formData.set('existingImage', `https://source.unsplash.com/1200x800/?${encodeURIComponent(q)}`);
+        const U = 'https://images.unsplash.com/', P = '?w=1200&h=800&fit=crop&q=80';
+        const POOL = { drone:['photo-1527977966376-1c8408f9f108'], ecologie:['photo-1441974231531-c6227db76b6e','photo-1473341304170-971dccb5ac1e'], satellite:['photo-1451187580459-43490279c0fa'], ia:['photo-1620712943543-bcc4688e7485'], cyber:['photo-1550751827-4bd374c3f58b'], cloud:['photo-1629654297299-c8506221ca97'], startup:['photo-1522202176988-66273c2fd55f','photo-1559136555-9303baea8ebd'], mobile:['photo-1511707171634-5f897ff02aa9'], telecoms:['photo-1544197150-b99a580bb7a8'], default:['photo-1518770660439-4636190af475','photo-1504384308090-c894fdcc538d','photo-1517694712202-14dd9538aa97'] };
+        let key = 'default';
+        if (/drone|uav|pilote.*aérien/.test(txt)) key='drone'; else if (/écologie|environnement|vert|solaire/.test(txt)) key='ecologie'; else if (/satellite|espace|spatial/.test(txt)) key='satellite'; else if (/\bia\b|\bai\b|chatgpt|llm|intelligence artificielle/.test(txt)) key='ia'; else if (/cyber|sécurit|hack/.test(txt)) key='cyber'; else if (/cloud|serveur|data.?center/.test(txt)) key='cloud'; else if (/startup|entrepreneur|incubateur/.test(txt)) key='startup'; else if (/smartphone|mobile|android|ios/.test(txt)) key='mobile'; else if (/télécom|ooredoo|djezzy|mobilis|5g|4g|fibre/.test(txt)) key='telecoms';
+        const pool = POOL[key];
+        formData.set('existingImage', U + pool[Math.floor(Math.random()*pool.length)] + P);
     }
 
     try {

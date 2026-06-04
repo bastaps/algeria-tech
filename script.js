@@ -1251,38 +1251,35 @@ window.toggleAdminPanel = function() {
 
 window.closeAdminPanel = () => { document.getElementById('adminModal').classList.remove('show'); document.getElementById('delBtn')?.remove(); document.getElementById('imagePreview').innerHTML = ''; };
 
-// ── IMAGE AUTO : Unsplash Source par détection de thème ──────
+// ── IMAGE AUTO : IDs Unsplash vérifiés HTTP 200 ───────────────
 function getAutoImage(titre, tags, categorie) {
+    const U = 'https://images.unsplash.com/';
+    const P = '?w=1200&h=800&fit=crop&q=80';
+    const POOL = {
+        drone:    ['photo-1527977966376-1c8408f9f108'],
+        ecologie: ['photo-1441974231531-c6227db76b6e','photo-1473341304170-971dccb5ac1e'],
+        satellite:['photo-1451187580459-43490279c0fa','photo-1454789548928-9efd52dc4031'],
+        ia:       ['photo-1620712943543-bcc4688e7485'],
+        cyber:    ['photo-1550751827-4bd374c3f58b'],
+        cloud:    ['photo-1629654297299-c8506221ca97','photo-1544197150-b99a580bb7a8'],
+        startup:  ['photo-1522202176988-66273c2fd55f','photo-1559136555-9303baea8ebd'],
+        mobile:   ['photo-1511707171634-5f897ff02aa9'],
+        telecoms: ['photo-1544197150-b99a580bb7a8'],
+        default:  ['photo-1518770660439-4636190af475','photo-1504384308090-c894fdcc538d','photo-1517694712202-14dd9538aa97'],
+    };
     const txt = (titre + ' ' + tags + ' ' + categorie).toLowerCase();
-
-    // Règles thématiques (ordre : du plus spécifique au plus général)
-    const rules = [
-        { re: /drone|uav|pilote.*aérien|aérien.*piloté|télépilote/,        q: 'drone,aerial,technology'           },
-        { re: /écologie|environnement|vert|green|solaire|énergie renouvel/, q: 'ecology,green,environment,solar'   },
-        { re: /satellite|espace|spatial|orbite/,                            q: 'satellite,space,orbit'             },
-        { re: /intelligence artificielle|machine learning|\bia\b|\bai\b|chatgpt|llm|gpt|ollama/, q: 'artificial intelligence,robot,AI' },
-        { re: /cybersécurité|cyber|hack|sécurit|malware|ransomware/,        q: 'cybersecurity,security,lock'       },
-        { re: /cloud|data.?center|serveur|stockage|hébergement/,            q: 'cloud computing,data center,server'},
-        { re: /fintech|paiement|banking|banque|monétique/,                  q: 'fintech,payment,bank,digital'      },
-        { re: /startup|entrepreneur|incubateur|accélérateur|financement/,   q: 'startup,team,innovation,office'    },
-        { re: /5g|5 g|réseau mobile|antenne/,                               q: '5G,antenna,wireless,network'       },
-        { re: /fibre|haut débit|adsl|internet fixe/,                        q: 'fiber,broadband,cable,internet'    },
-        { re: /smartphone|mobile|android|ios|iphone|tablette/,              q: 'smartphone,mobile,screen'          },
-        { re: /ooredoo|djezzy|mobilis|algérie.?télécom|télécom/,            q: 'telecommunications,tower,network'  },
-        { re: /formation|accréditation|certification|éducation|école/,      q: 'education,training,learning'       },
-        { re: /inauguration|lancement|ouverture|cérémonie/,                 q: 'business,event,ceremony,launch'    },
-        { re: /innovation|numérique|digital|tech/,                          q: 'innovation,technology,digital'     },
-        { re: /algérie|alger|oran|constantine|annaba/,                      q: 'algeria,africa,technology,city'    },
-        { re: /entreprise|société|groupe|holding/,                          q: 'corporate,business,office,meeting' },
-    ];
-
-    let q = 'technology,digital,innovation'; // fallback
-    for (const { re, q: keyword } of rules) {
-        if (re.test(txt)) { q = keyword; break; }
-    }
-
-    // Unsplash Source : bien meilleur que loremflickr, pertinent par mots-clés
-    return `https://source.unsplash.com/1200x800/?${encodeURIComponent(q)}`;
+    let key = 'default';
+    if      (/drone|uav|pilote.*aérien|télépilote/.test(txt))                                       key = 'drone';
+    else if (/écologie|environnement|vert|solaire|énergie renouvel|green/.test(txt))                key = 'ecologie';
+    else if (/satellite|espace|spatial|orbite/.test(txt))                                           key = 'satellite';
+    else if (/intelligence artificielle|machine learning|\bia\b|\bai\b|chatgpt|llm|gpt/.test(txt)) key = 'ia';
+    else if (/cybersécurité|cyber|hack|sécurit|malware/.test(txt))                                  key = 'cyber';
+    else if (/cloud|data.?center|serveur|stockage/.test(txt))                                       key = 'cloud';
+    else if (/startup|entrepreneur|incubateur|accélérateur/.test(txt))                              key = 'startup';
+    else if (/smartphone|mobile|android|ios|iphone|tablette/.test(txt))                             key = 'mobile';
+    else if (/5g|4g|fibre|antenne|réseau|télécom|ooredoo|djezzy|mobilis/.test(txt))                key = 'telecoms';
+    const pool = POOL[key];
+    return U + pool[Math.floor(Math.random() * pool.length)] + P;
 }
 
 // Correction de la fonction submitArticle
