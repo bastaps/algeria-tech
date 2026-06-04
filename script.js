@@ -1100,19 +1100,65 @@ window.hubTranscribePDF = async function(input) {
 };
 
 // Traduire hubSmartBox → français
+// Stratégie : POST direct Google (pas de limite URL) → fallback endpoint serveur
 window.hubTranslate = async function() {
     const text = document.getElementById('hubSmartBox').value.trim();
     if (!text) return showToast('Aucun texte à traduire.');
     hubSetStatus('hubTranslateBtn', 'loading');
+
+    // Traduction en chunks de 4000 chars max pour éviter les timeouts
+    async function translateChunk(chunk) {
+        // Tentative 1 : POST direct sur Google Translate unofficial API
+        try {
+            const body = new URLSearchParams({ client:'gtx', sl:'auto', tl:'fr', dt:'t', q: chunk });
+            const r = await fetch('https://translate.googleapis.com/translate_a/single', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: body.toString()
+            });
+            if (!r.ok) throw new Error('Google direct failed');
+            const d = await r.json();
+            return d[0].map(s => s[0]).join('');
+        } catch (_) {
+            // Fallback : endpoint serveur (évite CORS et limite URL)
+            const r2 = await fetch(`${HUB_API}/api/translate`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text: chunk, to: 'fr' })
+            });
+            if (!r2.ok) throw new Error('Server translate failed');
+            const d2 = await r2.json();
+            return d2.translated || chunk;
+        }
+    }
+
     try {
-        const r = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=fr&dt=t&q=${encodeURIComponent(text)}`);
-        if (!r.ok) throw new Error();
-        const d = await r.json();
-        document.getElementById('hubSmartBox').value = d[0].map(s => s[0]).join('');
-        document.getElementById('hubCharCount').textContent = document.getElementById('hubSmartBox').value.length + ' caractères';
+        // Découper en chunks de 4000 chars sur les sauts de ligne
+        const CHUNK = 4000;
+        let result = '';
+        if (text.length <= CHUNK) {
+            result = await translateChunk(text);
+        } else {
+            const lines = text.split('\n');
+            let current = '';
+            for (const line of lines) {
+                if ((current + line).length > CHUNK) {
+                    result += await translateChunk(current) + '\n';
+                    current = line + '\n';
+                } else {
+                    current += line + '\n';
+                }
+            }
+            if (current.trim()) result += await translateChunk(current);
+        }
+
+        const box = document.getElementById('hubSmartBox');
+        box.value = result.trim();
+        document.getElementById('hubCharCount').textContent = box.value.length + ' caractères';
         hubSetStatus('hubTranslateBtn', 'success');
     } catch(e) {
-        showToast('Erreur traduction.'); hubSetStatus('hubTranslateBtn', 'error');
+        showToast('Erreur traduction : ' + e.message);
+        hubSetStatus('hubTranslateBtn', 'error');
     }
 };
 

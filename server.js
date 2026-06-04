@@ -329,6 +329,27 @@ app.post('/api/transcribe-pdf', upload, async (req, res) => {
     }
 });
 
+// ── TRANSLATE — Proxy serveur (évite CORS + limite URL client) ──
+app.post('/api/translate', express.json(), async (req, res) => {
+    const { text, to = 'fr' } = req.body || {};
+    if (!text) return res.status(400).json({ error: 'Texte requis' });
+    try {
+        const params = new URLSearchParams({ client:'gtx', sl:'auto', tl: to, dt:'t', q: text });
+        const url = `https://translate.googleapis.com/translate_a/single`;
+        const r = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: params.toString()
+        });
+        if (!r.ok) throw new Error(`Google Translate HTTP ${r.status}`);
+        const d = await r.json();
+        const translated = d[0].map(s => s[0]).join('');
+        res.json({ translated });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
+});
+
 // ── SMART GENERATE — Rédaction IA journalistique ─────────
 app.post('/api/smart-generate', express.json(), async (req, res) => {
     const { text } = req.body || {};
