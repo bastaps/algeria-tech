@@ -40,10 +40,12 @@ public static class CtrlCGuard {
     }
 
     function Reset-AutoFiles {
-        # Remet les fichiers auto à leur version HEAD pour débloquer le rebase
+        # Remet les fichiers auto à leur version HEAD pour débloquer le merge
         foreach ($f in $AUTO_FILES) {
             git checkout HEAD -- $f 2>$null
         }
+        # articles.json a skip-worktree mais peut avoir des modifs cachées qui bloquent le pull
+        git checkout HEAD -- articles.json 2>$null
     }
 
     function Show-Menu {
@@ -119,14 +121,14 @@ public static class CtrlCGuard {
                     Write-Host "Changements locaux mis en attente (stash)." -ForegroundColor Gray
                 }
 
-                # 4. Pull + rebase depuis GitHub (jamais de conflit desormais)
+                # 4. Pull + merge depuis GitHub (-X ours = nos fichiers prioritaires en cas de conflit)
                 Write-Host "Synchronisation avec GitHub..." -ForegroundColor Cyan
-                $rebaseResult = git pull --rebase -X ours origin main 2>&1
+                $rebaseResult = git pull --no-rebase -X ours origin main 2>&1
                 Write-Host $rebaseResult
 
                 if ($LASTEXITCODE -ne 0) {
-                    Write-Host "ERREUR lors du rebase. Annulation du rebase en cours..." -ForegroundColor Red
-                    git rebase --abort 2>&1 | Out-Null
+                    Write-Host "ERREUR lors du merge. Abandon..." -ForegroundColor Red
+                    git merge --abort 2>&1 | Out-Null
                     if ($stashCreated) { git stash pop 2>&1 | Out-Null }
                     Set-SkipWorktree -Enable
                     Read-Host "Appuyez sur Entree pour continuer..."
@@ -347,12 +349,12 @@ public static class CtrlCGuard {
                 git commit -m "$commitPrefix : $msg"
 
                 Write-Host "Synchronisation avec GitHub..." -ForegroundColor Cyan
-                $rebaseResult = git pull --rebase -X ours origin main 2>&1
+                $rebaseResult = git pull --no-rebase -X ours origin main 2>&1
                 Write-Host $rebaseResult
 
                 if ($LASTEXITCODE -ne 0) {
-                    Write-Host "ERREUR rebase. Abandon..." -ForegroundColor Red
-                    git rebase --abort 2>&1 | Out-Null
+                    Write-Host "ERREUR merge. Abandon..." -ForegroundColor Red
+                    git merge --abort 2>&1 | Out-Null
                     Set-SkipWorktree -Enable
                     Read-Host "Appuyez sur Entree pour continuer..."
                     break
