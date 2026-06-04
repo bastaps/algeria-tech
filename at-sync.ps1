@@ -40,12 +40,18 @@ public static class CtrlCGuard {
     }
 
     function Reset-AutoFiles {
-        # Remet les fichiers auto à leur version HEAD pour débloquer le merge
-        foreach ($f in $AUTO_FILES) {
-            git checkout HEAD -- $f 2>$null
+        # Retire skip-worktree ET remet à HEAD pour débloquer le merge
+        $allDataFiles = $AUTO_FILES + @("articles.json", "tic_social.json")
+        foreach ($f in $allDataFiles) {
+            git update-index --no-skip-worktree $f 2>$null
+            if (Test-Path $f) { git checkout HEAD -- $f 2>$null }
         }
-        # articles.json a skip-worktree mais peut avoir des modifs cachées qui bloquent le pull
-        git checkout HEAD -- articles.json 2>$null
+    }
+
+    function Invoke-RegenerateArticles {
+        Write-Host "Regeneration articles.json..." -ForegroundColor Gray
+        $result = node regenerate-articles.js 2>&1
+        Write-Host $result -ForegroundColor Gray
     }
 
     function Show-Menu {
@@ -142,10 +148,13 @@ public static class CtrlCGuard {
                     Write-Host "Changements locaux restaures." -ForegroundColor Gray
                 }
 
-                # 6. Remettre skip-worktree sur les fichiers auto
+                # 6. Regenerer articles.json depuis les .md (inclut les nouveaux articles GitHub Actions)
+                Invoke-RegenerateArticles
+
+                # 7. Remettre skip-worktree sur les fichiers auto
                 Set-SkipWorktree -Enable
 
-                # 7. Stager les fichiers modifies ET les nouveaux articles/images/documents
+                # 8. Stager les fichiers modifies ET les nouveaux articles/images/documents
                 git add -u                                    # fichiers tracked modifies
                 git add articles/ 2>$null | Out-Null          # nouveaux .md (untracked)
                 git add images/ 2>$null | Out-Null            # nouvelles images articles
@@ -155,7 +164,7 @@ public static class CtrlCGuard {
                     git restore --staged $f 2>$null
                 }
 
-                # 8. Commiter
+                # 9. Commiter
                 $staged = git diff --cached --name-only
                 if ($staged) {
                     git commit -m "DEPLOY $msg"
@@ -360,6 +369,10 @@ public static class CtrlCGuard {
                     Read-Host "Appuyez sur Entree pour continuer..."
                     break
                 }
+
+                # Regenerer articles.json apres le merge (inclut les nouveaux articles GitHub Actions)
+                Invoke-RegenerateArticles
+                git add articles.json articles/list.json 2>$null
 
                 $pushResult = git push origin main 2>&1
                 Write-Host $pushResult
