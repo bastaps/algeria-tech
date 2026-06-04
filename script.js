@@ -1097,9 +1097,41 @@ window.submitArticle = async function(e) {
         if (imgInput && imgInput.files.length > 0) {
             formData.append('image', imgInput.files[0]);
         } else if (!currentEditingId) {
-            // Pas d'image choisie et nouvel article : on génère une illustration auto via Unsplash
-            const cat = document.getElementById('categorie').value || 'Algérie';
-            formData.append('existingImage', `https://loremflickr.com/1200/800/technology,${encodeURIComponent(cat)}/all`);
+            // Pas d'image choisie : construire des mots-clés depuis le titre, les tags et la catégorie
+            const titre = document.getElementById('titre').value || '';
+            const tags  = document.getElementById('tags').value  || '';
+            const cat   = document.getElementById('categorie').value || '';
+
+            // Marques et termes tech reconnus dans le titre (loremflickr cherche mieux en anglais)
+            const techTerms = [
+                'Google','Apple','Microsoft','Samsung','Huawei','Meta','Amazon','OpenAI',
+                'Ooredoo','Djezzy','Mobilis','Algérie Télécom',
+                'Android','iOS','iPhone','Windows','Linux',
+                '5G','4G','WiFi','Bluetooth','eSIM','NFC',
+                'AI','IA','Cloud','API','CLI','IoT','blockchain','cybersecurity',
+                'satellite','fibre','réseau','network','data','startup','fintech'
+            ];
+            const found = techTerms.filter(t =>
+                titre.toLowerCase().includes(t.toLowerCase()) ||
+                tags.toLowerCase().includes(t.toLowerCase())
+            ).slice(0, 2);
+
+            // Mapping catégorie → termes anglais précis pour loremflickr
+            const catMap = {
+                'Télécoms'     : 'telecommunications',
+                'Mobile'       : 'smartphone',
+                'Startups'     : 'startup office',
+                'Innovation'   : 'innovation technology',
+                'Entreprises'  : 'business corporate',
+                'Cybersécurité': 'cybersecurity',
+                'IA'           : 'artificial intelligence',
+                'Cloud'        : 'cloud computing',
+                'Algérie'      : 'algeria digital',
+            };
+            const catKey = catMap[cat] || 'technology';
+
+            const keywords = [...found, catKey].join(',');
+            formData.append('existingImage', `https://loremflickr.com/1200/800/${encodeURIComponent(keywords)}/all`);
         }
 
         const pdfInput = document.getElementById('pdfFile');
