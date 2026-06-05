@@ -1,6 +1,6 @@
 {
   "date": "vendredi 5 juin",
-  "synthese": "L'actualité tech des dernières 24h révèle une dynamique contrastée entre innovation mondiale et enjeux locaux. Les avancées en IA et cybersécurité dominent les débats, tandis que l'Algérie mise sur des projets structurants comme le gazoduc transsaharien et l'introduction en Bourse d'AYRADE. Les tensions entre souveraineté technologique et dépendances aux géants du numérique s'intensifient, reflétant un paysage global en mutation rapide.",
+  "synthese": "Les dernières 24h ont été marquées par des avancées technologiques majeures en Algérie et à l’international, avec un focus sur l’IA, les partenariats stratégiques et les innovations matérielles. Les acteurs locaux comme AYRADE et Djezzy confirment leur dynamisme, tandis que les enjeux de souveraineté technologique et de cybersécurité dominent les débats. Les tendances mondiales révèlent une course effrénée vers des solutions agentiques et une régulation accrue de l’IA.",
   "articles": [
     {
       "titre": "AYRADE à la Bourse d’Alger : Entretien avec son fondateur Mohamed Lamine Belbachir",
@@ -10,7 +10,7 @@
       "source": "Algérie360 Tech",
       "logo": "https://www.google.com/s2/favicons?domain=algerie360.com&sz=32",
       "pays": "DZ",
-      "accroche": "AYRADE entre en Bourse : l'Algérie mise sur l'innovation technologique locale.",
+      "accroche": "AYRADE entre en Bourse : une révolution pour l’écosystème tech algérien ?",
       "categorie": "Startups"
     },
     {
@@ -21,7 +21,7 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Agriculture algérienne : un outil numérique pour une transparence sans précédent.",
+      "accroche": "Agriculture numérique : transparence et traçabilité enfin accessibles aux pros",
       "categorie": "Innovation"
     },
     {
@@ -32,7 +32,7 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Djezzy mise sur Younes Ayachi pour incarner sa marque et son ambition sportive.",
+      "accroche": "Djezzy mise sur Younes Ayachi pour booster son image et sa connectivité",
       "categorie": "Télécoms"
     },
     {
@@ -43,8 +43,8 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Gazoduc transsaharien : Adrar lance le tronçon algérien, un projet stratégique.",
-      "categorie": "Réseaux"
+      "accroche": "Gazoduc transsaharien : l’Algérie accélère sa transition énergétique avec le TSGP",
+      "categorie": "Innovation"
     },
     {
       "titre": "IA en entreprise : pourquoi les RSSI ne peuvent plus porter seuls le risque",
@@ -54,7 +54,7 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "IA en entreprise : les RSSI dépassés par l'ampleur des risques cyber.",
+      "accroche": "IA en entreprise : les RSSI doivent partager le risque cyber avec les dirigeants",
       "categorie": "Cybersécurité"
     },
     {
@@ -65,7 +65,7 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "L'Europe parie sur la souveraineté technologique face aux géants américains.",
+      "accroche": "Souveraineté tech : l’Europe mise tout sur l’autonomie industrielle et numérique",
       "categorie": "Innovation"
     },
     {
@@ -76,7 +76,7 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Microsoft IA révolutionne Windows : des agents autonomes pour booster la productivité.",
+      "accroche": "Agents IA Microsoft : Windows devient un terrain de jeu intelligent et autonome",
       "categorie": "IA"
     },
     {
@@ -87,7 +87,7 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Microsoft IA transforme le poste de travail en un écosystème agentique intelligent.",
+      "accroche": "Microsoft IA : le poste de travail se transforme en assistant intelligent et proactif",
       "categorie": "IA"
     },
     {
@@ -98,29 +98,40 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Airbnb crée son lab d'IA : l'hôtellerie entre dans une nouvelle ère technologique.",
+      "accroche": "Airbnb crée son labo d’IA : l’hôtellerie entre dans l’ère des algorithmes sur mesure",
       "categorie": "IA"
     },
     {
-      "titre": "Chrome corrige 151 failles de sécurité d’un coup : ce qui se cache derrière ce chiffre impressionnant",
-      "resume": "Le dernier gros correctif de Chrome bouche 151 failles d'un coup, dont 22 jugées critiques. Derrière ce chiffre hors norme se cache un changement de m",
-      "url": "https://www.frandroid.com/marques/google/3127815_chrome-corrige-151-failles-de-securite-dun-coup-ce-qui-se-cache-derriere-ce-chiffre-impressionnant",
-      "date": "2026-06-05T06:27:16.000Z",
+      "titre": "Les créateurs de Claude lâchent leurs chiffres internes et appellent à freiner l’IA : « ça arrive plus vite qu’on ne le pensait »",
+      "resume": "Anthropic publie ses chiffres internes : plus de 80 % de son propre code est désormais écrit par son IA Claude. Et au lieu de s'en vanter, l'entrepris",
+      "url": "https://www.frandroid.com/culture-tech/intelligence-artificielle/anthropic-claude-ai/3127893_les-createurs-de-claude-lachent-leurs-chiffres-internes-et-appellent-a-freiner-lia-ca-arrive-plus-vite-quon-ne-le-pensait",
+      "date": "2026-06-05T08:29:58.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Chrome corrige 151 failles : une mise à jour critique pour sécuriser vos données.",
-      "categorie": "Cybersécurité"
+      "accroche": "Créateurs de Claude alertent : l’IA doit ralentir avant de devenir incontrôlable",
+      "categorie": "IA"
     },
     {
-      "titre": "« Assez, c’est assez » : la Browser Choice Alliance vent debout contre Microsoft Edge",
-      "resume": "La Browser Choice Alliance, un collectif mondial regroupant les éditeurs de navigateurs Web, a adressé une lettre ouverte au PDG de Microsoft pour dén",
-      "url": "https://www.01net.com/actualites/assez-cest-assez-la-browser-choice-alliance-vent-debout-contre-microsoft-edge.html",
-      "date": "2026-06-05T07:47:37.000Z",
+      "titre": "Mediatek démontre le Dolby Vision 2 sur un téléviseur Sony mais aucun TV de la marque n’est (encore) officiellement compatible",
+      "resume": "Au Computex 2026, MediaTek a fait la démonstration de la technologie Dolby Vision 2 s’appuyant sur son processeur Pentonic 800 en utilisant un télévis",
+      "url": "https://www.frandroid.com/marques/sony/3127963_mediatek-demontre-le-dolby-vision-2-sur-un-televiseur-sony-mais-aucun-tv-de-la-marque-nest-encore-officiellement-compatible",
+      "date": "2026-06-05T08:26:46.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Dolby Vision 2 sur Sony : Mediatek repousse les limites de l’affichage TV",
+      "categorie": "Mobile"
+    },
+    {
+      "titre": "Sauvegardes Android : Google veut enfin vous laisser choisir ce qui part dans le cloud",
+      "resume": "Android prépare un contrôle par catégorie des sauvegardes cloud : journaux d'appels, messages, paramètres, chaque élément devient optionnel.",
+      "url": "https://www.01net.com/actualites/sauvegardes-android-google-veut-enfin-vous-laisser-choisir-ce-qui-part-dans-le-cloud.html",
+      "date": "2026-06-05T07:12:24.000Z",
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Browser Choice Alliance contre Microsoft Edge : la guerre des navigateurs s'intensifie.",
+      "accroche": "Google donne enfin le choix : sauvegardez ce que vous voulez sur Android",
       "categorie": "Mobile"
     },
     {
@@ -131,9 +142,9 @@
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Gemini vulnérable : une attaque par notification expose les failles des assistants IA.",
+      "accroche": "Gemini vulnérable : une simple notification pirate l’assistant IA le plus puissant",
       "categorie": "Cybersécurité"
     }
   ],
-  "lastUpdated": "2026-06-05T08:06:01.517Z"
+  "lastUpdated": "2026-06-05T08:38:08.227Z"
 }
