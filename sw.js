@@ -11,16 +11,16 @@
  * Cela évite de servir une version obsolète après un déploiement.
  */
 
-const CACHE_VERSION = 'algeria-tech-v5';
+const CACHE_VERSION = 'algeria-tech-v6';
 const CACHE_IMAGES  = 'algeria-tech-images-v1';
 
-// ── Assets statiques pré-cachés à l'installation (HTML exclu volontairement) ──
+// ── Assets locaux pré-cachés (HTML et CDN exclus volontairement) ──────────────
+// CDN exclus : le SW ne peut pas les fetch() sans violer le CSP connect-src.
+// Le navigateur les charge directement via script-src / style-src (HTTP cache CDN).
 const SHELL_ASSETS = [
   '/style.css',
   '/script.js',
   '/images/logo_v2.png',
-  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css',
-  'https://cdn.jsdelivr.net/npm/marked/marked.min.js',
 ];
 
 // ── Fichiers de données JSON ──────────────────────────────────────────────────
@@ -73,14 +73,21 @@ self.addEventListener('fetch', event => {
 
   const url = new URL(event.request.url);
 
+  // ── 0. Requêtes cross-origin → navigateur seul (CRITIQUE) ─────────────────
+  //    Le SW ne doit JAMAIS intercepter les ressources externes (Unsplash, GitHub,
+  //    CDN Font Awesome, jsDelivr, placeholder, YouTube…).
+  //    Raison : fetch() dans le SW est soumis à connect-src (pas img-src/script-src).
+  //    Or connect-src ne liste pas ces domaines → CSP bloque le fetch → 503.
+  //    Le navigateur les charge directement avec la bonne directive CSP.
+  if (url.origin !== self.location.origin) return;
+
   // ── 1. API dynamiques → réseau seul (pas de cache) ────────────────────────
   if (url.pathname.startsWith('/api/')) return;
 
   // ── 2. HTML → Network First ───────────────────────────────────────────────
   //    Toujours récupéré depuis le réseau pour refléter le dernier déploiement.
   //    Le cache ne sert que de fallback si le réseau est indisponible (offline).
-  if (url.origin === self.location.origin &&
-      (url.pathname === '/' || url.pathname.endsWith('.html'))) {
+  if (url.pathname === '/' || url.pathname.endsWith('.html')) {
     event.respondWith(networkFirst(event.request));
     return;
   }
@@ -93,14 +100,14 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // ── 4. Images → Cache First avec limite de 80 entrées ────────────────────
-  if (url.pathname.startsWith('/images/') ||
-      url.pathname.match(/\.(png|jpg|jpeg|webp|gif|svg|ico)$/)) {
+  // ── 4. Images locales → Cache First avec limite de 80 entrées ────────────
+  //    Uniquement /images/* (même origine). Les images externes sont exclues (règle 0).
+  if (url.pathname.startsWith('/images/')) {
     event.respondWith(cacheFirstImages(event.request));
     return;
   }
 
-  // ── 5. CSS, JS, fonts → Cache First ──────────────────────────────────────
+  // ── 5. CSS, JS locaux → Cache First ──────────────────────────────────────
   event.respondWith(cacheFirst(event.request, CACHE_VERSION));
 });
 
