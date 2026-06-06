@@ -222,6 +222,7 @@ setInterval(updateLiveClock, 1000);
 async function loadArticles() {
 
     // ── 1. Affichage instantané depuis le cache localStorage ──
+    let cachedIds = ''; // mémorise les IDs déjà affichés pour éviter un double-render
     const cached = localStorage.getItem('at_articles_cache');
     if (cached) {
         try {
@@ -229,6 +230,7 @@ async function loadArticles() {
             allArticles.forEach(a => {
                 a.views = articleViews[a.id] || Math.floor(Math.random() * 500) + 50;
             });
+            cachedIds = allArticles.map(a => a.id).join(',');
             _renderAll(allArticles);
         } catch (e) {
             localStorage.removeItem('at_articles_cache');
@@ -238,7 +240,7 @@ async function loadArticles() {
         if (grid) grid.innerHTML = '<p style="text-align:center;padding:20px;">Chargement…</p>';
     }
 
-    // ── 2. Fetch articles.json depuis Cloudflare CDN (~80ms) ──
+    // ── 2. Fetch articles.json depuis Cloudflare CDN ──
     try {
         const res = await fetch('/articles.json');
         if (!res.ok) throw new Error('articles.json introuvable');
@@ -251,10 +253,15 @@ async function loadArticles() {
                 views: articleViews[a.id] || Math.floor(Math.random() * 500) + 50
             }));
 
-        // Mise en cache pour la prochaine visite (sans contenu HTML pour économiser l'espace)
+        // Mise en cache pour la prochaine visite
         localStorage.setItem('at_articles_cache', JSON.stringify(allArticles));
 
-        _renderAll(allArticles);
+        // Re-render uniquement si la liste d'articles a changé.
+        // Évite le double-render quand le SW sert articles.json depuis son cache
+        // instantanément : sans ce garde, les deux renders se chevauchent en ~0 ms
+        // et l'animation CSS (fadeInUp) se rejoue → effet de vibration visible.
+        const newIds = allArticles.map(a => a.id).join(',');
+        if (newIds !== cachedIds) _renderAll(allArticles);
 
     } catch (e) {
         console.error('articles.json indisponible:', e);
