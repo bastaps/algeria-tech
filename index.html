@@ -33,8 +33,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
 
-    <!-- marked.js : différé, non-bloquant (utilisé uniquement pour le rendu des articles) -->
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
 </head>
 <body>
     <div class="reading-progress" id="readingProgress"></div>
@@ -450,6 +448,8 @@
       🔄 Nouvelle version disponible — Cliquer pour mettre à jour
     </div>
 
+    <!-- marked.js chargé AVANT script.js (requis pour le rendu markdown des articles) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="/script.js"></script>
 
     <!-- Enregistrement du Service Worker -->

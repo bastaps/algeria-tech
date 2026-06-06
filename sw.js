@@ -7,7 +7,7 @@
  * Network Only  → appels API dynamiques (/api/*)
  */
 
-const CACHE_VERSION = 'algeria-tech-v3';
+const CACHE_VERSION = 'algeria-tech-v4';
 const CACHE_IMAGES  = 'algeria-tech-images-v1';
 
 // ── App Shell : mis en cache à l'installation ─────────────────────────────────
