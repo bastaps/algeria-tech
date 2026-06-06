@@ -1371,16 +1371,16 @@ window.share = (p) => {
 
 window.copyLink = () => { navigator.clipboard.writeText(window.location.href); showToast('Lien copiÃ© !'); };
 
-// ===== MÉTÉO =====
+// ===== METEO =====
 const WMO_FR = {
-    0:'Ciel dégagé', 1:'Principalement dégagé', 2:'Partiellement nuageux', 3:'Couvert',
+    0:'Ciel degage', 1:'Principalement degage', 2:'Partiellement nuageux', 3:'Couvert',
     45:'Brouillard', 48:'Brouillard givrant',
-    51:'Bruine légère', 53:'Bruine modérée', 55:'Bruine dense',
-    61:'Pluie légère', 63:'Pluie modérée', 65:'Pluie forte',
-    71:'Neige légère', 73:'Neige modérée', 75:'Neige forte', 77:'Grains de neige',
-    80:'Averses légères', 81:'Averses modérées', 82:'Averses violentes',
+    51:'Bruine legere', 53:'Bruine moderee', 55:'Bruine dense',
+    61:'Pluie legere', 63:'Pluie moderee', 65:'Pluie forte',
+    71:'Neige legere', 73:'Neige moderee', 75:'Neige forte', 77:'Grains de neige',
+    80:'Averses legeres', 81:'Averses moderees', 82:'Averses violentes',
     85:'Averses de neige', 86:'Averses de neige fortes',
-    95:'Orage', 96:'Orage avec grêle', 99:'Orage avec forte grêle'
+    95:'Orage', 96:'Orage avec grele', 99:'Orage avec forte grele'
 };
 function _wxIcon(code) {
     if (code === 0)  return { i:'fa-sun',                 c:'#fbbf24' };
@@ -1396,10 +1396,10 @@ function _wxDir(deg) {
     return ['N','NE','E','SE','S','SO','O','NO'][Math.round((deg ?? 0) / 45) % 8];
 }
 function _uvLabel(uv) {
-    if (uv <= 2) return { label:'Faible',      color:'#22c55e' };
-    if (uv <= 5) return { label:'Modéré',     color:'#f59e0b' };
-    if (uv <= 7) return { label:'Élevé',      color:'#f97316' };
-    return              { label:'Très élevé', color:'#ef4444' };
+    if (uv <= 2) return { label:'Faible',     color:'#22c55e' };
+    if (uv <= 5) return { label:'Modere',     color:'#f59e0b' };
+    if (uv <= 7) return { label:'Eleve',      color:'#f97316' };
+    return              { label:'Tres eleve', color:'#ef4444' };
 }
 
 async function updateWeather() {
@@ -1412,7 +1412,7 @@ async function updateWeather() {
             'https://api.open-meteo.com/v1/forecast' +
             '?latitude=36.7525&longitude=3.04197' +
             '&current=temperature_2m,apparent_temperature,relative_humidity_2m,' +
-            'weather_code,wind_speed_10m,wind_direction_10m,uv_index' +
+            'weather_code,wind_speed_10m,wind_direction_10m,uv_index,cloud_cover' +
             '&timezone=Africa%2FAlgiers'
         );
         const d = await res.json();
@@ -1421,62 +1421,83 @@ async function updateWeather() {
         const feels = Math.round(c.apparent_temperature);
         const code  = c.weather_code;
         const { i: icon, c: color } = _wxIcon(code);
-        const desc  = WMO_FR[code] || 'Alger';
-        const dir   = _wxDir(c.wind_direction_10m);
-        const wind  = Math.round(c.wind_speed_10m);
-        const uv    = c.uv_index != null ? Math.round(c.uv_index) : null;
+        const desc   = WMO_FR[code] || 'Alger';
+        const dir    = _wxDir(c.wind_direction_10m);
+        const wind   = Math.round(c.wind_speed_10m);
+        const cloud  = c.cloud_cover != null ? Math.round(c.cloud_cover) : null;
+        const uv     = c.uv_index   != null ? Math.round(c.uv_index)    : null;
         const uvInfo = uv != null ? _uvLabel(uv) : null;
-        const now   = new Date().toLocaleTimeString('fr-FR', { hour:'2-digit', minute:'2-digit' });
+        const now    = new Date().toLocaleTimeString('fr-FR', { hour:'2-digit', minute:'2-digit' });
 
-        widget.innerHTML = `<i class="fas ${icon}" style="color:${color};margin-right:4px;"></i><b>${temp}°C</b>`;
+        // Topbar
+        widget.innerHTML = '<i class="fas ' + icon + '" style="color:' + color + ';margin-right:4px;"></i><b>' + temp + '&#176;C</b>';
 
+        // Grand popup
         if (card) {
-            card.innerHTML = `
-                <div class="wc-header">
-                    <span><i class="fas fa-map-marker-alt" style="color:#D21034;margin-right:4px;"></i>Alger, Algérie</span>
-                    <span class="wc-time">↻ ${now}</span>
-                </div>
-                <div class="wc-main">
-                    <i class="fas ${icon} wc-main-icon" style="color:${color}"></i>
-                    <div class="wc-main-temp">${temp}°C</div>
-                    <div class="wc-desc">${desc}</div>
-                </div>
-                <div class="wc-grid">
-                    <div class="wc-item">
-                        <i class="fas fa-thermometer-half"></i>
-                        <span>Ressenti</span>
-                        <b>${feels}°C</b>
-                    </div>
-                    <div class="wc-item">
-                        <i class="fas fa-tint"></i>
-                        <span>Humidité</span>
-                        <b>${c.relative_humidity_2m}%</b>
-                    </div>
-                    <div class="wc-item">
-                        <i class="fas fa-wind"></i>
-                        <span>Vent ${dir}</span>
-                        <b>${wind} km/h</b>
-                    </div>
-                    ${uvInfo ? `
-                    <div class="wc-item">
-                        <i class="fas fa-sun" style="color:${uvInfo.color}"></i>
-                        <span>Indice UV</span>
-                        <b style="color:${uvInfo.color}">${uv} — ${uvInfo.label}</b>
-                    </div>` : ''}
-                </div>
-                <a href="https://www.meteo.dz/" target="_blank" rel="noopener" class="wc-link">
-                    Météo complète — meteo.dz →
-                </a>`;
+            const uvRow = uvInfo ? (
+                '<div class="wc-item">' +
+                    '<i class="fas fa-sun" style="color:' + uvInfo.color + '"></i>' +
+                    '<span>Indice UV</span>' +
+                    '<b style="color:' + uvInfo.color + '">' + uv + '</b>' +
+                '</div>' +
+                '<div class="wc-item">' +
+                    '<i class="fas fa-circle" style="color:' + uvInfo.color + ';font-size:.5rem"></i>' +
+                    '<span>Niveau</span>' +
+                    '<b style="color:' + uvInfo.color + '">' + uvInfo.label + '</b>' +
+                '</div>'
+            ) : '';
+            const cloudRow = cloud != null ? (
+                '<div class="wc-item">' +
+                    '<i class="fas fa-cloud"></i>' +
+                    '<span>Nuages</span>' +
+                    '<b>' + cloud + '%</b>' +
+                '</div>'
+            ) : '';
+
+            card.innerHTML =
+                '<div class="wc-header">' +
+                    '<span><i class="fas fa-map-marker-alt"></i>&nbsp;Alger, Algerie</span>' +
+                    '<span class="wc-time">&#8635;&nbsp;' + now + '</span>' +
+                '</div>' +
+                '<div class="wc-body">' +
+                    '<div class="wc-main">' +
+                        '<i class="fas ' + icon + ' wc-main-icon" style="color:' + color + '"></i>' +
+                        '<div class="wc-main-temp">' + temp + '<span class="wc-unit">&#176;C</span></div>' +
+                        '<div class="wc-desc">' + desc + '</div>' +
+                    '</div>' +
+                    '<div class="wc-grid">' +
+                        '<div class="wc-item">' +
+                            '<i class="fas fa-thermometer-half"></i>' +
+                            '<span>Ressenti</span>' +
+                            '<b>' + feels + '&#176;C</b>' +
+                        '</div>' +
+                        '<div class="wc-item">' +
+                            '<i class="fas fa-tint"></i>' +
+                            '<span>Humidite</span>' +
+                            '<b>' + c.relative_humidity_2m + '%</b>' +
+                        '</div>' +
+                        cloudRow +
+                        '<div class="wc-item">' +
+                            '<i class="fas fa-wind"></i>' +
+                            '<span>Vent ' + dir + '</span>' +
+                            '<b>' + wind + ' km/h</b>' +
+                        '</div>' +
+                        uvRow +
+                    '</div>' +
+                    '<a href="https://www.meteo.dz/" target="_blank" rel="noopener" class="wc-link">' +
+                        'Meteo complete &mdash; meteo.dz &#8594;' +
+                    '</a>' +
+                '</div>';
         }
     } catch(e) {
-        widget.innerHTML = `<i class="fas fa-sun" style="color:#fbbf24;margin-right:4px;"></i><b>–°C</b>`;
-        if (card) card.innerHTML = `<div class="wc-header" style="justify-content:center;color:#ef4444"><i class="fas fa-exclamation-triangle" style="margin-right:6px"></i>Météo indisponible</div>`;
+        widget.innerHTML = '<i class="fas fa-sun" style="color:#fbbf24;margin-right:4px;"></i><b>--&#176;C</b>';
+        if (card) card.innerHTML = '<div class="wc-header" style="justify-content:center"><i class="fas fa-exclamation-triangle" style="color:#ef4444;margin-right:6px"></i>Meteo indisponible</div>';
     } finally {
         widget.classList.remove('updating');
     }
 }
 
-// Rafraîchissement automatique toutes les 10 minutes
+// Rafraichissement automatique toutes les 10 minutes
 setInterval(updateWeather, 10 * 60 * 1000);
 
 // ===== BARRE DE RECHERCHE =====
