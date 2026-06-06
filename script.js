@@ -1371,25 +1371,113 @@ window.share = (p) => {
 
 window.copyLink = () => { navigator.clipboard.writeText(window.location.href); showToast('Lien copiÃ© !'); };
 
-// ===== MÃ‰TÃ‰O =====
+// ===== MÉTÉO =====
+const WMO_FR = {
+    0:'Ciel dégagé', 1:'Principalement dégagé', 2:'Partiellement nuageux', 3:'Couvert',
+    45:'Brouillard', 48:'Brouillard givrant',
+    51:'Bruine légère', 53:'Bruine modérée', 55:'Bruine dense',
+    61:'Pluie légère', 63:'Pluie modérée', 65:'Pluie forte',
+    71:'Neige légère', 73:'Neige modérée', 75:'Neige forte', 77:'Grains de neige',
+    80:'Averses légères', 81:'Averses modérées', 82:'Averses violentes',
+    85:'Averses de neige', 86:'Averses de neige fortes',
+    95:'Orage', 96:'Orage avec grêle', 99:'Orage avec forte grêle'
+};
+function _wxIcon(code) {
+    if (code === 0)  return { i:'fa-sun',                 c:'#fbbf24' };
+    if (code <= 2)   return { i:'fa-cloud-sun',           c:'#f59e0b' };
+    if (code <= 3)   return { i:'fa-cloud',               c:'#94a3b8' };
+    if (code <= 48)  return { i:'fa-smog',                c:'#64748b' };
+    if (code <= 67)  return { i:'fa-cloud-rain',          c:'#60a5fa' };
+    if (code <= 77)  return { i:'fa-snowflake',           c:'#bae6fd' };
+    if (code <= 82)  return { i:'fa-cloud-showers-heavy', c:'#2563eb' };
+    return                  { i:'fa-bolt',                c:'#ef4444' };
+}
+function _wxDir(deg) {
+    return ['N','NE','E','SE','S','SO','O','NO'][Math.round((deg ?? 0) / 45) % 8];
+}
+function _uvLabel(uv) {
+    if (uv <= 2) return { label:'Faible',      color:'#22c55e' };
+    if (uv <= 5) return { label:'Modéré',     color:'#f59e0b' };
+    if (uv <= 7) return { label:'Élevé',      color:'#f97316' };
+    return              { label:'Très élevé', color:'#ef4444' };
+}
+
 async function updateWeather() {
     const widget = document.getElementById('weatherWidget');
+    const card   = document.getElementById('weatherCard');
     if (!widget) return;
+    widget.classList.add('updating');
     try {
-        const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=36.7525&longitude=3.04197&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m');
-        const data = await response.json();
-        const temp = Math.round(data.current.temperature_2m); const code = data.current.weather_code;
-        let icon = 'fa-sun'; let color = '#fbbf24';
-        if (code >= 1 && code <= 3) { icon = 'fa-cloud-sun'; color = '#94a3b8'; }
-        if (code >= 45 && code <= 48) { icon = 'fa-smog'; color = '#64748b'; }
-        if (code >= 51 && code <= 67) { icon = 'fa-cloud-rain'; color = '#60a5fa'; }
-        if (code >= 71 && code <= 77) { icon = 'fa-snowflake'; color = '#bae6fd'; }
-        if (code >= 80 && code <= 82) { icon = 'fa-cloud-showers-heavy'; color = '#2563eb'; }
-        if (code >= 95) { icon = 'fa-bolt'; color = '#ef4444'; }
-        widget.innerHTML = `<i class="fas ${icon}" style="color:${color}; margin-right:5px;"></i> ${temp}Â°C`;
-        widget.title = `MÃ©tÃ©o Alger - HumiditÃ©: ${data.current.relative_humidity_2m}% | Vent: ${data.current.wind_speed_10m} km/h`;
-    } catch (e) { widget.innerHTML = `<i class="fas fa-sun" style="color:#fbbf24"></i> 22Â°C`; }
+        const res = await fetch(
+            'https://api.open-meteo.com/v1/forecast' +
+            '?latitude=36.7525&longitude=3.04197' +
+            '&current=temperature_2m,apparent_temperature,relative_humidity_2m,' +
+            'weather_code,wind_speed_10m,wind_direction_10m,uv_index' +
+            '&timezone=Africa%2FAlgiers'
+        );
+        const d = await res.json();
+        const c = d.current;
+        const temp  = Math.round(c.temperature_2m);
+        const feels = Math.round(c.apparent_temperature);
+        const code  = c.weather_code;
+        const { i: icon, c: color } = _wxIcon(code);
+        const desc  = WMO_FR[code] || 'Alger';
+        const dir   = _wxDir(c.wind_direction_10m);
+        const wind  = Math.round(c.wind_speed_10m);
+        const uv    = c.uv_index != null ? Math.round(c.uv_index) : null;
+        const uvInfo = uv != null ? _uvLabel(uv) : null;
+        const now   = new Date().toLocaleTimeString('fr-FR', { hour:'2-digit', minute:'2-digit' });
+
+        widget.innerHTML = `<i class="fas ${icon}" style="color:${color};margin-right:4px;"></i><b>${temp}°C</b>`;
+
+        if (card) {
+            card.innerHTML = `
+                <div class="wc-header">
+                    <span><i class="fas fa-map-marker-alt" style="color:#D21034;margin-right:4px;"></i>Alger, Algérie</span>
+                    <span class="wc-time">↻ ${now}</span>
+                </div>
+                <div class="wc-main">
+                    <i class="fas ${icon} wc-main-icon" style="color:${color}"></i>
+                    <div class="wc-main-temp">${temp}°C</div>
+                    <div class="wc-desc">${desc}</div>
+                </div>
+                <div class="wc-grid">
+                    <div class="wc-item">
+                        <i class="fas fa-thermometer-half"></i>
+                        <span>Ressenti</span>
+                        <b>${feels}°C</b>
+                    </div>
+                    <div class="wc-item">
+                        <i class="fas fa-tint"></i>
+                        <span>Humidité</span>
+                        <b>${c.relative_humidity_2m}%</b>
+                    </div>
+                    <div class="wc-item">
+                        <i class="fas fa-wind"></i>
+                        <span>Vent ${dir}</span>
+                        <b>${wind} km/h</b>
+                    </div>
+                    ${uvInfo ? `
+                    <div class="wc-item">
+                        <i class="fas fa-sun" style="color:${uvInfo.color}"></i>
+                        <span>Indice UV</span>
+                        <b style="color:${uvInfo.color}">${uv} — ${uvInfo.label}</b>
+                    </div>` : ''}
+                </div>
+                <a href="https://www.meteo.dz/" target="_blank" rel="noopener" class="wc-link">
+                    Météo complète — meteo.dz →
+                </a>`;
+        }
+    } catch(e) {
+        widget.innerHTML = `<i class="fas fa-sun" style="color:#fbbf24;margin-right:4px;"></i><b>–°C</b>`;
+        if (card) card.innerHTML = `<div class="wc-header" style="justify-content:center;color:#ef4444"><i class="fas fa-exclamation-triangle" style="margin-right:6px"></i>Météo indisponible</div>`;
+    } finally {
+        widget.classList.remove('updating');
+    }
 }
+
+// Rafraîchissement automatique toutes les 10 minutes
+setInterval(updateWeather, 10 * 60 * 1000);
 
 // ===== BARRE DE RECHERCHE =====
 const searchInput = document.getElementById('searchInput');
