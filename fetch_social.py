@@ -542,8 +542,24 @@ def main():
         return
 
     # Fusion + déduplication + tri + limite 300
+    def parse_post_date(p):
+        raw = p.get('date', '')
+        if not raw:
+            return datetime.min.replace(tzinfo=timezone.utc)
+        # RFC 2822 : "Wed, 27 May 2026 21:03:20 +0000"
+        try:
+            from email.utils import parsedate_to_datetime
+            return parsedate_to_datetime(raw)
+        except Exception:
+            pass
+        # ISO 8601 : "2026-06-06T07:14:53+00:00"
+        try:
+            return datetime.fromisoformat(raw.replace('Z', '+00:00'))
+        except Exception:
+            return datetime.min.replace(tzinfo=timezone.utc)
+
     all_posts = new_posts + existing.get('posts', [])
-    all_posts.sort(key=lambda p: p.get('date', ''), reverse=True)
+    all_posts.sort(key=parse_post_date, reverse=True)
     all_posts = all_posts[:300]
 
     save_data({"posts": all_posts, "lastUpdated": None, "stats": {}, "total": 0})

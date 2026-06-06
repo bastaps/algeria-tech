@@ -41,7 +41,8 @@ public static class CtrlCGuard {
 
     function Reset-AutoFiles {
         # Retire skip-worktree ET remet à HEAD pour débloquer le merge
-        $allDataFiles = $AUTO_FILES + @("articles.json", "tic_social.json")
+        # tic_social.json est EXCLU : il doit garder les données fraîches du Task Scheduler
+        $allDataFiles = $AUTO_FILES + @("articles.json")
         foreach ($f in $allDataFiles) {
             git update-index --no-skip-worktree $f 2>$null
             if (Test-Path $f) { git checkout HEAD -- $f 2>$null }
@@ -67,6 +68,9 @@ public static class CtrlCGuard {
         Write-Host "6. [BUILD]  Generer l'APK Android (Debug)"
         Write-Host "7. [PUSH]   Pousser un contenu precis (article, image, revue, site...)"
         Write-Host "8. [RESOLVE] Resoudre les conflits de fusion (ouvre les fichiers en conflit)"
+        Write-Host "------------------------------------------"
+        Write-Host "9. [IDE]      Lancer Algeria Tech IDE (IA Chat + Terminal)" -ForegroundColor Cyan
+        Write-Host "0. [ELECTRON] Lancer en mode bureau (fenetre desktop)" -ForegroundColor Cyan
         Write-Host "Q. Quitter"
         Write-Host "------------------------------------------"
         Write-Host "  [CTRL+C] depuis n'importe quelle option = retour ici" -ForegroundColor DarkGray
@@ -193,7 +197,8 @@ public static class CtrlCGuard {
                 git add articles/ 2>$null | Out-Null          # nouveaux .md (untracked)
                 git add images/ 2>$null | Out-Null            # nouvelles images articles
                 git add documents/ 2>$null | Out-Null         # nouveaux PDF
-                # Exclure uniquement les fichiers vraiment auto-generes
+                git add tic_social.json 2>$null | Out-Null    # données fraîches réseaux sociaux
+                # Exclure uniquement les fichiers vraiment auto-generes (revue + veille RSS)
                 foreach ($f in $AUTO_FILES) {
                     git restore --staged $f 2>$null
                 }
@@ -464,6 +469,59 @@ public static class CtrlCGuard {
                 Write-Host "    git merge --continue # finaliser le merge" -ForegroundColor DarkGray
                 Write-Host "    git merge --abort    # annuler le merge" -ForegroundColor DarkGray
 
+                Read-Host "`nAppuyez sur Entree pour continuer..."
+            }
+
+            # ── 9. IDE ALGERIA TECH ──────────────────────────────────────────
+            "9" {
+                Write-Host "`n--- Lancement Algeria Tech IDE ---" -ForegroundColor Cyan
+                $ideDir = "E:\gemini-cli\gemini-web-ui"
+                if (-not (Test-Path $ideDir)) {
+                    Write-Host "ERREUR : dossier IDE introuvable : $ideDir" -ForegroundColor Red
+                    Read-Host "`nAppuyez sur Entree pour continuer..."
+                    break
+                }
+                # Stopper les anciens processus node eventuels
+                Stop-Process -Name "node" -Force -ErrorAction SilentlyContinue
+                Start-Sleep -Milliseconds 600
+                # Lancer serveur + Vite dans une nouvelle fenetre (non bloquant)
+                Start-Process powershell -ArgumentList "-NoExit", "-Command",
+                    "Set-Location '$ideDir'; Write-Host 'Algeria Tech IDE...' -ForegroundColor Cyan; npm run dev"
+                # Attendre le demarrage puis ouvrir le navigateur
+                Write-Host "Demarrage en cours" -NoNewline -ForegroundColor Gray
+                for ($i = 0; $i -lt 6; $i++) { Start-Sleep -Seconds 1; Write-Host "." -NoNewline -ForegroundColor Gray }
+                Write-Host ""
+                Start-Process "http://localhost:5173"
+                Write-Host "OK IDE lance !" -ForegroundColor Green
+                Write-Host "   Navigateur : http://localhost:5173" -ForegroundColor DarkGray
+                Write-Host "   Serveur    : http://localhost:3001" -ForegroundColor DarkGray
+                Read-Host "`nAppuyez sur Entree pour continuer..."
+            }
+
+            # ── 0. ELECTRON DESKTOP ──────────────────────────────────────────
+            "0" {
+                Write-Host "`n--- Lancement Electron (mode bureau) ---" -ForegroundColor Cyan
+                $ideDir = "E:\gemini-cli\gemini-web-ui"
+                if (-not (Test-Path "$ideDir\node_modules\.bin\electron.cmd")) {
+                    Write-Host "Electron non installe. Installation..." -ForegroundColor Yellow
+                    Push-Location $ideDir
+                    npm install electron --save-dev
+                    Pop-Location
+                }
+                # Verifier si Vite tourne deja
+                $viteOk = (Test-NetConnection -ComputerName localhost -Port 5173 -InformationLevel Quiet -WarningAction SilentlyContinue) -or
+                          (Test-NetConnection -ComputerName localhost -Port 5174 -InformationLevel Quiet -WarningAction SilentlyContinue)
+                if (-not $viteOk) {
+                    Write-Host "Vite non detecte, lancement serveur + client..." -ForegroundColor Yellow
+                    Start-Process powershell -ArgumentList "-NoExit", "-Command",
+                        "Set-Location '$ideDir'; npm run dev"
+                    Write-Host "Attente demarrage (6s)..." -ForegroundColor Gray
+                    Start-Sleep -Seconds 6
+                }
+                # Lancer Electron
+                Start-Process powershell -ArgumentList "-NoExit", "-Command",
+                    "Set-Location '$ideDir'; npm run electron:dev"
+                Write-Host "OK Electron en cours de demarrage..." -ForegroundColor Green
                 Read-Host "`nAppuyez sur Entree pour continuer..."
             }
 

@@ -1517,7 +1517,8 @@ async function loadVeille() {
     const loader = document.getElementById('veilleLoading');
     if(loader) loader.style.display = 'block';
     try {
-        const res = await fetch(`${API_BASE}/api/veille`);
+        const veilleUrl = isLocal ? '/api/veille' : ('veille_data.json?t=' + Date.now());
+        const res = await fetch(veilleUrl);
         if(!res.ok) throw new Error('Erreur chargement veille');
         veilleData = await res.json();
         renderVeilleTable();
