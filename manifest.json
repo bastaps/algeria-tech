@@ -1,0 +1,39 @@
+{
+  "name": "Algeria Tech",
+  "short_name": "Algeria Tech",
+  "description": "L'actualité numérique & TIC en Algérie par Basta",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#006233",
+  "lang": "fr",
+  "categories": ["news", "technology"],
+  "icons": [
+    {
+      "src": "/images/logo_v2.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logo_v2.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Veille Réseaux Sociaux",
+      "url": "/actualites-tic",
+      "description": "Actualités TIC officielles"
+    },
+    {
+      "name": "Revue de Presse",
+      "url": "/#revue",
+      "description": "Revue du jour générée par IA"
+    }
+  ]
+}

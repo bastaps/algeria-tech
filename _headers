@@ -1,11 +1,43 @@
 /*
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.onrender.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://www.youtube.com https://s.ytimg.com; connect-src 'self' https://*.onrender.com https://api.open-meteo.com https://*.cloudflare.com https://www.googleapis.com; img-src 'self' data: https: blob:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https: data:; object-src 'self' blob:; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com; media-src 'self' blob: https://*.youtube.com;
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.onrender.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com https://www.youtube.com https://s.ytimg.com; connect-src 'self' https://*.onrender.com https://api.open-meteo.com https://*.cloudflare.com https://www.googleapis.com https://api.rss2json.com https://rss.app; img-src 'self' data: https: blob:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https: data:; object-src 'self' blob:; frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com; media-src 'self' blob: https://*.youtube.com;
 
+# ── HTML : toujours frais ──────────────────────────────────────────────────────
 /*.html
-  Cache-Control: no-cache
+  Cache-Control: no-cache, must-revalidate
 
 /
-  Cache-Control: no-cache
+  Cache-Control: no-cache, must-revalidate
 
+# ── Service Worker : pas de cache (doit être rechargé à chaque visite) ─────────
+/sw.js
+  Cache-Control: no-cache, no-store, must-revalidate
+
+# ── Données JSON : revalidation toutes les 5 min ──────────────────────────────
 /articles.json
-  Cache-Control: no-cache
+  Cache-Control: public, max-age=300, stale-while-revalidate=3600
+
+/veille_data.json
+  Cache-Control: public, max-age=300, stale-while-revalidate=3600
+
+/tic_social.json
+  Cache-Control: public, max-age=300, stale-while-revalidate=3600
+
+/revue_presse.json
+  Cache-Control: public, max-age=300, stale-while-revalidate=3600
+
+# ── Assets statiques : cache 24h (le SW prend le relais pour l'instantané) ────
+/style.css
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/script.js
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/manifest.json
+  Cache-Control: public, max-age=86400
+
+# ── Images : cache 7 jours ─────────────────────────────────────────────────────
+/images/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+
+/infographies/*
+  Cache-Control: public, max-age=604800

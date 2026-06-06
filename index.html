@@ -7,10 +7,34 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="format-detection" content="telephone=no">
     <title>Algeria Tech - L'actualité numérique en Algérie par Basta</title>
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#006233">
+    <link rel="apple-touch-icon" href="/images/logo_v2.jpeg">
+
+    <!-- Préconnexions aux CDN (élimine la latence DNS + TLS au plus tôt) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="dns-prefetch" href="https://api.rss2json.com">
+    <link rel="dns-prefetch" href="https://rss.app">
+
+    <!-- CSS critique chargé en priorité -->
+    <link rel="preload" href="/style.css" as="style">
     <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- Font Awesome : chargé en non-bloquant, appliqué quand disponible -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    <!-- Google Fonts : non-bloquant avec display=swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
+
+    <!-- marked.js : différé, non-bloquant (utilisé uniquement pour le rendu des articles) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
 </head>
 <body>
     <div class="reading-progress" id="readingProgress"></div>
@@ -420,6 +444,46 @@
 
     <div class="loading-overlay" id="loader"><div class="loader"></div><div class="loading-text">Chargement...</div></div>
     <div class="toast" id="toast"></div>
+
+    <!-- Bannière de mise à jour (masquée par défaut) -->
+    <div id="sw-update-banner" style="display:none;position:fixed;bottom:16px;left:50%;transform:translateX(-50%);background:#006233;color:#fff;padding:10px 20px;border-radius:24px;font-size:14px;font-weight:600;z-index:9999;box-shadow:0 4px 16px rgba(0,0,0,.25);cursor:pointer;white-space:nowrap;">
+      🔄 Nouvelle version disponible — Cliquer pour mettre à jour
+    </div>
+
     <script src="/script.js"></script>
+
+    <!-- Enregistrement du Service Worker -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').then(reg => {
+            // Écoute les mises à jour du SW
+            reg.addEventListener('updatefound', () => {
+              const newWorker = reg.installing;
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  // Nouvelle version prête → affiche la bannière
+                  const banner = document.getElementById('sw-update-banner');
+                  if (banner) {
+                    banner.style.display = 'block';
+                    banner.addEventListener('click', () => {
+                      newWorker.postMessage('SKIP_WAITING');
+                      banner.style.display = 'none';
+                      window.location.reload();
+                    });
+                  }
+                }
+              });
+            });
+          }).catch(err => console.warn('[SW] Enregistrement échoué :', err));
+
+          // Rechargement automatique quand le SW prend le contrôle
+          navigator.serviceWorker.addEventListener('controllerchange', () => {
+            if (window._swReloading) return;
+            window._swReloading = true;
+          });
+        });
+      }
+    </script>
 </body>
 </html>

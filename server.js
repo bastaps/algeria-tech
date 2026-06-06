@@ -251,6 +251,18 @@ app.use(express.static(__dirname, {
             res.setHeader('Content-Type', 'application/pdf');
             res.setHeader('Content-Disposition', 'inline');
         }
+        // Service Worker : jamais mis en cache (le navigateur doit toujours vérifier la version)
+        if (filepath.toLowerCase().endsWith('sw.js')) {
+            res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+        }
+        // Assets statiques : cache 24h pour accélérer les rechargements
+        if (filepath.match(/\.(css|js)$/) && !filepath.endsWith('sw.js')) {
+            res.setHeader('Cache-Control', 'public, max-age=86400, stale-while-revalidate=604800');
+        }
+        // Images : cache 7 jours
+        if (filepath.match(/\.(png|jpg|jpeg|webp|gif|svg|ico)$/)) {
+            res.setHeader('Cache-Control', 'public, max-age=604800');
+        }
     }
 }));
 
