@@ -1,12 +1,65 @@
 'use strict';
 /**
- * Algeria Tech — Generateur Barometre Mensuel
- * Lit veille_data.json + tic_social.json + revue_presse.json
- * Produit : barometre_data.json  (rapport du mois courant)
- *           barometre_history.json (12 derniers mois pour comparaisons)
+ * Algeria Tech — Generateur Barometre
+ * Usage :
+ *   node generate_barometre.js             → rapport mensuel
+ *   node generate_barometre.js --mode weekly  → rapport hebdomadaire
+ *
+ * Sorties :
+ *   mensuel  → barometre_data.json + barometre_history.json
+ *   hebdo    → barometre_weekly.json + barometre_weekly_history.json
  */
 const fs   = require('fs');
 const path = require('path');
+
+// ── Mode (monthly | weekly) ────────────────────────────────────────────────────
+const argv   = process.argv.slice(2);
+const MODE   = argv.includes('--mode') ? argv[argv.indexOf('--mode') + 1] : 'monthly';
+const WEEKLY = MODE === 'weekly';
+
+const OUTPUT_FILE  = WEEKLY ? 'barometre_weekly.json'         : 'barometre_data.json';
+const HISTORY_FILE = WEEKLY ? 'barometre_weekly_history.json' : 'barometre_history.json';
+const MAX_HISTORY  = WEEKLY ? 8 : 12;   // 8 semaines ou 12 mois
+
+// ── Fenetre temporelle pour le mode hebdo ──────────────────────────────────────
+const NOW      = new Date();
+const CUTOFF   = WEEKLY ? new Date(NOW - 7 * 24 * 60 * 60 * 1000) : new Date(0);
+
+function parseDate(str) {
+  if (!str) return null;
+  const d = new Date(str);
+  return isNaN(d.getTime()) ? null : d;
+}
+
+// ── Periode ────────────────────────────────────────────────────────────────────
+const FR_MONTHS_ACC = ['Janvier','Février','Mars','Avril','Mai','Juin',
+                       'Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+
+function getMonthPeriodKey()   { return NOW.getFullYear() + '-' + String(NOW.getMonth() + 1).padStart(2, '0'); }
+function getMonthPeriodLabel() { return FR_MONTHS_ACC[NOW.getMonth()] + ' ' + NOW.getFullYear(); }
+
+function getWeekPeriodKey() {
+  // Format ISO semaine : 2026-W24
+  const d    = new Date(NOW);
+  d.setHours(0, 0, 0, 0);
+  d.setDate(d.getDate() + 4 - (d.getDay() || 7));          // jeudi de la semaine
+  const jan1 = new Date(d.getFullYear(), 0, 1);
+  const w    = Math.ceil(((d - jan1) / 86400000 + 1) / 7);
+  return d.getFullYear() + '-W' + String(w).padStart(2, '0');
+}
+function getWeekPeriodLabel() {
+  const day = NOW.getDay() || 7;
+  const lun = new Date(NOW); lun.setDate(NOW.getDate() - day + 1); lun.setHours(0,0,0,0);
+  const dim = new Date(lun); dim.setDate(lun.getDate() + 6);
+  const M   = FR_MONTHS_ACC;
+  const fmt = (d) => d.getDate() + ' ' + M[d.getMonth()];
+  if (lun.getMonth() === dim.getMonth())
+    return 'Semaine du ' + lun.getDate() + ' au ' + dim.getDate() + ' ' + M[dim.getMonth()] + ' ' + dim.getFullYear();
+  return 'Semaine du ' + fmt(lun) + ' au ' + fmt(dim) + ' ' + dim.getFullYear();
+}
+
+const PERIOD_KEY   = WEEKLY ? getWeekPeriodKey()   : getMonthPeriodKey();
+const PERIOD_LABEL = WEEKLY ? getWeekPeriodLabel()  : getMonthPeriodLabel();
 
 function loadJson(file, fallback) {
   const full = path.join(__dirname, file);
@@ -71,30 +124,21 @@ function matchTopics(text) {
     .filter(i => i >= 0);
 }
 
-const FR_MONTHS = ['Janvier','Fevrier','Mars','Avril','Mai','Juin',
-                   'Juillet','Aout','Septembre','Octobre','Novembre','Decembre'];
-// Avec accents pour l'affichage
-const FR_MONTHS_ACC = ['Janvier','Février','Mars','Avril','Mai','Juin',
-                       'Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
-
-function frPeriodLabel(period) {
-  const [y, m] = period.split('-');
-  return FR_MONTHS_ACC[parseInt(m, 10) - 1] + ' ' + y;
-}
 
 // ── Main ──────────────────────────────────────────────────────────────────────
 async function main() {
-  console.log('[BARO] ── Analyse Barometre Mensuel ─────────────────────');
+  console.log('[BARO] ── Mode:', WEEKLY ? 'HEBDOMADAIRE' : 'MENSUEL', '─────────────────────');
 
   const veille  = loadJson('veille_data.json',    { feed: [] });
   const social  = loadJson('tic_social.json',     { posts: [] });
   const presse  = loadJson('revue_presse.json',   { articles: [] });
-  const history = loadJson('barometre_history.json', { months: [] });
+  const history = loadJson(HISTORY_FILE,          { months: [] });
 
-  // ── Normalisation de toutes les sources ────────────────────────────────────
+  // ── Normalisation + filtre temporel ───────────────────────────────────────
   const articles = [];
 
   for (const a of (veille.feed || [])) {
+    if (WEEKLY) { const d = parseDate(a.date); if (!d || d < CUTOFF) continue; }
     articles.push({
       text:   (a.title || '') + ' ' + (a.tags || []).join(' '),
       source: a.source || 'Inconnu',
@@ -104,6 +148,7 @@ async function main() {
   }
 
   for (const p of (social.posts || [])) {
+    if (WEEKLY) { const d = parseDate(p.date); if (!d || d < CUTOFF) continue; }
     const textFr = (p.text && p.text.fr) ? p.text.fr : '';
     const textAr = (p.text && p.text.ar) ? p.text.ar : '';
     const fullText = (p.source_name || '') + ' ' + p.category + ' ' + textFr + ' ' + textAr;
@@ -118,6 +163,7 @@ async function main() {
   }
 
   for (const a of (presse.articles || [])) {
+    if (WEEKLY) { const d = parseDate(a.date); if (!d || d < CUTOFF) continue; }
     articles.push({
       text:   (a.titre || '') + ' ' + (a.resume || '') + ' ' + (a.categorie || ''),
       source: a.source || 'Presse',
@@ -126,12 +172,18 @@ async function main() {
     });
   }
 
-  console.log('[BARO] Articles total :', articles.length,
-    `(veille:${(veille.feed||[]).length} social:${(social.posts||[]).length} presse:${(presse.articles||[]).length})`);
+  const allVeille = (veille.feed    || []).length;
+  const allSocial = (social.posts   || []).length;
+  const allPresse = (presse.articles|| []).length;
+  console.log('[BARO] Publications analysees :', articles.length,
+    '(veille:' + articles.filter(a=>a.type==='veille').length +
+    ' social:' + articles.filter(a=>a.type==='social').length +
+    ' presse:' + articles.filter(a=>a.type==='presse').length + ')');
+  if (WEEKLY) console.log('[BARO] Fenetre : 7 derniers jours (sur', allVeille+allSocial+allPresse, 'disponibles)');
 
   // ── Periode ────────────────────────────────────────────────────────────────
-  const now    = new Date();
-  const period = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
+  const period      = PERIOD_KEY;
+  const periodLabel = PERIOD_LABEL;
 
   // ── Comptages ─────────────────────────────────────────────────────────────
   const topicCounts   = TOPICS.map(() => 0);
@@ -184,35 +236,38 @@ async function main() {
     .map(([source, count]) => ({ source, count }));
 
   // ── Highlights automatiques ────────────────────────────────────────────────
+  const freq   = WEEKLY ? 'cette semaine' : 'ce mois';
+  const prevFreq = WEEKLY ? 'la semaine precedente' : 'le mois precedent';
   const highlights = [];
   if (topTopics[0])
-    highlights.push('"' + topTopics[0].key + '" est le sujet dominant ce mois avec ' + topTopics[0].count + ' occurrences dans les publications.');
+    highlights.push('"' + topTopics[0].key + '" est le sujet dominant ' + freq + ' avec ' + topTopics[0].count + ' occurrences dans les publications.');
 
   const rising = topTopics.filter(t => t.trend_pct !== null && t.trend_pct >= 20)[0];
   if (rising)
-    highlights.push('"' + rising.key + '" en forte hausse : +' + rising.trend_pct + '% par rapport au mois precedent.');
+    highlights.push('"' + rising.key + '" en forte hausse : +' + rising.trend_pct + '% par rapport a ' + prevFreq + '.');
 
   const falling = topTopics.filter(t => t.trend_pct !== null && t.trend_pct <= -20)[0];
   if (falling)
-    highlights.push('"' + falling.key + '" en recul : ' + falling.trend_pct + '% par rapport au mois precedent.');
+    highlights.push('"' + falling.key + '" en recul : ' + falling.trend_pct + '% par rapport a ' + prevFreq + '.');
 
   if (sentiment.positive_pct >= 40)
-    highlights.push('Climat positif : ' + sentiment.positive_pct + '% des publications expriment un sentiment favorable.');
+    highlights.push('Climat positif ' + freq + ' : ' + sentiment.positive_pct + '% des publications expriment un sentiment favorable.');
   else if (sentiment.negative_pct >= 20)
-    highlights.push('Attention : ' + sentiment.negative_pct + '% des publications expriment un sentiment negatif.');
+    highlights.push('Attention : ' + sentiment.negative_pct + '% des publications expriment un sentiment negatif ' + freq + '.');
   else
-    highlights.push('Sentiment global equilibre : ' + sentiment.positive_pct + '% positif, ' + sentiment.negative_pct + '% negatif sur ' + total + ' publications.');
+    highlights.push('Sentiment equilibre ' + freq + ' : ' + sentiment.positive_pct + '% positif, ' + sentiment.negative_pct + '% negatif sur ' + total + ' publications.');
 
   // ── Rapport JSON ──────────────────────────────────────────────────────────
   const report = {
-    generated:    now.toISOString(),
+    generated:    NOW.toISOString(),
+    mode:         MODE,
     period,
-    period_label: frPeriodLabel(period),
+    period_label: periodLabel,
     stats: {
       articles_total:  articles.length,
-      veille_articles: (veille.feed    || []).length,
-      social_posts:    (social.posts   || []).length,
-      presse_articles: (presse.articles|| []).length,
+      veille_articles: articles.filter(a=>a.type==='veille').length,
+      social_posts:    articles.filter(a=>a.type==='social').length,
+      presse_articles: articles.filter(a=>a.type==='presse').length,
       sources_count:   Object.keys(sourceCounts).length,
     },
     top_topics:  topTopics,
@@ -220,37 +275,38 @@ async function main() {
     top_sources: topSources,
     highlights,
     previous_period: prevEntry
-      ? { period: prevEntry.period, period_label: frPeriodLabel(prevEntry.period) }
+      ? { period: prevEntry.period, period_label: prevEntry.period_label || prevEntry.period }
       : null,
   };
 
   fs.writeFileSync(
-    path.join(__dirname, 'barometre_data.json'),
+    path.join(__dirname, OUTPUT_FILE),
     JSON.stringify(report, null, 2),
     'utf-8'
   );
-  console.log('[BARO] barometre_data.json ecrit.');
+  console.log('[BARO]', OUTPUT_FILE, 'ecrit.');
 
-  // ── Historique (12 mois max) ───────────────────────────────────────────────
+  // ── Historique ─────────────────────────────────────────────────────────────
   let months = (history.months || []).filter(m => m.period !== period);
   months.push({
     period,
-    generated:            now.toISOString(),
-    articles_total:       articles.length,
-    topics:               topTopics.map(t => ({ key: t.key, count: t.count })),
-    sentiment_pos_pct:    sentiment.positive_pct,
-    sentiment_neg_pct:    sentiment.negative_pct,
-    top_topic:            topTopics[0]?.key || '',
+    period_label:       periodLabel,
+    generated:          NOW.toISOString(),
+    articles_total:     articles.length,
+    topics:             topTopics.map(t => ({ key: t.key, count: t.count })),
+    sentiment_pos_pct:  sentiment.positive_pct,
+    sentiment_neg_pct:  sentiment.negative_pct,
+    top_topic:          topTopics[0]?.key || '',
   });
-  if (months.length > 12) months = months.slice(-12);
+  if (months.length > MAX_HISTORY) months = months.slice(-MAX_HISTORY);
 
   fs.writeFileSync(
-    path.join(__dirname, 'barometre_history.json'),
+    path.join(__dirname, HISTORY_FILE),
     JSON.stringify({ months }, null, 2),
     'utf-8'
   );
-  console.log('[BARO] barometre_history.json mis a jour (' + months.length + ' mois).');
-  console.log('[BARO] ── Termine : ' + period + ' (' + articles.length + ' publications) ──');
+  console.log('[BARO]', HISTORY_FILE, 'mis a jour (' + months.length + ' entrees).');
+  console.log('[BARO] ── Termine :', period, '(' + articles.length + ' publications) ──');
 }
 
 main().catch(e => { console.error('[BARO] ERREUR FATALE :', e); process.exit(1); });

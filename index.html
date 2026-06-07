@@ -102,6 +102,24 @@
         </div>
     </header>
 
+    <!-- Barre navigation rapide -->
+    <nav class="quick-nav" id="quickNav">
+        <div class="container">
+            <button class="qn-link" onclick="showVeille()" id="qn-veille">
+                <i class="fas fa-rss"></i> Veille
+            </button>
+            <a class="qn-link" href="/actualites-tic">
+                <i class="fas fa-share-alt"></i> Veille Réseaux Sociaux
+            </a>
+            <button class="qn-link" onclick="showRevue()" id="qn-revue">
+                <i class="fas fa-newspaper"></i> Revue de Presse
+            </button>
+            <a class="qn-link qn-new" href="/barometre">
+                <i class="fas fa-chart-bar"></i> Baromètre <span class="qn-badge">NEW</span>
+            </a>
+        </div>
+    </nav>
+
     <main id="mainContent">
         <section class="breaking-news">
             <div class="container">

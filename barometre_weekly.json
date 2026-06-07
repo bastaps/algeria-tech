@@ -1,8 +1,8 @@
 {
-  "generated": "2026-06-07T12:38:15.822Z",
-  "mode": "monthly",
-  "period": "2026-06",
-  "period_label": "Juin 2026",
+  "generated": "2026-06-07T12:38:15.984Z",
+  "mode": "weekly",
+  "period": "2026-W23",
+  "period_label": "Semaine du 1 au 7 Juin 2026",
   "stats": {
     "articles_total": 462,
     "veille_articles": 150,
@@ -15,81 +15,81 @@
       "key": "Intelligence Artificielle",
       "emoji": "🤖",
       "count": 83,
-      "prev_count": 84,
-      "trend": -1,
-      "trend_pct": -1
+      "prev_count": null,
+      "trend": null,
+      "trend_pct": null
     },
     {
       "key": "Operateurs & Telecom",
       "emoji": "📶",
       "count": 69,
-      "prev_count": 69,
-      "trend": 0,
-      "trend_pct": 0
+      "prev_count": null,
+      "trend": null,
+      "trend_pct": null
     },
     {
       "key": "5G & Reseaux Mobiles",
       "emoji": "📡",
       "count": 22,
-      "prev_count": 22,
-      "trend": 0,
-      "trend_pct": 0
+      "prev_count": null,
+      "trend": null,
+      "trend_pct": null
     },
     {
       "key": "Cybersecurite",
       "emoji": "🔒",
       "count": 21,
-      "prev_count": 21,
-      "trend": 0,
-      "trend_pct": 0
+      "prev_count": null,
+      "trend": null,
+      "trend_pct": null
     },
     {
       "key": "Cloud & Data Center",
       "emoji": "☁️",
       "count": 20,
-      "prev_count": 20,
-      "trend": 0,
-      "trend_pct": 0
+      "prev_count": null,
+      "trend": null,
+      "trend_pct": null
     },
     {
       "key": "Startups & Innovation",
       "emoji": "🚀",
       "count": 18,
-      "prev_count": 18,
-      "trend": 0,
-      "trend_pct": 0
+      "prev_count": null,
+      "trend": null,
+      "trend_pct": null
     },
     {
       "key": "Formation & Emploi TIC",
       "emoji": "🎓",
       "count": 15,
-      "prev_count": 15,
-      "trend": 0,
-      "trend_pct": 0
+      "prev_count": null,
+      "trend": null,
+      "trend_pct": null
     },
     {
       "key": "Regulation & Politique",
       "emoji": "⚖️",
       "count": 5,
-      "prev_count": 5,
-      "trend": 0,
-      "trend_pct": 0
+      "prev_count": null,
+      "trend": null,
+      "trend_pct": null
     },
     {
       "key": "Fibre Optique",
       "emoji": "🔌",
       "count": 4,
-      "prev_count": 4,
-      "trend": 0,
-      "trend_pct": 0
+      "prev_count": null,
+      "trend": null,
+      "trend_pct": null
     },
     {
       "key": "Satellite & Spatial",
       "emoji": "🛰️",
       "count": 4,
-      "prev_count": 4,
-      "trend": 0,
-      "trend_pct": 0
+      "prev_count": null,
+      "trend": null,
+      "trend_pct": null
     }
   ],
   "sentiment": {
@@ -123,11 +123,8 @@
     }
   ],
   "highlights": [
-    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 83 occurrences dans les publications.",
-    "Sentiment equilibre ce mois : 17% positif, 8% negatif sur 462 publications."
+    "\"Intelligence Artificielle\" est le sujet dominant cette semaine avec 83 occurrences dans les publications.",
+    "Sentiment equilibre cette semaine : 17% positif, 8% negatif sur 462 publications."
   ],
-  "previous_period": {
-    "period": "2026-06",
-    "period_label": "2026-06"
-  }
+  "previous_period": null
 }

@@ -1,0 +1,43 @@
+name: Barometre Hebdomadaire Algérie Digital
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'   # Chaque lundi à 06h00 UTC
+  workflow_dispatch:        # Lancement manuel possible
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install --production
+
+      - name: Generer le barometre hebdomadaire
+        run: node generate_barometre.js --mode weekly
+
+      - name: Commit et push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          WEEK=$(node -e "
+            const d=new Date(); const day=d.getDay()||7;
+            const lun=new Date(d); lun.setDate(d.getDate()-day+1);
+            const dim=new Date(lun); dim.setDate(lun.getDate()+6);
+            process.stdout.write('S '+lun.getDate()+'/'+(lun.getMonth()+1)+'-'+dim.getDate()+'/'+(dim.getMonth()+1));
+          ")
+          git add barometre_weekly.json barometre_weekly_history.json
+          git commit -m "Auto: Barometre Hebdo ${WEEK}" || echo "Pas de changements"
+          git push

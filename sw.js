@@ -34,6 +34,8 @@ const DATA_FILES = [
   '/revue_presse.json',
   '/barometre_data.json',
   '/barometre_history.json',
+  '/barometre_weekly.json',
+  '/barometre_weekly_history.json',
 ];
 
 // ────────────────────────────────────────────────────────────────────────────────

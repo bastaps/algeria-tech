@@ -316,6 +316,33 @@ body.dark-mode {
   margin-top: 32px; padding-bottom: 20px; line-height: 1.6;
 }
 
+/* ── Onglets semaine/mois ────────────────────────────────────────────── */
+.baro-tabs {
+  display: flex; gap: 0; margin: -28px auto 0; max-width: 340px;
+  position: relative; z-index: 3; border-radius: 14px; overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,.18);
+}
+.baro-tab {
+  flex: 1; padding: 12px 10px; border: none; cursor: pointer;
+  font-size: .83rem; font-weight: 700; letter-spacing: .02em;
+  transition: background .2s, color .2s; text-align: center;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.baro-tab.active {
+  background: #fff; color: var(--baro-green);
+}
+.baro-tab:not(.active) {
+  background: rgba(255,255,255,.18); color: rgba(255,255,255,.8);
+}
+.baro-tab:not(.active):hover {
+  background: rgba(255,255,255,.28); color: #fff;
+}
+.baro-tab-badge {
+  background: #fbbf24; color: #1a202c; border-radius: 8px;
+  padding: 1px 6px; font-size: .6rem; font-weight: 800;
+}
+body.dark-mode .baro-tab.active { background: #1e2535; }
+
 /* ── Loading ─────────────────────────────────────────────────────────── */
 .baro-loading {
   display: flex; align-items: center; justify-content: center;
@@ -367,6 +394,24 @@ body.dark-mode {
   </div>
 </header>
 
+<!-- Barre navigation rapide -->
+<nav class="quick-nav">
+  <div class="container">
+    <a class="qn-link" href="/#veille" onclick="sessionStorage.setItem('openSection','veille')">
+      <i class="fas fa-rss"></i> Veille
+    </a>
+    <a class="qn-link" href="/actualites-tic">
+      <i class="fas fa-share-alt"></i> Veille Réseaux Sociaux
+    </a>
+    <a class="qn-link" href="/#revue" onclick="sessionStorage.setItem('openSection','revue')">
+      <i class="fas fa-newspaper"></i> Revue de Presse
+    </a>
+    <a class="qn-link active qn-new" href="/barometre">
+      <i class="fas fa-chart-bar"></i> Baromètre <span class="qn-badge">NEW</span>
+    </a>
+  </div>
+</nav>
+
 <!-- ── CONTENU ─────────────────────────────────────────────────────────────── -->
 <div class="baro-page">
 
@@ -384,6 +429,16 @@ body.dark-mode {
         <i class="fas fa-envelope"></i> Recevoir par email
       </a>
     </div>
+  </div>
+
+  <!-- Onglets semaine / mois -->
+  <div class="baro-tabs" id="baroTabs">
+    <button class="baro-tab" id="tabWeekly" onclick="switchTab('weekly')">
+      <i class="fas fa-calendar-week"></i> Cette semaine
+    </button>
+    <button class="baro-tab active" id="tabMonthly" onclick="switchTab('monthly')">
+      <i class="fas fa-calendar-alt"></i> Ce mois <span class="baro-tab-badge">COMPLET</span>
+    </button>
   </div>
 
   <div class="baro-container">
@@ -533,25 +588,60 @@ if(localStorage.getItem('theme') === 'dark') {
 }
 
 /* ── Données rapport ─────────────────────────────────────────────────── */
-let BARO = null;
+let BARO_MONTHLY = null;
+let BARO_WEEKLY  = null;
+let BARO         = null;   // rapport actif
+let ACTIVE_TAB   = 'monthly';
 
 const COLORS_TOPICS = [
   '#006233','#00843f','#16a34a','#22c55e','#4ade80',
   '#0369a1','#0ea5e9','#7c3aed','#c026d3','#ea580c'
 ];
 
+let chartTopics_inst    = null;
+let chartSentiment_inst = null;
+
 async function loadBarometre() {
-  try {
-    const res = await fetch('/barometre_data.json');
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    BARO = await res.json();
-    renderAll();
-  } catch(e) {
+  // Charger les deux rapports en parallèle
+  const [monthly, weekly] = await Promise.allSettled([
+    fetch('/barometre_data.json').then(r => r.ok ? r.json() : null),
+    fetch('/barometre_weekly.json').then(r => r.ok ? r.json() : null),
+  ]);
+
+  BARO_MONTHLY = monthly.status === 'fulfilled' ? monthly.value : null;
+  BARO_WEEKLY  = weekly.status  === 'fulfilled' ? weekly.value  : null;
+
+  // Mettre à jour le badge de l'onglet semaine
+  if (BARO_WEEKLY) {
+    const tabW = document.getElementById('tabWeekly');
+    if (tabW) tabW.innerHTML = '<i class="fas fa-calendar-week"></i> ' + (BARO_WEEKLY.period_label || 'Cette semaine');
+  }
+
+  if (!BARO_MONTHLY && !BARO_WEEKLY) {
     document.getElementById('baroKpis').innerHTML =
       '<div class="baro-loading"><i class="fas fa-exclamation-triangle" style="font-size:2rem;color:#ef4444"></i>' +
-      '<span>Rapport non disponible. Revenez le 1er du mois.</span></div>';
+      '<span>Rapport non disponible. Revenez bientôt.</span></div>';
     document.getElementById('heroPeriod').textContent = 'Bientôt disponible';
+    return;
   }
+
+  switchTab('monthly');
+}
+
+function switchTab(tab) {
+  ACTIVE_TAB = tab;
+  BARO = tab === 'weekly' ? (BARO_WEEKLY || BARO_MONTHLY) : (BARO_MONTHLY || BARO_WEEKLY);
+  if (!BARO) return;
+
+  // Mettre à jour les onglets
+  document.getElementById('tabMonthly')?.classList.toggle('active', tab === 'monthly');
+  document.getElementById('tabWeekly')?.classList.toggle('active',  tab === 'weekly');
+
+  // Détruire les anciens charts
+  if (chartTopics_inst)    { chartTopics_inst.destroy();    chartTopics_inst    = null; }
+  if (chartSentiment_inst) { chartSentiment_inst.destroy(); chartSentiment_inst = null; }
+
+  renderAll();
 }
 
 function renderAll() {
@@ -638,7 +728,7 @@ function shortKey(key) {
 function renderTopicsChart(topics) {
   const isDark = document.body.classList.contains('dark-mode');
   const ctx = document.getElementById('chartTopics').getContext('2d');
-  new Chart(ctx, {
+  chartTopics_inst = new Chart(ctx, {
     type: 'bar',
     data: {
       labels: topics.map(t => t.emoji + ' ' + shortKey(t.key)),
@@ -666,7 +756,7 @@ function renderTopicsChart(topics) {
 
 function renderSentimentChart(s) {
   const ctx = document.getElementById('chartSentiment').getContext('2d');
-  new Chart(ctx, {
+  chartSentiment_inst = new Chart(ctx, {
     type: 'doughnut',
     data: {
       labels: ['Positif (' + s.positive_pct + '%)', 'Négatif (' + s.negative_pct + '%)', 'Neutre (' + s.neutral_pct + '%)'],

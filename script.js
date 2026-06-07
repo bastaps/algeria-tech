@@ -203,6 +203,14 @@ window.addEventListener('load', () => {
     loadArticles();
     updateWeather();
     loadVeille();
+
+    // Ouverture auto de section si retour depuis quick-nav d'une autre page
+    const openSection = sessionStorage.getItem('openSection');
+    if (openSection) {
+        sessionStorage.removeItem('openSection');
+        if (openSection === 'veille' && typeof showVeille === 'function') showVeille();
+        if (openSection === 'revue'  && typeof showRevue  === 'function') showRevue();
+    }
 });
 
 const dateSpan = document.getElementById('currentDate');
