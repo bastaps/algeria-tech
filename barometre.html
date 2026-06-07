@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baromètre Mensuel Algérie Digital — Algeria Tech</title>
+
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#006233">
+  <meta name="description" content="Rapport mensuel automatisé sur l'écosystème numérique algérien : sujets dominants, tendances, sentiment des acteurs TIC.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+
+<style>
+/* ── Variables ─────────────────────────────────────────────────────────── */
+:root {
+  --baro-green:  #006233;
+  --baro-red:    #D21034;
+  --baro-gold:   #F5A623;
+  --baro-bg:     #f4f6f9;
+  --baro-card:   #ffffff;
+  --baro-border: #e2e8f0;
+  --baro-text:   #1a202c;
+  --baro-muted:  #64748b;
+}
+body.dark-mode {
+  --baro-bg:     #111827;
+  --baro-card:   #1e2535;
+  --baro-border: #2d3748;
+  --baro-text:   #e2e8f0;
+  --baro-muted:  #94a3b8;
+}
+
+/* ── Layout ────────────────────────────────────────────────────────────── */
+.baro-page { background: var(--baro-bg); min-height: 100vh; padding-bottom: 60px; }
+.baro-container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* ── Hero ──────────────────────────────────────────────────────────────── */
+.baro-hero {
+  background: linear-gradient(135deg, #004d28 0%, #006233 50%, #00843f 100%);
+  color: #fff;
+  padding: 48px 20px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.baro-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.baro-hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,.15); border: 1px solid rgba(255,255,255,.3);
+  border-radius: 20px; padding: 4px 14px; font-size: .72rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase; margin-bottom: 16px;
+}
+.baro-hero h1 {
+  font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 900;
+  margin: 0 0 10px; letter-spacing: -.02em;
+}
+.baro-hero h1 span { color: #fbbf24; }
+.baro-hero-period {
+  font-size: 1.1rem; opacity: .85; font-weight: 500;
+  margin: 0 0 6px;
+}
+.baro-hero-generated { font-size: .72rem; opacity: .6; }
+.baro-hero-actions { margin-top: 24px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.btn-hero-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #fff; color: var(--baro-green);
+  border: none; border-radius: 10px; padding: 11px 22px;
+  font-size: .85rem; font-weight: 700; cursor: pointer;
+  text-decoration: none; transition: transform .15s, box-shadow .15s;
+  box-shadow: 0 4px 14px rgba(0,0,0,.15);
+}
+.btn-hero-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.2); }
+.btn-hero-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.15); color: #fff;
+  border: 1px solid rgba(255,255,255,.4); border-radius: 10px; padding: 11px 22px;
+  font-size: .85rem; font-weight: 600; cursor: pointer;
+  text-decoration: none; transition: background .2s;
+}
+.btn-hero-secondary:hover { background: rgba(255,255,255,.25); }
+
+/* ── Section titre ─────────────────────────────────────────────────────── */
+.baro-section { margin-top: 36px; }
+.baro-section-title {
+  font-size: 1rem; font-weight: 800; color: var(--baro-text);
+  text-transform: uppercase; letter-spacing: .07em;
+  display: flex; align-items: center; gap: 8px; margin-bottom: 16px;
+}
+.baro-section-title::after {
+  content: ''; flex: 1; height: 1px; background: var(--baro-border);
+}
+
+/* ── KPI cards ─────────────────────────────────────────────────────────── */
+.baro-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px; margin-top: -28px; position: relative; z-index: 2;
+}
+.kpi-card {
+  background: var(--baro-card);
+  border: 1px solid var(--baro-border);
+  border-radius: 16px;
+  padding: 20px 16px 18px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,.07);
+  transition: transform .2s;
+}
+.kpi-card:hover { transform: translateY(-2px); }
+.kpi-value {
+  display: block; font-size: 2.2rem; font-weight: 900;
+  color: var(--baro-green); line-height: 1; margin-bottom: 6px;
+}
+.kpi-value.neg { color: var(--baro-red); }
+.kpi-value.gold { color: var(--baro-gold); }
+.kpi-label {
+  font-size: .72rem; color: var(--baro-muted);
+  text-transform: uppercase; letter-spacing: .05em; font-weight: 600;
+}
+.kpi-sub {
+  font-size: .68rem; color: var(--baro-muted); margin-top: 3px;
+}
+
+/* ── Highlights ────────────────────────────────────────────────────────── */
+.baro-highlights {
+  display: flex; flex-direction: column; gap: 10px; margin-top: 20px;
+}
+.highlight-item {
+  background: var(--baro-card);
+  border-left: 4px solid var(--baro-green);
+  border-radius: 0 12px 12px 0;
+  padding: 12px 16px;
+  font-size: .85rem; color: var(--baro-text);
+  box-shadow: 0 1px 6px rgba(0,0,0,.05);
+  line-height: 1.5;
+}
+.highlight-item.neg { border-left-color: var(--baro-red); }
+
+/* ── Charts grid ───────────────────────────────────────────────────────── */
+.baro-charts {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;
+}
+@media (max-width: 720px) { .baro-charts { grid-template-columns: 1fr; } }
+.chart-card {
+  background: var(--baro-card);
+  border: 1px solid var(--baro-border);
+  border-radius: 16px; padding: 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+}
+.chart-card h3 {
+  font-size: .85rem; font-weight: 700; color: var(--baro-text);
+  margin: 0 0 16px;
+}
+.chart-canvas-wrap { position: relative; height: 220px; }
+
+/* ── Table Top 10 ─────────────────────────────────────────────────────── */
+.baro-table-card {
+  background: var(--baro-card);
+  border: 1px solid var(--baro-border);
+  border-radius: 16px; overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  margin-top: 20px;
+}
+.baro-table {
+  width: 100%; border-collapse: collapse; font-size: .83rem;
+}
+.baro-table th {
+  background: linear-gradient(135deg, #004d28, #006233);
+  color: #fff; padding: 12px 16px; text-align: left;
+  font-size: .7rem; letter-spacing: .06em; text-transform: uppercase;
+  font-weight: 700;
+}
+.baro-table td { padding: 11px 16px; border-bottom: 1px solid var(--baro-border); color: var(--baro-text); }
+.baro-table tr:last-child td { border-bottom: none; }
+.baro-table tr:hover td { background: rgba(0,98,51,.04); }
+.rank-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px; border-radius: 50%;
+  font-size: .75rem; font-weight: 800;
+}
+.rank-1 { background: #fbbf24; color: #000; }
+.rank-2 { background: #94a3b8; color: #fff; }
+.rank-3 { background: #cd7f32; color: #fff; }
+.rank-n { background: var(--baro-border); color: var(--baro-muted); }
+.trend-up   { color: #16a34a; font-weight: 700; font-size: .75rem; }
+.trend-down { color: var(--baro-red); font-weight: 700; font-size: .75rem; }
+.trend-none { color: var(--baro-muted); font-size: .75rem; }
+.progress-bar-wrap {
+  background: var(--baro-border); border-radius: 4px; height: 6px;
+  min-width: 60px; max-width: 120px;
+}
+.progress-bar { background: var(--baro-green); border-radius: 4px; height: 6px; transition: width .6s; }
+
+/* ── Sources ─────────────────────────────────────────────────────────── */
+.baro-sources {
+  display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px;
+}
+.source-chip {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--baro-card); border: 1px solid var(--baro-border);
+  border-radius: 20px; padding: 6px 14px;
+  font-size: .77rem; color: var(--baro-text); font-weight: 600;
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+}
+.source-chip .sc-count {
+  background: var(--baro-green); color: #fff;
+  border-radius: 10px; padding: 2px 7px; font-size: .65rem; font-weight: 700;
+}
+
+/* ── Pro lock ────────────────────────────────────────────────────────── */
+.baro-pro-wrap { position: relative; margin-top: 20px; }
+.baro-pro-blur { filter: blur(5px); pointer-events: none; user-select: none; }
+.baro-pro-lock {
+  position: absolute; inset: 0; z-index: 10;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,.35); border-radius: 16px;
+  backdrop-filter: blur(1px);
+}
+.baro-pro-cta {
+  background: var(--baro-card); border-radius: 20px;
+  padding: 32px 36px; text-align: center; max-width: 400px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.3);
+}
+.baro-pro-cta .lock-icon { font-size: 2.4rem; margin-bottom: 12px; display: block; }
+.baro-pro-cta h3 { font-size: 1.1rem; font-weight: 800; color: var(--baro-text); margin: 0 0 8px; }
+.baro-pro-cta p { font-size: .82rem; color: var(--baro-muted); margin: 0 0 20px; }
+.baro-pro-cta .cta-btns { display: flex; flex-direction: column; gap: 10px; }
+.btn-pdf {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: linear-gradient(135deg, #006233, #00a855);
+  color: #fff; border: none; border-radius: 12px; padding: 12px;
+  font-size: .85rem; font-weight: 700; cursor: pointer;
+  text-decoration: none; transition: opacity .2s, transform .15s;
+  box-shadow: 0 4px 14px rgba(0,98,51,.35);
+}
+.btn-pdf:hover { opacity: .9; transform: translateY(-1px); }
+.btn-subscribe {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  background: transparent; color: var(--baro-green);
+  border: 2px solid var(--baro-green); border-radius: 12px; padding: 10px;
+  font-size: .83rem; font-weight: 700; cursor: pointer;
+  text-decoration: none; transition: background .2s, color .2s;
+}
+.btn-subscribe:hover { background: var(--baro-green); color: #fff; }
+
+/* ── Subscription section ────────────────────────────────────────────── */
+.baro-subscribe {
+  background: linear-gradient(135deg, #004d28, #006233);
+  border-radius: 20px; padding: 40px 32px;
+  text-align: center; margin-top: 40px; color: #fff;
+}
+.baro-subscribe h2 { font-size: 1.4rem; font-weight: 800; margin: 0 0 10px; }
+.baro-subscribe p { font-size: .88rem; opacity: .85; margin: 0 0 24px; }
+.baro-plans {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px; max-width: 700px; margin: 0 auto 28px;
+}
+.plan-card {
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
+  border-radius: 16px; padding: 20px 16px;
+}
+.plan-card.featured {
+  background: rgba(255,255,255,.18); border-color: rgba(255,255,255,.5);
+  transform: scale(1.02);
+}
+.plan-name { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; opacity: .75; margin-bottom: 6px; }
+.plan-price { font-size: 1.8rem; font-weight: 900; margin-bottom: 4px; }
+.plan-price span { font-size: .85rem; font-weight: 400; opacity: .7; }
+.plan-features { list-style: none; padding: 0; margin: 12px 0 0; font-size: .78rem; text-align: left; }
+.plan-features li { padding: 3px 0; opacity: .85; }
+.plan-features li::before { content: '✓ '; color: #fbbf24; font-weight: 700; }
+.plan-features li.no::before { content: '✗ '; color: rgba(255,255,255,.4); }
+.plan-features li.no { opacity: .45; }
+.baro-form {
+  display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; max-width: 520px; margin: 0 auto;
+}
+.baro-form input {
+  flex: 1; min-width: 180px; padding: 12px 16px;
+  border: none; border-radius: 10px; font-size: .85rem;
+  background: rgba(255,255,255,.92); color: #1a202c;
+  outline: none;
+}
+.baro-form input:focus { background: #fff; }
+.baro-form button {
+  padding: 12px 24px; background: #fbbf24; color: #1a202c;
+  border: none; border-radius: 10px; font-size: .85rem; font-weight: 800;
+  cursor: pointer; transition: opacity .2s;
+  white-space: nowrap;
+}
+.baro-form button:hover { opacity: .9; }
+.form-success {
+  background: rgba(255,255,255,.15); border-radius: 10px;
+  padding: 14px 20px; font-size: .85rem; font-weight: 600;
+  display: none; margin-top: 10px;
+}
+
+/* ── Footer note ─────────────────────────────────────────────────────── */
+.baro-footer-note {
+  text-align: center; font-size: .72rem; color: var(--baro-muted);
+  margin-top: 32px; padding-bottom: 20px; line-height: 1.6;
+}
+
+/* ── Loading ─────────────────────────────────────────────────────────── */
+.baro-loading {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 300px; flex-direction: column; gap: 14px; color: var(--baro-muted);
+}
+.baro-spinner {
+  width: 44px; height: 44px; border: 3px solid var(--baro-border);
+  border-top-color: var(--baro-green); border-radius: 50%;
+  animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+
+<body>
+<!-- ── HEADER (identique index.html) ──────────────────────────────────────── -->
+<div class="reading-progress" id="readingProgress"></div>
+<header>
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-left">
+        <span><i class="fas fa-map-marker-alt" style="color:#D21034;margin-right:5px"></i> Alger, Algérie</span>
+        <span id="liveClock" style="font-weight:500;margin-left:8px"></span>
+        <span id="currentDate"></span>
+      </div>
+      <div class="top-bar-right">
+        <a href="https://www.youtube.com/@algeria-tech-by-basta" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="header">
+    <div class="container header-content">
+      <a href="/" class="logo" style="text-decoration:none">
+        <img src="/images/logo_v2.png" alt="Algeria Tech" class="logo-img">
+        <div class="logo-text"><h1>Algeria <span>Tech</span></h1><p>By Basta</p></div>
+      </a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="/">Accueil</a></li>
+          <li><a href="/actualites-tic">Veille Réseaux Sociaux</a></li>
+          <li><a href="/operateurs">Opérateurs</a></li>
+          <li><a href="/barometre" class="active" style="color:var(--primary);font-weight:700">📊 Baromètre</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ── CONTENU ─────────────────────────────────────────────────────────────── -->
+<div class="baro-page">
+
+  <!-- Hero -->
+  <div class="baro-hero">
+    <div class="baro-hero-badge"><i class="fas fa-chart-bar"></i> Rapport Mensuel</div>
+    <h1>Baromètre <span>Algérie Digital</span></h1>
+    <p class="baro-hero-period" id="heroPeriod">Chargement…</p>
+    <p class="baro-hero-generated" id="heroGenerated"></p>
+    <div class="baro-hero-actions">
+      <button class="btn-hero-primary" id="btnDownload" onclick="downloadPDF()">
+        <i class="fas fa-file-pdf"></i> Télécharger PDF
+      </button>
+      <a href="#subscribe" class="btn-hero-secondary">
+        <i class="fas fa-envelope"></i> Recevoir par email
+      </a>
+    </div>
+  </div>
+
+  <div class="baro-container">
+
+    <!-- KPI cards -->
+    <div class="baro-kpis" id="baroKpis">
+      <div class="baro-loading"><div class="baro-spinner"></div><span>Chargement du rapport…</span></div>
+    </div>
+
+    <!-- Highlights -->
+    <div class="baro-section">
+      <div class="baro-section-title"><i class="fas fa-lightbulb" style="color:#fbbf24"></i> Points clés du mois</div>
+      <div class="baro-highlights" id="baroHighlights"></div>
+    </div>
+
+    <!-- Charts section (TOP 5 gratuit) -->
+    <div class="baro-section">
+      <div class="baro-section-title"><i class="fas fa-chart-bar" style="color:var(--primary)"></i> Analyse gratuite — Top 5 sujets</div>
+      <div class="baro-charts">
+        <div class="chart-card">
+          <h3>🏆 Sujets dominants (Top 5)</h3>
+          <div class="chart-canvas-wrap"><canvas id="chartTopics"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <h3>💬 Sentiment des publications</h3>
+          <div class="chart-canvas-wrap"><canvas id="chartSentiment"></canvas></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section PRO verrouillée -->
+    <div class="baro-section">
+      <div class="baro-section-title"><i class="fas fa-lock" style="color:#fbbf24"></i> Rapport complet — Abonnés</div>
+      <div class="baro-pro-wrap">
+        <!-- Contenu flouté (rendu mais caché) -->
+        <div class="baro-pro-blur" id="proBlurContent">
+          <!-- Table Top 10 -->
+          <div class="baro-table-card">
+            <table class="baro-table" id="fullTop10Table">
+              <thead><tr>
+                <th>#</th><th>Sujet</th><th>Occurrences</th>
+                <th>vs mois préc.</th><th>Tendance</th>
+              </tr></thead>
+              <tbody id="top10Body"></tbody>
+            </table>
+          </div>
+          <!-- Sources -->
+          <div style="margin-top:20px">
+            <div class="baro-section-title"><i class="fas fa-newspaper"></i> Top sources actives</div>
+            <div class="baro-sources" id="topSourcesList"></div>
+          </div>
+        </div>
+        <!-- Overlay lock -->
+        <div class="baro-pro-lock">
+          <div class="baro-pro-cta">
+            <span class="lock-icon">📊</span>
+            <h3>Rapport complet disponible</h3>
+            <p>Top 10 détaillé · Comparatif mensuel · Classement des sources · Analyse de tendance</p>
+            <div class="cta-btns">
+              <button class="btn-pdf" onclick="downloadPDF()">
+                <i class="fas fa-file-pdf"></i> Télécharger le PDF complet — Gratuit
+              </button>
+              <a href="#subscribe" class="btn-subscribe">
+                <i class="fas fa-envelope"></i> Recevoir par email — 500 DA/mois
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section abonnement -->
+    <section class="baro-subscribe" id="subscribe">
+      <h2>📧 Recevoir le Baromètre chaque mois</h2>
+      <p>Entreprises, investisseurs et professionnels TIC — rapport complet livré automatiquement.</p>
+
+      <div class="baro-plans">
+        <div class="plan-card">
+          <div class="plan-name">Gratuit</div>
+          <div class="plan-price">0 <span>DA/mois</span></div>
+          <ul class="plan-features">
+            <li>Top 5 sujets</li>
+            <li>Sentiment global</li>
+            <li>Points clés</li>
+            <li class="no">Top 10 complet</li>
+            <li class="no">Comparatif mensuel</li>
+            <li class="no">Livraison par email</li>
+          </ul>
+        </div>
+        <div class="plan-card featured">
+          <div class="plan-name">⭐ Professionnel</div>
+          <div class="plan-price">500 <span>DA/mois</span></div>
+          <ul class="plan-features">
+            <li>Top 10 sujets + tendances</li>
+            <li>Analyse sentiment détaillée</li>
+            <li>Top sources + comparatif</li>
+            <li>PDF complet chaque 1er du mois</li>
+            <li>Archive 12 mois</li>
+            <li>Logo entreprise sur PDF</li>
+          </ul>
+        </div>
+      </div>
+
+      <form class="baro-form" id="subscribeForm" onsubmit="handleSubscribe(event)">
+        <input type="text" id="subCompany" placeholder="Entreprise / Organisation" required>
+        <input type="email" id="subEmail" placeholder="Email professionnel" required>
+        <button type="submit"><i class="fas fa-paper-plane"></i> S'abonner</button>
+      </form>
+      <div class="form-success" id="formSuccess">
+        ✅ Demande reçue ! Vous serez contacté dans les 48h pour activer votre abonnement.
+      </div>
+    </section>
+
+    <div class="baro-footer-note" id="baroFooterNote">
+      Rapport généré automatiquement depuis les flux RSS, réseaux sociaux TIC et revue de presse Algeria Tech.<br>
+      Données issues de l'agrégation de publications algériennes et internationales sur le numérique.
+    </div>
+
+  </div><!-- /baro-container -->
+</div><!-- /baro-page -->
+
+<!-- ── SCRIPTS ─────────────────────────────────────────────────────────────── -->
+<script>
+/* ── Horloge / date ─────────────────────────────────────────────────── */
+(function clock() {
+  const cl = document.getElementById('liveClock');
+  const cd = document.getElementById('currentDate');
+  function tick() {
+    const now = new Date();
+    if(cl) cl.textContent = now.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+    if(cd) cd.textContent = now.toLocaleDateString('fr-FR',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  }
+  tick(); setInterval(tick, 1000);
+})();
+
+/* ── Theme ──────────────────────────────────────────────────────────── */
+function toggleTheme() {
+  document.body.classList.toggle('dark-mode');
+  localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+  const ic = document.querySelector('.theme-toggle i');
+  if(ic) ic.className = document.body.classList.contains('dark-mode') ? 'fas fa-sun' : 'fas fa-moon';
+}
+if(localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark-mode');
+  const ic = document.querySelector('.theme-toggle i');
+  if(ic) ic.className = 'fas fa-sun';
+}
+
+/* ── Données rapport ─────────────────────────────────────────────────── */
+let BARO = null;
+
+const COLORS_TOPICS = [
+  '#006233','#00843f','#16a34a','#22c55e','#4ade80',
+  '#0369a1','#0ea5e9','#7c3aed','#c026d3','#ea580c'
+];
+
+async function loadBarometre() {
+  try {
+    const res = await fetch('/barometre_data.json');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    BARO = await res.json();
+    renderAll();
+  } catch(e) {
+    document.getElementById('baroKpis').innerHTML =
+      '<div class="baro-loading"><i class="fas fa-exclamation-triangle" style="font-size:2rem;color:#ef4444"></i>' +
+      '<span>Rapport non disponible. Revenez le 1er du mois.</span></div>';
+    document.getElementById('heroPeriod').textContent = 'Bientôt disponible';
+  }
+}
+
+function renderAll() {
+  const d = BARO;
+
+  /* Hero */
+  document.getElementById('heroPeriod').textContent = d.period_label || d.period;
+  if (d.generated) {
+    const gen = new Date(d.generated);
+    document.getElementById('heroGenerated').textContent =
+      'Généré le ' + gen.toLocaleDateString('fr-FR',{day:'numeric',month:'long',year:'numeric'}) +
+      ' à ' + gen.toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
+  }
+
+  /* KPI cards */
+  const prevLabel = d.previous_period ? 'vs ' + d.previous_period.period_label : '';
+  document.getElementById('baroKpis').innerHTML =
+    kpiCard(d.stats.articles_total, 'Publications analysées', d.stats.veille_articles + ' veille · ' + d.stats.social_posts + ' social', '') +
+    kpiCard(d.stats.sources_count,  'Sources actives', prevLabel, '') +
+    kpiCard(d.sentiment.positive_pct + '%', 'Sentiment positif', d.sentiment.negative_pct + '% négatif · ' + d.sentiment.neutral_pct + '% neutre', d.sentiment.positive_pct >= 35 ? '' : 'gold') +
+    kpiCard(d.top_topics[0] ? d.top_topics[0].emoji + ' ' + shortKey(d.top_topics[0].key) : '—', 'Sujet #1', d.top_topics[0] ? d.top_topics[0].count + ' occurrences' : '', '');
+
+  /* Highlights */
+  const hl = document.getElementById('baroHighlights');
+  hl.innerHTML = (d.highlights || []).map((h, i) =>
+    '<div class="highlight-item' + (h.includes('recul') || h.includes('négatif') ? ' neg' : '') + '">' + h + '</div>'
+  ).join('');
+
+  /* Charts */
+  renderTopicsChart(d.top_topics.slice(0, 5));
+  renderSentimentChart(d.sentiment);
+
+  /* Full Top 10 table */
+  const tbody = document.getElementById('top10Body');
+  const maxCount = d.top_topics[0]?.count || 1;
+  tbody.innerHTML = d.top_topics.map((t, i) => {
+    const rankClass = i === 0 ? 'rank-1' : i === 1 ? 'rank-2' : i === 2 ? 'rank-3' : 'rank-n';
+    const trendHtml = t.trend === null
+      ? '<span class="trend-none">—</span>'
+      : t.trend >= 0
+        ? '<span class="trend-up">▲ +' + t.trend + (t.trend_pct !== null ? ' (' + t.trend_pct + '%)' : '') + '</span>'
+        : '<span class="trend-down">▼ ' + t.trend + (t.trend_pct !== null ? ' (' + t.trend_pct + '%)' : '') + '</span>';
+    const pct = Math.round(t.count / maxCount * 100);
+    return '<tr>' +
+      '<td><span class="rank-badge ' + rankClass + '">' + (i+1) + '</span></td>' +
+      '<td>' + t.emoji + ' ' + t.key + '</td>' +
+      '<td><div style="display:flex;align-items:center;gap:8px">' +
+        '<b>' + t.count + '</b>' +
+        '<div class="progress-bar-wrap"><div class="progress-bar" style="width:' + pct + '%"></div></div>' +
+      '</div></td>' +
+      '<td>' + (t.prev_count !== null ? t.prev_count : '—') + '</td>' +
+      '<td>' + trendHtml + '</td>' +
+    '</tr>';
+  }).join('');
+
+  /* Top sources */
+  const srcList = document.getElementById('topSourcesList');
+  srcList.innerHTML = (d.top_sources || []).map(s =>
+    '<div class="source-chip"><i class="fas fa-newspaper" style="color:var(--baro-green);font-size:.75rem"></i>' +
+    s.source + '<span class="sc-count">' + s.count + '</span></div>'
+  ).join('');
+
+  /* Footer note */
+  if (d.stats) {
+    document.getElementById('baroFooterNote').innerHTML =
+      'Rapport <b>' + d.period_label + '</b> · ' + d.stats.articles_total + ' publications analysées depuis ' + d.stats.sources_count + ' sources<br>' +
+      (d.previous_period ? 'Comparatif avec ' + d.previous_period.period_label : 'Premier rapport — aucun comparatif disponible');
+  }
+}
+
+function kpiCard(value, label, sub, cls) {
+  return '<div class="kpi-card">' +
+    '<span class="kpi-value ' + (cls||'') + '">' + value + '</span>' +
+    '<span class="kpi-label">' + label + '</span>' +
+    (sub ? '<span class="kpi-sub">' + sub + '</span>' : '') +
+  '</div>';
+}
+
+function shortKey(key) {
+  return key.length > 18 ? key.substring(0, 16) + '…' : key;
+}
+
+/* ── Charts ─────────────────────────────────────────────────────────── */
+function renderTopicsChart(topics) {
+  const isDark = document.body.classList.contains('dark-mode');
+  const ctx = document.getElementById('chartTopics').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: topics.map(t => t.emoji + ' ' + shortKey(t.key)),
+      datasets: [{
+        label: 'Occurrences',
+        data: topics.map(t => t.count),
+        backgroundColor: topics.map((_, i) => COLORS_TOPICS[i] + 'cc'),
+        borderColor:     topics.map((_, i) => COLORS_TOPICS[i]),
+        borderWidth: 1.5, borderRadius: 6,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { color: isDark ? 'rgba(255,255,255,.07)' : 'rgba(0,0,0,.06)' },
+             ticks: { color: isDark ? '#94a3b8' : '#64748b', font: { size: 11 } } },
+        y: { grid: { display: false },
+             ticks: { color: isDark ? '#e2e8f0' : '#1a202c', font: { size: 11.5 } } },
+      }
+    }
+  });
+}
+
+function renderSentimentChart(s) {
+  const ctx = document.getElementById('chartSentiment').getContext('2d');
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Positif (' + s.positive_pct + '%)', 'Négatif (' + s.negative_pct + '%)', 'Neutre (' + s.neutral_pct + '%)'],
+      datasets: [{
+        data: [s.positive, s.negative, s.neutral],
+        backgroundColor: ['#16a34a','#dc2626','#94a3b8'],
+        borderWidth: 2, borderColor: ['#fff','#fff','#fff'],
+        hoverOffset: 8,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      cutout: '65%',
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: {
+            padding: 14, font: { size: 11.5 },
+            color: document.body.classList.contains('dark-mode') ? '#e2e8f0' : '#1a202c',
+          }
+        }
+      }
+    }
+  });
+}
+
+/* ── Génération PDF ──────────────────────────────────────────────────── */
+async function downloadPDF() {
+  if (!BARO) { alert('Rapport non encore chargé.'); return; }
+  const btn = document.getElementById('btnDownload');
+  if (btn) { btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Génération…'; btn.disabled = true; }
+
+  try {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+    const W = 210, M = 18, CW = W - M * 2;
+    let y = 0;
+
+    /* ── Page 1 : Couverture ── */
+    doc.setFillColor(0, 98, 51);
+    doc.rect(0, 0, W, 80, 'F');
+    doc.setFillColor(0, 132, 63);
+    doc.rect(0, 60, W, 20, 'F');
+
+    doc.setTextColor(255, 255, 255);
+    doc.setFont('helvetica','bold');
+    doc.setFontSize(22);
+    doc.text('Barometre Algerie Digital', M, 32);
+    doc.setFontSize(13);
+    doc.setFont('helvetica','normal');
+    doc.text('Rapport Mensuel — ' + (BARO.period_label || BARO.period), M, 42);
+    doc.setFontSize(9);
+    doc.text('Algeria Tech by Basta  |  algeria-tech.pages.dev', M, 72);
+
+    /* Cadres KPI */
+    y = 92;
+    const kpis = [
+      { v: BARO.stats.articles_total, l: 'Publications' },
+      { v: BARO.stats.sources_count,  l: 'Sources' },
+      { v: BARO.sentiment.positive_pct + '%', l: 'Sentiment +' },
+      { v: BARO.top_topics[0]?.emoji + ' ' + shortKey(BARO.top_topics[0]?.key || ''), l: 'Sujet #1' },
+    ];
+    const kpiW = (CW - 12) / 4;
+    kpis.forEach((k, i) => {
+      const x = M + i * (kpiW + 4);
+      doc.setFillColor(244, 246, 249);
+      doc.roundedRect(x, y, kpiW, 20, 3, 3, 'F');
+      doc.setFont('helvetica','bold'); doc.setFontSize(11); doc.setTextColor(0, 98, 51);
+      doc.text(String(k.v), x + kpiW / 2, y + 9, { align: 'center' });
+      doc.setFont('helvetica','normal'); doc.setFontSize(7.5); doc.setTextColor(100, 116, 139);
+      doc.text(k.l, x + kpiW / 2, y + 16, { align: 'center' });
+    });
+
+    /* Points cles */
+    y = 122;
+    doc.setFillColor(0, 98, 51);
+    doc.rect(M, y - 5, 3, BARO.highlights.length * 10 + 4, 'F');
+    doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.setTextColor(0, 98, 51);
+    doc.text('Points cles du mois', M + 6, y);
+    y += 8;
+    doc.setFont('helvetica','normal'); doc.setFontSize(8.5); doc.setTextColor(26, 32, 44);
+    BARO.highlights.forEach(h => {
+      const lines = doc.splitTextToSize('• ' + h.replace(/[""«»]/g, '"'), CW - 6);
+      lines.forEach(l => { doc.text(l, M + 6, y); y += 5.5; });
+      y += 1;
+    });
+
+    /* ── Page 2 : Top 10 ── */
+    doc.addPage();
+    y = M;
+    doc.setFont('helvetica','bold'); doc.setFontSize(14); doc.setTextColor(0, 98, 51);
+    doc.text('Top 10 — Sujets les plus traites', M, y); y += 10;
+
+    /* En-tête table */
+    doc.setFillColor(0, 98, 51);
+    doc.rect(M, y, CW, 8, 'F');
+    doc.setFont('helvetica','bold'); doc.setFontSize(8); doc.setTextColor(255, 255, 255);
+    const cols = [M+2, M+14, M+80, M+108, M+136];
+    ['#','Sujet','Occurrences','Mois préc.','Tendance'].forEach((h, i) => doc.text(h, cols[i], y + 5.5));
+    y += 8;
+
+    BARO.top_topics.forEach((t, i) => {
+      const bg = i % 2 === 0 ? [249, 250, 251] : [255, 255, 255];
+      doc.setFillColor(...bg);
+      doc.rect(M, y, CW, 9, 'F');
+      doc.setFont('helvetica', i < 3 ? 'bold' : 'normal');
+      doc.setFontSize(8.5); doc.setTextColor(26, 32, 44);
+      doc.text(String(i + 1), cols[0], y + 6);
+      doc.text(t.key, cols[1], y + 6);
+      doc.text(String(t.count), cols[2], y + 6);
+      doc.text(t.prev_count !== null ? String(t.prev_count) : '—', cols[3], y + 6);
+      const trendStr = t.trend === null ? '—'
+        : (t.trend >= 0 ? '+' + t.trend : String(t.trend)) +
+          (t.trend_pct !== null ? ' (' + t.trend_pct + '%)' : '');
+      if (t.trend !== null) {
+        doc.setTextColor(t.trend >= 0 ? 22 : 220, t.trend >= 0 ? 163 : 38, t.trend >= 0 ? 74 : 38);
+      }
+      doc.text(trendStr, cols[4], y + 6);
+      doc.setTextColor(26, 32, 44);
+      y += 9;
+    });
+
+    y += 8;
+    /* Top sources */
+    doc.setFont('helvetica','bold'); doc.setFontSize(11); doc.setTextColor(0, 98, 51);
+    doc.text('Top sources actives', M, y); y += 7;
+    BARO.top_sources.forEach((s, i) => {
+      doc.setFont('helvetica', i === 0 ? 'bold' : 'normal');
+      doc.setFontSize(9); doc.setTextColor(26, 32, 44);
+      doc.text((i+1) + '.  ' + s.source + '  — ' + s.count + ' publications', M + 4, y);
+      y += 6.5;
+    });
+
+    /* Comparatif periode */
+    if (BARO.previous_period) {
+      y += 6;
+      doc.setFont('helvetica','bold'); doc.setFontSize(11); doc.setTextColor(0, 98, 51);
+      doc.text('Comparatif vs ' + BARO.previous_period.period_label, M, y); y += 7;
+      doc.setFont('helvetica','normal'); doc.setFontSize(8.5); doc.setTextColor(100, 116, 139);
+      const rising  = BARO.top_topics.filter(t => t.trend_pct >= 20);
+      const falling = BARO.top_topics.filter(t => t.trend_pct !== null && t.trend_pct <= -20);
+      if (rising.length) {
+        doc.setTextColor(22, 163, 74);
+        doc.text('En hausse : ' + rising.map(t => t.key + ' (+' + t.trend_pct + '%)').join(', '), M + 4, y); y += 6;
+      }
+      if (falling.length) {
+        doc.setTextColor(220, 38, 38);
+        doc.text('En recul : ' + falling.map(t => t.key + ' (' + t.trend_pct + '%)').join(', '), M + 4, y); y += 6;
+      }
+    }
+
+    /* Pied de page */
+    [1, 2].forEach(p => {
+      doc.setPage(p);
+      doc.setFillColor(0, 98, 51);
+      doc.rect(0, 285, W, 12, 'F');
+      doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(255, 255, 255);
+      doc.text('Algeria Tech — Barometre ' + (BARO.period_label || BARO.period) +
+        '  |  algeria-tech.pages.dev  |  Genere le ' + new Date().toLocaleDateString('fr-FR'),
+        W / 2, 292, { align: 'center' });
+    });
+
+    doc.save('Barometre-Algerie-Digital-' + BARO.period + '.pdf');
+  } catch(e) {
+    console.error('PDF error:', e);
+    alert('Erreur lors de la génération du PDF. Vérifiez que le navigateur est à jour.');
+  } finally {
+    if (btn) { btn.innerHTML = '<i class="fas fa-file-pdf"></i> Télécharger PDF'; btn.disabled = false; }
+  }
+}
+
+/* ── Formulaire abonnement ───────────────────────────────────────────── */
+function handleSubscribe(e) {
+  e.preventDefault();
+  const company = document.getElementById('subCompany').value;
+  const email   = document.getElementById('subEmail').value;
+  // mailto de secours (à remplacer par Formspree ou webhook)
+  const subject = encodeURIComponent('Abonnement Barometre Algerie Digital — ' + company);
+  const body    = encodeURIComponent('Entreprise : ' + company + '\nEmail : ' + email + '\n\nJe souhaite souscrire au Barometre Mensuel Algerie Digital (500 DA/mois).');
+  window.location.href = 'mailto:contact@algeria-tech.dz?subject=' + subject + '&body=' + body;
+  document.getElementById('formSuccess').style.display = 'block';
+  document.getElementById('subscribeForm').reset();
+}
+
+/* ── Init ─────────────────────────────────────────────────────────────── */
+window.addEventListener('DOMContentLoaded', loadBarometre);
+</script>
+</body>
+</html>

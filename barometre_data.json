@@ -1,0 +1,129 @@
+{
+  "generated": "2026-06-07T11:51:29.599Z",
+  "period": "2026-06",
+  "period_label": "Juin 2026",
+  "stats": {
+    "articles_total": 462,
+    "veille_articles": 150,
+    "social_posts": 300,
+    "presse_articles": 12,
+    "sources_count": 31
+  },
+  "top_topics": [
+    {
+      "key": "Intelligence Artificielle",
+      "emoji": "🤖",
+      "count": 84,
+      "prev_count": null,
+      "trend": null,
+      "trend_pct": null
+    },
+    {
+      "key": "Operateurs & Telecom",
+      "emoji": "📶",
+      "count": 69,
+      "prev_count": null,
+      "trend": null,
+      "trend_pct": null
+    },
+    {
+      "key": "5G & Reseaux Mobiles",
+      "emoji": "📡",
+      "count": 22,
+      "prev_count": null,
+      "trend": null,
+      "trend_pct": null
+    },
+    {
+      "key": "Cybersecurite",
+      "emoji": "🔒",
+      "count": 21,
+      "prev_count": null,
+      "trend": null,
+      "trend_pct": null
+    },
+    {
+      "key": "Cloud & Data Center",
+      "emoji": "☁️",
+      "count": 20,
+      "prev_count": null,
+      "trend": null,
+      "trend_pct": null
+    },
+    {
+      "key": "Startups & Innovation",
+      "emoji": "🚀",
+      "count": 18,
+      "prev_count": null,
+      "trend": null,
+      "trend_pct": null
+    },
+    {
+      "key": "Formation & Emploi TIC",
+      "emoji": "🎓",
+      "count": 15,
+      "prev_count": null,
+      "trend": null,
+      "trend_pct": null
+    },
+    {
+      "key": "Regulation & Politique",
+      "emoji": "⚖️",
+      "count": 5,
+      "prev_count": null,
+      "trend": null,
+      "trend_pct": null
+    },
+    {
+      "key": "Fibre Optique",
+      "emoji": "🔌",
+      "count": 4,
+      "prev_count": null,
+      "trend": null,
+      "trend_pct": null
+    },
+    {
+      "key": "Satellite & Spatial",
+      "emoji": "🛰️",
+      "count": 4,
+      "prev_count": null,
+      "trend": null,
+      "trend_pct": null
+    }
+  ],
+  "sentiment": {
+    "positive": 80,
+    "negative": 36,
+    "neutral": 346,
+    "positive_pct": 17,
+    "negative_pct": 8,
+    "neutral_pct": 75
+  },
+  "top_sources": [
+    {
+      "source": "TechCrunch",
+      "count": 106
+    },
+    {
+      "source": "ZDNet France",
+      "count": 59
+    },
+    {
+      "source": "ZDNET",
+      "count": 41
+    },
+    {
+      "source": "Algérie Éco",
+      "count": 34
+    },
+    {
+      "source": "Algerie Eco",
+      "count": 29
+    }
+  ],
+  "highlights": [
+    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 84 occurrences dans les publications.",
+    "Sentiment global equilibre : 17% positif, 8% negatif sur 462 publications."
+  ],
+  "previous_period": null
+}

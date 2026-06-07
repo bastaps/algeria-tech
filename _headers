@@ -25,6 +25,12 @@
 /revue_presse.json
   Cache-Control: public, max-age=300, stale-while-revalidate=3600
 
+/barometre_data.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/barometre_history.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
 # ── Assets statiques : toujours revalidés (ETag → 304 si inchangé, ~5ms) ───────
 # max-age=0 supprimé : avec Cache First SW + max-age=86400, le contenu périmait 24h.
 # Network First SW + no-cache = le navigateur valide avec le serveur à chaque visite.

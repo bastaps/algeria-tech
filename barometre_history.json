@@ -1,0 +1,54 @@
+{
+  "months": [
+    {
+      "period": "2026-06",
+      "generated": "2026-06-07T11:51:29.599Z",
+      "articles_total": 462,
+      "topics": [
+        {
+          "key": "Intelligence Artificielle",
+          "count": 84
+        },
+        {
+          "key": "Operateurs & Telecom",
+          "count": 69
+        },
+        {
+          "key": "5G & Reseaux Mobiles",
+          "count": 22
+        },
+        {
+          "key": "Cybersecurite",
+          "count": 21
+        },
+        {
+          "key": "Cloud & Data Center",
+          "count": 20
+        },
+        {
+          "key": "Startups & Innovation",
+          "count": 18
+        },
+        {
+          "key": "Formation & Emploi TIC",
+          "count": 15
+        },
+        {
+          "key": "Regulation & Politique",
+          "count": 5
+        },
+        {
+          "key": "Fibre Optique",
+          "count": 4
+        },
+        {
+          "key": "Satellite & Spatial",
+          "count": 4
+        }
+      ],
+      "sentiment_pos_pct": 17,
+      "sentiment_neg_pct": 8,
+      "top_topic": "Intelligence Artificielle"
+    }
+  ]
+}

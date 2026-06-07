@@ -1,0 +1,38 @@
+name: Barometre Mensuel Algérie Digital
+
+on:
+  schedule:
+    - cron: '0 6 1 * *'   # Le 1er de chaque mois à 06h00 UTC
+  workflow_dispatch:        # Lancement manuel possible depuis GitHub Actions
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install --production
+
+      - name: Generer le barometre mensuel
+        run: node generate_barometre.js
+
+      - name: Commit et push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          PERIOD=$(node -e "const d=new Date();process.stdout.write(d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'))")
+          git add barometre_data.json barometre_history.json
+          git commit -m "Auto: Barometre Mensuel ${PERIOD}" || echo "Pas de changements"
+          git push

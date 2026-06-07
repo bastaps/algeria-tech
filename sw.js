@@ -32,6 +32,8 @@ const DATA_FILES = [
   '/veille_data.json',
   '/tic_social.json',
   '/revue_presse.json',
+  '/barometre_data.json',
+  '/barometre_history.json',
 ];
 
 // ────────────────────────────────────────────────────────────────────────────────
