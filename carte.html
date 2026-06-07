@@ -29,13 +29,13 @@
 .map-mode-btns{display:flex;gap:6px}
 .mmb{padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--bg);font-size:.75rem;cursor:pointer;font-weight:600;transition:.2s}
 .mmb.active{background:var(--primary);color:#fff;border-color:var(--primary)}
-#mapSvg{display:block;width:100%;height:auto;background:#f4f7fa}
-/* stroke via CSS = overridable par :hover et .selected */
-#mapSvg path{cursor:pointer;stroke:#c8d6de;stroke-width:.5px;transition:filter .15s,opacity .15s}
-#mapSvg path:hover{filter:brightness(1.12);stroke-width:1.2px;stroke:#D21034}
-#mapSvg path.selected{stroke:#D21034;stroke-width:2px;filter:brightness(1.2)}
-body.dark-mode #mapSvg{background:#1a2535}
-body.dark-mode #mapSvg path{stroke:#2d4050}
+#mapSvg{display:block;width:100%;height:auto;background:#edf2f7}
+/* Stroke blanc = frontiere visible sur n'importe quelle couleur de fill */
+#mapSvg path{cursor:pointer;stroke:#ffffff;stroke-width:.8px;transition:filter .15s,opacity .15s}
+#mapSvg path:hover{filter:brightness(1.15);stroke-width:1.5px;stroke:#D21034}
+#mapSvg path.selected{stroke:#D21034;stroke-width:2.5px;filter:brightness(1.2)}
+body.dark-mode #mapSvg{background:#131e2b}
+body.dark-mode #mapSvg path{stroke:#0d1720}
 
 /* ── Tooltip ─────────────────────────────────────── */
 .map-tip{position:fixed;pointer-events:none;z-index:9999;background:var(--bg-white);border:1px solid var(--border);border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,.18);padding:0;min-width:220px;max-width:260px;opacity:0;transition:opacity .15s;overflow:hidden}
@@ -389,21 +389,14 @@ function drawMap(geo) {
 
   svg.selectAll('*').remove();
 
-  // Shadow filter
-  const defs = svg.append('defs');
-  const filter = defs.append('filter').attr('id','dropshadow');
-  filter.append('feDropShadow').attr('dx',0).attr('dy',1).attr('stdDeviation',1).attr('flood-opacity',.12);
-
   const g = svg.append('g');
 
-  g.selectAll('path')
+  const paths = g.selectAll('path')
     .data(geo.features)
     .join('path')
     .attr('d', pathGen)
     // .style() = inline style, priorite maximale dans le cascade CSS
-    // Ne pas utiliser .attr() qui est un presentation attribute (priorite minimale SVG)
     .style('fill', d => getFill(d.properties.name))
-    .attr('filter','url(#dropshadow)')
     .on('mouseover', (evt, d) => showTip(evt, d))
     .on('mousemove', (evt) => moveTip(evt))
     .on('mouseout', hideTip)
