@@ -1,17 +1,20 @@
 /**
- * Algeria Tech — Service Worker v5
+ * Algeria Tech — Service Worker v7
  *
- * HTML             → Network First          (toujours frais ; cache = fallback hors-ligne uniquement)
- * CSS / JS / fonts → Cache First            (instantané dès la 2e visite)
+ * HTML             → Network First          (toujours frais ; cache = fallback hors-ligne)
+ * CSS / JS         → Network First          (toujours frais ; cache = fallback hors-ligne)
+ *                    (Cache First supprimé : causait l'affichage de versions périmées
+ *                     après déploiement même avec Ctrl+F5 non effectué)
  * Images           → Cache First (80 max)   (instantané + quota limité)
  * JSON / données   → Stale-While-Revalidate (rapide + mise à jour en fond)
  * /api/*           → Réseau seul            (dynamique, jamais mis en cache)
  *
- * Règle fondamentale : le HTML n'est JAMAIS servi depuis le cache en priorité.
- * Cela évite de servir une version obsolète après un déploiement.
+ * Règle fondamentale : HTML, CSS et JS ne sont JAMAIS servis depuis le cache en priorité.
+ * Le cache ne sert que de fallback hors-ligne. Cloudflare Edge + ETags (304) assurent
+ * la rapidité des requêtes réseau sans contenu périmé.
  */
 
-const CACHE_VERSION = 'algeria-tech-v6';
+const CACHE_VERSION = 'algeria-tech-v7';
 const CACHE_IMAGES  = 'algeria-tech-images-v1';
 
 // ── Assets locaux pré-cachés (HTML et CDN exclus volontairement) ──────────────
@@ -107,8 +110,11 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // ── 5. CSS, JS locaux → Cache First ──────────────────────────────────────
-  event.respondWith(cacheFirst(event.request, CACHE_VERSION));
+  // ── 5. CSS, JS locaux → Network First ────────────────────────────────────
+  //    Toujours récupéré depuis le réseau pour refléter le dernier déploiement.
+  //    ETags Cloudflare → 304 Not Modified (~5ms) si inchangé.
+  //    Cache = fallback offline uniquement.
+  event.respondWith(networkFirst(event.request));
 });
 
 // ────────────────────────────────────────────────────────────────────────────────

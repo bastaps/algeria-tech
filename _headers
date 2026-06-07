@@ -25,12 +25,14 @@
 /revue_presse.json
   Cache-Control: public, max-age=300, stale-while-revalidate=3600
 
-# ── Assets statiques : cache 24h (le SW prend le relais pour l'instantané) ────
+# ── Assets statiques : toujours revalidés (ETag → 304 si inchangé, ~5ms) ───────
+# max-age=0 supprimé : avec Cache First SW + max-age=86400, le contenu périmait 24h.
+# Network First SW + no-cache = le navigateur valide avec le serveur à chaque visite.
 /style.css
-  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+  Cache-Control: no-cache, must-revalidate
 
 /script.js
-  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+  Cache-Control: no-cache, must-revalidate
 
 /manifest.json
   Cache-Control: public, max-age=86400
