@@ -376,10 +376,14 @@ async function init() {
 // ═══════════════════════════════════════════════════════
 function drawMap(geo) {
   const svg = d3.select('#mapSvg');
-  const W = document.getElementById('mapSvg').clientWidth || 700;
+  // Dimensions FIXES correspondant au viewBox "0 0 700 650"
+  // Ne pas utiliser clientWidth : il retourne la largeur CSS (ex. 900px)
+  // ce qui projette Algeria hors du viewBox et rend la carte invisible.
+  const W = 700;
   const H = 650;
 
-  const proj = d3.geoMercator().fitSize([W, H], geo);
+  // fitExtent garantit un padding de 12px sur chaque bord
+  const proj = d3.geoMercator().fitExtent([[12, 12], [W-12, H-12]], geo);
   const pathGen = d3.geoPath().projection(proj);
 
   svg.selectAll('*').remove();
@@ -395,8 +399,11 @@ function drawMap(geo) {
     .data(geo.features)
     .join('path')
     .attr('d', pathGen)
+    // Fill TOUJOURS inline — ne jamais retourner null ni dependre d'une classe CSS
+    // (style.css peut overrider les classes SVG via specifite plus haute)
     .attr('fill', d => getFill(d.properties.name))
-    .attr('class', d => getCount(d.properties.name) === 0 ? 'map-no-data' : '')
+    .attr('stroke', '#ffffff')
+    .attr('stroke-width', '0.4')
     .attr('filter','url(#dropshadow)')
     .on('mouseover', (evt, d) => showTip(evt, d))
     .on('mousemove', (evt) => moveTip(evt))
@@ -412,7 +419,7 @@ function drawMap(geo) {
     .join('text')
     .attr('transform', d => {
       const c = pathGen.centroid(d);
-      return `translate(${c[0]},${c[1]})`;
+      return 'translate(' + c[0] + ',' + c[1] + ')';
     })
     .attr('text-anchor','middle')
     .attr('dominant-baseline','middle')
@@ -427,13 +434,15 @@ function drawMap(geo) {
 function getFill(name) {
   if (gMode === '4g') {
     const wd = WD[name];
-    if (!wd) return '#e0e0e0';
+    if (!wd) return '#cccccc';
     const pct = wd.g4 / 100;
     return d3.interpolateRgb('#fff3e0', '#e65100')(pct);
   }
   const cnt = getCount(name);
-  if (cnt === 0) return null; // CSS class map-no-data handles it
-  return d3.interpolateRgb('#c8e6c9', '#006233')(Math.min(cnt / gMaxCount, 1));
+  // Toujours retourner une couleur concrete — jamais null
+  // (null retire l'attribut fill et casse le rendu SVG)
+  if (cnt === 0) return '#dde1e7';
+  return d3.interpolateRgb('#c8e6c9', '#006233')(Math.min(cnt / Math.max(gMaxCount, 1), 1));
 }
 
 function getCount(name) {
