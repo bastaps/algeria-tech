@@ -1683,6 +1683,45 @@ body.dark-mode .wc-item:hover { background: rgba(255,255,255,0.11); }
 .wc-item span { font-size: 0.62rem; color: #888; text-transform: uppercase; letter-spacing: 0.04em; line-height: 1.2; }
 .wc-item b { font-size: 0.9rem; color: var(--text-dark); font-weight: 700; }
 
+/* Previsions 7 jours */
+.wc-week {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 6px 8px;
+    margin: 8px -16px 12px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+.wc-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    flex: 1;
+    text-align: center;
+}
+.wc-day-name {
+    font-size: 0.58rem;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.wc-day i { font-size: 0.88rem; }
+.wc-day-max {
+    font-size: 0.73rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    line-height: 1;
+}
+.wc-day-min {
+    font-size: 0.62rem;
+    color: #aaa;
+    line-height: 1;
+}
+body.dark-mode .wc-day-name { color: rgba(255,255,255,.5); }
+body.dark-mode .wc-day-min  { color: rgba(255,255,255,.35); }
+
 /* Bouton lien */
 .wc-link {
     display: block;

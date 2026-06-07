@@ -1413,6 +1413,7 @@ async function updateWeather() {
             '?latitude=36.7525&longitude=3.04197' +
             '&current=temperature_2m,apparent_temperature,relative_humidity_2m,' +
             'weather_code,wind_speed_10m,wind_direction_10m,uv_index,cloud_cover' +
+            '&daily=temperature_2m_max,temperature_2m_min,weather_code' +
             '&timezone=Africa%2FAlgiers'
         );
         const d = await res.json();
@@ -1428,6 +1429,26 @@ async function updateWeather() {
         const uv     = c.uv_index   != null ? Math.round(c.uv_index)    : null;
         const uvInfo = uv != null ? _uvLabel(uv) : null;
         const now    = new Date().toLocaleTimeString('fr-FR', { hour:'2-digit', minute:'2-digit' });
+
+        // Previsions semaine (7 jours)
+        const DAY_FR = ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'];
+        const days   = d.daily;
+        let weekHtml = '<div class="wc-week">';
+        for (let k = 0; k < Math.min(7, (days && days.time ? days.time.length : 0)); k++) {
+            const dayDate = new Date(days.time[k]);
+            const dayName = k === 0 ? 'Auj.' : DAY_FR[dayDate.getDay()];
+            const { i: dIcon, c: dColor } = _wxIcon(days.weather_code[k]);
+            const dMax = Math.round(days.temperature_2m_max[k]);
+            const dMin = Math.round(days.temperature_2m_min[k]);
+            weekHtml +=
+                '<div class="wc-day">' +
+                    '<span class="wc-day-name">' + dayName + '</span>' +
+                    '<i class="fas ' + dIcon + '" style="color:' + dColor + '"></i>' +
+                    '<span class="wc-day-max">' + dMax + '&#176;</span>' +
+                    '<span class="wc-day-min">' + dMin + '&#176;</span>' +
+                '</div>';
+        }
+        weekHtml += '</div>';
 
         // Topbar
         widget.innerHTML = '<i class="fas ' + icon + '" style="color:' + color + ';margin-right:4px;"></i><b>' + temp + '&#176;C</b>';
@@ -1484,6 +1505,7 @@ async function updateWeather() {
                         '</div>' +
                         uvRow +
                     '</div>' +
+                    weekHtml +
                     '<a href="https://www.meteo.dz/" target="_blank" rel="noopener" class="wc-link">' +
                         'Meteo complete &mdash; meteo.dz &#8594;' +
                     '</a>' +
