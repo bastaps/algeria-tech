@@ -29,12 +29,13 @@
 .map-mode-btns{display:flex;gap:6px}
 .mmb{padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--bg);font-size:.75rem;cursor:pointer;font-weight:600;transition:.2s}
 .mmb.active{background:var(--primary);color:#fff;border-color:var(--primary)}
-#mapSvg{display:block;width:100%;height:auto}
-#mapSvg path{cursor:pointer;stroke:#fff;stroke-width:.4px;transition:filter .15s,opacity .15s}
-#mapSvg path:hover{filter:brightness(1.18);stroke-width:1px;stroke:#D21034}
-#mapSvg path.selected{stroke:#D21034;stroke-width:2px;filter:brightness(1.25)}
-.map-no-data{fill:#dde1e7}
-body.dark-mode .map-no-data{fill:#2d3748}
+#mapSvg{display:block;width:100%;height:auto;background:#f4f7fa}
+/* stroke via CSS = overridable par :hover et .selected */
+#mapSvg path{cursor:pointer;stroke:#c8d6de;stroke-width:.5px;transition:filter .15s,opacity .15s}
+#mapSvg path:hover{filter:brightness(1.12);stroke-width:1.2px;stroke:#D21034}
+#mapSvg path.selected{stroke:#D21034;stroke-width:2px;filter:brightness(1.2)}
+body.dark-mode #mapSvg{background:#1a2535}
+body.dark-mode #mapSvg path{stroke:#2d4050}
 
 /* ── Tooltip ─────────────────────────────────────── */
 .map-tip{position:fixed;pointer-events:none;z-index:9999;background:var(--bg-white);border:1px solid var(--border);border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,.18);padding:0;min-width:220px;max-width:260px;opacity:0;transition:opacity .15s;overflow:hidden}
@@ -399,11 +400,9 @@ function drawMap(geo) {
     .data(geo.features)
     .join('path')
     .attr('d', pathGen)
-    // Fill TOUJOURS inline — ne jamais retourner null ni dependre d'une classe CSS
-    // (style.css peut overrider les classes SVG via specifite plus haute)
-    .attr('fill', d => getFill(d.properties.name))
-    .attr('stroke', '#ffffff')
-    .attr('stroke-width', '0.4')
+    // .style() = inline style, priorite maximale dans le cascade CSS
+    // Ne pas utiliser .attr() qui est un presentation attribute (priorite minimale SVG)
+    .style('fill', d => getFill(d.properties.name))
     .attr('filter','url(#dropshadow)')
     .on('mouseover', (evt, d) => showTip(evt, d))
     .on('mousemove', (evt) => moveTip(evt))
@@ -432,17 +431,17 @@ function drawMap(geo) {
 }
 
 function getFill(name) {
+  const dark = document.body.classList.contains('dark-mode');
   if (gMode === '4g') {
     const wd = WD[name];
-    if (!wd) return '#cccccc';
+    if (!wd) return dark ? '#2d4050' : '#b8c8d0';
     const pct = wd.g4 / 100;
-    return d3.interpolateRgb('#fff3e0', '#e65100')(pct);
+    return d3.interpolateRgb(dark ? '#3d2000' : '#fde8c8', dark ? '#c84800' : '#e65100')(pct);
   }
   const cnt = getCount(name);
-  // Toujours retourner une couleur concrete — jamais null
-  // (null retire l'attribut fill et casse le rendu SVG)
-  if (cnt === 0) return '#dde1e7';
-  return d3.interpolateRgb('#c8e6c9', '#006233')(Math.min(cnt / Math.max(gMaxCount, 1), 1));
+  // Couleur visible sur fond #f4f7fa — le gris #dde1e7 avait contraste 1.24:1 (invisible)
+  if (cnt === 0) return dark ? '#2a3f4e' : '#9db4bf';
+  return d3.interpolateRgb(dark ? '#1a4a28' : '#b8dfc0', dark ? '#00cc66' : '#005a2e')(Math.min(cnt / Math.max(gMaxCount, 1), 1));
 }
 
 function getCount(name) {
@@ -579,8 +578,8 @@ function setMode(m) {
     document.getElementById('legMax').textContent = gMaxCount + '+';
   }
 
-  // Recalorer la carte
-  d3.selectAll('#mapSvg path').attr('fill', d => getFill(d.properties.name));
+  // Recalorer la carte (inline style pour garantir la priorite CSS)
+  d3.selectAll('#mapSvg path').style('fill', d => getFill(d.properties.name));
 }
 
 // ═══════════════════════════════════════════════════════
