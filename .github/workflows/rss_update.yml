@@ -2,7 +2,7 @@ name: Actualisation Flux RSS
 
 on:
   schedule:
-    - cron: '0 * * * *' # S'exécute toutes les heures
+    - cron: '0 */4 * * *' # Toutes les 4 heures (rss-parser direct, pas de quota API)
   workflow_dispatch: # Permet de le lancer manuellement
 
 permissions:
