@@ -1805,3 +1805,170 @@ body.dark-mode .wc-day-min  { color: rgba(255,255,255,.35); }
     100% { opacity: 1;   transform: scale(1); }
 }
 .weather-trigger.updating { animation: weatherPulse 0.4s ease forwards; }
+
+
+/* ══════════════════════════════════════════════════════════════════
+   ALGERIA TECH — VERSION ARABE / RTL  v1.0
+   Active via : <html class="ar" dir="rtl" lang="ar">
+   Géré dynamiquement par /i18n.js
+══════════════════════════════════════════════════════════════════ */
+
+/* ── Bouton sélecteur de langue ──────────────────────────────── */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 1px;
+  padding: 5px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  background: transparent;
+  font-size: 0.77rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--text-dark);
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  line-height: 1;
+  font-family: 'Cairo', 'Inter', sans-serif;
+  white-space: nowrap;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.lang-toggle:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: rgba(0,98,51,.06);
+}
+.lang-toggle .lt-sep {
+  color: var(--border);
+  margin: 0 3px;
+  font-size: 0.58rem;
+  font-weight: 300;
+  line-height: 1;
+}
+.lang-toggle .lt-dim    { opacity: 0.32; font-weight: 400; }
+.lang-toggle b.lt-active,
+.lang-toggle .lt-active { color: var(--primary); font-weight: 900; font-style: normal; }
+body.dark-mode .lang-toggle {
+  border-color: rgba(255,255,255,.18);
+  color: #e2e8f0;
+}
+body.dark-mode .lang-toggle:hover {
+  border-color: var(--primary);
+  color: #fff;
+  background: rgba(0,98,51,.18);
+}
+body.dark-mode .lang-toggle .lt-sep  { color: rgba(255,255,255,.2); }
+body.dark-mode .lang-toggle b.lt-active,
+body.dark-mode .lang-toggle .lt-active { color: #6ee7b7; }
+@media (max-width: 768px) { .lang-toggle { display: none; } }
+
+/* ── Police arabe ─────────────────────────────────────────────── */
+html.ar body,
+html.ar h1, html.ar h2, html.ar h3, html.ar h4, html.ar h5,
+html.ar p, html.ar button, html.ar input, html.ar a, html.ar span {
+  font-family: 'Cairo', 'Inter', sans-serif;
+}
+
+/* ── Top-bar ──────────────────────────────────────────────────── */
+html.ar .top-bar .container { flex-direction: row-reverse; }
+html.ar .top-bar-left        { flex-direction: row-reverse; }
+html.ar .top-bar-right       { flex-direction: row-reverse; }
+
+/* ── Header principal ─────────────────────────────────────────── */
+html.ar .header-content   { flex-direction: row-reverse; }
+html.ar .logo             { flex-direction: row-reverse; }
+html.ar .logo-text        { text-align: right; }
+html.ar .header-actions   { flex-direction: row-reverse; }
+html.ar .search-box       { direction: rtl; }
+html.ar .search-box input { text-align: right; }
+
+/* ── Navigation principale ────────────────────────────────────── */
+html.ar .main-nav > ul      { flex-direction: row-reverse; }
+html.ar .dropdown-menu      { left: auto !important; right: 0; text-align: right; }
+html.ar .dropdown-menu li   { text-align: right; }
+html.ar .dropdown-trigger   { flex-direction: row-reverse; gap: 6px; }
+
+/* ── Quick-nav ────────────────────────────────────────────────── */
+html.ar .quick-nav .container { flex-direction: row-reverse; }
+html.ar .qn-link              { flex-direction: row-reverse; }
+html.ar .qn-link i            { margin-right: 0; margin-left: 6px; }
+
+/* ── Breaking news ────────────────────────────────────────────── */
+html.ar .breaking-news .container { flex-direction: row-reverse; }
+html.ar .breaking-ticker           { direction: rtl; }
+html.ar .ticker-track              { animation-direction: reverse; }
+
+/* ── Section headers & filtres ───────────────────────────────── */
+html.ar .section-header { flex-direction: row-reverse; }
+html.ar .section-title  { flex-direction: row-reverse; }
+html.ar .tag-filters    { justify-content: flex-start; direction: rtl; }
+
+/* ── Grille d'articles ────────────────────────────────────────── */
+html.ar .news-card-body   { text-align: right; direction: rtl; }
+html.ar .news-card-body h3 { text-align: right; }
+html.ar .card-meta        { flex-direction: row-reverse; }
+html.ar .card-footer      { flex-direction: row-reverse; }
+
+/* ── Hero section ─────────────────────────────────────────────── */
+html.ar .hero-card-content { text-align: right; direction: rtl; }
+html.ar .hero-card-meta    { flex-direction: row-reverse; }
+
+/* ── Sidebar ──────────────────────────────────────────────────── */
+html.ar .sidebar             { text-align: right; direction: rtl; }
+html.ar .widget-title        { text-align: right; flex-direction: row-reverse; }
+html.ar .trending-list       { padding-right: 0; }
+html.ar .trending-item       { flex-direction: row-reverse; text-align: right; }
+html.ar .tag-cloud           { direction: rtl; text-align: right; }
+html.ar .newsletter-widget p { text-align: right; }
+html.ar .newsletter-form     { direction: rtl; }
+html.ar .newsletter-form input { text-align: right; }
+
+/* ── Veille V2 ────────────────────────────────────────────────── */
+html.ar .v2-stats-inner  { flex-direction: row-reverse; }
+html.ar .v2-kpis         { flex-direction: row-reverse; }
+html.ar .v2-kpi          { text-align: right; }
+html.ar .v2-tabs         { flex-direction: row-reverse; }
+html.ar .v2-topics-inner { flex-direction: row-reverse; }
+html.ar .v2-card         { text-align: right; direction: rtl; }
+html.ar .v2-card-title   { text-align: right; direction: rtl; }
+html.ar .v2-card-source  { flex-direction: row-reverse; }
+html.ar .v2-stats-right  { flex-direction: row-reverse; }
+
+/* ── Revue de presse ──────────────────────────────────────────── */
+html.ar .revue-masthead    { flex-direction: row-reverse; }
+html.ar .revue-filter-bar  { flex-direction: row-reverse; }
+html.ar .revue-card        { text-align: right; direction: rtl; }
+html.ar .revue-card-meta   { flex-direction: row-reverse; }
+html.ar .revue-card-title-journal { text-align: right; }
+
+/* ── Mobile menu ──────────────────────────────────────────────── */
+html.ar .mobile-menu-header  { flex-direction: row-reverse; }
+html.ar .mobile-nav-list     { direction: rtl; text-align: right; }
+html.ar .mobile-nav-list a   { flex-direction: row-reverse; gap: 10px; }
+html.ar .mobile-nav-list a i { margin-right: 0; }
+html.ar .mobile-menu-footer  { direction: rtl; }
+html.ar .mobile-search       { flex-direction: row-reverse; }
+
+/* ── Layout global ────────────────────────────────────────────── */
+html.ar .content-layout { direction: rtl; }
+html.ar .container      { direction: rtl; }
+
+/* ── Page article ─────────────────────────────────────────────── */
+html.ar .article-page        { direction: rtl; }
+html.ar .back-btn            { flex-direction: row-reverse; }
+html.ar .article-body        { direction: rtl; text-align: right; }
+html.ar .article-body h1     { text-align: right; direction: rtl; }
+html.ar .article-meta        { flex-direction: row-reverse; flex-wrap: wrap; }
+html.ar .article-text        { direction: rtl; text-align: right; }
+html.ar .article-text p,
+html.ar .article-text h2,
+html.ar .article-text h3,
+html.ar .article-text li     { text-align: right; direction: rtl; }
+html.ar .article-text ul,
+html.ar .article-text ol     { padding-right: 1.5em; padding-left: 0; }
+html.ar .share-buttons       { flex-direction: row-reverse; flex-wrap: wrap; }
+html.ar .related-articles h3 { text-align: right; }
+html.ar .related-grid        { direction: rtl; }
+html.ar .related-card        { text-align: right; }
+html.ar .trending-item       { flex-direction: row-reverse; text-align: right; }
+html.ar .trending-content    { text-align: right; }

@@ -1,2 +1,9 @@
 /infographies/observatoire-internet-algerie/* /infographies/observatoire-internet-algerie/index.html 200
 /infographies/observatoire-telephonie-mobile-algerie/* /infographies/observatoire-telephonie-mobile-algerie/index.html 200
+
+# ── Routeur SPA algeria-tech ──────────────────────────────────
+# Les pages standalone (.html existants) ont la priorité sur ces règles.
+# Ces rewrites servent index.html pour les routes virtuelles du SPA.
+/article/*  /index.html  200
+/veille     /index.html  200
+/revue      /index.html  200

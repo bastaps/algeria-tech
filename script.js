@@ -132,6 +132,8 @@ let currentTag = null;
 let articleViews = JSON.parse(localStorage.getItem('articleViews') || '{}');
 let currentEditingId = null;
 let isResetting = false;
+let _pendingRoute = null; // route différée si articles pas encore chargés
+let _skipPush    = false; // mutex : évite le double-pushState sur popstate
 const synth = window.speechSynthesis;
 let currentUtterance = null;
 
@@ -316,6 +318,11 @@ function _renderAll(arts) {
     renderTags();
     renderPagination(arts);
     initCounters();
+    // Routeur : route différée (ex : accès direct /article/42 avant chargement des articles)
+    if (_pendingRoute) {
+        const r = _pendingRoute; _pendingRoute = null;
+        _skipPush = false; applyRoute(r.pathname, r.search, false);
+    }
 }
 
 // Parser Markdown
@@ -416,6 +423,11 @@ window.openArticle = function(id) {
     art.views++;
     articleViews[id] = art.views;
     localStorage.setItem('articleViews', JSON.stringify(articleViews));
+    // ── Routeur : mise à jour de l'URL ──────────────────────────
+    if (!_skipPush) {
+        history.pushState({ view: 'article', id: String(art.id) }, art.titre, `/article/${art.id}`);
+        document.title = art.titre + ' — Algeria Tech';
+    }
     document.getElementById('mainContent').style.display = 'none';
     document.getElementById('articlePage').style.display = 'block';
     window.scrollTo({top:0, behavior:'smooth'});
@@ -625,6 +637,11 @@ window.goHome = function() {
     if(searchInput) { isResetting = true; searchInput.value = ''; isResetting = false; }
     const adminBtn = document.getElementById('adminBtn');
     if (adminBtn) adminBtn.innerHTML = '<i class="fas fa-plus"></i>';
+    // ── Routeur ──────────────────────────────────────────────────
+    if (!_skipPush) {
+        history.replaceState({ view: 'home' }, '', '/');
+        document.title = "Algeria Tech - L'actualité numérique en Algérie par Basta";
+    }
     document.getElementById('mainContent').style.display = 'block';
     document.getElementById('articlePage').style.display = 'none';
     document.getElementById('veilleSection').style.display = 'none';
@@ -638,6 +655,10 @@ window.goHome = function() {
 // ===== NAVIGATION VEILLE =====
 window.showVeille = function() {
     stopAllAudio();
+    if (!_skipPush) {
+        history.pushState({ view: 'veille' }, 'Veille — Algeria Tech', '/veille');
+        document.title = 'Veille — Algeria Tech';
+    }
     currentFilter = 'all';
     currentPage = 1;
     document.getElementById('mainContent').style.display = 'none';
@@ -654,6 +675,10 @@ window.showVeille = function() {
 // ===== NAVIGATION REVUE DE PRESSE =====
 window.showRevue = function() {
     stopAllAudio();
+    if (!_skipPush) {
+        history.pushState({ view: 'revue' }, 'Revue de Presse — Algeria Tech', '/revue');
+        document.title = 'Revue de Presse — Algeria Tech';
+    }
     currentFilter = 'all';
     currentPage = 1;
     document.getElementById('mainContent').style.display = 'none';
@@ -960,7 +985,15 @@ function renderPagination(arts) {
 
 window.filterByCategory = function(cat, ev) {
     if(ev) ev.preventDefault();
-    // PrÃ©paration de l'affichage : on affiche le bloc principal et on cache l'article ou la veille
+    // ── Routeur ──────────────────────────────────────────────────
+    if (!_skipPush) {
+        const _url = (cat === 'all' || cat === 'Tous')
+            ? '/'
+            : '/?cat=' + encodeURIComponent(cat);
+        history.pushState({ view: 'cat', cat }, cat + ' — Algeria Tech', _url);
+        if (cat !== 'all') document.title = cat + ' — Algeria Tech';
+    }
+    // Préparation de l'affichage : on affiche le bloc principal et on cache l'article ou la veille
     document.getElementById('mainContent').style.display = 'block';
     document.getElementById('articlePage').style.display = 'none';
     document.getElementById('veilleSection').style.display = 'none';
@@ -1850,3 +1883,63 @@ setInterval(loadVeille, 60000);
 // === FIN AJOUT REVUE PRESSE ===
 
 // (ancien override supprimé — renderRevueCards défini à la ligne ~390)
+
+/* ══════════════════════════════════════════════════════════════
+   ROUTEUR SPA — History API
+   ─────────────────────────────────────────────────────────────
+   Routes gérées :
+     /                → goHome()
+     /?cat=Algérie    → filterByCategory('Algérie')
+     /article/:id     → openArticle(id)
+     /veille          → showVeille()
+     /revue           → showRevue()
+   Les pages standalone (/actualites-tic, /barometre…) sont de
+   vraies pages HTML servies directement par Cloudflare Pages.
+══════════════════════════════════════════════════════════════ */
+function applyRoute(pathname, search, push) {
+    _skipPush = !push;
+    try {
+        const params = new URLSearchParams(search || '');
+        const parts  = pathname.replace(/^\/+/, '').split('/').filter(Boolean);
+
+        if (parts.length === 0) {
+            // / ou /?cat=xxx
+            const cat = params.get('cat');
+            if (cat) filterByCategory(decodeURIComponent(cat));
+            else     goHome();
+
+        } else if (parts[0] === 'article' && parts[1]) {
+            const id = parts[1];
+            if (allArticles.length > 0) {
+                openArticle(id);
+            } else {
+                // Articles pas encore chargés → route différée
+                _pendingRoute = { pathname, search };
+            }
+
+        } else if (parts[0] === 'veille') {
+            showVeille();
+
+        } else if (parts[0] === 'revue') {
+            showRevue();
+
+        } else {
+            // Route inconnue → accueil
+            goHome();
+        }
+    } finally {
+        _skipPush = false;
+    }
+}
+
+function initRouter() {
+    // Bouton Précédent / Suivant du navigateur
+    window.addEventListener('popstate', () => {
+        applyRoute(location.pathname, location.search, false);
+    });
+    // Résolution de l'URL initiale (accès direct, F5, partage de lien…)
+    applyRoute(location.pathname, location.search, false);
+}
+
+// Démarrage du routeur après DOMContentLoaded
+document.addEventListener('DOMContentLoaded', initRouter);

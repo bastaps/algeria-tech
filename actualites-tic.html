@@ -18,8 +18,9 @@
   <link rel="preload" href="/style.css" as="style">
   <link rel="stylesheet" href="/style.css">
 
-  <!-- Font Awesome : bloquant (icônes disponibles dès le premier rendu, pas de flash) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Font Awesome async — non-bloquant -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
@@ -72,242 +73,142 @@
       z-index: 0;
     }
 
-    .tic-header, .tic-tabs-wrap, .tic-main { position: relative; z-index: 1; }
+    .rs-masthead, .tic-main { position: relative; z-index: 1; }
 
-    /* ── Header ───────────────────────────────────────────── */
-    .tic-header {
-      display: block !important; /* annule header{display:contents} de style.css */
-      background: linear-gradient(135deg, #010d05 0%, #01200f 50%, #030e1e 100%);
-      border-bottom: 1px solid rgba(0,196,106,0.22);
-      box-shadow: 0 4px 40px rgba(0,0,0,0.7), 0 0 80px rgba(0,98,51,0.18);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      overflow: hidden;
+    /* ── Masthead journal ────────────────────────────────────── */
+    .rs-masthead {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 16px 40px 12px;
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      gap: 20px;
+      flex-wrap: wrap;
     }
-
-    /* Ligne shimmer tricolore en haut du header */
-    .tic-header::before {
+    /* Barre tricolore algérienne */
+    .rs-masthead::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg,
-        transparent 0%,
-        #006233 15%, #006233 35%,
-        #ffffff 48%, #ffffff 52%,
-        #D21034 65%, #D21034 85%,
-        transparent 100%);
-      background-size: 300% 100%;
-      animation: flagShimmer 6s linear infinite;
+      height: 3px;
+      background: linear-gradient(90deg, #006233 33.33%, #ffffff 33.33%, #ffffff 66.66%, #D21034 66.66%);
     }
-    @keyframes flagShimmer {
-      0%   { background-position: 100% 0; }
-      100% { background-position: -100% 0; }
+    .rs-masthead-left { display: flex; flex-direction: column; gap: 6px; }
+    .rs-back-link {
+      font-size: .6rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 2px; color: #D21034; text-decoration: none;
+      display: inline-flex; align-items: center; gap: 5px; transition: color .18s;
     }
-
-    /* Halo décoratif dans le header */
-    .tic-header::after {
-      content: '';
-      position: absolute;
-      right: -60px;
-      top: -60px;
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(ellipse, rgba(0,196,106,0.08) 0%, transparent 70%);
-      pointer-events: none;
+    .rs-back-link:hover { color: #006233; }
+    .rs-masthead-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.45rem; font-weight: 900; letter-spacing: -.8px;
+      line-height: 1; color: #1a1a2e;
     }
-
-    .tic-header-inner {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 14px 28px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      position: relative;
+    .rs-masthead-title span { color: #D21034; }
+    .rs-masthead-subtitle {
+      font-size: .65rem; text-transform: uppercase;
+      letter-spacing: 1.8px; color: #6b7280; font-weight: 600;
     }
-
-    /* ── Logo Algeria Tech — cliquable ───────────────────── */
-    .tic-back {
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 7px 16px 7px 9px;
-      border-radius: 14px;
-      border: 1px solid rgba(0,196,106,0.28);
-      background: rgba(0,196,106,0.07);
-      transition: all .28s;
-      flex-shrink: 0;
+    .rs-masthead-right {
+      display: flex; flex-direction: column; align-items: flex-end; gap: 5px;
     }
-    .tic-back:hover {
-      border-color: rgba(0,196,106,0.55);
-      background: rgba(0,196,106,0.13);
-      box-shadow: 0 0 24px rgba(0,196,106,0.22), 0 0 0 1px rgba(0,196,106,0.12);
-      transform: translateX(-1px);
+    .rs-masthead-date-line { font-size: .82rem; color: #6b7280; font-weight: 500; }
+    .rs-masthead-date-line strong { font-weight: 800; color: #1a1a2e; }
+    .rs-count { font-size: .7rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 1.5px; }
+    .rs-count strong { color: #1a1a2e; font-weight: 800; }
+    .rs-actions { display: flex; align-items: center; gap: 8px; margin-top: 2px; }
+    .rs-refresh-btn {
+      padding: 5px 13px; border-radius: 2px;
+      border: 1.5px solid #e5e7eb; background: transparent;
+      color: #6b7280; font-size: .7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .5px;
+      cursor: pointer; transition: all .18s;
+      display: flex; align-items: center; gap: 5px;
     }
-    .tic-back-icon {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #006233 0%, #00c46a 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: .8rem;
-      color: #fff;
-      flex-shrink: 0;
-      box-shadow: 0 0 12px rgba(0,196,106,0.4);
-    }
-    .tic-back-label { display: flex; flex-direction: column; }
-    .tic-back-label .brand-name {
-      font-size: .95rem;
-      font-weight: 900;
-      letter-spacing: -.6px;
-      color: #fff;
-      line-height: 1;
-    }
-    .tic-back-label .brand-sub {
-      font-size: .6rem;
-      color: rgba(0,196,106,0.75);
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      font-weight: 600;
-      margin-top: 3px;
-    }
-
-    .tic-title-block { flex: 1; min-width: 0; }
-    .tic-title-block h1 {
-      font-size: 1.05rem;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #fff;
-      letter-spacing: -.3px;
-    }
-    .tic-title-block p {
-      font-size: .7rem;
-      color: rgba(255,255,255,0.4);
-      margin-top: 3px;
-    }
-
-    .tic-live-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #00c46a;
-      box-shadow: 0 0 10px #00c46a, 0 0 20px rgba(0,196,106,0.4);
-      animation: ticPulse 2s ease-in-out infinite;
-      display: inline-block;
-      flex-shrink: 0;
-    }
-    @keyframes ticPulse {
-      0%,100% { opacity:1; transform:scale(1); box-shadow:0 0 10px #00c46a, 0 0 20px rgba(0,196,106,0.4); }
-      50%      { opacity:.5; transform:scale(.65); box-shadow:0 0 4px #00c46a; }
-    }
-
-    .tic-header-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-
-    .tic-kpi-chip {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(0,196,106,0.08);
-      border: 1px solid rgba(0,196,106,0.22);
-      border-radius: 20px;
-      padding: 5px 14px;
-      font-size: .74rem;
-      color: rgba(255,255,255,0.8);
-    }
-    .tic-kpi-chip strong { font-weight: 800; color: #00c46a; }
-
-    .tic-refresh-btn {
-      background: rgba(0,196,106,0.09);
-      border: 1px solid rgba(0,196,106,0.28);
-      color: #00c46a;
-      padding: 7px 16px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: .77rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: all .22s;
-    }
-    .tic-refresh-btn:hover {
-      background: rgba(0,196,106,0.18);
-      border-color: rgba(0,196,106,0.5);
-      box-shadow: 0 0 18px rgba(0,196,106,0.25);
-    }
-    .tic-refresh-btn.spinning i { animation: spin .8s linear infinite; }
+    .rs-refresh-btn:hover { border-color: #1a1a2e; color: #1a1a2e; }
+    .rs-refresh-btn.spinning i { animation: spin .8s linear infinite; }
     @keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+    /* Theme btn sur fond blanc */
+    .rs-masthead .tic-theme-btn {
+      background: rgba(0,0,0,.04); border-color: rgba(0,0,0,.12); color: rgba(0,0,0,.5);
+    }
+    .rs-masthead .tic-theme-btn:hover { background: rgba(0,0,0,.08); color: rgba(0,0,0,.8); }
+    /* Thème gris */
+    body.t-gris .rs-masthead { background: #1a2436; border-bottom-color: rgba(255,255,255,.07); }
+    body.t-gris .rs-masthead::before { opacity: .6; }
+    body.t-gris .rs-masthead-title { color: #c0d4e8; }
+    body.t-gris .rs-masthead-title span { color: #00c46a; }
+    body.t-gris .rs-masthead-subtitle, body.t-gris .rs-masthead-date-line { color: rgba(192,212,232,.5); }
+    body.t-gris .rs-count { color: rgba(192,212,232,.38); }
+    body.t-gris .rs-count strong { color: #c0d4e8; }
+    body.t-gris .rs-back-link { color: #00c46a; }
+    body.t-gris .rs-back-link:hover { color: #4ade80; }
+    body.t-gris .rs-refresh-btn { border-color: rgba(255,255,255,.12); color: rgba(255,255,255,.45); }
+    body.t-gris .rs-refresh-btn:hover { border-color: rgba(255,255,255,.4); color: #c0d4e8; }
+    body.t-gris .rs-masthead .tic-theme-btn { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.13); color: rgba(255,255,255,.65); }
+    /* Thème blanc */
+    body.t-blanc .rs-masthead { background: #f8fafd; border-bottom-color: #d8e4f0; }
+    body.t-blanc .rs-masthead-title { color: #1a2840; }
+    body.t-blanc .rs-refresh-btn { border-color: #d8e4f0; color: #5a7896; }
+    body.t-blanc .rs-refresh-btn:hover { border-color: #1a2840; color: #1a2840; }
 
-    .tic-last-update { font-size: .67rem; color: rgba(255,255,255,0.32); }
-
-    /* ── Category Tabs ────────────────────────────────────── */
+    /* ── Filtres catégories — journal style ───────────────── */
     .tic-tabs-wrap {
-      background: rgba(6,14,28,0.96);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      backdrop-filter: blur(20px);
+      background: #ffffff;
+      border-bottom: 2px solid #1a1a2e;
+      position: sticky;
+      top: 78px;
+      z-index: 100;
+      box-shadow: 0 4px 16px rgba(0,0,0,.08);
+      backdrop-filter: none;
     }
     .tic-tabs {
       max-width: 1400px;
       margin: 0 auto;
-      padding: 10px 28px;
+      padding: 8px 40px 10px;
       display: flex;
-      gap: 6px;
+      gap: 5px;
+      flex-wrap: wrap;
+      align-items: center;
       overflow-x: auto;
       scrollbar-width: none;
       -webkit-overflow-scrolling: touch;
-      align-items: center;
     }
     .tic-tabs::-webkit-scrollbar { display: none; }
 
     .tic-tab {
+      padding: 4px 10px;
+      border-radius: 2px;
+      border: 1.5px solid #e5e7eb;
+      background: transparent;
+      color: #6b7280;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .18s;
+      white-space: nowrap;
       display: flex;
       align-items: center;
-      gap: 7px;
-      padding: 7px 16px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.04);
-      color: rgba(255,255,255,0.45);
-      font-size: .78rem;
-      font-weight: 600;
-      cursor: pointer;
-      border-radius: 30px;
-      transition: all .2s;
-      white-space: nowrap;
-      letter-spacing: .01em;
+      gap: 5px;
     }
-    .tic-tab:hover {
-      color: rgba(255,255,255,0.82);
-      border-color: rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.07);
-    }
-    .tic-tab.active {
-      background: rgba(0,196,106,0.12);
-      border-color: rgba(0,196,106,0.42);
-      color: #00c46a;
-      box-shadow: 0 0 18px rgba(0,196,106,0.14), inset 0 0 8px rgba(0,196,106,0.06);
-    }
+    .tic-tab:hover { border-color: #1a1a2e; color: #1a1a2e; }
+    .tic-tab.active { background: #1a1a2e; color: #fff; border-color: #1a1a2e; }
     .tic-tab-count {
-      background: rgba(255,255,255,0.08);
-      color: rgba(255,255,255,0.38);
-      font-size: .6rem;
+      background: rgba(0,0,0,.06);
+      color: inherit;
+      font-size: .62rem;
       font-weight: 700;
-      padding: 2px 7px;
-      border-radius: 10px;
-      min-width: 22px;
-      text-align: center;
-      transition: all .2s;
+      padding: 1px 5px;
+      border-radius: 6px;
+      transition: all .18s;
     }
     .tic-tab.active .tic-tab-count {
-      background: rgba(0,196,106,0.25);
-      color: #00c46a;
+      background: rgba(255,255,255,.22);
+      color: #fff;
     }
 
     /* ── Main ─────────────────────────────────────────────── */
@@ -645,8 +546,12 @@
         linear-gradient(rgba(0,196,106,0.045) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0,196,106,0.045) 1px, transparent 1px);
     }
-    body.t-gris .tic-tabs-wrap { background: rgba(18,28,44,0.98); }
-    body.t-gris .tic-tab { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); color: rgba(255,255,255,0.5); }
+    body.t-gris .tic-tabs-wrap { background: #1a2436; border-bottom-color: rgba(192,212,232,.3); box-shadow: none; }
+    body.t-gris .tic-tab { border-color: rgba(255,255,255,.1); color: rgba(255,255,255,.5); }
+    body.t-gris .tic-tab:hover { border-color: rgba(255,255,255,.35); color: rgba(255,255,255,.88); }
+    body.t-gris .tic-tab.active { background: #c0d4e8; border-color: #c0d4e8; color: #1a2436; box-shadow: none; }
+    body.t-gris .tic-tab-count { background: rgba(255,255,255,.08); color: inherit; }
+    body.t-gris .tic-tab.active .tic-tab-count { background: rgba(26,36,54,.2); color: #1a2436; }
     body.t-gris .tic-card { background: rgba(24,36,56,0.97); border-color: rgba(255,255,255,0.09); }
     body.t-gris .tic-card-source { color: rgba(255,255,255,0.88); }
     body.t-gris .tic-card-text { color: rgba(255,255,255,0.66); }
@@ -669,12 +574,12 @@
         linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px);
     }
     body.t-blanc::after { opacity: 0; }
-    body.t-blanc .tic-tabs-wrap { background: rgba(240,246,252,0.98); border-bottom-color: #d8e4f0; }
-    body.t-blanc .tic-tab { background: rgba(0,0,0,0.04); border-color: #d8e4f0; color: #5a7896; }
-    body.t-blanc .tic-tab:hover { background: rgba(0,0,0,0.07); color: #1a2840; border-color: #c0d0e0; }
-    body.t-blanc .tic-tab.active { background: rgba(0,98,51,0.1); border-color: rgba(0,98,51,0.38); color: #006233; box-shadow: 0 0 16px rgba(0,98,51,0.1); }
-    body.t-blanc .tic-tab-count { background: rgba(0,0,0,0.07); color: #7090b0; }
-    body.t-blanc .tic-tab.active .tic-tab-count { background: rgba(0,98,51,0.18); color: #006233; }
+    body.t-blanc .tic-tabs-wrap { background: #f8fafd; border-bottom-color: #1a2840; box-shadow: 0 4px 12px rgba(0,40,80,.08); }
+    body.t-blanc .tic-tab { border-color: #d8e4f0; color: #5a7896; }
+    body.t-blanc .tic-tab:hover { border-color: #1a2840; color: #1a2840; }
+    body.t-blanc .tic-tab.active { background: #1a2840; border-color: #1a2840; color: #fff; box-shadow: none; }
+    body.t-blanc .tic-tab-count { background: rgba(0,0,0,.06); color: inherit; }
+    body.t-blanc .tic-tab.active .tic-tab-count { background: rgba(255,255,255,.22); color: #fff; }
     body.t-blanc .tic-sources-bar { background: #fff; border-color: #d8e4f0; }
     body.t-blanc .tic-source-btn { background: #f4f8fd; border-color: #d8e4f0; color: #6a86a0; }
     body.t-blanc .tic-source-btn:hover { background: #e8f0f8; color: #1a2840; border-color: #b8cce0; }
@@ -714,29 +619,127 @@
       .tic-kpi-chip { display: none; }
       .tic-setup-steps { grid-template-columns: 1fr; }
       .tic-tabs { padding: 8px 14px; }
+      /* Sur mobile le header du site fait 68px → filtre colle à 68px */
+      .tic-tabs-wrap { top: 68px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ── Header ─────────────────────────────────────────────────── -->
-  <header class="tic-header">
-    <div class="tic-header-inner">
-      <a href="/" class="tic-back">
-        <div class="tic-back-icon"><i class="fas fa-satellite-dish"></i></div>
-        <div class="tic-back-label">
-          <span class="brand-name">Algeria Tech</span>
-          <span class="brand-sub">← Accueil</span>
+  <!-- ══ HEADER PRINCIPAL Algeria Tech (identique au site) ══════ -->
+  <header>
+    <div class="top-bar">
+      <div class="container">
+        <div class="top-bar-left">
+          <span><i class="fas fa-map-marker-alt" style="color:#D21034;margin-right:5px;"></i> Alger, Algérie</span>
+          <span id="liveClock" style="font-weight:500;margin-left:8px;"></span>
+          <span id="currentDate"></span>
         </div>
-      </a>
-      <div class="tic-title-block">
-        <h1><span class="tic-live-dot"></span> Actualités TIC Officielles</h1>
-        <p>Posts des opérateurs, institutions et équipementiers du secteur TIC algérien</p>
+        <div class="top-bar-right">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.youtube.com/@algeria-tech-by-basta" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+        </div>
       </div>
-      <div class="tic-header-right">
-        <div class="tic-kpi-chip"><strong id="totalCount">—</strong> <span>posts</span></div>
-        <span class="tic-last-update" id="lastUpdateLabel">Chargement…</span>
-        <button class="tic-refresh-btn" id="refreshBtn" onclick="refreshData()">
+    </div>
+    <div class="header">
+      <div class="container header-content">
+        <a href="/" class="logo" style="text-decoration:none;">
+          <img src="/images/logo_v2.png" alt="Algeria Tech" class="logo-img">
+          <div class="logo-text">
+            <h1>Algeria <span>Tech</span></h1>
+            <p>By Basta</p>
+          </div>
+        </a>
+        <nav class="main-nav">
+          <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/?cat=Alg%C3%A9rie">Algérie</a></li>
+            <li><a href="/?cat=T%C3%A9l%C3%A9coms">Télécoms</a></li>
+            <li><a href="/?cat=Mobile">Mobile</a></li>
+            <li><a href="/?cat=Startups">Startups</a></li>
+            <li><a href="/?cat=Innovation">Innovation</a></li>
+            <li><a href="/?cat=Entreprises">Entreprises</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-trigger">Explorer <i class="fas fa-chevron-down" style="font-size:0.7rem;margin-left:5px;"></i></a>
+              <ul class="dropdown-menu">
+                <li><a href="/?cat=Vid%C3%A9o">Vidéo</a></li>
+                <li><a href="/infographies/index.html">Infographies</a></li>
+                <li><a href="/#veille">Veille</a></li>
+                <li><a href="/#revue">Revue de Presse</a></li>
+                <li><a href="/actualites-tic"><i class="fas fa-share-alt" style="color:#E30613;margin-right:5px;"></i>Veille Réseaux Sociaux</a></li>
+                <li><a href="/operateurs"><i class="fas fa-signal" style="margin-right:5px;color:#00C853;"></i>Opérateurs Mobiles</a></li>
+                <li><a href="/barometre"><i class="fas fa-chart-line" style="margin-right:5px;color:#fbbf24;"></i>Observatoire du Numérique</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <div class="search-box">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="searchInput" placeholder="Rechercher...">
+          </div>
+          <button class="theme-toggle" onclick="toggleTheme()" title="Thème"><i class="fas fa-moon" id="themeIcon"></i></button>
+          <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Barre navigation rapide -->
+  <nav class="quick-nav" id="quickNav">
+    <div class="container">
+      <a class="qn-link" href="/#veille"><i class="fas fa-rss"></i> Veille</a>
+      <a class="qn-link" href="/actualites-tic"><i class="fas fa-share-alt"></i> Veille Réseaux Sociaux</a>
+      <a class="qn-link" href="/#revue"><i class="fas fa-newspaper"></i> Revue de Presse</a>
+      <a class="qn-link qn-new" href="/barometre"><i class="fas fa-chart-line"></i> Observatoire <span class="qn-badge">NEW</span></a>
+    </div>
+  </nav>
+
+  <!-- Menu mobile -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="toggleMobileMenu()"></div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-header">
+      <div class="logo">
+        <img src="/images/logo_v2.png" alt="Algeria Tech" class="logo-img">
+        <div class="logo-text"><h1>Algeria <span>Tech</span></h1><p>By Basta</p></div>
+      </div>
+      <button class="mobile-menu-close" onclick="toggleMobileMenu()"><i class="fas fa-times"></i></button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="/"><i class="fas fa-home"></i> Accueil</a></li>
+      <li><a href="/?cat=Alg%C3%A9rie"><i class="fas fa-flag"></i> Algérie</a></li>
+      <li><a href="/?cat=T%C3%A9l%C3%A9coms"><i class="fas fa-satellite-dish"></i> Télécoms</a></li>
+      <li><a href="/?cat=Mobile"><i class="fas fa-mobile-alt"></i> Mobile</a></li>
+      <li><a href="/?cat=Startups"><i class="fas fa-rocket"></i> Startups</a></li>
+      <li><a href="/?cat=Innovation"><i class="fas fa-lightbulb"></i> Innovation</a></li>
+      <li><a href="/?cat=Entreprises"><i class="fas fa-building"></i> Entreprises</a></li>
+      <li class="mobile-nav-divider"></li>
+      <li><a href="/#veille"><i class="fas fa-rss"></i> Veille</a></li>
+      <li><a href="/#revue"><i class="fas fa-newspaper"></i> Revue de Presse</a></li>
+      <li><a href="/actualites-tic"><i class="fas fa-share-alt" style="color:#E30613;"></i> Veille Réseaux Sociaux</a></li>
+      <li><a href="/barometre"><i class="fas fa-chart-line" style="color:#fbbf24;"></i> Observatoire du Numérique</a></li>
+    </ul>
+    <div class="mobile-menu-footer">
+      <button class="mobile-theme-btn" onclick="toggleTheme()"><i class="fas fa-moon"></i> Changer le thème</button>
+    </div>
+  </nav>
+
+  <!-- ── Masthead journal ─────────────────────────────────────────── -->
+  <div class="rs-masthead">
+    <div class="rs-masthead-left">
+      <a href="/" class="rs-back-link"><i class="fas fa-satellite-dish"></i> Algeria Tech</a>
+      <div class="rs-masthead-title">Veille Réseaux <span>Sociaux</span></div>
+      <div class="rs-masthead-subtitle">Opérateurs · Ministère · Régulateurs · Équipementiers · International</div>
+    </div>
+    <div class="rs-masthead-right">
+      <div class="rs-masthead-date-line"><span id="lastUpdateLabel">Chargement…</span></div>
+      <span class="rs-count"><strong id="totalCount">—</strong> posts · <strong id="rs-sources">—</strong> sources</span>
+      <div class="rs-actions">
+        <button class="rs-refresh-btn" id="refreshBtn" onclick="refreshData()">
           <i class="fas fa-sync-alt" id="refreshIcon"></i> Actualiser
         </button>
         <button class="tic-theme-btn" id="themeBtn" onclick="cycleTheme()" title="Changer de thème">
@@ -748,7 +751,7 @@
         </button>
       </div>
     </div>
-  </header>
+  </div>
 
   <!-- ── Category tabs ──────────────────────────────────────────── -->
   <div class="tic-tabs-wrap">
@@ -981,12 +984,15 @@
     setEl('totalCount', total);
     setEl('cnt-all', total);
 
+    // Nombre de sources uniques pour le masthead
+    const uniqueSources = new Set(allPosts.map(p => p.source_name)).size;
+    setEl('rs-sources', uniqueSources || '—');
+
     const cats = ['Ministère','Opérateurs','Infrastructure','Équipementiers','Régulateurs','Médias TIC','Tech International'];
     cats.forEach(cat => setEl(`cnt-${cat}`, stats[cat] || 0));
 
     if (data.lastUpdated) {
-      const d = new Date(data.lastUpdated);
-      document.getElementById('lastUpdateLabel').textContent = `Màj : ${relDate(data.lastUpdated)}`;
+      document.getElementById('lastUpdateLabel').textContent = `✦ Màj : ${relDate(data.lastUpdated)}`;
     }
   }
 
@@ -1105,6 +1111,42 @@
 
   // ── Init ───────────────────────────────────────────────────────────────────
   loadData();
+
+  // ── Compat header Algeria Tech ────────────────────────────────────────────
+  // toggleTheme() du header principal → cycle les thèmes TIC
+  window.toggleTheme = function() { window.cycleTheme(); };
+
+  // Mobile menu
+  window.toggleMobileMenu = function() {
+    const menu    = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('mobileMenuOverlay');
+    const btn     = document.getElementById('hamburgerBtn');
+    if (!menu) return;
+    const open = menu.classList.toggle('open');
+    if (overlay) overlay.style.display = open ? 'block' : 'none';
+    if (btn)     btn.classList.toggle('active', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+
+  // Horloge + date en direct (top-bar)
+  (function startClock() {
+    const pad = n => String(n).padStart(2, '0');
+    function tick() {
+      const now = new Date();
+      const cl = document.getElementById('liveClock');
+      const dt = document.getElementById('currentDate');
+      if (cl) cl.textContent = pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
+      if (dt) dt.textContent = now.toLocaleDateString('fr-DZ', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  // Dropdown hover (menu Explorer)
+  document.querySelectorAll('.dropdown').forEach(function(dd) {
+    dd.addEventListener('mouseenter', function() { this.querySelector('.dropdown-menu').style.display = 'block'; });
+    dd.addEventListener('mouseleave', function() { this.querySelector('.dropdown-menu').style.display = ''; });
+  });
   </script>
 
   <!-- Service Worker -->

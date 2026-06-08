@@ -236,6 +236,10 @@ app.get('/api/generate-static-files', (req, res) => {
 // === ROUTE OPÉRATEURS MOBILES ===
 app.get('/operateurs', (req, res) => res.sendFile(path.join(__dirname, 'operateurs.html')));
 
+// === ROUTE BAROMÈTRE MENSUEL ===
+app.get('/barometre', (req, res) => res.sendFile(path.join(__dirname, 'barometre.html')));
+app.get('/barometre/', (req, res) => res.sendFile(path.join(__dirname, 'barometre.html')));
+
 // === ROUTE ACTUALITÉS TIC ===
 app.get('/actualites-tic', (req, res) => res.sendFile(path.join(__dirname, 'actualites-tic.html')));
 app.get('/actualites-tic/', (req, res) => res.sendFile(path.join(__dirname, 'actualites-tic.html')));
