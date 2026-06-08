@@ -1,6 +1,6 @@
 {
   "date": "lundi 8 juin",
-  "synthese": "Les dernières 24h dans la tech algérienne et mondiale ont été marquées par des avancées majeures en cybersécurité et en intelligence artificielle, tandis que les innovations mobiles et les rumeurs sur les futurs appareils dominent l'actualité. Les enjeux énergétiques et logistiques restent également au cœur des débats, avec des annonces stratégiques impactant l'Algérie. L'IA et les nouvelles technologies redéfinissent les standards, tant en sécurité qu'en expérience utilisateur.",
+  "synthese": "Les dernières 24h ont été marquées par des avancées majeures en cybersécurité et IA, avec des révélations impactant des décennies de code. Le secteur mobile et les innovations hardware dominent aussi l'actualité, tandis que les startups et la régulation technologique restent des thèmes clés. L'Algérie et la France se distinguent par des projets énergétiques et des décisions fiscales influençant le marché tech.",
   "articles": [
     {
       "titre": "Cybersécurité : Mythos, l’IA d’Anthropic révèle un bug vieux de 27 ans et change les règles du jeu",
@@ -10,30 +10,8 @@
       "source": "Algérie360 Tech",
       "logo": "https://www.google.com/s2/favicons?domain=algerie360.com&sz=32",
       "pays": "DZ",
-      "accroche": "L'IA d'Anthropic découvre un bug historique : la cybersécurité entre dans une nouvelle ère.",
+      "accroche": "L'IA d'Anthropic découvre un bug vieux de 27 ans, révolutionnant la cybersécurité mondiale.",
       "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "Pétrole : l’Opep+ annonce une augmentation collective de 188.000 barils par jour en juillet",
-      "resume": "Sept pays membres de l’alliance Opep+, dont l’Algérie, ont décidé d’augmenter collectivement leur production de pétrole de 188.000 barils par jour à p",
-      "url": "https://algerie-eco.com/2026/06/07/petrole-lopep-annonce-une-augmentation-collective-de-188-000-barils-par-jour-en-juillet/",
-      "date": "2026-06-07T21:19:07.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "OPEP+ booste la production pétrolière : l'Algérie en première ligne des décisions.",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Algérie : fin des coupures généralisées d’internet durant le baccalauréat",
-      "resume": "Les épreuves du baccalauréat ont débuté ce dimanche 7 juin en Algérie. Contrairement aux années précédentes, les utilisateurs d’internet ont constaté",
-      "url": "https://algerie-eco.com/2026/06/07/algerie-fin-des-coupures-generalisees-dinternet-durant-le-baccalaureat/",
-      "date": "2026-06-07T13:25:34.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Fin des coupures internet pendant le bac : l'Algérie sécurise son numérique éducatif.",
-      "categorie": "Télécoms"
     },
     {
       "titre": "Gemini sur Android : les vraies astuces pour enfin utiliser l’IA Google efficacement",
@@ -43,8 +21,8 @@
       "source": "Android DZ",
       "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "Gemini sur Android : les astuces méconnues pour exploiter l'IA Google comme un pro.",
-      "categorie": "IA"
+      "accroche": "Gemini sur Android : les astuces méconnues pour exploiter l'IA Google à son maximum.",
+      "categorie": "Mobile"
     },
     {
       "titre": "iPhone Fold : premières images des prototypes révèlent le design révolutionnaire d’Apple",
@@ -54,86 +32,108 @@
       "source": "Android DZ",
       "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "iPhone Fold : Apple révolutionne le design avec un prototype futuriste dévoilé.",
+      "accroche": "Premières images du futur iPhone pliable d'Apple : un design révolutionnaire dévoilé.",
       "categorie": "Mobile"
     },
     {
-      "titre": "ZDNET Morning 08/06/2026 : SFR vendu, WWDC 2026 : comment suivre la conf, ChatGPT se réinvente en super-application,...",
-      "resume": "Le ZDNET Morning le brief de l'actu tech pour les pros tous les matins à 9h00. Transformation numérique, IA, matériel, logiciels,... ne passez pas à c",
-      "url": "https://www.zdnet.fr/actualites/zdnet-morning-08-06-2026-sfr-vendu-wwdc-2026-comment-suivre-la-conf-chatgpt-se-reinvente-en-super-application-496336.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-08T07:29:15.000Z",
+      "titre": "MokN lève 15 millions $ pour industrialiser son « phish-back «",
+      "resume": "Avec sa technologie de \"phish-back \", MokN piège les attaquants avec de faux portails d'accès pour récupérer les identifiants volés avant leur exploit",
+      "url": "https://www.silicon.fr/business-1367/mokn-leve-15-millions-pour-industrialiser-son-phish-back-227539",
+      "date": "2026-06-08T09:48:48.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
+      "pays": "FR",
+      "accroche": "MokN lève 15M$ pour industrialiser son outil anti-phishing révolutionnaire.",
+      "categorie": "Startups"
+    },
+    {
+      "titre": "Apple corrigé fiscalement de 212 millions d’euros par la France",
+      "resume": "Les transferts entre Apple France et son siège irlandais valent à la marque un chèque fiscal de 212 millions d’euros. Apple était déjà épinglé en 2016",
+      "url": "https://www.zdnet.fr/actualites/apple-corrige-fiscalement-de-212-millions-deuros-par-la-france-496347.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-08T10:23:35.000Z",
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "WWDC 2026 et ChatGPT : les innovations tech à ne pas manquer en direct.",
+      "accroche": "Apple condamné à 212M€ d'amende par la France pour optimisation fiscale agressive.",
       "categorie": "Innovation"
     },
     {
-      "titre": "Le X-59 de la NASA franchit le mur du son : une étape clé vers le retour des vols supersoniques commerciaux",
-      "resume": "Six mois après son premier décollage, le X-59 de la NASA a réussi son premier vol supersonique.",
-      "url": "https://www.zdnet.fr/actualites/le-x-59-de-la-nasa-franchit-le-mur-du-son-une-etape-cle-vers-le-retour-des-vols-supersoniques-commerciaux-496326.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-08T06:30:14.000Z",
+      "titre": "Rachat de SFR : vers la fin de l'exception tarifaire française ? Notre analyse",
+      "resume": "L'acquisition et le partage des actifs de SFR par Orange, Bouygues Telecom et Free pour 20,35 milliards d'euros signe la fin du marché à quatre opérat",
+      "url": "https://www.zdnet.fr/actualites/rachat-de-sfr-vers-la-fin-de-lexception-tarifaire-francaise-notre-analyse-496319.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-08T08:21:08.000Z",
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "NASA X-59 : un bond vers les vols supersoniques commerciaux sans bang sonique.",
-      "categorie": "Innovation"
+      "accroche": "Rachat de SFR : la fin de l'exception tarifaire française en vue ? Analyse exclusive.",
+      "categorie": "Télécoms"
     },
     {
-      "titre": "Des « batteries sur roues » : pourquoi les voitures électriques vont avoir un rôle crucial pour le réseau électrique européen",
-      "resume": "De plus en plus répandue sur les voitures électriques, la charge bidirectionnelle pourrait tout changer selon une récente étude. Elle permettrait en e",
-      "url": "https://www.frandroid.com/survoltes/voitures-electriques/3129497_des-batteries-sur-roues-pourquoi-les-voitures-electriques-vont-avoir-un-role-crucial-pour-le-reseau-electrique-europeen",
-      "date": "2026-06-08T08:11:06.000Z",
+      "titre": "Vivo a glissé son futur pliable dans les tribunes de Roland-Garros, et sa caméra Zeiss vise très haut",
+      "resume": "Vivo a profité de la finale dames de Roland-Garros pour laisser entrevoir son X Fold 6, son futur pliable maison. Au programme : une caméra Zeiss revu",
+      "url": "https://www.frandroid.com/marques/vivo/3129413_vivo-a-glisse-son-futur-pliable-dans-les-tribunes-de-roland-garros-et-sa-camera-zeiss-vise-tres-haut",
+      "date": "2026-06-08T10:40:35.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Voitures électriques : des « batteries sur roues » pour révolutionner les réseaux énergétiques.",
-      "categorie": "Innovation"
+      "accroche": "Vivo expose son futur smartphone pliable avec caméra Zeiss au Roland-Garros.",
+      "categorie": "Mobile"
     },
     {
-      "titre": "« Conçu pour être ennuyeux » : quand le défaut de l’iPhone en photo n’en est pas un",
-      "resume": "L'iPhone n'est techniquement pas le meilleur en photo, mais la fiabilité de l'expérience proposée par Apple reste une immense force. Le YouTubeur MrWh",
-      "url": "https://www.frandroid.com/produits-android/smartphone/3129503_concu-pour-etre-ennuyeux-quand-le-defaut-de-liphone-en-photo-nen-est-pas-un",
-      "date": "2026-06-08T08:06:57.000Z",
+      "titre": "RTX Spark et Windows on Arm : comment Microsoft compte régler le vieux problème de la compatibilité x86",
+      "resume": "Le problème de Windows on Arm, c'est la compatibilité des vieux logiciels. Nvidia et Microsoft pensent tenir la solution : l'IA.",
+      "url": "https://www.frandroid.com/marques/3129415_rtx-spark-et-windows-on-arm-comment-microsoft-compte-regler-le-vieux-probleme-de-la-compatibilite-x86",
+      "date": "2026-06-08T10:37:48.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "iPhone : quand l'ennui devient une force, Apple réinvente la photographie mobile.",
+      "accroche": "RTX Spark et Windows on Arm : Microsoft résout enfin le problème de compatibilité.",
+      "categorie": "Réseaux"
+    },
+    {
+      "titre": "La montre connectée la plus personnalisable de Xiaomi avec jusqu’à 15 jours d’autonomie est en plus bradée à -27%",
+      "resume": "La Xiaomi Watch S4 est une montre connectée qui était déjà intéressante à 169,99 euros et qui devient presque incontournable à 124,90 euros sur Amazon",
+      "url": "https://www.frandroid.com/bons-plans/3129763_la-montre-connectee-la-plus-personnalisable-de-xiaomi-avec-jusqua-15-jours-dautonomie-est-en-plus-bradee-a-27",
+      "date": "2026-06-08T10:36:00.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Xiaomi lance la montre connectée la plus personnalisable avec 15 jours d'autonomie.",
       "categorie": "Mobile"
     },
     {
-      "titre": "iPhone Ultra : de nouvelles fuites dévoilent un design déroutant",
-      "resume": "L'iPhone Ultra pliant se dévoile via une maquette très précise. Apple ferait des choix forts pour son premier modèle pliant, abandonnant Face ID et le",
-      "url": "https://www.01net.com/actualites/iphone-ultra-de-nouvelles-fuites-devoilent-un-design-deroutant.html",
-      "date": "2026-06-08T08:24:39.000Z",
+      "titre": "Google Gemini sur Android a désormais accès à tous vos contacts",
+      "resume": "Google intègre Gemini à Google Contacts, permettant la gestion des contacts par commandes vocales. Cette fonctionnalité permet de rechercher, ajouter",
+      "url": "https://www.01net.com/actualites/google-gemini-sur-android-a-desormais-acces-a-tous-vos-contacts.html",
+      "date": "2026-06-08T11:02:25.000Z",
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "iPhone Ultra : des fuites confirment un design audacieux et disruptif.",
-      "categorie": "Mobile"
+      "accroche": "Google Gemini accède désormais à tous vos contacts sur Android : attention aux données.",
+      "categorie": "IA"
     },
     {
-      "titre": "Pendant que son prix fait le grand huit, le Meta Quest 3 est scotché au plancher sur ce site",
-      "resume": "Si vous suivez un peu l'actualité tech, vous devez sans doute savoir que Meta a récemment augmenté le prix de ses casques VR. Et pas qu'un peu, puisqu",
-      "url": "https://www.01net.com/bons-plans/pendant-que-son-prix-fait-le-grand-huit-le-meta-quest-3-est-scotche-au-plancher-sur-ce-site.html",
-      "date": "2026-06-08T08:07:25.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Meta Quest 3 : malgré son prix fluctuant, il reste incontournable sur ce site.",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Chercher un sac sur ChatGPT, et tomber sur une arnaque : comment les LLM empoisonnées servent de vitrine aux escrocs",
-      "resume": "Dans un article paru le 7 juin 2026, le quotidien britannique The Guardian décrit comment des escrocs sont parvenus à faire remonter des boutiques clo",
-      "url": "https://www.numerama.com/cyberguerre/2270001-chercher-un-sac-sur-chatgpt-et-tomber-sur-une-arnaque-comment-les-llm-empoisonnees-servent-de-vitrine-aux-escrocs.html",
-      "date": "2026-06-08T08:45:27.000Z",
+      "titre": "Ce ne sont pas des mannequins : UBTECH dévoile ses robots humanoïdes ultra-réalistes",
+      "resume": "En juin 2026, UBTECH a présenté les U1, une nouvelle gamme de robots humanoïdes hyperréalistes. Avec leur apparence très humaine et leur positionnemen",
+      "url": "https://www.numerama.com/tech/2270137-ce-ne-sont-pas-des-mannequins-ubtech-devoile-ses-robots-humanoides-ultra-realistes.html",
+      "date": "2026-06-08T11:00:00.000Z",
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "LLM empoisonnés : les arnaques via ChatGPT explosent, la vigilance s'impose.",
-      "categorie": "Cybersécurité"
+      "accroche": "UBTECH dévoile des robots humanoïdes ultra-réalistes, l'ère des androïdes est proche.",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Switch : Nintendo se prend une amende historique de 35 millions d’euros pour le scandale du Joy-Con Drift",
+      "resume": "Accusé de « pratiques commerciales trompeuses » pour avoir dissimulé la panne de ses manettes, le géant nippon capitule face à la DGCCRF et encaisse u",
+      "url": "https://www.numerama.com/tech/2270353-switch-nintendo-se-prend-une-amende-historique-de-35-millions-deuros-pour-le-scandale-du-joy-con-drift.html",
+      "date": "2026-06-08T10:43:36.000Z",
+      "source": "Numerama",
+      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
+      "pays": "FR",
+      "accroche": "Nintendo écopé de 35M€ d'amende pour le scandale du Joy-Con drift sur Switch.",
+      "categorie": "Innovation"
     }
   ],
-  "lastUpdated": "2026-06-08T09:17:39.014Z"
+  "lastUpdated": "2026-06-08T11:13:53.391Z"
 }
