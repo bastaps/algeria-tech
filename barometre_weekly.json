@@ -1,113 +1,113 @@
 {
-  "generated": "2026-06-07T12:38:15.984Z",
+  "generated": "2026-06-08T10:47:45.642Z",
   "mode": "weekly",
-  "period": "2026-W23",
-  "period_label": "Semaine du 1 au 7 Juin 2026",
+  "period": "2026-W24",
+  "period_label": "Semaine du 8 au 14 Juin 2026",
   "stats": {
     "articles_total": 462,
     "veille_articles": 150,
     "social_posts": 300,
     "presse_articles": 12,
-    "sources_count": 30
+    "sources_count": 31
   },
   "top_topics": [
     {
       "key": "Intelligence Artificielle",
       "emoji": "🤖",
-      "count": 83,
-      "prev_count": null,
-      "trend": null,
-      "trend_pct": null
+      "count": 85,
+      "prev_count": 83,
+      "trend": 2,
+      "trend_pct": 2
     },
     {
       "key": "Operateurs & Telecom",
       "emoji": "📶",
-      "count": 69,
-      "prev_count": null,
-      "trend": null,
-      "trend_pct": null
-    },
-    {
-      "key": "5G & Reseaux Mobiles",
-      "emoji": "📡",
-      "count": 22,
-      "prev_count": null,
-      "trend": null,
-      "trend_pct": null
+      "count": 66,
+      "prev_count": 69,
+      "trend": -3,
+      "trend_pct": -4
     },
     {
       "key": "Cybersecurite",
       "emoji": "🔒",
-      "count": 21,
-      "prev_count": null,
-      "trend": null,
-      "trend_pct": null
+      "count": 22,
+      "prev_count": 21,
+      "trend": 1,
+      "trend_pct": 5
     },
     {
-      "key": "Cloud & Data Center",
-      "emoji": "☁️",
+      "key": "5G & Reseaux Mobiles",
+      "emoji": "📡",
       "count": 20,
-      "prev_count": null,
-      "trend": null,
-      "trend_pct": null
+      "prev_count": 22,
+      "trend": -2,
+      "trend_pct": -9
     },
     {
       "key": "Startups & Innovation",
       "emoji": "🚀",
-      "count": 18,
-      "prev_count": null,
-      "trend": null,
-      "trend_pct": null
+      "count": 17,
+      "prev_count": 18,
+      "trend": -1,
+      "trend_pct": -6
+    },
+    {
+      "key": "Cloud & Data Center",
+      "emoji": "☁️",
+      "count": 17,
+      "prev_count": 20,
+      "trend": -3,
+      "trend_pct": -15
     },
     {
       "key": "Formation & Emploi TIC",
       "emoji": "🎓",
       "count": 15,
-      "prev_count": null,
-      "trend": null,
-      "trend_pct": null
+      "prev_count": 15,
+      "trend": 0,
+      "trend_pct": 0
     },
     {
       "key": "Regulation & Politique",
       "emoji": "⚖️",
       "count": 5,
-      "prev_count": null,
-      "trend": null,
-      "trend_pct": null
+      "prev_count": 5,
+      "trend": 0,
+      "trend_pct": 0
     },
     {
       "key": "Fibre Optique",
       "emoji": "🔌",
       "count": 4,
-      "prev_count": null,
-      "trend": null,
-      "trend_pct": null
+      "prev_count": 4,
+      "trend": 0,
+      "trend_pct": 0
     },
     {
       "key": "Satellite & Spatial",
       "emoji": "🛰️",
       "count": 4,
-      "prev_count": null,
-      "trend": null,
-      "trend_pct": null
+      "prev_count": 4,
+      "trend": 0,
+      "trend_pct": 0
     }
   ],
   "sentiment": {
-    "positive": 80,
+    "positive": 77,
     "negative": 36,
-    "neutral": 346,
+    "neutral": 349,
     "positive_pct": 17,
     "negative_pct": 8,
-    "neutral_pct": 75
+    "neutral_pct": 76
   },
   "top_sources": [
     {
       "source": "TechCrunch",
-      "count": 106
+      "count": 111
     },
     {
       "source": "ZDNet France",
-      "count": 59
+      "count": 56
     },
     {
       "source": "ZDNET",
@@ -115,7 +115,7 @@
     },
     {
       "source": "Algérie Éco",
-      "count": 34
+      "count": 40
     },
     {
       "source": "Algerie Eco",
@@ -123,8 +123,11 @@
     }
   ],
   "highlights": [
-    "\"Intelligence Artificielle\" est le sujet dominant cette semaine avec 83 occurrences dans les publications.",
+    "\"Intelligence Artificielle\" est le sujet dominant cette semaine avec 85 occurrences dans les publications.",
     "Sentiment equilibre cette semaine : 17% positif, 8% negatif sur 462 publications."
   ],
-  "previous_period": null
+  "previous_period": {
+    "period": "2026-W23",
+    "period_label": "Semaine du 1 au 7 Juin 2026"
+  }
 }
