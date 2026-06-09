@@ -1972,3 +1972,91 @@ html.ar .related-grid        { direction: rtl; }
 html.ar .related-card        { text-align: right; }
 html.ar .trending-item       { flex-direction: row-reverse; text-align: right; }
 html.ar .trending-content    { text-align: right; }
+
+/* ══════════════════════════════════════════════════════════════
+   SYNTHÈSE IA — Bouton + Bloc résumé
+══════════════════════════════════════════════════════════════ */
+.synthese-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin: 10px 0 18px;
+    padding: 9px 20px;
+    background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    box-shadow: 0 3px 12px rgba(26,115,232,.35);
+    transition: transform .15s, box-shadow .15s, opacity .2s;
+}
+.synthese-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(26,115,232,.45);
+}
+.synthese-btn:disabled {
+    opacity: .75;
+    cursor: not-allowed;
+}
+.synthese-btn .fa-bolt   { font-size: 0.85em; }
+.synthese-btn .fa-spinner{ font-size: 0.85em; }
+
+/* Bloc résumé */
+.synthese-box {
+    display: none;
+    margin: 0 0 22px;
+    background: linear-gradient(135deg, #e8f0fe 0%, #f0f4ff 100%);
+    border-left: 4px solid #1a73e8;
+    border-radius: 10px;
+    padding: 16px 20px 14px;
+    box-shadow: 0 2px 10px rgba(26,115,232,.12);
+    animation: synthFadeIn .35s ease;
+}
+@keyframes synthFadeIn {
+    from { opacity:0; transform:translateY(-6px); }
+    to   { opacity:1; transform:translateY(0); }
+}
+.synthese-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #1a73e8;
+    margin-bottom: 10px;
+}
+.synthese-ia-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    background: #1a73e8;
+    color: #fff;
+    border-radius: 4px;
+    padding: 1px 5px;
+    letter-spacing: .05em;
+    margin-left: 2px;
+}
+.synthese-list {
+    margin: 0;
+    padding-left: 1.3em;
+    color: #1a1a2e;
+    font-size: 0.93rem;
+    line-height: 1.65;
+}
+.synthese-list li { margin-bottom: 5px; }
+.synthese-list li:last-child { margin-bottom: 0; }
+
+.synthese-error {
+    color: #c62828;
+    font-size: 0.88rem;
+    margin: 0;
+}
+
+/* RTL */
+html.ar .synthese-box     { border-left: none; border-right: 4px solid #1a73e8; }
+html.ar .synthese-header  { flex-direction: row-reverse; }
+html.ar .synthese-ia-badge{ margin-left: 0; margin-right: 2px; }
+html.ar .synthese-list    { padding-left: 0; padding-right: 1.3em; direction: rtl; text-align: right; }
+html.ar .synthese-btn     { flex-direction: row-reverse; }

@@ -445,7 +445,7 @@ window.openArticle = function(id) {
         mediaHeader = `<img src="${art.image}" alt="${art.titre}" onerror="this.onerror=null;this.style.display='none'" style="width:100%; border-radius:15px; margin-bottom:25px;">`;
     }
     let pdfLink = art.pdf ? `<div style="margin: 20px 0; padding: 15px; background: var(--bg-light); border-radius: 10px; display: flex; align-items: center; gap: 15px;"><i class="fas fa-file-pdf" style="font-size: 2rem; color: #D21034;"></i><div><p style="margin:0; font-weight:600;">Document d'accompagnement</p><a href="${art.pdf}" target="_blank" class="tag-filter" style="display:inline-block; margin-top:5px; text-decoration:none;"><i class="fas fa-download"></i> TÃ©lÃ©charger le PDF</a></div></div>` : '';
-    let html = `${mediaHeader}<div class="article-body"><div class="article-meta"><span class="category-tag ${cls(art.categorie)}">${art.categorie}</span><span><i class="far fa-calendar"></i> ${art.date}</span><span><i class="far fa-clock"></i> ${art.heure}</span><span class="reading-time"><i class="fas fa-book-open"></i> ${art.readingTime} min</span><span><i class="far fa-eye"></i> ${art.views} vues</span><button class="meta-audio-btn" onclick="triggerAudio()"><i class="fas fa-volume-up"></i> Ã‰couter</button></div><h1>${art.titre}</h1><div class="article-text">${bodyImage}${art.contenu}${pdfLink}</div>`;
+    let html = `${mediaHeader}<div class="article-body"><div class="article-meta"><span class="category-tag ${cls(art.categorie)}">${art.categorie}</span><span><i class="far fa-calendar"></i> ${art.date}</span><span><i class="far fa-clock"></i> ${art.heure}</span><span class="reading-time"><i class="fas fa-book-open"></i> ${art.readingTime} min</span><span><i class="far fa-eye"></i> ${art.views} vues</span><button class="meta-audio-btn" onclick="triggerAudio()"><i class="fas fa-volume-up"></i> Ã‰couter</button></div><h1>${art.titre}</h1><button class="synthese-btn" id="syntheseBtn" onclick="loadSynthese()"><i class="fas fa-bolt"></i> Synthèse</button><div id="syntheseBox"></div><div class="article-text">${bodyImage}${art.contenu}${pdfLink}</div>`;
     if (art.tags && art.tags.length) {
         html += `<div style="margin:30px 0;padding-top:20px;border-top:1px solid var(--border)"><strong>Tags: </strong>${art.tags.map(t => `<span class="tag-filter" style="margin-left:8px" onclick="filterByTag('${t}');goHome()">${t}</span>`).join('')}</div>`;
     }
@@ -1883,6 +1883,88 @@ setInterval(loadVeille, 60000);
 // === FIN AJOUT REVUE PRESSE ===
 
 // (ancien override supprimé — renderRevueCards défini à la ligne ~390)
+
+/* ══════════════════════════════════════════════════════════════
+   SYNTHÈSE IA — Résumé en points clés via Mistral
+══════════════════════════════════════════════════════════════ */
+function _renderSynthese(box, data, isAr) {
+    const points = (data.points || []).filter(Boolean);
+    if (!points.length) return;
+    const label = isAr ? 'النقاط الرئيسية' : 'Points clés';
+    const dir   = isAr ? 'rtl' : 'ltr';
+    box.innerHTML = `
+<div class="synthese-box" dir="${dir}">
+  <div class="synthese-header">
+    <i class="fas fa-bolt"></i>
+    <span>${label}</span>
+    <span class="synthese-ia-badge">IA</span>
+  </div>
+  <ol class="synthese-list">
+    ${points.map(p => `<li>${p}</li>`).join('')}
+  </ol>
+</div>`;
+    box.style.display = 'block';
+    box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+window.loadSynthese = async function () {
+    const btn = document.getElementById('syntheseBtn');
+    const box = document.getElementById('syntheseBox');
+    if (!btn || !box || btn.dataset.loading) return;
+
+    const art = allArticles.find(a => a.id == currentEditingId);
+    if (!art) return;
+
+    const isAr = document.documentElement.classList.contains('ar');
+
+    // Cache localStorage — pas de double appel pour le même article
+    const CACHE_KEY = `at-synth-${art.id}`;
+    const cached = localStorage.getItem(CACHE_KEY);
+    if (cached) {
+        try { _renderSynthese(box, JSON.parse(cached), isAr); btn.style.display = 'none'; return; }
+        catch (_) { localStorage.removeItem(CACHE_KEY); }
+    }
+
+    // État chargement
+    btn.dataset.loading = '1';
+    const origLabel = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyse…';
+    btn.disabled = true;
+
+    try {
+        const r = await fetch(`${API_BASE}/api/synthese`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                titre:   art.titre   || '',
+                contenu: art.rawContent || art.extrait || '',
+                lang:    isAr ? 'ar' : 'fr'
+            }),
+            signal: AbortSignal.timeout(25000)
+        });
+
+        if (r.status === 429) throw new Error('rate-limit');
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+
+        const data = await r.json();
+        if (data.error) throw new Error(data.error);
+
+        localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+        _renderSynthese(box, data, isAr);
+        btn.style.display = 'none';
+
+    } catch (e) {
+        delete btn.dataset.loading;
+        btn.disabled = false;
+        btn.innerHTML = origLabel;
+        const msg = e.message === 'rate-limit'
+            ? (isAr ? 'حدٌّ مؤقت — أعد المحاولة لاحقاً' : 'Limite atteinte — réessayez dans 10 min')
+            : (isAr ? 'خطأ — أعد المحاولة' : 'Erreur — réessayez');
+        box.innerHTML = `<p class="synthese-error">${msg}</p>`;
+        box.style.display = 'block';
+        setTimeout(() => { box.style.display = 'none'; }, 4000);
+    }
+};
 
 /* ══════════════════════════════════════════════════════════════
    ROUTEUR SPA — History API

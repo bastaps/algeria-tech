@@ -22,7 +22,12 @@ const PORT = process.env.PORT || 3000;
 const MISTRAL_API_KEY = process.env.MISTRAL_API_KEY || "5AJzJhu9hZF0a7Q05tfbIxDF20NseEpd"; 
 
 app.use(cors({
-    origin: ['https://algeria-tech.pages.dev', 'http://localhost:3000', 'http://127.0.0.1:3000'],
+    origin: [
+        'https://algeria-tech.pages.dev',
+        'https://algeria-tech.pages.dz',
+        'http://localhost:3000',
+        'http://127.0.0.1:3000'
+    ],
     credentials: true
 }));
 
@@ -413,6 +418,70 @@ app.post('/api/smart-generate', express.json(), async (req, res) => {
     request.end();
 });
 
+
+// ── Synthèse IA — résumé en points clés via Mistral ─────────────────────────
+const _syntheseRateLimit = new Map(); // IP → timestamp dernier appel
+
+app.post('/api/synthese', express.json(), async (req, res) => {
+    const { titre, contenu, lang } = req.body || {};
+    if (!contenu || contenu.length < 80)
+        return res.status(400).json({ error: 'Article trop court pour une synthèse.' });
+
+    // Rate-limit : 1 synthèse par IP toutes les 10 min
+    const ip = req.headers['x-forwarded-for']?.split(',')[0].trim() || req.socket.remoteAddress;
+    const last = _syntheseRateLimit.get(ip) || 0;
+    if (Date.now() - last < 10 * 60 * 1000)
+        return res.status(429).json({ error: 'Limite atteinte, réessayez dans 10 minutes.' });
+    _syntheseRateLimit.set(ip, Date.now());
+
+    const langue = lang === 'ar' ? 'arabe' : 'français';
+    const prompt =
+`Tu es un journaliste expert. Résume cet article de presse en ${langue} en exactement 4 points clés.
+Chaque point = 1 phrase courte (max 25 mots), précise, factuelle.
+Réponds UNIQUEMENT en JSON pur : { "points": ["...", "...", "...", "..."] }
+
+TITRE : ${(titre || '').substring(0, 120)}
+ARTICLE : ${contenu.substring(0, 3500)}`;
+
+    const payload = JSON.stringify({
+        model: 'mistral-small-latest',
+        messages: [{ role: 'user', content: prompt }],
+        response_format: { type: 'json_object' },
+        temperature: 0.15,
+        max_tokens: 400
+    });
+
+    const options = {
+        hostname: 'api.mistral.ai',
+        path: '/v1/chat/completions',
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${MISTRAL_API_KEY}`,
+            'Content-Length': Buffer.byteLength(payload)
+        }
+    };
+
+    const apiReq = https.request(options, apiRes => {
+        let data = '';
+        apiRes.on('data', chunk => data += chunk);
+        apiRes.on('end', () => {
+            try {
+                const result = JSON.parse(data);
+                if (result.error) throw new Error(result.error.message);
+                const parsed = JSON.parse(result.choices[0].message.content);
+                if (!Array.isArray(parsed.points) || parsed.points.length === 0)
+                    throw new Error('Format inattendu');
+                res.json({ points: parsed.points.slice(0, 5) });
+            } catch (e) {
+                res.status(500).json({ error: 'Erreur IA : ' + e.message });
+            }
+        });
+    });
+    apiReq.on('error', e => res.status(500).json({ error: 'Réseau : ' + e.message }));
+    apiReq.write(payload);
+    apiReq.end();
+});
 
 app.post('/api/create-article', upload, async (req, res) => {
     try {
