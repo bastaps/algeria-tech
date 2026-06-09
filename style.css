@@ -2233,7 +2233,9 @@ html.ar .article-actions{ flex-direction: row-reverse; }
 .comp-op-name { color:#fff; font-weight:800; font-size:1rem; letter-spacing:.02em; }
 .comp-rec-badge { background:#FFD700; color:#333; font-size:.72rem; font-weight:700; padding:3px 9px; border-radius:12px; display:flex; align-items:center; gap:4px; }
 .comp-pop-badge { background:rgba(255,255,255,.25); color:#fff; font-size:.7rem; font-weight:700; padding:3px 8px; border-radius:10px; display:flex; align-items:center; gap:4px; }
-.comp-pro-badge { background:#212121; color:#FFD700; font-size:.7rem; font-weight:700; padding:3px 8px; border-radius:10px; display:flex; align-items:center; gap:4px; }
+.comp-pro-badge   { background:#212121; color:#FFD700; font-size:.7rem; font-weight:700; padding:3px 8px; border-radius:10px; display:flex; align-items:center; gap:4px; }
+.comp-best-badge  { background:rgba(255,255,255,.2); color:#fff; font-size:.7rem; font-weight:700; padding:3px 8px; border-radius:10px; border:1px solid rgba(255,255,255,.5); display:flex; align-items:center; gap:4px; }
+.comp-validity-warn { font-size:.8rem; color:#e65100; font-style:normal; font-weight:600; }
 .comp-card-body { padding:18px 18px 16px; flex:1; display:flex; flex-direction:column; }
 .comp-offer-name { font-weight:700; font-size:1.05rem; color:#1a1a2e; margin-bottom:6px; }
 .comp-price { margin-bottom:14px; }
