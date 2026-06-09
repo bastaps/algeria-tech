@@ -1,6 +1,227 @@
 {
   "posts": [
     {
+      "id": "a97b8230b96679f2",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/spacex-lipo-du-siecle-ou-les-nouveaux-emprunts-russes-de-la-tech-496479.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 09 Jun 2026 14:16:19 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "SpaceX : l'IPO du siècle ou les nouveaux « emprunts russes » de la tech ? — Face à une entreprise spatiale qui vend au grand public un rêve d'infrastructures titanesques, le fleuron européen des semi-conducteurs ASML, qui vient de battre des records historiques de valorisation, offre aussi un contraste saisissant.",
+        "ar": "",
+        "en": ""
+      }
+    },
+    {
+      "id": "8ad2fe3a7620a4a3",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/business-1367/openai-lance-sa-course-a-lipo-227569",
+      "image": "",
+      "date": "Tue, 09 Jun 2026 13:47:40 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "OpenAI lance sa course à l’IPO — OpenAI a déposé son dossier d'introduction en Bourse auprès des autorités américaines. Une entrée fracassante sur les marchés financiers qui s'annonce comme l'un des événements boursiers de la décennie. The post OpenAI lance sa course à l’IPO appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      }
+    },
+    {
+      "id": "95ec654a1252464e",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/09/sandstone-raises-30m-to-bring-ai-to-in-house-legal-teams/",
+      "image": "",
+      "date": "Tue, 09 Jun 2026 13:47:25 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Sandstone raises $30M to bring AI to in-house legal teams — Sandstone's Series A was led by Lightspeed Partners, with participation from Sequoia.",
+        "ar": "",
+        "fr": ""
+      }
+    },
+    {
+      "id": "0c6f5b489425ca26",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/comment-le-nouveau-mode-verrouillage-de-chatgpt-vous-protege-contre-le-vol-de-donnees-et-quelles-sont-ses-autres-fonctionnalites-496475.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 09 Jun 2026 13:45:04 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Comment le nouveau mode Verrouillage de ChatGPT vous protège contre le vol de données (et quelles sont ses autres fonctionnalités) — L'objectif est de vous protéger contre les pirates qui tentent de voler vos données personnelles par le d'injection de prompt. Cela limite toutefois votre capacité à naviguer sur le Web.",
+        "ar": "",
+        "en": ""
+      }
+    },
+    {
+      "id": "d76ee212cbe58efb",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/macos-27-arrive-bientot-comment-telecharger-des-maintenant-la-version-beta-pour-developpeurs-496472.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 09 Jun 2026 13:30:22 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "macOS 27 arrive bientôt : comment télécharger dès maintenant la version bêta pour développeurs — macOS 27 sera disponible dès la sortie des nouveaux MacBook cet automne, mais vous pouvez dès à présent vous inscrire au programme bêta pour développeurs. Voici comment procéder.",
+        "ar": "",
+        "en": ""
+      }
+    },
+    {
+      "id": "005b11d4a4bef325",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/la-mise-a-jour-de-raccourcis-dans-ios-27-facilite-la-creation-dautomatisations-et-va-me-faire-gagner-un-temps-fou-496469.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 09 Jun 2026 13:15:53 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "La mise à jour de « Raccourcis » dans iOS 27 facilite la création d'automatisations — et va me faire gagner un temps fou — Lors de la WWDC, Apple a annoncé plusieurs mises à jour pour iOS 27, notamment une fonctionnalité d'IA qui améliorera considérablement l'expérience offerte par l'application Raccourcis.",
+        "ar": "",
+        "en": ""
+      }
+    },
+    {
+      "id": "d637907e56130b6a",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/data-ia-1372/tokenmaxxing-gaspillage-ou-moteur-de-la-transformation-ia-227566",
+      "image": "",
+      "date": "Tue, 09 Jun 2026 13:14:30 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Tokenmaxxing  : gaspillage ou moteur de la transformation IA ? — Alors que la facture IA grimpe dans les budgets, une ligne de fracture s'installe entre ceux qui voient dans la consommation de tokens un coût à rationaliser et ceux qui y lisent un signal d'adoption à encourager. The post Tokenmaxxing : gaspillage ou moteur de la transformation IA ? appeared first",
+        "ar": "",
+        "en": ""
+      }
+    },
+    {
+      "id": "4e9ac78047131da3",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/les-nouvelles-fonctionnalites-de-securite-pour-les-enfants-dios-27-qui-menthousiasment-le-plus-en-tant-que-parent-496465.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 09 Jun 2026 13:00:38 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Les nouvelles fonctionnalités de sécurité pour les enfants d'iOS 27 qui m'enthousiasment le plus en tant que parent — Qu'il s'agisse d'un contrôle renforcé de la navigation sur Internet ou de raccourcis permettant de limiter le temps passé devant l'écran, Apple annonce l'arrivée de fonctionnalités de sécurité pour les enfants dont on avait grand besoin sur son système d'exploitation.",
+        "ar": "",
+        "en": ""
+      }
+    },
+    {
+      "id": "a5aa8d82140e7137",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/apres-30-ans-passes-a-utiliser-linux-je-nai-que-4-reproches-a-lui-faire-et-2-dentre-eux-me-poussent-a-retourner-vers-mon-macbook-496462.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 09 Jun 2026 12:45:34 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Après 30 ans passés à utiliser Linux, je n'ai que 4 reproches à lui faire – et 2 d'entre eux me poussent à retourner vers mon MacBook — Depuis des décennies, je recommande ce système d'exploitation open source aussi bien aux débutants qu'aux utilisateurs expérimentés. Mais bon, je ne suis pas sans voir ses quelques défauts.",
+        "ar": "",
+        "en": ""
+      }
+    },
+    {
+      "id": "af1305c30efb7169",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/apple-vient-dannoncer-ios-27-voici-les-modeles-diphone-compatibles-496459.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 09 Jun 2026 12:30:30 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Apple vient d'annoncer iOS 27. Voici les modèles d'iPhone compatibles — Voici la liste des modèles d'iPhone qui prendront en charge la prochaine mise à jour iOS, ainsi que ceux qu'Apple ne prendra plus en charge.",
+        "ar": "",
+        "en": ""
+      }
+    },
+    {
+      "id": "6df3e080d8bbc87f",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/les-3-nouvelles-fonctionnalites-de-macos-27-que-jattends-avec-le-plus-dimpatience-496450.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 09 Jun 2026 12:00:13 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Les 3 nouvelles fonctionnalités de macOS 27 que j'attends avec le plus d'impatience — La prochaine version de macOS 27 « Golden Gate » d'Apple propose peu de nouvelles fonctionnalités. E voici toutefois quelques unes.",
+        "ar": "",
+        "en": ""
+      }
+    },
+    {
+      "id": "adcc82140244bc68",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/09/how-an-e-scooter-founder-raised-5-million-to-build-space-data-centers/",
+      "image": "",
+      "date": "Tue, 09 Jun 2026 12:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "How an e-scooter founder raised $5 million to build space data centers — Orbital founder Euwyn Poon built 250,000 scooters at Spin. Now he wants to launch 10,000 space data centers.",
+        "ar": "",
+        "fr": ""
+      }
+    },
+    {
+      "id": "b7478d0a795b0c54",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/ios-27-est-disponible-comment-telecharger-des-maintenant-la-version-beta-pour-developpeurs-496446.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 09 Jun 2026 11:45:44 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "iOS 27 est disponible : comment télécharger dès maintenant la version bêta pour développeurs — La WWDC 2026 d'Apple a été riche en nouveautés pour l'expérience quotidienne des utilisateurs d'iPhone. Voici comment vous pouvez tester iOS 27 en avant-première et gratuitement.",
+        "ar": "",
+        "en": ""
+      }
+    },
+    {
       "id": "1b7f673ff1ae9bac",
       "source_name": "Silicon.fr",
       "source_short": "SI",
@@ -4878,236 +5099,15 @@
         "fr": "",
         "en": ""
       }
-    },
-    {
-      "id": "d0737aada843c983",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/03/amazon-will-show-ai-product-images-when-you-search-for-some-reason/",
-      "image": "",
-      "date": "Wed, 03 Jun 2026 15:50:26 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Amazon will show AI product images when you search for some reason — Amazon will use visual search and AI to show AI generated product images that match your search queries. The retailer says it will help guide users to products.",
-        "ar": "",
-        "fr": ""
-      }
-    },
-    {
-      "id": "02251abb53414214",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/qwant-simpose-comme-moteur-par-defaut-au-parlement-europeen-496107.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 03 Jun 2026 15:35:26 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Qwant s'impose comme moteur par défaut au parlement européen — Le parlement européen souhaite délaisser Google au profit de Qwant sur les ordinateurs fournis aux parlementaires européen à partir de demain. Un geste symbolique, à l'heure où les questions de souveraineté numérique continuent de s'imposer.",
-        "ar": "",
-        "en": ""
-      }
-    },
-    {
-      "id": "4099f7ce95d3e5ed",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/03/still-facing-copyright-lawsuits-ai-music-generator-suno-raises-another-400m/",
-      "image": "",
-      "date": "Wed, 03 Jun 2026 15:31:42 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Still facing copyright lawsuits, AI music generator Suno raises another $400M — The prominent AI music generation startup is now valued at over $5.4 billion -- about seven months ago, it raised at a $2.45 billion valuation.",
-        "ar": "",
-        "fr": ""
-      }
-    },
-    {
-      "id": "7b73bcf96dc655ff",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/ia-apres-mistral-et-microsoft-stellantis-se-rapproche-de-nvidia-et-accenture-496093.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 03 Jun 2026 15:30:10 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "IA : Après Mistral et Microsoft, Stellantis se rapproche de Nvidia et Accenture — Dans le domaine de la production et des jumeaux numériques pilotés par l'IA, Stellantis s’associe à Accenture et Nvidia. Ambition déclarée : transformer ses opérations industrielles grâce à des technologies pilotées par les données.",
-        "ar": "",
-        "en": ""
-      }
-    },
-    {
-      "id": "863a56769a3b5107",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/computex-2026-lia-locale-et-souveraine-redessine-le-marche-du-stockage-et-de-la-bureautique-496104.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 03 Jun 2026 15:05:21 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Computex 2026 : L'IA locale et souveraine redessine le marché du stockage et de la bureautique — Les géants historiques du stockage Synology et QNAP opèrent un virage majeur en intégrant l'IA locale au cœur de leurs NAS. Objectif : des agents autonomes capables de piloter l'infrastructure en langage naturel. Entre autre.",
-        "ar": "",
-        "en": ""
-      }
-    },
-    {
-      "id": "be5890923c6720c2",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/03/these-two-founders-left-goldman-and-meta-to-build-voice-ai-for-markets-everyone-else-overlooked/",
-      "image": "",
-      "date": "Wed, 03 Jun 2026 15:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "These two founders left Goldman and Meta to build voice AI for markets everyone else overlooked — The startup's own stack for Africa and Middle East is now handling more than 17,000 calls per day.",
-        "ar": "",
-        "fr": ""
-      }
-    },
-    {
-      "id": "2e996c0bdcfe791e",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/03/gitlab-cuts-14-of-staff-as-it-scales-its-platform-to-serve-ai-workloads/",
-      "image": "",
-      "date": "Wed, 03 Jun 2026 14:59:30 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "GitLab cuts 14% of staff as it scales its platform to serve AI workloads — The company is reducing its workforce as it exits 22 countries, reduces management layers, and invests in its infrastructure to scale its platform.",
-        "ar": "",
-        "fr": ""
-      }
-    },
-    {
-      "id": "f82a30b068b3240a",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/03/publishers-will-be-able-to-opt-out-of-ai-search-thanks-to-new-regulation/",
-      "image": "",
-      "date": "Wed, 03 Jun 2026 14:58:33 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Publishers will be able to opt out of AI Search, thanks to new regulation — U.K. regulators are requiring Google offer a tool allowing website publishers to opt-out of generative AI search features. The option will be tested in the UK then rolled out globally.",
-        "ar": "",
-        "fr": ""
-      }
-    },
-    {
-      "id": "72a07a68a4b70dab",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/06/03/niger-inauguration-dune-centrale-electrique-de-40-mw-financee-par-lalgerie/",
-      "image": "",
-      "date": "Wed, 03 Jun 2026 14:32:53 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Niger : Inauguration d’une centrale électrique de 40 MW financée par l’Algérie — Une centrale électrique d’une capacité de 40 mégawatts, réalisée sous forme de don de l’Algérie, a été inaugurée ce mercredi 3 juin à Gorou Banda, dans la périphérie de Niamey, au Niger. La cérémonie a été coprésidée par le Premier ministre algérien, Sifi Ghrieb, représentant le président de la Répu",
-        "ar": "",
-        "en": ""
-      }
-    },
-    {
-      "id": "3cde204e21746be8",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/03/the-worst-hacks-and-breaches-of-2026-so-far/",
-      "image": "",
-      "date": "Wed, 03 Jun 2026 14:02:45 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "The worst hacks and breaches of 2026 (so far) — From a massive DOGE data breach and the hacking of critical energy and water systems to the hack of an FBI surveillance system, here are the most damaging security incidents and data breaches of 2026.",
-        "ar": "",
-        "fr": ""
-      }
-    },
-    {
-      "id": "3b86a5854fe8a322",
-      "source_name": "Algérie Poste",
-      "source_short": "AP",
-      "source_color": "#F9A825",
-      "category": "Infrastructure",
-      "category_icon": "✉️",
-      "url": "https://m.facebook.com/algerieposteofficiel/posts/pfbid023qNfjYprDczBcWBJSVQMvGjEcEgQyLCVbLNPXmimdDicYiQmmGvKTerBbnoSTC9Fl",
-      "image": "",
-      "date": "Wed, 03 Jun 2026 14:01:24 GMT",
-      "lang_source": "ar",
-      "text": {
-        "ar": "في إطار تكثيف الشبكة البريدية وتحسين ظروف استقبال زبائننا الكرام📢 نعلمكم بأنه تم وضع حيز الخدمة 📌 مكتب بريد متنقل بولا... — في إطار تكثيف الشبكة البريدية وتحسين ظروف استقبال زبائننا الكرام📢 نعلمكم بأنه تم وضع حيز الخدمة 📌 مكتب بريد متنقل بولاية بجاية. نؤكد التزامنا المتواصل بالعمل على تلبية حاجياتكم وتقريب الخدمة منكم، مع الحرص الدائم على تحسين جودة الأداء وظروف الاستقبال. #بريد_الجزائر #بجاية #Ap_proxy",
-        "fr": "",
-        "en": ""
-      }
-    },
-    {
-      "id": "53aefa389f131900",
-      "source_name": "Ooredoo Algérie",
-      "source_short": "OR",
-      "source_color": "#E30613",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://www.facebook.com/reel/1547410483634716/",
-      "image": "",
-      "date": "Wed, 03 Jun 2026 14:01:06 GMT",
-      "lang_source": "ar",
-      "text": {
-        "ar": "في أجواء مليئة بالحماس وألوان الـ MCO، نظّمت Ooredoo نشاطات في نقاط بيعها وفي Place des Victoires، خلاّت عشّاق الحمراوة... — في أجواء مليئة بالحماس وألوان الـ MCO، نظّمت Ooredoo نشاطات في نقاط بيعها وفي Place des Victoires، خلاّت عشّاق الحمراوة يربحوا العديد من الهدايا ! نخلّوكم تكتشفوا معانا أجمل اللّحظات من خلال الفيديو !",
-        "fr": "",
-        "en": ""
-      }
-    },
-    {
-      "id": "f4309f4144b7c007",
-      "source_name": "Algérie Télécom",
-      "source_short": "AT",
-      "source_color": "#0055A4",
-      "category": "Infrastructure",
-      "category_icon": "📡",
-      "url": "https://m.facebook.com/AlgerieTelecom/posts/pfbid0QABxdbySJrz1chn48xwiCgQSvbZP9fPUsyqkJrV3RCt1beSoS6NzzU8Gqx78kXFKl",
-      "image": "",
-      "date": "Wed, 03 Jun 2026 14:00:37 GMT",
-      "lang_source": "ar",
-      "text": {
-        "ar": "ارتقوا بتجربة الإنترنت إلى مستوى آخر 🤩 إذا كنتم من مشتركي Idoom ADSL، حان الوقت لتغيير تجربتكم والانتقال إلى Idoom Fibr... — ارتقوا بتجربة الإنترنت إلى مستوى آخر 🤩 إذا كنتم من مشتركي Idoom ADSL، حان الوقت لتغيير تجربتكم والانتقال إلى Idoom Fibre والاستمتاع بتدفقات أعلى وأداء أقوى، وبـ 0 دج . كل ما عليكم هو التحقق من أهلية خطكم عبر الرابط التالي👇: 🔗 https://www.algerietelecom.dz/ar/page/migration-p232 ✅ إذا كان خطكم مؤهّلً",
-        "fr": "",
-        "en": ""
-      }
     }
   ],
-  "lastUpdated": "2026-06-09T11:15:52.635793+00:00",
+  "lastUpdated": "2026-06-09T14:25:27.470771+00:00",
   "stats": {
-    "Tech International": 151,
-    "Médias TIC": 59,
+    "Tech International": 155,
+    "Médias TIC": 58,
     "Équipementiers": 30,
-    "Infrastructure": 26,
-    "Opérateurs": 34
+    "Infrastructure": 24,
+    "Opérateurs": 33
   },
   "total": 300
 }
