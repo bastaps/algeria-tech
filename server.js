@@ -474,6 +474,76 @@ ARTICLE : ${contenu.substring(0, 3500)}`;
     apiReq.end();
 });
 
+// ── Débat IA — chat contextuel par article (Mistral) ────────────────────────
+app.post('/api/debat', express.json(), async (req, res) => {
+    const { titre, contenu, historique, message, langue } = req.body || {};
+
+    if (!message || !String(message).trim())
+        return res.status(400).json({ error: 'Message vide.' });
+    if (!contenu || contenu.length < 30)
+        return res.status(400).json({ error: 'Contenu article trop court.' });
+
+    const lang    = langue || 'français';
+    const sysMsg  =
+`Tu es un expert analyste en télécommunications, numérique et économie algérienne.
+Tu as lu et analysé cet article en détail.
+Réponds aux questions du lecteur en te basant sur l'article ET tes connaissances complémentaires.
+Sois précis, factuel, nuancé. Développe les arguments avec rigueur.
+Réponds en ${lang}. Limite tes réponses à 3-4 paragraphes maximum sauf si la question demande plus de détail.
+N'utilise pas de mise en forme markdown (pas de **, pas de #).
+
+=== ARTICLE ===
+TITRE : ${String(titre || '').substring(0, 200)}
+
+${String(contenu || '').substring(0, 4200)}
+=== FIN ARTICLE ===`;
+
+    const hist = Array.isArray(historique) ? historique.slice(-8) : [];
+    const messages = [
+        { role: 'system',  content: sysMsg },
+        ...hist,
+        { role: 'user',    content: String(message).trim().substring(0, 500) }
+    ];
+
+    const payload = JSON.stringify({
+        model:       'mistral-small-latest',
+        messages,
+        max_tokens:  700,
+        temperature: 0.5
+    });
+
+    const options = {
+        hostname: 'api.mistral.ai',
+        path:     '/v1/chat/completions',
+        method:   'POST',
+        headers: {
+            'Content-Type':   'application/json',
+            'Authorization':  `Bearer ${MISTRAL_API_KEY}`,
+            'Content-Length': Buffer.byteLength(payload)
+        }
+    };
+
+    const apiReq = https.request(options, apiRes => {
+        let data = '';
+        apiRes.on('data', chunk => data += chunk);
+        apiRes.on('end', () => {
+            try {
+                const result = JSON.parse(data);
+                if (result.error) throw new Error(result.error.message);
+                const reponse = result.choices?.[0]?.message?.content;
+                if (!reponse) throw new Error('Réponse Mistral vide');
+                res.json({ reponse });
+            } catch (e) {
+                console.error('[debat]', e.message);
+                res.status(500).json({ error: 'Erreur IA : ' + e.message });
+            }
+        });
+    });
+    apiReq.on('error', e => res.status(500).json({ error: 'Réseau : ' + e.message }));
+    apiReq.write(payload);
+    apiReq.end();
+});
+
 app.post('/api/create-article', upload, async (req, res) => {
     try {
         const { id, titre, categorie, date, heure, extrait, tags, contenu, video, type, source } = req.body;
