@@ -1890,20 +1890,23 @@ setInterval(loadVeille, 60000);
 function _renderSynthese(box, data, isAr) {
     const points = (data.points || []).filter(Boolean);
     if (!points.length) return;
-    const label = isAr ? 'النقاط الرئيسية' : 'Points clés';
-    const dir   = isAr ? 'rtl' : 'ltr';
+    const n = points.length;
+    const intro = isAr
+        ? `إليك ملخص هذا المقال في ${n} نقاط`
+        : `Voici la synthèse de cet article en ${n} point${n > 1 ? 's' : ''}`;
+    const dir = isAr ? 'rtl' : 'ltr';
     box.innerHTML = `
-<div class="synthese-box" dir="${dir}">
+<div class="synthese-inner" dir="${dir}">
   <div class="synthese-header">
     <i class="fas fa-bolt"></i>
-    <span>${label}</span>
+    <span>${intro}</span>
     <span class="synthese-ia-badge">IA</span>
   </div>
   <ul class="synthese-list">
     ${points.map(p => `<li>${p}</li>`).join('')}
   </ul>
 </div>`;
-    box.style.display = 'block';
+    box.classList.add('synthese-visible');
     box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
@@ -1922,7 +1925,8 @@ window.loadSynthese = async function () {
     const origLabel = btn.innerHTML;
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyse…';
     btn.disabled = true;
-    box.style.display = 'none';
+    box.classList.remove('synthese-visible');
+    box.innerHTML = '';
 
     try {
         const r = await fetch(`${API_BASE}/api/synthese`, {
@@ -1944,9 +1948,9 @@ window.loadSynthese = async function () {
 
     } catch (e) {
         const msg = isAr ? 'خطأ — أعد المحاولة' : 'Erreur — réessayez';
-        box.innerHTML = `<p class="synthese-error">${msg}</p>`;
-        box.style.display = 'block';
-        setTimeout(() => { box.style.display = 'none'; }, 4000);
+        box.innerHTML = `<div class="synthese-inner"><p class="synthese-error">${msg}</p></div>`;
+        box.classList.add('synthese-visible');
+        setTimeout(() => { box.classList.remove('synthese-visible'); box.innerHTML = ''; }, 4000);
     } finally {
         delete btn.dataset.loading;
         btn.disabled = false;
