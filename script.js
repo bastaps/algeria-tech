@@ -1899,9 +1899,9 @@ function _renderSynthese(box, data, isAr) {
     <span>${label}</span>
     <span class="synthese-ia-badge">IA</span>
   </div>
-  <ol class="synthese-list">
+  <ul class="synthese-list">
     ${points.map(p => `<li>${p}</li>`).join('')}
-  </ol>
+  </ul>
 </div>`;
     box.style.display = 'block';
     box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -1917,19 +1917,12 @@ window.loadSynthese = async function () {
 
     const isAr = document.documentElement.classList.contains('ar');
 
-    // Cache localStorage — pas de double appel pour le même article
-    const CACHE_KEY = `at-synth-${art.id}`;
-    const cached = localStorage.getItem(CACHE_KEY);
-    if (cached) {
-        try { _renderSynthese(box, JSON.parse(cached), isAr); btn.style.display = 'none'; return; }
-        catch (_) { localStorage.removeItem(CACHE_KEY); }
-    }
-
     // État chargement
     btn.dataset.loading = '1';
     const origLabel = btn.innerHTML;
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyse…';
     btn.disabled = true;
+    box.style.display = 'none';
 
     try {
         const r = await fetch(`${API_BASE}/api/synthese`, {
@@ -1943,26 +1936,21 @@ window.loadSynthese = async function () {
             signal: AbortSignal.timeout(25000)
         });
 
-        if (r.status === 429) throw new Error('rate-limit');
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
-
         const data = await r.json();
         if (data.error) throw new Error(data.error);
 
-        localStorage.setItem(CACHE_KEY, JSON.stringify(data));
         _renderSynthese(box, data, isAr);
-        btn.style.display = 'none';
 
     } catch (e) {
-        delete btn.dataset.loading;
-        btn.disabled = false;
-        btn.innerHTML = origLabel;
-        const msg = e.message === 'rate-limit'
-            ? (isAr ? 'حدٌّ مؤقت — أعد المحاولة لاحقاً' : 'Limite atteinte — réessayez dans 10 min')
-            : (isAr ? 'خطأ — أعد المحاولة' : 'Erreur — réessayez');
+        const msg = isAr ? 'خطأ — أعد المحاولة' : 'Erreur — réessayez';
         box.innerHTML = `<p class="synthese-error">${msg}</p>`;
         box.style.display = 'block';
         setTimeout(() => { box.style.display = 'none'; }, 4000);
+    } finally {
+        delete btn.dataset.loading;
+        btn.disabled = false;
+        btn.innerHTML = origLabel;
     }
 };
 

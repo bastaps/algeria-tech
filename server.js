@@ -420,25 +420,16 @@ app.post('/api/smart-generate', express.json(), async (req, res) => {
 
 
 // ── Synthèse IA — résumé en points clés via Mistral ─────────────────────────
-const _syntheseRateLimit = new Map(); // IP → timestamp dernier appel
-
 app.post('/api/synthese', express.json(), async (req, res) => {
     const { titre, contenu, lang } = req.body || {};
     if (!contenu || contenu.length < 80)
         return res.status(400).json({ error: 'Article trop court pour une synthèse.' });
 
-    // Rate-limit : 1 synthèse par IP toutes les 10 min
-    const ip = req.headers['x-forwarded-for']?.split(',')[0].trim() || req.socket.remoteAddress;
-    const last = _syntheseRateLimit.get(ip) || 0;
-    if (Date.now() - last < 10 * 60 * 1000)
-        return res.status(429).json({ error: 'Limite atteinte, réessayez dans 10 minutes.' });
-    _syntheseRateLimit.set(ip, Date.now());
-
     const langue = lang === 'ar' ? 'arabe' : 'français';
     const prompt =
-`Tu es un journaliste expert. Résume cet article de presse en ${langue} en exactement 4 points clés.
+`Tu es un journaliste expert. Résume cet article de presse en ${langue} en 3 à 8 points clés (adapte le nombre à la richesse du contenu).
 Chaque point = 1 phrase courte (max 25 mots), précise, factuelle.
-Réponds UNIQUEMENT en JSON pur : { "points": ["...", "...", "...", "..."] }
+Réponds UNIQUEMENT en JSON pur : { "points": ["...", "...", "..."] }
 
 TITRE : ${(titre || '').substring(0, 120)}
 ARTICLE : ${contenu.substring(0, 3500)}`;
@@ -472,7 +463,7 @@ ARTICLE : ${contenu.substring(0, 3500)}`;
                 const parsed = JSON.parse(result.choices[0].message.content);
                 if (!Array.isArray(parsed.points) || parsed.points.length === 0)
                     throw new Error('Format inattendu');
-                res.json({ points: parsed.points.slice(0, 5) });
+                res.json({ points: parsed.points.slice(0, 8) });
             } catch (e) {
                 res.status(500).json({ error: 'Erreur IA : ' + e.message });
             }
