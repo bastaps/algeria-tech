@@ -1,6 +1,7 @@
 try { require('dotenv').config(); } catch (e) {}
 const express = require('express');
 const { checkJoradp, backfillJoradp, loadData: loadJoradpData } = require('./joradp');
+const { checkArpce,  backfillArpce,  loadData: loadArpceData  } = require('./arpce');
 const multer = require('multer');
 const fs = require('fs').promises;
 const fsSync = require('fs');
@@ -565,7 +566,86 @@ app.get('/api/joradp/status', (req, res) => {
         setTimeout(runDaily, 24 * 3600 * 1000);
     }, msFirst);
 })();
-// ── FIN Veille Réglementaire ─────────────────────────────────────────────────
+// ── FIN Veille Réglementaire JORADP ──────────────────────────────────────────
+
+// ── Veille ARPCE — publications officielles (arpce.dz/fr/pub) ────────────────
+
+/* Retourne toutes les publications ARPCE stockées */
+app.get('/api/arpce', (req, res) => {
+    const data = loadArpceData();
+    res.json({
+        items:       data.items      || [],
+        lastChecked: data.lastChecked || null,
+        total:       (data.items || []).length,
+    });
+});
+
+/* Déclenchement manuel */
+app.post('/api/arpce/refresh', async (req, res) => {
+    res.json({ status: 'started', message: 'Vérification ARPCE lancée en arrière-plan.' });
+    checkArpce(1)
+        .then(n => console.log(`[ARPCE] Refresh manuel : ${n} nouveau(x).`))
+        .catch(e => console.error('[ARPCE] Refresh erreur :', e.message));
+});
+
+/* Backfill — charger les premières pages (opération ponctuelle) */
+let _arpceBackfillRunning = false;
+app.post('/api/arpce/backfill', async (req, res) => {
+    if (_arpceBackfillRunning)
+        return res.status(409).json({ status: 'already_running',
+            message: 'Un backfill ARPCE est déjà en cours.' });
+
+    const pages = Math.min(parseInt(req.body?.pages) || 6, 20);
+    _arpceBackfillRunning = true;
+    res.json({ status: 'started', message: `Backfill ARPCE (${pages} pages) lancé.`, pages });
+
+    backfillArpce(pages)
+        .then(n  => { _arpceBackfillRunning = false; console.log(`[ARPCE] ✅ Backfill : ${n} publication(s).`); })
+        .catch(e => { _arpceBackfillRunning = false; console.error('[ARPCE] ❌ Backfill :', e.message); });
+});
+
+/* Statut */
+app.get('/api/arpce/status', (req, res) => {
+    const data = loadArpceData();
+    res.json({
+        backfillRunning: _arpceBackfillRunning,
+        total:           (data.items || []).length,
+        lastChecked:     data.lastChecked || null,
+    });
+});
+
+/* ── Planification ARPCE : vérification quotidienne à 09h30 Alger ─────────── */
+(function scheduleArpce() {
+    function msUntilNext9h30() {
+        const now  = new Date();
+        const next = new Date(now);
+        next.setHours(9, 30, 0, 0);
+        if (now >= next) next.setDate(next.getDate() + 1);
+        return next - now;
+    }
+    function isArpceStale() {
+        const d = loadArpceData();
+        if (!d.lastChecked) return true;
+        return (Date.now() - new Date(d.lastChecked).getTime()) > 8 * 3600 * 1000;
+    }
+
+    /* Vérification au démarrage si périmé */
+    if (isArpceStale()) {
+        console.log('[ARPCE] Données périmées — vérification dans 20s...');
+        setTimeout(() => {
+            checkArpce(1).catch(e => console.error('[ARPCE]', e.message));
+        }, 20000);
+    }
+
+    /* Planification quotidienne 09h30 */
+    const msFirst = msUntilNext9h30();
+    console.log(`[ARPCE] ⏰ Prochaine vérification dans ${(msFirst / 3600000).toFixed(1)}h (09h30 Alger)`);
+    setTimeout(function runDaily() {
+        checkArpce(1).catch(e => console.error('[ARPCE]', e.message));
+        setTimeout(runDaily, 24 * 3600 * 1000);
+    }, msFirst);
+})();
+// ── FIN Veille ARPCE ─────────────────────────────────────────────────────────
 
 // ── Débat IA — chat contextuel par article (Mistral) ────────────────────────
 app.post('/api/debat', express.json(), async (req, res) => {

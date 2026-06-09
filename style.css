@@ -2585,19 +2585,30 @@ html.ar .comp-disclaimer { flex-direction:row-reverse; border-left:none; border-
 }
 .reg-last-check { display: flex; align-items: center; gap: 5px; }
 .reg-last-check .fas { opacity: .7; }
-.reg-joradp-link {
-  color: #90caf9;
-  text-decoration: none;
-  font-weight: 600;
-  display: flex; align-items: center; gap: 5px;
-  transition: color .15s;
+/* Liens sources hero */
+.reg-src-link {
+  color: #90caf9; text-decoration: none; font-weight: 600;
+  display: flex; align-items: center; gap: 5px; transition: color .15s;
 }
-.reg-joradp-link:hover { color: #fff; }
+.reg-src-link:hover { color: #fff; }
+.reg-src-link-arpce { color: #a5d6a7; }
+.reg-src-link-arpce:hover { color: #fff; }
+
+/* ── Badges source sur les cartes ───────────────────────── */
+.reg-card-head { flex-wrap: wrap; gap: 6px; }
+.reg-card-head-right { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.reg-src-badge {
+  font-size: .68rem; font-weight: 700; letter-spacing: .04em;
+  padding: 2px 7px; border-radius: 20px;
+  display: inline-flex; align-items: center; gap: 3px;
+}
+.reg-src-joradp { background: #e3f2fd; color: #0d47a1; }
+.reg-src-arpce  { background: #e8f5e9; color: #1b5e20; }
 
 /* ── Filtres ─────────────────────────────────────────────── */
 .reg-filters {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 8px;
   margin-bottom: 28px;
 }
@@ -2613,12 +2624,12 @@ html.ar .comp-disclaimer { flex-direction:row-reverse; border-left:none; border-
   display: flex; align-items: center; gap: 6px;
   transition: all .15s;
 }
+.reg-filter-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.reg-filter-label { font-size:.78rem; font-weight:700; color:#555; min-width:52px; }
 .reg-pill:hover { background: #e8eaf6; border-color: #3f51b5; color: #3f51b5; }
-.reg-pill-active {
-  background: #1a237e;
-  color: #fff;
-  border-color: #1a237e;
-}
+.reg-pill-active { background: #1a237e; color: #fff; border-color: #1a237e; }
+/* Source pills : ARPCE = vert */
+.reg-pill-arpce.reg-pill-active { background: #2e7d32; border-color: #2e7d32; }
 
 /* ── Grille de cartes ────────────────────────────────────── */
 .reg-grid {

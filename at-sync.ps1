@@ -27,8 +27,8 @@ public static class CtrlCGuard {
 
     # ── Fichiers auto-générés à ne jamais pousser ────────────────────────────
     # articles.json est EXCLU : il doit etre commite avec les articles de l'utilisateur
-    # joradp_veille.json : base de données locale JORADP (trop volumineuse + change en continu)
-    $AUTO_FILES = @("revue_presse.json", "veille_data.json", "joradp_veille.json")
+    # joradp_veille.json / arpce_veille.json : bases de données locales (changent en continu, jamais à pousser)
+    $AUTO_FILES = @("revue_presse.json", "veille_data.json", "joradp_veille.json", "arpce_veille.json")
 
     function Set-SkipWorktree {
         param([switch]$Enable)
@@ -547,23 +547,32 @@ public static class CtrlCGuard {
                     break
                 }
 
-                # Afficher le statut
+                # Afficher le statut des deux sources
+                $st = $null; $stA = $null
                 try {
                     $st = Invoke-RestMethod -Uri "http://localhost:3000/api/joradp/status" -TimeoutSec 5
-                    Write-Host "`nStatut actuel :" -ForegroundColor Green
-                    Write-Host "  Textes TIC trouves  : $($st.textes)"
-                    Write-Host "  Numeros JO analyses : $($st.analyzed)"
-                    Write-Host "  Derniere verification: $($st.lastChecked)"
-                    if ($st.backfillRunning) {
-                        Write-Host "  Backfill en cours   : OUI (suivre les logs dans la fenetre serveur)" -ForegroundColor Yellow
-                    }
-                } catch {
-                    Write-Host "Impossible de lire le statut JORADP." -ForegroundColor Red
+                } catch { }
+                try {
+                    $stA = Invoke-RestMethod -Uri "http://localhost:3000/api/arpce/status" -TimeoutSec 5
+                } catch { }
+
+                if (-not $st -and -not $stA) {
+                    Write-Host "Impossible de lire les statuts (serveur actif ?)." -ForegroundColor Red
                     Read-Host "`nAppuyez sur Entree pour continuer..."
                     break
                 }
 
-                if ($st.backfillRunning) {
+                Write-Host "`nStatut actuel :" -ForegroundColor Green
+                if ($st) {
+                    Write-Host "  [JORADP] Textes TIC   : $($st.textes)  |  JO analyses : $($st.analyzed)  |  Derniere verif : $($st.lastChecked)"
+                    if ($st.backfillRunning) { Write-Host "  [JORADP] Backfill EN COURS" -ForegroundColor Yellow }
+                }
+                if ($stA) {
+                    Write-Host "  [ARPCE]  Publications : $($stA.total)  |  Derniere verif : $($stA.lastChecked)"
+                    if ($stA.backfillRunning) { Write-Host "  [ARPCE]  Backfill EN COURS" -ForegroundColor Yellow }
+                }
+
+                if ($st.backfillRunning -or $stA.backfillRunning) {
                     Read-Host "`nBackfill en cours -- Appuyez sur Entree pour revenir au menu..."
                     break
                 }
@@ -580,27 +589,34 @@ public static class CtrlCGuard {
                 switch ($jChoice) {
 
                     "r" {
+                        # Verifier JORADP + ARPCE
                         try {
                             $r = Invoke-RestMethod -Uri "http://localhost:3000/api/joradp/refresh" -Method POST -TimeoutSec 5
-                            Write-Host "`nOK $($r.message)" -ForegroundColor Green
-                            Write-Host "Le resultat apparaitra dans les logs de la fenetre serveur." -ForegroundColor DarkGray
-                        } catch {
-                            Write-Host "ERREUR : $($_.Exception.Message)" -ForegroundColor Red
-                        }
+                            Write-Host "`nJORADP : $($r.message)" -ForegroundColor Green
+                        } catch { Write-Host "JORADP ERREUR : $($_.Exception.Message)" -ForegroundColor Red }
+                        try {
+                            $r2 = Invoke-RestMethod -Uri "http://localhost:3000/api/arpce/refresh" -Method POST -TimeoutSec 5
+                            Write-Host "ARPCE  : $($r2.message)" -ForegroundColor Green
+                        } catch { Write-Host "ARPCE ERREUR : $($_.Exception.Message)" -ForegroundColor Red }
+                        Write-Host "Les resultats apparaitront dans les logs de la fenetre serveur." -ForegroundColor DarkGray
                     }
 
                     "b" {
-                        $yearInput = Read-Host "Annee a analyser (Entree = $((Get-Date).Year))"
+                        # Backfill JORADP
+                        $yearInput = Read-Host "Annee JORADP a analyser (Entree = $((Get-Date).Year))"
                         $year = if ($yearInput -match "^\d{4}$") { $yearInput } else { (Get-Date).Year }
-                        Write-Host "`nLancement du backfill pour $year..." -ForegroundColor Cyan
-                        Write-Host "(Chaque numero prend ~5-30s. Suivez les logs dans la fenetre serveur.)" -ForegroundColor DarkGray
+                        Write-Host "`nLancement du backfill JORADP $year..." -ForegroundColor Cyan
                         try {
                             $body = "{`"year`":$year,`"delay_ms`":3000}"
                             $r = Invoke-RestMethod -Uri "http://localhost:3000/api/joradp/backfill" -Method POST -ContentType "application/json" -Body $body -TimeoutSec 10
-                            Write-Host "`nOK $($r.message)" -ForegroundColor Green
-                        } catch {
-                            Write-Host "ERREUR : $($_.Exception.Message)" -ForegroundColor Red
-                        }
+                            Write-Host "JORADP : $($r.message)" -ForegroundColor Green
+                        } catch { Write-Host "JORADP ERREUR : $($_.Exception.Message)" -ForegroundColor Red }
+                        # Backfill ARPCE
+                        Write-Host "`nLancement du backfill ARPCE (6 pages)..." -ForegroundColor Cyan
+                        try {
+                            $r2 = Invoke-RestMethod -Uri "http://localhost:3000/api/arpce/backfill" -Method POST -ContentType "application/json" -Body '{"pages":6}' -TimeoutSec 10
+                            Write-Host "ARPCE  : $($r2.message)" -ForegroundColor Green
+                        } catch { Write-Host "ARPCE ERREUR : $($_.Exception.Message)" -ForegroundColor Red }
                     }
 
                     default { Write-Host "Retour." -ForegroundColor DarkGray }

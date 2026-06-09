@@ -713,10 +713,19 @@ window.showRevue = function() {
 
 /* Couleurs par type de texte réglementaire */
 const REG_TYPE_STYLES = {
-  'Loi':                  { color:'#1565C0', bg:'#e8f0fb', icon:'fa-landmark' },
-  'Décret présidentiel':  { color:'#6A1B9A', bg:'#f3e5f5', icon:'fa-crown' },
-  'Décret exécutif':      { color:'#0277BD', bg:'#e1f5fe', icon:'fa-gavel' },
-  'Arrêté':               { color:'#2E7D32', bg:'#e8f5e9', icon:'fa-file-signature' },
+  /* ── JORADP ───────────────────────────────────────── */
+  'Loi':                    { color:'#1565C0', bg:'#e8f0fb', icon:'fa-landmark' },
+  'Décret présidentiel':    { color:'#6A1B9A', bg:'#f3e5f5', icon:'fa-crown' },
+  'Décret exécutif':        { color:'#0277BD', bg:'#e1f5fe', icon:'fa-gavel' },
+  'Arrêté':                 { color:'#2E7D32', bg:'#e8f5e9', icon:'fa-file-signature' },
+  /* ── ARPCE ────────────────────────────────────────── */
+  "Appel d'offres":         { color:'#E65100', bg:'#fff3e0', icon:'fa-handshake' },
+  'Communiqué':             { color:'#1B5E20', bg:'#e8f5e9', icon:'fa-bullhorn' },
+  'Consultation publique':  { color:'#4A148C', bg:'#f3e5f5', icon:'fa-comments' },
+  'Rapport':                { color:'#BF360C', bg:'#fbe9e7', icon:'fa-chart-bar' },
+  'Avis':                   { color:'#01579B', bg:'#e1f5fe', icon:'fa-info-circle' },
+  'Programme':              { color:'#33691E', bg:'#f1f8e9', icon:'fa-project-diagram' },
+  'Publication ARPCE':      { color:'#006064', bg:'#e0f7fa', icon:'fa-newspaper' },
   'Décision':             { color:'#E65100', bg:'#fff3e0', icon:'fa-balance-scale' },
   'Circulaire':           { color:'#5D4037', bg:'#efebe9', icon:'fa-scroll' },
   'Instruction':          { color:'#37474F', bg:'#eceff1', icon:'fa-clipboard-list' },
@@ -729,26 +738,43 @@ function _regStyle(type) {
 }
 
 function _regCard(t) {
-  const s    = _regStyle(t.type);
-  const link = t.page_jo
-    ? `${t.jo_url}#page=${t.page_jo}`
-    : t.jo_url;
-  const pageLabel = t.page_jo ? `Page ${t.page_jo}` : 'Voir le JO';
+  const s       = _regStyle(t.type);
+  const isArpce = t.source === 'ARPCE';
 
-  return `<div class="reg-card" style="--rc:${s.color};--rl:${s.bg}">
+  /* Badge source */
+  const srcBadge = isArpce
+    ? `<span class="reg-src-badge reg-src-arpce"><img src="/images/arpce-logo-mini.png" onerror="this.style.display='none'" style="height:12px;margin-right:3px;vertical-align:middle">ARPCE</span>`
+    : `<span class="reg-src-badge reg-src-joradp"><i class="fas fa-book-open"></i> JORADP</span>`;
+
+  /* Badge numéro JO ou date */
+  const refBadge = isArpce
+    ? (t.jo_date_fr ? `<span class="reg-jo-badge"><i class="fas fa-calendar-alt"></i> ${t.jo_date_fr}</span>` : '')
+    : `<span class="reg-jo-badge"><i class="fas fa-book-open"></i> JO N°${t.jo_numero} · ${t.jo_date_fr}</span>`;
+
+  /* Lien et libellé bouton */
+  const link      = isArpce ? t.url : (t.page_jo ? `${t.jo_url}#page=${t.page_jo}` : t.jo_url);
+  const btnLabel  = isArpce ? 'Lire la publication' : 'Consulter le JO';
+  const footLabel = isArpce
+    ? `<span class="reg-page-info"><i class="fas fa-external-link-alt"></i> arpce.dz</span>`
+    : `<span class="reg-page-info"><i class="fas fa-file-pdf"></i> ${t.page_jo ? `Page ${t.page_jo}` : 'Voir le JO'}</span>`;
+
+  /* Texte de pertinence / description */
+  const pertText = t.pertinence || t.description || '';
+
+  return `<div class="reg-card" data-source="${isArpce ? 'ARPCE' : 'JORADP'}" style="--rc:${s.color};--rl:${s.bg}">
     <div class="reg-card-head">
       <span class="reg-type-badge"><i class="fas ${s.icon}"></i> ${t.type}</span>
-      <span class="reg-jo-badge"><i class="fas fa-book-open"></i> JO N°${t.jo_numero} · ${t.jo_date_fr}</span>
+      <div class="reg-card-head-right">${srcBadge}${refBadge}</div>
     </div>
     <div class="reg-card-body">
-      <p class="reg-numero">${t.numero ? `N° ${t.numero}` : ''}${t.date_texte ? ` — ${t.date_texte}` : ''}</p>
+      <p class="reg-numero">${t.numero ? `N° ${t.numero}` : ''}${(!isArpce && t.date_texte) ? ` — ${t.date_texte}` : ''}</p>
       <h3 class="reg-titre">${t.titre}</h3>
-      ${t.pertinence ? `<p class="reg-pertinence"><i class="fas fa-lightbulb"></i> ${t.pertinence}</p>` : ''}
+      ${pertText ? `<p class="reg-pertinence"><i class="fas fa-lightbulb"></i> ${pertText}</p>` : ''}
     </div>
     <div class="reg-card-foot">
-      <span class="reg-page-info"><i class="fas fa-file-pdf"></i> ${pageLabel}</span>
+      ${footLabel}
       <a href="${link}" target="_blank" rel="noopener" class="reg-link" style="background:${s.color}">
-        <i class="fas fa-external-link-alt"></i> Consulter le JO
+        <i class="fas fa-external-link-alt"></i> ${btnLabel}
       </a>
     </div>
   </div>`;
@@ -779,28 +805,67 @@ async function _loadRegData() {
   box.innerHTML = `<div class="reg-loading"><i class="fas fa-circle-notch fa-spin"></i> Chargement des textes réglementaires…</div>`;
 
   try {
-    const r    = await fetch('/api/joradp');
-    const data = await r.json();
-    const textes = data.textes || [];
+    /* Charger JORADP et ARPCE en parallèle */
+    const [joradpRes, arpceRes] = await Promise.allSettled([
+      fetch('/api/joradp').then(r => r.json()),
+      fetch('/api/arpce').then(r => r.json()),
+    ]);
+
+    const joradpData  = joradpRes.status  === 'fulfilled' ? joradpRes.value  : { textes: [], lastChecked: null };
+    const arpceData   = arpceRes.status   === 'fulfilled' ? arpceRes.value   : { items:  [], lastChecked: null };
+
+    /* Fusionner : ARPCE items + JORADP textes → format unifié, triés par date desc */
+    const joradpItems = (joradpData.textes || []).map(t => ({ ...t, source: t.source || 'JORADP' }));
+    const arpceItems  = (arpceData.items   || []).map(t => ({ ...t, source: 'ARPCE' }));
+
+    const allItems = [...arpceItems, ...joradpItems].sort((a, b) => {
+      const da = a.jo_date || a.date || '0';
+      const db = b.jo_date || b.date || '0';
+      return db.localeCompare(da);
+    });
 
     const section = document.getElementById('reglementaireSection');
 
     /* Mettre à jour le compteur */
     const counter = section?.querySelector('.reg-count');
-    if (counter) counter.textContent = textes.length
-      ? `${textes.length} texte${textes.length > 1 ? 's' : ''} réglementaire${textes.length > 1 ? 's' : ''} TIC détecté${textes.length > 1 ? 's' : ''}`
-      : 'Aucun texte trouvé pour le moment';
+    if (counter) {
+      const n = allItems.length;
+      const nA = arpceItems.length, nJ = joradpItems.length;
+      counter.textContent = n
+        ? `${n} publication${n > 1 ? 's' : ''} — ${nA} ARPCE · ${nJ} JO`
+        : 'Aucune publication trouvée';
+    }
 
-    /* Mettre à jour la date de dernière vérification */
+    /* Dernière vérification (la plus récente des deux) */
     const lastChk = section?.querySelector('.reg-last-check');
-    if (lastChk) lastChk.outerHTML = _regLastChecked(data.lastChecked);
+    const latestCheck = [joradpData.lastChecked, arpceData.lastChecked]
+      .filter(Boolean).sort().pop();
+    if (lastChk) lastChk.outerHTML = _regLastChecked(latestCheck);
 
-    box.innerHTML = textes.length
-      ? `<div class="reg-grid">${textes.map(_regCard).join('')}</div>`
+    /* Appliquer le filtre courant */
+    window._regAllItems = allItems;
+    _applyRegFilter(_regCurrentFilter, _regCurrentSource);
+
+    box.innerHTML = allItems.length
+      ? `<div class="reg-grid" id="regGrid">${allItems.map(_regCard).join('')}</div>`
       : _regEmpty();
   } catch (e) {
     if (box) box.innerHTML = `<div class="reg-error"><i class="fas fa-exclamation-triangle"></i> Impossible de charger les données (serveur requis).</div>`;
   }
+}
+
+/* Filtre type + source ────────────────────────────────────────── */
+let _regCurrentSource = 'all';
+
+function _applyRegFilter(type, source) {
+  const cards = document.querySelectorAll('.reg-card');
+  cards.forEach(card => {
+    const badge  = card.querySelector('.reg-type-badge')?.textContent || '';
+    const src    = card.dataset.source || '';
+    const showT  = type   === 'all' || badge.includes(type);
+    const showS  = source === 'all' || src === source;
+    card.style.display = (showT && showS) ? '' : 'none';
+  });
 }
 
 function _buildRegHTML() {
@@ -809,25 +874,42 @@ function _buildRegHTML() {
     <!-- Hero -->
     <div class="reg-hero">
       <div class="reg-hero-icon"><i class="fas fa-gavel"></i></div>
-      <h1 class="reg-hero-title">Veille Réglementaire</h1>
-      <p class="reg-hero-sub">Les derniers textes du <strong>Journal Officiel Algérien</strong> liés aux TIC, télécommunications,
-        numérique, startups et cybersécurité — détectés automatiquement chaque jour.</p>
+      <h1 class="reg-hero-title">Veille Réglementaire TIC</h1>
+      <p class="reg-hero-sub">
+        Textes du <strong>Journal Officiel Algérien (JORADP)</strong> et publications officielles de l'<strong>ARPCE</strong>
+        relatifs aux TIC, télécommunications, numérique, startups et cybersécurité — mis à jour automatiquement chaque jour.
+      </p>
       <div class="reg-hero-meta">
         <span class="reg-count">Chargement…</span>
         ${_regLastChecked(null)}
-        <a href="https://www.joradp.dz/HFR/Index.htm" target="_blank" rel="noopener" class="reg-joradp-link">
-          <i class="fas fa-external-link-alt"></i> JORADP officiel
+        <a href="https://www.joradp.dz/HFR/Index.htm" target="_blank" rel="noopener" class="reg-src-link">
+          <i class="fas fa-book-open"></i> JORADP
+        </a>
+        <a href="https://www.arpce.dz/fr/pub" target="_blank" rel="noopener" class="reg-src-link reg-src-link-arpce">
+          <i class="fas fa-shield-alt"></i> ARPCE
         </a>
       </div>
     </div>
 
-    <!-- Filtres par type -->
+    <!-- Filtres source -->
     <div class="reg-filters" id="regFilters">
-      <button class="reg-pill reg-pill-active" onclick="_regFilter(this,'all')">Tous</button>
-      <button class="reg-pill" onclick="_regFilter(this,'Loi')"><i class="fas fa-landmark"></i> Lois</button>
-      <button class="reg-pill" onclick="_regFilter(this,'Décret')"><i class="fas fa-gavel"></i> Décrets</button>
-      <button class="reg-pill" onclick="_regFilter(this,'Arrêté')"><i class="fas fa-file-signature"></i> Arrêtés</button>
-      <button class="reg-pill" onclick="_regFilter(this,'Décision')"><i class="fas fa-balance-scale"></i> Décisions</button>
+      <div class="reg-filter-row">
+        <span class="reg-filter-label">Source :</span>
+        <button class="reg-pill reg-pill-src reg-pill-active" onclick="_regFilterSource(this,'all')">Toutes</button>
+        <button class="reg-pill reg-pill-src" onclick="_regFilterSource(this,'JORADP')"><i class="fas fa-book-open"></i> JORADP</button>
+        <button class="reg-pill reg-pill-src reg-pill-arpce" onclick="_regFilterSource(this,'ARPCE')"><i class="fas fa-shield-alt"></i> ARPCE</button>
+      </div>
+      <div class="reg-filter-row">
+        <span class="reg-filter-label">Type :</span>
+        <button class="reg-pill reg-pill-type reg-pill-active" onclick="_regFilter(this,'all')">Tous</button>
+        <button class="reg-pill reg-pill-type" onclick="_regFilter(this,'Loi')"><i class="fas fa-landmark"></i> Lois</button>
+        <button class="reg-pill reg-pill-type" onclick="_regFilter(this,'Décret')"><i class="fas fa-gavel"></i> Décrets</button>
+        <button class="reg-pill reg-pill-type" onclick="_regFilter(this,'Arrêté')"><i class="fas fa-file-signature"></i> Arrêtés</button>
+        <button class="reg-pill reg-pill-type" onclick="_regFilter(this,'Décision')"><i class="fas fa-balance-scale"></i> Décisions</button>
+        <button class="reg-pill reg-pill-type" onclick="_regFilter(this,'Appel')"><i class="fas fa-handshake"></i> Appels d'offres</button>
+        <button class="reg-pill reg-pill-type" onclick="_regFilter(this,'Communiqué')"><i class="fas fa-bullhorn"></i> Communiqués</button>
+        <button class="reg-pill reg-pill-type" onclick="_regFilter(this,'Avis')"><i class="fas fa-info-circle"></i> Avis</button>
+      </div>
     </div>
 
     <!-- Résultats -->
@@ -836,8 +918,9 @@ function _buildRegHTML() {
     <!-- Disclaimer -->
     <div class="reg-disclaimer">
       <i class="fas fa-info-circle"></i>
-      Seul le sommaire (table des matières) de chaque JO est analysé — sans traitement du texte intégral.
-      Vérifiez toujours sur <a href="https://www.joradp.dz" target="_blank">joradp.dz</a> avant tout usage juridique.
+      Les données JORADP sont extraites du sommaire (table des matières) uniquement.
+      Les publications ARPCE proviennent directement de <a href="https://www.arpce.dz/fr/pub" target="_blank">arpce.dz</a>.
+      Vérifiez toujours sur les sources officielles avant tout usage juridique.
     </div>
   </div>`;
 }
@@ -846,15 +929,16 @@ let _regCurrentFilter = 'all';
 
 window._regFilter = function(btn, type) {
   _regCurrentFilter = type;
-  document.querySelectorAll('#regFilters .reg-pill').forEach(b => b.classList.remove('reg-pill-active'));
+  document.querySelectorAll('#regFilters .reg-pill-type').forEach(b => b.classList.remove('reg-pill-active'));
   btn.classList.add('reg-pill-active');
+  _applyRegFilter(_regCurrentFilter, _regCurrentSource);
+};
 
-  const cards = document.querySelectorAll('.reg-card');
-  cards.forEach(card => {
-    const badge = card.querySelector('.reg-type-badge')?.textContent || '';
-    const show  = type === 'all' || badge.includes(type);
-    card.style.display = show ? '' : 'none';
-  });
+window._regFilterSource = function(btn, source) {
+  _regCurrentSource = source;
+  document.querySelectorAll('#regFilters .reg-pill-src').forEach(b => b.classList.remove('reg-pill-active'));
+  btn.classList.add('reg-pill-active');
+  _applyRegFilter(_regCurrentFilter, _regCurrentSource);
 };
 
 window.showReglementaire = function() {
