@@ -27,7 +27,8 @@ public static class CtrlCGuard {
 
     # ── Fichiers auto-générés à ne jamais pousser ────────────────────────────
     # articles.json est EXCLU : il doit etre commite avec les articles de l'utilisateur
-    $AUTO_FILES = @("revue_presse.json", "veille_data.json")
+    # joradp_veille.json : base de données locale JORADP (trop volumineuse + change en continu)
+    $AUTO_FILES = @("revue_presse.json", "veille_data.json", "joradp_veille.json")
 
     function Set-SkipWorktree {
         param([switch]$Enable)
@@ -71,6 +72,7 @@ public static class CtrlCGuard {
         Write-Host "------------------------------------------"
         Write-Host "9. [IDE]      Lancer Algeria Tech IDE (IA Chat + Terminal)" -ForegroundColor Cyan
         Write-Host "0. [ELECTRON] Lancer en mode bureau (fenetre desktop)" -ForegroundColor Cyan
+        Write-Host "J. [JORADP]   Veille reglementaire (statut + backfill)" -ForegroundColor Yellow
         Write-Host "Q. Quitter"
         Write-Host "------------------------------------------"
         Write-Host "  [CTRL+C] depuis n'importe quelle option = retour ici" -ForegroundColor DarkGray
@@ -522,6 +524,88 @@ public static class CtrlCGuard {
                 Start-Process powershell -ArgumentList "-NoExit", "-Command",
                     "Set-Location '$ideDir'; npm run electron:dev"
                 Write-Host "OK Electron en cours de demarrage..." -ForegroundColor Green
+                Read-Host "`nAppuyez sur Entree pour continuer..."
+            }
+
+            # ── J. JORADP — Veille Reglementaire ────────────────────────────
+            "j" {
+                Write-Host "`n--- Veille Reglementaire JORADP ---" -ForegroundColor Yellow
+                Write-Host "  Le serveur surveille automatiquement le JO chaque jour a 09h00." -ForegroundColor DarkGray
+                Write-Host "  Cette option vous permet de consulter l'etat et de forcer des actions." -ForegroundColor DarkGray
+
+                # Verifier si le serveur local tourne
+                $serverOk = $false
+                try {
+                    $null = Invoke-RestMethod -Uri "http://localhost:3000/health" -TimeoutSec 3 -ErrorAction Stop
+                    $serverOk = $true
+                } catch { }
+
+                if (-not $serverOk) {
+                    Write-Host "`nERREUR : Le serveur local n'est pas actif." -ForegroundColor Red
+                    Write-Host "Lancez d'abord l'option 4 (START), puis revenez ici." -ForegroundColor Yellow
+                    Read-Host "`nAppuyez sur Entree pour continuer..."
+                    break
+                }
+
+                # Afficher le statut
+                try {
+                    $st = Invoke-RestMethod -Uri "http://localhost:3000/api/joradp/status" -TimeoutSec 5
+                    Write-Host "`nStatut actuel :" -ForegroundColor Green
+                    Write-Host "  Textes TIC trouves  : $($st.textes)"
+                    Write-Host "  Numeros JO analyses : $($st.analyzed)"
+                    Write-Host "  Derniere verification: $($st.lastChecked)"
+                    if ($st.backfillRunning) {
+                        Write-Host "  Backfill en cours   : OUI (suivre les logs dans la fenetre serveur)" -ForegroundColor Yellow
+                    }
+                } catch {
+                    Write-Host "Impossible de lire le statut JORADP." -ForegroundColor Red
+                    Read-Host "`nAppuyez sur Entree pour continuer..."
+                    break
+                }
+
+                if ($st.backfillRunning) {
+                    Read-Host "`nBackfill en cours -- Appuyez sur Entree pour revenir au menu..."
+                    break
+                }
+
+                Write-Host "`n  R. Verifier maintenant les nouveaux numeros du JO"
+                Write-Host "  B. Backfill (re-analyser depuis le n°1 d'une annee)"
+                Write-Host "  X. Retour"
+                Write-Host ""
+                Write-Host "Votre choix : " -NoNewline -ForegroundColor White
+                try { $jKey = [Console]::ReadKey($true) } catch { $jKey = $null }
+                $jChoice = $jKey.KeyChar.ToString().ToLower()
+                Write-Host $jChoice
+
+                switch ($jChoice) {
+
+                    "r" {
+                        try {
+                            $r = Invoke-RestMethod -Uri "http://localhost:3000/api/joradp/refresh" -Method POST -TimeoutSec 5
+                            Write-Host "`nOK $($r.message)" -ForegroundColor Green
+                            Write-Host "Le resultat apparaitra dans les logs de la fenetre serveur." -ForegroundColor DarkGray
+                        } catch {
+                            Write-Host "ERREUR : $($_.Exception.Message)" -ForegroundColor Red
+                        }
+                    }
+
+                    "b" {
+                        $yearInput = Read-Host "Annee a analyser (Entree = $((Get-Date).Year))"
+                        $year = if ($yearInput -match "^\d{4}$") { $yearInput } else { (Get-Date).Year }
+                        Write-Host "`nLancement du backfill pour $year..." -ForegroundColor Cyan
+                        Write-Host "(Chaque numero prend ~5-30s. Suivez les logs dans la fenetre serveur.)" -ForegroundColor DarkGray
+                        try {
+                            $body = "{`"year`":$year,`"delay_ms`":3000}"
+                            $r = Invoke-RestMethod -Uri "http://localhost:3000/api/joradp/backfill" -Method POST -ContentType "application/json" -Body $body -TimeoutSec 10
+                            Write-Host "`nOK $($r.message)" -ForegroundColor Green
+                        } catch {
+                            Write-Host "ERREUR : $($_.Exception.Message)" -ForegroundColor Red
+                        }
+                    }
+
+                    default { Write-Host "Retour." -ForegroundColor DarkGray }
+                }
+
                 Read-Host "`nAppuyez sur Entree pour continuer..."
             }
 
