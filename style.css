@@ -1976,11 +1976,20 @@ html.ar .trending-content    { text-align: right; }
 /* ══════════════════════════════════════════════════════════════
    SYNTHÈSE IA — Bouton + Bloc résumé
 ══════════════════════════════════════════════════════════════ */
+/* ── Rangée de boutons actions article ─────────────────────── */
+.article-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 10px 0 18px;
+}
+
+/* ── Bouton Synthèse IA ─────────────────────────────────────── */
 .synthese-btn {
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    margin: 10px 0 18px;
+    margin: 0;
     padding: 9px 20px;
     background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
     color: #fff;
@@ -2095,3 +2104,99 @@ html.ar .synthese-list         { direction: rtl; text-align: right; }
 html.ar .synthese-list li      { padding-left: 0; padding-right: 1.5em; }
 html.ar .synthese-list li::before { left: auto; right: 0; }
 html.ar .synthese-btn          { flex-direction: row-reverse; }
+
+/* ══════════════════════════════════════════════════════════════
+   DÉCHIFFRER LE JARGON — Bouton + Termes + Tooltip
+══════════════════════════════════════════════════════════════ */
+
+/* ── Bouton ─────────────────────────────────────────────────── */
+.jargon-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 20px;
+    background: linear-gradient(135deg, #00897b 0%, #00695c 100%);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    box-shadow: 0 3px 12px rgba(0,137,123,.35);
+    transition: transform .15s, box-shadow .15s;
+    white-space: nowrap;
+}
+.jargon-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0,137,123,.45);
+}
+.jargon-btn.jargon-active {
+    background: linear-gradient(135deg, #e53935 0%, #b71c1c 100%);
+    box-shadow: 0 3px 12px rgba(229,57,53,.35);
+}
+.jargon-btn.jargon-active:hover {
+    box-shadow: 0 6px 18px rgba(229,57,53,.45);
+}
+
+/* ── Terme surligné ─────────────────────────────────────────── */
+.jargon-term {
+    background-color: #fff9c4;
+    border-bottom: 2px dotted #1a73e8;
+    border-radius: 2px;
+    padding: 0 1px;
+    cursor: help;
+    transition: background-color .15s;
+}
+.jargon-term:hover {
+    background-color: #fff176;
+}
+
+/* ── Tooltip ────────────────────────────────────────────────── */
+#jargonTooltip {
+    position: absolute;
+    z-index: 9999;
+    max-width: 320px;
+    min-width: 180px;
+    background: #fff;
+    border: 1px solid #e0e7ff;
+    border-top: 3px solid #1a73e8;
+    border-radius: 10px;
+    padding: 11px 14px 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,.16), 0 2px 8px rgba(0,0,0,.08);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: opacity .18s ease, transform .18s ease;
+    font-size: 0.86rem;
+    line-height: 1.55;
+    direction: ltr;
+    text-align: left;
+}
+#jargonTooltip.jt-vis {
+    opacity: 1;
+    transform: translateY(0);
+}
+.jt-term {
+    display: block;
+    font-size: 0.92rem;
+    color: #1a73e8;
+    font-weight: 700;
+    margin-bottom: 5px;
+    letter-spacing: 0.01em;
+}
+.jt-def {
+    color: #2c2c3e;
+    display: block;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 600px) {
+    .article-actions { flex-direction: column; align-items: flex-start; }
+    .jargon-btn, .synthese-btn { width: 100%; justify-content: center; }
+    #jargonTooltip { max-width: calc(100vw - 24px); }
+}
+
+/* ── RTL ─────────────────────────────────────────────────────── */
+html.ar .jargon-btn     { flex-direction: row-reverse; }
+html.ar .article-actions{ flex-direction: row-reverse; }
