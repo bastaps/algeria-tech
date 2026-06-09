@@ -1,6 +1,6 @@
 try { require('dotenv').config(); } catch (e) {}
 const express = require('express');
-const { checkJoradp, loadData: loadJoradpData } = require('./joradp');
+const { checkJoradp, backfillJoradp, loadData: loadJoradpData } = require('./joradp');
 const multer = require('multer');
 const fs = require('fs').promises;
 const fsSync = require('fs');
@@ -492,6 +492,45 @@ app.post('/api/joradp/refresh', async (req, res) => {
     checkJoradp(MISTRAL_API_KEY)
         .then(n => console.log(`[JORADP] Refresh manuel : ${n} nouveau(x) texte(s).`))
         .catch(e => console.error('[JORADP] Refresh manuel erreur :', e.message));
+});
+
+/* ── Rétro-remplissage — tous les JO depuis le n°1 de l'année ── */
+let _backfillRunning = false;
+app.post('/api/joradp/backfill', async (req, res) => {
+    if (_backfillRunning)
+        return res.status(409).json({ status: 'already_running',
+            message: 'Un backfill est déjà en cours. Vérifiez les logs serveur.' });
+
+    const year     = parseInt(req.body?.year) || new Date().getFullYear();
+    const delayMs  = Math.max(1500, parseInt(req.body?.delay_ms) || 3000);
+
+    _backfillRunning = true;
+    res.json({
+        status: 'started',
+        message: `Backfill ${year} lancé en arrière-plan. Vérifiez les logs serveur.`,
+        year, delayMs,
+    });
+
+    backfillJoradp(year, MISTRAL_API_KEY, delayMs)
+        .then(n => {
+            _backfillRunning = false;
+            console.log(`[JORADP] ✅ Backfill terminé — ${n} texte(s) TIC enregistré(s).`);
+        })
+        .catch(e => {
+            _backfillRunning = false;
+            console.error('[JORADP] ❌ Backfill erreur :', e.message);
+        });
+});
+
+/* ── Statut du backfill ─────────────────────────────────────── */
+app.get('/api/joradp/status', (req, res) => {
+    const data = loadJoradpData();
+    res.json({
+        backfillRunning: _backfillRunning,
+        textes:          (data.textes || []).length,
+        analyzed:        (data.analyzed || []).length,
+        lastChecked:     data.lastChecked || null,
+    });
 });
 
 /* ── Planification automatique : vérification quotidienne à 9h Alger ─────── */
