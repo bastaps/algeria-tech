@@ -445,7 +445,7 @@ window.openArticle = function(id) {
         mediaHeader = `<img src="${art.image}" alt="${art.titre}" onerror="this.onerror=null;this.style.display='none'" style="width:100%; border-radius:15px; margin-bottom:25px;">`;
     }
     let pdfLink = art.pdf ? `<div style="margin: 20px 0; padding: 15px; background: var(--bg-light); border-radius: 10px; display: flex; align-items: center; gap: 15px;"><i class="fas fa-file-pdf" style="font-size: 2rem; color: #D21034;"></i><div><p style="margin:0; font-weight:600;">Document d'accompagnement</p><a href="${art.pdf}" target="_blank" class="tag-filter" style="display:inline-block; margin-top:5px; text-decoration:none;"><i class="fas fa-download"></i> TÃ©lÃ©charger le PDF</a></div></div>` : '';
-    let html = `${mediaHeader}<div class="article-body"><div class="article-meta"><span class="category-tag ${cls(art.categorie)}">${art.categorie}</span><span><i class="far fa-calendar"></i> ${art.date}</span><span><i class="far fa-clock"></i> ${art.heure}</span><span class="reading-time"><i class="fas fa-book-open"></i> ${art.readingTime} min</span><span><i class="far fa-eye"></i> ${art.views} vues</span><button class="meta-audio-btn" onclick="triggerAudio()"><i class="fas fa-volume-up"></i> Ã‰couter</button></div><h1>${art.titre}</h1><button class="synthese-btn" id="syntheseBtn" onclick="loadSynthese()"><i class="fas fa-bolt"></i> Synthèse</button><div id="syntheseBox"></div><div class="article-text">${bodyImage}${art.contenu}${pdfLink}</div>`;
+    let html = `${mediaHeader}<div class="article-body"><div class="article-meta"><span class="category-tag ${cls(art.categorie)}">${art.categorie}</span><span><i class="far fa-calendar"></i> ${art.date}</span><span><i class="far fa-clock"></i> ${art.heure}</span><span class="reading-time"><i class="fas fa-book-open"></i> ${art.readingTime} min</span><span><i class="far fa-eye"></i> ${art.views} vues</span><button class="meta-audio-btn" onclick="triggerAudio()"><i class="fas fa-volume-up"></i> Ã‰couter</button></div><h1>${art.titre}</h1><button class="synthese-btn" id="syntheseBtn" onclick="loadSynthese()"><i class="fas fa-bolt"></i> Synthèse IA</button><div id="syntheseBox"></div><div class="article-text">${bodyImage}${art.contenu}${pdfLink}</div>`;
     if (art.tags && art.tags.length) {
         html += `<div style="margin:30px 0;padding-top:20px;border-top:1px solid var(--border)"><strong>Tags: </strong>${art.tags.map(t => `<span class="tag-filter" style="margin-left:8px" onclick="filterByTag('${t}');goHome()">${t}</span>`).join('')}</div>`;
     }
@@ -1923,7 +1923,7 @@ window.loadSynthese = async function () {
     // État chargement
     btn.dataset.loading = '1';
     const origLabel = btn.innerHTML;
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyse…';
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Génération en cours…';
     btn.disabled = true;
     box.classList.remove('synthese-visible');
     box.innerHTML = '';

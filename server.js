@@ -427,7 +427,7 @@ app.post('/api/synthese', express.json(), async (req, res) => {
 
     const langue = lang === 'ar' ? 'arabe' : 'français';
     const prompt =
-`Tu es un journaliste expert. Résume cet article de presse en ${langue} en 3 à 8 points clés (adapte le nombre à la richesse du contenu).
+`Tu es un journaliste expert. Fais une synthèse concise de cet article en ${langue} en maximum 5 points clés.
 Chaque point = 1 phrase courte (max 25 mots), précise, factuelle.
 Réponds UNIQUEMENT en JSON pur : { "points": ["...", "...", "..."] }
 
@@ -463,7 +463,7 @@ ARTICLE : ${contenu.substring(0, 3500)}`;
                 const parsed = JSON.parse(result.choices[0].message.content);
                 if (!Array.isArray(parsed.points) || parsed.points.length === 0)
                     throw new Error('Format inattendu');
-                res.json({ points: parsed.points.slice(0, 8) });
+                res.json({ points: parsed.points.slice(0, 5) });
             } catch (e) {
                 res.status(500).json({ error: 'Erreur IA : ' + e.message });
             }
@@ -794,7 +794,7 @@ function fixEncoding(s) {
     try {
         const fixed = Buffer.from(s, 'latin1').toString('utf8');
         // Only use if it looks better (no replacement chars)
-        return fixed.includes('�') ? s : fixed;
+        return fixed.includes(' ') ? s : fixed;
     } catch { return s; }
 }
 
