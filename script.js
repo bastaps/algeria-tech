@@ -650,6 +650,8 @@ window.goHome = function() {
     document.getElementById('revueSection').style.display = 'none';
     const _compSec = document.getElementById('comparateurSection');
     if (_compSec) _compSec.style.display = 'none';
+    const _regSec  = document.getElementById('reglementaireSection');
+    if (_regSec)  _regSec.style.display  = 'none';
     document.getElementById('heroSection').classList.remove('hidden');
     renderGrid(allArticles.slice(0, ITEMS_PER_PAGE));
     renderPagination(allArticles);
@@ -671,6 +673,8 @@ window.showVeille = function() {
     document.getElementById('revueSection').style.display = 'none';
     const _cSecV = document.getElementById('comparateurSection');
     if (_cSecV) _cSecV.style.display = 'none';
+    const _rSecV = document.getElementById('reglementaireSection');
+    if (_rSecV) _rSecV.style.display = 'none';
     document.getElementById('veilleSection').style.display = 'block';
     document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
     document.getElementById('nav-veille').classList.add('active');
@@ -693,12 +697,200 @@ window.showRevue = function() {
     document.getElementById('veilleSection').style.display = 'none';
     const _cSecR = document.getElementById('comparateurSection');
     if (_cSecR) _cSecR.style.display = 'none';
+    const _rSecR = document.getElementById('reglementaireSection');
+    if (_rSecR) _rSecR.style.display = 'none';
     document.getElementById('revueSection').style.display = 'block';
     document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
     const navRevue = document.getElementById('nav-revue');
     if(navRevue) navRevue.classList.add('active');
     loadRevue();
     window.scrollTo({top: 0, behavior: 'smooth'});
+};
+
+// ═══════════════════════════════════════════════════════════════════════
+// VEILLE RÉGLEMENTAIRE — Journal Officiel Algérien (JORADP)
+// ═══════════════════════════════════════════════════════════════════════
+
+/* Couleurs par type de texte réglementaire */
+const REG_TYPE_STYLES = {
+  'Loi':                  { color:'#1565C0', bg:'#e8f0fb', icon:'fa-landmark' },
+  'Décret présidentiel':  { color:'#6A1B9A', bg:'#f3e5f5', icon:'fa-crown' },
+  'Décret exécutif':      { color:'#0277BD', bg:'#e1f5fe', icon:'fa-gavel' },
+  'Arrêté':               { color:'#2E7D32', bg:'#e8f5e9', icon:'fa-file-signature' },
+  'Décision':             { color:'#E65100', bg:'#fff3e0', icon:'fa-balance-scale' },
+  'Circulaire':           { color:'#5D4037', bg:'#efebe9', icon:'fa-scroll' },
+  'Instruction':          { color:'#37474F', bg:'#eceff1', icon:'fa-clipboard-list' },
+  'Avis':                 { color:'#558B2F', bg:'#f1f8e9', icon:'fa-bullhorn' },
+};
+const REG_DEFAULT_STYLE = { color:'#455A64', bg:'#eceff1', icon:'fa-file-alt' };
+
+function _regStyle(type) {
+  return REG_TYPE_STYLES[type] || REG_DEFAULT_STYLE;
+}
+
+function _regCard(t) {
+  const s    = _regStyle(t.type);
+  const link = t.page_jo
+    ? `${t.jo_url}#page=${t.page_jo}`
+    : t.jo_url;
+  const pageLabel = t.page_jo ? `Page ${t.page_jo}` : 'Voir le JO';
+
+  return `<div class="reg-card" style="--rc:${s.color};--rl:${s.bg}">
+    <div class="reg-card-head">
+      <span class="reg-type-badge"><i class="fas ${s.icon}"></i> ${t.type}</span>
+      <span class="reg-jo-badge"><i class="fas fa-book-open"></i> JO N°${t.jo_numero} · ${t.jo_date_fr}</span>
+    </div>
+    <div class="reg-card-body">
+      <p class="reg-numero">${t.numero ? `N° ${t.numero}` : ''}${t.date_texte ? ` — ${t.date_texte}` : ''}</p>
+      <h3 class="reg-titre">${t.titre}</h3>
+      ${t.pertinence ? `<p class="reg-pertinence"><i class="fas fa-lightbulb"></i> ${t.pertinence}</p>` : ''}
+    </div>
+    <div class="reg-card-foot">
+      <span class="reg-page-info"><i class="fas fa-file-pdf"></i> ${pageLabel}</span>
+      <a href="${link}" target="_blank" rel="noopener" class="reg-link" style="background:${s.color}">
+        <i class="fas fa-external-link-alt"></i> Consulter le JO
+      </a>
+    </div>
+  </div>`;
+}
+
+function _regEmpty() {
+  return `<div class="reg-empty">
+    <i class="fas fa-gavel"></i>
+    <p>Aucun texte réglementaire TIC trouvé pour le moment.</p>
+    <p class="reg-empty-hint">La vérification du Journal Officiel se fait automatiquement chaque jour à 9h.</p>
+  </div>`;
+}
+
+function _regLastChecked(iso) {
+  if (!iso) return '';
+  const d   = new Date(iso);
+  const now = new Date();
+  const diff = Math.round((now - d) / 60000); // minutes
+  const label = diff < 60 ? `il y a ${diff} min`
+              : diff < 1440 ? `il y a ${Math.round(diff / 60)}h`
+              : `le ${d.toLocaleDateString('fr-DZ')}`;
+  return `<span class="reg-last-check"><i class="fas fa-sync-alt"></i> Dernière vérification : ${label}</span>`;
+}
+
+async function _loadRegData() {
+  const box = document.getElementById('regResults');
+  if (!box) return;
+  box.innerHTML = `<div class="reg-loading"><i class="fas fa-circle-notch fa-spin"></i> Chargement des textes réglementaires…</div>`;
+
+  try {
+    const r    = await fetch('/api/joradp');
+    const data = await r.json();
+    const textes = data.textes || [];
+
+    const section = document.getElementById('reglementaireSection');
+
+    /* Mettre à jour le compteur */
+    const counter = section?.querySelector('.reg-count');
+    if (counter) counter.textContent = textes.length
+      ? `${textes.length} texte${textes.length > 1 ? 's' : ''} réglementaire${textes.length > 1 ? 's' : ''} TIC détecté${textes.length > 1 ? 's' : ''}`
+      : 'Aucun texte trouvé pour le moment';
+
+    /* Mettre à jour la date de dernière vérification */
+    const lastChk = section?.querySelector('.reg-last-check');
+    if (lastChk) lastChk.outerHTML = _regLastChecked(data.lastChecked);
+
+    box.innerHTML = textes.length
+      ? `<div class="reg-grid">${textes.map(_regCard).join('')}</div>`
+      : _regEmpty();
+  } catch (e) {
+    if (box) box.innerHTML = `<div class="reg-error"><i class="fas fa-exclamation-triangle"></i> Impossible de charger les données (serveur requis).</div>`;
+  }
+}
+
+function _buildRegHTML() {
+  return `<div class="reg-wrap">
+
+    <!-- Hero -->
+    <div class="reg-hero">
+      <div class="reg-hero-icon"><i class="fas fa-gavel"></i></div>
+      <h1 class="reg-hero-title">Veille Réglementaire</h1>
+      <p class="reg-hero-sub">Les derniers textes du <strong>Journal Officiel Algérien</strong> liés aux TIC, télécommunications,
+        numérique, startups et cybersécurité — détectés automatiquement chaque jour.</p>
+      <div class="reg-hero-meta">
+        <span class="reg-count">Chargement…</span>
+        ${_regLastChecked(null)}
+        <a href="https://www.joradp.dz/HFR/Index.htm" target="_blank" rel="noopener" class="reg-joradp-link">
+          <i class="fas fa-external-link-alt"></i> JORADP officiel
+        </a>
+      </div>
+    </div>
+
+    <!-- Filtres par type -->
+    <div class="reg-filters" id="regFilters">
+      <button class="reg-pill reg-pill-active" onclick="_regFilter(this,'all')">Tous</button>
+      <button class="reg-pill" onclick="_regFilter(this,'Loi')"><i class="fas fa-landmark"></i> Lois</button>
+      <button class="reg-pill" onclick="_regFilter(this,'Décret')"><i class="fas fa-gavel"></i> Décrets</button>
+      <button class="reg-pill" onclick="_regFilter(this,'Arrêté')"><i class="fas fa-file-signature"></i> Arrêtés</button>
+      <button class="reg-pill" onclick="_regFilter(this,'Décision')"><i class="fas fa-balance-scale"></i> Décisions</button>
+    </div>
+
+    <!-- Résultats -->
+    <div id="regResults" class="reg-results"></div>
+
+    <!-- Disclaimer -->
+    <div class="reg-disclaimer">
+      <i class="fas fa-info-circle"></i>
+      Seul le sommaire (table des matières) de chaque JO est analysé — sans traitement du texte intégral.
+      Vérifiez toujours sur <a href="https://www.joradp.dz" target="_blank">joradp.dz</a> avant tout usage juridique.
+    </div>
+  </div>`;
+}
+
+let _regCurrentFilter = 'all';
+
+window._regFilter = function(btn, type) {
+  _regCurrentFilter = type;
+  document.querySelectorAll('#regFilters .reg-pill').forEach(b => b.classList.remove('reg-pill-active'));
+  btn.classList.add('reg-pill-active');
+
+  const cards = document.querySelectorAll('.reg-card');
+  cards.forEach(card => {
+    const badge = card.querySelector('.reg-type-badge')?.textContent || '';
+    const show  = type === 'all' || badge.includes(type);
+    card.style.display = show ? '' : 'none';
+  });
+};
+
+window.showReglementaire = function() {
+  stopAllAudio();
+  if (typeof resetJargon === 'function') resetJargon();
+  if (typeof resetDebat  === 'function') resetDebat();
+
+  if (!_skipPush) {
+    history.pushState({ view: 'reglementaire' }, 'Veille Réglementaire — Algeria Tech', '/reglementaire');
+    document.title = 'Veille Réglementaire — Algeria Tech';
+  }
+
+  document.getElementById('mainContent').style.display    = 'none';
+  document.getElementById('heroSection').classList.add('hidden');
+  document.getElementById('articlePage').style.display    = 'none';
+  document.getElementById('veilleSection').style.display  = 'none';
+  document.getElementById('revueSection').style.display   = 'none';
+  const compSec = document.getElementById('comparateurSection');
+  if (compSec) compSec.style.display = 'none';
+
+  const regSec = document.getElementById('reglementaireSection');
+  if (!regSec) return;
+  regSec.style.display = 'block';
+
+  /* Injecter le HTML une seule fois */
+  if (!regSec.querySelector('.reg-wrap')) {
+    regSec.innerHTML = _buildRegHTML();
+  }
+
+  document.querySelectorAll('.main-nav a').forEach(a => {
+    a.classList.toggle('active', a.id === 'nav-reglementaire');
+  });
+
+  _regCurrentFilter = 'all';
+  _loadRegData();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
 // ===== COMPARATEUR D'OFFRES MOBILES =====
@@ -2030,6 +2222,9 @@ function applyRoute(pathname, search, push) {
 
         } else if (parts[0] === 'comparateur') {
             showComparateur();
+
+        } else if (parts[0] === 'reglementaire') {
+            showReglementaire();
 
         } else {
             // Route inconnue → accueil

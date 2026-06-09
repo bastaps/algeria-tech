@@ -2527,3 +2527,257 @@ html.ar .comp-disclaimer { flex-direction:row-reverse; border-left:none; border-
 @media (max-width: 480px) {
   .debat-panel { right: 10px; bottom: 10px; width: calc(100vw - 20px); height: 70vh; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   VEILLE RÉGLEMENTAIRE — JORADP
+   Algeria Tech — juin 2026
+═══════════════════════════════════════════════════════════ */
+
+/* ── Wrapper global ──────────────────────────────────────── */
+.reg-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+}
+
+/* ── Hero ────────────────────────────────────────────────── */
+.reg-hero {
+  text-align: center;
+  padding: 48px 24px 36px;
+  background: linear-gradient(135deg, #1a237e 0%, #283593 60%, #1565C0 100%);
+  border-radius: 20px;
+  margin-bottom: 32px;
+  color: #fff;
+}
+.reg-hero-icon {
+  font-size: 2.8rem;
+  margin-bottom: 14px;
+  opacity: .9;
+}
+.reg-hero-title {
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 0 0 10px;
+  letter-spacing: -.01em;
+}
+.reg-hero-sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,.82);
+  max-width: 640px;
+  margin: 0 auto 20px;
+  line-height: 1.6;
+}
+.reg-hero-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: .82rem;
+  color: rgba(255,255,255,.7);
+}
+.reg-count {
+  background: rgba(255,255,255,.15);
+  padding: 4px 12px;
+  border-radius: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+.reg-last-check { display: flex; align-items: center; gap: 5px; }
+.reg-last-check .fas { opacity: .7; }
+.reg-joradp-link {
+  color: #90caf9;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex; align-items: center; gap: 5px;
+  transition: color .15s;
+}
+.reg-joradp-link:hover { color: #fff; }
+
+/* ── Filtres ─────────────────────────────────────────────── */
+.reg-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+.reg-pill {
+  background: #f5f5f5;
+  color: #444;
+  border: 1.5px solid #ddd;
+  border-radius: 20px;
+  padding: 7px 16px;
+  font-size: .84rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex; align-items: center; gap: 6px;
+  transition: all .15s;
+}
+.reg-pill:hover { background: #e8eaf6; border-color: #3f51b5; color: #3f51b5; }
+.reg-pill-active {
+  background: #1a237e;
+  color: #fff;
+  border-color: #1a237e;
+}
+
+/* ── Grille de cartes ────────────────────────────────────── */
+.reg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+/* ── Carte ───────────────────────────────────────────────── */
+.reg-card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1.5px solid #e8e8f0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  transition: transform .18s, box-shadow .18s;
+  animation: regCardIn .25s ease;
+}
+@keyframes regCardIn {
+  from { opacity:0; transform:translateY(10px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.reg-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.1);
+}
+
+/* ── Header de carte ─────────────────────────────────────── */
+.reg-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 14px;
+  background: var(--rl, #eceff1);
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+.reg-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--rc, #455A64);
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+.reg-jo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #555;
+  font-size: .72rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.reg-jo-badge .fas { color: #888; }
+
+/* ── Corps de carte ──────────────────────────────────────── */
+.reg-card-body {
+  padding: 14px 16px 12px;
+  flex: 1;
+}
+.reg-numero {
+  font-size: .75rem;
+  color: var(--rc, #455A64);
+  font-weight: 700;
+  margin: 0 0 6px;
+  font-family: monospace;
+}
+.reg-titre {
+  font-size: .93rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  line-height: 1.45;
+  margin: 0 0 10px;
+}
+.reg-pertinence {
+  font-size: .8rem;
+  color: #555;
+  line-height: 1.5;
+  margin: 0;
+  padding: 8px 10px;
+  background: #fafafa;
+  border-left: 3px solid var(--rc, #455A64);
+  border-radius: 0 6px 6px 0;
+  display: flex;
+  gap: 6px;
+}
+.reg-pertinence .fas { color: #f9a825; flex-shrink: 0; margin-top: 2px; }
+
+/* ── Pied de carte ───────────────────────────────────────── */
+.reg-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-top: 1px solid #f0f0f5;
+  background: #fafafa;
+}
+.reg-page-info {
+  font-size: .75rem;
+  color: #888;
+  display: flex; align-items: center; gap: 5px;
+}
+.reg-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 16px;
+  color: #fff;
+  font-size: .78rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity .14s, transform .12s;
+}
+.reg-link:hover { opacity: .85; transform: translateY(-1px); color: #fff; }
+
+/* ── États ───────────────────────────────────────────────── */
+.reg-loading, .reg-error, .reg-empty {
+  text-align: center;
+  padding: 64px 24px;
+  color: #aaa;
+}
+.reg-loading .fas, .reg-error .fas, .reg-empty .fas {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 18px;
+}
+.reg-empty .fas { color: #c5cae9; }
+.reg-error .fas  { color: #ef9a9a; }
+.reg-empty p, .reg-error p { margin: 0 0 6px; font-size: 1rem; color: #666; }
+.reg-empty-hint  { font-size: .85rem; color: #aaa !important; }
+
+/* ── Disclaimer ──────────────────────────────────────────── */
+.reg-disclaimer {
+  margin-top: 36px;
+  padding: 14px 18px;
+  background: #e8eaf6;
+  border-left: 4px solid #3f51b5;
+  border-radius: 8px;
+  font-size: .83rem;
+  color: #283593;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+.reg-disclaimer a { color: #1a237e; font-weight: 700; }
+.reg-disclaimer .fas { margin-top: 2px; flex-shrink: 0; }
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .reg-hero-title { font-size: 1.5rem; }
+  .reg-grid { grid-template-columns: 1fr; }
+}

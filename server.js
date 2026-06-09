@@ -1,5 +1,6 @@
 try { require('dotenv').config(); } catch (e) {}
 const express = require('express');
+const { checkJoradp, loadData: loadJoradpData } = require('./joradp');
 const multer = require('multer');
 const fs = require('fs').promises;
 const fsSync = require('fs');
@@ -473,6 +474,59 @@ ARTICLE : ${contenu.substring(0, 3500)}`;
     apiReq.write(payload);
     apiReq.end();
 });
+
+// ── Veille Réglementaire — Journal Officiel Algérien (JORADP) ───────────────
+/* Retourne les textes TIC détectés + métadonnées de dernière vérification */
+app.get('/api/joradp', (req, res) => {
+    const data = loadJoradpData();
+    res.json({
+        textes:       data.textes      || [],
+        lastChecked:  data.lastChecked || null,
+        total:        (data.textes || []).length,
+    });
+});
+
+/* Déclenchement manuel (admin ou cron externe) */
+app.post('/api/joradp/refresh', async (req, res) => {
+    res.json({ status: 'started', message: 'Vérification JORADP lancée en arrière-plan.' });
+    checkJoradp(MISTRAL_API_KEY)
+        .then(n => console.log(`[JORADP] Refresh manuel : ${n} nouveau(x) texte(s).`))
+        .catch(e => console.error('[JORADP] Refresh manuel erreur :', e.message));
+});
+
+/* ── Planification automatique : vérification quotidienne à 9h Alger ─────── */
+(function scheduleJoradp() {
+    function msUntilNext9h() {
+        const now  = new Date();
+        const next = new Date(now);
+        next.setHours(9, 0, 0, 0);
+        if (now >= next) next.setDate(next.getDate() + 1);
+        return next - now;
+    }
+
+    function isJoradpStale() {
+        const d = loadJoradpData();
+        if (!d.lastChecked) return true;
+        return (Date.now() - new Date(d.lastChecked).getTime()) > 8 * 3600 * 1000;
+    }
+
+    /* Vérification immédiate au démarrage si les données sont périmées */
+    if (isJoradpStale()) {
+        console.log('[JORADP] Données périmées — lancement immédiat...');
+        setTimeout(() => {
+            checkJoradp(MISTRAL_API_KEY).catch(e => console.error('[JORADP]', e.message));
+        }, 15000); /* 15s après démarrage pour ne pas bloquer le serveur */
+    }
+
+    /* Vérification quotidienne à 9h00 heure algérienne */
+    const msFirst = msUntilNext9h();
+    console.log(`[JORADP] ⏰ Prochaine vérification dans ${(msFirst / 3600000).toFixed(1)}h (09h00 Alger)`);
+    setTimeout(function runDaily() {
+        checkJoradp(MISTRAL_API_KEY).catch(e => console.error('[JORADP]', e.message));
+        setTimeout(runDaily, 24 * 3600 * 1000);
+    }, msFirst);
+})();
+// ── FIN Veille Réglementaire ─────────────────────────────────────────────────
 
 // ── Débat IA — chat contextuel par article (Mistral) ────────────────────────
 app.post('/api/debat', express.json(), async (req, res) => {
