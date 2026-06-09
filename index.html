@@ -82,6 +82,7 @@
                                 <li><a href="infographies/index.html" data-i18n-ar="الإنفوغرافيك">Infographies</a></li>
                                 <li><a href="#" onclick="showVeille()" id="nav-veille" data-i18n-ar="المراقبة الرقمية">Veille</a></li>
                                 <li><a href="#" onclick="showRevue()" id="nav-revue" data-i18n-ar="مراجعة الصحافة">Revue de Presse</a></li>
+                                <li><a href="#" onclick="showComparateur()" id="nav-comparateur" data-i18n-ar="مقارنة العروض"><i class="fas fa-mobile-alt" style="color:#1565C0;margin-right:5px"></i>Comparateur</a></li>
                                 <li><a href="/actualites-tic" data-i18n-ar="مراقبة الشبكات الاجتماعية"><i class="fas fa-share-alt" style="color:#E30613;margin-right:5px"></i>Veille Réseaux Sociaux</a></li>
                                 <li><a href="/operateurs" data-i18n-ar="المشغّلون المحمولون"><i class="fas fa-signal" style="margin-right:5px;color:#00C853"></i>Opérateurs Mobiles</a></li>
                                 <li><a href="/barometre" data-i18n-ar="مرصد الرقمنة"><i class="fas fa-chart-line" style="margin-right:5px;color:#fbbf24"></i>Observatoire du Numérique</a></li>
@@ -254,6 +255,9 @@
 
       </div>
     </section>
+
+    <!-- Section Comparateur d'offres mobiles -->
+    <section id="comparateurSection" style="display:none;"></section>
 
     <!-- Section Revue de Presse -->
     <section id="revueSection" class="container revue-wrapper" style="display:none; margin: 0 auto;">
@@ -483,6 +487,8 @@
     <script src="/i18n.js"></script>
     <!-- Déchiffrer le jargon — dictionnaire télécom/tech Algérie -->
     <script src="/jargon.js"></script>
+    <!-- Comparateur d'offres mobiles -->
+    <script src="/comparateur.js"></script>
 
     <!-- Enregistrement du Service Worker -->
     <script>

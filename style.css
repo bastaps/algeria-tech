@@ -2200,3 +2200,67 @@ html.ar .synthese-btn          { flex-direction: row-reverse; }
 /* ── RTL ─────────────────────────────────────────────────────── */
 html.ar .jargon-btn     { flex-direction: row-reverse; }
 html.ar .article-actions{ flex-direction: row-reverse; }
+
+
+/* ══════════════════════════════════════════════════════════════
+   COMPARATEUR D OFFRES MOBILES
+══════════════════════════════════════════════════════════════ */
+.comp-wrap { max-width:1200px; margin:0 auto; padding:0 16px 60px; }
+.comp-hero { text-align:center; padding:48px 20px 36px; background:linear-gradient(135deg,#e8f0fb 0%,#fce8e9 50%,#fbe9e7 100%); border-radius:20px; margin-bottom:32px; }
+.comp-hero-icons { display:flex; justify-content:center; gap:20px; margin-bottom:16px; }
+.comp-op-logo { height:36px; object-fit:contain; }
+.comp-hero-title { font-size:1.9rem; font-weight:800; color:#1a1a2e; margin:0 0 10px; }
+.comp-hero-title .fa-mobile-alt { color:#1565C0; margin-right:10px; }
+.comp-hero-sub { color:#555; font-size:1rem; max-width:560px; margin:0 auto; line-height:1.6; }
+.comp-layout { display:grid; grid-template-columns:280px 1fr; gap:28px; align-items:start; }
+@media(max-width:860px){ .comp-layout{ grid-template-columns:1fr; } }
+.comp-filters { background:#fff; border-radius:16px; padding:22px 20px; box-shadow:0 2px 16px rgba(0,0,0,.08); position:sticky; top:80px; }
+.comp-filters-title { font-size:1rem; font-weight:700; color:#1a1a2e; margin:0 0 20px; display:flex; align-items:center; gap:8px; }
+.comp-filter-group { margin-bottom:20px; }
+.comp-filter-label { display:block; font-size:.82rem; font-weight:700; color:#666; text-transform:uppercase; letter-spacing:.06em; margin-bottom:8px; }
+.comp-pills { display:flex; flex-wrap:wrap; gap:6px; }
+.comp-pill { padding:6px 12px; border:1.5px solid #e0e0e0; border-radius:20px; background:#fafafa; color:#444; font-size:.82rem; font-weight:500; cursor:pointer; transition:all .15s; white-space:nowrap; }
+.comp-pill:hover { border-color:#1565C0; color:#1565C0; }
+.comp-pill-active { background:#1565C0; border-color:#1565C0; color:#fff; font-weight:700; }
+.comp-updated { font-size:.78rem; color:#999; margin:20px 0 0; display:flex; align-items:center; gap:6px; }
+.comp-count { font-size:.88rem; color:#666; margin:0 0 16px; display:flex; align-items:center; gap:6px; }
+.comp-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(290px,1fr)); gap:20px; }
+.comp-card { background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 3px 14px rgba(0,0,0,.09); transition:transform .2s,box-shadow .2s; animation:compCardIn .3s ease both; display:flex; flex-direction:column; }
+.comp-card:hover { transform:translateY(-4px); box-shadow:0 10px 30px rgba(0,0,0,.13); }
+@keyframes compCardIn { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+.comp-card-top { border:2.5px solid var(--op-color); box-shadow:0 6px 24px rgba(0,0,0,.14); }
+.comp-card-header { background:var(--op-color); padding:12px 16px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:6px; }
+.comp-op-name { color:#fff; font-weight:800; font-size:1rem; letter-spacing:.02em; }
+.comp-rec-badge { background:#FFD700; color:#333; font-size:.72rem; font-weight:700; padding:3px 9px; border-radius:12px; display:flex; align-items:center; gap:4px; }
+.comp-pop-badge { background:rgba(255,255,255,.25); color:#fff; font-size:.7rem; font-weight:700; padding:3px 8px; border-radius:10px; display:flex; align-items:center; gap:4px; }
+.comp-pro-badge { background:#212121; color:#FFD700; font-size:.7rem; font-weight:700; padding:3px 8px; border-radius:10px; display:flex; align-items:center; gap:4px; }
+.comp-card-body { padding:18px 18px 16px; flex:1; display:flex; flex-direction:column; }
+.comp-offer-name { font-weight:700; font-size:1.05rem; color:#1a1a2e; margin-bottom:6px; }
+.comp-price { margin-bottom:14px; }
+.comp-price strong { font-size:2rem; font-weight:900; color:var(--op-color); line-height:1; }
+.comp-currency { font-size:.95rem; color:#555; margin-left:3px; }
+.comp-currency small { font-size:.78rem; }
+.comp-specs { list-style:none; margin:0 0 12px; padding:0; display:flex; flex-direction:column; gap:5px; }
+.comp-specs li { font-size:.88rem; color:#333; display:flex; align-items:flex-start; gap:8px; }
+.comp-specs li .fas { color:var(--op-color); width:14px; flex-shrink:0; margin-top:2px; }
+.comp-extras { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:14px; }
+.comp-extra-tag { background:var(--op-light); color:var(--op-color); font-size:.73rem; font-weight:600; padding:3px 9px; border-radius:10px; }
+.comp-value-row { display:flex; align-items:center; gap:8px; margin-bottom:16px; }
+.comp-value-label { font-size:.75rem; color:#888; white-space:nowrap; display:flex; align-items:center; gap:4px; }
+.comp-value-bar { flex:1; height:6px; background:#eee; border-radius:6px; overflow:hidden; }
+.comp-value-fill { height:100%; border-radius:6px; width:0%; transition:width .6s cubic-bezier(.22,.68,0,1.2); }
+.comp-value-pct { font-size:.75rem; font-weight:700; color:#555; width:32px; text-align:right; }
+.comp-cta { display:flex; align-items:center; justify-content:center; gap:8px; padding:11px 16px; border-radius:10px; color:#fff; font-weight:700; font-size:.88rem; text-decoration:none; margin-top:auto; transition:opacity .15s,transform .15s; }
+.comp-cta:hover { opacity:.88; transform:translateY(-1px); color:#fff; }
+.comp-empty { text-align:center; padding:60px 20px; color:#aaa; }
+.comp-empty .fas { font-size:3rem; display:block; margin-bottom:16px; }
+.comp-empty p { margin:0 0 6px; font-size:1rem; color:#666; }
+.comp-empty-hint { font-size:.88rem; color:#aaa !important; }
+.comp-disclaimer { margin-top:32px; padding:14px 18px; background:#fff8e1; border-left:4px solid #f9a825; border-radius:8px; font-size:.84rem; color:#5d4037; display:flex; align-items:flex-start; gap:10px; line-height:1.5; }
+.comp-disclaimer .fas { margin-top:2px; color:#f9a825; flex-shrink:0; }
+html.ar .comp-hero-title { direction:rtl; }
+html.ar .comp-filters { direction:rtl; text-align:right; }
+html.ar .comp-filter-label { text-align:right; }
+html.ar .comp-card-header { flex-direction:row-reverse; }
+html.ar .comp-specs li { flex-direction:row-reverse; }
+html.ar .comp-disclaimer { flex-direction:row-reverse; border-left:none; border-right:4px solid #f9a825; }

@@ -647,6 +647,8 @@ window.goHome = function() {
     document.getElementById('articlePage').style.display = 'none';
     document.getElementById('veilleSection').style.display = 'none';
     document.getElementById('revueSection').style.display = 'none';
+    const _compSec = document.getElementById('comparateurSection');
+    if (_compSec) _compSec.style.display = 'none';
     document.getElementById('heroSection').classList.remove('hidden');
     renderGrid(allArticles.slice(0, ITEMS_PER_PAGE));
     renderPagination(allArticles);
@@ -666,6 +668,8 @@ window.showVeille = function() {
     document.getElementById('heroSection').classList.add('hidden');
     document.getElementById('articlePage').style.display = 'none';
     document.getElementById('revueSection').style.display = 'none';
+    const _cSecV = document.getElementById('comparateurSection');
+    if (_cSecV) _cSecV.style.display = 'none';
     document.getElementById('veilleSection').style.display = 'block';
     document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
     document.getElementById('nav-veille').classList.add('active');
@@ -686,11 +690,35 @@ window.showRevue = function() {
     document.getElementById('heroSection').classList.add('hidden');
     document.getElementById('articlePage').style.display = 'none';
     document.getElementById('veilleSection').style.display = 'none';
+    const _cSecR = document.getElementById('comparateurSection');
+    if (_cSecR) _cSecR.style.display = 'none';
     document.getElementById('revueSection').style.display = 'block';
     document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
     const navRevue = document.getElementById('nav-revue');
     if(navRevue) navRevue.classList.add('active');
     loadRevue();
+    window.scrollTo({top: 0, behavior: 'smooth'});
+};
+
+// ===== COMPARATEUR D'OFFRES MOBILES =====
+window.showComparateur = function() {
+    stopAllAudio();
+    if (typeof resetJargon === 'function') resetJargon();
+    if (!_skipPush) {
+        history.pushState({ view: 'comparateur' }, 'Comparateur mobile — Algeria Tech', '/comparateur');
+        document.title = 'Comparateur d\'offres mobiles — Algeria Tech';
+    }
+    document.getElementById('mainContent').style.display = 'none';
+    document.getElementById('heroSection').classList.add('hidden');
+    document.getElementById('articlePage').style.display = 'none';
+    document.getElementById('veilleSection').style.display = 'none';
+    document.getElementById('revueSection').style.display = 'none';
+    const compSec = document.getElementById('comparateurSection');
+    if (compSec) compSec.style.display = 'block';
+    document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
+    const navComp = document.getElementById('nav-comparateur');
+    if (navComp) navComp.classList.add('active');
+    if (typeof window.initComparateur === 'function') window.initComparateur();
     window.scrollTo({top: 0, behavior: 'smooth'});
 };
 
@@ -1997,6 +2025,9 @@ function applyRoute(pathname, search, push) {
 
         } else if (parts[0] === 'revue') {
             showRevue();
+
+        } else if (parts[0] === 'comparateur') {
+            showComparateur();
 
         } else {
             // Route inconnue → accueil
