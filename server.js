@@ -2,6 +2,7 @@ try { require('dotenv').config(); } catch (e) {}
 const express = require('express');
 const { checkJoradp, backfillJoradp, loadData: loadJoradpData } = require('./joradp');
 const { checkArpce,  backfillArpce,  loadData: loadArpceData  } = require('./arpce');
+const { subscribe, unsubscribe, getSubscribers, sendAlerts, sendTestEmail } = require('./email_alert');
 const multer = require('multer');
 const fs = require('fs').promises;
 const fsSync = require('fs');
@@ -490,7 +491,7 @@ app.get('/api/joradp', (req, res) => {
 /* Déclenchement manuel (admin ou cron externe) */
 app.post('/api/joradp/refresh', async (req, res) => {
     res.json({ status: 'started', message: 'Vérification JORADP lancée en arrière-plan.' });
-    checkJoradp(MISTRAL_API_KEY)
+    checkJoradpWithAlert()
         .then(n => console.log(`[JORADP] Refresh manuel : ${n} nouveau(x) texte(s).`))
         .catch(e => console.error('[JORADP] Refresh manuel erreur :', e.message));
 });
@@ -554,7 +555,7 @@ app.get('/api/joradp/status', (req, res) => {
     if (isJoradpStale()) {
         console.log('[JORADP] Données périmées — lancement immédiat...');
         setTimeout(() => {
-            checkJoradp(MISTRAL_API_KEY).catch(e => console.error('[JORADP]', e.message));
+            checkJoradpWithAlert().catch(e => console.error('[JORADP]', e.message));
         }, 15000); /* 15s après démarrage pour ne pas bloquer le serveur */
     }
 
@@ -562,7 +563,7 @@ app.get('/api/joradp/status', (req, res) => {
     const msFirst = msUntilNext9h();
     console.log(`[JORADP] ⏰ Prochaine vérification dans ${(msFirst / 3600000).toFixed(1)}h (09h00 Alger)`);
     setTimeout(function runDaily() {
-        checkJoradp(MISTRAL_API_KEY).catch(e => console.error('[JORADP]', e.message));
+        checkJoradpWithAlert().catch(e => console.error('[JORADP]', e.message));
         setTimeout(runDaily, 24 * 3600 * 1000);
     }, msFirst);
 })();
@@ -583,7 +584,7 @@ app.get('/api/arpce', (req, res) => {
 /* Déclenchement manuel */
 app.post('/api/arpce/refresh', async (req, res) => {
     res.json({ status: 'started', message: 'Vérification ARPCE lancée en arrière-plan.' });
-    checkArpce(1)
+    checkArpceWithAlert(1)
         .then(n => console.log(`[ARPCE] Refresh manuel : ${n} nouveau(x).`))
         .catch(e => console.error('[ARPCE] Refresh erreur :', e.message));
 });
@@ -633,7 +634,7 @@ app.get('/api/arpce/status', (req, res) => {
     if (isArpceStale()) {
         console.log('[ARPCE] Données périmées — vérification dans 20s...');
         setTimeout(() => {
-            checkArpce(1).catch(e => console.error('[ARPCE]', e.message));
+            checkArpceWithAlert(1).catch(e => console.error('[ARPCE]', e.message));
         }, 20000);
     }
 
@@ -641,11 +642,98 @@ app.get('/api/arpce/status', (req, res) => {
     const msFirst = msUntilNext9h30();
     console.log(`[ARPCE] ⏰ Prochaine vérification dans ${(msFirst / 3600000).toFixed(1)}h (09h30 Alger)`);
     setTimeout(function runDaily() {
-        checkArpce(1).catch(e => console.error('[ARPCE]', e.message));
+        checkArpceWithAlert(1).catch(e => console.error('[ARPCE]', e.message));
         setTimeout(runDaily, 24 * 3600 * 1000);
     }, msFirst);
 })();
 // ── FIN Veille ARPCE ─────────────────────────────────────────────────────────
+
+// ── Alertes Email — Abonnés Veille Réglementaire ─────────────────────────────
+
+/* S'abonner */
+app.post('/api/subscribe', express.json(), (req, res) => {
+    const email = (req.body?.email || '').trim();
+    const result = subscribe(email);
+    if (result.ok) {
+        // Envoyer email de bienvenue en arrière-plan
+        sendTestEmail(email).then(r => {
+            if (!r.ok) console.warn(`[EMAIL] Bienvenue non envoyé à ${email} : ${r.error}`);
+        });
+    }
+    res.json(result);
+});
+
+/* Se désabonner (lien email) */
+app.get('/api/unsubscribe', (req, res) => {
+    const token = req.query.token || '';
+    const result = unsubscribe(token);
+    if (result.ok) {
+        res.send(`<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+        <title>Désabonnement — Algeria Tech</title>
+        <style>body{font-family:Arial;text-align:center;padding:60px;color:#333}
+        .ok{color:#2e7d32;font-size:48px} h2{margin:16px 0} a{color:#1a237e}</style></head>
+        <body><p class="ok">✅</p><h2>Vous êtes désabonné</h2>
+        <p>Vous ne recevrez plus d'alertes réglementaires Algeria Tech.</p>
+        <p><a href="/">Retour au site</a></p></body></html>`);
+    } else {
+        res.status(404).send(`<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">
+        <title>Lien invalide</title></head><body style="font-family:Arial;text-align:center;padding:60px">
+        <h2>Lien de désabonnement invalide ou expiré.</h2>
+        <p><a href="/">Retour au site</a></p></body></html>`);
+    }
+});
+
+/* Test SMTP (admin) */
+app.post('/api/email/test', express.json(), async (req, res) => {
+    const to = req.body?.to || '';
+    if (!to) return res.status(400).json({ error: 'Email destinataire requis.' });
+    const result = await sendTestEmail(to);
+    res.json(result);
+});
+
+/* Liste abonnés (admin) */
+app.get('/api/subscribers', (req, res) => {
+    const subs = getSubscribers().map(s => ({
+        email: s.email,
+        subscribedAt: s.subscribedAt,
+        // Ne pas exposer le token
+    }));
+    res.json({ count: subs.length, subscribers: subs });
+});
+
+/* Wrapper checkJoradp avec alerte email automatique */
+async function checkJoradpWithAlert() {
+    const data    = loadJoradpData();
+    const before  = (data.textes || []).map(t => t.id);
+    const found   = await checkJoradp(MISTRAL_API_KEY);
+    if (found > 0) {
+        const dataAfter = loadJoradpData();
+        const newTextes = (dataAfter.textes || []).filter(t => !before.includes(t.id));
+        if (newTextes.length > 0) {
+            console.log(`[EMAIL] ${newTextes.length} nouveau(x) texte(s) JORADP → envoi alertes…`);
+            sendAlerts(newTextes, MISTRAL_API_KEY).catch(e => console.error('[EMAIL]', e.message));
+        }
+    }
+    return found;
+}
+
+/* Wrapper checkArpce avec alerte email automatique */
+async function checkArpceWithAlert(pages = 1) {
+    const data   = loadArpceData();
+    const before = (data.items || []).map(i => i.id);
+    const found  = await checkArpce(pages);
+    if (found > 0) {
+        const dataAfter = loadArpceData();
+        const newItems  = (dataAfter.items || []).filter(i => !before.includes(i.id));
+        if (newItems.length > 0) {
+            console.log(`[EMAIL] ${newItems.length} nouvelle(s) pub ARPCE → envoi alertes…`);
+            sendAlerts(newItems, MISTRAL_API_KEY).catch(e => console.error('[EMAIL]', e.message));
+        }
+    }
+    return found;
+}
+
+// ── FIN Alertes Email ─────────────────────────────────────────────────────────
 
 // ── Débat IA — chat contextuel par article (Mistral) ────────────────────────
 app.post('/api/debat', express.json(), async (req, res) => {

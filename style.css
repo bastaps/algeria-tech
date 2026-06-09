@@ -2787,6 +2787,75 @@ html.ar .comp-disclaimer { flex-direction:row-reverse; border-left:none; border-
 .reg-disclaimer a { color: #1a237e; font-weight: 700; }
 .reg-disclaimer .fas { margin-top: 2px; flex-shrink: 0; }
 
+/* ── Widget abonnement email ──────────────────────────────── */
+.reg-subscribe-box {
+  margin: 28px 0 20px;
+  background: linear-gradient(135deg,#1a237e 0%,#283593 100%);
+  border-radius: 12px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.reg-sub-icon {
+  font-size: 2rem;
+  color: #ffd54f;
+  flex-shrink: 0;
+}
+.reg-sub-text { flex: 1; min-width: 180px; }
+.reg-sub-text strong { color: #fff; font-size: 1rem; display: block; margin-bottom: 4px; }
+.reg-sub-text p { color: #90caf9; margin: 0; font-size: .85rem; line-height: 1.4; }
+.reg-sub-form {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-shrink: 0;
+}
+.reg-sub-form input[type="email"] {
+  border: none;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: .9rem;
+  min-width: 210px;
+  outline: none;
+  background: rgba(255,255,255,.15);
+  color: #fff;
+}
+.reg-sub-form input[type="email"]::placeholder { color: #b0bec5; }
+.reg-sub-form input[type="email"]:focus { background: rgba(255,255,255,.25); }
+.reg-sub-btn {
+  background: #ffd54f;
+  color: #1a237e;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-weight: 700;
+  font-size: .88rem;
+  cursor: pointer;
+  display: flex; align-items: center; gap: 7px;
+  transition: transform .12s, opacity .12s;
+  white-space: nowrap;
+}
+.reg-sub-btn:hover { opacity: .9; transform: translateY(-1px); }
+.reg-sub-btn:disabled { opacity: .6; cursor: default; }
+.reg-sub-msg {
+  width: 100%;
+  font-size: .85rem;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-top: 6px;
+}
+.reg-sub-ok  { background: #e8f5e9; color: #1b5e20; }
+.reg-sub-err { background: #ffebee; color: #b71c1c; }
+
+@media (max-width: 600px) {
+  .reg-subscribe-box { flex-direction: column; text-align: center; }
+  .reg-sub-form { justify-content: center; }
+  .reg-sub-form input[type="email"] { min-width: 0; width: 100%; }
+}
+
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 600px) {
   .reg-hero-title { font-size: 1.5rem; }

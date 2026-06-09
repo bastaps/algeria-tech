@@ -915,6 +915,22 @@ function _buildRegHTML() {
     <!-- Résultats -->
     <div id="regResults" class="reg-results"></div>
 
+    <!-- Abonnement Email -->
+    <div class="reg-subscribe-box" id="regSubscribeBox">
+      <div class="reg-sub-icon"><i class="fas fa-bell"></i></div>
+      <div class="reg-sub-text">
+        <strong>Recevoir les alertes par email</strong>
+        <p>Dès qu'un nouveau texte TIC est détecté, recevez un email avec le résumé en 3 points.</p>
+      </div>
+      <form class="reg-sub-form" onsubmit="return _regSubscribe(event)">
+        <input type="email" id="regSubEmail" placeholder="votre@email.com" required autocomplete="email">
+        <button type="submit" class="reg-sub-btn" id="regSubBtn">
+          <i class="fas fa-envelope"></i> S'abonner
+        </button>
+      </form>
+      <p class="reg-sub-msg" id="regSubMsg" style="display:none"></p>
+    </div>
+
     <!-- Disclaimer -->
     <div class="reg-disclaimer">
       <i class="fas fa-info-circle"></i>
@@ -972,9 +988,52 @@ window.showReglementaire = function() {
     a.classList.toggle('active', a.id === 'nav-reglementaire');
   });
 
-  _regCurrentFilter = 'all';
+  _regCurrentFilter  = 'all';
+  _regCurrentSource  = 'all';
   _loadRegData();
   window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+/* ── Abonnement email ──────────────────────────────────────── */
+window._regSubscribe = async function(e) {
+  e.preventDefault();
+  const input  = document.getElementById('regSubEmail');
+  const btn    = document.getElementById('regSubBtn');
+  const msg    = document.getElementById('regSubMsg');
+  const email  = (input?.value || '').trim();
+  if (!email) return false;
+
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Envoi…';
+  msg.style.display = 'none';
+
+  try {
+    const r = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    });
+    const d = await r.json();
+    msg.style.display = 'block';
+    if (d.ok) {
+      msg.className  = 'reg-sub-msg reg-sub-ok';
+      msg.innerHTML  = `<i class="fas fa-check-circle"></i> ${d.message || 'Inscription confirmée ! Vérifiez votre boîte email.'}`;
+      input.value    = '';
+      btn.style.display = 'none';
+    } else {
+      msg.className  = 'reg-sub-msg reg-sub-err';
+      msg.innerHTML  = `<i class="fas fa-exclamation-circle"></i> ${d.error || 'Erreur lors de l\'inscription.'}`;
+      btn.disabled   = false;
+      btn.innerHTML  = '<i class="fas fa-envelope"></i> S\'abonner';
+    }
+  } catch {
+    msg.style.display = 'block';
+    msg.className     = 'reg-sub-msg reg-sub-err';
+    msg.textContent   = 'Serveur non disponible. Réessayez plus tard.';
+    btn.disabled      = false;
+    btn.innerHTML     = '<i class="fas fa-envelope"></i> S\'abonner';
+  }
+  return false;
 };
 
 // ===== COMPARATEUR D'OFFRES MOBILES =====

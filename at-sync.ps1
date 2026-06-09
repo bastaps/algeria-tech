@@ -28,7 +28,7 @@ public static class CtrlCGuard {
     # ── Fichiers auto-générés à ne jamais pousser ────────────────────────────
     # articles.json est EXCLU : il doit etre commite avec les articles de l'utilisateur
     # joradp_veille.json / arpce_veille.json : bases de données locales (changent en continu, jamais à pousser)
-    $AUTO_FILES = @("revue_presse.json", "veille_data.json", "joradp_veille.json", "arpce_veille.json")
+    $AUTO_FILES = @("revue_presse.json", "veille_data.json", "joradp_veille.json", "arpce_veille.json", "subscribers.json")
 
     function Set-SkipWorktree {
         param([switch]$Enable)
