@@ -1,6 +1,6 @@
 {
   "date": "mercredi 10 juin",
-  "synthese": "Les dernières 24h ont été marquées par des annonces technologiques majeures, avec un focus sur l'IA, les IPOs spatiales et les innovations mobiles. L'Algérie se positionne sur des projets énergétiques et ferroviaires ambitieux, tandis que les géants tech redéfinissent les standards avec des datacenters orbitaux et des smartphones pliants. La cybersécurité et les tensions réglementaires en Europe restent des enjeux critiques pour l'industrie.",
+  "synthese": "Les dernières 24h ont été marquées par des annonces technologiques majeures, notamment l'IPO historique de SpaceX et des avancées en IA, tandis que l'Algérie confirme son rôle clé dans les énergies renouvelables et les infrastructures. Les smartphones et l'innovation mobile restent au cœur des débats, avec des lancements attendus comme le Galaxy S27 Ultra. La cybersécurité et les startups africaines émergent comme des secteurs stratégiques pour l'avenir du continent.",
   "articles": [
     {
       "titre": "SpaceX affole les marchés avec une IPO géante : la demande dépasse quatre fois les attentes",
@@ -10,40 +10,29 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "SpaceX explose les records avec une IPO quatre fois plus demandée que prévu.",
+      "accroche": "SpaceX explose les records en Bourse : une demande 4 fois supérieure aux attentes.",
       "categorie": "Innovation"
     },
     {
-      "titre": "SpaceX dévoile AI1, son premier datacenter conçu pour flotter en orbite",
-      "resume": "Trois jours avant son entrée en Bourse, SpaceX a dévoilé AI1, son premier satellite pensé comme un datacenter en orbite. L'idée : faire tourner l'IA d",
-      "url": "https://www.frandroid.com/marques/spacex/3133737_spacex-devoile-ai1-son-premier-datacenter-concu-pour-flotter-en-orbite",
-      "date": "2026-06-10T08:01:35.000Z",
+      "titre": "SpaceX entre en bourse le 12 juin : faut-il acheter l’action la plus chère de l’histoire ?",
+      "resume": "Le 12 juin 2026, SpaceX devient l'introduction en bourse la plus chère de l'histoire. Mais à 1 770 milliards de dollars pour une entreprise qui perd d",
+      "url": "https://www.frandroid.com/marques/spacex/3134371_spacex-entre-en-bourse-le-12-juin-faut-il-acheter-laction-la-plus-chere-de-lhistoire",
+      "date": "2026-06-10T10:58:04.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "SpaceX lance AI1, le premier datacenter flottant en orbite pour booster l'IA.",
+      "accroche": "SpaceX entre en Bourse le 12 juin : l'action la plus chère de l'histoire ?",
       "categorie": "Innovation"
     },
     {
-      "titre": "Perplexity confirme son IPO pour 2028 et prédit la fin des dépenses IA effrénées",
-      "resume": "Alors qu’Anthropic, OpenAI et SpaceX s’apprêtent à tester les marchés dans ce qui pourrait constituer la plus grande vague d’introductions en bourse d",
-      "url": "https://www.zdnet.fr/actualites/perplexity-confirme-son-ipo-pour-2028-et-predit-la-fin-des-depenses-ia-effrenees-496541.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-10T07:01:00.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "titre": "Agents IA : Bruxelles dégaine une mesure d’urgence contre Meta",
+      "resume": "La Commission européenne impose une mesure provisoire inédite à Meta, l'obligeant à rétablir l'accès gratuit à WhatsApp pour les assistants IA concurr",
+      "url": "https://www.silicon.fr/business-1367/agents-ia-bruxelles-degaine-une-mesure-durgence-contre-meta-227584",
+      "date": "2026-06-10T10:54:27.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Perplexity confirme son IPO 2028 et annonce la fin des dépenses IA débridées.",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Anthropic dévoile Claude Fable 5, une version de Mythos qui s’auto-censure pour éviter de faire des dégâts",
-      "resume": "Quelques semaines à peine après avoir présenté Claude Mythos, Anthropic est de retour avec Claude Fable 5. Il s'agit d'une IA reposant sur le même mod",
-      "url": "https://www.01net.com/actualites/anthropic-devoile-claude-fable-5-version-mythos-qui-auto-censure-eviter-faire-degats.html",
-      "date": "2026-06-10T08:19:05.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Anthropic dévoile Claude Fable 5, une IA auto-censur��e pour plus de sécurité.",
+      "accroche": "Bruxelles impose une mesure d'urgence contre Meta pour ses agents IA.",
       "categorie": "IA"
     },
     {
@@ -54,7 +43,7 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Tokenmaxxing : entre gaspillage et accélérateur de la révolution IA.",
+      "accroche": "Tokenmaxxing : gaspillage ou révolution pour l'IA ? Le débat fait rage.",
       "categorie": "IA"
     },
     {
@@ -65,19 +54,8 @@
       "source": "Android DZ",
       "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "Siri IA banni d'Europe : Apple et l'UE s'affrontent sur la souveraineté des données.",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "Compteurs Linky piratés et bugs informatiques géants : le sombre bilan de l’énergie en 2025",
-      "resume": "Derrière une fragile accalmie, le rapport 2025 du médiateur de l'énergie pointe l'explosion des fraudes Linky, les litiges solaires et les graves bugs",
-      "url": "https://www.01net.com/actualites/compteurs-linky-pirates-et-bugs-informatiques-geants-le-sombre-bilan-de-lenergie-en-2025.html",
-      "date": "2026-06-10T06:33:06.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Compteurs Linky piratés : le bilan catastrophique de l'énergie en 2025.",
-      "categorie": "Cybersécurité"
+      "accroche": "Siri IA banni d'Europe : Apple et l'UE s'affrontent sur la protection des données.",
+      "categorie": "IA"
     },
     {
       "titre": "Galaxy S27 Ultra : le nouveau design divise les fans, mais la batterie fait enfin un bond",
@@ -87,7 +65,7 @@
       "source": "Android DZ",
       "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "Galaxy S27 Ultra : batterie révolutionnaire mais design qui divise les utilisateurs.",
+      "accroche": "Galaxy S27 Ultra divise, mais sa batterie révolutionnaire séduit enfin.",
       "categorie": "Mobile"
     },
     {
@@ -98,29 +76,29 @@
       "source": "Android DZ",
       "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "Galaxy Z Flip8 : Snapdragon de retour, mais l'Europe reste fidèle à l'Exynos.",
+      "accroche": "Galaxy Z Flip8 : Snapdragon revient, mais l'Europe garde l'Exynos.",
       "categorie": "Mobile"
     },
     {
-      "titre": "Le Liquid Glass a gagné : iOS 26 tourne sur les trois quarts des iPhone en circulation",
-      "resume": "Alors qu’Apple vient de lancer les premières versions bêta de son futur système d’exploitation mobile, la firme en a aussi profité pour communiquer su",
-      "url": "https://www.frandroid.com/marques/apple/3133681_le-liquid-glass-a-gagne-ios-26-tourne-sur-les-trois-quarts-des-iphone-en-circulation",
-      "date": "2026-06-10T06:34:27.000Z",
+      "titre": "Cette tablette 2,5K 90 Hz taillée pour les étudiants fauchés voit son prix passer sous les 90 €",
+      "resume": "Légère, fluide et endurante, la Lenovo Xiaoxin Pad 11, ou Lenovo Idea Tab 11 chez nous, est une tablette qui pourrait totalement convenir aux étudiant",
+      "url": "https://www.frandroid.com/marques/3133797_cette-tablette-25k-90-hz-taillee-pour-les-etudiants-fauches-voit-son-prix-passer-sous-les-90-e",
+      "date": "2026-06-10T09:49:00.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "iOS 26 s'impose sur 75% des iPhone, grâce au Liquid Glass et sa compatibilité.",
+      "accroche": "Tablette 2,5K 90 Hz à moins de 90 € : l'outil ultime pour étudiants.",
       "categorie": "Mobile"
     },
     {
-      "titre": "Logitech lance la Mobi Fold : la souris pliable ultra-compacte qui se glisse dans la poche",
-      "resume": "Logitech officialise sa première souris pliable, la Mobi Fold. Une souris au design unique, ultra-compacte qui offre en plus une autonomie très confor",
-      "url": "https://www.frandroid.com/marques/logitech/3133357_logitech-lance-la-mobi-fold-la-souris-pliable-ultra-compacte-qui-se-glisse-dans-la-poche",
-      "date": "2026-06-10T07:00:00.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Logitech révolutionne la souris avec la Mobi Fold, pliable et ultra-compacte.",
+      "titre": "Solaire : « Une portion de l’Algérie peut couvrir tous les besoins énergétiques de l’Europe »",
+      "resume": "Quinze ans après l’échec du projet Desertec, l’Union européenne (UE) relance son intérêt pour le développement des énergies renouvelables sur la rive",
+      "url": "https://algerie-eco.com/2026/06/09/solaire-une-portion-de-lalgerie-peut-couvrir-tous-les-besoins-energetiques-de-leurope/",
+      "date": "2026-06-09T22:40:21.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "L'Algérie pourrait couvrir les besoins énergétiques de l'Europe avec son solaire.",
       "categorie": "Innovation"
     },
     {
@@ -131,9 +109,31 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Algérie et Huawei renforcent leur coopération dans le numérique pharmaceutique.",
+      "accroche": "Huawei et l'Algérie renforcent leur coopération dans le numérique pharmaceutique.",
       "categorie": "Startups"
+    },
+    {
+      "titre": "La région Auvergne-Rhône-Alpes compte (enfin) son CSIRT territorial",
+      "resume": "La structure sera chargée d’offrir un premier niveau d’assistance à des victimes d’attaque cyber.",
+      "url": "https://www.zdnet.fr/actualites/la-region-auvergne-rhone-alpes-compte-enfin-son-csirt-territorial-496378.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-10T08:58:53.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "La région Auvergne-Rhône-Alpes se dote enfin d'un CSIRT territorial.",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Chery s’installe dans l’usine historique européenne de Nissan : un tournant pour l’automobile en Europe",
+      "resume": "Récemment arrivé en France, le groupe chinois Chery lorgne désormais sur l’usine britannique de Nissan située à Sunderland. Le but ? Y produire les vo",
+      "url": "https://www.frandroid.com/marques/nissan/3133711_chery-sinstalle-dans-lusine-historique-europeenne-de-nissan-un-tournant-pour-lautomobile-en-europe",
+      "date": "2026-06-10T09:39:16.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Chery s'installe dans l'usine Nissan : un tournant pour l'automobile européenne.",
+      "categorie": "Innovation"
     }
   ],
-  "lastUpdated": "2026-06-10T08:43:09.586Z"
+  "lastUpdated": "2026-06-10T11:37:38.225Z"
 }
