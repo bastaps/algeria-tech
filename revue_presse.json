@@ -1,6 +1,6 @@
 {
   "date": "mercredi 10 juin",
-  "synthese": "Les dernières 24h ont été marquées par des annonces technologiques majeures : SpaceX et Perplexity préparent des IPO historiques, l'IA redéfinit les standards avec des modèles comme Claude Fable 5, tandis que les enjeux de souveraineté numérique et de cybersécurité restent au cœur des débats. Les innovations mobiles et les tensions géopolitiques autour des technologies (Apple vs UE, Samsung en Afrique) illustrent une dynamique mondiale où performance et régulation s'affrontent. L'Algérie et l'Afrique émergent comme acteurs clés dans des secteurs inattendus, comme l'agriculture ou les télécoms.",
+  "synthese": "Les dernières 24h ont été marquées par des annonces technologiques majeures, avec un focus sur l'IA, les IPOs spatiales et les innovations mobiles. L'Algérie se positionne sur des projets énergétiques et ferroviaires ambitieux, tandis que les géants tech redéfinissent les standards avec des datacenters orbitaux et des smartphones pliants. La cybersécurité et les tensions réglementaires en Europe restent des enjeux critiques pour l'industrie.",
   "articles": [
     {
       "titre": "SpaceX affole les marchés avec une IPO géante : la demande dépasse quatre fois les attentes",
@@ -11,7 +11,7 @@
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
       "accroche": "SpaceX explose les records avec une IPO quatre fois plus demandée que prévu.",
-      "categorie": "Startups"
+      "categorie": "Innovation"
     },
     {
       "titre": "SpaceX dévoile AI1, son premier datacenter conçu pour flotter en orbite",
@@ -21,7 +21,7 @@
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "SpaceX mise sur l'orbite : son datacenter flottant AI1 révolutionne le cloud.",
+      "accroche": "SpaceX lance AI1, le premier datacenter flottant en orbite pour booster l'IA.",
       "categorie": "Innovation"
     },
     {
@@ -32,29 +32,29 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Perplexity confirme son IPO pour 2028 et annonce la fin des dépenses IA débridées.",
-      "categorie": "Startups"
-    },
-    {
-      "titre": "Claude Fable 5 : la puissance de Mythos accessible au grand public, avec des garde-fous",
-      "resume": "Anthropic lance Claude Fable 5, une version grand public de son redoutable modèle Mythos, jusqu'ici réservé à un cercle restreint de partenaires. Même",
-      "url": "https://www.zdnet.fr/actualites/claude-fable-5-la-puissance-de-mythos-accessible-au-grand-public-avec-des-garde-fous-496538.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-10T06:46:49.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Claude Fable 5 démocratise l'IA Mythos avec des garde-fous inédits.",
+      "accroche": "Perplexity confirme son IPO 2028 et annonce la fin des dépenses IA débridées.",
       "categorie": "IA"
     },
     {
-      "titre": "Claude Fable 5 : Anthropic libère sa première IA de niveau Mythos, et évoque un modèle mystérieux",
-      "resume": "Anthropic franchit un cap en ouvrant au grand public la classe Mythos, sa gamme d'intelligence artificielle la plus avancée. Mais pour dompter ce mote",
-      "url": "https://www.numerama.com/tech/2272305-claude-fable-5-anthropic-libere-sa-premiere-ia-de-niveau-mythos-et-evoque-un-modele-mysterieux.html",
-      "date": "2026-06-09T17:55:55.000Z",
-      "source": "Numerama",
-      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
+      "titre": "Anthropic dévoile Claude Fable 5, une version de Mythos qui s’auto-censure pour éviter de faire des dégâts",
+      "resume": "Quelques semaines à peine après avoir présenté Claude Mythos, Anthropic est de retour avec Claude Fable 5. Il s'agit d'une IA reposant sur le même mod",
+      "url": "https://www.01net.com/actualites/anthropic-devoile-claude-fable-5-version-mythos-qui-auto-censure-eviter-faire-degats.html",
+      "date": "2026-06-10T08:19:05.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Anthropic libère son IA Mythos et prépare un modèle encore plus puissant.",
+      "accroche": "Anthropic dévoile Claude Fable 5, une IA auto-censur��e pour plus de sécurité.",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Tokenmaxxing  : gaspillage ou moteur de la transformation IA ?",
+      "resume": "Alors que la facture IA grimpe dans les budgets, une ligne de fracture s'installe entre ceux qui voient dans la consommation de tokens un coût à ratio",
+      "url": "https://www.silicon.fr/data-ia-1372/tokenmaxxing-gaspillage-ou-moteur-de-la-transformation-ia-227566",
+      "date": "2026-06-09T13:14:30.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Tokenmaxxing : entre gaspillage et accélérateur de la révolution IA.",
       "categorie": "IA"
     },
     {
@@ -65,8 +65,19 @@
       "source": "Android DZ",
       "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "Apple et l'UE s'affrontent : Siri IA banni d'Europe, qui porte la faute ?",
-      "categorie": "Télécoms"
+      "accroche": "Siri IA banni d'Europe : Apple et l'UE s'affrontent sur la souveraineté des données.",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Compteurs Linky piratés et bugs informatiques géants : le sombre bilan de l’énergie en 2025",
+      "resume": "Derrière une fragile accalmie, le rapport 2025 du médiateur de l'énergie pointe l'explosion des fraudes Linky, les litiges solaires et les graves bugs",
+      "url": "https://www.01net.com/actualites/compteurs-linky-pirates-et-bugs-informatiques-geants-le-sombre-bilan-de-lenergie-en-2025.html",
+      "date": "2026-06-10T06:33:06.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Compteurs Linky piratés : le bilan catastrophique de l'énergie en 2025.",
+      "categorie": "Cybersécurité"
     },
     {
       "titre": "Galaxy S27 Ultra : le nouveau design divise les fans, mais la batterie fait enfin un bond",
@@ -76,7 +87,7 @@
       "source": "Android DZ",
       "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "Galaxy S27 Ultra divise, mais sa batterie marque un tournant historique.",
+      "accroche": "Galaxy S27 Ultra : batterie révolutionnaire mais design qui divise les utilisateurs.",
       "categorie": "Mobile"
     },
     {
@@ -87,41 +98,8 @@
       "source": "Android DZ",
       "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "Galaxy Z Flip8 : Snapdragon revient, mais l'Europe reste fidèle à l'Exynos.",
+      "accroche": "Galaxy Z Flip8 : Snapdragon de retour, mais l'Europe reste fidèle à l'Exynos.",
       "categorie": "Mobile"
-    },
-    {
-      "titre": "Compteurs Linky piratés et bugs informatiques géants : le sombre bilan de l’énergie en 2025",
-      "resume": "Derrière une fragile accalmie, le rapport 2025 du médiateur de l'énergie pointe l'explosion des fraudes Linky, les litiges solaires et les graves bugs",
-      "url": "https://www.01net.com/actualites/compteurs-linky-pirates-et-bugs-informatiques-geants-le-sombre-bilan-de-lenergie-en-2025.html",
-      "date": "2026-06-10T06:33:06.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Linky piratés et bugs géants : le secteur énergétique en crise en 2025.",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "Souveraineté numérique : et si on recentrait le concept ?",
-      "resume": "Constatant une importation littérale de la vision anglo-saxonne, le Cigref appelle à la « rigueur sémantique » quant à la notion de souveraineté numér",
-      "url": "https://www.silicon.fr/business-1367/cigref-souverainete-numerique-227555",
-      "date": "2026-06-09T08:10:05.000Z",
-      "source": "Silicon.fr",
-      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Souveraineté numérique : et si on repensait ce concept pour l'ère moderne ?",
-      "categorie": "Réseaux"
-    },
-    {
-      "titre": "Logitech lance la Mobi Fold : la souris pliable ultra-compacte qui se glisse dans la poche",
-      "resume": "Logitech officialise sa première souris pliable, la Mobi Fold. Une souris au design unique, ultra-compacte qui offre en plus une autonomie très confor",
-      "url": "https://www.frandroid.com/marques/logitech/3133357_logitech-lance-la-mobi-fold-la-souris-pliable-ultra-compacte-qui-se-glisse-dans-la-poche",
-      "date": "2026-06-10T07:00:00.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Logitech révolutionne l'ergonomie avec une souris pliable ultra-compacte.",
-      "categorie": "Innovation"
     },
     {
       "titre": "Le Liquid Glass a gagné : iOS 26 tourne sur les trois quarts des iPhone en circulation",
@@ -131,9 +109,31 @@
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "iOS 26 s'impose sur 75% des iPhone : le Liquid Glass a tout gagné.",
+      "accroche": "iOS 26 s'impose sur 75% des iPhone, grâce au Liquid Glass et sa compatibilité.",
       "categorie": "Mobile"
+    },
+    {
+      "titre": "Logitech lance la Mobi Fold : la souris pliable ultra-compacte qui se glisse dans la poche",
+      "resume": "Logitech officialise sa première souris pliable, la Mobi Fold. Une souris au design unique, ultra-compacte qui offre en plus une autonomie très confor",
+      "url": "https://www.frandroid.com/marques/logitech/3133357_logitech-lance-la-mobi-fold-la-souris-pliable-ultra-compacte-qui-se-glisse-dans-la-poche",
+      "date": "2026-06-10T07:00:00.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Logitech révolutionne la souris avec la Mobi Fold, pliable et ultra-compacte.",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Industrie pharmaceutique : vers un renforcement de la coopération avec Huawei dans le numérique",
+      "resume": "Le ministre de l’Industrie pharmaceutique, Ouacim Kouidri, a reçu, mardi à Alger, une délégation du groupe chinois Huawei, avec laquelle il a examiné",
+      "url": "https://algerie-eco.com/2026/06/09/industrie-pharmaceutique-vers-un-renforcement-de-la-cooperation-avec-huawei-dans-le-numerique/",
+      "date": "2026-06-09T21:13:41.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Algérie et Huawei renforcent leur coopération dans le numérique pharmaceutique.",
+      "categorie": "Startups"
     }
   ],
-  "lastUpdated": "2026-06-10T08:06:40.773Z"
+  "lastUpdated": "2026-06-10T08:43:09.586Z"
 }
