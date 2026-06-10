@@ -1,6 +1,40 @@
 {
   "posts": [
     {
+      "id": "6de145b731285303",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/10/xai-fired-an-engineer-who-raised-alarms-about-grok-safety-new-lawsuit-claims/",
+      "image": "",
+      "date": "Wed, 10 Jun 2026 22:31:19 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "xAI fired an engineer who raised alarms about Grok safety, new lawsuit claims — A former xAI engineer is suing the company and SpaceX, alleging he was fired for raising AI safety concerns about Grok days before SpaceX's historic IPO.",
+        "ar": "",
+        "fr": ""
+      }
+    },
+    {
+      "id": "e2d4711a8f0d5f8a",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/video/why-andrew-yang-is-building-instead-of-waiting-for-washington/",
+      "image": "",
+      "date": "Wed, 10 Jun 2026 22:24:12 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Why Andrew Yang is building instead of waiting for Washington — Andrew Yang’s 2020 presidential campaign was based on a warning that automation and AI would hollow out the labor market and concentrate wealth in the hands of a few. At the time, ideas like Universal Basic Income felt fringe. Now Dario Amodei, Sam Altman, and Bernie Sanders are all saying versions",
+        "ar": "",
+        "fr": ""
+      }
+    },
+    {
       "id": "3cb28cca08e52f43",
       "source_name": "Algérie Éco",
       "source_short": "AEC",
@@ -3809,13 +3843,13 @@
       }
     }
   ],
-  "lastUpdated": "2026-06-10T21:40:44.232006+00:00",
+  "lastUpdated": "2026-06-10T22:48:24.353071+00:00",
   "stats": {
+    "Tech International": 75,
     "Médias TIC": 89,
     "Opérateurs": 25,
-    "Tech International": 73,
     "Infrastructure": 25,
     "Équipementiers": 12
   },
-  "total": 224
+  "total": 226
 }
