@@ -81,7 +81,7 @@
       "fb_page_url": "https://www.facebook.com/AlgerieTelecom",
       "fb_page_id": "AlgerieTelecom",
       "rss_url": "https://rss.app/feeds/K4RMVGP3oLlI7tNG.xml",
-      "_rssapp": "RSS officiel + créez aussi le flux rss.app Facebook pour plus de contenu",
+      "news_url": "https://www.algerietelecom.dz/fr/espace-presse/communiques-de-presse-type1",
       "translate": true,
       "enabled": true
     },
@@ -126,7 +126,7 @@
       "fb_page_url": "https://www.facebook.com/ARPCE.DZ",
       "fb_page_id": "ARPCE.DZ",
       "rss_url": "https://rss.app/feeds/ONPtYJ8Hlza4A0LB.xml",
-      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "news_url": "https://www.arpce.dz/fr/",
       "translate": true,
       "enabled": true
     },
@@ -157,7 +157,7 @@
       "fb_page_url": "https://www.facebook.com/djezzy",
       "fb_page_id": "djezzy",
       "rss_url": "https://rss.app/feeds/Fjx1HwUxC3W47VDP.xml",
-      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "news_url": "https://www.djezzy.dz/djezzy/actualite-et-nouveautes/communiques-de-presse/",
       "translate": true,
       "enabled": true
     },
@@ -172,7 +172,7 @@
       "fb_page_url": "https://www.facebook.com/MobilisOfficielle",
       "fb_page_id": "MobilisOfficielle",
       "rss_url": "https://rss.app/feeds/OnAQ7VnFdY35K89F.xml",
-      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "news_url": "https://mobilis.dz/news",
       "translate": true,
       "enabled": true
     },
@@ -217,7 +217,7 @@
       "website": "https://www.ericsson.com",
       "fb_page_url": "https://www.facebook.com/ericsson",
       "fb_page_id": "ericsson",
-      "rss_url": "https://rss.app/feeds/IvGc0bYW2g6OKmxu.xml",
+      "rss_url": "https://www.ericsson.com/en/blog/feed",
       "translate": true,
       "enabled": true
     },
@@ -233,7 +233,8 @@
       "fb_page_id": "Nokia",
       "rss_url": "https://www.nokia.com/about-us/news/releases/feed/",
       "translate": true,
-      "enabled": true
+      "enabled": false,
+      "_note": "Nokia bloque scrapers (403) et mbasic — désactivé"
     },
 
     {
@@ -376,7 +377,8 @@
       "fb_page_id": "dztechnews",
       "rss_url": "https://dz-tech.news/fr/feed/",
       "translate": false,
-      "enabled": true
+      "enabled": false,
+      "_note": "Domaine inaccessible (DNS fail) — désactivé"
     },
 
     {
@@ -390,7 +392,8 @@
       "fb_page_id": "elwatan",
       "rss_url": "https://www.elwatan.com/?feed=rss2",
       "translate": false,
-      "enabled": true
+      "enabled": false,
+      "_note": "Site inaccessible (timeout SSL) — désactivé"
     },
 
     {
@@ -460,7 +463,7 @@
       "website": "https://www.lemondeinformatique.fr",
       "fb_page_url": "https://www.facebook.com/LeMondeinformatique",
       "fb_page_id": "LeMondeinformatique",
-      "rss_url": "https://www.lemondeinformatique.fr/flux-rss/thematique-reseaux-telecoms-47.xml",
+      "rss_url": "https://www.lemondeinformatique.fr/flux-rss/thematique/telecom/rss.xml",
       "translate": false,
       "enabled": true
     }

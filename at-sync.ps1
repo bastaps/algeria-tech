@@ -622,9 +622,9 @@ public static class CtrlCGuard {
                             }
                         }
                         # Backfill ARPCE (depuis 2025-01-01)
-                        Write-Host "`nLancement du backfill ARPCE (12 pages, depuis 2025-01-01)..." -ForegroundColor Cyan
+                        Write-Host "`nLancement du backfill ARPCE (25 pages, depuis 2025-01-01)..." -ForegroundColor Cyan
                         try {
-                            $bodyA = '{"pages":12,"stop_date":"2025-01-01"}'
+                            $bodyA = '{"pages":25,"stop_date":"2025-01-01"}'
                             $r2 = Invoke-RestMethod -Uri "http://localhost:3000/api/arpce/backfill" -Method POST -ContentType "application/json" -Body $bodyA -TimeoutSec 10
                             Write-Host "ARPCE  : $($r2.message)" -ForegroundColor Green
                         } catch { Write-Host "ARPCE ERREUR : $($_.Exception.Message)" -ForegroundColor Red }

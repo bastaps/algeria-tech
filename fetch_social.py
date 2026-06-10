@@ -212,6 +212,18 @@ def parse_rss(content: bytes) -> list:
         pub   = item.findtext('pubDate', '') or item.findtext('dc:date', '', ns)
         items.append({'title': title, 'link': link, 'desc': clean_html(desc), 'date': pub})
 
+    # RSS 1.0 (RDF — namespaced items)
+    if not items:
+        rss1 = 'http://purl.org/rss/1.0/'
+        dc   = 'http://purl.org/dc/elements/1.1/'
+        for item in root.findall(f'{{{rss1}}}item')[:20]:
+            title = item.findtext(f'{{{rss1}}}title', '').strip()
+            link  = item.findtext(f'{{{rss1}}}link', '').strip()
+            desc  = item.findtext(f'{{{rss1}}}description', '')
+            pub   = item.findtext(f'{{{dc}}}date', '')
+            if title:
+                items.append({'title': title, 'link': link, 'desc': clean_html(desc), 'date': pub})
+
     # Atom
     if not items:
         for entry in root.findall('atom:entry', ns)[:20]:
@@ -230,6 +242,9 @@ def parse_rss(content: bytes) -> list:
 def fetch_rss(source: dict) -> list:
     url = source.get('rss_url', '')
     if not url:
+        return []
+    # rss.app exige désormais un abonnement payant (HTTP 402) — on passe directement au scraper web
+    if 'rss.app/' in url:
         return []
 
     try:
@@ -269,10 +284,12 @@ def fetch_facebook_api(source: dict) -> list:
         data = res.json()
 
         if 'error' in data:
-            err_msg = data['error'].get('message', 'Unknown error')
             err_code = data['error'].get('code', '?')
+            err_msg  = data['error'].get('message', 'Unknown error')
             if err_code in [190, 102]:
                 print(f"  [FB]  ✗ Token invalide/expiré — renouvelez FB_APP_TOKEN dans .env")
+            elif err_code == 100:
+                pass  # Permission manquante (App Review requis) — silencieux
             else:
                 print(f"  [FB]  ✗ API {err_code}: {err_msg[:80]}")
             return []
@@ -406,6 +423,102 @@ def fetch_facebook_mbasic(source: dict) -> list:
 
     return items[:12]
 
+# ─── Scraping page officielle de presse/actualités ───────────────────────────
+def fetch_news_page(source: dict) -> list:
+    """
+    Scrape la page officielle d'actualités d'un organisme (fallback sans RSS ni token).
+    Stratégie : chercher les titres (h2/h3/h4) accompagnés d'un lien interne.
+    Fonctionne pour : Djezzy, Mobilis, Algérie Télécom, et tout CMS standard.
+    """
+    news_url = source.get('news_url', '')
+    if not news_url:
+        return []
+
+    try:
+        import warnings
+        from urllib.parse import urljoin, urlparse
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            res = requests.get(news_url, headers=HEADERS, timeout=20,
+                               allow_redirects=True, verify=False)
+        res.raise_for_status()
+        soup = BeautifulSoup(res.text, 'html.parser')
+
+        base = urlparse(news_url)
+        origin = f"{base.scheme}://{base.netloc}"
+
+        DATE_RX = re.compile(
+            r'\b\d{1,2}[/\-.]\d{1,2}[/\-.]\d{4}'       # DD/MM/YYYY
+            r'|\b\d{4}[/\-.]\d{2}[/\-.]\d{2}'           # YYYY-MM-DD
+            r'|\b\d{1,2}\s+\w{3,10}\.?\s+\d{4}\b',      # DD Mois YYYY
+            re.IGNORECASE
+        )
+
+        items = []
+        seen = set()
+
+        for heading in soup.find_all(['h2', 'h3', 'h4']):
+            title = heading.get_text(strip=True)
+            if len(title) < 10:
+                continue
+
+            # Cherche un lien (du plus proche au plus lointain) :
+            # - Dans le titre        : <h3><a href>...</a></h3>              (Mobilis)
+            # - Ancêtre = ancre      : <a href><..><h3>...</h3></..></a>      (Djezzy)
+            # - Frère dans conteneur : <article><header><h3/></header><a/></article>  (AT)
+            a = heading.find('a', href=True)
+            if not a:
+                node = heading.parent
+                for _ in range(5):
+                    if node is None:
+                        break
+                    if node.name == 'a' and node.get('href'):
+                        a = node          # le heading EST dans l'ancre
+                        break
+                    a = node.find('a', href=True)
+                    if a:
+                        break             # premier lien trouvé dans ce conteneur
+                    node = node.parent
+            if not a:
+                continue
+
+            href = a['href']
+            if href.startswith(('#', 'mailto:', 'tel:')):
+                continue
+
+            abs_url = urljoin(origin, href)
+            if urlparse(abs_url).netloc != base.netloc:
+                continue
+            if abs_url == news_url or abs_url in seen:
+                continue
+            seen.add(abs_url)
+
+            # Date : cherche dans le conteneur parent (jusqu'à 4 niveaux)
+            date_str = ''
+            node = heading.parent
+            for _ in range(4):
+                if node is None:
+                    break
+                m = DATE_RX.search(node.get_text(' '))
+                if m:
+                    date_str = m.group()
+                    break
+                node = node.parent
+
+            items.append({
+                'title': title,
+                'link':  abs_url,
+                'desc':  title,
+                'date':  date_str or datetime.now(timezone.utc).isoformat()
+            })
+
+        print(f"  [WEB] {'✓' if items else '✗'} {len(items)} articles ← {news_url[:60]}")
+        return items[:15]
+
+    except Exception as e:
+        print(f"  [WEB] ✗ {news_url[:50]} → {e}")
+        return []
+
 # ─── Construire un objet post standardisé ────────────────────────────────────
 def build_post(raw: dict, source: dict, do_translate: bool) -> dict:
     title   = raw.get('title', '')
@@ -514,10 +627,13 @@ def main():
             raw_items += [i for i in fb_items if i.get('link', '') not in existing_links]
 
         # ── Méthode 3 : mbasic.facebook.com (scraping HTML, sans compte) ─────
-        # Activé automatiquement si pas de RSS ni de token — couvre TOUS les liens
         if not raw_items and src.get('fb_page_id'):
             mbasic_items = fetch_facebook_mbasic(src)
             raw_items += mbasic_items
+
+        # ── Méthode 4 : Scraping page officielle du site institutionnel ──────
+        if not raw_items and src.get('news_url'):
+            raw_items = fetch_news_page(src)
 
         if not raw_items:
             print(f"  [—] Aucune donnée disponible pour cette source")
@@ -554,7 +670,10 @@ def main():
             pass
         # ISO 8601 : "2026-06-06T07:14:53+00:00"
         try:
-            return datetime.fromisoformat(raw.replace('Z', '+00:00'))
+            dt = datetime.fromisoformat(raw.replace('Z', '+00:00'))
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+            return dt
         except Exception:
             return datetime.min.replace(tzinfo=timezone.utc)
 

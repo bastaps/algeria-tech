@@ -147,43 +147,57 @@ function extractNumero(titre) {
 
 /* ═══════════════════════════════════════════════════════════════
    PARSER LA PAGE ARPCE
-   Le site ARPCE est un Joomla 3.x — on essaie plusieurs patterns
-   HTML pour extraire les articles de la liste de publications.
+   Structure réelle du site :
+   • Les liens vers les publications ont la forme /fr/pub/[slug6]
+     (ex: /fr/pub/y2h9u7) avec texte "Lire" (trop court pour l'ancien parser)
+   • Le titre est dans un heading <h2>–<h5> AVANT le lien "Lire"
+   • Pagination : ?page=N  (pas ?start=N)
 ═══════════════════════════════════════════════════════════════ */
 function parseArpcePage(html) {
   const items = [];
   const seen  = new Set();
 
-  /* ── Pattern 1 : titres h2/h3 contenant un <a href="/fr/pub/..."> ── */
-  const h2Re = /<h[23][^>]*>\s*<a\s[^>]*href="([^"]*\/(?:fr\/pub|fr\/pub\/)[^"?#]*)"[^>]*>([\s\S]*?)<\/a>\s*<\/h[23]>/gi;
+  /* Trouve tous les liens /fr/pub/[slug] — quel que soit le texte du lien */
+  const linkRe = /<a\s[^>]*href="(\/fr\/pub\/([a-z0-9]+))"[^>]*>([\s\S]*?)<\/a>/gi;
   let m;
 
-  while ((m = h2Re.exec(html)) !== null) {
-    const href  = m[1].split('?')[0];
-    const title = stripHtml(m[2]);
-    if (!title || title.length < 5 || title.length > 400) continue;
+  while ((m = linkRe.exec(html)) !== null) {
+    const href     = m[1];
+    const slug     = m[2];
+    const linkText = stripHtml(m[3]);
+
+    /* Ignorer les liens de pagination ou de navigation (/fr/pub?page=...) */
+    if (!slug || slug.length < 4) continue;
     if (seen.has(href)) continue;
     seen.add(href);
 
-    const url   = href.startsWith('http') ? href : `${ARPCE_BASE}${href}`;
-    const slug  = href.split('/').filter(Boolean).pop() || `${Date.now()}`;
+    const url = `${ARPCE_BASE}${href}`;
 
-    /* Contexte de 2500 chars après le match pour date/tags/description */
-    const ctx   = html.substring(m.index, m.index + 2500);
-
-    /* Tags / badges colorés */
-    const tagRe = /<span[^>]*class="[^"]*label[^"]*"[^>]*>([\s\S]*?)<\/span>/gi;
-    const types = [];
-    let tg;
-    while ((tg = tagRe.exec(ctx)) !== null) {
-      const t = stripHtml(tg[1]);
-      if (t && t !== 'Nouveau' && t.length > 1 && t.length < 80) types.push(t);
+    /* ── Titre ─────────────────────────────────────────────────
+       Si le texte du lien est long (≥15 chars) → c'est le titre.
+       Sinon (ex: "Lire") → chercher le dernier heading h2-h5
+       dans les 3000 chars qui précèdent ce lien. */
+    let title = '';
+    if (linkText.length >= 15) {
+      title = linkText;
+    } else {
+      const before = html.substring(Math.max(0, m.index - 3000), m.index);
+      const hRe    = /<h[2-5][^>]*>([\s\S]*?)<\/h[2-5]>/gi;
+      let hm, lastH = null;
+      while ((hm = hRe.exec(before)) !== null) lastH = hm;
+      if (lastH) title = stripHtml(lastH[1]);
     }
 
-    /* Date — chercher <time datetime="..."> en priorité */
-    let dateStr = '';
-    let dateFr  = '';
-    const timeM = ctx.match(/<time[^>]*datetime="([^"]+)"[^>]*>/i);
+    if (!title || title.length < 5 || title.length > 500) continue;
+
+    /* ── Contexte pour date / type / description ──────────────
+       Zone de 3000 chars centrée autour du lien */
+    const ctxStart = Math.max(0, m.index - 2000);
+    const ctx      = html.substring(ctxStart, m.index + 800);
+
+    /* Date : balise <time datetime="..."> puis texte littéral */
+    let dateStr = '', dateFr = '';
+    const timeM = ctx.match(/<time[^>]*datetime="([^"]+)"/i);
     if (timeM) {
       dateStr = timeM[1].substring(0, 10);
       dateFr  = isoToFr(dateStr);
@@ -195,9 +209,17 @@ function parseArpcePage(html) {
       }
     }
 
-    /* Description (intro text) */
-    const descM = ctx.match(/<div[^>]*class="[^"]*(?:article-intro|intro-text|lead|description)[^"]*"[^>]*>([\s\S]{15,500}?)<\/div>/i)
-               || ctx.match(/<p[^>]*>([\s\S]{20,400}?)<\/p>/i);
+    /* Type / badges (span avec classe label, badge, tag, category ou type) */
+    const tagRe = /<span[^>]*class="[^"]*(?:label|badge|tag|categ|type)[^"]*"[^>]*>([\s\S]*?)<\/span>/gi;
+    const types = [];
+    let tg;
+    while ((tg = tagRe.exec(ctx)) !== null) {
+      const t = stripHtml(tg[1]);
+      if (t && t.length > 1 && t.length < 80 && t !== 'Nouveau') types.push(t);
+    }
+
+    /* Description : premier <p> substantiel dans le contexte */
+    const descM = ctx.match(/<p[^>]*>([\s\S]{20,400}?)<\/p>/i);
     const desc  = descM ? stripHtml(descM[1]).substring(0, 350) : '';
 
     const typeRaw    = types[0] || '';
@@ -206,7 +228,6 @@ function parseArpcePage(html) {
     items.push({
       id:          `arpce-${slug}`,
       source:      'ARPCE',
-      /* Champs partagés avec JORADP pour compatibilité frontend */
       jo_numero:   null,
       jo_numStr:   null,
       jo_date:     dateStr,
@@ -225,38 +246,16 @@ function parseArpcePage(html) {
     });
   }
 
-  /* ── Pattern 2 (fallback) : tout lien /fr/pub/ avec texte substantiel ── */
-  if (items.length === 0) {
-    const linkRe = /<a\s[^>]*href="([^"]*\/fr\/pub\/[^"?#]+)"[^>]*>([\s\S]{10,250}?)<\/a>/gi;
-    while ((m = linkRe.exec(html)) !== null) {
-      const href  = m[1].split('?')[0];
-      const title = stripHtml(m[2]);
-      if (title.length < 10 || seen.has(href)) continue;
-      seen.add(href);
-      const url  = href.startsWith('http') ? href : `${ARPCE_BASE}${href}`;
-      const slug = href.split('/').filter(Boolean).pop() || `${Date.now()}`;
-      items.push({
-        id: `arpce-${slug}`, source: 'ARPCE',
-        jo_numero: null, jo_numStr: null, jo_date: '', jo_date_fr: '',
-        jo_url: url, type: 'Publication ARPCE', type_raw: '',
-        types_tags: [], numero: '', date_texte: '',
-        titre: title, page_jo: null,
-        pertinence: 'Publication officielle ARPCE', url,
-        detected_at: new Date().toISOString(),
-      });
-    }
-  }
-
   return items;
 }
 
 /* ═══════════════════════════════════════════════════════════════
    FETCH UNE PAGE DE PUBLICATIONS
-   Joomla pagine avec ?start=N (N = 0, 20, 40…)
+   Le site ARPCE pagine avec ?page=N (1-indexé, ~10 items/page)
 ═══════════════════════════════════════════════════════════════ */
-async function fetchArpcePage(start = 0) {
-  const url  = start === 0 ? ARPCE_PUB_URL : `${ARPCE_PUB_URL}?start=${start}`;
-  console.log(`[ARPCE]   Fetch page start=${start} …`);
+async function fetchArpcePage(pageNum = 1) {
+  const url  = pageNum <= 1 ? ARPCE_PUB_URL : `${ARPCE_PUB_URL}?page=${pageNum}`;
+  console.log(`[ARPCE]   Fetch page ${pageNum} …`);
   const html = await fetchHtml(url);
   return parseArpcePage(html);
 }
@@ -271,12 +270,11 @@ async function checkArpce(pagesMax = 1) {
   const data      = loadData();
   const existIds  = new Set(data.items.map(i => i.id));
   let   totalNew  = 0;
-  const PAGE_SIZE = 20; // Joomla par défaut
 
   for (let p = 0; p < pagesMax; p++) {
     if (p > 0) await new Promise(r => setTimeout(r, 2000));
     try {
-      const items    = await fetchArpcePage(p * PAGE_SIZE);
+      const items    = await fetchArpcePage(p + 1);
       if (!items.length) { console.log('[ARPCE]   Page vide — arrêt.'); break; }
 
       const newItems = items.filter(i => !existIds.has(i.id));
@@ -316,12 +314,11 @@ async function backfillArpce(pagesMax = 12, stopDate = null) {
   const data      = loadData();
   const existIds  = new Set(data.items.map(i => i.id));
   let   totalNew  = 0;
-  const PAGE_SIZE = 20;
 
   for (let p = 0; p < pagesMax; p++) {
     if (p > 0) await new Promise(r => setTimeout(r, 2000));
     try {
-      const items = await fetchArpcePage(p * PAGE_SIZE);
+      const items = await fetchArpcePage(p + 1);
       if (!items.length) { console.log('[ARPCE]   Page vide — arrêt.'); break; }
 
       const newItems = items.filter(i => !existIds.has(i.id));

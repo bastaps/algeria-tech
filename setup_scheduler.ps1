@@ -5,6 +5,7 @@
 # ═══════════════════════════════════════════════════════════════
 
 $TaskName    = "AlgeriaTech-SocialFeed"
+$WrapperPath = "E:\algeria-tech\auto_social_push.ps1"  # fetch + auto-push Cloudflare
 $ScriptPath  = "E:\algeria-tech\fetch_social.py"
 $PythonExe   = (Get-Command python -ErrorAction SilentlyContinue).Source
 $WorkDir     = "E:\algeria-tech"
@@ -38,9 +39,10 @@ if ($existing) {
 }
 
 # ── Définir l'action ────────────────────────────────────────────
+# Le wrapper auto_social_push.ps1 : fetch + auto-commit + auto-push vers Cloudflare
 $action = New-ScheduledTaskAction `
-    -Execute $PythonExe `
-    -Argument "`"$ScriptPath`"" `
+    -Execute "powershell.exe" `
+    -Argument "-NonInteractive -ExecutionPolicy Bypass -File `"$WrapperPath`"" `
     -WorkingDirectory $WorkDir
 
 # ── Définir le déclencheur : toutes les 2 heures ────────────────
@@ -77,9 +79,9 @@ Write-Host "   🚀 Démarre aussi au démarrage de Windows" -ForegroundColor Wh
 Write-Host ""
 
 # ── Premier lancement immédiat ──────────────────────────────────
-Write-Host "▶ Premier lancement du script maintenant..." -ForegroundColor Cyan
-$proc = Start-Process -FilePath $PythonExe `
-    -ArgumentList "`"$ScriptPath`"" `
+Write-Host "▶ Premier lancement du wrapper maintenant..." -ForegroundColor Cyan
+$proc = Start-Process -FilePath "powershell.exe" `
+    -ArgumentList "-NonInteractive -ExecutionPolicy Bypass -File `"$WrapperPath`"" `
     -WorkingDirectory $WorkDir `
     -PassThru `
     -NoNewWindow
