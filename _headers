@@ -37,6 +37,12 @@
 /barometre_weekly_history.json
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
 
+/joradp_static.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/arpce_static.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
 # ── Assets statiques : toujours revalidés (ETag → 304 si inchangé, ~5ms) ───────
 # max-age=0 supprimé : avec Cache First SW + max-age=86400, le contenu périmait 24h.
 # Network First SW + no-cache = le navigateur valide avec le serveur à chaque visite.

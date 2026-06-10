@@ -808,11 +808,11 @@ async function _loadRegData() {
   async function _regFetch(apiUrl, staticUrl) {
     try {
       const r = await fetch(apiUrl);
-      if (r.ok) return r.json();
+      if (r.ok) return await r.json();
     } catch {}
     try {
       const r = await fetch(staticUrl);
-      if (r.ok) return r.json();
+      if (r.ok) return await r.json();
     } catch {}
     return null;
   }
