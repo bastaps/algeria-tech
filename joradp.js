@@ -19,11 +19,12 @@ const JORADP_ACCUEIL  = 'https://www.joradp.dz/HFR/Accueil.htm';
 const JORADP_PDF_BASE = 'https://www.joradp.dz/FTP/jo-francais';
 const VEILLE_FILE     = path.join(__dirname, 'joradp_veille.json');
 
-const MAX_SOMMAIRE_PAGES = 6;
-const MAX_PDF_MB         = 30;
-const FETCH_TIMEOUT_MS   = 40000;
-const MAX_ISSUES_DELTA   = 5;    // numéros/vérification quotidienne
-const MAX_STORED_TEXTES  = 500;
+const MAX_SOMMAIRE_PAGES  = 5;
+const MAX_PDF_MB          = 30;
+const FETCH_TIMEOUT_MS    = 40000;
+const PDF_PARTIAL_BYTES   = 400000; // 400 Ko → couvre les 4-6 premières pages (sommaire)
+const MAX_ISSUES_DELTA    = 5;    // numéros/vérification quotidienne
+const MAX_STORED_TEXTES   = 500;
 
 /* Agent HTTPS qui tolère le certificat auto-signé du JORADP ── */
 const JORADP_AGENT = new https.Agent({ rejectUnauthorized: false });
@@ -134,6 +135,73 @@ function fetchBuffer(url, redirectsLeft = 4) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   FETCH PDF PARTIEL — Range: bytes=0-N
+   Télécharge uniquement les N premiers octets du PDF.
+   Le sommaire tient dans les 400 premiers Ko pour la quasi-
+   totalité des JO algériens (pages 1-5 en format texte).
+   • Envoie Range: bytes=0-(maxBytes-1) → 206 si serveur ok
+   • Si le serveur répond 200 (pas de Range), coupe après N octets
+   • Gère proprement la destruction de flux (ECONNRESET attendu)
+═══════════════════════════════════════════════════════════════ */
+function fetchPdfPartial(url, maxBytes = PDF_PARTIAL_BYTES, redirectsLeft = 4) {
+  return new Promise((resolve, reject) => {
+    const isHttps  = url.startsWith('https');
+    const client   = isHttps ? https : http;
+    const isJoradp = url.includes('joradp.dz');
+
+    const options = {
+      headers: {
+        'User-Agent': 'AlgeriaTech-VeilleReglementaire/1.0',
+        'Accept':     'application/pdf,*/*',
+        'Range':      `bytes=0-${maxBytes - 1}`,
+      },
+    };
+    if (isHttps && isJoradp) options.agent = JORADP_AGENT;
+
+    let settled = false;
+    const done = (fn, val) => { if (!settled) { settled = true; fn(val); } };
+
+    const req = client.get(url, options, res => {
+      if ([301, 302, 303, 307, 308].includes(res.statusCode)) {
+        if (!redirectsLeft) return done(reject, new Error('Trop de redirections'));
+        const loc = res.headers.location;
+        if (!loc) return done(reject, new Error('Redirection sans Location'));
+        res.destroy();
+        const next = loc.startsWith('http') ? loc : new URL(loc, url).href;
+        return fetchPdfPartial(next, maxBytes, redirectsLeft - 1)
+          .then(v => done(resolve, v)).catch(e => done(reject, e));
+      }
+      /* 206 = Range honoré, 200 = Range ignoré (on coupe manuellement) */
+      if (res.statusCode !== 200 && res.statusCode !== 206) {
+        res.destroy();
+        return done(reject, new Error(`HTTP ${res.statusCode}`));
+      }
+
+      const chunks  = [];
+      let received  = 0;
+      res.on('data', chunk => {
+        if (settled) return;
+        chunks.push(chunk);
+        received += chunk.length;
+        if (received >= maxBytes) {
+          res.destroy(); // coupe la connexion — ECONNRESET ignoré ci-dessous
+          done(resolve, Buffer.concat(chunks));
+        }
+      });
+      res.on('end',   () => done(resolve, Buffer.concat(chunks)));
+      res.on('error', e => {
+        if (e.code !== 'ECONNRESET' && e.code !== 'ERR_STREAM_DESTROYED') done(reject, e);
+      });
+    });
+
+    req.setTimeout(20000, () => { req.destroy(); done(reject, new Error('Timeout PDF partiel')); });
+    req.on('error', e => {
+      if (!settled && e.code !== 'ECONNRESET' && e.code !== 'ERR_STREAM_DESTROYED') done(reject, e);
+    });
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════════
    PARSER HTML — Accueil.htm
    Extrait les MaxWin('NNN') et les dates associées
 ═══════════════════════════════════════════════════════════════ */
@@ -213,10 +281,12 @@ function buildIssue(numero, year) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   EXTRACTION SOMMAIRE (N premières pages du PDF)
+   EXTRACTION SOMMAIRE — téléchargement partiel du PDF (400 Ko)
+   On ne récupère que les premières pages — le JO n'est jamais
+   stocké en entier sur le disque.
 ═══════════════════════════════════════════════════════════════ */
 async function extractSommaire(pdfUrl) {
-  const buf  = await fetchBuffer(pdfUrl);
+  const buf  = await fetchPdfPartial(pdfUrl, PDF_PARTIAL_BYTES);
   const data = await pdfParse(buf, { max: MAX_SOMMAIRE_PAGES });
   return data.text || '';
 }
@@ -420,8 +490,9 @@ async function checkJoradp(apiKey) {
    Appelé une seule fois pour initialiser la base de données.
    Délai entre chaque requête pour respecter le serveur JORADP.
 ═══════════════════════════════════════════════════════════════ */
-async function backfillJoradp(year, apiKey, delayMs = 3000) {
-  year = year || new Date().getFullYear();
+async function backfillJoradp(year, apiKey, delayMs = 3000, maxNum = null) {
+  const currentYear = new Date().getFullYear();
+  year = year || currentYear;
   console.log(`\n[JORADP] 🔄 BACKFILL — Tous les JO de ${year} depuis n°1\n`);
 
   const data = loadData();
@@ -439,10 +510,18 @@ async function backfillJoradp(year, apiKey, delayMs = 3000) {
     console.log(`[JORADP] Accueil.htm → ${knownIssues.length} numéro(s) listés (max n°${maxKnown})`);
   } catch (e) {
     console.warn(`[JORADP] Accueil.htm inaccessible : ${e.message}`);
-    /* Estimer le numéro max selon le mois courant (moyenne ~6 JO/mois) */
-    const m  = new Date().getMonth() + 1;
-    maxKnown = Math.min(m * 7, 90);
   }
+
+  /* Si maxNum fourni explicitement, il prime toujours */
+  if (maxNum) {
+    maxKnown = Math.max(maxKnown, maxNum);
+  } else if (maxKnown === 0) {
+    /* Estimation de secours : année passée ≈ 90 numéros, année en cours ≈ mois × 7 */
+    maxKnown = year < currentYear
+      ? 90
+      : Math.min((new Date().getMonth() + 1) * 7, 90);
+  }
+  console.log(`[JORADP] Plafond : n°${maxKnown}`);
 
   /* 2. Construire la liste complète n°1 → maxKnown */
   const knownMap = new Map(knownIssues.map(i => [i.numero, i]));

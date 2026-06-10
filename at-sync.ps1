@@ -200,6 +200,8 @@ public static class CtrlCGuard {
                 git add images/ 2>$null | Out-Null            # nouvelles images articles
                 git add documents/ 2>$null | Out-Null         # nouveaux PDF
                 git add tic_social.json 2>$null | Out-Null    # données fraîches réseaux sociaux
+                git add joradp_static.json 2>$null | Out-Null # snapshot réglementaire JORADP
+                git add arpce_static.json 2>$null | Out-Null  # snapshot réglementaire ARPCE
                 # Exclure uniquement les fichiers vraiment auto-generes (revue + veille RSS)
                 foreach ($f in $AUTO_FILES) {
                     git restore --staged $f 2>$null
@@ -577,8 +579,9 @@ public static class CtrlCGuard {
                     break
                 }
 
-                Write-Host "`n  R. Verifier maintenant les nouveaux numeros du JO"
-                Write-Host "  B. Backfill (re-analyser depuis le n°1 d'une annee)"
+                Write-Host "`n  R. Verifier maintenant les nouveaux numeros du JO + ARPCE"
+                Write-Host "  B. Backfill (analyser toutes les editions depuis une annee donnee)"
+                Write-Host "  E. Exporter + Deployer vers Cloudflare Pages (joradp_static + arpce_static)" -ForegroundColor Yellow
                 Write-Host "  X. Retour"
                 Write-Host ""
                 Write-Host "Votre choix : " -NoNewline -ForegroundColor White
@@ -602,21 +605,65 @@ public static class CtrlCGuard {
                     }
 
                     "b" {
-                        # Backfill JORADP
-                        $yearInput = Read-Host "Annee JORADP a analyser (Entree = $((Get-Date).Year))"
-                        $year = if ($yearInput -match "^\d{4}$") { $yearInput } else { (Get-Date).Year }
-                        Write-Host "`nLancement du backfill JORADP $year..." -ForegroundColor Cyan
+                        # Backfill JORADP — une ou plusieurs années
+                        $startYearInput = Read-Host "Annee de depart JORADP (ex: 2025, Entree = $((Get-Date).Year))"
+                        $startYear = if ($startYearInput -match "^\d{4}$") { [int]$startYearInput } else { (Get-Date).Year }
+                        $endYear   = (Get-Date).Year
+                        for ($y = $startYear; $y -le $endYear; $y++) {
+                            Write-Host "`nLancement du backfill JORADP $y..." -ForegroundColor Cyan
+                            try {
+                                $body = "{`"year`":$y,`"delay_ms`":1000}"
+                                $r = Invoke-RestMethod -Uri "http://localhost:3000/api/joradp/backfill" -Method POST -ContentType "application/json" -Body $body -TimeoutSec 10
+                                Write-Host "JORADP $y : $($r.message)" -ForegroundColor Green
+                            } catch { Write-Host "JORADP $y ERREUR : $($_.Exception.Message)" -ForegroundColor Red }
+                            if ($y -lt $endYear) {
+                                Write-Host "Attente 30s avant l'annee suivante..." -ForegroundColor DarkGray
+                                Start-Sleep -Seconds 30
+                            }
+                        }
+                        # Backfill ARPCE (depuis 2025-01-01)
+                        Write-Host "`nLancement du backfill ARPCE (12 pages, depuis 2025-01-01)..." -ForegroundColor Cyan
                         try {
-                            $body = "{`"year`":$year,`"delay_ms`":3000}"
-                            $r = Invoke-RestMethod -Uri "http://localhost:3000/api/joradp/backfill" -Method POST -ContentType "application/json" -Body $body -TimeoutSec 10
-                            Write-Host "JORADP : $($r.message)" -ForegroundColor Green
-                        } catch { Write-Host "JORADP ERREUR : $($_.Exception.Message)" -ForegroundColor Red }
-                        # Backfill ARPCE
-                        Write-Host "`nLancement du backfill ARPCE (6 pages)..." -ForegroundColor Cyan
-                        try {
-                            $r2 = Invoke-RestMethod -Uri "http://localhost:3000/api/arpce/backfill" -Method POST -ContentType "application/json" -Body '{"pages":6}' -TimeoutSec 10
+                            $bodyA = '{"pages":12,"stop_date":"2025-01-01"}'
+                            $r2 = Invoke-RestMethod -Uri "http://localhost:3000/api/arpce/backfill" -Method POST -ContentType "application/json" -Body $bodyA -TimeoutSec 10
                             Write-Host "ARPCE  : $($r2.message)" -ForegroundColor Green
                         } catch { Write-Host "ARPCE ERREUR : $($_.Exception.Message)" -ForegroundColor Red }
+                        Write-Host "`nBackfill lance en arriere-plan. Suivez les logs serveur." -ForegroundColor DarkGray
+                        Write-Host "Quand termine, tapez E pour exporter et deployer." -ForegroundColor Yellow
+                    }
+
+                    "e" {
+                        # Export JSON statique + commit + push vers Cloudflare Pages
+                        Write-Host "`n--- Export statique + Deploy Cloudflare Pages ---" -ForegroundColor Cyan
+                        Write-Host "  1. Generation joradp_static.json et arpce_static.json..." -ForegroundColor DarkGray
+                        try {
+                            $exp = Invoke-RestMethod -Uri "http://localhost:3000/api/export-static" -Method POST -TimeoutSec 10
+                            Write-Host "  OK : $($exp.joradp) textes JORADP, $($exp.arpce) publications ARPCE" -ForegroundColor Green
+                        } catch {
+                            Write-Host "  ERREUR export : $($_.Exception.Message)" -ForegroundColor Red
+                            break
+                        }
+
+                        Write-Host "  2. Ajout dans git et commit..." -ForegroundColor DarkGray
+                        git add joradp_static.json arpce_static.json 2>&1 | Out-Null
+                        $staged = git diff --cached --name-only
+                        if ($staged) {
+                            $ts = Get-Date -Format "yyyy-MM-dd HH:mm"
+                            git commit -m "REGLEMENTAIRE export statique $ts" 2>&1 | Write-Host
+                            Write-Host "  Commit OK." -ForegroundColor Green
+                        } else {
+                            Write-Host "  Aucun changement dans les fichiers statiques." -ForegroundColor Yellow
+                        }
+
+                        Write-Host "  3. Push vers GitHub + Cloudflare Pages..." -ForegroundColor DarkGray
+                        $pushR = git push origin main 2>&1
+                        Write-Host $pushR
+                        if ($LASTEXITCODE -eq 0) {
+                            Write-Host "`n  OK Cloudflare Pages se met a jour automatiquement !" -ForegroundColor Green
+                            Write-Host "  Verifiez dans 1-2 min : https://algeria-tech.pages.dev" -ForegroundColor Cyan
+                        } else {
+                            Write-Host "`n  ERREUR push." -ForegroundColor Red
+                        }
                     }
 
                     default { Write-Host "Retour." -ForegroundColor DarkGray }

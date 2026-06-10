@@ -596,11 +596,12 @@ app.post('/api/arpce/backfill', async (req, res) => {
         return res.status(409).json({ status: 'already_running',
             message: 'Un backfill ARPCE est déjà en cours.' });
 
-    const pages = Math.min(parseInt(req.body?.pages) || 6, 20);
+    const pages    = Math.min(parseInt(req.body?.pages) || 12, 25);
+    const stopDate = req.body?.stop_date || '2025-01-01';
     _arpceBackfillRunning = true;
-    res.json({ status: 'started', message: `Backfill ARPCE (${pages} pages) lancé.`, pages });
+    res.json({ status: 'started', message: `Backfill ARPCE (${pages} pages, arrêt avant ${stopDate}) lancé.`, pages, stopDate });
 
-    backfillArpce(pages)
+    backfillArpce(pages, stopDate)
         .then(n  => { _arpceBackfillRunning = false; console.log(`[ARPCE] ✅ Backfill : ${n} publication(s).`); })
         .catch(e => { _arpceBackfillRunning = false; console.error('[ARPCE] ❌ Backfill :', e.message); });
 });
@@ -613,6 +614,49 @@ app.get('/api/arpce/status', (req, res) => {
         total:           (data.items || []).length,
         lastChecked:     data.lastChecked || null,
     });
+});
+
+/* ── Export statique pour Cloudflare Pages ──────────────────────────────── */
+/* Génère joradp_static.json et arpce_static.json depuis les données locales */
+/* Ces fichiers sont committés dans git → servis par Cloudflare Pages.       */
+app.post('/api/export-static', (req, res) => {
+    try {
+        const joradpData = loadJoradpData();
+        const arpceData  = loadArpceData();
+
+        const joradpStatic = {
+            textes:      joradpData.textes  || [],
+            lastChecked: joradpData.lastChecked || null,
+            total:       (joradpData.textes || []).length,
+            generated:   new Date().toISOString(),
+        };
+        const arpceStatic = {
+            items:       arpceData.items    || [],
+            lastChecked: arpceData.lastChecked || null,
+            total:       (arpceData.items   || []).length,
+            generated:   new Date().toISOString(),
+        };
+
+        fsSync.writeFileSync(
+            path.join(__dirname, 'joradp_static.json'),
+            JSON.stringify(joradpStatic)
+        );
+        fsSync.writeFileSync(
+            path.join(__dirname, 'arpce_static.json'),
+            JSON.stringify(arpceStatic)
+        );
+
+        console.log(`[EXPORT] ✅ joradp_static.json (${joradpStatic.total} textes) + arpce_static.json (${arpceStatic.total} items)`);
+        res.json({
+            ok:     true,
+            joradp: joradpStatic.total,
+            arpce:  arpceStatic.total,
+            generated: joradpStatic.generated,
+        });
+    } catch (e) {
+        console.error('[EXPORT] ❌', e.message);
+        res.status(500).json({ ok: false, error: e.message });
+    }
 });
 
 /* ── Planification ARPCE : vérification quotidienne à 09h30 Alger ─────────── */

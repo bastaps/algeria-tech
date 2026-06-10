@@ -804,15 +804,28 @@ async function _loadRegData() {
   if (!box) return;
   box.innerHTML = `<div class="reg-loading"><i class="fas fa-circle-notch fa-spin"></i> Chargement des textes réglementaires…</div>`;
 
+  /* Essaie l'API locale, se replie sur le fichier statique (Cloudflare Pages) */
+  async function _regFetch(apiUrl, staticUrl) {
+    try {
+      const r = await fetch(apiUrl);
+      if (r.ok) return r.json();
+    } catch {}
+    try {
+      const r = await fetch(staticUrl);
+      if (r.ok) return r.json();
+    } catch {}
+    return null;
+  }
+
   try {
     /* Charger JORADP et ARPCE en parallèle */
     const [joradpRes, arpceRes] = await Promise.allSettled([
-      fetch('/api/joradp').then(r => r.json()),
-      fetch('/api/arpce').then(r => r.json()),
+      _regFetch('/api/joradp', '/joradp_static.json'),
+      _regFetch('/api/arpce',  '/arpce_static.json'),
     ]);
 
-    const joradpData  = joradpRes.status  === 'fulfilled' ? joradpRes.value  : { textes: [], lastChecked: null };
-    const arpceData   = arpceRes.status   === 'fulfilled' ? arpceRes.value   : { items:  [], lastChecked: null };
+    const joradpData  = joradpRes.status  === 'fulfilled' && joradpRes.value  ? joradpRes.value  : { textes: [], lastChecked: null };
+    const arpceData   = arpceRes.status   === 'fulfilled' && arpceRes.value   ? arpceRes.value   : { items:  [], lastChecked: null };
 
     /* Fusionner : ARPCE items + JORADP textes → format unifié, triés par date desc */
     const joradpItems = (joradpData.textes || []).map(t => ({ ...t, source: t.source || 'JORADP' }));

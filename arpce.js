@@ -306,11 +306,56 @@ async function checkArpce(pagesMax = 1) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   BACKFILL — charger les N premières pages pour initialiser la BD
+   BACKFILL — charger les pages jusqu'à une date limite
+   stopDate : chaîne ISO "YYYY-MM-DD" (ex: "2025-01-01")
 ═══════════════════════════════════════════════════════════════ */
-async function backfillArpce(pagesMax = 6) {
-  console.log(`\n[ARPCE] 🔄 BACKFILL — ${pagesMax} pages (≈${pagesMax * 20} publications max)\n`);
-  return checkArpce(pagesMax);
+async function backfillArpce(pagesMax = 12, stopDate = null) {
+  const stopLabel = stopDate ? `arrêt avant ${stopDate}` : 'toutes pages';
+  console.log(`\n[ARPCE] 🔄 BACKFILL — ${pagesMax} pages max (${stopLabel})\n`);
+
+  const data      = loadData();
+  const existIds  = new Set(data.items.map(i => i.id));
+  let   totalNew  = 0;
+  const PAGE_SIZE = 20;
+
+  for (let p = 0; p < pagesMax; p++) {
+    if (p > 0) await new Promise(r => setTimeout(r, 2000));
+    try {
+      const items = await fetchArpcePage(p * PAGE_SIZE);
+      if (!items.length) { console.log('[ARPCE]   Page vide — arrêt.'); break; }
+
+      const newItems = items.filter(i => !existIds.has(i.id));
+      newItems.forEach(i => { existIds.add(i.id); data.items.push(i); });
+      totalNew += newItems.length;
+
+      console.log(`[ARPCE]   Page ${p + 1}/${pagesMax} : ${items.length} pub, ${newItems.length} nouvelles`);
+
+      /* Condition d'arrêt par date */
+      if (stopDate) {
+        const datedItems = items.filter(i => i.jo_date && i.jo_date.length >= 10);
+        if (datedItems.length > 0) {
+          const oldest = datedItems.map(i => i.jo_date).sort()[0];
+          if (oldest < stopDate) {
+            console.log(`[ARPCE]   Date limite atteinte (plus ancien : ${oldest}) — arrêt.`);
+            break;
+          }
+        }
+      }
+
+      if (p > 0 && newItems.length === 0) { console.log('[ARPCE]   Aucun nouveau — arrêt.'); break; }
+
+    } catch (e) {
+      console.error(`[ARPCE] ❌ Page ${p + 1} : ${e.message}`);
+      break;
+    }
+  }
+
+  data.items      = data.items.slice(0, MAX_STORED);
+  data.lastChecked = new Date().toISOString();
+  saveData(data);
+
+  console.log(`\n[ARPCE] 🏁 BACKFILL terminé — ${totalNew} publication(s) ajoutée(s).`);
+  return totalNew;
 }
 
 module.exports = { checkArpce, backfillArpce, loadData, saveData };
