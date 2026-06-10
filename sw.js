@@ -14,7 +14,7 @@
  * la rapidité des requêtes réseau sans contenu périmé.
  */
 
-const CACHE_VERSION = 'algeria-tech-v7';
+const CACHE_VERSION = 'algeria-tech-v8';
 const CACHE_IMAGES  = 'algeria-tech-images-v1';
 
 // ── Assets locaux pré-cachés (HTML et CDN exclus volontairement) ──────────────
@@ -36,6 +36,8 @@ const DATA_FILES = [
   '/barometre_history.json',
   '/barometre_weekly.json',
   '/barometre_weekly_history.json',
+  '/joradp_static.json',
+  '/arpce_static.json',
 ];
 
 // ────────────────────────────────────────────────────────────────────────────────
