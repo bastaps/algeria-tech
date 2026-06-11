@@ -25,6 +25,32 @@
   "sources": [
 
     {
+      "_section": "=== AGENCES & PRESSE OFFICIELLE ===",
+      "name": "APS — Algérie Presse Service",
+      "short": "APS",
+      "category": "Ministère",
+      "icon": "📡",
+      "color": "#006233",
+      "website": "https://www.aps.dz",
+      "news_url": "https://www.aps.dz/fr",
+      "translate": true,
+      "enabled": true
+    },
+
+    {
+      "name": "DGRSDT",
+      "short": "DGRS",
+      "category": "Ministère",
+      "icon": "🔬",
+      "color": "#1A237E",
+      "website": "https://www.dgrsdt.dz",
+      "fb_page_url": "https://www.facebook.com/DGRSDT.ALGERIA",
+      "fb_page_id": "DGRSDT.ALGERIA",
+      "translate": true,
+      "enabled": true
+    },
+
+    {
       "_section": "=== MINISTÈRES & GOUVERNEMENT ===",
       "name": "Ministère de la Poste et des TIC",
       "short": "MPT",
@@ -36,6 +62,7 @@
       "fb_page_id": "mpt.gov.dz",
       "rss_url": "https://rss.app/feeds/ggiJjnT2sHJmB6MX.xml",
       "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "news_url": "https://www.mpt.gov.dz",
       "translate": true,
       "enabled": true
     },
@@ -51,6 +78,7 @@
       "fb_page_id": "mesrs.dz",
       "rss_url": "https://rss.app/feeds/cp0OUYmTHjopEVG5.xml",
       "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "news_url": "https://www.mesrs.dz",
       "translate": true,
       "enabled": true
     },
@@ -66,6 +94,7 @@
       "fb_page_id": "mkesme.dz",
       "rss_url": "https://rss.app/feeds/uOmZ34nKPPCe16aC.xml",
       "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "news_url": "https://www.mkesme.dz",
       "translate": true,
       "enabled": true
     },
@@ -97,6 +126,7 @@
       "fb_page_id": "algerieposteofficiel",
       "rss_url": "https://rss.app/feeds/8w13Cq1WJoPERlE2.xml",
       "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "news_url": "https://www.poste.dz",
       "translate": true,
       "enabled": true
     },
@@ -112,6 +142,7 @@
       "fb_page_id": "atsofficiel",
       "rss_url": "https://rss.app/feeds/JVPc9ArTkOS5jZlY.xml",
       "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "news_url": "https://www.algersat.dz",
       "translate": true,
       "enabled": true
     },
@@ -143,6 +174,7 @@
       "fb_page_id": "OoredooDZ",
       "rss_url": "https://rss.app/feeds/6lQ2temSiGGbe7bp.xml",
       "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "news_url": "https://www.ooredoo.dz",
       "translate": true,
       "enabled": true
     },
@@ -189,6 +221,7 @@
       "fb_page_id": "HuaweimobileDZ",
       "rss_url": "https://rss.app/feeds/lbWufhAUGOS9l9Ic.xml",
       "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "news_url": "https://consumer.huawei.com/dz/news/",
       "translate": true,
       "enabled": true
     },
@@ -248,6 +281,7 @@
       "fb_page_id": "Condor.Electromenager",
       "rss_url": "https://rss.app/feeds/daNeVmpCcpX4SKYj.xml",
       "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "news_url": "https://www.condor.dz",
       "translate": true,
       "enabled": true
     },
@@ -263,6 +297,7 @@
       "fb_page_id": "streamsystem",
       "rss_url": "https://rss.app/feeds/rurKHRHqwCJ2GM2F.xml",
       "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "news_url": "https://www.streamsystem.com",
       "translate": true,
       "enabled": true
     },

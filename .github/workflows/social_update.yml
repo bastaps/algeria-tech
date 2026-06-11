@@ -22,12 +22,26 @@ jobs:
           cache: 'pip'
 
       - name: Installer les dépendances
-        run: pip install requests beautifulsoup4 lxml
+        run: pip install requests beautifulsoup4 lxml facebook-scraper lxml_html_clean
+
+      - name: Injecter les cookies Facebook (si secret configuré)
+        if: ${{ secrets.FB_COOKIES != '' }}
+        env:
+          FB_COOKIES: ${{ secrets.FB_COOKIES }}
+        run: echo "$FB_COOKIES" > facebook_cookies.json
+
+      - name: Scraper Facebook via Apify (si token configuré)
+        if: ${{ secrets.APIFY_TOKEN != '' }}
+        run: python fetch_apify_facebook.py
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          APIFY_ACTOR: ${{ secrets.APIFY_ACTOR }}
 
       - name: Mettre à jour tic_social.json
         run: python fetch_social.py --no-translate
         env:
           MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          FB_APP_TOKEN: ${{ secrets.FB_APP_TOKEN }}
 
       - name: Commit et push
         run: |

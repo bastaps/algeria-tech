@@ -272,7 +272,7 @@ def fetch_facebook_api(source: dict) -> list:
 
     try:
         res = requests.get(
-            f"https://graph.facebook.com/v18.0/{page_id}/posts",
+            f"https://graph.facebook.com/v21.0/{page_id}/posts",
             params={
                 'access_token': token,
                 'fields': 'message,story,created_time,permalink_url,full_picture',
@@ -286,10 +286,10 @@ def fetch_facebook_api(source: dict) -> list:
         if 'error' in data:
             err_code = data['error'].get('code', '?')
             err_msg  = data['error'].get('message', 'Unknown error')
-            if err_code in [190, 102]:
+            if err_code in [190, 102, 463, 467]:
                 print(f"  [FB]  ✗ Token invalide/expiré — renouvelez FB_APP_TOKEN dans .env")
-            elif err_code == 100:
-                pass  # Permission manquante (App Review requis) — silencieux
+            elif err_code in [100, 200, 10]:
+                print(f"  [FB]  ✗ {page_id}: App Review requis (code {err_code}) → facebook-scraper prendra le relais")
             else:
                 print(f"  [FB]  ✗ API {err_code}: {err_msg[:80]}")
             return []
@@ -422,6 +422,123 @@ def fetch_facebook_mbasic(source: dict) -> list:
             print(f"  [MBASIC] {page_id}: {e}")
 
     return items[:12]
+
+# ─── Fetch depuis le cache Apify (apify_cache.json) ─────────────────────────
+def fetch_apify_cache(source: dict) -> list:
+    """
+    Lit les posts pré-récupérés par fetch_apify_facebook.py via l'API Apify.
+    Le cache est généré en amont (GitHub Action ou tâche locale).
+    Aucun appel réseau ici — lecture seule du fichier JSON local.
+    """
+    cache_file = BASE_DIR / "apify_cache.json"
+    if not cache_file.exists():
+        return []
+
+    page_id = source.get('fb_page_id', '').strip()
+    if not page_id:
+        return []
+
+    try:
+        cache = json.loads(cache_file.read_text(encoding='utf-8'))
+        posts = cache.get('pages', {}).get(page_id, [])
+        if posts:
+            generated = cache.get('generated', '')[:10]
+            print(f"  [APIFY] ✓ {len(posts)} posts ← cache du {generated} ({page_id})")
+        return posts
+    except Exception:
+        return []
+
+# ─── Fetch Facebook via librairie facebook-scraper ───────────────────────────
+def fetch_facebook_scraper_lib(source: dict) -> list:
+    """
+    Utilise facebook-scraper (pip install facebook-scraper) — zéro compte requis
+    pour les pages publiques. Gère automatiquement l'évolution du HTML de Facebook.
+    Cookie optionnel : créez facebook_cookies.json (voir setup_facebook_cookies.py)
+    pour les pages qui nécessitent une connexion.
+    """
+    page_id = source.get('fb_page_id', '').strip()
+    if not page_id:
+        return []
+
+    # Auto-install silencieux (facebook-scraper + lxml_html_clean requis)
+    try:
+        from facebook_scraper import get_posts
+    except (ImportError, RuntimeError):
+        print("  [FB-SC] Installation de facebook-scraper + lxml_html_clean...")
+        os.system(f'"{sys.executable}" -m pip install facebook-scraper lxml_html_clean --user -q')
+        try:
+            from facebook_scraper import get_posts
+        except Exception as exc:
+            print(f"  [FB-SC] ✗ Import échoué : {exc}")
+            return []
+
+    # Cookies optionnels (Cookie-Editor JSON ou dict simple)
+    cookies_file = BASE_DIR / "facebook_cookies.json"
+    cookies = None
+    if cookies_file.exists():
+        try:
+            raw = json.loads(cookies_file.read_text(encoding='utf-8'))
+            if isinstance(raw, list):    # Format Cookie-Editor [{name, value, ...}]
+                cookies = {c['name']: c['value'] for c in raw
+                           if 'name' in c and 'value' in c}
+            elif isinstance(raw, dict):  # Format dict simple {name: value}
+                cookies = raw
+        except Exception:
+            pass
+
+    try:
+        items = []
+        kwargs = {
+            'pages': 3,
+            'timeout': 30,
+            'options': {'allow_extra_requests': False, 'progress': False},
+        }
+        if cookies:
+            kwargs['cookies'] = cookies
+
+        for post in get_posts(page_id, **kwargs):
+            text = (post.get('post_text') or post.get('text') or
+                    post.get('shared_text') or '').strip()
+            if len(text) < 10:
+                continue
+
+            pub_time = post.get('time')
+            if pub_time:
+                try:
+                    date_str = pub_time.astimezone(timezone.utc).isoformat()
+                except Exception:
+                    date_str = datetime.now(timezone.utc).isoformat()
+            else:
+                date_str = datetime.now(timezone.utc).isoformat()
+
+            img = (post.get('image') or
+                   (post.get('images') or [None])[0] or '')
+
+            items.append({
+                'title': text[:130].replace('\n', ' ') + ('…' if len(text) > 130 else ''),
+                'link':  post.get('post_url', ''),
+                'desc':  text[:800],
+                'date':  date_str,
+                'image': img
+            })
+            if len(items) >= 10:
+                break
+
+        if items:
+            print(f"  [FB-SC] ✓ {len(items)} posts ← {page_id}")
+        else:
+            print(f"  [FB-SC] ✗ {page_id}: aucun post (page vide ou structure inconnue)")
+        return items
+
+    except Exception as e:
+        err = str(e)
+        if any(w in err.lower() for w in ('login', 'checkpoint', 'block', 'captcha', 'too many')):
+            print(f"  [FB-SC] ✗ {page_id}: connexion requise → lancez setup_facebook_cookies.py")
+        elif 'timeout' in err.lower():
+            print(f"  [FB-SC] ✗ {page_id}: timeout (Facebook lent)")
+        else:
+            print(f"  [FB-SC] ✗ {page_id}: {err[:100]}")
+        return []
 
 # ─── Scraping page officielle de presse/actualités ───────────────────────────
 def fetch_news_page(source: dict) -> list:
@@ -606,7 +723,8 @@ def main():
     seen_ids  = {p['id'] for p in existing.get('posts', [])}
     new_posts = []
 
-    sources = [s for s in config.get('sources', []) if s.get('enabled', True)]
+    sources = [s for s in config.get('sources', [])
+               if s.get('name') and s.get('enabled', True)]
     if args.source:
         sources = [s for s in sources if args.source.lower() in s['name'].lower()]
 
@@ -616,7 +734,7 @@ def main():
         print(f"\n▶ {src['name']} [{src['category']}]")
         raw_items = []
 
-        # ── Méthode 1 : Flux RSS officiel ou rss.app ─────────────────────────────
+        # ── Méthode 1 : Flux RSS officiel direct (rss.app ignoré — payant) ─────
         if src.get('rss_url'):
             raw_items = fetch_rss(src)
 
@@ -626,12 +744,22 @@ def main():
             existing_links = {r.get('link', '') for r in raw_items}
             raw_items += [i for i in fb_items if i.get('link', '') not in existing_links]
 
-        # ── Méthode 3 : mbasic.facebook.com (scraping HTML, sans compte) ─────
+        # ── Méthode 3 : Cache Apify (pré-scraping cloud, meilleure fiabilité) ───
+        if not raw_items and src.get('fb_page_id'):
+            raw_items = fetch_apify_cache(src)
+
+        # ── Méthode 4 : facebook-scraper (gratuit, sans compte, auto-installé) ─
+        if not raw_items and src.get('fb_page_id'):
+            raw_items = fetch_facebook_scraper_lib(src)
+            if raw_items:
+                time.sleep(2)   # délai respectueux entre pages Facebook
+
+        # ── Méthode 5 : mbasic.facebook.com maison (fallback dernier recours) ─
         if not raw_items and src.get('fb_page_id'):
             mbasic_items = fetch_facebook_mbasic(src)
             raw_items += mbasic_items
 
-        # ── Méthode 4 : Scraping page officielle du site institutionnel ──────
+        # ── Méthode 6 : Scraping site officiel institutionnel ────────────────
         if not raw_items and src.get('news_url'):
             raw_items = fetch_news_page(src)
 

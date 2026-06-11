@@ -1,6 +1,8 @@
 node_modules/
 .DS_Store
 .env
+facebook_cookies.json
+apify_cache.json
 .env.local
 *.log
 .idea/
