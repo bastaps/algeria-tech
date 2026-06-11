@@ -2,7 +2,7 @@ node_modules/
 .DS_Store
 .env
 facebook_cookies.json
-apify_cache.json
+# apify_cache.json  # committé par GitHub Actions (partagé entre workflows)
 .env.local
 *.log
 .idea/

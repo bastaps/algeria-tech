@@ -1,51 +1,7 @@
 {
   "date": "jeudi 11 juin",
-  "synthese": "Les dernières 24h ont été marquées par des avancées technologiques majeures en IA et cybersécurité, des régulations strictes en Europe, et des innovations disruptives dans les télécoms et le mobile. L'Algérie se distingue avec des initiatives locales en cybersécurité et mobilité, tandis que les géants tech mondiaux accélèrent leurs stratégies d'IA et de connectivité. Les enjeux de sécurité, de régulation et d'innovation redéfinissent le paysage tech mondial et local.",
+  "synthese": "Les dernières 24h ont été marquées par des avancées technologiques majeures en IA et cybersécurité, avec des initiatives locales en Algérie dans les télécoms et les startups. Les géants tech comme Microsoft et Meta ont lancé des outils innovants, tandis que les scandales financiers et les tensions géopolitiques ont aussi fait la une. L'écosystème algérien se distingue par des initiatives locales ambitieuses, malgré un contexte économique et sécuritaire complexe.",
   "articles": [
-    {
-      "titre": "Démantèlement d’un réseau criminel organisé ayant causé à une entreprise de tabac des pertes de 1.000 milliards de centimes",
-      "resume": "Les services de police d’Alger ont procédé au démantèlement d’un réseau criminel organisé impliqué dans le détournement et la dilapidation de fonds pu",
-      "url": "https://algerie-eco.com/2026/06/10/demantelement-dun-reseau-criminel-organise-ayant-cause-a-une-entreprise-de-tabac-des-pertes-de-1-000-milliards-de-centimes/",
-      "date": "2026-06-10T21:58:24.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Cybercriminalité : un réseau criminel démantelé après des pertes de 1M€ en Algérie.",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "inDrive Algérie : Engagement en faveur de la sécurité des passagers et des conducteurs",
-      "resume": "Alger, le 10 juin 2026 – inDrive, l’application de VTC n°1 dans la région MENA, a organisé un panel de discussion consacré à la sécurité, réunissant d",
-      "url": "https://algerie-eco.com/2026/06/10/indrive-algerie-engagement-en-faveur-de-la-securite-des-passagers-et-des-conducteurs/",
-      "date": "2026-06-10T21:36:00.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "inDrive Algérie renforce la sécurité des passagers et conducteurs avec de nouvelles mesures.",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "APACA : Création de l’Association des producteurs algériens de compléments alimentaires",
-      "resume": "Une nouvelle organisation professionnelle regroupant les acteurs du secteur des compléments alimentaires a été annoncée ce mercredi 10 juin à Alger. I",
-      "url": "https://algerie-eco.com/2026/06/10/apaca-creation-de-lassociation-des-producteurs-algeriens-de-complements-alimentaires/",
-      "date": "2026-06-10T18:46:50.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "APACA lance l’Association des producteurs algériens de compléments alimentaires.",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Comment savoir si on est bloqué sur WhatsApp : les 5 signes qui ne trompent pas",
-      "resume": "Vous avez peut-être remarqué qu’un contact ne répond plus à vos messages WhatsApp depuis quelques jours, ou que…\nL’article Comment savoir si on est bl",
-      "url": "https://www.android-dz.com/comment-savoir-si-on-est-bloque-sur-whatsapp-les-5-signes-qui-ne-trompent-pas/",
-      "date": "2026-06-11T05:52:23.000Z",
-      "source": "Android DZ",
-      "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
-      "pays": "DZ",
-      "accroche": "WhatsApp : 5 signes pour détecter un blocage et éviter les malentendus.",
-      "categorie": "Mobile"
-    },
     {
       "titre": "Comment Anthropic est passé de Claude Mythos à Claude Fable",
       "resume": "En jouant sur les mécanismes de garde-fous, Anthropic a décliné Claude Mythos en un modèle commercial amputé des fonctionnalités cyber.\nThe post Comme",
@@ -54,7 +10,7 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Anthropic révolutionne l’IA avec le passage de Claude Mythos à Claude Fable.",
+      "accroche": "Anthropic révolutionne l'IA avec le passage de Claude Mythos à Fable.",
       "categorie": "IA"
     },
     {
@@ -65,8 +21,8 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Atos adopte Microsoft 365 Copilot pour booster la productivité de ses équipes.",
-      "categorie": "IA"
+      "accroche": "Atos équipe ses salariés de Microsoft 365 Copilot pour booster la productivité.",
+      "categorie": "Innovation"
     },
     {
       "titre": "Agents IA : Bruxelles dégaine une mesure d’urgence contre Meta",
@@ -76,19 +32,8 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Bruxelles impose une mesure d’urgence contre les agents IA de Meta.",
-      "categorie": "Régulation"
-    },
-    {
-      "titre": "Régulation : le Canada veut bannir l'accès des réseaux sociaux aux moins de 16 ans",
-      "resume": "Le gouvernement canadien a présenté hier un projet de loi baptisé \"Safe Social Media Act\". Ce texte vise non seulement à bannir l'accès des réseaux so",
-      "url": "https://www.zdnet.fr/actualites/regulation-le-canada-veut-bannir-lacces-des-reseaux-sociaux-aux-moins-de-16-ans-496641.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-11T08:35:41.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Canada : interdiction des réseaux sociaux pour les moins de 16 ans dès 2026.",
-      "categorie": "Régulation"
+      "accroche": "Bruxelles impose une mesure d'urgence contre les agents IA de Meta.",
+      "categorie": "IA"
     },
     {
       "titre": "ZDNET Morning 11/06/2026 : Patch Tuesday record, Croissance explosive d'Oracle, Nvidia vise la 6G,...",
@@ -98,42 +43,97 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Patch Tuesday record et croissance explosive d’Oracle : l’actualité tech du jour.",
+      "accroche": "Patch Tuesday record et croissance explosive d'Oracle : l'actualité tech du jour.",
       "categorie": "Innovation"
     },
     {
-      "titre": "« Votre consommation internet à l’étranger atteint 60 euros » : attention au piège du hors forfait chez ces trois opérateurs",
-      "resume": "À quelques semaines des vacances d'été, Cdiscount Mobile, NRJ Mobile et Auchan Télécom ont discrètement modifié leurs conditions générales d'utilisati",
-      "url": "https://www.frandroid.com/telecom/3135579_votre-consommation-internet-a-letranger-atteint-60-euros-attention-au-piege-du-hors-forfait-chez-ces-trois-operateurs",
-      "date": "2026-06-11T08:54:52.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "titre": "Guerre de l'open source et polémiques, tout ce qu'il faut savoir sur le lancement d'Euro Office par NextCloud",
+      "resume": "Nextcloud intègre la version 1.0 de la suite bureautique open source Euro Office à son environnement. Mais le projet fait aussi face à des critiques.",
+      "url": "https://www.zdnet.fr/actualites/euro-office-le-nouveau-venu-dans-la-guerre-des-suites-collaboratives-tente-de-simposer-496603.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-11T07:32:08.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Hors forfait : attention aux 60€ de consommation internet à l’étranger.",
-      "categorie": "Télécoms"
+      "accroche": "Guerre de l'open source : tout savoir sur le lancement d'Euro Office.",
+      "categorie": "Innovation"
     },
     {
-      "titre": "Tesla : la conduite autonome FSD autorisée en Belgique, à quand le tour de la France ?",
-      "resume": "Après le Danemark, c’est désormais au tour de la Belgique d’autoriser la conduite autonome FSD de Tesla sur ses routes. Le pays devient ainsi le 5ème",
-      "url": "https://www.frandroid.com/marques/tesla/3135753_tesla-la-conduite-autonome-fsd-autorisee-en-belgique-a-quand-le-tour-de-la-france",
-      "date": "2026-06-11T08:50:01.000Z",
+      "titre": "VivaTech 2026 : Avast protège les fichiers et les liens récupérés après le salon",
+      "resume": "VivaTech revient à Paris du 17 au 20 juin 2026, avec son flot de démonstrations, de rencontres et de documents partagés à la volée. Une fois le salon",
+      "url": "https://www.zdnet.fr/publicite/vivatech-2026-avast-protege-les-fichiers-et-les-liens-recuperes-apres-le-salon-496485.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-11T07:30:38.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Avast sécurise les données récupérées après VivaTech 2026.",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Doutes sur un SMS ou un e-mail ? L’IA de cet antivirus gratuit débusque les arnaques pour vous [Sponso]",
+      "resume": "Antivirus et assistant IA anti-escroquerie : avec Avast One, il est possible de protéger gratuitement ses appareils connectés des attaques et autres a",
+      "url": "https://www.frandroid.com/culture-tech/securite-applications/3132341_doutes-sur-un-sms-ou-un-e-mail-lia-de-cet-antivirus-gratuit-debusque-les-arnaques-pour-vous",
+      "date": "2026-06-11T06:48:00.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Tesla : la conduite autonome FSD autorisée en Belgique, la France bientôt ?",
+      "accroche": "Cet antivirus gratuit utilise l'IA pour déjouer les arnaques en temps réel.",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "inDrive Algérie : Engagement en faveur de la sécurité des passagers et des conducteurs",
+      "resume": "Alger, le 10 juin 2026 – inDrive, l’application de VTC n°1 dans la région MENA, a organisé un panel de discussion consacré à la sécurité, réunissant d",
+      "url": "https://algerie-eco.com/2026/06/10/indrive-algerie-engagement-en-faveur-de-la-securite-des-passagers-et-des-conducteurs/",
+      "date": "2026-06-10T21:36:00.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "inDrive Algérie renforce la sécurité des passagers et conducteurs.",
+      "categorie": "Startups"
+    },
+    {
+      "titre": "APACA : Création de l’Association des producteurs algériens de compléments alimentaires",
+      "resume": "Une nouvelle organisation professionnelle regroupant les acteurs du secteur des compléments alimentaires a été annoncée ce mercredi 10 juin à Alger. I",
+      "url": "https://algerie-eco.com/2026/06/10/apaca-creation-de-lassociation-des-producteurs-algeriens-de-complements-alimentaires/",
+      "date": "2026-06-10T18:46:50.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "APACA lance l'Association des producteurs algériens de compléments alimentaires.",
+      "categorie": "Startups"
+    },
+    {
+      "titre": "Comment savoir si on est bloqué sur WhatsApp : les 5 signes qui ne trompent pas",
+      "resume": "Vous avez peut-être remarqué qu’un contact ne répond plus à vos messages WhatsApp depuis quelques jours, ou que…\nL’article Comment savoir si on est bl",
+      "url": "https://www.android-dz.com/comment-savoir-si-on-est-bloque-sur-whatsapp-les-5-signes-qui-ne-trompent-pas/",
+      "date": "2026-06-11T05:52:23.000Z",
+      "source": "Android DZ",
+      "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
+      "pays": "DZ",
+      "accroche": "WhatsApp bloqué ? Découvrez les 5 signes qui ne trompent pas.",
       "categorie": "Mobile"
     },
     {
-      "titre": "Rachat de SFR : l’Autorité de la concurrence met déjà en garde Orange, Free et Bouygues Telecom",
-      "resume": "Benoît Cœuré, le président de l’Autorité de la concurrence, estime que le rachat de SFR « ne va pas de soi », sans pour autant être automatiquement an",
-      "url": "https://www.01net.com/actualites/rachat-sfr-autorite-concurrence-met-deja-garde-orange-free-bouygues-telecom.html",
-      "date": "2026-06-11T09:00:12.000Z",
+      "titre": "Google déploie trois nouveautés majeures pour Google Home",
+      "resume": "Grâce à une nouvelle mise à jour, les utilisateurs de Google Home pourront contrôler l’affichage des contenus multimédia par la voix. Les appareils Ne",
+      "url": "https://www.01net.com/actualites/google-deploie-trois-nouveautes-majeures-pour-google-home.html",
+      "date": "2026-06-10T14:43:54.000Z",
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Rachat de SFR : l’Autorité de la concurrence met en garde Orange, Free et Bouygues.",
-      "categorie": "Télécoms"
+      "accroche": "Google déploie trois nouveautés majeures pour Google Home.",
+      "categorie": "Mobile"
+    },
+    {
+      "titre": "« La boîte de Pandore est ouverte » : dopée par l’IA, la chasse aux failles de Microsoft bat un record",
+      "resume": "Le Patch Tuesday de juin 2026 établit un nouveau record : jamais Microsoft n'avait corrigé autant de vulnérabilités en un seul mois. Et derrière les c",
+      "url": "https://www.numerama.com/cyberguerre/2273125-la-boite-de-pandore-est-ouverte-dopee-par-lia-la-chasse-aux-failles-de-microsoft-bat-un-record.html",
+      "date": "2026-06-10T19:45:00.000Z",
+      "source": "Numerama",
+      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
+      "pays": "FR",
+      "accroche": "L'IA dopée chasse les failles de Microsoft à un rythme record.",
+      "categorie": "Cybersécurité"
     }
   ],
-  "lastUpdated": "2026-06-11T09:07:28.908Z"
+  "lastUpdated": "2026-06-11T07:47:41.753Z"
 }

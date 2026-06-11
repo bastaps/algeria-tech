@@ -1,0 +1,40 @@
+name: Apify Facebook (1x/jour)
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # 06h00 UTC = 07h00 Alger (heure d'été)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  apify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Installer les dépendances
+        run: pip install requests
+
+      - name: Scraper Facebook via Apify
+        if: ${{ secrets.APIFY_TOKEN != '' }}
+        run: python fetch_apify_facebook.py
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          APIFY_ACTOR: ${{ secrets.APIFY_ACTOR }}
+
+      - name: Commit cache Apify
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "Algeria Tech Bot"
+          git add apify_cache.json || true
+          git commit -m "Auto: Cache Facebook Apify [$(date +%d/%m %H:%M UTC)]" || echo "Pas de changements"
+          git pull --rebase origin main
+          git push origin main

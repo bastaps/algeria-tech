@@ -30,13 +30,6 @@ jobs:
           FB_COOKIES: ${{ secrets.FB_COOKIES }}
         run: echo "$FB_COOKIES" > facebook_cookies.json
 
-      - name: Scraper Facebook via Apify (si token configuré)
-        if: ${{ secrets.APIFY_TOKEN != '' }}
-        run: python fetch_apify_facebook.py
-        env:
-          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
-          APIFY_ACTOR: ${{ secrets.APIFY_ACTOR }}
-
       - name: Mettre à jour tic_social.json
         run: python fetch_social.py --no-translate
         env:
