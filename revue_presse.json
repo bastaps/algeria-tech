@@ -1,28 +1,72 @@
 {
-  "date": "mercredi 10 juin",
-  "synthese": "Les dernières 24h ont été marquées par des annonces technologiques majeures, notamment l'IPO historique de SpaceX et des avancées en IA, tandis que l'Algérie confirme son rôle clé dans les énergies renouvelables et les infrastructures. Les smartphones et l'innovation mobile restent au cœur des débats, avec des lancements attendus comme le Galaxy S27 Ultra. La cybersécurité et les startups africaines émergent comme des secteurs stratégiques pour l'avenir du continent.",
+  "date": "jeudi 11 juin",
+  "synthese": "Les dernières 24h ont été marquées par des avancées technologiques majeures en IA et cybersécurité, des régulations strictes en Europe, et des innovations disruptives dans les télécoms et le mobile. L'Algérie se distingue avec des initiatives locales en cybersécurité et mobilité, tandis que les géants tech mondiaux accélèrent leurs stratégies d'IA et de connectivité. Les enjeux de sécurité, de régulation et d'innovation redéfinissent le paysage tech mondial et local.",
   "articles": [
     {
-      "titre": "SpaceX affole les marchés avec une IPO géante : la demande dépasse quatre fois les attentes",
-      "resume": "L’introduction en bourse de SpaceX pourrait entrer dans l’histoire des marchés financiers. Selon plusieurs médias américains, dont CNBC, l’opération a",
-      "url": "https://www.zdnet.fr/actualites/spacex-affole-les-marches-avec-une-ipo-geante-la-demande-depasse-quatre-fois-les-attentes-496543.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-10T07:15:21.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "SpaceX explose les records en Bourse : une demande 4 fois supérieure aux attentes.",
+      "titre": "Démantèlement d’un réseau criminel organisé ayant causé à une entreprise de tabac des pertes de 1.000 milliards de centimes",
+      "resume": "Les services de police d’Alger ont procédé au démantèlement d’un réseau criminel organisé impliqué dans le détournement et la dilapidation de fonds pu",
+      "url": "https://algerie-eco.com/2026/06/10/demantelement-dun-reseau-criminel-organise-ayant-cause-a-une-entreprise-de-tabac-des-pertes-de-1-000-milliards-de-centimes/",
+      "date": "2026-06-10T21:58:24.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Cybercriminalité : un réseau criminel démantelé après des pertes de 1M€ en Algérie.",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "inDrive Algérie : Engagement en faveur de la sécurité des passagers et des conducteurs",
+      "resume": "Alger, le 10 juin 2026 – inDrive, l’application de VTC n°1 dans la région MENA, a organisé un panel de discussion consacré à la sécurité, réunissant d",
+      "url": "https://algerie-eco.com/2026/06/10/indrive-algerie-engagement-en-faveur-de-la-securite-des-passagers-et-des-conducteurs/",
+      "date": "2026-06-10T21:36:00.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "inDrive Algérie renforce la sécurité des passagers et conducteurs avec de nouvelles mesures.",
+      "categorie": "Mobile"
+    },
+    {
+      "titre": "APACA : Création de l’Association des producteurs algériens de compléments alimentaires",
+      "resume": "Une nouvelle organisation professionnelle regroupant les acteurs du secteur des compléments alimentaires a été annoncée ce mercredi 10 juin à Alger. I",
+      "url": "https://algerie-eco.com/2026/06/10/apaca-creation-de-lassociation-des-producteurs-algeriens-de-complements-alimentaires/",
+      "date": "2026-06-10T18:46:50.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "APACA lance l’Association des producteurs algériens de compléments alimentaires.",
       "categorie": "Innovation"
     },
     {
-      "titre": "SpaceX entre en bourse le 12 juin : faut-il acheter l’action la plus chère de l’histoire ?",
-      "resume": "Le 12 juin 2026, SpaceX devient l'introduction en bourse la plus chère de l'histoire. Mais à 1 770 milliards de dollars pour une entreprise qui perd d",
-      "url": "https://www.frandroid.com/marques/spacex/3134371_spacex-entre-en-bourse-le-12-juin-faut-il-acheter-laction-la-plus-chere-de-lhistoire",
-      "date": "2026-06-10T10:58:04.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "titre": "Comment savoir si on est bloqué sur WhatsApp : les 5 signes qui ne trompent pas",
+      "resume": "Vous avez peut-être remarqué qu’un contact ne répond plus à vos messages WhatsApp depuis quelques jours, ou que…\nL’article Comment savoir si on est bl",
+      "url": "https://www.android-dz.com/comment-savoir-si-on-est-bloque-sur-whatsapp-les-5-signes-qui-ne-trompent-pas/",
+      "date": "2026-06-11T05:52:23.000Z",
+      "source": "Android DZ",
+      "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
+      "pays": "DZ",
+      "accroche": "WhatsApp : 5 signes pour détecter un blocage et éviter les malentendus.",
+      "categorie": "Mobile"
+    },
+    {
+      "titre": "Comment Anthropic est passé de Claude Mythos à Claude Fable",
+      "resume": "En jouant sur les mécanismes de garde-fous, Anthropic a décliné Claude Mythos en un modèle commercial amputé des fonctionnalités cyber.\nThe post Comme",
+      "url": "https://www.silicon.fr/data-ia-1372/anthropic-claude-mythos-fable-227601",
+      "date": "2026-06-10T17:08:42.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "SpaceX entre en Bourse le 12 juin : l'action la plus chère de l'histoire ?",
-      "categorie": "Innovation"
+      "accroche": "Anthropic révolutionne l’IA avec le passage de Claude Mythos à Claude Fable.",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Atos déploie Microsoft 365 Copilot pour tous ses salariés",
+      "resume": "Le groupe français de services numériques déploie Microsoft 365 Copilot auprès de l'ensemble de ses 56 000 collaborateurs dans 54 pays. \nThe post Atos",
+      "url": "https://www.silicon.fr/data-ia-1372/atos-deploie-microsoft-365-copilot-pour-tous-ses-salaries-227590",
+      "date": "2026-06-10T12:24:17.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Atos adopte Microsoft 365 Copilot pour booster la productivité de ses équipes.",
+      "categorie": "IA"
     },
     {
       "titre": "Agents IA : Bruxelles dégaine une mesure d’urgence contre Meta",
@@ -32,108 +76,64 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Bruxelles impose une mesure d'urgence contre Meta pour ses agents IA.",
-      "categorie": "IA"
+      "accroche": "Bruxelles impose une mesure d’urgence contre les agents IA de Meta.",
+      "categorie": "Régulation"
     },
     {
-      "titre": "Tokenmaxxing  : gaspillage ou moteur de la transformation IA ?",
-      "resume": "Alors que la facture IA grimpe dans les budgets, une ligne de fracture s'installe entre ceux qui voient dans la consommation de tokens un coût à ratio",
-      "url": "https://www.silicon.fr/data-ia-1372/tokenmaxxing-gaspillage-ou-moteur-de-la-transformation-ia-227566",
-      "date": "2026-06-09T13:14:30.000Z",
-      "source": "Silicon.fr",
-      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Tokenmaxxing : gaspillage ou révolution pour l'IA ? Le débat fait rage.",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Siri IA privé d’Europe : Apple accuse Bruxelles, l’UE lui renvoie la responsabilité",
-      "resume": "Apple annonce le report indéfini de Siri IA dans l’Union européenne, accusant Bruxelles d’une interprétation « extrême »…\nL’article Siri IA privé d’Eu",
-      "url": "https://www.android-dz.com/siri-ia-prive-deurope-apple-accuse-bruxelles-lue-lui-renvoie-la-responsabilite/",
-      "date": "2026-06-10T05:38:51.000Z",
-      "source": "Android DZ",
-      "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Siri IA banni d'Europe : Apple et l'UE s'affrontent sur la protection des données.",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Galaxy S27 Ultra : le nouveau design divise les fans, mais la batterie fait enfin un bond",
-      "resume": "Samsung préparerait une refonte complète du Galaxy S27 Ultra, abandonnant l’îlot photo flottant pour un design horizontal qui…\nL’article Galaxy S27 Ul",
-      "url": "https://www.android-dz.com/galaxy-s27-ultra-le-nouveau-design-divise-les-fans-mais-la-batterie-fait-enfin-un-bond/",
-      "date": "2026-06-10T05:46:54.000Z",
-      "source": "Android DZ",
-      "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Galaxy S27 Ultra divise, mais sa batterie révolutionnaire séduit enfin.",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Galaxy Z Flip8 : le Snapdragon fait son retour, mais l’Europe garde l’Exynos",
-      "resume": "Samsung confirme la répartition géographique des processeurs pour son futur Galaxy Z Flip8. L’Europe et la Corée du…\nL’article Galaxy Z Flip8 : le Sna",
-      "url": "https://www.android-dz.com/galaxy-z-flip8-le-snapdragon-fait-son-retour-mais-leurope-garde-lexynos/",
-      "date": "2026-06-10T02:57:05.000Z",
-      "source": "Android DZ",
-      "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Galaxy Z Flip8 : Snapdragon revient, mais l'Europe garde l'Exynos.",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Cette tablette 2,5K 90 Hz taillée pour les étudiants fauchés voit son prix passer sous les 90 €",
-      "resume": "Légère, fluide et endurante, la Lenovo Xiaoxin Pad 11, ou Lenovo Idea Tab 11 chez nous, est une tablette qui pourrait totalement convenir aux étudiant",
-      "url": "https://www.frandroid.com/marques/3133797_cette-tablette-25k-90-hz-taillee-pour-les-etudiants-fauches-voit-son-prix-passer-sous-les-90-e",
-      "date": "2026-06-10T09:49:00.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Tablette 2,5K 90 Hz à moins de 90 € : l'outil ultime pour étudiants.",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Solaire : « Une portion de l’Algérie peut couvrir tous les besoins énergétiques de l’Europe »",
-      "resume": "Quinze ans après l’échec du projet Desertec, l’Union européenne (UE) relance son intérêt pour le développement des énergies renouvelables sur la rive",
-      "url": "https://algerie-eco.com/2026/06/09/solaire-une-portion-de-lalgerie-peut-couvrir-tous-les-besoins-energetiques-de-leurope/",
-      "date": "2026-06-09T22:40:21.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "L'Algérie pourrait couvrir les besoins énergétiques de l'Europe avec son solaire.",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Industrie pharmaceutique : vers un renforcement de la coopération avec Huawei dans le numérique",
-      "resume": "Le ministre de l’Industrie pharmaceutique, Ouacim Kouidri, a reçu, mardi à Alger, une délégation du groupe chinois Huawei, avec laquelle il a examiné",
-      "url": "https://algerie-eco.com/2026/06/09/industrie-pharmaceutique-vers-un-renforcement-de-la-cooperation-avec-huawei-dans-le-numerique/",
-      "date": "2026-06-09T21:13:41.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Huawei et l'Algérie renforcent leur coopération dans le numérique pharmaceutique.",
-      "categorie": "Startups"
-    },
-    {
-      "titre": "La région Auvergne-Rhône-Alpes compte (enfin) son CSIRT territorial",
-      "resume": "La structure sera chargée d’offrir un premier niveau d’assistance à des victimes d’attaque cyber.",
-      "url": "https://www.zdnet.fr/actualites/la-region-auvergne-rhone-alpes-compte-enfin-son-csirt-territorial-496378.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-10T08:58:53.000Z",
+      "titre": "Régulation : le Canada veut bannir l'accès des réseaux sociaux aux moins de 16 ans",
+      "resume": "Le gouvernement canadien a présenté hier un projet de loi baptisé \"Safe Social Media Act\". Ce texte vise non seulement à bannir l'accès des réseaux so",
+      "url": "https://www.zdnet.fr/actualites/regulation-le-canada-veut-bannir-lacces-des-reseaux-sociaux-aux-moins-de-16-ans-496641.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-11T08:35:41.000Z",
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "La région Auvergne-Rhône-Alpes se dote enfin d'un CSIRT territorial.",
-      "categorie": "Cybersécurité"
+      "accroche": "Canada : interdiction des réseaux sociaux pour les moins de 16 ans dès 2026.",
+      "categorie": "Régulation"
     },
     {
-      "titre": "Chery s’installe dans l’usine historique européenne de Nissan : un tournant pour l’automobile en Europe",
-      "resume": "Récemment arrivé en France, le groupe chinois Chery lorgne désormais sur l’usine britannique de Nissan située à Sunderland. Le but ? Y produire les vo",
-      "url": "https://www.frandroid.com/marques/nissan/3133711_chery-sinstalle-dans-lusine-historique-europeenne-de-nissan-un-tournant-pour-lautomobile-en-europe",
-      "date": "2026-06-10T09:39:16.000Z",
+      "titre": "ZDNET Morning 11/06/2026 : Patch Tuesday record, Croissance explosive d'Oracle, Nvidia vise la 6G,...",
+      "resume": "Le ZDNET Morning le brief de l'actu tech pour les pros tous les matins à 9h00. Transformation numérique, IA, matériel, logiciels,... ne passez pas à c",
+      "url": "https://www.zdnet.fr/actualites/zdnet-morning-11-06-2026-patch-tuesday-record-croissance-explosive-doracle-nvidia-vise-la-6g-496638.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-11T07:36:30.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Patch Tuesday record et croissance explosive d’Oracle : l’actualité tech du jour.",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "« Votre consommation internet à l’étranger atteint 60 euros » : attention au piège du hors forfait chez ces trois opérateurs",
+      "resume": "À quelques semaines des vacances d'été, Cdiscount Mobile, NRJ Mobile et Auchan Télécom ont discrètement modifié leurs conditions générales d'utilisati",
+      "url": "https://www.frandroid.com/telecom/3135579_votre-consommation-internet-a-letranger-atteint-60-euros-attention-au-piege-du-hors-forfait-chez-ces-trois-operateurs",
+      "date": "2026-06-11T08:54:52.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Chery s'installe dans l'usine Nissan : un tournant pour l'automobile européenne.",
-      "categorie": "Innovation"
+      "accroche": "Hors forfait : attention aux 60€ de consommation internet à l’étranger.",
+      "categorie": "Télécoms"
+    },
+    {
+      "titre": "Tesla : la conduite autonome FSD autorisée en Belgique, à quand le tour de la France ?",
+      "resume": "Après le Danemark, c’est désormais au tour de la Belgique d’autoriser la conduite autonome FSD de Tesla sur ses routes. Le pays devient ainsi le 5ème",
+      "url": "https://www.frandroid.com/marques/tesla/3135753_tesla-la-conduite-autonome-fsd-autorisee-en-belgique-a-quand-le-tour-de-la-france",
+      "date": "2026-06-11T08:50:01.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Tesla : la conduite autonome FSD autorisée en Belgique, la France bientôt ?",
+      "categorie": "Mobile"
+    },
+    {
+      "titre": "Rachat de SFR : l’Autorité de la concurrence met déjà en garde Orange, Free et Bouygues Telecom",
+      "resume": "Benoît Cœuré, le président de l’Autorité de la concurrence, estime que le rachat de SFR « ne va pas de soi », sans pour autant être automatiquement an",
+      "url": "https://www.01net.com/actualites/rachat-sfr-autorite-concurrence-met-deja-garde-orange-free-bouygues-telecom.html",
+      "date": "2026-06-11T09:00:12.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Rachat de SFR : l’Autorité de la concurrence met en garde Orange, Free et Bouygues.",
+      "categorie": "Télécoms"
     }
   ],
-  "lastUpdated": "2026-06-10T11:37:38.225Z"
+  "lastUpdated": "2026-06-11T09:07:28.908Z"
 }
