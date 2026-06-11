@@ -1,6 +1,108 @@
 {
   "posts": [
     {
+      "id": "98d7656deaef9042",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/oracle-brille-grace-a-lia-mais-ses-investissements-colossaux-inquietent-wall-street-496622.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 11 Jun 2026 07:15:20 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Oracle brille grâce à l’IA, mais ses investissements colossaux inquiètent Wall Street — Malgré des résultats trimestriels supérieurs aux attentes et une croissance spectaculaire de son activité cloud dédiée à l’intelligence artificielle, Oracle a vu son titre reculer de près de 6 % après la clôture.",
+        "ar": "",
+        "en": ""
+      }
+    },
+    {
+      "id": "aaddf00a1c038cf4",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/patch-tuesday-juin-2025-microsoft-etablit-un-record-avec-198-failles-corrigees-dont-3-zero-days-496621.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 11 Jun 2026 07:01:48 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Patch Tuesday juin 2025 : Microsoft établit un record avec 198 failles corrigées, dont 3 zero-days — Microsoft publie sa mise à jour mensuelle la plus volumineuse de l'histoire : 198 vulnérabilités corrigées, dont 32 critiques et trois zero-days déjà divulgués. Une installation sans délai s'impose.",
+        "ar": "",
+        "en": ""
+      }
+    },
+    {
+      "id": "2abfdf290e998fec",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/nvidia-accelere-le-developpement-dun-gpu-dedie-aux-antennes-6g-496619.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 11 Jun 2026 06:45:31 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "NVIDIA accélère le développement d'un GPU dédié aux antennes 6G — En s'attaquant aux unités radio (RU) des stations de base, Nvidia entend désormais imposer ses GPU dans la chaîne matérielle complète de la 5G avancée et de la 6G, au détriment des ASIC spécialisés de ses concurrents.",
+        "ar": "",
+        "en": ""
+      }
+    },
+    {
+      "id": "51668bf61dcf3bda",
+      "source_name": "Android DZ",
+      "source_short": "ADZ",
+      "source_color": "#33691E",
+      "category": "Médias TIC",
+      "category_icon": "🤖",
+      "url": "https://www.android-dz.com/comment-savoir-si-on-est-bloque-sur-whatsapp-les-5-signes-qui-ne-trompent-pas/",
+      "image": "",
+      "date": "Thu, 11 Jun 2026 05:52:23 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Comment savoir si on est bloqué sur WhatsApp : les 5 signes qui ne trompent pas — Vous avez peut-être remarqué qu’un contact ne répond plus à vos messages WhatsApp depuis quelques jours, ou que… L’article Comment savoir si on est bloqué sur WhatsApp : les 5 signes qui ne trompent pas est apparu en premier sur Android DZ .",
+        "ar": "",
+        "en": ""
+      }
+    },
+    {
+      "id": "9be46023ff4416ac",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/zd-tech-comment-openai-devient-un-assistant-a-la-recherche-en-maths-496177.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 11 Jun 2026 05:30:51 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "ZD Tech : Comment OpenAI devient un assistant à la recherche en Maths — L'IA franchit un cap décisif et devient capable de déceler les failles dans des raisonnements humains considérés comme fiables. Explications.",
+        "ar": "",
+        "en": ""
+      }
+    },
+    {
+      "id": "4f46f6d5c2e1aea9",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/10/opendoors-india-exit-is-fueling-a-bigger-conversation-about-ai-and-outsourcing/",
+      "image": "",
+      "date": "Thu, 11 Jun 2026 04:02:19 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Opendoor’s India exit is fueling a bigger conversation about AI and outsourcing — The decision comes as India emerges as the world’s largest GCC market.",
+        "ar": "",
+        "fr": ""
+      }
+    },
+    {
       "id": "6de145b731285303",
       "source_name": "TechCrunch",
       "source_short": "TC",
@@ -32,6 +134,23 @@
         "en": "Why Andrew Yang is building instead of waiting for Washington — Andrew Yang’s 2020 presidential campaign was based on a warning that automation and AI would hollow out the labor market and concentrate wealth in the hands of a few. At the time, ideas like Universal Basic Income felt fringe. Now Dario Amodei, Sam Altman, and Bernie Sanders are all saying versions",
         "ar": "",
         "fr": ""
+      }
+    },
+    {
+      "id": "63a6ffb9b0376704",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/06/10/demantelement-dun-reseau-criminel-organise-ayant-cause-a-une-entreprise-de-tabac-des-pertes-de-1-000-milliards-de-centimes/",
+      "image": "",
+      "date": "Wed, 10 Jun 2026 21:58:24 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Démantèlement d’un réseau criminel organisé ayant causé à une entreprise de tabac des pertes de 1.000 milliards de centimes — Les services de police d’Alger ont procédé au démantèlement d’un réseau criminel organisé impliqué dans le détournement et la dilapidation de fonds publics au sein d’une entreprise spécialisée dans le commerce et la distribution de tabac, ayant causé des pertes estimées à près de 1.000 milliards de",
+        "ar": "",
+        "en": ""
       }
     },
     {
@@ -3843,13 +3962,13 @@
       }
     }
   ],
-  "lastUpdated": "2026-06-11T02:40:50.602532+00:00",
+  "lastUpdated": "2026-06-11T07:23:39.604703+00:00",
   "stats": {
-    "Tech International": 75,
-    "Médias TIC": 89,
+    "Tech International": 80,
+    "Médias TIC": 91,
     "Opérateurs": 25,
     "Infrastructure": 25,
     "Équipementiers": 12
   },
-  "total": 226
+  "total": 233
 }
