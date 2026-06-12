@@ -61,41 +61,94 @@ const SOURCES = {
     ]
 };
 
-// ─── Filtre de pertinence tech (regex avec limites de mots pour éviter les faux positifs) ──
-const TECH_RE = /\btic\b|\bt[eé]l[eé]com|\bmobile\b|\bsmartphone|\bstartup|\binnovation|\btech\b|num[eé]rique|\binternet\b|\bdata\b|\b(?:i\.?a|ia)\b|intelligence artificielle|\bfibre\b|alg[eé]rie|\b5g\b|\b4g\b|r[eé]seau\b|op[eé]rateur|\bdigital\b|\bcloud\b|cybers[eé]curit|logiciel|\bhaut d[eé]bit|\bbroadband\b|\bsoftware\b|\bhardware\b|\bsatellite\b|\binformatique\b|\bblockchain\b|\bfintech\b|\bntic\b|\be-gov|\be-commerce|\bIA\b|5G|4G/;
+// ─── Filtre thématique ICT/Télécom — 5 domaines + termes transversaux ───────────
+const TECH_RE = new RegExp(
+    // Thème 1 — Infrastructures et Réseaux
+    'tic|t[eé]l[ée]com|fibre|ftth|ftto|ftta' +
+    '|câble.?sous.?marin|satellite|antenne.?relais|bts|idoom' +
+    '|boucle.?locale|adsl|dslam|datacenter|data.?center' +
+    '|centre.?de.?donn|ixp|backbone|r[ée]seau.?f[ée]d[ée]rateur' +
+    '|small.?cell|micro.?cellule|pon|vsat|v-sat' +
+    '|infrastructure.?r[ée]seau|interconnexion.?r[ée]seau' +
+    // Thème 2 — Opérateurs et Services Mobiles
+    '|djezzy|ooredoo|mobilis|alg.rie.?t.l.com' +
+    '|[2345]g|lte|volte|t[ée]l[ée]phonie.?mobile' +
+    '|t[ée]l[ée]phonie.?fixe|itin[ée]rance|roaming|esim|mvno' +
+    '|mnp|portabilit[ée].?num[ée]ro|ran|r[ée]seau.?acc[eè]s.?radio' +
+    '|d[ée]ploiement.?r[ée]seau|qualit[ée].?de.?service|qos' +
+    '|facturation.?interop[ée]rat|r[ée]seaux.?priv[ée]s.?mobiles|mpn' +
+    // Thème 3 — Internet, Web et Communication
+    '|internet|haut.?d[ée]bit|tr[èe]s.?haut.?d[ée]bit|broadband' +
+    '|dns|communication.?num[ée]rique|messagerie.?instantan[ée]e' +
+    '|visioconf[ée]rence|streaming|cloud|saas|paas' +
+    '|internet.?des.?objets|iot|web.?3|bande.?passante|latence' +
+    '|ipv6|h[ée]bergement.?web|cdn|api|plateforme.?num[ée]rique' +
+    '|trafic.?internet|wi-fi|wifi|wi.?fi.?[67]' +
+    // Thème 4 — Data, Cybersécurité et Intelligence
+    '|data|big.?data|analyse.?de.?donn[ée]es|m[ée]tadonn[ée]es' +
+    '|cybers[ée]curit[ée]|s[ée]curit[ée].?informatique|chiffrement|cryptage' +
+    '|pare.?feu|firewall|vpn|hame[çc]onnage|phishing' +
+    '|malware|ransomware|souverainet[ée].?num[ée]rique|rgpd' +
+    '|cryptographie|pentest|test.?d.?intrusion|soc|zero.?trust' +
+    '|protection.?ddos|ddos|authentification.?forte|mfa|2fa' +
+    '|cloud.?souverain|analyse.?pr[ée]dictive|cybers[ée]curit[ée].?industrielle' +
+    // Thème 5 — Innovation, Recherche et Prospective
+    '|startup|innovation|r&d|recherche.?et.?d[ée]veloppement' +
+    '|transfert.?technologique|num[ée]risation|digitalisation' +
+    '|transformation.?num[ée]rique|[ée]cosyst[èe]me.?num[ée]rique' +
+    '|fintech|edtech|intelligence.?artificielle|ia' +
+    '|machine.?learning|deep.?learning|deeptech|hackathon' +
+    '|fablab|blockchain|smart.?city|ville.?intelligente' +
+    '|gouvernance.?num[ée]rique|transformation.?digitale|[ée]conomie.?num[ée]rique' +
+    '|llm|gpt|chatgpt' +
+    // Termes transversaux — Régulation, Matériel, Concepts
+    '|arpce|spectre.?de.?fr[ée]quences|licence.?d.?exploitation' +
+    '|service.?universel|smartphone|modem|routeur' +
+    '|objets.?connect[ée]s|wearable|interop[ée]rabilit[ée]' +
+    '|virtualisation|nfv|sdn|fracture.?num[ée]rique' +
+    '|d[ée]mat[ée]rialisation|neutralit[ée].?du.?net|inclusion.?num[ée]rique' +
+    '|droit.?du.?num[ée]rique|litiges.?t[ée]l[ée]com|ntic' +
+    '|num[ée]rique|digital|tech|informatique' +
+    '|logiciel|hardware|software|e-gov|e-commerce',
+    'i'
+);
 
 function isTechRelevant(title, description) {
     const text = (title + ' ' + (description || '')).toLowerCase();
     return TECH_RE.test(text);
 }
 
-// ─── Détection des catégories thématiques ────────────────────────────────────
+// ─── Détection des catégories thématiques (5 domaines ICT/Télécom) ───────────
 function detectCategories(title, description) {
     const text = (title + ' ' + (description || '')).toLowerCase();
     const cats = [];
 
-    if (/t[eé]l[eé]com|op[eé]rateur|fibre|[45]g\b|lte|r[eé]seau|fai|voip|gsm|umts|fttx/.test(text))
-        cats.push('Télécoms');
-    if (/mobile|smartphone|iphone|android|tablette/.test(text))
-        cats.push('Mobile');
-    if (/startup|innovation|lev[eé]e de fonds|incubat|pitch|scale-up|fintech|accelerat/.test(text))
-        cats.push('Startups');
-    if (/internet|web|haut d[eé]bit|adsl|vdsl|fttx|broadband/.test(text))
-        cats.push('Internet');
-    if (/\bdata\b|big data|donn[eé]es|analytique|base de donn/.test(text))
-        cats.push('Data');
-    if (/intelligence artificielle|\bia\b|machine learning|deep learning|llm|gpt|chatgpt|gen[eé]ratif/.test(text))
-        cats.push('IA');
-    if (/num[eé]rique|digital|transformation|e-gov|e-gouvernement|e-commerce|gouvernement/.test(text))
-        cats.push('Numérique');
-    if (/cloud|saas|paas|iaas|h[eé]bergement|serveur|datacenter|centre de donn/.test(text))
-        cats.push('Cloud');
-    if (/cybers[eé]curit[eé]|s[eé]curit[eé] informatique|hack|phishing|malware|ransomware|vuln[eé]rabilit/.test(text))
-        cats.push('Cybersécurité');
+    // 1. Infrastructures et Réseaux
+    if (/t[eé]l[eé]com|fibre|ftth|ftto|ftta|satellite|antenne.?relais|boucle.?locale|adsl|dslam|datacenter|data.?center|centre.?de.?donn|backbone|small.?cell|pon|vsat|infrastructure.?r[eé]seau|interconnexion.?r[eé]seau|nfv|sdn|virtualisation/.test(text))
+        cats.push('Infrastructures & Réseaux');
+
+    // 2. Opérateurs et Services Mobiles
+    if (/djezzy|ooredoo|mobilis|[2345]g|lte|volte|t[eé]l[eé]phonie.?mobile|t[eé]l[eé]phonie.?fixe|itin[eé]rance|roaming|esim|mvno|mnp|portabilit|ran|d[eé]ploiement.?r[eé]seau|qos|qualit[eé].?de.?service|gsm|umts|voip|fai|op[eé]rateur|mobile|smartphone/.test(text))
+        cats.push('Opérateurs & Mobile');
+
+    // 3. Internet, Web et Communication
+    if (/internet|haut.?d[eé]bit|tr[eè]s.?haut.?d[eé]bit|broadband|dns|communication.?num[eé]rique|messagerie.?instantan|visioconf[eé]rence|streaming|cloud|saas|paas|iaas|internet.?des.?objets|iot|web.?3|bande.?passante|latence|ipv6|h[eé]bergement.?web|cdn|plateforme.?num[eé]rique|trafic.?internet|wi-fi|wifi|adsl|vdsl/.test(text))
+        cats.push('Internet & Web');
+
+    // 4. Data, Cybersécurité et Intelligence
+    if (/big.?data|donn[eé]es|analytique|base.?de.?donn|m[eé]tadonn|cybers[eé]curit|s[eé]curit[eé].?informatique|chiffrement|cryptage|pare.?feu|firewall|vpn|phishing|malware|ransomware|souverainet[eé].?num[eé]rique|rgpd|cryptographie|pentest|test.?d.?intrusion|soc|zero.?trust|ddos|mfa|2fa|cloud.?souverain|analyse.?pr[eé]dictive|vuln[eé]rabilit/.test(text))
+        cats.push('Data & Cybersécurité');
+
+    // 5. Innovation, Recherche et Prospective
+    if (/startup|innovation|r&d|recherche.?et.?d[eé]veloppement|lev[eé]e.?de.?fonds|incubat|scale.?up|transfert.?technologique|num[eé]risation|digitalisation|transformation.?num[eé]rique|[eé]cosyst[eè]me.?num[eé]rique|fintech|edtech|intelligence.?artificielle|machine.?learning|deep.?learning|deeptech|hackathon|fablab|blockchain|smart.?city|ville.?intelligente|gouvernance.?num[eé]rique|transformation.?digitale|llm|gpt|chatgpt|gen[eé]ratif|brevet|laboratoire/.test(text))
+        cats.push('Innovation & Recherche');
+
+    // Termes transversaux (si aucune catégorie principale)
+    if (cats.length === 0 && /arpce|spectre.?de.?fr[eé]quences|service.?universel|smartphone|modem|routeur|objets.?connect|wearable|interop[eé]rabilit|fracture.?num[eé]rique|d[eé]mat[eé]rialisation|neutralit[eé].?du.?net|inclusion.?num[eé]rique|droit.?du.?num[eé]rique|litiges.?t[eé]l[eé]com|ntic|num[eé]rique|digital|tech|informatique|logiciel/.test(text))
+        cats.push('Tech & Numérique');
 
     return cats.length > 0 ? cats : ['Tech'];
 }
-
 // ─── Fetch via rss2json ───────────────────────────────────────────────────────
 function fetchFeed(url) {
     return new Promise((resolve) => {

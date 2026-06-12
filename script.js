@@ -445,12 +445,13 @@ window.openArticle = function(id) {
         mediaHeader = `<img src="${art.image}" alt="${art.titre}" onerror="this.onerror=null;this.style.display='none'" style="width:100%; border-radius:15px; margin-bottom:25px;">`;
     }
     let pdfLink = art.pdf ? `<div style="margin: 20px 0; padding: 15px; background: var(--bg-light); border-radius: 10px; display: flex; align-items: center; gap: 15px;"><i class="fas fa-file-pdf" style="font-size: 2rem; color: #D21034;"></i><div><p style="margin:0; font-weight:600;">Document d'accompagnement</p><a href="${art.pdf}" target="_blank" class="tag-filter" style="display:inline-block; margin-top:5px; text-decoration:none;"><i class="fas fa-download"></i> TÃ©lÃ©charger le PDF</a></div></div>` : '';
-    let html = `${mediaHeader}<div class="article-body"><div class="article-meta"><span class="category-tag ${cls(art.categorie)}">${art.categorie}</span><span><i class="far fa-calendar"></i> ${art.date}</span><span><i class="far fa-clock"></i> ${art.heure}</span><span class="reading-time"><i class="fas fa-book-open"></i> ${art.readingTime} min</span><span><i class="far fa-eye"></i> ${art.views} vues</span><button class="meta-audio-btn" onclick="triggerAudio()"><i class="fas fa-volume-up"></i> Ã‰couter</button></div><h1>${art.titre}</h1><div class="article-actions"><button class="synthese-btn" id="syntheseBtn" onclick="loadSynthese()"><i class="fas fa-bolt"></i> Synthèse IA</button><button class="jargon-btn" id="jargonBtn" onclick="toggleJargon()"><i class="fas fa-glasses"></i> Déchiffrer le jargon</button><button class="debat-btn" id="debatBtn" onclick="openDebat()"><i class="fas fa-comments"></i> Débattre avec l'IA</button></div><div id="syntheseBox"></div><div class="article-text">${bodyImage}${art.contenu}${pdfLink}</div>`;
+    let html = `${mediaHeader}<div class="article-body"><div class="article-meta"><span class="category-tag ${cls(art.categorie)}">${art.categorie}</span><span><i class="far fa-calendar"></i> ${art.date}</span><span><i class="far fa-clock"></i> ${art.heure}</span><span class="reading-time"><i class="fas fa-book-open"></i> ${art.readingTime} min</span><span><i class="far fa-eye"></i> ${art.views} vues</span><button class="meta-audio-btn" onclick="triggerAudio()"><i class="fas fa-volume-up"></i> Ã‰couter</button></div><h1>${art.titre}</h1><div class="article-actions"><button class="synthese-btn" id="syntheseBtn" onclick="loadSynthese()"><i class="fas fa-bolt"></i> Synthèse IA</button><button class="debat-btn" id="debatBtn" onclick="openDebat()"><i class="fas fa-comments"></i> Débattre avec l'IA</button></div><div id="syntheseBox"></div><div class="article-text">${bodyImage}${art.contenu}${pdfLink}</div>`;
     if (art.tags && art.tags.length) {
         html += `<div style="margin:30px 0;padding-top:20px;border-top:1px solid var(--border)"><strong>Tags: </strong>${art.tags.map(t => `<span class="tag-filter" style="margin-left:8px" onclick="filterByTag('${t}');goHome()">${t}</span>`).join('')}</div>`;
     }
     html += `<div class="share-buttons"><button class="share-btn facebook" onclick="share('facebook')"><i class="fab fa-facebook-f"></i> Facebook</button><button class="share-btn twitter" onclick="share('twitter')"><i class="fab fa-twitter"></i> Twitter</button><button class="share-btn whatsapp" onclick="share('whatsapp')"><i class="fab fa-whatsapp"></i> WhatsApp</button><button class="share-btn linkedin" onclick="share('linkedin')"><i class="fab fa-linkedin-in"></i> LinkedIn</button><button class="share-btn copy" onclick="copyLink()"><i class="fas fa-link"></i> Copier</button></div>`;
     document.getElementById('articleContent').innerHTML = html;
+    if (typeof highlightJargon === 'function') highlightJargon();
     initAudioReader(art.titre + ".  " + art.rawContent);
     const rel = allArticles.filter(a => a.id != id && a.categorie === art.categorie).slice(0, 3);
     const relBox = document.getElementById('relatedArticles');
@@ -761,7 +762,8 @@ function _regCard(t) {
   /* Texte de pertinence / description */
   const pertText = t.pertinence || t.description || '';
 
-  return `<div class="reg-card" data-source="${isArpce ? 'ARPCE' : 'JORADP'}" style="--rc:${s.color};--rl:${s.bg}">
+    const _st = [t.titre, t.numero||'', pertText].join(' ').toLowerCase().replace(/"/g,'');
+  return `<div class="reg-card" data-source="${isArpce ? 'ARPCE' : 'JORADP'}" data-search="${_st}" style="--rc:${s.color};--rl:${s.bg}">
     <div class="reg-card-head">
       <span class="reg-type-badge"><i class="fas ${s.icon}"></i> ${t.type}</span>
       <div class="reg-card-head-right">${srcBadge}${refBadge}</div>
@@ -869,6 +871,7 @@ async function _loadRegData() {
 
 /* Filtre type + source ────────────────────────────────────────── */
 let _regCurrentSource = 'all';
+let _regCurrentSearch = '';
 
 function _applyRegFilter(type, source) {
   const cards = document.querySelectorAll('.reg-card');
@@ -877,7 +880,9 @@ function _applyRegFilter(type, source) {
     const src    = card.dataset.source || '';
     const showT  = type   === 'all' || badge.includes(type);
     const showS  = source === 'all' || src === source;
-    card.style.display = (showT && showS) ? '' : 'none';
+    const q = _regCurrentSearch.trim().toLowerCase();
+    const showQ  = !q || (card.dataset.search || '').includes(q);
+    card.style.display = (showT && showS && showQ) ? '' : 'none';
   });
 }
 
@@ -901,6 +906,15 @@ function _buildRegHTML() {
         <a href="https://www.arpce.dz/fr/pub" target="_blank" rel="noopener" class="reg-src-link reg-src-link-arpce">
           <i class="fas fa-shield-alt"></i> ARPCE
         </a>
+      </div>
+    </div>
+
+    <!-- Barre de recherche -->
+    <div class="reg-search-wrap">
+      <div class="reg-search-box">
+        <i class="fas fa-search reg-search-ico"></i>
+        <input type="search" id="regSearchInput" class="reg-search-input" placeholder="Rechercher un texte, numéro, mot-clé…" oninput="_regSearch(this.value)" autocomplete="off">
+        <button class="reg-search-clear" id="regSearchClear" onclick="_regSearch('')" style="display:none" title="Effacer"><i class="fas fa-times"></i></button>
       </div>
     </div>
 
@@ -967,6 +981,13 @@ window._regFilterSource = function(btn, source) {
   _regCurrentSource = source;
   document.querySelectorAll('#regFilters .reg-pill-src').forEach(b => b.classList.remove('reg-pill-active'));
   btn.classList.add('reg-pill-active');
+  _applyRegFilter(_regCurrentFilter, _regCurrentSource);
+};
+
+window._regSearch = function(q) {
+  _regCurrentSearch = q;
+  const clr = document.getElementById('regSearchClear');
+  if (clr) clr.style.display = q ? '' : 'none';
   _applyRegFilter(_regCurrentFilter, _regCurrentSource);
 };
 
@@ -1989,15 +2010,24 @@ function classifyVeilleItem(item) {
 
 function detectVeilleTopic(title) {
     const t = (title || '').toLowerCase();
-    if (/t[eé]l[eé]com|op[eé]rateur|\bfibre\b|\b[45]g\b|r[eé]seau\b|\bfai\b|voip|gsm|lte/.test(t)) return 'Télécoms';
-    if (/\bmobile\b|smartphone|android|iphone|tablette|samsung|xiaomi/.test(t))                        return 'Mobile';
-    if (/startup|innovation|lev[eé]e|incubat|pitch|fintech|scale-up/.test(t))                          return 'Startups';
-    if (/intelligence artificielle|\bia\b|\bai\b|machine learning|gpt|chatgpt|llm/.test(t))            return 'IA';
-    if (/\binternet\b|haut d[eé]bit|adsl|vdsl|broadband/.test(t))                                     return 'Internet';
-    if (/\bdata\b|big data|donn[eé]es|analytique/.test(t))                                             return 'Data';
-    if (/cloud\b|saas|paas|h[eé]bergement|datacenter/.test(t))                                         return 'Cloud';
-    if (/cybers[eé]curit|hack\b|phishing|malware|ransomware/.test(t))                                  return 'Cybersécurité';
-    if (/num[eé]rique|digital|transformation/.test(t))                                                  return 'Numérique';
+    // 1. Infrastructures et Réseaux
+    if (/t[eé]l[eé]com|fibre|ftth|ftto|ftta|satellite|antenne.?relais|\bbts\b|\bidoom\b|boucle.?locale|\badsl\b|\bdslam\b|datacenter|data.?center|backbone|\bpon\b|\bvsat\b|infrastructure.?r[eé]seau|interconnexion|small.?cell|\bnfv\b|\bsdn\b|virtualisation|câble.?sous.?marin/.test(t))
+        return 'Infrastructures & Réseaux';
+    // 2. Opérateurs et Services Mobiles
+    if (/\bdjezzy\b|\booredoo\b|\bmobilis\b|\b[2345]g\b|\blte\b|\bvolte\b|t[eé]l[eé]phonie.?mobile|t[eé]l[eé]phonie.?fixe|itin[eé]rance|\broaming\b|\besim\b|\bmvno\b|\bmnp\b|portabilit[eé]|\bran\b|d[eé]ploiement.?r[eé]seau|\bqos\b|qualit[eé].?de.?service|r[eé]seaux.?priv[eé]s|\bmpn\b|\bgsm\b|\bvoip\b|op[eé]rateur|\bsmartphone\b|android|iphone|tablette|samsung|xiaomi/.test(t))
+        return 'Opérateurs & Mobile';
+    // 3. Internet, Web et Communication
+    if (/\binternet\b|haut.?d[eé]bit|tr[eè]s.?haut.?d[eé]bit|\bbroadband\b|\bdns\b|messagerie.?instantan|visioconf[eé]rence|\bstreaming\b|\bsaas\b|\bpaas\b|internet.?des.?objets|\biot\b|web.?3|bande.?passante|\blatence\b|\bipv6\b|h[eé]bergement.?web|\bcdn\b|plateforme.?num[eé]rique|trafic.?internet|wi-fi|\bwifi\b|\bvdsl\b/.test(t))
+        return 'Internet & Web';
+    // 4. Data, Cybersécurité et Intelligence
+    if (/cybers[eé]curit|s[eé]curit[eé].?informatique|\bhack\b|\bphishing\b|\bmalware\b|\bransomware\b|chiffrement|\bvpn\b|pare.?feu|\bfirewall\b|\bddos\b|\bpentest\b|\bsoc\b|zero.?trust|\brgpd\b|cryptographie|\bmfa\b|\b2fa\b|cloud.?souverain|souverainet[eé].?num[eé]rique|\bdata\b|big.?data|donn[eé]es|analytique|m[eé]tadonn|analyse.?pr[eé]dictive/.test(t))
+        return 'Data & Cybersécurité';
+    // 5. Innovation, Recherche et Prospective
+    if (/\bstartup\b|\binnovation\b|\br&d\b|lev[eé]e|incubat|pitch|scale.?up|transfert.?technologique|num[eé]risation|digitalisation|transformation.?num[eé]rique|[eé]cosyst[eè]me.?num[eé]rique|\bfintech\b|\bedtech\b|intelligence.?artificielle|\bia\b|\bai\b|machine.?learning|deep.?learning|\bgpt\b|\bchatgpt\b|\bllm\b|\bdeeptech\b|\bhackathon\b|\bfablab\b|\bblockchain\b|smart.?city|ville.?intelligente|gouvernance.?num[eé]rique|transformation.?digitale/.test(t))
+        return 'Innovation & Recherche';
+    // Termes transversaux
+    if (/\bnum[eé]rique\b|\bdigital\b|\btech\b|\binformatique\b|\blogiciel\b|\barpce\b|service.?universel|\bmodem\b|\brouteur\b|objets.?connect|interop[eé]rabilit|fracture.?num[eé]rique|inclusion.?num[eé]rique|droit.?du.?num[eé]rique|litiges.?t[eé]l[eé]com|\bntic\b/.test(t))
+        return 'Tech & Numérique';
     return 'Tech';
 }
 

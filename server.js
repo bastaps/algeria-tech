@@ -256,6 +256,88 @@ app.get('/actualites-tic/', (req, res) => res.sendFile(path.join(__dirname, 'act
 app.get('/smart-ingest', (req, res) => res.sendFile(path.join(__dirname, 'smart-ingest.html')));
 app.get('/smart-ingest.html', (req, res) => res.sendFile(path.join(__dirname, 'smart-ingest.html')));
 
+// === WIKI TIC — Routes ===
+app.get('/wiki', (req, res) => res.sendFile(path.join(__dirname, 'wiki.html')));
+app.get('/wiki/', (req, res) => res.sendFile(path.join(__dirname, 'wiki.html')));
+app.get('/wiki/:slug', (req, res) => res.sendFile(path.join(__dirname, 'wiki.html')));
+
+// === WIKI TIC — API /api/wiki (liste tous les termes) ===
+const WIKI_CATS = [
+    { id: 'cat1', dir: 'cat1-infrastructures' },
+    { id: 'cat2', dir: 'cat2-operateurs' },
+    { id: 'cat3', dir: 'cat3-internet-web' },
+    { id: 'cat4', dir: 'cat4-data-cybersecurite' },
+    { id: 'cat5', dir: 'cat5-innovation' },
+    { id: 'cat6', dir: 'cat6-complementaire' },
+];
+
+function parseWikiFm(content) {
+    const match = content.match(/^---\n([\s\S]*?)\n---/);
+    if (!match) return {};
+    const fm = match[1];
+    const get = (k) => { const m = fm.match(new RegExp(`${k}:\\s*"?([^"\\n]+)"?`)); return m ? m[1].trim() : ''; };
+    const tagsM = fm.match(/tags:\s*\[([^\]]+)\]/);
+    const tags = tagsM ? tagsM[1].split(',').map(t => t.trim().replace(/^["']|["']$/g, '')) : [];
+    return { titre: get('titre'), slug: get('slug'), meta: get('meta_description'), tags };
+}
+
+function parseWikiBody(content) {
+    const body = content.replace(/^---[\s\S]*?---\n/, '');
+    const defM  = body.match(/## Définition\n([\s\S]*?)(?=\n##|$)/);
+    const ctxM  = body.match(/## Contexte Algérien\n([\s\S]*?)(?=\n##|$)/);
+    const tagsM = body.match(/## Mots-clés SEO\n([\s\S]*?)(?=\n##|$)/);
+    const tags  = tagsM ? tagsM[1].trim().split('\n').map(l => l.replace(/^-\s*/, '').trim()).filter(Boolean) : [];
+    return {
+        definition: defM ? defM[1].trim() : '',
+        contexte:   ctxM ? ctxM[1].trim() : '',
+        tags,
+    };
+}
+
+app.get('/api/wiki', (req, res) => {
+    try {
+        const terms = [];
+        for (const cat of WIKI_CATS) {
+            const dir = path.join(__dirname, 'wiki', cat.dir);
+            if (!fsSync.existsSync(dir)) continue;
+            const files = fsSync.readdirSync(dir).filter(f => f.endsWith('.md') && !f.startsWith('INDEX'));
+            for (const file of files) {
+                try {
+                    const content = fsSync.readFileSync(path.join(dir, file), 'utf-8');
+                    const fm = parseWikiFm(content);
+                    if (!fm.slug || !fm.titre) continue;
+                    terms.push({ cat: cat.id, slug: fm.slug, titre: fm.titre, meta: fm.meta, tags: fm.tags });
+                } catch (e) { /* skip bad files */ }
+            }
+        }
+        terms.sort((a, b) => a.titre.localeCompare(b.titre, 'fr'));
+        res.json(terms);
+    } catch (e) { res.status(500).json({ error: e.message }); }
+});
+
+// === WIKI TIC — API /api/wiki/:slug (détail d'un terme) ===
+app.get('/api/wiki/:slug', (req, res) => {
+    const slug = req.params.slug.replace(/[^a-z0-9\-]/gi, '');
+    for (const cat of WIKI_CATS) {
+        const dir = path.join(__dirname, 'wiki', cat.dir);
+        if (!fsSync.existsSync(dir)) continue;
+        const files = fsSync.readdirSync(dir).filter(f => f.endsWith('.md'));
+        for (const file of files) {
+            const filePath = path.join(dir, file);
+            try {
+                const content = fsSync.readFileSync(filePath, 'utf-8');
+                const fm = parseWikiFm(content);
+                if (fm.slug === slug) {
+                    const body = parseWikiBody(content);
+                    return res.json({ ...fm, ...body, cat: cat.id });
+                }
+            } catch (e) { /* skip */ }
+        }
+    }
+    res.status(404).json({ error: 'Terme non trouvé' });
+});
+// === FIN WIKI TIC ===
+
 // === SERVIR LES FICHIERS STATIQUES ===
 app.use(express.static(__dirname, {
     setHeaders: (res, filepath) => {

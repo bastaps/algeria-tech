@@ -2141,15 +2141,14 @@ html.ar .synthese-btn          { flex-direction: row-reverse; }
 
 /* ── Terme surligné ─────────────────────────────────────────── */
 .jargon-term {
-    background-color: #fff9c4;
-    border-bottom: 2px dotted #1a73e8;
-    border-radius: 2px;
-    padding: 0 1px;
+    color: #1a73e8;
+    font-weight: 600;
+    border-bottom: 1px dotted #1a73e8;
     cursor: help;
-    transition: background-color .15s;
+    transition: color .15s;
 }
 .jargon-term:hover {
-    background-color: #fff176;
+    color: #1557b0;
 }
 
 /* ── Tooltip ────────────────────────────────────────────────── */
@@ -2606,6 +2605,63 @@ html.ar .comp-disclaimer { flex-direction:row-reverse; border-left:none; border-
 .reg-src-arpce  { background: #e8f5e9; color: #1b5e20; }
 
 /* ── Filtres ─────────────────────────────────────────────── */
+/* ── Barre de recherche ──────────────────────────────────── */
+.reg-search-wrap {
+  margin-bottom: 20px;
+}
+.reg-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.reg-search-ico {
+  position: absolute;
+  left: 16px;
+  color: #9ea8c4;
+  font-size: .9rem;
+  pointer-events: none;
+}
+.reg-search-input {
+  width: 100%;
+  padding: 11px 44px 11px 42px;
+  border: 2px solid #e0e4f0;
+  border-radius: 12px;
+  font-size: .9rem;
+  background: #f8f9ff;
+  color: #1a237e;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+.reg-search-input:focus {
+  border-color: #3f51b5;
+  box-shadow: 0 0 0 3px rgba(63,81,181,.12);
+  background: #fff;
+}
+.reg-search-input::placeholder { color: #aab0cc; }
+.reg-search-clear {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #aab0cc;
+  cursor: pointer;
+  font-size: .9rem;
+  padding: 4px;
+  line-height: 1;
+  transition: color .15s;
+}
+.reg-search-clear:hover { color: #3f51b5; }
+body.dark-mode .reg-search-input {
+  background: #1a1f35;
+  border-color: #2d3561;
+  color: #c5cae9;
+}
+body.dark-mode .reg-search-input:focus {
+  border-color: #5c6bc0;
+  box-shadow: 0 0 0 3px rgba(92,107,192,.18);
+  background: #1e2440;
+}
+
 .reg-filters {
   display: flex;
   flex-direction: column;

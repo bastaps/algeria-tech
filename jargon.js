@@ -1,11 +1,11 @@
 'use strict';
 /* ═══════════════════════════════════════════════════════════════
    JARGON.JS — Algeria Tech
-   Déchiffrer le jargon technique : surlignage DOM + tooltip Algérie
+   Surlignage automatique des termes techniques + tooltip Algérie
    ─────────────────────────────────────────────────────────────
    Usage public :
-     toggleJargon()  — bouton dans l'article
-     resetJargon()   — appelé à la fermeture de l'article
+     highlightJargon() — appelé automatiquement à l'ouverture d'article
+     resetJargon()     — appelé à la fermeture de l'article
 ═══════════════════════════════════════════════════════════════ */
 
 /* ── Dictionnaire (contextualisé Algérie) ─────────────────────
@@ -194,8 +194,7 @@ const JARGON = {
 ═══════════════════════════════════════════════════════════════ */
 (function () {
 
-  let _active = false;
-  let _tt     = null;   // singleton tooltip
+  let _tt = null;   // singleton tooltip
 
   /* ── Tooltip ── */
   function _getTooltip() {
@@ -330,38 +329,13 @@ const JARGON = {
   }
 
   /* ── API publique ─────────────────────────────────────────── */
-  window.toggleJargon = function () {
-    var btn     = document.getElementById('jargonBtn');
+  window.highlightJargon = function () {
     var article = document.querySelector('.article-text');
-    if (!btn || !article) return;
-
-    _active = !_active;
-
-    if (_active) {
-      var count = _highlight(article);
-      btn.classList.add('jargon-active');
-      if (count > 0) {
-        btn.innerHTML =
-          '<i class="fas fa-eye-slash"></i> Masquer (' + count +
-          ' terme' + (count > 1 ? 's' : '') + ')';
-      } else {
-        // Aucun terme détecté dans cet article
-        btn.innerHTML = '<i class="fas fa-glasses"></i> Aucun terme détecté';
-        btn.classList.remove('jargon-active');
-        _active = false;
-        setTimeout(function () {
-          btn.innerHTML = '<i class="fas fa-glasses"></i> Déchiffrer le jargon';
-        }, 2500);
-      }
-    } else {
-      _clear(article);
-      btn.classList.remove('jargon-active');
-      btn.innerHTML = '<i class="fas fa-glasses"></i> Déchiffrer le jargon';
-    }
+    if (!article) return;
+    _highlight(article);
   };
 
   window.resetJargon = function () {
-    _active = false;
     _clear(document.querySelector('.article-text'));
   };
 
