@@ -236,7 +236,7 @@
       "fb_page_url": "https://www.facebook.com/huawei",
       "fb_page_id": "huawei",
       "rss_url": "https://rss.app/feeds/6g2nIf4f6Q7CgWCk.xml",
-      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "news_url": "https://www.huawei.com/en/news",
       "translate": true,
       "enabled": true
     },
@@ -250,7 +250,8 @@
       "website": "https://www.ericsson.com",
       "fb_page_url": "https://www.facebook.com/ericsson",
       "fb_page_id": "ericsson",
-      "rss_url": "https://www.ericsson.com/en/blog/feed",
+      "rss_url": "https://www.ericsson.com/en/press-releases/feed",
+      "news_url": "https://www.ericsson.com/en/news-and-events",
       "translate": true,
       "enabled": true
     },

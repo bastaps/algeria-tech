@@ -2,7 +2,7 @@ name: Apify Facebook (1x/jour)
 
 on:
   schedule:
-    - cron: '0 6 * * *'  # 06h00 UTC = 07h00 Alger (heure d'été)
+    - cron: '0 6 */3 * *'  # 06h00 UTC tous les 3 jours → reste dans $5 gratuits Apify
   workflow_dispatch:
 
 permissions:

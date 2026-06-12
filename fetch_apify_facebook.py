@@ -56,22 +56,14 @@ APIFY_ACTOR = ENV.get("APIFY_ACTOR", "apify~facebook-pages-scraper")
 
 # ─── Sources Facebook à scraper via Apify ────────────────────────────────────
 FB_ONLY_SOURCES = [
-    # Sources sans RSS direct ni site officiel scrapable
-    # (les autres ont déjà un fallback fonctionnel)
+    # Uniquement les pages SANS site officiel scrapable
+    # Les autres ont news_url ou RSS en fallback → pas besoin d'Apify
     {"page_id": "mpt.gov.dz",             "name": "MPT"},
     {"page_id": "mkesme.dz",              "name": "MKESME"},
     {"page_id": "algerieposteofficiel",    "name": "Algérie Poste"},
     {"page_id": "atsofficiel",             "name": "ATS"},
     {"page_id": "Condor.Electromenager",   "name": "Condor"},
-    {"page_id": "HuaweimobileDZ",          "name": "Huawei Mobile DZ"},
-    {"page_id": "huawei",                  "name": "Huawei Global"},
-    {"page_id": "ericsson",                "name": "Ericsson"},
     {"page_id": "DGRSDT.ALGERIA",          "name": "DGRSDT"},
-    # Ajout : pages sans RSS natif, site officiel déjà en fallback
-    {"page_id": "mesrs.dz",               "name": "MESRS"},
-    {"page_id": "AlgerieTelecom",          "name": "Algérie Télécom"},
-    {"page_id": "OoredooDZ",              "name": "Ooredoo"},
-    {"page_id": "streamsystem",            "name": "Stream System"},
 ]
 
 # ─── Appel API Apify (run synchrone) ─────────────────────────────────────────
