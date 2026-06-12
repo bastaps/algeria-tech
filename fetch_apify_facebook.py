@@ -82,7 +82,7 @@ def run_apify(page_urls: list, dry_run: bool = False) -> list:
 
     input_data = {
         "startUrls":    [{"url": url} for url in page_urls],
-        "resultsLimit": 10,
+        "resultsLimit": 5,
     }
 
     try:

@@ -2,7 +2,7 @@ name: Apify Facebook (1x/jour)
 
 on:
   schedule:
-    - cron: '0 6 */3 * *'  # 06h00 UTC tous les 3 jours → reste dans $5 gratuits Apify
+    - cron: '0 6 * * *'  # 06h00 UTC chaque jour → 0,15$/run × 30 = 4,50$/mois ≤ $5 gratuits
   workflow_dispatch:
 
 permissions:
