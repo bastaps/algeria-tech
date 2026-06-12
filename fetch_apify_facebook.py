@@ -67,6 +67,11 @@ FB_ONLY_SOURCES = [
     {"page_id": "huawei",                  "name": "Huawei Global"},
     {"page_id": "ericsson",                "name": "Ericsson"},
     {"page_id": "DGRSDT.ALGERIA",          "name": "DGRSDT"},
+    # Ajout : pages sans RSS natif, site officiel déjà en fallback
+    {"page_id": "mesrs.dz",               "name": "MESRS"},
+    {"page_id": "AlgerieTelecom",          "name": "Algérie Télécom"},
+    {"page_id": "OoredooDZ",              "name": "Ooredoo"},
+    {"page_id": "streamsystem",            "name": "Stream System"},
 ]
 
 # ─── Appel API Apify (run synchrone) ─────────────────────────────────────────
