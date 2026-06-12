@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wiki TIC — Glossaire ICT Algérie | Algeria Tech</title>
+  <meta name="description" content="Base de connaissances complète sur les télécommunications, internet, cybersécurité et innovation numérique en Algérie. 136 termes expliqués avec contexte algérien.">
+  <meta name="keywords" content="wiki télécoms Algérie, glossaire ICT, ARPCE, Algérie Télécom, 4G 5G Algérie, cybersécurité Algérie">
+  <meta property="og:title" content="Wiki TIC Algeria Tech — 136 termes ICT expliqués">
+  <meta property="og:description" content="Définitions, contexte algérien et mots-clés SEO pour chaque terme clé des télécommunications et du numérique en Algérie.">
+  <meta property="og:type" content="website">
+
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#006233">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+<style>
+:root {
+  --wiki-green:  #006233;
+  --wiki-red:    #D21034;
+  --wiki-gold:   #F5A623;
+  --wiki-bg:     #f4f6f9;
+  --wiki-card:   #ffffff;
+  --wiki-border: #e2e8f0;
+  --wiki-text:   #1a202c;
+  --wiki-muted:  #64748b;
+  --wiki-accent: #1a73e8;
+}
+body.dark-mode {
+  --wiki-bg:     #111827;
+  --wiki-card:   #1e2535;
+  --wiki-border: #2d3748;
+  --wiki-text:   #e2e8f0;
+  --wiki-muted:  #94a3b8;
+}
+
+.wiki-page { background: var(--wiki-bg); min-height: 100vh; padding-bottom: 60px; }
+.wiki-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* ── Hero ── */
+.wiki-hero {
+  background: linear-gradient(135deg, var(--wiki-green) 0%, #004d28 60%, #1a237e 100%);
+  color: #fff;
+  padding: 48px 0 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.wiki-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.wiki-hero h1 { font-size: 2.2rem; font-weight: 900; margin: 0 0 10px; position: relative; }
+.wiki-hero h1 span { color: var(--wiki-gold); }
+.wiki-hero p { font-size: 1rem; opacity: 0.88; margin: 0 0 28px; position: relative; }
+.wiki-stats { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; position: relative; }
+.wiki-stat { background: rgba(255,255,255,0.12); border-radius: 10px; padding: 10px 20px; text-align: center; }
+.wiki-stat strong { display: block; font-size: 1.6rem; font-weight: 900; color: var(--wiki-gold); }
+.wiki-stat span { font-size: 0.78rem; opacity: 0.85; }
+
+/* ── Search & Filters ── */
+.wiki-controls {
+  background: var(--wiki-card);
+  border-bottom: 1px solid var(--wiki-border);
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.wiki-search-wrap {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.wiki-search {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  background: var(--wiki-bg);
+  border: 1.5px solid var(--wiki-border);
+  border-radius: 50px;
+  padding: 0 16px;
+  gap: 10px;
+  transition: border-color 0.2s;
+}
+.wiki-search:focus-within { border-color: var(--wiki-green); }
+.wiki-search i { color: var(--wiki-muted); font-size: 0.9rem; }
+.wiki-search input {
+  flex: 1; border: none; background: transparent;
+  padding: 10px 0; font-size: 0.95rem;
+  color: var(--wiki-text); outline: none;
+}
+.wiki-search input::placeholder { color: var(--wiki-muted); }
+.wiki-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+.wiki-filter {
+  padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;
+  border: 1.5px solid var(--wiki-border); cursor: pointer;
+  background: var(--wiki-card); color: var(--wiki-muted);
+  transition: all 0.2s; white-space: nowrap;
+}
+.wiki-filter:hover, .wiki-filter.active {
+  background: var(--wiki-green); color: #fff; border-color: var(--wiki-green);
+}
+.wiki-count { font-size: 0.82rem; color: var(--wiki-muted); margin-left: auto; white-space: nowrap; align-self: center; }
+
+/* ── Grid ── */
+.wiki-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  padding: 28px 0;
+}
+.wiki-card {
+  background: var(--wiki-card);
+  border: 1px solid var(--wiki-border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.wiki-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: var(--cat-color, #006233);
+  border-radius: 4px 0 0 4px;
+}
+.wiki-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  border-color: var(--cat-color, #006233);
+}
+.wiki-card-cat {
+  font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.06em; color: var(--cat-color, #006233);
+  margin-bottom: 6px; opacity: 0.8;
+}
+.wiki-card h3 {
+  font-size: 1rem; font-weight: 700; color: var(--wiki-text);
+  margin: 0 0 8px; line-height: 1.3;
+}
+.wiki-card p {
+  font-size: 0.82rem; color: var(--wiki-muted);
+  line-height: 1.5; margin: 0;
+  display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden;
+}
+.wiki-card-arrow {
+  position: absolute; right: 14px; bottom: 14px;
+  width: 26px; height: 26px;
+  background: var(--cat-color, #006233);
+  color: #fff; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; opacity: 0;
+  transition: opacity 0.2s;
+}
+.wiki-card:hover .wiki-card-arrow { opacity: 1; }
+
+/* ── Modal ── */
+.wiki-modal-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 2000;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 60px 16px 20px;
+  overflow-y: auto;
+}
+.wiki-modal-overlay.open { display: flex; }
+.wiki-modal {
+  background: var(--wiki-card);
+  border-radius: 16px;
+  max-width: 760px;
+  width: 100%;
+  padding: 32px;
+  position: relative;
+  animation: slideUp 0.3s ease;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.wiki-modal-close {
+  position: absolute; right: 16px; top: 16px;
+  width: 34px; height: 34px;
+  background: var(--wiki-bg);
+  border: none; border-radius: 50%; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--wiki-muted); font-size: 1rem;
+  transition: background 0.2s;
+}
+.wiki-modal-close:hover { background: var(--wiki-border); }
+.wiki-modal-cat {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.05em; color: #fff;
+  background: var(--cat-color, #006233);
+  margin-bottom: 12px;
+}
+.wiki-modal h2 {
+  font-size: 1.8rem; font-weight: 900;
+  color: var(--wiki-text); margin: 0 0 6px;
+}
+.wiki-modal-meta {
+  font-size: 0.8rem; color: var(--wiki-muted);
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--wiki-border);
+}
+.wiki-modal-section { margin-bottom: 20px; }
+.wiki-modal-section h4 {
+  font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.06em; color: var(--cat-color, #006233);
+  margin: 0 0 8px; display: flex; align-items: center; gap: 6px;
+}
+.wiki-modal-section p {
+  font-size: 0.95rem; color: var(--wiki-text);
+  line-height: 1.7; margin: 0;
+}
+.wiki-modal-section.context {
+  background: rgba(0,98,51,0.06);
+  border-radius: 10px;
+  padding: 16px;
+  border-left: 3px solid var(--wiki-green);
+}
+body.dark-mode .wiki-modal-section.context { background: rgba(0,98,51,0.12); }
+.wiki-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+.wiki-tag {
+  background: var(--wiki-bg);
+  border: 1px solid var(--wiki-border);
+  color: var(--wiki-muted);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+}
+.wiki-modal-nav {
+  display: flex; gap: 10px; margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--wiki-border);
+}
+.wiki-nav-btn {
+  flex: 1; padding: 10px 16px; border-radius: 8px;
+  border: 1.5px solid var(--wiki-border);
+  background: var(--wiki-card); color: var(--wiki-text);
+  cursor: pointer; font-size: 0.85rem; font-weight: 600;
+  transition: all 0.2s; text-align: center;
+}
+.wiki-nav-btn:hover { background: var(--wiki-green); color: #fff; border-color: var(--wiki-green); }
+.wiki-nav-btn.primary { background: var(--wiki-green); color: #fff; border-color: var(--wiki-green); }
+
+/* ── Loading ── */
+.wiki-loading {
+  text-align: center; padding: 60px 20px;
+  color: var(--wiki-muted);
+}
+.wiki-loading-spinner {
+  width: 40px; height: 40px;
+  border: 3px solid var(--wiki-border);
+  border-top-color: var(--wiki-green);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 16px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Empty state ── */
+.wiki-empty {
+  grid-column: 1/-1;
+  text-align: center; padding: 60px 20px;
+  color: var(--wiki-muted);
+}
+.wiki-empty i { font-size: 3rem; margin-bottom: 12px; opacity: 0.3; }
+
+/* ── Back to top ── */
+.wiki-back-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 16px; border-radius: 8px;
+  background: var(--wiki-card); color: var(--wiki-text);
+  border: 1px solid var(--wiki-border);
+  text-decoration: none; font-size: 0.85rem; font-weight: 500;
+  margin-bottom: 16px;
+  transition: all 0.2s;
+}
+.wiki-back-btn:hover { background: var(--wiki-green); color: #fff; border-color: var(--wiki-green); }
+
+@media (max-width: 640px) {
+  .wiki-hero h1 { font-size: 1.6rem; }
+  .wiki-modal { padding: 20px 16px; }
+  .wiki-modal h2 { font-size: 1.4rem; }
+  .wiki-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── Header minimal ── -->
+<header style="background: var(--wiki-card); border-bottom: 2px solid #006233; padding: 12px 0;">
+  <div class="wiki-container" style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+    <a href="/" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+      <img src="/images/logo_v2.png" alt="Algeria Tech" style="height:36px;">
+      <div>
+        <div style="font-size:1.1rem; font-weight:900; color:#006233;">Algeria <span style="color:#D21034;">Tech</span></div>
+        <div style="font-size:0.7rem; color:#64748b;">By Basta</div>
+      </div>
+    </a>
+    <nav style="display:flex; gap:6px; flex-wrap:wrap; align-items:center;">
+      <a href="/" class="wiki-back-btn" style="margin:0;"><i class="fas fa-arrow-left"></i> Accueil</a>
+      <a href="/infographies/index.html" class="wiki-back-btn" style="margin:0;"><i class="fas fa-chart-bar"></i> Infographies</a>
+      <a href="/barometre" class="wiki-back-btn" style="margin:0;"><i class="fas fa-chart-line"></i> Observatoire</a>
+      <button onclick="toggleTheme()" class="wiki-back-btn" style="border:none; cursor:pointer; margin:0;">
+        <i class="fas fa-moon" id="themeIcon"></i>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- ── Hero ── -->
+<div class="wiki-hero">
+  <div class="wiki-container">
+    <h1><i class="fas fa-book-open" style="margin-right:10px;"></i>Wiki <span>TIC Algérie</span></h1>
+    <p>Base de connaissances complète — Définitions pédagogiques & contexte algérien pour chaque terme clé</p>
+    <div class="wiki-stats">
+      <div class="wiki-stat"><strong>136</strong><span>Termes définis</span></div>
+      <div class="wiki-stat"><strong>6</strong><span>Catégories</span></div>
+      <div class="wiki-stat"><strong>100%</strong><span>Contexte Algérie</span></div>
+      <div class="wiki-stat"><strong>SEO</strong><span>Optimisé</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Controls ── -->
+<div class="wiki-controls">
+  <div class="wiki-container">
+    <div class="wiki-search-wrap">
+      <div class="wiki-search">
+        <i class="fas fa-search"></i>
+        <input type="text" id="wikiSearch" placeholder="Rechercher un terme... (ex: 5G, ARPCE, IA, fibre...)" oninput="filterWiki()">
+        <button onclick="clearSearch()" id="clearBtn" style="display:none; background:none; border:none; cursor:pointer; color:var(--wiki-muted); font-size:0.9rem;">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <span class="wiki-count" id="wikiCount"></span>
+    </div>
+    <div class="wiki-filters">
+      <button class="wiki-filter active" onclick="filterByCategory('')" data-cat="">Tous</button>
+      <button class="wiki-filter" onclick="filterByCategory('cat1')" data-cat="cat1" style="--cat-color:#006233">🏗 Infrastructures</button>
+      <button class="wiki-filter" onclick="filterByCategory('cat2')" data-cat="cat2" style="--cat-color:#1a73e8">📱 Opérateurs</button>
+      <button class="wiki-filter" onclick="filterByCategory('cat3')" data-cat="cat3" style="--cat-color:#0097a7">🌐 Internet & Web</button>
+      <button class="wiki-filter" onclick="filterByCategory('cat4')" data-cat="cat4" style="--cat-color:#D21034">🔒 Data & Cybersécurité</button>
+      <button class="wiki-filter" onclick="filterByCategory('cat5')" data-cat="cat5" style="--cat-color:#7c3aed">🚀 Innovation</button>
+      <button class="wiki-filter" onclick="filterByCategory('cat6')" data-cat="cat6" style="--cat-color:#d97706">📋 Complémentaire</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Grid ── -->
+<div class="wiki-page">
+  <div class="wiki-container">
+    <div class="wiki-grid" id="wikiGrid">
+      <div class="wiki-loading" id="wikiLoading">
+        <div class="wiki-loading-spinner"></div>
+        <p>Chargement du glossaire...</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Modal ── -->
+<div class="wiki-modal-overlay" id="wikiModal" onclick="closeModal(event)">
+  <div class="wiki-modal">
+    <button class="wiki-modal-close" onclick="closeModalDirect()"><i class="fas fa-times"></i></button>
+    <div class="wiki-modal-cat" id="modalCat"></div>
+    <h2 id="modalTitle"></h2>
+    <div class="wiki-modal-meta" id="modalMeta"></div>
+    <div class="wiki-modal-section">
+      <h4><i class="fas fa-info-circle"></i> Définition</h4>
+      <p id="modalDef"></p>
+    </div>
+    <div class="wiki-modal-section context">
+      <h4><i class="fas fa-map-marker-alt"></i> Contexte Algérien</h4>
+      <p id="modalCtx"></p>
+    </div>
+    <div class="wiki-tags" id="modalTags"></div>
+    <div class="wiki-modal-nav">
+      <button class="wiki-nav-btn" id="modalPrev" onclick="navigateFiche(-1)">
+        <i class="fas fa-chevron-left"></i> Précédent
+      </button>
+      <button class="wiki-nav-btn" id="modalNext" onclick="navigateFiche(1)">
+        Suivant <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Données Wiki embarquées ──────────────────────────────────────────────────
+const WIKI_DATA = [];
+let filteredData = [];
+let currentIndex = -1;
+
+const CAT_CONFIG = {
+  cat1: { label: 'Infrastructures & Réseaux',      color: '#006233', icon: '🏗' },
+  cat2: { label: 'Opérateurs & Services Mobiles',  color: '#1a73e8', icon: '📱' },
+  cat3: { label: 'Internet, Web & Communication',   color: '#0097a7', icon: '🌐' },
+  cat4: { label: 'Data, Cybersécurité & Intelligence', color: '#D21034', icon: '🔒' },
+  cat5: { label: 'Innovation, Recherche & Prospective', color: '#7c3aed', icon: '🚀' },
+  cat6: { label: 'Liste complémentaire',            color: '#d97706', icon: '📋' },
+};
+
+// ── Charger les données depuis l'API ─────────────────────────────────────────
+async function loadWiki() {
+  try {
+    const res = await fetch('/api/wiki');
+    const data = await res.json();
+    WIKI_DATA.push(...data);
+    filteredData = [...WIKI_DATA];
+    renderGrid(filteredData);
+    updateCount(filteredData.length, WIKI_DATA.length);
+  } catch(e) {
+    document.getElementById('wikiLoading').innerHTML =
+      '<i class="fas fa-exclamation-circle" style="font-size:2rem;color:#D21034;margin-bottom:12px;display:block;"></i><p>Erreur de chargement. <a href="/" style="color:#006233;">Retour accueil</a></p>';
+  }
+}
+
+// ── Rendu de la grille ───────────────────────────────────────────────────────
+function renderGrid(items) {
+  const grid = document.getElementById('wikiGrid');
+  if (!items.length) {
+    grid.innerHTML = `<div class="wiki-empty"><i class="fas fa-search"></i><p>Aucun terme trouvé.<br>Essayez un autre mot-clé.</p></div>`;
+    return;
+  }
+  grid.innerHTML = items.map((item, idx) => {
+    const cat = CAT_CONFIG[item.cat] || CAT_CONFIG.cat1;
+    return `
+      <div class="wiki-card" style="--cat-color:${cat.color}" onclick="openFiche(${idx})" data-idx="${idx}">
+        <div class="wiki-card-cat">${cat.icon} ${cat.label}</div>
+        <h3>${item.titre}</h3>
+        <p>${item.meta}</p>
+        <div class="wiki-card-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ── Filtres ──────────────────────────────────────────────────────────────────
+let currentCat = '';
+let currentSearch = '';
+
+function filterWiki() {
+  const q = document.getElementById('wikiSearch').value.toLowerCase().trim();
+  currentSearch = q;
+  document.getElementById('clearBtn').style.display = q ? 'block' : 'none';
+  applyFilters();
+}
+
+function filterByCategory(cat) {
+  currentCat = cat;
+  document.querySelectorAll('.wiki-filter').forEach(b => {
+    b.classList.toggle('active', b.dataset.cat === cat);
+  });
+  applyFilters();
+}
+
+function applyFilters() {
+  filteredData = WIKI_DATA.filter(item => {
+    const matchCat = !currentCat || item.cat === currentCat;
+    const matchSearch = !currentSearch ||
+      item.titre.toLowerCase().includes(currentSearch) ||
+      item.meta.toLowerCase().includes(currentSearch) ||
+      (item.tags || []).some(t => t.toLowerCase().includes(currentSearch));
+    return matchCat && matchSearch;
+  });
+  renderGrid(filteredData);
+  updateCount(filteredData.length, WIKI_DATA.length);
+}
+
+function clearSearch() {
+  document.getElementById('wikiSearch').value = '';
+  document.getElementById('clearBtn').style.display = 'none';
+  currentSearch = '';
+  applyFilters();
+}
+
+function updateCount(shown, total) {
+  document.getElementById('wikiCount').textContent = `${shown} / ${total} termes`;
+}
+
+// ── Modal ────────────────────────────────────────────────────────────────────
+async function openFiche(idx) {
+  currentIndex = idx;
+  const item = filteredData[idx];
+  const cat = CAT_CONFIG[item.cat] || CAT_CONFIG.cat1;
+
+  // Style couleur catégorie
+  const modal = document.querySelector('.wiki-modal');
+  modal.style.setProperty('--cat-color', cat.color);
+
+  document.getElementById('modalCat').textContent = `${cat.icon} ${cat.label}`;
+  document.getElementById('modalCat').style.background = cat.color;
+  document.getElementById('modalTitle').textContent = item.titre;
+  document.getElementById('modalMeta').textContent = item.meta;
+  document.getElementById('modalDef').textContent = 'Chargement...';
+  document.getElementById('modalCtx').textContent = '';
+  document.getElementById('modalTags').innerHTML = '';
+
+  document.getElementById('wikiModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  try {
+    const res = await fetch(`/api/wiki/${encodeURIComponent(item.slug)}`);
+    const detail = await res.json();
+    document.getElementById('modalDef').textContent = detail.definition || item.meta;
+    document.getElementById('modalCtx').textContent = detail.contexte || '';
+    document.getElementById('modalTags').innerHTML = (detail.tags || item.tags || [])
+      .map(t => `<span class="wiki-tag">#${t}</span>`).join('');
+  } catch(e) {
+    document.getElementById('modalDef').textContent = item.meta;
+  }
+
+  updateModalNav();
+
+  // SEO: update URL sans rechargement
+  history.pushState({ wikiSlug: item.slug }, item.titre, `/wiki/${item.slug}`);
+  document.title = `${item.titre} — Wiki TIC Algeria Tech`;
+}
+
+function updateModalNav() {
+  document.getElementById('modalPrev').style.opacity = currentIndex > 0 ? '1' : '0.4';
+  document.getElementById('modalNext').style.opacity = currentIndex < filteredData.length - 1 ? '1' : '0.4';
+}
+
+function navigateFiche(dir) {
+  const newIdx = currentIndex + dir;
+  if (newIdx >= 0 && newIdx < filteredData.length) openFiche(newIdx);
+}
+
+function closeModal(e) {
+  if (e.target === e.currentTarget) closeModalDirect();
+}
+
+function closeModalDirect() {
+  document.getElementById('wikiModal').classList.remove('open');
+  document.body.style.overflow = '';
+  history.pushState({}, 'Wiki TIC', '/wiki');
+  document.title = 'Wiki TIC — Glossaire ICT Algérie | Algeria Tech';
+}
+
+// ── Dark mode ────────────────────────────────────────────────────────────────
+function toggleTheme() {
+  document.body.classList.toggle('dark-mode');
+  const icon = document.getElementById('themeIcon');
+  icon.className = document.body.classList.contains('dark-mode') ? 'fas fa-sun' : 'fas fa-moon';
+  localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+}
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark-mode');
+  document.getElementById('themeIcon').className = 'fas fa-sun';
+}
+
+// ── Keyboard ─────────────────────────────────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModalDirect();
+  if (document.getElementById('wikiModal').classList.contains('open')) {
+    if (e.key === 'ArrowLeft') navigateFiche(-1);
+    if (e.key === 'ArrowRight') navigateFiche(1);
+  }
+});
+
+// ── Init ─────────────────────────────────────────────────────────────────────
+loadWiki();
+
+// Focus search on '/' key
+document.addEventListener('keydown', e => {
+  if (e.key === '/' && !document.getElementById('wikiModal').classList.contains('open')) {
+    e.preventDefault();
+    document.getElementById('wikiSearch').focus();
+  }
+});
+</script>
+
+</body>
+</html>
