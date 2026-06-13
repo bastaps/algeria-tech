@@ -433,10 +433,12 @@ window.openArticle = function(id) {
     window.scrollTo({top:0, behavior:'smooth'});
     let mediaHeader = '';
     let bodyImage = '';
+    let articleVideoId = null;
     if (art.video && art.video.trim() !== "  ") {
         const vId = art.video.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&?]{11})/)?.[1];
         if (vId) {
-            mediaHeader = `<div class="video-container" style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; margin-bottom:20px; border-radius:12px; background:#000;"><iframe src="https://www.youtube-nocookie.com/embed/${vId}" style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;" allowfullscreen></iframe></div>`;
+            articleVideoId = vId;
+            mediaHeader = `<div id="articleVideoAnchor" class="video-anchor"><div class="video-container" id="articleVideoContainer" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;background:#000;margin-bottom:20px;"><iframe src="https://www.youtube-nocookie.com/embed/${vId}" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen></iframe></div><div id="floatingVideoHeader" class="floating-video-header"><span class="floating-video-title"><i class="fab fa-youtube" style="color:#ff0000;margin-right:6px;"></i>Vidéo</span><button class="floating-video-close" onclick="closeFloatingVideo()" title="Fermer"><i class="fas fa-times"></i></button></div></div>`;
         }
         if (art.image && art.image.trim() !== "  ") {
             bodyImage = `<img src="${art.image}" alt="${art.titre}" style="max-width:350px; width:100%; float:right; margin:0 0 20px 20px; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">`;
@@ -451,6 +453,7 @@ window.openArticle = function(id) {
     }
     html += `<div class="share-buttons"><button class="share-btn facebook" onclick="share('facebook')"><i class="fab fa-facebook-f"></i> Facebook</button><button class="share-btn twitter" onclick="share('twitter')"><i class="fab fa-twitter"></i> Twitter</button><button class="share-btn whatsapp" onclick="share('whatsapp')"><i class="fab fa-whatsapp"></i> WhatsApp</button><button class="share-btn linkedin" onclick="share('linkedin')"><i class="fab fa-linkedin-in"></i> LinkedIn</button><button class="share-btn copy" onclick="copyLink()"><i class="fas fa-link"></i> Copier</button></div>`;
     document.getElementById('articleContent').innerHTML = html;
+    if (articleVideoId) setupFloatingVideo();
     if (typeof highlightJargon === 'function') highlightJargon();
     initAudioReader(art.titre + ".  " + art.rawContent);
     const rel = allArticles.filter(a => a.id != id && a.categorie === art.categorie).slice(0, 3);
@@ -464,6 +467,62 @@ window.openArticle = function(id) {
             return `<div class="related-card" onclick="openArticle('${a.id}')"><img src="${thumb}" onerror="this.onerror=null;this.style.display='none'"><h4>${a.titre}</h4></div>`;
         }).join('');
     } else if (relBox) { relBox.style.display = 'none'; }
+};
+
+// ===== FLOATING VIDEO PLAYER =====
+// L'iframe reste dans le DOM (position: fixed via CSS) — aucun rechargement, lecture continue.
+function setupFloatingVideo() {
+    const legacy = document.getElementById('floatingVideoPlayer');
+    if (legacy) legacy.remove();
+    if (window._floatingVideoScrollHandler) {
+        window.removeEventListener('scroll', window._floatingVideoScrollHandler);
+        window._floatingVideoScrollHandler = null;
+    }
+    window._floatingVideoDismissed = false;
+
+    const anchor = document.getElementById('articleVideoAnchor');
+    const videoContainer = document.getElementById('articleVideoContainer');
+    if (!anchor || !videoContainer) return;
+
+    let floatActivatedAtScrollY = null;
+
+    function checkFloating() {
+        if (window._floatingVideoDismissed) return;
+        const isFloating = anchor.classList.contains('video-floating');
+
+        if (!isFloating) {
+            // Activer : on mesure rect seulement quand PAS en mode flottant (pas d'oscillation)
+            if (videoContainer.getBoundingClientRect().bottom < 0) {
+                // Réserver la hauteur avant de sortir du flux → évite le saut de layout
+                const h = parseFloat(window.getComputedStyle(videoContainer).paddingBottom)
+                          || Math.round(videoContainer.offsetWidth * 0.5625)
+                          || 200;
+                anchor.style.minHeight = h + 'px';
+                floatActivatedAtScrollY = window.scrollY;
+                anchor.classList.add('video-floating');
+            }
+        } else {
+            // Désactiver : comparer scrollY (rect serait celui de l'élément fixed → fausse valeur)
+            if (floatActivatedAtScrollY !== null && window.scrollY < floatActivatedAtScrollY - 40) {
+                anchor.classList.remove('video-floating');
+                anchor.style.minHeight = '';
+                floatActivatedAtScrollY = null;
+            }
+        }
+    }
+
+    window.addEventListener('scroll', checkFloating, { passive: true });
+    window._floatingVideoScrollHandler = checkFloating;
+}
+
+window.closeFloatingVideo = function() {
+    const anchor = document.getElementById('articleVideoAnchor');
+    if (anchor) anchor.classList.remove('video-floating');
+    window._floatingVideoDismissed = true;
+    if (window._floatingVideoScrollHandler) {
+        window.removeEventListener('scroll', window._floatingVideoScrollHandler);
+        window._floatingVideoScrollHandler = null;
+    }
 };
 
 // ===== LOGIQUE AUDIO (TTS Premium + Highlighting) =====
@@ -645,6 +704,7 @@ window.goHome = function() {
         history.replaceState({ view: 'home' }, '', '/');
         document.title = "Algeria Tech - L'actualité numérique en Algérie par Basta";
     }
+    closeFloatingVideo();
     document.getElementById('mainContent').style.display = 'block';
     document.getElementById('articlePage').style.display = 'none';
     document.getElementById('veilleSection').style.display = 'none';

@@ -2917,3 +2917,79 @@ body.dark-mode .reg-search-input:focus {
   .reg-hero-title { font-size: 1.5rem; }
   .reg-grid { grid-template-columns: 1fr; }
 }
+
+/* ===== FLOATING VIDEO PLAYER ===== */
+/* L'iframe reste dans le DOM, on change juste sa position via CSS */
+.video-anchor { position: relative; }
+.video-anchor #floatingVideoHeader { display: none; }
+
+/* Mode flottant : la video-container passe en position fixed */
+.video-anchor.video-floating .video-container {
+    position: fixed !important;
+    bottom: 80px;
+    right: 20px;
+    width: 320px;
+    height: 180px !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    border-radius: 0 0 12px 12px !important;
+    z-index: 9999;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    animation: videoFloatIn 0.3s ease forwards;
+}
+.video-anchor.video-floating #floatingVideoHeader {
+    display: flex;
+    position: fixed;
+    bottom: calc(80px + 180px);
+    right: 20px;
+    width: 320px;
+    z-index: 10000;
+    border-radius: 12px 12px 0 0;
+    background: #1a1a2e;
+    box-shadow: 0 -2px 16px rgba(0,0,0,0.4);
+    animation: videoFloatIn 0.3s ease forwards;
+}
+@keyframes videoFloatIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Header partagé */
+.floating-video-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: rgba(0,0,0,0.35);
+}
+.floating-video-title {
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+.floating-video-close {
+    background: rgba(255,255,255,0.12);
+    border: none;
+    color: #fff;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+.floating-video-close:hover { background: rgba(210,16,52,0.85); }
+
+@media (max-width: 480px) {
+    .video-anchor.video-floating .video-container {
+        width: 260px; height: 146px !important; bottom: 65px; right: 10px;
+    }
+    .video-anchor.video-floating #floatingVideoHeader {
+        width: 260px; bottom: calc(65px + 146px); right: 10px;
+    }
+}

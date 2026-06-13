@@ -22,8 +22,8 @@
     <link rel="dns-prefetch" href="https://rss.app">
 
     <!-- CSS critique chargé en priorité -->
-    <link rel="preload" href="/style.css" as="style">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="preload" href="/style.css?v=2" as="style">
+    <link rel="stylesheet" href="/style.css?v=2">
 
     <!-- Font Awesome : async (non-bloquant) — icônes apparaissent après le contenu, évite les 7s de blocage CDN -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -486,7 +486,7 @@
 
     <!-- marked.js chargé AVANT script.js (requis pour le rendu markdown des articles) -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="/script.js"></script>
+    <script src="/script.js?v=7"></script>
     <!-- Moteur i18n FR ↔ AR (chargé après script.js pour accéder aux grilles) -->
     <script src="/i18n.js"></script>
     <!-- Déchiffrer le jargon — dictionnaire télécom/tech Algérie -->
