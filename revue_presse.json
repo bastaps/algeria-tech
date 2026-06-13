@@ -1,7 +1,29 @@
 {
   "date": "samedi 13 juin",
-  "synthese": "L'actualité tech des dernières 24h révèle une forte dynamique autour de l'IA, avec des avancées majeures chez les géants comme Apple et Doctolib, tandis que les enjeux de cybersécurité et de régulation des technologies dominent. Les innovations en télécoms et mobile restent marginales, mais les tensions géopolitiques impactent directement le secteur des semi-conducteurs et des IA. Les consommateurs et entreprises algériennes doivent aussi composer avec des défis locaux, notamment en matière de contrôle des importations et de tarification des services high-tech.",
+  "synthese": "L'actualité tech des dernières 24h en Algérie et à l'international révèle des enjeux majeurs en cybersécurité, innovation et régulation, avec des impacts concrets sur les entreprises et les utilisateurs. Les avancées en IA et les tensions géopolitiques autour des technologies dominent les débats, tandis que les marchés locaux et globaux s'adaptent à des défis structurels. Les startups et les géants tech naviguent entre opportunités et contraintes, façonnant l'avenir numérique.",
   "articles": [
+    {
+      "titre": "La sécurité de npm, un jeu d’équilibriste pour GitHub",
+      "resume": "Pour sécuriser npm, GitHub multiplie les initiatives... pas toujours accueillies favorablement.\nThe post La sécurité de npm, un jeu d’équilibriste pou",
+      "url": "https://www.silicon.fr/cybersecurite-1371/github-securite-npm-227651",
+      "date": "2026-06-12T15:18:24.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
+      "pays": "FR",
+      "accroche": "GitHub sous pression : npm face à des failles de sécurité critiques à gérer.",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Comment France Travail veut passer à l’échelle supérieure sur l’IA",
+      "resume": "France Travail veut accélèrer sa transformation numérique en intégrant massivement l'intelligence artificielle générative au cœur de ses services d'ic",
+      "url": "https://www.silicon.fr/data-ia-1372/comment-france-travail-veut-passer-a-lechelle-superieure-sur-lia-227649",
+      "date": "2026-06-12T13:27:44.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
+      "pays": "FR",
+      "accroche": "France Travail mise sur l'IA pour révolutionner ses services et son efficacité.",
+      "categorie": "IA"
+    },
     {
       "titre": "L’IA agentique change les méthodes de travail : Doctolib l’expérimente auprès de ses développeurs",
       "resume": "Doctolib a conduit une expérience fondée sur un mode de collaboration synchrone. Il en dresse un bilan.\nThe post L’IA agentique change les méthodes de",
@@ -10,8 +32,19 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Doctolib révolutionne le travail des devs avec l'IA agentique en interne.",
+      "accroche": "Doctolib teste l'IA agentique pour booster la productivité de ses équipes.",
       "categorie": "IA"
+    },
+    {
+      "titre": "J'ai testé une tonne d'outils d'IA locale pour mon ordinateur, mais Hermes + Ollama est désormais mon préféré – voici pourquoi",
+      "resume": "L'IA locale est la solution idéale pour moi, et Hermes associé à Ollama, un logiciel libre, est ma configuration préférée pour le moment.",
+      "url": "https://www.zdnet.fr/pratique/jai-teste-une-tonne-doutils-dia-locale-pour-mon-ordinateur-mais-hermes-ollama-est-desormais-mon-prefere-voici-pourquoi-496755.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-13T07:40:32.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Outils d'IA locale : Hermes + Ollama s'impose comme la référence incontournable.",
+      "categorie": "Innovation"
     },
     {
       "titre": "iOS 27 : j'ai testé les trois nouveaux outils de retouche IA d'Apple Photos",
@@ -21,7 +54,7 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Apple intègre trois outils de retouche IA révolutionnaires dans iOS 27.",
+      "accroche": "iOS 27 dévoile des outils de retouche IA révolutionnaires dans Apple Photos.",
       "categorie": "Mobile"
     },
     {
@@ -32,52 +65,8 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "L'IA propulse les revenus des fonderies de semi-conducteurs à un niveau historique.",
+      "accroche": "L'IA propulse les revenus des fonderies de semi-conducteurs à des sommets historiques.",
       "categorie": "Innovation"
-    },
-    {
-      "titre": "Quand les hackers frappent à votre porte : de faux techniciens se rendent désormais dans les entreprises qu’ils veulent pirater",
-      "resume": "Le FBI et Google tirent la sonnette d'alarme. Depuis janvier 2026, un groupe de cybercriminels baptisé Silent Ransom Group s'attaque massivement à des",
-      "url": "https://www.01net.com/actualites/quand-les-hackers-frappent-a-votre-porte-de-faux-techniciens-se-rendent-desormais-dans-les-entreprises-quils-veulent-pirater.html",
-      "date": "2026-06-13T08:01:49.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Faux techniciens : une nouvelle arnaque ciblant les entreprises via des hackers.",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "Coup de tonnerre : Anthropic désactive Claude Fable 5 et Mythos sur ordre de Washington",
-      "resume": "Le gouvernement américain a ordonné le 12 juin la désactivation immédiate de Fable 5 et Mythos 5, invoquant la sécurité nationale après la découverte",
-      "url": "https://www.numerama.com/cyberguerre/2275575-coup-de-tonnerre-anthropic-desactive-fable-5-et-mythos-5-sur-ordre-de-washington.html",
-      "date": "2026-06-13T06:11:13.000Z",
-      "source": "Numerama",
-      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
-      "pays": "FR",
-      "accroche": "Washington force Anthropic à désactiver ses IA les plus puissantes, un tournant.",
-      "categorie": "IA"
-    },
-    {
-      "titre": "La sécurité de npm, un jeu d’équilibriste pour GitHub",
-      "resume": "Pour sécuriser npm, GitHub multiplie les initiatives... pas toujours accueillies favorablement.\nThe post La sécurité de npm, un jeu d’équilibriste pou",
-      "url": "https://www.silicon.fr/cybersecurite-1371/github-securite-npm-227651",
-      "date": "2026-06-12T15:18:24.000Z",
-      "source": "Silicon.fr",
-      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Algérie : renforcement des contrôles aux frontières pour limiter les importations tech.",
-      "categorie": "Télécoms"
-    },
-    {
-      "titre": "Comment France Travail veut passer à l’échelle supérieure sur l’IA",
-      "resume": "France Travail veut accélèrer sa transformation numérique en intégrant massivement l'intelligence artificielle générative au cœur de ses services d'ic",
-      "url": "https://www.silicon.fr/data-ia-1372/comment-france-travail-veut-passer-a-lechelle-superieure-sur-lia-227649",
-      "date": "2026-06-12T13:27:44.000Z",
-      "source": "Silicon.fr",
-      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
-      "pays": "FR",
-      "accroche": "France Travail mise sur l'IA pour transformer ses processus et services.",
-      "categorie": "IA"
     },
     {
       "titre": "Le Jaecoo 5 EV arrive en France : pourquoi ce SUV électrique chinois part avec un handicap",
@@ -87,7 +76,7 @@
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Jaecoo 5 EV : un SUV électrique chinois handicapé par son arrivée en France.",
+      "accroche": "Jaecoo 5 EV débarque en France : un SUV électrique chinois en difficulté.",
       "categorie": "Mobile"
     },
     {
@@ -98,42 +87,53 @@
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Fable 5 et Mythos 5 : le gouvernement américain impose l'arrêt de ces IA d'Anthropic.",
+      "accroche": "Anthropic désactive ses IA les plus puissantes sous la pression du gouvernement US.",
       "categorie": "IA"
     },
     {
-      "titre": "Amazon fait chuter l’alternative ultra-fine à l’AirTag Ugreen à moins de 20 €",
-      "resume": "[Deal du jour] Pour protéger votre portefeuille sans l'encombrer, ce traceur d'Ugreen se pose en alternative idéale à l'AirTag grâce à son format cart",
-      "url": "https://www.numerama.com/tech/2275021-amazon-fait-chuter-lalternative-ultra-fine-a-lairtag-dugreen-a-moins-de-20-e.html",
-      "date": "2026-06-13T04:31:00.000Z",
-      "source": "Numerama",
-      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
-      "pays": "FR",
-      "accroche": "Amazon casse les prix de l'alternative à l'AirTag Ugreen à moins de 20 €.",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Recharge voiture électrique : une enquête épingle la loterie des tarifs à la borne",
-      "resume": "Les tarifs de recharge publique des véhicules électriques en France sont marqués par des écarts considérables, selon une étude publiée par la CLCV. Mê",
-      "url": "https://www.numerama.com/vroom/2274873-recharge-voiture-electrique-une-enquete-epingle-la-loterie-des-tarifs-a-la-borne.html",
-      "date": "2026-06-12T18:37:00.000Z",
-      "source": "Numerama",
-      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
-      "pays": "FR",
-      "accroche": "Enquête : la recharge des voitures électriques, une loterie tarifaire en France.",
-      "categorie": "Réseaux"
-    },
-    {
-      "titre": "Panne Facebook et Instagram : un dysfonctionnement massif est en cours",
-      "resume": "Le réseau social et la messagerie instantanée de Meta ne répondent plus. Facebook et Messenger sont inaccessibles à l'échelle mondiale depuis ce milie",
-      "url": "https://www.01net.com/actualites/panne-facebook-et-instagram-un-dysfonctionnement-massif-est-en-cours.html",
-      "date": "2026-06-12T14:02:47.000Z",
+      "titre": "Anthropic prend une décision radicale et désactive Claude Fable 5 et Mythos 5 dans le monde entier",
+      "resume": "Trois jours seulement après leur lancement, les deux modèles d'IA les plus avancés d'Anthropic, Claude Fable 5 et Mythos 5, ont été désactivés. La sta",
+      "url": "https://www.01net.com/actualites/anthropic-prend-decision-radicale-et-desactive-claude-fable-5-mythos-5-monde-entier.html",
+      "date": "2026-06-13T08:23:38.000Z",
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Panne massif : Facebook et Instagram paralysés dans le monde entier.",
-      "categorie": "Réseaux"
+      "accroche": "Anthropic retire mondialement ses IA Fable 5 et Mythos 5 pour des raisons réglementaires.",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Quand les hackers frappent à votre porte : de faux techniciens se rendent désormais dans les entreprises qu’ils veulent pirater",
+      "resume": "Le FBI et Google tirent la sonnette d'alarme. Depuis janvier 2026, un groupe de cybercriminels baptisé Silent Ransom Group s'attaque massivement à des",
+      "url": "https://www.01net.com/actualites/quand-les-hackers-frappent-a-votre-porte-de-faux-techniciens-se-rendent-desormais-dans-les-entreprises-quils-veulent-pirater.html",
+      "date": "2026-06-13T08:01:49.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Cybercriminalité : des faux techniciens infiltrent les entreprises pour voler des données.",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Recharge des voitures électriques : une association française dénonce une « loterie tarifaire »",
+      "resume": "La CLCV dénonce une « loterie tarifaire » pour la recharge des voitures électriques en France, soulignant un manque de clarté dans les tarifs. L’assoc",
+      "url": "https://www.01net.com/actualites/recharge-des-voitures-electriques-une-association-francaise-denonce-une-loterie-tarifaire.html",
+      "date": "2026-06-12T15:33:23.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Recharge des voitures électriques : une loterie tarifaire dénoncée en France.",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Coup de tonnerre : Anthropic désactive Claude Fable 5 et Mythos sur ordre de Washington",
+      "resume": "Le gouvernement américain a ordonné le 12 juin la désactivation immédiate de Fable 5 et Mythos 5, invoquant la sécurité nationale après la découverte",
+      "url": "https://www.numerama.com/cyberguerre/2275575-coup-de-tonnerre-anthropic-desactive-fable-5-et-mythos-5-sur-ordre-de-washington.html",
+      "date": "2026-06-13T06:11:13.000Z",
+      "source": "Numerama",
+      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
+      "pays": "FR",
+      "accroche": "Washington force Anthropic à désactiver ses IA les plus avancées sans délai.",
+      "categorie": "IA"
     }
   ],
-  "lastUpdated": "2026-06-13T08:16:23.215Z"
+  "lastUpdated": "2026-06-13T09:30:30.001Z"
 }
