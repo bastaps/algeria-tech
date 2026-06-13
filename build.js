@@ -73,6 +73,72 @@ articles.sort((a, b) => {
     return db - da;
 });
 
-// ── Écriture ─────────────────────────────────────────────────
+// ── Écriture articles.json ────────────────────────────────────
 fs.writeFileSync(OUTPUT, JSON.stringify(articles), 'utf8');
 console.log(`✅ articles.json généré : ${articles.length} articles (${(fs.statSync(OUTPUT).size / 1024).toFixed(1)} KB)`);
+
+// ============================================================
+//  Génération wiki_data.json depuis les fichiers Markdown wiki
+// ============================================================
+const WIKI_DIR    = path.join(__dirname, 'wiki');
+const WIKI_OUTPUT = path.join(__dirname, 'wiki_data.json');
+
+const WIKI_CATS = [
+    { id: 'cat1', dir: 'cat1-infrastructures' },
+    { id: 'cat2', dir: 'cat2-operateurs' },
+    { id: 'cat3', dir: 'cat3-internet-web' },
+    { id: 'cat4', dir: 'cat4-data-cybersecurite' },
+    { id: 'cat5', dir: 'cat5-innovation' },
+    { id: 'cat6', dir: 'cat6-complementaire' },
+];
+
+function parseWikiFm(content) {
+    const match = content.match(/^---\n([\s\S]*?)\n---/);
+    if (!match) return {};
+    const fm = match[1];
+    const get = (k) => { const m = fm.match(new RegExp(`${k}:\\s*"?([^"\\n]+)"?`)); return m ? m[1].trim() : ''; };
+    const tagsM = fm.match(/tags:\s*\[([^\]]+)\]/);
+    const tags = tagsM ? tagsM[1].split(',').map(t => t.trim().replace(/^["']|["']$/g, '')) : [];
+    return { titre: get('titre'), slug: get('slug'), meta: get('meta_description'), tags };
+}
+
+function parseWikiBody(content) {
+    const body = content.replace(/^---[\s\S]*?---\n/, '');
+    const defM = body.match(/## Définition\n([\s\S]*?)(?=\n##|$)/);
+    const ctxM = body.match(/## Contexte Algérien\n([\s\S]*?)(?=\n##|$)/);
+    const tagsM = body.match(/## Mots-clés SEO\n([\s\S]*?)(?=\n##|$)/);
+    const tags = tagsM ? tagsM[1].trim().split('\n').map(l => l.replace(/^-\s*/, '').trim()).filter(Boolean) : [];
+    return {
+        definition: defM ? defM[1].trim() : '',
+        contexte:   ctxM ? ctxM[1].trim() : '',
+        tags,
+    };
+}
+
+const wikiTerms = [];
+for (const cat of WIKI_CATS) {
+    const dir = path.join(WIKI_DIR, cat.dir);
+    if (!fs.existsSync(dir)) continue;
+    const files = fs.readdirSync(dir).filter(f => f.endsWith('.md') && !f.startsWith('INDEX'));
+    for (const file of files) {
+        try {
+            const content = fs.readFileSync(path.join(dir, file), 'utf-8');
+            const fm   = parseWikiFm(content);
+            if (!fm.slug || !fm.titre) continue;
+            const body = parseWikiBody(content);
+            wikiTerms.push({
+                cat:        cat.id,
+                slug:       fm.slug,
+                titre:      fm.titre,
+                meta:       fm.meta,
+                tags:       body.tags.length ? body.tags : fm.tags,
+                definition: body.definition,
+                contexte:   body.contexte,
+            });
+        } catch (e) { console.warn(`⚠️  Wiki skip ${file}: ${e.message}`); }
+    }
+}
+wikiTerms.sort((a, b) => a.titre.localeCompare(b.titre, 'fr'));
+
+fs.writeFileSync(WIKI_OUTPUT, JSON.stringify(wikiTerms), 'utf8');
+console.log(`✅ wiki_data.json généré : ${wikiTerms.length} termes (${(fs.statSync(WIKI_OUTPUT).size / 1024).toFixed(1)} KB)`);

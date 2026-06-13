@@ -425,10 +425,11 @@ const CAT_CONFIG = {
   cat6: { label: 'Liste complémentaire',            color: '#d97706', icon: '📋' },
 };
 
-// ── Charger les données depuis l'API ─────────────────────────────────────────
+// ── Charger les données depuis le JSON statique ──────────────────────────────
 async function loadWiki() {
   try {
-    const res = await fetch('/api/wiki');
+    const res = await fetch('/wiki_data.json');
+    if (!res.ok) throw new Error('wiki_data.json introuvable');
     const data = await res.json();
     WIKI_DATA.push(...data);
     filteredData = [...WIKI_DATA];
@@ -524,16 +525,10 @@ async function openFiche(idx) {
   document.getElementById('wikiModal').classList.add('open');
   document.body.style.overflow = 'hidden';
 
-  try {
-    const res = await fetch(`/api/wiki/${encodeURIComponent(item.slug)}`);
-    const detail = await res.json();
-    document.getElementById('modalDef').textContent = detail.definition || item.meta;
-    document.getElementById('modalCtx').textContent = detail.contexte || '';
-    document.getElementById('modalTags').innerHTML = (detail.tags || item.tags || [])
-      .map(t => `<span class="wiki-tag">#${t}</span>`).join('');
-  } catch(e) {
-    document.getElementById('modalDef').textContent = item.meta;
-  }
+  document.getElementById('modalDef').textContent = item.definition || item.meta;
+  document.getElementById('modalCtx').textContent = item.contexte || '';
+  document.getElementById('modalTags').innerHTML = (item.tags || [])
+    .map(t => `<span class="wiki-tag">#${t}</span>`).join('');
 
   updateModalNav();
 
