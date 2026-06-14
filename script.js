@@ -260,6 +260,7 @@ async function loadArticles() {
             .filter(a => a.type !== 'communique_officiel')  // réservés au Hub Opérateurs
             .map(a => ({
                 ...a,
+                image: a.image && !a.image.startsWith('http') && !a.image.startsWith('/') ? '/' + a.image : a.image,
                 views: articleViews[a.id] || Math.floor(Math.random() * 500) + 50
             }));
 
@@ -2122,6 +2123,7 @@ function buildVeilleCard(item, flux) {
     const initials = vAvatarInitials(item.source);
     const color   = vAvatarColor(item.source || '');
     const cls     = `v2-card--${flux === 'algerie' ? 'dz' : flux === 'francophone' ? 'fr' : flux === 'tic' ? 'tic' : 'manuel'}`;
+    const isNew   = item.fetchedAt && (Date.now() - new Date(item.fetchedAt).getTime() < 24 * 60 * 60 * 1000);
     const safeT   = (item.title || '').replace(/</g,'&lt;').replace(/>/g,'&gt;');
     const safeU   = (item.url   || '').replace(/"/g,'&quot;');
     const acts    = item.isManual
@@ -2133,6 +2135,7 @@ function buildVeilleCard(item, flux) {
     <div class="v2-card-source">
       <div class="v2-avatar" style="background:${color}">${initials}</div>
       <span class="v2-src-name">${(item.source||'').replace(/</g,'&lt;')}</span>
+      ${isNew ? '<span class="v2-new"><i class="fas fa-bolt"></i> Nouveau</span>' : ''}
     </div>
     <span class="v2-badge v2-badge--${topic}">${topic}</span>
   </div>
@@ -2492,3 +2495,212 @@ function initRouter() {
 
 // Démarrage du routeur après DOMContentLoaded
 document.addEventListener('DOMContentLoaded', initRouter);
+
+// ══════════════════════════════════════════════════════════════
+//  PLATFORM HUB — Centre de Commandement du Numérique Algérien
+// ══════════════════════════════════════════════════════════════
+
+const HUB_MODULES = [
+    {
+        id: 'veille',
+        name: 'Veille Intelligence',
+        desc: 'Monitoring temps réel des sources numériques algériennes',
+        icon: 'fas fa-satellite-dish',
+        color: '#4a9eff',
+        glow: 'rgba(74,158,255,0.18)',
+        action: 'showVeille()',
+        live: true,
+        countId: 'vs-total',
+        unit: 'articles'
+    },
+    {
+        id: 'observatoire',
+        name: 'Observatoire du Numérique',
+        desc: 'Données et tendances du marché télécom algérien',
+        icon: 'fas fa-chart-line',
+        color: '#a78bfa',
+        glow: 'rgba(167,139,250,0.18)',
+        action: "window.location.href='/barometre'",
+        live: false,
+        staticCount: null,
+        unit: 'indicateurs'
+    },
+    {
+        id: 'revue',
+        name: 'Revue de Presse',
+        desc: 'Synthèse quotidienne de la presse algérienne et internationale',
+        icon: 'fas fa-newspaper',
+        color: '#4ade80',
+        glow: 'rgba(74,222,128,0.18)',
+        action: 'showRevue()',
+        live: false,
+        staticCount: null,
+        unit: 'revues'
+    },
+    {
+        id: 'comparateur',
+        name: 'Comparateur Mobile',
+        desc: 'Comparez les offres des 3 opérateurs en temps réel',
+        icon: 'fas fa-balance-scale',
+        color: '#fb923c',
+        glow: 'rgba(251,146,60,0.18)',
+        action: 'showComparateur()',
+        live: false,
+        staticCount: '3',
+        unit: 'opérateurs'
+    },
+    {
+        id: 'infographies',
+        name: 'Infographies',
+        desc: 'Visualisations de données du secteur numérique algérien',
+        icon: 'fas fa-chart-pie',
+        color: '#f87171',
+        glow: 'rgba(248,113,113,0.18)',
+        action: "window.location.href='/infographies/index.html'",
+        live: false,
+        staticCount: null,
+        unit: 'infographies'
+    },
+    {
+        id: 'operateurs',
+        name: 'Opérateurs Mobiles',
+        desc: 'Profils, couverture et offres des opérateurs en Algérie',
+        icon: 'fas fa-signal',
+        color: '#34d399',
+        glow: 'rgba(52,211,153,0.18)',
+        action: "window.location.href='/operateurs'",
+        live: false,
+        staticCount: '3',
+        unit: 'opérateurs'
+    },
+    {
+        id: 'reglementaire',
+        name: 'Veille Réglementaire',
+        desc: 'Textes juridiques et décisions de l\'ARPCE et du MPTIC',
+        icon: 'fas fa-gavel',
+        color: '#818cf8',
+        glow: 'rgba(129,140,248,0.18)',
+        action: 'showReglementaire()',
+        live: false,
+        staticCount: null,
+        unit: 'textes'
+    },
+    {
+        id: 'veille-rs',
+        name: 'Veille Réseaux Sociaux',
+        desc: 'Tendances TIC sur Twitter, LinkedIn et Facebook algériens',
+        icon: 'fas fa-share-alt',
+        color: '#fb7185',
+        glow: 'rgba(251,113,133,0.18)',
+        action: "window.location.href='/actualites-tic'",
+        live: true,
+        staticCount: null,
+        unit: 'posts'
+    },
+    {
+        id: 'lexique',
+        name: 'Lexique TIC',
+        desc: 'Dictionnaire du numérique en arabe, français et anglais',
+        icon: 'fas fa-book-open',
+        color: '#2dd4bf',
+        glow: 'rgba(45,212,191,0.18)',
+        action: "window.location.href='/wiki'",
+        live: false,
+        staticCount: null,
+        unit: 'termes'
+    },
+    {
+        id: 'video',
+        name: 'Vidéos & Décryptages',
+        desc: 'Reportages et analyses vidéo du numérique algérien',
+        icon: 'fas fa-play-circle',
+        color: '#f43f5e',
+        glow: 'rgba(244,63,94,0.18)',
+        action: "filterByCategory('Vidéo')",
+        live: false,
+        staticCount: null,
+        unit: 'vidéos'
+    }
+];
+
+function renderPlatformHub() {
+    const grid = document.getElementById('hubGrid');
+    if (!grid) return;
+
+    grid.innerHTML = HUB_MODULES.map(mod => {
+        const liveDot = mod.live
+            ? `<span class="hub-dot-live" title="En direct"></span>`
+            : '';
+
+        const countVal = mod.countId
+            ? (document.getElementById(mod.countId)?.textContent || '—')
+            : (mod.staticCount || '—');
+
+        const footerHTML = `
+            <span class="hub-card-count" id="hc-${mod.id}">${countVal}</span>
+            <span class="hub-card-unit">${mod.unit}</span>
+            ${liveDot}`;
+
+        return `<div class="hub-card"
+                     style="--hc-color:${mod.color};--hc-glow:${mod.glow};"
+                     onclick="${mod.action}"
+                     role="button" tabindex="0"
+                     onkeydown="if(event.key==='Enter'||event.key===' '){${mod.action}}">
+            <div class="hub-card-icon"><i class="${mod.icon}"></i></div>
+            <div class="hub-card-name">${mod.name}</div>
+            <div class="hub-card-desc">${mod.desc}</div>
+            <div class="hub-card-footer">${footerHTML}</div>
+        </div>`;
+    }).join('');
+}
+
+function updateHubStats() {
+    // Nombre d'articles
+    const artEl = document.getElementById('hubStatArticles');
+    if (artEl && allArticles.length > 0) hubAnimateCount(artEl, allArticles.length);
+
+    // Nombre de sources veille
+    const vsTotal = document.getElementById('vs-total');
+    const hubVeille = document.getElementById('hubStatVeille');
+    if (hubVeille && vsTotal && vsTotal.textContent !== '—') {
+        hubVeille.textContent = vsTotal.textContent;
+        // Mettre à jour aussi la carte veille
+        const hcVeille = document.getElementById('hc-veille');
+        if (hcVeille) hcVeille.textContent = vsTotal.textContent;
+    }
+
+    // Nombre d'articles dans la carte vidéo (depuis allArticles)
+    const videoCount = allArticles.filter(a => a.category === 'Vidéo').length;
+    const hcVideo = document.getElementById('hc-video');
+    if (hcVideo && videoCount > 0) hcVideo.textContent = videoCount;
+
+    // Heure de synchro
+    const timeEl = document.getElementById('hubStatTime');
+    if (timeEl) timeEl.textContent = new Date().toLocaleTimeString('fr-DZ', { hour: '2-digit', minute: '2-digit' });
+}
+
+function hubAnimateCount(el, target, duration = 900) {
+    if (el._hubAnimating) return;
+    el._hubAnimating = true;
+    const start = performance.now();
+    const tick = (now) => {
+        const p = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.floor(ease * target);
+        if (p < 1) requestAnimationFrame(tick);
+        else { el.textContent = target; el._hubAnimating = false; }
+    };
+    requestAnimationFrame(tick);
+}
+
+// Init hub au chargement du DOM
+document.addEventListener('DOMContentLoaded', () => {
+    renderPlatformHub();
+    // Mise à jour des stats après chargement des données
+    setTimeout(updateHubStats, 2500);
+    // Rafraîchissement de l'heure toutes les minutes
+    setInterval(() => {
+        const timeEl = document.getElementById('hubStatTime');
+        if (timeEl) timeEl.textContent = new Date().toLocaleTimeString('fr-DZ', { hour: '2-digit', minute: '2-digit' });
+    }, 60000);
+});

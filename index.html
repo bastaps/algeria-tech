@@ -22,8 +22,8 @@
     <link rel="dns-prefetch" href="https://rss.app">
 
     <!-- CSS critique chargé en priorité -->
-    <link rel="preload" href="/style.css?v=2" as="style">
-    <link rel="stylesheet" href="/style.css?v=2">
+    <link rel="preload" href="/style.css?v=3" as="style">
+    <link rel="stylesheet" href="/style.css?v=3">
 
     <!-- Font Awesome : async (non-bloquant) — icônes apparaissent après le contenu, évite les 7s de blocage CDN -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -57,51 +57,71 @@
                 </div>
             </div>
         </div>
-        <div class="header">
-            <div class="container header-content">
-                <div class="logo" onclick="goHome()">
+        <div class="header" id="siteHeader">
+            <div class="container header-content at-grid">
+
+                <!-- ═══ Logo (occupe les 2 lignes) ═══ -->
+                <div class="logo at-logo" onclick="goHome()">
                     <img src="images/logo_v2.png" alt="Algeria Tech" class="logo-img">
                     <div class="logo-text">
                         <h1>Algeria <span>Tech</span></h1>
                         <p>By Basta</p>
                     </div>
                 </div>
-                <nav class="main-nav">
-                    <ul>
-                        <li><a href="#" class="active" onclick="goHome()" data-i18n-ar="الرئيسية">Accueil</a></li>
-                        <li><a href="#" onclick="filterByCategory('Algérie')" data-i18n-ar="الجزائر">Algérie</a></li>
-                        <li><a href="#" onclick="filterByCategory('Télécoms')" data-i18n-ar="الاتصالات">Télécoms</a></li>
-                        <li><a href="#" onclick="filterByCategory('Mobile')" data-i18n-ar="الهاتف المحمول">Mobile</a></li>
-                        <li><a href="#" onclick="filterByCategory('Startups')" data-i18n-ar="الشركات الناشئة">Startups</a></li>
-                        <li><a href="#" onclick="filterByCategory('Innovation')" data-i18n-ar="الابتكار">Innovation</a></li>
-                        <li><a href="#" onclick="filterByCategory('Entreprises')" data-i18n-ar="المؤسسات">Entreprises</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-trigger" data-i18n-ar="استكشاف">Explorer <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-left: 5px;"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#" onclick="filterByCategory('Vidéo')" data-i18n-ar="فيديو">Vidéo</a></li>
-                                <li><a href="infographies/index.html" data-i18n-ar="الإنفوغرافيك">Infographies</a></li>
-                                <li><a href="#" onclick="showVeille()" id="nav-veille" data-i18n-ar="المراقبة الرقمية">Veille</a></li>
-                                <li><a href="#" onclick="showRevue()" id="nav-revue" data-i18n-ar="مراجعة الصحافة">Revue de Presse</a></li>
-                                <li><a href="#" onclick="showComparateur()" id="nav-comparateur" data-i18n-ar="مقارنة العروض"><i class="fas fa-mobile-alt" style="color:#1565C0;margin-right:5px"></i>Comparateur</a></li>
-                                <li><a href="#" onclick="showReglementaire()" id="nav-reglementaire" data-i18n-ar="مراقبة تنظيمية"><i class="fas fa-gavel" style="color:#1a237e;margin-right:5px"></i>Réglementaire</a></li>
-                                <li><a href="/actualites-tic" data-i18n-ar="مراقبة الشبكات الاجتماعية"><i class="fas fa-share-alt" style="color:#E30613;margin-right:5px"></i>Veille Réseaux Sociaux</a></li>
-                                <li><a href="/operateurs" data-i18n-ar="المشغّلون المحمولون"><i class="fas fa-signal" style="margin-right:5px;color:#00C853"></i>Opérateurs Mobiles</a></li>
-                                <li><a href="/barometre" data-i18n-ar="مرصد الرقمنة"><i class="fas fa-chart-line" style="margin-right:5px;color:#fbbf24"></i>Observatoire du Numérique</a></li>
-                                <li><a href="/wiki" data-i18n-ar="قاموس التكنولوجيا"><i class="fas fa-book-open" style="margin-right:5px;color:#006233"></i>Lexique TIC</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="header-actions">
-                    <div class="search-box">
-                        <i class="fas fa-search search-icon"></i>
-                        <input type="text" id="searchInput" placeholder="Rechercher...">
+
+                <!-- ═══ Pile de navigation : 2 lignes ═══ -->
+                <div class="at-nav-stack">
+
+                    <!-- ── Ligne 1 : Navigation principale ── -->
+                    <nav class="main-nav at-mainnav" aria-label="Navigation principale">
+                        <ul>
+                            <li><a href="#" class="active" onclick="goHome()" data-i18n-ar="الرئيسية">Accueil</a></li>
+                            <li><a href="#" onclick="filterByCategory('Algérie')" data-i18n-ar="الجزائر">Algérie</a></li>
+                            <li><a href="#" onclick="filterByCategory('Télécoms')" data-i18n-ar="الاتصالات">Télécoms</a></li>
+                            <li><a href="#" onclick="filterByCategory('Mobile')" data-i18n-ar="الهاتف المحمول">Mobile</a></li>
+                            <li><a href="#" onclick="filterByCategory('Startups')" data-i18n-ar="الشركات الناشئة">Startups</a></li>
+                            <li><a href="#" onclick="filterByCategory('IA')" data-i18n-ar="الذكاء الاصطناعي">IA</a></li>
+                            <li><a href="#" onclick="filterByCategory('Fintech')" data-i18n-ar="التكنولوجيا المالية">Fintech</a></li>
+                            <li><a href="#" onclick="filterByCategory('Innovation')" data-i18n-ar="الابتكار">Innovation</a></li>
+                            <li><a href="#" onclick="filterByCategory('Internationale')" data-i18n-ar="العالم">Monde</a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- ── Ligne 2 : Le Hub des catégories (badges scrollables) ── -->
+                    <div class="at-hub" aria-label="Hub des catégories">
+                        <div class="at-hub-track">
+                            <!-- Outils plateforme mis en avant (puces de marque) -->
+                            <a class="at-badge at-badge--tool" id="nav-revue" href="#" onclick="showRevue();return false;" style="--chip:#38bdf8" data-i18n-ar="مراجعة الصحافة"><i class="fas fa-newspaper"></i>Revue de Presse</a>
+                            <a class="at-badge at-badge--tool" id="nav-comparateur" href="#" onclick="showComparateur();return false;" style="--chip:#fb923c" data-i18n-ar="مقارنة العروض"><i class="fas fa-mobile-alt"></i>Comparateur Mobile</a>
+                            <a class="at-badge at-badge--tool" href="/operateurs" style="--chip:#34d399" data-i18n-ar="المشغّلون"><i class="fas fa-signal"></i>Opérateurs</a>
+                            <a class="at-badge at-badge--tool" href="/infographies/index.html" style="--chip:#f87171" data-i18n-ar="الإنفوغرافيك"><i class="fas fa-chart-pie"></i>Infographies</a>
+
+                            <span class="at-hub-sep" aria-hidden="true"></span>
+
+                            <!-- Menu déroulant : le reste des catégories & outils -->
+                            <button type="button" id="exploreBtn" class="at-badge at-badge--explore" aria-haspopup="true" aria-expanded="false" aria-controls="exploreMenu" data-i18n-ar="استكشاف">
+                                <i class="fas fa-compass"></i>Explorer<i class="fas fa-chevron-down at-explore-caret" aria-hidden="true"></i>
+                                <span class="at-explore-live" aria-hidden="true"></span>
+                            </button>
+                        </div>
                     </div>
-                    <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
-                    <button id="langToggle" class="lang-toggle" onclick="AT_LANG.toggle()" title="التبديل إلى العربية" aria-label="Passer en arabe">
+                </div>
+
+                <!-- ═══ Bloc utilitaires compact (colonne verticale) ═══ -->
+                <div class="header-actions at-utils">
+                    <div class="at-search" id="atSearch">
+                        <input type="text" id="searchInput" class="at-search-input" placeholder="Rechercher…" aria-label="Rechercher un article">
+                        <button class="at-util-btn at-search-btn" id="searchToggle" aria-label="Ouvrir la recherche" title="Rechercher">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <button class="at-util-btn theme-toggle" onclick="toggleTheme()" aria-label="Basculer mode nuit / jour" title="Mode nuit / jour">
+                        <i class="fas fa-moon at-i-moon"></i><i class="fas fa-sun at-i-sun"></i>
+                    </button>
+                    <button id="langToggle" class="at-util-btn lang-toggle" onclick="AT_LANG.toggle()" title="التبديل إلى العربية" aria-label="Passer en arabe">
                         <span class="lt-dim">ع</span><span class="lt-sep">|</span><b class="lt-active">FR</b>
                     </button>
-                    <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
+                    <button class="hamburger-btn at-hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
                         <span></span><span></span><span></span>
                     </button>
                 </div>
@@ -109,26 +129,20 @@
         </div>
     </header>
 
-    <!-- Barre navigation rapide -->
-    <nav class="quick-nav" id="quickNav">
-        <div class="container">
-            <button class="qn-link" onclick="showVeille()" id="qn-veille" data-i18n-ar="المراقبة الرقمية">
-                <i class="fas fa-rss"></i> Veille
-            </button>
-            <a class="qn-link" href="/actualites-tic" data-i18n-ar="مراقبة الشبكات">
-                <i class="fas fa-share-alt"></i> Veille Réseaux Sociaux
-            </a>
-            <button class="qn-link" onclick="showRevue()" id="qn-revue" data-i18n-ar="مراجعة الصحافة">
-                <i class="fas fa-newspaper"></i> Revue de Presse
-            </button>
-            <a class="qn-link qn-new" href="/barometre" data-i18n-ar="مرصد الرقمنة">
-                <i class="fas fa-chart-line"></i> Observatoire <span class="qn-badge">NEW</span>
-            </a>
-        </div>
-    </nav>
+    <!-- ═══ Menu « Explorer » du hub (panneau flottant, positionné en JS) ═══ -->
+    <div id="exploreMenu" class="at-explore-menu" role="menu" aria-label="Explorer la plateforme">
+        <a role="menuitem" href="#" onclick="showVeille();return false;" style="--chip:#4a9eff" data-i18n-ar="الرصد الذكي"><i class="fas fa-satellite-dish"></i><span>Veille</span><span class="at-mini-dot" aria-hidden="true"></span></a>
+        <a role="menuitem" href="/actualites-tic" style="--chip:#fb7185" data-i18n-ar="مراقبة الشبكات"><i class="fas fa-share-alt"></i><span>Réseaux sociaux</span><span class="at-mini-dot" aria-hidden="true"></span></a>
+        <a role="menuitem" href="/barometre" style="--chip:#a78bfa" data-i18n-ar="المرصد"><i class="fas fa-chart-line"></i><span>Observatoire</span></a>
+        <a role="menuitem" href="#" onclick="filterByCategory('Vidéo');return false;" style="--chip:#DC2626" data-i18n-ar="فيديو"><i class="fas fa-play-circle"></i><span>Vidéo</span></a>
+        <div class="at-explore-sep" aria-hidden="true"></div>
+        <a role="menuitem" href="#" onclick="showReglementaire();return false;" style="--chip:#818cf8" data-i18n-ar="الإطار القانوني"><i class="fas fa-gavel"></i><span>Cadre légal</span></a>
+        <a role="menuitem" href="/wiki" style="--chip:#2dd4bf" data-i18n-ar="المعجم"><i class="fas fa-book-open"></i><span>Lexique TIC</span></a>
+    </div>
 
     <main id="mainContent">
-        <section class="breaking-news">
+
+        <section class="breaking-news" id="breakingNewsSection">
             <div class="container">
                 <span class="breaking-label" data-i18n-ar="عاجل">URGENT</span>
                 <div class="breaking-ticker">
@@ -227,14 +241,13 @@
         <div class="v2-topics-bar">
           <div class="container v2-topics-inner">
             <button class="v2-pill active" onclick="filterVeilleTopic('all',this)">Tous</button>
-            <button class="v2-pill" onclick="filterVeilleTopic('Télécoms',this)">📡 Télécoms</button>
-            <button class="v2-pill" onclick="filterVeilleTopic('Mobile',this)">📱 Mobile</button>
-            <button class="v2-pill" onclick="filterVeilleTopic('Startups',this)">🚀 Startups</button>
-            <button class="v2-pill" onclick="filterVeilleTopic('IA',this)">🤖 IA</button>
-            <button class="v2-pill" onclick="filterVeilleTopic('Internet',this)">🌐 Internet</button>
-            <button class="v2-pill" onclick="filterVeilleTopic('Data',this)">📊 Data</button>
-            <button class="v2-pill" onclick="filterVeilleTopic('Cloud',this)">☁️ Cloud</button>
-            <button class="v2-pill" onclick="filterVeilleTopic('Cybersécurité',this)">🔒 Cyber</button>
+            <button class="v2-pill" onclick="filterVeilleTopic('Infrastructures &amp; Réseaux',this)">📡 Infrastructures &amp; Réseaux</button>
+            <button class="v2-pill" onclick="filterVeilleTopic('Opérateurs &amp; Mobile',this)">📱 Opérateurs &amp; Mobile</button>
+            <button class="v2-pill" onclick="filterVeilleTopic('Internet &amp; Web',this)">🌐 Internet &amp; Web</button>
+            <button class="v2-pill" onclick="filterVeilleTopic('Data &amp; Cybersécurité',this)">🔒 Data &amp; Cyber</button>
+            <button class="v2-pill" onclick="filterVeilleTopic('Innovation &amp; Recherche',this)">🚀 Innovation</button>
+            <button class="v2-pill" onclick="filterVeilleTopic('Tech &amp; Numérique',this)">💻 Tech &amp; Numérique</button>
+            <button class="v2-pill" onclick="filterVeilleTopic('Tech',this)">🧩 Autres</button>
           </div>
         </div>
 
@@ -455,18 +468,27 @@
         </div>
         <ul class="mobile-nav-list">
             <li><a href="#" onclick="goHome(); toggleMobileMenu()" data-i18n-ar="الرئيسية"><i class="fas fa-home"></i> Accueil</a></li>
-            <li><a href="#" onclick="filterByCategory('Algérie'); toggleMobileMenu()" data-i18n-ar="الجزائر"><i class="fas fa-flag"></i> Algérie</a></li>
-            <li><a href="#" onclick="filterByCategory('Télécoms'); toggleMobileMenu()" data-i18n-ar="الاتصالات"><i class="fas fa-satellite-dish"></i> Télécoms</a></li>
-            <li><a href="#" onclick="filterByCategory('Mobile'); toggleMobileMenu()" data-i18n-ar="الهاتف المحمول"><i class="fas fa-mobile-alt"></i> Mobile</a></li>
-            <li><a href="#" onclick="filterByCategory('Startups'); toggleMobileMenu()" data-i18n-ar="الشركات الناشئة"><i class="fas fa-rocket"></i> Startups</a></li>
-            <li><a href="#" onclick="filterByCategory('Innovation'); toggleMobileMenu()" data-i18n-ar="الابتكار"><i class="fas fa-lightbulb"></i> Innovation</a></li>
-            <li><a href="#" onclick="filterByCategory('Entreprises'); toggleMobileMenu()" data-i18n-ar="المؤسسات"><i class="fas fa-building"></i> Entreprises</a></li>
-            <li class="mobile-nav-divider"></li>
-            <li><a href="#" onclick="filterByCategory('Vidéo'); toggleMobileMenu()" data-i18n-ar="فيديو"><i class="fas fa-play-circle"></i> Vidéo</a></li>
-            <li><a href="infographies/index.html" data-i18n-ar="الإنفوغرافيك"><i class="fas fa-chart-bar"></i> Infographies</a></li>
-            <li><a href="#" onclick="showVeille(); toggleMobileMenu()" data-i18n-ar="المراقبة الرقمية"><i class="fas fa-rss"></i> Veille</a></li>
-            <li><a href="#" onclick="showRevue(); toggleMobileMenu()" data-i18n-ar="مراجعة الصحافة"><i class="fas fa-newspaper"></i> Revue de Presse</a></li>
-            <li><a href="/actualites-tic" data-i18n-ar="مراقبة الشبكات الاجتماعية"><i class="fas fa-share-alt" style="color:#E30613"></i> Veille Réseaux Sociaux</a></li>
+            <li class="mobile-nav-section-label" data-i18n-ar="الأخبار">ACTUALITÉS</li>
+            <li><a href="#" onclick="filterByCategory('Algérie'); toggleMobileMenu()" data-i18n-ar="الجزائر"><i class="fas fa-flag" style="color:#006233"></i> Algérie</a></li>
+            <li><a href="#" onclick="filterByCategory('Télécoms'); toggleMobileMenu()" data-i18n-ar="الاتصالات"><i class="fas fa-satellite-dish" style="color:#1565C0"></i> Télécoms</a></li>
+            <li><a href="#" onclick="filterByCategory('Mobile'); toggleMobileMenu()" data-i18n-ar="الهاتف المحمول"><i class="fas fa-mobile-alt" style="color:#1565C0"></i> Mobile</a></li>
+            <li><a href="#" onclick="filterByCategory('Startups'); toggleMobileMenu()" data-i18n-ar="الشركات الناشئة"><i class="fas fa-rocket" style="color:#D97706"></i> Startups</a></li>
+            <li><a href="#" onclick="filterByCategory('Innovation'); toggleMobileMenu()" data-i18n-ar="الابتكار"><i class="fas fa-lightbulb" style="color:#fbbf24"></i> Innovation</a></li>
+            <li><a href="#" onclick="filterByCategory('Entreprises'); toggleMobileMenu()" data-i18n-ar="المؤسسات"><i class="fas fa-building" style="color:#64748b"></i> Entreprises</a></li>
+            <li><a href="#" onclick="filterByCategory('Internationale'); toggleMobileMenu()" data-i18n-ar="دولي"><i class="fas fa-globe" style="color:#0ea5e9"></i> Internationale</a></li>
+            <li><a href="#" onclick="filterByCategory('IA'); toggleMobileMenu()" data-i18n-ar="الذكاء الاصطناعي"><i class="fas fa-robot" style="color:#a78bfa"></i> IA</a></li>
+            <li><a href="#" onclick="filterByCategory('Vidéo'); toggleMobileMenu()" data-i18n-ar="فيديو"><i class="fas fa-play-circle" style="color:#DC2626"></i> Vidéo</a></li>
+            <li class="mobile-nav-section-label" data-i18n-ar="الرصد والاستخبارات"><i class="fas fa-brain" style="color:#a78bfa;margin-right:5px;"></i>INTELLIGENCE</li>
+            <li><a href="#" onclick="showVeille(); toggleMobileMenu()" data-i18n-ar="المراقبة الذكية"><i class="fas fa-satellite-dish" style="color:#4a9eff"></i> Veille Intelligence <span style="font-size:0.6rem;background:#22c55e;color:#fff;padding:1px 5px;border-radius:8px;margin-left:4px;">LIVE</span></a></li>
+            <li><a href="#" onclick="showRevue(); toggleMobileMenu()" data-i18n-ar="مراجعة الصحافة"><i class="fas fa-newspaper" style="color:#4ade80"></i> Revue de Presse</a></li>
+            <li><a href="/actualites-tic" data-i18n-ar="مراقبة الشبكات الاجتماعية"><i class="fas fa-share-alt" style="color:#fb7185"></i> Veille Réseaux Sociaux <span style="font-size:0.6rem;background:#22c55e;color:#fff;padding:1px 5px;border-radius:8px;margin-left:4px;">LIVE</span></a></li>
+            <li class="mobile-nav-section-label" data-i18n-ar="أدوات المنصة">PLATEFORME — OUTILS</li>
+            <li><a href="/barometre" data-i18n-ar="مرصد الرقمنة"><i class="fas fa-chart-line" style="color:#a78bfa"></i> Observatoire du Numérique</a></li>
+            <li><a href="#" onclick="showComparateur(); toggleMobileMenu()" data-i18n-ar="مقارنة العروض"><i class="fas fa-mobile-alt" style="color:#fb923c"></i> Comparateur Mobile</a></li>
+            <li><a href="#" onclick="showReglementaire(); toggleMobileMenu()" data-i18n-ar="الإطار القانوني"><i class="fas fa-gavel" style="color:#818cf8"></i> Cadre légal</a></li>
+            <li><a href="/wiki" data-i18n-ar="قاموس التكنولوجيا"><i class="fas fa-book-open" style="color:#2dd4bf"></i> Lexique TIC</a></li>
+            <li><a href="/operateurs" data-i18n-ar="المشغّلون المحمولون"><i class="fas fa-signal" style="color:#34d399"></i> Opérateurs Mobiles</a></li>
+            <li><a href="infographies/index.html" data-i18n-ar="الإنفوغرافيك"><i class="fas fa-chart-pie" style="color:#f87171"></i> Infographies</a></li>
         </ul>
         <div class="mobile-menu-footer">
             <button class="mobile-theme-btn" onclick="toggleTheme()"><i class="fas fa-moon"></i> Changer le thème</button>
@@ -496,37 +518,141 @@
     <!-- Débat IA — chat contextuel par article -->
     <script src="/debat.js"></script>
 
-    <!-- Enregistrement du Service Worker -->
+    <!-- ★ Comportements du header refondu : réduction au scroll + recherche déployable -->
+    <script>
+    (function () {
+      var header = document.getElementById('siteHeader');
+      // 1) Sticky shrink : ajoute .at-scrolled dès qu'on défile (rAF throttlé, passif)
+      if (header) {
+        var ticking = false;
+        var onScroll = function () {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(function () {
+            header.classList.toggle('at-scrolled', window.scrollY > 40);
+            ticking = false;
+          });
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      }
+
+      // 2) Recherche déployable : la loupe ouvre/ferme un champ flottant
+      var search    = document.getElementById('atSearch');
+      var toggleBtn = document.getElementById('searchToggle');
+      var input     = document.getElementById('searchInput');
+      if (search && toggleBtn && input) {
+        var openSearch = function () {
+          search.classList.add('open');
+          toggleBtn.setAttribute('aria-label', 'Fermer la recherche');
+          setTimeout(function () { input.focus(); }, 60);
+        };
+        var closeSearch = function () {
+          search.classList.remove('open');
+          toggleBtn.setAttribute('aria-label', 'Ouvrir la recherche');
+        };
+        toggleBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          search.classList.contains('open') ? closeSearch() : openSearch();
+        });
+        // Fermer si clic à l'extérieur (sauf si une recherche est en cours)
+        document.addEventListener('click', function (e) {
+          if (search.classList.contains('open') && !search.contains(e.target) && input.value.trim() === '') {
+            closeSearch();
+          }
+        });
+        // Échap referme le champ
+        input.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') { input.value = ''; input.dispatchEvent(new Event('input')); closeSearch(); input.blur(); }
+        });
+      }
+
+      // 3) Menu « Explorer » : panneau fixe positionné sous le bouton (non rogné par le hub)
+      var expBtn  = document.getElementById('exploreBtn');
+      var expMenu = document.getElementById('exploreMenu');
+      if (expBtn && expMenu) {
+        var positionMenu = function () {
+          var r = expBtn.getBoundingClientRect();
+          var w = expMenu.offsetWidth || 212;
+          var left = Math.min(r.right - w, window.innerWidth - w - 12);
+          expMenu.style.top  = (r.bottom + 7) + 'px';
+          expMenu.style.left = Math.max(12, left) + 'px';
+        };
+        var closeExp = function () {
+          expMenu.classList.remove('open');
+          expBtn.setAttribute('aria-expanded', 'false');
+        };
+        var openExp = function () {
+          expMenu.classList.add('open');
+          expBtn.setAttribute('aria-expanded', 'true');
+          positionMenu();
+        };
+        expBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          expMenu.classList.contains('open') ? closeExp() : openExp();
+        });
+        // Un clic sur un lien du menu le referme
+        expMenu.addEventListener('click', function (e) { if (e.target.closest('a')) closeExp(); });
+        // Clic extérieur → fermeture
+        document.addEventListener('click', function (e) {
+          if (expMenu.classList.contains('open') && !expMenu.contains(e.target) && !expBtn.contains(e.target)) closeExp();
+        });
+        // Échap → fermeture
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeExp(); });
+        // Le hub se replie au scroll → on ferme le menu
+        window.addEventListener('scroll', function () { if (expMenu.classList.contains('open')) closeExp(); }, { passive: true });
+        window.addEventListener('resize', function () { if (expMenu.classList.contains('open')) positionMenu(); });
+      }
+    })();
+    </script>
+
+    <!-- Enregistrement du Service Worker (désactivé en dev local) -->
     <script>
       if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js').then(reg => {
-            // Écoute les mises à jour du SW
-            reg.addEventListener('updatefound', () => {
-              const newWorker = reg.installing;
-              newWorker.addEventListener('statechange', () => {
-                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                  // Nouvelle version prête → affiche la bannière
-                  const banner = document.getElementById('sw-update-banner');
-                  if (banner) {
-                    banner.style.display = 'block';
-                    banner.addEventListener('click', () => {
-                      newWorker.postMessage('SKIP_WAITING');
-                      banner.style.display = 'none';
-                      window.location.reload();
-                    });
-                  }
-                }
-              });
-            });
-          }).catch(err => console.warn('[SW] Enregistrement échoué :', err));
+        // En dev local le SW est désactivé : sinon il sert des fichiers périmés
+        // et impose des Ctrl+Shift+R. En production il fonctionne normalement.
+        var IS_DEV = ['localhost', '127.0.0.1', '[::1]'].indexOf(location.hostname) !== -1;
 
-          // Rechargement automatique quand le SW prend le contrôle
-          navigator.serviceWorker.addEventListener('controllerchange', () => {
-            if (window._swReloading) return;
-            window._swReloading = true;
+        if (IS_DEV) {
+          // Désinstalle tout SW déjà installé + vide les caches (sinon il continue de servir)
+          navigator.serviceWorker.getRegistrations()
+            .then(function (regs) { regs.forEach(function (r) { r.unregister(); }); });
+          if (window.caches) {
+            caches.keys().then(function (keys) { keys.forEach(function (k) { caches.delete(k); }); });
+          }
+          console.info('[SW] Désactivé en environnement local (dev).');
+        } else {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js').then(reg => {
+              // Écoute les mises à jour du SW
+              reg.addEventListener('updatefound', () => {
+                const newWorker = reg.installing;
+                newWorker.addEventListener('statechange', () => {
+                  if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                    // Nouvelle version prête → affiche la bannière
+                    const banner = document.getElementById('sw-update-banner');
+                    if (banner) {
+                      banner.style.display = 'block';
+                      banner.addEventListener('click', () => {
+                        newWorker.postMessage('SKIP_WAITING');
+                        banner.style.display = 'none';
+                        window.location.reload();
+                      });
+                    }
+                  }
+                });
+              });
+            }).catch(err => console.warn('[SW] Enregistrement échoué :', err));
+
+            // Rechargement automatique quand le SW prend le contrôle
+            navigator.serviceWorker.addEventListener('controllerchange', () => {
+              if (window._swReloading) return;
+              window._swReloading = true;
+            });
           });
-        });
+        }
       }
     </script>
 </body>

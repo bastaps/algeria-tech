@@ -33,6 +33,9 @@
       "color": "#006233",
       "website": "https://www.aps.dz",
       "news_url": "https://www.aps.dz/fr",
+      "telegram_channel": "",
+      "_telegram_note": "Cherchez 'APS Algérie' sur Telegram et ajoutez le nom ici",
+      "youtube_channel_id": "",
       "translate": true,
       "enabled": true
     },
@@ -44,8 +47,11 @@
       "icon": "🔬",
       "color": "#1A237E",
       "website": "https://www.dgrsdt.dz",
+      "news_url": "https://www.dgrsdt.dz",
       "fb_page_url": "https://www.facebook.com/DGRSDT.ALGERIA",
       "fb_page_id": "DGRSDT.ALGERIA",
+      "telegram_channel": "",
+      "youtube_channel_id": "",
       "translate": true,
       "enabled": true
     },
@@ -61,7 +67,9 @@
       "fb_page_url": "https://www.facebook.com/mpt.gov.dz",
       "fb_page_id": "mpt.gov.dz",
       "rss_url": "https://rss.app/feeds/ggiJjnT2sHJmB6MX.xml",
-      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "telegram_channel": "",
+      "_telegram_note": "MPT: cherchez le canal officiel sur Telegram",
+      "youtube_channel_id": "",
       "news_url": "https://www.mpt.gov.dz",
       "translate": true,
       "enabled": true
@@ -77,7 +85,9 @@
       "fb_page_url": "https://www.facebook.com/mesrs.dz",
       "fb_page_id": "mesrs.dz",
       "rss_url": "https://rss.app/feeds/cp0OUYmTHjopEVG5.xml",
-      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "telegram_channel": "",
+      "_telegram_note": "MESRS très actif sur Telegram — cherchez @mesrs_dz ou @MESRS_officiel",
+      "youtube_channel_id": "",
       "news_url": "https://www.mesrs.dz",
       "translate": true,
       "enabled": true
@@ -93,7 +103,8 @@
       "fb_page_url": "https://www.facebook.com/mkesme.dz",
       "fb_page_id": "mkesme.dz",
       "rss_url": "https://rss.app/feeds/uOmZ34nKPPCe16aC.xml",
-      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "telegram_channel": "",
+      "youtube_channel_id": "",
       "news_url": "https://www.mkesme.dz",
       "translate": true,
       "enabled": true
@@ -110,6 +121,8 @@
       "fb_page_url": "https://www.facebook.com/AlgerieTelecom",
       "fb_page_id": "AlgerieTelecom",
       "rss_url": "https://rss.app/feeds/K4RMVGP3oLlI7tNG.xml",
+      "telegram_channel": "algerietelecom",
+      "youtube_channel_id": "",
       "news_url": "https://www.algerietelecom.dz/fr/espace-presse/communiques-de-presse-type1",
       "translate": true,
       "enabled": true
@@ -125,7 +138,8 @@
       "fb_page_url": "https://www.facebook.com/algerieposteofficiel",
       "fb_page_id": "algerieposteofficiel",
       "rss_url": "https://rss.app/feeds/8w13Cq1WJoPERlE2.xml",
-      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "telegram_channel": "",
+      "youtube_channel_id": "",
       "news_url": "https://www.poste.dz",
       "translate": true,
       "enabled": true
@@ -141,7 +155,8 @@
       "fb_page_url": "https://www.facebook.com/atsofficiel",
       "fb_page_id": "atsofficiel",
       "rss_url": "https://rss.app/feeds/JVPc9ArTkOS5jZlY.xml",
-      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "telegram_channel": "",
+      "youtube_channel_id": "",
       "news_url": "https://www.algersat.dz",
       "translate": true,
       "enabled": true
@@ -157,6 +172,9 @@
       "fb_page_url": "https://www.facebook.com/ARPCE.DZ",
       "fb_page_id": "ARPCE.DZ",
       "rss_url": "https://rss.app/feeds/ONPtYJ8Hlza4A0LB.xml",
+      "telegram_channel": "",
+      "_telegram_note": "ARPCE: cherchez le canal officiel sur Telegram",
+      "youtube_channel_id": "",
       "news_url": "https://www.arpce.dz/fr/",
       "translate": true,
       "enabled": true
@@ -173,7 +191,9 @@
       "fb_page_url": "https://www.facebook.com/OoredooDZ",
       "fb_page_id": "OoredooDZ",
       "rss_url": "https://rss.app/feeds/6lQ2temSiGGbe7bp.xml",
-      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "telegram_channel": "",
+      "_telegram_note": "Ooredoo: cherchez @OoredooDZ sur Telegram",
+      "youtube_channel_id": "",
       "news_url": "https://www.ooredoo.dz",
       "translate": true,
       "enabled": true
@@ -189,6 +209,8 @@
       "fb_page_url": "https://www.facebook.com/djezzy",
       "fb_page_id": "djezzy",
       "rss_url": "https://rss.app/feeds/Fjx1HwUxC3W47VDP.xml",
+      "telegram_channel": "djezzydz",
+      "youtube_channel_id": "",
       "news_url": "https://www.djezzy.dz/djezzy/actualite-et-nouveautes/communiques-de-presse/",
       "translate": true,
       "enabled": true
@@ -204,6 +226,9 @@
       "fb_page_url": "https://www.facebook.com/MobilisOfficielle",
       "fb_page_id": "MobilisOfficielle",
       "rss_url": "https://rss.app/feeds/OnAQ7VnFdY35K89F.xml",
+      "telegram_channel": "",
+      "_telegram_note": "Mobilis: cherchez le canal officiel sur Telegram",
+      "youtube_channel_id": "",
       "news_url": "https://mobilis.dz/news",
       "translate": true,
       "enabled": true
@@ -220,7 +245,8 @@
       "fb_page_url": "https://www.facebook.com/HuaweimobileDZ",
       "fb_page_id": "HuaweimobileDZ",
       "rss_url": "https://rss.app/feeds/lbWufhAUGOS9l9Ic.xml",
-      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "telegram_channel": "",
+      "youtube_channel_id": "",
       "news_url": "https://consumer.huawei.com/dz/news/",
       "translate": true,
       "enabled": true
@@ -236,6 +262,8 @@
       "fb_page_url": "https://www.facebook.com/huawei",
       "fb_page_id": "huawei",
       "rss_url": "https://rss.app/feeds/6g2nIf4f6Q7CgWCk.xml",
+      "telegram_channel": "",
+      "youtube_channel_id": "",
       "news_url": "https://www.huawei.com/en/news",
       "translate": true,
       "enabled": true
@@ -251,6 +279,8 @@
       "fb_page_url": "https://www.facebook.com/ericsson",
       "fb_page_id": "ericsson",
       "rss_url": "https://www.ericsson.com/en/press-releases/feed",
+      "telegram_channel": "",
+      "youtube_channel_id": "",
       "news_url": "https://www.ericsson.com/en/news-and-events",
       "translate": true,
       "enabled": true
@@ -281,7 +311,8 @@
       "fb_page_url": "https://www.facebook.com/Condor.Electromenager",
       "fb_page_id": "Condor.Electromenager",
       "rss_url": "https://rss.app/feeds/daNeVmpCcpX4SKYj.xml",
-      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "telegram_channel": "",
+      "youtube_channel_id": "",
       "news_url": "https://www.condor.dz",
       "translate": true,
       "enabled": true
@@ -297,7 +328,8 @@
       "fb_page_url": "https://www.facebook.com/streamsystem",
       "fb_page_id": "streamsystem",
       "rss_url": "https://rss.app/feeds/rurKHRHqwCJ2GM2F.xml",
-      "_rssapp": "Créez le flux RSS sur rss.app → collez l'URL ici",
+      "telegram_channel": "",
+      "youtube_channel_id": "",
       "news_url": "https://www.streamsystem.com",
       "translate": true,
       "enabled": true

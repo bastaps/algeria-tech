@@ -243,16 +243,18 @@ def fetch_rss(source: dict) -> list:
     url = source.get('rss_url', '')
     if not url:
         return []
-    # rss.app exige désormais un abonnement payant (HTTP 402) — on passe directement au scraper web
-    if 'rss.app/' in url:
-        return []
 
     try:
         res = requests.get(url, headers=HEADERS, timeout=15, allow_redirects=True)
+        if res.status_code == 402:
+            print(f"  [RSS] ✗ {url[:50]} → 402 (rss.app payant — passez au canal Telegram/YouTube)")
+            return []
         res.raise_for_status()
         parsed = parse_rss(res.content)
         count = len(parsed)
         print(f"  [RSS] ✓ {count} items ← {url[:60]}")
+        for item in parsed:
+            item.setdefault('source_type', 'rss')
         return parsed[:15]
     except Exception as e:
         print(f"  [RSS] ✗ {url[:50]} → {e}")
@@ -540,6 +542,103 @@ def fetch_facebook_scraper_lib(source: dict) -> list:
             print(f"  [FB-SC] ✗ {page_id}: {err[:100]}")
         return []
 
+# ─── Fetch Telegram public channel (t.me/s/) ─────────────────────────────────
+def fetch_telegram(source: dict) -> list:
+    """
+    Scrape les messages d'un canal Telegram PUBLIC via t.me/s/{channel}.
+    Zéro authentification — fonctionne pour tout canal public, stable, gratuit.
+    Ajouter 'telegram_channel' dans social_config.json pour activer.
+    """
+    channel = source.get('telegram_channel', '').strip().lstrip('@')
+    if not channel:
+        return []
+
+    url = f"https://t.me/s/{channel}"
+    try:
+        res = requests.get(url, headers=HEADERS, timeout=15)
+        if res.status_code == 404:
+            print(f"  [TG]  ✗ @{channel}: canal introuvable (404)")
+            return []
+        res.raise_for_status()
+
+        soup = BeautifulSoup(res.text, 'html.parser')
+
+        # Canal privé : Telegram ne montre aucun message ET affiche un bouton join
+        has_messages = bool(soup.select('.tgme_widget_message_wrap'))
+        if not has_messages and soup.select_one('.tgme_page_action_join'):
+            print(f"  [TG]  ✗ @{channel}: canal privé (join requis — vérifiez le nom)")
+            return []
+
+        items = []
+        seen = set()
+
+        for msg in soup.select('.tgme_widget_message_wrap'):
+            text_el = msg.select_one('.tgme_widget_message_text')
+            if not text_el:
+                # Essai sur les légendes des photos/vidéos
+                text_el = msg.select_one('.tgme_widget_message_photo_caption')
+            if not text_el:
+                continue
+            text = text_el.get_text(separator=' ', strip=True)
+            if len(text) < 15 or text in seen:
+                continue
+            seen.add(text)
+
+            date_el = msg.select_one('time[datetime]')
+            date_str = date_el['datetime'] if date_el else datetime.now(timezone.utc).isoformat()
+
+            link_el = msg.select_one('a.tgme_widget_message_date')
+            link = link_el['href'] if link_el else f"https://t.me/{channel}"
+
+            img = ''
+            img_el = msg.select_one('.tgme_widget_message_photo_wrap')
+            if img_el:
+                m = re.search(r"url\('([^']+)'\)", img_el.get('style', ''))
+                if m:
+                    img = m.group(1)
+
+            items.append({
+                'title': text[:130].replace('\n', ' ') + ('…' if len(text) > 130 else ''),
+                'link':  link,
+                'desc':  text[:800],
+                'date':  date_str,
+                'image': img,
+                'source_type': 'telegram'
+            })
+
+        print(f"  [TG]  ✓ {len(items)} messages ← @{channel}")
+        return items[:15]
+
+    except Exception as e:
+        print(f"  [TG]  ✗ @{channel}: {e}")
+        return []
+
+
+# ─── Fetch YouTube RSS (API Google publique) ──────────────────────────────────
+def fetch_youtube(source: dict) -> list:
+    """
+    Récupère les dernières vidéos via le flux Atom officiel de YouTube.
+    Zéro authentification — API Google publique, stable, gratuite.
+    Ajouter 'youtube_channel_id' (format UCxxx…) dans social_config.json.
+    """
+    channel_id = source.get('youtube_channel_id', '').strip()
+    if not channel_id:
+        return []
+
+    url = f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
+    try:
+        res = requests.get(url, headers=HEADERS, timeout=15)
+        res.raise_for_status()
+        parsed = parse_rss(res.content)
+        for item in parsed:
+            item['source_type'] = 'youtube'
+        print(f"  [YT]  ✓ {len(parsed)} vidéos ← YouTube/{channel_id[:20]}")
+        return parsed[:10]
+    except Exception as e:
+        print(f"  [YT]  ✗ YouTube/{channel_id[:20]}: {e}")
+        return []
+
+
 # ─── Scraping page officielle de presse/actualités ───────────────────────────
 def fetch_news_page(source: dict) -> list:
     """
@@ -626,7 +725,8 @@ def fetch_news_page(source: dict) -> list:
                 'title': title,
                 'link':  abs_url,
                 'desc':  title,
-                'date':  date_str or datetime.now(timezone.utc).isoformat()
+                'date':  date_str or datetime.now(timezone.utc).isoformat(),
+                'source_type': 'web'
             })
 
         print(f"  [WEB] {'✓' if items else '✗'} {len(items)} articles ← {news_url[:60]}")
@@ -675,7 +775,8 @@ def build_post(raw: dict, source: dict, do_translate: bool) -> dict:
         'image':         image,
         'date':          date,
         'lang_source':   lang,
-        'text':          translations
+        'text':          translations,
+        'source_type':   raw.get('source_type', 'rss')
     }
 
 # ─── Filtrage qualité ─────────────────────────────────────────────────────────
@@ -734,32 +835,26 @@ def main():
         print(f"\n▶ {src['name']} [{src['category']}]")
         raw_items = []
 
-        # ── Méthode 1 : Flux RSS officiel direct (rss.app ignoré — payant) ─────
+        # ── Méthode 1 : Flux RSS officiel direct ──────────────────────────────
+        #    Essaie aussi les URLs rss.app (si l'abonnement est actif → 200 OK).
+        #    Si rss.app renvoie 402 (payant), on passe automatiquement à la suite.
         if src.get('rss_url'):
             raw_items = fetch_rss(src)
 
-        # ── Méthode 2 : Facebook Graph API (si FB_APP_TOKEN dans .env) ────────
-        if src.get('fb_page_id') and FB_TOKEN:
-            fb_items = fetch_facebook_api(src)
-            existing_links = {r.get('link', '') for r in raw_items}
-            raw_items += [i for i in fb_items if i.get('link', '') not in existing_links]
+        # ── Méthode 2 : Canal Telegram public (t.me/s/) ───────────────────────
+        #    Gratuit, zéro auth, stable. Ajouter 'telegram_channel' dans le config.
+        #    Les institutions algériennes (MESRS, AT, opérateurs...) ont souvent un
+        #    canal Telegram plus actif que leur site web.
+        if not raw_items and src.get('telegram_channel'):
+            raw_items = fetch_telegram(src)
 
-        # ── Méthode 3 : Cache Apify (pré-scraping cloud, meilleure fiabilité) ───
-        if not raw_items and src.get('fb_page_id'):
-            raw_items = fetch_apify_cache(src)
+        # ── Méthode 3 : YouTube RSS (flux Atom officiel Google) ───────────────
+        #    Zéro auth, stable, gratuit. Ajouter 'youtube_channel_id' (format UCxxx).
+        if not raw_items and src.get('youtube_channel_id'):
+            raw_items = fetch_youtube(src)
 
-        # ── Méthode 4 : facebook-scraper (gratuit, sans compte, auto-installé) ─
-        if not raw_items and src.get('fb_page_id'):
-            raw_items = fetch_facebook_scraper_lib(src)
-            if raw_items:
-                time.sleep(2)   # délai respectueux entre pages Facebook
-
-        # ── Méthode 5 : mbasic.facebook.com maison (fallback dernier recours) ─
-        if not raw_items and src.get('fb_page_id'):
-            mbasic_items = fetch_facebook_mbasic(src)
-            raw_items += mbasic_items
-
-        # ── Méthode 6 : Scraping site officiel institutionnel ────────────────
+        # ── Méthode 4 : Scraping du site officiel (dernier recours) ───────────
+        #    Repli robuste pour sources sans canal social ni RSS direct.
         if not raw_items and src.get('news_url'):
             raw_items = fetch_news_page(src)
 

@@ -11,6 +11,7 @@ const { Octokit } = require("@octokit/rest");
 const cors = require('cors');
 const https = require('https');
 const http = require('http');
+const RssParser = require('rss-parser');
 
 // ── Générateur d'infographies ─────────────────────────────────────────────────
 const pdfParse = require('pdf-parse');
@@ -256,6 +257,9 @@ app.get('/actualites-tic/', (req, res) => res.sendFile(path.join(__dirname, 'act
 app.get('/smart-ingest', (req, res) => res.sendFile(path.join(__dirname, 'smart-ingest.html')));
 app.get('/smart-ingest.html', (req, res) => res.sendFile(path.join(__dirname, 'smart-ingest.html')));
 
+// === ROUTE ARTICLES (SPA — hard refresh support) ===
+app.get('/article/:id', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
+
 // === WIKI TIC — Routes ===
 app.get('/wiki', (req, res) => res.sendFile(path.join(__dirname, 'wiki.html')));
 app.get('/wiki/', (req, res) => res.sendFile(path.join(__dirname, 'wiki.html')));
@@ -349,9 +353,11 @@ app.use(express.static(__dirname, {
         if (filepath.toLowerCase().endsWith('sw.js')) {
             res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
         }
-        // Assets statiques : cache 24h pour accélérer les rechargements
+        // Assets statiques : 24h en prod, no-cache en dev (revalidation ETag → toujours frais en local)
         if (filepath.match(/\.(css|js)$/) && !filepath.endsWith('sw.js')) {
-            res.setHeader('Cache-Control', 'public, max-age=86400, stale-while-revalidate=604800');
+            res.setHeader('Cache-Control', process.env.NODE_ENV === 'production'
+                ? 'public, max-age=86400, stale-while-revalidate=604800'
+                : 'no-cache');
         }
         // Images : cache 7 jours
         if (filepath.match(/\.(png|jpg|jpeg|webp|gif|svg|ico)$/)) {
@@ -1012,61 +1018,103 @@ function httpsGet(url) {
     });
 }
 
+const VEILLE_FEEDS = [
+    // Algérie TIC — sources thématisées (pas de filtre)
+    { url: 'https://lesenjeuxeco.dz/category/tic/feed/',                  label: 'Les Enjeux Eco',       skipFilter: true, browserUA: true },
+    { url: 'https://www.algerie360.com/category/high-tech/feed/',         label: 'Algérie 360',          skipFilter: true },
+    { url: 'https://itmag.dz/feed/',                                      label: 'ITMag DZ',             skipFilter: true, browserUA: true },
+    { url: 'https://www.android-dz.com/feed.xml',                         label: 'Android DZ',           skipFilter: true },
+    { url: 'https://www.ntic-dz.com/feed/',                               label: 'NTIC DZ',              skipFilter: true },
+    { url: 'https://www.lesoirdalgerie.com/feed',                         label: 'Le Soir DZ',           skipFilter: true },
+    { url: 'https://www.elmoudjahid.dz/fr/feed',                          label: 'El Moudjahid',         skipFilter: true },
+    // Algérie — presse générale (filtre actif)
+    { url: 'https://www.tsa-algerie.dz/feed/',                            label: 'TSA' },
+    { url: 'https://www.indjazat.com/category/tic/feed/',                 label: 'Indjazat' },
+    { url: 'https://algerie-eco.com/feed/',                               label: 'Algérie Eco' },
+    { url: 'https://www.ecomnewsmed.com/location/algerie/feed/',          label: 'EcomNews Med' },
+    // International TIC — spécialisées (pas de filtre)
+    { url: 'https://www.silicon.fr/feed',                                 label: 'Silicon.fr',           skipFilter: true },
+    { url: 'https://www.zdnet.fr/feed/',                                  label: 'ZDNet FR',             skipFilter: true },
+    { url: 'https://www.lemonde.fr/pixels/rss_full.xml',                  label: 'Le Monde Pixels',      skipFilter: true },
+    { url: 'https://www.wired.com/feed/rss',                              label: 'Wired',                skipFilter: true },
+    { url: 'https://techcrunch.com/feed/',                                label: 'TechCrunch' },
+];
+
+const VEILLE_TECH_RE = new RegExp(
+    '\\btic\\b|t[eé]l[eé]com|fibre\\b|\\bftth\\b|satellite|datacenter|data.?center' +
+    '|\\bdjezzy\\b|\\booredoo\\b|\\bmobilis\\b|algérie.?télécom|algerie.?telecom' +
+    '|\\b[2345]g\\b|\\blte\\b|t[eé]l[eé]phonie.?mobile|t[eé]l[eé]phonie.?fixe' +
+    '|\\binternet\\b|haut.?d[eé]bit|\\bcloud\\b|\\biot\\b|bande.?passante' +
+    '|cybers[eé]curit[eé]|s[eé]curit[eé].?informatique|\\bvpn\\b|\\brgpd\\b' +
+    '|\\bstartup\\b|\\binnovation\\b|intelligence.?artificielle|\\bia\\b' +
+    '|machine.?learning|transformation.?num[eé]rique|num[eé]risation|digitalisation' +
+    '|\\barpce\\b|spectre.?de.?fr[eé]quences|\\bsmartphone\\b|objets.?connect[eé]s' +
+    '|\\bnum[eé]rique\\b|\\bdigital\\b|\\btech\\b|\\binformatique\\b|\\bntic\\b',
+    'i'
+);
+
 async function updateVeilleFeeds() {
     const data = loadVeilleData();
-    const feeds = [
-    // ── Algérie ──────────────────────────────────────────────────────────────
-    'https://www.tsa-algerie.dz/feed/',
-    'https://lesenjeuxeco.dz/category/tic/feed/',
-    'https://www.algerie360.com/category/high-tech/feed/',
-    'https://www.aps.dz/fr/algerie/education-et-technologie?format=feed&type=rss',
-    'https://itmag.dz/feed/',
-    'https://www.android-dz.com/feed/',
-    'https://www.ntic-dz.com/feed/',
-    'https://www.indjazat.com/category/tic/feed/',
-    'https://algerie-eco.com/feed/',
-    'https://www.ecomnewsmed.com/location/algerie/feed/',
-    'https://www.elwatan.com/feed/',
-    'https://www.elmoudjahid.dz/?format=feed&type=rss',
-    'https://www.lesoirdalgerie.com/mobiles/feed/',
-    'https://www.lesoirdalgerie.com/numerique-et-satellite/feed/',
-    'https://www.algerietelecom.dz/fr/espace-presse?format=feed&type=rss',
-    // ── International TIC ────────────────────────────────────────────────────
-    'https://www.silicon.fr/feed',
-    'https://www.zdnet.fr/feed/',
-    'https://techcrunch.com/feed/',
-    'https://www.lemonde.fr/pixels/rss_full.xml',
-    'https://www.wired.com/feed/rss'
-];
+    const existingUrls = new Set([...data.feed.map(i => i.url), ...data.manual.map(i => i.url)]);
+    // Fenêtre de fraîcheur : on n'ingère pas le backlog RSS trop ancien (certains flux exposent des années d'archives)
+    const VEILLE_MAX_AGE_DAYS = 45;
+    const cutoff = Date.now() - VEILLE_MAX_AGE_DAYS * 24 * 60 * 60 * 1000;
+    const parser = new RssParser({
+        timeout: 12000,
+        headers: { 'User-Agent': 'AlgeriaTech-Bot/2.0' }
+    });
     let newItems = [];
-    
-    for (const url of feeds) {
+
+    for (const feedCfg of VEILLE_FEEDS) {
         try {
-            const jsonStr = await httpsGet(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`);
-            const json = JSON.parse(jsonStr);
-            if (json.status === 'ok' && json.items) {
-                json.items.forEach(item => {
-                    if (!item.title || !item.link) return;
-                    const text = (item.title + ' ' + (item.description || '')).toLowerCase();
-                    const techKw = ['tic', 'télécom', 'mobile', 'startup', 'innovation', 'tech', 'numérique', 'internet', 'data', 'ia', 'fibre', 'algerie', '5g', 'réseau', 'opérateur', 'digital', 'presse', 'communiqué'];
-                    if (techKw.some(k => text.includes(k))) {
-                        newItems.push({
-                            id: Buffer.from(item.link).toString('base64').substring(0, 16),
-                            title: item.title, url: item.link, tags: ['Presse', 'Automatique'],
-                            date: item.pubDate || new Date().toISOString(), source: new URL(url).hostname.replace('www.', ''), isManual: false
-                        });
-                    }
-                });
+            const feedParser = feedCfg.browserUA
+                ? new RssParser({
+                    timeout: 20000,
+                    headers: {
+                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AlgeriaTech-RevueBot/11.0',
+                        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                        'Accept-Language': 'fr-FR,fr;q=0.9,en-US;q=0.8',
+                        'Cache-Control': 'no-cache',
+                        'Connection': 'keep-alive',
+                    },
+                    requestOptions: { rejectUnauthorized: false }
+                  })
+                : parser;
+            const feed = await feedParser.parseURL(feedCfg.url);
+            let count = 0;
+            for (const item of (feed.items || []).slice(0, 30)) {
+                if (!item.title || !item.link) continue;
+                const text = (item.title + ' ' + (item.contentSnippet || item.summary || '')).slice(0, 500);
+                if (!feedCfg.skipFilter && !VEILLE_TECH_RE.test(text)) continue;
+                // Date fiable et récente requise (pas de fausse date « maintenant », pas de backlog ancien)
+                const pub = new Date(item.pubDate || item.isoDate || '');
+                if (isNaN(pub.getTime()) || pub.getTime() < cutoff) continue;
+                if (!existingUrls.has(item.link)) {
+                    existingUrls.add(item.link);
+                    newItems.push({
+                        id: Buffer.from(item.link).toString('base64').substring(0, 16),
+                        title: item.title.trim(),
+                        url: item.link,
+                        tags: text.toLowerCase().includes('algeri') ? ['Algérie', 'Tech'] : ['Tech', 'Actualité'],
+                        date: pub.toISOString(),
+                        fetchedAt: new Date().toISOString(),
+                        source: feedCfg.label || new URL(feedCfg.url).hostname.replace('www.', ''),
+                        isManual: false
+                    });
+                    count++;
+                }
             }
-        } catch (e) { console.log(`[VEILLE] RSS échoué pour ${url}:`, e.message); }
+            console.log(`[VEILLE] ${feedCfg.label} → ${count} nouveaux`);
+        } catch (e) { console.log(`[VEILLE] RSS échoué pour ${feedCfg.url}:`, e.message); }
     }
 
-    const existingUrls = new Set([...data.feed.map(i => i.url), ...data.manual.map(i => i.url)]);
-    const uniqueNew = newItems.filter(i => !existingUrls.has(i.url));
-    data.feed = [...data.feed, ...uniqueNew].sort((a,b) => new Date(b.date) - new Date(a.date)).slice(0, 150);
+    data.feed = [...newItems, ...data.feed]
+        .filter(i => { const t = new Date(i.date).getTime(); return !isNaN(t) && t >= cutoff; })
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, 150);
     data.lastUpdated = new Date().toISOString();
     saveVeilleData(data);
-    console.log('[VEILLE] Flux actualisés. Nouveautés:', uniqueNew.length);
+    console.log('[VEILLE] Flux actualisés. Nouveautés:', newItems.length);
 }
 
 updateVeilleFeeds();

@@ -1,8 +1,7 @@
 name: Apify Facebook (1x/jour)
 
 on:
-  schedule:
-    - cron: '59 10 * * *'  # 10h59 UTC = 11h59 Alger (UTC+1) chaque jour
+  # Apify désactivé (plus de scraping payant / quota). Lancement manuel uniquement.
   workflow_dispatch:
 
 permissions:
