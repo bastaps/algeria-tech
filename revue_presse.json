@@ -1,17 +1,50 @@
 {
   "date": "dimanche 14 juin",
-  "synthese": "Les dernières 24h en tech révèlent des enjeux majeurs : sécurité des données, innovations automobiles et mobilité électrique dominent. Les fuites de passeports et restrictions géopolitiques soulignent les vulnérabilités numériques. Les avancées en IA et énergie solaire redéfinissent les tendances technologiques mondiales.",
+  "synthese": "Les dernières 24h ont été marquées par des annonces majeures en innovation mobile et IA, avec des révélations sur les risques cybersécurité et des avancées technologiques disruptives. Les startups et géants tech redéfinissent les usages avec des outils toujours plus intelligents et accessibles. La cybersécurité et les télécoms restent des enjeux critiques, tandis que l'innovation s'accélère dans des secteurs variés.",
   "articles": [
     {
-      "titre": "Six entreprises allemandes attendues à Alger pour explorer le secteur automobile",
-      "resume": "Six entreprises industrielles allemandes sont attendues à Alger à la fin du mois de juin pour explorer les opportunités de l’écosystème automobile en",
-      "url": "https://algerie-eco.com/2026/06/13/six-entreprises-allemandes-attendues-a-alger-pour-explorer-le-secteur-automobile/",
-      "date": "2026-06-13T14:47:40.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "titre": "Samsung Galaxy S27 Ultra : Prix et Caractéristiques en Algérie",
+      "resume": "",
+      "url": "https://www.android-dz.com/samsung-galaxy-s27-ultra-prix-et-caracteristiques-en-algerie/",
+      "date": "2026-06-14T08:56:06.243Z",
+      "source": "Android DZ",
+      "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "Allemagne-Algérie : partenariats stratégiques pour révolutionner l'industrie automobile locale.",
-      "categorie": "Startups"
+      "accroche": "Samsung Galaxy S27 Ultra : le flagship algérien enfin dévoilé avec des specs de folie.",
+      "categorie": "Mobile"
+    },
+    {
+      "titre": "iOS 27 : trois outils IA pour retoucher vos photos dans Apple Photos",
+      "resume": "",
+      "url": "https://www.android-dz.com/ios-27-trois-outils-ia-pour-retoucher-vos-photos-dans-apple-photos/",
+      "date": "2026-06-14T07:11:27.457Z",
+      "source": "Android DZ",
+      "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
+      "pays": "DZ",
+      "accroche": "iOS 27 révolutionne la photo avec trois outils IA intégrés dans Apple Photos.",
+      "categorie": "Mobile"
+    },
+    {
+      "titre": "Siri IA arrive sur iPhone et Mac : qui est vraiment concerné cet automne ?",
+      "resume": "",
+      "url": "https://www.android-dz.com/siri-ia-arrive-sur-iphone-et-mac-qui-est-vraiment-concerne-cet-automne/",
+      "date": "2026-06-13T15:51:53.389Z",
+      "source": "Android DZ",
+      "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Siri IA débarque sur iPhone et Mac : qui profitera de cette mise à jour cet automne ?",
+      "categorie": "IA"
+    },
+    {
+      "titre": "J'ai testé le nouvel outil de nettoyage basé sur l'IA de Google Drive pour mettre de l'ordre dans 14 ans de fichiers encombrants : voici le résultat",
+      "resume": "Avec « Organize My Files », Gemini peut-il mettre de l'ordre dans mon Google Drive en désordre et me faire économiser de l'argent sur l'espace de stoc",
+      "url": "https://www.zdnet.fr/pratique/jai-teste-le-nouvel-outil-de-nettoyage-base-sur-lia-de-google-drive-pour-mettre-de-lordre-dans-14-ans-de-fichiers-encombrants-voici-le-resultat-496758.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-14T09:04:29.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Google Drive lance un outil IA de nettoyage pour organiser vos fichiers en un clic.",
+      "categorie": "Innovation"
     },
     {
       "titre": "Wifi pratique : 3 signes qui montrent que quelqu'un pique votre connexion",
@@ -21,7 +54,7 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "WiFi piraté ? 3 signes alarmants pour détecter un voleur de bande passante.",
+      "accroche": "Wifi piraté ? 3 signes pour détecter un intrus sur votre réseau domestique.",
       "categorie": "Cybersécurité"
     },
     {
@@ -32,63 +65,30 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Android : désactivez SafetyCore, ce service espionne vos photos en silence.",
-      "categorie": "Mobile"
+      "accroche": "Android : désactivez SafetyCore, ce service qui scanne vos photos à votre insu.",
+      "categorie": "Cybersécurité"
     },
     {
-      "titre": "Un choc mondial : Washington coupe l'accès à Mythos 5 et Fable 5 pour raison de sécurité nationale",
-      "resume": "Trois jours seulement après le lancement de Fable 5, l'administration américaine a brutalement ordonné à Anthropic de suspendre la diffusion ses modèl",
-      "url": "https://www.zdnet.fr/actualites/un-choc-mondial-washington-coupe-lacces-a-mythos-5-et-fable-5-pour-raison-de-securite-nationale-496791.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-13T20:02:54.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "titre": "Washington coupe les IA d’Anthropic ? En 1999, c’était un Mac qui était classé comme une arme de guerre",
+      "resume": "Washington vient de forcer Anthropic à couper ses IA les plus puissantes. En 1999, c’est un Mac qui était jugé trop dangereux pour quitter le pays. Ap",
+      "url": "https://www.frandroid.com/os/macos/3139663_washington-coupe-les-ia-danthropic-en-1999-cetait-un-mac-qui-etait-classe-comme-une-arme-de-guerre",
+      "date": "2026-06-14T09:50:48.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "USA bloquent Mythos 5 et Fable 5 : sécurité nationale vs. liberté numérique.",
+      "accroche": "Washington bloque les IA d'Anthropic : un Mac classé comme arme en 1999, l'histoire se répète.",
       "categorie": "Innovation"
     },
     {
-      "titre": "Dodge Charger électrique : les prix français tombent, mais un détail cloche à la recharge",
-      "resume": "C'est officiel : la Dodge Charger revient en Europe avec des motorisations thermiques et électriques. De quoi découvrir les prix de la Charger Daytona",
-      "url": "https://www.frandroid.com/survoltes/voitures-electriques/3139465_dodge-charger-electrique-les-prix-francais-tombent-mais-un-detail-cloche-a-la-recharge",
-      "date": "2026-06-14T08:01:00.000Z",
+      "titre": "Mole 1.7 débloque le contrôle des ventilateurs sur les Mac Apple Silicon",
+      "resume": "Mole, l'utilitaire de nettoyage et de maintenance pour Mac, passe en version 1.7. Au menu : contrôle des ventilateurs sur les puces Apple, alertes con",
+      "url": "https://www.frandroid.com/os/macos/3139661_mole-1-7-debloque-le-controle-des-ventilateurs-sur-les-mac-apple-silicon",
+      "date": "2026-06-14T09:46:47.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Dodge Charger électrique : prix en baisse, mais recharge encore problématique.",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Les meilleures voitures électriques et hybrides, les moteurs dans les roues et la batterie solaire Lidl – Récap’ Survoltés",
-      "resume": "L’actualité Survoltés a été particulièrement riche cette semaine : tests de véhicules électriques, innovations technologiques européennes et chinoises",
-      "url": "https://www.frandroid.com/survoltes/3138475_recap-survoltes-202624",
-      "date": "2026-06-13T18:01:00.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Voitures électriques et hybrides : moteurs dans les roues et batteries solaires révolutionnaires.",
+      "accroche": "Mole 1.7 : contrôlez vos ventilateurs Mac Apple Silicon comme jamais auparavant.",
       "categorie": "Innovation"
-    },
-    {
-      "titre": "J’ai testé le OneOdio Studio Max 2 : le casque sans fil qui mixe aussi vite que le filaire",
-      "resume": "Le OneOdio Studio Max 2 débarque avec des arguments techniques qui feraient rougir des casques deux fois plus chers : 9 ms de latence sans fil, 120 he",
-      "url": "https://www.frandroid.com/test/3135147_jai-teste-le-oneodio-studio-max-2-le-casque-sans-fil-qui-mixe-aussi-vite-que-le-filaire",
-      "date": "2026-06-13T16:00:00.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "OneOdio Studio Max 2 : le casque sans fil aussi performant que le filaire.",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Télépéage : pourquoi 7,5 millions d’automobilistes profitent de cette offre gratuite pendant 1 an",
-      "resume": "Avec le Pass Ulys Télépéage collé à leur pare-brise, les automobilistes français profitent de trajets plus fluides sur l'autoroute en empruntant les v",
-      "url": "https://www.01net.com/bons-plans/telepeage-pourquoi-75-millions-dautomobilistes-profitent-de-cette-offre-gratuite-pendant-1-an.html",
-      "date": "2026-06-14T08:30:49.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Télépéage gratuit pendant 1 an : 7,5 millions d'automobilistes bénéficient de l'offre.",
-      "categorie": "Réseaux"
     },
     {
       "titre": "Lidl casse les prix de l’énergie avec une batterie solaire à 299 € (mais attention au piège)",
@@ -98,7 +98,7 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Lidl casse les prix avec une batterie solaire à 299€, mais attention aux limites.",
+      "accroche": "Lidl casse les prix avec une batterie solaire à 299€, mais attention aux pièges cachés.",
       "categorie": "Innovation"
     },
     {
@@ -109,7 +109,7 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Passeports et cartes d'identité exposés : une faille critique menace des millions de données.",
+      "accroche": "Un million de passeports et cartes d'identité exposés en ligne : l'ampleur du scandale.",
       "categorie": "Cybersécurité"
     },
     {
@@ -120,20 +120,20 @@
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Anthropic libère Mythos : IA en open source et tensions autour de House of the Dragon.",
+      "accroche": "Anthropic libère Mythos et relance le débat sur l'IA : le récap' des dernières actualités.",
       "categorie": "IA"
     },
     {
-      "titre": "L’équipage peut souffler : la NASA a identifié la zone sans danger pour faire voler la mission Artémis III",
-      "resume": "Coincée en orbite terrestre pour sa future mission en 2027, la capsule Artémis III va devoir évoluer avec prudence. Pour protéger son équipage, la NAS",
-      "url": "https://www.numerama.com/sciences/2273573-lequipage-peut-souffler-la-nasa-a-identifie-la-zone-sans-danger-pour-faire-voler-la-mission-artemis-iii.html",
-      "date": "2026-06-13T17:40:27.000Z",
+      "titre": "Vous aimez les jeux familiaux ? Nous aussi. Et particulièrement ces 3 jeux très récents",
+      "resume": "Trois jeux, trois univers, trois mécaniques différentes… mais un même objectif : rassembler petits et grands, amis et famille, autour de la table. Bot",
+      "url": "https://www.numerama.com/pop-culture/2274311-vous-aimez-les-jeux-familiaux-nous-aussi-et-particulierement-ces-3-jeux-tres-recents.html",
+      "date": "2026-06-13T18:12:00.000Z",
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "NASA identifie une zone sûre pour Artémis : la mission lunaire peut enfin décoller.",
+      "accroche": "3 jeux familiaux récents à découvrir absolument pour des soirées endiablées.",
       "categorie": "Innovation"
     }
   ],
-  "lastUpdated": "2026-06-14T08:36:57.592Z"
+  "lastUpdated": "2026-06-14T09:51:55.855Z"
 }
