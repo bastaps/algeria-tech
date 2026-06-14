@@ -1,39 +1,17 @@
 {
   "date": "dimanche 14 juin",
-  "synthese": "Les dernières 24h dans la tech algérienne et mondiale révèlent des enjeux majeurs en cybersécurité, innovation énergétique et IA, avec des impacts directs sur les utilisateurs. Les scandales de fuites de données et les restrictions géopolitiques dominent l'actualité, tandis que les avancées technologiques (voitures électriques, casques audio) redéfinissent les usages. L'AlgérieTech souligne l'importance de la vigilance numérique et des opportunités locales dans ces domaines stratégiques.",
+  "synthese": "Les dernières 24h en tech révèlent des enjeux majeurs : sécurité des données, innovations automobiles et mobilité électrique dominent. Les fuites de passeports et restrictions géopolitiques soulignent les vulnérabilités numériques. Les avancées en IA et énergie solaire redéfinissent les tendances technologiques mondiales.",
   "articles": [
     {
-      "titre": "Un million de passeports et de cartes d’identité exposés sur Internet, que s’est-il passé ?",
-      "resume": "Pendant plusieurs semaines, des pièces d’identité et d’autres données personnelles de près d’un million de personnes ont été exposées sur le web. Aux",
-      "url": "https://www.01net.com/actualites/un-million-passeports-cartes-identite-exposes-internet.html",
-      "date": "2026-06-14T06:02:51.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Un million de passeports exposés en ligne : la faille qui inquiète les Algériens.",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "Un choc mondial : Washington coupe l'accès à Mythos 5 et Fable 5 pour raison de sécurité nationale",
-      "resume": "Trois jours seulement après le lancement de Fable 5, l'administration américaine a brutalement ordonné à Anthropic de suspendre la diffusion ses modèl",
-      "url": "https://www.zdnet.fr/actualites/un-choc-mondial-washington-coupe-lacces-a-mythos-5-et-fable-5-pour-raison-de-securite-nationale-496791.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-13T20:02:54.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Washington bloque Mythos 5 et Fable 5 : l'Algérie dans la tourmente géopolitique.",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Android : comment désactiver SafetyCore, le service qui scanne vos photos sans vous le dire",
-      "resume": "Déployé discrètement sur Android, SafetyCore analyse vos photos pour détecter des contenus sensibles. Sans icône ni avertissement, il suscite la méfia",
-      "url": "https://www.zdnet.fr/pratique/android-comment-desactiver-safetycore-le-service-qui-scanne-vos-photos-sans-vous-le-dire-496702.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-14T07:01:59.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Android : désactivez SafetyCore pour protéger vos photos des scans intrusifs.",
-      "categorie": "Mobile"
+      "titre": "Six entreprises allemandes attendues à Alger pour explorer le secteur automobile",
+      "resume": "Six entreprises industrielles allemandes sont attendues à Alger à la fin du mois de juin pour explorer les opportunités de l’écosystème automobile en",
+      "url": "https://algerie-eco.com/2026/06/13/six-entreprises-allemandes-attendues-a-alger-pour-explorer-le-secteur-automobile/",
+      "date": "2026-06-13T14:47:40.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Allemagne-Algérie : partenariats stratégiques pour révolutionner l'industrie automobile locale.",
+      "categorie": "Startups"
     },
     {
       "titre": "Wifi pratique : 3 signes qui montrent que quelqu'un pique votre connexion",
@@ -43,30 +21,41 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Votre WiFi est piraté ? 3 signes qui ne trompent pas en Algérie.",
+      "accroche": "WiFi piraté ? 3 signes alarmants pour détecter un voleur de bande passante.",
       "categorie": "Cybersécurité"
     },
     {
-      "titre": "C’est quoi un token dans l’IA ? Tout comprendre à une notion primordiale",
-      "resume": "Alors qu'on parle de plus en plus d'intelligence artificielle, le mot « token » revient régulièrement pour évaluer l'efficacité et surtout le coût d'u",
-      "url": "https://www.frandroid.com/culture-tech/intelligence-artificielle/3133853_cest-quoi-un-token-dans-lia-tout-comprendre-a-une-notion-primordiale",
-      "date": "2026-06-13T15:49:00.000Z",
+      "titre": "Android : comment désactiver SafetyCore, le service qui scanne vos photos sans vous le dire",
+      "resume": "Déployé discrètement sur Android, SafetyCore analyse vos photos pour détecter des contenus sensibles. Sans icône ni avertissement, il suscite la méfia",
+      "url": "https://www.zdnet.fr/pratique/android-comment-desactiver-safetycore-le-service-qui-scanne-vos-photos-sans-vous-le-dire-496702.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-14T07:01:59.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Android : désactivez SafetyCore, ce service espionne vos photos en silence.",
+      "categorie": "Mobile"
+    },
+    {
+      "titre": "Un choc mondial : Washington coupe l'accès à Mythos 5 et Fable 5 pour raison de sécurité nationale",
+      "resume": "Trois jours seulement après le lancement de Fable 5, l'administration américaine a brutalement ordonné à Anthropic de suspendre la diffusion ses modèl",
+      "url": "https://www.zdnet.fr/actualites/un-choc-mondial-washington-coupe-lacces-a-mythos-5-et-fable-5-pour-raison-de-securite-nationale-496791.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-13T20:02:54.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "USA bloquent Mythos 5 et Fable 5 : sécurité nationale vs. liberté numérique.",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Dodge Charger électrique : les prix français tombent, mais un détail cloche à la recharge",
+      "resume": "C'est officiel : la Dodge Charger revient en Europe avec des motorisations thermiques et électriques. De quoi découvrir les prix de la Charger Daytona",
+      "url": "https://www.frandroid.com/survoltes/voitures-electriques/3139465_dodge-charger-electrique-les-prix-francais-tombent-mais-un-detail-cloche-a-la-recharge",
+      "date": "2026-06-14T08:01:00.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Tokens IA : décryptez cette notion clé pour booster vos projets tech.",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Lidl casse les prix de l’énergie avec une batterie solaire à 299 € (mais attention au piège)",
-      "resume": "Lidl Allemagne lance une batterie solaire de balcon Tronic de 2,24 kWh à seulement 299 €. Un tarif fou qui cache quelques concessions techniques.",
-      "url": "https://www.01net.com/actualites/lidl-casse-les-prix-de-lenergie-avec-une-batterie-solaire-a-299-e-mais-attention-au-piege.html",
-      "date": "2026-06-14T07:03:57.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Batterie solaire à 299€ chez Lidl : l’offre qui fait rêver les Algériens.",
-      "categorie": "Innovation"
+      "accroche": "Dodge Charger électrique : prix en baisse, mais recharge encore problématique.",
+      "categorie": "Mobile"
     },
     {
       "titre": "Les meilleures voitures électriques et hybrides, les moteurs dans les roues et la batterie solaire Lidl – Récap’ Survoltés",
@@ -76,7 +65,7 @@
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Voitures électriques : moteurs dans les roues et batteries solaires, la révolution.",
+      "accroche": "Voitures électriques et hybrides : moteurs dans les roues et batteries solaires révolutionnaires.",
       "categorie": "Innovation"
     },
     {
@@ -87,19 +76,41 @@
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "OneOdio Studio Max 2 : le casque sans fil qui défie le filaire en performance.",
+      "accroche": "OneOdio Studio Max 2 : le casque sans fil aussi performant que le filaire.",
       "categorie": "Mobile"
     },
     {
-      "titre": "Streaming Australie Turquie : l’astuce pour regarder le match gratuitement en direct HD",
-      "resume": "Vingt-quatre ans après sa dernière apparition mondiale, la Turquie défie l'Australie dans un match qu'on peut regarder en streaming gratuitement et en",
-      "url": "https://www.01net.com/bons-plans/streaming-australie-turquie-lastuce-pour-regarder-le-match-gratuitement-en-direct-hd.html",
-      "date": "2026-06-14T00:00:30.000Z",
+      "titre": "Télépéage : pourquoi 7,5 millions d’automobilistes profitent de cette offre gratuite pendant 1 an",
+      "resume": "Avec le Pass Ulys Télépéage collé à leur pare-brise, les automobilistes français profitent de trajets plus fluides sur l'autoroute en empruntant les v",
+      "url": "https://www.01net.com/bons-plans/telepeage-pourquoi-75-millions-dautomobilistes-profitent-de-cette-offre-gratuite-pendant-1-an.html",
+      "date": "2026-06-14T08:30:49.000Z",
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Streaming gratuit en HD : l’astuce pour regarder les matchs depuis l’Algérie.",
+      "accroche": "Télépéage gratuit pendant 1 an : 7,5 millions d'automobilistes bénéficient de l'offre.",
       "categorie": "Réseaux"
+    },
+    {
+      "titre": "Lidl casse les prix de l’énergie avec une batterie solaire à 299 € (mais attention au piège)",
+      "resume": "Lidl Allemagne lance une batterie solaire de balcon Tronic de 2,24 kWh à seulement 299 €. Un tarif fou qui cache quelques concessions techniques.",
+      "url": "https://www.01net.com/actualites/lidl-casse-les-prix-de-lenergie-avec-une-batterie-solaire-a-299-e-mais-attention-au-piege.html",
+      "date": "2026-06-14T07:03:57.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Lidl casse les prix avec une batterie solaire à 299€, mais attention aux limites.",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Un million de passeports et de cartes d’identité exposés sur Internet, que s’est-il passé ?",
+      "resume": "Pendant plusieurs semaines, des pièces d’identité et d’autres données personnelles de près d’un million de personnes ont été exposées sur le web. Aux",
+      "url": "https://www.01net.com/actualites/un-million-passeports-cartes-identite-exposes-internet.html",
+      "date": "2026-06-14T06:02:51.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Passeports et cartes d'identité exposés : une faille critique menace des millions de données.",
+      "categorie": "Cybersécurité"
     },
     {
       "titre": "« test cedric », Anthropic qui libère Mythos et conflit autour de House of the Dragon : le récap’ de la semaine",
@@ -109,19 +120,8 @@
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Anthropic libère Mythos : l’IA qui divise et fait parler en Algérie.",
+      "accroche": "Anthropic libère Mythos : IA en open source et tensions autour de House of the Dragon.",
       "categorie": "IA"
-    },
-    {
-      "titre": "Vous aimez les jeux familiaux ? Nous aussi. Et particulièrement ces 3 jeux très récents",
-      "resume": "Trois jeux, trois univers, trois mécaniques différentes… mais un même objectif : rassembler petits et grands, amis et famille, autour de la table. Bot",
-      "url": "https://www.numerama.com/pop-culture/2274311-vous-aimez-les-jeux-familiaux-nous-aussi-et-particulierement-ces-3-jeux-tres-recents.html",
-      "date": "2026-06-13T18:12:00.000Z",
-      "source": "Numerama",
-      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
-      "pays": "FR",
-      "accroche": "3 jeux familiaux récents à adopter absolument en Algérie.",
-      "categorie": "Startups"
     },
     {
       "titre": "L’équipage peut souffler : la NASA a identifié la zone sans danger pour faire voler la mission Artémis III",
@@ -131,9 +131,9 @@
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "NASA : la mission Artémis trouve une zone sûre pour un alunissage historique.",
+      "accroche": "NASA identifie une zone sûre pour Artémis : la mission lunaire peut enfin décoller.",
       "categorie": "Innovation"
     }
   ],
-  "lastUpdated": "2026-06-14T08:15:26.371Z"
+  "lastUpdated": "2026-06-14T08:36:57.592Z"
 }
