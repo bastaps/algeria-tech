@@ -1,6 +1,24 @@
 {
   "posts": [
     {
+      "id": "4f5a0ef8f0747c1a",
+      "source_name": "Android DZ",
+      "source_short": "ADZ",
+      "source_color": "#33691E",
+      "category": "Médias TIC",
+      "category_icon": "🤖",
+      "url": "https://www.android-dz.com/iphone-fold-tout-ce-qu-on-sait-sur-le-premier-iphone-pliable/",
+      "image": "",
+      "date": "2026-06-14T16:50:00.096Z",
+      "lang_source": "fr",
+      "text": {
+        "fr": "iPhone Fold : tout ce qu'on sait sur le premier iPhone pliable — Apple prépare son premier smartphone pliable pour 2026, et les fuites s'accumulent. Voici l'état des lieux complet : design, écrans, prix et date de sortie probable.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "a16f8521eba1e6aa",
       "source_name": "Ooredoo Algérie",
       "source_short": "OR",
@@ -5111,33 +5129,16 @@
         "fr": "",
         "en": ""
       }
-    },
-    {
-      "id": "863c05e220c3e5fe",
-      "source_name": "Algérie Télécom Satellite (ATS)",
-      "source_short": "ATS",
-      "source_color": "#1A237E",
-      "category": "Infrastructure",
-      "category_icon": "🛰️",
-      "url": "https://www.facebook.com/atsofficiel/posts/pfbid02fKmfBnU2XK3iazyDfjhdmAs4bziGDhbW5jn7acmE5fF9avzewPbNjkk4Km1CUnkQl",
-      "image": "https://www.facebook.com/photo/?fbid=1769612054097250&set=a.418995169158952",
-      "date": "2026-06-07T08:00:20.000Z",
-      "lang_source": "ar",
-      "text": {
-        "ar": "أنتم على بعد خطوة من الولوج إلى مرحلة جديدة من التكوين و التعليم، فإجعلوا من تَعبِكم سُلّما نحو القمة، ثقوا بأنفسكم، و إبدؤوا كل ي… — أنتم على بعد خطوة من الولوج إلى مرحلة جديدة من التكوين و التعليم، فإجعلوا من تَعبِكم سُلّما نحو القمة، ثقوا بأنفسكم، و إبدؤوا كل يوم بعزيمة و إصرار على أن النجاح من نصيبكم\n\nدعواتنا ترافقكم… بالتوفيق !\n\nBonne chance à tous nos enfants qui s'apprêtent à passer l'examen du baccalauréat !\n\nVous êtes à u",
-        "fr": "",
-        "en": ""
-      }
     }
   ],
-  "lastUpdated": "2026-06-14T16:40:53.487633+00:00",
+  "lastUpdated": "2026-06-14T19:08:36.566049+00:00",
   "stats": {
+    "Médias TIC": 84,
     "Opérateurs": 34,
     "Tech International": 119,
-    "Médias TIC": 83,
     "Équipementiers": 41,
     "Ministère": 10,
-    "Infrastructure": 13
+    "Infrastructure": 12
   },
   "total": 300
 }
