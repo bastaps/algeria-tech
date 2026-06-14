@@ -1,6 +1,42 @@
 {
   "posts": [
     {
+      "id": "f2a8053f7a601651",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/14/startup-ceo-charlie-javice-is-reportedly-angling-for-a-trump-pardon/",
+      "image": "",
+      "date": "Sun, 14 Jun 2026 21:55:34 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Startup CEO Charlie Javice is reportedly angling for a Trump pardon — JPMorgan can't be pleased by any of this.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "0f0b44cbb3403c59",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/14/uk-may-ban-social-media-for-children-under-16/",
+      "image": "",
+      "date": "Sun, 14 Jun 2026 20:17:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "UK may ban social media for children under 16 — The U.K. seems to be following Australia's lead in banning a wide swath of social media for teens.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "4f5a0ef8f0747c1a",
       "source_name": "Android DZ",
       "source_short": "ADZ",
@@ -5095,50 +5131,16 @@
         "ar": "",
         "en": ""
       }
-    },
-    {
-      "id": "5faeadb47484780c",
-      "source_name": "Algérie Télécom Satellite (ATS)",
-      "source_short": "ATS",
-      "source_color": "#1A237E",
-      "category": "Infrastructure",
-      "category_icon": "🛰️",
-      "url": "https://www.facebook.com/atsofficiel/posts/pfbid02X3gbp6HsFTLahYxzeFyxtqEbeemhpLKVvCxkX1joyd4xEHicPknEgFCBdUKprB3Vl",
-      "image": "https://www.facebook.com/photo/?fbid=1769798027411986&set=a.418995169158952",
-      "date": "2026-06-07T12:49:08.000Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Votre flotte, votre performance, en temps réel. 🚛📍  Chaque trajet compte. Grâce à la solution de géolocalisation et de gestion de … — Votre flotte, votre performance, en temps réel. 🚛📍\n\nChaque trajet compte. Grâce à la solution de géolocalisation et de gestion de flotte d’ATS, gardez une visibilité complète sur vos véhicules et optimisez vos opérations au quotidien.\n\n✅ Suivi en temps réel des déplacements\n✅ Réduction des coûts d’e",
-        "ar": "",
-        "en": ""
-      }
-    },
-    {
-      "id": "f8a10bbc5bcfcb3d",
-      "source_name": "Algérie Poste",
-      "source_short": "AP",
-      "source_color": "#F9A825",
-      "category": "Infrastructure",
-      "category_icon": "✉️",
-      "url": "https://www.facebook.com/algerieposteofficiel/posts/pfbid02Cs9hT8a4urSrPBHEiF2GkQFYWmXTwej1E2a7xmgRQ8h2acLhPiHXEuxM98PsRPgCl",
-      "image": "https://www.facebook.com/photo/?fbid=1432189355609452&set=a.620796556748740",
-      "date": "2026-06-07T11:06:16.000Z",
-      "lang_source": "ar",
-      "text": {
-        "ar": "“الثقة في النفس أول إجابة صحيحة.” في أول أيام امتحان شهادة البكالوريا، يتوجّه بريد الجزائر بأصدق عبارات التشجيع والتوفيق إلى جميع … — “الثقة في النفس أول إجابة صحيحة.”\nفي أول أيام امتحان شهادة البكالوريا، يتوجّه بريد الجزائر بأصدق عبارات التشجيع والتوفيق إلى جميع المترشحين.\nتذكّروا أن النجاح لا يُصنع في ساعات الامتحان فقط، بل هو ثمرة سنوات من التعلم والانضباط والمثابرة. علمياً، أثبتت الدراسات أن التركيز والهدوء والثقة بالنفس عوامل",
-        "fr": "",
-        "en": ""
-      }
     }
   ],
-  "lastUpdated": "2026-06-14T19:08:36.566049+00:00",
+  "lastUpdated": "2026-06-14T22:03:13.047792+00:00",
   "stats": {
+    "Tech International": 121,
     "Médias TIC": 84,
     "Opérateurs": 34,
-    "Tech International": 119,
     "Équipementiers": 41,
     "Ministère": 10,
-    "Infrastructure": 12
+    "Infrastructure": 10
   },
   "total": 300
 }
