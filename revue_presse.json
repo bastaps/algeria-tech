@@ -1,18 +1,7 @@
 {
   "date": "lundi 15 juin",
-  "synthese": "Les dernières 24h ont été marquées par des avancées technologiques majeures en IA et cybersécurité, des innovations mobiles disruptives et des projets d'infrastructure ambitieux en Algérie. Les tensions géopolitiques autour de l'IA et les levées de fonds record redéfinissent le paysage tech mondial, tandis que le marché algérien se positionne sur des créneaux stratégiques comme les télécoms et l'électroménager connecté. Une journée où l'innovation rencontre les défis sécuritaires et économiques.",
+  "synthese": "L'actualité tech des dernières 24h en Algérie et à l'international révèle des avancées majeures en innovation locale, des tensions géopolitiques autour de l'IA, et des défis technologiques globaux. Les secteurs des télécoms, de l'IA et des startups dominent les débats, tandis que les cybermenaces et les évolutions réglementaires redéfinissent les enjeux technologiques. Une semaine marquée par des annonces stratégiques, des levées de fonds record et des alertes sécuritaires.",
   "articles": [
-    {
-      "titre": "Anthropic suspend ses modèles les plus avancés sur ordre de Washington",
-      "resume": "Le 12 juin 2026, l’éditeur californien d’intelligence artificielle Anthropic a été contraint de désactiver Claude Fable 5 et Mythos 5, ses deux modèle",
-      "url": "https://www.itmag.dz/2026/06/15/anthropic-suspend-ses-modeles-les-plus-avances-sur-ordre-de-washington/",
-      "date": "2026-06-15T08:04:07.000Z",
-      "source": "ITMAG.dz",
-      "logo": "https://www.google.com/s2/favicons?domain=itmag.dz&sz=32",
-      "pays": "DZ",
-      "accroche": "Washington bloque les IA d'Anthropic : guerre froide technologique en marche.",
-      "categorie": "IA"
-    },
     {
       "titre": "Électroménager : LG Electronics Algérie présente ses dernières innovations connectées",
       "resume": "C’est sous le thème révélateur « Always One Step Ahead for Your Comfort » (Toujours un pas en avant pour votre confort) que LG Electronics […]\nL’artic",
@@ -21,7 +10,7 @@
       "source": "Algérie360 Tech",
       "logo": "https://www.google.com/s2/favicons?domain=algerie360.com&sz=32",
       "pays": "DZ",
-      "accroche": "LG Algérie révolutionne l'électroménager avec des appareils connectés intelligents.",
+      "accroche": "LG Algérie dévoile ses électroménagers connectés innovants pour 2026.",
       "categorie": "Innovation"
     },
     {
@@ -32,7 +21,7 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Téléphérique de Tizi-Ouzou : un bond technologique pour le transport urbain.",
+      "accroche": "Tizi-Ouzou : inauguration du 2ème tronçon du téléphérique, un bond pour la mobilité.",
       "categorie": "Réseaux"
     },
     {
@@ -43,8 +32,8 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Constructeurs automobiles en quête de partenariats stratégiques à Oran.",
-      "categorie": "Startups"
+      "accroche": "Constructeurs automobiles en visite à Oran pour booster la sous-traitance locale.",
+      "categorie": "Innovation"
     },
     {
       "titre": "Air Algérie : Première liaison aérienne entre Alger et Manchester",
@@ -54,7 +43,7 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Air Algérie ouvre une nouvelle ligne vers Manchester, boostant le tourisme.",
+      "accroche": "Air Algérie lance sa première liaison directe vers Manchester, un pas vers l'international.",
       "categorie": "Télécoms"
     },
     {
@@ -65,7 +54,7 @@
       "source": "Android DZ",
       "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "iPhone Fold : Apple prépare un smartphone pliable révolutionnaire.",
+      "accroche": "iPhone Fold : Apple prépare son premier smartphone pliable, révolution en vue.",
       "categorie": "Mobile"
     },
     {
@@ -76,7 +65,7 @@
       "source": "Android DZ",
       "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "Mistral AI vise 20 milliards d'euros avec une levée de fonds record.",
+      "accroche": "Mistral AI vise 20 milliards d'euros avec une levée de fonds historique.",
       "categorie": "IA"
     },
     {
@@ -87,7 +76,7 @@
       "source": "EcomNewsMed DZ",
       "logo": "https://www.google.com/s2/favicons?domain=ecomnewsmed.com&sz=32",
       "pays": "DZ",
-      "accroche": "L'Algérie lance la construction d'une ligne ferroviaire stratégique d'ici septembre.",
+      "accroche": "L'Algérie accélère : travaux ferroviaires lancés d'ici septembre pour moderniser les transports.",
       "categorie": "Réseaux"
     },
     {
@@ -98,7 +87,7 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Bruxelles s'inquiète : l'agenda IPO d'Anthropic fragilisé par Trump.",
+      "accroche": "Bruxelles s'inquiète : tensions Trump-Anthropic menacent l'IPO de l'IA.",
       "categorie": "IA"
     },
     {
@@ -109,7 +98,7 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Yogosha change de mains : le groupe Créative prend les rênes.",
+      "accroche": "Yogosha change de main : le groupe Créative reprend les rênes de la startup.",
       "categorie": "Startups"
     },
     {
@@ -120,7 +109,7 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "IA et cybercriminalité : Dumpsec expose les dangers du 'crime as a service'.",
+      "accroche": "IA et cybercriminalité : Dumpsec révèle les dangers du 'crime as a service'.",
       "categorie": "Cybersécurité"
     },
     {
@@ -133,7 +122,18 @@
       "pays": "FR",
       "accroche": "FBI démantèle un réseau de phishing dopé à l'IA : 1,9 milliard de dollars volés.",
       "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Une IA surévalue sa voiture de 35 %, et BMW est forcé de payer la différence",
+      "resume": "Un homme s’est vu offrir une proposition de reprise très intéressante pour sa BMW. Mais l’agent en face était une IA qui a largement surestimé la vale",
+      "url": "https://www.01net.com/actualites/ia-surevalue-sa-voiture-35-constructeur-automobile-force-payer-difference.html",
+      "date": "2026-06-15T09:40:22.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Une IA surévalue une voiture de 35% : BMW paie la facture de l'erreur algorithmique.",
+      "categorie": "IA"
     }
   ],
-  "lastUpdated": "2026-06-15T10:22:34.180Z"
+  "lastUpdated": "2026-06-15T10:50:19.565Z"
 }
