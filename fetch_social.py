@@ -624,18 +624,21 @@ def fetch_rsshub(source: dict) -> list:
 
 # ─── Helper : décodage JSON string Facebook ───────────────────────────────────
 def _fb_unescape(s: str) -> str:
-    """Décode les séquences d'échappement JSON dans les blobs HTML de Facebook."""
-    def _replace(m):
-        esc = m.group(1)
-        if esc == 'n': return '\n'
-        if esc == 't': return '\t'
-        if esc == 'r': return ''
-        if esc in ('"', '\\', '/'): return esc
-        if len(esc) == 5 and esc[0] == 'u':
-            try: return chr(int(esc[1:], 16))
-            except ValueError: pass
-        return m.group(0)
-    return re.sub(r'\\(n|t|r|"|\\|/|u[0-9a-fA-F]{4})', _replace, s)
+    """
+    Décode les séquences d'échappement JSON (\\n, \\uXXXX, paires de surrogates pour emoji).
+    Utilise json.loads pour gérer correctement \\uD83D\\uDE00 → 😀 sans surrogates isolés.
+    """
+    try:
+        # json.loads combine automatiquement les paires de surrogates en emoji valides
+        return json.loads('"' + s + '"')
+    except (json.JSONDecodeError, ValueError):
+        try:
+            # Fallback : guillemets non échappés dans le texte
+            return json.loads('"' + s.replace('"', '\\"') + '"')
+        except Exception:
+            # Dernier recours : substitutions basiques
+            return (s.replace('\\n', '\n').replace('\\/', '/')
+                     .replace('\\"', '"').replace('\\\\', '\\'))
 
 
 # ─── Fetch Facebook via cookie de session authentifiée ───────────────────────
