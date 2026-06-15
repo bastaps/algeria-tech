@@ -22,7 +22,7 @@ jobs:
           cache: 'pip'
 
       - name: Installer les dépendances
-        run: pip install requests beautifulsoup4 lxml
+        run: pip install requests beautifulsoup4 lxml curl_cffi
 
       - name: Mettre à jour tic_social.json
         run: python fetch_social.py --no-translate
@@ -32,6 +32,12 @@ jobs:
           # → https://github.com/DIYgod/RSSHub/blob/master/vercel.json
           # → Ex: https://your-rsshub.vercel.app (sans slash final)
           RSSHUB_BASE_URL: ${{ secrets.RSSHUB_BASE_URL }}
+          # Cookies de session sociale (jamais le mot de passe — cookie seulement)
+          # Extraire depuis Chrome : F12 → Application → Cookies → <domaine>
+          # Facebook  : c_user=XXX; xs=YYY; datr=ZZZ; fr=AAA
+          # Instagram : sessionid=XXX; csrftoken=YYY
+          FACEBOOK_COOKIES: ${{ secrets.FACEBOOK_COOKIES }}
+          INSTAGRAM_COOKIES: ${{ secrets.INSTAGRAM_COOKIES }}
 
       - name: Commit et push
         run: |

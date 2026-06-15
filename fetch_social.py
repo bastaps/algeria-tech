@@ -43,6 +43,15 @@ except ImportError:
     os.system(f'"{sys.executable}" -m pip install beautifulsoup4 --user -q')
     from bs4 import BeautifulSoup
 
+# curl_cffi — imite le TLS fingerprint Chrome → contourne les protections TLS de FB/IG
+# Uniquement activé quand des cookies de session sont fournis
+try:
+    from curl_cffi import requests as cffi_requests
+    HAS_CURL_CFFI = True
+except ImportError:
+    cffi_requests = None
+    HAS_CURL_CFFI = False
+
 # ─── Chemins ──────────────────────────────────────────────────────────────────
 BASE_DIR    = Path(__file__).parent
 CONFIG_FILE = BASE_DIR / "social_config.json"
@@ -68,6 +77,17 @@ FB_TOKEN     = ENV.get("FB_APP_TOKEN", "")
 # Déployez en 5 min sur Vercel : https://github.com/DIYgod/RSSHub#vercel
 # Puis ajoutez RSSHUB_BASE_URL dans les secrets GitHub Actions
 RSSHUB_BASE  = ENV.get("RSSHUB_BASE_URL", "").rstrip('/')
+
+# ── Cookies de session sociale (NE JAMAIS mettre le mot de passe ici) ────────
+# Utilisez un COMPTE DÉDIÉ au monitoring (pas votre compte perso).
+# Extraction depuis Chrome : F12 → Application → Cookies → <domaine>
+# Copier : "nom=valeur; nom2=valeur2; ..." → GitHub Secret correspondant
+#
+# FACEBOOK_COOKIES  → c_user, xs, datr, fr   (depuis facebook.com)
+# INSTAGRAM_COOKIES → sessionid, csrftoken    (depuis instagram.com)
+# Durée de vie : ~90 jours. Rafraîchir quand "[FB] ✗ Cookie expiré" apparaît.
+FB_COOKIE = ENV.get("FACEBOOK_COOKIES", "").strip()
+IG_COOKIE = ENV.get("INSTAGRAM_COOKIES", "").strip()
 
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AlgeriaTech-Bot/2.0',
@@ -602,6 +622,187 @@ def fetch_rsshub(source: dict) -> list:
     return []
 
 
+# ─── Helper : décodage JSON string Facebook ───────────────────────────────────
+def _fb_unescape(s: str) -> str:
+    """Décode les séquences d'échappement JSON dans les blobs HTML de Facebook."""
+    def _replace(m):
+        esc = m.group(1)
+        if esc == 'n': return '\n'
+        if esc == 't': return '\t'
+        if esc == 'r': return ''
+        if esc in ('"', '\\', '/'): return esc
+        if len(esc) == 5 and esc[0] == 'u':
+            try: return chr(int(esc[1:], 16))
+            except ValueError: pass
+        return m.group(0)
+    return re.sub(r'\\(n|t|r|"|\\|/|u[0-9a-fA-F]{4})', _replace, s)
+
+
+# ─── Fetch Facebook via cookie de session authentifiée ───────────────────────
+def fetch_facebook_cookie(source: dict) -> list:
+    """
+    Accède à facebook.com/{page} avec un cookie de session Chrome exporté.
+    Extrait les textes de posts depuis les blobs JSON embarqués dans la page.
+
+    Variable d'environnement requise : FACEBOOK_COOKIES (GitHub Secret)
+    Format : "c_user=1234567890; xs=Abc...; datr=Xyz...; fr=..."
+
+    Comment extraire vos cookies (une fois par ~90 jours) :
+      1. Connectez-vous sur facebook.com avec un compte DÉDIÉ monitoring
+      2. F12 → onglet "Application" → "Cookies" → "https://www.facebook.com"
+      3. Copiez c_user, xs, datr, fr dans la valeur du secret FACEBOOK_COOKIES
+    """
+    if not FB_COOKIE or not HAS_CURL_CFFI:
+        return []
+    page_id = source.get('fb_page_id', '').strip()
+    if not page_id:
+        return []
+
+    url = f"https://www.facebook.com/{page_id}/"
+    try:
+        r = cffi_requests.get(url, impersonate='chrome124', headers={
+            'Cookie': FB_COOKIE,
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            'Accept-Language': 'fr-DZ,fr;q=0.9,ar;q=0.8,en;q=0.7',
+        }, timeout=25)
+
+        # Redirection vers /login/ → cookie expiré ou compte suspendu
+        if 'login' in r.url.lower() or r.status_code != 200:
+            print(f"  [FB]  ✗ Cookie expiré ou page introuvable → renouvelez FACEBOOK_COOKIES")
+            return []
+
+        html = r.text
+
+        # ── Extraction des textes de posts depuis le JSON React embarqué ──────
+        # Pattern principal : "message":{"text":"<post>"}
+        raw_texts = re.findall(
+            r'"message":\{"text":"((?:[^"\\]|\\.){20,1500})"\}',
+            html
+        )
+        # Pattern alternatif pour certaines pages : "story":{"message":{"text":"..."}}
+        if not raw_texts:
+            raw_texts = re.findall(
+                r'"story":\{"[^}]*"message":\{"text":"((?:[^"\\]|\\.){20,1500})"\}',
+                html
+            )
+
+        # ── Timestamps et liens ────────────────────────────────────────────────
+        raw_times = re.findall(r'"creation_time":(\d{10})', html)
+        raw_links = re.findall(
+            r'"url":"(https://www\.facebook\.com/(?:permalink|[^"]{5,80}/posts/)[^"]{5,80})"',
+            html
+        )
+
+        items = []
+        seen = set()
+        for i, raw in enumerate(raw_texts[:12]):
+            text = _fb_unescape(raw).strip()
+            if len(text) < 20 or text in seen:
+                continue
+            seen.add(text)
+
+            ts = int(raw_times[i]) if i < len(raw_times) else None
+            date = (datetime.fromtimestamp(ts, tz=timezone.utc).isoformat()
+                    if ts else datetime.now(timezone.utc).isoformat())
+            link = (raw_links[i].replace('\\/', '/')
+                    if i < len(raw_links)
+                    else f"https://www.facebook.com/{page_id}")
+
+            items.append({
+                'title': text[:130].replace('\n', ' ') + ('…' if len(text) > 130 else ''),
+                'link':  link,
+                'desc':  text[:800],
+                'date':  date,
+                'source_type': 'facebook'
+            })
+
+        if items:
+            print(f"  [FB]  ✓ {len(items)} posts ← facebook.com/{page_id}")
+        else:
+            print(f"  [FB]  ✗ {page_id}: aucun post extrait (JSON structure inattendue)")
+        return items
+
+    except Exception as e:
+        print(f"  [FB]  ✗ {page_id}: {str(e)[:80]}")
+        return []
+
+
+# ─── Fetch Instagram via cookie de session + API mobile ───────────────────────
+def fetch_instagram_cookie(source: dict) -> list:
+    """
+    Appelle l'API mobile interne d'Instagram avec un cookie de session Chrome.
+    Retourne les derniers posts (légendes texte uniquement).
+
+    Variable d'environnement requise : INSTAGRAM_COOKIES (GitHub Secret)
+    Format : "sessionid=Abc123...; csrftoken=Xyz..."
+
+    Comment extraire vos cookies (une fois par ~90 jours) :
+      1. Connectez-vous sur instagram.com avec un compte DÉDIÉ monitoring
+      2. F12 → onglet "Application" → "Cookies" → "https://www.instagram.com"
+      3. Copiez sessionid et csrftoken dans la valeur du secret INSTAGRAM_COOKIES
+    """
+    if not IG_COOKIE or not HAS_CURL_CFFI:
+        return []
+    ig_user = source.get('ig_user', '').strip()
+    if not ig_user:
+        return []
+
+    url = f"https://i.instagram.com/api/v1/users/web_profile_info/?username={ig_user}"
+    try:
+        r = cffi_requests.get(url, impersonate='chrome124', headers={
+            'Cookie': IG_COOKIE,
+            'x-ig-app-id': '936619743392459',  # ID public de l'app web Instagram
+            'Accept': 'application/json',
+            'Accept-Language': 'fr-DZ,fr;q=0.9',
+            'Referer': f'https://www.instagram.com/{ig_user}/',
+        }, timeout=20)
+
+        if r.status_code == 401:
+            print(f"  [IG]  ✗ Cookie expiré → renouvelez INSTAGRAM_COOKIES")
+            return []
+        if r.status_code == 404:
+            print(f"  [IG]  ✗ @{ig_user}: compte introuvable")
+            return []
+        r.raise_for_status()
+
+        data = r.json()
+        user = data.get('data', {}).get('user', {})
+        edges = user.get('edge_owner_to_timeline_media', {}).get('edges', [])
+
+        items = []
+        for edge in edges[:10]:
+            node = edge.get('node', {})
+            cap_edges = node.get('edge_media_to_caption', {}).get('edges', [])
+            text = cap_edges[0]['node']['text'] if cap_edges else ''
+            if not text or len(text) < 10:
+                continue
+
+            shortcode = node.get('shortcode', '')
+            timestamp = node.get('taken_at_timestamp', 0)
+            img_url   = node.get('display_url', '')
+
+            items.append({
+                'title': text[:130].replace('\n', ' ') + ('…' if len(text) > 130 else ''),
+                'link':  (f"https://www.instagram.com/p/{shortcode}/"
+                          if shortcode else f"https://www.instagram.com/{ig_user}/"),
+                'desc':  text[:800],
+                'date':  (datetime.fromtimestamp(timestamp, tz=timezone.utc).isoformat()
+                          if timestamp else datetime.now(timezone.utc).isoformat()),
+                'image': img_url,
+                'source_type': 'instagram'
+            })
+
+        if items:
+            print(f"  [IG]  ✓ {len(items)} posts ← instagram.com/{ig_user}")
+        else:
+            print(f"  [IG]  ✗ {ig_user}: aucun post (compte vide ou cookie invalide)")
+        return items
+
+    except Exception as e:
+        print(f"  [IG]  ✗ {ig_user}: {str(e)[:80]}")
+        return []
+
+
 # ─── Fetch Telegram public channel (t.me/s/) ─────────────────────────────────
 def fetch_telegram(source: dict) -> list:
     """
@@ -913,15 +1114,27 @@ def main():
         if not raw_items:
             raw_items = fetch_rsshub(src)
 
-        # ── Méthode 3 : Canal Telegram public (t.me/s/) ───────────────────────
+        # ── Méthode 3a : Facebook via cookie de session Chrome ────────────────
+        #    Nécessite FACEBOOK_COOKIES dans les secrets GitHub Actions.
+        #    Extraire depuis F12→Application→Cookies→facebook.com : c_user, xs, datr, fr
+        if not raw_items and src.get('fb_page_id') and FB_COOKIE:
+            raw_items = fetch_facebook_cookie(src)
+
+        # ── Méthode 3b : Instagram via cookie de session Chrome ───────────────
+        #    Nécessite INSTAGRAM_COOKIES dans les secrets GitHub Actions.
+        #    Extraire depuis F12→Application→Cookies→instagram.com : sessionid, csrftoken
+        if not raw_items and src.get('ig_user') and IG_COOKIE:
+            raw_items = fetch_instagram_cookie(src)
+
+        # ── Méthode 4 : Canal Telegram public (t.me/s/) ───────────────────────
         if not raw_items and src.get('telegram_channel'):
             raw_items = fetch_telegram(src)
 
-        # ── Méthode 4 : YouTube RSS (flux Atom officiel Google) ───────────────
+        # ── Méthode 5 : YouTube RSS (flux Atom officiel Google) ───────────────
         if not raw_items and (src.get('youtube_channel_id') or src.get('youtube_user')):
             raw_items = fetch_youtube(src)
 
-        # ── Méthode 5 : Scraping du site officiel (dernier recours) ───────────
+        # ── Méthode 6 : Scraping du site officiel (dernier recours) ───────────
         if not raw_items and src.get('news_url'):
             raw_items = fetch_news_page(src)
 
