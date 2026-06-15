@@ -24,10 +24,14 @@ jobs:
       - name: Installer les dépendances
         run: pip install requests beautifulsoup4 lxml
 
-      - name: Mettre à jour tic_social.json (RSS + sites officiels, sans Facebook ni Apify)
+      - name: Mettre à jour tic_social.json
         run: python fetch_social.py --no-translate
         env:
           MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          # RSSHub auto-hébergé : déployez sur Vercel (gratuit) puis ajoutez ce secret
+          # → https://github.com/DIYgod/RSSHub/blob/master/vercel.json
+          # → Ex: https://your-rsshub.vercel.app (sans slash final)
+          RSSHUB_BASE_URL: ${{ secrets.RSSHUB_BASE_URL }}
 
       - name: Commit et push
         run: |

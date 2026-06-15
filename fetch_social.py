@@ -62,8 +62,12 @@ def load_env():
     return env
 
 ENV = load_env()
-MISTRAL_KEY = ENV.get("MISTRAL_API_KEY", "")
-FB_TOKEN    = ENV.get("FB_APP_TOKEN", "")
+MISTRAL_KEY  = ENV.get("MISTRAL_API_KEY", "")
+FB_TOKEN     = ENV.get("FB_APP_TOKEN", "")
+# RSSHub auto-hébergé — solution définitive pour FB/IG/X/LinkedIn/TikTok
+# Déployez en 5 min sur Vercel : https://github.com/DIYgod/RSSHub#vercel
+# Puis ajoutez RSSHUB_BASE_URL dans les secrets GitHub Actions
+RSSHUB_BASE  = ENV.get("RSSHUB_BASE_URL", "").rstrip('/')
 
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AlgeriaTech-Bot/2.0',
@@ -542,6 +546,62 @@ def fetch_facebook_scraper_lib(source: dict) -> list:
             print(f"  [FB-SC] ✗ {page_id}: {err[:100]}")
         return []
 
+# ─── Fetch via RSSHub auto-hébergé ───────────────────────────────────────────
+def fetch_rsshub(source: dict) -> list:
+    """
+    Récupère les posts sociaux via une instance RSSHub personnelle.
+    RSSHub = agrégateur open-source qui couvre FB, IG, X, LinkedIn, TikTok.
+    Déploiement gratuit sur Vercel : https://github.com/DIYgod/RSSHub#vercel
+    → Ajoutez RSSHUB_BASE_URL dans les secrets GitHub Actions une fois déployé.
+
+    Ordre de priorité : Facebook → Instagram → X/Twitter → TikTok → LinkedIn
+    """
+    if not RSSHUB_BASE:
+        return []
+
+    candidates = []
+
+    # Facebook (priorité maximale — principal vecteur d'info institutionnel en Algérie)
+    if source.get('fb_page_id'):
+        candidates.append((f"{RSSHUB_BASE}/facebook/page/{source['fb_page_id']}", 'facebook'))
+
+    # Instagram
+    if source.get('ig_user'):
+        candidates.append((f"{RSSHUB_BASE}/instagram/user/{source['ig_user']}", 'instagram'))
+
+    # X / Twitter
+    if source.get('x_handle'):
+        candidates.append((f"{RSSHUB_BASE}/twitter/user/{source['x_handle']}", 'twitter'))
+
+    # TikTok
+    if source.get('tiktok_user'):
+        tuser = source['tiktok_user'].lstrip('@')
+        candidates.append((f"{RSSHUB_BASE}/tiktok/user/@{tuser}", 'tiktok'))
+
+    # LinkedIn
+    if source.get('linkedin_company'):
+        candidates.append((f"{RSSHUB_BASE}/linkedin/company/{source['linkedin_company']}", 'linkedin'))
+
+    for url, platform in candidates:
+        try:
+            res = requests.get(url, headers=HEADERS, timeout=15)
+            if res.status_code in (401, 403, 404, 422):
+                # 422 = cookie requis non configuré dans RSSHub
+                print(f"  [RSH] ✗ {platform}: {res.status_code} (configurez le cookie dans RSSHub)")
+                continue
+            res.raise_for_status()
+            parsed = parse_rss(res.content)
+            if parsed:
+                for item in parsed:
+                    item['source_type'] = platform
+                print(f"  [RSH] ✓ {len(parsed)} posts ← {platform} ({url.split('/')[-1]})")
+                return parsed[:15]
+        except Exception as e:
+            print(f"  [RSH] ✗ {platform}: {str(e)[:60]}")
+
+    return []
+
+
 # ─── Fetch Telegram public channel (t.me/s/) ─────────────────────────────────
 def fetch_telegram(source: dict) -> list:
     """
@@ -618,21 +678,26 @@ def fetch_telegram(source: dict) -> list:
 def fetch_youtube(source: dict) -> list:
     """
     Récupère les dernières vidéos via le flux Atom officiel de YouTube.
+    Supporte 'youtube_channel_id' (format UCxxx) ET 'youtube_user' (ancien format /user/).
     Zéro authentification — API Google publique, stable, gratuite.
-    Ajouter 'youtube_channel_id' (format UCxxx…) dans social_config.json.
     """
     channel_id = source.get('youtube_channel_id', '').strip()
-    if not channel_id:
-        return []
+    youtube_user = source.get('youtube_user', '').strip()
 
-    url = f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
+    if channel_id:
+        url = f"https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}"
+    elif youtube_user:
+        url = f"https://www.youtube.com/feeds/videos.xml?user={youtube_user}"
+    else:
+        return []
     try:
         res = requests.get(url, headers=HEADERS, timeout=15)
         res.raise_for_status()
         parsed = parse_rss(res.content)
         for item in parsed:
             item['source_type'] = 'youtube'
-        print(f"  [YT]  ✓ {len(parsed)} vidéos ← YouTube/{channel_id[:20]}")
+        label = channel_id or youtube_user
+        print(f"  [YT]  ✓ {len(parsed)} vidéos ← YouTube/{label[:20]}")
         return parsed[:10]
     except Exception as e:
         print(f"  [YT]  ✗ YouTube/{channel_id[:20]}: {e}")
@@ -841,20 +906,22 @@ def main():
         if src.get('rss_url'):
             raw_items = fetch_rss(src)
 
-        # ── Méthode 2 : Canal Telegram public (t.me/s/) ───────────────────────
-        #    Gratuit, zéro auth, stable. Ajouter 'telegram_channel' dans le config.
-        #    Les institutions algériennes (MESRS, AT, opérateurs...) ont souvent un
-        #    canal Telegram plus actif que leur site web.
+        # ── Méthode 2 : RSSHub auto-hébergé (FB → IG → X → TikTok → LinkedIn) ─
+        #    Solution définitive pour toutes les plateformes sociales.
+        #    Nécessite RSSHUB_BASE_URL dans les secrets GitHub Actions.
+        #    Déploiement gratuit Vercel : github.com/DIYgod/RSSHub#vercel
+        if not raw_items:
+            raw_items = fetch_rsshub(src)
+
+        # ── Méthode 3 : Canal Telegram public (t.me/s/) ───────────────────────
         if not raw_items and src.get('telegram_channel'):
             raw_items = fetch_telegram(src)
 
-        # ── Méthode 3 : YouTube RSS (flux Atom officiel Google) ───────────────
-        #    Zéro auth, stable, gratuit. Ajouter 'youtube_channel_id' (format UCxxx).
-        if not raw_items and src.get('youtube_channel_id'):
+        # ── Méthode 4 : YouTube RSS (flux Atom officiel Google) ───────────────
+        if not raw_items and (src.get('youtube_channel_id') or src.get('youtube_user')):
             raw_items = fetch_youtube(src)
 
-        # ── Méthode 4 : Scraping du site officiel (dernier recours) ───────────
-        #    Repli robuste pour sources sans canal social ni RSS direct.
+        # ── Méthode 5 : Scraping du site officiel (dernier recours) ───────────
         if not raw_items and src.get('news_url'):
             raw_items = fetch_news_page(src)
 
