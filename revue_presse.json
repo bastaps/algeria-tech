@@ -1,7 +1,62 @@
 {
   "date": "lundi 15 juin",
-  "synthese": "Les dernières 24h ont été marquées par des avancées technologiques majeures en Algérie et à l'international, avec un focus sur l'innovation, l'IA et les nouvelles mobilités. Les géants tech et startups locales redoublent d'efforts pour se positionner sur des marchés en pleine mutation. Les annonces stratégiques en IA et en hardware redéfinissent les standards de demain.",
+  "synthese": "Les dernières 24h ont été marquées par des avancées technologiques majeures en IA et cybersécurité, des innovations mobiles disruptives et des projets d'infrastructure ambitieux en Algérie. Les tensions géopolitiques autour de l'IA et les levées de fonds record redéfinissent le paysage tech mondial, tandis que le marché algérien se positionne sur des créneaux stratégiques comme les télécoms et l'électroménager connecté. Une journée où l'innovation rencontre les défis sécuritaires et économiques.",
   "articles": [
+    {
+      "titre": "Anthropic suspend ses modèles les plus avancés sur ordre de Washington",
+      "resume": "Le 12 juin 2026, l’éditeur californien d’intelligence artificielle Anthropic a été contraint de désactiver Claude Fable 5 et Mythos 5, ses deux modèle",
+      "url": "https://www.itmag.dz/2026/06/15/anthropic-suspend-ses-modeles-les-plus-avances-sur-ordre-de-washington/",
+      "date": "2026-06-15T08:04:07.000Z",
+      "source": "ITMAG.dz",
+      "logo": "https://www.google.com/s2/favicons?domain=itmag.dz&sz=32",
+      "pays": "DZ",
+      "accroche": "Washington bloque les IA d'Anthropic : guerre froide technologique en marche.",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Électroménager : LG Electronics Algérie présente ses dernières innovations connectées",
+      "resume": "C’est sous le thème révélateur « Always One Step Ahead for Your Comfort » (Toujours un pas en avant pour votre confort) que LG Electronics […]\nL’artic",
+      "url": "https://www.algerie360.com/electromenager-lg-electronics-algerie-presente-ses-dernieres-innovations-connectees/",
+      "date": "2026-06-14T11:56:17.000Z",
+      "source": "Algérie360 Tech",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie360.com&sz=32",
+      "pays": "DZ",
+      "accroche": "LG Algérie révolutionne l'électroménager avec des appareils connectés intelligents.",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Mise en service du 2ème tronçon du téléphérique de Tizi-Ouzou",
+      "resume": "Le deuxième tronçon du téléphérique de Tizi-Ouzou reliant le chef-lieu de la wilaya à l’hôpital Sidi Belloua a été mis en service ce dimanche 14 juin,",
+      "url": "https://algerie-eco.com/2026/06/14/mise-en-service-du-2eme-troncon-du-telepherique-de-tizi-ouzou/",
+      "date": "2026-06-14T15:37:15.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Téléphérique de Tizi-Ouzou : un bond technologique pour le transport urbain.",
+      "categorie": "Réseaux"
+    },
+    {
+      "titre": "Sous-traitance : Des délégations de plusieurs constructeurs automobiles en visite à Oran pour explorer les opportunités de partenariat",
+      "resume": "La wilaya d’Oran accueille, durant le mois de juin en cours, des délégations représentant plusieurs constructeurs automobiles de marques international",
+      "url": "https://algerie-eco.com/2026/06/14/sous-traitance-des-delegations-de-plusieurs-marques-automobiles-en-visite-a-oran-pour-explorer-les-opportunites-de-partenariat/",
+      "date": "2026-06-14T15:17:09.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Constructeurs automobiles en quête de partenariats stratégiques à Oran.",
+      "categorie": "Startups"
+    },
+    {
+      "titre": "Air Algérie : Première liaison aérienne entre Alger et Manchester",
+      "resume": "La compagnie aérienne nationale Air Algérie a annoncé, ce dimanche 14 juin, l’ouverture d’une nouvelle liaison aérienne reliant Alger à la ville de Ma",
+      "url": "https://algerie-eco.com/2026/06/14/air-algerie-premiere-liaison-aerienne-entre-alger-et-manchester/",
+      "date": "2026-06-14T14:56:20.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Air Algérie ouvre une nouvelle ligne vers Manchester, boostant le tourisme.",
+      "categorie": "Télécoms"
+    },
     {
       "titre": "iPhone Fold : tout ce qu'on sait sur le premier iPhone pliable",
       "resume": "",
@@ -10,7 +65,7 @@
       "source": "Android DZ",
       "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "Apple prépare son premier iPhone pliable : révolution ou gadget ?",
+      "accroche": "iPhone Fold : Apple prépare un smartphone pliable révolutionnaire.",
       "categorie": "Mobile"
     },
     {
@@ -21,19 +76,30 @@
       "source": "Android DZ",
       "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "Mistral AI vise 20 milliards d'euros avec une levée record de 3 milliards",
+      "accroche": "Mistral AI vise 20 milliards d'euros avec une levée de fonds record.",
       "categorie": "IA"
     },
     {
-      "titre": "Samsung Galaxy S27 Ultra : Prix et Caractéristiques en Algérie",
-      "resume": "",
-      "url": "https://www.android-dz.com/samsung-galaxy-s27-ultra-prix-et-caracteristiques-en-algerie/",
-      "date": "2026-06-14T08:56:06.243Z",
-      "source": "Android DZ",
-      "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
+      "titre": "L’Algérie prévoit de lancer d’ici fin septembre les travaux de construction de la ligne ferroviaire Alger – Tamanrasset, un projet stratégique destiné à renforcer l’intégration économique du Sahara",
+      "resume": "L’Algérie prévoit de lancer d’ici fin septembre les travaux de construction de la ligne ferroviaire Alger – Tamanrasset, un projet stratégique destiné",
+      "url": "https://www.ecomnewsmed.com/2026/06/15/lalgerie-prevoit-de-lancer-dici-fin-septembre-les-travaux-de-construction-de-la-ligne-ferroviaire-alger-tamanrasset-un-projet-strategique-destine-a-renforcer-lintegration/",
+      "date": "2026-06-15T05:36:00.000Z",
+      "source": "EcomNewsMed DZ",
+      "logo": "https://www.google.com/s2/favicons?domain=ecomnewsmed.com&sz=32",
       "pays": "DZ",
-      "accroche": "Samsung Galaxy S27 Ultra : fiche technique et prix dévoilés en Algérie",
-      "categorie": "Mobile"
+      "accroche": "L'Algérie lance la construction d'une ligne ferroviaire stratégique d'ici septembre.",
+      "categorie": "Réseaux"
+    },
+    {
+      "titre": "Bras de fer Trump-Anthropic : Bruxelles s’inquiète…l’agenda IPO fragilisé",
+      "resume": "Sur ordre du gouvernement américain, Anthropic a dû débrancher en urgence ses modèles d'IA les plus puissants, Fable 5 et Mythos 5, pour tous ses util",
+      "url": "https://www.silicon.fr/cybersecurite-1371/bras-de-fer-trump-anthropic-bruxelles-sinquiete-lagenda-ipo-fragilise-227661",
+      "date": "2026-06-15T10:02:27.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Bruxelles s'inquiète : l'agenda IPO d'Anthropic fragilisé par Trump.",
+      "categorie": "IA"
     },
     {
       "titre": "Yogosha repris à la barre par Groupe Créative",
@@ -43,97 +109,31 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Yogosha change de mains : le groupe Créative prend les rênes",
+      "accroche": "Yogosha change de mains : le groupe Créative prend les rênes.",
       "categorie": "Startups"
     },
     {
-      "titre": "iPhone Ultra : une maquette dévoile un format inédit qui rappelle… un passeport",
-      "resume": "Une nouvelle fuite relance les spéculations autour du premier iPhone pliable. Une maquette laisse entrevoir un appareil au format compact et atypique.",
-      "url": "https://www.zdnet.fr/actualites/iphone-ultra-une-maquette-devoile-un-format-inedit-qui-rappelle-un-passeport-496875.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-15T07:15:59.000Z",
+      "titre": "IA et « crime as a service », la mauvaise recette des cybercriminels de Dumpsec",
+      "resume": "Après 35 intrusions tonitruantes menées depuis la fin de l’automne, des premières interpellations viennent d’être lancées contre ce groupe de jeunes p",
+      "url": "https://www.zdnet.fr/actualites/ia-et-crime-as-a-service-la-mauvaise-recette-des-cybercriminels-de-dumpsec-496774.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-15T08:50:46.000Z",
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "iPhone Ultra : un format in��dit inspiré d'un passeport, à quoi s'attendre ?",
-      "categorie": "Mobile"
+      "accroche": "IA et cybercriminalité : Dumpsec expose les dangers du 'crime as a service'.",
+      "categorie": "Cybersécurité"
     },
     {
-      "titre": "Graviton5 : AWS déploie son processeur maison pour l'ère des agents IA",
-      "resume": "Le processeur Graviton5 est conçu pour répondre aux exigences spécifiques des workloads agentiques, et repositionne le CPU au cœur de la compétition f",
-      "url": "https://www.zdnet.fr/actualites/graviton5-aws-deploie-son-processeur-maison-pour-lere-des-agents-ia-496869.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-15T06:42:47.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "AWS lance Graviton5 : le processeur maison pour booster l'IA",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "J'ai testé le nouvel outil de nettoyage basé sur l'IA de Google Drive pour mettre de l'ordre dans 14 ans de fichiers encombrants : voici le résultat",
-      "resume": "Avec « Organize My Files », Gemini peut-il mettre de l'ordre dans mon Google Drive en désordre et me faire économiser de l'argent sur l'espace de stoc",
-      "url": "https://www.zdnet.fr/pratique/jai-teste-le-nouvel-outil-de-nettoyage-base-sur-lia-de-google-drive-pour-mettre-de-lordre-dans-14-ans-de-fichiers-encombrants-voici-le-resultat-496758.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-14T09:04:29.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Google Drive intègre un outil IA révolutionnaire pour organiser vos fichiers",
-      "categorie": "IA"
-    },
-    {
-      "titre": "MG s’attaque à la Renault R5 avec une voiture électrique abordable : rendez-vous en juillet",
-      "resume": "Après les R5 E-Tech et Volkswagen ID. Polo, c’est au tour de MG de préparer une voiture électrique accessible. Elle sera dévoilée en juillet sous la f",
-      "url": "https://www.frandroid.com/marques/mg/3139961_mg-sattaque-a-la-renault-r5-avec-une-voiture-electrique-abordable-rendez-vous-en-juillet",
-      "date": "2026-06-15T07:49:31.000Z",
+      "titre": "« 1,9 milliard de dollars volés » : le FBI démantèle un réseau de phishing dopé à l’IA",
+      "resume": "Dans le cadre d’une collaboration entre Google et Black Lotus Labs, le FBI a mis au jour un vaste réseau d’arnaques dopées à l’IA. Au total, ce sont p",
+      "url": "https://www.frandroid.com/marques/google/3140195_19-milliard-de-dollars-voles-le-fbi-demantele-un-reseau-de-phishing-dope-a-lia",
+      "date": "2026-06-15T09:45:48.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "MG lance une voiture électrique low-cost pour concurrencer la Renault R5",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Siri n’était que le début : Apple n’en a pas fini avec l’IA et prépare des nouveautés pour bientôt",
-      "resume": "Après avoir longtemps tardé à plonger dans le monde de l’intelligence artificielle générative, le fabricant d’iPhone s’est enfin jeté à l’eau avec sa",
-      "url": "https://www.frandroid.com/marques/apple/3139973_siri-netait-que-le-debut-apple-nen-a-pas-fini-avec-lia-et-prepare-des-nouveautes-pour-bientot",
-      "date": "2026-06-15T06:33:52.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Apple prépare une vague de nouveautés IA pour surpasser Siri",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Erreur de prix ou non, le Pixel 9 Pro XL à -50% se vend à la pelle",
-      "resume": "Le Pixel 9 Pro XL bénéficie de mises à jour Google jusqu'en 2031, d'un triple module photo dont un téléobjectif x5 de 48 Mpx, et d'un écran OLED LTPO",
-      "url": "https://www.01net.com/bons-plans/erreur-de-prix-ou-non-le-pixel-9-pro-xl-a-50-se-vend-a-la-pelle.html",
-      "date": "2026-06-15T07:03:30.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Pixel 9 Pro XL à -50% : une erreur de prix ou une stratégie marketing ?",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Ariane 6 : un tir historique et un record de puissance en ligne de mire pour l’Europe",
-      "resume": "Moins de deux mois après sa dernière réussite, Ariane 6 s’apprête à reprendre les airs le mercredi 17 juin 2026 pour la mission VA269. Boostée par ses",
-      "url": "https://www.numerama.com/sciences/2275539-ariane-6-un-tir-historique-et-un-record-de-puissance-en-ligne-de-mire-pour-leurope.html",
-      "date": "2026-06-14T13:32:00.000Z",
-      "source": "Numerama",
-      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
-      "pays": "FR",
-      "accroche": "Ariane 6 : l'Europe mise sur un tir historique pour dominer l'espace",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Électroménager : LG Electronics Algérie présente ses dernières innovations connectées",
-      "resume": "C’est sous le thème révélateur « Always One Step Ahead for Your Comfort » (Toujours un pas en avant pour votre confort) que LG Electronics […]\nL’artic",
-      "url": "https://www.algerie360.com/electromenager-lg-electronics-algerie-presente-ses-dernieres-innovations-connectees/",
-      "date": "2026-06-14T11:56:17.000Z",
-      "source": "Algérie360 Tech",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie360.com&sz=32",
-      "pays": "DZ",
-      "accroche": "LG Algérie dévoile des électroménagers connectés innovants et futuristes",
-      "categorie": "Innovation"
+      "accroche": "FBI démantèle un réseau de phishing dopé à l'IA : 1,9 milliard de dollars volés.",
+      "categorie": "Cybersécurité"
     }
   ],
-  "lastUpdated": "2026-06-15T07:56:46.906Z"
+  "lastUpdated": "2026-06-15T10:22:34.180Z"
 }
