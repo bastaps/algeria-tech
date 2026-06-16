@@ -1,6 +1,402 @@
 {
   "posts": [
     {
+      "id": "43eaf8173183b17c",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/16/probably-raises-9m-to-build-a-more-reliable-kind-of-ai/",
+      "image": "",
+      "date": "Tue, 16 Jun 2026 13:15:09 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Probably raises $9M to build a more reliable kind of AI — Probably wants to prevent hallucinations and factual errors from reaching users, and achieve accuracy on par with deterministic systems.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "6e4e7a25f7a58f1c",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/le-sous-systeme-windows-pour-linux-offre-aux-developpeurs-une-excellente-raison-de-rester-fideles-a-microsoft-voici-pourquoi-497021.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 16 Jun 2026 12:34:24 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Le sous-système Windows pour Linux offre aux développeurs une excellente raison de rester fidèles à Microsoft : voici pourquoi — WSL 3 facilite l'utilisation de Windows, en particulier pour les développeurs qui créent ou exécutent des charges de travail liées à l'IA, aux conteneurs ou au développement sous Linux.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "94a83309539f2b8b",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/business-1367/spacex-avale-cursor-pour-60-milliards-227696",
+      "image": "",
+      "date": "Tue, 16 Jun 2026 12:30:39 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "SpaceX avale Cursor pour 60 milliards $ — SpaceX rachète Cursor pour 60 milliards $, quelques jours après son entrée en Bourse record à plus de 2 000 milliards $. The post SpaceX avale Cursor pour 60 milliards $ appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "5c1a65eb448cc07f",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/business-1367/dependances-numeriques-vmware-sphere-publique-227690",
+      "image": "",
+      "date": "Tue, 16 Jun 2026 12:20:17 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "VMware, un vrai sujet de dépendance dans la sphère publique — Les auditions de la commission d'enquête parlementaire sur les dépendances numériques ont mis en lumière l'empreinte de VMware dans la sphère publique... et les stratégies de sortie engagées par certains. The post VMware, un vrai sujet de dépendance dans la sphère publique appeared first on Silicon.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "72235d6ea49b3718",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/pratique/40-des-entreprises-vont-abandonner-leurs-agents-ia-3-conseils-pour-eviter-que-les-votres-ne-tombent-en-panne-497018.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 16 Jun 2026 12:17:42 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "40 % des entreprises vont abandonner leurs agents IA : 3 conseils pour éviter que les vôtres ne tombent en panne — Comment tirer un véritable retour sur investissement de l'IA autonome ? Trois leaders du numérique partagent les enseignements qu'ils ont tirés de leur expérience sur le terrain.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f589701ca491e76a",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/avec-ios-27-votre-iphone-beneficiera-dun-meilleur-suivi-bluetooth-mais-il-y-a-un-hic-497015.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 16 Jun 2026 11:58:31 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Avec iOS 27, votre iPhone bénéficiera d'un meilleur suivi Bluetooth, mais il y a un hic — Une fonctionnalité d'iOS 27 peu évoquée lors de la WWDC d'Apple est la prise en charge de Channel Sounding. Vous la retrouverez sur tous les appareils équipés de Bluetooth 6.3.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "17761ced39e14713",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/larrivee-deuro-office-1-0-seme-la-zizanie-dans-le-monde-de-lopen-source-la-compatibilite-nest-pas-synonyme-de-souverainete-497012.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 16 Jun 2026 11:45:44 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "L'arrivée d'Euro-Office 1.0 sème la zizanie dans le monde de l'open source : « La compatibilité n'est pas synonyme de souveraineté » — La nouvelle alternative open source basée sur le cloud à Microsoft 365 et Google Workspace est désormais disponible. Les partisans de LibreOffice critiquent vivement sa dépendance vis-à-vis des formats de documents Microsoft.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "4e3d1611b3e9491a",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/uncategorized/la-dgsi-choisit-le-francais-chapsvision-et-tourne-le-dos-a-palantir-227691",
+      "image": "",
+      "date": "Tue, 16 Jun 2026 11:43:26 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "La DGSI choisit le français ChapsVision et tourne le dos à Palantir — La solution de Chapvision va remplacer Palantir au sein des services de renseignement de la sécurité intérieure (DGSI). The post La DGSI choisit le français ChapsVision et tourne le dos à Palantir appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "60f7a0a047707d00",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/la-france-generalise-lia-generative-aupres-des-agents-publics-et-promet-du-dialogue-496997.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 16 Jun 2026 11:33:41 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "La France généralise l’IA générative auprès des agents publics et promet du dialogue — L’Etat déploie sa feuille de route IA avec la généralisation de l’Assistant et la mise à disposition d’outils spécialisés comme Transcripts et DiploIA. En parallèle, le gouvernement annonce la négociation d’un accord cadre, formation et réinternalisation de compétences.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "b49961d82c0d74e5",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/16/india-temporarily-blocks-access-to-telegram-over-exam-fraud-concerns/",
+      "image": "",
+      "date": "Tue, 16 Jun 2026 11:33:35 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "India orders temporary ban on Telegram over exam fraud concerns — The restrictions include a nationwide ban on Telegram until June 22 and a requirement to disable the app's message editing feature.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f02f9db97757fb6a",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/16/this-startups-super-metals-could-soon-be-in-military-drones-luxury-watches-and-chefs-knives/",
+      "image": "",
+      "date": "Tue, 16 Jun 2026 11:25:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "This startup’s super metals could soon be in military drones, luxury watches, and chef’s knives — Instead of heating metals, Foundation Alloy beats them into submission. The startup has raised $22 million to scale up production of its alloys.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "6f60b1912e1f04e1",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/16/spacex-to-acquire-cursor-for-60b-in-stock-days-after-blockbuster-ipo/",
+      "image": "",
+      "date": "Tue, 16 Jun 2026 11:21:41 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "SpaceX to acquire Cursor for $60B in stock, days after blockbuster IPO — The deal is supposed to help SpaceX's struggling AI division. The company told IPO investors it sees a $26 trillion addressable market in AI.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "6d25f4f4d66f963a",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/16/threads-adds-new-personalization-and-community-features-as-it-reaches-500m-monthly-users/",
+      "image": "",
+      "date": "Tue, 16 Jun 2026 11:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Threads adds new personalization and community features as it reaches 500M monthly users — The Meta-owned social platform announced a series of new features launching today, including a \"Your Algo\" tool that lets users control what they see in their feeds",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "dfcf5ccb0fe5b587",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/zdnet-morning-16-06-2026-telcos-et-quantique-entre-miracle-et-peril-cybersecurite-et-sous-traitants-nouveau-revers-judiciaire-pour-elon-musk-497003.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 16 Jun 2026 10:42:38 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "ZDNET Morning 16/06/2026 : Telcos et quantique : entre miracle et péril, Cybersécurité et sous-traitants, Nouveau revers judiciaire pour Elon Musk,... — Le ZDNET Morning le brief de l'actu tech pour les pros tous les matins à 9h00. Transformation numérique, IA, matériel, logiciels,... ne passez pas à côté de ce qui fait la Une du secteur.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "752ebc9394a9d189",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/16/chatgpts-market-share-slips-below-50-for-first-time/",
+      "image": "",
+      "date": "Tue, 16 Jun 2026 10:30:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "ChatGPT’s market share slips below 50% for first time — The chatbot still remains the most popular AI assistant worldwide with over 1.1 billion monthly users, followed by Gemini with 662 million and Claude with 245 million.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "7776bdbc91bda26e",
+      "source_name": "Android DZ",
+      "source_short": "ADZ",
+      "source_color": "#33691E",
+      "category": "Médias TIC",
+      "category_icon": "🤖",
+      "url": "https://www.android-dz.com/economiser-la-batterie-sur-android-le-guide-qui-mesure-vraiment-et-casse-les-mythes/",
+      "image": "",
+      "date": "2026-06-16T10:18:02.537Z",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Économiser la batterie sur Android : le guide qui mesure vraiment (et casse les mythes) — Pour économiser la batterie sur Android, commencez par mesurer : ouvrez Réglages > Batterie pour voir le temps d'écran allumé et la consommation par application. Agissez ensuite sur les trois plus gros postes (écran, réseau faible, applications en arrière-plan) plutôt que d'appliquer des astuces au",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "225668f100476264",
+      "source_name": "Android DZ",
+      "source_short": "ADZ",
+      "source_color": "#33691E",
+      "category": "Médias TIC",
+      "category_icon": "🤖",
+      "url": "https://www.android-dz.com/android-dz-a-vivatech-2026-couverture-en-direct-des-demain/",
+      "image": "",
+      "date": "2026-06-16T10:00:00.028Z",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Android DZ à VivaTech 2026 : couverture en direct dès demain — L'équipe d'Android DZ sera à VivaTech 2026, à Paris, dès demain. Nous couvrons le salon en direct à partir du 17 juin, 9h : annonces IA, robots, smartphones et startups du Maghreb. Suivi en photos et analyses pendant les quatre jours.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "dc065a7095b8ff8f",
+      "source_name": "Android DZ",
+      "source_short": "ADZ",
+      "source_color": "#33691E",
+      "category": "Médias TIC",
+      "category_icon": "🤖",
+      "url": "https://www.android-dz.com/vivatech-2026-le-maroc-present-avec-un-pavillon-national-et-deux-startups-en-finale/",
+      "image": "",
+      "date": "2026-06-16T09:45:00.114Z",
+      "lang_source": "fr",
+      "text": {
+        "fr": "VivaTech 2026 : le Maroc présent avec un pavillon national et deux startups en finale — Le Maroc s'installe à VivaTech 2026 (17-20 juin, Paris) avec un pavillon national, parmi les nouveaux entrants africains de l'édition. Deux startups marocaines, DeepEcho et AgriEdge, figurent en plus dans le top 30 de l'AfricaTech Award, dont la finale se joue le 17 juin.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "5997d6585d80f310",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/quantique-quels-gains-et-quelles-menaces-pour-les-reseaux-telecoms-496963.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 16 Jun 2026 09:40:43 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Quantique : quels gains et quelles menaces pour les réseaux télécoms ? — La technologie quantique ouvre la voie à une optimisation des réseaux télécoms et à des communications ultra-sécurisées. Placée entre de mauvaises mains, elle présente aussi une menace existentielle en termes de cybersécurité.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "91b3774aead299a6",
+      "source_name": "Android DZ",
+      "source_short": "ADZ",
+      "source_color": "#33691E",
+      "category": "Médias TIC",
+      "category_icon": "🤖",
+      "url": "https://www.android-dz.com/wwdc-2026-les-12-annonces-apple-les-plus-importantes-a-retenir/",
+      "image": "",
+      "date": "2026-06-16T09:39:00.081Z",
+      "lang_source": "fr",
+      "text": {
+        "fr": "WWDC 2026 : les 12 annonces Apple les plus importantes à retenir — Apple a tenu sa conférence WWDC 2026 avec une Siri entièrement reconstruite autour de l'IA et une promesse de performances en nette hausse. C'était aussi le dernier WWDC de Tim Cook avant que John Ternus prenne les rênes en septembre.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "b649355999db4109",
+      "source_name": "Android DZ",
+      "source_short": "ADZ",
+      "source_color": "#33691E",
+      "category": "Médias TIC",
+      "category_icon": "🤖",
+      "url": "https://www.android-dz.com/iphone-ultra-face-au-galaxy-z-fold-8-wide-samsung-prepare-sa-riposte/",
+      "image": "",
+      "date": "2026-06-16T09:33:00.098Z",
+      "lang_source": "fr",
+      "text": {
+        "fr": "iPhone Ultra face au Galaxy Z Fold 8 Wide : Samsung prépare sa riposte — Samsung prépare une version extra-large de son Galaxy Z Fold 8, baptisée Wide, dotée d'un verre intérieur renforcé de 60 micromètres. L'objectif affiché est clair : ne pas laisser à l'iPhone Ultra le soin de définir le segment premium des pliables.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "a180693487a84c5e",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/green-it-1374/consommation-energetique-llm-227683",
+      "image": "",
+      "date": "Tue, 16 Jun 2026 08:47:22 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "L’Arcep expose ses « chiffres de terrain » sur l’empreinte énergétique des LLM — Un test sur le supercalculateur Jean Zay chiffre l'impact des différentes caractéristiques des LLM (taille, architecture, compression...) sur leur consommation électrique à l'inférence. The post L’Arcep expose ses « chiffres de terrain » sur l’empreinte énergétique des LLM appeared first on Silicon.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "f7dd7b457f35ccfb",
       "source_name": "Android DZ",
       "source_short": "ADZ",
@@ -4836,389 +5232,15 @@
         "ar": "",
         "en": ""
       }
-    },
-    {
-      "id": "7282240d4a4e20a0",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/10/ai-pilled-firms-spend-7500-per-employee-each-month-on-ai/",
-      "image": "",
-      "date": "Wed, 10 Jun 2026 17:07:35 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "‘AI-pilled’ firms spend $7,500 per employee each month on AI — The most AI-obsessed firms are spending roughly $7,500 monthly per employee on AI, per Ramp AI Index. That's not more than an engineer's salary — yet.",
-        "ar": "",
-        "fr": ""
-      }
-    },
-    {
-      "id": "2aa6a42266f9d3e8",
-      "source_name": "TSA Algérie",
-      "source_short": "TSA",
-      "source_color": "#C62828",
-      "category": "Médias TIC",
-      "category_icon": "📰",
-      "url": "https://www.tsa-algerie.dz/trains-lalgerie-lance-le-processus-dacquisition-de-120-locomotives/",
-      "image": "",
-      "date": "Wed, 10 Jun 2026 16:52:06 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Trains : l’Algérie lance le processus d’acquisition de 120 locomotives",
-        "ar": "",
-        "en": ""
-      }
-    },
-    {
-      "id": "84efdf4932c19e5e",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/10/the-indian-government-got-cold-feet-on-starlink-just-before-spacexs-ipo/",
-      "image": "",
-      "date": "Wed, 10 Jun 2026 16:43:11 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "The Indian government got cold feet on Starlink just before SpaceX’s IPO — Problems with Starlink's India expansion could challenge SpaceX's IPO growth story.",
-        "ar": "",
-        "fr": ""
-      }
-    },
-    {
-      "id": "9562e83254d95576",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/10/how-memory-tools-can-make-ai-models-worse/",
-      "image": "",
-      "date": "Wed, 10 Jun 2026 16:11:08 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "How memory tools can make AI models worse — New research suggests that AI memory systems can degrade model performance and encourage sycophantic tendencies.",
-        "ar": "",
-        "fr": ""
-      }
-    },
-    {
-      "id": "9843acbf0d1e9222",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/10/zest-launches-a-restaurant-discovery-app-powered-by-where-people-actually-eat/",
-      "image": "",
-      "date": "Wed, 10 Jun 2026 15:53:07 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Zest launches a restaurant discovery app powered by where people actually eat — Backed by Alexis Ohanian’s 776 and Kindred Ventures, Zest uses transaction data and AI to generate restaurant recommendations based on users’ real dining habits and the places they frequent.",
-        "ar": "",
-        "fr": ""
-      }
-    },
-    {
-      "id": "406caea3c97e04ba",
-      "source_name": "Condor Electronics",
-      "source_short": "CD",
-      "source_color": "#E65100",
-      "category": "Équipementiers",
-      "category_icon": "📺",
-      "url": "https://www.facebook.com/Condor.Electromenager/posts/pfbid02P6VLEE3ck4mQkibVe9FydmXgnW5TmvYh9KQe8gytwzY1ux3zSYg25Ay8AuHLaDNol",
-      "image": "https://www.facebook.com/photo/?fbid=1334618435460975&set=a.516992850556875",
-      "date": "2026-06-10T15:43:11.000Z",
-      "lang_source": "ar",
-      "text": {
-        "ar": "إختاروا البساطة مع سلسلة One Series من كوندور، و إستفيدوا من تحكم رقمي دقيق يضمن حفظاً مثالياً و نضارة مُحكَمة لأطعمتكم ❄️🍃، في تص… — إختاروا البساطة مع سلسلة One Series من كوندور، و إستفيدوا من تحكم رقمي دقيق يضمن حفظاً مثالياً و نضارة مُحكَمة لأطعمتكم ❄️🍃، في تصميم عصري يجمع بين الأناقة و الأداء. 💫\n\nمتوفرة على المتجر الإلكتروني بروكسيما عبر الرابط : https://shorturl.at/oR5De\n\nChoisissez la simplicité avec la Gamme One Series de",
-        "fr": "",
-        "en": ""
-      }
-    },
-    {
-      "id": "778e7a00c5425e46",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/10/cybersecurity-researchers-arent-happy-about-the-guardrails-on-anthropics-fable/",
-      "image": "",
-      "date": "Wed, 10 Jun 2026 15:41:22 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Cybersecurity researchers aren’t happy about the guardrails on Anthropic’s Fable — Cybersecurity researchers are complaining that Anthropic's new model Fable has guardrails that are too strict for any cybersecurity work.",
-        "ar": "",
-        "fr": ""
-      }
-    },
-    {
-      "id": "24c23e5fbc732a8d",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/pratique/votre-voiture-vous-suit-comment-preserver-la-confidentialite-de-vos-donnees-sur-la-route-496596.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 10 Jun 2026 15:38:37 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Votre voiture vous suit : comment préserver la confidentialité de vos données sur la route — Les véhicules d'aujourd'hui savent où nous habitons, combien nous pesons et ce que nous avons mangé au dîner. Voici ce qu'il advient de toutes ces informations, et comment vous pouvez réduire le flux de données.",
-        "ar": "",
-        "en": ""
-      }
-    },
-    {
-      "id": "3a7ae74244d50463",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/06/10/averses-de-pluie-a-partir-de-mercredi-apres-midi-sur-plusieurs-wilayas-de-lest/",
-      "image": "",
-      "date": "Wed, 10 Jun 2026 15:31:32 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Averses de pluie à partir de mercredi après-midi sur plusieurs wilayas de l’est — Des averses de pluie affecteront, mercredi après-midi et jeudi, plusieurs wilayas de l’est du pays, indique l’Office national de la météorologie, dans un bulletin météo spécial (BMS). De niveau de vigilance « Orange », le BMS concerne les wilayas de Bordj Bou Arreridj, Sétif, Mila, Constantine, Guel",
-        "ar": "",
-        "en": ""
-      }
-    },
-    {
-      "id": "f195ff1684b06e42",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/06/10/mohamed-ould-mohammedi-la-route-transsaharienne-est-realisee-a-plus-de-90/",
-      "image": "",
-      "date": "Wed, 10 Jun 2026 15:17:06 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Mohamed Ould Mohammedi : « La route transsaharienne est réalisée à plus de 90 % » — La 77e session du Comité de liaison de la route transsaharienne (CLRT) s’est tenue lundi et mardi à Alger. A cette occasion, les États membres ont fait le point sur l’avancement du projet lancé il y a plus de six décennies. L’infrastructure est aujourd’hui réalisée à plus de 90%. « Le réseau transsa",
-        "ar": "",
-        "en": ""
-      }
-    },
-    {
-      "id": "bf5ab745aed8f442",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/10/why-enterprise-ai-will-be-a-major-focus-at-vivatech-2026/",
-      "image": "",
-      "date": "Wed, 10 Jun 2026 15:16:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Why enterprise AI will be a major focus at VivaTech 2026 — While Silicon Valley continues pushing aggressively into large language models and consumer-facing AI products, many European companies are focused on applying AI to complex systems already embedded into everyday life.",
-        "ar": "",
-        "fr": ""
-      }
-    },
-    {
-      "id": "a41e3686034b6eb9",
-      "source_name": "DGRSDT",
-      "source_short": "DGRS",
-      "source_color": "#1A237E",
-      "category": "Ministère",
-      "category_icon": "🔬",
-      "url": "https://www.facebook.com/DGRSDT.ALGERIA/posts/pfbid09PmX2djpS4gfdUkTXg4Z5JkhGAC1e5UqXkDuAwKdUb9Zu34GtLxDgLTRwNHrXE1Ml",
-      "image": "",
-      "date": "2026-06-10T15:07:21.000Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Centre de Recherche en Anthropologie Sociale et Culturelle - CRASC",
-        "ar": "",
-        "en": ""
-      }
-    },
-    {
-      "id": "464bb12da8db3b6f",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/10/datadog-veterans-launch-ai-coding-startup-niteshift-on-a-bet-against-big-ai-lock-in/",
-      "image": "",
-      "date": "Wed, 10 Jun 2026 15:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Datadog veterans launch AI coding startup Niteshift on a bet against Big AI lock-in — AI coding agent startup Niteshift has raised a $7 million seed round from a who's who of angels. It's betting companies will want power over, not lock-in with model makers.",
-        "ar": "",
-        "fr": ""
-      }
-    },
-    {
-      "id": "06540bab9f63241d",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/10/the-three-hard-tech-moonshots-fueling-spacexs-unbelievable-ipo/",
-      "image": "",
-      "date": "Wed, 10 Jun 2026 14:48:01 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "The three hard-tech moonshots fueling SpaceX’s unbelievable IPO — Most of the value in SpaceX's IPO is effectively a call option on the company's ambitious space data center plans.",
-        "ar": "",
-        "fr": ""
-      }
-    },
-    {
-      "id": "00a4dcd0071702ea",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/10/pinterest-bets-on-creators-with-amazon-storefront-integration/",
-      "image": "",
-      "date": "Wed, 10 Jun 2026 14:34:45 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Pinterest bets on creators with Amazon Storefront integration — Pinterest is adding support for Amazon Storefronts, allowing creators to earn affiliate commissions more easily while showcasing their product recommendations in one place.",
-        "ar": "",
-        "fr": ""
-      }
-    },
-    {
-      "id": "f167aa0147ec56ef",
-      "source_name": "TSA Algérie",
-      "source_short": "TSA",
-      "source_color": "#C62828",
-      "category": "Médias TIC",
-      "category_icon": "📰",
-      "url": "https://www.tsa-algerie.dz/mondial-2026-le-match-algerie-autriche-nourrit-les-speculations/",
-      "image": "",
-      "date": "Wed, 10 Jun 2026 14:34:14 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Mondial 2026 : le match Algérie – Autriche nourrit les spéculations",
-        "ar": "",
-        "en": ""
-      }
-    },
-    {
-      "id": "7fdbb6ba4f790334",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/pratique/donnez-a-vos-agents-ia-de-niveau-humain-une-longueur-davance-grace-a-ces-3-bonnes-pratiques-496590.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 10 Jun 2026 13:39:57 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Donnez à vos « agents IA de niveau humain » une longueur d'avance grâce à ces 3 bonnes pratiques — En mettant l'accent sur la gouvernance, l'évaluation et le fait de commencer modestement, vous pouvez améliorer les chances de vos agents IA d'être mis en production",
-        "ar": "",
-        "en": ""
-      }
-    },
-    {
-      "id": "2dd98c24f1fbeaa2",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/data-ia-1372/tokenomics-foundation-227583",
-      "image": "",
-      "date": "Wed, 10 Jun 2026 13:19:09 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "L’économie du token, nouveau point focal de la FinOps Foundation — La FinOps Foundation a maintenant une organisation sœur centrée sur l'économie du token. Elle poursuivra des travaux qui ont déjà permis de dégager des stratégies d'optimisation. The post L’économie du token, nouveau point focal de la FinOps Foundation appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      }
-    },
-    {
-      "id": "0ee952e7e96c3f52",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/06/10/reunion-du-gouvernement-foncier-centres-dappels-et-climat-au-menu/",
-      "image": "",
-      "date": "Wed, 10 Jun 2026 13:11:24 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Réunion du gouvernement : foncier, centres d’appels et climat au menu — Le Premier ministre, Sifi Ghrieb, a présidé ce mercredi 10 juin une réunion du gouvernement consacrée à plusieurs dossiers, notamment l’implantation de projets publics sur des terrains à vocation agricole ou forestière, le développement des centres d’appels en Algérie et la Contribution Déterminée a",
-        "ar": "",
-        "en": ""
-      }
-    },
-    {
-      "id": "0f8cc73039750d14",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/apple-a-passe-sous-silence-le-nouvel-egaliseur-personnalisable-des-airpods-mais-cest-une-nouveaute-majeure-496585.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 10 Jun 2026 13:05:25 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Apple a passé sous silence le nouvel égaliseur personnalisable des AirPods, mais c'est une nouveauté majeure — Même s'il est passé inaperçu lors de la WWDC, un égaliseur personnalisable pour les AirPods est la fonctionnalité que j'attends avec le plus d'impatience cet automne.",
-        "ar": "",
-        "en": ""
-      }
-    },
-    {
-      "id": "57b25414bc472101",
-      "source_name": "TSA Algérie",
-      "source_short": "TSA",
-      "source_color": "#C62828",
-      "category": "Médias TIC",
-      "category_icon": "📰",
-      "url": "https://www.tsa-algerie.dz/algerie-comment-des-exportateurs-font-fuir-les-devises-algeriennes-a-letranger/",
-      "image": "",
-      "date": "Wed, 10 Jun 2026 13:05:19 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Algérie : comment des exportateurs font fuir les devises algériennes à l’étranger — Cet article est Premium. Les articles Premium sont réservés à nos abonnés. Se connecter.",
-        "ar": "",
-        "en": ""
-      }
-    },
-    {
-      "id": "517d70148f864d53",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/voici-pourquoi-les-wearables-se-font-tout-petits-496575.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 10 Jun 2026 12:52:54 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Voici pourquoi les wearables se font tout petits — Les entreprises technologiques font évoluer leurs appareils de suivi de santé pour les rendre plus petits, plus fins et presque invisibles. Analyse.",
-        "ar": "",
-        "en": ""
-      }
     }
   ],
-  "lastUpdated": "2026-06-16T08:39:11.355046+00:00",
+  "lastUpdated": "2026-06-16T13:24:03.785411+00:00",
   "stats": {
-    "Médias TIC": 85,
-    "Tech International": 124,
+    "Tech International": 127,
+    "Médias TIC": 84,
     "Infrastructure": 9,
-    "Ministère": 10,
-    "Équipementiers": 35,
+    "Ministère": 9,
+    "Équipementiers": 34,
     "Opérateurs": 37
   },
   "total": 300
