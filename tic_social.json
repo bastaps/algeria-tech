@@ -1,6 +1,42 @@
 {
   "posts": [
     {
+      "id": "e304a2af2a1bdfb5",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/17/how-to-turn-off-ai-in-your-google-docs/",
+      "image": "",
+      "date": "Thu, 18 Jun 2026 01:23:51 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "How to turn off AI in your Google Docs — Here's what you need to do to get those pesky \"write with Gemini\" pop-ups to go away.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "41e1a0c47c5e3584",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/17/ai-is-hurting-apple-in-more-ways-than-one-it-may-force-iphone-price-increases/",
+      "image": "",
+      "date": "Wed, 17 Jun 2026 23:28:21 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "AI is hurting Apple in more ways than one: it may force iPhone price increases — CEO Tim Cook said in a recent interview that the situation is \"unsustainable.\"",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "67030596cccf8a36",
       "source_name": "Ministère de l'Enseignement Supérieur et de la Recherche",
       "source_short": "MESRS",
@@ -5293,50 +5329,16 @@
         "ar": "",
         "en": ""
       }
-    },
-    {
-      "id": "41a08709ffdf9e90",
-      "source_name": "Ooredoo Algérie",
-      "source_short": "OR",
-      "source_color": "#E30613",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://www.ooredoo.dz/particuliers/offres-mobiles/ooredoo-500",
-      "image": "",
-      "date": "2026-06-11T19:30:26.799399+00:00",
-      "lang_source": "fr",
-      "text": {
-        "fr": "OOREDOO 500",
-        "ar": "",
-        "en": ""
-      }
-    },
-    {
-      "id": "17c4d48af2ecbf01",
-      "source_name": "Ooredoo Algérie",
-      "source_short": "OR",
-      "source_color": "#E30613",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://www.ooredoo.dz/particuliers/services/hameconnage",
-      "image": "",
-      "date": "2026-06-11T19:30:26.799112+00:00",
-      "lang_source": "fr",
-      "text": {
-        "fr": "HAMEÇONNAGE PAR SMS",
-        "ar": "",
-        "en": ""
-      }
     }
   ],
-  "lastUpdated": "2026-06-17T22:30:21.661461+00:00",
+  "lastUpdated": "2026-06-18T02:35:19.285957+00:00",
   "stats": {
+    "Tech International": 158,
     "Ministère": 9,
-    "Tech International": 156,
     "Médias TIC": 90,
     "Infrastructure": 4,
     "Équipementiers": 24,
-    "Opérateurs": 17
+    "Opérateurs": 15
   },
   "total": 300
 }
