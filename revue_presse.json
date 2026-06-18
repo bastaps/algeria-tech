@@ -1,6 +1,6 @@
 {
   "date": "jeudi 18 juin",
-  "synthese": "Les dernières 24h ont été marquées par des annonces technologiques majeures, avec un focus sur l'IA, les innovations matérielles et les enjeux de souveraineté numérique. Les géants comme Apple, Amazon et AMD ont fait l'actualité, tandis que les événements comme VivaTech 2026 ont mis en lumière les défis européens. Les articles sélectionnés reflètent une dynamique mondiale, avec des impacts potentiels sur les marchés et les utilisateurs.",
+  "synthese": "L'actualité tech des dernières 24h met en lumière des avancées majeures en IA et innovation, avec des annonces d'Apple et Google, tandis que les tensions géopolitiques et économiques impactent les marchés. Les startups européennes et françaises attirent des investissements records, malgré des défis comme la pénurie de puces et les cybermenaces. Les géants technologiques redéfinissent les usages avec des produits disruptifs et des stratégies de souveraineté technologique.",
   "articles": [
     {
       "titre": "AirPods avec caméra : Apple prépare une révolution IA pour 2027",
@@ -10,8 +10,8 @@
       "source": "Android DZ",
       "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "Apple révolutionne les AirPods avec une IA intégrée dès 2027.",
-      "categorie": "Mobile"
+      "accroche": "Apple révolutionne les AirPods avec une IA intégrée d’ici 2027.",
+      "categorie": "Innovation"
     },
     {
       "titre": "VivaTech 2026, jour 2 : Macron et Modi à l'affiche, le programme",
@@ -21,8 +21,8 @@
       "source": "Android DZ",
       "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "VivaTech 2026 : Macron et Modi en tête d'affiche pour l'innovation mondiale.",
-      "categorie": "Innovation"
+      "accroche": "VivaTech 2026 : Macron et Modi en tête d’affiche pour l’innovation mondiale.",
+      "categorie": "Startups"
     },
     {
       "titre": "VivaTech 2026 : la souveraineté technologique européenne au cœur du salon",
@@ -32,7 +32,7 @@
       "source": "Android DZ",
       "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "L'Europe mise sur la souveraineté technologique à VivaTech 2026.",
+      "accroche": "VivaTech 2026 place la souveraineté tech européenne sous les projecteurs.",
       "categorie": "Innovation"
     },
     {
@@ -43,8 +43,8 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Alibaba Cloud ouvre une région France sans services d'IA.",
-      "categorie": "IA"
+      "accroche": "Alibaba Cloud lance sa région France sans services d’IA générative.",
+      "categorie": "Réseaux"
     },
     {
       "titre": "Nos 5 conseils pour réduire votre dépendance à l’hyperviseur",
@@ -54,8 +54,8 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Réduisez votre dépendance à l'hyperviseur avec ces 5 astuces.",
-      "categorie": "Réseaux"
+      "accroche": "5 astuces pour réduire votre dépendance aux hyperviseurs obsolètes.",
+      "categorie": "Cybersécurité"
     },
     {
       "titre": "Moderniser COBOL avec l’IA générative",
@@ -65,19 +65,30 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Modernisez COBOL grâce à l'IA générative pour booster vos systèmes.",
+      "accroche": "L’IA générative modernise les systèmes COBOL en entreprise.",
       "categorie": "IA"
     },
     {
-      "titre": "Amazon anticipe l’arrivée des premiers ordinateurs quantiques commerciaux d’ici 5 à 7 ans",
-      "resume": "Amazon estime que l’informatique quantique pourrait franchir un cap décisif avant la fin de la décennie. Selon Peter DeSantis, responsable de l’intell",
-      "url": "https://www.zdnet.fr/actualites/amazon-anticipe-larrivee-des-premiers-ordinateurs-quantiques-commerciaux-dici-5-a-7-ans-497178.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-18T07:15:33.000Z",
+      "titre": "Les grands groupes flèchent 2Mds€ vers la French Tech",
+      "resume": "Le programme Je Choisis la French Tech affiche désormais 2 milliards d’euros de dépenses en provenance de 23 grandes entreprises. L’initiative dispose",
+      "url": "https://www.zdnet.fr/actualites/les-grands-groupes-flechent-2mdse-vers-la-french-tech-497188.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-18T09:00:28.000Z",
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Amazon anticipe l'arrivée des ordinateurs quantiques commerciaux d'ici 5 à 7 ans.",
-      "categorie": "Innovation"
+      "accroche": "2 milliards d’euros investis dans la French Tech par les grands groupes.",
+      "categorie": "Startups"
+    },
+    {
+      "titre": "Pénurie de puces : même Apple annonce des hausses de prix",
+      "resume": "Tim Cook a officialisé une hausse prochaine des tarifs d'Apple, causée par une pénurie de puces mémoire. Une décision qui devrait lourdement impacter",
+      "url": "https://www.zdnet.fr/actualites/penurie-de-puces-meme-apple-annonce-des-hausses-de-prix-497191.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-18T08:56:27.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Pénurie de puces : Apple et d’autres annoncent des hausses de prix.",
+      "categorie": "Mobile"
     },
     {
       "titre": "AMD a coupé le chiffrement mémoire de ses processeurs Ryzen grand public, sans rien dire",
@@ -87,7 +98,7 @@
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "AMD supprime le chiffrement mémoire sur ses Ryzen sans prévenir les utilisateurs.",
+      "accroche": "AMD supprime le chiffrement mémoire sur ses Ryzen sans avertissement.",
       "categorie": "Cybersécurité"
     },
     {
@@ -98,7 +109,7 @@
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Google fait du bruit avec son nouveau format Open Knowledge Format.",
+      "accroche": "Google lance un nouveau format open source qui fait débat.",
       "categorie": "Innovation"
     },
     {
@@ -109,7 +120,7 @@
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Foxtron, la marque mystérieuse qui a marqué VivaTech 2026.",
+      "accroche": "Foxtron, la marque mystérieuse de VivaTech, dévoile ses ambitions.",
       "categorie": "Startups"
     },
     {
@@ -120,20 +131,9 @@
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Midjourney ouvre un spa médicalisé pour scanner votre corps avec IA.",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Claude en panne : les signalements ont explosé, Anthropic confirme un incident résolu après 45 minutes",
-      "resume": "Les signalements d’une panne touchant Claude, l’IA d’Anthropic, se multiplient ce jeudi matin. À l’heure de publication, l’entreprise n’a encore commu",
-      "url": "https://www.numerama.com/tech/2278709-claude-est-en-panne-les-signalements-explosent-voici-ce-que-lon-sait.html",
-      "date": "2026-06-18T07:16:59.000Z",
-      "source": "Numerama",
-      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
-      "pays": "FR",
-      "accroche": "Claude en panne : Anthropic résout un incident critique en 45 minutes.",
+      "accroche": "Midjourney ouvre un spa médicalisé pour scanner votre corps en 3D.",
       "categorie": "IA"
     }
   ],
-  "lastUpdated": "2026-06-18T08:45:16.487Z"
+  "lastUpdated": "2026-06-18T09:08:53.191Z"
 }
