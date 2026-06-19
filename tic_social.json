@@ -1,6 +1,42 @@
 {
   "posts": [
     {
+      "id": "43dd03f733507a1d",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/18/telegram-ban-in-india-sparks-a-rush-to-vpns-rival-apps/",
+      "image": "",
+      "date": "Fri, 19 Jun 2026 01:01:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Telegram ban in India sparks a rush to VPNs, rival apps — Telegram argues India should block specific content, not an entire platform used by millions.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f7db370cf36fed58",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/18/source-elastic-agrees-to-buy-crv-backed-deductiveai-for-up-to-85m/",
+      "image": "",
+      "date": "Fri, 19 Jun 2026 00:51:11 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Source: Elastic agrees to buy CRV-backed DeductiveAI for up to $85M — DeductiveAI, a startup that uses AI to catch and resolve bugs in software, was founded just three years ago.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "15d2df47027f4a40",
       "source_name": "Algérie Éco",
       "source_short": "AEC",
@@ -5351,46 +5387,12 @@
         "ar": "",
         "en": ""
       }
-    },
-    {
-      "id": "036d3dc46a0b3da1",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/pratique/android-comment-desactiver-safetycore-le-service-qui-scanne-vos-photos-sans-vous-le-dire-496702.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Sun, 14 Jun 2026 07:01:59 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Android : comment désactiver SafetyCore, le service qui scanne vos photos sans vous le dire — Déployé discrètement sur Android, SafetyCore analyse vos photos pour détecter des contenus sensibles. Sans icône ni avertissement, il suscite la méfiance. Voici comment le désinstaller.",
-        "ar": "",
-        "en": ""
-      }
-    },
-    {
-      "id": "555336781289c5b2",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/samsung-galaxy-a37-vs-nothing-phone-4a-quel-smartphone-choisir-a-400/",
-      "image": "",
-      "date": "2026-06-14T06:06:15.569Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Samsung Galaxy A37 vs Nothing Phone 4a : quel smartphone choisir à 400 €? — À 400 euros, deux références s'affrontent : le Galaxy A37 de Samsung, valeur sûre et polyvalente, face au Nothing Phone (4a), audacieux et doté d'un vrai zoom périscopique. On fait le point pour vous aider à trancher.",
-        "ar": "",
-        "en": ""
-      }
     }
   ],
-  "lastUpdated": "2026-06-18T22:52:21.701267+00:00",
+  "lastUpdated": "2026-06-19T02:51:33.883240+00:00",
   "stats": {
-    "Médias TIC": 94,
-    "Tech International": 170,
+    "Tech International": 171,
+    "Médias TIC": 93,
     "Ministère": 9,
     "Infrastructure": 4,
     "Équipementiers": 8,
