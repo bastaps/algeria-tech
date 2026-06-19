@@ -30,3 +30,7 @@ articles.json
 revue_presse.json
 veille_data.json
 archives/*.json
+
+# --- SSG build outputs (générés par node build.js à chaque déploiement) ---
+/article/
+/sitemap.xml

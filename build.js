@@ -142,3 +142,177 @@ wikiTerms.sort((a, b) => a.titre.localeCompare(b.titre, 'fr'));
 
 fs.writeFileSync(WIKI_OUTPUT, JSON.stringify(wikiTerms), 'utf8');
 console.log(`✅ wiki_data.json généré : ${wikiTerms.length} termes (${(fs.statSync(WIKI_OUTPUT).size / 1024).toFixed(1)} KB)`);
+
+// ============================================================
+//  SSG — Pages statiques article + sitemap.xml
+//  Résout le problème CSR : Google voit du HTML réel
+// ============================================================
+
+const SITE_URL   = 'https://algeria-tech.pages.dev';
+const ARTICLE_PUB_DIR = path.join(__dirname, 'article');
+
+// Recharge articles (déjà générés plus haut, mais OUTPUT peut avoir changé)
+const allArticlesForSSG = JSON.parse(fs.readFileSync(OUTPUT, 'utf8'));
+
+// Helpers
+function escapeHtml(str = '') {
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
+function truncate(str = '', max = 160) {
+    const s = str.replace(/\s+/g, ' ').trim();
+    return s.length <= max ? s : s.slice(0, max - 1) + '…';
+}
+
+// Simple Markdown → HTML (titres, gras, liens, paragraphes)
+function mdToHtml(md = '') {
+    return md
+        .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+        .replace(/^## (.+)$/gm,  '<h2>$1</h2>')
+        .replace(/^# (.+)$/gm,   '<h1>$1</h1>')
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.+?)\*/g,     '<em>$1</em>')
+        .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>')
+        .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
+        .replace(/^- (.+)$/gm, '<li>$1</li>')
+        .replace(/(<li>[\s\S]*?<\/li>)/g, '<ul>$1</ul>')
+        .split(/\n{2,}/)
+        .map(block => {
+            if (/^<(h[1-6]|ul|blockquote)/.test(block.trim())) return block.trim();
+            return block.trim() ? `<p>${block.trim()}</p>` : '';
+        })
+        .join('\n');
+}
+
+function generateArticlePage(art) {
+    const title       = escapeHtml(art.titre);
+    const description = escapeHtml(truncate(art.extrait || art.titre, 160));
+    const image       = art.image || `${SITE_URL}/images/logo_v2.png`;
+    const url         = `${SITE_URL}/article/${art.id}`;
+    const dateISO     = art.date ? `${art.date}T${art.heure || '00:00'}:00+01:00` : '';
+    const bodyHtml    = mdToHtml(art.rawContent || '');
+    const catLabel    = escapeHtml(art.categorie || 'Tech');
+
+    const schema = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'NewsArticle',
+        headline: art.titre,
+        description: art.extrait || art.titre,
+        image: [image],
+        datePublished: dateISO,
+        dateModified:  dateISO,
+        author: { '@type': 'Person', name: 'Basta', url: SITE_URL },
+        publisher: {
+            '@type': 'Organization',
+            name: 'Algeria Tech',
+            logo: { '@type': 'ImageObject', url: `${SITE_URL}/images/logo_v2.png` }
+        },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+        articleSection: art.categorie || 'Tech',
+        inLanguage: 'fr'
+    });
+
+    return `<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${title} — Algeria Tech</title>
+<meta name="description" content="${description}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="${url}">
+
+<!-- Open Graph -->
+<meta property="og:type"        content="article">
+<meta property="og:title"       content="${title}">
+<meta property="og:description" content="${description}">
+<meta property="og:image"       content="${escapeHtml(image)}">
+<meta property="og:url"         content="${url}">
+<meta property="og:site_name"   content="Algeria Tech">
+<meta property="article:published_time" content="${dateISO}">
+<meta property="article:section"        content="${catLabel}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="${title}">
+<meta name="twitter:description" content="${description}">
+<meta name="twitter:image"       content="${escapeHtml(image)}">
+
+<!-- Schema.org NewsArticle -->
+<script type="application/ld+json">${schema}</script>
+
+<link rel="stylesheet" href="/style.css?v=3">
+<style>
+  .ssg-article { max-width:800px; margin:80px auto; padding:0 20px 60px; font-family:Inter,sans-serif; }
+  .ssg-article img { width:100%; border-radius:8px; margin-bottom:24px; }
+  .ssg-article h1 { font-size:1.8rem; line-height:1.3; margin-bottom:12px; }
+  .ssg-article .meta { color:#666; font-size:.85rem; margin-bottom:24px; }
+  .ssg-article .body { line-height:1.8; color:#333; }
+</style>
+</head>
+<body>
+<!-- Contenu pré-rendu pour les crawlers (Google, Google News, Bing…) -->
+<article class="ssg-article" itemscope itemtype="https://schema.org/NewsArticle">
+  <meta itemprop="headline" content="${title}">
+  ${art.image ? `<img src="${escapeHtml(art.image)}" alt="${title}" itemprop="image">` : ''}
+  <h1 itemprop="name">${title}</h1>
+  <p class="meta">
+    <span itemprop="datePublished" content="${dateISO}">${art.date || ''}</span>
+    ${art.categorie ? ` · <span itemprop="articleSection">${catLabel}</span>` : ''}
+    · <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Basta</span></span>
+  </p>
+  <div class="body" itemprop="articleBody">
+    ${bodyHtml || `<p>${escapeHtml(art.extrait || '')}</p>`}
+  </div>
+</article>
+
+<!-- Chargement de l'application SPA (remplace le contenu ci-dessus pour les vrais utilisateurs) -->
+<script>
+// Charge le SPA principal depuis la racine
+(function() {
+  const s = document.createElement('script');
+  s.src = '/script.js?v=3';
+  s.defer = true;
+  document.head.appendChild(s);
+})();
+</script>
+</body>
+</html>`;
+}
+
+// Crée le dossier article/ si nécessaire
+if (!fs.existsSync(ARTICLE_PUB_DIR)) fs.mkdirSync(ARTICLE_PUB_DIR, { recursive: true });
+
+let generated = 0;
+for (const art of allArticlesForSSG) {
+    const dir = path.join(ARTICLE_PUB_DIR, String(art.id));
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, 'index.html'), generateArticlePage(art), 'utf8');
+    generated++;
+}
+console.log(`✅ SSG : ${generated} pages article/ générées`);
+
+// ── Sitemap XML ──────────────────────────────────────────────
+const sitemapUrls = [
+    `<url><loc>${SITE_URL}/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>`,
+    `<url><loc>${SITE_URL}/veille</loc><changefreq>daily</changefreq><priority>0.7</priority></url>`,
+    `<url><loc>${SITE_URL}/revue</loc><changefreq>daily</changefreq><priority>0.7</priority></url>`,
+    `<url><loc>${SITE_URL}/comparateur</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`,
+    `<url><loc>${SITE_URL}/reglementaire</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>`,
+    ...allArticlesForSSG.map(art => {
+        const lastmod = art.date ? `<lastmod>${art.date}</lastmod>` : '';
+        return `<url><loc>${SITE_URL}/article/${art.id}</loc>${lastmod}<changefreq>monthly</changefreq><priority>0.8</priority></url>`;
+    })
+];
+
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapUrls.join('\n')}
+</urlset>`;
+
+fs.writeFileSync(path.join(__dirname, 'sitemap.xml'), sitemap, 'utf8');
+console.log(`✅ sitemap.xml généré : ${sitemapUrls.length} URLs`);
