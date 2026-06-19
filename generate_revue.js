@@ -88,8 +88,8 @@ async function callMistral(prompt) {
     const payload = JSON.stringify({
         model: "mistral-small-latest",
         messages: [{ role: "user", content: prompt }],
-        response_format: { type: "json_object" }, // Mistral supporte le JSON natif
-        temperature: 0.1
+        response_format: { type: "json_object" },
+        temperature: 0.5
     });
 
     return new Promise((resolve, reject) => {
@@ -124,12 +124,21 @@ async function callMistral(prompt) {
 
 async function processWithMistral(rawArticles) {
     const input = rawArticles.map((a, i) => ({ i, t: a.titre.substring(0, 100), s: a.source }));
-    const prompt = `Agis en rédacteur AlgérieTech. Analyse cette liste d'articles tech des dernières 24h.
-    1. Sélectionne les 12 articles les plus marquants.
-    2. Pour chaque article: crée une accroche pro (15 mots) et une catégorie (Télécoms, IA, Startups, Mobile, Cybersécurité, Réseaux, ou Innovation).
-    3. Rédige une synthèse globale de 3 phrases.
-    Data:${JSON.stringify(input)}
-    Réponds EXCLUSIVEMENT en JSON pur: {"synthese":"...", "selected":[{"i":0, "accroche":"...", "categorie":"..."}]}`;
+    const prompt = `Tu es rédacteur en chef de l'Algérie Presse Service (APS). Analyse ces articles tech des dernières 24h.
+
+STYLE APS OBLIGATOIRE :
+- Accroches courtes, nominales, sans verbe d'opinion (max 18 mots)
+- Faits bruts : chiffres, noms d'organismes officiels, actions concrètes
+- Jamais : "révolutionnaire", "inédit", "historique", "remarquable", "force est de constater"
+- Toujours : qui, quoi, où, quand — dans cet ordre
+- La synthèse globale : 2 phrases factuelles style bulletin APS, pas de jugement de valeur
+
+1. Sélectionne les 12 articles les plus factuellement importants (impact institutionnel, chiffres, décisions officielles).
+2. Pour chaque article : accroche style APS (max 18 mots) + catégorie (Télécoms, IA, Startups, Mobile, Cybersécurité, Réseaux, Innovation).
+3. Synthèse globale : 2 phrases APS — faits du jour, sans opinion.
+
+Data:${JSON.stringify(input)}
+Réponds EXCLUSIVEMENT en JSON pur: {"synthese":"...", "selected":[{"i":0, "accroche":"...", "categorie":"..."}]}`;
 
     const response = await callMistral(prompt);
     const aiResult = JSON.parse(response.choices[0].message.content);

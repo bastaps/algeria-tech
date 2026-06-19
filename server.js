@@ -474,18 +474,30 @@ app.post('/api/smart-generate', express.json(), async (req, res) => {
     const { text } = req.body || {};
     if (!text) return res.status(400).json({ error: 'Texte source requis' });
 
-    const prompt = `Tu es un journaliste senior d'Algérie Tech, expert en télécoms.
-    Transforme ce texte en article de presse pro.
-    Zéro copier-coller, style factuel, enrichi du contexte algérien (Mobilis, Djezzy, Ooredoo).
-    Réponds EXCLUSIVEMENT en JSON pur avec ces clés : titre, lead, contenu (en markdown), tags (array de 3-5 tags), categorie (Algérie, Télécoms, Mobile, Startups, Innovation, Entreprises), video (si un lien YouTube/réseau social est présent dans la source, sinon "").
-    
-    SOURCE : ${text.substring(0, 4000)}`;
+    const prompt = `Tu es un rédacteur de l'Algérie Presse Service (APS), agence officielle d'information algérienne.
+
+RÈGLES DE STYLE APS — OBLIGATOIRES :
+- Commence le lead par la ville en majuscules suivie d'une virgule : "ALGER," ou "ORAN," selon le contexte
+- Style dépêche : phrases courtes (max 20 mots), directes, au passé composé ou présent simple
+- Pyramide inversée : fait principal d'abord, contexte ensuite, détails en dernier
+- Toujours mentionner les titres officiels complets : "le ministre de la Poste et des TIC", "le PDG de Mobilis"
+- Citer les sources avec leur titre exact entre guillemets si présentes dans la source
+- Jamais d'opinion, jamais d'adjectifs subjectifs (remarquable, impressionnant, révolutionnaire)
+- Jamais ces formules IA : "il convient de noter", "dans un contexte de", "en conclusion", "force est de constater"
+- Chiffres toujours écrits en lettres pour les unités (millions, milliards) sauf pourcentages et dates
+- Paragraphes de 2-3 phrases maximum
+- Le titre : sans verbe, nominal, factuel (ex: "Mobilis déploie la 5G dans 5 wilayas")
+
+Rédige cet article en style APS strict.
+Réponds EXCLUSIVEMENT en JSON pur : { "titre": "...", "lead": "ALGER, ...", "contenu": "...(markdown)...", "tags": [...3-5 tags...], "categorie": "Algérie|Télécoms|Mobile|Startups|Innovation|Entreprises", "video": "...ou empty string..." }
+
+SOURCE : ${text.substring(0, 4000)}`;
 
     const payload = JSON.stringify({
         model: "mistral-small-latest",
         messages: [{ role: "user", content: prompt }],
         response_format: { type: "json_object" },
-        temperature: 0.1
+        temperature: 0.55
     });
 
     const options = {
