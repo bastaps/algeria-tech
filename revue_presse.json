@@ -1,6 +1,6 @@
 {
   "date": "vendredi 19 juin",
-  "synthese": "Les dernières 24h ont été marquées par des avancées technologiques majeures en IA, cybersécurité et innovation, avec des annonces phares comme le musée d'art par IA de Google et des prototypes futuristes. Le marché des smartphones et des mises à jour critiques ont également dominé l'actualité, révélant des tendances contrastées entre résilience et vulnérabilités. Les secteurs des télécoms et des startups algériennes montrent des signes de dynamisme malgré les défis climatiques et économiques.",
+  "synthese": "Les dernières 24h ont été marquées par des annonces majeures en innovation et IA, avec des avancées technologiques disruptives et des défis persistants en cybersécurité. Les smartphones et l'écosystème mobile restent au cœur des tendances, tandis que les startups et les géants comme Microsoft et TotalEnergies redéfinissent les standards. Les enjeux environnementaux et les promos Prime Day ont également rythmé l'actualité tech.",
   "articles": [
     {
       "titre": "VivaTech 2026 : le bilan des deux premiers jours",
@@ -10,7 +10,7 @@
       "source": "Android DZ",
       "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "VivaTech 2026 : deux jours intenses pour l'innovation mondiale",
+      "accroche": "VivaTech 2026 : deux jours intenses pour l'innovation mondiale.",
       "categorie": "Innovation"
     },
     {
@@ -21,7 +21,7 @@
       "source": "Android DZ",
       "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "Oppo Find X9 Pro : le flagship qui redéfinit les standards Android",
+      "accroche": "Oppo Find X9 Pro : le flagship qui redéfinit les standards Android.",
       "categorie": "Mobile"
     },
     {
@@ -32,7 +32,7 @@
       "source": "Android DZ",
       "logo": "https://www.google.com/s2/favicons?domain=android-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "Android 17 et Xiaomi : des fonctionnalités IA révolutionnaires à venir",
+      "accroche": "Android 17 et Xiaomi : une mise à jour majeure pour les utilisateurs.",
       "categorie": "Mobile"
     },
     {
@@ -43,8 +43,8 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Microsoft renforce son ancrage dans le secteur public avec des solutions clés",
-      "categorie": "Innovation"
+      "accroche": "Microsoft et le secteur public : une alliance stratégique incontournable.",
+      "categorie": "Télécoms"
     },
     {
       "titre": "{ VivaTech 2026 } –TotalEnergies lance MethaneLive pour traquer le méthane en temps réel",
@@ -54,8 +54,30 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "TotalEnergies traque le méthane en temps réel avec MethaneLive",
+      "accroche": "TotalEnergies traque le méthane en temps réel avec MethaneLive.",
       "categorie": "Innovation"
+    },
+    {
+      "titre": "Les utilisateurs de Linux confrontés à un casse-tête lié au Secure Boot de Microsoft : voici la solution",
+      "resume": "Le « Secure Boot » a toujours été une source de désagréments pour les utilisateurs de Linux, mais maintenant que les certificats de Microsoft datant d",
+      "url": "https://www.zdnet.fr/actualites/les-utilisateurs-de-linux-confrontes-a-un-casse-tete-lie-au-secure-boot-de-microsoft-voici-la-solution-497303.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-19T10:17:19.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Linux face à Secure Boot : Microsoft impose un casse-tête aux utilisateurs.",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Les agents d'IA vont disposer de leur propre moteur de recherche",
+      "resume": "Les agents IA pourraient bientôt rechercher et utiliser leurs propres outils pendant l'exécution, grâce à une nouvelle norme ouverte soutenue par Micr",
+      "url": "https://www.zdnet.fr/actualites/les-agents-dia-vont-disposer-de-leur-propre-moteur-de-recherche-497300.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-19T09:57:45.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Les agents d'IA obtiennent leur propre moteur de recherche dédié.",
+      "categorie": "IA"
     },
     {
       "titre": "ZDNET Morning 19/06/2026 : Faille FortiBleed, Samsung Galaxy A27 et l'IA, Retour sur la panne géante au Crédit Agricole,...",
@@ -65,52 +87,30 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Faille FortiBleed et panne géante : la cybersécurité sous les projecteurs",
+      "accroche": "Faille FortiBleed, Samsung Galaxy A27 et l'IA : l'actualité tech du jour.",
       "categorie": "Cybersécurité"
     },
     {
-      "titre": "Patch Tuesday du 14 juillet : préparer les PC Windows aux mises à jour de sécurité critiques",
-      "resume": "Le Patch Tuesday de Microsoft revient chaque mois comme un point clé pour la sécurité des PC Windows. En corrigeant des failles et en renforçant la pr",
-      "url": "https://www.zdnet.fr/publicite/patch-tuesday-du-14-juillet-preparer-les-pc-windows-aux-mises-a-jour-de-securite-critiques-496923.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-19T07:30:34.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Patch Tuesday : des mises à jour critiques pour sécuriser Windows",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "Une fusée chinoise explose en orbite et génère des dizaines de débris spatiaux",
-      "resume": "La désintégration en orbite terrestre basse de l’étage supérieur de la fusée chinoise Zhuque-2E ravive les inquiétudes autour de la multiplication des",
-      "url": "https://www.zdnet.fr/actualites/une-fusee-chinoise-se-desintegre-en-orbite-liss-et-les-satellites-starlink-sous-surveillance-497279.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-19T07:15:39.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Fusée chinoise en orbite : des dizaines de débris spatiaux inquiètent",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Canyon présente le Predict, un prototype de vélo équipé d’une IA locale et d’un radar à 360 degrés",
-      "resume": "Canyon va dévoiler à l’Eurobike 2026 un prototype de vélo de route censé repérer les dangers avant le cycliste, grâce à un radar, des caméras et une I",
-      "url": "https://www.frandroid.com/survoltes/velo-electrique/3147673_canyon-presente-le-predict-un-prototype-de-velo-equipe-dune-ia-locale-et-dun-radar-a-360-degres",
-      "date": "2026-06-19T08:58:34.000Z",
+      "titre": "iPhone Ultra (iPhone Pliable) : fiche technique, prix et date de sortie — tout ce que l’on sait",
+      "resume": "L'iPhone Ultra — aussi appelé iPhone pliable ou iPhone Fold — n'en finit plus de faire causer sans avoir pour le moment plus d'informations officielle",
+      "url": "https://www.frandroid.com/marques/apple/2739977_iphone-pliant-design-ergonomie-puissance-tout-ce-que-lon-sait-pour-le-moment",
+      "date": "2026-06-19T09:41:09.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Canyon Predict : un vélo intelligent avec IA et radar 360°",
-      "categorie": "Innovation"
+      "accroche": "iPhone Ultra (pliable) : Apple prépare une révolution mobile.",
+      "categorie": "Mobile"
     },
     {
-      "titre": "Google ouvre « Dataland » : le tout premier musée d’Art par IA",
-      "resume": "Google ouvrira ce 20 juin 2026 le tout premier musée d'art par IA à Los Angeles. Baptisé Dataland, ce dernier exploite le cloud de Google et les modèl",
-      "url": "https://www.frandroid.com/marques/google/3147401_google-ouvre-dataland-a-los-angeles-le-tout-premier-musee-dart-par-ia",
-      "date": "2026-06-19T08:57:56.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "titre": "Une fusée chinoise explose en orbite : les satellites Starlink de SpaceX sous surveillance",
+      "resume": "L'étage supérieur de la fusée commerciale chinoise Zhuque-2E s'est désintégré en orbite basse après sa mission. Un incident qui a généré plus d'une ce",
+      "url": "https://www.01net.com/actualites/une-fusee-chinoise-explose-en-orbite-les-satellites-starlink-de-spacex-sous-surveillance.html",
+      "date": "2026-06-19T10:24:16.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Google ouvre Dataland : le premier musée d'art généré par IA",
-      "categorie": "IA"
+      "accroche": "Fusée chinoise en orbite : SpaceX surveille ses satellites Starlink.",
+      "categorie": "Innovation"
     },
     {
       "titre": "Le marché des smartphones s’effondre, mais Apple et Huawei défient la crise de façon insolente",
@@ -120,20 +120,20 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Marché des smartphones en crise : Apple et Huawei résistent contre vents et marées",
+      "accroche": "Marché des smartphones en crise : Apple et Huawei résistent avec brio.",
       "categorie": "Mobile"
     },
     {
-      "titre": "Des millions d’iPhone et d’iPad vulnérables : une faille impossible à corriger touche certaines puces Apple",
-      "resume": "Des chercheurs en cybersécurité ont découvert une faille dans les puces A12 et A13 d'Apple. Elle touche des dizaines de millions d'appareils, dont les",
-      "url": "https://www.01net.com/actualites/des-millions-diphone-et-dipad-vulnerables-une-faille-impossible-a-corriger-touche-certaines-puces-apple.html",
-      "date": "2026-06-19T07:42:57.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "titre": "Anthropic n’a pas coupé Claude Mythos chez tout le monde : des heureux élus en profitent encore",
+      "resume": "Selon un article publié par Bloomberg le 19 juin 2026, quelques partenaires triés sur le volet continuent d’utiliser Mythos Preview, une ancienne vers",
+      "url": "https://www.numerama.com/tech/2280377-anthropic-na-pas-coupe-claude-mythos-chez-tout-le-monde-des-heureux-elus-en-profitent-encore.html",
+      "date": "2026-06-19T10:25:00.000Z",
+      "source": "Numerama",
+      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Millions d'iPhone et iPad vulnérables : une faille critique persiste",
-      "categorie": "Cybersécurité"
+      "accroche": "Anthropic maintient l'accès à Claude Mythos pour certains utilisateurs.",
+      "categorie": "IA"
     }
   ],
-  "lastUpdated": "2026-06-19T09:24:48.006Z"
+  "lastUpdated": "2026-06-19T10:50:43.539Z"
 }
