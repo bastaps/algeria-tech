@@ -250,10 +250,11 @@ window.AT_LANG = {
 };
 
 /* ─── Démarrage ────────────────────────────────────────────────── */
+/* Toujours démarrer en français au chargement/rafraîchissement de la page */
 document.addEventListener('DOMContentLoaded', () => {
-  updateBtn(AT_LANG.current);
+  localStorage.setItem(LANG_KEY, 'fr');
+  updateBtn('fr');
   watchGrids();
-  if (AT_LANG.current !== 'fr') applyLang(AT_LANG.current);
 });
 
 })();
