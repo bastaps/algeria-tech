@@ -1818,52 +1818,50 @@ body.dark-mode .wc-day-min  { color: rgba(255,255,255,.35); }
 ══════════════════════════════════════════════════════════════════ */
 
 /* ── Bouton sélecteur de langue ──────────────────────────────── */
+/* ── Sélecteur 3 langues : pilule segmentée ─────────────────────── */
 .lang-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 1px;
-  padding: 5px 12px;
+  gap: 0;
+  padding: 0;
   border: 1.5px solid var(--border);
   border-radius: 20px;
   background: transparent;
-  font-size: 0.77rem;
-  font-weight: 700;
+  font-size: 0.72rem;
+  font-weight: 600;
   cursor: pointer;
   color: var(--text-dark);
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
   line-height: 1;
   font-family: 'Cairo', 'Inter', sans-serif;
   white-space: nowrap;
   touch-action: manipulation;
   -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+  height: 28px;
 }
-.lang-toggle:hover {
-  border-color: var(--primary);
+.lang-toggle:hover { border-color: var(--primary); box-shadow: 0 0 0 2px rgba(0,98,51,.08); }
+.lang-toggle .lt-opt {
+  padding: 0 9px;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  opacity: 0.38;
+  font-weight: 500;
+  transition: opacity .2s, background .2s, color .2s;
+  border-radius: 0;
+}
+.lang-toggle .lt-opt + .lt-opt { border-left: 1px solid var(--border); }
+.lang-toggle .lt-opt.lt-active {
+  opacity: 1;
   color: var(--primary);
-  background: rgba(0,98,51,.06);
+  font-weight: 800;
+  background: rgba(0,98,51,.07);
 }
-.lang-toggle .lt-sep {
-  color: var(--border);
-  margin: 0 3px;
-  font-size: 0.58rem;
-  font-weight: 300;
-  line-height: 1;
-}
-.lang-toggle .lt-dim    { opacity: 0.32; font-weight: 400; }
-.lang-toggle b.lt-active,
-.lang-toggle .lt-active { color: var(--primary); font-weight: 900; font-style: normal; }
-body.dark-mode .lang-toggle {
-  border-color: rgba(255,255,255,.18);
-  color: #e2e8f0;
-}
-body.dark-mode .lang-toggle:hover {
-  border-color: var(--primary);
-  color: #fff;
-  background: rgba(0,98,51,.18);
-}
-body.dark-mode .lang-toggle .lt-sep  { color: rgba(255,255,255,.2); }
-body.dark-mode .lang-toggle b.lt-active,
-body.dark-mode .lang-toggle .lt-active { color: #6ee7b7; }
+body.dark-mode .lang-toggle { border-color: rgba(255,255,255,.18); color: #e2e8f0; }
+body.dark-mode .lang-toggle:hover { border-color: var(--primary); }
+body.dark-mode .lang-toggle .lt-opt + .lt-opt { border-color: rgba(255,255,255,.12); }
+body.dark-mode .lang-toggle .lt-opt.lt-active { color: #6ee7b7; background: rgba(110,231,183,.10); }
 @media (max-width: 768px) { .lang-toggle { display: none; } }
 
 /* ── Police arabe ─────────────────────────────────────────────── */
@@ -1874,23 +1872,10 @@ html.ar p, html.ar button, html.ar input, html.ar a, html.ar span {
 }
 
 /* ── Top-bar ──────────────────────────────────────────────────── */
-html.ar .top-bar .container { flex-direction: row-reverse; }
-html.ar .top-bar-left        { flex-direction: row-reverse; }
-html.ar .top-bar-right       { flex-direction: row-reverse; }
-
-/* ── Header principal ─────────────────────────────────────────── */
-html.ar .header-content   { flex-direction: row-reverse; }
-html.ar .logo             { flex-direction: row-reverse; }
-html.ar .logo-text        { text-align: right; }
-html.ar .header-actions   { flex-direction: row-reverse; }
-html.ar .search-box       { direction: rtl; }
-html.ar .search-box input { text-align: right; }
-
-/* ── Navigation principale ────────────────────────────────────── */
-html.ar .main-nav > ul      { flex-direction: row-reverse; }
+/* ── Navigation principale — le header est figé LTR via header { direction:ltr !important } ── */
+/* Les dropdown-menus restent RTL-friendly pour le contenu arabe */
 html.ar .dropdown-menu      { left: auto !important; right: 0; text-align: right; }
-html.ar .dropdown-menu li   { text-align: right; }
-html.ar .dropdown-trigger   { flex-direction: row-reverse; gap: 6px; }
+html.ar .dropdown-menu li   { text-align: right; direction: rtl; }
 
 /* ── Quick-nav ────────────────────────────────────────────────── */
 html.ar .quick-nav .container { flex-direction: row-reverse; }
@@ -3746,6 +3731,11 @@ body.dark-mode .mega-menu-card:hover { background: rgba(255,255,255,0.04); }
 ══════════════════════════════════════════════════════════════════ */
 
 /* ── 1. Conteneur header : verre dépoli + sticky + transition fluide ── */
+/* Le header est TOUJOURS LTR, quelle que soit la langue active */
+header, header * { direction: ltr !important; }
+header .at-search-input,
+header input { text-align: left !important; }
+
 .header {
     background: color-mix(in srgb, var(--bg-white) 80%, transparent);
     -webkit-backdrop-filter: blur(20px) saturate(165%);
@@ -3775,9 +3765,8 @@ body.dark-mode .header {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: center;
-    column-gap: 18px;
+    column-gap: 36px;
     padding: 6px 0;
-    gap: 0;
     flex-wrap: nowrap;
     transition: padding .35s cubic-bezier(.4,0,.2,1);
 }
@@ -4017,12 +4006,13 @@ html.ar .at-explore-menu .at-mini-dot { margin-left: 0; margin-right: auto; }
 /* ── 5. Bloc utilitaires — colonne verticale compacte (verre dépoli) ── */
 .header-actions.at-utils {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    gap: 6px;
+    justify-content: flex-end;
+    gap: 8px;
     margin: 0;
     align-self: center;
+    flex-shrink: 0;
 }
 .at-util-btn {
     width: 26px; height: 26px;
@@ -4104,10 +4094,7 @@ body.dark-mode .header.at-scrolled { background: color-mix(in srgb, var(--bg-whi
 /* Colonne utilitaire → ligne horizontale en mode réduit (libère la compaction) */
 .at-scrolled .header-actions.at-utils { flex-direction: row; gap: 9px; }
 
-/* ── 8. RTL (arabe) ── */
-html.ar .at-hub-track { direction: rtl; }
-html.ar .at-search-input { right: auto; left: 38px; text-align: right; }
-html.ar .at-search.open .at-search-input { text-align: right; }
+/* ── 8. RTL — header entièrement figé LTR via header { direction:ltr !important } ── */
 
 /* ── 9. Responsive ── */
 @media (max-width: 1024px) {

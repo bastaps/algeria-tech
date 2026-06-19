@@ -61,16 +61,22 @@ public static class CtrlCGuard {
         Write-Host "==========================================" -ForegroundColor Cyan
         Write-Host "   ALGERIA TECH - TABLEAU DE BORD SYNC    " -ForegroundColor White -BackgroundColor DarkGreen
         Write-Host "==========================================" -ForegroundColor Cyan
-        Write-Host "1. [SYNC]   Recuperer la revue du jour et les archives depuis GitHub"
-        Write-Host "2. [DEPLOY] Pousser mes modifications vers GitHub + Cloudflare"
-        Write-Host "3. [REPAIR] Nettoyer l'index Git (skip-worktree + fichiers parasites)"
-        Write-Host "4. [START]  Lancer le serveur local (localhost:3000)"
-        Write-Host "5. [STATUS] Verifier l'etat Git et les cles API"
-        Write-Host "6. [BUILD]  Generer l'APK Android (Debug)"
-        Write-Host "7. [PUSH]   Pousser un contenu precis (article, image, revue, site...)"
+        Write-Host "1. [SYNC]    Recuperer la revue du jour et les archives depuis GitHub"
+        Write-Host "2. [DEPLOY]  Pousser mes modifications vers GitHub + Cloudflare"
+        Write-Host "3. [REPAIR]  Nettoyer l'index Git (skip-worktree + fichiers parasites)"
+        Write-Host "4. [START]   Lancer le serveur local dans une nouvelle fenetre" -ForegroundColor Green
+        Write-Host "5. [STATUS]  Verifier l'etat Git et les cles API"
+        Write-Host "6. [BUILD]   Generer l'APK Android (Debug)"
+        Write-Host "7. [PUSH]    Pousser un contenu precis (article, image, revue, site...)"
         Write-Host "8. [RESOLVE] Resoudre les conflits de fusion (ouvre les fichiers en conflit)"
         Write-Host "------------------------------------------"
-        Write-Host "9. [IDE]      Lancer Algeria Tech IDE (IA Chat + Terminal)" -ForegroundColor Cyan
+        Write-Host "  OUVRIR DANS LE NAVIGATEUR (serveur doit etre demarre):" -ForegroundColor DarkGray
+        Write-Host "  A. [SITE]   http://localhost:3000  (Site principal)" -ForegroundColor White
+        Write-Host "  V. [VIDEO]  http://localhost:3000/video-downloader" -ForegroundColor Magenta
+        Write-Host "  I. [INGEST] http://localhost:3000/smart-ingest" -ForegroundColor Magenta
+        Write-Host "  G. [GEN]    http://localhost:3000/generator" -ForegroundColor Magenta
+        Write-Host "------------------------------------------"
+        Write-Host "9. [IDE]      Lancer Algeria Tech IDE + Serveur + Navigateur" -ForegroundColor Cyan
         Write-Host "0. [ELECTRON] Lancer en mode bureau (fenetre desktop)" -ForegroundColor Cyan
         Write-Host "J. [JORADP]   Veille reglementaire (statut + backfill)" -ForegroundColor Yellow
         Write-Host "Q. Quitter"
@@ -245,20 +251,22 @@ public static class CtrlCGuard {
 
             # ── 4. START ─────────────────────────────────────────────────────
             "4" {
-                Write-Host "`n--- Lancement du serveur local (Ctrl+C = retour menu) ---" -ForegroundColor Cyan
+                Write-Host "`n--- Lancement du serveur local (nouvelle fenetre) ---" -ForegroundColor Cyan
+                # Charger la cle Mistral si disponible
+                $mistralLine = ""
                 if (-not $env:MISTRAL_API_KEY -and (Test-Path ".env")) {
                     Get-Content ".env" | ForEach-Object {
-                        if ($_ -match "^MISTRAL_API_KEY=(.+)$") {
-                            $env:MISTRAL_API_KEY = $matches[1]
-                            Write-Host "Cle Mistral chargee." -ForegroundColor Gray
-                        }
+                        if ($_ -match "^MISTRAL_API_KEY=(.+)$") { $mistralLine = "`$env:MISTRAL_API_KEY='$($matches[1])'; " }
                     }
                 }
-                [CtrlCGuard]::Reset()
-                try { node server.js } catch { }
-                Write-Host "`n[Serveur arrete] Retour au menu..." -ForegroundColor Yellow
-                [CtrlCGuard]::Reset()
-                Start-Sleep -Milliseconds 500
+                Start-Process powershell -ArgumentList "-NoExit", "-Command",
+                    "Set-Location 'E:\algeria-tech'; $($mistralLine)Write-Host 'Algeria Tech Server - localhost:3000' -ForegroundColor Green; node server.js"
+                Write-Host "OK Serveur lance dans une nouvelle fenetre PowerShell !" -ForegroundColor Green
+                Write-Host "   Site principal      : http://localhost:3000" -ForegroundColor DarkGray
+                Write-Host "   Telechargeur Video  : http://localhost:3000/video-downloader" -ForegroundColor DarkGray
+                Write-Host "   Smart Ingest        : http://localhost:3000/smart-ingest" -ForegroundColor DarkGray
+                Write-Host "   Generateur          : http://localhost:3000/generator" -ForegroundColor DarkGray
+                Read-Host "`nAppuyez sur Entree pour continuer..."
             }
 
             # ── 5. STATUS ────────────────────────────────────────────────────
@@ -476,29 +484,65 @@ public static class CtrlCGuard {
                 Read-Host "`nAppuyez sur Entree pour continuer..."
             }
 
+            # ── A/V/I/G. OUVRIR DANS LE NAVIGATEUR ──────────────────────────
+            "a" {
+                Write-Host "`nOuverture du site principal..." -ForegroundColor Cyan
+                Start-Process "http://localhost:3000"
+                Write-Host "OK http://localhost:3000" -ForegroundColor Green
+                Start-Sleep -Milliseconds 800
+            }
+            "v" {
+                Write-Host "`nOuverture Telechargeur Video..." -ForegroundColor Magenta
+                Start-Process "http://localhost:3000/video-downloader"
+                Write-Host "OK http://localhost:3000/video-downloader" -ForegroundColor Green
+                Start-Sleep -Milliseconds 800
+            }
+            "i" {
+                Write-Host "`nOuverture Smart Ingest..." -ForegroundColor Magenta
+                Start-Process "http://localhost:3000/smart-ingest"
+                Write-Host "OK http://localhost:3000/smart-ingest" -ForegroundColor Green
+                Start-Sleep -Milliseconds 800
+            }
+            "g" {
+                Write-Host "`nOuverture Generateur Infographies..." -ForegroundColor Magenta
+                Start-Process "http://localhost:3000/generator"
+                Write-Host "OK http://localhost:3000/generator" -ForegroundColor Green
+                Start-Sleep -Milliseconds 800
+            }
+
             # ── 9. IDE ALGERIA TECH ──────────────────────────────────────────
             "9" {
-                Write-Host "`n--- Lancement Algeria Tech IDE ---" -ForegroundColor Cyan
+                Write-Host "`n--- Lancement Algeria Tech IDE + Serveur ---" -ForegroundColor Cyan
                 $ideDir = "E:\gemini-cli\gemini-web-ui"
                 if (-not (Test-Path $ideDir)) {
                     Write-Host "ERREUR : dossier IDE introuvable : $ideDir" -ForegroundColor Red
                     Read-Host "`nAppuyez sur Entree pour continuer..."
                     break
                 }
-                # Stopper les anciens processus node eventuels
-                Stop-Process -Name "node" -Force -ErrorAction SilentlyContinue
-                Start-Sleep -Milliseconds 600
-                # Lancer serveur + Vite dans une nouvelle fenetre (non bloquant)
+                # 1. Lancer le serveur Algeria Tech dans une nouvelle fenetre
+                $mistralLine2 = ""
+                if (Test-Path ".env") {
+                    Get-Content ".env" | ForEach-Object {
+                        if ($_ -match "^MISTRAL_API_KEY=(.+)$") { $mistralLine2 = "`$env:MISTRAL_API_KEY='$($matches[1])'; " }
+                    }
+                }
                 Start-Process powershell -ArgumentList "-NoExit", "-Command",
-                    "Set-Location '$ideDir'; Write-Host 'Algeria Tech IDE...' -ForegroundColor Cyan; npm run dev"
-                # Attendre le demarrage puis ouvrir le navigateur
+                    "Set-Location 'E:\algeria-tech'; $($mistralLine2)Write-Host 'Algeria Tech Server - localhost:3000' -ForegroundColor Green; node server.js"
+                Write-Host "OK Serveur Algeria Tech lance (localhost:3000)" -ForegroundColor Green
+                # 2. Lancer le serveur Vite (IDE) dans une autre fenetre
+                Start-Process powershell -ArgumentList "-NoExit", "-Command",
+                    "Set-Location '$ideDir'; Write-Host 'Algeria Tech IDE - localhost:5173' -ForegroundColor Cyan; npm run dev"
+                Write-Host "OK IDE lance en arriere-plan..." -ForegroundColor Cyan
+                # 3. Attendre le demarrage puis ouvrir les deux URLs
                 Write-Host "Demarrage en cours" -NoNewline -ForegroundColor Gray
-                for ($i = 0; $i -lt 6; $i++) { Start-Sleep -Seconds 1; Write-Host "." -NoNewline -ForegroundColor Gray }
+                for ($i = 0; $i -lt 5; $i++) { Start-Sleep -Seconds 1; Write-Host "." -NoNewline -ForegroundColor Gray }
                 Write-Host ""
+                Start-Process "http://localhost:3000"
+                Start-Sleep -Milliseconds 500
                 Start-Process "http://localhost:5173"
-                Write-Host "OK IDE lance !" -ForegroundColor Green
-                Write-Host "   Navigateur : http://localhost:5173" -ForegroundColor DarkGray
-                Write-Host "   Serveur    : http://localhost:3001" -ForegroundColor DarkGray
+                Write-Host "OK Navigateur ouvert !" -ForegroundColor Green
+                Write-Host "   Algeria Tech  : http://localhost:3000" -ForegroundColor DarkGray
+                Write-Host "   IDE IA Chat   : http://localhost:5173" -ForegroundColor DarkGray
                 Read-Host "`nAppuyez sur Entree pour continuer..."
             }
 
@@ -688,7 +732,7 @@ public static class CtrlCGuard {
             }
         }
 
-    } while ($choice -ne "q" -and $choice -ne "Q")
+    } while ($choice -ne "q")
 
     [CtrlCGuard]::Unregister()
 

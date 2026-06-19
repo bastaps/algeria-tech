@@ -63,7 +63,7 @@
     <div class="reading-progress" id="readingProgress"></div>
     
     <header>
-        <div class="top-bar">
+        <div class="top-bar" dir="ltr">
             <div class="container">
                 <div class="top-bar-left">
                     <span><i class="fas fa-map-marker-alt" style="color:#D21034; margin-right:5px;"></i> Alger, Algérie</span>
@@ -82,7 +82,7 @@
                 </div>
             </div>
         </div>
-        <div class="header" id="siteHeader">
+        <div class="header" id="siteHeader" dir="ltr">
             <div class="container header-content at-grid">
 
                 <!-- ═══ Logo (occupe les 2 lignes) ═══ -->
@@ -143,8 +143,8 @@
                     <button class="at-util-btn theme-toggle" onclick="toggleTheme()" aria-label="Basculer mode nuit / jour" title="Mode nuit / jour">
                         <i class="fas fa-moon at-i-moon"></i><i class="fas fa-sun at-i-sun"></i>
                     </button>
-                    <button id="langToggle" class="at-util-btn lang-toggle" onclick="AT_LANG.toggle()" title="التبديل إلى العربية" aria-label="Passer en arabe">
-                        <span class="lt-dim">ع</span><span class="lt-sep">|</span><b class="lt-active">FR</b>
+                    <button id="langToggle" class="lang-toggle" onclick="AT_LANG.cycle()" title="Changer de langue" aria-label="Changer de langue">
+                        <span class="lt-opt lt-active" data-lang="fr">Français</span><span class="lt-opt" data-lang="ar">عربي</span><span class="lt-opt" data-lang="en">English</span>
                     </button>
                     <button class="hamburger-btn at-hamburger" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
                         <span></span><span></span><span></span>
@@ -517,8 +517,8 @@
         </ul>
         <div class="mobile-menu-footer">
             <button class="mobile-theme-btn" onclick="toggleTheme()"><i class="fas fa-moon"></i> Changer le thème</button>
-            <button class="lang-toggle" style="display:inline-flex;margin-top:8px;" onclick="AT_LANG.toggle()" id="langToggleMobile" title="تبديل اللغة">
-                <span class="lt-dim">ع</span><span class="lt-sep">|</span><b class="lt-active">FR</b>
+            <button class="lang-toggle" style="display:inline-flex;margin-top:8px;" onclick="AT_LANG.cycle()" id="langToggleMobile" title="Changer de langue">
+                <span class="lt-opt lt-active" data-lang="fr">Français</span><span class="lt-opt" data-lang="ar">عربي</span><span class="lt-opt" data-lang="en">English</span>
             </button>
         </div>
     </nav>

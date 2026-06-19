@@ -30,7 +30,9 @@ app.use(cors({
         'https://algeria-tech.pages.dev',
         'https://algeria-tech.pages.dz',
         'http://localhost:3000',
-        'http://127.0.0.1:3000'
+        'http://127.0.0.1:3000',
+        'http://localhost:5173',
+        'http://127.0.0.1:5173'
     ],
     credentials: true
 }));
@@ -253,9 +255,14 @@ app.get('/barometre/', (req, res) => res.sendFile(path.join(__dirname, 'barometr
 app.get('/actualites-tic', (req, res) => res.sendFile(path.join(__dirname, 'actualites-tic.html')));
 app.get('/actualites-tic/', (req, res) => res.sendFile(path.join(__dirname, 'actualites-tic.html')));
 
+// === ROUTE AUTO-ENTREPRENEUR TECH ===
+app.get('/ae-tech', (req, res) => res.sendFile(path.join(__dirname, 'ae-tech.html')));
+app.get('/ae-tech/', (req, res) => res.sendFile(path.join(__dirname, 'ae-tech.html')));
+
 // === ROUTE SMART INGEST ===
 app.get('/smart-ingest', (req, res) => res.sendFile(path.join(__dirname, 'smart-ingest.html')));
 app.get('/smart-ingest.html', (req, res) => res.sendFile(path.join(__dirname, 'smart-ingest.html')));
+app.get('/video-downloader', (req, res) => res.sendFile(path.join(__dirname, 'video-downloader.html')));
 
 // === ROUTE ARTICLES (SPA — hard refresh support) ===
 app.get('/article/:id', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
@@ -1561,5 +1568,161 @@ function buildSeries(text) {
 function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1).toLowerCase() : ''; }
 function clean(s) { return s.replace(/\s/g,'').replace(',','.'); }
 function num(s)   { return parseFloat(String(s).replace(/[\s']/g,'').replace(',','.')) || 0; }
+
+// ── VIDEO DOWNLOADER ─────────────────────────────────────────────────────────
+const { spawn } = require('child_process');
+const os = require('os');
+
+const YTDLP = 'C:\\Users\\Aps\\AppData\\Local\\Python\\pythoncore-3.14-64\\Scripts\\yt-dlp.exe';
+const FFMPEG_PATH = 'C:\\Users\\Aps\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1-full_build\\bin\\ffmpeg.exe';
+
+// GET /api/video-info?url=...
+app.get('/api/video-info', async (req, res) => {
+    const { url } = req.query;
+    if (!url) return res.status(400).json({ error: 'URL manquante' });
+
+    const args = ['--dump-json', '--no-playlist', url];
+    const proc = spawn(YTDLP, args);
+
+    let out = '';
+    let err = '';
+    let responded = false;
+    proc.on('error', e => {
+        if (!responded) { responded = true; res.status(500).json({ error: 'yt-dlp introuvable', details: e.message }); }
+    });
+    proc.stdout.on('data', d => out += d);
+    proc.stderr.on('data', d => err += d);
+
+    proc.on('close', code => {
+        if (responded) return;
+        if (code !== 0) return res.status(500).json({ error: 'Impossible d\'analyser cette URL', details: err.slice(0, 500) });
+        try {
+            const info = JSON.parse(out);
+            res.json({
+                title:     info.title || 'Sans titre',
+                uploader:  info.uploader || info.channel || '',
+                thumbnail: info.thumbnail || '',
+                duration:  info.duration || 0,
+                platform:  info.extractor_key || '',
+                formats:   (info.formats || [])
+                    .filter(f => f.vcodec !== 'none' && f.height)
+                    .map(f => ({ id: f.format_id, height: f.height, ext: f.ext, note: f.format_note }))
+                    .sort((a, b) => (b.height || 0) - (a.height || 0))
+                    .slice(0, 6)
+            });
+        } catch (e) {
+            res.status(500).json({ error: 'Erreur JSON', details: e.message });
+        }
+    });
+});
+
+// GET /api/download-video?url=...&quality=best
+app.get('/api/download-video', (req, res) => {
+    const { url, quality } = req.query;
+    if (!url) return res.status(400).json({ error: 'URL manquante' });
+
+    const tmpFile = path.join(os.tmpdir(), `vid_${Date.now()}.%(ext)s`);
+    const fmt = quality === '1080' ? 'bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height<=1080][ext=mp4]/best'
+              : quality === '720'  ? 'bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/best[height<=720][ext=mp4]/best'
+              : quality === '480'  ? 'bestvideo[height<=480][ext=mp4]+bestaudio[ext=m4a]/best[height<=480][ext=mp4]/best'
+              : 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best';
+
+    const args = [
+        '--no-playlist',
+        '--format', fmt,
+        '--merge-output-format', 'mp4',
+        '--ffmpeg-location', FFMPEG_PATH,
+        '-o', tmpFile,
+        url
+    ];
+
+    const proc = spawn(YTDLP, args);
+
+    let logOut = '';
+    let dlResponded = false;
+    proc.on('error', e => {
+        if (!dlResponded) { dlResponded = true; res.status(500).json({ error: 'yt-dlp introuvable', details: e.message }); }
+    });
+    proc.stderr.on('data', d => logOut += d);
+
+    proc.on('close', code => {
+        if (dlResponded) return;
+        if (code !== 0) {
+            dlResponded = true;
+            return res.status(500).json({ error: 'Échec du téléchargement', details: logOut.slice(-800) });
+        }
+        // Trouver le fichier téléchargé
+        const base = tmpFile.replace('%(ext)s', '');
+        const tmpDir = path.dirname(tmpFile);
+        const prefix = path.basename(base);
+        const files = fsSync.readdirSync(tmpDir).filter(f => f.startsWith(prefix));
+        if (!files.length) return res.status(500).json({ error: 'Fichier introuvable après téléchargement' });
+
+        const finalFile = path.join(tmpDir, files[0]);
+        const stat = fsSync.statSync(finalFile);
+
+        res.setHeader('Content-Type', 'video/mp4');
+        res.setHeader('Content-Length', stat.size);
+        res.setHeader('Content-Disposition', 'attachment; filename="video.mp4"');
+
+        const stream = fsSync.createReadStream(finalFile);
+        stream.pipe(res);
+        stream.on('close', () => {
+            try { fsSync.unlinkSync(finalFile); } catch (e) {}
+        });
+    });
+});
+// GET /api/download-audio?url=...
+app.get('/api/download-audio', (req, res) => {
+    const { url } = req.query;
+    if (!url) return res.status(400).json({ error: 'URL manquante' });
+
+    const tmpFile = path.join(os.tmpdir(), `aud_${Date.now()}.%(ext)s`);
+
+    const args = [
+        '--no-playlist',
+        '--format', 'bestaudio/best',
+        '--extract-audio',
+        '--audio-format', 'mp3',
+        '--audio-quality', '0',
+        '--ffmpeg-location', FFMPEG_PATH,
+        '-o', tmpFile,
+        url
+    ];
+
+    const proc = spawn(YTDLP, args);
+
+    let logOut = '';
+    let audResponded = false;
+    proc.on('error', e => {
+        if (!audResponded) { audResponded = true; res.status(500).json({ error: 'yt-dlp introuvable', details: e.message }); }
+    });
+    proc.stderr.on('data', d => logOut += d);
+
+    proc.on('close', code => {
+        if (audResponded) return;
+        if (code !== 0) {
+            audResponded = true;
+            return res.status(500).json({ error: 'Échec extraction audio', details: logOut.slice(-800) });
+        }
+        const tmpDir = path.dirname(tmpFile);
+        const prefix = path.basename(tmpFile.replace('%(ext)s', ''));
+        const files = fsSync.readdirSync(tmpDir).filter(f => f.startsWith(prefix));
+        if (!files.length) return res.status(500).json({ error: 'Fichier audio introuvable' });
+
+        const finalFile = path.join(tmpDir, files[0]);
+        const stat = fsSync.statSync(finalFile);
+
+        audResponded = true;
+        res.setHeader('Content-Type', 'audio/mpeg');
+        res.setHeader('Content-Length', stat.size);
+        res.setHeader('Content-Disposition', 'attachment; filename="audio.mp3"');
+
+        const stream = fsSync.createReadStream(finalFile);
+        stream.pipe(res);
+        stream.on('close', () => { try { fsSync.unlinkSync(finalFile); } catch (e) {} });
+    });
+});
+// ── FIN VIDEO DOWNLOADER ──────────────────────────────────────────────────────
 
 app.listen(PORT, () => console.log(`🚀 Algeria Tech · Port ${PORT} · Générateur activé`));
