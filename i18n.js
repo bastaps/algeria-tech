@@ -250,10 +250,9 @@ window.AT_LANG = {
 };
 
 /* ─── Démarrage ────────────────────────────────────────────────── */
-/* Toujours démarrer en français au chargement/rafraîchissement de la page */
+/* Toujours démarrer en français — réinitialise tout l'état i18n au chargement */
 document.addEventListener('DOMContentLoaded', () => {
-  localStorage.setItem(LANG_KEY, 'fr');
-  updateBtn('fr');
+  applyLang('fr');
   watchGrids();
 });
 
