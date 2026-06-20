@@ -1,6 +1,6 @@
 {
   "date": "samedi 20 juin",
-  "synthese": "Le secteur technologique algérien se structure autour d'un projet gazier majeur et d'initiatives institutionnelles. Des cybermenaces ciblent 200 applications bancaires et crypto, tandis que des acteurs privés lancent de nouvelles offres télécoms et mobiles.",
+  "synthese": "L'Algérie annonce le lancement de la construction de sa section du Gazoduc transsaharien. Plus de 200 applications bancaires et de cryptos ciblées par un nouveau virus sophistiqué.",
   "articles": [
     {
       "titre": "L’Algérie a officiellement annoncé, le lancement de la construction de sa section du Gazoduc transsaharien qui doit contribuer à renforcer la position du continent en tant qu’acteur majeur de l’approvisionnement énergétique mondial",
@@ -10,30 +10,8 @@
       "source": "EcomNewsMed DZ",
       "logo": "https://www.google.com/s2/favicons?domain=ecomnewsmed.com&sz=32",
       "pays": "DZ",
-      "accroche": "Algérie : lancement officiel de la section nationale du Gazoduc transsaharien",
+      "accroche": "Algérie : construction section Gazoduc transsaharien lancée",
       "categorie": "Réseaux"
-    },
-    {
-      "titre": "IA : après l’ivresse, le budget",
-      "resume": "L'heure de l'expérimentation est révolue. Les entreprises entrent dans une phase où chaque usage de l'IA doit désormais justifier un ROI.\nThe post IA",
-      "url": "https://www.silicon.fr/data-ia-1372/ia-apres-livresse-le-budget-227951",
-      "date": "2026-06-19T14:39:19.000Z",
-      "source": "Silicon.fr",
-      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Budget IA : après l’engouement, les arbitrages financiers",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Databricks joue l’alternative à HTAP pour unifier transactionnel et analytique",
-      "resume": "En combinant les fruits de deux acquisitions, Databricks propose une couche de stockage unifiée pour OLAP et OLTP.\nThe post Databricks joue l’alternat",
-      "url": "https://www.silicon.fr/data-ia-1372/databricks-ltap-227943",
-      "date": "2026-06-19T12:35:56.000Z",
-      "source": "Silicon.fr",
-      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Databricks propose une solution unifiée transactionnelle-analytique",
-      "categorie": "Innovation"
     },
     {
       "titre": "Plus de 200 applications bancaires et de cryptos sont visées par un nouveau virus « furtif et sophistiqué »",
@@ -43,8 +21,30 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Nouveau virus furtif cible 200 applications bancaires et crypto",
+      "accroche": "Nouveau virus furtif visant 200 apps bancaires et crypto",
       "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Databricks joue l’alternative à HTAP pour unifier transactionnel et analytique",
+      "resume": "En combinant les fruits de deux acquisitions, Databricks propose une couche de stockage unifiée pour OLAP et OLTP.\nThe post Databricks joue l’alternat",
+      "url": "https://www.silicon.fr/data-ia-1372/databricks-ltap-227943",
+      "date": "2026-06-19T12:35:56.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Databricks propose alternative à HTAP pour données",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "IA : après l’ivresse, le budget",
+      "resume": "L'heure de l'expérimentation est révolue. Les entreprises entrent dans une phase où chaque usage de l'IA doit désormais justifier un ROI.\nThe post IA",
+      "url": "https://www.silicon.fr/data-ia-1372/ia-apres-livresse-le-budget-227951",
+      "date": "2026-06-19T14:39:19.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
+      "pays": "FR",
+      "accroche": "IA : après l’engouement, le budget en discussion",
+      "categorie": "IA"
     },
     {
       "titre": "RED by SFR dégaine sa nouvelle offre fibre irrésistible à un prix canon",
@@ -54,52 +54,8 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "SFR lance une offre fibre à prix compétitif en Algérie",
+      "accroche": "RED by SFR lance offre fibre à prix compétitif",
       "categorie": "Télécoms"
-    },
-    {
-      "titre": "Hostinger - Journée mondiale des PME : aider les petites entreprises à publier un site sans dépendre d’une DSI",
-      "resume": "À l’occasion de la Journée mondiale des PME, de nombreuses petites structures cherchent à gagner en visibilité sans pour autant disposer d’une équipe",
-      "url": "https://www.zdnet.fr/publicite/hostinger-journee-mondiale-des-pme-aider-les-petites-entreprises-a-publier-un-site-sans-dependre-dune-dsi-497222.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-20T07:30:57.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Hostinger accompagne les PME algériennes via la Journée mondiale",
-      "categorie": "Startups"
-    },
-    {
-      "titre": "Les meilleurs mini PC pour l’IA en local : faire tourner un LLM chez soi sans cloud",
-      "resume": "Faire tourner des modèles d'IA directement chez vous, sans cloud ni abonnement, n'a jamais été aussi simple. Et pour ça, le mini PC est l'outil parfai",
-      "url": "https://www.frandroid.com/guide-dachat/guides-dachat-ordinateurs/3146839_meilleurs-mini-pc-pour-ia-local",
-      "date": "2026-06-20T07:42:45.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Mini PC dédiés à l’IA locale : autonomie sans recours au cloud",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Votre TV connectée rame ou saccade ? 6 réglages pour doper ses performances avant le match",
-      "resume": "Le Mondial 2026 bat son plein ! Mais entre les ralentissements de l'interface, les applications de streaming (TF1+, M6+, France.tv) qui mettent une ét",
-      "url": "https://www.zdnet.fr/pratique/coupe-du-monde-2026-votre-tv-connectee-rame-ou-saccade-6-reglages-pour-doper-ses-performances-avant-le-match-496814.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-19T20:00:06.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "6 réglages pour optimiser les performances des TV connectées",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Confidentialité pratique : voici les façons dont votre smartphone suit votre localisation et les manières d’y mettre fin",
-      "resume": "Votre mobile transmet certainement votre position à votre insu. Découvrez comment cela se produit et comment arrêter ce traquage.",
-      "url": "https://www.zdnet.fr/pratique/confidentialite-pratique-voici-les-facons-dont-votre-smartphone-suit-votre-localisation-et-les-manieres-dy-mettre-fin-497269.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-19T17:11:32.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Smartphones : méthodes de pistage de localisation exposées",
-      "categorie": "Cybersécurité"
     },
     {
       "titre": "Voici combien pourrait coûter l’iPhone 18 Pro après la hausse des prix d’Apple",
@@ -109,31 +65,75 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Apple annonce hausse des prix de l’iPhone 18 Pro",
+      "accroche": "Apple augmente prix iPhone 18 Pro après hausse",
       "categorie": "Mobile"
     },
     {
-      "titre": "Apple MacBook Neo, iPhone 17 Pro Max et traceur Ugreen FineTrack : les meilleures promos high-tech à saisir ce vendredi — meilleurs bons plans",
-      "resume": "Vendredi 19 juin 2026 marque une journée riche en promotions sur des produits très recherchés : voici celles à retenir.",
-      "url": "https://www.frandroid.com/bons-plans/3148703_apple-macbook-neo-iphone-17-pro-max-et-traceur-ugreen-finetrack-les-meilleures-promos-high-tech-a-saisir-ce-vendredi-meilleurs-bons-plans",
-      "date": "2026-06-19T17:45:00.000Z",
+      "titre": "Les meilleurs mini PC pour l’IA en local : faire tourner un LLM chez soi sans cloud",
+      "resume": "Faire tourner des modèles d'IA directement chez vous, sans cloud ni abonnement, n'a jamais été aussi simple. Et pour ça, le mini PC est l'outil parfai",
+      "url": "https://www.frandroid.com/guide-dachat/guides-dachat-ordinateurs/3146839_meilleurs-mini-pc-pour-ia-local",
+      "date": "2026-06-20T07:42:45.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Promos high-tech : MacBook Neo, iPhone 17 Pro Max et traceur Ugreen",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "J’ai testé la Sony Bravia Theatre Bar 7 : la barre Atmos compacte qui réclame son caisson",
-      "resume": "Avec la Bravia Theatre Bar 7, Sony propose une barre de son Dolby Atmos compacte pensée comme une solution home-cinéma simple, mais évolutive avec cai",
-      "url": "https://www.frandroid.com/marques/sony/3142009_jai-teste-la-sony-bravia-theatre-bar-7-la-barre-atmos-compacte-qui-reclame-son-caisson",
-      "date": "2026-06-19T17:01:00.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Sony Bravia Theatre Bar 7 : barre Atmos compacte testée",
+      "accroche": "Mini PC pour IA locale : exécuter LLM sans cloud",
       "categorie": "Innovation"
+    },
+    {
+      "titre": "Ariane 6 en « mode barbecue », bras de fer entre la Nasa et la Russie dans l’ISS — le récap’ sciences de la semaine",
+      "resume": "L'actualité scientifique de la semaine a été rythmée par le vol de la fusée Ariane 6 dans sa version la plus puissante, avec l'annonce inattendue d'un",
+      "url": "https://www.numerama.com/sciences/2280197-ariane-6-en-mode-barbecue-bras-de-fer-entre-la-nasa-et-la-russie-dans-liss-le-recap-sciences-de-la-semaine.html",
+      "date": "2026-06-20T05:39:00.000Z",
+      "source": "Numerama",
+      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
+      "pays": "FR",
+      "accroche": "Ariane 6 en mode barbecue, tensions NASA-Russie sur ISS",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "129 marques de voitures électriques en Chine, bientôt 15 : pourquoi ça vous concerne en Europe",
+      "resume": "129 marques de véhicules électriques et hybrides rechargeables se disputent actuellement le marché automobile chinois. La majorité n'atteindra pas 203",
+      "url": "https://www.frandroid.com/survoltes/voitures-electriques/3137203_129-marques-de-voitures-electriques-en-chine-bientot-15-pourquoi-ca-vous-concerne-en-europe",
+      "date": "2026-06-20T08:13:10.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "129 marques de voitures électriques en Chine bientôt 15",
+      "categorie": "Mobile"
+    },
+    {
+      "titre": "Hostinger - Journée mondiale des PME : aider les petites entreprises à publier un site sans dépendre d’une DSI",
+      "resume": "À l’occasion de la Journée mondiale des PME, de nombreuses petites structures cherchent à gagner en visibilité sans pour autant disposer d’une équipe",
+      "url": "https://www.zdnet.fr/publicite/hostinger-journee-mondiale-des-pme-aider-les-petites-entreprises-a-publier-un-site-sans-dependre-dune-dsi-497222.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-20T07:30:57.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Hostinger aide PME à publier site sans dépendre de tiers",
+      "categorie": "Startups"
+    },
+    {
+      "titre": "Votre TV connectée rame ou saccade ? 6 réglages pour doper ses performances avant le match",
+      "resume": "Le Mondial 2026 bat son plein ! Mais entre les ralentissements de l'interface, les applications de streaming (TF1+, M6+, France.tv) qui mettent une ét",
+      "url": "https://www.zdnet.fr/pratique/coupe-du-monde-2026-votre-tv-connectee-rame-ou-saccade-6-reglages-pour-doper-ses-performances-avant-le-match-496814.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-19T20:00:06.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "6 réglages pour améliorer performances TV connectée",
+      "categorie": "Réseaux"
+    },
+    {
+      "titre": "Confidentialité pratique : voici les façons dont votre smartphone suit votre localisation et les manières d’y mettre fin",
+      "resume": "Votre mobile transmet certainement votre position à votre insu. Découvrez comment cela se produit et comment arrêter ce traquage.",
+      "url": "https://www.zdnet.fr/pratique/confidentialite-pratique-voici-les-facons-dont-votre-smartphone-suit-votre-localisation-et-les-manieres-dy-mettre-fin-497269.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-19T17:11:32.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Smartphone : méthodes de suivi de localisation détaillées",
+      "categorie": "Cybersécurité"
     }
   ],
-  "lastUpdated": "2026-06-20T07:49:25.259Z"
+  "lastUpdated": "2026-06-20T08:17:21.109Z"
 }
