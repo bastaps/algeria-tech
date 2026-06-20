@@ -1,6 +1,42 @@
 {
   "posts": [
     {
+      "id": "bffe053165314629",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/06/20/air-algerie-prevoit-douvrir-des-vols-vers-delhi-et-shanghai-des-lhiver-prochain/",
+      "image": "",
+      "date": "Sat, 20 Jun 2026 18:53:33 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Air Algérie prévoit d’ouvrir des vols vers Delhi et Shanghai dès l’hiver prochain — La compagnie aérienne nationale Air Algérie poursuit le développement de son réseau international avec l’ouverture programmée de deux nouvelles destinations asiatiques. Selon un programme prévisionnel, des vols directs vers Delhi, en Inde, et Shanghai, en Chine, devraient être lancés à partir de la",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f3e7199a2737686d",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/06/20/persistance-de-la-canicule-sur-plusieurs-wilayas-du-pays-jusqua-lundi/",
+      "image": "",
+      "date": "Sat, 20 Jun 2026 17:37:02 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Persistance de la canicule sur plusieurs wilayas du pays jusqu’à lundi — La vague de chaleur en cours continuera d’affecter, jusqu’à lundi, plusieurs wilayas du pays avec des températures pouvant atteindre 45 degrés, indique, samedi, un bulletin météorologique spécial (BMS) émis par l’Office national de la météorologie. Selon le BMS, la canicule touchera les wilayas de T",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "b3c99415eb5d21bd",
       "source_name": "TechCrunch",
       "source_short": "TC",
@@ -5363,48 +5399,12 @@
         "fr": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "1df03eef6ada96d9",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/cybersecurite-1371/suspension-de-claude-mythos-des-experts-demandent-la-levee-des-restrictions-227672",
-      "image": "",
-      "date": "Mon, 15 Jun 2026 13:57:49 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Suspension de Claude Mythos : des experts demandent la levée des restrictions — Des leaders de la cybersécurité demandent à l’administration Trump de lever les restrictions sur Claude Mythos et Fable, estimant qu'elles affaiblissent les défenseurs face aux pirates. The post Suspension de Claude Mythos : des experts demandent la levée des restrictions appeared first on Silicon.f",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "bfeca2ee1bfe36a7",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/15/sarvam-becomes-indias-newest-ai-unicorn-with-234-million-funding-round-led-by-hcltech/",
-      "image": "",
-      "date": "Mon, 15 Jun 2026 13:46:08 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Sarvam becomes India’s newest AI unicorn with $234 million funding round led by HCLTech — Indian IT services company HCLTech is investing $150 million in the Bengaluru startup.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-06-20T16:10:59.526052+00:00",
+  "lastUpdated": "2026-06-20T19:08:14.164144+00:00",
   "stats": {
-    "Tech International": 183,
-    "Médias TIC": 93,
+    "Médias TIC": 95,
+    "Tech International": 181,
     "Opérateurs": 7,
     "Infrastructure": 5,
     "Ministère": 8,
