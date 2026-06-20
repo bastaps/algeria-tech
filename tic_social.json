@@ -1,6 +1,60 @@
 {
   "posts": [
     {
+      "id": "b33ae349af35f46a",
+      "source_name": "TSA Algérie",
+      "source_short": "TSA",
+      "source_color": "#C62828",
+      "category": "Médias TIC",
+      "category_icon": "📰",
+      "url": "https://www.facebook.com/TSAlgerie",
+      "image": "",
+      "date": "2026-06-20T13:14:50+00:00",
+      "lang_source": "fr",
+      "text": {
+        "fr": "« Être le fils de Zinédine Zidane est une fierté que je ne peux pas nier. Cela ne me dérange absolument pas d'entendre les support… — « Être le fils de Zinédine Zidane est une fierté que je ne peux pas nier. Cela ne me dérange absolument pas d'entendre les supporters m'appeler constamment \"le fils de Zidane\".\n\nCe qui me dérange vraiment, c'est lorsque certains affirment que tout ce que j'ai accompli au cours de ma carrière de foot",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "facebook"
+    },
+    {
+      "id": "34d58d1b7771b278",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/pratique/comment-installer-des-apps-non-officielles-sur-android-auto-et-lesquelles-valent-vraiment-le-coup-497238.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sat, 20 Jun 2026 12:04:32 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Comment installer des apps non officielles sur Android Auto, et lesquelles valent vraiment le coup — Vous pouvez ajouter YouTube, la navigation web et bien d'autres choses à votre voiture en installant des applications par sideloading.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "b1889532c8757c5a",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/test-omnibook-3-de-hp-le-premier-pc-portable-windows-que-jenvisage-serieusement-comme-concurrent-du-macbook-neo-497331.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sat, 20 Jun 2026 11:07:38 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Test OmniBook 3 de HP : le premier PC portable Windows que j'envisage sérieusement comme concurrent du MacBook Neo — L'OmniBook 3 de HP allie un matériel de bonne qualité à une autonomie exceptionnelle, ce qui en fait l'un des ordinateurs portables offrant le meilleur rapport qualité-prix parmi ceux que j'ai testé cette année.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "8eb5fd21ff8e17a9",
       "source_name": "ZDNet France",
       "source_short": "ZD",
@@ -5345,66 +5399,12 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "85d5d9896bc14577",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/transferer-ses-donnees-d-un-android-a-un-autre-le-guide-complet-2026/",
-      "image": "",
-      "date": "2026-06-15T10:35:00.037Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Transférer ses données d'un Android à un autre : le guide complet 2026 — Pour transférer ses données d'un Android à un autre, trois méthodes fiables existent : l'assistant de configuration du nouveau téléphone (par câble ou sans fil), la sauvegarde du compte Google , et l'application du fabricant comme Samsung Smart Switch . Chacune copie contacts, photos, applications e",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "3c6e07c762817211",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/taxe-gafam-donald-trump-pose-un-ultimatum-sur-le-vin-francais-496906.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 15 Jun 2026 10:24:51 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Taxe GAFAM : Donald Trump pose un ultimatum sur le vin français ! — En marge du sommet du G7 d'Évian, le président américain réactive la menace de sanctions douanières massives contre la France si la taxe sur les géants du numérique n'est pas abolie.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "faa037f6845f9499",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/cybersecurite-1371/bras-de-fer-trump-anthropic-bruxelles-sinquiete-lagenda-ipo-fragilise-227661",
-      "image": "",
-      "date": "Mon, 15 Jun 2026 10:02:27 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Bras de fer Trump-Anthropic : Bruxelles s’inquiète…l’agenda IPO fragilisé — Sur ordre du gouvernement américain, Anthropic a dû débrancher en urgence ses modèles d'IA les plus puissants, Fable 5 et Mythos 5, pour tous ses utilisateurs dans le monde. The post Bras de fer Trump-Anthropic : Bruxelles s’inquiète…l’agenda IPO fragilisé appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-06-20T11:07:29.724598+00:00",
+  "lastUpdated": "2026-06-20T13:24:45.155820+00:00",
   "stats": {
-    "Tech International": 186,
     "Médias TIC": 91,
+    "Tech International": 186,
     "Infrastructure": 5,
     "Opérateurs": 6,
     "Ministère": 8,
