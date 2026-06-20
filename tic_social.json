@@ -1,6 +1,24 @@
 {
   "posts": [
     {
+      "id": "cdf93af6a8fe566d",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/19/he-made-your-free-video-player-run-smoothly-now-hes-doing-that-for-robots/",
+      "image": "",
+      "date": "Sat, 20 Jun 2026 00:47:44 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "He made your free video player run smoothly. Now he’s doing that for robots. — French serial entrepreneur and open-source legend Jean-Baptiste Kempf has been building Kyber, an infrastructure layer to control remote devices in real time.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "a93cb6472fd1abaa",
       "source_name": "TechCrunch",
       "source_short": "TC",
@@ -5381,27 +5399,9 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "99848ced42864f37",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/iphone-ultra-une-maquette-devoile-un-format-inedit-qui-rappelle-un-passeport-496875.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 15 Jun 2026 07:15:59 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "iPhone Ultra : une maquette dévoile un format inédit qui rappelle… un passeport — Une nouvelle fuite relance les spéculations autour du premier iPhone pliable. Une maquette laisse entrevoir un appareil au format compact et atypique.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-06-19T21:58:05.741749+00:00",
+  "lastUpdated": "2026-06-20T02:11:15.647778+00:00",
   "stats": {
     "Tech International": 188,
     "Médias TIC": 90,
