@@ -91,6 +91,24 @@
       "source_type": "rss"
     },
     {
+      "id": "7f27f4862a7e0947",
+      "source_name": "Algérie Poste",
+      "source_short": "AP",
+      "source_color": "#F9A825",
+      "category": "Infrastructure",
+      "category_icon": "✉️",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPNkE2eXg5aXBQMjV6TlhGUVdDWUZ4d0E0b1MtXy1ucmpIdFZWc3E2ckllWGw3ZkZaUVZkdkpHaTd0RVMzX2xqN01NLWdVa3dkdjg0dWJWakVmWUN2WXRJSGJRVFFQT2VtNTFhWTVSQTUxVWRraEREa0d6TGo3NmdqMmRiNTFCQ0F5aWpaelVSS3ZOUzZTb2RJTk0tSjVvcDZEbHpuX2ktb2REODVaQnZyNGtMSU1IUkVPM2NfSkJVMHhGUjU5YmRJZEhYMGd6WkNzMEJRdQ?oc=5",
+      "image": "",
+      "date": "Sat, 20 Jun 2026 19:26:33 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Sortie de l’Algérie de la liste grise du GAFI : le verdict des experts après un retrait historique - Algerie Patriotique — Sortie de l’Algérie de la liste grise du GAFI : le verdict des experts après un retrait historique Algerie Patriotique",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "bffe053165314629",
       "source_name": "Algérie Éco",
       "source_short": "AEC",
@@ -105,6 +123,24 @@
         "fr": "Air Algérie prévoit d’ouvrir des vols vers Delhi et Shanghai dès l’hiver prochain — La compagnie aérienne nationale Air Algérie poursuit le développement de son réseau international avec l’ouverture programmée de deux nouvelles destinations asiatiques. Selon un programme prévisionnel, des vols directs vers Delhi, en Inde, et Shanghai, en Chine, devraient être lancés à partir de la",
         "ar": "",
         "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e4eb1d06a4215db6",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/20/founders-funds-outlier-bet-on-humanely-killed-fish/",
+      "image": "",
+      "date": "Sat, 20 Jun 2026 18:26:02 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "This startup built a fish-killing robot and chefs love the results — Shinkei makes a refrigerator-sized robot called Poseidon to kill fish quickly and humanely.",
+        "ar": "",
+        "fr": ""
       },
       "source_type": "rss"
     },
@@ -5363,50 +5399,14 @@
         "en": ""
       },
       "source_type": "web"
-    },
-    {
-      "id": "08f09b0d31f805d5",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/06/15/sahara-occidental-ahmed-attaf-recoit-staffan-de-mistura/",
-      "image": "",
-      "date": "Mon, 15 Jun 2026 14:47:28 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Sahara occidental : Ahmed Attaf reçoit Staffan de Mistura — Le ministre d’État, ministre des Affaires étrangères, de la Communauté nationale à l’étranger et des Affaires africaines, Ahmed Attaf, a reçu ce lundi matin l’Envoyé personnel du Secrétaire général des Nations unies pour le Sahara occidental, Staffan de Mistura, en visite en Algérie dans le cadre d’",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "4bb0306465ef77c0",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/15/spacexs-biggest-ever-ipo-just-grew-to-85-7-billion-raised/",
-      "image": "",
-      "date": "Mon, 15 Jun 2026 14:45:03 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "SpaceX’s biggest-ever IPO just grew to $85.7 billion raised — SpaceX's IPO underwriters maxed out their share purchases, adding to an already historic amount of money raised.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-06-20T21:59:19.072000+00:00",
+  "lastUpdated": "2026-06-21T02:34:51.498484+00:00",
   "stats": {
-    "Médias TIC": 95,
+    "Médias TIC": 94,
     "Tech International": 181,
+    "Infrastructure": 6,
     "Opérateurs": 7,
-    "Infrastructure": 5,
     "Ministère": 8,
     "Équipementiers": 4
   },
