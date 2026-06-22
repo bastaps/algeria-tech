@@ -1,6 +1,114 @@
 {
   "posts": [
     {
+      "id": "da4313bf96e20d68",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/22/anthropic-says-claude-may-want-to-see-your-id/",
+      "image": "",
+      "date": "Mon, 22 Jun 2026 18:05:13 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Anthropic says Claude may want to see your ID — Claude's chatbot may ask to verify your age and identity \"in certain circumstances,\" such as with a passport or driver's license, according to a privacy policy change.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "3bc52c0883838dd0",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/22/amazon-is-testing-alexa-in-india-with-hindi-support/",
+      "image": "",
+      "date": "Mon, 22 Jun 2026 17:31:29 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Amazon is testing Alexa+ in India with Hindi support — Amazon is planning to increase the footprint of its new conversational AI assistant Alexa+ to India and is inviting users in the country to test out a Hindi-language version.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f7ef68bb6a12df8d",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/22/spacex-inks-compute-deal-with-reflection-ai-an-open-source-ai-lab/",
+      "image": "",
+      "date": "Mon, 22 Jun 2026 16:51:29 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "SpaceX inks compute deal with Reflection AI, an open source AI lab — Reflection AI will pay $150 million a month beginning July 1, 2026 through 2029 for immediate access to Nvidia's latest GB300 AI chips and supporting hardware across SpaceX's Colossus 2 data center near Memphis, Tennessee.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "8b56e43acc680861",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/test-marshall-milton-anc-un-supra-auriculaire-bien-different-des-autres-497360.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Mon, 22 Jun 2026 16:50:34 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Test Marshall Milton ANC : un supra-auriculaire bien différent des autres — Le fabricant audio a repensé son casque milieu de gamme, qui se distingue désormais par un confort exceptionnel, une grande facilité de réparation et une autonomie digne d'un marathonien.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "5d98c86064348791",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/pratique/comment-faire-tourner-linux-sur-un-mac-grace-a-container-497346.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Mon, 22 Jun 2026 15:50:30 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Comment faire tourner Linux sur un Mac grâce à Container — Si vous souhaitez vous lancer dans le développement sous le système d’exploitation libre, mais que vous préférez utiliser un ordinateur Apple pour cela, vous devriez absolument découvrir un nouvel outil en ligne de commande.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f65d3c9bcc1eebdf",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/22/whatsapp-gets-new-chief-as-meta-taps-indias-cred-founder-kunal-shah-and-invests-900m-in-startup/",
+      "image": "",
+      "date": "Mon, 22 Jun 2026 15:21:42 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "WhatsApp gets new chief as Meta taps India’s CRED founder Kunal Shah and invests $900M in startup — WhatsApp gets a new boss, as Will Cathcart moves to a new role at Meta, while Shah steps down as CEO of Indian fintech giant CRED to replace Cathcart.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "b22d2d1be4cfb8ad",
       "source_name": "TechCrunch",
       "source_short": "TC",
@@ -5291,120 +5399,12 @@
         "fr": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "78fc4b6ad1a2e445",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/16/sixty-percent-of-u-s-consumers-say-ai-in-brand-messaging-is-a-turnoff-survey-finds/",
-      "image": "",
-      "date": "Tue, 16 Jun 2026 16:49:44 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Sixty percent of US consumers say ‘AI’ in brand messaging is a turnoff, survey finds — WordPress VIP’s latest survey suggests consumers are wary of AI-generated answers even as companies increasingly view AI search as an important referral channel.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "42570ecd2472b781",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/guide-achat/android-pratique-ce-lanceur-donne-a-votre-smartphone-ou-a-votre-tablette-lapparence-de-windows-11-496884.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 16 Jun 2026 16:47:40 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Android pratique : ce lanceur donne à votre smartphone ou à votre tablette l'apparence de Windows 11 — C’est le rôle de l’application gratuite HyperDroid, faire ressembler l’interface utilisateur de votre mobile à celle d’un PC. Voici le résultat.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "f457c98dd96a9e94",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/french-tech-next40-120-la-promotion-2026-consacre-la-deeptech-lia-et-la-souverainete-industrielle-497065.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 16 Jun 2026 16:35:33 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "French Tech Next40/120 : la promotion 2026 consacre la Deeptech, l'IA et la souveraineté industrielle — La 7e édition de cet indice de la French Tech marque un tournant majeur. Fini le règne quasi exclusif du logiciel SaaS ou des plateformes de services. La promotion 2026 fait la part belle aux innovations de rupture. Explications.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e8f8b206a97fe2a4",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://www.facebook.com/AlgerieEco",
-      "image": "",
-      "date": "2026-06-16T15:54:55+00:00",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Impôts : la DGI annonce l’ouverture de guichets spéciaux pour la régularisation et l’assainissement des dettes fiscales",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "facebook"
-    },
-    {
-      "id": "d516edde44dfe468",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/16/spacex-is-public-everything-you-need-to-know-post-ipo/",
-      "image": "",
-      "date": "Tue, 16 Jun 2026 15:53:12 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "SpaceX is public: Everything you need to know post-IPO — TechCrunch has followed SpaceX's start, struggles, and successes from the early days. And we're here for what happens next too. This package of SpaceX IPO coverage includes who stands to win (and maybe some who won't), pre-IPO deals, and what's tucked inside its S-1 registration document.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "dda79c66cc3aced1",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/lintroduction-en-bourse-de-spacex-atteint-857-milliards-de-dollars-497062.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 16 Jun 2026 15:40:24 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "L'introduction en bourse de SpaceX atteint 85,7 milliards de dollars — En activant son option de surallocation pour porter sa levée de fonds historique à 85,7 milliards de dollars, SpaceX assomme la bourse américaine.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-06-22T14:24:08.633828+00:00",
+  "lastUpdated": "2026-06-22T18:40:00.312349+00:00",
   "stats": {
-    "Tech International": 167,
-    "Médias TIC": 90,
+    "Tech International": 168,
+    "Médias TIC": 89,
     "Infrastructure": 7,
     "Équipementiers": 18,
     "Ministère": 8,
