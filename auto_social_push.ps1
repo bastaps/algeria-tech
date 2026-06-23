@@ -55,10 +55,27 @@ try {
 
 $added = $totalAfter - $totalBefore
 
+<<<<<<< Updated upstream
 # ── 6. Commit + push si tic_social.json modifie ──────────────
 Push-Location $WorkDir
 try {
 
+=======
+# ── 5. Pull latest (GitHub Actions peut avoir poussé entre-temps) ────
+Push-Location $WorkDir
+try {
+    # Synchroniser avec le dépôt distant avant de comparer/pousser
+    $pullOut = git pull --rebase origin main 2>&1 | Out-String
+    Add-Content -Path $LogFile -Value "git pull: $($pullOut.Trim())"
+
+    # Recalculer le total APRÈS le pull (le remote peut avoir des posts plus récents)
+    try {
+        $jsonAfterPull = Get-Content "$WorkDir\tic_social.json" -Raw | ConvertFrom-Json
+        $totalAfter = $jsonAfterPull.total
+    } catch {}
+
+    # git status --porcelain retourne non-vide si le fichier a été modifié localement
+>>>>>>> Stashed changes
     $changed = git status --porcelain -- tic_social.json 2>$null
     if ($changed) {
         git add tic_social.json 2>$null | Out-Null
@@ -68,7 +85,11 @@ try {
         Add-Content -Path $LogFile -Value $pushOut
         Add-Content -Path $LogFile -Value "✅ Cloudflare mis à jour — $totalAfter posts (+$added)"
     } else {
+<<<<<<< Updated upstream
         Add-Content -Path $LogFile -Value "-- Aucun changement dans tic_social.json, skip push"
+=======
+        Add-Content -Path $LogFile -Value "-- Pas de changement local dans tic_social.json, skip push"
+>>>>>>> Stashed changes
     }
 } catch {
     Add-Content -Path $LogFile -Value "ERREUR git : $_"
