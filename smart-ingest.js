@@ -34,7 +34,8 @@ function setStatus(id, state) {
         'translateBtn': 'Traduire en Français',
         'genBtn': "Générer l'Article Pro",
         'fillHubBtn': 'Remplir le Hub',
-        'pdfBtn': 'PDF'
+        'pdfBtn': 'PDF',
+        'urlBtn': 'Importer'
     };
 
     if (state === 'loading') {
@@ -56,6 +57,7 @@ function setStatus(id, state) {
             if(id === 'genBtn') if(icon) icon.className = 'fas fa-pen-nib';
             if(id === 'fillHubBtn') if(icon) icon.className = 'fas fa-fill-drip';
             if(id === 'pdfBtn') if(icon) icon.className = 'fas fa-file-pdf';
+            if(id === 'urlBtn') if(icon) icon.className = 'fas fa-globe';
         }, 3000);
     } 
     else if (state === 'error') {
@@ -68,6 +70,47 @@ function setStatus(id, state) {
             btn.style.background = '';
             span.textContent = texts[id];
         }, 3000);
+    }
+}
+
+// 0b. IMPORT DEPUIS UNE URL
+async function fetchFromUrl() {
+    const url = document.getElementById('urlInput').value.trim();
+    if (!url || !url.startsWith('http')) {
+        alert("Veuillez saisir une URL valide (commençant par http...)");
+        return;
+    }
+    setStatus('urlBtn', 'loading');
+    try {
+        const response = await fetch(`${API_BASE}/api/fetch-url`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ url })
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || 'Erreur serveur');
+
+        document.getElementById('smartBox').value = data.text;
+        document.getElementById('charCount').textContent = data.text.length + " caractères";
+
+        // Badge source
+        const badge = document.getElementById('sourceBadge');
+        badge.textContent = '🔗 Source : ' + url;
+        badge.classList.remove('hidden');
+
+        // Pré-remplir le champ source du formulaire
+        document.getElementById('siSource').value = url;
+
+        // Pré-remplir le titre si le formulaire est vide
+        if (data.title && !document.getElementById('siTitre').value) {
+            document.getElementById('siTitre').value = data.title;
+        }
+
+        window._sourceUrl = url;
+        setStatus('urlBtn', 'success');
+    } catch (e) {
+        alert("Erreur lors de l'import : " + e.message);
+        setStatus('urlBtn', 'error');
     }
 }
 

@@ -20,7 +20,7 @@
   Cache-Control: public, max-age=300, stale-while-revalidate=3600
 
 /tic_social.json
-  Cache-Control: public, max-age=300, stale-while-revalidate=3600
+  Cache-Control: no-cache, must-revalidate
 
 /revue_presse.json
   Cache-Control: public, max-age=300, stale-while-revalidate=3600

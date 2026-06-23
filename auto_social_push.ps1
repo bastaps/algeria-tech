@@ -45,20 +45,30 @@ try {
 
 $added = $totalAfter - $totalBefore
 
-# ── 5. Pousser vers Cloudflare si changement ─────────────────
+# ── 5. Pull latest (GitHub Actions peut avoir poussé entre-temps) ────
 Push-Location $WorkDir
 try {
-    # git status --porcelain retourne non-vide si le fichier a changé
+    # Synchroniser avec le dépôt distant avant de comparer/pousser
+    $pullOut = git pull --rebase origin main 2>&1 | Out-String
+    Add-Content -Path $LogFile -Value "git pull: $($pullOut.Trim())"
+
+    # Recalculer le total APRÈS le pull (le remote peut avoir des posts plus récents)
+    try {
+        $jsonAfterPull = Get-Content "$WorkDir\tic_social.json" -Raw | ConvertFrom-Json
+        $totalAfter = $jsonAfterPull.total
+    } catch {}
+
+    # git status --porcelain retourne non-vide si le fichier a été modifié localement
     $changed = git status --porcelain -- tic_social.json 2>$null
     if ($changed) {
         git add tic_social.json 2>$null | Out-Null
         $msg = "auto: social feed $ts ($totalAfter posts)"
         git commit -m $msg 2>&1 | Out-String | Add-Content -Path $LogFile
-        $pushOut = git push 2>&1 | Out-String
+        $pushOut = git push origin main 2>&1 | Out-String
         Add-Content -Path $LogFile -Value $pushOut
         Add-Content -Path $LogFile -Value "✅ Cloudflare mis à jour — $totalAfter posts (+$added)"
     } else {
-        Add-Content -Path $LogFile -Value "-- Pas de changement dans tic_social.json, skip push"
+        Add-Content -Path $LogFile -Value "-- Pas de changement local dans tic_social.json, skip push"
     }
 } catch {
     Add-Content -Path $LogFile -Value "ERREUR git : $_"

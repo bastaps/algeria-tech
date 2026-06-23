@@ -84,3 +84,11 @@ body {
 .hidden { display: none; }
 
 @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }
+
+.si-url-row { display: flex; gap: 8px; margin-bottom: 10px; }
+.si-url-input { flex: 1; background: #0d1117; border: 1px solid var(--border); color: white; padding: 10px 12px; border-radius: 8px; font-size: 0.85rem; min-width: 0; }
+.si-url-input:focus { outline: none; border-color: #0f7a5a; }
+.si-btn-web { background: #0f7a5a; color: white; white-space: nowrap; flex-shrink: 0; font-size: 0.85rem; padding: 10px 14px; }
+.si-btn-web:hover { background: #13a37a; }
+.si-source-badge { font-size: 0.72rem; color: #6ee7b7; margin-bottom: 8px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding: 4px 8px; background: rgba(110,231,183,0.08); border-radius: 5px; border-left: 2px solid #6ee7b7; }
+.si-char-count { font-size: 0.75rem; opacity: 0.5; text-align: right; margin-top: 4px; margin-bottom: 10px; }

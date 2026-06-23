@@ -204,6 +204,7 @@ window.addEventListener('load', () => {
     loadTheme();
     loadArticles();
     updateWeather();
+    initCurrencyWidget();
     loadVeille();
 
     // Ouverture auto de section si retour depuis quick-nav d'une autre page
@@ -1904,6 +1905,212 @@ function _uvLabel(uv) {
     return              { label:'Tres eleve', color:'#ef4444' };
 }
 
+// 58 wilayas — coordonnees chef-lieu
+const WILAYAS = [
+  { n: 1, name:'Adrar',               lat:27.8744, lon:-0.2853 },
+  { n: 2, name:'Chlef',               lat:36.1650, lon: 1.3317 },
+  { n: 3, name:'Laghouat',            lat:33.8000, lon: 2.8650 },
+  { n: 4, name:'Oum El Bouaghi',      lat:35.8714, lon: 7.1131 },
+  { n: 5, name:'Batna',               lat:35.5569, lon: 6.1741 },
+  { n: 6, name:'Bejaia',              lat:36.7524, lon: 5.0573 },
+  { n: 7, name:'Biskra',              lat:34.8500, lon: 5.7317 },
+  { n: 8, name:'Bechar',              lat:31.6167, lon:-2.2167 },
+  { n: 9, name:'Blida',               lat:36.4703, lon: 2.8277 },
+  { n:10, name:'Bouira',              lat:36.3733, lon: 3.9011 },
+  { n:11, name:'Tamanrasset',         lat:22.7850, lon: 5.5228 },
+  { n:12, name:'Tebessa',             lat:35.4044, lon: 8.1244 },
+  { n:13, name:'Tlemcen',             lat:34.8783, lon:-1.3150 },
+  { n:14, name:'Tiaret',              lat:35.3706, lon: 1.3217 },
+  { n:15, name:'Tizi Ouzou',          lat:36.7167, lon: 4.0500 },
+  { n:16, name:'Alger',               lat:36.7525, lon: 3.0420 },
+  { n:17, name:'Djelfa',              lat:34.6733, lon: 3.2636 },
+  { n:18, name:'Jijel',               lat:36.8186, lon: 5.7658 },
+  { n:19, name:'Setif',               lat:36.1897, lon: 5.4033 },
+  { n:20, name:'Saida',               lat:34.8297, lon: 0.1525 },
+  { n:21, name:'Skikda',              lat:36.8760, lon: 6.9078 },
+  { n:22, name:'Sidi Bel Abbes',      lat:35.1897, lon:-0.6302 },
+  { n:23, name:'Annaba',              lat:36.9000, lon: 7.7667 },
+  { n:24, name:'Guelma',              lat:36.4628, lon: 7.4319 },
+  { n:25, name:'Constantine',         lat:36.3650, lon: 6.6147 },
+  { n:26, name:'Medea',               lat:36.2639, lon: 2.7539 },
+  { n:27, name:'Mostaganem',          lat:35.9311, lon: 0.0886 },
+  { n:28, name:"M'Sila",              lat:35.7053, lon: 4.5458 },
+  { n:29, name:'Mascara',             lat:35.3961, lon: 0.1400 },
+  { n:30, name:'Ouargla',             lat:31.9522, lon: 5.3248 },
+  { n:31, name:'Oran',                lat:35.6969, lon:-0.6331 },
+  { n:32, name:'El Bayadh',           lat:33.6836, lon: 1.0086 },
+  { n:33, name:'Illizi',              lat:26.5092, lon: 8.4748 },
+  { n:34, name:'Bordj Bou Arreridj',  lat:36.0731, lon: 4.7631 },
+  { n:35, name:'Boumerdes',           lat:36.7669, lon: 3.4772 },
+  { n:36, name:'El Tarf',             lat:36.7680, lon: 8.3130 },
+  { n:37, name:'Tindouf',             lat:27.6742, lon:-8.1373 },
+  { n:38, name:'Tissemsilt',          lat:35.6064, lon: 1.8128 },
+  { n:39, name:'El Oued',             lat:33.3678, lon: 6.8533 },
+  { n:40, name:'Khenchela',           lat:35.4361, lon: 7.1436 },
+  { n:41, name:'Souk Ahras',          lat:36.2864, lon: 7.9508 },
+  { n:42, name:'Tipaza',              lat:36.5894, lon: 2.4472 },
+  { n:43, name:'Mila',                lat:36.4500, lon: 6.2656 },
+  { n:44, name:'Ain Defla',           lat:36.2644, lon: 1.9681 },
+  { n:45, name:'Naama',               lat:33.2678, lon:-0.3119 },
+  { n:46, name:'Ain Temouchent',      lat:35.2983, lon:-1.1400 },
+  { n:47, name:'Ghardaia',            lat:32.4908, lon: 3.6736 },
+  { n:48, name:'Relizane',            lat:35.7378, lon: 0.5561 },
+  { n:49, name:'Timimoune',           lat:29.2636, lon: 0.2408 },
+  { n:50, name:'Bordj Badji Mokhtar', lat:21.3299, lon: 0.9564 },
+  { n:51, name:'Ouled Djellal',       lat:34.4178, lon: 5.0722 },
+  { n:52, name:'Beni Abbes',          lat:30.1261, lon:-2.1606 },
+  { n:53, name:'In Salah',            lat:27.1886, lon: 2.4740 },
+  { n:54, name:'In Guezzam',          lat:19.5681, lon: 5.7717 },
+  { n:55, name:'Touggourt',           lat:33.1078, lon: 6.0706 },
+  { n:56, name:'Djanet',              lat:24.5567, lon: 9.4839 },
+  { n:57, name:"El M'Ghair",          lat:33.9481, lon: 5.9308 },
+  { n:58, name:'El Menia',            lat:30.5703, lon: 2.8794 },
+];
+
+let _wxWilData = null;
+let _wxWilTs   = 0;
+const WX_WIL_TTL = 30 * 60 * 1000;
+let _wxSelIdx = 15; // Alger = index 15
+
+function _buildWcDetail(cityName, d) {
+    const c = d.current;
+    const temp  = Math.round(c.temperature_2m);
+    const feels = Math.round(c.apparent_temperature);
+    const code  = c.weather_code;
+    const ic    = _wxIcon(code);
+    const icon  = ic.i; const color = ic.c;
+    const desc  = WMO_FR[code] || '';
+    const dir   = _wxDir(c.wind_direction_10m);
+    const wind  = Math.round(c.wind_speed_10m);
+    const cloud = c.cloud_cover != null ? Math.round(c.cloud_cover) : null;
+    const uv    = c.uv_index   != null ? Math.round(c.uv_index)    : null;
+    const uvInf = uv != null ? _uvLabel(uv) : null;
+    const now   = new Date().toLocaleTimeString('fr-FR', { hour:'2-digit', minute:'2-digit' });
+    const DAY_FR = ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'];
+    const days  = d.daily;
+    let weekHtml = '<div class="wc-week">';
+    for (let k = 0; k < Math.min(7, days && days.time ? days.time.length : 0); k++) {
+        const dd = new Date(days.time[k]);
+        const dn = k === 0 ? 'Auj.' : DAY_FR[dd.getDay()];
+        const di = _wxIcon(days.weather_code[k]);
+        weekHtml +=
+            '<div class="wc-day">' +
+                '<span class="wc-day-name">' + dn + '</span>' +
+                '<i class="fas ' + di.i + '" style="color:' + di.c + '"></i>' +
+                '<span class="wc-day-max">' + Math.round(days.temperature_2m_max[k]) + '&#176;</span>' +
+                '<span class="wc-day-min">' + Math.round(days.temperature_2m_min[k]) + '&#176;</span>' +
+            '</div>';
+    }
+    weekHtml += '</div>';
+    const uvRow   = uvInf
+        ? '<div class="wc-item"><i class="fas fa-sun" style="color:' + uvInf.color + '"></i><span>UV</span><b style="color:' + uvInf.color + '">' + uv + '</b></div>' +
+          '<div class="wc-item"><i class="fas fa-circle" style="color:' + uvInf.color + ';font-size:.45rem"></i><span>Niveau</span><b style="color:' + uvInf.color + '">' + uvInf.label + '</b></div>'
+        : '';
+    const cloudRow = cloud != null
+        ? '<div class="wc-item"><i class="fas fa-cloud"></i><span>Nuages</span><b>' + cloud + '%</b></div>'
+        : '';
+    return (
+        '<div class="wc-header">' +
+            '<span><i class="fas fa-map-marker-alt"></i>&nbsp;' + cityName + ', Algerie</span>' +
+            '<span class="wc-time">&#8635;&nbsp;' + now + '</span>' +
+        '</div>' +
+        '<div class="wc-body">' +
+            '<div class="wc-main">' +
+                '<i class="fas ' + icon + ' wc-main-icon" style="color:' + color + '"></i>' +
+                '<div class="wc-main-temp">' + temp + '<span class="wc-unit">&#176;C</span></div>' +
+                '<div class="wc-desc">' + desc + '</div>' +
+            '</div>' +
+            '<div class="wc-grid">' +
+                '<div class="wc-item"><i class="fas fa-thermometer-half"></i><span>Ressenti</span><b>' + feels + '&#176;C</b></div>' +
+                '<div class="wc-item"><i class="fas fa-tint"></i><span>Humidite</span><b>' + c.relative_humidity_2m + '%</b></div>' +
+                cloudRow +
+                '<div class="wc-item"><i class="fas fa-wind"></i><span>Vent ' + dir + '</span><b>' + wind + ' km/h</b></div>' +
+                uvRow +
+            '</div>' +
+            weekHtml +
+            '<a href="https://www.meteo.dz/" target="_blank" rel="noopener" class="wc-link">Meteo complete &mdash; meteo.dz &#8594;</a>' +
+        '</div>'
+    );
+}
+
+function _renderWilList(filter) {
+    const list = document.getElementById('wcWilList');
+    if (!list) return;
+    const raw = filter !== undefined ? filter : (document.getElementById('wcSearch') ? document.getElementById('wcSearch').value : '');
+    const q = raw.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    let html = '';
+    WILAYAS.forEach(function(w, i) {
+        const wNorm = w.name.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+        if (q && !wNorm.includes(q)) return;
+        const wx = _wxWilData ? _wxWilData[i] : null;
+        const tempStr  = wx ? (wx.temp + '&#176;') : '&#8230;';
+        const iconHtml = wx
+            ? '<i class="fas ' + _wxIcon(wx.code).i + '" style="color:' + _wxIcon(wx.code).c + ';font-size:0.73rem"></i>'
+            : '<i class="fas fa-circle-notch fa-spin" style="color:#ccc;font-size:0.6rem"></i>';
+        html +=
+            '<div class="wc-wil-item' + (i === _wxSelIdx ? ' active' : '') + '" data-idx="' + i + '" onclick="window._wxSelect(' + i + ')">' +
+                '<span class="wc-wil-num">' + (w.n < 10 ? '0' : '') + w.n + '</span>' +
+                '<span class="wc-wil-name">' + w.name + '</span>' +
+                iconHtml +
+                '<b class="wc-wil-temp">' + tempStr + '</b>' +
+            '</div>';
+    });
+    list.innerHTML = html || '<div class="wc-wil-empty">Aucune wilaya</div>';
+}
+
+async function _wxLoadAll() {
+    if (_wxWilData && Date.now() - _wxWilTs < WX_WIL_TTL) { _renderWilList(); return; }
+    const BASE = 'https://api.open-meteo.com/v1/forecast?current=temperature_2m,weather_code&timezone=Africa%2FAlgiers';
+    const results = await Promise.allSettled(
+        WILAYAS.map(function(w) {
+            return fetch(BASE + '&latitude=' + w.lat + '&longitude=' + w.lon).then(function(r) { return r.json(); });
+        })
+    );
+    _wxWilData = results.map(function(r) {
+        return r.status === 'fulfilled'
+            ? { temp: Math.round(r.value.current.temperature_2m), code: r.value.current.weather_code }
+            : null;
+    });
+    _wxWilTs = Date.now();
+    _renderWilList();
+}
+
+window._wxSelect = async function(idx) {
+    _wxSelIdx = idx;
+    document.querySelectorAll('.wc-wil-item').forEach(function(el) {
+        el.classList.toggle('active', +el.dataset.idx === idx);
+    });
+    const left = document.getElementById('wcLeft');
+    if (!left) return;
+    left.innerHTML = '<div class="wc-loading"><i class="fas fa-circle-notch fa-spin"></i></div>';
+    try {
+        const w   = WILAYAS[idx];
+        const res = await fetch(
+            'https://api.open-meteo.com/v1/forecast' +
+            '?latitude=' + w.lat + '&longitude=' + w.lon +
+            '&current=temperature_2m,apparent_temperature,relative_humidity_2m,' +
+            'weather_code,wind_speed_10m,wind_direction_10m,uv_index,cloud_cover' +
+            '&daily=temperature_2m_max,temperature_2m_min,weather_code' +
+            '&timezone=Africa%2FAlgiers'
+        );
+        const d = await res.json();
+        left.innerHTML = _buildWcDetail(w.name, d);
+    } catch(e) {
+        left.innerHTML = '<div class="wc-error"><i class="fas fa-exclamation-triangle"></i> Erreur reseau</div>';
+    }
+};
+
+function _buildInitialWilHtml() {
+    return WILAYAS.map(function(w, i) {
+        return '<div class="wc-wil-item' + (i === 15 ? ' active' : '') + '" data-idx="' + i + '" onclick="window._wxSelect(' + i + ')">' +
+            '<span class="wc-wil-num">' + (w.n < 10 ? '0' : '') + w.n + '</span>' +
+            '<span class="wc-wil-name">' + w.name + '</span>' +
+            '<i class="fas fa-circle-notch fa-spin" style="color:#ccc;font-size:0.6rem"></i>' +
+            '<b class="wc-wil-temp">&#8230;</b>' +
+        '</div>';
+    }).join('');
+}
+
 async function updateWeather() {
     const widget = document.getElementById('weatherWidget');
     const card   = document.getElementById('weatherCard');
@@ -1918,108 +2125,54 @@ async function updateWeather() {
             '&daily=temperature_2m_max,temperature_2m_min,weather_code' +
             '&timezone=Africa%2FAlgiers'
         );
-        const d = await res.json();
-        const c = d.current;
-        const temp  = Math.round(c.temperature_2m);
-        const feels = Math.round(c.apparent_temperature);
-        const code  = c.weather_code;
-        const { i: icon, c: color } = _wxIcon(code);
-        const desc   = WMO_FR[code] || 'Alger';
-        const dir    = _wxDir(c.wind_direction_10m);
-        const wind   = Math.round(c.wind_speed_10m);
-        const cloud  = c.cloud_cover != null ? Math.round(c.cloud_cover) : null;
-        const uv     = c.uv_index   != null ? Math.round(c.uv_index)    : null;
-        const uvInfo = uv != null ? _uvLabel(uv) : null;
-        const now    = new Date().toLocaleTimeString('fr-FR', { hour:'2-digit', minute:'2-digit' });
+        const d    = await res.json();
+        const temp = Math.round(d.current.temperature_2m);
+        const ic   = _wxIcon(d.current.weather_code);
 
-        // Previsions semaine (7 jours)
-        const DAY_FR = ['Dim','Lun','Mar','Mer','Jeu','Ven','Sam'];
-        const days   = d.daily;
-        let weekHtml = '<div class="wc-week">';
-        for (let k = 0; k < Math.min(7, (days && days.time ? days.time.length : 0)); k++) {
-            const dayDate = new Date(days.time[k]);
-            const dayName = k === 0 ? 'Auj.' : DAY_FR[dayDate.getDay()];
-            const { i: dIcon, c: dColor } = _wxIcon(days.weather_code[k]);
-            const dMax = Math.round(days.temperature_2m_max[k]);
-            const dMin = Math.round(days.temperature_2m_min[k]);
-            weekHtml +=
-                '<div class="wc-day">' +
-                    '<span class="wc-day-name">' + dayName + '</span>' +
-                    '<i class="fas ' + dIcon + '" style="color:' + dColor + '"></i>' +
-                    '<span class="wc-day-max">' + dMax + '&#176;</span>' +
-                    '<span class="wc-day-min">' + dMin + '&#176;</span>' +
-                '</div>';
-        }
-        weekHtml += '</div>';
+        widget.innerHTML = '<i class="fas ' + ic.i + '" style="color:' + ic.c + ';margin-right:4px;"></i><b>' + temp + '&#176;C</b>';
 
-        // Topbar
-        widget.innerHTML = '<i class="fas ' + icon + '" style="color:' + color + ';margin-right:4px;"></i><b>' + temp + '&#176;C</b>';
-
-        // Grand popup
         if (card) {
-            const uvRow = uvInfo ? (
-                '<div class="wc-item">' +
-                    '<i class="fas fa-sun" style="color:' + uvInfo.color + '"></i>' +
-                    '<span>Indice UV</span>' +
-                    '<b style="color:' + uvInfo.color + '">' + uv + '</b>' +
-                '</div>' +
-                '<div class="wc-item">' +
-                    '<i class="fas fa-circle" style="color:' + uvInfo.color + ';font-size:.5rem"></i>' +
-                    '<span>Niveau</span>' +
-                    '<b style="color:' + uvInfo.color + '">' + uvInfo.label + '</b>' +
-                '</div>'
-            ) : '';
-            const cloudRow = cloud != null ? (
-                '<div class="wc-item">' +
-                    '<i class="fas fa-cloud"></i>' +
-                    '<span>Nuages</span>' +
-                    '<b>' + cloud + '%</b>' +
-                '</div>'
-            ) : '';
-
             card.innerHTML =
-                '<div class="wc-header">' +
-                    '<span><i class="fas fa-map-marker-alt"></i>&nbsp;Alger, Algerie</span>' +
-                    '<span class="wc-time">&#8635;&nbsp;' + now + '</span>' +
-                '</div>' +
-                '<div class="wc-body">' +
-                    '<div class="wc-main">' +
-                        '<i class="fas ' + icon + ' wc-main-icon" style="color:' + color + '"></i>' +
-                        '<div class="wc-main-temp">' + temp + '<span class="wc-unit">&#176;C</span></div>' +
-                        '<div class="wc-desc">' + desc + '</div>' +
+                '<div class="wc-layout">' +
+                    '<div class="wc-left" id="wcLeft">' + _buildWcDetail('Alger', d) + '</div>' +
+                    '<div class="wc-right">' +
+                        '<div class="wc-right-hd"><i class="fas fa-map-marked-alt"></i>&nbsp;58 Wilayas</div>' +
+                        '<div class="wc-search-wrap">' +
+                            '<i class="fas fa-search wc-search-ico"></i>' +
+                            '<input class="wc-search" id="wcSearch" placeholder="Filtrer une wilaya..." oninput="_renderWilList(this.value)">' +
+                        '</div>' +
+                        '<div class="wc-wil-list" id="wcWilList">' + _buildInitialWilHtml() + '</div>' +
                     '</div>' +
-                    '<div class="wc-grid">' +
-                        '<div class="wc-item">' +
-                            '<i class="fas fa-thermometer-half"></i>' +
-                            '<span>Ressenti</span>' +
-                            '<b>' + feels + '&#176;C</b>' +
-                        '</div>' +
-                        '<div class="wc-item">' +
-                            '<i class="fas fa-tint"></i>' +
-                            '<span>Humidite</span>' +
-                            '<b>' + c.relative_humidity_2m + '%</b>' +
-                        '</div>' +
-                        cloudRow +
-                        '<div class="wc-item">' +
-                            '<i class="fas fa-wind"></i>' +
-                            '<span>Vent ' + dir + '</span>' +
-                            '<b>' + wind + ' km/h</b>' +
-                        '</div>' +
-                        uvRow +
-                    '</div>' +
-                    weekHtml +
-                    '<a href="https://www.meteo.dz/" target="_blank" rel="noopener" class="wc-link">' +
-                        'Meteo complete &mdash; meteo.dz &#8594;' +
-                    '</a>' +
                 '</div>';
         }
     } catch(e) {
         widget.innerHTML = '<i class="fas fa-sun" style="color:#fbbf24;margin-right:4px;"></i><b>--&#176;C</b>';
-        if (card) card.innerHTML = '<div class="wc-header" style="justify-content:center"><i class="fas fa-exclamation-triangle" style="color:#ef4444;margin-right:6px"></i>Meteo indisponible</div>';
+        if (card) card.innerHTML =
+            '<div class="wc-header" style="justify-content:center">' +
+                '<i class="fas fa-exclamation-triangle" style="color:#ef4444;margin-right:6px"></i>' +
+                'Meteo indisponible' +
+            '</div>';
     } finally {
         widget.classList.remove('updating');
     }
 }
+
+// Charge les wilayas au premier survol du widget
+(function() {
+    var _loaded = false;
+    function _attach() {
+        var wrap = document.querySelector('.weather-wrap');
+        if (!wrap) return;
+        wrap.addEventListener('mouseenter', function() {
+            if (!_loaded) { _loaded = true; _wxLoadAll(); }
+        });
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', _attach);
+    } else {
+        _attach();
+    }
+})();
 
 // Rafraichissement automatique toutes les 10 minutes
 setInterval(updateWeather, 10 * 60 * 1000);
@@ -2691,6 +2844,247 @@ function hubAnimateCount(el, target, duration = 900) {
         else { el.textContent = target; el._hubAnimating = false; }
     };
     requestAnimationFrame(tick);
+}
+
+// ===== WIDGET DEVISES — Taux temps réel via open.er-api.com =====
+function initCurrencyWidget() {
+    const MONTHS_FR = ['Janvier','Février','Mars','Avril','Mai','Juin',
+                       'Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+
+    const CURRENCIES = [
+        { code:'USD', flag:'🇺🇸', label:'USD',      x100:false },
+        { code:'EUR', flag:'🇪🇺', label:'EUR',      x100:false },
+        { code:'GBP', flag:'🇬🇧', label:'GBP',      x100:false },
+        { code:'CAD', flag:'🇨🇦', label:'CAD',      x100:false },
+        { code:'CHF', flag:'🇨🇭', label:'CHF',      x100:false },
+        { code:'SAR', flag:'🇸🇦', label:'SAR',      x100:false },
+        { code:'AED', flag:'🇦🇪', label:'AED',      x100:false },
+        { code:'JPY', flag:'🇯🇵', label:'JPY ×100', x100:true  },
+    ];
+
+    // Taux de référence J-1 (Banque d'Algérie, 11 juin 2026)
+    // Utilisés comme base de comparaison tant que localStorage ne contient pas de données J-1
+    const FALLBACK_PREV = {
+        USD: { buy:133.30, sell:133.32 },
+        EUR: { buy:153.48, sell:153.51 },
+        GBP: { buy:177.10, sell:177.23 },
+        CAD: { buy:94.48,  sell:94.51  },
+        CHF: { buy:156.05, sell:156.18 },
+        SAR: { buy:35.54,  sell:35.57  },
+        AED: { buy:36.27,  sell:36.30  },
+        JPY: { buy:86.15,  sell:86.22  },
+    };
+
+    // ── Clés localStorage ────────────────────────────────────────────────────
+    const LS_TODAY  = 'cc_rates_today';
+    const LS_PREV   = 'cc_rates_prev';
+    const LS_DATE   = 'cc_rates_date';
+    const LS_TS     = 'cc_rates_ts';
+    const LS_PDFURL = 'cc_pdf_url';
+    const LS_PDFNUM = 'cc_pdf_num';
+    const LS_PDFDT  = 'cc_pdf_date';
+    const LS_SOURCE = 'cc_source'; // 'boa' | 'api'
+
+    function fmt(n) { return n.toFixed(2).replace('.', ','); }
+
+    function getDateStr() {
+        const d = new Date();
+        return `${d.getDate()} ${MONTHS_FR[d.getMonth()]} ${d.getFullYear()}`;
+    }
+
+    // Triangulation open.er-api.com (fallback si PDF indisponible)
+    function computeRates(apiRates) {
+        const dzdPerUsd = apiRates.DZD;
+        const result = {};
+        for (const cur of CURRENCIES) {
+            const mult   = cur.x100 ? 100 : 1;
+            const mid    = (dzdPerUsd / apiRates[cur.code]) * mult;
+            const spread = mid * 0.00015;
+            result[cur.code] = { buy: +(mid - spread).toFixed(2), sell: +(mid + spread).toFixed(2) };
+        }
+        return result;
+    }
+
+    function buildCard(rates, prevRates, ts, opts) {
+        // opts : { cached, stale, source, pdfUrl, pdfDate, pdfNum }
+        opts = opts || {};
+        let rows = '';
+        for (const cur of CURRENCIES) {
+            const r = rates[cur.code];
+            if (!r) continue;
+            const p = prevRates?.[cur.code];
+            let badge = '';
+            if (p) {
+                const diff = +(r.buy - p.buy).toFixed(4);
+                if (Math.abs(diff) >= 0.005) {
+                    const sign = diff > 0 ? '+' : '−';
+                    badge = `<span class="cc-badge ${diff > 0 ? 'cc-up' : 'cc-down'}">${sign}${fmt(Math.abs(diff))}</span>`;
+                } else {
+                    badge = `<span class="cc-badge cc-flat">—</span>`;
+                }
+            }
+            rows += `<tr>
+                <td><span class="cc-flag">${cur.flag}</span> ${cur.label}${badge}</td>
+                <td class="cc-buy">${fmt(r.buy)}</td>
+                <td class="cc-sell">${fmt(r.sell)}</td>
+            </tr>`;
+        }
+
+        // Badge source
+        const isBOA    = opts.source === 'boa';
+        const srcBadge = isBOA
+            ? `<span class="cc-src-badge cc-src-boa"><i class="fas fa-file-pdf"></i> PDF officiel${opts.pdfNum ? ' n°' + opts.pdfNum : ''}</span>`
+            : `<span class="cc-src-badge cc-src-api"><i class="fas fa-exchange-alt"></i> Taux mi-marché</span>`;
+
+        const dateLabel = isBOA && opts.pdfDate
+            ? opts.pdfDate
+            : getDateStr();
+
+        const statusLine = ts
+            ? `<span class="cc-update-time"><i class="fas fa-clock" style="font-size:0.55rem"></i> ${ts}${opts.cached ? ' · cache' : ''}${opts.stale ? ' · périmé' : ''}</span>`
+            : '';
+
+        const pdfHref   = opts.pdfUrl || 'https://www.bank-of-algeria.dz/taux-de-change-journalier/';
+        const pdfLabel  = isBOA
+            ? `<i class="fas fa-file-pdf"></i> Télécharger le PDF officiel n°${opts.pdfNum || ''}`
+            : `<i class="fas fa-external-link-alt"></i> Cotations officielles — Banque d'Algérie`;
+
+        const subtitle  = isBOA
+            ? `Taux officiels du ${dateLabel} — Banque d'Algérie`
+            : `Cours du Dinar Algérien — Taux indicatifs`;
+
+        return `<div class="cc-header">
+                    <span><i class="fas fa-university"></i> Banque d'Algérie ${srcBadge}</span>
+                    <span class="cc-date">${dateLabel}</span>
+                </div>
+                <div class="cc-body">
+                    <p class="cc-subtitle">${subtitle}${statusLine}</p>
+                    <div class="cc-scroll-body">
+                        <table class="cc-table">
+                            <thead><tr><th>Devise</th><th>Achat</th><th>Vente</th></tr></thead>
+                            <tbody>${rows}</tbody>
+                        </table>
+                    </div>
+                    <a href="${pdfHref}" target="_blank" rel="noopener" class="cc-pdf-btn">
+                        ${pdfLabel}
+                    </a>
+                    <p class="cc-footer">
+                        <i class="fas fa-info-circle"></i>
+                        ${isBOA
+                            ? 'Cotation commerciale officielle · Banque d\'Algérie'
+                            : 'Taux mi-marché · Source : <a href="https://www.bank-of-algeria.dz/taux-de-change-journalier/" target="_blank" rel="noopener">Banque d\'Algérie</a>'}
+                    </p>
+                </div>`;
+    }
+
+    function buildErrorCard() {
+        const pdfHref = localStorage.getItem(LS_PDFURL) || 'https://www.bank-of-algeria.dz/taux-de-change-journalier/';
+        return `<div class="cc-header">
+                    <span><i class="fas fa-university"></i> Banque d'Algérie</span>
+                    <span class="cc-date">${getDateStr()}</span>
+                </div>
+                <div class="cc-body">
+                    <div class="cc-loading-body" style="flex-direction:column;gap:8px">
+                        <i class="fas fa-exclamation-circle" style="font-size:1.5rem;color:#f59e0b"></i>
+                        <span style="font-size:0.75rem;color:#aaa;text-align:center">Données temporairement<br>indisponibles</span>
+                    </div>
+                    <a href="${pdfHref}" target="_blank" rel="noopener" class="cc-pdf-btn">
+                        <i class="fas fa-external-link-alt"></i> Cotations officielles — Banque d'Algérie
+                    </a>
+                </div>`;
+    }
+
+    async function fetchRates() {
+        const loadIcon = document.getElementById('ccLoadingIcon');
+        if (loadIcon) loadIcon.style.display = 'inline';
+
+        const today      = new Date().toDateString();
+        const storedDate = localStorage.getItem(LS_DATE);
+        // Rotation J → J-1 au changement de jour
+        if (storedDate && storedDate !== today) {
+            localStorage.setItem(LS_PREV, localStorage.getItem(LS_TODAY) || '{}');
+        }
+
+        const prevRates = JSON.parse(localStorage.getItem(LS_PREV) || 'null') || FALLBACK_PREV;
+
+        // ── Priorité 1 : PDF officiel Banque d'Algérie (via endpoint local) ──
+        try {
+            const boaRes = await fetch('/api/dzd-rates');
+            if (boaRes.ok) {
+                const boa = await boaRes.json();
+                if (boa.rates && Object.keys(boa.rates).length >= 4) {
+                    const ts = new Date().toLocaleTimeString('fr-DZ', { hour: '2-digit', minute: '2-digit' });
+                    // Persister pour affichage hors-ligne
+                    localStorage.setItem(LS_TODAY,  JSON.stringify(boa.rates));
+                    localStorage.setItem(LS_DATE,   today);
+                    localStorage.setItem(LS_TS,     ts);
+                    localStorage.setItem(LS_PDFURL, boa.pdfUrl  || '');
+                    localStorage.setItem(LS_PDFNUM, boa.pdfNum  || '');
+                    localStorage.setItem(LS_PDFDT,  boa.pdfDate || '');
+                    localStorage.setItem(LS_SOURCE, 'boa');
+                    card.innerHTML = buildCard(boa.rates, prevRates, ts, {
+                        cached:  boa.cached,
+                        stale:   boa.stale,
+                        source:  'boa',
+                        pdfUrl:  boa.pdfUrl,
+                        pdfDate: boa.pdfDate,
+                        pdfNum:  boa.pdfNum,
+                    });
+                    if (loadIcon) loadIcon.style.display = 'none';
+                    return;
+                }
+            }
+        } catch (_) { /* fallback ci-dessous */ }
+
+        // ── Priorité 2 : open.er-api.com (triangulation USD→DZD) ─────────────
+        try {
+            const res  = await fetch('https://open.er-api.com/v6/latest/USD');
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            const data = await res.json();
+
+            const newRates = computeRates(data.rates);
+            const ts       = new Date().toLocaleTimeString('fr-DZ', { hour: '2-digit', minute: '2-digit' });
+            localStorage.setItem(LS_TODAY,  JSON.stringify(newRates));
+            localStorage.setItem(LS_DATE,   today);
+            localStorage.setItem(LS_TS,     ts);
+            localStorage.setItem(LS_SOURCE, 'api');
+            card.innerHTML = buildCard(newRates, prevRates, ts, { cached: false, source: 'api' });
+
+        } catch (_) {
+            // ── Priorité 3 : cache localStorage ──────────────────────────────
+            const cached  = JSON.parse(localStorage.getItem(LS_TODAY)  || 'null');
+            const ts      = localStorage.getItem(LS_TS);
+            const src     = localStorage.getItem(LS_SOURCE) || 'api';
+            const pdfUrl  = localStorage.getItem(LS_PDFURL) || '';
+            const pdfDate = localStorage.getItem(LS_PDFDT)  || '';
+            const pdfNum  = localStorage.getItem(LS_PDFNUM) || '';
+            card.innerHTML = cached
+                ? buildCard(cached, prevRates, ts, { cached: true, source: src, pdfUrl, pdfDate, pdfNum })
+                : buildErrorCard();
+        } finally {
+            if (loadIcon) loadIcon.style.display = 'none';
+        }
+    }
+
+    const card = document.getElementById('currencyCard');
+    const wrap = document.querySelector('.currency-wrap');
+    if (!card || !wrap) return;
+
+    // Skeleton de chargement immédiat
+    card.innerHTML = `<div class="cc-header"><span><i class="fas fa-university"></i> Banque d'Algérie</span><span class="cc-date">${getDateStr()}</span></div>
+        <div class="cc-body"><div class="cc-loading-body"><i class="fas fa-circle-notch fa-spin" style="font-size:1.4rem;color:#b45309"></i></div></div>`;
+
+    fetchRates();
+    setInterval(fetchRates, 4 * 60 * 60 * 1000); // Rafraîchissement toutes les 4 h
+
+    // Hover JS avec timer pour couvrir le gap trigger → carte
+    let hideTimer;
+    const show = () => { clearTimeout(hideTimer); card.classList.add('cc-visible'); };
+    const hide = () => { hideTimer = setTimeout(() => card.classList.remove('cc-visible'), 140); };
+    wrap.addEventListener('mouseenter', show);
+    wrap.addEventListener('mouseleave', hide);
+    card.addEventListener('mouseenter', show);
+    card.addEventListener('mouseleave', hide);
 }
 
 // Init hub au chargement du DOM

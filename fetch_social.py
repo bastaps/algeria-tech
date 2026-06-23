@@ -1063,14 +1063,17 @@ TIC_KEYWORDS = [
 def is_tic_relevant(post: dict, source: dict) -> bool:
     """
     Filtre les posts non pertinents TIC.
-    Sources déjà spécialisées → on garde tout.
-    Sources généralistes → on filtre par mots-clés.
+    Sources spécialisées → on garde tout sans filtrage.
+    Sources généralistes → filtrage par mots-clés.
     """
-    # Sources déjà TIC-spécialisées : on garde tout
-    if source.get('category') in ['Opérateurs', 'Infrastructure', 'Équipementiers', 'Régulateurs']:
+    # Toutes les sources TIC institutionnelles et médias : on garde tout
+    if source.get('category') in [
+        'Ministère', 'Opérateurs', 'Infrastructure',
+        'Équipementiers', 'Régulateurs', 'Médias TIC'
+    ]:
         return True
 
-    # Pour les autres : vérification des mots-clés
+    # Pour Tech International et autres : vérification des mots-clés
     text_all = ' '.join(post.get('text', {}).values()).lower()
     return any(kw in text_all for kw in TIC_KEYWORDS)
 
@@ -1104,42 +1107,50 @@ def main():
         print(f"\n▶ {src['name']} [{src['category']}]")
         raw_items = []
 
-        # ── Méthode 1 : Flux RSS officiel direct ──────────────────────────────
-        #    Essaie aussi les URLs rss.app (si l'abonnement est actif → 200 OK).
-        #    Si rss.app renvoie 402 (payant), on passe automatiquement à la suite.
+        # ── Méthode 1 : Flux RSS officiel direct ─────────────────────────────
         if src.get('rss_url'):
-            raw_items = fetch_rss(src)
+            raw_items.extend(fetch_rss(src))
 
-        # ── Méthode 2 : RSSHub auto-hébergé (FB → IG → X → TikTok → LinkedIn) ─
-        #    Solution définitive pour toutes les plateformes sociales.
-        #    Nécessite RSSHUB_BASE_URL dans les secrets GitHub Actions.
-        #    Déploiement gratuit Vercel : github.com/DIYgod/RSSHub#vercel
+        # ── Méthode 2 : RSSHub auto-hébergé ──────────────────────────────────
         if not raw_items:
-            raw_items = fetch_rsshub(src)
+            raw_items.extend(fetch_rsshub(src))
 
-        # ── Méthode 3a : Facebook via cookie de session Chrome ────────────────
-        #    Nécessite FACEBOOK_COOKIES dans les secrets GitHub Actions.
-        #    Extraire depuis F12→Application→Cookies→facebook.com : c_user, xs, datr, fr
+        # ── Méthode 3 : YouTube RSS — toujours tenté en complément ───────────
+        #    Gratuit, sans authentification, flux Atom officiel Google.
+        #    Ajoute des vidéos récentes même quand le RSS renvoie déjà des articles.
+        if src.get('youtube_channel_id') or src.get('youtube_user'):
+            raw_items.extend(fetch_youtube(src))
+
+        # ── Méthode 4 : Telegram public — toujours tenté en complément ───────
+        #    t.me/s/ zéro-auth, stable, gratuit. Canaux publics DZ très actifs.
+        if src.get('telegram_channel'):
+            raw_items.extend(fetch_telegram(src))
+
+        # ── Méthode 5a : Facebook via cookie de session Chrome ───────────────
         if not raw_items and src.get('fb_page_id') and FB_COOKIE:
-            raw_items = fetch_facebook_cookie(src)
+            raw_items.extend(fetch_facebook_cookie(src))
 
-        # ── Méthode 3b : Instagram via cookie de session Chrome ───────────────
-        #    Nécessite INSTAGRAM_COOKIES dans les secrets GitHub Actions.
-        #    Extraire depuis F12→Application→Cookies→instagram.com : sessionid, csrftoken
+        # ── Méthode 5b : Instagram via cookie de session Chrome ──────────────
         if not raw_items and src.get('ig_user') and IG_COOKIE:
-            raw_items = fetch_instagram_cookie(src)
+            raw_items.extend(fetch_instagram_cookie(src))
 
-        # ── Méthode 4 : Canal Telegram public (t.me/s/) ───────────────────────
-        if not raw_items and src.get('telegram_channel'):
-            raw_items = fetch_telegram(src)
+        # ── Méthode 6 : Cache Apify ───────────────────────────────────────────
+        if not raw_items and src.get('fb_page_id'):
+            raw_items.extend(fetch_apify_cache(src))
 
-        # ── Méthode 5 : YouTube RSS (flux Atom officiel Google) ───────────────
-        if not raw_items and (src.get('youtube_channel_id') or src.get('youtube_user')):
-            raw_items = fetch_youtube(src)
-
-        # ── Méthode 6 : Scraping du site officiel (dernier recours) ───────────
+        # ── Méthode 7 : Scraping du site officiel (dernier recours) ──────────
         if not raw_items and src.get('news_url'):
-            raw_items = fetch_news_page(src)
+            raw_items.extend(fetch_news_page(src))
+
+        # ── Dédupliquer par URL (sources multiples peuvent retourner le même lien)
+        seen_links: set = set()
+        deduped: list = []
+        for item in raw_items:
+            key = (item.get('link') or item.get('title', '')[:60]).strip()
+            if key and key not in seen_links:
+                seen_links.add(key)
+                deduped.append(item)
+        raw_items = deduped[:20]  # Limite 20 items par source
 
         if not raw_items:
             print(f"  [—] Aucune donnée disponible pour cette source")

@@ -36,8 +36,15 @@
             <div class="si-card">
                 <div class="si-card-head">
                     <span class="si-card-icon"><i class="fas fa-inbox"></i></span>
-                    <div><h2>Dépôt Magique</h2><p>Collez vos communiqués bruts</p></div>
+                    <div><h2>Dépôt Magique</h2><p>Collez vos communiqués bruts ou importez une URL</p></div>
                 </div>
+                <div class="si-url-row">
+                    <input type="url" id="urlInput" class="si-url-input" placeholder="https://www.01net.com/actualites/...">
+                    <button id="urlBtn" class="si-btn si-btn-web" onclick="fetchFromUrl()">
+                        <i class="fas fa-globe"></i> <span>Importer</span>
+                    </button>
+                </div>
+                <div id="sourceBadge" class="si-source-badge hidden"></div>
                 <textarea id="smartBox" class="si-smart-box" placeholder="Collez le texte source ici (Arabe, Anglais ou Français)..."></textarea>
                 <div class="si-char-count" id="charCount">0 caractères</div>
                 
@@ -119,6 +126,10 @@
                             <label><i class="fab fa-youtube"></i> Vidéo / Réseaux Sociaux</label>
                             <input type="url" id="siVideo" name="video" placeholder="Lien YouTube, FB, TikTok...">
                         </div>
+                    </div>
+                    <div class="si-field">
+                        <label><i class="fas fa-link"></i> Source originale</label>
+                        <input type="url" id="siSource" name="source" placeholder="https://...">
                     </div>
                 </div>
 

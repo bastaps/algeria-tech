@@ -45,9 +45,9 @@ $action = New-ScheduledTaskAction `
     -Argument "-NonInteractive -ExecutionPolicy Bypass -File `"$WrapperPath`"" `
     -WorkingDirectory $WorkDir
 
-# ── Définir le déclencheur : toutes les 2 heures ────────────────
+# ── Définir le déclencheur : toutes les 3 heures (aligné sur GitHub Actions) ─
 $trigger = New-ScheduledTaskTrigger `
-    -RepetitionInterval (New-TimeSpan -Hours 2) `
+    -RepetitionInterval (New-TimeSpan -Hours 3) `
     -Once `
     -At (Get-Date).Date.AddHours(6)   # Commence à 6h00 du matin
 
@@ -68,7 +68,7 @@ Register-ScheduledTask `
     -Action $action `
     -Trigger @($trigger, $triggerBoot) `
     -Settings $settings `
-    -Description "Algeria Tech — Met à jour les actualités TIC toutes les 2h" `
+    -Description "Algeria Tech — Met à jour les actualités TIC toutes les 3h" `
     -RunLevel Highest `
     -Force | Out-Null
 
