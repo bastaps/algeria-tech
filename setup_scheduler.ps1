@@ -74,7 +74,7 @@ Register-ScheduledTask `
 
 Write-Host ""
 Write-Host "✅ Tâche planifiée créée : '$TaskName'" -ForegroundColor Green
-Write-Host "   ⏱ Fréquence : toutes les 2 heures" -ForegroundColor White
+Write-Host "   Frequence : toutes les 3 heures" -ForegroundColor White
 Write-Host "   🚀 Démarre aussi au démarrage de Windows" -ForegroundColor White
 Write-Host ""
 
@@ -102,6 +102,6 @@ Write-Host "══════════════════════�
 Write-Host " Site disponible sur : http://localhost:3000/actualites-tic" -ForegroundColor White
 Write-Host " Config sources     : E:\algeria-tech\social_config.json" -ForegroundColor White
 Write-Host " Données            : E:\algeria-tech\tic_social.json" -ForegroundColor White
-Write-Host " Gérer la tâche     : taskschd.msc → AlgeriaTech-SocialFeed" -ForegroundColor White
+Write-Host " Gerer la tache     : taskschd.msc > AlgeriaTech-SocialFeed" -ForegroundColor White
 Write-Host "═══════════════════════════════════════════════════════════" -ForegroundColor Green
 Write-Host ""
