@@ -1196,9 +1196,40 @@ def main():
 
     all_posts = new_posts + existing.get('posts', [])
     all_posts.sort(key=parse_post_date, reverse=True)
-    all_posts = all_posts[:300]
 
-    save_data({"posts": all_posts, "lastUpdated": None, "stats": {}, "total": 0})
+    # ── Quota minimum par catégorie institutionnelle ─────────────────────────
+    # Garantit que chaque catégorie TIC algérienne est visible, même si ses
+    # articles ont des dates plus anciennes que le reste du pool.
+    MIN_PER_CAT = {
+        'Ministère':      20,
+        'Opérateurs':     20,
+        'Infrastructure': 20,
+        'Équipementiers': 20,
+    }
+    TOTAL_CAP = 300
+
+    # Construire le pool en deux passes :
+    # 1re passe : remplir les quotas avec les posts les plus récents par catégorie
+    # 2e passe : compléter jusqu'à TOTAL_CAP avec les posts les plus récents globaux
+    reserved: list = []
+    reserved_ids: set = set()
+    by_cat: dict = {}
+    for p in all_posts:
+        cat = p.get('category', '')
+        by_cat.setdefault(cat, []).append(p)
+
+    for cat, quota in MIN_PER_CAT.items():
+        for p in (by_cat.get(cat) or [])[:quota]:
+            if p['id'] not in reserved_ids:
+                reserved.append(p)
+                reserved_ids.add(p['id'])
+
+    # Compléter avec les posts les plus récents non encore retenus
+    remainder = [p for p in all_posts if p['id'] not in reserved_ids]
+    combined = reserved + remainder
+    combined = combined[:TOTAL_CAP]
+
+    save_data({"posts": combined, "lastUpdated": None, "stats": {}, "total": 0})
 
     # Résumé
     print("\n--- Resume par categorie ---")
