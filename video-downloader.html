@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Téléchargeur Vidéo — Algeria Tech</title>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <style>
+        :root {
+            --bg: #0b0f1a;
+            --card: #111827;
+            --primary: #6366f1;
+            --primary-hover: #4f52d1;
+            --success: #10b981;
+            --danger: #ef4444;
+            --text: #e2e8f0;
+            --muted: #64748b;
+            --border: #1f2d40;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Segoe UI', sans-serif;
+            min-height: 100vh;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 24px;
+            background: var(--card);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-left { display: flex; align-items: center; gap: 14px; }
+
+        .logo-icon {
+            width: 44px; height: 44px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px;
+        }
+
+        .app-title { font-size: 1.15rem; font-weight: 600; }
+        .app-sub   { font-size: 0.78rem; opacity: 0.55; margin-top: 2px; }
+
+        .back-btn {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 0.85rem;
+            display: flex; align-items: center; gap: 6px;
+            transition: color .2s;
+        }
+        .back-btn:hover { color: var(--text); }
+
+        main {
+            max-width: 760px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 22px;
+        }
+
+        .card-title {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            color: var(--muted);
+            margin-bottom: 16px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .card-title i { color: var(--primary); }
+
+        /* Platform badges */
+        .platforms {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 22px;
+        }
+
+        .badge {
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            border: 1px solid var(--border);
+            display: flex; align-items: center; gap: 6px;
+        }
+        .badge.fb    { border-color: #1877f2; color: #1877f2; }
+        .badge.ig    { border-color: #e1306c; color: #e1306c; }
+        .badge.tt    { border-color: #ff0050; color: #ff0050; }
+        .badge.tw    { border-color: #1d9bf0; color: #1d9bf0; }
+        .badge.yt    { border-color: #ff0000; color: #ff0000; }
+
+        /* URL input */
+        .input-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .url-input {
+            flex: 1;
+            background: #0d1117;
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 13px 16px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            outline: none;
+            transition: border-color .2s;
+        }
+        .url-input:focus { border-color: var(--primary); }
+        .url-input::placeholder { color: var(--muted); }
+
+        .btn {
+            padding: 13px 22px;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex; align-items: center; gap: 8px;
+            transition: background .2s, opacity .2s;
+        }
+        .btn:disabled { opacity: .5; cursor: not-allowed; }
+        .btn-primary  { background: var(--primary); color: white; }
+        .btn-primary:hover:not(:disabled) { background: var(--primary-hover); }
+        .btn-success  { background: var(--success); color: white; }
+        .btn-success:hover:not(:disabled) { background: #059669; }
+        .btn-orange   { background: #ea580c; color: white; }
+        .btn-orange:hover:not(:disabled)  { background: #c2410c; }
+        .dl-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+        /* Video preview */
+        #preview { display: none; }
+
+        .video-meta {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+        }
+
+        .thumb-wrap {
+            width: 160px;
+            flex-shrink: 0;
+        }
+        .thumb-wrap img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+            aspect-ratio: 16/9;
+            background: #0d1117;
+        }
+        .thumb-placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #0d1117;
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--muted);
+            font-size: 2rem;
+        }
+
+        .meta-info { flex: 1; }
+        .meta-title { font-size: 1rem; font-weight: 600; margin-bottom: 8px; line-height: 1.4; }
+        .meta-detail { font-size: 0.82rem; color: var(--muted); margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+
+        .quality-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+            margin-bottom: 20px;
+        }
+
+        .q-btn {
+            padding: 7px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: #0d1117;
+            color: var(--muted);
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .15s;
+        }
+        .q-btn:hover    { border-color: var(--primary); color: var(--text); }
+        .q-btn.selected { border-color: var(--primary); background: var(--primary); color: white; }
+
+        /* Progress */
+        .progress-wrap { display: none; margin-top: 16px; }
+        .progress-label { font-size: 0.82rem; color: var(--muted); margin-bottom: 8px; display: flex; justify-content: space-between; }
+        .progress-bar-bg {
+            height: 6px;
+            background: #0d1117;
+            border-radius: 99px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 99px;
+            width: 0;
+            transition: width .3s;
+        }
+
+        /* Status */
+        .status-msg {
+            margin-top: 14px;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-size: 0.87rem;
+            display: none;
+        }
+        .status-msg.error   { background: rgba(239,68,68,.1); border: 1px solid rgba(239,68,68,.3); color: #fca5a5; }
+        .status-msg.success { background: rgba(16,185,129,.1); border: 1px solid rgba(16,185,129,.3); color: #6ee7b7; }
+        .status-msg.info    { background: rgba(99,102,241,.1); border: 1px solid rgba(99,102,241,.3); color: #a5b4fc; }
+
+        /* Tips */
+        .tips { display: flex; flex-direction: column; gap: 8px; }
+        .tip  {
+            font-size: 0.83rem;
+            color: var(--muted);
+            display: flex; align-items: flex-start; gap: 8px;
+            line-height: 1.5;
+        }
+        .tip i { color: var(--primary); margin-top: 2px; flex-shrink: 0; }
+
+        /* Spinner */
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .spin { animation: spin .8s linear infinite; display: inline-block; }
+
+        /* YouTube button */
+        .btn-youtube {
+            background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+            color: white;
+            border: none;
+            transition: opacity .2s, transform .1s;
+        }
+        .btn-youtube:hover:not(:disabled) { opacity: .88; transform: translateY(-1px); }
+        .btn-youtube:disabled { opacity: .4; cursor: not-allowed; transform: none; }
+
+        #ytResult a { color: #6ee7b7; font-weight: 600; }
+        #ytResult a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-left">
+        <div class="logo-icon"><i class="fas fa-video"></i></div>
+        <div>
+            <div class="app-title">Téléchargeur Vidéo</div>
+            <div class="app-sub">Facebook · TikTok · Instagram · X · YouTube → MP4 / MP3</div>
+        </div>
+    </div>
+    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Retour au site</a>
+</header>
+
+<main>
+    <!-- URL Card -->
+    <div class="card">
+        <div class="card-title"><i class="fas fa-link"></i> Coller le lien vidéo</div>
+
+        <div class="platforms">
+            <span class="badge fb"><i class="fab fa-facebook"></i> Facebook</span>
+            <span class="badge ig"><i class="fab fa-instagram"></i> Instagram</span>
+            <span class="badge tt"><i class="fab fa-tiktok"></i> TikTok</span>
+            <span class="badge tw"><i class="fab fa-x-twitter"></i> X / Twitter</span>
+            <span class="badge yt"><i class="fab fa-youtube"></i> YouTube</span>
+        </div>
+
+        <div class="input-row">
+            <input id="urlInput" class="url-input" type="url"
+                   placeholder="https://www.facebook.com/watch?v=... ou lien TikTok/Instagram/X">
+            <button class="btn btn-primary" onclick="analyzeUrl()" id="analyzeBtn">
+                <i class="fas fa-search" id="analyzeIcon"></i> Analyser
+            </button>
+        </div>
+
+        <div id="statusMsg" class="status-msg"></div>
+    </div>
+
+    <!-- Preview Card -->
+    <div class="card" id="preview">
+        <div class="card-title"><i class="fas fa-film"></i> Vidéo détectée</div>
+
+        <div class="video-meta">
+            <div class="thumb-wrap">
+                <img id="thumbImg" src="" alt="" onerror="this.style.display='none';document.getElementById('thumbPlaceholder').style.display='flex'">
+                <div class="thumb-placeholder" id="thumbPlaceholder" style="display:none"><i class="fas fa-video"></i></div>
+            </div>
+            <div class="meta-info">
+                <div class="meta-title" id="metaTitle"></div>
+                <div class="meta-detail"><i class="fas fa-user"></i> <span id="metaUploader"></span></div>
+                <div class="meta-detail"><i class="fas fa-clock"></i> <span id="metaDuration"></span></div>
+                <div class="meta-detail"><i class="fas fa-server"></i> <span id="metaPlatform"></span></div>
+            </div>
+        </div>
+
+        <div class="quality-row" id="qualityRow"></div>
+
+        <div class="dl-row">
+            <button class="btn btn-success" onclick="downloadVideo()" id="dlBtn">
+                <i class="fas fa-film" id="dlIcon"></i> Télécharger MP4
+            </button>
+            <button class="btn btn-orange" onclick="downloadAudio()" id="mp3Btn">
+                <i class="fas fa-music" id="mp3Icon"></i> Extraire MP3
+            </button>
+        </div>
+
+        <button class="btn btn-youtube" onclick="publishYoutube()" id="ytBtn" style="width:100%;margin-top:10px">
+            <i class="fab fa-youtube" id="ytIcon"></i>
+            <span id="ytLabel">Publier sur YouTube + Créer Article</span>
+        </button>
+
+        <div id="ytTitleRow" style="margin-top:12px;display:none">
+            <input id="ytTitle" class="url-input" type="text" placeholder="Titre YouTube (laissez vide = titre auto-détecté)">
+        </div>
+
+        <div class="progress-wrap" id="progressWrap">
+            <div class="progress-label">
+                <span id="progressLabel">Téléchargement en cours…</span>
+                <span id="progressPct"></span>
+            </div>
+            <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill"></div></div>
+        </div>
+
+        <div id="ytResult" class="status-msg" style="display:none"></div>
+    </div>
+
+    <!-- Tips Card -->
+    <div class="card">
+        <div class="card-title"><i class="fas fa-lightbulb"></i> Conseils</div>
+        <div class="tips">
+            <div class="tip"><i class="fas fa-circle-info"></i>Pour Facebook, copiez le lien depuis le bouton "Copier le lien" sous la vidéo.</div>
+            <div class="tip"><i class="fas fa-circle-info"></i>Pour TikTok et Instagram, copiez depuis le bouton "Partager → Copier le lien".</div>
+            <div class="tip"><i class="fas fa-circle-info"></i>Pour X (Twitter), ouvrez le tweet et copiez l'URL complète depuis la barre du navigateur.</div>
+            <div class="tip"><i class="fas fa-circle-info"></i>Si le téléchargement échoue pour Facebook, essayez de vous connecter d'abord sur Facebook dans votre navigateur.</div>
+        </div>
+    </div>
+</main>
+
+<script>
+    const API = '';
+    let selectedQuality = 'best';
+    let videoInfo = null;
+
+    function fmt(s) {
+        if (!s) return '';
+        const m = Math.floor(s / 60);
+        const sec = Math.floor(s % 60);
+        return `${m}m ${String(sec).padStart(2, '0')}s`;
+    }
+
+    function showStatus(msg, type) {
+        const el = document.getElementById('statusMsg');
+        el.textContent = msg;
+        el.className = `status-msg ${type}`;
+        el.style.display = 'block';
+    }
+
+    function clearStatus() {
+        const el = document.getElementById('statusMsg');
+        el.style.display = 'none';
+    }
+
+    async function analyzeUrl() {
+        const url = document.getElementById('urlInput').value.trim();
+        if (!url) { showStatus('Veuillez coller un lien vidéo.', 'error'); return; }
+
+        const btn = document.getElementById('analyzeBtn');
+        const icon = document.getElementById('analyzeIcon');
+        btn.disabled = true;
+        icon.className = 'fas fa-circle-notch spin';
+        clearStatus();
+        document.getElementById('preview').style.display = 'none';
+
+        try {
+            const r = await fetch(`${API}/api/video-info?url=${encodeURIComponent(url)}`);
+            const data = await r.json();
+
+            if (!r.ok) {
+                showStatus('Erreur : ' + (data.error || 'URL non reconnue'), 'error');
+                return;
+            }
+
+            videoInfo = data;
+
+            document.getElementById('metaTitle').textContent    = data.title;
+            document.getElementById('metaUploader').textContent = data.uploader || '—';
+            document.getElementById('metaDuration').textContent = data.duration ? fmt(data.duration) : '—';
+            document.getElementById('metaPlatform').textContent = data.platform || '—';
+
+            const img = document.getElementById('thumbImg');
+            const ph  = document.getElementById('thumbPlaceholder');
+            if (data.thumbnail) {
+                img.src = data.thumbnail;
+                img.style.display = 'block';
+                ph.style.display  = 'none';
+            } else {
+                img.style.display = 'none';
+                ph.style.display  = 'flex';
+            }
+
+            // Quality buttons
+            const qRow = document.getElementById('qualityRow');
+            qRow.innerHTML = '';
+
+            const presets = [];
+            if (data.formats && data.formats.length) {
+                const heights = [...new Set(data.formats.map(f => f.height).filter(Boolean))];
+                heights.slice(0, 4).forEach(h => {
+                    presets.push({ label: `${h}p`, val: String(h) });
+                });
+            }
+            if (!presets.length) presets.push({ label: 'Meilleure qualité', val: 'best' });
+
+            presets.forEach((p, i) => {
+                const b = document.createElement('button');
+                b.className = 'q-btn' + (i === 0 ? ' selected' : '');
+                b.textContent = p.label;
+                b.onclick = () => {
+                    document.querySelectorAll('.q-btn').forEach(x => x.classList.remove('selected'));
+                    b.classList.add('selected');
+                    selectedQuality = p.val;
+                };
+                qRow.appendChild(b);
+                if (i === 0) selectedQuality = p.val;
+            });
+
+            document.getElementById('preview').style.display = 'block';
+            document.getElementById('progressWrap').style.display = 'none';
+            document.getElementById('dlBtn').disabled = false;
+            document.getElementById('mp3Btn').disabled = false;
+            document.getElementById('dlIcon').className = 'fas fa-film';
+            showYtTitleRow();
+
+        } catch (e) {
+            showStatus('Impossible de joindre le serveur. Vérifiez que server.js tourne sur le port 3000.', 'error');
+        } finally {
+            btn.disabled = false;
+            icon.className = 'fas fa-search';
+        }
+    }
+
+    function downloadVideo() {
+        const url = document.getElementById('urlInput').value.trim();
+        if (!url) return;
+
+        const dlBtn  = document.getElementById('dlBtn');
+        const dlIcon = document.getElementById('dlIcon');
+        const wrap   = document.getElementById('progressWrap');
+        const fill   = document.getElementById('progressFill');
+        const label  = document.getElementById('progressLabel');
+
+        dlBtn.disabled = true;
+        dlIcon.className = 'fas fa-circle-notch spin';
+        wrap.style.display = 'block';
+        fill.style.width = '0%';
+        label.textContent = 'Téléchargement en cours…';
+
+        // Simulate progress while waiting (indeterminate)
+        let pct = 0;
+        const timer = setInterval(() => {
+            pct = Math.min(pct + Math.random() * 3, 90);
+            fill.style.width = pct + '%';
+        }, 400);
+
+        const dlUrl = `${API}/api/download-video?url=${encodeURIComponent(url)}&quality=${selectedQuality}`;
+
+        fetch(dlUrl)
+            .then(async r => {
+                clearInterval(timer);
+                if (!r.ok) {
+                    const err = await r.json().catch(() => ({ error: 'Erreur inconnue' }));
+                    fill.style.width = '0%';
+                    fill.style.background = 'var(--danger)';
+                    label.textContent = 'Échec : ' + (err.error || 'erreur');
+                    dlBtn.disabled = false;
+                    dlIcon.className = 'fas fa-download';
+                    return;
+                }
+
+                fill.style.width = '100%';
+                label.textContent = 'Finalisation…';
+
+                const blob = await r.blob();
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+
+                // Nom du fichier basé sur le titre
+                const title = (videoInfo?.title || 'video')
+                    .replace(/[^\w\s\-]/g, '')
+                    .trim()
+                    .replace(/\s+/g, '_')
+                    .substring(0, 60);
+                a.download = `${title}.mp4`;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+
+                label.textContent = 'Téléchargement terminé !';
+                fill.style.background = 'var(--success)';
+                dlBtn.disabled = false;
+                dlIcon.className = 'fas fa-check';
+                setTimeout(() => { dlIcon.className = 'fas fa-film'; }, 3000);
+            })
+            .catch(e => {
+                clearInterval(timer);
+                fill.style.width = '0%';
+                label.textContent = 'Erreur de connexion au serveur';
+                dlBtn.disabled = false;
+                dlIcon.className = 'fas fa-film';
+            });
+    }
+
+    function downloadAudio() {
+        const url = document.getElementById('urlInput').value.trim();
+        if (!url) return;
+
+        const mp3Btn = document.getElementById('mp3Btn');
+        const mp3Icon = document.getElementById('mp3Icon');
+        const dlBtn  = document.getElementById('dlBtn');
+        const wrap   = document.getElementById('progressWrap');
+        const fill   = document.getElementById('progressFill');
+        const label  = document.getElementById('progressLabel');
+
+        mp3Btn.disabled = true;
+        dlBtn.disabled  = true;
+        mp3Icon.className = 'fas fa-circle-notch spin';
+        wrap.style.display = 'block';
+        fill.style.background = '#ea580c';
+        fill.style.width = '0%';
+        label.textContent = 'Extraction audio MP3 en cours…';
+
+        let pct = 0;
+        const timer = setInterval(() => {
+            pct = Math.min(pct + Math.random() * 2.5, 90);
+            fill.style.width = pct + '%';
+        }, 400);
+
+        fetch(`${API}/api/download-audio?url=${encodeURIComponent(url)}`)
+            .then(async r => {
+                clearInterval(timer);
+                if (!r.ok) {
+                    const err = await r.json().catch(() => ({ error: 'Erreur inconnue' }));
+                    fill.style.width = '0%';
+                    fill.style.background = 'var(--danger)';
+                    label.textContent = 'Échec : ' + (err.error || 'erreur');
+                    mp3Btn.disabled = false;
+                    dlBtn.disabled  = false;
+                    mp3Icon.className = 'fas fa-music';
+                    return;
+                }
+
+                fill.style.width = '100%';
+                label.textContent = 'Finalisation MP3…';
+
+                const blob = await r.blob();
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(blob);
+                const title = (videoInfo?.title || 'audio')
+                    .replace(/[^\w\s\-]/g, '')
+                    .trim()
+                    .replace(/\s+/g, '_')
+                    .substring(0, 60);
+                a.download = `${title}.mp3`;
+                document.body.appendChild(a);
+                a.click();
+                a.remove();
+
+                label.textContent = 'MP3 téléchargé !';
+                fill.style.background = '#ea580c';
+                mp3Btn.disabled = false;
+                dlBtn.disabled  = false;
+                mp3Icon.className = 'fas fa-check';
+                setTimeout(() => { mp3Icon.className = 'fas fa-music'; fill.style.background = 'var(--primary)'; }, 3000);
+            })
+            .catch(() => {
+                clearInterval(timer);
+                fill.style.width = '0%';
+                label.textContent = 'Erreur de connexion au serveur';
+                mp3Btn.disabled = false;
+                dlBtn.disabled  = false;
+                mp3Icon.className = 'fas fa-music';
+            });
+    }
+
+    // Affiche le champ titre YouTube quand la vidéo est analysée
+    function showYtTitleRow() {
+        const row = document.getElementById('ytTitleRow');
+        if (videoInfo) {
+            row.style.display = 'block';
+            if (!document.getElementById('ytTitle').value) {
+                document.getElementById('ytTitle').value = videoInfo.title || '';
+            }
+        }
+    }
+
+    async function publishYoutube() {
+        const sourceUrl = document.getElementById('urlInput').value.trim();
+        if (!sourceUrl) { showStatus('Veuillez d\'abord analyser une URL vidéo.', 'error'); return; }
+        if (!videoInfo)  { showStatus('Cliquez d\'abord sur "Analyser".', 'error'); return; }
+
+        const ytBtn   = document.getElementById('ytBtn');
+        const ytIcon  = document.getElementById('ytIcon');
+        const ytLabel = document.getElementById('ytLabel');
+        const ytRes   = document.getElementById('ytResult');
+        const wrap    = document.getElementById('progressWrap');
+        const fill    = document.getElementById('progressFill');
+        const lbl     = document.getElementById('progressLabel');
+
+        const customTitle = document.getElementById('ytTitle').value.trim();
+
+        ytBtn.disabled       = true;
+        ytIcon.className     = 'fas fa-circle-notch spin';
+        ytLabel.textContent  = 'Pipeline en cours…';
+        ytRes.style.display  = 'none';
+        wrap.style.display   = 'block';
+        fill.style.background = '#ff0000';
+        fill.style.width     = '3%';
+        lbl.textContent      = 'Étape 1/3 — Téléchargement de la vidéo source…';
+
+        // Progression animée avec 3 phases affichées
+        let pct = 3;
+        const timer = setInterval(() => {
+            if (pct < 45)       { pct = Math.min(pct + Math.random() * 2,   45); lbl.textContent = 'Étape 1/3 — Téléchargement de la vidéo…'; }
+            else if (pct < 85)  { pct = Math.min(pct + Math.random() * 1.2, 85); lbl.textContent = 'Étape 2/3 — Upload vers YouTube (licence Creative Commons)…'; }
+            else                { pct = Math.min(pct + Math.random() * 0.5, 94); lbl.textContent = 'Étape 3/3 — Finalisation…'; }
+            fill.style.width = pct + '%';
+        }, 700);
+
+        try {
+            // ── ÉTAPE 1 + 2 : Télécharger + Uploader sur YouTube ──────────
+            const publishBody = {
+                url:     sourceUrl,
+                quality: selectedQuality,
+                privacy: 'public',
+                license: 'creativeCommon',
+            };
+            if (customTitle) publishBody.title = customTitle;
+
+            const r    = await fetch(`${API}/api/youtube-publish`, {
+                method:  'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body:    JSON.stringify(publishBody),
+            });
+            const data = await r.json();
+            clearInterval(timer);
+
+            if (!r.ok) {
+                fill.style.background = 'var(--danger)';
+                fill.style.width      = '0%';
+                lbl.textContent       = 'Échec de la publication';
+                ytRes.className       = 'status-msg error';
+                const hint = data.hint ? `<br><small style="opacity:.8">${data.hint}</small>` : '';
+                ytRes.innerHTML = `❌ ${data.error || 'Erreur inconnue'}${hint}`;
+                ytRes.style.display = 'block';
+                return;
+            }
+
+            fill.style.width = '92%';
+            lbl.textContent  = 'Étape 3/3 — Rédaction IA de l\'article (traduction + style APS)…';
+
+            // ── ÉTAPE 3 : smart-ingest-video → traduction AR + article APS complet ──
+            const artR = await fetch(`${API}/api/smart-ingest-video`, {
+                method:  'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body:    JSON.stringify({
+                    videoId:    data.videoId,
+                    youtubeUrl: data.youtubeUrl,
+                    rawText:    data.description || '',   // texte du post Facebook (arabe ou FR)
+                    title:      data.title,
+                    sourceUrl,
+                    uploader:   data.uploader  || videoInfo.uploader  || '',
+                    duration:   data.duration  || videoInfo.duration  || 0,
+                }),
+            });
+            const artData = await artR.json();
+
+            // ── Succès total ──────────────────────────────────────────────
+            fill.style.width      = '100%';
+            fill.style.background = 'var(--success)';
+            lbl.textContent       = '✅ Pipeline complet — article APS généré !';
+            ytLabel.textContent   = 'Publié sur YouTube ✓';
+
+            const artLink = artData.articleId
+                ? `<br>📰 <a href="/article/${artData.articleId}" target="_blank">Lire l'article généré →</a>`
+                : '';
+            const ytStudio = `https://studio.youtube.com/video/${data.videoId}/edit`;
+            const artTitre = artData.titre ? `<br><small style="opacity:.8">« ${artData.titre} »</small>` : '';
+
+            ytRes.className  = 'status-msg success';
+            ytRes.innerHTML  = `✅ <strong>Vidéo publiée · Article APS rédigé par IA</strong>${artTitre}<br>
+🎬 <a href="${data.youtubeUrl}" target="_blank">Regarder sur YouTube →</a><br>
+✏️ <a href="${ytStudio}" target="_blank">Éditer dans YouTube Studio →</a>
+${artLink}`;
+            ytRes.style.display = 'block';
+
+        } catch (e) {
+            clearInterval(timer);
+            fill.style.background = 'var(--danger)';
+            fill.style.width      = '0%';
+            lbl.textContent       = 'Erreur de connexion au serveur';
+            ytRes.className       = 'status-msg error';
+            ytRes.textContent     = '❌ ' + e.message;
+            ytRes.style.display   = 'block';
+        } finally {
+            ytBtn.disabled   = false;
+            ytIcon.className = 'fab fa-youtube';
+        }
+    }
+
+    // Allow Enter key on URL input
+    document.getElementById('urlInput').addEventListener('keydown', e => {
+        if (e.key === 'Enter') analyzeUrl();
+    });
+
+    // Auto-paste if clipboard has a video URL
+    document.getElementById('urlInput').addEventListener('focus', async () => {
+        if (document.getElementById('urlInput').value) return;
+        try {
+            const txt = await navigator.clipboard.readText();
+            const videoHosts = ['facebook.com', 'fb.watch', 'tiktok.com', 'instagram.com', 'twitter.com', 'x.com', 'youtube.com', 'youtu.be'];
+            if (txt.startsWith('http') && videoHosts.some(h => txt.includes(h))) {
+                document.getElementById('urlInput').value = txt;
+            }
+        } catch (e) {}
+    });
+</script>
+</body>
+</html>

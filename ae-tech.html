@@ -1,0 +1,2649 @@
+<!DOCTYPE html>
+<html lang="fr" id="root" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guide de l'auto-entrepreneur DZ — Référence du Freelance Tech 2026</title>
+<meta name="description" content="60 métiers numériques éligibles au statut auto-entrepreneur en Algérie. 350+ codes ANAE officiels regroupés, IFU 0,5%, inscription ANAE 100% en ligne. Guide complet 2026.">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#10b981">
+<link rel="stylesheet" href="/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
+<style>
+/* ══════════════════════════════════════════════════════════
+   DESIGN SYSTEM — Guide AE DZ 2026
+   ══════════════════════════════════════════════════════════ */
+:root {
+  --bg:        #030712;
+  --bg2:       #050e1b;
+  --bg3:       #07142a;
+  --card:      rgba(255,255,255,0.035);
+  --card-hov:  rgba(255,255,255,0.065);
+  --border:    rgba(255,255,255,0.08);
+  --border-hov:rgba(16,185,129,0.45);
+  --text:      #f1f5f9;
+  --text-md:   #cbd5e1;
+  --text-muted:#64748b;
+  --em:        #10b981;
+  --em-lt:     #34d399;
+  --em-dk:     #059669;
+  --blue:      #3b82f6;
+  --purple:    #8b5cf6;
+  --gold:      #f59e0b;
+  --red:       #ef4444;
+  --cyan:      #06b6d4;
+  --pink:      #ec4899;
+  --green:     #22c55e;
+  --radius:    18px;
+  --radius-sm: 10px;
+  --radius-xs: 6px;
+  --shadow:    0 4px 30px rgba(0,0,0,0.5);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.7);
+  --glow:      0 0 40px rgba(16,185,129,0.18);
+  --font-head: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+[data-theme="light"] {
+  --bg:        #f8fafc;
+  --bg2:       #f1f5f9;
+  --bg3:       #e2e8f0;
+  --card:      #ffffff;
+  --card-hov:  #f8fafc;
+  --border:    rgba(0,0,0,0.08);
+  --border-hov:rgba(16,185,129,0.5);
+  --text:      #0f172a;
+  --text-md:   #334155;
+  --text-muted:#64748b;
+  --shadow:    0 4px 30px rgba(0,0,0,0.06);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.1);
+  --glow:      0 0 40px rgba(16,185,129,0.1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  transition:background .3s,color .3s;
+}
+h1,h2,h3,h4{font-family:var(--font-head);line-height:1.2}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;font-family:inherit;border:none;background:none}
+img{max-width:100%;display:block}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:rgba(16,185,129,0.3);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:rgba(16,185,129,0.6)}
+
+/* ── GRADIENT TEXT ── */
+.grad-text{
+  background:linear-gradient(135deg,#10b981 0%,#3b82f6 50%,#8b5cf6 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.grad-text-gold{
+  background:linear-gradient(135deg,#f59e0b 0%,#ef4444 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+/* ── GLASS ── */
+.glass{
+  background:var(--card);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--border);
+}
+
+/* ══════════ NAVIGATION ══════════ */
+.nav{
+  position:sticky;top:0;z-index:1000;
+  height:62px;
+  display:flex;align-items:center;
+  padding:0 24px;gap:20px;
+  background:rgba(3,7,18,0.85);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  transition:background .3s;
+}
+[data-theme="light"] .nav{background:rgba(248,250,252,0.9)}
+.nav-logo{
+  display:flex;align-items:center;gap:10px;
+  font-family:var(--font-head);font-weight:800;font-size:18px;
+  flex-shrink:0;
+}
+.nav-logo-icon{
+  width:34px;height:34px;border-radius:10px;
+  background:linear-gradient(135deg,var(--em),var(--blue));
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;
+}
+.nav-logo span{color:var(--em)}
+.nav-links{
+  display:flex;align-items:center;gap:4px;
+  flex:1;justify-content:center;
+}
+.nav-link{
+  padding:6px 14px;border-radius:8px;
+  font-size:13px;font-weight:500;color:var(--text-muted);
+  transition:color .2s,background .2s;
+}
+.nav-link:hover{color:var(--text);background:var(--card)}
+.nav-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.btn-theme{
+  width:36px;height:36px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--card);border:1px solid var(--border);
+  color:var(--text-muted);font-size:14px;
+  transition:all .2s;
+}
+.btn-theme:hover{color:var(--text);border-color:var(--em);box-shadow:var(--glow)}
+.btn-cta{
+  padding:8px 18px;border-radius:10px;font-size:13px;font-weight:600;
+  background:linear-gradient(135deg,var(--em),var(--blue));
+  color:#fff;
+  transition:opacity .2s,transform .2s,box-shadow .2s;
+}
+.btn-cta:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 8px 24px rgba(16,185,129,0.35)}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .nav{padding:0 16px}
+}
+
+/* ══════════ HERO ══════════ */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:80px 24px 60px;overflow:hidden;
+  background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(16,185,129,0.12),transparent),
+             radial-gradient(ellipse 60% 40% at 80% 80%,rgba(59,130,246,0.08),transparent),
+             var(--bg);
+}
+#heroCanvas{
+  position:absolute;inset:0;width:100%;height:100%;
+  opacity:.6;pointer-events:none;
+}
+.hero-inner{
+  position:relative;z-index:1;
+  max-width:860px;text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:28px;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 18px;border-radius:99px;
+  background:rgba(16,185,129,0.1);
+  border:1px solid rgba(16,185,129,0.3);
+  font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
+  color:var(--em-lt);
+  animation:fadeDown .6s ease both;
+}
+.hero-badge-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--em);
+  animation:pulse 2s ease infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.hero-title{
+  font-family:var(--font-head);font-weight:800;
+  font-size:clamp(36px,6vw,74px);
+  letter-spacing:-2px;line-height:1.05;
+  animation:fadeUp .7s ease .1s both;
+}
+.hero-title em{
+  font-style:normal;
+  background:linear-gradient(135deg,#10b981 0%,#34d399 40%,#3b82f6 80%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero-sub{
+  font-size:clamp(16px,2.2vw,20px);color:var(--text-muted);
+  max-width:600px;line-height:1.7;
+  animation:fadeUp .7s ease .2s both;
+}
+.hero-btns{
+  display:flex;flex-wrap:wrap;gap:12px;justify-content:center;
+  animation:fadeUp .7s ease .3s both;
+}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 28px;border-radius:12px;font-size:15px;font-weight:600;
+  background:linear-gradient(135deg,var(--em),var(--em-dk));
+  color:#fff;
+  box-shadow:0 8px 32px rgba(16,185,129,0.3);
+  transition:all .25s;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 48px rgba(16,185,129,0.45)}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 28px;border-radius:12px;font-size:15px;font-weight:600;
+  background:var(--card);border:1px solid var(--border);color:var(--text-md);
+  backdrop-filter:blur(8px);
+  transition:all .25s;
+}
+.btn-secondary:hover{border-color:var(--em);color:var(--text);transform:translateY(-2px)}
+.hero-stats{
+  display:flex;flex-wrap:wrap;gap:14px;justify-content:center;
+  animation:fadeUp .7s ease .4s both;
+}
+.hero-stat{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 18px;border-radius:12px;
+  background:var(--card);border:1px solid var(--border);
+  backdrop-filter:blur(8px);
+  font-size:13px;
+}
+.hero-stat-val{font-family:var(--font-head);font-weight:800;font-size:18px}
+.hero-stat-lbl{color:var(--text-muted);font-size:12px}
+.hero-scroll{
+  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  color:var(--text-muted);font-size:11px;font-weight:500;letter-spacing:.5px;text-transform:uppercase;
+  animation:fadeIn 1s ease .8s both;
+}
+.hero-scroll-arrow{
+  width:28px;height:28px;border:1.5px solid var(--border);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:11px;
+  animation:bounceDown 2s ease infinite;
+}
+@keyframes bounceDown{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+/* ══════════ TICKER ══════════ */
+.ticker{
+  height:42px;overflow:hidden;
+  background:rgba(16,185,129,0.05);
+  border-top:1px solid rgba(16,185,129,0.15);
+  border-bottom:1px solid rgba(16,185,129,0.15);
+  display:flex;align-items:center;
+}
+.ticker-tag{
+  display:flex;align-items:center;gap:7px;
+  background:var(--em);height:100%;padding:0 16px;
+  font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:1.2px;color:#fff;
+  white-space:nowrap;flex-shrink:0;
+}
+.ticker-track{
+  flex:1;overflow:hidden;
+  mask-image:linear-gradient(90deg,transparent 0%,#000 4%,#000 96%,transparent 100%);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 4%,#000 96%,transparent 100%);
+}
+.ticker-inner{display:flex;align-items:center;animation:tickerRun 40s linear infinite;width:max-content}
+.tick{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:0 24px;font-size:12px;font-weight:600;color:var(--text-muted);white-space:nowrap;
+}
+.tick-up{color:var(--em-lt);font-weight:800}
+.tick-sep{color:rgba(255,255,255,0.1);font-size:18px}
+@keyframes tickerRun{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ══════════ SECTION HEADER ══════════ */
+.section-tag{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:5px 14px;border-radius:99px;
+  background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);
+  font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--em);
+}
+.section-title{
+  font-family:var(--font-head);font-size:clamp(28px,4vw,44px);
+  font-weight:800;letter-spacing:-1px;
+}
+.section-sub{color:var(--text-muted);font-size:16px;max-width:580px}
+
+/* ══════════ ADVANTAGES ══════════ */
+.adv-wrap{
+  max-width:1200px;margin:0 auto;padding:60px 24px 0;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;
+}
+.adv-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:26px;
+  display:flex;align-items:flex-start;gap:18px;
+  transition:transform .25s,box-shadow .25s,border-color .25s;
+  cursor:default;
+}
+.adv-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--border-hov)}
+.adv-icon{
+  width:52px;height:52px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;
+}
+.adv-val{font-family:var(--font-head);font-size:24px;font-weight:800;line-height:1.2}
+.adv-lbl{font-size:13px;color:var(--text-muted);margin-top:4px;line-height:1.5}
+
+/* ══════════ CATALOG ══════════ */
+.catalog{max-width:1200px;margin:0 auto;padding:60px 24px 80px}
+.catalog-header{
+  display:flex;flex-direction:column;gap:16px;margin-bottom:32px;
+}
+.catalog-top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.search-wrap{position:relative}
+.search-icon{
+  position:absolute;left:13px;top:50%;transform:translateY(-50%);
+  color:var(--text-muted);font-size:13px;pointer-events:none;
+}
+.search-input{
+  height:42px;width:240px;padding:0 16px 0 38px;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  font-size:14px;font-family:inherit;color:var(--text);outline:none;
+  backdrop-filter:blur(8px);
+  transition:border-color .2s,box-shadow .2s;
+}
+.search-input::placeholder{color:var(--text-muted)}
+.search-input:focus{border-color:var(--em);box-shadow:0 0 0 3px rgba(16,185,129,0.12)}
+.toolbar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.filters{display:flex;gap:7px;flex-wrap:wrap}
+.filter-pill{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:7px 16px;border-radius:99px;font-size:12px;font-weight:700;
+  border:1.5px solid var(--border);background:var(--card);color:var(--text-muted);
+  backdrop-filter:blur(8px);
+  transition:all .2s;white-space:nowrap;
+}
+.filter-pill:hover{border-color:var(--em);color:var(--text)}
+.filter-pill.active{
+  background:linear-gradient(135deg,var(--em),var(--blue));
+  border-color:transparent;color:#fff;
+  box-shadow:0 4px 16px rgba(16,185,129,0.3);
+}
+.count-label{font-size:13px;color:var(--text-muted);font-weight:600}
+
+/* ── CARD GRID ── */
+.cards-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  gap:20px;
+}
+.prof-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  position:relative;
+  transition:border-color .25s,box-shadow .25s;
+  transform-style:preserve-3d;
+  transform:perspective(1000px);
+  cursor:default;
+  display:flex;flex-direction:column;
+}
+.prof-card:hover{border-color:var(--border-hov);box-shadow:var(--shadow)}
+.prof-card.hidden{display:none}
+
+/* Accent top bar */
+.card-accent{height:3px;width:100%;position:absolute;top:0;left:0;opacity:.8}
+/* Shine overlay */
+.card-shine{
+  position:absolute;inset:0;border-radius:var(--radius);
+  pointer-events:none;transition:background .1s;z-index:1;
+}
+.card-body{padding:22px;display:flex;flex-direction:column;gap:14px;position:relative;z-index:2}
+.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.card-icon{
+  width:50px;height:50px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;
+}
+.card-badges{display:flex;flex-direction:column;align-items:flex-end;gap:5px}
+.badge-demand{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:3px 10px;border-radius:99px;font-size:10px;font-weight:800;
+  text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;
+}
+.badge-demand.very-high{background:rgba(239,68,68,.12);color:#f87171}
+.badge-demand.high{background:rgba(16,185,129,.12);color:var(--em-lt)}
+.badge-demand.medium{background:rgba(59,130,246,.12);color:#93c5fd}
+.badge-new{
+  padding:2px 8px;border-radius:99px;font-size:9px;font-weight:800;
+  background:rgba(245,158,11,.15);color:#fbbf24;text-transform:uppercase;letter-spacing:.5px;
+}
+.card-domain{
+  font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;
+  margin-top:2px;
+}
+.card-title{font-family:var(--font-head);font-size:17px;font-weight:700;line-height:1.25;color:#fff}
+.card-desc{font-size:13px;color:#a0b4cc;line-height:1.6;flex:1}
+.card-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{
+  padding:3px 9px;border-radius:6px;font-size:11px;font-weight:600;
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:#c8d8e8;
+}
+[data-theme="light"] .tag{background:rgba(0,0,0,0.04);color:var(--text-muted)}
+[data-theme="light"] .card-title{color:var(--text)}
+[data-theme="light"] .card-desc{color:var(--text-muted)}
+.card-footer{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:14px 22px;
+  border-top:1px solid var(--border);
+  background:rgba(0,0,0,0.12);
+}
+[data-theme="light"] .card-footer{background:rgba(0,0,0,0.02)}
+/* clickable card body */
+.card-clickable{cursor:pointer}
+.card-clickable:hover .card-title{color:var(--em-lt)}
+
+/* ══════════ DETAIL MODAL ══════════ */
+.detail-overlay{
+  position:fixed;inset:0;z-index:3000;
+  background:rgba(0,0,0,0.8);backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s;
+  padding:20px;
+}
+.detail-overlay.open{opacity:1;pointer-events:all}
+.detail-panel{
+  width:100%;max-width:640px;max-height:90vh;overflow-y:auto;
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:24px;
+  transform:scale(.95) translateY(20px);
+  transition:transform .35s cubic-bezier(.22,1,.36,1);
+  overflow:hidden;
+}
+.detail-overlay.open .detail-panel{transform:scale(1) translateY(0)}
+.detail-hero{
+  padding:32px 28px 24px;
+  position:relative;
+  border-bottom:1px solid var(--border);
+}
+.detail-accent-bar{position:absolute;top:0;left:0;right:0;height:3px}
+.detail-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:20px}
+.detail-icon{
+  width:64px;height:64px;border-radius:18px;
+  display:flex;align-items:center;justify-content:center;font-size:32px;flex-shrink:0;
+}
+.detail-close{
+  width:36px;height:36px;border-radius:10px;flex-shrink:0;
+  background:rgba(255,255,255,.06);border:1px solid var(--border);
+  color:var(--text-muted);font-size:14px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.detail-close:hover{color:#fff;border-color:var(--red);background:rgba(239,68,68,.15)}
+.detail-domain{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;margin-bottom:8px}
+.detail-title{font-family:var(--font-head);font-size:26px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:12px}
+[data-theme="light"] .detail-title{color:var(--text)}
+.detail-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.detail-desc{font-size:15px;color:#b8cde0;line-height:1.7}
+[data-theme="light"] .detail-desc{color:var(--text-muted)}
+.detail-body{padding:24px 28px;display:flex;flex-direction:column;gap:22px}
+.detail-section-h{font-family:var(--font-head);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--text-muted);margin-bottom:10px}
+.detail-tags{display:flex;flex-wrap:wrap;gap:8px}
+.detail-tag{
+  padding:5px 13px;border-radius:8px;font-size:13px;font-weight:600;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:#d0e4f0;
+}
+[data-theme="light"] .detail-tag{background:rgba(0,0,0,.04);border-color:var(--border);color:var(--text-md)}
+.detail-tjm-box{
+  display:flex;align-items:center;gap:12px;
+  padding:16px 20px;border-radius:14px;
+  background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);
+}
+.detail-tjm-val{font-family:var(--font-head);font-size:20px;font-weight:800;color:var(--gold)}
+.detail-tjm-lbl{font-size:13px;color:var(--text-muted)}
+.detail-sugs{display:flex;flex-direction:column;gap:8px}
+.detail-sug{
+  padding:12px 16px;border-radius:12px;font-size:13px;
+  background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.15);
+  color:#b0d4c4;line-height:1.5;
+  cursor:pointer;transition:all .2s;text-align:left;
+  display:flex;align-items:center;gap:10px;
+}
+.detail-sug:hover{background:rgba(16,185,129,.12);border-color:rgba(16,185,129,.35);color:#fff}
+.detail-sug i{color:var(--em);flex-shrink:0;font-size:12px}
+.detail-context{
+  font-size:13px;color:#8fa8bc;line-height:1.7;
+  padding:16px;border-radius:12px;
+  background:rgba(255,255,255,.03);border:1px solid var(--border);
+}
+[data-theme="light"] .detail-context{color:var(--text-muted)}
+.detail-footer{
+  padding:20px 28px;border-top:1px solid var(--border);
+  display:flex;gap:12px;
+}
+.btn-debate-full{
+  flex:1;padding:14px;border-radius:14px;font-size:15px;font-weight:700;
+  background:linear-gradient(135deg,var(--em),var(--blue));
+  color:#fff;display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:opacity .2s,transform .2s,box-shadow .2s;
+}
+.btn-debate-full:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 8px 32px rgba(16,185,129,.4)}
+.detail-growth-badge{
+  display:flex;align-items:center;gap:6px;padding:14px 20px;border-radius:14px;
+  background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);
+  font-family:var(--font-head);font-size:22px;font-weight:800;color:var(--em);
+  white-space:nowrap;
+}
+.card-tjm{font-size:12px;font-weight:700;color:var(--gold);display:flex;align-items:center;gap:5px}
+.card-tjm i{font-size:11px}
+.btn-debate{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:7px 14px;border-radius:9px;font-size:12px;font-weight:700;
+  background:linear-gradient(135deg,var(--em),var(--blue));
+  color:#fff;border:none;
+  transition:opacity .2s,transform .2s,box-shadow .2s;
+  white-space:nowrap;
+}
+.btn-debate:hover{opacity:.9;transform:translateY(-1px);box-shadow:0 6px 20px rgba(16,185,129,0.35)}
+.card-growth{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:11px;font-weight:800;color:var(--em);
+}
+
+/* ── REVEAL ── */
+[data-reveal]{
+  opacity:0;transform:translateY(24px);
+  transition:opacity .6s ease,transform .6s ease;
+}
+[data-reveal].revealed{opacity:1;transform:translateY(0)}
+
+/* ══════════ GUIDE ══════════ */
+.guide-outer{
+  background:linear-gradient(135deg,rgba(16,185,129,0.05),rgba(59,130,246,0.05));
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:80px 24px;
+}
+.guide-inner{max-width:900px;margin:0 auto;text-align:center}
+.guide-inner .section-title,.guide-inner .section-sub,.guide-inner .section-tag{display:block;margin-left:auto;margin-right:auto}
+.guide-inner .section-sub{margin-top:12px;margin-bottom:48px}
+.steps{display:flex;flex-direction:column;gap:20px}
+.step{
+  display:flex;align-items:flex-start;gap:20px;
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:24px 28px;text-align:left;
+  transition:border-color .25s,transform .25s;
+}
+.step:hover{border-color:var(--em);transform:translateX(4px)}
+.step-num{
+  width:48px;height:48px;border-radius:14px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--em),var(--blue));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-head);font-size:20px;font-weight:800;color:#fff;
+}
+.step-title{font-family:var(--font-head);font-size:17px;font-weight:700;margin-bottom:6px}
+.step-desc{font-size:14px;color:var(--text-muted);line-height:1.6}
+.step-link{
+  display:inline-flex;align-items:center;gap:5px;
+  margin-top:10px;font-size:12px;font-weight:700;color:var(--em);
+}
+.step-link:hover{text-decoration:underline}
+
+/* ══════════ LEGAL ══════════ */
+.legal-section{padding:80px 24px}
+.legal-inner{max-width:900px;margin:0 auto}
+.legal-grid{display:flex;flex-direction:column;gap:12px;margin-top:40px}
+.legal-item{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  overflow:hidden;
+}
+.legal-hd{
+  display:flex;align-items:center;gap:14px;padding:18px 22px;
+  cursor:pointer;transition:background .2s;
+}
+.legal-hd:hover{background:var(--card-hov)}
+.legal-icon{font-size:22px}
+.legal-ref{
+  margin-left:auto;
+  font-size:11px;font-weight:700;color:var(--em);
+  padding:3px 10px;border-radius:6px;background:rgba(16,185,129,0.1);white-space:nowrap;
+}
+.legal-title-txt{font-family:var(--font-head);font-size:15px;font-weight:700}
+.legal-arrow{font-size:12px;color:var(--text-muted);margin-left:auto;transition:transform .25s}
+.legal-item.open .legal-arrow{transform:rotate(90deg)}
+.legal-body{
+  padding:0 22px;max-height:0;overflow:hidden;
+  transition:max-height .35s ease,padding .35s ease;
+}
+.legal-item.open .legal-body{max-height:200px;padding:0 22px 18px}
+.legal-desc{font-size:13px;color:var(--text-muted);line-height:1.6}
+.legal-link{
+  display:inline-flex;align-items:center;gap:5px;
+  margin-top:10px;font-size:12px;font-weight:700;color:var(--em);
+}
+
+/* ══════════ CHAT PANEL ══════════ */
+.overlay{
+  position:fixed;inset:0;z-index:2000;
+  background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);
+  display:flex;align-items:flex-end;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s;
+}
+.overlay.open{opacity:1;pointer-events:all}
+.panel{
+  width:100%;max-width:560px;
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:24px 24px 0 0;
+  display:flex;flex-direction:column;
+  max-height:90vh;
+  transform:translateY(40px);
+  transition:transform .35s cubic-bezier(.22,1,.36,1);
+  overflow:hidden;
+}
+.overlay.open .panel{transform:translateY(0)}
+.panel-head{
+  display:flex;align-items:center;gap:14px;
+  padding:20px 20px 16px;
+  border-bottom:1px solid var(--border);flex-shrink:0;
+}
+.panel-icon{
+  width:44px;height:44px;border-radius:12px;
+  background:linear-gradient(135deg,var(--em),var(--blue));
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+}
+.panel-title{font-family:var(--font-head);font-size:16px;font-weight:700}
+.panel-sub{font-size:12px;color:var(--text-muted)}
+.panel-close{
+  margin-left:auto;width:32px;height:32px;border-radius:8px;
+  background:var(--card);border:1px solid var(--border);
+  color:var(--text-muted);font-size:14px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.panel-close:hover{color:var(--text);border-color:var(--red)}
+.chat-msgs{
+  flex:1;overflow-y:auto;padding:16px 20px;
+  display:flex;flex-direction:column;gap:12px;
+}
+.msg{display:flex;flex-direction:column;gap:4px}
+.msg.user{align-items:flex-end}
+.msg.ai{align-items:flex-start}
+.msg-bubble{
+  max-width:85%;padding:10px 14px;border-radius:14px;
+  font-size:14px;line-height:1.55;
+}
+.msg.user .msg-bubble{
+  background:linear-gradient(135deg,var(--em-dk),var(--blue));
+  color:#fff;border-bottom-right-radius:4px;
+}
+.msg.ai .msg-bubble{
+  background:var(--card);border:1px solid var(--border);
+  color:var(--text);border-bottom-left-radius:4px;
+}
+.msg-time{font-size:10px;color:var(--text-muted);padding:0 4px}
+.typing-dots{display:flex;gap:4px;padding:2px 0}
+.typing-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--em);
+  animation:typingBounce 1.2s ease infinite;
+}
+.typing-dot:nth-child(2){animation-delay:.2s}
+.typing-dot:nth-child(3){animation-delay:.4s}
+@keyframes typingBounce{0%,100%{transform:translateY(0)}40%{transform:translateY(-7px)}}
+.chat-sugs{
+  display:flex;flex-wrap:wrap;gap:7px;
+  padding:0 20px 12px;flex-shrink:0;
+}
+.sug-btn{
+  padding:6px 13px;border-radius:99px;font-size:12px;font-weight:600;
+  background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.25);
+  color:var(--em-lt);
+  transition:all .2s;
+}
+.sug-btn:hover{background:rgba(16,185,129,0.2);border-color:var(--em)}
+.chat-bar{
+  display:flex;align-items:flex-end;gap:10px;
+  padding:14px 20px 20px;
+  border-top:1px solid var(--border);flex-shrink:0;
+}
+.chat-input{
+  flex:1;padding:10px 14px;border-radius:12px;
+  background:var(--card);border:1px solid var(--border);
+  font-size:14px;font-family:inherit;color:var(--text);
+  outline:none;resize:none;max-height:100px;
+  transition:border-color .2s;
+}
+.chat-input::placeholder{color:var(--text-muted)}
+.chat-input:focus{border-color:var(--em)}
+.chat-send{
+  width:42px;height:42px;border-radius:12px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--em),var(--blue));
+  color:#fff;font-size:16px;
+  display:flex;align-items:center;justify-content:center;
+  transition:opacity .2s,transform .2s;
+}
+.chat-send:hover{opacity:.85;transform:scale(1.05)}
+.chat-send:disabled{opacity:.4;pointer-events:none}
+
+/* ══════════ FOOTER ══════════ */
+.footer{
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  padding:60px 24px 0;
+}
+.footer-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;
+  padding-bottom:48px;
+}
+.footer-logo{
+  display:flex;align-items:center;gap:10px;
+  font-family:var(--font-head);font-size:20px;font-weight:800;margin-bottom:16px;
+}
+.footer-logo-icon{
+  width:36px;height:36px;border-radius:10px;
+  background:linear-gradient(135deg,var(--em),var(--blue));
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+}
+.footer-logo span{color:var(--em)}
+.footer-desc{font-size:14px;color:var(--text-muted);line-height:1.7;max-width:320px}
+.footer-col-h{font-family:var(--font-head);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:16px;color:var(--text)}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-link{font-size:14px;color:var(--text-muted);transition:color .2s}
+.footer-link:hover{color:var(--em)}
+.footer-bottom{
+  max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  padding:20px 0;
+  border-top:1px solid var(--border);
+  font-size:12px;color:var(--text-muted);
+}
+.footer-pills{display:flex;gap:7px;flex-wrap:wrap}
+.footer-pill{
+  padding:3px 10px;border-radius:6px;font-size:11px;font-weight:700;
+  background:rgba(16,185,129,0.1);color:var(--em);
+}
+@media(max-width:768px){
+  .footer-inner{grid-template-columns:1fr;gap:32px}
+  .cards-grid{grid-template-columns:1fr}
+  .search-input{width:100%}
+}
+
+/* ══════════ SIMULATEUR FISCAL ══════════ */
+.sim-outer{
+  padding:80px 24px;
+  background:linear-gradient(135deg,rgba(245,158,11,0.04),rgba(139,92,246,0.04));
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+.sim-inner{max-width:1100px;margin:0 auto}
+.sim-inner .section-tag,.sim-inner .section-title,.sim-inner .section-sub{display:block}
+.sim-inner .section-sub{margin-top:10px;margin-bottom:40px}
+.sim-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;
+}
+@media(max-width:768px){.sim-grid{grid-template-columns:1fr}}
+.sim-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:28px;transition:border-color .25s,box-shadow .25s;
+}
+.sim-card:hover{border-color:var(--gold);box-shadow:0 8px 32px rgba(245,158,11,0.12)}
+.sim-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text-muted);margin-bottom:10px}
+.sim-input{
+  width:100%;background:transparent;border:none;border-bottom:2px solid var(--border);
+  font-family:var(--font-head);font-size:36px;font-weight:800;color:var(--text);
+  outline:none;padding-bottom:8px;margin-bottom:20px;transition:border-color .2s;
+}
+.sim-input:focus{border-bottom-color:var(--gold)}
+.sim-input.over-limit{color:var(--red)}
+input[type=range].sim-slider{
+  -webkit-appearance:none;appearance:none;
+  width:100%;height:6px;border-radius:3px;
+  background:var(--border);outline:none;cursor:pointer;
+}
+input[type=range].sim-slider::-webkit-slider-thumb{
+  -webkit-appearance:none;width:18px;height:18px;border-radius:50%;
+  background:var(--gold);cursor:pointer;
+  box-shadow:0 0 8px rgba(245,158,11,0.5);
+}
+.sim-range-labels{
+  display:flex;justify-content:space-between;
+  font-size:11px;color:var(--text-muted);margin-top:8px;
+}
+.sim-rows{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.sim-row{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:14px 18px;border-radius:var(--radius-sm);
+  background:rgba(255,255,255,0.03);border:1px solid var(--border);
+}
+[data-theme="light"] .sim-row{background:rgba(0,0,0,0.02)}
+.sim-row-lbl{font-size:13px;color:var(--text-muted)}
+.sim-row-val{font-family:var(--font-head);font-size:16px;font-weight:800}
+.sim-chart-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:28px;display:flex;flex-direction:column;align-items:center;gap:20px;
+  transition:border-color .25s,box-shadow .25s;
+}
+.sim-chart-card:hover{border-color:var(--purple);box-shadow:0 8px 32px rgba(139,92,246,0.12)}
+.sim-chart-title{font-family:var(--font-head);font-size:17px;font-weight:700;align-self:flex-start}
+.sim-chart-wrap{width:100%;max-width:280px;perspective:800px}
+.sim-chart-wrap canvas{transform:rotateX(8deg)}
+.sim-net-label{font-size:12px;color:var(--text-muted);margin-top:4px}
+.sim-net-val{font-family:var(--font-head);font-size:40px;font-weight:900;color:var(--gold)}
+.sim-legend{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:4px}
+.sim-legend-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-muted)}
+.sim-legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.sim-info-row{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;
+}
+@media(max-width:600px){.sim-info-row{grid-template-columns:1fr}}
+.sim-info-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);
+  padding:16px;cursor:pointer;transition:border-color .2s,background .2s;
+}
+.sim-info-card:hover{border-color:var(--em);background:rgba(16,185,129,0.04)}
+.sim-info-card h4{font-family:var(--font-head);font-size:13px;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.sim-info-card p{font-size:12px;color:var(--text-muted);line-height:1.55}
+
+/* ── INFO MODAL FISCAL ── */
+.info-overlay{
+  position:fixed;inset:0;z-index:3500;
+  background:rgba(0,0,0,0.75);backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.info-overlay.open{opacity:1;pointer-events:all}
+.info-modal{
+  width:100%;max-width:520px;
+  background:var(--bg2);border:1px solid var(--border);border-radius:24px;
+  transform:scale(.95) translateY(20px);
+  transition:transform .35s cubic-bezier(.22,1,.36,1);
+  overflow:hidden;
+}
+.info-overlay.open .info-modal{transform:scale(1) translateY(0)}
+.info-modal-head{
+  display:flex;align-items:center;gap:14px;
+  padding:22px 24px 18px;border-bottom:1px solid var(--border);
+}
+.info-modal-icon{
+  width:48px;height:48px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;
+}
+.info-modal-title{font-family:var(--font-head);font-size:18px;font-weight:800}
+.info-modal-close{
+  margin-left:auto;width:34px;height:34px;border-radius:9px;flex-shrink:0;
+  background:var(--card);border:1px solid var(--border);
+  color:var(--text-muted);font-size:13px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;cursor:pointer;
+}
+.info-modal-close:hover{color:#fff;border-color:var(--red);background:rgba(239,68,68,.15)}
+.info-modal-body{padding:22px 24px;display:flex;flex-direction:column;gap:12px}
+.info-row{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:12px 14px;border-radius:12px;
+  background:rgba(255,255,255,0.03);border:1px solid var(--border);
+}
+[data-theme="light"] .info-row{background:rgba(0,0,0,0.02)}
+.info-row-icon{font-size:18px;flex-shrink:0;padding-top:1px}
+.info-row-txt strong{display:block;font-size:13px;font-weight:700;margin-bottom:3px}
+.info-row-txt span{font-size:12px;color:var(--text-muted);line-height:1.5}
+.info-modal-footer{
+  padding:16px 24px;border-top:1px solid var(--border);
+  display:flex;justify-content:flex-end;gap:10px;
+}
+.info-btn-sec{
+  padding:9px 18px;border-radius:10px;font-size:13px;font-weight:600;
+  background:var(--card);border:1px solid var(--border);color:var(--text-md);
+  transition:all .2s;cursor:pointer;
+}
+.info-btn-sec:hover{border-color:var(--em);color:var(--text)}
+.info-btn-pri{
+  padding:9px 20px;border-radius:10px;font-size:13px;font-weight:700;
+  background:linear-gradient(135deg,var(--em),var(--blue));
+  color:#fff;transition:opacity .2s,transform .2s;cursor:pointer;
+}
+.info-btn-pri:hover{opacity:.88;transform:translateY(-1px)}
+
+/* ══════════ SCROLL TO TOP ══════════ */
+.top-btn{
+  position:fixed;bottom:28px;right:28px;z-index:1500;
+  width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(135deg,var(--em),var(--blue));
+  color:#fff;font-size:16px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 32px rgba(16,185,129,0.4);
+  opacity:0;pointer-events:none;transform:translateY(12px);
+  transition:opacity .3s,transform .3s;
+}
+.top-btn.visible{opacity:1;pointer-events:all;transform:translateY(0)}
+.top-btn:hover{transform:translateY(-2px) !important}
+
+/* ══════════ STAT COUNTER ══════════ */
+.counter{display:inline-block}
+</style>
+</head>
+<body>
+
+<!-- ════════ NAV ════════ -->
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-icon">🇩🇿</div>
+    Guide AE<span> DZ</span>
+  </a>
+  <div class="nav-links">
+    <a class="nav-link" href="#catalog">Métiers</a>
+    <a class="nav-link" href="#guide">Guide ANAE</a>
+    <a class="nav-link" href="#simulateur">Simulateur fiscal</a>
+    <a class="nav-link" href="#legal">Cadre légal</a>
+    <a class="nav-link" href="/">← Algeria Tech</a>
+  </div>
+  <div class="nav-actions">
+    <button class="btn-theme" id="themeBtn" onclick="toggleTheme()" title="Changer le thème">
+      <i class="fas fa-moon" id="themeIcon"></i>
+    </button>
+    <a class="btn-cta" href="#catalog">Explorer les métiers</a>
+  </div>
+</nav>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero" id="hero">
+  <canvas id="heroCanvas"></canvas>
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Algérie · Statut Auto-Entrepreneur · 2026
+    </div>
+    <h1 class="hero-title">
+      Guide de<br><em>l'auto-entrepreneur DZ</em>
+    </h1>
+    <p class="hero-sub">
+      La plateforme de référence pour les freelances tech algériens. 60 métiers numériques couvrant 350+ codes ANAE, guide complet et débat IA spécialisé — tout ce qu'il faut pour lancer votre activité.
+    </p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#catalog">
+        <i class="fas fa-layer-group"></i> Explorer les 60 métiers
+      </a>
+      <a class="btn-secondary" href="#guide">
+        <i class="fas fa-route"></i> Comment s'inscrire
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-val grad-text"><span class="counter" data-target="60">0</span>+</span>
+        <span class="hero-stat-lbl">Métiers numériques</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-val grad-text-gold">0,5 %</span>
+        <span class="hero-stat-lbl">IFU · LF 2024</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-val" style="color:var(--blue)">5 M DA</span>
+        <span class="hero-stat-lbl">Plafond CA/an</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-val" style="color:var(--purple)">100 %</span>
+        <span class="hero-stat-lbl">En ligne · ANAE</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">
+    Découvrir <div class="hero-scroll-arrow"><i class="fas fa-chevron-down"></i></div>
+  </div>
+</section>
+
+<!-- ════════ TICKER ════════ -->
+<div class="ticker">
+  <div class="ticker-tag"><i class="fas fa-chart-line"></i> Croissance DZ</div>
+  <div class="ticker-track">
+    <div class="ticker-inner" id="tickerInner"></div>
+  </div>
+</div>
+
+<!-- ════════ ADVANTAGES ════════ -->
+<div class="adv-wrap">
+  <div class="adv-card" data-reveal>
+    <div class="adv-icon" style="background:rgba(245,158,11,.1)">💰</div>
+    <div>
+      <div class="adv-val" style="color:var(--gold)">0,5 % IFU</div>
+      <div class="adv-lbl">Impôt Forfaitaire Unique — taux attractif pour les freelances tech depuis la LF 2024</div>
+    </div>
+  </div>
+  <div class="adv-card" data-reveal>
+    <div class="adv-icon" style="background:rgba(16,185,129,.1)">🖥️</div>
+    <div>
+      <div class="adv-val" style="color:var(--em)">100 % En ligne</div>
+      <div class="adv-lbl">Inscription complète sur <strong>anae.dz</strong> — carte auto-entrepreneur valable 5 ans</div>
+    </div>
+  </div>
+  <div class="adv-card" data-reveal>
+    <div class="adv-icon" style="background:rgba(59,130,246,.1)">📊</div>
+    <div>
+      <div class="adv-val" style="color:var(--blue)">5 000 000 DA</div>
+      <div class="adv-lbl">Plafond de chiffre d'affaires annuel — idéal pour les prestataires tech</div>
+    </div>
+  </div>
+  <div class="adv-card" data-reveal>
+    <div class="adv-icon" style="background:rgba(139,92,246,.1)">⚡</div>
+    <div>
+      <div class="adv-val" style="color:var(--purple)">5 jours</div>
+      <div class="adv-lbl">Délai moyen d'obtention de la carte AE après dépôt du dossier en ligne</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ CATALOG ════════ -->
+<section class="catalog" id="catalog">
+  <div class="catalog-header" data-reveal>
+    <span class="section-tag"><i class="fas fa-th"></i> Répertoire des métiers</span>
+    <div class="catalog-top">
+      <div>
+        <h2 class="section-title">60 Métiers du Numérique</h2>
+        <p class="section-sub" style="margin-top:8px">Filtrez par domaine · Recherchez · Cliquez sur une carte pour plus d'infos</p>
+      </div>
+      <div class="search-wrap">
+        <i class="fas fa-search search-icon"></i>
+        <input class="search-input" id="searchInput" type="text" placeholder="Rechercher un métier…" oninput="liveSearch(this.value)" autocomplete="off">
+      </div>
+    </div>
+    <div class="toolbar">
+      <div class="filters" id="filters">
+        <button class="filter-pill active" onclick="filterCards('all',this)"><i class="fas fa-th"></i> Tous</button>
+        <button class="filter-pill" onclick="filterCards('dev',this)" style="--pill-accent:#3b82f6"><i class="fas fa-code"></i> Dev</button>
+        <button class="filter-pill" onclick="filterCards('design',this)"><i class="fas fa-palette"></i> Design</button>
+        <button class="filter-pill" onclick="filterCards('marketing',this)"><i class="fas fa-bullhorn"></i> Marketing</button>
+        <button class="filter-pill" onclick="filterCards('data',this)"><i class="fas fa-chart-bar"></i> Data & IA</button>
+        <button class="filter-pill" onclick="filterCards('telecom',this)"><i class="fas fa-satellite-dish"></i> Télécom</button>
+        <button class="filter-pill" onclick="filterCards('content',this)"><i class="fas fa-video"></i> Contenu</button>
+      </div>
+      <div class="count-label" id="countLabel"></div>
+    </div>
+  </div>
+  <div class="cards-grid" id="aeGrid"></div>
+</section>
+
+<!-- ════════ GUIDE ════════ -->
+<section class="guide-outer" id="guide">
+  <div class="guide-inner">
+    <span class="section-tag" data-reveal><i class="fas fa-route"></i> Comment démarrer</span>
+    <h2 class="section-title" style="margin-top:16px" data-reveal>Devenir AE Tech en 5 étapes</h2>
+    <p class="section-sub" data-reveal>De zéro à votre carte auto-entrepreneur — entièrement en ligne, sous 5 jours ouvrés</p>
+    <div class="steps">
+      <div class="step" data-reveal>
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title">Vérifier l'éligibilité</div>
+          <div class="step-desc">Personne physique algérienne — exercer une activité de la liste des 1 300+ activités autorisées (décret exécutif 23-197 du 4 juin 2023).</div>
+        </div>
+      </div>
+      <div class="step" data-reveal>
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title">Créer un compte ANAE</div>
+          <div class="step-desc">Sur <strong>anae.dz</strong> — numéro national, adresse email valide et pièce d'identité scannée.</div>
+          <a class="step-link" href="https://anae.dz" target="_blank" rel="noopener">Accéder au portail ANAE <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="step" data-reveal>
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title">Remplir le formulaire</div>
+          <div class="step-desc">Choisir l'activité tech dans la liste officielle, définir la dénomination commerciale et déposer le dossier numérique.</div>
+        </div>
+      </div>
+      <div class="step" data-reveal>
+        <div class="step-num">4</div>
+        <div>
+          <div class="step-title">Recevoir la carte AE</div>
+          <div class="step-desc">Validation automatisée — la carte numérique auto-entrepreneur arrive sous 5 jours ouvrés. Elle est valable 5 ans, renouvelable en ligne.</div>
+        </div>
+      </div>
+      <div class="step" data-reveal>
+        <div class="step-num">5</div>
+        <div>
+          <div class="step-title">Déclarer et payer l'IFU</div>
+          <div class="step-desc">Déclaration trimestrielle en ligne sur <strong>mfdgi.gov.dz</strong> — IFU à 0,5 % du chiffre d'affaires encaissé. Aucune comptabilité complexe requise.</div>
+          <a class="step-link" href="https://www.mfdgi.gov.dz" target="_blank" rel="noopener">Portail fiscal DGI <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CADRE LÉGAL ════════ -->
+<section class="legal-section" id="legal">
+  <div class="legal-inner">
+    <div style="text-align:center;margin-bottom:0" data-reveal>
+      <span class="section-tag"><i class="fas fa-balance-scale"></i> Textes officiels</span>
+      <h2 class="section-title" style="margin-top:16px">Cadre légal & réglementaire</h2>
+      <p class="section-sub" style="margin:12px auto 0">Les textes fondateurs du statut auto-entrepreneur en Algérie</p>
+    </div>
+    <div class="legal-grid" style="margin-top:40px">
+      <div class="legal-item" data-reveal>
+        <div class="legal-hd" onclick="toggleLegal(this)">
+          <span class="legal-icon">📜</span>
+          <div>
+            <div class="legal-title-txt">Loi 22-23 du 24 décembre 2022 — Loi de Finances 2023</div>
+          </div>
+          <span class="legal-ref">LF 2023</span>
+          <i class="fas fa-chevron-right legal-arrow"></i>
+        </div>
+        <div class="legal-body">
+          <div class="legal-desc">Création du statut auto-entrepreneur en droit algérien. Définit le régime de l'IFU, le plafond de CA et les conditions d'éligibilité. Base légale de tout le dispositif.</div>
+        </div>
+      </div>
+      <div class="legal-item" data-reveal>
+        <div class="legal-hd" onclick="toggleLegal(this)">
+          <span class="legal-icon">⚖️</span>
+          <div>
+            <div class="legal-title-txt">Décret exécutif 23-197 du 4 juin 2023 — Liste des activités</div>
+          </div>
+          <span class="legal-ref">Décret 23-197</span>
+          <i class="fas fa-chevron-right legal-arrow"></i>
+        </div>
+        <div class="legal-body">
+          <div class="legal-desc">Fixe la liste officielle des 1 300+ activités éligibles au statut AE, dont les métiers du numérique, de la technologie et des télécommunications.</div>
+        </div>
+      </div>
+      <div class="legal-item" data-reveal>
+        <div class="legal-hd" onclick="toggleLegal(this)">
+          <span class="legal-icon">💰</span>
+          <div>
+            <div class="legal-title-txt">Loi de Finances 2024 — IFU à 0,5 %</div>
+          </div>
+          <span class="legal-ref">LF 2024</span>
+          <i class="fas fa-chevron-right legal-arrow"></i>
+        </div>
+        <div class="legal-body">
+          <div class="legal-desc">Abaissement de l'IFU à 0,5 % du chiffre d'affaires pour les auto-entrepreneurs, rendant le statut encore plus attractif pour les freelances tech algériens.</div>
+        </div>
+      </div>
+      <div class="legal-item" data-reveal>
+        <div class="legal-hd" onclick="toggleLegal(this)">
+          <span class="legal-icon">🛡️</span>
+          <div>
+            <div class="legal-title-txt">Loi 18-07 — Protection des données personnelles</div>
+          </div>
+          <span class="legal-ref">Loi 18-07</span>
+          <i class="fas fa-chevron-right legal-arrow"></i>
+        </div>
+        <div class="legal-body">
+          <div class="legal-desc">Loi relative à la protection des personnes physiques dans le traitement des données à caractère personnel. Obligatoire pour les AE qui traitent des données clients (développeurs, consultants, etc.).</div>
+        </div>
+      </div>
+      <div class="legal-item" data-reveal>
+        <div class="legal-hd" onclick="toggleLegal(this)">
+          <span class="legal-icon">📦</span>
+          <div>
+            <div class="legal-title-txt">Micro-importation — Décret 2025 · JO n°40</div>
+          </div>
+          <span class="legal-ref">JO 40/2025</span>
+          <i class="fas fa-chevron-right legal-arrow"></i>
+        </div>
+        <div class="legal-body">
+          <div class="legal-desc">Permet aux AE d'importer du matériel tech jusqu'à 1,8 M DA par voyage. Droits de douane réduits à 5 % pour le matériel informatique et électronique professionnel.
+            <a class="legal-link" href="https://www.joradp.dz/FTP/jo-francais/2025/F2025040.pdf" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> Télécharger le JO n°40 · 2025</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ SIMULATEUR FISCAL ════════ -->
+<section class="sim-outer" id="simulateur">
+  <div class="sim-inner">
+    <span class="section-tag" data-reveal><i class="fas fa-calculator"></i> Outil interactif</span>
+    <h2 class="section-title" style="margin-top:16px" data-reveal>Simulateur Fiscal Auto-Entrepreneur</h2>
+    <p class="section-sub" data-reveal>Estimez vos impôts et cotisations en temps réel — IFU 0,5 % · CASNOS · Loi de Finances algérienne</p>
+
+    <div class="sim-grid" data-reveal>
+      <!-- Panneau de contrôle -->
+      <div class="sim-card">
+        <h3 class="sim-chart-title" style="margin-bottom:20px">📊 Vos Revenus</h3>
+        <div class="sim-label">Chiffre d'affaires annuel prévisionnel (DZD)</div>
+        <input type="number" id="sim-ca-input" class="sim-input" value="1000000" min="0" max="9999999">
+        <input type="range" id="sim-ca-slider" class="sim-slider" min="10000" max="5000000" step="10000" value="1000000">
+        <div class="sim-range-labels">
+          <span>10 000 DA</span>
+          <span>Plafond AE : 5 000 000 DA</span>
+        </div>
+        <div class="sim-rows">
+          <div class="sim-row">
+            <span class="sim-row-lbl"><i class="fas fa-receipt" style="color:var(--gold);margin-right:8px"></i>Impôt IFU (0,5 %)</span>
+            <span class="sim-row-val" id="sim-ifu" style="color:var(--gold)">5 000 DA</span>
+          </div>
+          <div class="sim-row">
+            <span class="sim-row-lbl"><i class="fas fa-shield-alt" style="color:var(--purple);margin-right:8px"></i>Cotisation CASNOS (min.)</span>
+            <span class="sim-row-val" id="sim-casnos" style="color:var(--purple)">24 000 DA</span>
+          </div>
+          <div class="sim-row" style="border-color:rgba(16,185,129,0.3);background:rgba(16,185,129,0.05)">
+            <span class="sim-row-lbl"><i class="fas fa-wallet" style="color:var(--em);margin-right:8px"></i>Total prélèvements</span>
+            <span class="sim-row-val" id="sim-total" style="color:var(--em)">29 000 DA</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Graphique -->
+      <div class="sim-chart-card">
+        <div class="sim-chart-title">Répartition du revenu</div>
+        <div class="sim-chart-wrap">
+          <canvas id="sim-chart"></canvas>
+        </div>
+        <div>
+          <p class="sim-net-label">Revenu net après prélèvements</p>
+          <p class="sim-net-val" id="sim-net">971 000 DA</p>
+        </div>
+        <div class="sim-legend">
+          <div class="sim-legend-item"><span class="sim-legend-dot" style="background:#10b981"></span>Revenu net</div>
+          <div class="sim-legend-item"><span class="sim-legend-dot" style="background:#f59e0b"></span>IFU 0,5 %</div>
+          <div class="sim-legend-item"><span class="sim-legend-dot" style="background:#8b5cf6"></span>CASNOS</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Infos supplémentaires -->
+    <div class="sim-info-row" data-reveal>
+      <div class="sim-info-card" onclick="openFiscalInfo('ifu')">
+        <h4>💡 Pourquoi 0,5 % ?</h4>
+        <p>Le statut AE bénéficie d'un taux IFU réduit depuis la Loi de Finances 2024 pour encourager l'entrepreneuriat numérique et l'économie formelle.</p>
+      </div>
+      <div class="sim-info-card" onclick="openFiscalInfo('casnos')">
+        <h4>🛡️ Couverture CASNOS</h4>
+        <p>La cotisation minimale de 24 000 DA/an ouvre droit à la carte CHIFA, à la couverture maladie et au régime de retraite via la CASNOS.</p>
+      </div>
+      <div class="sim-info-card" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">
+        <h4>🔍 Métiers éligibles</h4>
+        <p>Plus de 1 300 activités autorisées. Cliquez pour explorer les 60 métiers du numérique couverts par ce guide.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">
+        <div class="footer-logo-icon">🇩🇿</div>
+        Algeria<span>Tech</span>
+      </div>
+      <p class="footer-desc">Votre référence tech algérienne — actualité TIC, télécoms, startups, innovation numérique et veille réglementaire JORADP/ARPCE en temps réel.</p>
+    </div>
+    <div>
+      <div class="footer-col-h">Navigation</div>
+      <ul class="footer-links">
+        <li><a class="footer-link" href="/">Accueil Algeria Tech</a></li>
+        <li><a class="footer-link" href="#catalog">Métiers AE</a></li>
+        <li><a class="footer-link" href="#guide">Guide ANAE</a></li>
+        <li><a class="footer-link" href="#legal">Cadre légal</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-h">Ressources officielles</div>
+      <ul class="footer-links">
+        <li><a class="footer-link" href="https://anae.dz" target="_blank" rel="noopener">ANAE — Inscription AE</a></li>
+        <li><a class="footer-link" href="https://www.joradp.dz" target="_blank" rel="noopener">JORADP</a></li>
+        <li><a class="footer-link" href="https://www.arpce.dz" target="_blank" rel="noopener">ARPCE</a></li>
+        <li><a class="footer-link" href="https://www.mfdgi.gov.dz" target="_blank" rel="noopener">DGI — Portail fiscal</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>Guide de l'auto-entrepreneur DZ © 2026 · Algeria Tech · Données : ARPCE / JORADP</span>
+    <div class="footer-pills">
+      <span class="footer-pill">IFU 0,5 %</span>
+      <span class="footer-pill">ANAE</span>
+      <span class="footer-pill">Loi 22-23</span>
+      <span class="footer-pill">Décret 23-197</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════ CHAT OVERLAY ════════ -->
+<div class="overlay" id="debateOverlay" onclick="closeDebate(event)">
+  <div class="panel" id="debatePanel">
+    <div class="panel-head">
+      <div class="panel-icon" id="panelIcon">🤖</div>
+      <div>
+        <div class="panel-title" id="panelTitle">Débattre avec l'IA</div>
+        <div class="panel-sub">Expert analyste TIC & économie algérienne · Mistral AI</div>
+      </div>
+      <button class="panel-close" onclick="closeDebate(null)" title="Fermer"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="chat-msgs" id="chatMessages"></div>
+    <div class="chat-sugs" id="chatSuggestions"></div>
+    <div class="chat-bar">
+      <textarea class="chat-input" id="chatInput" placeholder="Posez votre question sur ce métier…"
+        rows="1" onkeydown="handleInputKey(event)" oninput="autoGrow(this)"></textarea>
+      <button class="chat-send" id="sendBtn" onclick="sendMessage()" title="Envoyer">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ DETAIL MODAL ════════ -->
+<div class="detail-overlay" id="detailOverlay" onclick="closeDetail(event)">
+  <div class="detail-panel" id="detailPanel">
+    <div class="detail-hero">
+      <div class="detail-accent-bar" id="detailAccentBar"></div>
+      <div class="detail-top">
+        <div class="detail-icon" id="detailIcon"></div>
+        <button class="detail-close" onclick="closeDetail(null)"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="detail-domain" id="detailDomain"></div>
+      <div class="detail-title" id="detailTitle"></div>
+      <div class="detail-badges" id="detailBadges"></div>
+      <div class="detail-desc" id="detailDesc"></div>
+    </div>
+    <div class="detail-body">
+      <div>
+        <div class="detail-section-h">Compétences clés</div>
+        <div class="detail-tags" id="detailTags"></div>
+      </div>
+      <div class="detail-tjm-box">
+        <i class="fas fa-coins" style="color:var(--gold);font-size:20px"></i>
+        <div>
+          <div class="detail-tjm-val" id="detailTjm"></div>
+          <div class="detail-tjm-lbl">Tarif journalier moyen estimé — marché algérien 2026</div>
+        </div>
+      </div>
+      <div>
+        <div class="detail-section-h">Questions fréquentes sur ce métier en Algérie</div>
+        <div class="detail-sugs" id="detailSugs"></div>
+      </div>
+      <div>
+        <div class="detail-section-h">Contexte marché DZ</div>
+        <div class="detail-context" id="detailContext"></div>
+      </div>
+    </div>
+    <div class="detail-footer">
+      <div class="detail-growth-badge" id="detailGrowth"></div>
+      <button class="btn-debate-full" id="detailDebateBtn"><i class="fas fa-comments"></i> Débattre avec l'IA</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ INFO MODAL FISCAL ════════ -->
+<div class="info-overlay" id="fiscalOverlay" onclick="closeFiscalInfo(event)">
+  <div class="info-modal" id="fiscalModal">
+    <div class="info-modal-head">
+      <div class="info-modal-icon" id="fiscalIcon"></div>
+      <div class="info-modal-title" id="fiscalTitle"></div>
+      <button class="info-modal-close" onclick="closeFiscalInfo(null)" title="Fermer"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="info-modal-body" id="fiscalBody"></div>
+    <div class="info-modal-footer">
+      <button class="info-btn-sec" onclick="closeFiscalInfo(null)">Fermer</button>
+      <a class="info-btn-pri" id="fiscalLink" href="#" target="_blank" rel="noopener">En savoir plus</a>
+    </div>
+  </div>
+</div>
+
+<!-- SCROLL TO TOP -->
+<button class="top-btn" id="topBtn" onclick="scrollToTop()" title="Haut de page">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<script>
+/* ════════════════════════════════════════════════════════
+   DATA — 18 Métiers tech auto-entrepreneur Algérie 2026
+   ════════════════════════════════════════════════════════ */
+const METIERS = [
+  {
+    id:'dev-web', cat:'dev',
+    icon:'💻', iconBg:'rgba(59,130,246,.12)', accent:'#3b82f6',
+    title:'Développeur Web Full-Stack',
+    domain:'Développement', domainColor:'#3b82f6',
+    demand:'high', demandLabel:'Forte demande', growth:'+34 %', isNew:false,
+    desc:'Conception et développement d\'applications web (front-end React/Vue, back-end Node/Python, bases de données). Prestataire pour startups, PME et administrations algériennes en pleine digitalisation.',
+    tags:['React','Node.js','Python','API REST','PostgreSQL'],
+    tjm:'8 000 – 20 000 DA/j',
+    suggestions:['Peut-on facturer des clients étrangers depuis l\'Algérie avec le statut AE ?','Quels projets publics sont ouverts aux freelances développeurs en Algérie ?','Comment déclarer un revenu Fiverr avec le statut auto-entrepreneur ?'],
+    context:'Développeur web full-stack auto-entrepreneur en Algérie. Développement front-end (React, Vue.js, Next.js) et back-end (Node.js, Python, PHP). Le marché algérien est en forte croissance avec la digitalisation des entreprises et des administrations. Le statut AE avec IFU à 0,5% est très attractif pour ce profil.'
+  },
+  {
+    id:'dev-mobile', cat:'dev',
+    icon:'📱', iconBg:'rgba(59,130,246,.12)', accent:'#3b82f6',
+    title:'Développeur Mobile',
+    domain:'Développement', domainColor:'#3b82f6',
+    demand:'high', demandLabel:'Forte demande', growth:'+28 %', isNew:false,
+    desc:'Développement d\'applications iOS et Android pour des clients algériens et internationaux. Flutter et React Native permettent de cibler les deux plateformes avec une seule base de code.',
+    tags:['Flutter','React Native','Android','iOS','Firebase'],
+    tjm:'10 000 – 25 000 DA/j',
+    suggestions:['Quelles applications mobiles sont les plus demandées en Algérie ?','Le Play Store paie-t-il directement en Algérie pour un AE ?','Comment protéger une application mobile développée en tant qu\'AE ?'],
+    context:'Développeur mobile auto-entrepreneur en Algérie. Spécialiste Flutter et React Native. Le marché des applications mobiles en Algérie croît fortement avec plus de 50 millions de smartphones. Les applis d\'e-commerce, de paiement (Edahabia, CIB) et de services publics sont très demandées.'
+  },
+  {
+    id:'dev-cyber', cat:'dev',
+    icon:'🛡️', iconBg:'rgba(239,68,68,.12)', accent:'#ef4444',
+    title:'Consultant Cybersécurité',
+    domain:'Développement', domainColor:'#3b82f6',
+    demand:'very-high', demandLabel:'🔥 Très forte', growth:'+58 %', isNew:true,
+    desc:'Audit de sécurité, tests de pénétration, mise en conformité (loi 18-07). La cybersécurité est une priorité nationale avec la création du Comité National de Cybersécurité (décret 26-07).',
+    tags:['Pentest','SIEM','ISO 27001','Loi 18-07','CERT-DZ'],
+    tjm:'15 000 – 35 000 DA/j',
+    suggestions:['La loi 18-07 oblige-t-elle les entreprises à faire auditer leur sécurité par un AE ?','Comment se positionner face aux grands cabinets de cybersécurité en tant qu\'AE ?','Le décret 26-07 de 2026 crée-t-il de nouvelles opportunités pour les freelances ?'],
+    context:'Consultant cybersécurité auto-entrepreneur en Algérie. Expertise en pentest, audit SIEM, conformité loi 18-07. Décret présidentiel 26-07 du 7 janvier 2026 portant création d\'une structure de cybersécurité dans les administrations publiques. Fort potentiel marché B2B.'
+  },
+  {
+    id:'dev-cloud', cat:'dev',
+    icon:'☁️', iconBg:'rgba(6,182,212,.12)', accent:'#06b6d4',
+    title:'Ingénieur Cloud / DevOps',
+    domain:'Développement', domainColor:'#3b82f6',
+    demand:'high', demandLabel:'Forte demande', growth:'+41 %', isNew:false,
+    desc:'Architecture cloud (AWS, Azure, GCP), CI/CD, containerisation (Docker/Kubernetes) et infrastructure as code. La transition cloud des entreprises algériennes génère une forte demande en expertise DevOps.',
+    tags:['AWS','Kubernetes','Terraform','CI/CD','Docker'],
+    tjm:'12 000 – 30 000 DA/j',
+    suggestions:['Y a-t-il des datacenters algériens ou les AE utilisent des clouds étrangers ?','Comment facturer AWS ou Azure à un client algérien en tant qu\'AE ?','La souveraineté numérique change-t-elle les opportunités DevOps en Algérie ?'],
+    context:'Ingénieur Cloud et DevOps auto-entrepreneur en Algérie. Expertise AWS, Azure, Kubernetes, Terraform. La stratégie nationale de souveraineté numérique et la création de datacenters nationaux créent des opportunités. Les banques algériennes et les opérateurs télécom investissent massivement dans le cloud.'
+  },
+  {
+    id:'dev-ia', cat:'data',
+    icon:'🤖', iconBg:'rgba(139,92,246,.12)', accent:'#8b5cf6',
+    title:'Développeur IA / Machine Learning',
+    domain:'Data & IA', domainColor:'#8b5cf6',
+    demand:'very-high', demandLabel:'🔥 Très forte', growth:'+65 %', isNew:true,
+    desc:'Développement de modèles de machine learning, fine-tuning de LLMs, intégration d\'APIs IA (Claude, Mistral, GPT) dans des applications métier. Marché en explosion depuis 2024.',
+    tags:['Python','TensorFlow','LLM','Mistral AI','RAG'],
+    tjm:'15 000 – 40 000 DA/j',
+    suggestions:['Les LLMs peuvent-ils être entraînés sur des données en arabe dialectal algérien ?','Y a-t-il des aides pour les AE développant des IA en Algérie ?','Comment facturer un projet IA à l\'international depuis l\'Algérie ?'],
+    context:'Développeur IA et Machine Learning auto-entrepreneur en Algérie. Expertise LLM (Mistral, Claude, GPT), RAG, fine-tuning, intégration IA en production. L\'Algérie investit dans l\'IA via le programme national de digitalisation. Le marché du chatbot en arabe dialectal algérien est quasi inexploré.'
+  },
+  {
+    id:'data-engineer', cat:'data',
+    icon:'📊', iconBg:'rgba(139,92,246,.12)', accent:'#8b5cf6',
+    title:'Ingénieur Data / Data Scientist',
+    domain:'Data & IA', domainColor:'#8b5cf6',
+    demand:'high', demandLabel:'Forte demande', growth:'+39 %', isNew:false,
+    desc:'Collecte, traitement et analyse de données pour aider les entreprises algériennes à prendre des décisions fondées sur les données. Dashboards BI, pipelines ETL, rapports analytiques.',
+    tags:['Python','Power BI','SQL','Spark','Tableau'],
+    tjm:'10 000 – 25 000 DA/j',
+    suggestions:['Les opérateurs télécom algériens utilisent-ils des data scientists freelances ?','Comment accéder aux données publiques algériennes pour des projets data ?','Power BI est-il accessible sans VPN depuis l\'Algérie ?'],
+    context:'Ingénieur Data et Data Scientist auto-entrepreneur en Algérie. Expertise Power BI, Python, SQL, pipelines ETL. Les opérateurs télécom (Mobilis, Djezzy, Ooredoo), les banques et les administrations algériennes commencent à investir dans la data.'
+  },
+  {
+    id:'dev-erp', cat:'dev',
+    icon:'⚙️', iconBg:'rgba(59,130,246,.12)', accent:'#3b82f6',
+    title:'Développeur ERP / Intégrateur',
+    domain:'Développement', domainColor:'#3b82f6',
+    demand:'medium', demandLabel:'En croissance', growth:'+19 %', isNew:false,
+    desc:'Intégration et personnalisation d\'ERPs (Odoo, SAP B1, SAGE) pour les PME algériennes. La digitalisation comptable obligatoire pousse les entreprises à s\'équiper en logiciels de gestion.',
+    tags:['Odoo','Python','SAGE','SAP B1','Comptabilité DZ'],
+    tjm:'9 000 – 22 000 DA/j',
+    suggestions:['Odoo est-il le logiciel ERP le plus utilisé par les PME algériennes ?','Y a-t-il des certifications Odoo reconnues par le marché algérien ?','La TVA électronique oblige-t-elle les PME à adopter un ERP certifié ?'],
+    context:'Développeur ERP et intégrateur auto-entrepreneur en Algérie. Spécialiste Odoo et SAGE. La DGI a rendu obligatoire la facturation électronique pour certaines entreprises. Les PME algériennes sont en train de se digitaliser massivement, créant une forte demande en intégration ERP.'
+  },
+  {
+    id:'ui-ux', cat:'design',
+    icon:'🎨', iconBg:'rgba(236,72,153,.12)', accent:'#ec4899',
+    title:'Designer UI/UX',
+    domain:'Design & UX', domainColor:'#ec4899',
+    demand:'high', demandLabel:'Forte demande', growth:'+31 %', isNew:false,
+    desc:'Conception d\'interfaces utilisateur et d\'expériences produit pour applications web et mobiles. Recherche utilisateur, wireframing, prototypage et design system. Demande forte des startups algériennes.',
+    tags:['Figma','Design System','Prototypage','UX Research','Accessibilité'],
+    tjm:'8 000 – 18 000 DA/j',
+    suggestions:['Y a-t-il des clients qui comprennent la valeur de l\'UX en Algérie ?','Comment construire un portfolio UX crédible pour le marché algérien ?','Figma est-il accessible et payable depuis l\'Algérie ?'],
+    context:'Designer UI/UX auto-entrepreneur en Algérie. Expertise Figma, design system, UX research. Le marché algérien des applications mobiles et web est en croissance. Les startups labélisées par le ministère (programme Startup DZ) sont des clients potentiels importants.'
+  },
+  {
+    id:'motion', cat:'design',
+    icon:'🎬', iconBg:'rgba(236,72,153,.12)', accent:'#ec4899',
+    title:'Motion Designer / Vidéaste',
+    domain:'Design & UX', domainColor:'#ec4899',
+    demand:'medium', demandLabel:'En croissance', growth:'+22 %', isNew:false,
+    desc:'Création de contenus vidéo animés, montage, motion graphics et habillage audiovisuel pour entreprises, institutions et créateurs de contenu. YouTube et réseaux sociaux algériens en plein essor.',
+    tags:['After Effects','Premiere Pro','CapCut Pro','DaVinci Resolve','Blender'],
+    tjm:'6 000 – 15 000 DA/j',
+    suggestions:['Comment monétiser ses compétences Motion Design en Algérie ?','Adobe Creative Cloud est-il payable depuis l\'Algérie légalement ?','Les chaînes YouTube algériennes font-elles appel à des freelances pour le montage ?'],
+    context:'Motion Designer et vidéaste auto-entrepreneur en Algérie. Expertise After Effects, Premiere Pro, montage. YouTube en Algérie connaît une croissance explosive avec des chaînes à plusieurs millions d\'abonnés.'
+  },
+  {
+    id:'seo', cat:'marketing',
+    icon:'🔍', iconBg:'rgba(245,158,11,.12)', accent:'#f59e0b',
+    title:'Expert SEO / SEA',
+    domain:'Marketing digital', domainColor:'#f59e0b',
+    demand:'medium', demandLabel:'En croissance', growth:'+22 %', isNew:false,
+    desc:'Optimisation du référencement naturel et payant pour les sites algériens. Google DZ est la première source de trafic web. Forte demande des e-commerces, cabinets médicaux et établissements éducatifs.',
+    tags:['Google Analytics 4','SEMrush','Google Ads','SEO Local','Search Console'],
+    tjm:'6 000 – 15 000 DA/j',
+    suggestions:['Quel est le niveau de maturité SEO des entreprises algériennes ?','Le référencement en arabe est-il plus porteur qu\'en français en Algérie ?','Google Ads accepte-t-il les paiements depuis l\'Algérie en 2026 ?'],
+    context:'Expert SEO et SEA auto-entrepreneur en Algérie. Spécialiste référencement Google DZ, publicité Google Ads. Le marché algérien du web représente plus de 50 millions d\'internautes. La compétition SEO reste faible comparée aux marchés européens, offrant des opportunités réelles.'
+  },
+  {
+    id:'cm', cat:'marketing',
+    icon:'📣', iconBg:'rgba(245,158,11,.12)', accent:'#f59e0b',
+    title:'Community Manager Digital',
+    domain:'Marketing digital', domainColor:'#f59e0b',
+    demand:'medium', demandLabel:'En croissance', growth:'+18 %', isNew:false,
+    desc:'Gestion des réseaux sociaux (Facebook, Instagram, TikTok, LinkedIn) pour entreprises et institutions algériennes. Création de contenu, modération, stratégie de croissance et reporting analytique.',
+    tags:['Facebook Ads','Meta Business','TikTok Ads','Canva Pro','Hootsuite'],
+    tjm:'4 000 – 10 000 DA/j',
+    suggestions:['Facebook est-il encore dominant en Algérie face à TikTok et Instagram ?','Peut-on gérer les réseaux d\'un client étranger depuis l\'Algérie ?','Les publicités Meta acceptent-elles les cartes algériennes en 2025 ?'],
+    context:'Community Manager auto-entrepreneur en Algérie. Gestion Facebook, Instagram, TikTok, LinkedIn. Facebook reste le réseau dominant avec plus de 25 millions d\'utilisateurs algériens. TikTok est en forte croissance chez les 15-30 ans.'
+  },
+  {
+    id:'ecommerce', cat:'marketing',
+    icon:'🛒', iconBg:'rgba(245,158,11,.12)', accent:'#f59e0b',
+    title:'Consultant E-Commerce',
+    domain:'Marketing digital', domainColor:'#f59e0b',
+    demand:'high', demandLabel:'Forte demande', growth:'+40 %', isNew:false,
+    desc:'Création et optimisation de boutiques en ligne (Shopify, WooCommerce, solutions locales). Intégration des paiements algériens (Edahabia, CIB, virement), logistique et stratégie de croissance.',
+    tags:['Shopify','WooCommerce','Edahabia API','CIB','Logistique DZ'],
+    tjm:'7 000 – 18 000 DA/j',
+    suggestions:['L\'e-commerce en Algérie est-il rentable avec les contraintes de paiement actuelles ?','Comment intégrer le paiement Edahabia sur un site Shopify ?','Quels sont les meilleurs transporteurs algériens pour l\'e-commerce ?'],
+    context:'Consultant e-commerce auto-entrepreneur en Algérie. Expertise Shopify, WooCommerce, paiements algériens (Edahabia, CIB, Satim). L\'e-commerce algérien croît de 40% par an. La plateforme Edahabia d\'Algérie Poste et le CIB interbancaire ouvrent enfin le paiement en ligne.'
+  },
+  {
+    id:'consultant-data', cat:'data',
+    icon:'📈', iconBg:'rgba(139,92,246,.12)', accent:'#8b5cf6',
+    title:'Consultant BI / Analyst Data',
+    domain:'Data & IA', domainColor:'#8b5cf6',
+    demand:'high', demandLabel:'Forte demande', growth:'+33 %', isNew:false,
+    desc:'Création de tableaux de bord décisionnels (Power BI, Tableau) pour les directions générales. Analyse des données opérationnelles, KPIs sectoriels et rapports d\'aide à la décision pour PME et institutions.',
+    tags:['Power BI','Tableau','DAX','Excel avancé','SQL'],
+    tjm:'8 000 – 20 000 DA/j',
+    suggestions:['Power BI Desktop est-il gratuit et accessible depuis l\'Algérie ?','Les banques algériennes font-elles appel à des freelances BI ?','Quelle est la différence entre un data analyst et un data scientist dans le contexte algérien ?'],
+    context:'Consultant BI et Data Analyst auto-entrepreneur en Algérie. Expertise Power BI, Tableau, DAX, SQL. Les grandes entreprises algériennes (opérateurs télécom, banques, assurances) commencent à investir dans la BI.'
+  },
+  {
+    id:'formateur', cat:'data',
+    icon:'🎓', iconBg:'rgba(139,92,246,.12)', accent:'#8b5cf6',
+    title:'Formateur Tech en ligne',
+    domain:'Data & IA', domainColor:'#8b5cf6',
+    demand:'high', demandLabel:'Forte demande', growth:'+45 %', isNew:false,
+    desc:'Création et vente de formations tech en ligne (développement web, cybersécurité, IA, Excel avancé). Le marché de la formation digitale algérienne est sous-exploité avec une jeunesse diplômée avide d\'upskilling.',
+    tags:['Udemy','Teachable','Live Sessions','Moodle','YouTube'],
+    tjm:'Formation 20 K – 200 K DA',
+    suggestions:['Les formations en ligne vendues depuis l\'Algérie sont-elles soumises à la TVA ?','Udemy verse-t-il des revenus aux formateurs algériens directement ?','Quelle plateforme de formation est la plus utilisée par les Algériens en 2025 ?'],
+    context:'Formateur tech en ligne auto-entrepreneur en Algérie. Création de formations web, dev, cybersécurité, IA. Marché très porteur : la jeunesse algérienne (70% de moins de 30 ans) cherche des formations pratiques et en français/arabe.'
+  },
+  {
+    id:'telecom', cat:'telecom',
+    icon:'📡', iconBg:'rgba(6,182,212,.12)', accent:'#06b6d4',
+    title:'Consultant Télécom / ARPCE',
+    domain:'Télécom & Réseau', domainColor:'#06b6d4',
+    demand:'medium', demandLabel:'En croissance', growth:'+15 %', isNew:false,
+    desc:'Conseil réglementaire et technique pour les opérateurs, équipementiers et nouveaux entrants dans le secteur des télécommunications algérien. Expertise ARPCE, licences, conformité et veille réglementaire.',
+    tags:['ARPCE','Régulation','Licences','4G/5G','Audit réseau'],
+    tjm:'15 000 – 40 000 DA/j',
+    suggestions:['Peut-on être consultant ARPCE indépendant sans avoir travaillé dans un opérateur ?','La 5G en Algérie va-t-elle créer de nouvelles opportunités pour les consultants ?','Comment accéder aux appels d\'offres de Mobilis, Djezzy et Ooredoo en tant qu\'AE ?'],
+    context:'Consultant télécom et régulation ARPCE auto-entrepreneur en Algérie. Expertise conformité, licences, veille JORADP. Le marché télécom algérien génère plus de 400 milliards DA par an. La 5G est prévue pour 2025-2026.'
+  },
+  {
+    id:'fibre', cat:'telecom',
+    icon:'🔌', iconBg:'rgba(6,182,212,.12)', accent:'#06b6d4',
+    title:'Technicien Fibre Optique / Réseau',
+    domain:'Télécom & Réseau', domainColor:'#06b6d4',
+    demand:'medium', demandLabel:'En croissance', growth:'+20 %', isNew:false,
+    desc:'Installation, test et maintenance de réseaux fibre optique FTTH et FTTB pour les opérateurs et entreprises. Algérie Télécom déploie massivement la fibre, créant un besoin important en sous-traitants qualifiés.',
+    tags:['FTTH','FTTB','OTDR','Soudure fibre','CISCO'],
+    tjm:'5 000 – 12 000 DA/j',
+    suggestions:['Algérie Télécom fait-elle appel à des AE pour ses déploiements fibre ?','Faut-il une certification spécifique pour installer la fibre optique en Algérie ?','Quelle est la couverture fibre actuelle en Algérie et le potentiel du marché ?'],
+    context:'Technicien fibre optique et réseau auto-entrepreneur en Algérie. Expert FTTH/FTTB, soudure, OTDR. Algérie Télécom déploie activement la fibre. Le programme national haut débit vise 10 millions de foyers connectés en fibre d\'ici 2027.'
+  },
+  {
+    id:'content-tech', cat:'content',
+    icon:'🎙️', iconBg:'rgba(16,185,129,.12)', accent:'#10b981',
+    title:'Créateur de Contenu Tech',
+    domain:'Contenu & Média', domainColor:'#10b981',
+    demand:'high', demandLabel:'Forte demande', growth:'+38 %', isNew:false,
+    desc:'Production de contenus tech pour YouTube, podcasts et réseaux sociaux en ciblant l\'audience algérienne. Reviews de matériel, tutoriels, actualités tech DZ et vulgarisation numérique.',
+    tags:['YouTube','Podcast','Newsletter','TikTok Tech','Sponsoring'],
+    tjm:'Variable — abonnés + sponsors',
+    suggestions:['YouTube paie-t-il les créateurs algériens directement ? Via quel système ?','Faut-il déclarer ses revenus YouTube avec le statut AE ?','Quels sont les sujets tech les plus recherchés par les internautes algériens ?'],
+    context:'Créateur de contenu tech auto-entrepreneur en Algérie. YouTube, TikTok, newsletter tech. YouTube monétise les créateurs algériens via AdSense (paiement par virement). Le statut AE est idéal pour légaliser ces revenus.'
+  },
+  {
+    id:'copywriter', cat:'content',
+    icon:'✍️', iconBg:'rgba(16,185,129,.12)', accent:'#10b981',
+    title:'Rédacteur Web Tech / Copywriter IA',
+    domain:'Contenu & Média', domainColor:'#10b981',
+    demand:'high', demandLabel:'Forte demande', growth:'+29 %', isNew:true,
+    desc:'Rédaction d\'articles tech, fiches produit, content marketing et copy publicitaire augmenté par l\'IA. Clients : médias numériques, e-commerces tech, startups algériennes cherchant à développer leur présence web.',
+    tags:['SEO writing','IA rédaction','Content marketing','Tech journalism','Trilinguisme'],
+    tjm:'3 000 – 8 000 DA/j',
+    suggestions:['Les médias numériques algériens paient-ils correctement leurs rédacteurs freelances ?','Comment utiliser l\'IA pour rédiger du contenu SEO en arabe et en français ?','Y a-t-il des plateformes de content marketing acceptant les rédacteurs algériens ?'],
+    context:'Rédacteur web tech et copywriter IA auto-entrepreneur en Algérie. Contenu bilingue FR/AR, SEO, IA-assisté. Le secteur des médias numériques algériens emploie des freelances. La demande de contenu de qualité en français ET en arabe est forte.'
+  },
+  // ══ NOUVEAUX GROUPES ANAE ══
+  // ── 020209-020212 ──
+  {
+    id:'brand-designer', cat:'design',
+    icon:'✨', iconBg:'rgba(236,72,153,.12)', accent:'#ec4899',
+    title:'Designer Marques & Produits Numériques',
+    domain:'Design & UX', domainColor:'#ec4899',
+    demand:'high', demandLabel:'Forte demande', growth:'+27 %', isNew:false,
+    desc:'Création d\'identités de marque complètes, design de produits numériques et d\'interfaces IA. Couvre les profils Designer de produits numériques, Designer de marques, Spécialiste de modélisation et Designer d\'interfaces IA (codes ANAE 020209–020212).',
+    tags:['Figma','Branding','Design System','IA UI Design','Adobe XD'],
+    tjm:'8 000 – 20 000 DA/j',
+    suggestions:['Comment se différencier d\'un graphiste classique sur le marché algérien ?','Les startups Startup DZ ont-elles des budgets branding sérieux ?','Peut-on breveter une identité visuelle créée en tant qu\'AE en Algérie ?'],
+    context:'Designer de marques et produits numériques AE en Algérie. Codes ANAE 020209, 020210, 020211, 020212. Les startups du programme Startup DZ, les e-commerces et les PME cherchent des identités visuelles professionnelles. La demande pour des designers capables de concevoir des interfaces d\'IA est en très forte croissance à l\'international.'
+  },
+  // ── 020306-020313 ──
+  {
+    id:'marketing-influence', cat:'marketing',
+    icon:'📲', iconBg:'rgba(245,158,11,.12)', accent:'#f59e0b',
+    title:'Expert Marketing Influence & Campagnes',
+    domain:'Marketing digital', domainColor:'#f59e0b',
+    demand:'high', demandLabel:'Forte demande', growth:'+33 %', isNew:false,
+    desc:'Gestion de campagnes d\'influence, marketing sur réseaux sociaux, publicité en ligne et planification de campagnes numériques. Regroupe les codes ANAE 020306 à 020313 : spécialiste influence, planificateur campagnes, stratège contenu, manager créateurs, analyste données marketing.',
+    tags:['Influence Marketing','Meta Ads','TikTok Ads','KPI','Analytics'],
+    tjm:'6 000 – 18 000 DA/j',
+    suggestions:['Le marketing d\'influence est-il rentable en Algérie avec les micro-influenceurs ?','Comment mesurer le ROI d\'une campagne d\'influence pour un client algérien ?','Quelles marques algériennes investissent sérieusement dans l\'influence marketing ?'],
+    context:'Expert marketing influence et campagnes AE en Algérie. Codes ANAE 020306–020313. L\'écosystème des influenceurs algériens (YouTube, TikTok, Instagram) est l\'un des plus dynamiques d\'Afrique du Nord. Les marques FMCG, les opérateurs télécom et les e-commerces externalisent la gestion de leurs campagnes d\'influence.'
+  },
+  // ── 020304, 020305, 021408 ──
+  {
+    id:'email-crm', cat:'marketing',
+    icon:'📧', iconBg:'rgba(245,158,11,.12)', accent:'#f59e0b',
+    title:'Spécialiste Email Marketing & CRM',
+    domain:'Marketing digital', domainColor:'#f59e0b',
+    demand:'medium', demandLabel:'En croissance', growth:'+19 %', isNew:false,
+    desc:'Gestion des campagnes email, automatisation marketing et déploiement de CRM (Salesforce, HubSpot, Odoo CRM). Couvre les codes ANAE 020304 (email marketing), 020305 (marketing réseaux sociaux spécialisé), 021408 (consultant relation client).',
+    tags:['Mailchimp','HubSpot','Salesforce','Automation','Segmentation'],
+    tjm:'5 000 – 13 000 DA/j',
+    suggestions:['Les CRM sont-ils adoptés par les PME algériennes ou encore peu connus ?','Comment mettre en place une stratégie email marketing conforme à la loi 18-07 en Algérie ?','HubSpot est-il accessible et payable depuis l\'Algérie en 2026 ?'],
+    context:'Spécialiste email marketing et CRM AE en Algérie. Codes ANAE 020304, 020305, 021408. Le CRM est encore peu adopté par les PME algériennes, ce qui représente une opportunité de conseil. Les banques, assurances et opérateurs télécom algériens utilisent des CRM enterprise (Salesforce, SAP CRM) et externalisent leur paramétrage.'
+  },
+  // ── 020402, 020407, 020408, 020409 ──
+  {
+    id:'chef-projet-digital', cat:'data',
+    icon:'📋', iconBg:'rgba(59,130,246,.12)', accent:'#3b82f6',
+    title:'Chef de Projet Digital / Scrum Master',
+    domain:'Data & IA', domainColor:'#8b5cf6',
+    demand:'high', demandLabel:'Forte demande', growth:'+26 %', isNew:false,
+    desc:'Pilotage de projets informatiques en méthodes agiles et traditionnelles. Regroupe les codes ANAE 020402 (Gestionnaire projet informatique), 020407 (Chef de projet numérique), 020408 (Scrum Master), 020409 (Développeur agile).',
+    tags:['Scrum','Jira','Agile','PMP','MS Project'],
+    tjm:'10 000 – 25 000 DA/j',
+    suggestions:['Les entreprises algériennes adoptent-elles les méthodes agiles Scrum ?','La certification PMP ou PSM est-elle reconnue sur le marché algérien ?','Comment gérer un projet IT pour une administration algérienne avec les contraintes réglementaires ?'],
+    context:'Chef de projet digital et Scrum Master AE en Algérie. Codes ANAE 020402, 020407, 020408, 020409. Les grands projets de digitalisation des administrations algériennes (DGI, CNSS, APC) créent une forte demande en pilotage de projets. La certification Scrum Master (PSM) est valorisée par les ESN et startups tech.'
+  },
+  // ── 020403, 021409-021413 ──
+  {
+    id:'consultant-transformation', cat:'data',
+    icon:'🔄', iconBg:'rgba(139,92,246,.12)', accent:'#8b5cf6',
+    title:'Consultant Transformation Numérique',
+    domain:'Data & IA', domainColor:'#8b5cf6',
+    demand:'high', demandLabel:'Forte demande', growth:'+35 %', isNew:true,
+    desc:'Accompagnement des entreprises dans leur transition numérique : diagnostic, feuille de route digitale, choix des outils et conduite du changement. Codes ANAE 020403, 021409 (Consultant SI), 021410 (Consultant ERP), 021411, 021412, 021413.',
+    tags:['Transformation Digitale','Audit SI','Roadmap','Change Management','ERP'],
+    tjm:'15 000 – 40 000 DA/j',
+    suggestions:['Les PME algériennes ont-elles conscience de l\'urgence de leur transformation numérique ?','Comment convaincre un dirigeant algérien d\'investir dans la transformation digitale ?','Quels secteurs algériens sont les plus avancés dans leur digitalisation ?'],
+    context:'Consultant en transformation numérique AE en Algérie. Codes ANAE 020403, 021409–021413. Le programme national de digitalisation de l\'administration et l\'obligation de facturation électronique DGI poussent des milliers d\'entreprises à se digitaliser. Profil très recherché et bien rémunéré, surtout pour les secteurs bancaire, industriel et administratif.'
+  },
+  // ── 020501-020511 ──
+  {
+    id:'experience-client', cat:'marketing',
+    icon:'🎧', iconBg:'rgba(245,158,11,.12)', accent:'#f59e0b',
+    title:'Spécialiste Expérience Client & Support Digital',
+    domain:'Marketing digital', domainColor:'#f59e0b',
+    demand:'medium', demandLabel:'En croissance', growth:'+20 %', isNew:false,
+    desc:'Gestion de l\'expérience client en ligne, support technique, relations publiques digitales et fidélisation. Regroupe 11 codes ANAE (020501–020511) : spécialiste support technique, communication client, vente en ligne, RP en ligne, expérience client, fidélisation, SAV digital.',
+    tags:['CRM','Zendesk','Intercom','NPS','Live Chat'],
+    tjm:'4 000 – 11 000 DA/j',
+    suggestions:['Le service client digital est-il valorisé par les entreprises algériennes ?','Comment facturer une mission de refonte du service client digital en AE ?','Zendesk ou HubSpot Service Hub — lequel est plus adapté au marché algérien ?'],
+    context:'Spécialiste expérience client digital AE en Algérie. Codes ANAE 020501–020511. Les e-commerces et plateformes de livraison algériennes (Yassir, Guepex) cherchent des profils expérience client. Les opérateurs télécom externalisent une partie de leur support client numérique à des AE spécialisés.'
+  },
+  // ── 020603, 060301, 060316, 060317 ──
+  {
+    id:'robotique', cat:'dev',
+    icon:'🦾', iconBg:'rgba(239,68,68,.12)', accent:'#ef4444',
+    title:'Ingénieur Robotique & Systèmes Automatisés',
+    domain:'Développement', domainColor:'#3b82f6',
+    demand:'medium', demandLabel:'En croissance', growth:'+30 %', isNew:true,
+    desc:'Conception et programmation de systèmes robotiques, automatisation industrielle et intégration de systèmes embarqués. Couvre les codes ANAE 020603 (robotique), 060301 (automaticien), 060316 (technicien R&D robotique), 060317 (technicien informatique industrielle).',
+    tags:['ROS','Python','C++','PLC','Automatisation'],
+    tjm:'12 000 – 32 000 DA/j',
+    suggestions:['L\'industrie algérienne investit-elle dans la robotisation de ses chaînes de production ?','Existe-t-il des projets de robotique soutenus par l\'État algérien ?','Comment un ingénieur robotique AE peut-il accéder aux appels d\'offres industriels ?'],
+    context:'Ingénieur robotique et systèmes automatisés AE en Algérie. Codes ANAE 020603, 060301, 060316, 060317. Le secteur industriel algérien (automotive, agroalimentaire, pharmaceutique) commence à investir dans l\'automatisation. Le complexe Renault-Algérie et les industries SNVI/SONATRACH représentent des débouchés potentiels pour les AE robotique.'
+  },
+  // ── 020602, 020605 ──
+  {
+    id:'vr-ar', cat:'design',
+    icon:'🥽', iconBg:'rgba(139,92,246,.12)', accent:'#8b5cf6',
+    title:'Spécialiste Réalité Virtuelle & Augmentée',
+    domain:'Design & UX', domainColor:'#ec4899',
+    demand:'medium', demandLabel:'En croissance', growth:'+25 %', isNew:true,
+    desc:'Développement d\'expériences immersives VR/AR pour la formation, l\'immobilier, le tourisme et l\'industrie. Codes ANAE 020602 (Spécialiste réalité virtuelle) et 020605 (Développeur réalité augmentée). Marché naissant en Algérie avec fort potentiel de visites virtuelles immobilières.',
+    tags:['Unity','Unreal Engine','WebXR','Oculus SDK','ARKit'],
+    tjm:'10 000 – 28 000 DA/j',
+    suggestions:['La visite virtuelle d\'appartements est-elle demandée par les promoteurs algériens ?','Les musées et sites touristiques algériens investissent-ils dans la réalité augmentée ?','La formation professionnelle en VR a-t-elle un marché en Algérie ?'],
+    context:'Spécialiste VR/AR AE en Algérie. Codes ANAE 020602, 020605. Le boom immobilier algérien (AADL, promoteurs privés) crée une demande pour les visites virtuelles d\'appartements. Le secteur pétrolier (Sonatrach) utilise la VR pour la formation et la simulation de maintenance. Profil rare = fort avantage concurrentiel.'
+  },
+  // ── 020609, 020707-020710 ──
+  {
+    id:'chatbot-nlp', cat:'data',
+    icon:'💬', iconBg:'rgba(139,92,246,.12)', accent:'#8b5cf6',
+    title:'Développeur Chatbot & NLP / Reconnaissance Vocale',
+    domain:'Data & IA', domainColor:'#8b5cf6',
+    demand:'very-high', demandLabel:'🔥 Très forte', growth:'+55 %', isNew:true,
+    desc:'Développement de chatbots intelligents, systèmes de traitement du langage naturel (NLP) et de reconnaissance vocale en arabe et français. Codes ANAE 020609, 020707, 020708, 020709, 020710. Marché quasi inexploré pour l\'arabe dialectal algérien.',
+    tags:['Rasa','LangChain','Whisper','Arabert','Python NLP'],
+    tjm:'15 000 – 45 000 DA/j',
+    suggestions:['Existe-t-il des datasets NLP en arabe algérien (darija) disponibles publiquement ?','Les banques et télécoms algériens déploient-ils des chatbots en arabe ?','Comment monétiser un chatbot en darija algérien — B2B ou B2C ?'],
+    context:'Développeur chatbot et NLP AE en Algérie. Codes ANAE 020609, 020707–020710. L\'arabe dialectal algérien est l\'une des langues les moins bien couvertes par les modèles de langage actuels, créant une opportunité énorme. Les banques (CPA, BNA), assurances (CAAR) et opérateurs télécom cherchent des chatbots bilingues FR/AR pour réduire les coûts de support client.'
+  },
+  // ── 020801-020803, 020807-020810 ──
+  {
+    id:'big-data-arch', cat:'data',
+    icon:'🏗️', iconBg:'rgba(139,92,246,.12)', accent:'#8b5cf6',
+    title:'Ingénieur Big Data & Architecte Data',
+    domain:'Data & IA', domainColor:'#8b5cf6',
+    demand:'high', demandLabel:'Forte demande', growth:'+37 %', isNew:false,
+    desc:'Conception de pipelines de données massives, architecture lacs de données (data lake) et plateformes analytiques. Codes ANAE 020801–020803, 020807–020810 : ingénieur Big Data, analyste données massives, architecte Big Data, spécialiste exploration, stockage et visualisation de données.',
+    tags:['Hadoop','Spark','Kafka','Data Lake','Databricks'],
+    tjm:'15 000 – 38 000 DA/j',
+    suggestions:['ARPCE publie des données télécom — comment un AE peut-il les valoriser commercialement ?','Les grandes entreprises algériennes ont-elles des data lakes opérationnels ?','Quels outils Big Data sont utilisés par les banques algériennes ?'],
+    context:'Ingénieur Big Data et architecte data AE en Algérie. Codes ANAE 020801–020803, 020807–020810. Les opérateurs télécom (Mobilis, Djezzy, Ooredoo) génèrent des téraoctets de données quotidiennement. Les banques et assurances algériennes commencent à investir dans des plateformes analytiques modernes. Profil rare, très bien rémunéré.'
+  },
+  // ── 020902, 020906-020910 ──
+  {
+    id:'rssi', cat:'dev',
+    icon:'🔐', iconBg:'rgba(239,68,68,.12)', accent:'#ef4444',
+    title:'RSSI / Auditeur Sécurité & Conformité',
+    domain:'Développement', domainColor:'#3b82f6',
+    demand:'very-high', demandLabel:'🔥 Très forte', growth:'+48 %', isNew:true,
+    desc:'Responsable de la sécurité de l\'information, audit de conformité, gestion des identités/accès (IAM) et analyse de risques. Codes ANAE 020902, 020906 (IAM), 020907 (auditeur), 020908 (risques), 020909 (conformité), 020910 (chercheur). Distinct du pentesteur — profil gouvernance et management.',
+    tags:['RSSI','ISO 27001','IAM','EBIOS','Conformité Loi 18-07'],
+    tjm:'18 000 – 50 000 DA/j',
+    suggestions:['La loi 18-07 impose-t-elle la désignation d\'un RSSI dans les entreprises algériennes ?','Comment un AE peut-il être mandaté comme RSSI externalisé (vRSSI) en Algérie ?','Quelles certifications sécurité sont les plus reconnues sur le marché algérien (CISSP, CISM) ?'],
+    context:'RSSI externalisé et auditeur sécurité AE en Algérie. Codes ANAE 020902, 020906–020910. Le décret 26-07 rend obligatoire une structure de cybersécurité dans les administrations. Les PME algériennes commencent à rechercher des RSSI externalisés (vCISO). La conformité loi 18-07 crée des missions d\'audit régulières. Profil le mieux rémunéré du secteur.'
+  },
+  // ── 021002-021006, 021009-021010 ──
+  {
+    id:'cloud-arch', cat:'dev',
+    icon:'🌐', iconBg:'rgba(6,182,212,.12)', accent:'#06b6d4',
+    title:'Architecte Cloud & Spécialiste Migration',
+    domain:'Développement', domainColor:'#3b82f6',
+    demand:'high', demandLabel:'Forte demande', growth:'+38 %', isNew:false,
+    desc:'Architecture cloud multi-provider, migration vers le cloud, sécurité cloud et orchestration de conteneurs. Codes ANAE 021002–021006, 021009–021010 : architecte solutions cloud, admin cloud, consultant migration, sécurité cloud, gestion données cloud, orchestration Kubernetes, multicloud.',
+    tags:['AWS Solutions Arch','Azure','GCP','Kubernetes','Terraform'],
+    tjm:'18 000 – 45 000 DA/j',
+    suggestions:['La souveraineté numérique algérienne limite-t-elle l\'adoption du cloud public ?','Comment un AE certifié AWS peut-il accéder aux marchés publics algériens ?','Algérie Télécom Cloud est-il compétitif face à AWS/Azure pour les entreprises locales ?'],
+    context:'Architecte cloud et spécialiste migration AE en Algérie. Codes ANAE 021002–021006, 021009–021010. La politique de souveraineté numérique algérienne impose des hébergements locaux pour certaines données sensibles (JORADP 2024). Algérie Télécom lance son offre IaaS nationale. Les banques et assurances doivent migrer vers des environnements certifiés.'
+  },
+  // ── 021202-021210 ──
+  {
+    id:'ingenieur-pedagogique', cat:'data',
+    icon:'🏛️', iconBg:'rgba(139,92,246,.12)', accent:'#8b5cf6',
+    title:'Ingénieur Pédagogique & Concepteur E-Learning',
+    domain:'Data & IA', domainColor:'#8b5cf6',
+    demand:'high', demandLabel:'Forte demande', growth:'+42 %', isNew:false,
+    desc:'Conception de dispositifs de formation en ligne complexes, ingénierie pédagogique numérique et spécification EdTech. Codes ANAE 021202–021210 : concepteur programmes formation, responsable formation, spécialiste edtech, développeur contenu e-learning, analyste données éducation, ingénieur pédagogique numérique.',
+    tags:['Articulate 360','Moodle','SCORM','Instructional Design','LMS'],
+    tjm:'8 000 – 22 000 DA/j',
+    suggestions:['Les universités algériennes externalisent-elles la création de leurs cours en ligne ?','Comment se positionner comme ingénieur pédagogique pour le marché de la formation professionnelle DZ ?','La plateforme MOOC nationale algérienne offre-t-elle des opportunités aux concepteurs indépendants ?'],
+    context:'Ingénieur pédagogique et concepteur e-learning AE en Algérie. Codes ANAE 021202–021210. Le MESRS algérien a lancé un plan de digitalisation de l\'enseignement supérieur post-COVID. Les organismes de formation professionnelle (INAP, CNAS, CAAT) cherchent des ingénieurs pédagogiques pour convertir leurs formations présentiel en e-learning.'
+  },
+  // ── 021301-021308, 021401-021402, 021421 ──
+  {
+    id:'architecte-si', cat:'data',
+    icon:'🏛️', iconBg:'rgba(59,130,246,.12)', accent:'#3b82f6',
+    title:'Architecte Systèmes d\'Information & Urbaniste',
+    domain:'Data & IA', domainColor:'#8b5cf6',
+    demand:'high', demandLabel:'Forte demande', growth:'+24 %', isNew:false,
+    desc:'Conception de l\'architecture technique des systèmes d\'information, urbanisme du SI et normalisation. Codes ANAE 021301–021308, 021401, 021402, 021421 : architecte BDD, données, multimédia, réseau/sécurité, réseaux, système, SI, fonctionnel, urbaniste SI.',
+    tags:['TOGAF','UML','ArchiMate','Architecture SI','EA Sparx'],
+    tjm:'20 000 – 55 000 DA/j',
+    suggestions:['La certification TOGAF est-elle reconnue par les DSI algériennes ?','Les grandes administrations algériennes ont-elles des schémas directeurs SI ?','Comment un architecte SI AE peut-il accéder aux marchés publics de l\'État algérien ?'],
+    context:'Architecte SI et urbaniste AE en Algérie. Codes ANAE 021301–021308, 021401, 021402, 021421. Les grandes administrations algériennes (Ministères, Sonatrach, banques publiques) lancent des schémas directeurs SI et ont besoin d\'architectes pour cadrer leurs projets de modernisation. Profil très bien rémunéré, peu de freelances sur ce segment.'
+  },
+  // ── 021309-021319 ──
+  {
+    id:'expert-si', cat:'data',
+    icon:'⚡', iconBg:'rgba(59,130,246,.12)', accent:'#3b82f6',
+    title:'Expert Systèmes d\'Information & Réseaux',
+    domain:'Data & IA', domainColor:'#8b5cf6',
+    demand:'high', demandLabel:'Forte demande', growth:'+22 %', isNew:false,
+    desc:'Expertise technique transverse couvrant les réseaux informatiques, la sécurité, les méthodes qualité et les systèmes. Codes ANAE 021309–021319 : expert Internet/multimédia, méthodes qualité, réseaux/télécom, sécurité, système/réseaux, ingénieur méthodes, ingénieur réseau, sécurité, système, responsable sécurité.',
+    tags:['ITIL','Qualité ISO 20000','Réseaux IP','Sécurité','Méthodes SI'],
+    tjm:'15 000 – 40 000 DA/j',
+    suggestions:['La certification ITIL est-elle valorisée par les entreprises algériennes ?','Quels secteurs algériens investissent le plus dans la qualité de leurs systèmes d\'information ?','Comment un expert SI AE peut-il se positionner face aux grandes ESN en Algérie ?'],
+    context:'Expert SI et réseaux AE en Algérie. Codes ANAE 021309–021319. Les ESN locales (SSII algériennes) manquent de profils experts pour leurs missions client. Les assurances, banques et opérateurs télécom externalisent régulièrement des missions d\'expertise SI pointues. ITIL v4 et ISO 20000 sont les certifications de référence.'
+  },
+  // ── 021404-021420 ──
+  {
+    id:'consultant-moa', cat:'data',
+    icon:'🗺️', iconBg:'rgba(139,92,246,.12)', accent:'#8b5cf6',
+    title:'Consultant MOA / Maîtrise d\'Ouvrage SI',
+    domain:'Data & IA', domainColor:'#8b5cf6',
+    demand:'medium', demandLabel:'En croissance', growth:'+20 %', isNew:false,
+    desc:'Assistance à maîtrise d\'ouvrage (AMOA) pour les projets SI des entreprises et administrations. Codes ANAE 021404–021420 : assistant MOA, chef projet MOA, consultant fonctionnel SI, coordinateur MOA, expert métier SI, gestionnaire applications, maître d\'ouvrage SI, responsable architecture/veille, responsable qualité SI.',
+    tags:['AMOA','Cahier des charges','Recette','UML','Conduite du changement'],
+    tjm:'12 000 – 30 000 DA/j',
+    suggestions:['Quelle est la différence entre MOA et MOE pour les projets SI algériens ?','Comment rédiger un cahier des charges fonctionnel pour une administration algérienne ?','Les projets SI publics algériens sont-ils accessibles aux AE en tant qu\'AMOA ?'],
+    context:'Consultant MOA AE en Algérie. Codes ANAE 021404–021420. Les grands projets de digitalisation de l\'État algérien (e-gouvernement, digitalisation DGI, réforme CNSS) nécessitent des profils AMOA pour cadrer les besoins fonctionnels face aux prestataires informatiques. Profil rare sur le marché algérien.'
+  },
+  // ── 021501-021525 (angle distinct du consultant télécom existant) ──
+  {
+    id:'ingenieur-telecom', cat:'telecom',
+    icon:'📶', iconBg:'rgba(6,182,212,.12)', accent:'#06b6d4',
+    title:'Ingénieur Réseaux Télécom & Radio',
+    domain:'Télécom & Réseau', domainColor:'#06b6d4',
+    demand:'high', demandLabel:'Forte demande', growth:'+23 %', isNew:false,
+    desc:'Conception, déploiement et supervision des réseaux télécom fixes et mobiles. Codes ANAE 021501–021525 : architecte réseaux télécom, chargé planification/opération, ingénieur études/conception, ingénieur déploiement, ingénieur radio, ingénieur supervision, projeteur réseaux, technicien ingénierie réseaux.',
+    tags:['Planification RF','5G NR','Core Network','OSS/BSS','Huawei/Nokia'],
+    tjm:'15 000 – 42 000 DA/j',
+    suggestions:['Le déploiement 5G algérien va-t-il créer des opportunités pour les ingénieurs réseaux AE ?','Comment accéder aux sous-traitances réseau de Mobilis, Djezzy et Ooredoo ?','Quelles certifications télécom sont indispensables pour travailler avec Huawei ou Nokia en Algérie ?'],
+    context:'Ingénieur réseaux télécom et radio AE en Algérie. Codes ANAE 021501–021525. Algérie Télécom (renouvellement de licence décret 26-144), Mobilis, Djezzy et Ooredoo investissent massivement dans le déploiement 5G et la modernisation de leurs cœurs de réseau. Les équipementiers Huawei, Nokia et Ericsson recrutent via des AE locaux pour leurs déploiements algériens.'
+  },
+  // ── 021601-021640 ──
+  {
+    id:'analyste-concepteur', cat:'dev',
+    icon:'🔬', iconBg:'rgba(59,130,246,.12)', accent:'#3b82f6',
+    title:'Analyste-Programmeur / Concepteur Logiciel',
+    domain:'Développement', domainColor:'#3b82f6',
+    demand:'high', demandLabel:'Forte demande', growth:'+22 %', isNew:false,
+    desc:'Analyse des besoins, conception technique, développement et intégration de logiciels métier sur mesure. Regroupe 40 codes ANAE (021601–021640) : analyste concepteur, analyste développeur, concepteur logiciel, ingénieur d\'application, ingénieur de développement, intégrateur, responsable études, testeur, programmeur.',
+    tags:['UML','Merise','Java','C#','.NET'],
+    tjm:'8 000 – 22 000 DA/j',
+    suggestions:['Le développement de logiciels métier sur mesure est-il rentable en Algérie vs l\'ERP standard ?','Comment protéger un logiciel développé en tant qu\'AE — copyright ou brevet en Algérie ?','Les administrations algériennes préfèrent-elles le sur mesure ou les solutions packagées ?'],
+    context:'Analyste-programmeur et concepteur logiciel AE en Algérie. Codes ANAE 021601–021640. La demande en développement logiciel sur mesure est forte dans les secteurs médical (cliniques privées), comptable (cabinets d\'expertise comptable) et industriel. Les méthodes MERISE et UML restent prédominantes dans les appels d\'offres publics algériens.'
+  },
+  // ── 021701-021712 ──
+  {
+    id:'ingenieur-exploitation', cat:'dev',
+    icon:'⚙️', iconBg:'rgba(6,182,212,.12)', accent:'#06b6d4',
+    title:'Ingénieur Exploitation & Support Systèmes',
+    domain:'Développement', domainColor:'#3b82f6',
+    demand:'medium', demandLabel:'En croissance', growth:'+16 %', isNew:false,
+    desc:'Exploitation, supervision et maintien en condition opérationnelle des systèmes informatiques. Codes ANAE 021701–021712 : chef de salle, exploitant informatique, exploitant réseau, gestionnaire parc, ingénieur exploitation, ingénieur exploitation système, ingénieur support exploitation, technicien exploitation/informatique/réseau/système.',
+    tags:['Supervision','Nagios','Linux Admin','Backup','ITIL'],
+    tjm:'7 000 – 18 000 DA/j',
+    suggestions:['Les data centers algériens externalisent-ils leur exploitation à des AE ?','Comment proposer un contrat d\'astreinte informatique en tant qu\'AE en Algérie ?','Quels outils de supervision open source sont utilisés par les entreprises algériennes ?'],
+    context:'Ingénieur exploitation et support systèmes AE en Algérie. Codes ANAE 021701–021712. Les PME algériennes externalisent de plus en plus leur exploitation informatique. Les prestataires d\'infogérance locaux (TDS, ELIT, Sitel Algérie) font appel à des AE pour renforcer leurs équipes. Les hôpitaux publics numérisent progressivement leur SI et ont besoin d\'exploitants.'
+  },
+  // ── 021804-021810 ──
+  {
+    id:'webmaster', cat:'dev',
+    icon:'🌍', iconBg:'rgba(59,130,246,.12)', accent:'#3b82f6',
+    title:'Webmaster & Administrateur Web/Serveurs',
+    domain:'Développement', domainColor:'#3b82f6',
+    demand:'medium', demandLabel:'En croissance', growth:'+17 %', isNew:false,
+    desc:'Administration de sites web, serveurs, bases de données et messagerie d\'entreprise. Codes ANAE 021804–021810 : administrateur site internet, site web, réseau, réseaux télécom, sécurité informatique, système informatique, webmaster.',
+    tags:['cPanel','Apache/Nginx','WordPress','Linux Server','DNS/Mail'],
+    tjm:'5 000 – 14 000 DA/j',
+    suggestions:['Les hébergeurs algériens (DZ-Host, Hostinger DZ) offrent-ils des opportunités aux AE webmaster ?','Comment proposer un forfait maintenance de site web mensuel en tant qu\'AE ?','Le marché du site vitrine WordPress est-il saturé en Algérie ?'],
+    context:'Webmaster et administrateur web AE en Algérie. Codes ANAE 021804–021810. Des milliers de PME algériennes ont besoin de maintenance continue de leur site web et de leur messagerie professionnelle. Le marché de la maintenance mensuelle (contrat récurrent 5 000 à 20 000 DA/mois) est peu structuré mais très accessible pour les AE débutants.'
+  },
+  // ── 021713-021714, 020505, 021910 ──
+  {
+    id:'ged', cat:'content',
+    icon:'🗂️', iconBg:'rgba(16,185,129,.12)', accent:'#10b981',
+    title:'Gestionnaire Contenu Numérique & GED',
+    domain:'Contenu & Média', domainColor:'#10b981',
+    demand:'medium', demandLabel:'En croissance', growth:'+18 %', isNew:false,
+    desc:'Gestion électronique des documents, organisation des contenus numériques et administration des plateformes de partage. Codes ANAE 021713 (Gestionnaire de stock IT), 021714 (Chargé GED), 020505 (Gestionnaire contenu en ligne), 021910 (Gestionnaire réseaux sociaux pour plateformes).',
+    tags:['SharePoint','Alfresco','GED','Archivage numérique','M365'],
+    tjm:'4 000 – 10 000 DA/j',
+    suggestions:['La GED est-elle obligatoire pour les entreprises algériennes qui stockent des données personnelles ?','Comment convaincre une administration algérienne de migrer vers une GED numérique ?','SharePoint est-il accessible et utilisé par les entreprises algériennes ?'],
+    context:'Gestionnaire contenu numérique et GED AE en Algérie. Codes ANAE 021713, 021714, 020505, 021910. Les tribunaux, mairies et administrations algériennes ont des millions d\'archives papier à numériser. La loi sur l\'archivage numérique crée une forte demande en expertise GED. Les cabinets d\'avocats et notaires algériens sont aussi demandeurs.'
+  },
+  // ── 021906, 021709-021712 ──
+  {
+    id:'support-tech', cat:'dev',
+    icon:'🛠️', iconBg:'rgba(34,197,94,.12)', accent:'#22c55e',
+    title:'Technicien Support Informatique & Assistance',
+    domain:'Développement', domainColor:'#3b82f6',
+    demand:'medium', demandLabel:'En croissance', growth:'+15 %', isNew:false,
+    desc:'Support technique informatique à domicile et en entreprise, dépannage matériel/logiciel et assistance utilisateurs. Codes ANAE 021906 (technicien informatique à domicile), 021709–021712 : technicien exploitation système, technicien informatique, technicien réseau, technicien système.',
+    tags:['Help Desk','TeamViewer','Windows/Linux','Hardware','Ticketing'],
+    tjm:'3 500 – 9 000 DA/j',
+    suggestions:['Le support informatique à domicile est-il un marché viable pour un AE à Alger ?','Comment fixer ses tarifs de dépannage informatique AE en Algérie ?','Le télésupport (TeamViewer, AnyDesk) est-il accepté par les clients algériens ?'],
+    context:'Technicien support informatique AE en Algérie. Codes ANAE 021906, 021709–021712. La démocratisation des ordinateurs et smartphones dans les foyers algériens crée une demande constante en dépannage à domicile. Les PME sans DSI interne externalisent leur support level 1 et 2. Modèle économique accessible pour démarrer une activité AE.'
+  },
+  // ── 021914 ──
+  {
+    id:'correcteur', cat:'content',
+    icon:'✒️', iconBg:'rgba(16,185,129,.12)', accent:'#10b981',
+    title:'Correcteur / Relecteur Linguistique Tech',
+    domain:'Contenu & Média', domainColor:'#10b981',
+    demand:'medium', demandLabel:'En croissance', growth:'+16 %', isNew:false,
+    desc:'Correction, relecture et adaptation linguistique de contenus tech bilingues français/arabe. Code ANAE 021914. Demande croissante des startups, e-commerces et médias numériques algériens qui produisent des contenus en plusieurs langues sans avoir de service éditorial interne.',
+    tags:['Correction FR/AR','Traduction technique','Antidote','Style rédactionnel','Terminologie tech'],
+    tjm:'2 500 – 7 000 DA/j',
+    suggestions:['Les plateformes de correction linguistique internationales paient-elles les correcteurs algériens ?','Comment se spécialiser en correction de contenus tech bilingues en Algérie ?','Quels clients algériens ont le plus besoin de relecture professionnelle de leurs contenus ?'],
+    context:'Correcteur et relecteur linguistique tech AE en Algérie. Code ANAE 021914. Les médias numériques algériens (Algérie 1 web, Ennahar Online, El Watan) et les e-commerces produisent d\'importants volumes de contenus souvent mal relus. Les startups qui se lancent sur les marchés francophones ont besoin de correcteurs professionnels. Marché accessible avec peu de concurrence qualifiée.'
+  },
+  // ── 010132 ──
+  {
+    id:'domotique', cat:'dev',
+    icon:'🏠', iconBg:'rgba(6,182,212,.12)', accent:'#06b6d4',
+    title:'Conseiller Domotique & Maison Connectée',
+    domain:'Développement', domainColor:'#3b82f6',
+    demand:'medium', demandLabel:'En croissance', growth:'+22 %', isNew:true,
+    desc:'Conseil, installation et programmation de systèmes domotiques pour maisons et bureaux connectés. Code ANAE 010132. Le programme des 2 millions de logements AADL et la montée en gamme du marché immobilier privé algérien créent une demande croissante en domotique.',
+    tags:['KNX','Home Assistant','Zigbee','Philips Hue','Arduino IoT'],
+    tjm:'7 000 – 18 000 DA/j',
+    suggestions:['La domotique est-elle un marché accessible en Algérie au-delà des villas haut de gamme ?','Les produits domotiques (capteurs, passerelles) sont-ils facilement importables en Algérie ?','Comment se former en domotique KNX en Algérie — y a-t-il des centres de certification ?'],
+    context:'Conseiller domotique et maison connectée AE en Algérie. Code ANAE 010132. Le secteur immobilier haut de gamme algérien (villas, appartements standing à Alger, Oran, Constantine) commence à intégrer la domotique comme argument de vente. Les micro-importations de matériel domotique sont facilitées par le décret 2025 (plafond 1,8M DA). Profil pionnier sur ce marché.'
+  },
+  // ── 010216 ──
+  {
+    id:'veille', cat:'data',
+    icon:'🔭', iconBg:'rgba(139,92,246,.12)', accent:'#8b5cf6',
+    title:'Responsable Veille Stratégique & Intelligence Éco',
+    domain:'Data & IA', domainColor:'#8b5cf6',
+    demand:'medium', demandLabel:'En croissance', growth:'+19 %', isNew:false,
+    desc:'Mise en place de dispositifs de veille stratégique, concurrentielle et réglementaire pour les entreprises. Code ANAE 010216. En Algérie, la veille sur le JORADP (textes réglementaires), les appels d\'offres et les décisions ARPCE est un marché structuré mais peu professionnalisé.',
+    tags:['Veille JORADP','OSINT','Mention','Talkwalker','Intelligence économique'],
+    tjm:'8 000 – 20 000 DA/j',
+    suggestions:['Comment facturer une mission de veille réglementaire JORADP pour un client entreprise ?','Les outils de veille comme Mention ou Talkwalker sont-ils accessibles depuis l\'Algérie ?','Quels secteurs algériens ont le plus besoin de veille concurrentielle professionnelle ?'],
+    context:'Responsable veille stratégique AE en Algérie. Code ANAE 010216. Algeria Tech est la référence de la veille tech algérienne (JORADP, ARPCE, actualités TIC). Les entreprises étrangères qui souhaitent s\'implanter en Algérie ont besoin de veille réglementaire et concurrentielle. Les cabinets d\'avocats d\'affaires algériens externalisent aussi leur veille juridique.'
+  },
+  // ── 071902, 071907, 071909 ──
+  {
+    id:'vfx-2d', cat:'design',
+    icon:'🎞️', iconBg:'rgba(236,72,153,.12)', accent:'#ec4899',
+    title:'Animateur 2D / VFX / Storyboarder',
+    domain:'Design & UX', domainColor:'#ec4899',
+    demand:'medium', demandLabel:'En croissance', growth:'+25 %', isNew:false,
+    desc:'Animation 2D, effets visuels (VFX) et storyboarding pour la publicité, le cinéma et les réseaux sociaux. Codes ANAE 071902 (Animateur 2D), 071907 (Storyboarder), 071909 (Artiste effets visuels). La production audiovisuelle algérienne est en plein essor avec les plateformes streaming.',
+    tags:['Toon Boom','TVPaint','After Effects VFX','Storyboard Pro','DaVinci Fusion'],
+    tjm:'6 000 – 20 000 DA/j',
+    suggestions:['La production de dessins animés algériens est-elle soutenue par l\'État ?','Les studios de pub algériens font-ils appel à des animateurs 2D freelances ?','Comment exporter des services d\'animation pour des clients européens depuis l\'Algérie ?'],
+    context:'Animateur 2D, VFX et storyboarder AE en Algérie. Codes ANAE 071902, 071907, 071909. L\'ENTV et les chaînes privées algériennes (Echorouk TV, Ennahar TV) produisent des contenus animés pour les émissions jeunesse. Les agences de pub algériennes externalisent leurs animations de spots TV. La série d\'animation algérienne connaît un regain d\'intérêt.'
+  },
+  // ── 072208, 072222-072223 ──
+  {
+    id:'pao', cat:'design',
+    icon:'🖨️', iconBg:'rgba(236,72,153,.12)', accent:'#ec4899',
+    title:'Opérateur PAO / Prépresse & Infographie',
+    domain:'Design & UX', domainColor:'#ec4899',
+    demand:'medium', demandLabel:'En croissance', growth:'+12 %', isNew:false,
+    desc:'Mise en page professionnelle, prépresse et infographie pour l\'édition, la presse et la communication. Codes ANAE 072208 (Infographe), 072222 (Opérateur PAO), 072223 (Opérateur scanner). Marché stable lié à la presse, aux livres scolaires et aux imprimeries.',
+    tags:['InDesign','QuarkXPress','PAO','Prépresse','Impression numérique'],
+    tjm:'4 000 – 10 000 DA/j',
+    suggestions:['Le marché de l\'édition scolaire algérien est-il accessible aux AE en PAO ?','Comment travailler pour les journaux algériens en tant que maquettiste freelance ?','L\'ONEC (Office National des Examens) externalise-t-il la mise en page de ses publications ?'],
+    context:'Opérateur PAO et prépresse AE en Algérie. Codes ANAE 072208, 072222, 072223. L\'industrie de l\'édition algérienne (livres scolaires ONPS, presse nationale) génère une demande constante en PAO. Les imprimeries algériennes externalisent régulièrement la préparation des fichiers. Le marché est stable mais peu rémunérateur comparé au design numérique.'
+  },
+  // ── 063406, 063409-063412, 063421-063425 ──
+  {
+    id:'courants-faibles', cat:'telecom',
+    icon:'📻', iconBg:'rgba(6,182,212,.12)', accent:'#06b6d4',
+    title:'Installateur Courants Faibles & Antenniste',
+    domain:'Télécom & Réseau', domainColor:'#06b6d4',
+    demand:'medium', demandLabel:'En croissance', growth:'+14 %', isNew:false,
+    desc:'Installation de systèmes courants faibles : antennes, paraboles, centrales téléphoniques, câblage télécom. Codes ANAE 063406 (antenniste), 063409 (installateur télécom), 063410 (monteur installations), 063411 (monteur paraboles), 063421–063425 (techniciens installation).',
+    tags:['Câblage RJ45','Paraboles','PABX','Courants faibles','Normes DTR'],
+    tjm:'4 000 – 10 000 DA/j',
+    suggestions:['Les hôtels algériens externalisent-ils l\'installation de leurs systèmes de communication ?','Faut-il une autorisation spéciale pour installer des paraboles et antennes en Algérie ?','Comment chiffrer un projet de câblage réseau pour un immeuble de bureaux en Algérie ?'],
+    context:'Installateur courants faibles et antenniste AE en Algérie. Codes ANAE 063406, 063409–063412, 063421–063425. Le programme de construction de logements AADL et LPP génère des dizaines de milliers de chantiers nécessitant des installations télécom. Les promoteurs immobiliers privés sous-traitent régulièrement le câblage et les installations audiovisuelles à des AE.'
+  },
+  // ── 063404, 063413-063420, 063426-063430 ──
+  {
+    id:'maintenance-telecom', cat:'telecom',
+    icon:'🔧', iconBg:'rgba(6,182,212,.12)', accent:'#06b6d4',
+    title:'Technicien Maintenance Télécom & Vidéosurveillance',
+    domain:'Télécom & Réseau', domainColor:'#06b6d4',
+    demand:'medium', demandLabel:'En croissance', growth:'+16 %', isNew:false,
+    desc:'Maintenance préventive et corrective des équipements télécom, systèmes d\'alarme et vidéosurveillance. Codes ANAE 063413–063420, 063426–063430 : technicien déploiement télécom, maintenance alarme, vidéosurveillance, télécom, téléphonie, radio communication, réseaux entreprises.',
+    tags:['CCTV','IP Camera','Systèmes alarme','Téléphonie IP','Radio PMR'],
+    tjm:'4 500 – 11 000 DA/j',
+    suggestions:['Les banques et hypermarchés algériens externalisent-ils la maintenance de leur vidéosurveillance ?','Quelles certifications sont nécessaires pour maintenir des systèmes d\'alarme certifiés en Algérie ?','Comment décrocher des contrats de maintenance récurrents en télécom comme AE ?'],
+    context:'Technicien maintenance télécom et vidéosurveillance AE en Algérie. Codes ANAE 063413–063420, 063426–063430. La multiplication des banques, grandes surfaces, hôtels et entreprises en Algérie génère une demande en contrats de maintenance récurrents. Les systèmes de vidéosurveillance IP (Hikvision, Dahua) sont très répandus et nécessitent une maintenance régulière.'
+  },
+  // ── 010602-010616, 063402-063403, 063412 ──
+  {
+    id:'agent-terrain', cat:'telecom',
+    icon:'👷', iconBg:'rgba(6,182,212,.12)', accent:'#06b6d4',
+    title:'Superviseur & Agent Réseau Terrain',
+    domain:'Télécom & Réseau', domainColor:'#06b6d4',
+    demand:'medium', demandLabel:'En croissance', growth:'+13 %', isNew:false,
+    desc:'Supervision de chantiers télécom, exploitation et maintenance terrain des réseaux. Codes ANAE 010602–010616 (agent répartiteur, opérateur réseau, superviseur, surveillant chantier), 063402–063403, 063412 (agents techniques télécom, superviseur équipements transmission).',
+    tags:['Supervision terrain','Gestion chantier','Mesures réseau','Documentation','Reporting'],
+    tjm:'4 000 – 10 000 DA/j',
+    suggestions:['Les opérateurs télécom algériens engagent-ils des AE comme superviseurs de chantiers réseau ?','Quels diplômes techniques sont requis pour devenir superviseur chantier télécom en Algérie ?','Comment gérer une équipe de techniciens en sous-traitance en tant qu\'AE superviseur ?'],
+    context:'Superviseur et agent réseau terrain AE en Algérie. Codes ANAE 010602–010616, 063402, 063403, 063412. Les déploiements massifs de fibre optique, 4G et 5G par Algérie Télécom, Mobilis, Djezzy et Ooredoo nécessitent des superviseurs de chantier en sous-traitance. Profil très demandé sur le terrain lors des phases de rollout réseau.'
+  },
+  // ── 010131, 011201, 011203-011205 ──
+  {
+    id:'coach-logiciels', cat:'content',
+    icon:'📚', iconBg:'rgba(16,185,129,.12)', accent:'#10b981',
+    title:'Coach Logiciels & Formateur Numérique Spécialisé',
+    domain:'Contenu & Média', domainColor:'#10b981',
+    demand:'high', demandLabel:'Forte demande', growth:'+30 %', isNew:false,
+    desc:'Formation pratique à des logiciels spécialisés : comptabilité, BIM, diagnostic numérique, conception de programmes. Codes ANAE 010131 (coach logiciels comptabilité), 011201 (coach logiciels), 011203 (coach BIM), 011204 (coach diagnostic appareils numériques), 011205 (concepteur de programmes).',
+    tags:['BIM Revit','Sage Comptabilité','AutoCAD','Formation présentiel','Tutorat'],
+    tjm:'5 000 – 15 000 DA/j',
+    suggestions:['La formation au logiciel BIM est-elle demandée par les bureaux d\'études algériens ?','Comment créer un programme de formation logiciel certifié en Algérie ?','Les cabinets comptables algériens forment-ils leurs équipes à Sage via des AE formateurs ?'],
+    context:'Coach logiciels et formateur numérique spécialisé AE en Algérie. Codes ANAE 010131, 011201, 011203–011205. Le BIM (Building Information Modeling) est en train de s\'imposer dans les grands projets de construction algériens (AADL2, projets d\'infrastructure). Les cabinets comptables migrent vers Sage et Odoo. Forte demande en formation pratique de courte durée (1-5 jours).'
+  },
+  // ── 010220, 010302, 060302 ──
+  {
+    id:'statisticien', cat:'data',
+    icon:'📉', iconBg:'rgba(139,92,246,.12)', accent:'#8b5cf6',
+    title:'Statisticien & Analyste Quantitatif',
+    domain:'Data & IA', domainColor:'#8b5cf6',
+    demand:'medium', demandLabel:'En croissance', growth:'+18 %', isNew:false,
+    desc:'Production d\'analyses statistiques, études quantitatives et modélisation mathématique pour les organismes publics, l\'industrie et la recherche. Codes ANAE 010220 (Statisticien), 010302 (Agent technique statistique), 060302 (Bio-informaticien).',
+    tags:['R','SPSS','SAS','Python Stats','Sondages'],
+    tjm:'7 000 – 18 000 DA/j',
+    suggestions:['L\'ONS algérien fait-il appel à des statisticiens freelances pour ses études ?','Comment valoriser des données statistiques ARPCE ou ONS dans une offre commerciale ?','La bio-informatique a-t-elle un marché en Algérie dans les centres de recherche pharmaceutique ?'],
+    context:'Statisticien et analyste quantitatif AE en Algérie. Codes ANAE 010220, 010302, 060302. L\'ONS (Office National des Statistiques) publie régulièrement des données exploitables commercialement. Les universités algériennes et les centres de recherche externalisent leurs analyses statistiques. Les instituts de sondage (Suner-Com, CEVEAL) font appel à des freelances pour leurs études.'
+  },
+  // ── 021625, 071904-071906, 071908 ──
+  {
+    id:'dev-multimedia', cat:'design',
+    icon:'🎭', iconBg:'rgba(236,72,153,.12)', accent:'#ec4899',
+    title:'Développeur Multimédia & Contenu Interactif',
+    domain:'Design & UX', domainColor:'#ec4899',
+    demand:'medium', demandLabel:'En croissance', growth:'+20 %', isNew:false,
+    desc:'Développement multimédia, création de contenus interactifs, web design audiovisuel et infographie numérique. Codes ANAE 021625 (développeur multimédia), 071904 (designer contenu multimédia), 071905 (illustrateur multimédia), 071906 (infographiste multimédia), 071908 (web designer audiovisuel).',
+    tags:['HTML5 Animation','CSS Animations','Multimedia','Interactif','SVG'],
+    tjm:'5 000 – 14 000 DA/j',
+    suggestions:['Les musées et centres culturels algériens investissent-ils dans les bornes interactives multimédia ?','Comment créer du contenu multimédia interactif pour des e-learning en arabe ?','Le marché de l\'infographie numérique pour la presse algérienne est-il rémunérateur ?'],
+    context:'Développeur multimédia et contenu interactif AE en Algérie. Codes ANAE 021625, 071904–071906, 071908. Les musées nationaux algériens, les centres d\'expositions et les institutions culturelles commencent à intégrer des expériences multimédia. Les agences de communication digitale algériennes cherchent des profils capables de produire du contenu interactif pour les présentations client.'
+  },
+  // ── 020406, 021801-021803 ──
+  {
+    id:'admin-bdd', cat:'dev',
+    icon:'🗄️', iconBg:'rgba(59,130,246,.12)', accent:'#3b82f6',
+    title:'Administrateur Base de Données & Messagerie',
+    domain:'Développement', domainColor:'#3b82f6',
+    demand:'medium', demandLabel:'En croissance', growth:'+17 %', isNew:false,
+    desc:'Administration des bases de données relationnelles et NoSQL, gestion des serveurs de messagerie d\'entreprise. Codes ANAE 020406 (Admin BDD), 021801 (Admin BDD), 021802 (Admin messagerie), 021803 (Admin serveurs).',
+    tags:['Oracle','PostgreSQL','MySQL','Exchange','Microsoft 365'],
+    tjm:'8 000 – 20 000 DA/j',
+    suggestions:['Les entreprises algériennes utilisent-elles Oracle ou PostgreSQL comme SGBD principal ?','La migration vers Microsoft 365 crée-t-elle des missions pour les administrateurs messagerie AE ?','Comment proposer un audit de base de données à une entreprise algérienne ?'],
+    context:'Administrateur BDD et messagerie AE en Algérie. Codes ANAE 020406, 021801–021803. Les banques algériennes utilisent principalement Oracle. Les PME migrent progressivement vers PostgreSQL et MySQL open source. La migration de messagerie on-premise vers Microsoft 365 ou Google Workspace génère des missions ponctuelles bien rémunérées.'
+  },
+  // ── 020903-020905, 021304, 021316, 021319 ──
+  {
+    id:'securite-reseau', cat:'dev',
+    icon:'🛡️', iconBg:'rgba(239,68,68,.12)', accent:'#ef4444',
+    title:'Ingénieur Sécurité Réseau & Systèmes',
+    domain:'Développement', domainColor:'#3b82f6',
+    demand:'very-high', demandLabel:'🔥 Très forte', growth:'+44 %', isNew:true,
+    desc:'Sécurisation des réseaux et systèmes d\'information, architecture de sécurité et gestion des accès. Codes ANAE 020903 (expert sécurité réseaux), 020904 (ingénieur sécurité IT), 020905 (spécialiste sécurité systèmes), 021304 (architecte réseau/sécurité), 021316, 021319. Distinct du pentesteur — profil architecture défensive.',
+    tags:['Firewall','SIEM','Zero Trust','VPN','Cisco Security'],
+    tjm:'15 000 – 45 000 DA/j',
+    suggestions:['La directive NIS algérienne impose-t-elle des standards de sécurité réseau aux entreprises critiques ?','Comment concevoir une architecture Zero Trust pour une banque algérienne ?','Cisco ou Fortinet — quel équipementier sécurité est dominant dans les entreprises algériennes ?'],
+    context:'Ingénieur sécurité réseau et systèmes AE en Algérie. Codes ANAE 020903–020905, 021304, 021316, 021319. Le secteur bancaire algérien (CPA, BNA, BDL) est soumis à des exigences de sécurité renforcées suite aux directives de la Banque d\'Algérie. Les opérateurs télécom renforcent leur SOC. Firewall Cisco ASA et Fortinet FortiGate sont les équipements les plus déployés.'
+  },
+  // ── CODE ANAE 021907 ──
+  {
+    id:'graphiste', cat:'design',
+    icon:'🎭', iconBg:'rgba(236,72,153,.12)', accent:'#ec4899',
+    title:'Graphiste Freelance / Illustrateur',
+    domain:'Design & UX', domainColor:'#ec4899',
+    demand:'medium', demandLabel:'En croissance', growth:'+24 %', isNew:false,
+    desc:'Création d\'identités visuelles, logos, affiches et illustrations pour entreprises et institutions algériennes. Fort besoin en graphisme professionnel dans les PME, les collectivités locales et les agences de communication.',
+    tags:['Illustrator','Photoshop','Canva Pro','Branding','Identité visuelle'],
+    tjm:'4 000 – 12 000 DA/j',
+    suggestions:['Les agences de pub algériennes font-elles appel à des graphistes freelances ?','Comment facturer la création d\'un logo en tant qu\'AE — cession de droits incluse ?','Quels outils de design sont accessibles et payables depuis l\'Algérie ?'],
+    context:'Graphiste et illustrateur freelance auto-entrepreneur en Algérie. Expertise Illustrator, Photoshop, branding. Code ANAE 021907. La demande est forte des PME algériennes pour la création d\'identité visuelle professionnelle. Les agences de communication digitale externalisent régulièrement le graphisme.'
+  },
+  // ── CODE ANAE 020606 ──
+  {
+    id:'dev-jeux', cat:'dev',
+    icon:'🎮', iconBg:'rgba(139,92,246,.12)', accent:'#8b5cf6',
+    title:'Développeur de Jeux Vidéo',
+    domain:'Développement', domainColor:'#3b82f6',
+    demand:'medium', demandLabel:'En croissance', growth:'+32 %', isNew:true,
+    desc:'Développement de jeux mobiles, PC et navigateur. Le marché algérien du gaming est l\'un des plus actifs d\'Afrique. Unity et Unreal Engine permettent de cibler des studios internationaux en freelance.',
+    tags:['Unity','Unreal Engine','C#','C++','Game Design'],
+    tjm:'8 000 – 22 000 DA/j',
+    suggestions:['Y a-t-il des studios de jeux vidéo algériens qui recrutent des AE ?','Comment publier un jeu sur l\'App Store ou le Play Store depuis l\'Algérie ?','Le gaming mobile en arabe dialectal algérien est-il un marché viable ?'],
+    context:'Développeur de jeux vidéo auto-entrepreneur en Algérie. Codes ANAE 020606, 020207, 021624. L\'Algérie compte parmi les pays africains avec le plus de gamers mobiles. Les studios indépendants (indie) émergent à Alger et Oran. Unity est la plateforme dominante pour le développement mobile.'
+  },
+  // ── CODE ANAE 020604 ──
+  {
+    id:'blockchain', cat:'dev',
+    icon:'⛓️', iconBg:'rgba(245,158,11,.12)', accent:'#f59e0b',
+    title:'Développeur Blockchain / Web3',
+    domain:'Développement', domainColor:'#3b82f6',
+    demand:'medium', demandLabel:'En croissance', growth:'+28 %', isNew:true,
+    desc:'Développement de smart contracts, DApps et solutions blockchain pour la traçabilité, la certification et la supply chain. Marché naissant en Algérie mais forte demande internationale en freelance.',
+    tags:['Solidity','Ethereum','Web3.js','Smart Contracts','NFT'],
+    tjm:'15 000 – 45 000 DA/j',
+    suggestions:['Les crypto-monnaies et les smart contracts sont-ils légaux pour un AE en Algérie ?','Comment recevoir des paiements en crypto depuis l\'étranger avec le statut AE ?','La blockchain pour la traçabilité agroalimentaire a-t-elle un marché en Algérie ?'],
+    context:'Développeur Blockchain et Web3 auto-entrepreneur en Algérie. Code ANAE 020604. La technologie blockchain pour la traçabilité et la certification attire les institutions algériennes. La réglementation crypto reste floue mais le développement de solutions blockchain B2B est légal et en croissance.'
+  },
+  // ── CODE ANAE 020607 ──
+  {
+    id:'iot', cat:'dev',
+    icon:'🔗', iconBg:'rgba(6,182,212,.12)', accent:'#06b6d4',
+    title:'Ingénieur IoT / Systèmes Embarqués',
+    domain:'Développement', domainColor:'#3b82f6',
+    demand:'high', demandLabel:'Forte demande', growth:'+36 %', isNew:true,
+    desc:'Développement de solutions IoT pour l\'industrie 4.0, l\'agriculture intelligente et les villes connectées. L\'Algérie investit massivement dans la modernisation industrielle, créant une forte demande en expertise IoT embarquée.',
+    tags:['Arduino','Raspberry Pi','MQTT','Python','Capteurs'],
+    tjm:'10 000 – 28 000 DA/j',
+    suggestions:['Les entreprises industrielles algériennes investissent-elles dans l\'IoT en 2026 ?','Comment se certifier en IoT industriel reconnu sur le marché algérien ?','L\'agriculture connectée (smart farming) est-elle un marché porteur en Algérie ?'],
+    context:'Ingénieur IoT et systèmes embarqués auto-entrepreneur en Algérie. Code ANAE 020607. Le programme de modernisation industrielle algérien et le développement de l\'agriculture intelligente (smart farming dans les Hauts Plateaux et le Sud) créent une demande croissante. Les opérateurs télécom déploient des réseaux dédiés IoT (LTE-M, NB-IoT).'
+  },
+  // ── CODE ANAE 021652 ──
+  {
+    id:'qa-testeur', cat:'dev',
+    icon:'🧪', iconBg:'rgba(34,197,94,.12)', accent:'#22c55e',
+    title:'Testeur QA / Automatisation',
+    domain:'Développement', domainColor:'#3b82f6',
+    demand:'medium', demandLabel:'En croissance', growth:'+21 %', isNew:false,
+    desc:'Tests manuels et automatisés, assurance qualité logicielle et rédaction de plans de test. Profil très recherché par les entreprises algériennes qui digitalisent leurs processus et ne disposent pas d\'équipe QA interne.',
+    tags:['Selenium','Cypress','Jest','Postman','BDD'],
+    tjm:'6 000 – 16 000 DA/j',
+    suggestions:['Le métier de testeur QA est-il reconnu et bien rémunéré en Algérie ?','Comment construire un portfolio QA sans expérience formelle en entreprise ?','Les plateformes internationales de bug bounty acceptent-elles les AE algériens ?'],
+    context:'Testeur QA et automatisation auto-entrepreneur en Algérie. Code ANAE 021652. Profil rare et sous-représenté sur le marché algérien, ce qui en fait un avantage concurrentiel fort. Les startups labélisées Startup DZ cherchent régulièrement des testeurs pour leurs applications mobiles et web.'
+  },
+  // ── CODE ANAE 021809 ──
+  {
+    id:'sysadmin', cat:'dev',
+    icon:'🖥️', iconBg:'rgba(6,182,212,.12)', accent:'#06b6d4',
+    title:'SysAdmin / Administrateur Réseau',
+    domain:'Développement', domainColor:'#3b82f6',
+    demand:'high', demandLabel:'Forte demande', growth:'+18 %', isNew:false,
+    desc:'Administration des systèmes (Linux/Windows Server), réseaux d\'entreprise, sauvegardes et supervision. Forte demande des PME, hôtels, cliniques et administrations locales qui externalisent leur informatique.',
+    tags:['Linux','Windows Server','Cisco','Active Directory','Zabbix'],
+    tjm:'7 000 – 18 000 DA/j',
+    suggestions:['Les PME algériennes externalisent-elles leur administration réseau à des AE ?','Quelles certifications réseau sont les plus reconnues en Algérie (Cisco, Microsoft) ?','Comment proposer un contrat de maintenance mensuel en tant qu\'auto-entrepreneur ?'],
+    context:'SysAdmin et administrateur réseau auto-entrepreneur en Algérie. Codes ANAE 021809, 021806, 021711. Le tissu de PME algériennes externalise de plus en plus son SI. Les hôtels, cliniques privées et cabinets comptables sont des clients récurrents pour ce profil. La certification CCNA Cisco est très valorisée.'
+  },
+  // ── CODE ANAE 020208 / 071903 ──
+  {
+    id:'designer-3d', cat:'design',
+    icon:'🧊', iconBg:'rgba(139,92,246,.12)', accent:'#8b5cf6',
+    title:'Designer 3D / Infographiste 3D',
+    domain:'Design & UX', domainColor:'#ec4899',
+    demand:'medium', demandLabel:'En croissance', growth:'+26 %', isNew:false,
+    desc:'Modélisation 3D, visualisation architecturale, rendu produit et animation 3D pour l\'immobilier, l\'architecture et la publicité. Le boom immobilier algérien génère une forte demande en visualisation 3D de qualité.',
+    tags:['Blender','3ds Max','Cinema 4D','AutoCAD','V-Ray'],
+    tjm:'6 000 – 18 000 DA/j',
+    suggestions:['Les promoteurs immobiliers algériens font-ils appel à des infographistes 3D freelances ?','Blender est-il suffisant pour décrocher des clients professionnels en Algérie ?','Comment tarifer une visite virtuelle d\'appartement en 3D pour un promoteur algérien ?'],
+    context:'Designer 3D et infographiste auto-entrepreneur en Algérie. Codes ANAE 020208, 071903, 020212. Le secteur immobilier algérien (programmes AADL, LPP, promoteurs privés) est le principal client pour la visualisation 3D. Les agences de publicité demandent aussi des packshots 3D produits. Blender (gratuit) est le standard adopté par la plupart des freelances.'
+  }
+];
+
+const TICKER_DATA = [
+  {label:'💻 Dev Web',val:'+34 %'},{label:'📱 Dev Mobile',val:'+28 %'},
+  {label:'🛡️ Cybersécurité',val:'+58 %'},{label:'☁️ Cloud/DevOps',val:'+41 %'},
+  {label:'🤖 IA & ML',val:'+65 %'},{label:'📊 Data Science',val:'+39 %'},
+  {label:'🛒 E-Commerce DZ',val:'+40 %'},{label:'🎓 Formation Tech',val:'+45 %'},
+  {label:'✍️ Copywriter IA',val:'+29 %'},{label:'🎨 UI/UX Design',val:'+31 %'},
+  {label:'📡 Télécom',val:'+15 %'},{label:'📣 Community Mgr',val:'+18 %'},
+  {label:'🎮 Jeux Vidéo',val:'+32 %'},{label:'⛓️ Blockchain',val:'+28 %'},
+  {label:'🔗 IoT',val:'+36 %'},{label:'🧊 3D Design',val:'+26 %'},
+  {label:'🖥️ SysAdmin',val:'+18 %'},{label:'🎭 Graphiste',val:'+24 %'},
+  {label:'🧪 QA / Tests',val:'+21 %'},
+];
+
+/* ════════════════════════
+   CANVAS HERO PARTICLES
+   ════════════════════════ */
+function initCanvas() {
+  const canvas = document.getElementById('heroCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [], raf;
+  const N = 70, DIST = 130, isDark = () => document.getElementById('root').dataset.theme !== 'light';
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  for (let i = 0; i < N; i++) {
+    particles.push({
+      x: Math.random() * W, y: Math.random() * H,
+      vx: (Math.random() - .5) * .45,
+      vy: (Math.random() - .5) * .45,
+      r: Math.random() * 1.8 + .6
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    const dark = isDark();
+    const color = dark ? '16,185,129' : '16,135,90';
+    for (let i = 0; i < N; i++) {
+      const p = particles[i];
+      for (let j = i + 1; j < N; j++) {
+        const q = particles[j];
+        const dx = p.x - q.x, dy = p.y - q.y;
+        const d = Math.sqrt(dx*dx + dy*dy);
+        if (d < DIST) {
+          ctx.strokeStyle = `rgba(${color},${(1 - d/DIST)*.25})`;
+          ctx.lineWidth = .8;
+          ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+        }
+      }
+    }
+    for (let i = 0; i < N; i++) {
+      const p = particles[i];
+      ctx.fillStyle = `rgba(${color},.65)`;
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2); ctx.fill();
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+    }
+    raf = requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+/* ════════════════════════
+   TICKER
+   ════════════════════════ */
+function buildTicker() {
+  const inner = document.getElementById('tickerInner');
+  const html = TICKER_DATA.map(d =>
+    `<span class="tick">${d.label} <span class="tick-up">${d.val}</span></span><span class="tick-sep">·</span>`
+  ).join('');
+  inner.innerHTML = html + html;
+}
+
+/* ════════════════════════
+   CARDS
+   ════════════════════════ */
+let currentFilter = 'all', currentSearch = '';
+
+function buildCards() {
+  const grid = document.getElementById('aeGrid');
+  grid.innerHTML = '';
+  METIERS.forEach(m => {
+    const card = document.createElement('div');
+    card.className = 'prof-card';
+    card.dataset.cat = m.cat;
+    card.dataset.title = m.title.toLowerCase();
+    card.dataset.tags = m.tags.join(' ').toLowerCase();
+    card.innerHTML = `
+      <div class="card-accent" style="background:linear-gradient(90deg,${m.accent},transparent)"></div>
+      <div class="card-shine"></div>
+      <div class="card-body card-clickable" onclick="openDetail('${m.id}')">
+        <div class="card-top">
+          <div class="card-icon" style="background:${m.iconBg}">${m.icon}</div>
+          <div class="card-badges">
+            <span class="badge-demand ${m.demand}">${m.demandLabel}</span>
+            ${m.isNew ? '<span class="badge-new">✦ Nouveau</span>' : ''}
+          </div>
+        </div>
+        <div class="card-domain" style="color:${m.domainColor}">${m.domain}</div>
+        <div class="card-title">${m.title}</div>
+        <div class="card-desc">${m.desc}</div>
+        <div class="card-tags">${m.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+        <div style="margin-top:6px;font-size:11px;color:var(--em);font-weight:600;opacity:.7"><i class="fas fa-expand-alt"></i> Cliquer pour plus d'infos</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-tjm"><i class="fas fa-coins"></i>${m.tjm}</div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span class="card-growth"><i class="fas fa-arrow-trend-up"></i>${m.growth}</span>
+          <button class="btn-debate" onclick="event.stopPropagation();openDebate('${m.id}')"><i class="fas fa-comments"></i> Débattre</button>
+        </div>
+      </div>
+    `;
+    /* 3D tilt */
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width  - .5;
+      const y = (e.clientY - r.top)  / r.height - .5;
+      card.style.transform = `perspective(900px) rotateY(${x*12}deg) rotateX(${-y*12}deg) scale3d(1.015,1.015,1.015)`;
+      const shine = card.querySelector('.card-shine');
+      shine.style.background = `radial-gradient(circle at ${(x+.5)*100}% ${(y+.5)*100}%,rgba(255,255,255,.1),transparent 65%)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.querySelector('.card-shine').style.background = '';
+    });
+    grid.appendChild(card);
+  });
+  applyFilters();
+}
+
+function applyFilters() {
+  const cards = document.querySelectorAll('.prof-card');
+  let visible = 0;
+  cards.forEach(c => {
+    const matchCat = currentFilter === 'all' || c.dataset.cat === currentFilter;
+    const matchSrch = !currentSearch || c.dataset.title.includes(currentSearch) || c.dataset.tags.includes(currentSearch);
+    const show = matchCat && matchSrch;
+    c.classList.toggle('hidden', !show);
+    if (show) visible++;
+  });
+  const lbl = document.getElementById('countLabel');
+  lbl.textContent = visible === METIERS.length ? `${METIERS.length} métiers` : `${visible} / ${METIERS.length} métiers`;
+}
+
+function filterCards(cat, btn) {
+  currentFilter = cat;
+  document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+
+function liveSearch(val) {
+  currentSearch = val.trim().toLowerCase();
+  applyFilters();
+}
+
+/* ════════════════════════
+   DETAIL MODAL
+   ════════════════════════ */
+function openDetail(id) {
+  const m = METIERS.find(x => x.id === id);
+  if (!m) return;
+  document.getElementById('detailIcon').textContent = m.icon;
+  document.getElementById('detailIcon').style.background = m.iconBg;
+  document.getElementById('detailAccentBar').style.background = `linear-gradient(90deg,${m.accent},transparent)`;
+  document.getElementById('detailDomain').textContent = m.domain;
+  document.getElementById('detailDomain').style.color = m.domainColor;
+  document.getElementById('detailTitle').textContent = m.title;
+  document.getElementById('detailBadges').innerHTML =
+    `<span class="badge-demand ${m.demand}">${m.demandLabel}</span>${m.isNew ? '<span class="badge-new">✦ Nouveau</span>' : ''}`;
+  document.getElementById('detailDesc').textContent = m.desc;
+  document.getElementById('detailTags').innerHTML = m.tags.map(t=>`<span class="detail-tag">${t}</span>`).join('');
+  document.getElementById('detailTjm').textContent = m.tjm;
+  document.getElementById('detailSugs').innerHTML = m.suggestions.map(s=>
+    `<button class="detail-sug" onclick="openDebateFromDetail('${m.id}',\`${s.replace(/`/g,'\\`')}\`)"><i class="fas fa-comments"></i>${s}</button>`
+  ).join('');
+  document.getElementById('detailContext').textContent = m.context;
+  document.getElementById('detailGrowth').innerHTML = `<i class="fas fa-arrow-trend-up"></i> ${m.growth}`;
+  document.getElementById('detailDebateBtn').onclick = () => { closeDetail(null); openDebate(m.id); };
+  document.getElementById('detailOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDetail(e) {
+  if (e && e.target !== document.getElementById('detailOverlay')) return;
+  document.getElementById('detailOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function openDebateFromDetail(id, suggestion) {
+  closeDetail(null);
+  openDebate(id);
+  setTimeout(() => {
+    document.getElementById('chatInput').value = suggestion;
+    sendMessage();
+  }, 400);
+}
+
+/* ════════════════════════
+   CHAT / DEBATE
+   ════════════════════════ */
+let currentMetier = null, chatHistory = [];
+
+function openDebate(id) {
+  currentMetier = METIERS.find(m => m.id === id);
+  if (!currentMetier) return;
+  chatHistory = [];
+  document.getElementById('chatMessages').innerHTML = '';
+  document.getElementById('panelIcon').textContent = currentMetier.icon;
+  document.getElementById('panelTitle').textContent = currentMetier.title;
+  addMsg('ai', `Je suis prêt à débattre sur le profil <strong>${currentMetier.title}</strong> en Algérie. Posez votre question ou choisissez une suggestion.`);
+  const sugs = document.getElementById('chatSuggestions');
+  sugs.innerHTML = currentMetier.suggestions.map(s =>
+    `<button class="sug-btn" onclick="sendSuggestion(this,\`${s.replace(/`/g,'\\`')}\`)">${s}</button>`
+  ).join('');
+  document.getElementById('debateOverlay').classList.add('open');
+  document.getElementById('chatInput').focus();
+}
+
+function closeDebate(e) {
+  if (e && e.target !== document.getElementById('debateOverlay')) return;
+  document.getElementById('debateOverlay').classList.remove('open');
+}
+
+function addMsg(role, text, time) {
+  const msgs = document.getElementById('chatMessages');
+  const t = time || new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
+  const div = document.createElement('div');
+  div.className = `msg ${role}`;
+  div.innerHTML = `<div class="msg-bubble">${text}</div><div class="msg-time">${t}</div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function addTyping() {
+  const msgs = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'msg ai'; div.id = 'typingBubble';
+  div.innerHTML = `<div class="msg-bubble"><div class="typing-dots"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>`;
+  msgs.appendChild(div); msgs.scrollTop = msgs.scrollHeight;
+}
+function removeTyping() { const el = document.getElementById('typingBubble'); if (el) el.remove(); }
+
+async function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if (!text || !currentMetier) return;
+  input.value = ''; input.style.height = 'auto';
+  document.getElementById('sendBtn').disabled = true;
+  document.getElementById('chatSuggestions').innerHTML = '';
+  addMsg('user', escHtml(text));
+  addTyping();
+  chatHistory.push({role:'user', content:text});
+  try {
+    const resp = await fetch('/api/debat', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        titre: currentMetier.title + ' — Auto-entrepreneur Tech en Algérie',
+        contenu: currentMetier.context + '\n\nDescription : ' + currentMetier.desc + '\nOutils : ' + currentMetier.tags.join(', ') + '\nTJM : ' + currentMetier.tjm,
+        historique: chatHistory.slice(-8),
+        message: text,
+        langue: 'français'
+      })
+    });
+    const data = await resp.json();
+    removeTyping();
+    const rep = data.reponse || data.error || 'Erreur — réessayez.';
+    chatHistory.push({role:'assistant', content:rep});
+    addMsg('ai', escHtml(rep).replace(/\n\n/g,'<br><br>').replace(/\n/g,'<br>'));
+  } catch {
+    removeTyping();
+    addMsg('ai', '⚠️ Le serveur IA n\'est pas accessible depuis cette prévisualisation. Pour activer le débat IA, le serveur Algeria Tech doit tourner localement avec l\'endpoint <code>/api/debat</code>. En production sur algeria-tech.pages.dev, cette fonctionnalité est pleinement opérationnelle.');
+  }
+  document.getElementById('sendBtn').disabled = false;
+  document.getElementById('chatInput').focus();
+}
+
+function sendSuggestion(btn, text) {
+  btn.remove();
+  document.getElementById('chatInput').value = text;
+  sendMessage();
+}
+function handleInputKey(e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); } }
+function autoGrow(el) { el.style.height = 'auto'; el.style.height = Math.min(el.scrollHeight, 100) + 'px'; }
+function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+/* ════════════════════════
+   THEME
+   ════════════════════════ */
+function toggleTheme() {
+  const root = document.getElementById('root');
+  const isDark = root.dataset.theme === 'dark';
+  root.dataset.theme = isDark ? 'light' : 'dark';
+  document.getElementById('themeIcon').className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+  localStorage.setItem('ae-theme', root.dataset.theme);
+}
+function initTheme() {
+  const saved = localStorage.getItem('ae-theme') || 'dark';
+  document.getElementById('root').dataset.theme = saved;
+  document.getElementById('themeIcon').className = saved === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+}
+
+/* ════════════════════════
+   LEGAL ACCORDION
+   ════════════════════════ */
+function toggleLegal(hd) {
+  const item = hd.closest('.legal-item');
+  item.classList.toggle('open');
+}
+
+/* ════════════════════════
+   SCROLL REVEAL
+   ════════════════════════ */
+function initReveal() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); }
+    });
+  }, {threshold:.1});
+  document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+}
+
+/* ════════════════════════
+   STAT COUNTERS
+   ════════════════════════ */
+function animateCounter(el) {
+  const target = +el.dataset.target;
+  const duration = 1400;
+  const start = performance.now();
+  function update(now) {
+    const t = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - t, 3);
+    el.textContent = Math.round(ease * target);
+    if (t < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+function initCounters() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { animateCounter(e.target); obs.unobserve(e.target); }
+    });
+  }, {threshold:.5});
+  document.querySelectorAll('.counter').forEach(el => obs.observe(el));
+}
+
+/* ════════════════════════
+   INFO MODAL FISCAL
+   ════════════════════════ */
+const FISCAL_INFO = {
+  ifu: {
+    icon: '💰',
+    title: 'IFU — Impôt Forfaitaire Unique',
+    link: 'https://www.mfdgi.gov.dz',
+    linkLabel: 'Portail fiscal DGI',
+    rows: [
+      { icon:'📉', label:'Taux unique', desc:'0,5 % du chiffre d\'affaires encaissé — Loi de Finances 2024 (abaissement depuis 1 %)' },
+      { icon:'📅', label:'Déclaration', desc:'Trimestrielle en ligne sur mfdgi.gov.dz — avant le 20 du mois suivant chaque trimestre' },
+      { icon:'📊', label:'Base de calcul', desc:'CA encaissé (paiements reçus), pas le CA facturé — un virement non encore reçu n\'est pas taxé' },
+      { icon:'🚫', label:'Aucune TVA', desc:'Les auto-entrepreneurs ne collectent pas la TVA et ne la déclarent pas' },
+      { icon:'📋', label:'Plafond annuel', desc:'5 000 000 DA de CA — au-delà, obligation de basculer vers un régime fiscal classique' },
+      { icon:'📝', label:'Aucune compta', desc:'Pas de bilan ni de compte de résultat requis — simple journal des recettes suffit' }
+    ]
+  },
+  casnos: {
+    icon: '🛡️',
+    title: 'CASNOS — Protection sociale AE',
+    link: 'https://www.casnos.com.dz',
+    linkLabel: 'Site officiel CASNOS',
+    rows: [
+      { icon:'💵', label:'Cotisation minimale', desc:'24 000 DA/an (2026) — soit 6 000 DA par trimestre, payable à la CASNOS locale' },
+      { icon:'🏥', label:'Carte CHIFA', desc:'Donne droit à la carte de soins CHIFA — remboursement partiel des médicaments et consultations' },
+      { icon:'👴', label:'Retraite', desc:'Accumulation de trimestres de retraite dès la première cotisation — régime AE CASNOS' },
+      { icon:'👩‍⚕️', label:'Maternité', desc:'Couverture maternité incluse pour les auto-entrepreneurs ayant cotisé au moins un an' },
+      { icon:'📈', label:'Paliers', desc:'Au-delà du minimum, la cotisation peut augmenter proportionnellement au CA déclaré à la CASNOS' },
+      { icon:'🖥️', label:'Inscription', desc:'En ligne sur casnos.com.dz ou en agence — après obtention de la carte ANAE' }
+    ]
+  }
+};
+
+function openFiscalInfo(type) {
+  const data = FISCAL_INFO[type];
+  if (!data) return;
+  document.getElementById('fiscalIcon').textContent = data.icon;
+  document.getElementById('fiscalTitle').textContent = data.title;
+  document.getElementById('fiscalBody').innerHTML = data.rows.map(r => `
+    <div class="info-row">
+      <span class="info-row-icon">${r.icon}</span>
+      <div class="info-row-txt"><strong>${r.label}</strong><span>${r.desc}</span></div>
+    </div>`).join('');
+  const link = document.getElementById('fiscalLink');
+  link.href = data.link;
+  link.textContent = data.linkLabel;
+  document.getElementById('fiscalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeFiscalInfo(e) {
+  if (e && e.target !== document.getElementById('fiscalOverlay')) return;
+  document.getElementById('fiscalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ════════════════════════
+   SIMULATEUR FISCAL
+   ════════════════════════ */
+(function() {
+  let simChart;
+
+  function fmtDA(n) {
+    return Math.round(n).toLocaleString('fr-DZ') + ' DA';
+  }
+
+  function simCalc() {
+    const input  = document.getElementById('sim-ca-input');
+    const slider = document.getElementById('sim-ca-slider');
+    if (!input || !simChart) return;
+
+    const ca = parseFloat(input.value) || 0;
+    input.classList.toggle('over-limit', ca > 5000000);
+
+    const ifu    = ca * 0.005;
+    const casnos = 24000;
+    const total  = ifu + casnos;
+    const net    = Math.max(0, ca - total);
+
+    document.getElementById('sim-ifu').textContent    = fmtDA(ifu);
+    document.getElementById('sim-casnos').textContent = fmtDA(casnos);
+    document.getElementById('sim-total').textContent  = fmtDA(total);
+    document.getElementById('sim-net').textContent    = fmtDA(net);
+
+    simChart.data.datasets[0].data = [net, ifu, casnos];
+    simChart.update();
+  }
+
+  function initSimulateur() {
+    const canvas = document.getElementById('sim-chart');
+    if (!canvas) return;
+
+    simChart = new Chart(canvas.getContext('2d'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Revenu net', 'IFU (0,5 %)', 'CASNOS'],
+        datasets: [{
+          data: [971000, 5000, 24000],
+          backgroundColor: ['#10b981', '#f59e0b', '#8b5cf6'],
+          borderWidth: 0,
+          hoverOffset: 16
+        }]
+      },
+      options: {
+        plugins: { legend: { display: false } },
+        cutout: '70%',
+        responsive: true,
+        animation: { animateScale: true }
+      }
+    });
+
+    const caInput  = document.getElementById('sim-ca-input');
+    const caSlider = document.getElementById('sim-ca-slider');
+
+    caInput.addEventListener('input', e => {
+      caSlider.value = e.target.value;
+      simCalc();
+    });
+    caSlider.addEventListener('input', e => {
+      caInput.value = e.target.value;
+      simCalc();
+    });
+
+    simCalc();
+  }
+
+  document.addEventListener('DOMContentLoaded', initSimulateur);
+})();
+
+/* ════════════════════════
+   SCROLL TO TOP
+   ════════════════════════ */
+function scrollToTop() { window.scrollTo({top:0,behavior:'smooth'}); }
+function initScrollTop() {
+  const btn = document.getElementById('topBtn');
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 400);
+  }, {passive:true});
+}
+
+/* ════════════════════════
+   INIT
+   ════════════════════════ */
+document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
+  buildTicker();
+  buildCards();
+  initCanvas();
+  initReveal();
+  initCounters();
+  initScrollTop();
+});
+</script>
+</body>
+</html>

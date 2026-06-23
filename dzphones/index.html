@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DZPhones — Comparez les prix smartphones en Algérie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="phones_data.js"></script>
+<style>
+:root {
+  --bg:#080c14; --bg2:#0f1520; --bg3:#161d2e;
+  --surface:#1a2035; --surface2:#212840;
+  --border:rgba(255,255,255,0.07); --border2:rgba(255,255,255,0.12);
+  --text:#f0f4ff; --text2:#8898b4; --text3:#4a5a7a;
+  --accent:#6366f1; --accent2:#22d3ee; --accent3:#10b981;
+  --warn:#f59e0b; --danger:#ef4444;
+  --card-shadow:0 4px 24px rgba(0,0,0,0.35);
+  --r:12px; --r2:8px; --r3:20px;
+}
+[data-theme="light"] {
+  --bg:#f0f4ff; --bg2:#e8eeff; --bg3:#dde5ff;
+  --surface:#fff; --surface2:#f5f7ff;
+  --border:rgba(0,0,0,0.07); --border2:rgba(0,0,0,0.12);
+  --text:#0d1117; --text2:#4a5568; --text3:#9ca3af;
+  --accent:#4f46e5; --accent2:#0891b2; --accent3:#059669;
+  --warn:#d97706; --danger:#dc2626;
+  --card-shadow:0 4px 24px rgba(99,102,241,0.1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;transition:background .3s,color .3s}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
+input,select{font:inherit;color:inherit}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:var(--bg2)}
+::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px}
+
+/* ── HEADER ── */
+header{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);backdrop-filter:blur(20px)}
+.header-inner{max-width:1400px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-mark{width:36px;height:36px;background:var(--accent);border-radius:10px;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:15px;color:#fff;letter-spacing:-.5px}
+.logo-text{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:18px;letter-spacing:-.5px}
+.logo-text span{color:var(--accent)}
+.header-search{flex:1;max-width:460px;position:relative}
+.header-search input{width:100%;background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:9px 16px 9px 40px;font-size:14px;color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s}
+.header-search input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(99,102,241,.15)}
+.header-search .s-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:15px}
+.header-nav{display:flex;align-items:center;gap:4px;margin-left:auto}
+.nav-btn{padding:7px 14px;border-radius:var(--r2);font-size:13px;font-weight:500;color:var(--text2);transition:all .2s}
+.nav-btn:hover{background:var(--surface);color:var(--text)}
+.nav-btn.active{background:var(--surface);color:var(--text)}
+.nav-link-ext{display:flex;align-items:center;gap:5px;padding:7px 14px;border-radius:var(--r2);font-size:13px;font-weight:500;color:var(--accent);border:1px solid var(--border2);transition:all .2s}
+.nav-link-ext:hover{background:var(--surface)}
+.theme-toggle{width:36px;height:36px;border-radius:var(--r2);background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .2s}
+.theme-toggle:hover{border-color:var(--accent)}
+.compare-btn-header{position:relative;padding:7px 14px;background:var(--accent);border-radius:var(--r2);font-size:13px;font-weight:600;color:#fff;display:none;align-items:center;gap:6px;transition:all .2s}
+.compare-btn-header:hover{filter:brightness(1.1)}
+.compare-btn-header .c-count{background:rgba(255,255,255,0.25);border-radius:20px;padding:1px 7px;font-size:11px}
+.compare-btn-header.visible{display:flex}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,var(--bg) 0%,var(--bg2) 50%,var(--bg) 100%);padding:64px 24px 48px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(99,102,241,.12),transparent)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:7px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--r3);padding:5px 14px;font-size:12px;font-weight:600;color:var(--accent);letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px}
+.hero-eyebrow::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent3);animation:livepulse 1.8s ease-in-out infinite}
+@keyframes livepulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.6)}}
+.hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(30px,5vw,54px);font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;max-width:720px;margin-inline:auto}
+.hero h1 span{color:var(--accent)}
+.hero-sub{font-size:16px;color:var(--text2);margin-bottom:36px;max-width:500px;margin-inline:auto}
+.hero-search{max-width:580px;margin:0 auto 40px;position:relative;display:flex;gap:10px}
+.hero-search input{flex:1;background:var(--surface);border:1.5px solid var(--border2);border-radius:var(--r);padding:14px 20px 14px 46px;font-size:15px;color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s}
+.hero-search input:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(99,102,241,.15)}
+.hero-search .hs-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:18px;color:var(--text3)}
+.hero-search button{background:var(--accent);border-radius:var(--r);padding:0 24px;font-size:14px;font-weight:600;color:#fff;white-space:nowrap;transition:filter .2s}
+.hero-search button:hover{filter:brightness(1.1)}
+.hero-stats{display:flex;justify-content:center;gap:32px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat .val{font-family:'Plus Jakarta Sans',sans-serif;font-size:26px;font-weight:800;letter-spacing:-.5px}
+.hero-stat .lbl{font-size:12px;color:var(--text2);margin-top:2px}
+
+/* ── BRANDS ── */
+.brands-section{padding:28px 24px;border-bottom:1px solid var(--border)}
+.brands-inner{max-width:1400px;margin:0 auto}
+.brands-title{font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
+.brands-scroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.brands-scroll::-webkit-scrollbar{display:none}
+.brand-pill{flex-shrink:0;display:flex;align-items:center;gap:8px;padding:8px 16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r3);font-size:13px;font-weight:500;color:var(--text2);cursor:pointer;transition:all .2s;white-space:nowrap}
+.brand-pill .b-logo{font-size:15px;font-weight:700}
+.brand-pill .b-cnt{background:var(--bg3);border-radius:10px;padding:1px 7px;font-size:11px;color:var(--text3)}
+.brand-pill:hover,.brand-pill.active{border-color:var(--accent);color:var(--accent);background:rgba(99,102,241,.08)}
+.brand-pill.active .b-cnt{background:rgba(99,102,241,.15);color:var(--accent)}
+
+/* ── MAIN LAYOUT ── */
+.main{max-width:1400px;margin:0 auto;padding:28px 24px;display:grid;grid-template-columns:260px 1fr;gap:28px}
+@media(max-width:900px){.main{grid-template-columns:1fr}}
+
+/* ── SIDEBAR ── */
+.sidebar{display:flex;flex-direction:column;gap:16px}
+.filter-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px}
+.filter-title{font-size:11px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between}
+.filter-title button{font-size:11px;color:var(--accent);font-weight:600;padding:0}
+.filter-group{display:flex;flex-direction:column;gap:8px}
+.filter-check{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--text2);padding:4px 0;transition:color .15s}
+.filter-check:hover{color:var(--text)}
+.filter-check input[type=checkbox]{width:16px;height:16px;accent-color:var(--accent);cursor:pointer}
+.filter-check .fc-count{margin-left:auto;font-size:11px;color:var(--text3)}
+.price-range{margin-top:4px}
+.price-range label{display:flex;justify-content:space-between;font-size:12px;color:var(--text3);margin-bottom:10px}
+.price-range label span{font-weight:600;color:var(--accent);font-size:13px}
+.range-track{position:relative;height:4px;background:var(--bg3);border-radius:2px;margin:0 0 14px}
+.range-fill{position:absolute;height:100%;background:var(--accent);border-radius:2px;pointer-events:none}
+.range-track input[type=range]{position:absolute;width:100%;height:100%;opacity:0;cursor:pointer;margin:0;top:0}
+.seg-btns{display:flex;flex-direction:column;gap:6px}
+.seg-btn{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:var(--r2);border:1px solid var(--border);font-size:13px;color:var(--text2);cursor:pointer;transition:all .2s;text-align:left}
+.seg-btn:hover{border-color:var(--border2);color:var(--text)}
+.seg-btn.active{border-color:var(--accent);background:rgba(99,102,241,.08);color:var(--accent)}
+.seg-btn .seg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.seg-btn .seg-count{margin-left:auto;font-size:11px;color:var(--text3)}
+.sort-select{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r2);padding:9px 12px;font-size:13px;color:var(--text);outline:none;cursor:pointer}
+
+/* ── CATALOG ── */
+.catalog-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:gap}
+.catalog-header h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:700;letter-spacing:-.3px}
+.result-count{font-size:13px;color:var(--text2);margin-top:2px}
+.view-toggle{display:flex;gap:4px}
+.vt-btn{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:var(--r2);border:1px solid var(--border);color:var(--text2);font-size:14px;transition:all .2s}
+.vt-btn.active{background:var(--surface);border-color:var(--accent);color:var(--accent)}
+
+/* ── PHONE CARDS ── */
+.phones-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.phones-list{display:flex;flex-direction:column;gap:12px}
+
+.phone-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:0;overflow:hidden;cursor:pointer;transition:all .25s;position:relative}
+.phone-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:var(--card-shadow)}
+.phone-card.in-compare{border-color:var(--accent2);box-shadow:0 0 0 2px rgba(34,211,238,.2)}
+.card-img{height:200px;display:flex;align-items:center;justify-content:center;background:var(--bg3);position:relative;overflow:hidden}
+.card-img::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 100%,var(--brand-glow,rgba(99,102,241,.15)),transparent);pointer-events:none}
+.card-source-badge{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.55);border-radius:20px;padding:3px 9px;font-size:10px;font-weight:600;color:#fff;backdrop-filter:blur(4px)}
+.card-trend{position:absolute;top:10px;right:10px;border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700}
+.trend-up{background:rgba(239,68,68,.15);color:#ef4444}
+.trend-down{background:rgba(16,185,129,.15);color:#10b981}
+.trend-flat{background:rgba(245,158,11,.15);color:#f59e0b}
+.card-add-compare{position:absolute;bottom:10px;right:10px;width:28px;height:28px;border-radius:8px;background:rgba(0,0,0,.5);color:#fff;font-size:16px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.15);transition:all .2s;opacity:0}
+.phone-card:hover .card-add-compare{opacity:1}
+.phone-card.in-compare .card-add-compare{opacity:1;background:rgba(34,211,238,.3);border-color:var(--accent2);color:var(--accent2)}
+.card-body{padding:14px}
+.card-brand{font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+.card-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-prices{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
+.price-off{font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:800;color:var(--text);letter-spacing:-.5px}
+.price-caba-row{display:flex;align-items:center;gap:6px}
+.price-caba{font-size:12px;color:var(--text2)}
+.spread-badge{font-size:10px;font-weight:700;padding:1px 6px;border-radius:10px;background:rgba(245,158,11,.15);color:var(--warn)}
+.card-specs{display:flex;gap:6px;flex-wrap:wrap}
+.spec-chip{font-size:10px;padding:3px 7px;border-radius:6px;background:var(--bg3);color:var(--text2);border:1px solid var(--border)}
+
+/* List view card */
+.phone-card-list{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:14px 18px;display:flex;align-items:center;gap:16px;cursor:pointer;transition:all .2s;position:relative}
+.phone-card-list:hover{border-color:var(--accent);box-shadow:var(--card-shadow)}
+.phone-card-list.in-compare{border-color:var(--accent2)}
+.list-img{width:52px;height:52px;background:var(--bg3);border-radius:var(--r2);display:flex;align-items:center;justify-content:center;font-size:30px;flex-shrink:0}
+.list-info{flex:1;min-width:0}
+.list-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.list-meta{display:flex;align-items:center;gap:8px;margin-top:3px;flex-wrap:wrap}
+.list-brand{font-size:11px;color:var(--accent);font-weight:600}
+.list-seg{font-size:11px;color:var(--text3);background:var(--bg3);border-radius:6px;padding:1px 7px}
+.list-prices{text-align:right;flex-shrink:0}
+.list-off{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:800;letter-spacing:-.3px}
+.list-caba{font-size:12px;color:var(--text2)}
+.list-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.list-trend{border-radius:20px;padding:3px 9px;font-size:11px;font-weight:700}
+.icon-btn{width:32px;height:32px;border-radius:var(--r2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--text2);transition:all .2s}
+.icon-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ── BADGES SEG ── */
+.seg-high{background:rgba(99,102,241,.12);color:var(--accent)}
+.seg-mid{background:rgba(34,211,238,.12);color:var(--accent2)}
+.seg-entry{background:rgba(16,185,129,.12);color:var(--accent3)}
+
+/* ── MODAL ── */
+.modal-overlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.7);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:var(--bg2);border:1px solid var(--border2);border-radius:16px;width:100%;max-width:720px;max-height:90vh;overflow-y:auto;transform:translateY(20px) scale(.97);transition:transform .3s;position:relative}
+.modal-overlay.open .modal{transform:translateY(0) scale(1)}
+.modal-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:var(--r2);background:var(--surface2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--text2);z-index:5;transition:all .2s}
+.modal-close:hover{background:var(--danger);border-color:var(--danger);color:#fff}
+.modal-hero{padding:28px 28px 0;display:flex;gap:24px;align-items:flex-start}
+.modal-phone-img{width:100px;height:100px;background:var(--surface);border-radius:var(--r);display:flex;align-items:center;justify-content:center;font-size:54px;flex-shrink:0}
+.modal-title-area{flex:1}
+.modal-brand-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.modal-brand{font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em}
+.modal-seg-badge{font-size:11px;padding:2px 9px;border-radius:10px;font-weight:600}
+.modal-sources{display:flex;gap:6px;flex-wrap:wrap}
+.source-tag{font-size:10px;padding:2px 8px;border-radius:6px;background:var(--surface2);border:1px solid var(--border);color:var(--text3)}
+.modal-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:22px;font-weight:800;letter-spacing:-.5px;line-height:1.2;margin-bottom:8px}
+.modal-body{padding:24px 28px}
+.modal-prices-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:24px}
+.modal-price-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:14px}
+.mpb-label{font-size:11px;color:var(--text2);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+.mpb-val{font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:800;letter-spacing:-.5px}
+.mpb-sub{font-size:11px;color:var(--text3);margin-top:2px}
+.modal-section{margin-bottom:22px}
+.modal-section-title{font-size:12px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;display:flex;align-items:center;gap:7px}
+.modal-section-title::before{content:'';width:3px;height:14px;background:var(--accent);border-radius:2px}
+.specs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.spec-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:12px}
+.spec-icon{font-size:18px;margin-bottom:6px}
+.spec-key{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.06em}
+.spec-val{font-size:15px;font-weight:700;color:var(--text);margin-top:2px}
+.chart-wrap{height:180px;position:relative}
+.credit-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+.credit-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);padding:12px;text-align:center}
+.credit-dur{font-size:11px;color:var(--text2);margin-bottom:4px}
+.credit-men{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:var(--accent)}
+.credit-dzd{font-size:10px;color:var(--text3)}
+.modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:1px solid var(--border)}
+.modal-actions button{flex:1;min-width:140px;padding:11px;border-radius:var(--r);font-size:13px;font-weight:600;transition:all .2s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{filter:brightness(1.1)}
+.btn-secondary{background:var(--surface);border:1px solid var(--border2);color:var(--text)}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.btn-ext{background:transparent;border:1px solid var(--border2);color:var(--text2);display:flex;align-items:center;justify-content:center;gap:6px}
+.btn-ext:hover{border-color:var(--accent2);color:var(--accent2)}
+
+/* ── COMPARE DRAWER ── */
+.compare-drawer{position:fixed;bottom:0;left:0;right:0;z-index:150;background:var(--bg2);border-top:1px solid var(--border2);padding:14px 24px;display:flex;align-items:center;gap:16px;transform:translateY(100%);transition:transform .3s;box-shadow:0 -8px 32px rgba(0,0,0,.3)}
+.compare-drawer.open{transform:translateY(0)}
+.compare-slots{display:flex;gap:12px;flex:1;overflow-x:auto}
+.compare-slot{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border2);border-radius:var(--r2);padding:8px 12px;font-size:13px;flex-shrink:0;animation:slideIn .2s}
+@keyframes slideIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.compare-slot-name{font-weight:600;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.compare-slot button{color:var(--text3);font-size:14px;transition:color .2s}
+.compare-slot button:hover{color:var(--danger)}
+.compare-title{font-size:12px;font-weight:700;color:var(--text2);flex-shrink:0}
+.btn-compare-now{background:var(--accent2);color:#000;padding:10px 22px;border-radius:var(--r2);font-size:13px;font-weight:700;flex-shrink:0;transition:filter .2s}
+.btn-compare-now:hover{filter:brightness(1.1)}
+.btn-clear-compare{background:transparent;border:1px solid var(--border);color:var(--text3);padding:10px 14px;border-radius:var(--r2);font-size:13px;transition:all .2s;flex-shrink:0}
+.btn-clear-compare:hover{border-color:var(--danger);color:var(--danger)}
+
+/* ── COMPARE MODAL ── */
+.compare-modal{max-width:920px}
+.compare-table{width:100%;border-collapse:collapse;font-size:13px}
+.compare-table th{background:var(--surface2);padding:12px 16px;text-align:left;font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text2);position:sticky;top:0}
+.compare-table td{padding:12px 16px;border-bottom:1px solid var(--border);vertical-align:top}
+.compare-table tr:hover td{background:var(--surface)}
+.compare-table .row-label{color:var(--text2);font-weight:600;white-space:nowrap}
+.compare-best{color:var(--accent3);font-weight:700}
+.compare-worst{color:var(--danger)}
+
+/* ── FOOTER ── */
+footer{background:var(--bg2);border-top:1px solid var(--border);padding:40px 24px;margin-top:48px}
+.footer-inner{max-width:1400px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+.footer-top{display:flex;gap:40px;flex-wrap:wrap}
+.footer-brand{flex:1;min-width:220px}
+.footer-brand .logo-text{font-size:20px;display:block;margin-bottom:8px}
+.footer-brand p{font-size:13px;color:var(--text2);line-height:1.6;max-width:280px}
+.footer-links-col h4{font-size:12px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
+.footer-links-col ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.footer-links-col li a{font-size:13px;color:var(--text2);transition:color .2s}
+.footer-links-col li a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:12px;color:var(--text3)}
+.footer-bottom .made-with{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text3)}
+.footer-ext-links{display:flex;gap:10px}
+.footer-ext-link{display:flex;align-items:center;gap:6px;padding:8px 16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r2);font-size:13px;font-weight:600;color:var(--text2);transition:all .2s}
+.footer-ext-link:hover{border-color:var(--accent);color:var(--accent)}
+.footer-ext-link.primary-link{background:rgba(99,102,241,.1);border-color:var(--accent);color:var(--accent)}
+
+/* ── ANIMATED PHONE VISUAL ── */
+.pv-wrap{display:flex;align-items:center;justify-content:center;height:100%;position:relative}
+.pv-phone{position:relative;width:72px;height:136px;animation:pvFloat var(--dur,3.5s) ease-in-out var(--delay,0s) infinite;filter:drop-shadow(0 12px 20px var(--glow,rgba(99,102,241,.5)))}
+@keyframes pvFloat{0%,100%{transform:translateY(0) rotate(var(--tilt,0deg))}50%{transform:translateY(-8px) rotate(var(--tilt,0deg))}}
+.pv-frame{position:absolute;inset:0;background:linear-gradient(160deg,#2a2a3a,#1a1a28);border-radius:16px;border:2px solid rgba(255,255,255,.12);overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.1),inset 0 -1px 0 rgba(0,0,0,.3)}
+.pv-screen{position:absolute;inset:7px 5px 10px;background:linear-gradient(150deg,var(--pc,#6366f1)22,rgba(0,0,0,.9) 110%);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+[data-theme="light"] .pv-screen{background:linear-gradient(150deg,var(--pc,#6366f1)33,#e8eeff 110%)}
+.pv-notch{width:22px;height:5px;background:rgba(0,0,0,.85);border-radius:0 0 5px 5px;margin:0 auto;position:relative;z-index:2;flex-shrink:0}
+.pv-status{height:6px;display:flex;align-items:center;justify-content:flex-end;padding:0 4px;gap:2px;flex-shrink:0}
+.pv-status::before{content:'';width:10px;height:3px;background:rgba(255,255,255,.4);border-radius:1px}
+.pv-status::after{content:'';width:4px;height:3px;background:rgba(255,255,255,.4);border-radius:1px}
+.pv-ui{flex:1;padding:4px;display:flex;flex-direction:column;gap:3px}
+.pv-ui-row{height:3px;background:rgba(255,255,255,.18);border-radius:1px}
+.pv-ui-row.s{width:60%}
+.pv-ui-row.xs{width:35%}
+.pv-ui-price{font-size:7px;font-weight:800;color:#fff;text-align:center;margin:3px 0 2px;font-family:'Plus Jakarta Sans',sans-serif;text-shadow:0 0 8px rgba(255,255,255,.6);letter-spacing:-.3px}
+.pv-ui-card{height:18px;background:rgba(255,255,255,.1);border-radius:3px;margin-top:2px;position:relative;overflow:hidden}
+.pv-ui-card::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);animation:pvShimmer 2s ease-in-out var(--delay,0s) infinite;background-size:200% 100%}
+@keyframes pvShimmer{0%{transform:translateX(-100%)}100%{transform:translateX(200%)}}
+.pv-home{position:absolute;bottom:3px;left:50%;transform:translateX(-50%);width:22px;height:2.5px;background:rgba(255,255,255,.25);border-radius:2px}
+.pv-cam-mod{position:absolute;top:8px;right:-2px;width:12px;background:linear-gradient(180deg,#2a2a3a,#1a1a28);border-radius:4px 0 0 4px;display:flex;flex-direction:column;align-items:center;gap:2px;padding:4px 2px;border:1px solid rgba(255,255,255,.08);border-right:none}
+.pv-lens{width:7px;height:7px;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(255,255,255,.3),#0a0a14);border:1px solid rgba(255,255,255,.15);box-shadow:0 0 4px rgba(0,0,0,.5)}
+.pv-lens-sm{width:4px;height:4px;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(255,255,255,.2),#111);border:1px solid rgba(255,255,255,.1)}
+.pv-flash{width:3px;height:3px;border-radius:50%;background:radial-gradient(#ffe066,#c8952a)}
+.pv-side-btn{position:absolute;background:rgba(255,255,255,.12);border-radius:1px}
+.pv-vol1{left:-3px;top:28px;width:3px;height:12px;border-radius:1px 0 0 1px}
+.pv-vol2{left:-3px;top:44px;width:3px;height:12px;border-radius:1px 0 0 1px}
+.pv-pwr{right:-3px;top:32px;width:3px;height:18px;border-radius:0 1px 1px 0}
+.pv-glow{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);width:50px;height:16px;background:var(--glow,rgba(99,102,241,.4));border-radius:50%;filter:blur(8px);animation:pvFloat var(--dur,3.5s) ease-in-out var(--delay,0s) infinite;animation-name:pvGlowFloat}
+@keyframes pvGlowFloat{0%,100%{opacity:.7;transform:translateX(-50%) scaleX(1)}50%{opacity:.3;transform:translateX(-50%) scaleX(0.7)}}
+.pv-brand-dot{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.pv-brand-initial{font-size:8px;font-weight:900;color:rgba(255,255,255,.06);font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-.5px;transform:translateY(8px)}
+/* List view phone — smaller */
+.pv-mini .pv-phone{width:36px;height:68px;animation-duration:4s}
+.pv-mini .pv-cam-mod{width:7px;top:5px}
+.pv-mini .pv-lens{width:5px;height:5px}
+.pv-mini .pv-lens-sm{width:3px;height:3px}
+.pv-mini .pv-flash{display:none}
+.pv-mini .pv-glow{width:30px}
+
+/* ── EMPTY / LOADING ── */
+.empty-state{grid-column:1/-1;text-align:center;padding:64px 20px;color:var(--text2)}
+.empty-state svg{margin-bottom:16px;opacity:.3}
+.empty-state h3{font-size:17px;font-weight:700;color:var(--text);margin-bottom:6px}
+.loader-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.skeleton{background:linear-gradient(90deg,var(--surface) 25%,var(--surface2) 50%,var(--surface) 75%);background-size:400px 100%;animation:shimmer 1.4s infinite;border-radius:var(--r);height:280px}
+@keyframes shimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}
+
+/* ── TOAST ── */
+.toast-wrap{position:fixed;bottom:80px;right:20px;z-index:300;display:flex;flex-direction:column;gap:8px}
+.toast{background:var(--surface);border:1px solid var(--border2);border-radius:var(--r);padding:11px 16px;font-size:13px;font-weight:500;color:var(--text);box-shadow:var(--card-shadow);animation:toastIn .3s;display:flex;align-items:center;gap:8px}
+@keyframes toastIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.toast.success{border-color:var(--accent3);color:var(--accent3)}
+.toast.warn{border-color:var(--warn);color:var(--warn)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px){
+  .header-search{display:none}
+  .hero h1{font-size:26px}
+  .hero-stats{gap:18px}
+  .modal-prices-grid{grid-template-columns:1fr 1fr}
+  .modal-hero{flex-direction:column}
+  .main{padding:16px}
+  .sidebar{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">DZ</div>
+      <span class="logo-text">DZ<span>Phones</span></span>
+    </a>
+    <div class="header-search">
+      <span class="s-icon">🔍</span>
+      <input type="text" placeholder="Rechercher un modèle, une marque…" id="hs-input" autocomplete="off">
+    </div>
+    <nav class="header-nav">
+      <button class="nav-btn active" onclick="setView('catalog')">Catalogue</button>
+      <button class="nav-btn" onclick="openCompareFromHeader()">Comparer</button>
+      <a href="../observatoire/index.html" class="nav-link-ext" target="_blank">📡 Observatoire</a>
+      <a href="../index.html" class="nav-link-ext" target="_blank">🌐 Algeria-Tech</a>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Changer le thème" id="theme-btn">🌙</button>
+      <button class="compare-btn-header" id="compare-header-btn" onclick="openCompareFromHeader()">
+        ⚡ Comparer <span class="c-count" id="c-count">0</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Données en temps réel — Marché algérien</div>
+  <h1>Comparez les prix<br><span>smartphones</span> en Algérie</h1>
+  <p class="hero-sub">Prix officiels · Prix Caba · Tendances · Crédit · Specs — tous les marchés, un seul endroit.</p>
+  <div class="hero-search">
+    <span class="hs-icon">🔍</span>
+    <input type="text" id="hero-search" placeholder="iPhone 16, Galaxy S24, Redmi…" autocomplete="off">
+    <button onclick="applySearch()">Rechercher</button>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="val" id="hs-total">—</div><div class="lbl">Modèles</div></div>
+    <div class="hero-stat"><div class="val" id="hs-brands">—</div><div class="lbl">Marques</div></div>
+    <div class="hero-stat"><div class="val" id="hs-avg">—</div><div class="lbl">Prix moyen</div></div>
+    <div class="hero-stat"><div class="val" id="hs-spread">—</div><div class="lbl">Écart Caba moy.</div></div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section class="brands-section">
+  <div class="brands-inner">
+    <div class="brands-title">Filtrer par marque</div>
+    <div class="brands-scroll" id="brands-scroll"></div>
+  </div>
+</section>
+
+<!-- MAIN -->
+<div class="main">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="filter-card">
+      <div class="filter-title">Segment <button onclick="clearFilters()">Réinitialiser</button></div>
+      <div class="seg-btns">
+        <button class="seg-btn active" data-seg="all" onclick="setSeg('all',this)">
+          <span class="seg-dot" style="background:var(--accent)"></span> Tous les segments
+          <span class="seg-count" id="cnt-all">—</span>
+        </button>
+        <button class="seg-btn" data-seg="high" onclick="setSeg('high',this)">
+          <span class="seg-dot" style="background:var(--accent)"></span> Haut de gamme
+          <span class="seg-count" id="cnt-high">—</span>
+        </button>
+        <button class="seg-btn" data-seg="mid" onclick="setSeg('mid',this)">
+          <span class="seg-dot" style="background:var(--accent2)"></span> Milieu de gamme
+          <span class="seg-count" id="cnt-mid">—</span>
+        </button>
+        <button class="seg-btn" data-seg="entry" onclick="setSeg('entry',this)">
+          <span class="seg-dot" style="background:var(--accent3)"></span> Entrée de gamme
+          <span class="seg-count" id="cnt-entry">—</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="filter-card">
+      <div class="filter-title">Budget (DZD)</div>
+      <div class="price-range">
+        <label>
+          <span id="price-min-lbl">0</span>
+          <span id="price-max-lbl">300 000</span>
+        </label>
+        <div class="range-track">
+          <div class="range-fill" id="range-fill"></div>
+          <input type="range" id="price-min" min="0" max="300000" step="5000" value="0" oninput="updateRange()">
+          <input type="range" id="price-max" min="0" max="300000" step="5000" value="300000" oninput="updateRange()">
+        </div>
+      </div>
+    </div>
+
+    <div class="filter-card">
+      <div class="filter-title">Trier par</div>
+      <select class="sort-select" id="sort-select" onchange="renderPhones()">
+        <option value="price_asc">Prix croissant</option>
+        <option value="price_desc">Prix décroissant</option>
+        <option value="name_asc">Nom A→Z</option>
+        <option value="spread_desc">Plus grand écart Caba</option>
+        <option value="trend_up">Hausses récentes</option>
+      </select>
+    </div>
+
+    <div class="filter-card">
+      <div class="filter-title">Tendance</div>
+      <div class="filter-group">
+        <label class="filter-check"><input type="checkbox" value="up" onchange="renderPhones()"> ↑ En hausse <span class="fc-count" id="cnt-up">—</span></label>
+        <label class="filter-check"><input type="checkbox" value="down" onchange="renderPhones()"> ↓ En baisse <span class="fc-count" id="cnt-down">—</span></label>
+        <label class="filter-check"><input type="checkbox" value="flat" onchange="renderPhones()"> → Stable <span class="fc-count" id="cnt-flat">—</span></label>
+      </div>
+    </div>
+  </aside>
+
+  <!-- CATALOG -->
+  <section>
+    <div class="catalog-header">
+      <div>
+        <h2>Catalogue smartphones</h2>
+        <div class="result-count" id="result-count">Chargement…</div>
+      </div>
+      <div class="view-toggle">
+        <button class="vt-btn active" id="vt-grid" onclick="setViewMode('grid')" title="Grille">⊞</button>
+        <button class="vt-btn" id="vt-list" onclick="setViewMode('list')" title="Liste">☰</button>
+      </div>
+    </div>
+    <div id="phones-container"></div>
+  </section>
+</div>
+
+<!-- PHONE DETAIL MODAL -->
+<div class="modal-overlay" id="phone-modal" onclick="closeModal(event)">
+  <div class="modal" id="modal-content">
+    <button class="modal-close" onclick="closeModalBtn()">✕</button>
+    <div class="modal-hero">
+      <div class="modal-phone-img" id="m-img">📱</div>
+      <div class="modal-title-area">
+        <div class="modal-brand-row">
+          <span class="modal-brand" id="m-brand">—</span>
+          <span class="modal-seg-badge" id="m-seg">—</span>
+          <div class="modal-sources" id="m-sources"></div>
+        </div>
+        <div class="modal-name" id="m-name">—</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px">
+          <span class="card-trend" id="m-trend">—</span>
+        </div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-prices-grid">
+        <div class="modal-price-box">
+          <div class="mpb-label">Prix officiel</div>
+          <div class="mpb-val" id="m-off" style="color:var(--text)">—</div>
+          <div class="mpb-sub">Boutiques agréées</div>
+        </div>
+        <div class="modal-price-box">
+          <div class="mpb-label">Marché parallèle</div>
+          <div class="mpb-val" id="m-caba" style="color:var(--warn)">—</div>
+          <div class="mpb-sub">Estimation Caba</div>
+        </div>
+        <div class="modal-price-box">
+          <div class="mpb-label">Écart</div>
+          <div class="mpb-val" id="m-spread" style="color:var(--danger)">—</div>
+          <div class="mpb-sub">Off. vs Caba</div>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Caractéristiques</div>
+        <div class="specs-grid" id="m-specs"></div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-section-title">Évolution du prix</div>
+        <div class="chart-wrap"><canvas id="m-chart"></canvas></div>
+      </div>
+
+      <div class="modal-section" id="m-credit-section">
+        <div class="modal-section-title">Facilités de paiement estimées</div>
+        <div class="credit-grid" id="m-credits"></div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="modal-actions button btn-primary" onclick="addToCompareFromModal()">⚡ Ajouter à la comparaison</button>
+        <button class="modal-actions button btn-secondary" onclick="closeModalBtn()">Retour au catalogue</button>
+        <a id="m-src-link" href="#" target="_blank" class="modal-actions button btn-ext" style="display:none;text-decoration:none;padding:11px;border-radius:var(--r);font-size:13px;font-weight:600;border:1px solid var(--border2);color:var(--text2);text-align:center">↗ Voir la source</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARE DRAWER -->
+<div class="compare-drawer" id="compare-drawer">
+  <span class="compare-title">⚡ Comparer</span>
+  <div class="compare-slots" id="compare-slots"></div>
+  <button class="btn-compare-now" onclick="openCompareModal()">Voir comparaison →</button>
+  <button class="btn-clear-compare" onclick="clearCompare()">Effacer</button>
+</div>
+
+<!-- COMPARE MODAL -->
+<div class="modal-overlay" id="compare-modal-overlay" onclick="closeCompareModal(event)">
+  <div class="modal compare-modal" id="compare-modal-content">
+    <button class="modal-close" onclick="document.getElementById('compare-modal-overlay').classList.remove('open')">✕</button>
+    <div style="padding:24px">
+      <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:800;margin-bottom:20px">⚡ Comparaison</h2>
+      <div style="overflow-x:auto">
+        <table class="compare-table" id="compare-table"></table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast-wrap" id="toast-wrap"></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="logo-text">DZ<span style="color:var(--accent)">Phones</span></span>
+        <p>Le comparateur de smartphones le plus complet pour le marché algérien. Prix officiels, Caba, tendances et specs en un seul endroit.</p>
+        <div class="footer-ext-links" style="margin-top:16px">
+          <a href="../index.html" class="footer-ext-link primary-link">🌐 Algeria-Tech</a>
+          <a href="../observatoire/index.html" class="footer-ext-link">📡 Observatoire</a>
+        </div>
+      </div>
+      <div class="footer-links-col">
+        <h4>Explorer</h4>
+        <ul>
+          <li><a href="#" onclick="setSeg('high',document.querySelector('[data-seg=high]'))">Haut de gamme</a></li>
+          <li><a href="#" onclick="setSeg('mid',document.querySelector('[data-seg=mid]'))">Milieu de gamme</a></li>
+          <li><a href="#" onclick="setSeg('entry',document.querySelector('[data-seg=entry]'))">Entrée de gamme</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h4>Sources données</h4>
+        <ul>
+          <li><a href="https://webstar-electro.com" target="_blank">WebStar-Electro</a></li>
+          <li><a href="https://iphoneprixalgerie.com" target="_blank">iPhonePrixAlgerie</a></li>
+          <li><a href="https://www.mobile57.com/dz" target="_blank">Mobile57 DZ</a></li>
+          <li><a href="https://www.ouedkniss.com" target="_blank">Ouedkniss (Caba)</a></li>
+        </ul>
+      </div>
+      <div class="footer-links-col">
+        <h4>À propos</h4>
+        <ul>
+          <li><a href="../index.html">Algeria-Tech</a></li>
+          <li><a href="../observatoire/index.html">Observatoire prix</a></li>
+          <li><a href="#" onclick="toggleTheme()">Changer le thème</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 DZPhones · Données issues du scraping public · Mis à jour quotidiennement</p>
+      <div class="made-with">Propulsé par <strong>Algeria-Tech</strong> &amp; Claude AI</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── STATE ──────────────────────────────────────────────────────────────────
+let ALL_PHONES = [];
+let filteredPhones = [];
+let activeBrand = 'all';
+let activeSeg = 'all';
+let searchQ = '';
+let viewMode = 'grid';
+let compareList = [];
+let currentPhone = null;
+let dChart = null;
+let isDay = false;
+
+const DURATIONS = [12, 18, 24, 36];
+const OVERHEAD = 0.12;
+
+// ── LOAD ──────────────────────────────────────────────────────────────────
+async function loadData() {
+  let livePhones = [];
+  try {
+    const r = await fetch('../observatoire/phones_index.json?t=' + Date.now());
+    if (r.ok) {
+      const d = await r.json();
+      livePhones = d.phones.map(p => ({
+        id: p.slug,
+        name: p.name,
+        brand: p.brand,
+        segment: p.segment,
+        price_official: p.price_official,
+        price_caba: p.price_caba || Math.round((p.price_official || 0) * 1.2),
+        trend: p.trend || 'flat',
+        specs: {
+          ram: p.specs?.RAM ? parseInt(p.specs.RAM) : null,
+          screen: p.specs?.ecran ? parseFloat(p.specs.ecran) : null,
+          battery: p.specs?.batterie ? parseInt(p.specs.batterie) : null,
+          storage: p.specs?.stockage ? parseInt(p.specs.stockage) : null,
+          os: p.specs?.os || null,
+        },
+        img: '📱',
+        credit_monthly: p.credit_offers?.[0]?.mensualite_dzd || null,
+        sources: [p.source || 'webstar'],
+        history: p.history || [],
+        source_url: p.source_url || null,
+        live: true,
+      })).filter(p => p.name && p.price_official && p.price_official > 1000
+        && !p.name.match(/Prices in Algeria|Best Smartphone|Upcoming/i));
+    }
+  } catch(e) {}
+
+  // Fusionne live + demo, déduplique par nom normalisé
+  const seen = new Set();
+  const merged = [];
+  [...livePhones, ...PHONES_DEMO].forEach(p => {
+    const key = p.name.toLowerCase().replace(/\s+/g,'').slice(0,20);
+    if (!seen.has(key)) { seen.add(key); merged.push(p); }
+  });
+  return merged;
+}
+
+async function init() {
+  showSkeletons();
+  ALL_PHONES = await loadData();
+  updateHeroStats();
+  buildBrandPills();
+  updateCounts();
+  renderPhones();
+}
+
+// ── HERO STATS ────────────────────────────────────────────────────────────
+function updateHeroStats() {
+  const brands = new Set(ALL_PHONES.map(p => p.brand)).size;
+  const prices = ALL_PHONES.map(p => p.price_official).filter(Boolean);
+  const avg = prices.length ? Math.round(prices.reduce((a,b)=>a+b,0)/prices.length) : 0;
+  const spreads = ALL_PHONES
+    .filter(p => p.price_official && p.price_caba)
+    .map(p => ((p.price_caba - p.price_official) / p.price_official * 100));
+  const avgSpread = spreads.length ? (spreads.reduce((a,b)=>a+b,0)/spreads.length).toFixed(1) : '—';
+
+  document.getElementById('hs-total').textContent = ALL_PHONES.length;
+  document.getElementById('hs-brands').textContent = brands;
+  document.getElementById('hs-avg').textContent = avg ? fmtK(avg) + ' DZD' : '—';
+  document.getElementById('hs-spread').textContent = avgSpread !== '—' ? '+' + avgSpread + '%' : '—';
+}
+
+// ── BRAND PILLS ───────────────────────────────────────────────────────────
+function buildBrandPills() {
+  const counts = {};
+  ALL_PHONES.forEach(p => counts[p.brand] = (counts[p.brand]||0)+1);
+  const wrap = document.getElementById('brands-scroll');
+  wrap.innerHTML = '';
+  const allPill = el('button','brand-pill active');
+  allPill.dataset.brand = 'all';
+  allPill.innerHTML = `<span class="b-logo">✦</span> Toutes <span class="b-cnt">${ALL_PHONES.length}</span>`;
+  allPill.onclick = () => setBrand('all', allPill);
+  wrap.appendChild(allPill);
+  Object.entries(counts).sort((a,b)=>b[1]-a[1]).forEach(([brand,cnt]) => {
+    const meta = BRAND_META[brand] || BRAND_META.Autre;
+    const pill = el('button','brand-pill');
+    pill.dataset.brand = brand;
+    pill.innerHTML = `<span class="b-logo" style="color:${meta.color}">${meta.logo}</span>${brand}<span class="b-cnt">${cnt}</span>`;
+    pill.onclick = () => setBrand(brand, pill);
+    wrap.appendChild(pill);
+  });
+}
+
+// ── FILTERS ───────────────────────────────────────────────────────────────
+function getFilteredPhones() {
+  const minPrice = parseInt(document.getElementById('price-min')?.value || 0);
+  const maxPrice = parseInt(document.getElementById('price-max')?.value || 300000);
+  const trendChecks = [...document.querySelectorAll('.filter-check input:checked')].map(c=>c.value);
+
+  return ALL_PHONES.filter(p => {
+    if (activeBrand !== 'all' && p.brand !== activeBrand) return false;
+    if (activeSeg !== 'all' && p.segment !== activeSeg) return false;
+    if (p.price_official < minPrice || p.price_official > maxPrice) return false;
+    if (trendChecks.length && !trendChecks.includes(p.trend)) return false;
+    if (searchQ) {
+      const q = searchQ.toLowerCase();
+      if (!p.name.toLowerCase().includes(q) && !p.brand.toLowerCase().includes(q)) return false;
+    }
+    return true;
+  });
+}
+
+function sortPhones(phones) {
+  const s = document.getElementById('sort-select')?.value || 'price_asc';
+  return [...phones].sort((a,b) => {
+    if (s==='price_asc')    return (a.price_official||0) - (b.price_official||0);
+    if (s==='price_desc')   return (b.price_official||0) - (a.price_official||0);
+    if (s==='name_asc')     return a.name.localeCompare(b.name);
+    if (s==='spread_desc')  return spreadPct(b) - spreadPct(a);
+    if (s==='trend_up')     return a.trend==='up'?-1:b.trend==='up'?1:0;
+    return 0;
+  });
+}
+
+function spreadPct(p) {
+  if (!p.price_official || !p.price_caba) return 0;
+  return (p.price_caba - p.price_official) / p.price_official * 100;
+}
+
+function updateCounts() {
+  const segs = {all:0,high:0,mid:0,entry:0};
+  const trends = {up:0,down:0,flat:0};
+  ALL_PHONES.forEach(p => {
+    segs.all++; segs[p.segment]=(segs[p.segment]||0)+1;
+    trends[p.trend]=(trends[p.trend]||0)+1;
+  });
+  Object.entries(segs).forEach(([k,v]) => {
+    const el = document.getElementById('cnt-'+k);
+    if (el) el.textContent = v;
+  });
+  Object.entries(trends).forEach(([k,v]) => {
+    const el = document.getElementById('cnt-'+k);
+    if (el) el.textContent = v;
+  });
+}
+
+function setBrand(brand, pill) {
+  activeBrand = brand;
+  document.querySelectorAll('.brand-pill').forEach(p=>p.classList.remove('active'));
+  pill.classList.add('active');
+  renderPhones();
+}
+
+function setSeg(seg, btn) {
+  activeSeg = seg;
+  document.querySelectorAll('.seg-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderPhones();
+}
+
+function updateRange() {
+  let min = parseInt(document.getElementById('price-min').value);
+  let max = parseInt(document.getElementById('price-max').value);
+  if (min > max) { min = max; document.getElementById('price-min').value = min; }
+  document.getElementById('price-min-lbl').textContent = fmtK(min);
+  document.getElementById('price-max-lbl').textContent = fmtK(max);
+  const pct1 = min/300000*100, pct2 = max/300000*100;
+  const fill = document.getElementById('range-fill');
+  if (fill) { fill.style.left = pct1+'%'; fill.style.width = (pct2-pct1)+'%'; }
+  renderPhones();
+}
+
+function clearFilters() {
+  activeBrand='all'; activeSeg='all'; searchQ='';
+  document.querySelectorAll('.brand-pill').forEach(p=>p.classList.remove('active'));
+  document.querySelector('.brand-pill')?.classList.add('active');
+  document.querySelectorAll('.seg-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector('[data-seg=all]')?.classList.add('active');
+  document.querySelectorAll('.filter-check input').forEach(c=>c.checked=false);
+  document.getElementById('price-min').value=0;
+  document.getElementById('price-max').value=300000;
+  document.getElementById('hero-search').value='';
+  document.getElementById('hs-input').value='';
+  updateRange(); renderPhones();
+}
+
+function applySearch() {
+  searchQ = document.getElementById('hero-search').value.trim();
+  renderPhones();
+  document.querySelector('.main')?.scrollIntoView({behavior:'smooth'});
+}
+
+// ── RENDER ────────────────────────────────────────────────────────────────
+function renderPhones() {
+  filteredPhones = sortPhones(getFilteredPhones());
+  const container = document.getElementById('phones-container');
+  document.getElementById('result-count').textContent =
+    `${filteredPhones.length} modèle${filteredPhones.length!==1?'s':''} trouvé${filteredPhones.length!==1?'s':''}`;
+
+  if (!filteredPhones.length) {
+    container.innerHTML = `<div class="empty-state"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><h3>Aucun résultat</h3><p>Essayez d'élargir votre recherche ou de changer les filtres.</p></div>`;
+    return;
+  }
+
+  if (viewMode === 'grid') {
+    container.innerHTML = `<div class="phones-grid">${filteredPhones.map(renderCard).join('')}</div>`;
+  } else {
+    container.innerHTML = `<div class="phones-list">${filteredPhones.map(renderListCard).join('')}</div>`;
+  }
+
+  // Reattach events
+  container.querySelectorAll('[data-phone-id]').forEach(card => {
+    const id = card.dataset.phoneId;
+    card.onclick = (e) => {
+      if (e.target.closest('.card-add-compare,.icon-btn')) return;
+      openModal(id);
+    };
+  });
+  container.querySelectorAll('.card-add-compare,[data-compare-id]').forEach(btn => {
+    btn.onclick = (e) => { e.stopPropagation(); toggleCompare(btn.dataset.compareId||btn.dataset.phoneId); };
+  });
+  updateCompareHighlights();
+}
+
+// ── ANIMATED PHONE VISUAL ─────────────────────────────────────────────────
+function phoneVisual(p, mini=false) {
+  const meta = BRAND_META[p.brand] || BRAND_META.Autre;
+  const c = meta.color;
+  const glow = meta.glow;
+  const dur  = (3.2 + (p.id.charCodeAt(0)%10)*.22).toFixed(2);
+  const delay= '-'+(p.id.charCodeAt(1)%30/10).toFixed(1)+'s';
+  const tilt = ((p.id.charCodeAt(2)%12)-6)+'deg';
+  // Number of camera lenses based on brand/segment
+  const lenses = p.segment==='high'?3:p.segment==='mid'?2:1;
+  const lensHtml = Array.from({length:lenses}, (_,i)=>
+    i===0?`<div class="pv-lens"></div>`:
+    i===1?`<div class="pv-lens-sm"></div>`:
+           `<div class="pv-lens-sm" style="width:3px;height:3px"></div>`
+  ).join('');
+  const wrapCls = mini ? 'pv-wrap pv-mini' : 'pv-wrap';
+  return `<div class="${wrapCls}" style="--pc:${c};--glow:${glow};--dur:${dur}s;--delay:${delay};--tilt:${tilt};--brand-glow:${glow}">
+    <div class="pv-phone">
+      <div class="pv-frame">
+        <div class="pv-screen">
+          <div class="pv-notch"></div>
+          <div class="pv-status"></div>
+          <div class="pv-ui">
+            <div class="pv-ui-row"></div>
+            <div class="pv-ui-row s"></div>
+            <div class="pv-ui-price">${fmtK(p.price_official)}</div>
+            <div class="pv-ui-card"></div>
+            <div class="pv-ui-row xs" style="margin-top:3px"></div>
+          </div>
+        </div>
+        <div class="pv-home"></div>
+      </div>
+      <div class="pv-cam-mod">${lensHtml}<div class="pv-flash"></div></div>
+      <div class="pv-side-btn pv-vol1"></div>
+      <div class="pv-side-btn pv-vol2"></div>
+      <div class="pv-side-btn pv-pwr"></div>
+      <div class="pv-brand-dot"><span class="pv-brand-initial">${p.brand.slice(0,2).toUpperCase()}</span></div>
+    </div>
+    <div class="pv-glow"></div>
+  </div>`;
+}
+
+function renderCard(p) {
+  const spread = Math.round(spreadPct(p));
+  const inCmp = compareList.find(c=>c.id===p.id) ? 'in-compare' : '';
+  const cmpIcon = inCmp ? '✓' : '+';
+  const segCls = p.segment==='high'?'seg-high':p.segment==='mid'?'seg-mid':'seg-entry';
+  const meta = BRAND_META[p.brand] || BRAND_META.Autre;
+  return `
+  <div class="phone-card ${inCmp}" data-phone-id="${p.id}" style="--brand-glow:${meta.glow}">
+    <div class="card-img">
+      ${p.live?`<span class="card-source-badge">LIVE</span>`:''}
+      <span class="card-trend ${trendCls(p.trend)}">${trendIcon(p.trend)}</span>
+      ${phoneVisual(p)}
+      <button class="card-add-compare" data-compare-id="${p.id}" title="Ajouter à la comparaison">${cmpIcon}</button>
+    </div>
+    <div class="card-body">
+      <div class="card-brand" style="color:${meta.color}">${p.brand}</div>
+      <div class="card-name">${p.name}</div>
+      <div class="card-prices">
+        <div class="price-off">${fmt(p.price_official)} DZD</div>
+        <div class="price-caba-row">
+          <span class="price-caba">Caba ~${fmt(p.price_caba)}</span>
+          ${spread>0?`<span class="spread-badge">+${spread}%</span>`:''}
+        </div>
+      </div>
+      <div class="card-specs">
+        ${p.specs?.ram?`<span class="spec-chip">${p.specs.ram}Go RAM</span>`:''}
+        ${p.specs?.storage?`<span class="spec-chip">${p.specs.storage}Go</span>`:''}
+        ${p.specs?.screen?`<span class="spec-chip">${p.specs.screen}"</span>`:''}
+        ${p.specs?.battery?`<span class="spec-chip">${p.specs.battery}mAh</span>`:''}
+        <span class="spec-chip ${segCls}">${segLabel(p.segment)}</span>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderListCard(p) {
+  const spread = Math.round(spreadPct(p));
+  const inCmp = compareList.find(c=>c.id===p.id) ? 'in-compare' : '';
+  const meta = BRAND_META[p.brand] || BRAND_META.Autre;
+  return `
+  <div class="phone-card-list ${inCmp}" data-phone-id="${p.id}">
+    <div class="list-img" style="background:var(--bg3);overflow:hidden;padding:0">
+      ${phoneVisual(p, true)}
+    </div>
+    <div class="list-info">
+      <div class="list-name">${p.name}</div>
+      <div class="list-meta">
+        <span class="list-brand" style="color:${meta.color}">${p.brand}</span>
+        <span class="list-seg ${p.segment==='high'?'seg-high':p.segment==='mid'?'seg-mid':'seg-entry'}">${segLabel(p.segment)}</span>
+        ${p.live?`<span class="list-seg" style="color:var(--accent3)">LIVE</span>`:''}
+        ${p.specs?.ram?`<span class="list-seg">${p.specs.ram}Go RAM</span>`:''}
+        ${p.specs?.screen?`<span class="list-seg">${p.specs.screen}"</span>`:''}
+      </div>
+    </div>
+    <div class="list-prices">
+      <div class="list-off">${fmt(p.price_official)} DZD</div>
+      <div class="list-caba">Caba ~${fmt(p.price_caba)} ${spread>0?`(+${spread}%)`:''}</div>
+    </div>
+    <div class="list-actions">
+      <span class="list-trend ${trendCls(p.trend)}">${trendIcon(p.trend)}</span>
+      <button class="icon-btn" data-compare-id="${p.id}" title="Comparer">⚡</button>
+    </div>
+  </div>`;
+}
+
+// ── MODAL ─────────────────────────────────────────────────────────────────
+function openModal(id) {
+  const p = ALL_PHONES.find(x=>x.id===id);
+  if (!p) return;
+  currentPhone = p;
+
+  document.getElementById('m-img').textContent = p.img;
+  document.getElementById('m-brand').textContent = p.brand;
+  const segEl = document.getElementById('m-seg');
+  segEl.textContent = segLabel(p.segment);
+  segEl.className = 'modal-seg-badge ' + (p.segment==='high'?'seg-high':p.segment==='mid'?'seg-mid':'seg-entry');
+
+  document.getElementById('m-sources').innerHTML = (p.sources||[]).map(s=>
+    `<span class="source-tag">${s}</span>`).join('');
+  document.getElementById('m-name').textContent = p.name;
+  const tEl = document.getElementById('m-trend');
+  tEl.textContent = trendIcon(p.trend) + ' ' + (p.trend==='up'?'En hausse':p.trend==='down'?'En baisse':'Stable');
+  tEl.className = 'card-trend ' + trendCls(p.trend);
+
+  document.getElementById('m-off').textContent = fmt(p.price_official) + ' DZD';
+  document.getElementById('m-caba').textContent = '~' + fmt(p.price_caba) + ' DZD';
+  const sp = p.price_official && p.price_caba
+    ? ((p.price_caba - p.price_official)/p.price_official*100).toFixed(1) : null;
+  document.getElementById('m-spread').textContent = sp ? '+' + sp + '%' : 'N/A';
+
+  // SPECS
+  const specDefs = [
+    {key:'ram',label:'RAM',icon:'🧠',unit:'Go'},
+    {key:'storage',label:'Stockage',icon:'💾',unit:'Go'},
+    {key:'screen',label:'Écran',icon:'📐',unit:'"'},
+    {key:'battery',label:'Batterie',icon:'🔋',unit:'mAh'},
+    {key:'camera',label:'Photo',icon:'📷',unit:''},
+    {key:'os',label:'Système',icon:'⚙️',unit:''},
+  ];
+  document.getElementById('m-specs').innerHTML = specDefs
+    .filter(d => p.specs?.[d.key])
+    .map(d => `<div class="spec-box">
+      <div class="spec-icon">${d.icon}</div>
+      <div class="spec-key">${d.label}</div>
+      <div class="spec-val">${p.specs[d.key]}${d.unit}</div>
+    </div>`).join('');
+
+  // CHART
+  if (dChart) { dChart.destroy(); dChart = null; }
+  const hist = p.history?.length ? p.history : [
+    {date:'2026-04',price:Math.round((p.price_official||0)*1.03),price_caba:Math.round((p.price_caba||0)*1.04)},
+    {date:'2026-05',price:Math.round((p.price_official||0)*1.01),price_caba:Math.round((p.price_caba||0)*1.02)},
+    {date:'2026-06',price:p.price_official,price_caba:p.price_caba},
+  ];
+  const isDark = document.documentElement.dataset.theme==='dark';
+  const gridColor = isDark?'rgba(255,255,255,0.06)':'rgba(0,0,0,0.06)';
+  const tickColor = isDark?'#4a5a7a':'#9ca3af';
+  dChart = new Chart(document.getElementById('m-chart').getContext('2d'), {
+    type:'line',
+    data:{
+      labels:hist.map(h=>h.date),
+      datasets:[
+        {label:'Prix officiel',data:hist.map(h=>h.price||h.price_official),
+         borderColor:'#6366f1',backgroundColor:'rgba(99,102,241,0.1)',tension:.4,fill:true,pointRadius:4,pointBackgroundColor:'#6366f1'},
+        {label:'Caba (est.)',data:hist.map(h=>h.price_caba),
+         borderColor:'#f59e0b',backgroundColor:'rgba(245,158,11,0.08)',tension:.4,fill:false,pointRadius:4,pointBackgroundColor:'#f59e0b'},
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{labels:{color:tickColor,font:{size:11},boxWidth:10}}},
+      scales:{
+        x:{grid:{color:gridColor},ticks:{color:tickColor,font:{size:11}}},
+        y:{grid:{color:gridColor},ticks:{color:tickColor,font:{size:11},callback:v=>fmtK(v)+' DZD'}},
+      },
+      animation:{duration:500}
+    }
+  });
+
+  // CREDIT
+  const base = p.price_official || 0;
+  const durations = DURATIONS.filter(d => p.credit_monthly || d <= 24);
+  document.getElementById('m-credits').innerHTML = DURATIONS.map(dur => {
+    const monthly = p.credit_monthly && DURATIONS[0] === dur
+      ? p.credit_monthly
+      : Math.round(base * (1 + OVERHEAD) / dur);
+    return `<div class="credit-box">
+      <div class="credit-dur">${dur} mois</div>
+      <div class="credit-men">${fmt(monthly)}</div>
+      <div class="credit-dzd">DZD / mois</div>
+    </div>`;
+  }).join('');
+
+  // SOURCE LINK
+  const srcLink = document.getElementById('m-src-link');
+  if (p.source_url) { srcLink.href = p.source_url; srcLink.style.display='flex'; }
+  else srcLink.style.display='none';
+
+  document.getElementById('phone-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('phone-modal')) closeModalBtn();
+}
+function closeModalBtn() {
+  document.getElementById('phone-modal').classList.remove('open');
+  document.body.style.overflow = '';
+  if (dChart) { dChart.destroy(); dChart = null; }
+}
+
+// ── COMPARE ───────────────────────────────────────────────────────────────
+function toggleCompare(id) {
+  const p = ALL_PHONES.find(x=>x.id===id);
+  if (!p) return;
+  const idx = compareList.findIndex(c=>c.id===id);
+  if (idx >= 0) {
+    compareList.splice(idx, 1);
+    toast('Retiré de la comparaison');
+  } else {
+    if (compareList.length >= 3) { toast('Max 3 téléphones à comparer', 'warn'); return; }
+    compareList.push(p);
+    toast(`${p.brand} ${p.name.slice(0,20)}… ajouté`, 'success');
+  }
+  updateCompareDrawer();
+  updateCompareHighlights();
+  renderPhones();
+}
+
+function addToCompareFromModal() {
+  if (currentPhone) { toggleCompare(currentPhone.id); closeModalBtn(); }
+}
+
+function updateCompareDrawer() {
+  const drawer = document.getElementById('compare-drawer');
+  const slots = document.getElementById('compare-slots');
+  const headerBtn = document.getElementById('compare-header-btn');
+  const countEl = document.getElementById('c-count');
+  if (compareList.length === 0) {
+    drawer.classList.remove('open');
+    headerBtn.classList.remove('visible');
+  } else {
+    drawer.classList.add('open');
+    headerBtn.classList.add('visible');
+    countEl.textContent = compareList.length;
+  }
+  slots.innerHTML = compareList.map(p => `
+    <div class="compare-slot">
+      <span>${p.img}</span>
+      <span class="compare-slot-name">${p.brand} ${p.name.slice(0,18)}</span>
+      <button onclick="toggleCompare('${p.id}')" title="Retirer">✕</button>
+    </div>`).join('');
+}
+
+function updateCompareHighlights() {
+  document.querySelectorAll('[data-phone-id]').forEach(card => {
+    const inCmp = compareList.find(c=>c.id===card.dataset.phoneId);
+    card.classList.toggle('in-compare', !!inCmp);
+    const addBtn = card.querySelector('.card-add-compare');
+    if (addBtn) addBtn.textContent = inCmp ? '✓' : '+';
+  });
+}
+
+function clearCompare() {
+  compareList = [];
+  updateCompareDrawer();
+  renderPhones();
+}
+
+function openCompareFromHeader() {
+  if (compareList.length < 2) { toast('Sélectionnez au moins 2 téléphones', 'warn'); return; }
+  openCompareModal();
+}
+
+function openCompareModal() {
+  if (compareList.length < 2) { toast('Sélectionnez au moins 2 téléphones', 'warn'); return; }
+  buildCompareTable();
+  document.getElementById('compare-modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCompareModal(e) {
+  if (e.target===document.getElementById('compare-modal-overlay')) {
+    document.getElementById('compare-modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+function buildCompareTable() {
+  const ps = compareList;
+  const rows = [
+    ['', '📱', 'Image'],
+    ['price', 'Prix officiel', p => fmt(p.price_official)+' DZD'],
+    ['price_caba', 'Marché Caba', p => '~'+fmt(p.price_caba)+' DZD'],
+    ['spread', 'Écart Caba', p => '+'+spreadPct(p).toFixed(1)+'%'],
+    ['trend', 'Tendance', p => trendIcon(p.trend)+' '+(p.trend==='up'?'Hausse':p.trend==='down'?'Baisse':'Stable')],
+    ['segment', 'Segment', p => segLabel(p.segment)],
+    ['ram', 'RAM', p => p.specs?.ram ? p.specs.ram+'Go' : '—'],
+    ['storage', 'Stockage', p => p.specs?.storage ? p.specs.storage+'Go' : '—'],
+    ['screen', 'Écran', p => p.specs?.screen ? p.specs.screen+'"' : '—'],
+    ['battery', 'Batterie', p => p.specs?.battery ? p.specs.battery+'mAh' : '—'],
+    ['os', 'Système', p => p.specs?.os || '—'],
+    ['credit', 'Crédit 24 mois', p => fmt(Math.round((p.price_official||0)*1.12/24))+' DZD/mois'],
+  ];
+
+  const header = `<thead><tr>
+    <th style="width:140px">Critère</th>
+    ${ps.map(p=>`<th>${p.img} ${p.brand}<br><span style="font-weight:400;font-size:11px;color:var(--text3)">${p.name.slice(0,22)}</span></th>`).join('')}
+  </tr></thead>`;
+
+  const body = `<tbody>${rows.slice(1).map(([key, label, getter]) => {
+    const vals = ps.map(p => ({ val: getter(p), p }));
+    // Find best (lowest price, highest specs)
+    let bestIdx = -1;
+    if (['price','price_caba','spread','credit'].includes(key)) {
+      const nums = vals.map(v => parseFloat(v.val.replace(/[^\d.]/g,'')));
+      bestIdx = nums.indexOf(Math.min(...nums.filter(n=>!isNaN(n))));
+    } else if (['ram','storage','screen','battery'].includes(key)) {
+      const nums = vals.map(v => parseFloat(v.val));
+      bestIdx = nums.indexOf(Math.max(...nums.filter(n=>!isNaN(n))));
+    }
+    return `<tr>
+      <td class="row-label">${label}</td>
+      ${vals.map((v,i) => `<td class="${i===bestIdx?'compare-best':''}">${v.val}</td>`).join('')}
+    </tr>`;
+  }).join('')}</tbody>`;
+
+  document.getElementById('compare-table').innerHTML = header + body;
+}
+
+// ── UI HELPERS ────────────────────────────────────────────────────────────
+function setViewMode(mode) {
+  viewMode = mode;
+  document.getElementById('vt-grid').classList.toggle('active', mode==='grid');
+  document.getElementById('vt-list').classList.toggle('active', mode==='list');
+  renderPhones();
+}
+
+function toggleTheme() {
+  isDay = !isDay;
+  document.documentElement.dataset.theme = isDay ? 'light' : 'dark';
+  document.getElementById('theme-btn').textContent = isDay ? '🌙' : '☀️';
+}
+
+function showSkeletons() {
+  document.getElementById('phones-container').innerHTML =
+    `<div class="loader-grid">${Array(8).fill('<div class="skeleton"></div>').join('')}</div>`;
+}
+
+function toast(msg, type='') {
+  const wrap = document.getElementById('toast-wrap');
+  const t = document.createElement('div');
+  t.className = 'toast ' + type;
+  t.textContent = msg;
+  wrap.appendChild(t);
+  setTimeout(() => t.remove(), 3000);
+}
+
+function fmt(n) { return n ? n.toLocaleString('fr-DZ') : '—'; }
+function fmtK(n) { return n >= 1000 ? (n/1000).toFixed(0)+'K' : n; }
+function el(tag, cls) { const e=document.createElement(tag); e.className=cls; return e; }
+function segLabel(s) { return s==='high'?'Haut de gamme':s==='mid'?'Milieu de gamme':'Entrée de gamme'; }
+function trendCls(t) { return t==='up'?'trend-up':t==='down'?'trend-down':'trend-flat'; }
+function trendIcon(t) { return t==='up'?'↑ Hausse':t==='down'?'↓ Baisse':'→ Stable'; }
+
+// ── SEARCH SYNC ───────────────────────────────────────────────────────────
+document.getElementById('hs-input').addEventListener('input', e => {
+  searchQ = e.target.value.trim();
+  document.getElementById('hero-search').value = searchQ;
+  renderPhones();
+});
+document.getElementById('hero-search').addEventListener('keydown', e => {
+  if (e.key === 'Enter') applySearch();
+});
+
+// ── KEYBOARD ──────────────────────────────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeModalBtn();
+    document.getElementById('compare-modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+});
+
+// ── AUTO-REFRESH ──────────────────────────────────────────────────────────
+setInterval(async () => {
+  const prev = ALL_PHONES.length;
+  const fresh = await loadData();
+  if (fresh.length !== prev) {
+    ALL_PHONES = fresh;
+    updateHeroStats(); buildBrandPills(); updateCounts(); renderPhones();
+  }
+}, 300_000);
+
+// ── START ─────────────────────────────────────────────────────────────────
+init();
+updateRange();
+</script>
+</body>
+</html>

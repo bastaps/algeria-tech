@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulateur Fiscal | Guide de l'auto-entrepreneur DZ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at top left, #0d1117, #161b22);
+            color: #e6edf3;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px) scale(1.01);
+            border-color: #3b82f6;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #2dd4bf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        input[type=range] {
+            height: 8px;
+            -webkit-appearance: none;
+            width: 100%;
+            background: #30363d;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #3b82f6;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Effet 3D pour le graphique */
+        .chart-container {
+            perspective: 1000px;
+        }
+        canvas {
+            transform: rotateX(10deg);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <div class="max-w-6xl mx-auto">
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4">
+                Guide de l'auto-entrepreneur <span class="gradient-text">DZ</span>
+            </h1>
+            <p class="text-gray-400 text-lg">Simulateur Fiscal Intelligent (Loi de Finance Algérienne)</p>
+        </header>
+
+        <div class="grid lg:grid-cols-2 gap-8 items-start">
+            
+            <!-- Panneau de Contrôle -->
+            <div class="glass-card p-8">
+                <h2 class="text-2xl font-semibold mb-6 flex items-center">
+                    <span class="mr-3">📊</span> Vos Revenus
+                </h2>
+                
+                <div class="mb-8">
+                    <label class="block text-sm font-medium text-gray-400 mb-4 uppercase tracking-wider">
+                        Chiffre d'affaires annuel prévisionnel (DZD)
+                    </label>
+                    <input type="number" id="caInput" value="1000000" 
+                        class="w-full bg-transparent text-4xl font-bold text-white border-b-2 border-gray-700 focus:border-blue-500 outline-none pb-2 mb-6">
+                    <input type="range" id="caSlider" min="10000" max="5000000" step="10000" value="1000000" class="cursor-pointer">
+                    <div class="flex justify-between text-xs text-gray-500 mt-2 italic">
+                        <span>10k DA</span>
+                        <span>Limite Statut : 5M DA</span>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="flex justify-between p-4 bg-white/5 rounded-xl">
+                        <span class="text-gray-400">Impôt (IFU 0.5%)</span>
+                        <span id="ifuValue" class="font-bold text-orange-400">0 DA</span>
+                    </div>
+                    <div class="flex justify-between p-4 bg-white/5 rounded-xl">
+                        <span class="text-gray-400">Cotisation CASNOS (Min)</span>
+                        <span id="casnosValue" class="font-bold text-purple-400">24 000 DA</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visualisation 3D -->
+            <div class="glass-card p-8 flex flex-col items-center">
+                <h2 class="text-2xl font-semibold mb-6">Répartition du Revenu</h2>
+                <div class="chart-container w-full max-w-[350px]">
+                    <canvas id="fiscalChart"></canvas>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <p class="text-gray-400 mb-1 italic text-sm">Revenu Net Après Impôts</p>
+                    <p id="netValue" class="text-5xl font-black gradient-text">0 DA</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Section Info Métiers Cliquable -->
+        <footer class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="glass-card p-6 cursor-pointer hover:bg-blue-600/10 group">
+                <h3 class="font-bold mb-2 flex items-center group-hover:text-blue-400">
+                    💡 Pourquoi 0.5% ? 
+                </h3>
+                <p class="text-sm text-gray-400">Le statut d'auto-entrepreneur en Algérie bénéficie d'un taux réduit d'IFU pour encourager l'entrepreneuriat numérique...</p>
+            </div>
+            <div class="glass-card p-6 cursor-pointer hover:bg-purple-600/10 group">
+                <h3 class="font-bold mb-2 flex items-center group-hover:text-purple-400">
+                    🛡️ Couverture Sociale 
+                </h3>
+                <p class="text-sm text-gray-400">La cotisation CASNOS minimale vous ouvre droit à la carte CHIFA et à la retraite. Cliquez pour les détails des paliers.</p>
+            </div>
+            <div class="glass-card p-6 cursor-pointer hover:bg-teal-600/10 group" onclick="alert('Ouverture du module Métiers DZ...')">
+                <h3 class="font-bold mb-2 flex items-center group-hover:text-teal-400">
+                    🔍 Métiers Eligibles
+                </h3>
+                <p class="text-sm text-gray-400">Plus de 1300 métiers répartis en 7 domaines. Cliquez ici pour explorer la liste exhaustive.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const caInput = document.getElementById('caInput');
+        const caSlider = document.getElementById('caSlider');
+        const ifuValue = document.getElementById('ifuValue');
+        const casnosValue = document.getElementById('casnosValue');
+        const netValue = document.getElementById('netValue');
+        const ctx = document.getElementById('fiscalChart').getContext('2d');
+
+        let myChart;
+
+        function initChart() {
+            myChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Revenu Net', 'IFU (0.5%)', 'CASNOS'],
+                    datasets: [{
+                        data: [0, 0, 0],
+                        backgroundColor: ['#3b82f6', '#fb923c', '#a855f7'],
+                        borderWidth: 0,
+                        hoverOffset: 20
+                    }]
+                },
+                options: {
+                    plugins: { legend: { display: false } },
+                    cutout: '70%',
+                    responsive: true,
+                    animation: { animateScale: true }
+                }
+            });
+        }
+
+        function calculate() {
+            let ca = parseFloat(caInput.value) || 0;
+            
+            // Limite légale auto-entrepreneur Algérie
+            if (ca > 5000000) {
+                caInput.classList.add('text-red-500');
+            } else {
+                caInput.classList.remove('text-red-500');
+            }
+
+            // Calculs (Taux IFU 0.5% - Loi Algérienne)
+            const ifu = ca * 0.005;
+            const casnos = 24000; // Base minimale courante pour AE
+            const net = Math.max(0, ca - ifu - casnos);
+
+            // Mise à jour affichage
+            ifuValue.innerText = ifu.toLocaleString() + " DA";
+            casnosValue.innerText = casnos.toLocaleString() + " DA";
+            netValue.innerText = net.toLocaleString() + " DA";
+
+            // Mise à jour graphique
+            myChart.data.datasets[0].data = [net, ifu, casnos];
+            myChart.update();
+        }
+
+        caInput.addEventListener('input', (e) => {
+            caSlider.value = e.target.value;
+            calculate();
+        });
+
+        caSlider.addEventListener('input', (e) => {
+            caInput.value = e.target.value;
+            calculate();
+        });
+
+        initChart();
+        calculate();
+    </script>
+</body>
+</html>
