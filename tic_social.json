@@ -1,6 +1,24 @@
 {
   "posts": [
     {
+      "id": "0945a4953d06654b",
+      "source_name": "Android DZ",
+      "source_short": "ADZ",
+      "source_color": "#33691E",
+      "category": "Médias TIC",
+      "category_icon": "🤖",
+      "url": "https://www.android-dz.com/iphone-18-pro-apple-ressort-l-ouverture-variable-inventee-par-samsung-en-2018/",
+      "image": "",
+      "date": "2026-06-23T03:55:00.060Z",
+      "lang_source": "fr",
+      "text": {
+        "fr": "iPhone 18 Pro : Apple ressort l'ouverture variable, inventée par Samsung en 2018 — L'iPhone 18 Pro embarquerait un capteur à ouverture variable, une technologie que Samsung avait déjà introduite sur le Galaxy S9 il y a sept ans. Entre hausse de prix annoncée et choix de design contestés, Apple joue une carte risquée.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "44208f99c6187093",
       "source_name": "TechCrunch",
       "source_short": "TC",
@@ -5381,33 +5399,15 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "0aef2c644c46c06f",
-      "source_name": "DGRSDT",
-      "source_short": "DGRS",
-      "source_color": "#1A237E",
-      "category": "Ministère",
-      "category_icon": "🔬",
-      "url": "https://www.facebook.com/DGRSDT.ALGERIA",
-      "image": "",
-      "date": "2026-06-16T23:47:00+00:00",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Le CRLCA dans la presse Article d'El Watan — Le CRLCA dans la presse\nArticle d'El Watan",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "facebook"
     }
   ],
-  "lastUpdated": "2026-06-23T02:04:52.173346+00:00",
+  "lastUpdated": "2026-06-23T06:39:18.146529+00:00",
   "stats": {
+    "Médias TIC": 87,
     "Tech International": 170,
-    "Médias TIC": 86,
     "Infrastructure": 7,
     "Équipementiers": 18,
-    "Ministère": 8,
+    "Ministère": 7,
     "Opérateurs": 11
   },
   "total": 300
