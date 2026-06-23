@@ -25,18 +25,28 @@ if (-not $python) {
     exit 1
 }
 
-# ── 2. Mémoriser le total de posts avant la mise à jour ──────
+# ── 2. Pull AVANT de generer (evite conflits de rebase) ──────
+Push-Location $WorkDir
+try {
+    $pullOut = git pull --rebase origin main 2>&1 | Out-String
+    Add-Content -Path $LogFile -Value "git pull: $($pullOut.Trim())"
+} catch {
+    Add-Content -Path $LogFile -Value "git pull warning: $_"
+}
+Pop-Location
+
+# ── 3. Memoriser le total avant mise a jour ───────────────────
 $totalBefore = 0
 try {
     $json = Get-Content "$WorkDir\tic_social.json" -Raw -ErrorAction SilentlyContinue | ConvertFrom-Json
     $totalBefore = $json.total
 } catch {}
 
-# ── 3. Lancer fetch_social.py ────────────────────────────────
-$output = & $python "$WorkDir\fetch_social.py" 2>&1
+# ── 4. Lancer fetch_social.py ────────────────────────────────
+$output = & $python "$WorkDir\fetch_social.py" --no-translate 2>&1
 $output | Out-String | Add-Content -Path $LogFile
 
-# ── 4. Vérifier si de nouveaux posts ont été ajoutés ─────────
+# ── 5. Verifier si le fichier a change ───────────────────────
 $totalAfter = 0
 try {
     $json = Get-Content "$WorkDir\tic_social.json" -Raw | ConvertFrom-Json
@@ -45,20 +55,10 @@ try {
 
 $added = $totalAfter - $totalBefore
 
-# ── 5. Pull latest (GitHub Actions peut avoir poussé entre-temps) ────
+# ── 6. Commit + push si tic_social.json modifie ──────────────
 Push-Location $WorkDir
 try {
-    # Synchroniser avec le dépôt distant avant de comparer/pousser
-    $pullOut = git pull --rebase origin main 2>&1 | Out-String
-    Add-Content -Path $LogFile -Value "git pull: $($pullOut.Trim())"
 
-    # Recalculer le total APRÈS le pull (le remote peut avoir des posts plus récents)
-    try {
-        $jsonAfterPull = Get-Content "$WorkDir\tic_social.json" -Raw | ConvertFrom-Json
-        $totalAfter = $jsonAfterPull.total
-    } catch {}
-
-    # git status --porcelain retourne non-vide si le fichier a été modifié localement
     $changed = git status --porcelain -- tic_social.json 2>$null
     if ($changed) {
         git add tic_social.json 2>$null | Out-Null
@@ -68,10 +68,11 @@ try {
         Add-Content -Path $LogFile -Value $pushOut
         Add-Content -Path $LogFile -Value "✅ Cloudflare mis à jour — $totalAfter posts (+$added)"
     } else {
-        Add-Content -Path $LogFile -Value "-- Pas de changement local dans tic_social.json, skip push"
+        Add-Content -Path $LogFile -Value "-- Aucun changement dans tic_social.json, skip push"
     }
 } catch {
     Add-Content -Path $LogFile -Value "ERREUR git : $_"
 } finally {
     Pop-Location
 }
+
