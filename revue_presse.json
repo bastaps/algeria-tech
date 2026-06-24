@@ -1,6 +1,6 @@
 {
   "date": "mercredi 24 juin",
-  "synthese": "L’Algérie renforce ses partenariats technologiques à la FIA. Le trafic internet mondial bascule vers les machines pour la première fois.",
+  "synthese": "L’Algérie renforce ses partenariats dans le secteur automobile avec Fiat Algérie. Les machines génèrent désormais la majorité du trafic internet mondial pour la première fois.",
   "articles": [
     {
       "titre": "Formation aux métiers de l’automobile : Nacima Arhab reçoit le PDG de Fiat Algérie",
@@ -10,8 +10,8 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Nacima Arhab reçoit le PDG de Fiat Algérie",
-      "categorie": "Innovation"
+      "accroche": "Nacima Arhab et PDG de Fiat Algérie échangent sur formation automobile",
+      "categorie": "Startups"
     },
     {
       "titre": "Importations : réouverture de la plateforme de dépôt des programmes prévisionnels pour le second semestre 2026",
@@ -21,8 +21,8 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Réouverture plateforme importations second semestre",
-      "categorie": "Réseaux"
+      "accroche": "Plateforme de programmes prévisionnels d'importations rouverte pour 2e semestre",
+      "categorie": "Innovation"
     },
     {
       "titre": "A la FIA, le président Tebboune souligne la disposition de l’Algérie à renforcer ses partenariats avec plusieurs pays à travers divers projets",
@@ -32,7 +32,7 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Président Tebboune à la FIA : partenariats renforcés",
+      "accroche": "Président Tebboune à la FIA : partenariats renforcés pour l'Algérie",
       "categorie": "Innovation"
     },
     {
@@ -43,7 +43,7 @@
       "source": "NTIC.dz",
       "logo": "https://www.google.com/s2/favicons?domain=ntic-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "Samsung mise sur IA et innovation à la FIA",
+      "accroche": "Samsung mise sur IA et innovation à la FIA 2024",
       "categorie": "IA"
     },
     {
@@ -54,8 +54,8 @@
       "source": "EcomNewsMed DZ",
       "logo": "https://www.google.com/s2/favicons?domain=ecomnewsmed.com&sz=32",
       "pays": "DZ",
-      "accroche": "L’Afrique du Nord perd 1ère place exportations agricoles",
-      "categorie": "Réseaux"
+      "accroche": "L'Afrique du Nord perd sa place de première destination des exportations agricoles françaises",
+      "categorie": "Innovation"
     },
     {
       "titre": "Le RIPE NCC freine sa marche vers le cloud",
@@ -65,7 +65,7 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "RIPE NCC freine son développement cloud",
+      "accroche": "RIPE NCC freine son expansion vers le cloud",
       "categorie": "Réseaux"
     },
     {
@@ -76,8 +76,8 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Machines génèrent majorité trafic internet mondial",
-      "categorie": "Réseaux"
+      "accroche": "Machines dépassent humains : trafic internet généré majoritairement par IA",
+      "categorie": "Cybersécurité"
     },
     {
       "titre": "Cloudflare, Google, Microsoft et Mozilla lancent PACT, un nouveau standard d'authentification sans traçage des utilisateurs",
@@ -87,8 +87,19 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Cloudflare, Google, Microsoft lancent standard PACT",
+      "accroche": "Cloudflare, Google, Microsoft et Mozilla lancent standard d'authentification PACT",
       "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "iPhone Ultra : sortie confirmée pour septembre, son problème est résolu",
+      "resume": "Plus de report prévu pour l'iPhone pliable. Le calendrier est fixé pour une sortie en septembre. Les soucis de charnière rencontrés par Apple auraient",
+      "url": "https://www.frandroid.com/produits-android/smartphone/3154197_iphone-ultra-sortie-confirmee-pour-septembre-son-probleme-est-resolu",
+      "date": "2026-06-24T09:37:38.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "iPhone Ultra confirmé pour septembre : problème résolu",
+      "categorie": "Mobile"
     },
     {
       "titre": "UFS 5.0 : cette technologie est la botte secrète de Samsung pour le Galaxy S27",
@@ -98,42 +109,31 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "UFS 5.0 : technologie clé pour Galaxy S27",
+      "accroche": "UFS 5.0 : technologie clé pour Galaxy S27 de Samsung",
       "categorie": "Mobile"
     },
     {
-      "titre": "Google licencie un ingénieur à cause d’un outil IA pour Workspace devenu viral",
-      "resume": "Un ingénieur de Google a sorti un outil en ligne de commande pour Workspace, l'espace de travail dédié aux entreprises. L'outil a cartonné et... l'ing",
-      "url": "https://www.numerama.com/tech/2283493-google-licencie-un-ingenieur-a-cause-dun-outil-ia-pour-workspace-devenu-viral.html",
-      "date": "2026-06-24T07:12:13.000Z",
+      "titre": "Mistral lance OCR 4, une IA capable de déchiffrer les manuscrits et 170 langues",
+      "resume": "Mistral met à jour son IA de lecture de documents (OCR) et la pousse vers les manuscrits et les langues rares. Derrière l'outil pour développeurs, l'e",
+      "url": "https://www.numerama.com/tech/2283529-mistral-lance-ocr-4-une-ia-capable-de-dechiffrer-les-manuscrits-et-170-langues.html",
+      "date": "2026-06-24T09:41:00.000Z",
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Google licencie ingénieur pour outil IA viral",
+      "accroche": "Mistral lance OCR 4 : IA déchiffrant 170 langues et manuscrits",
       "categorie": "IA"
     },
     {
-      "titre": "Fin d’Apple Pay en France : le Crédit Agricole fait une erreur en lançant sa propre app",
-      "resume": "Après des années de rumeurs, le Crédit Agricole devient la première banque avec sa propre application de paiement mobile sur iPhone. Le service permet",
-      "url": "https://www.numerama.com/tech/2283219-fin-dapple-pay-en-france-le-credit-agricole-fait-une-erreur-en-lancant-sa-propre-app.html",
-      "date": "2026-06-24T06:56:12.000Z",
+      "titre": "Bouygues Telecom augmente (encore) le prix de son offre Pure fibre avec juste la fibre",
+      "resume": "Commercialisée en 2025 au tarif de 23,99 euros par mois, l'offre B&You Pure fibre Plus avec 8 Gb/s de débit descendant et du Wi-Fi 7 vient de passer d",
+      "url": "https://www.numerama.com/tech/2283723-bouygues-telecom-augmente-encore-le-prix-de-son-offre-pure-fibre-avec-juste-la-fibre.html",
+      "date": "2026-06-24T09:35:24.000Z",
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Fin d’Apple Pay en France : erreur Crédit Agricole",
+      "accroche": "Bouygues Telecom augmente prix de l'offre Pure fibre",
       "categorie": "Télécoms"
-    },
-    {
-      "titre": "L’IA, longtemps nourrie dans l’ombre, désormais traquée en justice <BR> Winamp réclame 8 milliards de dollars à Nvidia",
-      "resume": "C’est la fin de l’impunité, Winamp est passé d’un simple lecteur MP3 nostalgique à une entreprise belge qui défend aujourd’hui les droits des créateur",
-      "url": "https://www.itmag.dz/2026/06/23/lia-longtemps-nourrie-dans-lombre-desormais-traquee-en-justice-br-winamp-reclame-8-milliards-de-dollars-a-nvidia/",
-      "date": "2026-06-23T09:44:19.000Z",
-      "source": "ITMAG.dz",
-      "logo": "https://www.google.com/s2/favicons?domain=itmag.dz&sz=32",
-      "pays": "DZ",
-      "accroche": "Winamp réclame 8 milliards pour IA piratée",
-      "categorie": "IA"
     }
   ],
-  "lastUpdated": "2026-06-24T08:18:08.902Z"
+  "lastUpdated": "2026-06-24T09:46:43.410Z"
 }
