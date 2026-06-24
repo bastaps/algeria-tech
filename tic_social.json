@@ -361,6 +361,24 @@
       "source_type": "rss"
     },
     {
+      "id": "862a6c7ae70c5c59",
+      "source_name": "Ooredoo Algérie",
+      "source_short": "OR",
+      "source_color": "#E30613",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://www.youtube.com/watch?v=iSIUYurKHTU",
+      "image": "",
+      "date": "2026-06-24T08:24:48+00:00",
+      "lang_source": "ar",
+      "text": {
+        "ar": "علام الجزائر يجمعنا",
+        "fr": "",
+        "en": ""
+      },
+      "source_type": "youtube"
+    },
+    {
       "id": "578b74e33e3bd8ea",
       "source_name": "Ooredoo Algérie",
       "source_short": "OR",
@@ -703,18 +721,18 @@
       "source_type": "youtube"
     },
     {
-      "id": "31f3f65f594a5da5",
-      "source_name": "Djezzy",
-      "source_short": "DJ",
-      "source_color": "#FF6B00",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB5UmxmQ1hlNFRibFpwcDBibXJ1Mjh3SURxZlZxeDZBQ1p4aUs1RzhqaDh4anFjcEEyNm80aVFEQ1BtOWR1UjdIaEZrT3dEbG5tVGt2V2pLZGRRcUJHUHZPc3g4akc0MExuWEoyMHlXVTYyV2g0b0dzTnpwcjFZUkk?oc=5",
+      "id": "0122771f463fd79d",
+      "source_name": "Algérie Télécom",
+      "source_short": "AT",
+      "source_color": "#0055A4",
+      "category": "Infrastructure",
+      "category_icon": "📡",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOUzdpVEZNUVBqQWtxMS1KbmVvaEtVTEJJR2R5VkdDSWt3WWRUVEc5cjFQNFFkcXhLdnc4eTNkbHlXUHVMbFJyZWVSZXlISWNHUFFodVhJSF85TzdNVF9vVkxkZjJUZkJ6NnZpLUYycU84dnY3Z2pDMFluU2gtZnkwRHk0YUs?oc=5",
       "image": "",
-      "date": "Sat, 13 Jun 2026 11:07:16 GMT",
+      "date": "Wed, 24 Jun 2026 10:25:25 GMT",
       "lang_source": "fr",
       "text": {
-        "fr": "L’INFO DE LA SEMAINE : Amoura, ambassadeur de Djezzy - Mobiles - Le soir d'Algérie — L’INFO DE LA SEMAINE : Amoura, ambassadeur de Djezzy - Mobiles Le soir d'Algérie",
+        "fr": "FIA : Algérie Télécom présente ses solutions numériques - La patrie news — FIA : Algérie Télécom présente ses solutions numériques La patrie news",
         "ar": "",
         "en": ""
       },
@@ -991,6 +1009,24 @@
       "source_type": "rss"
     },
     {
+      "id": "55bfd7e6e46b61b8",
+      "source_name": "Algérie Télécom",
+      "source_short": "AT",
+      "source_color": "#0055A4",
+      "category": "Infrastructure",
+      "category_icon": "📡",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQLW9Cc2hndVl6T1ZjZzJjWFZvdGptcVFRLUYyQmh0Mk9mcHk0N2R0bEszaGN4dk1EOHdteVFtbTF5Vjg3MFJUMXJsc2xBM3FhU2FfZGs1ZlpJWEVjQXlHN0p1bGZIeFdYamM2UzlMZFVNY1dTSGtyLVN5SlVyRW5LNXY3LXBnd3RQanptMFBkWHo?oc=5",
+      "image": "",
+      "date": "Mon, 01 Jun 2026 07:00:00 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Algérie Télécom décroche un prestigieux prix en Belgique - L'Algérie Aujourd'hui — Algérie Télécom décroche un prestigieux prix en Belgique L'Algérie Aujourd'hui",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "76ea35764155c9b8",
       "source_name": "Algérie Télécom",
       "source_short": "AT",
@@ -1039,42 +1075,6 @@
       "lang_source": "fr",
       "text": {
         "fr": "Algérie Poste met en garde contre les tentatives d’arnaque - L'Algérie Aujourd'hui — Algérie Poste met en garde contre les tentatives d’arnaque L'Algérie Aujourd'hui",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "f3419cb272b48c8c",
-      "source_name": "Algérie Télécom",
-      "source_short": "AT",
-      "source_color": "#0055A4",
-      "category": "Infrastructure",
-      "category_icon": "📡",
-      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNaWhnVmdNMTA4ZjdmanZEOF81Z1hyY29fVUg2OVZidGgtYXVTQ3QtTU5MZTdmZEE2RVVaVXNpbE5FSW9vWUtzbFlET2FRQzdlTmlja2NOdHF4VjZSeVVSTmNJLVh5ZDFjZ0FkMHphOFNnekRaVFBzSkZtamRGZUFBSzlKbm9BUm52N1lIMnQ4R0FpNDlzaHliZ0VBeWI5S3ZMVURKRUptaEY0QTdxVlpR?oc=5",
-      "image": "",
-      "date": "Sat, 16 May 2026 22:58:43 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "De Quoi j'me Mêle - Algérie télécom lance une «recharge de secours - L'Expression — De Quoi j'me Mêle - Algérie télécom lance une «recharge de secours L'Expression",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e9b93aa7b253cb56",
-      "source_name": "Algérie Télécom",
-      "source_short": "AT",
-      "source_color": "#0055A4",
-      "category": "Infrastructure",
-      "category_icon": "📡",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNMUN1bndFYVJXNmpyQ0tMa05GZHdkbXd6aV9EZ2hhTzMtNUVnOElsNVp4UXZBMGtpVVBwTS1VMjlTYkI1ajNoQ0VmbmVhWTZ1Tkd3SDRTUVplUkRTRkFaSzRrbTJNanY5eUhycUduWVY1b19PbGt2TmlvU2RDbGVRRFNpMFA?oc=5",
-      "image": "",
-      "date": "Tue, 12 May 2026 07:00:00 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Algérie Télécom: La 5G fixe attendue pour 2027 - horizons.dz — Algérie Télécom: La 5G fixe attendue pour 2027 horizons.dz",
         "ar": "",
         "en": ""
       },
@@ -1435,6 +1435,132 @@
       "lang_source": "fr",
       "text": {
         "fr": "Examen des perspectives de renforcement de la coopération numérique avec Huawei - aps.dz — Examen des perspectives de renforcement de la coopération numérique avec Huawei aps.dz",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "3ba2497aa1a833bc",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/rachat-de-sfr-vers-un-plan-social-massif-497555.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 24 Jun 2026 09:33:43 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Rachat de SFR : vers un plan social massif ? — Alors que les consultations des instances représentatives du personnel débutent, les premiers échos laissent envisager d’importantes suppressions d’emplois. Plus de la moitié de l’effectif de SFR pourrait être concernée.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c20701b28c31647e",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/jai-repondu-a-un-faux-conseiller-binance-et-le-veritable-piege-etait-peut-etre-le-clonage-de-ma-voix-497455.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 24 Jun 2026 08:16:47 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "J'ai répondu à un faux conseiller Binance, et le véritable piège était peut-être le clonage de ma voix — Tout a commencé par un banal appel provenant d'un numéro en 01.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "237aa6ead14ed41f",
+      "source_name": "Android DZ",
+      "source_short": "ADZ",
+      "source_color": "#33691E",
+      "category": "Médias TIC",
+      "category_icon": "🤖",
+      "url": "https://www.android-dz.com/google-pixel-11-pro-xl-fiche-technique-prix-et-date-de-sortie/",
+      "image": "",
+      "date": "2026-06-24T07:30:00.039Z",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Google Pixel 11 Pro XL : fiche technique, prix et date de sortie — Le Google Pixel 11 Pro XL est attendu pour aout 2026, avec une mise en vente vers mi-septembre. Selon les fuites, il embarquerait la puce Tensor G6 en 2 nm, un écran OLED de 6,8 pouces et une LED « Pixel Glow ». Le prix attendu tourne autour de 1 199 €. Rien n'est officiel.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "4ea94a707f156dad",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/internet-change-de-visage-pour-la-premiere-fois-les-machines-generent-la-majorite-du-trafic-497541.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 24 Jun 2026 07:15:42 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Internet change de visage : pour la première fois, les machines génèrent la majorité du trafic — Selon un nouveau rapport publié par Human Security, le trafic généré par l’intelligence artificielle et les bots représente désormais 57,4 % du trafic web mondial.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "232f185740ebfd14",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/cloudflare-google-microsoft-et-mozilla-lancent-pact-un-nouveau-standard-dauthentification-sans-tracage-des-utilisateurs-497537.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 24 Jun 2026 07:02:49 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Cloudflare, Google, Microsoft et Mozilla lancent PACT, un nouveau standard d'authentification sans traçage des utilisateurs — Baptisé PACT (Private Access Control Token), ce protocole d'authentification permet de distinguer humains et agents automatisés sans recourir aux CAPTCHA ni aux technologies de traçage intrusives.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "71cb5f342528839b",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/samsung-et-alcedis-transforment-la-galaxy-watch-en-outil-de-recherche-clinique-pour-la-mise-au-point-de-nouveaux-traitements-497535.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 24 Jun 2026 06:45:16 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Samsung et Alcedis transforment la Galaxy Watch en outil de recherche clinique pour la mise au point de nouveaux traitements — Les données biométriques collectées au quotidien par la Galaxy Watch pourront désormais servir d'indicateurs cliniques validés dans des protocoles de développement pharmaceutique.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "8110f42d4fbbea94",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/cloud-1370/le-ripe-ncc-freine-sa-marche-vers-le-cloud-227968",
+      "image": "",
+      "date": "Wed, 24 Jun 2026 06:41:18 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Le RIPE NCC freine sa marche vers le cloud — Le registre régional d'adresses IP pour l'Europe veut regagner en indépendance vis-à-vis des hyperscalers... y compris pour des questions de coûts. The post Le RIPE NCC freine sa marche vers le cloud appeared first on Silicon.fr .",
         "ar": "",
         "en": ""
       },
@@ -5273,142 +5399,16 @@
         "fr": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "5748f9c6e6a8fe09",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/18/amazon-hopes-to-challenge-nvidia-more-directly-by-selling-its-ai-chips/",
-      "image": "",
-      "date": "Thu, 18 Jun 2026 18:22:13 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Amazon hopes to challenge Nvidia more directly by selling its AI chips — AWS is in talks to sell its chips to other data centers. CEO Andy Jassy has said this represents a $50 billion opportunity for the company.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "00212589fd4a24ac",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/06/18/vague-de-chaleur-sur-plusieurs-wilayas-et-pluies-attendues-dans-dautres/",
-      "image": "",
-      "date": "Thu, 18 Jun 2026 18:14:40 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Vague de chaleur sur plusieurs wilayas et pluies attendues dans d’autres — Une vague de chaleur est attendue vendredi et samedi sur plusieurs wilayas du Nord et de l’Est du pays, alors que des chutes de pluie affecteront d’autres wilayas à partir de jeudi après-midi, indique un bulletin météorologique spécial (BMS), émis par l’Office national de la météorologie. De niveau",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "6193e4750a7a0464",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/pokemon-champions-debarque-sur-android-et-ios-gratuitement/",
-      "image": "",
-      "date": "2026-06-18T18:10:00.117Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Pokémon Champions débarque sur Android et iOS, gratuitement — The Pokémon Company a officiellement lancé Pokémon Champions sur mobile le 17 juin 2026. Le jeu mise tout sur les combats au tour par tour, accessible gratuitement à n'importe quel niveau.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "f704fa4998c67b29",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/18/mivos-new-app-takes-a-mindful-approach-to-managing-screen-time/",
-      "image": "",
-      "date": "Thu, 18 Jun 2026 18:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Mivo’s new app takes a mindful approach to managing screen time — Doomscrolling on social media is a very common problem and can feel like an endless loop of constantly losing track of time. Instead of tackling this issue with strict limits, a new mindful screen time app called Mivo Scrolling is trying to shake things up. Launched last month, Mivo doesn’t look sup",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "f9dbd01a64e02015",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/18/ai-data-centers-just-got-a-government-mandated-fast-lane-to-the-grid/",
-      "image": "",
-      "date": "Thu, 18 Jun 2026 17:49:23 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "AI data centers just got a government-mandated fast lane to the grid — FERC told grid operators to give data centers a fast lane for interconnections, but it failed to address electricity supply shortages.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "819386b01216884a",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/guide-achat/test-ugreen-finetrack-2-ce-traqueur-bluetooth-tres-original-est-parfois-superieur-a-lairtag-496954.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Thu, 18 Jun 2026 17:34:16 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Test Ugreen FineTrack 2 : ce traqueur Bluetooth très original est parfois supérieur à l'AirTag — Compatible uniquement sur iOS, ce tag présente plusieurs caractéristiques uniques qui le distinguent du produit d’Apple.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "66eed0f78485a429",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/18/the-smartphone-era-created-an-attention-crisis-slowtech-is-fixing-it/",
-      "image": "",
-      "date": "Thu, 18 Jun 2026 17:16:30 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "The smartphone era created an attention crisis. Slowtech is fixing it — “People just really want to take back control of their time, their lives, their attention... They’re down for whatever helps them do that.”",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-06-24T06:35:32.659318+00:00",
+  "lastUpdated": "2026-06-24T11:38:14.436503+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Tech International": 134,
-    "Médias TIC": 86
+    "Tech International": 135,
+    "Médias TIC": 85
   },
   "total": 300
 }
