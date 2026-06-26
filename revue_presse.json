@@ -1,51 +1,7 @@
 {
   "date": "vendredi 26 juin",
-  "synthese": "L'Algérie annonce un investissement de 125 milliards de dinars dans quatre usines de pneus. IBM dévoile une technologie de puce à 0,7 nm avec 100 milliards de transistors.",
+  "synthese": "Quatre usines de pneus en Algérie : investissement de 125 milliards de dinars. L'Algérie sollicite l'Union européenne pour la suppression des quotas sur l'acier algérien.",
   "articles": [
-    {
-      "titre": "Algérie : 125 milliards de dinars investis dans quatre usines de pneus",
-      "resume": "L’Algérie a lancé la réalisation de quatre projets d’usines de production de pneumatiques qui devraient entrer en production à partir de 2027. Soutenu",
-      "url": "https://algerie-eco.com/2026/06/25/algerie-125-milliards-de-dinars-investis-dans-quatre-usines-de-pneus/",
-      "date": "2026-06-25T21:13:59.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "125 milliards de dinars pour quatre usines de pneus en Algérie",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "DeepSeek change d’échelle : après une levée de fonds record, le champion chinois de l’IA double ses effectifs",
-      "resume": "Portée par une levée de fonds estimée à 6 milliards d'euros, la start-up chinoise DeepSeek accélère son expansion.",
-      "url": "https://www.zdnet.fr/actualites/deepseek-change-dechelle-apres-une-levee-de-fonds-record-le-champion-chinois-de-lia-double-ses-effectifs-497746.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-26T07:10:48.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "DeepSeek lève des fonds record pour doubler sa capacité IA",
-      "categorie": "IA"
-    },
-    {
-      "titre": "IBM dévoile sa technologie 0,7 nm « Nanostack » et prouve qu’il est à la pointe face à TSMC et Intel",
-      "resume": "À la surprise générale, IBM est le premier à annoncer un procédé de fabrication dont le nœud technologique est inférieur à 1 nanomètre. Avec son procé",
-      "url": "https://www.frandroid.com/produits-android/ordinateurs/processeurs/3158343_ibm-devoile-sa-technologie-07-nm-nanostack-et-prouve-quil-est-a-la-pointe-face-a-tsmc-et-intel",
-      "date": "2026-06-26T07:42:06.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "IBM présente une puce 0,7 nm avec 100 milliards de transistors",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "IBM revendique être descendu sous le nanomètre avec une puce dotée de 100 milliards de transistors",
-      "resume": "IBM affirme avoir brisé le plafond de verre du sous-nanomètre avec une technologie à 0,7 nm. Une annonce spectaculaire qui promet de doper le secteur",
-      "url": "https://www.numerama.com/tech/2285629-ibm-revendique-etre-descendu-sous-le-nanometre-avec-une-puce-dotee-de-100-milliards-de-transistors.html",
-      "date": "2026-06-26T05:02:34.000Z",
-      "source": "Numerama",
-      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
-      "pays": "FR",
-      "accroche": "IBM revendique une puce sous le nanomètre avec 100 milliards de transistors",
-      "categorie": "Innovation"
-    },
     {
       "titre": "L’Algérie demande la suppression des quotas européens sur son acier",
       "resume": "A l’occasion de l’inauguration lundi 22 juin de la 57e Foire Internationale d’Alger (FIA), le président de la République, Abdelmadjid Tebboune, a bord",
@@ -54,7 +10,18 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "L'Algérie demande la suppression des quotas européens sur l'acier",
+      "accroche": "Algérie demande suppression quotas européens sur acier",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Algérie : 125 milliards de dinars investis dans quatre usines de pneus",
+      "resume": "L’Algérie a lancé la réalisation de quatre projets d’usines de production de pneumatiques qui devraient entrer en production à partir de 2027. Soutenu",
+      "url": "https://algerie-eco.com/2026/06/25/algerie-125-milliards-de-dinars-investis-dans-quatre-usines-de-pneus/",
+      "date": "2026-06-25T21:13:59.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "125 milliards de dinars pour quatre usines de pneus",
       "categorie": "Innovation"
     },
     {
@@ -65,75 +32,31 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "ICEX met en avant le marché algérien de l'eau pour les entreprises espagnoles",
+      "accroche": "ICEX promeut marché algérien de l'eau aux entreprises espagnoles",
       "categorie": "Innovation"
     },
     {
-      "titre": "Hostinger : créer une landing page de soldes sans dépendre d’une équipe technique complète",
-      "resume": "Lancer une landing page efficace pendant une période de soldes n’a jamais été aussi stratégique. Entre la rapidité de mise en ligne, la nécessité d’ad",
-      "url": "https://www.zdnet.fr/publicite/hostinger-creer-une-landing-page-de-soldes-sans-dependre-dune-equipe-technique-complete-497599.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-06-26T07:30:22.000Z",
+      "titre": "DeepSeek change d’échelle : après une levée de fonds record, le champion chinois de l’IA double ses effectifs",
+      "resume": "Portée par une levée de fonds estimée à 6 milliards d'euros, la start-up chinoise DeepSeek accélère son expansion.",
+      "url": "https://www.zdnet.fr/actualites/deepseek-change-dechelle-apres-une-levee-de-fonds-record-le-champion-chinois-de-lia-double-ses-effectifs-497746.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-06-26T07:10:48.000Z",
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Hostinger simplifie la création de landing pages sans équipe technique",
-      "categorie": "Startups"
+      "accroche": "DeepSeek lève fonds record pour doubler capacité IA",
+      "categorie": "IA"
     },
     {
-      "titre": "GTA 6 en physique, cartes.gouv.fr, One UI 9 : l’actu tech du jour",
-      "resume": "GTA 6 en boîte sans disque, une alternative française à Google Maps lancée par l'IGN, LDLC qui joue des coudes face à Valve… La journée a été chargée.",
-      "url": "https://www.frandroid.com/actualites-generales/3158513_gta-6-en-physique-cartes-gouv-fr-one-ui-9-lactu-tech-du-jour",
-      "date": "2026-06-26T07:43:21.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "titre": "IBM revendique être descendu sous le nanomètre avec une puce dotée de 100 milliards de transistors",
+      "resume": "IBM affirme avoir brisé le plafond de verre du sous-nanomètre avec une technologie à 0,7 nm. Une annonce spectaculaire qui promet de doper le secteur",
+      "url": "https://www.numerama.com/tech/2285629-ibm-revendique-etre-descendu-sous-le-nanometre-avec-une-puce-dotee-de-100-milliards-de-transistors.html",
+      "date": "2026-06-26T05:02:34.000Z",
+      "source": "Numerama",
+      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "GTA 6 en physique, cartes.gouv.fr, One UI 9 : l'actu tech du jour",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Android 17 : cette nouveauté qui va rendre les smartphones pliables beaucoup plus cools pour jouer",
-      "resume": "Avec Android 17, Google propose un mode d’affichage spécifique aux jeux sur les smartphones pliables. Il s’agit d’avoir une manette virtuelle sur une",
-      "url": "https://www.frandroid.com/android/mises-a-jour-android/3158445_android-17-cette-nouveaute-qui-va-rendre-les-smartphones-pliables-beaucoup-plus-cools-pour-jouer",
-      "date": "2026-06-26T07:27:33.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Android 17 optimise les smartphones pliables pour le jeu",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Volkswagen donne enfin à l’ID.Buzz un pack “Good night” pour dormir dans sa voiture",
-      "resume": "Volkswagen a répété maintes fois que l’ID. Buzz ne recevra pas de variante aménagée façon California. La marque semble aujourd’hui faire timidement ma",
-      "url": "https://www.01net.com/actualites/canicule-voici-seul-van-capable-vous-offrir-48-h-fraicheur-absolue.html",
-      "date": "2026-06-26T05:28:52.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Volkswagen lance un pack « Good night » pour dormir dans l'ID.Buzz",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Oppo Reno 16 : la nouvelle gamme de smartphones arrive en France avec un dos « magique », mais les prix s’envolent",
-      "resume": "Oppo officialise le lancement en France de sa série Reno16, composée des Reno16, Pro, F et FS. Au programme : surcouche ColorOS 16 truffée d'IA, gross",
-      "url": "https://www.01net.com/actualites/oppo-reno-16-la-nouvelle-gamme-de-smartphones-arrive-en-france-avec-un-dos-magique-mais-les-prix-senvolent.html",
-      "date": "2026-06-25T16:28:21.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Oppo Reno 16 arrive en France avec un dos « magique »",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "J’ai testé le moteur qui va casser le prix des vélos",
-      "resume": "Bosch lance un nouveau moteur moyeu pour vélos électriques, promettant des designs plus fins et des prix réduits. Cette innovation pourrait bouleverse",
-      "url": "https://www.01net.com/actualites/jai-teste-le-moteur-qui-va-casser-le-prix-des-velos.html",
-      "date": "2026-06-25T16:01:13.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Un moteur innovant réduit le prix des vélos électriques",
+      "accroche": "IBM annonce puce sous nanomètre avec 100 milliards de transistors",
       "categorie": "Innovation"
     }
   ],
-  "lastUpdated": "2026-06-26T07:51:15.190Z"
+  "lastUpdated": "2026-06-26T08:25:20.265Z"
 }
