@@ -1027,6 +1027,24 @@
       "source_type": "rss"
     },
     {
+      "id": "4b8805999f21b917",
+      "source_name": "Algérie Poste",
+      "source_short": "AP",
+      "source_color": "#F9A825",
+      "category": "Infrastructure",
+      "category_icon": "✉️",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5zckNYVUQwVi1ucmFaWWVSZzh2U1E0SkFUU29vWm5MZ2VuUnphTURXU013Z2R0aVNRUy03d2FGSG5jRXdOS0VlZlVKZ2dMOVFBUjc4?oc=5",
+      "image": "",
+      "date": "Fri, 05 Jun 2026 09:28:43 GMT",
+      "lang_source": "ar",
+      "text": {
+        "ar": "Un timbre-poste qui marque la participation de l'Algérie à la Coupe du monde 2026 - الإذاعة الجزائرية | — Un timbre-poste qui marque la participation de l'Algérie à la Coupe du monde 2026 الإذاعة الجزائرية |",
+        "fr": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "143a34f80a402322",
       "source_name": "Algérie Télécom",
       "source_short": "AT",
@@ -1057,24 +1075,6 @@
       "lang_source": "fr",
       "text": {
         "fr": "Algérie Poste : Découvrez les nouveaux horaires d'été des bureaux de poste pour le Nord et le Sud - Algerie360 — Algérie Poste : Découvrez les nouveaux horaires d'été des bureaux de poste pour le Nord et le Sud Algerie360",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "816d2f96c15852cd",
-      "source_name": "Algérie Télécom",
-      "source_short": "AT",
-      "source_color": "#0055A4",
-      "category": "Infrastructure",
-      "category_icon": "📡",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE90ZnoxMXpNSElpbk5SRTZhUHZEb1pRTVBTOUxRLWF6RkVIdnlpSWFTLWFsRDV4RUR3Wk9MWkxxYmpJQmFuVFVJTnRuVHh4cEZYdnFCeVlWeHNXU3VCWXI1ZDVvWVVhTzlEX0Q0VGc5amMzVnFpRkE?oc=5",
-      "image": "",
-      "date": "Wed, 03 Jun 2026 07:00:00 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Algérie Télécom primée à Bruxelles : la fibre et le Wi-Fi 7 au service de l’ambition numérique algérienne - Afrik — Algérie Télécom primée à Bruxelles : la fibre et le Wi-Fi 7 au service de l’ambition numérique algérienne Afrik",
         "ar": "",
         "en": ""
       },
@@ -1423,18 +1423,18 @@
       "source_type": "rss"
     },
     {
-      "id": "3479f3fd3e6de7d8",
+      "id": "509143215a6abb44",
       "source_name": "Huawei Mobile DZ",
       "source_short": "HMD",
       "source_color": "#CF0A2C",
       "category": "Équipementiers",
       "category_icon": "📲",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNbERrUmp4STRiWEJWclVGak1mRTNYWVg3NUM0cVplSUt6TVg1dHJfZjh3Wl9ZNlZjYkJYb0VDckdmNmxJTS05U1J4QjkwdDE3YS1QQk1QNGYzOWt6MlgxUVNXWnF4U1UtbFNEV2tBSE5WeTdrSHlVNXd0UC1ESzVKdkxYcEx2Z2lUVjlXOG1PekpLNmZ3UjFqOGF6QlZuV0ZqX3JNSXRuTGp2Zjg?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOUlJyM2ZxZ0hIcTZ3dTlPNXBXWlBPc19xTFcxeXA1a1k1VlVCSmd5dVk4QS1MVkRNVHJENXlVTmxfZU1LbWRBbm5HRFlZVDREZUxwWGxfV0xkbzNYZm9fZW0yQWdUYjBjblRYdC1qR2JDbFY2a215SnVjM0tEZGNMTU8zVVNsRktEZFE3b2VWbUNFYm5VRTBwbjUwUGhyZnNOZHMzZWc1OHhaem84NU14WWt6a1FzSHRkeWt3c1kyanUtZ1NfM0VhbTlxTUItbGFXY3hFRXdsZDZQNjg?oc=5",
       "image": "",
       "date": "Tue, 09 Jun 2026 07:00:00 GMT",
       "lang_source": "fr",
       "text": {
-        "fr": "Industrie pharmaceutique: le groupe chinois Huawei pour moderniser le secteur - L'Algérie Aujourd'hui — Industrie pharmaceutique: le groupe chinois Huawei pour moderniser le secteur L'Algérie Aujourd'hui",
+        "fr": "Examen des perspectives de renforcement de la coopération numérique avec Huawei - aps.dz — Examen des perspectives de renforcement de la coopération numérique avec Huawei aps.dz",
         "ar": "",
         "en": ""
       },
@@ -5401,7 +5401,7 @@
       "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-06-27T02:03:23.535508+00:00",
+  "lastUpdated": "2026-06-27T06:20:17.359645+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
