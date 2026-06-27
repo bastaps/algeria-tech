@@ -4,7 +4,17 @@
  */
 import * as THREE from 'three';
 
-let file = null, docType = 'auto', theme = 'nuit', animationType = 'constellation';
+let file = null, docType = 'auto', theme = 'nuit', animationType = 'constellation', bgTheme = 'none', bgImage = 'none', slideTemplate = 'none';
+
+// ── Fonds d'écran IA (CSS gradients) ─────────────────────────────────────────
+const IA_BACKGROUNDS = [
+  { label:'Cosmos IA',   grad:'linear-gradient(135deg,#0d0033 0%,#1a0550 40%,#0a2060 100%)', preview:'🌌' },
+  { label:'Cyber IA',    grad:'linear-gradient(135deg,#001a00 0%,#002d20 40%,#001530 100%)', preview:'🤖' },
+  { label:'Neural IA',   grad:'linear-gradient(135deg,#1a0a00 0%,#2d1500 40%,#1a0a2d 100%)', preview:'🧠' },
+  { label:'Quantum IA',  grad:'linear-gradient(135deg,#000d1a 0%,#001a33 50%,#001a1a 100%)', preview:'⚛️' },
+  { label:'Aurora IA',   grad:'linear-gradient(135deg,#0a001a 0%,#1a0033 40%,#001a2d 100%)', preview:'🌠' },
+  { label:'Matrix IA',   grad:'linear-gradient(135deg,#000a00 0%,#001400 50%,#000a0a 100%)', preview:'💾' },
+];
 
 // ── 10 Configurations de thèmes ──────────────────────────────────────────────
 const THEMES = {
@@ -185,6 +195,9 @@ async function generate() {
     fd.append('type', docType);
     fd.append('theme', theme);
     fd.append('animationType', animationType);
+    fd.append('bgTheme', bgTheme);
+    fd.append('bgImage', bgImage);
+    fd.append('slideTemplate', slideTemplate);
 
     const r = await fetch('/api/generate', { method: 'POST', body: fd });
     if (!r.ok) {
@@ -265,6 +278,96 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.anim-card').forEach(d => d.classList.toggle('active', d === b));
     const name = ANIM_NAMES[animationType] || animationType;
     document.getElementById('anim-label').textContent = name;
+  }));
+
+  // Fonds d'écran
+  async function loadBgCategory(cat) {
+    bgTheme = cat; bgImage = 'none';
+    document.querySelectorAll('.bg-cat').forEach(b => b.classList.toggle('active', b.dataset.cat === cat));
+    const grid = document.getElementById('bg-grid');
+    const hint = document.getElementById('bg-hint');
+    grid.innerHTML = '';
+
+    if (cat === 'none') {
+      document.getElementById('bg-label').textContent = 'Aucun';
+      hint.textContent = '';
+      const el = makeBgThumb('none', null, true);
+      el.querySelector('.bg-thumb-none') || (el.innerHTML = '<div class="bg-thumb-none"><span>🚫</span>Aucun fond</div>');
+      grid.appendChild(el); return;
+    }
+
+    if (cat === 'ia') {
+      document.getElementById('bg-label').textContent = 'Images IA';
+      hint.textContent = 'Fonds générés par IA · Dégradés algorithmiques uniques';
+      IA_BACKGROUNDS.forEach((bg, i) => {
+        const el = document.createElement('div');
+        el.className = 'bg-thumb bg-ia-thumb';
+        el.style.background = bg.grad;
+        el.innerHTML = `<span>${bg.preview}</span><em>${bg.label}</em>`;
+        el.dataset.bg = 'ia:' + i;
+        el.addEventListener('click', () => selectBg(el, 'ia:' + i, bg.grad));
+        grid.appendChild(el);
+      }); return;
+    }
+
+    hint.textContent = 'Chargement…';
+    try {
+      const r = await fetch('/api/backgrounds/' + cat);
+      const d = await r.json();
+      hint.textContent = '';
+      if (!d.images || !d.images.length) {
+        grid.innerHTML = '<div class="bg-empty">Aucune image disponible pour cette catégorie.<br>Ajoutez des images dans <code>public/backgrounds/' + cat + '/</code></div>';
+        return;
+      }
+      d.images.forEach(name => {
+        const src = '/public/backgrounds/' + cat + '/' + name;
+        const el = document.createElement('div');
+        el.className = 'bg-thumb';
+        el.dataset.bg = src;
+        const img = document.createElement('img'); img.src = src; img.loading = 'lazy'; img.alt = name;
+        el.appendChild(img);
+        el.addEventListener('click', () => selectBg(el, src, null));
+        grid.appendChild(el);
+      });
+      // Auto-sélectionner la première image
+      const first = grid.querySelector('.bg-thumb');
+      if (first) selectBg(first, first.dataset.bg, null);
+      document.getElementById('bg-label').textContent = d.images.length + ' image(s)';
+    } catch(e) { hint.textContent = 'Erreur chargement images'; }
+  }
+
+  function makeBgThumb(bg, grad, active) {
+    const el = document.createElement('div');
+    el.className = 'bg-thumb' + (active ? ' active' : '');
+    el.dataset.bg = bg;
+    if (grad) el.style.background = grad;
+    return el;
+  }
+
+  function selectBg(el, val, grad) {
+    document.querySelectorAll('.bg-thumb').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    bgImage = val;
+    if (grad) bgImage = 'ia:' + val.split(':')[1];
+    document.getElementById('bg-label').textContent = val === 'none' ? 'Aucun' : '✓ Sélectionné';
+  }
+
+  document.querySelectorAll('.bg-cat').forEach(b => b.addEventListener('click', () => loadBgCategory(b.dataset.cat)));
+
+  // Init grille "none"
+  loadBgCategory('none');
+
+  // Template de slides
+  const TPL_LABELS = {
+    none:'Infographie (défaut)', techblue:'Tech Blue AI', diamond:'Diamond Corporate',
+    gradient:'Gradient Vibrant', annual:'Annual Report', numbered:'Numbered Steps',
+    corporate:'Corporate Pro', emerald:'Emerald Algérie'
+  };
+  document.querySelectorAll('.tpl-card').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.tpl-card').forEach(c => c.classList.remove('active'));
+    b.classList.add('active');
+    slideTemplate = b.dataset.tpl;
+    document.getElementById('tpl-label').textContent = TPL_LABELS[slideTemplate] || slideTemplate;
   }));
 
   // Type de rapport

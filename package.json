@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@octokit/rest": "^19.0.5",
+    "@ooples/token-optimizer-mcp": "^5.0.1",
     "adm-zip": "^0.5.17",
     "cors": "^2.8.5",
     "dotenv": "^17.4.2",

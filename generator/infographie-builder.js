@@ -2667,9 +2667,32 @@ export function toast(message, isError = false) {
 `;
 }
 
+// ─── Fond d'écran injecté dans l'infographie ──────────────────────────────────
+
+const IA_GRADS = [
+  'linear-gradient(135deg,#0d0033 0%,#1a0550 40%,#0a2060 100%)',
+  'linear-gradient(135deg,#001a00 0%,#002d20 40%,#001530 100%)',
+  'linear-gradient(135deg,#1a0a00 0%,#2d1500 40%,#1a0a2d 100%)',
+  'linear-gradient(135deg,#000d1a 0%,#001a33 50%,#001a1a 100%)',
+  'linear-gradient(135deg,#0a001a 0%,#1a0033 40%,#001a2d 100%)',
+  'linear-gradient(135deg,#000a00 0%,#001400 50%,#000a0a 100%)',
+];
+
+function genBgPhotoHTML(bgTheme, bgImage) {
+  if (!bgTheme || bgTheme === 'none' || !bgImage || bgImage === 'none') return '';
+  let styleVal = '';
+  if (bgImage.startsWith('ia:')) {
+    const idx = parseInt(bgImage.split(':')[1]) || 0;
+    styleVal = `background:${IA_GRADS[idx % IA_GRADS.length]}`;
+  } else {
+    styleVal = `background-image:url('${bgImage}');background-size:cover;background-position:center`;
+  }
+  return `<div id="bg-photo" style="position:fixed;inset:0;z-index:0;pointer-events:none;${styleVal};opacity:0.50;transition:opacity 1s ease;"></div>`;
+}
+
 // ─── Génération index.html — LE CŒUR PREMIUM ──────────────────────────────────
 
-function genIndexHTML(data, slug, pal, domain) {
+function genIndexHTML(data, slug, pal, domain, bgTheme = 'none', bgImage = 'none') {
   domain = domain || data.docType || 'rapport';
   const {
     title, subtitle, date, source, docType,
@@ -2914,6 +2937,7 @@ function genIndexHTML(data, slug, pal, domain) {
 </head>
 <body>
 
+${genBgPhotoHTML(bgTheme, bgImage)}
 <!-- LOADER -->
 <div id="loader" role="status">
   <div class="loader-content">
@@ -3628,6 +3652,28 @@ function genExtraCSS() {
   transition: all .2s;
 }
 .fab:hover { background: var(--gold-500); color: var(--ink-900); border-color: var(--gold-500); }
+
+/* ═══════════════════════════════════════════════════════════════
+   Surcharges lisibilité — texte blanc + tailles agrandies
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Texte blanc — corps uniquement (pas les titres/sous-titres) */
+p, li, td, th,
+.section-analysis, .data-block p, .section-doc p, .analysis-block p,
+.kpi-label, .kpi-unit, .hero-meta-label,
+.eyebrow, .chart-title,
+.topbar a, .brand, .section-nav a { color: #ffffff !important; }
+
+/* KPI — tailles réduites de moitié par rapport à avant */
+.kpi-value { font-size: clamp(1.1rem, 2vw, 1.6rem) !important; }
+.kpi-label { font-size: .88rem !important; }
+.hero-meta-value { font-size: clamp(.95rem, 1.4vw, 1.2rem) !important; }
+.hero-meta-label { font-size: .8rem !important; }
+
+/* Corps de texte — légèrement agrandi */
+p, li, .section-analysis, .analysis-block p { font-size: clamp(.95rem, 1.3vw, 1.1rem) !important; line-height: 1.75 !important; }
+.eyebrow { font-size: .82rem !important; }
+.chart-title { font-size: 1rem !important; }
 `;
 }
 
@@ -3665,11 +3711,859 @@ function genThumbnailSVG(title, pal) {
 </svg>`;
 }
 
+// ─── Template de slides animés ────────────────────────────────────────────────
+
+function getTplDecoCSS(tpl, t) {
+  const d = {
+    techblue: `
+.deco-bg { position:fixed; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
+.deco-bg::before { content:''; position:absolute; top:8%; right:4%; width:42vw; height:55vh;
+  background:radial-gradient(circle, ${t.accent}1a 0%, transparent 68%);
+  animation:pulse 5s ease-in-out infinite; }
+.deco-bg::after { content:''; position:absolute; bottom:8%; left:3%; width:32vw; height:38vh;
+  background:radial-gradient(circle, ${t.accent2}14 0%, transparent 68%);
+  animation:pulse 6s ease-in-out infinite .8s; }`,
+    diamond: `
+.deco-bg { position:fixed; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
+.deco-bg::before { content:'◆'; position:absolute; top:12%; right:6%; font-size:9rem;
+  color:${t.accent}; opacity:.05; transform:rotate(12deg); }
+.deco-bg::after { content:'◆'; position:absolute; bottom:12%; left:4%; font-size:13rem;
+  color:${t.accent2}; opacity:.04; transform:rotate(-18deg); }`,
+    gradient: `
+.deco-bg { position:fixed; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
+.deco-bg::before { content:''; position:absolute; top:-15%; right:-8%; width:55vw; height:55vw;
+  border-radius:50%; background:radial-gradient(circle, ${t.accent}1e 0%, transparent 65%);
+  animation:pulse 7s ease-in-out infinite; }
+.deco-bg::after { content:''; position:absolute; bottom:-15%; left:-8%; width:45vw; height:45vw;
+  border-radius:50%; background:radial-gradient(circle, ${t.accent2}18 0%, transparent 65%);
+  animation:pulse 8s ease-in-out infinite .6s; }`,
+    annual: `
+.deco-bg { position:fixed; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
+.deco-bg::before { content:''; position:absolute; top:-6%; right:-6%; width:38vw; height:38vw;
+  border-radius:50%; border:1px solid ${t.accent}22; }
+.deco-bg::after { content:''; position:absolute; bottom:-8%; left:-8%; width:48vw; height:48vw;
+  border-radius:50%; border:1px solid ${t.accent}18; }`,
+    numbered: `
+.deco-bg { position:fixed; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
+.deco-bg::before { content:''; position:absolute; top:0; left:0; width:5px; height:100%;
+  background:linear-gradient(to bottom, transparent, ${t.accent}, transparent); }
+.deco-bg::after { content:''; position:absolute; bottom:0; right:0; width:100%; height:5px;
+  background:linear-gradient(to left, transparent, ${t.accent}, transparent); }`,
+    corporate: `
+.deco-bg { position:fixed; inset:0; z-index:1; pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+  background-size:50px 50px; }`,
+    emerald: `
+.deco-bg { position:fixed; inset:0; z-index:1; pointer-events:none; overflow:hidden; }
+.deco-bg::before { content:'⬡'; position:absolute; top:8%; right:5%; font-size:11rem;
+  color:${t.accent}; opacity:.05; }
+.deco-bg::after { content:'⬡'; position:absolute; bottom:6%; left:3%; font-size:15rem;
+  color:${t.accent2}; opacity:.04; }`,
+  };
+  return d[tpl] || d.techblue;
+}
+
+function genAnnualReportHTML(data, pal, bgOvStyle) {
+  // Recreates slide_4.jpg: dark textured bg, 3-col [banners+circles | center ring | circles+banners]
+  const { title, subtitle, date, source, docType, stats = [], keyPoints = [], chartData = {} } = data;
+  const ACC = '#ffc107', ACC2 = '#e65100', BG = '#141414', CARD = '#1d1d1d', TEXT = '#fff', MUTED = '#777';
+  const kpis    = stats.filter(s => parseFloat(s.numericValue) > 0).slice(0, 6);
+  const pctSt   = stats.filter(s => s.unit === '%' && parseFloat(s.numericValue) > 0).slice(0, 6);
+  const goodPts = keyPoints.filter(p => p.trim().length > 30).slice(0, 5);
+  const year    = (date || '').match(/20\d{2}/)?.[0] || new Date().getFullYear();
+  const typeMap  = { telecom:'Télécoms', internet:'Internet', startup:'Startup', rapport:'Rapport Annuel', finance:'Finance', satellite:'Satellite', health:'Santé', energy:'Énergie' };
+  const typeLabel = typeMap[docType] || 'Rapport Annuel';
+  const fmtV = v => { const n=parseFloat(v); return n>=1e9?(n/1e9).toFixed(2).replace('.',',')+' Md':n>=1e6?(n/1e6).toFixed(2).replace('.',',')+' M':n>=1e3?Math.round(n).toLocaleString('fr-FR'):String(n); };
+  const mainKPI = kpis[0] || { label:'Indicateur', numericValue:'0', unit:'', icon:'📊' };
+  const mainRaw = parseFloat(mainKPI.numericValue);
+  const mainDisp = fmtV(mainKPI.numericValue);
+  const heroSub = (subtitle || genAnalyseGlobale(data)||'').substring(0,140);
+
+  const items6 = kpis.slice(0,6);
+  while(items6.length < 6) items6.push({ label:'—', numericValue:'0', unit:'', icon:'•' });
+  const leftItems  = items6.slice(0,3);
+  const rightItems = items6.slice(3,6);
+
+  const leftHTML = leftItems.map((s,i) => {
+    const v=fmtV(s.numericValue), empty=s.label==='—';
+    return `<div class="ar-item" style="--i:${i}${empty?';opacity:.2':''}">
+      <div class="ar-banner"><div class="ar-num">0${i+1}</div>
+        <div class="ar-text"><div class="ar-lbl">${esc(s.label.substring(0,22))}</div>
+          <div class="ar-val">${empty?'':esc(v)}<small>${empty?'':' '+esc(s.unit)}</small></div></div></div>
+      <div class="ar-line-h"></div>
+      <div class="ar-ico">${esc(s.icon||'📊')}</div></div>`;
+  }).join('');
+
+  const rightHTML = rightItems.map((s,i) => {
+    const v=fmtV(s.numericValue), empty=s.label==='—';
+    return `<div class="ar-item ar-item-r" style="--i:${i+3}${empty?';opacity:.2':''}">
+      <div class="ar-ico">${esc(s.icon||'📊')}</div>
+      <div class="ar-line-h"></div>
+      <div class="ar-banner ar-banner-r">
+        <div class="ar-text"><div class="ar-lbl">${esc(s.label.substring(0,22))}</div>
+          <div class="ar-val">${empty?'':esc(v)}<small>${empty?'':' '+esc(s.unit)}</small></div></div>
+        <div class="ar-num">0${i+4}</div></div></div>`;
+  }).join('');
+
+  const barLabels   = JSON.stringify(kpis.map(s=>s.label.substring(0,14)));
+  const barValues   = JSON.stringify(kpis.map(s=>parseFloat(s.numericValue)));
+  const barColors   = JSON.stringify(kpis.map((_,i)=>pal[i%pal.length]));
+  const dSeries     = pctSt.length>=2?pctSt:kpis.slice(0,5);
+  const doughLabels = JSON.stringify(dSeries.map(s=>s.label.substring(0,14)));
+  const doughValues = JSON.stringify(dSeries.map(s=>parseFloat(s.numericValue)));
+  const doughColors = JSON.stringify(pal.slice(0,dSeries.length));
+  const findingsJS  = JSON.stringify(goodPts.map((pt,i)=>({num:String(i+1).padStart(2,'0'),text:pt.substring(0,160)})));
+  const synthJS     = JSON.stringify(kpis.slice(0,3).map(s=>({value:fmtV(s.numericValue),unit:s.unit,label:s.label.substring(0,24),raw:parseFloat(s.numericValue)})));
+  const analyseInd  = (genAnalyseChartIndicateurs(data)||'').substring(0,220);
+  const analyseRep  = (genAnalyseChartRepartition(data)||'').substring(0,300);
+  const analyseSyn  = (genAnalyseSynthese(data)||'').substring(0,350);
+
+  return `<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${esc(title)} — Annual Report</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"><\/script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'Manrope',sans-serif;background:${BG};color:${TEXT}}
+${bgOvStyle?`.bg-ov{position:fixed;inset:0;z-index:0;pointer-events:none;${bgOvStyle}opacity:.25}`:''}
+.sw{position:relative;width:100vw;height:100vh;overflow:hidden}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:2rem 4vw 5rem;opacity:0;transform:translateX(80px);transition:opacity .52s,transform .52s;pointer-events:none;overflow-y:auto;z-index:1}
+.slide.active{opacity:1;transform:none;pointer-events:all;z-index:2}
+.slide.out{opacity:0;transform:translateX(-80px);z-index:1}
+.hero-bg{position:fixed;inset:0;background:${BG};background-image:repeating-linear-gradient(-45deg,transparent,transparent 4px,rgba(255,255,255,.018) 4px,rgba(255,255,255,.018) 5px);z-index:0}
+.h-badge{display:inline-flex;align-items:center;gap:.5rem;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:${ACC};padding:.22rem 1rem;border:1px solid ${ACC}44;border-radius:99px;margin-bottom:1.3rem;animation:fadeUp .6s .1s both;position:relative;z-index:1}
+.h-title{font-size:clamp(1.5rem,4vw,3rem);font-weight:900;text-align:center;line-height:1.1;margin-bottom:.7rem;animation:fadeUp .6s .25s both;max-width:820px;position:relative;z-index:1}
+.h-rule{width:0;height:3px;background:${ACC};margin:.7rem auto;border-radius:2px;animation:ruleExp .6s .42s both;position:relative;z-index:1}
+.h-sub{font-size:clamp(.78rem,1.3vw,.94rem);color:${MUTED};max-width:560px;text-align:center;line-height:1.75;animation:fadeUp .6s .55s both;position:relative;z-index:1}
+.h-meta{display:flex;gap:1rem;margin-top:1rem;animation:fadeUp .6s .68s both;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.h-meta span{font-size:.67rem;color:${MUTED};padding:.18rem .7rem;border:1px solid ${ACC}30;border-radius:5px}
+.ar-wrap{width:100%;height:100%;display:flex;flex-direction:column;background:${BG};background-image:repeating-linear-gradient(-45deg,transparent,transparent 4px,rgba(255,255,255,.018) 4px,rgba(255,255,255,.018) 5px);padding:1.1rem 1.5rem}
+.ar-hdr{display:flex;align-items:center;gap:1.2rem;margin-bottom:.8rem;flex-shrink:0;flex-wrap:wrap}
+.ar-hl{display:flex;flex-direction:column;line-height:1.15;flex-shrink:0}
+.ar-hl1{font-size:.72rem;font-weight:400;color:#999;text-transform:lowercase;letter-spacing:.05em}
+.ar-hl2{font-size:.95rem;font-weight:900;color:${ACC};text-transform:lowercase}
+.ar-htxt{flex:1;font-size:.82rem;font-weight:700;color:${TEXT};min-width:0}
+.ar-hmeta{font-size:.6rem;color:#555;flex-shrink:0}
+.ar-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(.7rem,1.5vw,1.6rem);flex:1;align-items:center;min-height:0}
+.ar-side{display:flex;flex-direction:column;gap:clamp(.45rem,1.1vh,.85rem)}
+.ar-item{display:flex;align-items:center;gap:0;animation:arLeft .45s ease both;animation-delay:calc(var(--i)*.1s+.3s)}
+.ar-item-r{flex-direction:row-reverse;animation-name:arRight}
+.ar-banner{display:flex;align-items:stretch;border-radius:6px 0 0 6px;overflow:hidden;flex:1;box-shadow:0 3px 12px rgba(0,0,0,.55),0 1px 6px rgba(255,193,7,.1)}
+.ar-banner-r{border-radius:0 6px 6px 0;flex-direction:row-reverse}
+.ar-num{background:#000;color:${ACC};font-size:clamp(.82rem,1.5vw,1.15rem);font-weight:900;padding:.35rem .52rem;display:flex;align-items:center;justify-content:center;min-width:2.4rem;border-right:2.5px solid rgba(255,193,7,.38);flex-shrink:0;line-height:1}
+.ar-banner-r .ar-num{border-right:none;border-left:2.5px solid rgba(255,193,7,.38)}
+.ar-text{background:linear-gradient(135deg,${ACC} 0%,${ACC2} 100%);flex:1;padding:.35rem .58rem;display:flex;flex-direction:column;justify-content:center}
+.ar-lbl{font-size:.58rem;font-weight:700;color:#000;text-transform:uppercase;line-height:1.3;opacity:.85}
+.ar-val{font-size:clamp(.68rem,1.2vw,.9rem);font-weight:900;color:#000;line-height:1.1}
+.ar-val small{font-size:.55em;opacity:.75}
+.ar-line-h{flex:0 0 clamp(.4rem,.8vw,.75rem);height:1px;background:rgba(255,193,7,.28);align-self:center}
+.ar-ico{width:clamp(42px,5.8vw,58px);height:clamp(42px,5.8vw,58px);border-radius:50%;background:radial-gradient(circle at 37% 32%,#484848 0%,#111 70%);border:2px solid ${ACC};font-size:clamp(.8rem,1.2vw,1.05rem);box-shadow:0 4px 12px rgba(0,0,0,.75),0 0 14px rgba(255,193,7,.18),inset 0 1px 3px rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ar-center{display:flex;align-items:center;justify-content:center}
+.ar-ring{width:clamp(140px,17vw,180px);height:clamp(140px,17vw,180px);border-radius:50%;background:radial-gradient(circle at 38% 33%,#353535 0%,#0c0c0c 65%);border:5px solid ${ACC};box-shadow:0 0 0 2.5px ${BG},0 0 38px rgba(255,193,7,.58),0 0 65px rgba(255,193,7,.18),inset 0 2px 7px rgba(255,255,255,.07),0 8px 25px rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;text-align:center;animation:ringPop .7s cubic-bezier(.34,1.56,.64,1) .12s both}
+.arc-inner{color:${TEXT};padding:.45rem}
+.arc-cat{font-size:.46rem;color:${ACC};text-transform:uppercase;letter-spacing:.14em;display:block}
+.arc-v{font-size:clamp(.88rem,2.1vw,1.55rem);font-weight:900;color:${TEXT};display:block;line-height:1;margin:.1rem 0}
+.arc-u{font-size:.46rem;color:#888;display:block}
+.arc-s{font-size:.46rem;color:${ACC};text-transform:uppercase;letter-spacing:.1em;display:block;margin-top:.2rem}
+.ar-foot{font-size:.65rem;color:#555;line-height:1.6;margin-top:.65rem;flex-shrink:0}
+.sl-hdr{font-size:clamp(.85rem,1.6vw,1.12rem);font-weight:700;color:${TEXT};width:100%;max-width:900px;margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
+.sl-hdr-line{flex:1;height:2px;background:linear-gradient(to right,${ACC}44,transparent)}
+.ch-area{position:relative;width:100%;max-width:900px;height:54vh;max-height:350px}
+.ch-txt{font-size:.73rem;color:${MUTED};line-height:1.78;max-width:900px;margin-top:.7rem;text-align:left}
+.ch-dbl{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;width:100%;max-width:900px}
+.ch-dw{position:relative;height:44vh;max-height:300px}
+.fn-list{display:flex;flex-direction:column;gap:.62rem;width:100%;max-width:820px}
+.fn-row{display:flex;align-items:center;gap:1.1rem;background:${CARD};border:1px solid ${ACC}28;border-radius:12px;padding:.8rem 1.1rem;position:relative;overflow:hidden}
+.fn-row::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:${ACC}}
+.fn-n{font-size:1.5rem;font-weight:900;color:${ACC};min-width:2.5rem;text-align:center;line-height:1}
+.fn-t{font-size:.79rem;color:${TEXT};line-height:1.68;flex:1}
+.sy-row{display:flex;gap:1.5rem;justify-content:center;margin-bottom:1.3rem;flex-wrap:wrap}
+.sy-c{border-radius:50%;border:2px solid ${ACC}55;background:radial-gradient(circle at 40% 38%,${ACC}1a,transparent 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1rem;box-shadow:0 0 28px ${ACC}22}
+.sy-v{font-size:clamp(.95rem,2.2vw,1.65rem);font-weight:900;color:${ACC};line-height:1}
+.sy-v small{font-size:.5em;color:${MUTED};margin-left:.1rem}
+.sy-l{font-size:.58rem;color:${MUTED};margin-top:.25rem;line-height:1.3}
+.sy-txt{font-size:.76rem;color:${MUTED};line-height:1.78;max-width:750px;text-align:center}
+.pres-nav{position:fixed;bottom:1.1rem;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:1rem;z-index:99;background:rgba(0,0,0,.72);backdrop-filter:blur(14px);border:1px solid ${ACC}33;border-radius:50px;padding:.4rem 1.2rem}
+.nav-b{background:none;border:none;color:${ACC};font-size:.9rem;cursor:pointer;padding:.2rem .38rem;border-radius:5px;transition:background .2s}
+.nav-b:hover{background:${ACC}22}.nav-b:disabled{opacity:.22;cursor:default}
+.p-dots{display:flex;gap:.3rem}.dot{width:6px;height:6px;border-radius:50%;background:${ACC}33;transition:all .3s;cursor:pointer}.dot.on{background:${ACC};transform:scale(1.45);box-shadow:0 0 8px ${ACC}88}
+.p-cnt{font-size:.7rem;color:${MUTED};min-width:3rem;text-align:center}
+.pres-logo{position:fixed;top:.8rem;right:1.1rem;font-size:.65rem;color:${MUTED};opacity:.5;z-index:50}.pres-logo strong{color:${ACC}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes ruleExp{from{width:0}to{width:70px}}
+@keyframes arLeft{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:none}}
+@keyframes arRight{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+@keyframes ringPop{from{opacity:0;transform:scale(.18)}to{opacity:1;transform:scale(1)}}
+@keyframes fnIn{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:none}}
+@keyframes syIn{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+@media(max-width:640px){.ar-grid{grid-template-columns:1fr}.ar-center{display:none}.ch-dbl{grid-template-columns:1fr}}
+</style></head><body>
+${bgOvStyle?'<div class="bg-ov"></div>':''}
+<div class="sw">
+
+<!-- S0: TITRE -->
+<div class="slide active" id="s0">
+  <div class="hero-bg"></div>
+  <span class="h-badge">✦ ${esc(typeLabel)} · ${esc(String(year))}</span>
+  <h1 class="h-title">${esc(title.length>90?title.substring(0,88)+'…':title)}</h1>
+  <div class="h-rule"></div>
+  <p class="h-sub">${esc(heroSub)}</p>
+  <div class="h-meta">
+    ${source?`<span>📌 ${esc(source)}</span>`:''}
+    <span>📅 ${esc(date||String(year))}</span>
+    <span>Algeria<strong style="color:${ACC}">Tech</strong> Generator</span>
+  </div>
+</div>
+
+<!-- S1: ANNUAL LAYOUT (slide_4 recreation) -->
+<div class="slide" id="s1">
+  <div class="ar-wrap">
+    <div class="ar-hdr">
+      <div class="ar-hl"><span class="ar-hl1">headline</span><span class="ar-hl2">annual report</span></div>
+      <div class="ar-htxt">${esc(title.substring(0,65))}</div>
+      <div class="ar-hmeta">${source?esc(source)+' · ':''}${esc(date||String(year))}</div>
+    </div>
+    <div class="ar-grid">
+      <div class="ar-side">${leftHTML}</div>
+      <div class="ar-center">
+        <div class="ar-ring">
+          <div class="arc-inner">
+            <span class="arc-cat">${esc(typeLabel.toUpperCase())}</span>
+            <strong class="arc-v" data-t="${mainRaw}" id="arc-v">${esc(mainDisp)}</strong>
+            <span class="arc-u">${esc(mainKPI.unit)}</span>
+            <span class="arc-s">INFOGRAPHIC</span>
+          </div>
+        </div>
+      </div>
+      <div class="ar-side">${rightHTML}</div>
+    </div>
+    <p class="ar-foot">${esc(heroSub)}</p>
+  </div>
+</div>
+
+<!-- S2: GRAPHIQUE -->
+<div class="slide" id="s2">
+  <div class="sl-hdr"><span>📊</span> Analyse comparative <span class="sl-hdr-line"></span></div>
+  <div class="ch-area"><canvas id="ch-bar"></canvas></div>
+  <p class="ch-txt">${esc(analyseInd)}</p>
+</div>
+
+<!-- S3: RÉPARTITION -->
+<div class="slide" id="s3">
+  <div class="sl-hdr"><span>🥧</span> Répartition &amp; structure <span class="sl-hdr-line"></span></div>
+  <div class="ch-dbl">
+    <div class="ch-dw"><canvas id="ch-dou"></canvas></div>
+    <div style="display:flex;align-items:center"><p class="ch-txt" style="margin:0">${esc(analyseRep)}</p></div>
+  </div>
+</div>
+
+<!-- S4: POINTS CLÉS -->
+<div class="slide" id="s4">
+  <div class="sl-hdr"><span>🔍</span> Points clés &amp; constats <span class="sl-hdr-line"></span></div>
+  <div class="fn-list" id="fn-list"></div>
+</div>
+
+<!-- S5: SYNTHÈSE -->
+<div class="slide" id="s5">
+  <div class="sl-hdr"><span>📋</span> Synthèse exécutive <span class="sl-hdr-line"></span></div>
+  <div class="sy-row" id="sy-row"></div>
+  <p class="sy-txt">${esc(analyseSyn)}</p>
+</div>
+
+</div>
+<nav class="pres-nav">
+  <button class="nav-b" id="bp" disabled>◀</button>
+  <div class="p-dots">${[0,1,2,3,4,5].map(i=>`<span class="dot${i===0?' on':''}" data-i="${i}"></span>`).join('')}</div>
+  <span class="p-cnt" id="pcnt">1 / 6</span>
+  <button class="nav-b" id="bn">▶</button>
+</nav>
+<div class="pres-logo">Algeria<strong>Tech</strong></div>
+
+<script>
+const N=6,ACC=${JSON.stringify(ACC)},BG=${JSON.stringify(BG)},MUTED=${JSON.stringify(MUTED)},PAL=${JSON.stringify(pal)};
+const BAR_L=${barLabels},BAR_V=${barValues},BAR_C=${barColors};
+const DGH_L=${doughLabels},DGH_V=${doughValues},DGH_C=${doughColors};
+const FINDS=${findingsJS},SYNTH=${synthJS};
+Chart.defaults.font.family="'Manrope',sans-serif";Chart.defaults.color=MUTED;Chart.defaults.borderColor='rgba(255,255,255,.05)';
+let cur=0;
+const slides=Array.from(document.querySelectorAll('.slide')),dots=Array.from(document.querySelectorAll('.dot'));
+const pcnt=document.getElementById('pcnt'),bp=document.getElementById('bp'),bn=document.getElementById('bn'),done=new Set();
+function goto(n){if(n<0||n>=N)return;slides[cur].classList.remove('active');slides[cur].classList.add('out');const p=cur;cur=n;setTimeout(()=>slides[p].classList.remove('out'),600);slides[cur].classList.add('active');dots.forEach((d,i)=>d.classList.toggle('on',i===cur));pcnt.textContent=(cur+1)+' / '+N;bp.disabled=cur===0;bn.disabled=cur===N-1;onEnter(cur);}
+bn.onclick=()=>goto(cur+1);bp.onclick=()=>goto(cur-1);
+dots.forEach(d=>d.addEventListener('click',()=>goto(+d.dataset.i)));
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();goto(cur+1);}if(e.key==='ArrowLeft'){e.preventDefault();goto(cur-1);}});
+let tx=0;document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});document.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)goto(dx<0?cur+1:cur-1)},{passive:true});
+function fmtNum(v){return v>=1e9?(v/1e9).toFixed(2).replace('.',',')+' Md':v>=1e6?(v/1e6).toFixed(2).replace('.',',')+' M':v>=1e3?Math.round(v).toLocaleString('fr-FR'):v.toFixed(v%1?1:0).replace('.',',');}
+function countUp(el,target){if(!target)return;const dur=1100;let st=null;(function step(ts){if(!st)st=ts;const p=Math.min((ts-st)/dur,1);const e=1-Math.pow(1-p,3);el.textContent=fmtNum(target*e);if(p<1)requestAnimationFrame(step);})(performance.now());}
+function buildFindings(){const c=document.getElementById('fn-list');if(!c||c.children.length)return;if(!FINDS.length){c.innerHTML='<p style="color:'+MUTED+'">Aucun point clé extrait.</p>';return;}FINDS.forEach((f,i)=>{const d=document.createElement('div');d.className='fn-row';d.style.cssText='opacity:0;animation:fnIn .5s ease '+(i*.1+.15)+'s both';d.innerHTML='<div class="fn-n">'+f.num+'</div><div class="fn-t">'+f.text+'</div>';c.appendChild(d);});}
+function buildSynth(){const c=document.getElementById('sy-row');if(!c||c.children.length)return;const sz=Math.min(155,Math.floor(window.innerWidth*.25));SYNTH.forEach((s,i)=>{const d=document.createElement('div');d.className='sy-c';d.style.cssText='width:'+sz+'px;height:'+sz+'px;opacity:0;animation:syIn .6s cubic-bezier(.34,1.56,.64,1) '+(i*.14+.1)+'s both';d.innerHTML='<div class="sy-v">'+s.value+'<small>'+s.unit+'</small></div><div class="sy-l">'+s.label+'</div>';c.appendChild(d);});}
+function initBar(){const c=document.getElementById('ch-bar');if(!c||!BAR_L.length)return;new Chart(c,{type:'bar',data:{labels:BAR_L,datasets:[{label:'Valeur',data:BAR_V,backgroundColor:BAR_C.map(c=>c+'bb'),borderColor:BAR_C,borderWidth:1,borderRadius:9}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:MUTED,maxRotation:35}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:MUTED}}},animation:{duration:1000,easing:'easeOutQuart'}}});}
+function initDonut(){const c=document.getElementById('ch-dou');if(!c||!DGH_L.length)return;new Chart(c,{type:'doughnut',data:{labels:DGH_L,datasets:[{data:DGH_V,backgroundColor:DGH_C,borderColor:BG,borderWidth:3,hoverOffset:12}]},options:{responsive:true,maintainAspectRatio:false,cutout:'62%',plugins:{legend:{position:'right',labels:{color:MUTED,padding:12,usePointStyle:true}}},animation:{animateRotate:true,animateScale:true,duration:1000}}});}
+function onEnter(idx){if(done.has(idx))return;done.add(idx);if(idx===1)setTimeout(()=>{const el=document.getElementById('arc-v');if(el)countUp(el,${mainRaw});},500);if(idx===2)initBar();if(idx===3)initDonut();if(idx===4)buildFindings();if(idx===5)buildSynth();}
+onEnter(0);
+<\/script></body></html>`;
+}
+
+// ─── Numbered Steps Template — alternating rows + diagonal yellow bg (slide_5 style) ──
+
+function genNumberedStepsHTML(data, pal, bgOvStyle) {
+  // Recreates slide_5.jpg: dark bg + yellow diagonal left band, 5 alternating numbered rows
+  const { title, subtitle, date, source, docType, stats = [], keyPoints = [], chartData = {} } = data;
+  const ACC = '#ffcc00', ACC2 = '#e65100', BG = '#0a0a0a', CARD = '#141414', TEXT = '#fff', MUTED = '#888';
+  const kpis    = stats.filter(s => parseFloat(s.numericValue) > 0).slice(0, 5);
+  const pctSt   = stats.filter(s => s.unit === '%' && parseFloat(s.numericValue) > 0).slice(0, 5);
+  const goodPts = keyPoints.filter(p => p.trim().length > 30).slice(0, 5);
+  const year    = (date || '').match(/20\d{2}/)?.[0] || new Date().getFullYear();
+  const typeMap  = { telecom:'Télécoms', internet:'Internet', startup:'Startup', rapport:'Rapport Annuel', finance:'Finance', satellite:'Satellite', health:'Santé', energy:'Énergie' };
+  const typeLabel = typeMap[docType] || 'Rapport';
+  const fmtV = v => { const n=parseFloat(v); return n>=1e9?(n/1e9).toFixed(2).replace('.',',')+' Md':n>=1e6?(n/1e6).toFixed(2).replace('.',',')+' M':n>=1e3?Math.round(n).toLocaleString('fr-FR'):String(n); };
+  const heroSub = (subtitle || genAnalyseGlobale(data)||'').substring(0,140);
+
+  const items5 = kpis.slice(0,5);
+  while(items5.length < 5) items5.push({ label:'—', numericValue:'0', unit:'', icon:'•' });
+
+  const stepsHTML = items5.map((s,i) => {
+    const v = fmtV(s.numericValue), empty = s.label==='—';
+    const numStr = String(i+1).padStart(2,'0');
+    const isOdd = i % 2 === 0;
+    if (isOdd) {
+      return `<div class="ns-row" style="--i:${i}">
+        <div class="ns-ico">${esc(s.icon||'📊')}</div>
+        <div class="ns-numblk"><span class="ns-num">${numStr}</span></div>
+        <div class="ns-content">
+          <div class="ns-lbl">${esc(s.label.substring(0,28))}</div>
+          <div class="ns-val">${empty?'—':esc(v)}<small>${empty?'':' '+esc(s.unit)}</small></div>
+        </div>
+      </div>`;
+    } else {
+      return `<div class="ns-row ns-row-even" style="--i:${i}">
+        <div class="ns-content ns-content-r">
+          <div class="ns-lbl">${esc(s.label.substring(0,28))}</div>
+          <div class="ns-val">${empty?'—':esc(v)}<small>${empty?'':' '+esc(s.unit)}</small></div>
+        </div>
+        <div class="ns-numblk"><span class="ns-num">${numStr}</span></div>
+        <div class="ns-ico">${esc(s.icon||'📊')}</div>
+      </div>`;
+    }
+  }).join('');
+
+  const barLabels   = JSON.stringify(kpis.map(s=>s.label.substring(0,14)));
+  const barValues   = JSON.stringify(kpis.map(s=>parseFloat(s.numericValue)));
+  const barColors   = JSON.stringify(kpis.map((_,i)=>pal[i%pal.length]));
+  const dSeries     = pctSt.length>=2?pctSt:kpis.slice(0,5);
+  const doughLabels = JSON.stringify(dSeries.map(s=>s.label.substring(0,14)));
+  const doughValues = JSON.stringify(dSeries.map(s=>parseFloat(s.numericValue)));
+  const doughColors = JSON.stringify(pal.slice(0,dSeries.length));
+  const findingsJS  = JSON.stringify(goodPts.map((pt,i)=>({num:String(i+1).padStart(2,'0'),text:pt.substring(0,160)})));
+  const synthJS     = JSON.stringify(kpis.slice(0,3).map(s=>({value:fmtV(s.numericValue),unit:s.unit,label:s.label.substring(0,24),raw:parseFloat(s.numericValue)})));
+  const analyseInd  = (genAnalyseChartIndicateurs(data)||'').substring(0,220);
+  const analyseRep  = (genAnalyseChartRepartition(data)||'').substring(0,300);
+  const analyseSyn  = (genAnalyseSynthese(data)||'').substring(0,350);
+
+  return `<!DOCTYPE html>
+<html lang="fr"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${esc(title)} — Étapes</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"><\/script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'Manrope',sans-serif;background:${BG};color:${TEXT}}
+${bgOvStyle?`.bg-ov{position:fixed;inset:0;z-index:0;pointer-events:none;${bgOvStyle}opacity:.22}`:''}
+.sw{position:relative;width:100vw;height:100vh;overflow:hidden}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:2rem 4vw 5rem;opacity:0;transform:translateX(80px);transition:opacity .52s,transform .52s;pointer-events:none;overflow-y:auto;z-index:1}
+.slide.active{opacity:1;transform:none;pointer-events:all;z-index:2}
+.slide.out{opacity:0;transform:translateX(-80px);z-index:1}
+.ns-diag{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.ns-diag::before{content:'';position:absolute;top:0;left:0;bottom:0;width:38%;background:linear-gradient(to bottom,${ACC} 0%,#ff8f00 60%,${ACC2} 100%);clip-path:polygon(0 0,100% 0,84% 100%,0 100%)}
+.ns-diag::after{content:'';position:absolute;top:0;left:0;bottom:0;width:38%;background:rgba(0,0,0,.2);clip-path:polygon(0 0,100% 0,84% 100%,0 100%)}
+.h-badge{display:inline-flex;align-items:center;gap:.5rem;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:${ACC};padding:.22rem 1rem;border:1px solid ${ACC}44;border-radius:99px;margin-bottom:1.3rem;animation:fadeUp .6s .1s both;position:relative;z-index:1}
+.h-title{font-size:clamp(1.5rem,4vw,3rem);font-weight:900;text-align:center;line-height:1.1;margin-bottom:.7rem;animation:fadeUp .6s .25s both;max-width:820px;position:relative;z-index:1}
+.h-rule{width:0;height:3px;background:${ACC};margin:.7rem auto;border-radius:2px;animation:ruleExp .6s .42s both;position:relative;z-index:1}
+.h-sub{font-size:clamp(.78rem,1.3vw,.94rem);color:${MUTED};max-width:560px;text-align:center;line-height:1.75;animation:fadeUp .6s .55s both;position:relative;z-index:1}
+.h-meta{display:flex;gap:1rem;margin-top:1rem;animation:fadeUp .6s .68s both;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.h-meta span{font-size:.67rem;color:${MUTED};padding:.18rem .7rem;border:1px solid ${ACC}30;border-radius:5px}
+.ns-wrap{width:100%;max-width:720px;position:relative;z-index:1;display:flex;flex-direction:column;gap:clamp(.5rem,1.2vh,.9rem)}
+.ns-row{display:grid;grid-template-columns:clamp(46px,5.5vw,58px) clamp(2.5rem,3.8vw,3.2rem) 1fr;align-items:center;gap:clamp(.5rem,1vw,.85rem);animation:nsIn .45s ease both;animation-delay:calc(var(--i)*.1s+.2s)}
+.ns-row-even{grid-template-columns:1fr clamp(2.5rem,3.8vw,3.2rem) clamp(46px,5.5vw,58px)}
+.ns-ico{width:clamp(46px,5.5vw,58px);height:clamp(46px,5.5vw,58px);border-radius:50%;background:radial-gradient(circle at 37% 32%,#484848 0%,#111 70%);border:2px solid ${ACC};font-size:clamp(.82rem,1.15vw,1rem);box-shadow:0 4px 12px rgba(0,0,0,.75),0 0 14px rgba(255,204,0,.18),inset 0 1px 3px rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ns-numblk{display:flex;align-items:center;justify-content:center}
+.ns-num{font-size:clamp(1.8rem,3.5vw,3rem);font-weight:900;line-height:1;color:${ACC};text-shadow:0 2px 8px rgba(255,204,0,.25)}
+.ns-content{display:flex;flex-direction:column;gap:.18rem;background:rgba(255,255,255,.04);border-left:3px solid ${ACC}66;padding:.4rem .62rem;border-radius:0 8px 8px 0}
+.ns-content-r{border-left:none;border-right:3px solid ${ACC}66;border-radius:8px 0 0 8px;text-align:right}
+.ns-lbl{font-size:.73rem;font-weight:700;color:${TEXT};line-height:1.3}
+.ns-val{font-size:clamp(.85rem,1.7vw,1.2rem);font-weight:900;color:${ACC};line-height:1}
+.ns-val small{font-size:.55em;color:${MUTED}}
+.sl-hdr{font-size:clamp(.85rem,1.6vw,1.12rem);font-weight:700;color:${TEXT};width:100%;max-width:900px;margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
+.sl-hdr-line{flex:1;height:2px;background:linear-gradient(to right,${ACC}44,transparent)}
+.ch-area{position:relative;width:100%;max-width:900px;height:54vh;max-height:350px}
+.ch-txt{font-size:.73rem;color:${MUTED};line-height:1.78;max-width:900px;margin-top:.7rem;text-align:left}
+.ch-dbl{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;width:100%;max-width:900px}
+.ch-dw{position:relative;height:44vh;max-height:300px}
+.fn-list{display:flex;flex-direction:column;gap:.62rem;width:100%;max-width:820px}
+.fn-row{display:flex;align-items:center;gap:1.1rem;background:${CARD};border:1px solid ${ACC}28;border-radius:12px;padding:.8rem 1.1rem;position:relative;overflow:hidden}
+.fn-row::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:${ACC}}
+.fn-n{font-size:1.5rem;font-weight:900;color:${ACC};min-width:2.5rem;text-align:center;line-height:1}
+.fn-t{font-size:.79rem;color:${TEXT};line-height:1.68;flex:1}
+.sy-row{display:flex;gap:1.5rem;justify-content:center;margin-bottom:1.3rem;flex-wrap:wrap}
+.sy-c{border-radius:50%;border:2px solid ${ACC}55;background:radial-gradient(circle at 40% 38%,${ACC}1a,transparent 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:1rem;box-shadow:0 0 28px ${ACC}22}
+.sy-v{font-size:clamp(.95rem,2.2vw,1.65rem);font-weight:900;color:${ACC};line-height:1}
+.sy-v small{font-size:.5em;color:${MUTED};margin-left:.1rem}
+.sy-l{font-size:.58rem;color:${MUTED};margin-top:.25rem;line-height:1.3}
+.sy-txt{font-size:.76rem;color:${MUTED};line-height:1.78;max-width:750px;text-align:center}
+.pres-nav{position:fixed;bottom:1.1rem;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:1rem;z-index:99;background:rgba(0,0,0,.72);backdrop-filter:blur(14px);border:1px solid ${ACC}33;border-radius:50px;padding:.4rem 1.2rem}
+.nav-b{background:none;border:none;color:${ACC};font-size:.9rem;cursor:pointer;padding:.2rem .38rem;border-radius:5px;transition:background .2s}
+.nav-b:hover{background:${ACC}22}.nav-b:disabled{opacity:.22;cursor:default}
+.p-dots{display:flex;gap:.3rem}.dot{width:6px;height:6px;border-radius:50%;background:${ACC}33;transition:all .3s;cursor:pointer}.dot.on{background:${ACC};transform:scale(1.45);box-shadow:0 0 8px ${ACC}88}
+.p-cnt{font-size:.7rem;color:${MUTED};min-width:3rem;text-align:center}
+.pres-logo{position:fixed;top:.8rem;right:1.1rem;font-size:.65rem;color:${MUTED};opacity:.5;z-index:50}.pres-logo strong{color:${ACC}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes ruleExp{from{width:0}to{width:70px}}
+@keyframes nsIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes fnIn{from{opacity:0;transform:translateX(-24px)}to{opacity:1;transform:none}}
+@keyframes syIn{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+@media(max-width:640px){.ch-dbl{grid-template-columns:1fr}.ns-row,.ns-row-even{grid-template-columns:auto auto 1fr}}
+</style></head><body>
+${bgOvStyle?'<div class="bg-ov"></div>':''}
+<div class="ns-diag"></div>
+<div class="sw">
+
+<!-- S0: TITRE -->
+<div class="slide active" id="s0">
+  <span class="h-badge">✦ ${esc(typeLabel)} · ${esc(String(year))}</span>
+  <h1 class="h-title">${esc(title.length>90?title.substring(0,88)+'…':title)}</h1>
+  <div class="h-rule"></div>
+  <p class="h-sub">${esc(heroSub)}</p>
+  <div class="h-meta">
+    ${source?`<span>📌 ${esc(source)}</span>`:''}
+    <span>📅 ${esc(date||String(year))}</span>
+    <span>Algeria<strong style="color:${ACC}">Tech</strong> Generator</span>
+  </div>
+</div>
+
+<!-- S1: NUMBERED LAYOUT (slide_5 recreation) -->
+<div class="slide" id="s1">
+  <div class="sl-hdr" style="position:relative;z-index:1"><span>🔢</span> Indicateurs clés — Étapes <span class="sl-hdr-line"></span></div>
+  <div class="ns-wrap">${stepsHTML}</div>
+</div>
+
+<!-- S2: GRAPHIQUE -->
+<div class="slide" id="s2">
+  <div class="sl-hdr" style="position:relative;z-index:1"><span>📊</span> Analyse comparative <span class="sl-hdr-line"></span></div>
+  <div class="ch-area" style="position:relative;z-index:1"><canvas id="ch-bar"></canvas></div>
+  <p class="ch-txt" style="position:relative;z-index:1">${esc(analyseInd)}</p>
+</div>
+
+<!-- S3: RÉPARTITION -->
+<div class="slide" id="s3">
+  <div class="sl-hdr" style="position:relative;z-index:1"><span>🥧</span> Répartition &amp; structure <span class="sl-hdr-line"></span></div>
+  <div class="ch-dbl" style="position:relative;z-index:1">
+    <div class="ch-dw"><canvas id="ch-dou"></canvas></div>
+    <div style="display:flex;align-items:center"><p class="ch-txt" style="margin:0">${esc(analyseRep)}</p></div>
+  </div>
+</div>
+
+<!-- S4: POINTS CLÉS -->
+<div class="slide" id="s4">
+  <div class="sl-hdr" style="position:relative;z-index:1"><span>🔍</span> Points clés &amp; constats <span class="sl-hdr-line"></span></div>
+  <div class="fn-list" id="fn-list" style="position:relative;z-index:1"></div>
+</div>
+
+<!-- S5: SYNTHÈSE -->
+<div class="slide" id="s5">
+  <div class="sl-hdr" style="position:relative;z-index:1"><span>📋</span> Synthèse exécutive <span class="sl-hdr-line"></span></div>
+  <div class="sy-row" id="sy-row" style="position:relative;z-index:1"></div>
+  <p class="sy-txt" style="position:relative;z-index:1">${esc(analyseSyn)}</p>
+</div>
+
+</div>
+<nav class="pres-nav">
+  <button class="nav-b" id="bp" disabled>◀</button>
+  <div class="p-dots">${[0,1,2,3,4,5].map(i=>`<span class="dot${i===0?' on':''}" data-i="${i}"></span>`).join('')}</div>
+  <span class="p-cnt" id="pcnt">1 / 6</span>
+  <button class="nav-b" id="bn">▶</button>
+</nav>
+<div class="pres-logo">Algeria<strong>Tech</strong></div>
+
+<script>
+const N=6,ACC=${JSON.stringify(ACC)},BG=${JSON.stringify(BG)},MUTED=${JSON.stringify(MUTED)},PAL=${JSON.stringify(pal)};
+const BAR_L=${barLabels},BAR_V=${barValues},BAR_C=${barColors};
+const DGH_L=${doughLabels},DGH_V=${doughValues},DGH_C=${doughColors};
+const FINDS=${findingsJS},SYNTH=${synthJS};
+Chart.defaults.font.family="'Manrope',sans-serif";Chart.defaults.color=MUTED;Chart.defaults.borderColor='rgba(255,255,255,.05)';
+let cur=0;
+const slides=Array.from(document.querySelectorAll('.slide')),dots=Array.from(document.querySelectorAll('.dot'));
+const pcnt=document.getElementById('pcnt'),bp=document.getElementById('bp'),bn=document.getElementById('bn'),done=new Set();
+function goto(n){if(n<0||n>=N)return;slides[cur].classList.remove('active');slides[cur].classList.add('out');const p=cur;cur=n;setTimeout(()=>slides[p].classList.remove('out'),600);slides[cur].classList.add('active');dots.forEach((d,i)=>d.classList.toggle('on',i===cur));pcnt.textContent=(cur+1)+' / '+N;bp.disabled=cur===0;bn.disabled=cur===N-1;onEnter(cur);}
+bn.onclick=()=>goto(cur+1);bp.onclick=()=>goto(cur-1);
+dots.forEach(d=>d.addEventListener('click',()=>goto(+d.dataset.i)));
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();goto(cur+1);}if(e.key==='ArrowLeft'){e.preventDefault();goto(cur-1);}});
+let tx=0;document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});document.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)goto(dx<0?cur+1:cur-1)},{passive:true});
+function fmtNum(v){return v>=1e9?(v/1e9).toFixed(2).replace('.',',')+' Md':v>=1e6?(v/1e6).toFixed(2).replace('.',',')+' M':v>=1e3?Math.round(v).toLocaleString('fr-FR'):v.toFixed(v%1?1:0).replace('.',',');}
+function countUp(el,target){if(!target)return;const dur=1100;let st=null;(function step(ts){if(!st)st=ts;const p=Math.min((ts-st)/dur,1);const e=1-Math.pow(1-p,3);el.textContent=fmtNum(target*e);if(p<1)requestAnimationFrame(step);})(performance.now());}
+function buildFindings(){const c=document.getElementById('fn-list');if(!c||c.children.length)return;if(!FINDS.length){c.innerHTML='<p style="color:'+MUTED+'">Aucun point clé extrait.</p>';return;}FINDS.forEach((f,i)=>{const d=document.createElement('div');d.className='fn-row';d.style.cssText='opacity:0;animation:fnIn .5s ease '+(i*.1+.15)+'s both';d.innerHTML='<div class="fn-n">'+f.num+'</div><div class="fn-t">'+f.text+'</div>';c.appendChild(d);});}
+function buildSynth(){const c=document.getElementById('sy-row');if(!c||c.children.length)return;const sz=Math.min(155,Math.floor(window.innerWidth*.25));SYNTH.forEach((s,i)=>{const d=document.createElement('div');d.className='sy-c';d.style.cssText='width:'+sz+'px;height:'+sz+'px;opacity:0;animation:syIn .6s cubic-bezier(.34,1.56,.64,1) '+(i*.14+.1)+'s both';d.innerHTML='<div class="sy-v">'+s.value+'<small>'+s.unit+'</small></div><div class="sy-l">'+s.label+'</div>';c.appendChild(d);});}
+function initBar(){const c=document.getElementById('ch-bar');if(!c||!BAR_L.length)return;new Chart(c,{type:'bar',data:{labels:BAR_L,datasets:[{label:'Valeur',data:BAR_V,backgroundColor:BAR_C.map(c=>c+'bb'),borderColor:BAR_C,borderWidth:1,borderRadius:9}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:MUTED,maxRotation:35}},y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:MUTED}}},animation:{duration:1000,easing:'easeOutQuart'}}});}
+function initDonut(){const c=document.getElementById('ch-dou');if(!c||!DGH_L.length)return;new Chart(c,{type:'doughnut',data:{labels:DGH_L,datasets:[{data:DGH_V,backgroundColor:DGH_C,borderColor:BG,borderWidth:3,hoverOffset:12}]},options:{responsive:true,maintainAspectRatio:false,cutout:'62%',plugins:{legend:{position:'right',labels:{color:MUTED,padding:12,usePointStyle:true}}},animation:{animateRotate:true,animateScale:true,duration:1000}}});}
+function onEnter(idx){if(done.has(idx))return;done.add(idx);if(idx===2)initBar();if(idx===3)initDonut();if(idx===4)buildFindings();if(idx===5)buildSynth();}
+onEnter(0);
+<\/script></body></html>`;
+}
+
+// ─── Slide HTML dispatcher ────────────────────────────────────────────────────
+
+function genSlideHTML(data, slug, pal, domain, slideTemplate, bgTheme, bgImage) {
+  const {
+    title, subtitle, date, source, docType,
+    stats = [], keyPoints = [], sections = [], chartData = {}
+  } = data;
+
+  const hasTime = chartData.labels && chartData.labels.length >= 3;
+  const kpis    = stats.filter(s => parseFloat(s.numericValue) > 0).slice(0, 6);
+  const pctSt   = stats.filter(s => s.unit === '%' && parseFloat(s.numericValue) > 0).slice(0, 6);
+  const goodPts = keyPoints.filter(p => p.trim().length > 30).slice(0, 5);
+  const goodSects = sections.filter(s => s.body && s.body.trim().length > 80).slice(0, 2);
+  const tpl = slideTemplate || 'techblue';
+
+  const THEMES = {
+    techblue:  { bg:'#030d1c', card:'#071526', accent:'#00b4ff', accent2:'#00e5c4', text:'#d0eeff', muted:'#5a8cb0', border:'rgba(0,180,255,.22)', glow:'0 0 40px rgba(0,180,255,.18)' },
+    diamond:   { bg:'#0b1225', card:'#111e38', accent:'#d4a437', accent2:'#4fc3f7', text:'#f0e8d8', muted:'#8898aa', border:'rgba(212,164,55,.28)', glow:'0 0 40px rgba(212,164,55,.1)' },
+    gradient:  { bg:'#130824', card:'#1d1035', accent:'#e040fb', accent2:'#ff6e40', text:'#f3e5ff', muted:'#b085c9', border:'rgba(224,64,251,.28)', glow:'0 0 40px rgba(224,64,251,.12)' },
+    annual:    { bg:'#080808', card:'#101010', accent:'#ffc107', accent2:'#ff7043', text:'#ffffff', muted:'#999999', border:'rgba(255,193,7,.28)',   glow:'0 0 40px rgba(255,193,7,.1)'  },
+    numbered:  { bg:'#070707', card:'#0f0f0f', accent:'#ffcc00', accent2:'#ff5722', text:'#ffffff', muted:'#888888', border:'rgba(255,204,0,.32)',   glow:'0 0 40px rgba(255,204,0,.12)' },
+    corporate: { bg:'#0f172a', card:'#1e293b', accent:'#3b82f6', accent2:'#06b6d4', text:'#f1f5f9', muted:'#94a3b8', border:'rgba(59,130,246,.28)', glow:'0 0 40px rgba(59,130,246,.12)' },
+    emerald:   { bg:'#021208', card:'#071f10', accent:'#10b981', accent2:'#f59e0b', text:'#d1fae5', muted:'#6aa880', border:'rgba(16,185,129,.28)', glow:'0 0 40px rgba(16,185,129,.12)' },
+  };
+
+  const t = THEMES[tpl] || THEMES.techblue;
+  const decoCSS = getTplDecoCSS(tpl, t);
+
+  // background photo
+  let bgOvStyle = '';
+  if (bgTheme !== 'none' && bgImage && bgImage !== 'none') {
+    const isGrad = bgImage.startsWith('linear-gradient') || bgImage.startsWith('radial-gradient') || bgImage.startsWith('ia:');
+    if (isGrad) {
+      const grad = bgImage.startsWith('ia:') ? bgImage.slice(3) : bgImage;
+      bgOvStyle = `background:${grad};`;
+    } else {
+      bgOvStyle = `background:url('${bgImage}') center/cover no-repeat;`;
+    }
+  }
+
+  // Dispatch to layout-specific templates
+  if (slideTemplate === 'annual')   return genAnnualReportHTML(data, pal, bgOvStyle);
+  if (slideTemplate === 'numbered') return genNumberedStepsHTML(data, pal, bgOvStyle);
+
+  // chart data
+  const barLabels   = JSON.stringify(kpis.map(s => s.label.substring(0, 16)));
+  const barValues   = JSON.stringify(kpis.map(s => parseFloat(s.numericValue)));
+  const barColors   = JSON.stringify(kpis.map((_, i) => pal[i % pal.length]));
+  const usePct      = pctSt.length >= 2;
+  const dSeries     = usePct ? pctSt : kpis.slice(0, 4);
+  const doughLabels = JSON.stringify(dSeries.map(s => s.label.substring(0, 16)));
+  const doughValues = JSON.stringify(dSeries.map(s => parseFloat(s.numericValue)));
+  const doughColors = JSON.stringify(pal.slice(0, dSeries.length));
+  const evoLabels   = hasTime ? JSON.stringify(chartData.labels) : '[]';
+  const evoValues   = hasTime ? JSON.stringify(chartData.values) : '[]';
+
+  // HTML fragments
+  const kpiHTML = kpis.map((s, i) => {
+    const v = parseFloat(s.numericValue);
+    const d = v >= 1e6 ? (v/1e6).toFixed(2).replace('.',',') + ' M'
+            : v >= 1e3 ? Math.round(v).toLocaleString('fr-FR') : String(v);
+    return `<div class="kc" style="--i:${i}">
+      <div class="kc-ico">${esc(s.icon || '📊')}</div>
+      <div class="kc-val">${esc(d)}<span class="kc-u">${esc(s.unit || '')}</span></div>
+      <div class="kc-lbl">${esc(s.label)}</div>
+    </div>`;
+  }).join('');
+
+  const findHTML = goodPts.map((pt, i) =>
+    `<div class="fn-row" style="--i:${i}">
+      <span class="fn-n">${String(i+1).padStart(2,'0')}</span>
+      <span class="fn-t">${esc(pt)}</span>
+    </div>`
+  ).join('');
+
+  const synthHTML = kpis.slice(0, 3).map((s, i) => {
+    const v = parseFloat(s.numericValue);
+    const d = v >= 1e6 ? (v/1e6).toFixed(2).replace('.',',') + ' M'
+            : v >= 1e3 ? Math.round(v).toLocaleString('fr-FR') : String(v);
+    return `<div class="sy-card" style="--i:${i}">
+      <div class="sy-v">${esc(d)}<small>${esc(s.unit||'')}</small></div>
+      <div class="sy-l">${esc(s.label)}</div>
+    </div>`;
+  }).join('');
+
+  const sectsHTML = goodSects.map((s, i) =>
+    `<div class="sc-blk" style="--i:${i}">
+      <h3 class="sc-h">${esc(s.title)}</h3>
+      <p class="sc-p">${esc(s.body.substring(0, 280))}</p>
+    </div>`
+  ).join('');
+
+  const typeLabels = { telecom:'Télécoms', internet:'Internet', startup:'Startup', rapport:'Rapport', presse:'Presse', finance:'Finance', satellite:'Satellite', health:'Santé', energy:'Énergie', industry:'Industrie', product:'Produit' };
+  const typeLabel  = typeLabels[docType] || typeLabels[domain] || 'Rapport';
+  const analyseInd = genAnalyseChartIndicateurs(data);
+  const analyseRep = genAnalyseChartRepartition(data);
+  const analyseSyn = genAnalyseSynthese(data);
+  const nSlides    = 6 + (goodSects.length > 0 ? 1 : 0);
+
+  return `<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${esc(title)} — Algeria Tech Slides</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"><\/script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'Manrope',sans-serif;background:${t.bg};color:${t.text}}
+${decoCSS}
+.bg-ov{position:fixed;inset:0;z-index:0;pointer-events:none;${bgOvStyle}opacity:.35}
+.slides-wrap{position:relative;width:100vw;height:100vh;overflow:hidden}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:2rem 5vw 5rem;opacity:0;transform:translateX(70px);transition:opacity .5s ease,transform .5s ease;
+  pointer-events:none;overflow-y:auto;background:${t.bg}${bgOvStyle ? '99' : ''}}
+.slide.active{opacity:1;transform:none;pointer-events:all;z-index:2}
+.slide.out-left{opacity:0;transform:translateX(-70px);z-index:1}
+.sl-c{position:relative;z-index:5;width:100%;max-width:1080px}
+.sl-eye{display:inline-block;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;
+  color:${t.accent};margin-bottom:.75rem;padding:.18rem .9rem;border:1px solid ${t.border};border-radius:99px}
+.sl-h1{font-size:clamp(1.6rem,4vw,3rem);font-weight:800;line-height:1.15;margin-bottom:.8rem;color:${t.text}}
+.sl-sub{font-size:clamp(.85rem,1.4vw,1rem);color:${t.muted};max-width:660px;margin:0 auto 1rem;line-height:1.65;text-align:center}
+.sl-meta{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;font-size:.68rem;color:${t.muted};margin-top:.8rem}
+.sl-h2{font-size:clamp(1rem,2vw,1.45rem);font-weight:700;color:${t.text};margin-bottom:1.2rem;
+  padding-bottom:.45rem;border-bottom:1px solid ${t.border};text-align:left}
+.sl-txt{font-size:.78rem;color:${t.muted};line-height:1.75;text-align:left;max-width:820px}
+/* KPIs */
+.kpi-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.8rem;width:100%}
+.kc{background:${t.card};border:1px solid ${t.border};border-radius:14px;padding:1.1rem .9rem;text-align:center;
+  box-shadow:${t.glow};animation:fadeUp .5s ease both;animation-delay:calc(var(--i)*.08s)}
+.kc-ico{font-size:1.5rem;margin-bottom:.4rem}
+.kc-val{font-size:clamp(1rem,2vw,1.45rem);font-weight:800;color:${t.accent}}
+.kc-u{font-size:.6rem;color:${t.muted};margin-left:.2rem}
+.kc-lbl{font-size:.65rem;color:${t.muted};margin-top:.28rem;line-height:1.3}
+/* Charts */
+.ch-w{position:relative;width:100%;height:52vh;max-height:360px}
+.ch-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;width:100%}
+.ch-dw{position:relative;height:48vh;max-height:320px}
+/* Findings */
+.fn-list{display:flex;flex-direction:column;gap:.65rem;width:100%;text-align:left}
+.fn-row{display:flex;gap:.9rem;align-items:flex-start;background:${t.card};
+  border:1px solid ${t.border};border-left:3px solid ${t.accent};border-radius:10px;
+  padding:.85rem .95rem;animation:fadeRight .45s ease both;animation-delay:calc(var(--i)*.1s)}
+.fn-n{font-size:1.15rem;font-weight:800;color:${t.accent};min-width:2rem}
+.fn-t{font-size:.79rem;line-height:1.65;color:${t.text}}
+/* Synthesis */
+.sy-row{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;width:100%;margin-bottom:1.3rem}
+.sy-card{background:${t.card};border:1px solid ${t.border};border-radius:12px;padding:1.1rem .9rem;text-align:center;
+  animation:fadeUp .5s ease both;animation-delay:calc(var(--i)*.1s)}
+.sy-v{font-size:clamp(1.2rem,2.3vw,1.8rem);font-weight:800;color:${t.accent2}}
+.sy-v small{font-size:.55em;color:${t.muted};margin-left:.15rem}
+.sy-l{font-size:.68rem;color:${t.muted};margin-top:.28rem}
+/* Sections */
+.sc-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.1rem;width:100%;text-align:left}
+.sc-blk{background:${t.card};border:1px solid ${t.border};border-radius:12px;padding:1.2rem;
+  animation:fadeUp .5s ease both;animation-delay:calc(var(--i)*.12s)}
+.sc-h{font-size:.85rem;font-weight:700;color:${t.accent};margin-bottom:.45rem}
+.sc-p{font-size:.75rem;color:${t.muted};line-height:1.72}
+/* Nav */
+.pres-nav{position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);display:flex;align-items:center;
+  gap:1.1rem;z-index:99;background:rgba(0,0,0,.5);backdrop-filter:blur(14px);
+  border:1px solid ${t.border};border-radius:50px;padding:.4rem 1.3rem}
+.nav-b{background:none;border:none;color:${t.accent};font-size:1rem;cursor:pointer;padding:.18rem .4rem;
+  border-radius:6px;transition:background .2s}
+.nav-b:hover{background:${t.border}}
+.nav-b:disabled{opacity:.28;cursor:default}
+.p-dots{display:flex;gap:.32rem}
+.dot{width:6px;height:6px;border-radius:50%;background:${t.border};transition:background .3s,transform .3s;cursor:pointer}
+.dot.on{background:${t.accent};transform:scale(1.45)}
+.p-cnt{font-size:.72rem;color:${t.muted};min-width:3rem;text-align:center;font-variant-numeric:tabular-nums}
+.pres-logo{position:fixed;top:.9rem;right:1.2rem;font-size:.68rem;color:${t.muted};opacity:.55;z-index:50;letter-spacing:.06em}
+.pres-logo strong{color:${t.accent}}
+.txt-c{text-align:center}
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes fadeRight{from{opacity:0;transform:translateX(-22px)}to{opacity:1;transform:none}}
+@keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
+/* Responsive */
+@media(max-width:640px){.kpi-g{grid-template-columns:repeat(2,1fr)}.sy-row{grid-template-columns:1fr}.ch-row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+${bgOvStyle ? '<div class="bg-ov"></div>' : ''}
+<div class="deco-bg"></div>
+<div class="slides-wrap">
+
+<!-- S0: Title -->
+<div class="slide active" id="s0">
+  <div class="sl-c txt-c">
+    <span class="sl-eye">${esc(typeLabel)} · ${esc(date || new Date().getFullYear().toString())}</span>
+    <h1 class="sl-h1">${esc(title.length > 90 ? title.substring(0,88)+'…' : title)}</h1>
+    <p class="sl-sub">${esc((subtitle || genAnalyseGlobale(data)).substring(0, 200))}</p>
+    <div class="sl-meta">
+      ${source ? `<span>📌 ${esc(source)}</span>` : ''}
+      <span>📅 ${esc(date || '')}</span>
+      <span>✦ Algeria<strong>Tech</strong> Generator</span>
+    </div>
+  </div>
+</div>
+
+<!-- S1: KPIs -->
+<div class="slide" id="s1">
+  <div class="sl-c">
+    <h2 class="sl-h2">⚡ Indicateurs clés de performance</h2>
+    <div class="kpi-g">${kpiHTML || '<p style="color:'+t.muted+'">Aucun indicateur numérique extrait.</p>'}</div>
+  </div>
+</div>
+
+<!-- S2: Bar chart -->
+<div class="slide" id="s2">
+  <div class="sl-c">
+    <h2 class="sl-h2">📊 Analyse comparative des indicateurs</h2>
+    <div class="ch-w"><canvas id="ch-bar"></canvas></div>
+    <p class="sl-txt" style="margin-top:.8rem">${esc(analyseInd.substring(0, 230))}</p>
+  </div>
+</div>
+
+<!-- S3: Donut -->
+<div class="slide" id="s3">
+  <div class="sl-c">
+    <h2 class="sl-h2">🥧 Structure &amp; répartition</h2>
+    <div class="ch-row">
+      <div class="ch-dw"><canvas id="ch-donut"></canvas></div>
+      <div style="display:flex;align-items:center"><p class="sl-txt">${esc(analyseRep.substring(0, 310))}</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- S4: Findings -->
+<div class="slide" id="s4">
+  <div class="sl-c">
+    <h2 class="sl-h2">🔍 Points clés &amp; constats</h2>
+    <div class="fn-list">${findHTML || '<p style="color:'+t.muted+'">Aucun point clé identifié.</p>'}</div>
+  </div>
+</div>
+
+<!-- S5: Synthesis -->
+<div class="slide" id="s5">
+  <div class="sl-c">
+    <h2 class="sl-h2">📋 Synthèse exécutive</h2>
+    <div class="sy-row">${synthHTML}</div>
+    <p class="sl-txt">${esc(analyseSyn.substring(0, 380))}</p>
+  </div>
+</div>
+
+${goodSects.length > 0 ? `<!-- S6: Sections -->
+<div class="slide" id="s6">
+  <div class="sl-c">
+    <h2 class="sl-h2">📄 Extraits du document source</h2>
+    <div class="sc-g">${sectsHTML}</div>
+  </div>
+</div>` : ''}
+
+</div><!-- /slides-wrap -->
+
+<nav class="pres-nav">
+  <button class="nav-b" id="bp" disabled>◀</button>
+  <div class="p-dots">${Array.from({length:nSlides},(_,i)=>`<span class="dot${i===0?' on':''}" data-i="${i}"></span>`).join('')}</div>
+  <span class="p-cnt" id="cnt">1 / ${nSlides}</span>
+  <button class="nav-b" id="bn">▶</button>
+</nav>
+<div class="pres-logo">Algeria<strong>Tech</strong> Generator</div>
+
+<script>
+const N=${nSlides};
+const ACC=${JSON.stringify(t.accent)};
+const ACC2=${JSON.stringify(t.accent2)};
+const PAL=${JSON.stringify(pal)};
+const BG=${JSON.stringify(t.bg)};
+const MUTED=${JSON.stringify(t.muted)};
+const BAR_L=${barLabels};
+const BAR_V=${barValues};
+const BAR_C=${barColors};
+const DGH_L=${doughLabels};
+const DGH_V=${doughValues};
+const DGH_C=${doughColors};
+const EVO_L=${evoLabels};
+const EVO_V=${evoValues};
+
+Chart.defaults.font.family="'Manrope',sans-serif";
+Chart.defaults.color=MUTED;
+Chart.defaults.borderColor='rgba(255,255,255,.05)';
+
+let cur=0;
+const slides=Array.from(document.querySelectorAll('.slide'));
+const dots=Array.from(document.querySelectorAll('.dot'));
+const cnt=document.getElementById('cnt');
+const bp=document.getElementById('bp');
+const bn=document.getElementById('bn');
+const done=new Set();
+
+function goto(n){
+  if(n<0||n>=N)return;
+  slides[cur].classList.remove('active');
+  slides[cur].classList.add('out-left');
+  const prev=cur; cur=n;
+  setTimeout(()=>slides[prev].classList.remove('out-left'),520);
+  slides[cur].classList.add('active');
+  dots.forEach((d,i)=>d.classList.toggle('on',i===cur));
+  cnt.textContent=(cur+1)+' / '+N;
+  bp.disabled=cur===0; bn.disabled=cur===N-1;
+  lazyChart(cur);
+}
+
+bn.addEventListener('click',()=>goto(cur+1));
+bp.addEventListener('click',()=>goto(cur-1));
+dots.forEach(d=>d.addEventListener('click',()=>goto(+d.dataset.i)));
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key===' ')goto(cur+1);
+  if(e.key==='ArrowLeft')goto(cur-1);
+});
+let tx=0;
+document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+document.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>40)goto(dx<0?cur+1:cur-1)},{passive:true});
+
+function lazyChart(idx){
+  if(done.has(idx))return;
+  done.add(idx);
+  if(idx===2&&BAR_L.length){
+    const ctx=document.getElementById('ch-bar');
+    if(ctx)new Chart(ctx,{type:'bar',data:{labels:BAR_L,datasets:[{label:'Valeur',data:BAR_V,
+      backgroundColor:BAR_C.map(c=>c+'bb'),borderColor:BAR_C,borderWidth:1,borderRadius:8}]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+        scales:{x:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:MUTED,maxRotation:35}},
+                y:{grid:{color:'rgba(255,255,255,.04)'},ticks:{color:MUTED}}},
+        animation:{duration:900,easing:'easeOutQuart'}}});
+  }
+  if(idx===3&&DGH_L.length){
+    const ctx=document.getElementById('ch-donut');
+    if(ctx)new Chart(ctx,{type:'doughnut',data:{labels:DGH_L,datasets:[{data:DGH_V,
+      backgroundColor:DGH_C,borderColor:BG,borderWidth:3,hoverOffset:12}]},
+      options:{responsive:true,maintainAspectRatio:false,cutout:'60%',
+        plugins:{legend:{position:'right',labels:{color:MUTED,padding:12,usePointStyle:true}}},
+        animation:{animateRotate:true,animateScale:true,duration:900}}});
+  }
+}
+lazyChart(0);
+<\/script>
+</body>
+</html>`;
+}
+
 // ─── Fonction principale ───────────────────────────────────────────────────────
 
 async function buildInfographie(data, opts = {}) {
   const { docType = 'rapport' } = data;
-  const animType = opts.animType || '';
+  const animType      = opts.animType      || '';
+  const bgTheme       = opts.bgTheme       || 'none';
+  const slideTemplate = opts.slideTemplate || 'none';
+  const bgImage  = opts.bgImage  || 'none';
 
   // Domain = docType extended with new domains
   const domain = data.domain || docType;
@@ -3686,14 +4580,20 @@ async function buildInfographie(data, opts = {}) {
   ensureDir(assetsCSS);
   ensureDir(assetsImg);
 
-  // Fichiers principaux
-  fs.writeFileSync(path.join(dir, 'index.html'),         genIndexHTML(data, slug, pal, domain), 'utf8');
-  fs.writeFileSync(path.join(assetsCSS, 'styles.css'),   genExtraCSS(),                    'utf8');
-  fs.writeFileSync(path.join(assetsJS, 'data.js'),       genDataJS(data, pal),             'utf8');
-  fs.writeFileSync(path.join(assetsJS, 'charts.js'),     genChartsJSDomain(data, pal, domain), 'utf8');
-  fs.writeFileSync(path.join(assetsJS, 'scene3d.js'),    genScene3DJS(domain, pal, animType), 'utf8');
-  fs.writeFileSync(path.join(assetsJS, 'main.js'),       genMainJS(!!(data.chartData?.labels?.length >= 3)), 'utf8');
-  fs.writeFileSync(path.join(assetsJS, 'exports.js'),    genExportsJS(slug, data.title),   'utf8');
+  // Fichiers principaux — slide template ou infographie standard
+  if (slideTemplate && slideTemplate !== 'none') {
+    fs.writeFileSync(path.join(dir, 'index.html'), genSlideHTML(data, slug, pal, domain, slideTemplate, bgTheme, bgImage), 'utf8');
+    // data.js reste utile pour exports éventuels
+    fs.writeFileSync(path.join(assetsJS, 'data.js'), genDataJS(data, pal), 'utf8');
+  } else {
+    fs.writeFileSync(path.join(dir, 'index.html'),         genIndexHTML(data, slug, pal, domain, bgTheme, bgImage), 'utf8');
+    fs.writeFileSync(path.join(assetsCSS, 'styles.css'),   genExtraCSS(),                    'utf8');
+    fs.writeFileSync(path.join(assetsJS, 'data.js'),       genDataJS(data, pal),             'utf8');
+    fs.writeFileSync(path.join(assetsJS, 'charts.js'),     genChartsJSDomain(data, pal, domain), 'utf8');
+    fs.writeFileSync(path.join(assetsJS, 'scene3d.js'),    genScene3DJS(domain, pal, animType), 'utf8');
+    fs.writeFileSync(path.join(assetsJS, 'main.js'),       genMainJS(!!(data.chartData?.labels?.length >= 3)), 'utf8');
+    fs.writeFileSync(path.join(assetsJS, 'exports.js'),    genExportsJS(slug, data.title),   'utf8');
+  }
 
   // Thumbnail SVG
   const thumb = genThumbnailSVG(data.title, pal);

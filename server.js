@@ -1509,6 +1509,16 @@ app.get('/api/dzd-rates', async (req, res) => {
 
 app.get('/health', (req, res) => res.json({ status: 'ok', uptime: process.uptime(), timestamp: new Date().toISOString() }));
 
+// ── API fonds d'écran ─────────────────────────────────────────────────────────
+app.get('/api/backgrounds/:theme', (req, res) => {
+    const theme = req.params.theme.replace(/[^a-z0-9_-]/gi, '');
+    const dir = path.join(__dirname, 'public', 'backgrounds', theme);
+    if (!fsSync.existsSync(dir)) return res.json({ images: [] });
+    const exts = ['.jpg','.jpeg','.png','.webp','.avif'];
+    const images = fsSync.readdirSync(dir).filter(f => exts.includes(path.extname(f).toLowerCase())).sort();
+    res.json({ images });
+});
+
 // ═══════════════════════════════════════════════════════════════════════════════
 // ═══════════════════════════════════════════════════════════════════════════════
 // GÉNÉRATEUR D'INFOGRAPHIES PREMIUM — POST /api/generate
@@ -1524,12 +1534,15 @@ app.post('/api/generate', (req, res) => {
         if (!req.file) return res.status(400).json({ error: 'Aucun fichier reçu' });
         try {
             const text = await extractText(req.file.buffer, req.file.originalname);
-            const type = req.body.type || 'auto';
-            const animType = req.body.animationType || '';
+            const type          = req.body.type          || 'auto';
+            const animType      = req.body.animationType  || '';
+            const bgTheme       = req.body.bgTheme        || 'none';
+            const bgImage       = req.body.bgImage        || 'none';
+            const slideTemplate = req.body.slideTemplate  || 'none';
             const data = analyseDoc(text, type, req.file.originalname);
 
             // Construction de l'infographie premium multi-fichiers
-            const result = await buildInfographie(data, { type, animType });
+            const result = await buildInfographie(data, { type, animType, bgTheme, bgImage, slideTemplate });
 
             console.log(`[generate] ✓ Infographie créée : ${result.url}`);
             res.json({
@@ -2389,5 +2402,43 @@ ${bodyMd}
     }
 });
 // ── FIN SMART INGEST VIDÉO ────────────────────────────────────────────────────
+
+// ── TEST ROUTE — génère slide avec données fictives ─────────────────────────
+app.get('/api/test-slide/:template', async (req, res) => {
+    const tpl = req.params.template || 'annual';
+    const testData = {
+        title: "Rapport Télécoms Algérie 2024",
+        subtitle: "Bilan annuel des indicateurs ICT nationaux — ARPT",
+        date: "Décembre 2024", source: "ARPT / MPTIC", docType: "telecom",
+        stats: [
+            { label: "Abonnés mobile",    numericValue: "49800000",   unit: "abonnés", icon: "📱", numericStatus: "positive" },
+            { label: "Taux pénétration",  numericValue: "112.5",      unit: "%",       icon: "📶", numericStatus: "positive" },
+            { label: "Abonnés 4G",        numericValue: "22300000",   unit: "abonnés", icon: "🔥", numericStatus: "positive" },
+            { label: "Revenu opérateurs", numericValue: "4200000000", unit: "DA",      icon: "💰", numericStatus: "positive" },
+            { label: "Couverture réseau", numericValue: "98.2",       unit: "%",       icon: "🗺️",  numericStatus: "positive" },
+            { label: "Abonnés ADSL/Fibre",numericValue: "6750000",    unit: "abonnés", icon: "🌐", numericStatus: "positive" }
+        ],
+        keyPoints: [
+            "Le marché mobile algérien a atteint un taux de pénétration record de 112,5% avec près de 50 millions d'abonnés actifs en 2024.",
+            "Mobilis maintient sa position de leader avec 43% de parts de marché, suivi de Djezzy à 32% et Ooredoo à 25%.",
+            "La 4G a connu une croissance spectaculaire de 28% en un an, portant le nombre d'abonnés à 22,3 millions.",
+            "Le déploiement de la fibre optique s'accélère avec 340 000 nouveaux raccordements au cours du dernier trimestre.",
+            "Les revenus des opérateurs ont progressé de 12% malgré un contexte concurrentiel intense sur les prix."
+        ],
+        sections: [
+            { title: "Marché Mobile",  body: "Le marché mobile continue sa croissance portée par la 4G et les smartphones accessibles." },
+            { title: "Internet Fixe",  body: "L'ADSL reste dominant mais la fibre optique gagne du terrain dans les grandes villes." }
+        ],
+        chartData: { labels: ["Mobilis", "Djezzy", "Ooredoo"], values: [21600000, 15900000, 12300000] }
+    };
+    try {
+        const { buildInfographie } = require('./generator/infographie-builder');
+        const result = await buildInfographie(testData, { type: 'telecom', animType: '', bgTheme: 'none', bgImage: 'none', slideTemplate: tpl });
+        res.json({ url: result.url, slug: result.slug });
+    } catch(e) {
+        console.error('[test-slide]', e);
+        res.status(500).json({ error: e.message });
+    }
+});
 
 app.listen(PORT, () => console.log(`🚀 Algeria Tech · Port ${PORT} · Générateur activé`));
