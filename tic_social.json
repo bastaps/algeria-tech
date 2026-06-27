@@ -1423,20 +1423,38 @@
       "source_type": "rss"
     },
     {
-      "id": "3479f3fd3e6de7d8",
+      "id": "509143215a6abb44",
       "source_name": "Huawei Mobile DZ",
       "source_short": "HMD",
       "source_color": "#CF0A2C",
       "category": "Équipementiers",
       "category_icon": "📲",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNbERrUmp4STRiWEJWclVGak1mRTNYWVg3NUM0cVplSUt6TVg1dHJfZjh3Wl9ZNlZjYkJYb0VDckdmNmxJTS05U1J4QjkwdDE3YS1QQk1QNGYzOWt6MlgxUVNXWnF4U1UtbFNEV2tBSE5WeTdrSHlVNXd0UC1ESzVKdkxYcEx2Z2lUVjlXOG1PekpLNmZ3UjFqOGF6QlZuV0ZqX3JNSXRuTGp2Zjg?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOUlJyM2ZxZ0hIcTZ3dTlPNXBXWlBPc19xTFcxeXA1a1k1VlVCSmd5dVk4QS1MVkRNVHJENXlVTmxfZU1LbWRBbm5HRFlZVDREZUxwWGxfV0xkbzNYZm9fZW0yQWdUYjBjblRYdC1qR2JDbFY2a215SnVjM0tEZGNMTU8zVVNsRktEZFE3b2VWbUNFYm5VRTBwbjUwUGhyZnNOZHMzZWc1OHhaem84NU14WWt6a1FzSHRkeWt3c1kyanUtZ1NfM0VhbTlxTUItbGFXY3hFRXdsZDZQNjg?oc=5",
       "image": "",
       "date": "Tue, 09 Jun 2026 07:00:00 GMT",
       "lang_source": "fr",
       "text": {
-        "fr": "Industrie pharmaceutique: le groupe chinois Huawei pour moderniser le secteur - L'Algérie Aujourd'hui — Industrie pharmaceutique: le groupe chinois Huawei pour moderniser le secteur L'Algérie Aujourd'hui",
+        "fr": "Examen des perspectives de renforcement de la coopération numérique avec Huawei - aps.dz — Examen des perspectives de renforcement de la coopération numérique avec Huawei aps.dz",
         "ar": "",
         "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "81c360008f9835a1",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/27/softbanks-ceo-isnt-the-only-one-with-questions-about-elon-musks-orbital-data-center-hype/",
+      "image": "",
+      "date": "Sat, 27 Jun 2026 20:42:36 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "SoftBank’s CEO isn’t the only one with questions about Elon Musk’s orbital data center hype — Not everyone is buying Elon Musk’s vision for orbital data centers.",
+        "ar": "",
+        "fr": ""
       },
       "source_type": "rss"
     },
@@ -5381,34 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "d3c88a47805b7a1e",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/06/22/vague-de-chaleur-en-algerie-loffice-de-meteorologie-annonce-une-baisse-des-temperatures-a-partir-de-jeudi/",
-      "image": "",
-      "date": "Mon, 22 Jun 2026 19:43:14 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Vague de chaleur en Algérie : l’Office de météorologie annonce une baisse des températures à partir de jeudi — L’Office national de la météorologie (ONM) a indiqué, dimanche, que la vague de chaleur enregistrée ces derniers jours dans les régions du nord du pays constitue un « phénomène saisonnier ordinaire », prévoyant une baisse sensible des températures à partir de jeudi prochain. Dans une déclaration à l",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-06-27T19:02:31.206845+00:00",
+  "lastUpdated": "2026-06-27T21:52:58.509296+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Médias TIC": 66,
-    "Tech International": 154
+    "Tech International": 155,
+    "Médias TIC": 65
   },
   "total": 300
 }
