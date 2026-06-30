@@ -721,6 +721,24 @@
       "source_type": "rss"
     },
     {
+      "id": "400b531e1e1e4137",
+      "source_name": "Algérie Poste",
+      "source_short": "AP",
+      "source_color": "#F9A825",
+      "category": "Infrastructure",
+      "category_icon": "✉️",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxORjM0cVJFZi1GSEZwTXdlS2Y2eHNrZkNnT25tVUdid0lBdVlpSlFFWVBKeERtZlNUeFRIc3h6eHB5Z0g0R05iQVVOUWk3XzVNdzJ1MW1HX1dSdXMwa3ZXd0VWMTJxbGh2VF9LaGE4V01GQlk4aFFGQWdiZFIzTVBnUUZ0UEJRYkJwWHJlcXFEdXFNSDkzbzcxNQ?oc=5",
+      "image": "",
+      "date": "Tue, 30 Jun 2026 15:40:36 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Algérie Poste : Baridi Map pour situer les GAB et les bureaux de poste - La patrie news — Algérie Poste : Baridi Map pour situer les GAB et les bureaux de poste La patrie news",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "57439e29b69c56ba",
       "source_name": "Algérie Poste",
       "source_short": "AP",
@@ -1061,24 +1079,6 @@
         "en": ""
       },
       "source_type": "telegram"
-    },
-    {
-      "id": "e58b7823eab7101c",
-      "source_name": "Algérie Télécom",
-      "source_short": "AT",
-      "source_color": "#0055A4",
-      "category": "Infrastructure",
-      "category_icon": "📡",
-      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQbU9TRS12ckdMb3I1U2NvUmdxYWY5TFg2anF6UzZXZDM4Vkp3WktIaV9oNWl4VWtPYlc2Uzh6RWUzV0tPT3h2RmhGeV9UTWJZQmF0N3hHQTlIbmhtakw0UHF3Rk1UUkE1Vm1NOWNYbXpxOXVfQ1FRcXZqYmJzbUpTS2JJcnNseHF2ZFNBWnZnWkZDV2M3YkxZS0dYLWotNXBFSkZPRU0xb3N2M1FYSkdB?oc=5",
-      "image": "",
-      "date": "Sat, 06 Jun 2026 07:00:00 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "L’INFO DE LA SEMAINE : Algérie Télécom récompensée pour sa démarche qualité à Bruxelles - Mobiles - Le soir d'Algérie — L’INFO DE LA SEMAINE : Algérie Télécom récompensée pour sa démarche qualité à Bruxelles - Mobiles Le soir d'Algérie",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     },
     {
       "id": "fc627b1956201f38",
@@ -1441,6 +1441,330 @@
       "source_type": "rss"
     },
     {
+      "id": "3c32b18ad9aeabcb",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/data-ia-1372/data-privacy-framework-cour-supreme-228073",
+      "image": "",
+      "date": "Tue, 30 Jun 2026 16:46:38 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "La Cour suprême US a-t-elle condamné le Data Privacy Framework ? — Après une décision remettant en cause l'indépendance d'organes exécutifs, Max Schrems demande l'annulation du Data Privacy Framework. The post La Cour suprême US a-t-elle condamné le Data Privacy Framework ? appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f9b87b0552abe6b3",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/30/blue-origin-still-doesnt-know-why-its-new-glenn-rocket-blew-up-last-month/",
+      "image": "",
+      "date": "Tue, 30 Jun 2026 16:09:57 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Blue Origin still doesn’t know why its New Glenn rocket blew up last month — But the company is still claiming that New Glenn will return to flight this year.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "79b32134cb56080e",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/trafic-de-puces-ia-nvidia-vers-la-chine-supermicro-perquisitionne-a-taiwan-498012.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 30 Jun 2026 15:41:39 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Trafic de puces IA Nvidia vers la Chine : Supermicro perquisitionné à Taïwan — Soupçonnées d'avoir contourné l'embargo américain pour livrer des serveurs IA équipés de puces Nvidia à la Chine, plusieurs entreprises tech, dont Supermicro, ont été perquisitionnées à Taïwan.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "9fa300840facd7cd",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/06/30/les-activites-de-pwc-algerie-reunies-sous-la-nouvelle-identite-sbs/",
+      "image": "",
+      "date": "Tue, 30 Jun 2026 15:37:15 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Les activités de PwC Algérie réunies sous la nouvelle identité SBS — Les activités précédemment exercées par PricewaterhouseCoopers (PwC) Algérie sous les entités PricewaterhouseCoopers Algérie et PASA Audit Services Algérie seront réunies, à compter du 1er juillet 2026, sous une nouvelle identité, Sovereign Business & Strategy (SBS), a annoncé mardi le cabinet dans",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "cd8c57d6a7eac36f",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/30/tesla-starts-testing-cybercab-without-pedals-or-a-steering-wheel-in-austin/",
+      "image": "",
+      "date": "Tue, 30 Jun 2026 15:32:50 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Tesla starts testing Cybercab without pedals or a steering wheel in Austin — The company may finally be ready to try to deliver on Elon Musk's years-long promise of launching a robotaxi network of its own.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "521e3fbe2842c5f4",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/longcat-2-0-comment-lia-chinoise-brise-lembargo-americain-avec-un-cluster-de-50-000-puces-498009.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 30 Jun 2026 15:32:06 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "LongCat-2.0 : comment l'IA chinoise brise l'embargo américain avec un cluster de 50 000 puces — Le géant de la livraison Meituan bouscule le marché de l'IA avec son premier modèle open source à mille milliards de paramètres entraîné sur puces chinoises. Une annonce qui prouve la capacité de l'écosystème chinois à s'affranchir des restrictions américaines.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e04a95e98cd40d7a",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/06/30/la-banque-dalgerie-publie-les-seuils-des-taux-dinteret-excessifs-applicables-au-2e-semestre-2026/",
+      "image": "",
+      "date": "Tue, 30 Jun 2026 15:24:32 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "La Banque d’Algérie publie les seuils des taux d’intérêt excessifs applicables au 2e semestre 2026 — La Banque d’Algérie a publié, ce mardi 30 juin, la note n°01-2026 fixant les seuils des taux d’intérêt excessifs applicables au titre du deuxième semestre 2026. Ce document intervient au lendemain de la publication d’une nouvelle instruction modifiant les règles de détermination de ces seuils. Dans",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "fdb4e43bcfbf8de2",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/30/x-now-offers-an-mcp-server-to-make-its-platform-easier-for-ai-tools-to-use/",
+      "image": "",
+      "date": "Tue, 30 Jun 2026 15:08:42 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "X now offers an MCP server to make its platform easier for AI tools to use — X has launched a hosted MCP server, making it easier for developers to connect AI applications with the company’s API.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "ba583256e4d5b01a",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/projet-cannes-meta-a-teste-en-secret-les-failles-de-chatgpt-et-gemini-et-cest-moche-498006.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 30 Jun 2026 15:06:51 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Projet Cannes : Meta a testé en secret les failles de ChatGPT et Gemini (et c'est moche) — La découverte d'une campagne clandestine d'audits de sécurité menée par Meta chez ses principaux concurrents secoue l'écosystème de l'IA générative.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "d5f8bd7bdd432c86",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/30/arcturus-could-halve-the-grids-electrical-losses-using-its-nano-infused-copper/",
+      "image": "",
+      "date": "Tue, 30 Jun 2026 15:01:42 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Arcturus could halve the grid’s electrical losses using its nano-infused copper — Stealthy startup Arcturus uses lasers to infuse carbon nanomaterials into copper, dramatically improving its ability to conduct electricity.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "2919bc4057bf1d8c",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/30/podcasting-platform-riverside-enters-the-newsletter-publishing-game/",
+      "image": "",
+      "date": "Tue, 30 Jun 2026 15:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Podcasting platform Riverside enters the newsletter publishing game — Users will be able use AI to create newsletters based on their recordings.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "ba1797ae41939664",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/30/amazon-launches-new-1-billion-fde-org-following-openai-and-anthropic/",
+      "image": "",
+      "date": "Tue, 30 Jun 2026 15:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Amazon launches new $1 billion FDE org, following OpenAI and Anthropic — Engineers on the new team will embed within companies to deploy purpose-built agents, focusing on fast deployments and customer self-sufficiency.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "503c8b3c84723ed9",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/iphone-18-pro-liste-des-fournisseurs-devoilees-sur-le-dark-web-497997.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 30 Jun 2026 14:53:38 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "iPhone 18 Pro : liste des fournisseurs dévoilées sur le dark web — Une faille de sécurité chez le sous-traitant indien Tata Electronics entraîne la divulgation des plans d'Apple pour l'iPhone 18 Pro. Cet incident expose la vulnérabilité de la supply chain d'Apple, en pleine diversification hors de Chine.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "dfde6aac04494aa5",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/30/your-brand-deserves-its-own-stage-side-events-at-techcrunch-disrupt-2026/",
+      "image": "",
+      "date": "Tue, 30 Jun 2026 14:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Your brand deserves its own stage — Side Events at TechCrunch Disrupt 2026 — From October 10-16, host a Side Event and command the room during the week of TechCrunch Disrupt 2026.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "ce0e4d6477b9628b",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/06/30/lumo-protons-privacy-focused-ai-chatbot-gets-an-upgrade/",
+      "image": "",
+      "date": "Tue, 30 Jun 2026 14:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Lumo, Proton’s privacy-focused AI chatbot, gets an upgrade — Proton's Lumo 2.0 is dropping this week, giving users a broader variety of capabilities.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "7039faa4499ac470",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/cloud-1370/slack-ai-multicloud-228066",
+      "image": "",
+      "date": "Tue, 30 Jun 2026 13:54:37 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "D’AWS à GCP, comment l’IA de Slack est devenue multicloud — Initialement déployées sur SageMaker, les fonctionnalités LLM de Slack sont aujourd'hui hébergées entre Bedrock et Vertex AI. The post D’AWS à GCP, comment l’IA de Slack est devenue multicloud appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "9b93a79e9087edbb",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/06/30/legislatives-23-milliards-de-dinars-mobilises-pour-les-preparatifs-materiels-et-logistiques/",
+      "image": "",
+      "date": "Tue, 30 Jun 2026 13:49:36 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Législatives : 23 milliards de dinars mobilisés pour les préparatifs matériels et logistiques — Le ministère de l’Intérieur, des Collectivités locales et des Transports a consacré un budget de 23 milliards de dinars aux préparatifs matériels et logistiques des élections législatives prévues le 2 juillet. Les détails de cette opération ont été présentés mardi par le directeur général des Financ",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "4e6d3f8e0bccc87b",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/06/30/arkab-recoit-le-vice-ministre-norvegien-de-lenergie/",
+      "image": "",
+      "date": "Tue, 30 Jun 2026 13:34:28 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Arkab reçoit le vice-ministre norvégien de l’Energie — Le ministre d’Etat, ministre des Hydrocarbures, Mohamed Arkab, a reçu, hier lundi à Alger, le vice-ministre norvégien de l’Energie, Snorre Erichsen Skjevrak, avec lequel il a examiné les moyens de renforcer la coopération bilatérale et l’état de la coopération entre les groupes Sonatrach et Equinor,",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "d8caa7160e2a4acf",
       "source_name": "ZDNet France",
       "source_short": "ZD",
@@ -1453,6 +1777,24 @@
       "lang_source": "fr",
       "text": {
         "fr": "L'industrie du tourisme face au choc de l'IA agentique : la fin des intermédiaires traditionnels ? — L'émergence des agents IA, capables de planifier et réserver des séjours sans intervention humaine, pousse l'industrie du tourisme à repenser sa distribution. Entre opportunités de désintermédiation pour les hôteliers et menaces pour les plateformes de réservation, la guerre est lancée.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f02718b8f03dfce2",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/06/30/france-des-etudes-plus-couteuses-pour-les-etudiants-algeriens-a-partir-de-la-prochaine-rentree/",
+      "image": "",
+      "date": "Tue, 30 Jun 2026 13:27:43 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "France : des études plus coûteuses pour les étudiants algériens à partir de la prochaine rentrée — Les conditions financières d’accès aux études supérieures en France évoluent pour les étudiants étrangers. Plusieurs mesures récemment entérinées par les autorités françaises devraient entraîner une hausse des dépenses liées à l’inscription universitaire, au logement et au séjour, une situation qui",
         "ar": "",
         "en": ""
       },
@@ -1525,6 +1867,42 @@
       "lang_source": "fr",
       "text": {
         "fr": "WhatsApp ouvre la réservation des noms d'utilisateur : un impératif de sécurité et de marque pour les entreprises — WhatsApp lance la réservation d'identifiants uniques, permettant de communiquer sans divulguer son numéro de téléphone. Pour les entreprises, cette transition représente un double défi : sécuriser l'identité de marque face au cybersquatting et encadrer la confidentialité des collaborateurs face au S",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "4b339668c7fd4c0d",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/06/30/pluies-sur-plusieurs-wilayas-a-partir-de-mardi-apres-midi-2/",
+      "image": "",
+      "date": "Tue, 30 Jun 2026 11:58:02 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Pluies sur plusieurs wilayas à partir de mardi après-midi — Des pluies affecteront plusieurs wilayas du pays à partir de mardi après-midi, indique un Bulletin météorologique spécial (BMS) émis par l’Office national de météorologie. De niveau de vigilance « Orange », le BMS concerne les wilayas de Saïda, El Bayadh, Tiaret, Laghouat, Tissemsilt, Relizane, Aïn",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "8233d66e1b226775",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/06/30/la-chaine-atlantis-hotels-distinguee-comme-meilleure-marque-hoteliere-en-algerie/",
+      "image": "",
+      "date": "Tue, 30 Jun 2026 11:55:42 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "La chaîne Atlantis Hotels distinguée comme « Meilleure marque hôtelière » en Algérie — La chaîne hôtelière Atlantis Hotels Algérie a annoncé avoir obtenu le titre de « Meilleure marque hôtelière » en Algérie décerné par les Luxury Lifestyle Awards 2026. Cette distinction a été attribuée dans le cadre de la 18e édition de ce programme international consacré au secteur de l’hôtellerie e",
         "ar": "",
         "en": ""
       },
@@ -5021,394 +5399,16 @@
         "fr": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "35b4fa44d711e8dd",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/06/24/communaute-nationale-a-letranger-lancement-dun-service-numerique-pour-le-renouvellement-a-distance-du-passeport-biometrique/",
-      "image": "",
-      "date": "Wed, 24 Jun 2026 16:47:10 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Les Algériens résidant à l’étranger peuvent renouveler leur passeport en ligne — Les ministères des Affaires étrangères et de l’Intérieur, des Collectivités locales et des Transports ont annoncé le lancement officiel d’un nouveau service numérique au profit des membres de la communauté nationale établie à l’étranger, leur permettant de déposer à distance des demandes de renouvel",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "37a7a284c9545330",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/nothing-phone-4b-snapdragon-6-gen-4-confirme-sur-geekbench/",
-      "image": "",
-      "date": "2026-06-24T16:40:00.047Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Nothing Phone 4b : Snapdragon 6 Gen 4 confirmé sur Geekbench — Le Nothing Phone (4b) vient de faire une apparition discrète sur Geekbench, révélant au passage son processeur avant tout lancement officiel. Le rendez-vous est fixé au 7 juillet 2026.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "b2d1e66efb72bea2",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/24/figma-adds-code-layers-support-for-animations-more-ai-features-in-new-update/",
-      "image": "",
-      "date": "Wed, 24 Jun 2026 16:15:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Figma adds code layers, support for animations, more AI features in new update — Figma's update adds a new code layer, support for motion and shaders, and the ability to create custom plug-ins for various tasks using AI.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e8f8b206a97fe2a4",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://www.facebook.com/AlgerieEco",
-      "image": "",
-      "date": "2026-06-24T15:49:40+00:00",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Sonelgaz prévoit une hausse de la consommation électrique pouvant atteindre 7 % durant l’été 2026",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "facebook"
-    },
-    {
-      "id": "e6a1cfca05f9aba6",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/06/24/le-belge-etex-devient-actionnaire-majoritaire-de-global-gypse-en-algerie/",
-      "image": "",
-      "date": "Wed, 24 Jun 2026 15:39:30 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Le belge Etex devient actionnaire majoritaire de Global Gypse en Algérie — Le groupe belge Etex, spécialisé dans les solutions de construction légère, a annoncé l’acquisition d’une participation majoritaire dans l’entreprise algérienne Global Gypse, productrice de plaques de plâtre et d’autres matériaux à base de gypse. Dans un communiqué publié mardi 23 juin, Etex indique",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "65d449d9cc0d76fe",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/24/zoox-upgrades-its-robotaxi-as-it-prepares-for-commercial-service/",
-      "image": "",
-      "date": "Wed, 24 Jun 2026 15:01:49 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Zoox upgrades its robotaxi as it prepares for commercial service — The new Zoox robotaxi has more cushioning, lighter colors, and a better microphone and speaker for communicating with Zoox Support.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "b2b283d1fdd44d7c",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/",
-      "image": "",
-      "date": "Wed, 24 Jun 2026 14:54:46 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "OpenAI unveils its first custom chip, built by Broadcom — Named Jalapeño, the new processor was designed specifically for the unique needs of OpenAI's inference systems.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c1959c51d53e9e8c",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/06/24/sonelgaz-prevoit-une-hausse-de-la-consommation-electrique-pouvant-atteindre-7-durant-lete-2026/",
-      "image": "",
-      "date": "Wed, 24 Jun 2026 14:54:11 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Sonelgaz prévoit une hausse de la consommation électrique pouvant atteindre 7 % durant l’été 2026 — Le groupe Sonelgaz prévoit une augmentation de la consommation d’électricité au cours de la saison estivale 2026. Invitée ce mercredi de l’émission « L’invité du jour » sur la Chaîne 3 de la Radio algérienne, la directrice de la communication du groupe, Fatima-Zohra Merzougui, a présenté les prévisi",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c76dba53046e543a",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/samsung-ufs-5-0-stockage-smartphone-2x-plus-rapide-pour-l-ia/",
-      "image": "",
-      "date": "2026-06-24T14:40:00.070Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Samsung UFS 5.0 : stockage smartphone 2x plus rapide pour l'IA — Samsung vient d'annoncer l'UFS 5.0, le standard de stockage mobile le plus rapide jamais développé, avec des débits séquentiels qui dépassent les 10 Go/s. La production en masse est prévue pour le quatrième trimestre 2026, avec le Galaxy S27 comme premier candidat sérieux.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "da2a17a664e8a0ea",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/pratique/ia-en-entreprise-avant-de-lacher-les-chevaux-en-deployant-des-agents-dintelligence-artificielle-4-facons-dagir-avec-une-extreme-prudence-497530.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 24 Jun 2026 14:30:52 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "IA en entreprise : avant de lâcher les chevaux en déployant des agents d’IA, 4 conseils — Pour commencer, ne confiez pas aveuglément les rênes à ces agents IA. Toute initiative doit rester une initiative lancée et dirigée par des humains.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "cf03da98fc5fc46e",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/600-millions-deuros-la-valeur-convoitee-grace-a-lia-par-orange-497578.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 24 Jun 2026 14:21:40 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "600 millions d’euros : la valeur convoitée grâce à l’IA par Orange — Trust the future, le plan stratégique d’Orange, prévoit de dégager 600 millions d’euros de valeur d’ici 2028 grâce à l’intelligence artificielle. Et pour piloter cette quête de valeur, l’opérateur a nommé un Chief AI Officer : Usman Javaid.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "8900fe233f15a46b",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/24/if-you-want-to-cut-your-screen-time-just-get-a-brick/",
-      "image": "",
-      "date": "Wed, 24 Jun 2026 14:01:35 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "If you want to cut your screen time, just get a Brick — After years of struggling to curb my screen time, apparently all I needed was a $59 hunk of plastic.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "ffe3eb188173d1fe",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/24/3-days-left-to-save-up-to-190-on-techcrunch-founder-summit-2026/",
-      "image": "",
-      "date": "Wed, 24 Jun 2026 14:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "3 days left to save up to $190 on your TechCrunch Founder Summit 2026 pass — You have just 3 days left to save up to $190 on your pass to TechCrunch Founder Summit 2026 before Early Bird rates end on June 26 at 11:59 p.m. PT. Register here.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "aba866e36e00bbff",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/24/valor-equity-partners-looks-to-raise-a-2-5b-fund-vii-per-bloomberg/",
-      "image": "",
-      "date": "Wed, 24 Jun 2026 13:58:14 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Valor Equity Partners looks to raise a $2.5B Fund VII, per Bloomberg — New details have emerged about Valor's latest fund, which last year announced it was raising an unspecified amount of capital.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "372ce4f0d8c63fed",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/06/24/sonatrach-tient-son-assemblee-generale-ordinaire-3/",
-      "image": "",
-      "date": "Wed, 24 Jun 2026 13:43:21 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Sonatrach tient son Assemblée Générale Ordinaire — Le Groupe Sonatrach a tenu, mardi, son Assemblée générale ordinaire (AGO) durant laquelle les performances financières du groupe, ses réalisations et ses projets structurants ont été passés en revue, indique un communiqué de la compagnie nationale des hydrocarbures. L’AGO s’est déroulée au siège de",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "bcc6ea0a88a92832",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/06/24/lg-electronics-algerie-poursuit-ses-actions-en-faveur-de-la-preservation-de-lenvironnement/",
-      "image": "",
-      "date": "Wed, 24 Jun 2026 13:38:46 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "LG Electronics Algérie poursuit ses actions en faveur de la préservation de l’environnement — Alger, le 15 juin 2026 – Fidèle à sa vision d’une innovation au service des communautés et à son engagement en faveur du développement durable, LG Electronics Algérie a organisé une opération de nettoyage de la plage Kheloufi 1 à Zéralda, en collaboration avec l’Association Nationale d’Environnement",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "48aed2106cbd7520",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/06/24/reunion-du-gouvernement-la-promotion-immobiliere-commerciale-et-la-cartographie-des-metiers-a-lordre-du-jour/",
-      "image": "",
-      "date": "Wed, 24 Jun 2026 13:30:29 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Réunion du gouvernement : La promotion immobilière commerciale et la cartographie des métiers à l’ordre du jour — Le Premier ministre, M. Sifi Ghrieb, a présidé, ce mercredi 24 juin, une réunion du gouvernement consacrée à l’examen d’un projet de décret exécutif fixant les conditions et modalités de concession convertible en cession des terrains relevant du domaine privé de l’Etat destinés à la réalisation de p",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "7be262cfb7ebd6eb",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/06/24/transport-ferroviaire-lancement-de-la-carte-waqar-au-profit-des-retraites-et-des-ayants-droit/",
-      "image": "",
-      "date": "Wed, 24 Jun 2026 13:12:23 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "CNR-SNTF : lancement de la carte « Waqar » au profit des retraités et des ayants droit — La Caisse nationale des retraites (CNR) a signé une convention de partenariat avec la Société nationale des transports ferroviaires (SNTF), en vertu de laquelle a été lancée la carte « Waqar », permettant aux retraités et aux ayants droit de bénéficier d’avantages spécifiques dans le domaine du tran",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "234cf318683997e6",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/observabilite-tsuga-leve-35-millions-de-dollars-497579.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 24 Jun 2026 13:08:36 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Observabilité : Tsuga lève 35 millions de dollars — Pour répondre à l'explosion des coûts de télémétrie générés par l'IA, la startup Tsuga propose un nouveau modèle d'architecture.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "ef813c348e10259e",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/lere-du-travail-autonome-approche-voici-pourquoi-cette-evolution-est-une-bonne-nouvelle-pour-les-pros-497574.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 24 Jun 2026 12:42:36 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "L'ère du travail autonome approche. Voici pourquoi cette évolution est une bonne nouvelle pour les pros — Les entreprises investissent dans des agents basés sur l'IA et réduisent leurs effectifs. Mais les professionnels talentueux trouveront de nouvelles opportunités.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "87436428ade25617",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/nothing-phone-4b-snapdragon-6-gen-4-et-8-go-de-ram-confirmes-sur-geekbench/",
-      "image": "",
-      "date": "2026-06-24T12:40:45.245Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Nothing Phone (4b) : Snapdragon 6 Gen 4 et 8 Go de RAM confirmés sur Geekbench — Le Nothing Phone (4b) vient d'apparaître sur Geekbench avant son lancement officiel prévu le 7 juillet 2026. Les scores révèlent un Snapdragon 6 Gen 4, 8 Go de RAM et Android 16 à bord.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-06-30T13:53:04.860842+00:00",
+  "lastUpdated": "2026-06-30T17:00:29.748826+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Tech International": 166,
-    "Médias TIC": 54
+    "Tech International": 170,
+    "Médias TIC": 50
   },
   "total": 300
 }
