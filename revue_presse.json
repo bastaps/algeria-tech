@@ -1,6 +1,6 @@
 {
   "date": "mercredi 1 juillet",
-  "synthese": "Le ministère des Affaires étrangères publie les modalités d’obtention de l’apostille à compter du 9. Orange et Sosh signalent une nouvelle panne affectant les réseaux fixe et mobile en Algérie.",
+  "synthese": "Le ministère des Affaires étrangères annonce les modalités d'obtention de l'apostille à partir du 9 juillet. La Cour suprême des États-Unis examine le statut du Data Privacy Framework, tandis qu'Anthropic lève les restrictions à l'export sur ses modèles Mythos 5 et Fable 5.",
   "articles": [
     {
       "titre": "Le ministère des Affaires étrangères précise les modalités d’obtention de l’apostille à partir du 9 juillet prochain",
@@ -10,7 +10,7 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Ministère des Affaires étrangères : modalités apostille à partir du 9",
+      "accroche": "Ministère des Affaires étrangères : apostille à partir du 9 juillet",
       "categorie": "Innovation"
     },
     {
@@ -43,7 +43,7 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Cour suprême US : décision sur le Data Privacy Framework attendue",
+      "accroche": "Cour suprême US examine le Data Privacy Framework",
       "categorie": "Cybersécurité"
     },
     {
@@ -54,7 +54,7 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Slack : IA multicloud déployée d’AWS à GCP",
+      "accroche": "Slack : IA devenue multicloud d'AWS à GCP",
       "categorie": "IA"
     },
     {
@@ -65,8 +65,19 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Île-de-France encadre le développement des datacenters",
+      "accroche": "Île-de-France encadre le boom des datacenters",
       "categorie": "Réseaux"
+    },
+    {
+      "titre": "ZDNET Morning 01/07/2026 : Solutions de sécurité post-quantique, Mythos 5 et Fable 5 à nouveau dispo, Samsung annonce un pliable format passeport « Wide Fold »,...",
+      "resume": "Le ZDNET Morning le brief de l'actu tech pour les pros tous les matins à 9h00. Transformation numérique, IA, matériel, logiciels,... ne passez pas à c",
+      "url": "https://www.zdnet.fr/actualites/zdnet-morning-01-07-2026-solutions-de-securite-post-quantique-mythos-5-et-fable-5-a-nouveau-dispo-samsung-annonce-un-pliable-format-passeport-wide-fold-498061.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-07-01T08:25:14.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Solutions de sécurité post-quantique Mythos 5 et Fable 5 disponibles",
+      "categorie": "Cybersécurité"
     },
     {
       "titre": "Anthropic : Washington lève les restrictions à l'export sur les modèles Mythos 5 et Fable 5",
@@ -76,7 +87,7 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Washington lève restrictions export modèles Mythos 5 et Fable 5 d’Anthropic",
+      "accroche": "Washington lève restrictions sur export modèles Mythos 5 et Fable 5",
       "categorie": "IA"
     },
     {
@@ -87,30 +98,19 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Samsung élargit gamme smartphones pliables avec un Wide Fold",
+      "accroche": "Samsung élargit gamme smartphones pliables avec Wide Fold",
       "categorie": "Mobile"
     },
     {
-      "titre": "ZD Tech : Voici pourquoi vous devriez tester cette alternative française à Waze pour vos trajets en voiture cet été",
-      "resume": "Face aux géants américains, Roole Map abat sa nouvelle carte juste avant les grands départs en vacances. Ce GPS tricolore intègre enfin des alertes co",
-      "url": "https://www.zdnet.fr/actualites/zd-tech-voici-pourquoi-vous-devriez-tester-cette-alternative-francaise-a-waze-pour-vos-trajets-en-voiture-cet-ete-497587.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-07-01T05:30:11.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "titre": "Une faille de sécurité menace 5 milliards de smartphones Apple et Android : voici comment vous en protéger",
+      "resume": "Plus de cinq milliards d'appareils Apple et Android se retrouvent exposés à des failles de sécurité majeures touchant AirDrop et Quick Share. Des cher",
+      "url": "https://www.01net.com/actualites/faille-securite-menace-5-milliards-smartphones-apple-android-voici-comment-vous-proteger.html",
+      "date": "2026-07-01T08:19:10.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Alternative française à Waze testée pour trajets en Algérie",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Google va vous offrir plus de flexibilité pour vos sauvegardes Android",
-      "resume": "Une mise à jour du système de sauvegarde des données sur Android va bientôt offrir aux utilisateurs et utilisatrices du système un moyen simple de cho",
-      "url": "https://www.frandroid.com/marques/google/3163767_google-va-vous-offrir-plus-de-flexibilite-pour-vos-sauvegardes-android",
-      "date": "2026-07-01T08:11:17.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Google offre plus de flexibilité pour sauvegardes Android",
-      "categorie": "Mobile"
+      "accroche": "Faille de sécurité menace 5 milliards de smartphones Apple et Android",
+      "categorie": "Cybersécurité"
     },
     {
       "titre": "Nouvelle panne Orange et Sosh : les réseaux fixe et mobile encore perturbés",
@@ -120,20 +120,20 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Orange et Sosh : nouvelle panne réseaux fixe et mobile perturbés",
+      "accroche": "Orange et Sosh : panne réseau fixe et mobile perturbée",
       "categorie": "Télécoms"
     },
     {
-      "titre": "Orange de nouveau en panne ce mercredi : que sait-on de cette deuxième alerte en trois jours ?",
-      "resume": "Deuxième alerte en trois jours pour l'opérateur historique. Ce mercredi matin, les réseaux mobile et fixe d'Orange dysfonctionnent, avec une envolée d",
-      "url": "https://www.numerama.com/tech/2288757-panne-orange-les-signalements-explosent-ce-mercredi-1er-juillet.html",
-      "date": "2026-07-01T07:09:30.000Z",
+      "titre": "Orange relance son essai 5G gratuit : 20 Go sont offerts pour tester son réseau",
+      "resume": "Orange relance son opération Hello 5G, qui consiste à offrir 20 Go de data gratuits pendant un mois sans condition d'abonnement, pour tester son résea",
+      "url": "https://www.numerama.com/tech/2288771-orange-relance-son-essai-5g-gratuit-20-go-sont-offerts-pour-tester-son-reseau.html",
+      "date": "2026-07-01T08:14:26.000Z",
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Orange : deuxième panne en trois jours sur réseaux",
+      "accroche": "Orange relance essai 5G gratuit : 20 Go offerts",
       "categorie": "Télécoms"
     }
   ],
-  "lastUpdated": "2026-07-01T08:12:22.687Z"
+  "lastUpdated": "2026-07-01T08:45:23.553Z"
 }
