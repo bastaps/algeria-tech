@@ -14,7 +14,7 @@
  * la rapidité des requêtes réseau sans contenu périmé.
  */
 
-const CACHE_VERSION = 'algeria-tech-v8';
+const CACHE_VERSION = 'algeria-tech-v9';
 const CACHE_IMAGES  = 'algeria-tech-images-v1';
 
 // ── Assets locaux pré-cachés (HTML et CDN exclus volontairement) ──────────────
@@ -28,6 +28,7 @@ const SHELL_ASSETS = [
 
 // ── Fichiers de données JSON ──────────────────────────────────────────────────
 const DATA_FILES = [
+  '/articles-list.json',
   '/articles.json',
   '/veille_data.json',
   '/tic_social.json',

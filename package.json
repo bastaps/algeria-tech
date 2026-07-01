@@ -11,6 +11,7 @@
     "@octokit/rest": "^19.0.5",
     "@ooples/token-optimizer-mcp": "^5.0.1",
     "adm-zip": "^0.5.17",
+    "compression": "^1.8.1",
     "cors": "^2.8.5",
     "dotenv": "^17.4.2",
     "express": "^4.18.2",

@@ -77,6 +77,14 @@ articles.sort((a, b) => {
 fs.writeFileSync(OUTPUT, JSON.stringify(articles), 'utf8');
 console.log(`✅ articles.json généré : ${articles.length} articles (${(fs.statSync(OUTPUT).size / 1024).toFixed(1)} KB)`);
 
+// ── Écriture articles-list.json (léger, sans rawContent) ──────
+// Utilisé par la page d'accueil : les cartes n'ont pas besoin du corps
+// des articles (chargé à la demande depuis /articles/<id>.md).
+const LIST_OUTPUT = path.join(__dirname, 'articles-list.json');
+const articlesLight = articles.map(({ rawContent, ...rest }) => rest);
+fs.writeFileSync(LIST_OUTPUT, JSON.stringify(articlesLight), 'utf8');
+console.log(`✅ articles-list.json généré : ${articlesLight.length} articles (${(fs.statSync(LIST_OUTPUT).size / 1024).toFixed(1)} KB, sans corps)`);
+
 // ============================================================
 //  Génération wiki_data.json depuis les fichiers Markdown wiki
 // ============================================================

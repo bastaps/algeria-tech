@@ -225,7 +225,7 @@ padding: 0 15px; width: 100px; border: 1px solid var(--border); transition: var(
 .news-card-body h3 { font-size: 1.05rem; font-weight: 700; line-height: 1.4; margin-bottom: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .news-card-body p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 12px; }
 .card-meta { display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: var(--text-light); padding-top: 12px; border-top: 1px solid var(--border); }
-.pagination { display: flex; justify-content: center; gap: 8px; margin: 30px 0; }
+.pagination { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 30px 0; }
 .pagination button { padding: 10px 16px; background: var(--bg-white); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; font-weight: 600; transition: var(--transition); color: var(--text-dark); }
 .pagination button:hover, .pagination button.active { background: var(--primary); color: #fff; border-color: var(--primary); }
 .load-more-btn { display: block; margin: 0 auto 40px; padding: 12px 28px; background: var(--primary); color: #fff; border: none; border-radius: 30px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: var(--transition); }
@@ -282,6 +282,8 @@ padding: 0 15px; width: 100px; border: 1px solid var(--border); transition: var(
 .article-meta span { display: flex; align-items: center; gap: 6px; }
 .meta-audio-btn { background: var(--bg); color: var(--primary); border: 1px solid var(--primary); padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 700; cursor: pointer; margin-left: auto; display: flex; align-items: center; gap: 6px; transition: var(--transition); }
 .meta-audio-btn:hover { background: var(--primary); color: #fff; }
+.meta-lite-btn { background: var(--bg); color: #0a7d3e; border: 1px solid #0a7d3e; padding: 4px 12px; border-radius: 4px; font-size: 0.8rem; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 6px; transition: var(--transition); }
+.meta-lite-btn:hover { background: #0a7d3e; color: #fff; }
 
 /* ── Lecteur Audio : Highlighting ───────────────────────────────── */
 .article-text p.reading-active,
@@ -671,6 +673,12 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
         -webkit-overflow-scrolling: touch;
         padding-bottom: 6px;
         scrollbar-width: none;
+        /* fix débordement horizontal mobile : largeur bornée au parent,
+           les puces défilent horizontalement à l'intérieur */
+        min-width: 0;
+        width: 100%;
+        max-width: 100%;
+        flex-basis: 100%;
     }
     .tag-filters::-webkit-scrollbar { display: none; }
     .tag-filter { white-space: nowrap; flex-shrink: 0; }
@@ -1305,7 +1313,9 @@ a.revue-une-title-link:hover .revue-une-title { color: var(--secondary); }
 
 /* ── Responsive ───────────────────────────────────────────────── */
 @media (max-width: 1024px) {
-    .revue-container { grid-template-columns: 1fr; }
+    /* minmax(0,1fr) : la piste peut rétrécir sous la largeur du contenu
+       (1fr = minmax(auto,1fr) gonflait la grille à ~900px sur mobile) */
+    .revue-container { grid-template-columns: minmax(0, 1fr); }
     .revue-synthese-bloc { margin: 12px 20px; }
     .revue-une { grid-column: 1; margin: 0 20px 12px; grid-template-columns: 1fr; }
     .revue-une-left { border-right: none; border-bottom: 1px solid var(--border); }
@@ -2500,6 +2510,13 @@ html.ar .synthese-btn          { flex-direction: row-reverse; }
     .article-actions { flex-direction: column; align-items: flex-start; }
     .jargon-btn, .synthese-btn { width: 100%; justify-content: center; }
     #jargonTooltip { max-width: calc(100vw - 24px); }
+
+    /* Cibles tactiles confortables (~44px) sur mobile */
+    .meta-audio-btn, .meta-lite-btn { min-height: 40px; padding: 8px 14px; font-size: 0.85rem; }
+    .synthese-btn, .debat-btn { min-height: 44px; }
+    .debat-btn { width: 100%; justify-content: center; }
+    /* La barre méta reste sur une ligne d'infos, boutons alignés à droite qui reviennent à la ligne proprement */
+    .article-meta { gap: 10px 14px; }
 }
 
 /* ── RTL ─────────────────────────────────────────────────────── */

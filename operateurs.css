@@ -1290,10 +1290,12 @@ body.theme-bluenuit .art-modal-panel { background: #0f1320; }
 @media (max-width: 768px) {
   body { overflow: auto; }
 
-  .op-header { padding: 0 14px; gap: 10px; }
+  .op-header { padding: 0 12px; gap: 8px; }
   .header-title { font-size: 14px; }
   .header-sub { display: none; }
-  .global-toggle { padding: 6px 10px; gap: 7px; }
+  .brand-group { min-width: 0; flex-shrink: 1; }
+  .global-toggle { padding: 6px 8px; gap: 6px; flex-shrink: 0; }
+  .global-toggle i { display: none; } /* icônes masquées sur mobile : le toggle tient dans l'entête */
   .tgl-label { font-size: 10px; }
 
   .triple-hub { flex-direction: column; height: auto; overflow: visible; }

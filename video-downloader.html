@@ -125,6 +125,14 @@
         }
         .url-input:focus { border-color: var(--primary); }
         .url-input::placeholder { color: var(--muted); }
+        .url-input { min-width: 0; } /* autorise le champ à rétrécir dans le flex (fix débordement mobile) */
+
+        /* Mobile : champ + bouton empilés en pleine largeur */
+        @media (max-width: 560px) {
+            .input-row { flex-wrap: wrap; }
+            .url-input { flex: 1 1 100%; }
+            .input-row .btn { flex: 1 1 100%; justify-content: center; }
+        }
 
         .btn {
             padding: 13px 22px;

@@ -251,10 +251,14 @@ async function loadArticles() {
         if (grid) grid.innerHTML = '<p style="text-align:center;padding:20px;">Chargement…</p>';
     }
 
-    // ── 2. Fetch articles.json depuis Cloudflare CDN ──
+    // ── 2. Fetch de la liste allégée (sans corps d'article) ──
+    // articles-list.json ≈ 5× plus léger que articles.json (pas de rawContent).
+    // Le corps de chaque article est chargé à la demande à l'ouverture.
+    // Fallback vers articles.json si la version légère n'existe pas encore.
     try {
-        const res = await fetch('/articles.json');
-        if (!res.ok) throw new Error('articles.json introuvable');
+        let res = await fetch('/articles-list.json');
+        if (!res.ok) res = await fetch('/articles.json');
+        if (!res.ok) throw new Error('liste des articles introuvable');
         const data = await res.json();
 
         allArticles = data
@@ -357,6 +361,45 @@ function parseMarkdownFile(text) {
     };
 }
 
+// ===== CHARGEMENT PARESSEUX DU CORPS D'ARTICLE =====
+// La page d'accueil ne charge que la liste légère (sans rawContent). Le corps
+// est récupéré à la demande à l'ouverture d'un article, depuis son fichier .md
+// statique (léger + mis en cache). Triple sécurité pour ne jamais casser :
+//   1) /articles/<id>.md      (statique, fonctionne sur CDN et serveur Node)
+//   2) /articles.json complet (mémoïsé, si le .md est indisponible)
+//   3) l'extrait              (dégradation ultime)
+let _fullArticlesCache = null;
+async function ensureRawContent(art) {
+    if (!art) return '';
+    if (art.rawContent && art.rawContent.length) return art.rawContent;
+
+    // 1) Fichier Markdown statique
+    try {
+        const r = await fetch(`/articles/${art.id}.md`, { cache: 'force-cache' });
+        if (r.ok) {
+            const parsed = parseMarkdownFile(await r.text());
+            if (parsed.rawContent) {
+                art.rawContent = parsed.rawContent;
+                if (!art.contenu && parsed.contenu) art.contenu = parsed.contenu;
+                return art.rawContent;
+            }
+        }
+    } catch (e) { /* on tente le fallback ci-dessous */ }
+
+    // 2) Fallback : articles.json complet (chargé une seule fois)
+    try {
+        if (!_fullArticlesCache) {
+            const r = await fetch('/articles.json');
+            if (r.ok) _fullArticlesCache = await r.json();
+        }
+        const full = _fullArticlesCache && _fullArticlesCache.find(a => a.id == art.id);
+        if (full && full.rawContent) { art.rawContent = full.rawContent; return art.rawContent; }
+    } catch (e) { /* dégradation ci-dessous */ }
+
+    // 3) Dégradation : au pire on affiche l'extrait
+    return art.rawContent || art.extrait || '';
+}
+
 // ===== FONCTIONS D'AFFICHAGE =====
 function renderHero(arts) {
     if (!arts || arts.length === 0) return;
@@ -405,7 +448,7 @@ function renderTicker(arts) {
 }
 
 // ===== OUVERTURE D'UN ARTICLE =====
-window.openArticle = function(id) {
+window.openArticle = async function(id) {
     const art = allArticles.find(a => a.id == id);
     if (!art) return;
     currentEditingId = id;
@@ -414,6 +457,8 @@ window.openArticle = function(id) {
         adminBtn.innerHTML = '<i class="fas fa-pencil-alt"></i>';
         adminBtn.title = "Modifier cet article";
     }
+    // Charge le corps de l'article à la demande (liste d'accueil = sans rawContent)
+    await ensureRawContent(art);
     // Parse markdown à la demande (lazy) — non fait au chargement initial
     if (!art.contenu && art.rawContent) {
         art.contenu = (typeof marked !== 'undefined')
@@ -449,7 +494,7 @@ window.openArticle = function(id) {
         mediaHeader = `<img src="${art.image}" alt="${art.titre}" onerror="this.onerror=null;this.style.display='none'" style="width:100%; border-radius:15px; margin-bottom:25px;">`;
     }
     let pdfLink = art.pdf ? `<div style="margin: 20px 0; padding: 15px; background: var(--bg-light); border-radius: 10px; display: flex; align-items: center; gap: 15px;"><i class="fas fa-file-pdf" style="font-size: 2rem; color: #D21034;"></i><div><p style="margin:0; font-weight:600;">Document d'accompagnement</p><a href="${art.pdf}" target="_blank" class="tag-filter" style="display:inline-block; margin-top:5px; text-decoration:none;"><i class="fas fa-download"></i> TÃ©lÃ©charger le PDF</a></div></div>` : '';
-    let html = `${mediaHeader}<div class="article-body"><div class="article-meta"><span class="category-tag ${cls(art.categorie)}">${art.categorie}</span><span><i class="far fa-calendar"></i> ${art.date}</span><span><i class="far fa-clock"></i> ${art.heure}</span><span class="reading-time"><i class="fas fa-book-open"></i> ${art.readingTime} min</span><span><i class="far fa-eye"></i> ${art.views} vues</span><button class="meta-audio-btn" onclick="triggerAudio()"><i class="fas fa-volume-up"></i> Ã‰couter</button></div><h1>${art.titre}</h1><div class="article-actions"><button class="synthese-btn" id="syntheseBtn" onclick="loadSynthese()"><i class="fas fa-bolt"></i> Synthèse IA</button><button class="debat-btn" id="debatBtn" onclick="openDebat()"><i class="fas fa-comments"></i> Débattre avec l'IA</button></div><div id="syntheseBox"></div><div class="article-text">${bodyImage}${art.contenu}${pdfLink}</div>`;
+    let html = `${mediaHeader}<div class="article-body"><div class="article-meta"><span class="category-tag ${cls(art.categorie)}">${art.categorie}</span><span><i class="far fa-calendar"></i> ${art.date}</span><span><i class="far fa-clock"></i> ${art.heure}</span><span class="reading-time"><i class="fas fa-book-open"></i> ${art.readingTime} min</span><span><i class="far fa-eye"></i> ${art.views} vues</span><button class="meta-audio-btn" onclick="triggerAudio()"><i class="fas fa-volume-up"></i> Ã‰couter</button><a class="meta-lite-btn" href="/article/${art.id}/lite" title="Version allégée pour connexion lente"><i class="fas fa-bolt"></i> Version légère</a></div><h1>${art.titre}</h1><div class="article-actions"><button class="synthese-btn" id="syntheseBtn" onclick="loadSynthese()"><i class="fas fa-bolt"></i> Synthèse IA</button><button class="debat-btn" id="debatBtn" onclick="openDebat()"><i class="fas fa-comments"></i> Débattre avec l'IA</button></div><div id="syntheseBox"></div><div class="article-text">${bodyImage}${art.contenu}${pdfLink}</div>`;
     if (art.tags && art.tags.length) {
         html += `<div style="margin:30px 0;padding-top:20px;border-top:1px solid var(--border)"><strong>Tags: </strong>${art.tags.map(t => `<span class="tag-filter" style="margin-left:8px" onclick="filterByTag('${t}');goHome()">${t}</span>`).join('')}</div>`;
     }
@@ -1718,20 +1763,21 @@ window.hubFill = function() {
 };
 
 // ===== GESTION ADMIN =====
-window.toggleAdminPanel = function() {
+window.toggleAdminPanel = async function() {
     // Vérifier si admin est déverrouillé (production uniquement)
     if (!ADMIN_CONFIG.isLocalhost && !isAdminUnlocked()) {
         if (!unlockAdmin()) return;
     }
-    
+
     const pass = prompt('Mot de passe Admin:');
     if (pass !== ADMIN_PASSWORD) return showToast('Accès refusé');
-    
+
     const modal = document.getElementById('adminModal');
     modal.classList.add('show');
-    
+
     if (currentEditingId) {
         const art = allArticles.find(a => a.id == currentEditingId);
+        await ensureRawContent(art); // corps chargé à la demande (liste allégée)
         document.getElementById('titre').value = art.titre;
         document.getElementById('categorie').value = art.categorie;
         document.getElementById('date').value = art.date;
@@ -1739,7 +1785,7 @@ window.toggleAdminPanel = function() {
         document.getElementById('extrait').value = art.extrait;
         document.getElementById('video').value = art.video || '';
         document.getElementById('tags').value = art.tags.join(', ');
-        document.getElementById('contenu').value = art.rawContent;
+        document.getElementById('contenu').value = art.rawContent || '';
         
         if (document.getElementById('imagePreview')) {
             document.getElementById('imagePreview').innerHTML = `<p style="font-size:0.8rem;margin-bottom:5px;">Image actuelle:</p><img src="${art.image}" style="max-width:100%; border-radius:8px;">`;
@@ -2542,6 +2588,7 @@ window.loadSynthese = async function () {
 
     const art = allArticles.find(a => a.id == currentEditingId);
     if (!art) return;
+    await ensureRawContent(art); // corps chargé à la demande (liste allégée)
 
     const isAr = document.documentElement.classList.contains('ar');
 
@@ -3098,3 +3145,93 @@ document.addEventListener('DOMContentLoaded', () => {
         if (timeEl) timeEl.textContent = new Date().toLocaleTimeString('fr-DZ', { hour: '2-digit', minute: '2-digit' });
     }, 60000);
 });
+
+// ══════════════════════════════════════════════════════════════
+//  WHATSAPP SHARE WIDGET
+// ══════════════════════════════════════════════════════════════
+
+function injectWhatsAppWidget() {
+    // Mettre à jour le lien si le widget existe déjà
+    const existing = document.getElementById('at-wa-share-link');
+    if (existing) {
+        const url   = encodeURIComponent(location.href);
+        const title = encodeURIComponent((document.title || '').replace(' — Algeria Tech', '').trim());
+        existing.href = 'https://wa.me/?text=' + title + '%20%E2%80%94%20' + url;
+        return;
+    }
+
+    const url   = encodeURIComponent(location.href);
+    const title = encodeURIComponent((document.title || '').replace(' — Algeria Tech', '').trim());
+    const waUrl = () => 'https://wa.me/?text=' + encodeURIComponent((document.title || '').replace(' — Algeria Tech','').trim()) + '%20%E2%80%94%20' + encodeURIComponent(location.href);
+
+    const wrap = document.createElement('div');
+    wrap.id = 'at-wa-widget';
+    wrap.style.cssText = 'position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:8px';
+    wrap.innerHTML = `
+      <div id="at-wa-panel" style="display:none;background:#fff;border-radius:16px;width:272px;
+           box-shadow:0 8px 32px rgba(0,0,0,.18);overflow:hidden;
+           animation:none;transition:opacity .2s,transform .2s">
+        <div style="background:#075E54;color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px">
+          <i class="fab fa-whatsapp" style="font-size:1.35rem"></i>
+          <div>
+            <div style="font-weight:700;font-size:.95rem">Partager sur WhatsApp</div>
+            <div style="font-size:.73rem;opacity:.82">Algeria Tech — By Basta</div>
+          </div>
+        </div>
+        <div style="padding:14px">
+          <p style="font-size:.82rem;color:#555;line-height:1.6;margin-bottom:12px">
+            Partagez cet article avec vos contacts WhatsApp.
+          </p>
+          <a id="at-wa-share-link" href="${'https://wa.me/?text=' + title + '%20%E2%80%94%20' + url}"
+             target="_blank" rel="noopener"
+             style="display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;
+                    border-radius:8px;padding:11px 16px;text-decoration:none;font-weight:700;font-size:.88rem;
+                    transition:background .15s"
+             onmouseover="this.style.background='#1da851'" onmouseout="this.style.background='#25D366'">
+            <i class="fab fa-whatsapp"></i> Partager maintenant
+          </a>
+        </div>
+      </div>
+      <button id="at-wa-fab"
+        style="width:54px;height:54px;background:#25D366;border:none;border-radius:50%;cursor:pointer;
+               display:flex;align-items:center;justify-content:center;position:relative;
+               box-shadow:0 4px 18px rgba(37,211,102,.5);transition:transform .2s"
+        onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+        <i class="fab fa-whatsapp" style="color:#fff;font-size:1.5rem;pointer-events:none"></i>
+        <span id="at-wa-pulse" style="position:absolute;inset:-5px;border-radius:50%;
+              border:2px solid rgba(37,211,102,.4);animation:at-wa-pulse 2s ease-out infinite;
+              pointer-events:none"></span>
+      </button>
+    `;
+    document.body.appendChild(wrap);
+
+    // Style animation pulse
+    if (!document.getElementById('at-wa-style')) {
+        const s = document.createElement('style');
+        s.id = 'at-wa-style';
+        s.textContent = '@keyframes at-wa-pulse{0%{transform:scale(.9);opacity:1}100%{transform:scale(1.5);opacity:0}}';
+        document.head.appendChild(s);
+    }
+
+    const fab   = document.getElementById('at-wa-fab');
+    const panel = document.getElementById('at-wa-panel');
+    let open = false;
+
+    fab.addEventListener('click', (e) => {
+        e.stopPropagation();
+        open = !open;
+        // Mettre à jour le lien avec l'URL courante au moment du clic
+        const link = document.getElementById('at-wa-share-link');
+        if (link) link.href = waUrl();
+        panel.style.display = open ? 'block' : 'none';
+    });
+
+    document.addEventListener('click', (e) => {
+        if (open && !wrap.contains(e.target)) {
+            open = false;
+            panel.style.display = 'none';
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', injectWhatsAppWidget);

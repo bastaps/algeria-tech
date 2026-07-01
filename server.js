@@ -12,6 +12,7 @@ const cors = require('cors');
 const https = require('https');
 const http = require('http');
 const RssParser = require('rss-parser');
+const compression = require('compression');
 
 // ── Générateur d'infographies ─────────────────────────────────────────────────
 const pdfParse = require('pdf-parse');
@@ -21,6 +22,11 @@ const { generateReport } = require('./generator/html-template');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// ── COMPRESSION gzip/deflate — crucial pour les connexions lentes (2G/3G) ──
+// Réduit de 70–85 % le poids des réponses texte (HTML, CSS, JS, JSON).
+// Doit être le TOUT premier middleware pour couvrir statiques + API.
+app.use(compression({ level: 6, threshold: 1024 }));
 
 // ── CONFIGURATION IA (MISTRAL est l'alternative stable déjà présente dans votre projet) ──
 const MISTRAL_API_KEY = process.env.MISTRAL_API_KEY || "5AJzJhu9hZF0a7Q05tfbIxDF20NseEpd"; 
@@ -267,6 +273,156 @@ app.get('/video-downloader', (req, res) => res.sendFile(path.join(__dirname, 'vi
 // === ROUTE ARTICLES (SPA — hard refresh support) ===
 app.get('/article/:id', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
 
+// ── VERSION LÉGÈRE (chargement allégé pour connexions lentes) ──────────────
+// Page HTML autonome rendue côté serveur : pas de JS, pas de Font Awesome,
+// pas de webfonts, images en lazy-load, vidéo remplacée par une vignette
+// cliquable. Cible : réseaux 2G/3G, mode économie de données.
+
+function escapeHtml(s) {
+    return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+// Rendu Markdown minimal → HTML (couvre le style des dépêches générées :
+// titres ##, listes -, gras/italique, liens, règles ---).
+function renderLiteMarkdown(md) {
+    // Retire les blocs HTML lourds (embeds vidéo/iframe) — remplacés en amont
+    let src = String(md || '')
+        .replace(/<div class="video-embed"[\s\S]*?<\/div>\s*<\/div>/gi, '')
+        .replace(/<iframe[\s\S]*?<\/iframe>/gi, '')
+        .replace(/<div[^>]*>|<\/div>/gi, '');
+
+    const inline = (t) => escapeHtml(t)
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/(^|[^*])\*(?!\s)(.+?)\*/g, '$1<em>$2</em>')
+        .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" rel="noopener" target="_blank">$1</a>')
+        .replace(/(^|[\s(])(https?:\/\/[^\s<)]+)/g, '$1<a href="$2" rel="noopener" target="_blank">$2</a>');
+
+    const lines = src.split('\n');
+    let html = '', listOpen = false;
+    const closeList = () => { if (listOpen) { html += '</ul>'; listOpen = false; } };
+
+    for (let raw of lines) {
+        const line = raw.trim();
+        if (!line) { closeList(); continue; }
+        if (/^---+$/.test(line)) { closeList(); html += '<hr>'; continue; }
+        let m;
+        if ((m = line.match(/^(#{2,4})\s+(.*)$/))) {
+            closeList();
+            const lvl = m[1].length; // ## -> h2, ### -> h3...
+            html += `<h${lvl}>${inline(m[2])}</h${lvl}>`;
+        } else if ((m = line.match(/^[-*]\s+(.*)$/))) {
+            if (!listOpen) { html += '<ul>'; listOpen = true; }
+            html += `<li>${inline(m[1])}</li>`;
+        } else {
+            closeList();
+            html += `<p>${inline(line)}</p>`;
+        }
+    }
+    closeList();
+    return html;
+}
+
+function ytId(url) {
+    return (String(url || '').match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([^&?]{11})/) || [])[1] || null;
+}
+
+async function readArticleById(id) {
+    const text = await fs.readFile(path.join(__dirname, 'articles', `${id}.md`), 'utf-8');
+    const parts = text.split('---');
+    if (parts.length < 3) throw new Error('Format invalide');
+    const fm = parts[1];
+    const content = parts.slice(2).join('---').trim();
+    const get = (k) => { const m = fm.match(new RegExp(`${k}:\\s*(.*)`)); return m ? m[1].trim().replace(/^["']|["']$/g, '') : ''; };
+    const tagsMatch = fm.match(/tags:\s*\[(.*)\]/);
+    const tags = tagsMatch ? tagsMatch[1].split(',').map(t => t.trim().replace(/^["']|["']$/g, '')).filter(Boolean) : [];
+    return { id, titre: get('titre'), date: get('date'), heure: get('heure'), categorie: get('categorie'), image: get('image'), video: get('video'), pdf: get('pdf'), extrait: get('extrait'), tags, rawContent: content };
+}
+
+app.get('/article/:id/lite', async (req, res) => {
+    try {
+        const a = await readArticleById(req.params.id);
+        const readingTime = Math.max(1, Math.ceil((a.rawContent || '').split(/\s+/).length / 200));
+        const canonical = `/article/${a.id}`;
+
+        // Média d'en-tête léger : vignette vidéo cliquable OU image lazy
+        let media = '';
+        const vId = ytId(a.video);
+        if (vId) {
+            media = `<a class="lite-video" href="https://www.youtube.com/watch?v=${vId}" rel="noopener" target="_blank" aria-label="Voir la vidéo sur YouTube">`
+                + `<img loading="lazy" width="480" height="360" src="https://img.youtube.com/vi/${vId}/hqdefault.jpg" alt="${escapeHtml(a.titre)}">`
+                + `<span class="lite-play">► Voir la vidéo</span></a>`;
+        } else if (a.image && a.image.trim()) {
+            media = `<img class="lite-hero" loading="lazy" src="${escapeHtml(a.image)}" alt="${escapeHtml(a.titre)}">`;
+        }
+
+        const body = renderLiteMarkdown(a.rawContent);
+        const pdf = a.pdf ? `<p><a href="${escapeHtml(a.pdf)}" rel="noopener" target="_blank">📄 Télécharger le PDF d'accompagnement</a></p>` : '';
+        const tags = a.tags.length ? `<p class="lite-tags">${a.tags.map(t => `<span>#${escapeHtml(t)}</span>`).join(' ')}</p>` : '';
+
+        const htmlPage = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="${escapeHtml(a.extrait)}">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="${canonical}">
+<title>${escapeHtml(a.titre)} — Algeria Tech (version légère)</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+line-height:1.7;color:#1a1a1a;background:#fff;font-size:17px}
+.wrap{max-width:680px;margin:0 auto;padding:16px}
+header.site{border-bottom:2px solid #0a7d3e;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+header.site a{color:#0a7d3e;text-decoration:none;font-weight:700}
+.full-link{font-size:14px;color:#555;font-weight:600}
+h1{font-size:1.6rem;line-height:1.3;margin:.4em 0}
+h2{font-size:1.25rem;margin:1.4em 0 .4em;color:#0a5c2e}
+h3{font-size:1.1rem;margin:1.2em 0 .3em}
+.meta{color:#666;font-size:.85rem;margin:.5em 0 1em;border-bottom:1px solid #eee;padding-bottom:.8em}
+.meta .cat{background:#0a7d3e;color:#fff;padding:2px 8px;border-radius:4px;font-weight:600;margin-right:8px}
+img{max-width:100%;height:auto;border-radius:8px}
+.lite-hero{display:block;margin:0 0 1em}
+.lite-video{display:block;position:relative;margin:0 0 1em;text-decoration:none}
+.lite-video img{width:100%;display:block}
+.lite-play{position:absolute;bottom:10px;left:10px;background:rgba(0,0,0,.75);color:#fff;padding:6px 12px;border-radius:6px;font-weight:600;font-size:.9rem}
+p{margin:0 0 1em}
+ul{margin:0 0 1em;padding-left:1.3em}
+li{margin:.3em 0}
+hr{border:0;border-top:1px solid #ddd;margin:1.5em 0}
+a{color:#0a5c2e}
+.lite-tags{margin-top:1.5em;font-size:.85rem}
+.lite-tags span{color:#666;margin-right:6px}
+footer{border-top:1px solid #eee;margin-top:2em;padding-top:1em;font-size:.85rem;color:#777;text-align:center}
+</style>
+</head>
+<body>
+<header class="site">
+<a href="/">🇩🇿 Algeria Tech</a>
+<a class="full-link" href="${canonical}">Version complète ↗</a>
+</header>
+<main class="wrap">
+<h1>${escapeHtml(a.titre)}</h1>
+<div class="meta"><span class="cat">${escapeHtml(a.categorie)}</span> ${escapeHtml(a.date)} · ${escapeHtml(a.heure)} · ⏱ ${readingTime} min</div>
+${media}
+<div class="content">${body}${pdf}</div>
+${tags}
+<footer>
+Version allégée pour connexions lentes · <a href="${canonical}">Ouvrir la version complète</a><br>
+© Algeria Tech
+</footer>
+</main>
+</body>
+</html>`;
+
+        res.set('Cache-Control', 'public, max-age=600');
+        res.type('html').send(htmlPage);
+    } catch (e) {
+        res.status(404).type('html').send('<!DOCTYPE html><meta charset="utf-8"><p>Article introuvable. <a href="/">Retour à l\'accueil</a></p>');
+    }
+});
+
 // === WIKI TIC — Routes ===
 app.get('/wiki', (req, res) => res.sendFile(path.join(__dirname, 'wiki.html')));
 app.get('/wiki/', (req, res) => res.sendFile(path.join(__dirname, 'wiki.html')));
@@ -428,6 +584,9 @@ async function regenerateArticlesJson() {
         }
         articles.sort((a, b) => new Date(`${b.date}T${b.heure || '00:00'}`) - new Date(`${a.date}T${a.heure || '00:00'}`));
         await fs.writeFile('articles.json', JSON.stringify(articles));
+        // Version légère (sans rawContent) pour la page d'accueil
+        const articlesLight = articles.map(({ rawContent, ...rest }) => rest);
+        await fs.writeFile('articles-list.json', JSON.stringify(articlesLight));
     } catch (e) { console.error("Erreur régénération articles.json:", e); }
 }
 
@@ -439,9 +598,17 @@ function fetchWebPage(url, redirectsLeft = 4) {
         const options = {
             headers: {
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
                 'Accept-Language': 'fr-FR,fr;q=0.9,en;q=0.8',
                 'Accept-Encoding': 'identity',
+                'Sec-Ch-Ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+                'Sec-Ch-Ua-Mobile': '?0',
+                'Sec-Ch-Ua-Platform': '"Windows"',
+                'Sec-Fetch-Dest': 'document',
+                'Sec-Fetch-Mode': 'navigate',
+                'Sec-Fetch-Site': 'none',
+                'Sec-Fetch-User': '?1',
+                'Upgrade-Insecure-Requests': '1',
             },
             ...(isHttps ? { agent: new https.Agent({ rejectUnauthorized: false }) } : {}),
         };
@@ -500,18 +667,103 @@ function extractMainText(html) {
 }
 
 // ── FETCH URL — Extraction web vers texte ─────────────────
+// Fallback : proxy lecteur Jina (rend la page comme un navigateur, contourne
+// beaucoup d'anti-bots). Renvoie déjà du texte/markdown propre.
+async function fetchViaReader(url) {
+    const r = await fetch('https://r.jina.ai/' + url, {
+        headers: {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36',
+            'X-Return-Format': 'text',
+        },
+        signal: AbortSignal.timeout(40000),
+    });
+    if (!r.ok) throw new Error(`Reader HTTP ${r.status}`);
+    let txt = await r.text();
+    // Entête ajoutée par Jina : "Title: ...\nURL Source: ...\nMarkdown Content:"
+    const title = (txt.match(/^Title:\s*(.+)$/m) || [])[1] || '';
+    txt = txt.replace(/^Title:.*$/m, '').replace(/^URL Source:.*$/m, '')
+             .replace(/^Markdown Content:\s*/m, '').trim();
+    return { text: txt, title: title.trim() };
+}
+
+// Fallback ultime : rendu navigateur complet via Playwright (observatoire/).
+// Lance Chromium headless, exécute le JS de la page, puis extrait le texte.
+// Plus lourd (~quelques secondes) — réservé aux pages que les méthodes
+// directe et proxy n'ont pas su lire.
+function fetchViaBrowser(url) {
+    return new Promise((resolve, reject) => {
+        const { spawn } = require('child_process');
+        const script = path.join(__dirname, 'observatoire', 'render_url.py');
+        const child = spawn('python', [script, url], {
+            cwd: path.join(__dirname, 'observatoire'),
+            env: { ...process.env, PYTHONUTF8: '1', PYTHONIOENCODING: 'utf-8' },
+        });
+        let out = '', err = '';
+        const killer = setTimeout(() => child.kill(), 60000);
+        child.stdout.on('data', d => out += d);
+        child.stderr.on('data', d => err += d);
+        child.on('error', e => { clearTimeout(killer); reject(e); });
+        child.on('close', code => {
+            clearTimeout(killer);
+            if (code !== 0) return reject(new Error(err.trim() || `python code ${code}`));
+            try {
+                const j = JSON.parse(out);
+                resolve({ text: j.text || '', title: j.title || '' });
+            } catch (e) {
+                reject(new Error('Sortie Playwright illisible'));
+            }
+        });
+    });
+}
+
 app.post('/api/fetch-url', express.json(), async (req, res) => {
     const { url } = req.body || {};
     if (!url || !url.startsWith('http')) return res.status(400).json({ error: 'URL invalide' });
+
+    const MIN_LEN = 300; // en dessous : extraction probablement bloquée/vide
+    let directErr = null;
+
+    // 1) Tentative directe (rapide, gratuite)
     try {
         const html = await fetchWebPage(url);
         const rawTitle = (html.match(/<title[^>]*>([^<]{1,200})<\/title>/i) || [])[1] || '';
         const title = rawTitle.replace(/\s+/g, ' ').trim();
         const text = extractMainText(html);
-        res.json({ text: text.substring(0, 8000), title, url });
+        if (text.length >= MIN_LEN) {
+            return res.json({ text: text.substring(0, 8000), title, url });
+        }
+        directErr = new Error('Contenu trop court (page probablement rendue en JavaScript)');
     } catch (e) {
-        res.status(500).json({ error: 'Impossible de récupérer la page : ' + e.message });
+        directErr = e;
     }
+
+    // 2) Fallback proxy lecteur (sites protégés / rendus côté client)
+    try {
+        const { text, title } = await fetchViaReader(url);
+        if (text.length >= MIN_LEN) {
+            return res.json({ text: text.substring(0, 8000), title, url });
+        }
+    } catch (e) {
+        // on passe au rendu navigateur ci-dessous
+    }
+
+    // 3) Fallback navigateur complet (Playwright) — plus lourd
+    try {
+        const { text, title } = await fetchViaBrowser(url);
+        if (text.length >= MIN_LEN) {
+            return res.json({ text: text.substring(0, 8000), title, url });
+        }
+    } catch (e) {
+        console.error('[fetch-url] Playwright fallback échoué:', e.message);
+    }
+
+    // 4) Échec de toutes les méthodes → message explicite
+    const is403 = /403/.test(directErr && directErr.message || '');
+    res.status(502).json({
+        error: is403
+            ? "Ce site bloque l'extraction automatique (anti-bot ou paywall). Ouvrez l'article et copiez-collez le texte directement dans la zone ci-dessous."
+            : "Impossible d'extraire le contenu de cette page (" + (directErr ? directErr.message : 'inconnu') + "). Copiez-collez le texte manuellement."
+    });
 });
 
 // ── TRANSCRIPTION PDF ─────────────────────────────────────

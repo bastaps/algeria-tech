@@ -50,6 +50,10 @@ async function run() {
 
     await fs.promises.writeFile('articles.json', JSON.stringify(articles));
 
+    // Version légère (sans rawContent) pour la page d'accueil
+    const articlesLight = articles.map(({ rawContent, ...rest }) => rest);
+    await fs.promises.writeFile('articles-list.json', JSON.stringify(articlesLight));
+
     const sorted = mdFiles.sort((a, b) => parseInt(b) - parseInt(a));
     await fs.promises.writeFile('articles/list.json', JSON.stringify(sorted, null, 2));
 

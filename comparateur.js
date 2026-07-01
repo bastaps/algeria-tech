@@ -79,6 +79,12 @@
 .cv3-updated em{color:#4ade80;font-style:normal}
 /* MAIN */
 .cv3-main{background:#080810;padding:20px}
+.cv3-modebar{display:flex;gap:8px;margin-bottom:16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:13px;padding:5px}
+.cv3-modebtn{flex:1;padding:11px 14px;border-radius:9px;border:none;background:transparent;color:rgba(255,255,255,.5);font-size:.86rem;font-weight:700;cursor:pointer;transition:all .2s;letter-spacing:.2px}
+.cv3-modebtn:hover{color:rgba(255,255,255,.85)}
+.cv3-modebtn.on{background:linear-gradient(135deg,#2979ff,#7b2ff7);color:#fff;box-shadow:0 4px 18px rgba(41,121,255,.35)}
+.cv3.cv3-day .cv3-modebar{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.1)}
+.cv3.cv3-day .cv3-modebtn{color:rgba(0,0,0,.5)}
 .cv3-rhead{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;gap:10px;flex-wrap:wrap}
 .cv3-cnt{font-size:.8rem;color:rgba(255,255,255,.38)}
 .cv3-cnt strong{color:#fff;font-size:1.3rem;margin-right:4px}
@@ -343,6 +349,36 @@ const COMP_OFFERS = [
    calls:'Illimités vers tous réseaux',sms:'Illimités Mobilis + 50 SMS autres',intl:false,badge:null,
    extras:['Facebook illimité','4G/5G inclus','MU cumulables','+200 MU bonus renouvellement'],
    link:'https://www.mobilis.dz/revolution_prepaid'},
+  /* ── Mobilis Revolution Control (prépayé, crédit MU flexible) ── */
+  {id:'m6',op:'mobilis',name:'Revolution Control 1200',type:'prepaid',price:1200,data:45,validity:30,dateAdded:'2026-06-29',
+   calls:'Crédit MU flexible (appels/SMS/data)',sms:'Inclus dans le crédit MU',intl:false,badge:null,
+   extras:['Crédit unique 2250 MU (flexible)','1 Go=50 MU · 1 min=5 MU','MU cumulables','+250 MU au renouvellement','Facebook illimité après épuisement MU','Boost 200 DA=500 MU','4G/5G'],
+   link:'https://www.mobilis.dz/revolution_control'},
+  {id:'m7',op:'mobilis',name:'Revolution Control 1500',type:'prepaid',price:1500,data:70,validity:30,dateAdded:'2026-06-29',
+   calls:'Crédit MU flexible (appels/SMS/data)',sms:'Inclus dans le crédit MU',intl:false,badge:null,
+   extras:['Crédit unique 3500 MU (flexible)','1 Go=50 MU · 1 min=5 MU','MU cumulables','+250 MU au renouvellement','Facebook illimité','Boost 200 DA=500 MU','4G/5G'],
+   link:'https://www.mobilis.dz/revolution_control'},
+  {id:'m8',op:'mobilis',name:'Revolution Control 1800',type:'prepaid',price:1800,data:100,validity:30,dateAdded:'2026-06-29',
+   calls:'Crédit MU flexible (appels/SMS/data)',sms:'Inclus dans le crédit MU',intl:false,badge:null,
+   extras:['Crédit unique 5000 MU (flexible)','1 Go=50 MU · 1 min=5 MU','MU cumulables','+250 MU au renouvellement','Facebook illimité','Boost 200 DA=500 MU','4G/5G'],
+   link:'https://www.mobilis.dz/revolution_control'},
+  {id:'m9',op:'mobilis',name:'Revolution Control 2000',type:'prepaid',price:2000,data:118,validity:30,dateAdded:'2026-06-29',
+   calls:'Crédit MU flexible (appels/SMS/data)',sms:'Inclus dans le crédit MU',intl:false,badge:'Meilleur rapport',
+   extras:['Crédit unique 5900 MU (flexible)','1 Go=50 MU · 1 min=5 MU','MU cumulables','+250 MU complet au renouvellement','Facebook illimité','Boost 200 DA=500 MU','4G/5G'],
+   link:'https://www.mobilis.dz/revolution_control'},
+  {id:'m10',op:'mobilis',name:'Revolution Control 2500',type:'prepaid',price:2500,data:150,validity:30,dateAdded:'2026-06-29',
+   calls:'Crédit MU flexible (appels/SMS/data)',sms:'Inclus dans le crédit MU',intl:false,badge:null,
+   extras:['Crédit unique 7500 MU (flexible)','1 Go=50 MU · 1 min=5 MU','MU cumulables','+250 MU complet au renouvellement','Facebook illimité','Boost 200 DA=500 MU','4G/5G'],
+   link:'https://www.mobilis.dz/revolution_control'},
+  {id:'m11',op:'mobilis',name:'Revolution Control 3000',type:'prepaid',price:3000,data:188,validity:30,dateAdded:'2026-06-29',
+   calls:'Crédit MU flexible (appels/SMS/data)',sms:'Inclus dans le crédit MU',intl:false,badge:null,
+   extras:['Crédit unique 9400 MU (flexible)','1 Go=50 MU · 1 min=5 MU','MU cumulables','+250 MU complet au renouvellement','Facebook illimité','Boost 200 DA=500 MU','4G/5G'],
+   link:'https://www.mobilis.dz/revolution_control'},
+  /* ── Mobilis Revolution Postpaid (facture mensuelle, crédit MU) ── */
+  {id:'m12',op:'mobilis',name:'Revolution Postpaid 1500',type:'postpaid',price:1500,data:60,validity:30,dateAdded:'2026-06-29',
+   calls:'Crédit MU flexible (appels/SMS/data)',sms:'Inclus dans le crédit MU',intl:false,badge:null,
+   extras:['Crédit unique 3000 MU (flexible)','Facture mensuelle sans surprise','Extra Unit 1 DA=2 MU','Facebook illimité','4G/5G'],
+   link:'https://www.mobilis.dz/revolution_postpaid'},
   /* ── Djezzy Legend ──────────────────────────────────────── */
   {id:'d1',op:'djezzy',name:'Legend 1 000 DA',type:'prepaid',price:1000,data:15,validity:30,dateAdded:'2026-02-15',
    calls:'Illimités vers Djezzy',sms:'Illimités vers Djezzy',intl:false,badge:null,
@@ -397,6 +433,89 @@ const COMP_OFFERS = [
    calls:'Illimités vers tous réseaux',sms:'Illimités Ooredoo + 200 SMS autres',intl:false,badge:null,
    extras:['4G/5G inclus'],
    link:'https://www.ooredoo.dz/fr/'},
+  /* ── Ooredoo 500 ────────────────────────────────────────── */
+  {id:'o8',op:'ooredoo',name:'Ooredoo 500',type:'prepaid',price:500,data:5,validity:28,dateAdded:'2026-06-29',
+   calls:'Illimités vers Ooredoo + 500 DA crédit tous réseaux',sms:'Via crédit 500 DA',intl:false,badge:null,
+   extras:['500 DA de crédit tous réseaux','Pass longue durée dispo','4G/5G inclus'],
+   link:'https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-500'},
+  /* ── N'YOOZ ─────────────────────────────────────────────── */
+  {id:'o9',op:'ooredoo',name:"N'YOOZ 500",type:'prepaid',price:500,data:5,validity:30,dateAdded:'2026-06-29',
+   calls:'50 min tous réseaux',sms:'50 SMS vers Ooredoo',intl:false,badge:null,
+   extras:['+2 Go bonus (appli)','Snapchat 300 Mo/j','Numéro au choix','4G/5G inclus'],
+   link:'https://www.ooredoo.dz/fr/particuliers/offres-mobiles/n-yooz'},
+  {id:'o10',op:'ooredoo',name:"N'YOOZ 1000",type:'prepaid',price:1000,data:15,validity:30,dateAdded:'2026-06-29',
+   calls:'Illimités Ooredoo + 100 min autres',sms:'—',intl:false,badge:null,
+   extras:['Snapchat 300 Mo/j','Numéro au choix','4G/5G inclus'],
+   link:'https://www.ooredoo.dz/fr/particuliers/offres-mobiles/n-yooz'},
+  {id:'o11',op:'ooredoo',name:"N'YOOZ 1500",type:'prepaid',price:1500,data:30,validity:30,dateAdded:'2026-06-29',
+   calls:'Illimités Ooredoo + 150 min autres',sms:'—',intl:false,badge:null,
+   extras:['Facebook/Messenger illimité','Snapchat 300 Mo/j','4G/5G inclus'],
+   link:'https://www.ooredoo.dz/fr/particuliers/offres-mobiles/n-yooz'},
+  /* ── Ooredoo Scholar (étudiants) ────────────────────────── */
+  {id:'o12',op:'ooredoo',name:'Scholar 500',type:'prepaid',price:500,data:7,validity:28,dateAdded:'2026-06-29',
+   calls:'Illimités vers Ooredoo + 500 DA crédit',sms:'Via crédit',intl:false,badge:'Étudiants',
+   extras:['5 Go + 2 Go bonus (appli)','Offre étudiants','4G/5G inclus'],
+   link:'https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-scholar'},
+  {id:'o13',op:'ooredoo',name:'Scholar 1000',type:'prepaid',price:1000,data:20,validity:28,dateAdded:'2026-06-29',
+   calls:'Illimités vers Ooredoo + 2000 DA crédit',sms:'Via crédit',intl:false,badge:null,
+   extras:['Bonus data (appli)','Offre étudiants','4G/5G inclus'],
+   link:'https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-scholar'},
+  {id:'o14',op:'ooredoo',name:'Scholar 1500',type:'prepaid',price:1500,data:50,validity:28,dateAdded:'2026-06-29',
+   calls:'Illimités vers Ooredoo + 3000 DA crédit',sms:'Via crédit',intl:false,badge:null,
+   extras:['Bonus data (appli)','Offre étudiants','4G/5G inclus'],
+   link:'https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-scholar'},
+  {id:'o15',op:'ooredoo',name:'Scholar 2000',type:'prepaid',price:2000,data:80,validity:28,dateAdded:'2026-06-29',
+   calls:'Illimités vers Ooredoo + 6000 DA crédit',sms:'Via crédit',intl:false,badge:null,
+   extras:['Bonus data (appli)','Offre étudiants','4G/5G inclus'],
+   link:'https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-scholar'},
+  {id:'o16',op:'ooredoo',name:'Scholar 2500',type:'prepaid',price:2500,data:120,validity:28,dateAdded:'2026-06-29',
+   calls:'Illimités vers tous réseaux',sms:'Illimités Ooredoo + 100 SMS autres',intl:false,badge:null,
+   extras:['Offre étudiants','4G/5G inclus'],
+   link:'https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-scholar'},
+  /* ══ INTERNET & BOX (Mobilis) ════════════════════════════════ */
+  /* ── Packs modem (matériel inclus) ──────────────────────────── */
+  {id:'i1',op:'mobilis',cat:'internet',name:'Pack MobiNet',type:'internet',price:9000,data:200,validity:270,dateAdded:'2026-06-29',
+   calls:'Modem WiFi + SIM · jusqu’à 16 appareils',sms:null,intl:false,badge:'Pack modem',
+   extras:['Bonus 200 Go inclus (9 mois)','Recharges : 1500 DA = 60 Go/30j','Boost 30 Go = 500 DA','YouTube illimité après quota','Sans engagement'],
+   link:'https://mobilis.dz/mobinet'},
+  {id:'i2',op:'mobilis',cat:'internet',name:'Pack MobiNet Plus',type:'internet',price:16000,data:300,validity:365,dateAdded:'2026-06-29',
+   calls:'Modem WiFi + SIM · jusqu’à 32 appareils',sms:null,intl:false,badge:'Pack modem',
+   extras:['Bonus 300 Go inclus (12 mois)','Recharges : 1500/3500/6500 DA','Boost 30 Go = 500 DA','YouTube illimité après quota','Sans engagement'],
+   link:'https://mobilis.dz/mobinet_plus'},
+  /* ── Recharges data box MobiNet ─────────────────────────────── */
+  {id:'i3',op:'mobilis',cat:'internet',name:'Recharge MobiNet 60 Go',type:'internet',price:1500,data:60,validity:30,dateAdded:'2026-06-29',
+   calls:'Recharge data (box MobiNet)',sms:null,intl:false,badge:null,
+   extras:['YouTube illimité après quota','Compatible Pack MobiNet / Plus'],
+   link:'https://mobilis.dz/mobinet'},
+  {id:'i4',op:'mobilis',cat:'internet',name:'Recharge MobiNet 200 Go',type:'internet',price:3500,data:200,validity:90,dateAdded:'2026-06-29',
+   calls:'Recharge data (box MobiNet)',sms:null,intl:false,badge:null,
+   extras:['YouTube illimité après quota','Validité 3 mois'],
+   link:'https://mobilis.dz/mobinet'},
+  {id:'i5',op:'mobilis',cat:'internet',name:'Recharge MobiNet 400 Go',type:'internet',price:6500,data:400,validity:180,dateAdded:'2026-06-29',
+   calls:'Recharge data (box MobiNet)',sms:null,intl:false,badge:null,
+   extras:['YouTube illimité après quota','Validité 6 mois'],
+   link:'https://mobilis.dz/mobinet'},
+  /* ── Navigui (SIM data, sans modem) ─────────────────────────── */
+  {id:'i6',op:'mobilis',cat:'internet',name:'Navigui 4G (SIM)',type:'internet',price:300,data:15,validity:180,dateAdded:'2026-06-29',
+   calls:'SIM data 3G/4G (sans modem)',sms:null,intl:false,badge:null,
+   extras:['Bonus 3 Go + Facebook/WhatsApp (30j)','2 Go/mois pendant 6 mois','Data cumulable','Connexion maintenue après quota (débit réduit)'],
+   link:'https://mobilis.dz/naviguiinternet'},
+  {id:'i7',op:'mobilis',cat:'internet',name:'Pass Navigui 10 Go',type:'internet',price:1000,data:10,validity:30,dateAdded:'2026-06-29',
+   calls:'Pass optionnel Navigui',sms:null,intl:false,badge:null,
+   extras:['Cumulable','Activation via *600#'],
+   link:'https://mobilis.dz/naviguiinternet'},
+  {id:'i8',op:'mobilis',cat:'internet',name:'Pass Navigui 25 Go',type:'internet',price:2000,data:25,validity:30,dateAdded:'2026-06-29',
+   calls:'Pass optionnel Navigui',sms:null,intl:false,badge:null,
+   extras:['Cumulable','Activation via *600#'],
+   link:'https://mobilis.dz/naviguiinternet'},
+  {id:'i9',op:'mobilis',cat:'internet',name:'Pass Navigui 80 Go',type:'internet',price:6000,data:80,validity:90,dateAdded:'2026-06-29',
+   calls:'Pass optionnel Navigui',sms:null,intl:false,badge:null,
+   extras:['Validité 3 mois','Activation via *600#'],
+   link:'https://mobilis.dz/naviguiinternet'},
+  {id:'i10',op:'mobilis',cat:'internet',name:'Pass Navigui 300 Go',type:'internet',price:15000,data:300,validity:180,dateAdded:'2026-06-29',
+   calls:'Pass optionnel Navigui',sms:null,intl:false,badge:null,
+   extras:['Validité 6 mois','Activation via *600#'],
+   link:'https://mobilis.dz/naviguiinternet'},
 ];
 
 /* ══ Profils usage ════════════════════════════════════════════ */
@@ -434,9 +553,11 @@ function _fmtDate(iso){
   return d.toLocaleDateString('fr-FR',{day:'numeric',month:'short',year:'numeric'});
 }
 function _filter(){
+  var cat = _C.cat||'mobile';
   return COMP_OFFERS.filter(function(o){
+    if((o.cat||'mobile') !== cat)     return false;
     if(!_C.ops.has(o.op))             return false;
-    if(o.price > _C.budget)           return false;
+    if(_C.budget < 9999 && o.price > _C.budget) return false;
     if(o.data  < _C.data)             return false;
     return true;
   });
@@ -483,7 +604,8 @@ function _card(o, isTop, maxScore, maxData, opInHeader){
     +' class="cv3-arc" data-dash="'+dash+'" data-circ="'+circ+'"/>'
     +'</svg>';
 
-  var validStr = o.validity<30 ? o.validity+'j ⚠️' : '30 jours';
+  var isNet = (o.cat||'mobile')==='internet';
+  var validStr = o.validity<30 ? o.validity+'j ⚠️' : o.validity<=31 ? '30 jours' : Math.round(o.validity/30)+' mois';
 
   return '<div class="cv3-card'+(sel?' sel':'')+'" style="--oc:'+op.color+';--oc-rgb:'+op.rgb+'" data-id="'+o.id+'">'
     +'<div class="cv3-cglow"></div>'
@@ -511,13 +633,13 @@ function _card(o, isTop, maxScore, maxData, opInHeader){
     +'<div class="cv3-dbwrap">'
       +'<div class="cv3-dbrow">'
         +'<span class="cv3-dbdata">'+o.data+'<span class="cv3-dbunit">Go</span></span>'
-        +'<span class="cv3-dblbl">data 4G/5G</span>'
+        +'<span class="cv3-dblbl">'+(isNet?'Internet 4G':'data 4G/5G')+'</span>'
       +'</div>'
       +'<div class="cv3-db"><div class="cv3-dbfill" data-pct="'+dpct+'"></div></div>'
     +'</div>'
     /* Specs */
     +'<div class="cv3-specs">'
-      +'<div class="cv3-spec"><span class="cv3-spec-i">📞</span><span class="cv3-spec-v">'+o.calls+'</span></div>'
+      +'<div class="cv3-spec"><span class="cv3-spec-i">'+(isNet?'🌐':'📞')+'</span><span class="cv3-spec-v">'+o.calls+'</span></div>'
       +(o.sms?'<div class="cv3-spec"><span class="cv3-spec-i">💬</span><span class="cv3-spec-v">'+o.sms+'</span></div>':'')
     +'</div>'
     /* Extras */
@@ -755,7 +877,7 @@ function _render(){
   }
 
   /* Results */
-  res.innerHTML = newBanner + ((_C.view==='battle')
+  res.innerHTML = newBanner + ((_C.view==='battle' && (_C.cat||'mobile')!=='internet')
     ? _battleView(filtered, maxScore, maxData)
     : _gridView(filtered, maxScore, maxData));
 
@@ -846,7 +968,7 @@ function _buildHTML(){
           +'<div class="cv3-oplist" id="cv3-oplist">'
             +['mobilis','djezzy','ooredoo'].map(function(k){
                var op=COMP_OPS[k];
-               var n=COMP_OFFERS.filter(function(o){return o.op===k;}).length;
+               var n=COMP_OFFERS.filter(function(o){return o.op===k && (o.cat||'mobile')==='mobile';}).length;
                return '<div class="cv3-opchk on" data-op="'+k+'" style="--oc:'+op.color+';--oc-rgb:'+op.rgb+'" onclick="window._cv3ToggleOp(\''+k+'\',this)">'
                  +'<div class="cv3-opdot"></div>'
                  +'<span class="cv3-opchk-name">'+op.name+'</span>'
@@ -897,6 +1019,10 @@ function _buildHTML(){
 
       /* MAIN */
       +'<main class="cv3-main">'
+        +'<div class="cv3-modebar">'
+          +'<button class="cv3-modebtn on" id="cv3-mode-mobile" onclick="window._cv3Mode(\'mobile\',this)">📱 Forfaits Mobile</button>'
+          +'<button class="cv3-modebtn" id="cv3-mode-internet" onclick="window._cv3Mode(\'internet\',this)">🌐 Internet &amp; Box</button>'
+        +'</div>'
         +'<div class="cv3-rhead">'
           +'<div class="cv3-cnt" id="cv3-cnt"></div>'
         +'</div>'
@@ -998,8 +1124,31 @@ window._cv3FilterOp = function(op){
   _render();
 };
 
+window._cv3Mode = function(cat, btn){
+  _C.cat = cat;
+  /* reset des filtres incompatibles entre catégories (budget mobile ≠ prix box) */
+  _C.budget = 9999; _C.data = 0; _C.profile = null;
+  /* vue grille pour l'internet (pas de bataille par opérateur), bataille pour le mobile */
+  _C.view = (cat==='internet') ? 'grid' : 'battle';
+  document.querySelectorAll('.cv3-vbtn').forEach(function(b){
+    b.classList.toggle('on', _C.view==='grid' ? /Grille/.test(b.textContent) : /Bataille/.test(b.textContent));
+  });
+  /* boutons de mode */
+  document.querySelectorAll('.cv3-modebtn').forEach(function(b){b.classList.remove('on');});
+  if(btn) btn.classList.add('on');
+  /* réinitialiser l'UI des pills budget/data */
+  document.querySelectorAll('#cv3-budget .cv3-pill').forEach(function(b){b.classList.toggle('on', b.dataset.v==='9999');});
+  document.querySelectorAll('#cv3-data .cv3-pill').forEach(function(b){b.classList.toggle('on', b.dataset.v==='0');});
+  document.querySelectorAll('.cv3-profile').forEach(function(b){b.classList.remove('active');});
+  /* réactiver tous les opérateurs */
+  _C.ops = new Set(['mobilis','djezzy','ooredoo']);
+  document.querySelectorAll('.cv3-opchk').forEach(function(b){b.classList.add('on');});
+  _updateHeroBalls();
+  _render();
+};
 window._cv3Reset = function(){
-  _C = { budget:9999, data:0, type:'any', ops:new Set(['mobilis','djezzy','ooredoo']), view:'battle', sort:'score', duel:[], profile:null };
+  _C = { budget:9999, data:0, type:'any', cat:'mobile', ops:new Set(['mobilis','djezzy','ooredoo']), view:'battle', sort:'score', duel:[], profile:null };
+  document.querySelectorAll('.cv3-modebtn').forEach(function(b){b.classList.toggle('on', b.id==='cv3-mode-mobile');});
   document.querySelectorAll('.cv3-pill').forEach(function(b){b.classList.remove('on');});
   var b9=document.querySelector('#cv3-budget .cv3-pill[data-v="9999"]');
   var d0=document.querySelector('#cv3-data .cv3-pill[data-v="0"]');

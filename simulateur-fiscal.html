@@ -62,6 +62,11 @@
         canvas {
             transform: rotateX(10deg);
         }
+        /* Mobile : la piste de grille doit pouvoir rétrécir (sinon la carte
+           .glass-card gonfle la colonne au-delà de l'écran → débordement) */
+        @media (max-width: 1023px) {
+            .grid.lg\:grid-cols-2 { grid-template-columns: minmax(0, 1fr); }
+        }
     </style>
 </head>
 <body class="p-4 md:p-10">
