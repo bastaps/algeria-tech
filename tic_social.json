@@ -721,6 +721,24 @@
       "source_type": "facebook"
     },
     {
+      "id": "5062a04e014e7817",
+      "source_name": "Algérie Poste",
+      "source_short": "AP",
+      "source_color": "#F9A825",
+      "category": "Infrastructure",
+      "category_icon": "✉️",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQX3pyZmp0MTdxZ25JclpBaHJOSXZzYi1kN2s2c2R1WE9PV0ZvdXB1SVlIVHpaQXZjQl9WcjhjSHdzZ1R2M1RSdXE5aXJtWGp4UENWajdFOGMtYVRndTZxMXdrbi1iM3ZlNGFVOTVGNFpXUG5EVDRMc0QzcTRXY3BRZWstMnFMTzU1WEoxbW5Od0l4WTJaODFjcW5ETQ?oc=5",
+      "image": "",
+      "date": "Thu, 02 Jul 2026 03:15:54 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Mondial 2026: Suisse - Algérie: le match poste par poste - RFJ — Mondial 2026: Suisse - Algérie: le match poste par poste RFJ",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "b509de3dd92b734c",
       "source_name": "Algérie Télécom",
       "source_short": "AT",
@@ -1057,24 +1075,6 @@
       "lang_source": "ar",
       "text": {
         "ar": "اليوم العالمي للتبرع بالدم | عمال اتصالات الجزائر في مبادرة إنسانية نبيلة ❤️",
-        "fr": "",
-        "en": ""
-      },
-      "source_type": "youtube"
-    },
-    {
-      "id": "9d4bcee1051879ac",
-      "source_name": "Algérie Télécom",
-      "source_short": "AT",
-      "source_color": "#0055A4",
-      "category": "Infrastructure",
-      "category_icon": "📡",
-      "url": "https://www.youtube.com/watch?v=2PbfoTenr6Y",
-      "image": "",
-      "date": "2026-06-15T20:02:36+00:00",
-      "lang_source": "ar",
-      "text": {
-        "ar": "مركز المهارات لاتصالات الجزائر بسعيدة | مشروع طموح لخدمة الابتكار والتحول الرقمي",
         "fr": "",
         "en": ""
       },
@@ -1437,6 +1437,42 @@
         "fr": "« Mines intelligentes » : Huawei partage son expertise avec l’Algérie - الخبر — « Mines intelligentes » : Huawei partage son expertise avec l’Algérie الخبر",
         "ar": "",
         "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "25c15d631187cd02",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/adobe-et-linkedin-lancent-une-formation-ia-gratuite-pour-les-marketeurs-498137.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 02 Jul 2026 06:00:08 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Adobe et LinkedIn lancent une formation IA gratuite pour les marketeurs — Baptisée « AI Essentials for Marketers », l'initiative propose des parcours gratuits en 47 langues, structurés autour de quatre métiers : marketing digital, contenu et créativité, social et communication, ainsi que données et analytique.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f23d1aa63f1a4526",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/01/indian-tech-tycoon-bets-30m-to-build-an-ai-alternative-to-microsoft-office/",
+      "image": "",
+      "date": "Thu, 02 Jul 2026 05:30:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Indian tech tycoon bets $30M of his own money to build AI alternative to Microsoft Office — Neo is Bhavin Turakhia’s fifth venture and his latest involving enterprise software. This time he's taking on Microsoft Office, Google Apps with AI.",
+        "ar": "",
+        "fr": ""
       },
       "source_type": "rss"
     },
@@ -5363,45 +5399,9 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "08cf41587444408e",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/comment-lia-a-permis-de-mettre-en-lumiere-les-liens-entre-amadey-et-stealc-497667.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Fri, 26 Jun 2026 05:50:43 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Comment l’IA a permis de mettre en lumière les liens entre Amadey et StealC — Ces deux programmes malveillants partageaient une infrastructure commune, qui vient d’être dévoilée.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "11550c11b6194e9e",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/assurtech-alan-atteint-une-valorisation-de-55-milliards-deuros-497719.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Fri, 26 Jun 2026 05:43:34 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "AssurTech : Alan atteint une valorisation de 5,5 milliards d'euros — En levant 400 millions d'euros auprès de Prosus, la licorne française Alan atteint une valorisation record. Portée par un modèle « AI-native » aux gains de productivité spectaculaires, l'assurtech doit cependant manœuvrer face aux critiques sur sa dépendance à l'infrastructure cloud américaine d'AWS",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-07-02T02:05:59.640606+00:00",
+  "lastUpdated": "2026-07-02T06:30:03.768042+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
