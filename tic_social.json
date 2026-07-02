@@ -721,6 +721,24 @@
       "source_type": "facebook"
     },
     {
+      "id": "9fe3fce9bf4f440a",
+      "source_name": "Algérie Poste",
+      "source_short": "AP",
+      "source_color": "#F9A825",
+      "category": "Infrastructure",
+      "category_icon": "✉️",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOTmlSXzlIenA4ZkNjV0xQQXlLOEdhZ2lmVVFWX0J5dGg4YzM3R2loZEpPbGpldDh3aXFPQkxZT0FpR3g0bXFkTjl5ZTRHcjhmUDRpTmFIUVdCYUtXZ2NQd0xOcEhqN08xbWJiem1aanhJeE5TWkZGNXdYUnhUV241WWJrNmxyMHdVZ0pLdWtGOVpuUnY0MDFiT3BacUlQWDQyNHpkc01UeWUtbGxYY3RCdHRJcmIteFppRlppNFdiaznSAcgBQVVfeXFMUHpoM0xpNXcwZXAzRHV4RzhZMnp3a1BGaXRHdTBBSE1lV2ZYZC1DNXlic0lHZ2VYQW9sdjVPY2xTM1RpeHRZZWhDSkE0ZFU4OHpEcE5kY2V0NGlOTVZBRnllOG8tWEhaM3VzcmRLamRuamVqN18xaXkwRW9VcTU1SzE1WHpDWlZpYkFOeTd5TnprRmp3WkJfS0V3QklWVmk3UXp5VGJqVEVWYkpNX0J2U2FZUTNVT1dBcFBIRWJfbU5iWnRaSzQ1bTU?oc=5",
+      "image": "",
+      "date": "Thu, 02 Jul 2026 11:24:23 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Algérie : l’apostille entrera en vigueur à partir du 9 juillet pour plusieurs documents officiels - Le Matin d'Algérie — Algérie : l’apostille entrera en vigueur à partir du 9 juillet pour plusieurs documents officiels Le Matin d'Algérie",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "5062a04e014e7817",
       "source_name": "Algérie Poste",
       "source_short": "AP",
@@ -1061,24 +1079,6 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "f8263749eec6472b",
-      "source_name": "Algérie Télécom",
-      "source_short": "AT",
-      "source_color": "#0055A4",
-      "category": "Infrastructure",
-      "category_icon": "📡",
-      "url": "https://www.youtube.com/watch?v=-FK1Oy3DnPo",
-      "image": "",
-      "date": "2026-06-18T18:35:47+00:00",
-      "lang_source": "ar",
-      "text": {
-        "ar": "مراكز المهارات لاتصالات الجزائر | فضاءات مجانية للإبداع وتطوير المهارات الرقمية",
-        "fr": "",
-        "en": ""
-      },
-      "source_type": "youtube"
     },
     {
       "id": "fc627b1956201f38",
@@ -1437,6 +1437,78 @@
         "fr": "« Mines intelligentes » : Huawei partage son expertise avec l’Algérie - الخبر — « Mines intelligentes » : Huawei partage son expertise avec l’Algérie الخبر",
         "ar": "",
         "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "81736f187fcb81e7",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/02/thiel-capitals-jack-selby-nabs-stakes-in-hot-startups-like-etched-through-arizona-connections/",
+      "image": "",
+      "date": "Thu, 02 Jul 2026 21:57:10 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Thiel Capital’s Jack Selby nabs stakes in hot startups like Etched through Arizona connections — Selby's VC firm Copper Sky Capital is currently raising a $300 million second fund, according to a regulatory filing.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "b15817faca23105f",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/02/iqm-europes-first-public-quantum-company-admits-the-future-of-the-tech-is-uncertain/",
+      "image": "",
+      "date": "Thu, 02 Jul 2026 20:42:48 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "IQM, Europe’s first public quantum company, admits the future of the tech is uncertain — IQM, a full-stack quantum company out of Finland, went public on the Nasdaq today at a valuation of about $1.9 billion.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f4b4508296004a84",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/02/jersey-mikes-ipo-illustrates-how-bad-the-ai-hype-has-become/",
+      "image": "",
+      "date": "Thu, 02 Jul 2026 20:11:59 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Jersey Mike’s IPO illustrates how bad the AI hype has become — Just for kicks, I took a look at Jersey Mike's IPO documents. Surely a sandwich shop would have no need to mention AI. But lo and behold.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "5e09c7f5462328eb",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/02/a-warning-sign-about-ais-real-cost-courtesy-of-google-and-amazon/",
+      "image": "",
+      "date": "Thu, 02 Jul 2026 19:14:46 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "A warning sign about AI’s real cost, courtesy of Google and Amazon — AI has made it a lot harder for tech companies like Amazon and Google to deliver on their net-zero pledges.",
+        "ar": "",
+        "fr": ""
       },
       "source_type": "rss"
     },
@@ -5327,81 +5399,9 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "c2fb4248ef772b12",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/windows-11-et-8-go-de-ram-le-grand-retropedalage-de-microsoft-497807.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Fri, 26 Jun 2026 16:11:50 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Windows 11 et 8 Go de RAM : Le grand rétropédalage de Microsoft — Après avoir imposé les 16 Go de RAM comme standard pour l'ère de l'IA, Microsoft change de discours et qualifie désormais les 8 Go de suffisants pour Windows 11. Un revirement opportuniste, dicté par la pression d'Apple et l'explosion des coûts de la mémoire.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "45868d0482ec660e",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/pourquoi-bercy-a-debranche-lia-dalibaba-du-tresor-497805.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Fri, 26 Jun 2026 15:52:59 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Pourquoi Bercy a débranché l'IA d'Alibaba du Trésor — L'expérimentation du modèle d'intelligence artificielle chinois Qwen à la direction générale du Trésor a été interrompue cette semaine. En cause : des biais idéologiques marqués. Ce couac met en lumière les risques géopolitiques et de gouvernance liés au choix des LLM d'entreprise.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "b96da9c599d14d63",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/26/xprize-founder-says-humans-behave-better-when-theyre-being-watched/",
-      "image": "",
-      "date": "Fri, 26 Jun 2026 15:46:05 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Xprize founder says ‘humans behave better when they’re being watched’ — Peter Diamandis is the latest tech executive to argue that global surveillance will make the world a better place, following Larry Ellison's comments in 2024.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "7e430b2f2ba14683",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/cloud-1370/aws-azure-dma-228040",
-      "image": "",
-      "date": "Fri, 26 Jun 2026 15:45:58 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "L’UE veut soumettre AWS et Azure au DMA : l’IA a compté — Au-delà des éléments déjà pointés au lancement des enquêtes de marché fin 2025, les écosystèmes IA ont joué dans la décision de la Commission européenne. The post L’UE veut soumettre AWS et Azure au DMA : l’IA a compté appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-07-02T19:07:29.785951+00:00",
+  "lastUpdated": "2026-07-02T21:58:17.811489+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
