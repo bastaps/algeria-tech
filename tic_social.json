@@ -739,6 +739,24 @@
       "source_type": "rss"
     },
     {
+      "id": "60659f3763a0ee0c",
+      "source_name": "Algérie Poste",
+      "source_short": "AP",
+      "source_color": "#F9A825",
+      "category": "Infrastructure",
+      "category_icon": "✉️",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPdk8wb3YxWUU3SFQ1VE9QOE1SZXJHSDZ1ZHpNenVqNElYSVZ1dUZ0Q2swWFBtMi0wenF0bHZTcFQtU3B6RjdyaWZsWVktZ0h5NDBfbXhBOEZJSHdlbzJkTUUwSUwwdlFvcjh0WTZQNFhoWWg4VmdQMHNuMTV6UWdtdG92SGhDUQ?oc=5",
+      "image": "",
+      "date": "Thu, 02 Jul 2026 03:00:00 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Mondial 2026 : Suisse - Algérie, comparaison poste par poste - La Télé — Mondial 2026 : Suisse - Algérie, comparaison poste par poste La Télé",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "b509de3dd92b734c",
       "source_name": "Algérie Télécom",
       "source_short": "AT",
@@ -1061,24 +1079,6 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "54c0d02fc41395fb",
-      "source_name": "Algérie Télécom",
-      "source_short": "AT",
-      "source_color": "#0055A4",
-      "category": "Infrastructure",
-      "category_icon": "📡",
-      "url": "https://www.youtube.com/watch?v=o_NfW4L55GU",
-      "image": "",
-      "date": "2026-06-16T17:16:39+00:00",
-      "lang_source": "ar",
-      "text": {
-        "ar": "اليوم العالمي للتبرع بالدم | عمال اتصالات الجزائر في مبادرة إنسانية نبيلة ❤️",
-        "fr": "",
-        "en": ""
-      },
-      "source_type": "youtube"
     },
     {
       "id": "fc627b1956201f38",
@@ -5401,7 +5401,7 @@
       "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-07-02T06:30:03.768042+00:00",
+  "lastUpdated": "2026-07-02T11:26:01.726426+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
