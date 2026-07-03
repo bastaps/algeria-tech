@@ -1441,6 +1441,42 @@
       "source_type": "rss"
     },
     {
+      "id": "f5e18ba468bebc67",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/03/as-the-browser-wars-heat-up-here-are-the-hottest-alternatives-to-chrome-and-safari-in-2026/",
+      "image": "",
+      "date": "Fri, 03 Jul 2026 18:43:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "The browser wars aren’t about search anymore — here are the best alternatives to Chrome and Safari — We’ve compiled an overview of some of the top alternative browsers available today aiming to challenge Chrome and Safari.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "a7b1f3a138930754",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/data-ia-1372/dsml-magic-quadrant-2026-228140",
+      "image": "",
+      "date": "Fri, 03 Jul 2026 15:29:38 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Data science : l’IA, facteur de décentralisation — Favorisant le ciblage de davantage de profils d'utilisateurs, l'IA contribue à la décentralisation des activités de data science. The post Data science : l’IA, facteur de décentralisation appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "1416a0321f2c1a83",
       "source_name": "Algérie Éco",
       "source_short": "AEC",
@@ -5363,52 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "4591e304cab91d64",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/06/26/air-algerie-lance-la-premiere-liaison-aerienne-entre-alger-et-luanda/",
-      "image": "",
-      "date": "Fri, 26 Jun 2026 19:15:08 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Air Algérie lance la première liaison aérienne entre Alger et Luanda — Le Groupe Air Algérie a annoncé le lancement de la première liaison aérienne reliant Alger à Luanda, capitale de l’Angola, à compter de ce vendredi 26 juin, « dans le cadre de sa stratégie visant à renforcer sa présence en Afrique et à élargir son réseau international. » « Cette nouvelle liaison aér",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "ad1f5403f5219038",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/26/novak-djokovic-has-a-new-job-advisor-to-private-equity-firm-general-atlantic/",
-      "image": "",
-      "date": "Fri, 26 Jun 2026 19:13:40 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Novak Djokovic has a new job —  advisor to private equity firm General Atlantic — General Atlantic has tapped tennis legend Novak Djokovic to serve as a global strategic advisor.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-07-03T13:39:32.791136+00:00",
+  "lastUpdated": "2026-07-03T20:14:39.655966+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Médias TIC": 61,
-    "Tech International": 159
+    "Tech International": 160,
+    "Médias TIC": 60
   },
   "total": 300
 }
