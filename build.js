@@ -48,7 +48,9 @@ function parseFrontmatter(text, fileName) {
         pdf:       get('pdf'),
         extrait:   get('extrait'),
         rawContent: content,   // Markdown brut — parsé côté client à la demande
-        tags
+        tags,
+        type:      get('type'),      // 'breve' = espace Brèves, 'communique_officiel' = Hub Opérateurs
+        position:  get('position')   // '1'/'2' = épinglé en Une, sinon tri chronologique
     };
 }
 
@@ -72,6 +74,17 @@ articles.sort((a, b) => {
     const db = new Date(`${b.date}T${b.heure || '00:00'}`);
     return db - da;
 });
+
+// ── Épinglage manuel en Une : un article marqué position "1" ou "2"
+// passe devant le tri chronologique normal (même logique que server.js).
+{
+    const pinned1 = articles.find(a => a.position === '1');
+    const pinned2 = articles.find(a => a.position === '2' && a !== pinned1);
+    const rest = articles.filter(a => a !== pinned1 && a !== pinned2);
+    const ordered = [pinned1, pinned2, ...rest].filter(Boolean);
+    articles.length = 0;
+    articles.push(...ordered);
+}
 
 // ── Écriture articles.json ────────────────────────────────────
 fs.writeFileSync(OUTPUT, JSON.stringify(articles), 'utf8');
