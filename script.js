@@ -125,12 +125,28 @@ function toggleMobileMenu() {
 
 // ===== CONFIGURATION GLOBALE =====
 let allArticles = [];
+let breveArticles = []; // articles publiés en "Brèves" (n'apparaissent pas en Une)
 const ITEMS_PER_PAGE = 6;
+const BREVES_PER_PAGE = 5;
+let brevesPage = 1;
 let currentPage = 1;
 let currentFilter = 'all';
 let currentTag = null;
 let articleViews = JSON.parse(localStorage.getItem('articleViews') || '{}');
 let currentEditingId = null;
+// Un article peut vivre dans allArticles (flux principal) ou breveArticles (espace Brèves)
+function findArticleById(id) { return allArticles.find(a => a.id == id) || breveArticles.find(a => a.id == id); }
+
+// Après publication/suppression : purge le cache local (localStorage) et le cache du
+// Service Worker (stale-while-revalidate sur articles-list.json) pour que le prochain
+// chargement voie immédiatement les données à jour au lieu d'une copie périmée.
+function invalidateArticlesCache() {
+    localStorage.removeItem('at_articles_cache');
+    localStorage.removeItem('at_breves_cache');
+    if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+        navigator.serviceWorker.controller.postMessage('CLEAR_CACHE');
+    }
+}
 let isResetting = false;
 let _pendingRoute = null; // route différée si articles pas encore chargés
 let _skipPush    = false; // mutex : évite le double-pushState sur popstate
@@ -241,6 +257,12 @@ async function loadArticles() {
             allArticles.forEach(a => {
                 a.views = articleViews[a.id] || Math.floor(Math.random() * 500) + 50;
             });
+            // Les Brèves ont leur propre clé de cache (exclues de at_articles_cache) —
+            // sans ça, ce rendu instantané les affiche toujours vides.
+            try {
+                breveArticles = JSON.parse(localStorage.getItem('at_breves_cache') || '[]');
+                breveArticles.forEach(a => { a.views = articleViews[a.id] || Math.floor(Math.random() * 500) + 50; });
+            } catch (e) { breveArticles = []; }
             cachedIds = allArticles.map(a => a.id).join(',');
             _renderAll(allArticles);
         } catch (e) {
@@ -261,16 +283,23 @@ async function loadArticles() {
         if (!res.ok) throw new Error('liste des articles introuvable');
         const data = await res.json();
 
+        const _mapArt = a => ({
+            ...a,
+            image: a.image && !a.image.startsWith('http') && !a.image.startsWith('/') ? '/' + a.image : a.image,
+            views: articleViews[a.id] || Math.floor(Math.random() * 500) + 50
+        });
+
         allArticles = data
-            .filter(a => a.type !== 'communique_officiel')  // réservés au Hub Opérateurs
-            .map(a => ({
-                ...a,
-                image: a.image && !a.image.startsWith('http') && !a.image.startsWith('/') ? '/' + a.image : a.image,
-                views: articleViews[a.id] || Math.floor(Math.random() * 500) + 50
-            }));
+            .filter(a => a.type !== 'communique_officiel' && a.type !== 'breve')  // réservés au Hub Opérateurs / à l'espace Brèves
+            .map(_mapArt);
+
+        breveArticles = data
+            .filter(a => a.type === 'breve')
+            .map(_mapArt);
 
         // Mise en cache pour la prochaine visite
         localStorage.setItem('at_articles_cache', JSON.stringify(allArticles));
+        localStorage.setItem('at_breves_cache', JSON.stringify(breveArticles));
 
         // Re-render uniquement si la liste d'articles a changé.
         // Évite le double-render quand le SW sert articles.json depuis son cache
@@ -278,6 +307,7 @@ async function loadArticles() {
         // et l'animation CSS (fadeInUp) se rejoue → effet de vibration visible.
         const newIds = allArticles.map(a => a.id).join(',');
         if (newIds !== cachedIds) _renderAll(allArticles);
+        else renderBreves(); // Brèves reste à resynchroniser avec le réseau même si le flux principal est inchangé
 
     } catch (e) {
         console.error('articles.json indisponible:', e);
@@ -321,6 +351,7 @@ function _renderAll(arts) {
     renderGrid(arts.slice(0, ITEMS_PER_PAGE));
     renderTicker(arts);
     renderTrending();
+    renderBreves();
     renderTags();
     renderPagination(arts);
     initCounters();
@@ -449,7 +480,7 @@ function renderTicker(arts) {
 
 // ===== OUVERTURE D'UN ARTICLE =====
 window.openArticle = async function(id) {
-    const art = allArticles.find(a => a.id == id);
+    const art = findArticleById(id);
     if (!art) return;
     currentEditingId = id;
     const adminBtn = document.getElementById('adminBtn');
@@ -1543,6 +1574,41 @@ function renderTrending() {
     if(list) list.innerHTML = sorted.map((a,i) => `<li class="trending-item" onclick="openArticle('${a.id}')"><span class="trending-number">${i+1}</span><div class="trending-content"><h4>${a.titre}</h4><span>${a.views} vues</span></div></li>`).join('');
 }
 
+function renderBreves(page) {
+    if (page) brevesPage = page;
+    const list = document.getElementById('brevesList');
+    const pag = document.getElementById('brevesPagination');
+    if (!list) return;
+
+    if (!breveArticles.length) {
+        list.innerHTML = '<li class="trending-item" style="cursor:default;"><div class="trending-content"><span>Aucune brève pour le moment.</span></div></li>';
+        if (pag) pag.innerHTML = '';
+        return;
+    }
+
+    const totalPages = Math.ceil(breveArticles.length / BREVES_PER_PAGE);
+    if (brevesPage > totalPages) brevesPage = totalPages;
+    const start = (brevesPage - 1) * BREVES_PER_PAGE;
+    const pageItems = breveArticles.slice(start, start + BREVES_PER_PAGE);
+
+    list.innerHTML = pageItems.map(a =>
+        `<li class="trending-item" onclick="openArticle('${a.id}')"><div class="trending-content"><h4>${a.titre}</h4><span>${a.date} à ${a.heure} · ${a.views} vues</span></div></li>`
+    ).join('');
+
+    if (pag) {
+        pag.innerHTML = '';
+        if (totalPages > 1) {
+            for (let i = 1; i <= totalPages; i++) {
+                const btn = document.createElement('button');
+                btn.textContent = i;
+                btn.className = i === brevesPage ? 'active' : '';
+                btn.onclick = () => renderBreves(i);
+                pag.appendChild(btn);
+            }
+        }
+    }
+}
+
 function renderTags() {
     const counts = {};
     allArticles.forEach(a => a.tags?.forEach(t => counts[t] = (counts[t] || 0) + 1));
@@ -1608,8 +1674,8 @@ function hubSetStatus(btnId, state) {
     if (!btn) return;
     const icon = btn.querySelector('i');
     const label = btn.querySelector('span');
-    const origTexts = { hubPdfBtn:'PDF', hubTranslateBtn:'Traduire', hubGenBtn:'Générer', hubFillBtn:'Remplir' };
-    const origIcons = { hubPdfBtn:'fas fa-file-pdf', hubTranslateBtn:'fas fa-language', hubGenBtn:'fas fa-pen-nib', hubFillBtn:'fas fa-fill-drip' };
+    const origTexts = { hubUrlBtn:'Importer', hubPdfBtn:'PDF', hubTranslateBtn:'Traduire', hubGenBtn:'Générer', hubFillBtn:'Remplir' };
+    const origIcons = { hubUrlBtn:'fas fa-globe', hubPdfBtn:'fas fa-file-pdf', hubTranslateBtn:'fas fa-language', hubGenBtn:'fas fa-pen-nib', hubFillBtn:'fas fa-fill-drip' };
     if (state === 'loading') {
         btn.disabled = true; btn.classList.add('hub-btn-loading');
         if (icon) icon.className = 'fas fa-spinner fa-spin';
@@ -1633,6 +1699,39 @@ function hubSetStatus(btnId, state) {
         }, 2500);
     }
 }
+
+// Importer le contenu d'une URL source → hubSmartBox (miroir de fetchFromUrl de smart-ingest.js)
+window.hubFetchFromUrl = async function() {
+    const url = document.getElementById('sourceUrl').value.trim();
+    if (!url || !url.startsWith('http')) return showToast("Veuillez saisir une URL valide (commençant par http...)");
+    hubSetStatus('hubUrlBtn', 'loading');
+    try {
+        const r = await fetch(`${HUB_API}/api/fetch-url`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ url })
+        });
+        const d = await r.json();
+        if (!r.ok) throw new Error(d.error || 'Erreur serveur');
+
+        const box = document.getElementById('hubSmartBox');
+        box.value = d.text;
+        document.getElementById('hubCharCount').textContent = d.text.length + ' caractères';
+
+        const badge = document.getElementById('hubSourceBadge');
+        badge.textContent = '🔗 Source : ' + url;
+        badge.classList.remove('hidden');
+
+        if (d.title && !document.getElementById('titre').value) {
+            document.getElementById('titre').value = d.title;
+        }
+
+        hubSetStatus('hubUrlBtn', 'success');
+    } catch (e) {
+        showToast("Erreur lors de l'import : " + e.message);
+        hubSetStatus('hubUrlBtn', 'error');
+    }
+};
 
 // PDF → hubSmartBox
 window.hubTranscribePDF = async function(input) {
@@ -1726,7 +1825,7 @@ window.hubGenerate = async function() {
         const r = await fetch(`${HUB_API}/api/smart-generate`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ text: source })
+            body: JSON.stringify({ text: source, breve: document.getElementById('isBreve')?.checked || false })
         });
         const d = await r.json();
         if (!r.ok) throw new Error(d.error || 'Erreur inconnue');
@@ -1749,14 +1848,18 @@ window.hubFill = function() {
     if (d.tags)    document.getElementById('tags').value    = Array.isArray(d.tags) ? d.tags.join(', ') : d.tags;
     if (d.contenu) document.getElementById('contenu').value = `# ${d.titre || ''}\n\n${d.lead || ''}\n\n${d.contenu}`;
     if (d.video)   document.getElementById('video').value   = d.video;
-    // Détection auto catégorie
+    // Détection auto catégorie (fallback si l'IA ne fournit pas déjà d.categorie)
     const txt = ((d.contenu || '') + ' ' + (d.titre || '')).toLowerCase();
+    const mentionsAlgerie = /alg[ée]rie|wilaya|alger\b|oran\b|constantine\b|arpce|anpt/.test(txt);
     const cat = txt.includes('djezzy')||txt.includes('mobilis')||txt.includes('ooredoo')||txt.includes('télécom') ? 'Télécoms'
               : txt.includes('mobile')||txt.includes('smartphone') ? 'Mobile'
               : txt.includes('startup')||txt.includes('incubateur') ? 'Startups'
-              : txt.includes('entreprise')||txt.includes('société') ? 'Entreprises'
-              : txt.includes('innovation')||txt.includes('numérique') ? 'Innovation'
-              : 'Algérie';
+              : /\bia\b|intelligence artificielle|chatgpt|llm\b|machine learning/.test(txt) ? 'IA'
+              : txt.includes('fintech')||txt.includes('paiement électronique')||txt.includes('banque en ligne') ? 'Fintech'
+              : mentionsAlgerie && (txt.includes('entreprise')||txt.includes('société')) ? 'Entreprises'
+              : mentionsAlgerie && (txt.includes('innovation')||txt.includes('numérique')) ? 'Innovation'
+              : mentionsAlgerie ? 'Algérie'
+              : 'Monde';
     document.getElementById('categorie').value = d.categorie || cat;
     hubSetStatus('hubFillBtn', 'success');
     showToast('Formulaire rempli ! Vérifiez et ajustez avant de déployer.');
@@ -1776,7 +1879,7 @@ window.toggleAdminPanel = async function() {
     modal.classList.add('show');
 
     if (currentEditingId) {
-        const art = allArticles.find(a => a.id == currentEditingId);
+        const art = findArticleById(currentEditingId);
         await ensureRawContent(art); // corps chargé à la demande (liste allégée)
         document.getElementById('titre').value = art.titre;
         document.getElementById('categorie').value = art.categorie;
@@ -1786,7 +1889,9 @@ window.toggleAdminPanel = async function() {
         document.getElementById('video').value = art.video || '';
         document.getElementById('tags').value = art.tags.join(', ');
         document.getElementById('contenu').value = art.rawContent || '';
-        
+        document.getElementById('position').value = art.position || '';
+        document.getElementById('isBreve').checked = art.type === 'breve';
+
         if (document.getElementById('imagePreview')) {
             document.getElementById('imagePreview').innerHTML = `<p style="font-size:0.8rem;margin-bottom:5px;">Image actuelle:</p><img src="${art.image}" style="max-width:100%; border-radius:8px;">`;
         }
@@ -1852,6 +1957,8 @@ window.submitArticle = async function(e) {
         formData.append('contenu',   document.getElementById('contenu').value);
         formData.append('video',     document.getElementById('video').value);
         formData.append('source',    document.getElementById('sourceUrl')?.value || '');
+        formData.append('position',  document.getElementById('position')?.value || '');
+        formData.append('type',      document.getElementById('isBreve')?.checked ? 'breve' : '');
 
         // Correction: AccÃ¨s sÃ©curisÃ© aux fichiers pour Ã©viter les crashes si l'input est manquant
         const imgInput = document.getElementById('image');
@@ -1871,7 +1978,7 @@ window.submitArticle = async function(e) {
         }
 
         if (currentEditingId) {
-            const art = allArticles.find(a => a.id == currentEditingId);
+            const art = findArticleById(currentEditingId);
             if (art) { // Correction: vÃ©rification que l'article existe
                 formData.append('existingImage', art.image);
                 if (art.pdf) formData.append('existingPdf', art.pdf);
@@ -1883,6 +1990,7 @@ window.submitArticle = async function(e) {
         const response = await fetch(`${API_BASE}/api/create-article`, { method: 'POST', body: formData });
         if (response.ok) {
             showToast('âœ… Article enregistrÃ© !');
+            invalidateArticlesCache();
             setTimeout(() => window.location.reload(), 2000);
         } else {
             const errText = await response.text();
@@ -1899,7 +2007,7 @@ async function deleteArticle() {
     try {
         showToast('â ³ Suppression...');
         const response = await fetch(`${API_BASE}/api/delete-article/${currentEditingId}`, { method: 'DELETE' });
-        if (response.ok) { showToast('âœ… SupprimÃ© !'); setTimeout(() => window.location.reload(), 2000); }
+        if (response.ok) { showToast('âœ… SupprimÃ© !'); invalidateArticlesCache(); setTimeout(() => window.location.reload(), 2000); }
     } catch (e) { showToast('â Œ Erreur rÃ©seau'); }
 }
 
@@ -2586,7 +2694,7 @@ window.loadSynthese = async function () {
     const box = document.getElementById('syntheseBox');
     if (!btn || !box || btn.dataset.loading) return;
 
-    const art = allArticles.find(a => a.id == currentEditingId);
+    const art = findArticleById(currentEditingId);
     if (!art) return;
     await ensureRawContent(art); // corps chargé à la demande (liste allégée)
 

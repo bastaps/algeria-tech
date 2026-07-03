@@ -401,6 +401,7 @@ function openCommForm(article = null) {
   document.getElementById('commImageName').textContent = 'Aucun fichier';
   document.querySelectorAll('.op-btn').forEach(b => b.classList.remove('selected'));
   document.getElementById('commOperateur').value = '';
+  resetCommImport();
 
   if (article) {
     /* Mode édition — pré-remplissage */
@@ -525,6 +526,169 @@ window.deleteComm = async function(id) {
   }
 };
 
+/* ══════════════════════════════════════════════════════════════
+   IMPORT AUTOMATIQUE — JPG / PDF / TXT / Word → (traduction) → Remplir
+   ══════════════════════════════════════════════════════════════ */
+let commRawText = null;   // texte brut extrait (éventuellement traduit)
+
+function resetCommImport() {
+  commRawText = null;
+
+  const importBtn = document.getElementById('commImportBtn');
+  const importLbl = document.getElementById('commImportBtnLabel');
+  const translateBtn = document.getElementById('commTranslateBtn');
+  const fillBtn   = document.getElementById('commFillBtn');
+  if (!importBtn) return;
+
+  importBtn.classList.remove('is-loading', 'is-done', 'is-error');
+  importBtn.disabled = false;
+  importLbl.textContent = 'Importer un fichier';
+  importBtn.querySelector('i').className = 'fas fa-file-import';
+
+  translateBtn.classList.remove('is-loading', 'is-done', 'is-error');
+  translateBtn.disabled = true;
+  translateBtn.innerHTML = '<i class="fas fa-language"></i> Traduire en français';
+
+  fillBtn.classList.remove('is-loading');
+  fillBtn.disabled = true;
+}
+
+async function handleCommImport(file) {
+  const btn   = document.getElementById('commImportBtn');
+  const label = document.getElementById('commImportBtnLabel');
+  const icon  = btn.querySelector('i');
+  const translateBtn = document.getElementById('commTranslateBtn');
+  const fillBtn = document.getElementById('commFillBtn');
+
+  btn.classList.remove('is-done', 'is-error');
+  btn.classList.add('is-loading');
+  btn.disabled = true;
+  translateBtn.disabled = true;
+  fillBtn.disabled = true;
+  label.textContent = 'Extraction en cours...';
+  icon.className = 'fas fa-spinner fa-spin';
+
+  try {
+    const fd = new FormData();
+    fd.append('file', file);
+    const res = await fetch('/api/extract-communique', { method: 'POST', body: fd });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Erreur serveur');
+
+    commRawText = data.rawText;
+    btn.classList.remove('is-loading');
+    btn.classList.add('is-done');
+    btn.disabled = false;
+    label.textContent = 'Texte extrait ✓';
+    icon.className = 'fas fa-check';
+    translateBtn.disabled = false;
+    fillBtn.disabled = false;
+  } catch (err) {
+    btn.classList.remove('is-loading');
+    btn.classList.add('is-error');
+    btn.disabled = false;
+    label.textContent = "Échec de l'extraction";
+    icon.className = 'fas fa-exclamation-triangle';
+    alert("Erreur lors de l'extraction du fichier : " + err.message);
+  }
+}
+
+/* ── Traduction du texte extrait vers le français (Google Translate) ── */
+async function translateCommImport() {
+  if (!commRawText) return;
+  const btn = document.getElementById('commTranslateBtn');
+
+  btn.classList.remove('is-done', 'is-error');
+  btn.classList.add('is-loading');
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Traduction en cours...';
+
+  try {
+    const res = await fetch('/api/translate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: commRawText, to: 'fr' })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Erreur serveur');
+
+    commRawText = data.translated;
+    btn.classList.remove('is-loading');
+    btn.classList.add('is-done');
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fas fa-check"></i> Traduit en français ✓';
+  } catch (err) {
+    btn.classList.remove('is-loading');
+    btn.classList.add('is-error');
+    btn.disabled = false;
+    btn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Échec de la traduction';
+    alert('Erreur lors de la traduction : ' + err.message);
+  }
+}
+
+/* ── Structuration IA du texte (brut ou traduit) puis remplissage du formulaire ── */
+async function fillCommFromExtract() {
+  if (!commRawText) return;
+  const fillBtn = document.getElementById('commFillBtn');
+  const originalHtml = fillBtn.innerHTML;
+
+  fillBtn.classList.add('is-loading');
+  fillBtn.disabled = true;
+  fillBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyse...';
+
+  try {
+    const res = await fetch('/api/structure-communique', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ rawText: commRawText })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Erreur serveur');
+
+    if (data.titre)    document.getElementById('commTitre').value   = data.titre;
+    if (data.date)      document.getElementById('commDate').value    = data.date;
+    if (data.heure)     document.getElementById('commHeure').value   = data.heure;
+    if (data.extrait)   document.getElementById('commExtrait').value = data.extrait;
+    if (data.contenu)   document.getElementById('commContenu').value = data.contenu;
+    if (Array.isArray(data.tags) && data.tags.length) {
+      document.getElementById('commTags').value = data.tags.join(', ');
+    }
+
+    if (data.operateur) {
+      document.querySelectorAll('.op-btn').forEach(b => b.classList.remove('selected'));
+      const opBtn = document.querySelector(`.op-btn[data-op="${data.operateur}"]`);
+      if (opBtn) {
+        opBtn.classList.add('selected');
+        document.getElementById('commOperateur').value = data.operateur;
+      }
+    }
+  } catch (err) {
+    alert("Erreur lors du remplissage automatique : " + err.message);
+  } finally {
+    fillBtn.classList.remove('is-loading');
+    fillBtn.disabled = false;
+    fillBtn.innerHTML = originalHtml;
+  }
+}
+
+function setupCommImport() {
+  const importBtn    = document.getElementById('commImportBtn');
+  const importFile    = document.getElementById('commImportFile');
+  const translateBtn = document.getElementById('commTranslateBtn');
+  const fillBtn       = document.getElementById('commFillBtn');
+
+  importBtn.addEventListener('click', () => importFile.click());
+
+  importFile.addEventListener('change', function () {
+    const file = this.files[0];
+    if (file) handleCommImport(file);
+    this.value = '';
+  });
+
+  translateBtn.addEventListener('click', translateCommImport);
+  fillBtn.addEventListener('click', fillCommFromExtract);
+}
+
 /* ── Wiring événements du formulaire ─────────────────────────── */
 function setupCommForm() {
   /* FAB */
@@ -537,6 +701,9 @@ function setupCommForm() {
 
   /* Soumission */
   document.getElementById('commForm').addEventListener('submit', submitComm);
+
+  /* Import automatique de fichier */
+  setupCommImport();
 
   /* Sélecteur opérateur */
   document.querySelectorAll('.op-btn').forEach(btn => {

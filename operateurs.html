@@ -198,6 +198,25 @@
         <form id="commForm" class="comm-form" autocomplete="off">
             <input type="hidden" id="commEditId">
 
+            <!-- Import automatique : JPG, PDF, TXT, Word -->
+            <div class="cf-group cf-import-group">
+                <label class="cf-label">Import automatique <span class="cf-hint-inline">JPG · PDF · TXT · Word</span></label>
+                <div class="cf-import-row">
+                    <button type="button" class="cf-import-btn" id="commImportBtn">
+                        <i class="fas fa-file-import"></i>
+                        <span id="commImportBtnLabel">Importer un fichier</span>
+                    </button>
+                    <input type="file" id="commImportFile" accept=".jpg,.jpeg,.png,.pdf,.txt,.doc,.docx" style="display:none">
+                    <button type="button" class="cf-translate-btn" id="commTranslateBtn" disabled>
+                        <i class="fas fa-language"></i> Traduire en français
+                    </button>
+                    <button type="button" class="cf-fill-btn" id="commFillBtn" disabled>
+                        <i class="fas fa-fill-drip"></i> Remplir
+                    </button>
+                </div>
+                <small class="cf-hint">Déposez un communiqué existant (photo, PDF, TXT ou Word) : l'IA extrait le texte. Si le texte n'est pas en français (arabe, anglais...), cliquez sur « Traduire » avant de « Remplir ».</small>
+            </div>
+
             <!-- Sélecteur opérateur -->
             <div class="cf-group">
                 <label class="cf-label">Opérateur <span class="req">*</span></label>

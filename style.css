@@ -228,6 +228,8 @@ padding: 0 15px; width: 100px; border: 1px solid var(--border); transition: var(
 .pagination { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 30px 0; }
 .pagination button { padding: 10px 16px; background: var(--bg-white); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; font-weight: 600; transition: var(--transition); color: var(--text-dark); }
 .pagination button:hover, .pagination button.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+.breves-pagination { margin: 12px 0 0; gap: 6px; }
+.breves-pagination button { padding: 5px 10px; font-size: 0.8rem; }
 .load-more-btn { display: block; margin: 0 auto 40px; padding: 12px 28px; background: var(--primary); color: #fff; border: none; border-radius: 30px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: var(--transition); }
 .load-more-btn:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: var(--shadow-md); }
 .load-more-btn.hidden { display: none; }
@@ -423,6 +425,12 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
 .hub-btn-fill:hover { background: linear-gradient(135deg,#3d2400,#5a3800); }
 .hub-btn-loading { opacity: 0.6; cursor: not-allowed; }
 .hub-btn-done { background: rgba(34,197,94,0.2) !important; color: #4ade80 !important; border: 1px solid rgba(74,222,128,0.3) !important; }
+.hub-url-row { display: flex; gap: 8px; }
+.hub-url-row input[type="url"] { flex: 1; width: auto; min-width: 0; }
+.hub-btn-web { background: linear-gradient(135deg,#0f4a3a,#0a3328); color: #6ee7b7; border: 1px solid rgba(110,231,183,0.3); white-space: nowrap; flex-shrink: 0; }
+.hub-btn-web:hover { background: linear-gradient(135deg,#125c48,#0d4433); color: #fff; }
+.hub-source-badge { font-size: 0.72rem; color: #6ee7b7; margin-top: 6px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding: 4px 8px; background: rgba(110,231,183,0.08); border-radius: 5px; border-left: 2px solid #6ee7b7; }
+.hub-source-badge.hidden { display: none; }
 /* ── FIN SMART HUB ─────────────────────────────────────────── */
 .loading-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--bg-white); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 20px; transition: opacity 0.5s ease; }
 .loading-overlay.hidden { opacity: 0; pointer-events: none; }

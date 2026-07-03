@@ -17,6 +17,7 @@ const compression = require('compression');
 // ── Générateur d'infographies ─────────────────────────────────────────────────
 const pdfParse = require('pdf-parse');
 const mammoth  = require('mammoth');
+const WordExtractor = require('word-extractor');
 const AdmZip   = require('adm-zip');
 const { generateReport } = require('./generator/html-template');
 
@@ -579,13 +580,22 @@ async function regenerateArticlesJson() {
                 const tags = tagsMatch ? tagsMatch[1].split(',').map(t => t.trim().replace(/^["']|["']$/g, '')) : [];
                 const titre = get('titre');
                 if (!titre) continue;
-                articles.push({ id: file.replace('.md', ''), titre, date: get('date'), heure: get('heure'), categorie: get('categorie'), image: get('image'), video: get('video'), pdf: get('pdf'), extrait: get('extrait'), rawContent: content, tags, type: get('type') });
+                articles.push({ id: file.replace('.md', ''), titre, date: get('date'), heure: get('heure'), categorie: get('categorie'), image: get('image'), video: get('video'), pdf: get('pdf'), extrait: get('extrait'), rawContent: content, tags, type: get('type'), position: get('position') });
             } catch (e) { console.warn(`Skipping ${file}:`, e.message); }
         }
         articles.sort((a, b) => new Date(`${b.date}T${b.heure || '00:00'}`) - new Date(`${a.date}T${a.heure || '00:00'}`));
-        await fs.writeFile('articles.json', JSON.stringify(articles));
+
+        // ── Épinglage manuel en Une : un article marqué position "1" ou "2"
+        // passe devant le tri chronologique normal. Un seul article peut tenir
+        // chaque position (voir clearPositionConflicts, appelé à la publication).
+        const pinned1 = articles.find(a => a.position === '1');
+        const pinned2 = articles.find(a => a.position === '2' && a !== pinned1);
+        const rest = articles.filter(a => a !== pinned1 && a !== pinned2);
+        const ordered = [pinned1, pinned2, ...rest].filter(Boolean);
+
+        await fs.writeFile('articles.json', JSON.stringify(ordered));
         // Version légère (sans rawContent) pour la page d'accueil
-        const articlesLight = articles.map(({ rawContent, ...rest }) => rest);
+        const articlesLight = ordered.map(({ rawContent, ...rest }) => rest);
         await fs.writeFile('articles-list.json', JSON.stringify(articlesLight));
     } catch (e) { console.error("Erreur régénération articles.json:", e); }
 }
@@ -729,10 +739,21 @@ app.post('/api/fetch-url', express.json(), async (req, res) => {
         const rawTitle = (html.match(/<title[^>]*>([^<]{1,200})<\/title>/i) || [])[1] || '';
         const title = rawTitle.replace(/\s+/g, ' ').trim();
         const text = extractMainText(html);
-        if (text.length >= MIN_LEN) {
+
+        // Certains sites (Next.js App Router avec streaming RSC, ex. aps.dz) ne rendent
+        // que le premier paragraphe dans le HTML statique — le reste du corps est injecté
+        // via des chunks JSON dans des <script>self.__next_f.push(...)</script>, que
+        // extractMainText() ne peut pas lire (les <script> sont retirés). Dans ce cas,
+        // le texte extrait paraît "suffisant" (> MIN_LEN) mais n'est en réalité que le
+        // lead : on force le passage au fallback (rendu complet) plutôt que de le renvoyer.
+        const isStreamedRSC = /self\.__next_f\.push/.test(html);
+
+        if (text.length >= MIN_LEN && !isStreamedRSC) {
             return res.json({ text: text.substring(0, 8000), title, url });
         }
-        directErr = new Error('Contenu trop court (page probablement rendue en JavaScript)');
+        directErr = new Error(isStreamedRSC
+            ? 'Page avec contenu streamé côté client (Next.js RSC) — rendu complet requis'
+            : 'Contenu trop court (page probablement rendue en JavaScript)');
     } catch (e) {
         directErr = e;
     }
@@ -783,22 +804,178 @@ app.post('/api/transcribe-pdf', upload, async (req, res) => {
     }
 });
 
+// ── EXTRACTION COMMUNIQUÉ — upload JPG/PNG/PDF/TXT/Word → texte brut ──
+const commUpload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 15 * 1024 * 1024 } }).single('file');
+
+app.post('/api/extract-communique', (req, res) => {
+    commUpload(req, res, async (err) => {
+        if (err) return res.status(400).json({ error: 'Upload : ' + err.message });
+        if (!req.file) return res.status(400).json({ error: 'Aucun fichier reçu' });
+
+        try {
+            const ext = path.extname(req.file.originalname).toLowerCase();
+            let rawText;
+
+            if (['.jpg', '.jpeg', '.png'].includes(ext)) {
+                rawText = await ocrImageMistral(req.file.buffer, req.file.mimetype || 'image/jpeg');
+            } else {
+                rawText = await extractText(req.file.buffer, req.file.originalname);
+            }
+
+            rawText = (rawText || '').trim();
+            if (!rawText) {
+                return res.status(422).json({ error: "Aucun texte détecté dans ce fichier." });
+            }
+
+            res.json({ rawText });
+        } catch (e) {
+            console.error('[extract-communique]', e.message);
+            res.status(500).json({ error: e.message || "Échec de l'extraction du fichier" });
+        }
+    });
+});
+
+// ── STRUCTURATION COMMUNIQUÉ — texte brut (déjà en français, traduit ou non) → JSON structuré ──
+app.post('/api/structure-communique', express.json({ limit: '2mb' }), async (req, res) => {
+    const rawText = (req.body && req.body.rawText || '').trim();
+    if (!rawText) return res.status(400).json({ error: 'Texte requis' });
+
+    try {
+        const structured = await structureCommuniqueIA(rawText);
+        res.json(structured);
+    } catch (e) {
+        console.error('[structure-communique]', e.message);
+        res.status(500).json({ error: e.message || "Échec de l'analyse du texte" });
+    }
+});
+
+// OCR d'une image via le modèle vision de Mistral (Pixtral)
+function ocrImageMistral(buffer, mimetype) {
+    return new Promise((resolve, reject) => {
+        const b64 = buffer.toString('base64');
+        const payload = JSON.stringify({
+            model: 'pixtral-12b-2409',
+            messages: [{
+                role: 'user',
+                content: [
+                    { type: 'text', text: "Transcris fidèlement tout le texte visible sur cette image (il s'agit d'un communiqué de presse). Réponds uniquement avec le texte brut transcrit, sans commentaire ni mise en forme." },
+                    { type: 'image_url', image_url: `data:${mimetype};base64,${b64}` }
+                ]
+            }],
+            temperature: 0.1,
+            max_tokens: 3000
+        });
+
+        const options = {
+            hostname: 'api.mistral.ai',
+            path: '/v1/chat/completions',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${MISTRAL_API_KEY}`,
+                'Content-Length': Buffer.byteLength(payload)
+            }
+        };
+
+        const request = https.request(options, (apiRes) => {
+            let data = '';
+            apiRes.on('data', c => data += c);
+            apiRes.on('end', () => {
+                try {
+                    const result = JSON.parse(data);
+                    if (result.error) return reject(new Error(result.error.message));
+                    resolve(result.choices[0].message.content);
+                } catch (e) { reject(e); }
+            });
+        });
+        request.on('error', reject);
+        request.write(payload);
+        request.end();
+    });
+}
+
+// Structuration IA du texte brut → champs du formulaire Communiqué
+function structureCommuniqueIA(rawText) {
+    return new Promise((resolve, reject) => {
+        const today = new Date().toISOString().slice(0, 10);
+        const prompt = `Tu es assistant de rédaction pour Algeria Tech. On te fournit le texte brut d'un communiqué de presse d'un opérateur télécom algérien (Mobilis, Djezzy ou Ooredoo), extrait d'un document (PDF, image, Word ou texte).
+
+Analyse ce texte et retourne UNIQUEMENT du JSON pur avec cette structure exacte :
+{
+  "operateur": "Mobilis" | "Djezzy" | "Ooredoo" | "",
+  "titre": "titre factuel et concis du communiqué",
+  "date": "AAAA-MM-JJ (déduite du texte, sinon ${today})",
+  "heure": "HH:MM (déduite du texte, sinon 09:00)",
+  "extrait": "résumé en 1 à 2 phrases",
+  "contenu": "corps complet du communiqué reformaté proprement en Markdown, en conservant tous les faits, chiffres et citations d'origine",
+  "tags": ["tag1", "tag2", "tag3"]
+}
+
+Règles :
+- "operateur" doit être détecté depuis le texte (mentions explicites de Mobilis, Djezzy ou Ooredoo) ; si ambigu ou absent, laisse une chaîne vide.
+- Ne fabrique aucun fait, chiffre ou citation absent du texte source.
+- "contenu" doit rester fidèle au texte source, juste nettoyé et mis en forme Markdown (titres ##, paragraphes).
+- "tags" ne doit pas inclure le nom de l'opérateur (déjà couvert par "operateur").
+
+TEXTE SOURCE :
+${rawText.substring(0, 6000)}`;
+
+        const payload = JSON.stringify({
+            model: 'mistral-small-latest',
+            messages: [{ role: 'user', content: prompt }],
+            response_format: { type: 'json_object' },
+            temperature: 0.2,
+            max_tokens: 3000
+        });
+
+        const options = {
+            hostname: 'api.mistral.ai',
+            path: '/v1/chat/completions',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${MISTRAL_API_KEY}`,
+                'Content-Length': Buffer.byteLength(payload)
+            }
+        };
+
+        const request = https.request(options, (apiRes) => {
+            let data = '';
+            apiRes.on('data', c => data += c);
+            apiRes.on('end', () => {
+                try {
+                    const result = JSON.parse(data);
+                    if (result.error) return reject(new Error(result.error.message));
+                    resolve(JSON.parse(result.choices[0].message.content));
+                } catch (e) { reject(e); }
+            });
+        });
+        request.on('error', reject);
+        request.write(payload);
+        request.end();
+    });
+}
+
 // ── TRANSLATE — Proxy serveur (évite CORS + limite URL client) ──
 app.post('/api/translate', express.json(), async (req, res) => {
     const { text, to = 'fr' } = req.body || {};
     if (!text) return res.status(400).json({ error: 'Texte requis' });
     try {
-        const params = new URLSearchParams({ client:'gtx', sl:'auto', tl: to, dt:'t', q: text });
-        const url = `https://translate.googleapis.com/translate_a/single`;
-        const r = await fetch(url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: params.toString()
-        });
-        if (!r.ok) throw new Error(`Google Translate HTTP ${r.status}`);
-        const d = await r.json();
-        const translated = d[0].map(s => s[0]).join('');
-        res.json({ translated });
+        /* NB : Google renvoie du texte corrompu ("????") pour les scripts non-latins
+           (arabe, etc.) via POST — la requête GET avec la query encodée fonctionne
+           correctement quelle que soit la langue source. */
+        const chunks = [];
+        for (let i = 0; i < text.length; i += 1800) chunks.push(text.slice(i, i + 1800));
+
+        const translatedChunks = await Promise.all(chunks.map(async (chunk) => {
+            const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${encodeURIComponent(to)}&dt=t&q=${encodeURIComponent(chunk)}`;
+            const r = await fetch(url);
+            if (!r.ok) throw new Error(`Google Translate HTTP ${r.status}`);
+            const d = await r.json();
+            return d[0].map(s => s[0]).join('');
+        }));
+
+        res.json({ translated: translatedChunks.join('') });
     } catch (e) {
         res.status(500).json({ error: e.message });
     }
@@ -806,13 +983,85 @@ app.post('/api/translate', express.json(), async (req, res) => {
 
 // ── SMART GENERATE — Rédaction IA journalistique ─────────
 app.post('/api/smart-generate', express.json(), async (req, res) => {
-    const { text } = req.body || {};
+    const { text, breve } = req.body || {};
     if (!text) return res.status(400).json({ error: 'Texte source requis' });
 
-    const prompt = `Tu es un rédacteur senior de l'Algérie Presse Service (APS), spécialiste du secteur TIC algérien, avec 20 ans d'expérience.
+    const prompt = breve ? `Tu es un rédacteur senior de l'Algérie Presse Service (APS), spécialiste du secteur TIC algérien, avec 20 ans d'expérience.
+
+Tu rédiges ici pour l'espace "Brèves" du site : une DÉPÊCHE COURTE, PAS un article de fond. Ce n'est PAS le format habituel APS avec sections détaillées — c'est volontairement court et factuel.
 
 ══════════════════════════════════════════════
-VOCABULAIRE ADMINISTRATIF ALGÉRIEN — OBLIGATOIRE
+ÉTAPE 0 — LA SOURCE PARLE-T-ELLE DE L'ALGÉRIE ?
+══════════════════════════════════════════════
+CAS A — La source concerne l'Algérie (wilaya, opérateur algérien, institution algérienne, etc.) : lead commence par "ALGER, [date] (APS) — " ou la ville algérienne concernée.
+CAS B — La source ne concerne pas l'Algérie : lead commence directement par le fait principal, sans ville algérienne ni mention "(APS)" forcée, n'invente aucun lien avec l'Algérie.
+
+══════════════════════════════════════════════
+RÉÉCRITURE — INTERDICTION DE PARAPHRASE PARESSEUSE
+══════════════════════════════════════════════
+Ne recopie AUCUNE phrase entière de la source (sauf citations directes attribuées). Reformule avec un vocabulaire et une structure différents, en conservant exactement les faits, chiffres, noms propres et citations de la source.
+
+══════════════════════════════════════════════
+VOCABULAIRE ADMINISTRATIF ALGÉRIEN — OBLIGATOIRE (uniquement si CAS A)
+══════════════════════════════════════════════
+wilaya (jamais "État"/"département"/"préfecture"), daïra (jamais "arrondissement"), commune, wali (jamais "préfet"), APW, APC, ANPT, ARPCE, Algérie Télécom, Mobilis, Djezzy, Ooredoo — noms officiels exacts.
+
+══════════════════════════════════════════════
+STRUCTURE OBLIGATOIRE — 4 PARAGRAPHES MAXIMUM AU TOTAL
+══════════════════════════════════════════════
+Le champ "contenu" est un texte court en Markdown, SANS sous-titres ("##"), SANS section "Analyse", "Contexte du secteur", "Perspectives" ou "À retenir" :
+- Paragraphe 1 (lead) : le fait principal — qui, quoi, où, quand — en 2 phrases maximum.
+- Paragraphes 2 à 4 (maximum) : détails essentiels, une citation si elle est disponible dans la source, un seul élément de contexte bref. Rien de plus.
+Ne dépasse JAMAIS 4 paragraphes. Une brève courte de 2-3 paragraphes est préférable à un texte étiré artificiellement.
+
+══════════════════════════════════════════════
+RÈGLES DE STYLE APS — ABSOLUES
+══════════════════════════════════════════════
+- Pyramide inversée : fait principal → détail essentiel → contexte bref
+- Phrases courtes (≤ 20 mots), style factuel, au présent ou passé composé
+- Titres officiels complets pour toute personne citée
+- Chiffres en lettres pour unités (deux millions, cinquante milliards) sauf % et dates
+- JAMAIS : "il convient de noter" / "dans un contexte de" / "en conclusion" / "force est de constater" / "remarquable" / "révolutionnaire" / "impressionnant"
+- Conserver EXACTEMENT les noms propres, chiffres et citations de la source
+
+RÉPONDS EXCLUSIVEMENT EN JSON PUR :
+{
+  "titre": "Titre factuel nominal sans verbe (ex: 'Mobilis déploie la 5G dans 12 wilayas')",
+  "lead": "[selon CAS A ou CAS B ci-dessus — fait principal en 2 phrases max]",
+  "contenu": "...markdown court, 4 paragraphes maximum, sans sous-titres...",
+  "tags": ["tag1", "tag2", "tag3", "tag4"],
+  "categorie": "Algérie|Télécoms|Mobile|Startups|IA|Fintech|Innovation|Monde|Entreprises",
+  "video": ""
+}
+
+SOURCE :
+${text.substring(0, 4000)}` : `Tu es un rédacteur senior de l'Algérie Presse Service (APS), spécialiste du secteur TIC algérien, avec 20 ans d'expérience.
+
+══════════════════════════════════════════════
+ÉTAPE 0 — LA SOURCE PARLE-T-ELLE DE L'ALGÉRIE ?
+══════════════════════════════════════════════
+Avant toute chose, détermine si la SOURCE concerne l'Algérie (wilaya, ville algérienne, opérateur algérien Algérie Télécom/Mobilis/Djezzy/Ooredoo, ministère ou institution algérienne, entreprise ou startup algérienne, etc.).
+
+CAS A — La source concerne l'Algérie :
+- Applique le style APS complet ci-dessous (lead "ALGER, ..." ou ville algérienne concernée, section "Contexte du secteur TIC algérien", catégorie "Algérie" ou secteur pertinent).
+
+CAS B — La source NE concerne PAS l'Algérie (actualité internationale, entreprise étrangère, marché étranger, etc.) :
+- N'INVENTE JAMAIS de lien avec l'Algérie. Ne mentionne PAS l'Algérie, l'ARPCE, un opérateur algérien ou une wilaya si la source n'en parle pas.
+- Le lead ne commence PAS par "ALGER" ni par le nom d'une ville algérienne — commence directement par le fait principal (lieu réel de la source ou absence de lieu si non pertinent), toujours suivi de " — ".
+- Remplace la section "## Contexte du secteur TIC algérien" par "## Contexte du secteur" avec des données globales/sectorielles pertinentes à la source (pas de statistiques algériennes inventées).
+- Choisis la catégorie "Monde", "IA", "Fintech" ou "Innovation" selon le sujet réel — jamais "Algérie" dans ce cas.
+
+══════════════════════════════════════════════
+RÉÉCRITURE — INTERDICTION DE PARAPHRASE PARESSEUSE
+══════════════════════════════════════════════
+La source est souvent un article de presse déjà publié ailleurs. Tu dois produire un texte VRAIMENT différent, pas une simple traduction ou un copié-collé reformulé :
+- Ne recopie AUCUNE phrase entière de la source (sauf citations directes entre guillemets attribuées).
+- Réorganise l'ordre des informations, change la structure des phrases, varie le vocabulaire.
+- Ajoute de la valeur : mise en contexte, explication technique, implications — sans jamais inventer de faits, chiffres ou citations qui ne sont pas dans la source.
+- Conserve seulement les faits, chiffres, noms propres et citations exacts de la source.
+
+══════════════════════════════════════════════
+VOCABULAIRE ADMINISTRATIF ALGÉRIEN — OBLIGATOIRE (uniquement si CAS A)
 ══════════════════════════════════════════════
 L'Algérie a sa propre terminologie administrative. Tu dois TOUJOURS utiliser ces termes :
 
@@ -837,16 +1086,16 @@ Le champ "contenu" doit contenir un article complet en Markdown avec TOUTES ces 
 [2-3 paragraphes de 2-3 phrases chacun — développe les faits avec chiffres et sources]
 
 ## Analyse et enjeux
-[2 paragraphes — impacts économiques, technologiques, sociaux sur l'Algérie]
+[2 paragraphes — impacts économiques, technologiques, sociaux — sur l'Algérie si CAS A, sur le secteur/marché concerné si CAS B]
 
-## Contexte du secteur TIC algérien
-[1-2 paragraphes — données chiffrées : taux pénétration, nb abonnés, budget numérique, classements ARPCE]
+## Contexte du secteur TIC algérien (CAS A) / Contexte du secteur (CAS B)
+[1-2 paragraphes — CAS A : données chiffrées algériennes (taux pénétration, nb abonnés, budget numérique, classements ARPCE). CAS B : données/contexte du secteur réellement concerné par la source, sans rien inventer sur l'Algérie]
 
 ## Réactions et déclarations
 [Si des citations ou déclarations sont disponibles dans la source, les insérer ici avec titres officiels complets]
 
 ## Perspectives et prochaines étapes
-[1-2 paragraphes — ce qui est prévu, les délais, les objectifs nationaux]
+[1-2 paragraphes — ce qui est prévu, les délais, les objectifs — nationaux en CAS A, propres à l'acteur/marché concerné en CAS B]
 
 ## À retenir
 [5 à 7 points clés en liste à puces — chaque point = 1 fait précis et chiffré si possible]
@@ -854,22 +1103,24 @@ Le champ "contenu" doit contenir un article complet en Markdown avec TOUTES ces 
 ══════════════════════════════════════════════
 RÈGLES DE STYLE APS — ABSOLUES
 ══════════════════════════════════════════════
-- Lead : commence par la ville EN MAJUSCULES + virgule : "ALGER, [date] (APS) — "
+- Lead CAS A : commence par la ville algérienne EN MAJUSCULES + virgule : "ALGER, [date] (APS) — "
+- Lead CAS B : commence directement par le fait principal, sans ville algérienne ni mention "(APS)" forcée
 - Pyramide inversée : fait principal → contexte → détails → perspectives
 - Phrases courtes (≤ 20 mots), style factuel, au présent ou passé composé
-- Titres officiels complets : "le ministre de la Poste et des Télécommunications", "le PDG de Mobilis"
+- Titres officiels complets : "le ministre de la Poste et des Télécommunications", "le PDG de Mobilis" (CAS A) ou le titre réel de la personne citée (CAS B)
 - Chiffres en lettres pour unités (deux millions, cinquante milliards) sauf % et dates
 - JAMAIS : "il convient de noter" / "dans un contexte de" / "en conclusion" / "force est de constater" / "remarquable" / "révolutionnaire" / "impressionnant"
-- Si la source est courte, ENRICHIS avec les données TIC Algérie que tu connais (ARPCE, Algérie Télécom, plan numérique 2030, etc.)
+- CAS A uniquement : si la source est courte, ENRICHIS avec les données TIC Algérie que tu connais (ARPCE, Algérie Télécom, plan numérique 2030, etc.)
+- CAS B : n'ajoute JAMAIS de données ou de mention algérienne pour "enrichir" — enrichis avec du contexte réel sur le sujet traité
 - Conserver EXACTEMENT les noms propres, chiffres et citations de la source
 
 RÉPONDS EXCLUSIVEMENT EN JSON PUR :
 {
   "titre": "Titre factuel nominal sans verbe (ex: 'Mobilis déploie la 5G dans 12 wilayas')",
-  "lead": "ALGER, [date] (APS) — [fait principal en 2 phrases max]",
+  "lead": "[selon CAS A ou CAS B ci-dessus — fait principal en 2 phrases max]",
   "contenu": "...markdown complet avec toutes les sections ##...",
   "tags": ["tag1", "tag2", "tag3", "tag4", "tag5", "tag6"],
-  "categorie": "Algérie|Télécoms|Mobile|Startups|Innovation|Entreprises",
+  "categorie": "Algérie|Télécoms|Mobile|Startups|IA|Fintech|Innovation|Monde|Entreprises",
   "video": ""
 }
 
@@ -1340,25 +1591,54 @@ ${String(contenu || '').substring(0, 4200)}
     apiReq.end();
 });
 
+// Un seul article peut occuper la position 1 (Une principale) ou 2 (Une secondaire).
+// Avant de publier un article épinglé, on retire ce même numéro de position de
+// tout autre article qui le détenait, pour éviter les conflits d'affichage.
+async function clearPositionConflicts(position, excludeFileName) {
+    if (position !== '1' && position !== '2') return;
+    const posRe = new RegExp(`^position:\\s*${position}\\s*$`, 'm');
+
+    if (isCloud) {
+        const { data } = await octokit.repos.getContent({ owner: OWNER, repo: REPO, path: 'articles' });
+        for (const entry of data) {
+            if (!entry.name.endsWith('.md') || entry.name === excludeFileName) continue;
+            try {
+                const { data: fileData } = await octokit.repos.getContent({ owner: OWNER, repo: REPO, path: `articles/${entry.name}` });
+                const text = Buffer.from(fileData.content, 'base64').toString('utf-8');
+                if (posRe.test(text)) await pushToGithub(`articles/${entry.name}`, text.replace(posRe, 'position: '), `Libère la position ${position}`);
+            } catch (e) { console.warn(`clearPositionConflicts (cloud) ${entry.name}:`, e.message); }
+        }
+    } else {
+        const files = await fs.readdir('articles');
+        for (const f of files.filter(f => f.endsWith('.md') && f !== excludeFileName)) {
+            const filePath = path.join('articles', f);
+            const text = await fs.readFile(filePath, 'utf-8');
+            if (posRe.test(text)) await fs.writeFile(filePath, text.replace(posRe, 'position: '));
+        }
+    }
+}
+
 app.post('/api/create-article', upload, async (req, res) => {
     try {
-        const { id, titre, categorie, date, heure, extrait, tags, contenu, video, type, source } = req.body;
+        const { id, titre, categorie, date, heure, extrait, tags, contenu, video, type, source, position } = req.body;
         let fileName = (id && id !== "null") ? `${id}.md` : `${Date.now()}.md`;
         let tagsFormatted = "";
         if (tags) tagsFormatted = tags.split(',').map(t => t.trim().replace(/"/g, '')).filter(t => t).map(t => `"${t}"`).join(', ');
-        
+
         let imagePath = "";
         if (req.files && req.files.image) {
             imagePath = isCloud ? `images/${Date.now()}-${req.files.image[0].originalname}` : `images/${req.files.image[0].filename}`;
         } else {
             imagePath = req.body.existingImage || "";
         }
-        
+
         let pdfPath = req.body.existingPdf || "";
         if (req.files && req.files.pdf) pdfPath = isCloud ? `documents/${Date.now()}-${req.files.pdf[0].originalname}` : `documents/${req.files.pdf[0].filename}`;
 
-        const frontMatter = `---\ntitre: "${titre.replace(/"/g, '\\"')}"\ncategorie: ${categorie}\ndate: ${date}\nheure: ${heure}\nimage: "${imagePath}"\npdf: "${pdfPath}"\nvideo: "${video || ''}"\nsource: "${(source || '').replace(/"/g, '\\"')}"\nextrait: "${extrait.replace(/"/g, '\\"')}"\ntags: [${tagsFormatted}]\ntype: ${type || ''}\n---\n\n${contenu}\n`;
-        
+        const frontMatter = `---\ntitre: "${titre.replace(/"/g, '\\"')}"\ncategorie: ${categorie}\ndate: ${date}\nheure: ${heure}\nimage: "${imagePath}"\npdf: "${pdfPath}"\nvideo: "${video || ''}"\nsource: "${(source || '').replace(/"/g, '\\"')}"\nextrait: "${extrait.replace(/"/g, '\\"')}"\ntags: [${tagsFormatted}]\ntype: ${type || ''}\nposition: ${position || ''}\n---\n\n${contenu}\n`;
+
+        if (position === '1' || position === '2') await clearPositionConflicts(position, fileName);
+
         if (isCloud) {
             if (req.files && req.files.image) await pushToGithub(imagePath, req.files.image[0].buffer, "Upload image", true);
             if (req.files && req.files.pdf) await pushToGithub(pdfPath, req.files.pdf[0].buffer, "Upload PDF", true);
@@ -1816,8 +2096,23 @@ async function extractText(buf, filename) {
     if (ext === '.pdf') {
         const r = await pdfParse(buf); return r.text || '';
     }
-    if (ext === '.docx' || ext === '.doc') {
-        const r = await mammoth.extractRawText({ buffer: buf }); return r.value || '';
+    if (ext === '.docx') {
+        try {
+            const r = await mammoth.extractRawText({ buffer: buf }); return r.value || '';
+        } catch (e) {
+            throw new Error("Fichier .docx illisible ou corrompu. Vérifiez le fichier ou réenregistrez-le depuis Word.");
+        }
+    }
+    if (ext === '.doc') {
+        /* Mammoth ne lit que le format .docx (zip) — l'ancien format binaire .doc
+           (OLE), encore courant pour les documents en arabe, nécessite word-extractor. */
+        try {
+            const extractor = new WordExtractor();
+            const doc = await extractor.extract(buf);
+            return doc.getBody() || '';
+        } catch (e) {
+            throw new Error("Fichier .doc illisible ou corrompu. Vérifiez le fichier ou réenregistrez-le au format .docx depuis Word.");
+        }
     }
     if (ext === '.pptx' || ext === '.ppt') {
         try {

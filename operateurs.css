@@ -1200,6 +1200,116 @@ body.theme-bluenuit .art-modal-panel { background: #0f1320; }
 .op-btn.op-dj.selected  { background: rgba(227,6,19,.25); border-color: #E30613; }
 .op-btn.op-oo.selected  { background: rgba(226,0,26,.25); border-color: #E2001A; }
 
+/* Import automatique (JPG/PDF/TXT/Word) */
+.cf-hint-inline { text-transform: none; letter-spacing: 0; font-weight: 400; color: rgba(255,255,255,.3); }
+.cf-import-row { display: flex; gap: 10px; }
+
+.cf-import-btn {
+  flex          : 1;
+  display       : flex;
+  align-items   : center;
+  justify-content: center;
+  gap           : 7px;
+  padding       : 10px 14px;
+  border        : 1.5px dashed rgba(255,255,255,.2);
+  border-radius : 8px;
+  background    : rgba(255,255,255,.04);
+  color         : rgba(255,255,255,.65);
+  font-size     : 12px;
+  font-weight   : 600;
+  cursor        : pointer;
+  transition    : all .2s;
+}
+.cf-import-btn:hover     { color: #fff; border-color: rgba(255,255,255,.35); background: rgba(255,255,255,.07); }
+.cf-import-btn:disabled  { cursor: not-allowed; opacity: .7; }
+.cf-import-btn.is-loading {
+  border-style : solid;
+  border-color : #3b82f6;
+  color        : #fff;
+  background   : rgba(59,130,246,.15);
+  animation    : cf-pulse 1.4s infinite;
+}
+.cf-import-btn.is-done {
+  border-style : solid;
+  border-color : #10b981;
+  color        : #10b981;
+  background   : rgba(16,185,129,.12);
+}
+.cf-import-btn.is-error {
+  border-style : solid;
+  border-color : #ef4444;
+  color        : #ef4444;
+  background   : rgba(239,68,68,.12);
+}
+@keyframes cf-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: .6; }
+}
+
+.cf-fill-btn {
+  display       : flex;
+  align-items   : center;
+  gap           : 7px;
+  padding       : 10px 16px;
+  border        : none;
+  border-radius : 8px;
+  background    : #10b981;
+  color         : #fff;
+  font-size     : 12px;
+  font-weight   : 700;
+  cursor        : pointer;
+  white-space   : nowrap;
+  transition    : all .2s;
+}
+.cf-fill-btn:hover:not(:disabled) { background: #0ea371; transform: translateY(-1px); }
+.cf-fill-btn:disabled {
+  background: rgba(255,255,255,.06);
+  color     : rgba(255,255,255,.25);
+  cursor    : not-allowed;
+}
+
+.cf-translate-btn {
+  display       : flex;
+  align-items   : center;
+  gap           : 7px;
+  padding       : 10px 14px;
+  border        : 1.5px solid rgba(255,255,255,.15);
+  border-radius : 8px;
+  background    : rgba(255,255,255,.04);
+  color         : rgba(255,255,255,.6);
+  font-size     : 12px;
+  font-weight   : 600;
+  cursor        : pointer;
+  white-space   : nowrap;
+  transition    : all .2s;
+}
+.cf-translate-btn:hover:not(:disabled) { color: #fff; border-color: rgba(255,255,255,.3); background: rgba(255,255,255,.07); }
+.cf-translate-btn:disabled {
+  background: rgba(255,255,255,.02);
+  color     : rgba(255,255,255,.2);
+  border-color: rgba(255,255,255,.06);
+  cursor    : not-allowed;
+}
+.cf-translate-btn.is-loading {
+  border-style : solid;
+  border-color : #3b82f6;
+  color        : #fff;
+  background   : rgba(59,130,246,.15);
+  animation    : cf-pulse 1.4s infinite;
+}
+.cf-translate-btn.is-done {
+  border-style : solid;
+  border-color : #10b981;
+  color        : #10b981;
+  background   : rgba(16,185,129,.12);
+}
+.cf-translate-btn.is-error {
+  border-style : solid;
+  border-color : #ef4444;
+  color        : #ef4444;
+  background   : rgba(239,68,68,.12);
+}
+
 /* Upload image */
 .cf-file-wrap { display: flex; align-items: center; gap: 10px; }
 .cf-file-btn {

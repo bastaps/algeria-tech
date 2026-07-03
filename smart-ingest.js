@@ -174,7 +174,7 @@ async function generateProArticle() {
         const response = await fetch(ENGINE_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ text: source })
+            body: JSON.stringify({ text: source, breve: document.getElementById('siBreve')?.checked || false })
         });
 
         const data = await response.json();
@@ -211,16 +211,21 @@ function fillHub() {
     document.getElementById('siVideo').value = data.video || '';
     document.getElementById('siContenu').value = document.getElementById('previewContent').value;
 
-    // Détection auto de catégorie
+    // Détection auto de catégorie (fallback si l'IA ne fournit pas déjà data.categorie)
     const contentLower = (data.contenu || '').toLowerCase();
-    let cat = "Algérie";
+    const mentionsAlgerie = /alg[ée]rie|wilaya|alger\b|oran\b|constantine\b|arpce|anpt/.test(contentLower);
+    let cat = mentionsAlgerie ? "Algérie" : "Monde";
     if(contentLower.includes("djezzy") || contentLower.includes("mobilis") || contentLower.includes("ooredoo") || contentLower.includes("télécom")) {
         cat = "Télécoms";
     } else if(contentLower.includes("mobile") || contentLower.includes("smartphone")) {
         cat = "Mobile";
     } else if(contentLower.includes("startup") || contentLower.includes("incubateur") || contentLower.includes("accélérateur")) {
         cat = "Startups";
-    } else if(contentLower.includes("entreprise") || contentLower.includes("société")) {
+    } else if(/\bia\b|intelligence artificielle|chatgpt|llm\b|machine learning/.test(contentLower)) {
+        cat = "IA";
+    } else if(contentLower.includes("fintech") || contentLower.includes("paiement électronique") || contentLower.includes("banque en ligne")) {
+        cat = "Fintech";
+    } else if(mentionsAlgerie && (contentLower.includes("entreprise") || contentLower.includes("société"))) {
         cat = "Entreprises";
     }
     document.getElementById('siCategorie').value = cat;
@@ -237,6 +242,11 @@ async function deployArticle(e) {
     btn.querySelector('.si-deploy-inner').innerHTML = '<i class="fas fa-spinner fa-spin"></i> DÉPLOIEMENT EN COURS...';
 
     const formData = new FormData(document.getElementById('smartIngestForm'));
+
+    // La case "Brèves" n'est envoyée par le navigateur que si elle est cochée ;
+    // on la traduit ici vers le champ "type" attendu par le serveur.
+    formData.set('type', document.getElementById('siBreve').checked ? 'breve' : '');
+    formData.delete('isBreve');
 
     // Gestion auto de l'image si vide — même logique que getAutoImage de script.js
     if(!document.getElementById('siImage').files[0]) {
@@ -257,6 +267,13 @@ async function deployArticle(e) {
         // Remplace par ton endpoint de création réel (Node.js)
         const res = await fetch('/api/create-article', { method: 'POST', body: formData });
         if(res.ok) {
+            // Purge le cache local + le cache du Service Worker (stale-while-revalidate)
+            // pour que l'accueil affiche immédiatement le nouvel article/brève, pas une copie périmée.
+            localStorage.removeItem('at_articles_cache');
+            localStorage.removeItem('at_breves_cache');
+            if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+                navigator.serviceWorker.controller.postMessage('CLEAR_CACHE');
+            }
             document.getElementById('siSuccessModal').classList.remove('hidden');
         } else {
             throw new Error();

@@ -91,7 +91,10 @@
                                 <option value="Télécoms">Télécoms</option>
                                 <option value="Mobile">Mobile</option>
                                 <option value="Startups">Startups</option>
+                                <option value="IA">IA</option>
+                                <option value="Fintech">Fintech</option>
                                 <option value="Innovation">Innovation</option>
+                                <option value="Monde">Monde</option>
                                 <option value="Entreprises">Entreprises</option>
                                 <option value="Vidéo">Vidéo</option>
                                 <option value="Infographies">Infographies</option>
@@ -104,6 +107,23 @@
                     <div class="si-field">
                         <label><i class="fas fa-tags"></i> Tags (séparés par des virgules)</label>
                         <input type="text" id="siTags" name="tags" placeholder="ex: 5G, Algérie Télécom, Cloud">
+                    </div>
+
+                    <div class="si-field-row">
+                        <div class="si-field">
+                            <label><i class="fas fa-thumbtack"></i> Position à la Une</label>
+                            <select id="siPosition" name="position">
+                                <option value="">Automatique (par date)</option>
+                                <option value="1">Position 1 — Une principale</option>
+                                <option value="2">Position 2 — Une secondaire</option>
+                            </select>
+                        </div>
+                        <div class="si-field" style="display:flex;align-items:center;gap:8px;padding-top:22px;">
+                            <label style="display:flex;align-items:center;gap:6px;font-weight:normal;cursor:pointer;">
+                                <input type="checkbox" id="siBreve" name="isBreve" style="width:auto;">
+                                <i class="fas fa-bolt"></i> Publier en Brèves (n'apparaît pas en Une)
+                            </label>
+                        </div>
                     </div>
 
                     <div class="si-field">
