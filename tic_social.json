@@ -1441,6 +1441,24 @@
       "source_type": "rss"
     },
     {
+      "id": "4c731e7039237d58",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/02/politician-who-investigated-spyware-abuses-had-his-phone-hacked-with-pegasus-spyware/",
+      "image": "",
+      "date": "Fri, 03 Jul 2026 05:05:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Politician who investigated spyware abuses had his phone hacked with Pegasus spyware — A government customer of NSO Group used the company's Pegasus spyware to hack into the phone of a European politician, who at the time was serving on an EU committee tasked with investigating the spyware industry.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "77ac52eac6552078",
       "source_name": "TechCrunch",
       "source_short": "TC",
@@ -5381,27 +5399,9 @@
         "fr": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "30ba8e524968ebe4",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/video/why-everyone-from-openai-to-spacex-is-building-their-own-chips-and-turning-up-the-heat-on-nvidia/",
-      "image": "",
-      "date": "Fri, 26 Jun 2026 17:43:22 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Why everyone from OpenAI to SpaceX is building their own chips (and turning up the heat on Nvidia) — Nvidia has dominated the AI chip market for years, but the era of total dependence might be ending. OpenAI just shared its plans to spice things up with Jalapeño, its custom inference chip built with Broadcom, joining Google, Apple, and SpaceX in a growing list of companies building their way out of",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-07-03T01:50:07.149772+00:00",
+  "lastUpdated": "2026-07-03T06:20:39.172921+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
