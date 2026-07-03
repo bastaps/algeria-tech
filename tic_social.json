@@ -1441,6 +1441,42 @@
       "source_type": "rss"
     },
     {
+      "id": "1416a0321f2c1a83",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/07/03/lonu-alerte-sur-le-renforcement-du-phenomene-climatique-naturel-el-nino-en-cours/",
+      "image": "",
+      "date": "Fri, 03 Jul 2026 12:22:51 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "L’ONU alerte sur le renforcement du phénomène climatique naturel El Nino en cours — L’ONU a alerté vendredi sur un renforcement rapide du phénomène climatique naturel El Nino en cours qui devrait atteindre une « forte intensité » entre juillet et septembre (niveau 3 sur 4), augmentant la probabilité de phénomènes météorologiques extrêmes dans le monde. Selon l’Organisation météorol",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "9cd427f751546b44",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/emploi-formation-1373/ue-ia-formation-education-228137",
+      "image": "",
+      "date": "Fri, 03 Jul 2026 11:37:56 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "L’UE grave l’IA dans sa stratégie éducation-formation — L'IA jalonne la feuille de route 2026-2030 du Conseil européen pour l'éducation et la formation. Les STIM y ont une place importante. The post L’UE grave l’IA dans sa stratégie éducation-formation appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "4c731e7039237d58",
       "source_name": "TechCrunch",
       "source_short": "TC",
@@ -5363,52 +5399,16 @@
         "fr": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "f9c0cbd38e550432",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/26/openai-limits-gpt-5-6-rollout-after-government-request-says-restrictions-shouldnt-be-the-norm/",
-      "image": "",
-      "date": "Fri, 26 Jun 2026 18:32:14 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "OpenAI limits GPT-5.6 rollout after government request, says restrictions shouldn’t be the norm — “We don’t believe this kind of government access process should become the long-term default,” says OpenAI. “It keeps the best tools from users, developers, enterprises, cyber defenders, and global partners who need them.”",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "aea0b75b503942f4",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/26/openai-poaches-uber-india-chief-to-lead-its-biggest-market-outside-the-u-s/",
-      "image": "",
-      "date": "Fri, 26 Jun 2026 18:19:36 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "OpenAI poaches Uber India chief to lead its biggest market outside the US — The hire marks OpenAI's latest push into India, expanding offices, partnerships and hiring.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-07-03T11:24:58.922787+00:00",
+  "lastUpdated": "2026-07-03T13:39:32.791136+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Tech International": 160,
-    "Médias TIC": 60
+    "Médias TIC": 61,
+    "Tech International": 159
   },
   "total": 300
 }
