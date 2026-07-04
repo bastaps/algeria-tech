@@ -668,7 +668,7 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
     /* Side cards : image droite réduite, titre gauche élargi */
     .hero-side-card { grid-template-columns: 1fr; height: auto; gap: 10px; }
     .hero-side-card > div {
-        height: 124px;
+        min-height: 96px;
         position: relative;
         background: var(--bg-white);
         border-radius: var(--radius);
@@ -681,9 +681,12 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
         width: 38%; height: 100%;
         object-fit: cover;
     }
+    /* Overlay en flux normal : la hauteur de la carte est pilotée par le
+       texte (pas de hauteur fixe). Aucun débordement / chevauchement même
+       si la police système du téléphone est agrandie ou le titre long. */
     .hero-side-card .hero-overlay {
-        position: absolute;
-        left: 0; right: 38%; top: 0; bottom: 0;
+        position: static;
+        margin-right: 38%;
         background: var(--bg-white);
         color: var(--text-dark);
         padding: 10px 12px;
@@ -691,7 +694,6 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
         flex-direction: column;
         justify-content: center;
         gap: 4px;
-        overflow: hidden;
     }
     .hero-side-card .hero-meta-wrapper {
         gap: 6px;
