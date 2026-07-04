@@ -323,8 +323,21 @@ function replayCardAnim(feed) {
 }
 
 /* ══════════════════════════════════════════════════════════════
-   MOBILE : tap pour ouvrir / fermer une colonne
+   MOBILE : barre d'onglets (tap = ouvrir, glisser = réordonner)
    ══════════════════════════════════════════════════════════════ */
+const OP_ORDER_KEY = 'op_tab_order';
+
+function loadTabOrder() {
+  try { const a = JSON.parse(localStorage.getItem(OP_ORDER_KEY)); return Array.isArray(a) ? a : null; }
+  catch { return null; }
+}
+function saveTabOrder(tabbar) {
+  try {
+    const order = [...tabbar.children].map(h => h.dataset.op);
+    localStorage.setItem(OP_ORDER_KEY, JSON.stringify(order));
+  } catch (_) {}
+}
+
 function setupMobileTap() {
   if (window.innerWidth > 768) return;
   const hub  = document.getElementById('tripleHub');
@@ -333,43 +346,112 @@ function setupMobileTap() {
   if (!cols.length) return;
 
   // Restructure : 3 logos (col-head) dans une barre d'onglets, les feeds
-  // en dessous en pleine largeur. Les .col-feed gardent leurs id (feed-mobilis…)
-  // donc renderAll() les remplit toujours par id.
-  const tabbar = document.createElement('div');
-  tabbar.className = 'op-tabbar';
-  const feedsWrap = document.createElement('div');
-  feedsWrap.className = 'op-feeds';
+  // en dessous. Les .col-feed gardent leurs id (feed-mobilis…) → renderAll()
+  // les remplit toujours par id.
+  const tabbar    = document.createElement('div'); tabbar.className    = 'op-tabbar';
+  const feedsWrap = document.createElement('div'); feedsWrap.className = 'op-feeds';
 
-  const heads = [];
-  const feeds = [];
+  const headByOp = {}, feedByOp = {};
   cols.forEach(col => {
+    const op   = col.dataset.op;
     const head = col.querySelector('.col-head');
     const feed = col.querySelector('.col-feed');
-    head.dataset.op = col.dataset.op;   // couleur active + chevron
-    tabbar.appendChild(head);
-    feedsWrap.appendChild(feed);
-    heads.push(head);
-    feeds.push(feed);
-
-    head.addEventListener('click', () => {
-      const wasActive = head.classList.contains('tab-active');
-      heads.forEach(h => h.classList.remove('tab-active'));
-      feeds.forEach(f => f.classList.remove('feed-open'));
-      if (!wasActive) {
-        head.classList.add('tab-active');
-        feed.classList.add('feed-open');
-        replayCardAnim(feed);   // relance l'apparition en cascade
-      }
-    });
+    head.dataset.op = op;
+    headByOp[op] = head;
+    feedByOp[op] = feed;
   });
+
+  // Ordre : celui mémorisé (glisser-déposer), sinon l'ordre du HTML
+  const defaultOrder = cols.map(c => c.dataset.op);
+  const saved = loadTabOrder();
+  const order = (saved && saved.length === defaultOrder.length && saved.every(op => headByOp[op]))
+    ? saved : defaultOrder;
+  order.forEach(op => { tabbar.appendChild(headByOp[op]); feedsWrap.appendChild(feedByOp[op]); });
 
   hub.innerHTML = '';
   hub.appendChild(tabbar);
   hub.appendChild(feedsWrap);
 
-  // Ouvre le premier opérateur (Mobilis) par défaut : du contenu d'emblée
-  heads[0].classList.add('tab-active');
-  feeds[0].classList.add('feed-open');
+  const openTab = head => {
+    const feed = feedByOp[head.dataset.op];
+    const wasActive = head.classList.contains('tab-active');
+    Object.values(headByOp).forEach(h => h.classList.remove('tab-active'));
+    Object.values(feedByOp).forEach(f => f.classList.remove('feed-open'));
+    if (!wasActive) {
+      head.classList.add('tab-active');
+      feed.classList.add('feed-open');
+      replayCardAnim(feed);          // relance l'apparition en cascade
+    }
+  };
+
+  enableTabDrag(tabbar, openTab, () => saveTabOrder(tabbar));
+
+  // Ouvre le premier onglet (dans l'ordre courant) par défaut
+  const first = tabbar.querySelector('.col-head');
+  first.classList.add('tab-active');
+  feedByOp[first.dataset.op].classList.add('feed-open');
+}
+
+/* Glisser-déposer des onglets au doigt ; un tap simple ouvre le feed.
+   Réordonnancement en direct : l'onglet suit le doigt, les voisins
+   permutent quand on dépasse leur centre. Ordre mémorisé au relâchement. */
+function enableTabDrag(tabbar, onTap, onReorder) {
+  const THRESH = 8;                 // px avant de considérer que c'est un glisser
+  const GAP    = 10;                // doit correspondre au gap CSS de .op-tabbar
+  let dragEl = null, pid = null, startX = 0, moved = false;
+
+  tabbar.addEventListener('pointerdown', e => {
+    const head = e.target.closest('.col-head');
+    if (!head || dragEl) return;
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    dragEl = head; pid = e.pointerId; startX = e.clientX; moved = false;
+  });
+
+  tabbar.addEventListener('pointermove', e => {
+    if (!dragEl || e.pointerId !== pid) return;
+    if (!moved) {
+      if (Math.abs(e.clientX - startX) < THRESH) return;
+      moved = true;
+      dragEl.classList.add('dragging');
+      try { dragEl.setPointerCapture(pid); } catch (_) {}
+    }
+    e.preventDefault();
+    dragEl.style.transform = `translateX(${e.clientX - startX}px)`;
+
+    // Permutation avec le voisin de droite / gauche si on a dépassé son centre
+    const dc = () => { const r = dragEl.getBoundingClientRect(); return r.left + r.width / 2; };
+    const next = dragEl.nextElementSibling;
+    if (next) {
+      const r = next.getBoundingClientRect();
+      if (dc() > r.left + r.width / 2) {
+        tabbar.insertBefore(next, dragEl);       // dragEl passe à droite
+        startX += r.width + GAP;
+        dragEl.style.transform = `translateX(${e.clientX - startX}px)`;
+      }
+    }
+    const prev = dragEl.previousElementSibling;
+    if (prev) {
+      const r = prev.getBoundingClientRect();
+      if (dc() < r.left + r.width / 2) {
+        tabbar.insertBefore(dragEl, prev);       // dragEl passe à gauche
+        startX -= r.width + GAP;
+        dragEl.style.transform = `translateX(${e.clientX - startX}px)`;
+      }
+    }
+  });
+
+  const finish = e => {
+    if (!dragEl || (e && e.pointerId !== pid)) return;
+    const el = dragEl, wasMoved = moved;
+    try { el.releasePointerCapture(pid); } catch (_) {}
+    el.classList.remove('dragging');
+    el.style.transform = '';
+    dragEl = null; pid = null; moved = false;
+    if (wasMoved) onReorder();
+    else onTap(el);
+  };
+  tabbar.addEventListener('pointerup', finish);
+  tabbar.addEventListener('pointercancel', finish);
 }
 
 /* ══════════════════════════════════════════════════════════════

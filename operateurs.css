@@ -1400,24 +1400,22 @@ body.theme-bluenuit .art-modal-panel { background: #0f1320; }
 @media (max-width: 768px) {
   body { overflow: auto; }
 
-  /* ── Header sur 2 lignes : plus rien ne recouvre le bouton thème ──
-     Ligne 1 : marque + toggle Actu/Comm + bouton couleur (toujours visibles).
-     Ligne 2 : titre « Opérateurs Mobiles » centré, sur sa propre ligne. */
+  /* ── Header sur UNE seule ligne ──
+     Le titre central redondant est masqué ; marque à gauche, toggle
+     Actus/Comm + bouton couleur groupés à droite (labels courts → tout tient). */
   .op-header {
-    height     : auto;
-    min-height : var(--hdr-h);
-    flex-wrap  : wrap;
-    padding    : 8px 12px;
-    gap        : 6px 10px;
+    height    : var(--hdr-h);
+    flex-wrap : nowrap;
+    padding   : 0 10px;
+    gap       : 8px;
   }
+  .header-center { display: none; }
   .brand-group   { order: 0; min-width: 0; flex-shrink: 1; }
   .site-brand    { font-size: 14px; }
-  .global-toggle { order: 1; margin-left: auto; padding: 6px 10px; gap: 8px; flex-shrink: 0; }
+  .global-toggle { order: 1; margin-left: auto; padding: 5px 9px; gap: 7px; flex-shrink: 0; }
   .global-toggle i { display: none; }
   .tgl-label     { font-size: 10px; }
-  .theme-btn     { order: 2; margin-right: 0; }
-  .header-center { order: 3; flex-basis: 100%; text-align: center; }
-  .header-title  { font-size: 13px; justify-content: center; gap: 8px; }
+  .theme-btn     { order: 2; margin-right: 0; flex-shrink: 0; }
   .header-sub    { display: none; }
 
   /* ══ Opérateurs : 3 logos alignés sur une même rangée (onglets) ══
@@ -1433,7 +1431,19 @@ body.theme-bluenuit .art-modal-panel { background: #0f1320; }
   }
   .col-fx { display: none; }
 
-  .op-tabbar { display: flex; gap: 10px; }
+  /* Barre d'onglets FIGÉE : reste collée en haut pendant que les articles
+     défilent dessous (full-bleed en annulant le padding du hub). */
+  .op-tabbar {
+    display   : flex;
+    gap       : 10px;
+    position  : sticky;
+    top       : 0;
+    z-index   : 60;
+    background: #080808;
+    margin    : -12px -12px 0;
+    padding   : 12px;
+    box-shadow: 0 8px 18px -10px rgba(0,0,0,.9);
+  }
   .op-feeds  { margin-top: 12px; }
 
   .col-head {
@@ -1455,9 +1465,18 @@ body.theme-bluenuit .art-modal-panel { background: #0f1320; }
     text-align     : center;
     pointer-events : auto !important;
     cursor         : pointer;
+    touch-action   : pan-y;   /* scroll vertical OK ; le drag horizontal est géré en JS */
     transition     : background .3s, border-color .3s, transform .25s var(--spring);
   }
   .col-head:active { transform: scale(.96); }
+  /* Onglet en cours de déplacement (réordonnancement au doigt) */
+  .col-head.dragging {
+    transition : none;
+    z-index    : 20;
+    opacity    : .97;
+    box-shadow : 0 12px 26px rgba(0,0,0,.55);
+    cursor     : grabbing;
+  }
 
   /* Onglet actif : teinté à la couleur de l'opérateur */
   .col-head.tab-active[data-op="mobilis"] { background: rgba(0,200,83,.15);  border-color: rgba(0,200,83,.55); }
