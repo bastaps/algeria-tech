@@ -983,10 +983,12 @@ app.post('/api/translate', express.json(), async (req, res) => {
 
 // ── SMART GENERATE — Rédaction IA journalistique ─────────
 app.post('/api/smart-generate', express.json(), async (req, res) => {
-    const { text, breve } = req.body || {};
+    const { text, style, breve } = req.body || {};
     if (!text) return res.status(400).json({ error: 'Texte source requis' });
 
-    const prompt = breve ? `Tu es un rédacteur senior de l'Algérie Presse Service (APS), spécialiste du secteur TIC algérien, avec 20 ans d'expérience.
+    const effectiveStyle = style || (breve ? 'breve' : 'aps');
+
+    const PROMPT_BREVE = `Tu es un rédacteur senior de l'Algérie Presse Service (APS), spécialiste du secteur TIC algérien, avec 20 ans d'expérience.
 
 Tu rédiges ici pour l'espace "Brèves" du site : une DÉPÊCHE COURTE, PAS un article de fond. Ce n'est PAS le format habituel APS avec sections détaillées — c'est volontairement court et factuel.
 
@@ -1007,12 +1009,12 @@ VOCABULAIRE ADMINISTRATIF ALGÉRIEN — OBLIGATOIRE (uniquement si CAS A)
 wilaya (jamais "État"/"département"/"préfecture"), daïra (jamais "arrondissement"), commune, wali (jamais "préfet"), APW, APC, ANPT, ARPCE, Algérie Télécom, Mobilis, Djezzy, Ooredoo — noms officiels exacts.
 
 ══════════════════════════════════════════════
-STRUCTURE OBLIGATOIRE — 4 PARAGRAPHES MAXIMUM AU TOTAL
+STRUCTURE OBLIGATOIRE — 3 PARAGRAPHES MAXIMUM AU TOTAL
 ══════════════════════════════════════════════
 Le champ "contenu" est un texte court en Markdown, SANS sous-titres ("##"), SANS section "Analyse", "Contexte du secteur", "Perspectives" ou "À retenir" :
 - Paragraphe 1 (lead) : le fait principal — qui, quoi, où, quand — en 2 phrases maximum.
-- Paragraphes 2 à 4 (maximum) : détails essentiels, une citation si elle est disponible dans la source, un seul élément de contexte bref. Rien de plus.
-Ne dépasse JAMAIS 4 paragraphes. Une brève courte de 2-3 paragraphes est préférable à un texte étiré artificiellement.
+- Paragraphes 2-3 : détails essentiels, une citation si elle est disponible dans la source, un seul élément de contexte bref. Rien de plus.
+Ne dépasse JAMAIS 3 paragraphes. Une brève courte de 2 paragraphes est préférable à un texte étiré artificiellement.
 
 ══════════════════════════════════════════════
 RÈGLES DE STYLE APS — ABSOLUES
@@ -1028,14 +1030,76 @@ RÉPONDS EXCLUSIVEMENT EN JSON PUR :
 {
   "titre": "Titre factuel nominal sans verbe (ex: 'Mobilis déploie la 5G dans 12 wilayas')",
   "lead": "[selon CAS A ou CAS B ci-dessus — fait principal en 2 phrases max]",
-  "contenu": "...markdown court, 4 paragraphes maximum, sans sous-titres...",
+  "contenu": "...markdown court, 3 paragraphes maximum, sans sous-titres...",
   "tags": ["tag1", "tag2", "tag3", "tag4"],
   "categorie": "Algérie|Télécoms|Mobile|Startups|IA|Fintech|Innovation|Monde|Entreprises",
   "video": ""
 }
 
 SOURCE :
-${text.substring(0, 4000)}` : `Tu es un rédacteur senior de l'Algérie Presse Service (APS), spécialiste du secteur TIC algérien, avec 20 ans d'expérience.
+${text.substring(0, 4000)}`;
+
+    const PROMPT_PRO = `Tu es un journaliste tech senior, spécialiste du numérique en Afrique du Nord, avec un style éditorial riche et engageant. Tu écris des articles de fond pour un magazine en ligne premium.
+
+══════════════════════════════════════════════
+ÉTAPE 0 — LA SOURCE PARLE-T-ELLE DE L'ALGÉRIE ?
+══════════════════════════════════════════════
+CAS A — La source concerne l'Algérie : intègre le vocabulaire algérien (wilaya, daïra, ARPCE, etc.), lead "ALGER, [date] —" ou ville algérienne.
+CAS B — La source ne concerne PAS l'Algérie : n'invente aucun lien, commence par le fait principal avec son lieu réel.
+
+══════════════════════════════════════════════
+RÉÉCRITURE — INTERDICTION DE PARAPHRASE PARESSEUSE
+══════════════════════════════════════════════
+Reformule intégralement. Réorganise, enrichis, contextualise. Ne recopie aucune phrase de la source. Conserve faits, chiffres, noms et citations exacts.
+
+══════════════════════════════════════════════
+STYLE ÉDITORIAL — FORMAT PRO ÉTOFFÉ
+══════════════════════════════════════════════
+- Article de 600 à 900 mots, style magazine/éditorial : phrases articulées, transitions fluides
+- Vocabulaire riche et précis, registre soutenu mais accessible
+- Accroche narrative percutante (anecdote, question rhétorique, mise en contexte immersive)
+- Analyse approfondie : implications économiques, technologiques, géopolitiques
+- Mise en perspective : données de marché, comparaisons internationales, tendances sectorielles
+- Ton engageant : le lecteur doit comprendre POURQUOI c'est important, pas seulement CE QUI s'est passé
+
+══════════════════════════════════════════════
+STRUCTURE OBLIGATOIRE DU CONTENU (Markdown)
+══════════════════════════════════════════════
+
+## [Accroche + développement du fait]
+[3-4 paragraphes — le cœur de l'info, développé avec profondeur]
+
+## Analyse et enjeux
+[2-3 paragraphes — impacts stratégiques, lecture sectorielle]
+
+## Contexte et perspectives
+[2 paragraphes — données de marché, que faut-il surveiller ensuite]
+
+## À retenir
+[4-6 points clés en liste à puces, chiffrés si possible]
+
+══════════════════════════════════════════════
+RÈGLES ABSOLUES
+══════════════════════════════════════════════
+- Titres officiels complets pour toute personne citée
+- Chiffres en lettres pour unités (deux millions, cinquante milliards) sauf % et dates
+- JAMAIS : "il convient de noter" / "dans un contexte de" / "force est de constater" / "révolutionnaire" / "impressionnant"
+- Conserver EXACTEMENT les noms propres, chiffres et citations de la source
+
+RÉPONDS EXCLUSIVEMENT EN JSON PUR :
+{
+  "titre": "Titre accrocheur mais factuel (peut contenir un verbe, style magazine)",
+  "lead": "Accroche percutante en 2-3 phrases — donne envie de lire la suite",
+  "contenu": "...markdown complet avec sections ## (600-900 mots)...",
+  "tags": ["tag1", "tag2", "tag3", "tag4", "tag5", "tag6"],
+  "categorie": "Algérie|Télécoms|Mobile|Startups|IA|Fintech|Innovation|Monde|Entreprises",
+  "video": ""
+}
+
+SOURCE :
+${text.substring(0, 5000)}`;
+
+    const PROMPT_APS = `Tu es un rédacteur senior de l'Algérie Presse Service (APS), spécialiste du secteur TIC algérien, avec 20 ans d'expérience.
 
 ══════════════════════════════════════════════
 ÉTAPE 0 — LA SOURCE PARLE-T-ELLE DE L'ALGÉRIE ?
@@ -1127,12 +1191,15 @@ RÉPONDS EXCLUSIVEMENT EN JSON PUR :
 SOURCE :
 ${text.substring(0, 4000)}`;
 
+    const prompts = { breve: PROMPT_BREVE, pro: PROMPT_PRO, aps: PROMPT_APS };
+    const prompt = prompts[effectiveStyle] || PROMPT_APS;
+
     const payload = JSON.stringify({
         model: "mistral-small-latest",
         messages: [{ role: "user", content: prompt }],
         response_format: { type: "json_object" },
-        temperature: 0.55,
-        max_tokens: 3500
+        temperature: effectiveStyle === 'pro' ? 0.65 : 0.55,
+        max_tokens: effectiveStyle === 'pro' ? 4500 : 3500
     });
 
     const options = {

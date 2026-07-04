@@ -654,7 +654,8 @@ window.deleteComm = async function(id) {
 /* ══════════════════════════════════════════════════════════════
    IMPORT AUTOMATIQUE — JPG / PDF / TXT / Word → (traduction) → Remplir
    ══════════════════════════════════════════════════════════════ */
-let commRawText = null;   // texte brut extrait (éventuellement traduit)
+let commRawText = null;
+let commStyle = 'aps';
 
 function resetCommImport() {
   commRawText = null;
@@ -662,6 +663,7 @@ function resetCommImport() {
   const importBtn = document.getElementById('commImportBtn');
   const importLbl = document.getElementById('commImportBtnLabel');
   const translateBtn = document.getElementById('commTranslateBtn');
+  const genBtn    = document.getElementById('commGenBtn');
   const fillBtn   = document.getElementById('commFillBtn');
   if (!importBtn) return;
 
@@ -674,6 +676,7 @@ function resetCommImport() {
   translateBtn.disabled = true;
   translateBtn.innerHTML = '<i class="fas fa-language"></i> Traduire en français';
 
+  if (genBtn) { genBtn.classList.remove('is-loading', 'is-done', 'is-error'); genBtn.disabled = true; }
   fillBtn.classList.remove('is-loading');
   fillBtn.disabled = true;
 }
@@ -707,6 +710,7 @@ async function handleCommImport(file) {
     label.textContent = 'Texte extrait ✓';
     icon.className = 'fas fa-check';
     translateBtn.disabled = false;
+    if (document.getElementById('commGenBtn')) document.getElementById('commGenBtn').disabled = false;
     fillBtn.disabled = false;
   } catch (err) {
     btn.classList.remove('is-loading');
@@ -796,10 +800,53 @@ async function fillCommFromExtract() {
   }
 }
 
+async function generateCommArticle() {
+  if (!commRawText) return;
+  const genBtn = document.getElementById('commGenBtn');
+  genBtn.classList.add('is-loading');
+  genBtn.disabled = true;
+  genBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> IA...';
+
+  try {
+    const res = await fetch('/api/smart-generate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: commRawText, style: commStyle })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Erreur serveur');
+
+    if (data.titre)   document.getElementById('commTitre').value   = data.titre;
+    if (data.lead)    document.getElementById('commExtrait').value  = data.lead;
+    if (data.contenu) document.getElementById('commContenu').value  = data.contenu;
+    const today = new Date();
+    if (!document.getElementById('commDate').value) document.getElementById('commDate').value = today.toISOString().slice(0,10);
+    if (!document.getElementById('commHeure').value) document.getElementById('commHeure').value = today.toTimeString().slice(0,5);
+    if (Array.isArray(data.tags) && data.tags.length) {
+      const opNames = ['mobilis','djezzy','ooredoo'];
+      const extraTags = data.tags.filter(t => !opNames.includes(t.toLowerCase()));
+      document.getElementById('commTags').value = extraTags.join(', ');
+    }
+
+    genBtn.classList.remove('is-loading');
+    genBtn.classList.add('is-done');
+    genBtn.innerHTML = '<i class="fas fa-check"></i> Généré ✓';
+    setTimeout(() => { genBtn.classList.remove('is-done'); genBtn.innerHTML = '<i class="fas fa-pen-nib"></i> Générer'; genBtn.disabled = false; }, 3000);
+  } catch (err) {
+    genBtn.classList.remove('is-loading');
+    genBtn.classList.add('is-error');
+    genBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Échec';
+    genBtn.disabled = false;
+    alert('Erreur génération IA : ' + err.message);
+    setTimeout(() => { genBtn.classList.remove('is-error'); genBtn.innerHTML = '<i class="fas fa-pen-nib"></i> Générer'; }, 3000);
+  }
+}
+
 function setupCommImport() {
   const importBtn    = document.getElementById('commImportBtn');
   const importFile    = document.getElementById('commImportFile');
   const translateBtn = document.getElementById('commTranslateBtn');
+  const genBtn       = document.getElementById('commGenBtn');
   const fillBtn       = document.getElementById('commFillBtn');
 
   importBtn.addEventListener('click', () => importFile.click());
@@ -811,7 +858,16 @@ function setupCommImport() {
   });
 
   translateBtn.addEventListener('click', translateCommImport);
+  if (genBtn) genBtn.addEventListener('click', generateCommArticle);
   fillBtn.addEventListener('click', fillCommFromExtract);
+
+  document.querySelectorAll('.cf-style-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.cf-style-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      commStyle = btn.dataset.style;
+    });
+  });
 }
 
 /* ── Wiring événements du formulaire ─────────────────────────── */

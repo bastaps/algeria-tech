@@ -64,6 +64,27 @@
                     </button>
                 </div>
 
+                <div class="si-style-selector" id="styleSelector">
+                    <label class="si-style-label"><i class="fas fa-feather-alt"></i> Style de rédaction :</label>
+                    <div class="si-style-options">
+                        <button type="button" class="si-style-btn active" data-style="aps">
+                            <i class="fas fa-landmark"></i>
+                            <strong>APS</strong>
+                            <small>Agence — formel, sections</small>
+                        </button>
+                        <button type="button" class="si-style-btn" data-style="pro">
+                            <i class="fas fa-feather-alt"></i>
+                            <strong>Pro</strong>
+                            <small>Étoffé — magazine, analyse</small>
+                        </button>
+                        <button type="button" class="si-style-btn" data-style="breve">
+                            <i class="fas fa-bolt"></i>
+                            <strong>Brève</strong>
+                            <small>3 paragraphes max</small>
+                        </button>
+                    </div>
+                </div>
+
 
                 <div id="previewZone" class="si-preview-zone hidden">
                     <div class="si-preview-head">
@@ -121,7 +142,7 @@
                         <div class="si-field" style="display:flex;align-items:center;gap:8px;padding-top:22px;">
                             <label style="display:flex;align-items:center;gap:6px;font-weight:normal;cursor:pointer;">
                                 <input type="checkbox" id="siBreve" name="isBreve" style="width:auto;">
-                                <i class="fas fa-bolt"></i> Publier en Brèves (n'apparaît pas en Une)
+                                <i class="fas fa-bolt"></i> Publier en Brèves (bandeau, pas en Une)
                             </label>
                         </div>
                     </div>

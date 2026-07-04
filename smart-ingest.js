@@ -10,12 +10,28 @@ const ENGINE_URL = `${API_BASE}/api/smart-generate`;
 document.addEventListener('DOMContentLoaded', () => {
     initDateTime();
     fetchCurrentPositions();
-    
-    // Compteur de caractères en temps réel
+    setupStyleSelector();
+
     document.getElementById('smartBox').addEventListener('input', function() {
         document.getElementById('charCount').textContent = this.value.length + " caractères";
     });
 });
+
+let selectedStyle = 'aps';
+
+function setupStyleSelector() {
+    const btns = document.querySelectorAll('.si-style-btn');
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            btns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            selectedStyle = btn.dataset.style;
+            if (selectedStyle === 'breve') {
+                document.getElementById('siBreve').checked = true;
+            }
+        });
+    });
+}
 
 function initDateTime() {
     const now = new Date();
@@ -174,7 +190,7 @@ async function generateProArticle() {
         const response = await fetch(ENGINE_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ text: source, breve: document.getElementById('siBreve')?.checked || false })
+            body: JSON.stringify({ text: source, style: selectedStyle })
         });
 
         const data = await response.json();
@@ -184,9 +200,10 @@ async function generateProArticle() {
         // On stocke le résultat globalement pour le bouton "Remplir"
         window._lastAI = data;
 
-        // Mise à jour de la zone d'aperçu (serveur retourne {titre, lead, contenu})
         document.getElementById('previewContent').value = `# ${data.titre}\n\n${data.lead}\n\n${data.contenu}`;
         document.getElementById('previewZone').classList.remove('hidden');
+        const styleLabels = { aps: 'APS', pro: 'PRO ÉTOFFÉ', breve: 'BRÈVE' };
+        document.querySelector('.si-preview-head span').innerHTML = `<i class="fas fa-eye"></i> RÉDACTION ${styleLabels[selectedStyle] || 'APS'} (APERÇU)`;
         
         setStatus('genBtn', 'success');
     } catch (e) {

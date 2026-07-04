@@ -210,11 +210,19 @@
                     <button type="button" class="cf-translate-btn" id="commTranslateBtn" disabled>
                         <i class="fas fa-language"></i> Traduire en français
                     </button>
+                    <button type="button" class="cf-gen-btn" id="commGenBtn" disabled>
+                        <i class="fas fa-pen-nib"></i> Générer
+                    </button>
                     <button type="button" class="cf-fill-btn" id="commFillBtn" disabled>
                         <i class="fas fa-fill-drip"></i> Remplir
                     </button>
                 </div>
-                <small class="cf-hint">Déposez un communiqué existant (photo, PDF, TXT ou Word) : l'IA extrait le texte. Si le texte n'est pas en français (arabe, anglais...), cliquez sur « Traduire » avant de « Remplir ».</small>
+                <div class="cf-style-selector" id="commStyleSelector">
+                    <button type="button" class="cf-style-btn active" data-style="aps"><i class="fas fa-landmark"></i> APS</button>
+                    <button type="button" class="cf-style-btn" data-style="pro"><i class="fas fa-feather-alt"></i> Pro</button>
+                    <button type="button" class="cf-style-btn" data-style="breve"><i class="fas fa-bolt"></i> Brève</button>
+                </div>
+                <small class="cf-hint">Importez un communiqué (photo, PDF, TXT ou Word) → Traduire si nécessaire → choisissez un style → Générer (réécriture IA) ou Remplir (structuration brute).</small>
             </div>
 
             <!-- Sélecteur opérateur -->

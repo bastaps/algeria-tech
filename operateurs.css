@@ -1310,6 +1310,49 @@ body.theme-bluenuit .art-modal-panel { background: #0f1320; }
   background   : rgba(239,68,68,.12);
 }
 
+/* Bouton Générer (IA) */
+.cf-gen-btn {
+  padding      : 7px 14px;
+  border       : 1px dashed rgba(99,102,241,.5);
+  border-radius: 7px;
+  background   : rgba(99,102,241,.08);
+  color        : rgba(99,102,241,.9);
+  font-size    : 11px;
+  font-weight  : 700;
+  cursor       : pointer;
+  transition   : all .2s;
+  white-space  : nowrap;
+}
+.cf-gen-btn:hover:not(:disabled) { background: rgba(99,102,241,.18); border-color: rgba(99,102,241,.8); }
+.cf-gen-btn:disabled { opacity: .4; cursor: default; }
+.cf-gen-btn.is-loading { animation: pulse-op .9s infinite; border-style: solid; }
+.cf-gen-btn.is-done { border-color: #10b981; color: #10b981; background: rgba(16,185,129,.12); border-style: solid; }
+.cf-gen-btn.is-error { border-color: #ef4444; color: #ef4444; background: rgba(239,68,68,.12); border-style: solid; }
+@keyframes pulse-op { 0%,100%{opacity:1} 50%{opacity:.5} }
+
+/* Sélecteur de style (APS / Pro / Brève) */
+.cf-style-selector {
+  display      : flex;
+  gap          : 6px;
+  margin-top   : 8px;
+}
+.cf-style-btn {
+  flex         : 1 1 0;
+  padding      : 6px 8px;
+  border       : 1px solid rgba(255,255,255,.1);
+  border-radius: 7px;
+  background   : transparent;
+  color        : rgba(255,255,255,.55);
+  font-size    : 11px;
+  font-weight  : 600;
+  cursor       : pointer;
+  text-align   : center;
+  transition   : all .2s;
+}
+.cf-style-btn i { margin-right: 4px; }
+.cf-style-btn:hover { border-color: rgba(99,102,241,.5); color: rgba(255,255,255,.8); }
+.cf-style-btn.active { border-color: rgba(99,102,241,.7); background: rgba(99,102,241,.15); color: #a5b4fc; }
+
 /* Upload image */
 .cf-file-wrap { display: flex; align-items: center; gap: 10px; }
 .cf-file-btn {
