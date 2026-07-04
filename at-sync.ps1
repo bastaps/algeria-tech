@@ -191,6 +191,18 @@ public static class CtrlCGuard {
                 # 5. Restaurer les changements locaux
                 if ($stashCreated) {
                     git stash pop 2>&1 | Out-Null
+                    # Si le stash pop laisse des conflits, NE PAS laisser de marqueurs
+                    # dans les fichiers : on garde la version locale (stashee = --theirs)
+                    # puis on retire le stash (un pop conflictuel ne le supprime pas).
+                    $unmerged = git diff --name-only --diff-filter=U
+                    if ($unmerged) {
+                        Write-Host "Conflit stash pop -> resolution auto (version locale, sans marqueurs)." -ForegroundColor Yellow
+                        foreach ($cf in $unmerged) {
+                            git checkout --theirs -- $cf 2>&1 | Out-Null
+                            git add -- $cf 2>&1 | Out-Null
+                        }
+                        git stash drop 2>&1 | Out-Null
+                    }
                     Write-Host "Changements locaux restaures." -ForegroundColor Gray
                 }
 
@@ -211,6 +223,17 @@ public static class CtrlCGuard {
                 # Exclure uniquement les fichiers vraiment auto-generes (revue + veille RSS)
                 foreach ($f in $AUTO_FILES) {
                     git restore --staged $f 2>$null
+                }
+
+                # 8b. Garde-fou : ne JAMAIS commiter de marqueurs de conflit
+                $conflictMarked = git diff --cached -U0 | Select-String -Pattern '^\+(<<<<<<< |>>>>>>> |\|\|\|\|\|\|\| )'
+                if ($conflictMarked) {
+                    Write-Host "`nARRET : marqueurs de conflit detectes dans les fichiers stages." -ForegroundColor Red
+                    Write-Host "Rien n'est commite ni pousse. Resolvez les conflits puis relancez." -ForegroundColor Yellow
+                    git restore --staged . 2>$null | Out-Null
+                    Set-SkipWorktree -Enable
+                    Read-Host "Appuyez sur Entree pour continuer..."
+                    break
                 }
 
                 # 9. Commiter
