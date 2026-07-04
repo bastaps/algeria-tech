@@ -1400,73 +1400,105 @@ body.theme-bluenuit .art-modal-panel { background: #0f1320; }
 @media (max-width: 768px) {
   body { overflow: auto; }
 
-  .op-header { padding: 0 12px; gap: 8px; }
-  .header-title { font-size: 14px; }
-  .header-sub { display: none; }
-  .brand-group { min-width: 0; flex-shrink: 1; }
-  .global-toggle { padding: 6px 8px; gap: 6px; flex-shrink: 0; }
-  .global-toggle i { display: none; } /* icônes masquées sur mobile : le toggle tient dans l'entête */
-  .tgl-label { font-size: 10px; }
-
-  .triple-hub { flex-direction: column; height: auto; overflow: visible; }
-
-  .op-col {
-    flex       : none !important;
-    height     : 68px;
-    border-right : none;
-    border-bottom: 1px solid rgba(255,255,255,.06);
-    transition : height .5s var(--spring);
-    overflow   : hidden;
+  /* ── Header sur 2 lignes : plus rien ne recouvre le bouton thème ──
+     Ligne 1 : marque + toggle Actu/Comm + bouton couleur (toujours visibles).
+     Ligne 2 : titre « Opérateurs Mobiles » centré, sur sa propre ligne. */
+  .op-header {
+    height     : auto;
+    min-height : var(--hdr-h);
+    flex-wrap  : wrap;
+    padding    : 8px 12px;
+    gap        : 6px 10px;
   }
-  .op-col.mobile-open { height: 580px; }
+  .brand-group   { order: 0; min-width: 0; flex-shrink: 1; }
+  .site-brand    { font-size: 14px; }
+  .global-toggle { order: 1; margin-left: auto; padding: 6px 10px; gap: 8px; flex-shrink: 0; }
+  .global-toggle i { display: none; }
+  .tgl-label     { font-size: 10px; }
+  .theme-btn     { order: 2; margin-right: 0; }
+  .header-center { order: 3; flex-basis: 100%; text-align: center; }
+  .header-title  { font-size: 13px; justify-content: center; gap: 8px; }
+  .header-sub    { display: none; }
+
+  /* ══ Opérateurs : 3 logos alignés sur une même rangée (onglets) ══
+     Le JS déplace les 3 .col-head dans .op-tabbar et les 3 .col-feed dans
+     .op-feeds : barre d'onglets en flex simple (robuste, sans display:contents)
+     + feed actif en pleine largeur dessous. Les 3 onglets restent TOUJOURS
+     visibles ; un tap déroule les articles de l'opérateur choisi. */
+  .triple-hub {
+    display : block;
+    height  : auto;
+    overflow: visible;
+    padding : 12px;
+  }
+  .col-fx { display: none; }
+
+  .op-tabbar { display: flex; gap: 10px; }
+  .op-feeds  { margin-top: 12px; }
 
   .col-head {
-    position  : static !important;
-    transform : none !important;
-    flex-direction: row;
-    padding   : 14px !important;
-    height    : 68px;
-    gap       : 10px;
-    top       : unset !important;
-    text-align: left;
-    pointer-events: auto !important; /* mobile : le tap doit atteindre l'entête (desktop = none pour le survol) */
-    cursor    : pointer;
+    flex           : 1 1 0;
+    min-width      : 0;
+    position       : relative !important;
+    transform      : none !important;
+    top            : unset !important;
+    left           : auto !important;  /* annule le left:50% du desktop (décalait l'onglet) */
+    flex-direction : column;
+    align-items    : center;
+    justify-content: center;
+    gap            : 7px;
+    height         : auto !important;
+    padding        : 16px 6px 12px !important;
+    border-radius  : 16px;
+    background     : rgba(255,255,255,.035);
+    border         : 1px solid rgba(255,255,255,.09);
+    text-align     : center;
+    pointer-events : auto !important;
+    cursor         : pointer;
+    transition     : background .3s, border-color .3s, transform .25s var(--spring);
   }
-  .icon-cluster  { width: 40px; height: 40px; }
-  .op-emblem     { width: 38px; height: 38px; border-radius: 9px; }
-  .p-ring        { display: none; }
-  .net-bars      { display: none; }
-  .op-name       { font-size: 15px; }
-  .op-tagline    { display: none; }
-  .expand-hint   { display: none; }
+  .col-head:active { transform: scale(.96); }
 
-  .featured-wrap { display: none; }
+  /* Onglet actif : teinté à la couleur de l'opérateur */
+  .col-head.tab-active[data-op="mobilis"] { background: rgba(0,200,83,.15);  border-color: rgba(0,200,83,.55); }
+  .col-head.tab-active[data-op="djezzy"]  { background: rgba(255,23,68,.15); border-color: rgba(255,23,68,.55); }
+  .col-head.tab-active[data-op="ooredoo"] { background: rgba(226,0,26,.15);  border-color: rgba(226,0,26,.55); }
 
+  .icon-cluster { width: 46px; height: 46px; }
+  .op-emblem    { width: 44px; height: 44px; border-radius: 11px; }
+  .p-ring       { display: none; }
+  .net-bars     { display: none; }
+  .op-name      { font-size: 13px; font-weight: 700; line-height: 1.1; }
+  .op-tagline   { display: none; }
+  .expand-hint  { display: none; }
+  .featured-wrap{ display: none; }
+  .op-count     { font-size: 10px; opacity: .55; margin-top: -2px; }
+
+  /* Petite flèche à côté du logo (coin haut-droit), pivote à l'ouverture */
+  .col-head::after {
+    content  : '';
+    position : absolute;
+    top      : 12px;
+    right    : 11px;
+    width    : 7px; height: 7px;
+    border-right : 2px solid rgba(255,255,255,.5);
+    border-bottom: 2px solid rgba(255,255,255,.5);
+    transform: rotate(45deg);
+    transition: transform .4s var(--spring);
+  }
+  .col-head.tab-active::after { transform: rotate(-135deg); border-color: #fff; }
+
+  /* Feed : pleine largeur ; seul l'actif (feed-open) s'affiche */
   .col-feed {
     position      : static !important;
     transform     : none !important;
     opacity       : 1 !important;
     pointer-events: auto !important;
-    padding       : 12px !important;
-    max-height    : 510px;
+    padding       : 0 !important;
+    max-height    : none;
     display       : none;
   }
-  .op-col.mobile-open .col-feed { display: flex; }
-
-  /* Affordance tactile : compteur + chevron alignés à droite ; le chevron
-     pivote à l'ouverture (l'indice « Survolez » du desktop est masqué). */
-  .col-head .op-count { margin-left: auto; }
-  .col-head::after {
-    content: '';
-    flex: none;
-    margin-left: 12px;
-    width: 9px; height: 9px;
-    border-right : 2px solid rgba(255,255,255,.55);
-    border-bottom: 2px solid rgba(255,255,255,.55);
-    transform: rotate(45deg);
-    transition: transform .4s var(--spring);
-  }
-  .op-col.mobile-open .col-head::after { transform: rotate(-135deg); }
+  .col-feed.feed-open { display: flex; flex-direction: column; gap: 10px; }
 
   /* Cartes : retour au layout vertical sur mobile */
   .art-card {

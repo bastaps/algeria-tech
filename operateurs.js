@@ -318,18 +318,48 @@ function setupHover() {
    ══════════════════════════════════════════════════════════════ */
 function setupMobileTap() {
   if (window.innerWidth > 768) return;
-  const cols = document.querySelectorAll('.op-col');
+  const hub  = document.getElementById('tripleHub');
+  if (!hub) return;
+  const cols = [...hub.querySelectorAll('.op-col')];
+  if (!cols.length) return;
 
+  // Restructure : 3 logos (col-head) dans une barre d'onglets, les feeds
+  // en dessous en pleine largeur. Les .col-feed gardent leurs id (feed-mobilis…)
+  // donc renderAll() les remplit toujours par id.
+  const tabbar = document.createElement('div');
+  tabbar.className = 'op-tabbar';
+  const feedsWrap = document.createElement('div');
+  feedsWrap.className = 'op-feeds';
+
+  const heads = [];
+  const feeds = [];
   cols.forEach(col => {
-    col.querySelector('.col-head').addEventListener('click', () => {
-      const wasOpen = col.classList.contains('mobile-open');
-      cols.forEach(c => c.classList.remove('mobile-open'));
-      if (!wasOpen) col.classList.add('mobile-open');
+    const head = col.querySelector('.col-head');
+    const feed = col.querySelector('.col-feed');
+    head.dataset.op = col.dataset.op;   // couleur active + chevron
+    tabbar.appendChild(head);
+    feedsWrap.appendChild(feed);
+    heads.push(head);
+    feeds.push(feed);
+
+    head.addEventListener('click', () => {
+      const wasActive = head.classList.contains('tab-active');
+      heads.forEach(h => h.classList.remove('tab-active'));
+      feeds.forEach(f => f.classList.remove('feed-open'));
+      if (!wasActive) {
+        head.classList.add('tab-active');
+        feed.classList.add('feed-open');
+      }
     });
   });
 
-  // Ouvre la première colonne par défaut : du contenu s'affiche d'emblée
-  if (cols.length) cols[0].classList.add('mobile-open');
+  hub.innerHTML = '';
+  hub.appendChild(tabbar);
+  hub.appendChild(feedsWrap);
+
+  // Ouvre le premier opérateur (Mobilis) par défaut : du contenu d'emblée
+  heads[0].classList.add('tab-active');
+  feeds[0].classList.add('feed-open');
 }
 
 /* ══════════════════════════════════════════════════════════════
