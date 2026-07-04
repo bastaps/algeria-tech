@@ -1500,6 +1500,29 @@ body.theme-bluenuit .art-modal-panel { background: #0f1320; }
   }
   .col-feed.feed-open { display: flex; flex-direction: column; gap: 10px; }
 
+  /* ✨ « Waouh » : cartes qui apparaissent en cascade à l'ouverture d'un onglet */
+  .col-feed.feed-open .art-card { animation: opCardIn .5s var(--spring) both; }
+  .col-feed.feed-open .art-card:nth-child(1)   { animation-delay: .02s; }
+  .col-feed.feed-open .art-card:nth-child(2)   { animation-delay: .07s; }
+  .col-feed.feed-open .art-card:nth-child(3)   { animation-delay: .12s; }
+  .col-feed.feed-open .art-card:nth-child(4)   { animation-delay: .17s; }
+  .col-feed.feed-open .art-card:nth-child(5)   { animation-delay: .22s; }
+  .col-feed.feed-open .art-card:nth-child(6)   { animation-delay: .27s; }
+  .col-feed.feed-open .art-card:nth-child(7)   { animation-delay: .31s; }
+  .col-feed.feed-open .art-card:nth-child(n+8) { animation-delay: .35s; }
+  @keyframes opCardIn {
+    from { opacity: 0; transform: translateY(16px) scale(.985); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* Petit « pop » du logo quand on sélectionne un opérateur */
+  .col-head.tab-active .op-emblem { animation: opEmblemPop .5s var(--spring) both; }
+  @keyframes opEmblemPop {
+    0%   { transform: scale(.88); }
+    60%  { transform: scale(1.09); }
+    100% { transform: scale(1); }
+  }
+
   /* Cartes : retour au layout vertical sur mobile */
   .art-card {
     flex-direction: column;
@@ -1533,4 +1556,10 @@ body.theme-bluenuit .art-modal-panel { background: #0f1320; }
     opacity  : 1;
   }
   .art-modal-close { top: 12px; right: 12px; }
+}
+
+/* Accessibilité : pas d'animations si l'utilisateur les a désactivées */
+@media (prefers-reduced-motion: reduce) {
+  .col-feed.feed-open .art-card,
+  .col-head.tab-active .op-emblem { animation: none !important; }
 }

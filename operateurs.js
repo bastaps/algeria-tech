@@ -313,6 +313,15 @@ function setupHover() {
   });
 }
 
+/* Relance l'animation d'apparition en cascade des cartes d'un feed
+   (une animation CSS ne redémarre pas d'elle-même sur display:none → flex) */
+function replayCardAnim(feed) {
+  const cards = feed.querySelectorAll('.art-card');
+  cards.forEach(c => { c.style.animation = 'none'; });
+  void feed.offsetWidth;                       // reflow → redémarre les animations
+  cards.forEach(c => { c.style.animation = ''; });
+}
+
 /* ══════════════════════════════════════════════════════════════
    MOBILE : tap pour ouvrir / fermer une colonne
    ══════════════════════════════════════════════════════════════ */
@@ -349,6 +358,7 @@ function setupMobileTap() {
       if (!wasActive) {
         head.classList.add('tab-active');
         feed.classList.add('feed-open');
+        replayCardAnim(feed);   // relance l'apparition en cascade
       }
     });
   });
