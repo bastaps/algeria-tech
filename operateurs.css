@@ -1450,7 +1450,7 @@ body.theme-bluenuit .art-modal-panel { background: #0f1320; }
     flex           : 1 1 0;
     min-width      : 0;
     position       : relative !important;
-    transform      : none !important;
+    transform      : none;
     top            : unset !important;
     left           : auto !important;  /* annule le left:50% du desktop (décalait l'onglet) */
     flex-direction : column;
