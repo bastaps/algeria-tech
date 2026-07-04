@@ -327,6 +327,9 @@ function setupMobileTap() {
       if (!wasOpen) col.classList.add('mobile-open');
     });
   });
+
+  // Ouvre la première colonne par défaut : du contenu s'affiche d'emblée
+  if (cols.length) cols[0].classList.add('mobile-open');
 }
 
 /* ══════════════════════════════════════════════════════════════

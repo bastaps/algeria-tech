@@ -1429,6 +1429,8 @@ body.theme-bluenuit .art-modal-panel { background: #0f1320; }
     gap       : 10px;
     top       : unset !important;
     text-align: left;
+    pointer-events: auto !important; /* mobile : le tap doit atteindre l'entête (desktop = none pour le survol) */
+    cursor    : pointer;
   }
   .icon-cluster  { width: 40px; height: 40px; }
   .op-emblem     { width: 38px; height: 38px; border-radius: 9px; }
@@ -1450,6 +1452,21 @@ body.theme-bluenuit .art-modal-panel { background: #0f1320; }
     display       : none;
   }
   .op-col.mobile-open .col-feed { display: flex; }
+
+  /* Affordance tactile : compteur + chevron alignés à droite ; le chevron
+     pivote à l'ouverture (l'indice « Survolez » du desktop est masqué). */
+  .col-head .op-count { margin-left: auto; }
+  .col-head::after {
+    content: '';
+    flex: none;
+    margin-left: 12px;
+    width: 9px; height: 9px;
+    border-right : 2px solid rgba(255,255,255,.55);
+    border-bottom: 2px solid rgba(255,255,255,.55);
+    transform: rotate(45deg);
+    transition: transform .4s var(--spring);
+  }
+  .op-col.mobile-open .col-head::after { transform: rotate(-135deg); }
 
   /* Cartes : retour au layout vertical sur mobile */
   .art-card {
