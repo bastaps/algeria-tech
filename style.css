@@ -614,8 +614,36 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
 }
 
 @media (max-width: 768px) {
-    /* Top bar masquée */
-    .top-bar { display: none; }
+    /* Top bar compacte : lieu, horloge, date, météo, devise.
+       Les icônes sociales sont masquées pour éviter le débordement. */
+    .top-bar { display: block; padding: 6px 0; font-size: 0.68rem; }
+    .top-bar .container { justify-content: center; }
+    .top-bar-left {
+        gap: 10px;
+        row-gap: 3px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .top-bar-right { display: none; }
+    /* Popups météo / devise : en position:absolute leur boîte élargissait
+       la page (débordement horizontal). En mobile on les ancre au viewport
+       via position:fixed (un élément fixed n'étend pas le scroll horizontal). */
+    .top-bar .weather-card,
+    .top-bar .currency-card {
+        position: fixed;
+        left: 10px;
+        right: 10px;
+        top: 60px;
+        width: auto;
+        max-width: none;
+        transform: translateY(-8px);
+    }
+    .top-bar .weather-wrap:hover .weather-card,
+    .top-bar .currency-card.cc-visible {
+        transform: translateY(0);
+    }
+    .top-bar .weather-card::before,
+    .top-bar .currency-card::before { display: none; }
 
     /* Header compact */
     .header-content {
