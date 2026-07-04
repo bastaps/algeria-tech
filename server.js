@@ -1279,18 +1279,22 @@ app.get('/api/joradp/status', (req, res) => {
 
 /* ── Planification automatique : vérification quotidienne à 9h Alger ─────── */
 (function scheduleJoradp() {
-    function msUntilNext9h() {
+    /* Prochaine occurrence hebdomadaire : lundi à 09h00 heure algérienne */
+    function msUntilNextWeekly(targetDay, hour, min) {
         const now  = new Date();
         const next = new Date(now);
-        next.setHours(9, 0, 0, 0);
-        if (now >= next) next.setDate(next.getDate() + 1);
+        next.setHours(hour, min, 0, 0);
+        let add = (targetDay - next.getDay() + 7) % 7;
+        if (add === 0 && now >= next) add = 7;
+        next.setDate(next.getDate() + add);
         return next - now;
     }
 
     function isJoradpStale() {
         const d = loadJoradpData();
         if (!d.lastChecked) return true;
-        return (Date.now() - new Date(d.lastChecked).getTime()) > 8 * 3600 * 1000;
+        /* Périmé si le dernier contrôle date de plus de 7 jours */
+        return (Date.now() - new Date(d.lastChecked).getTime()) > 7 * 24 * 3600 * 1000;
     }
 
     /* Vérification immédiate au démarrage si les données sont périmées */
@@ -1301,12 +1305,12 @@ app.get('/api/joradp/status', (req, res) => {
         }, 15000); /* 15s après démarrage pour ne pas bloquer le serveur */
     }
 
-    /* Vérification quotidienne à 9h00 heure algérienne */
-    const msFirst = msUntilNext9h();
-    console.log(`[JORADP] ⏰ Prochaine vérification dans ${(msFirst / 3600000).toFixed(1)}h (09h00 Alger)`);
-    setTimeout(function runDaily() {
+    /* Vérification hebdomadaire : lundi 09h00 heure algérienne */
+    const msFirst = msUntilNextWeekly(1, 9, 0);
+    console.log(`[JORADP] ⏰ Prochaine vérification dans ${(msFirst / 3600000).toFixed(1)}h (lundi 09h00 Alger)`);
+    setTimeout(function runWeekly() {
         checkJoradpWithAlert().catch(e => console.error('[JORADP]', e.message));
-        setTimeout(runDaily, 24 * 3600 * 1000);
+        setTimeout(runWeekly, 7 * 24 * 3600 * 1000);
     }, msFirst);
 })();
 // ── FIN Veille Réglementaire JORADP ──────────────────────────────────────────
@@ -1401,19 +1405,23 @@ app.post('/api/export-static', (req, res) => {
     }
 });
 
-/* ── Planification ARPCE : vérification quotidienne à 09h30 Alger ─────────── */
+/* ── Planification ARPCE : vérification hebdomadaire — lundi 09h30 Alger ──── */
 (function scheduleArpce() {
-    function msUntilNext9h30() {
+    /* Prochaine occurrence hebdomadaire : lundi à 09h30 heure algérienne */
+    function msUntilNextWeekly(targetDay, hour, min) {
         const now  = new Date();
         const next = new Date(now);
-        next.setHours(9, 30, 0, 0);
-        if (now >= next) next.setDate(next.getDate() + 1);
+        next.setHours(hour, min, 0, 0);
+        let add = (targetDay - next.getDay() + 7) % 7;
+        if (add === 0 && now >= next) add = 7;
+        next.setDate(next.getDate() + add);
         return next - now;
     }
     function isArpceStale() {
         const d = loadArpceData();
         if (!d.lastChecked) return true;
-        return (Date.now() - new Date(d.lastChecked).getTime()) > 8 * 3600 * 1000;
+        /* Périmé si le dernier contrôle date de plus de 7 jours */
+        return (Date.now() - new Date(d.lastChecked).getTime()) > 7 * 24 * 3600 * 1000;
     }
 
     /* Vérification au démarrage si périmé */
@@ -1424,12 +1432,12 @@ app.post('/api/export-static', (req, res) => {
         }, 20000);
     }
 
-    /* Planification quotidienne 09h30 */
-    const msFirst = msUntilNext9h30();
-    console.log(`[ARPCE] ⏰ Prochaine vérification dans ${(msFirst / 3600000).toFixed(1)}h (09h30 Alger)`);
-    setTimeout(function runDaily() {
+    /* Planification hebdomadaire : lundi 09h30 */
+    const msFirst = msUntilNextWeekly(1, 9, 30);
+    console.log(`[ARPCE] ⏰ Prochaine vérification dans ${(msFirst / 3600000).toFixed(1)}h (lundi 09h30 Alger)`);
+    setTimeout(function runWeekly() {
         checkArpceWithAlert(1).catch(e => console.error('[ARPCE]', e.message));
-        setTimeout(runDaily, 24 * 3600 * 1000);
+        setTimeout(runWeekly, 7 * 24 * 3600 * 1000);
     }, msFirst);
 })();
 // ── FIN Veille ARPCE ─────────────────────────────────────────────────────────

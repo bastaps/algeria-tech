@@ -23,7 +23,7 @@ const MAX_SOMMAIRE_PAGES  = 5;
 const MAX_PDF_MB          = 30;
 const FETCH_TIMEOUT_MS    = 40000;
 const PDF_PARTIAL_BYTES   = 400000; // 400 Ko → couvre les 4-6 premières pages (sommaire)
-const MAX_ISSUES_DELTA    = 5;    // numéros/vérification quotidienne
+const MAX_ISSUES_DELTA    = 10;   // numéros max traités par vérification hebdomadaire
 const MAX_STORED_TEXTES   = 500;
 
 /* Agent HTTPS qui tolère le certificat auto-signé du JORADP ── */
