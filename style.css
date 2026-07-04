@@ -640,7 +640,7 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
     /* Side cards : image droite réduite, titre gauche élargi */
     .hero-side-card { grid-template-columns: 1fr; height: auto; gap: 10px; }
     .hero-side-card > div {
-        height: 110px;
+        height: 124px;
         position: relative;
         background: var(--bg-white);
         border-radius: var(--radius);
@@ -662,7 +662,14 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
         display: flex;
         flex-direction: column;
         justify-content: center;
-        gap: 5px;
+        gap: 4px;
+        overflow: hidden;
+    }
+    .hero-side-card .hero-meta-wrapper {
+        gap: 6px;
+        row-gap: 4px;
+        margin-bottom: 0;
+        max-width: 100%;
     }
     .hero-side-card .hero-overlay h2 {
         font-size: 0.92rem;
@@ -672,7 +679,18 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
         margin-bottom: 0;
     }
     .hero-side-card .hero-meta-tag { font-size: 0.62rem; padding: 2px 6px; }
-    .hero-side-card .category-tag  { font-size: 0.58rem; padding: 2px 6px; }
+    /* Le tag catégorie peut contenir plusieurs libellés collés par "|" :
+       on le borne à la zone texte et on tronque proprement (ellipsis)
+       pour éviter qu'il déborde sur l'image / au-dessus de la carte. */
+    .hero-side-card .category-tag  {
+        font-size: 0.58rem;
+        padding: 2px 6px;
+        min-width: 0;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 
     /* Filtres scrollables horizontalement */
     .tag-filters {
