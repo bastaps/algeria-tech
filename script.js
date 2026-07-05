@@ -1817,6 +1817,29 @@ window.hubTranslate = async function() {
 };
 
 // Générer article via Smart Engine
+let _hubStyle = 'aps';
+
+(function setupHubGenDropdown() {
+    document.addEventListener('DOMContentLoaded', () => {
+        const wrap = document.getElementById('hubGenWrap');
+        const btn = document.getElementById('hubGenBtn');
+        if (!wrap || !btn) return;
+        btn.addEventListener('click', () => wrap.classList.toggle('open'));
+        document.querySelectorAll('.hub-gen-option').forEach(opt => {
+            opt.addEventListener('click', () => {
+                _hubStyle = opt.dataset.style;
+                document.querySelectorAll('.hub-gen-option').forEach(o => o.classList.remove('checked'));
+                opt.classList.add('checked');
+                wrap.classList.remove('open');
+                hubGenerate();
+            });
+        });
+        document.addEventListener('click', e => {
+            if (!wrap.contains(e.target)) wrap.classList.remove('open');
+        });
+    });
+})();
+
 window.hubGenerate = async function() {
     const source = document.getElementById('hubSmartBox').value.trim();
     if (!source) return showToast('Collez un texte dans la zone IA avant de générer.');
@@ -1825,7 +1848,7 @@ window.hubGenerate = async function() {
         const r = await fetch(`${HUB_API}/api/smart-generate`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ text: source, breve: document.getElementById('isBreve')?.checked || false })
+            body: JSON.stringify({ text: source, style: _hubStyle })
         });
         const d = await r.json();
         if (!r.ok) throw new Error(d.error || 'Erreur inconnue');

@@ -437,9 +437,16 @@
                     <button type="button" class="hub-btn" id="hubTranslateBtn" onclick="hubTranslate()">
                         <i class="fas fa-language"></i><span>Traduire</span>
                     </button>
-                    <button type="button" class="hub-btn hub-btn-generate" id="hubGenBtn" onclick="hubGenerate()">
-                        <i class="fas fa-pen-nib"></i><span>Générer</span>
-                    </button>
+                    <div class="hub-gen-wrap" id="hubGenWrap">
+                        <button type="button" class="hub-btn hub-btn-generate" id="hubGenBtn">
+                            <i class="fas fa-pen-nib"></i><span>Générer</span> <i class="fas fa-caret-down"></i>
+                        </button>
+                        <div class="hub-gen-dropdown" id="hubGenDropdown">
+                            <button type="button" class="hub-gen-option" data-style="aps"><i class="fas fa-landmark"></i> APS <small>agence, factuel</small></button>
+                            <button type="button" class="hub-gen-option" data-style="pro"><i class="fas fa-feather-alt"></i> Pro étoffé <small>magazine, analyse</small></button>
+                            <button type="button" class="hub-gen-option" data-style="breve"><i class="fas fa-bolt"></i> Brève <small>3 paragraphes</small></button>
+                        </div>
+                    </div>
                     <button type="button" class="hub-btn hub-btn-fill" id="hubFillBtn" onclick="hubFill()">
                         <i class="fas fa-fill-drip"></i><span>Remplir</span>
                     </button>
