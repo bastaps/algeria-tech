@@ -1017,6 +1017,15 @@ Le champ "contenu" est un texte court en Markdown, SANS sous-titres ("##"), SANS
 Ne dépasse JAMAIS 3 paragraphes. Une brève courte de 2 paragraphes est préférable à un texte étiré artificiellement.
 
 ══════════════════════════════════════════════
+DONNÉES STRUCTURÉES — TABLEAUX MARKDOWN
+══════════════════════════════════════════════
+Si la source contient des données chiffrées, horaires, tarifs, comparaisons ou toute information tabulaire (même présentée sous forme de liste) : insère un tableau Markdown dans le contenu. Syntaxe :
+| Colonne 1 | Colonne 2 | Colonne 3 |
+|---|---|---|
+| donnée | donnée | donnée |
+Le tableau compte comme un paragraphe. Si la brève contient un tableau, le reste du texte peut se limiter à 1-2 paragraphes.
+
+══════════════════════════════════════════════
 RÈGLES DE STYLE APS — ABSOLUES
 ══════════════════════════════════════════════
 - Pyramide inversée : fait principal → détail essentiel → contexte bref
@@ -1030,7 +1039,7 @@ RÉPONDS EXCLUSIVEMENT EN JSON PUR :
 {
   "titre": "Titre factuel nominal sans verbe (ex: 'Mobilis déploie la 5G dans 12 wilayas')",
   "lead": "[selon CAS A ou CAS B ci-dessus — fait principal en 2 phrases max]",
-  "contenu": "...markdown court, 3 paragraphes maximum, sans sous-titres...",
+  "contenu": "...markdown court, 3 paragraphes maximum (un tableau Markdown si données structurées), sans sous-titres...",
   "tags": ["tag1", "tag2", "tag3", "tag4"],
   "categorie": "Algérie|Télécoms|Mobile|Startups|IA|Fintech|Innovation|Monde|Entreprises",
   "video": ""
@@ -1063,11 +1072,20 @@ STYLE ÉDITORIAL — FORMAT PRO ÉTOFFÉ
 - Ton engageant : le lecteur doit comprendre POURQUOI c'est important, pas seulement CE QUI s'est passé
 
 ══════════════════════════════════════════════
+DONNÉES STRUCTURÉES — TABLEAUX MARKDOWN
+══════════════════════════════════════════════
+Si la source contient des données chiffrées, horaires, tarifs, statistiques, comparaisons ou toute information tabulaire (même présentée sous forme de liste dans la source) : INSÈRE un ou plusieurs tableaux Markdown dans le contenu aux endroits pertinents. Syntaxe :
+| Colonne 1 | Colonne 2 | Colonne 3 |
+|---|---|---|
+| donnée | donnée | donnée |
+Les tableaux rendent l'article plus lisible et professionnel. Ne les évite pas.
+
+══════════════════════════════════════════════
 STRUCTURE OBLIGATOIRE DU CONTENU (Markdown)
 ══════════════════════════════════════════════
 
 ## [Accroche + développement du fait]
-[3-4 paragraphes — le cœur de l'info, développé avec profondeur]
+[3-4 paragraphes — le cœur de l'info, développé avec profondeur. Inclure un tableau si des données comparatives ou chiffrées sont disponibles]
 
 ## Analyse et enjeux
 [2-3 paragraphes — impacts stratégiques, lecture sectorielle]
@@ -1165,6 +1183,15 @@ Le champ "contenu" doit contenir un article complet en Markdown avec TOUTES ces 
 [5 à 7 points clés en liste à puces — chaque point = 1 fait précis et chiffré si possible]
 
 ══════════════════════════════════════════════
+DONNÉES STRUCTURÉES — TABLEAUX MARKDOWN
+══════════════════════════════════════════════
+Si la source contient des données chiffrées, horaires, tarifs, statistiques, comparaisons, classements, indicateurs ou toute information tabulaire (même présentée sous forme de liste ou de paragraphe dans la source) : INSÈRE obligatoirement un ou plusieurs tableaux Markdown dans le contenu, à l'endroit le plus pertinent (dans la section principale ou dans "À retenir"). Syntaxe :
+| Colonne 1 | Colonne 2 | Colonne 3 |
+|---|---|---|
+| donnée | donnée | donnée |
+Un tableau bien construit vaut mieux qu'un paragraphe de chiffres. Ne transforme PAS un tableau en prose.
+
+══════════════════════════════════════════════
 RÈGLES DE STYLE APS — ABSOLUES
 ══════════════════════════════════════════════
 - Lead CAS A : commence par la ville algérienne EN MAJUSCULES + virgule : "ALGER, [date] (APS) — "
@@ -1182,7 +1209,7 @@ RÉPONDS EXCLUSIVEMENT EN JSON PUR :
 {
   "titre": "Titre factuel nominal sans verbe (ex: 'Mobilis déploie la 5G dans 12 wilayas')",
   "lead": "[selon CAS A ou CAS B ci-dessus — fait principal en 2 phrases max]",
-  "contenu": "...markdown complet avec toutes les sections ##...",
+  "contenu": "...markdown complet avec sections ## et tableaux Markdown si données chiffrées...",
   "tags": ["tag1", "tag2", "tag3", "tag4", "tag5", "tag6"],
   "categorie": "Algérie|Télécoms|Mobile|Startups|IA|Fintech|Innovation|Monde|Entreprises",
   "video": ""
