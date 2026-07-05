@@ -215,40 +215,60 @@ async function generateProArticle() {
 
 // 3. REMPLIR LE FORMULAIRE DE DÉPLOIEMENT
 function fillHub() {
-    if(!window._lastAI) {
-        alert("Aucun article généré à transférer.");
-        return;
-    }
     setStatus('fillHubBtn', 'loading');
 
-    const data = window._lastAI;
+    if (window._lastAI) {
+        fillFromAI(window._lastAI);
+        setStatus('fillHubBtn', 'success');
+        return;
+    }
+
+    const rawText = document.getElementById('smartBox').value.trim();
+    if (!rawText) {
+        alert("Collez du texte dans le Dépôt Magique ou générez d'abord un article.");
+        setStatus('fillHubBtn', 'error');
+        return;
+    }
+
+    fillFromRawText(rawText);
+    setStatus('fillHubBtn', 'success');
+}
+
+function fillFromRawText(text) {
+    const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
+    const titre = lines[0].replace(/^#+\s*/, '').substring(0, 200);
+    document.getElementById('siTitre').value = titre;
+    document.getElementById('siExtrait').value = lines.slice(1, 3).join(' ').substring(0, 300);
+    document.getElementById('siContenu').value = text;
+
+    const contentLower = text.toLowerCase();
+    let cat = "Algérie";
+    if (/djezzy|mobilis|ooredoo|télécom/.test(contentLower)) cat = "Télécoms";
+    else if (/mobile|smartphone/.test(contentLower)) cat = "Mobile";
+    else if (/startup|incubateur/.test(contentLower)) cat = "Startups";
+    else if (/\bia\b|intelligence artificielle|chatgpt|llm/.test(contentLower)) cat = "IA";
+    else if (/fintech|paiement/.test(contentLower)) cat = "Fintech";
+    else if (!/alg[ée]rie|wilaya|alger\b|arpce|anpt/.test(contentLower)) cat = "Monde";
+    document.getElementById('siCategorie').value = cat;
+}
+
+function fillFromAI(data) {
     document.getElementById('siTitre').value = data.titre;
     document.getElementById('siExtrait').value = data.lead || '';
     document.getElementById('siTags').value = (data.tags || []).join(', ');
     document.getElementById('siVideo').value = data.video || '';
     document.getElementById('siContenu').value = document.getElementById('previewContent').value;
 
-    // Détection auto de catégorie (fallback si l'IA ne fournit pas déjà data.categorie)
     const contentLower = (data.contenu || '').toLowerCase();
     const mentionsAlgerie = /alg[ée]rie|wilaya|alger\b|oran\b|constantine\b|arpce|anpt/.test(contentLower);
     let cat = mentionsAlgerie ? "Algérie" : "Monde";
-    if(contentLower.includes("djezzy") || contentLower.includes("mobilis") || contentLower.includes("ooredoo") || contentLower.includes("télécom")) {
-        cat = "Télécoms";
-    } else if(contentLower.includes("mobile") || contentLower.includes("smartphone")) {
-        cat = "Mobile";
-    } else if(contentLower.includes("startup") || contentLower.includes("incubateur") || contentLower.includes("accélérateur")) {
-        cat = "Startups";
-    } else if(/\bia\b|intelligence artificielle|chatgpt|llm\b|machine learning/.test(contentLower)) {
-        cat = "IA";
-    } else if(contentLower.includes("fintech") || contentLower.includes("paiement électronique") || contentLower.includes("banque en ligne")) {
-        cat = "Fintech";
-    } else if(mentionsAlgerie && (contentLower.includes("entreprise") || contentLower.includes("société"))) {
-        cat = "Entreprises";
-    }
-    document.getElementById('siCategorie').value = cat;
-    if(data.categorie) document.getElementById('siCategorie').value = data.categorie;
-
-    setStatus('fillHubBtn', 'success');
+    if (/djezzy|mobilis|ooredoo|télécom/.test(contentLower)) cat = "Télécoms";
+    else if (/mobile|smartphone/.test(contentLower)) cat = "Mobile";
+    else if (/startup|incubateur|accélérateur/.test(contentLower)) cat = "Startups";
+    else if (/\bia\b|intelligence artificielle|chatgpt|llm\b/.test(contentLower)) cat = "IA";
+    else if (/fintech|paiement électronique|banque en ligne/.test(contentLower)) cat = "Fintech";
+    else if (mentionsAlgerie && /entreprise|société/.test(contentLower)) cat = "Entreprises";
+    document.getElementById('siCategorie').value = data.categorie || cat;
 }
 
 // 4. DÉPLOIEMENT FINAL (Simulation ou API Node)
