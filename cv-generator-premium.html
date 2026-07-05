@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV Tech Premium — Algeria-Tech</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root {
+  --primary: #0A1628;
+  --primary-mid: #1B2B4B;
+  --primary-light: #2E4A7A;
+  --accent: #D4A03C;
+  --accent-light: #F0C96B;
+  --accent-glow: rgba(212,160,60,0.35);
+  --blue: #3B82F6;
+  --blue-light: #60A5FA;
+  --bg: #F0F2F7;
+  --bg2: #FFFFFF;
+  --bg3: #F7F8FC;
+  --text: #0F172A;
+  --text2: #475569;
+  --text3: #94A3B8;
+  --border: #E2E8F0;
+  --success: #10B981;
+  --success-light: #D1FAE5;
+  --warning: #F59E0B;
+  --warning-light: #FEF3C7;
+  --danger: #EF4444;
+  --danger-light: #FEE2E2;
+  --glass: rgba(255,255,255,0.65);
+  --glass-border: rgba(255,255,255,0.3);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+  --shadow-gold: 0 4px 24px rgba(212,160,60,0.2);
+  --radius: 20px;
+  --radius-sm: 12px;
+  --radius-xs: 8px;
+  --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+[data-theme="dark"] {
+  --primary: #0B1120;
+  --primary-mid: #162036;
+  --primary-light: #1E3A5F;
+  --accent: #F0C96B;
+  --accent-light: #FFE08A;
+  --accent-glow: rgba(240,201,107,0.25);
+  --blue: #60A5FA;
+  --blue-light: #93C5FD;
+  --bg: #0B1120;
+  --bg2: #111827;
+  --bg3: #1F2937;
+  --text: #F1F5F9;
+  --text2: #94A3B8;
+  --text3: #64748B;
+  --border: #1E293B;
+  --glass: rgba(17,24,39,0.75);
+  --glass-border: rgba(255,255,255,0.08);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow: 0 4px 20px rgba(0,0,0,0.4);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.5);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background var(--transition), color var(--transition);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============ HEADER ============ */
+.app-header {
+  background: linear-gradient(135deg, #0A1628 0%, #1B2B4B 50%, #0A1628 100%);
+  padding: 0 32px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(212,160,60,0.15);
+}
+.app-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.5;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent), #E8A930);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #0A1628;
+  box-shadow: 0 2px 12px rgba(212,160,60,0.3);
+}
+.logo span { color: var(--accent); }
+.header-actions { display: flex; align-items: center; gap: 10px; }
+.header-btn {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #E2E8F0;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition: var(--transition);
+}
+.header-btn:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2); }
+.header-btn.gold {
+  background: linear-gradient(135deg, var(--accent), #E8A930);
+  border: none;
+  color: #0A1628;
+  font-weight: 700;
+  box-shadow: var(--shadow-gold);
+}
+.header-btn.gold:hover { box-shadow: 0 6px 28px rgba(212,160,60,0.35); transform: translateY(-1px); }
+
+/* ============ PROGRESS ============ */
+.progress-bar-container {
+  background: var(--bg2);
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.progress-label { font-size: 0.8rem; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em; }
+.progress-track { flex: 1; height: 6px; background: var(--bg3); border-radius: 3px; overflow: hidden; position: relative; }
+.progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--accent));
+  transition: width 0.6s cubic-bezier(0.22,1,0.36,1);
+  width: 0%;
+  position: relative;
+}
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+.progress-pct { font-size: 0.85rem; font-weight: 700; color: var(--accent); min-width: 42px; text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ============ LAYOUT ============ */
+.app-body { display: flex; min-height: calc(100vh - 110px); }
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background: var(--bg2);
+  border-right: 1px solid var(--border);
+  padding: 20px 0;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+@media(max-width:960px) { .sidebar { display: none; } }
+.sidebar-section-label {
+  padding: 6px 24px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 12px;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 24px;
+  cursor: pointer;
+  color: var(--text2);
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+  border-left: 3px solid transparent;
+}
+.nav-item:hover { background: var(--bg3); color: var(--text); }
+.nav-item.active {
+  color: var(--blue);
+  background: linear-gradient(90deg, rgba(59,130,246,0.06), transparent);
+  border-left-color: var(--blue);
+  font-weight: 600;
+}
+.nav-item i:first-child { width: 18px; text-align: center; font-size: 0.9rem; }
+.nav-check { margin-left: auto; color: var(--success); font-size: 0.7rem; opacity: 0; transition: var(--transition); }
+.nav-item.done .nav-check { opacity: 1; }
+
+/* Main content */
+.main-content {
+  flex: 1;
+  padding: 32px;
+  max-width: 880px;
+  margin: 0 auto;
+  width: 100%;
+}
+.section { display: none; animation: sectionIn 0.4s ease; }
+.section.active { display: block; }
+@keyframes sectionIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ============ CARDS ============ */
+.card {
+  background: var(--bg2);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.card-header-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+.card-header-icon.blue { background: rgba(59,130,246,0.1); color: var(--blue); }
+.card-header-icon.gold { background: rgba(212,160,60,0.1); color: var(--accent); }
+.card-header-icon.green { background: rgba(16,185,129,0.1); color: var(--success); }
+.card-header-icon.purple { background: rgba(139,92,246,0.1); color: #8B5CF6; }
+.card-header h3 { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; }
+.card-header p { font-size: 0.8rem; color: var(--text3); margin-top: 2px; }
+
+/* ============ FORMS ============ */
+.form-row { display: flex; gap: 16px; margin-bottom: 0; }
+.form-row > .form-group { flex: 1; }
+@media(max-width:600px) { .form-row { flex-direction: column; } }
+.form-group { margin-bottom: 18px; }
+.form-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text2);
+  margin-bottom: 6px;
+  letter-spacing: 0.01em;
+}
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-xs);
+  font-family: inherit;
+  font-size: 0.9rem;
+  background: var(--bg);
+  color: var(--text);
+  transition: var(--transition);
+  outline: none;
+}
+.form-input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+  background: var(--bg2);
+}
+textarea.form-input { min-height: 88px; resize: vertical; }
+.input-icon-wrap { position: relative; }
+.input-icon-wrap .form-input { padding-right: 42px; }
+.mic-btn {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text3);
+  cursor: pointer;
+  font-size: 0.95rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+.mic-btn:hover { color: var(--accent); background: var(--bg3); }
+.mic-btn.recording { color: var(--danger); animation: pulse 1s infinite; }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+
+/* ============ BUTTONS ============ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius-xs);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: -0.01em;
+  position: relative;
+  overflow: hidden;
+}
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.5s;
+}
+.btn:hover::before { left: 100%; }
+.btn-primary { background: var(--blue); color: #fff; }
+.btn-primary:hover { background: #2563EB; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(59,130,246,0.3); }
+.btn-gold {
+  background: linear-gradient(135deg, var(--accent), #E8A930);
+  color: #0A1628;
+  font-weight: 700;
+}
+.btn-gold:hover { box-shadow: var(--shadow-gold); transform: translateY(-1px); }
+.btn-outline {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  color: var(--text2);
+}
+.btn-outline:hover { border-color: var(--blue); color: var(--blue); background: rgba(59,130,246,0.04); }
+.btn-success { background: var(--success); color: #fff; }
+.btn-danger { background: var(--danger); color: #fff; }
+.btn-sm { padding: 7px 14px; font-size: 0.8rem; }
+.btn-group { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
+
+/* ============ TAGS ============ */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: var(--bg3);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+.tag .remove-tag {
+  background: none;
+  border: none;
+  color: var(--text3);
+  cursor: pointer;
+  font-size: 0.65rem;
+  padding: 2px;
+  transition: var(--transition);
+}
+.tag .remove-tag:hover { color: var(--danger); }
+.tags-container { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag-suggestion {
+  cursor: pointer;
+  border: 1.5px dashed var(--border);
+  background: transparent;
+  color: var(--text3);
+}
+.tag-suggestion:hover { border-color: var(--blue); color: var(--blue); background: rgba(59,130,246,0.04); }
+
+/* ============ ENTRY CARDS ============ */
+.entry-card {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 22px;
+  margin-bottom: 16px;
+}
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.entry-num {
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--blue);
+  background: rgba(59,130,246,0.08);
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+/* ============ JOB SELECTOR ============ */
+.cat-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+.cat-tab {
+  padding: 7px 16px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--bg3);
+  color: var(--text2);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+.cat-tab:hover { border-color: var(--blue); color: var(--blue); }
+.cat-tab.active {
+  background: var(--blue);
+  color: #fff;
+  border-color: var(--blue);
+  box-shadow: 0 2px 8px rgba(59,130,246,0.2);
+}
+.job-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 10px; }
+.job-card {
+  padding: 12px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text2);
+}
+.job-card:hover { border-color: var(--blue); color: var(--text); background: rgba(59,130,246,0.03); }
+.job-card.selected { border-color: var(--blue); background: rgba(59,130,246,0.06); color: var(--blue); font-weight: 600; }
+.job-card i { font-size: 0.7rem; color: var(--text3); transition: var(--transition); }
+.job-card.selected i { color: var(--blue); }
+
+/* ============ TEMPLATES ============ */
+.tpl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 16px; }
+.tpl-card {
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+}
+.tpl-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.tpl-card.selected { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-glow), var(--shadow-lg); }
+.tpl-mini {
+  height: 240px;
+  padding: 14px;
+  overflow: hidden;
+  font-size: 5px;
+  line-height: 1.3;
+  background: #fff;
+  color: #333;
+  position: relative;
+}
+.tpl-label {
+  padding: 12px 14px;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tpl-label-name { font-weight: 700; font-size: 0.82rem; }
+.tpl-label-desc { font-size: 0.7rem; color: var(--text3); }
+.tpl-card.selected .tpl-label {
+  background: linear-gradient(135deg, var(--accent), #E8A930);
+  color: #0A1628;
+}
+.tpl-card.selected .tpl-label .tpl-label-desc { color: rgba(10,22,40,0.6); }
+.tpl-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--accent);
+  color: #0A1628;
+  font-size: 6px;
+  font-weight: 800;
+  padding: 2px 5px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ============ SCORE ============ */
+.score-display { text-align: center; padding: 20px 0; }
+.score-ring-wrap { position: relative; width: 140px; height: 140px; margin: 0 auto 20px; }
+.score-ring-wrap svg { transform: rotate(-90deg); }
+.score-number {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.score-number .num { font-size: 2.5rem; font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
+.score-number .label { font-size: 0.7rem; color: var(--text3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px; }
+.score-items { margin-top: 20px; text-align: left; }
+.score-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: var(--radius-xs);
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  transition: var(--transition);
+}
+.score-item:hover { background: var(--bg3); }
+.score-item i { width: 20px; text-align: center; font-size: 0.85rem; }
+.score-item .si-ok { color: var(--success); }
+.score-item .si-warn { color: var(--warning); }
+.score-item .si-bad { color: var(--danger); }
+
+/* ============ CV PREVIEW ============ */
+.cv-frame {
+  background: #fff;
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-lg);
+  border-radius: 4px;
+  overflow: hidden;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.cv-frame * { color: inherit; }
+.cv-frame h2 { font-size: 22px; margin-bottom: 4px; }
+.cv-frame h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; margin: 16px 0 8px; padding-bottom: 4px; font-weight: 700; }
+.cv-frame h4 { font-size: 13px; margin-bottom: 2px; }
+.cv-frame p { margin-bottom: 4px; }
+.cv-frame .cv-skill-tag { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 11px; margin: 2px; }
+
+/* ============ TOAST ============ */
+.toast-container {
+  position: fixed;
+  top: 80px;
+  right: 24px;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.toast {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 320px;
+  max-width: 420px;
+  animation: toastIn 0.4s ease;
+  position: relative;
+}
+.toast.leaving { animation: toastOut 0.3s ease forwards; }
+@keyframes toastIn { from { opacity:0; transform:translateX(40px); } to { opacity:1; transform:translateX(0); } }
+@keyframes toastOut { to { opacity:0; transform:translateX(40px); } }
+.toast-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.toast-icon.info { background: rgba(59,130,246,0.1); color: var(--blue); }
+.toast-icon.success { background: rgba(16,185,129,0.1); color: var(--success); }
+.toast-icon.warning { background: rgba(245,158,11,0.1); color: var(--warning); }
+.toast-icon.error { background: rgba(239,68,68,0.1); color: var(--danger); }
+.toast-body h4 { font-size: 0.88rem; font-weight: 700; margin-bottom: 2px; }
+.toast-body p { font-size: 0.8rem; color: var(--text2); line-height: 1.4; }
+.toast-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: var(--text3);
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 4px;
+}
+
+/* ============ CHAT BUBBLE ============ */
+.chat-bubble { position: fixed; bottom: 24px; right: 24px; z-index: 200; }
+.chat-fab {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--primary-mid), var(--primary-light));
+  color: #fff;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chat-fab:hover { transform: scale(1.06) translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.3); }
+.chat-panel {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  width: 380px;
+  max-height: 520px;
+  background: var(--bg2);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+.chat-panel.open { display: flex; }
+.chat-head {
+  padding: 16px 20px;
+  background: linear-gradient(135deg, var(--primary-mid), var(--primary-light));
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.chat-head h4 { font-size: 0.9rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.chat-head h4::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--success); display: inline-block; }
+.chat-msgs {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  max-height: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.chat-msg {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 0.83rem;
+  line-height: 1.45;
+}
+.chat-msg.bot { background: var(--bg3); align-self: flex-start; border-bottom-left-radius: 4px; }
+.chat-msg.user { background: var(--blue); color: #fff; align-self: flex-end; border-bottom-right-radius: 4px; }
+.chat-input-row {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 8px;
+}
+.chat-input-row input {
+  flex: 1;
+  padding: 9px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.83rem;
+  background: var(--bg);
+  color: var(--text);
+  outline: none;
+}
+.chat-input-row input:focus { border-color: var(--blue); }
+.chat-send {
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+.chat-send:hover { background: #2563EB; }
+
+/* ============ WEBCAM MODAL ============ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.modal-overlay.visible { opacity: 1; pointer-events: auto; }
+.modal-card {
+  background: var(--bg2);
+  border-radius: var(--radius);
+  padding: 36px;
+  max-width: 440px;
+  width: 90%;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  transform: scale(0.95);
+  transition: transform 0.3s;
+}
+.modal-overlay.visible .modal-card { transform: scale(1); }
+.modal-card h2 { font-size: 1.3rem; margin-bottom: 8px; }
+.modal-card p { color: var(--text2); font-size: 0.9rem; margin-bottom: 20px; }
+.modal-card video { max-width: 200px; border-radius: 50%; border: 3px solid var(--accent); margin: 12px auto; display: block; }
+.modal-card canvas { display: none; }
+
+/* ============ PHOTO ============ */
+.photo-zone { text-align: center; }
+.photo-preview-img {
+  width: 96px; height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  box-shadow: var(--shadow-gold);
+}
+.photo-placeholder {
+  width: 96px; height: 96px;
+  border-radius: 50%;
+  background: var(--bg3);
+  border: 2px dashed var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+  color: var(--text3);
+  font-size: 1.5rem;
+}
+
+/* ============ WELCOME ============ */
+.welcome-hero {
+  text-align: center;
+  padding: 48px 24px 36px;
+}
+.welcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(212,160,60,0.12), rgba(212,160,60,0.05));
+  border: 1px solid rgba(212,160,60,0.2);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 20px;
+}
+.welcome-hero h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin-bottom: 10px;
+  line-height: 1.15;
+}
+.welcome-hero h1 em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--blue), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.welcome-hero p { color: var(--text2); max-width: 480px; margin: 0 auto 32px; font-size: 0.95rem; }
+
+/* Gamification badges */
+.badge-row { display: flex; gap: 16px; justify-content: center; margin: 28px 0; flex-wrap: wrap; }
+.badge-circle {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  background: var(--bg3);
+  color: var(--text3);
+  border: 1.5px solid var(--border);
+  transition: var(--transition);
+  position: relative;
+}
+.badge-circle.earned {
+  background: linear-gradient(135deg, var(--accent), #E8A930);
+  color: #0A1628;
+  border-color: var(--accent);
+  box-shadow: var(--shadow-gold);
+}
+.badge-circle.earned::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--accent), transparent);
+  opacity: 0.2;
+  z-index: -1;
+}
+.badge-label { font-size: 0.65rem; color: var(--text3); margin-top: 6px; font-weight: 600; text-align: center; }
+
+.welcome-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.welcome-action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 24px 32px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1.5px solid var(--border);
+  background: var(--bg2);
+  min-width: 200px;
+}
+.welcome-action-btn:hover { border-color: var(--blue); transform: translateY(-3px); box-shadow: var(--shadow); }
+.welcome-action-btn .wa-icon {
+  width: 48px; height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+.welcome-action-btn:first-child .wa-icon { background: rgba(59,130,246,0.1); color: var(--blue); }
+.welcome-action-btn:last-child .wa-icon { background: rgba(212,160,60,0.1); color: var(--accent); }
+.welcome-action-btn strong { font-size: 0.9rem; }
+.welcome-action-btn small { font-size: 0.75rem; color: var(--text3); }
+
+/* ============ MOBILE NAV ============ */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  z-index: 100;
+  padding: 6px 0;
+  overflow-x: auto;
+}
+@media(max-width:960px) {
+  .mobile-nav { display: flex; }
+  .main-content { padding-bottom: 80px; }
+}
+.mob-item {
+  flex: 1;
+  min-width: 56px;
+  text-align: center;
+  padding: 6px 4px;
+  font-size: 0.6rem;
+  color: var(--text3);
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 600;
+}
+.mob-item i { display: block; font-size: 1rem; margin-bottom: 2px; }
+.mob-item.active { color: var(--blue); }
+
+/* ============ PRINT ============ */
+@media print {
+  .app-header, .sidebar, .progress-bar-container, .btn-group, .chat-bubble, .mobile-nav, .toast-container { display: none !important; }
+  .app-body { display: block; }
+  .main-content { max-width: 100%; padding: 0; }
+  .cv-frame { box-shadow: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="logo">
+    <div class="logo-icon"><i class="fas fa-microchip"></i></div>
+    Algeria-Tech <span>CV Studio</span>
+  </div>
+  <div class="header-actions">
+    <button class="header-btn gold" onclick="showToast('info','Sauvegardé','Vos données ont été sauvegardées localement.',3000); saveAll();">
+      <i class="fas fa-save"></i> Sauvegarder
+    </button>
+    <button class="header-btn" onclick="toggleTheme()" title="Mode sombre/clair">
+      <i class="fas fa-moon" id="theme-icon"></i>
+    </button>
+  </div>
+</header>
+
+<div class="progress-bar-container">
+  <span class="progress-label">Progression</span>
+  <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+  <span class="progress-pct" id="progress-pct">0%</span>
+</div>
+
+<div class="app-body">
+  <nav class="sidebar">
+    <div class="sidebar-section-label">Étapes</div>
+    <div class="nav-item active" data-section="welcome-section" onclick="goSection(this)"><i class="fas fa-rocket"></i> Démarrer <i class="fas fa-check nav-check"></i></div>
+    <div class="nav-item" data-section="job-section" onclick="goSection(this)"><i class="fas fa-briefcase"></i> Métier <i class="fas fa-check nav-check"></i></div>
+    <div class="nav-item" data-section="personal-section" onclick="goSection(this)"><i class="fas fa-user"></i> Identité <i class="fas fa-check nav-check"></i></div>
+    <div class="nav-item" data-section="experience-section" onclick="goSection(this)"><i class="fas fa-building"></i> Expérience <i class="fas fa-check nav-check"></i></div>
+    <div class="nav-item" data-section="education-section" onclick="goSection(this)"><i class="fas fa-graduation-cap"></i> Formation <i class="fas fa-check nav-check"></i></div>
+    <div class="nav-item" data-section="skills-section" onclick="goSection(this)"><i class="fas fa-cogs"></i> Compétences <i class="fas fa-check nav-check"></i></div>
+    <div class="sidebar-section-label" style="margin-top:20px;">Finalisation</div>
+    <div class="nav-item" data-section="template-section" onclick="goSection(this)"><i class="fas fa-palette"></i> Design <i class="fas fa-check nav-check"></i></div>
+    <div class="nav-item" data-section="score-section" onclick="goSection(this)"><i class="fas fa-chart-line"></i> Score <i class="fas fa-check nav-check"></i></div>
+    <div class="nav-item" data-section="preview-section" onclick="goSection(this)"><i class="fas fa-eye"></i> Aperçu <i class="fas fa-check nav-check"></i></div>
+  </nav>
+
+  <main class="main-content">
+
+    <!-- WELCOME -->
+    <div class="section active" id="welcome-section">
+      <div class="card">
+        <div class="welcome-hero">
+          <div class="welcome-badge"><i class="fas fa-crown"></i> Platinum Edition</div>
+          <h1>Créez votre <em>CV Tech</em> d'exception</h1>
+          <p>50+ métiers technologiques, 12 modèles design, IA intégrée, dictée vocale et analyse intelligente.</p>
+
+          <div class="badge-row">
+            <div style="text-align:center;"><div class="badge-circle earned" id="badge-start"><i class="fas fa-play"></i></div><div class="badge-label">Démarré</div></div>
+            <div style="text-align:center;"><div class="badge-circle" id="badge-identity"><i class="fas fa-id-card"></i></div><div class="badge-label">Identité</div></div>
+            <div style="text-align:center;"><div class="badge-circle" id="badge-xp"><i class="fas fa-building"></i></div><div class="badge-label">Expérience</div></div>
+            <div style="text-align:center;"><div class="badge-circle" id="badge-skills"><i class="fas fa-star"></i></div><div class="badge-label">5+ Skills</div></div>
+            <div style="text-align:center;"><div class="badge-circle" id="badge-complete"><i class="fas fa-trophy"></i></div><div class="badge-label">Complet</div></div>
+          </div>
+
+          <div class="welcome-actions">
+            <div class="welcome-action-btn" onclick="goSectionByName('job-section')">
+              <div class="wa-icon"><i class="fas fa-plus"></i></div>
+              <strong>Créer un CV de zéro</strong>
+              <small>Guidé étape par étape</small>
+            </div>
+            <div class="welcome-action-btn" onclick="document.getElementById('import-file').click()">
+              <div class="wa-icon"><i class="fas fa-file-import"></i></div>
+              <strong>Importer un CV</strong>
+              <small>PDF, Word, Image</small>
+            </div>
+          </div>
+          <input type="file" id="import-file" accept=".pdf,.doc,.docx" style="display:none" onchange="handleImport(event)">
+        </div>
+      </div>
+    </div>
+
+    <!-- JOB -->
+    <div class="section" id="job-section">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-header-icon blue"><i class="fas fa-briefcase"></i></div>
+          <div><h3>Choisissez votre métier</h3><p>50+ postes tech classés par domaine</p></div>
+        </div>
+        <div class="cat-tabs" id="cat-tabs"></div>
+        <div class="job-grid" id="job-grid"></div>
+        <div id="job-suggestions" style="margin-top:20px;display:none;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <div class="card-header-icon gold" style="width:28px;height:28px;border-radius:8px;font-size:0.75rem;"><i class="fas fa-lightbulb"></i></div>
+            <span style="font-weight:600;font-size:0.85rem;">Compétences recommandées</span>
+          </div>
+          <div class="tags-container" id="suggested-skills"></div>
+        </div>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="goSectionByName('welcome-section')"><i class="fas fa-arrow-left"></i> Retour</button>
+        <button class="btn btn-primary" onclick="goSectionByName('personal-section')">Suivant <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- PERSONAL -->
+    <div class="section" id="personal-section">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-header-icon blue"><i class="fas fa-user"></i></div>
+          <div><h3>Informations personnelles</h3><p>Vos coordonnées et votre profil</p></div>
+        </div>
+        <div style="display:flex;gap:28px;flex-wrap:wrap;">
+          <div style="flex:1;min-width:300px;">
+            <div class="form-row">
+              <div class="form-group"><label class="form-label">Nom complet *</label><div class="input-icon-wrap"><input class="form-input" type="text" id="f-name" placeholder="Ahmed Benali" oninput="updateProgress()"><button class="mic-btn" onclick="startDictation(this,'f-name')"><i class="fas fa-microphone"></i></button></div></div>
+              <div class="form-group"><label class="form-label">Email *</label><input class="form-input" type="email" id="f-email" placeholder="ahmed@mail.com" oninput="updateProgress()"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label class="form-label">Téléphone</label><input class="form-input" type="tel" id="f-phone" placeholder="+213 550 123 456"></div>
+              <div class="form-group"><label class="form-label">Localisation</label><div class="input-icon-wrap"><input class="form-input" type="text" id="f-location" placeholder="Alger, Algérie"><button class="mic-btn" onclick="startDictation(this,'f-location')"><i class="fas fa-microphone"></i></button></div></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label class="form-label">LinkedIn</label><input class="form-input" type="url" id="f-linkedin" placeholder="linkedin.com/in/..."></div>
+              <div class="form-group"><label class="form-label">GitHub / Portfolio</label><input class="form-input" type="url" id="f-github" placeholder="github.com/..."></div>
+            </div>
+            <div class="form-group"><label class="form-label">Résumé professionnel</label><div class="input-icon-wrap"><textarea class="form-input" id="f-summary" placeholder="3-4 lignes décrivant votre parcours et vos objectifs..." oninput="updateProgress()"></textarea><button class="mic-btn" style="top:16px;transform:none;" onclick="startDictation(this,'f-summary')"><i class="fas fa-microphone"></i></button></div></div>
+          </div>
+          <div class="photo-zone" style="width:160px;">
+            <label class="form-label" style="text-align:center;">Photo</label>
+            <img id="photo-preview" class="photo-preview-img" style="display:none;">
+            <div id="photo-placeholder" class="photo-placeholder"><i class="fas fa-user"></i></div>
+            <div style="display:flex;flex-direction:column;gap:6px;margin-top:10px;">
+              <button class="btn btn-sm btn-outline" style="width:100%;justify-content:center;" onclick="document.getElementById('photo-upload').click()"><i class="fas fa-upload"></i> Fichier</button>
+              <button class="btn btn-sm btn-primary" style="width:100%;justify-content:center;" onclick="openWebcam()"><i class="fas fa-camera"></i> Webcam</button>
+            </div>
+            <input type="file" id="photo-upload" accept="image/*" style="display:none" onchange="handlePhoto(event)">
+          </div>
+        </div>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="goSectionByName('job-section')"><i class="fas fa-arrow-left"></i> Retour</button>
+        <button class="btn btn-primary" onclick="goSectionByName('experience-section')">Suivant <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="section" id="experience-section">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-header-icon blue"><i class="fas fa-building"></i></div>
+          <div><h3>Expérience professionnelle</h3><p>Vos postes et réalisations</p></div>
+        </div>
+        <div id="exp-list"></div>
+        <button class="btn btn-outline btn-sm" onclick="addExperience()"><i class="fas fa-plus"></i> Ajouter une expérience</button>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="goSectionByName('personal-section')"><i class="fas fa-arrow-left"></i> Retour</button>
+        <button class="btn btn-primary" onclick="goSectionByName('education-section')">Suivant <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="section" id="education-section">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-header-icon purple"><i class="fas fa-graduation-cap"></i></div>
+          <div><h3>Formation</h3><p>Diplômes et certifications</p></div>
+        </div>
+        <div id="edu-list"></div>
+        <button class="btn btn-outline btn-sm" onclick="addEducation()"><i class="fas fa-plus"></i> Ajouter une formation</button>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="goSectionByName('experience-section')"><i class="fas fa-arrow-left"></i> Retour</button>
+        <button class="btn btn-primary" onclick="goSectionByName('skills-section')">Suivant <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <div class="section" id="skills-section">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-header-icon green"><i class="fas fa-cogs"></i></div>
+          <div><h3>Compétences</h3><p>Ajoutez et organisez vos skills</p></div>
+        </div>
+        <div class="form-row" style="align-items:flex-end;">
+          <div class="form-group" style="flex:3;"><label class="form-label">Nom de la compétence</label><input class="form-input" type="text" id="skill-input" placeholder="Python, React, AWS..." onkeydown="if(event.key==='Enter')addSkill()"></div>
+          <div class="form-group" style="flex:1;"><label class="form-label">Niveau</label><select class="form-input" id="skill-level"><option>Débutant</option><option selected>Intermédiaire</option><option>Avancé</option><option>Expert</option></select></div>
+          <div style="padding-bottom:18px;"><button class="btn btn-primary btn-sm" onclick="addSkill()"><i class="fas fa-plus"></i></button></div>
+        </div>
+        <div class="tags-container" id="skills-tags" style="margin-bottom:20px;"></div>
+        <div style="padding:16px;background:var(--bg3);border-radius:var(--radius-xs);border:1px solid var(--border);">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <i class="fas fa-lightbulb" style="color:var(--accent);"></i>
+            <span style="font-weight:600;font-size:0.82rem;color:var(--text2);">Suggestions pour votre métier</span>
+          </div>
+          <div class="tags-container" id="skill-suggestions-list"></div>
+        </div>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="goSectionByName('education-section')"><i class="fas fa-arrow-left"></i> Retour</button>
+        <button class="btn btn-primary" onclick="goSectionByName('template-section')">Suivant <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- TEMPLATES -->
+    <div class="section" id="template-section">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-header-icon gold"><i class="fas fa-palette"></i></div>
+          <div><h3>Choisissez un design</h3><p>12 modèles premium adaptés aux métiers tech</p></div>
+        </div>
+        <div class="tpl-grid" id="tpl-grid"></div>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="goSectionByName('skills-section')"><i class="fas fa-arrow-left"></i> Retour</button>
+        <button class="btn btn-primary" onclick="goSectionByName('score-section')">Analyser mon CV <i class="fas fa-chart-line"></i></button>
+      </div>
+    </div>
+
+    <!-- SCORE -->
+    <div class="section" id="score-section">
+      <div class="card">
+        <div class="card-header" style="justify-content:center;">
+          <div class="card-header-icon gold"><i class="fas fa-chart-line"></i></div>
+          <div><h3>Analyse de votre CV</h3><p>Score et recommandations personnalisées</p></div>
+        </div>
+        <div class="score-display">
+          <div class="score-ring-wrap">
+            <svg width="140" height="140" viewBox="0 0 140 140">
+              <circle cx="70" cy="70" r="58" fill="none" stroke="var(--bg3)" stroke-width="7"/>
+              <circle cx="70" cy="70" r="58" fill="none" stroke="var(--blue)" stroke-width="7"
+                stroke-dasharray="364" stroke-dashoffset="364" stroke-linecap="round" id="score-circle"/>
+            </svg>
+            <div class="score-number"><span class="num" id="score-value">0</span><span class="label">/ 100</span></div>
+          </div>
+        </div>
+        <div class="score-items" id="score-items"></div>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="goSectionByName('template-section')"><i class="fas fa-arrow-left"></i> Retour</button>
+        <button class="btn btn-gold" onclick="goSectionByName('preview-section')"><i class="fas fa-eye"></i> Voir l'aperçu</button>
+      </div>
+    </div>
+
+    <!-- PREVIEW -->
+    <div class="section" id="preview-section">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-header-icon blue"><i class="fas fa-eye"></i></div>
+          <div><h3>Aperçu du CV</h3><p>Votre CV est prêt — téléchargez-le en PDF</p></div>
+        </div>
+        <div class="cv-frame" id="cv-frame"></div>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-outline" onclick="goSectionByName('score-section')"><i class="fas fa-arrow-left"></i> Retour</button>
+        <button class="btn btn-gold" onclick="downloadPDF()"><i class="fas fa-file-pdf"></i> Télécharger PDF</button>
+        <button class="btn btn-primary" onclick="downloadPDF()"><i class="fas fa-print"></i> Imprimer</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- Mobile nav -->
+<nav class="mobile-nav">
+  <div class="mob-item active" data-section="welcome-section" onclick="goSection(this)"><i class="fas fa-rocket"></i>Start</div>
+  <div class="mob-item" data-section="job-section" onclick="goSection(this)"><i class="fas fa-briefcase"></i>Métier</div>
+  <div class="mob-item" data-section="personal-section" onclick="goSection(this)"><i class="fas fa-user"></i>Infos</div>
+  <div class="mob-item" data-section="experience-section" onclick="goSection(this)"><i class="fas fa-building"></i>XP</div>
+  <div class="mob-item" data-section="skills-section" onclick="goSection(this)"><i class="fas fa-cogs"></i>Skills</div>
+  <div class="mob-item" data-section="template-section" onclick="goSection(this)"><i class="fas fa-palette"></i>Design</div>
+  <div class="mob-item" data-section="preview-section" onclick="goSection(this)"><i class="fas fa-eye"></i>Aperçu</div>
+</nav>
+
+<!-- Toast container -->
+<div class="toast-container" id="toast-container"></div>
+
+<!-- Chat -->
+<div class="chat-bubble">
+  <div class="chat-panel" id="chat-panel">
+    <div class="chat-head">
+      <h4>Assistant IA</h4>
+      <button onclick="toggleChat()" style="background:none;border:none;color:#fff;cursor:pointer;font-size:1rem;"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="chat-msgs" id="chat-msgs">
+      <div class="chat-msg bot">Bonjour ! Je suis votre assistant CV. Posez-moi vos questions : compétences, reformulations, conseils de carrière...</div>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" placeholder="Tapez votre question..." onkeydown="if(event.key==='Enter')sendChat()">
+      <button class="chat-send" onclick="sendChat()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+  <button class="chat-fab" onclick="toggleChat()"><i class="fas fa-comment-dots"></i></button>
+</div>
+
+<!-- Webcam modal -->
+<div class="modal-overlay" id="webcam-modal">
+  <div class="modal-card">
+    <h2>Prendre une photo</h2>
+    <p>Positionnez votre visage dans le cadre</p>
+    <video id="webcam-video" width="200" height="200" autoplay></video>
+    <canvas id="webcam-canvas" width="480" height="480"></canvas>
+    <div class="btn-group" style="justify-content:center;">
+      <button class="btn btn-gold" onclick="capturePhoto()"><i class="fas fa-camera"></i> Capturer</button>
+      <button class="btn btn-outline" onclick="closeWebcam()">Annuler</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== JOB DATABASE =====
+const JOB_DB = {
+  "Développement": { icon:"fa-code", jobs: { "Développeur Full Stack":["JavaScript","React","Node.js","Python","SQL","Git","Docker","REST API","TypeScript","MongoDB"], "Développeur Frontend":["React","Vue.js","Angular","HTML/CSS","JavaScript","TypeScript","Figma","Tailwind","Webpack","Redux"], "Développeur Backend":["Node.js","Python","Java","Go","PostgreSQL","Redis","Docker","Kubernetes","REST","GraphQL"], "Développeur Mobile":["React Native","Flutter","Swift","Kotlin","Firebase","REST API","Git","CI/CD","UX Mobile","SQLite"], "Ingénieur DevOps":["Docker","Kubernetes","CI/CD","AWS","Terraform","Ansible","Linux","Jenkins","Prometheus","GitLab CI"], "Développeur Blockchain":["Solidity","Ethereum","Web3.js","Smart Contracts","DeFi","Rust","Cryptographie","Node.js","IPFS","Truffle"], "Développeur IoT":["C/C++","Python","MQTT","Arduino","Raspberry Pi","AWS IoT","Bluetooth LE","Edge Computing","LoRa","Node-RED"], "Développeur Jeux Vidéo":["Unity","C#","Unreal Engine","C++","3D Modeling","Shaders","Physics Engine","Git","Blender","Game Design"] }},
+  "Data & IA": { icon:"fa-brain", jobs: { "Data Scientist":["Python","Machine Learning","TensorFlow","Pandas","SQL","Statistiques","Scikit-learn","NLP","Deep Learning","Jupyter"], "Data Analyst":["SQL","Python","Power BI","Tableau","Excel","Statistiques","ETL","Pandas","Data Viz","Google Analytics"], "Data Engineer":["Python","Spark","Airflow","SQL","Kafka","AWS/GCP","ETL","dbt","Hadoop","Docker"], "ML Engineer":["Python","TensorFlow","PyTorch","MLOps","Docker","Kubernetes","FastAPI","Feature Engineering","CI/CD","AWS SageMaker"], "Ingénieur NLP":["Python","Transformers","BERT/GPT","SpaCy","Hugging Face","PyTorch","Linguistique","Deep Learning","NLTK","APIs LLM"], "Computer Vision Engineer":["Python","OpenCV","PyTorch","CNN","TensorFlow","YOLO","Image Processing","GANs","3D Vision","CUDA"], "BI Analyst":["Power BI","SQL","DAX","ETL","SSIS","Data Warehouse","Tableau","Python","KPI Design","Data Modeling"] }},
+  "Cloud & Infra": { icon:"fa-cloud", jobs: { "Cloud Architect":["AWS","Azure","GCP","Terraform","Kubernetes","Microservices","Networking","Security","Cost Optimization","Docker"], "SysAdmin":["Linux","Windows Server","VMware","Bash","Active Directory","Monitoring","Backup","DNS/DHCP","Ansible","PowerShell"], "Ingénieur Réseaux":["Cisco","TCP/IP","Firewall","VPN","SDN","MPLS","BGP","OSPF","Wi-Fi","Monitoring"], "SRE":["Linux","Kubernetes","Prometheus","Grafana","Terraform","Python","CI/CD","SLO/SLI","Incident Management","Docker"], "DBA":["PostgreSQL","MySQL","Oracle","SQL Server","Performance Tuning","Backup/Recovery","Réplication","MongoDB","Redis","SQL"], "Platform Engineer":["Kubernetes","Terraform","ArgoCD","Helm","CI/CD","AWS/GCP","GitOps","Service Mesh","IaC","Go"] }},
+  "Cybersécurité": { icon:"fa-shield-halved", jobs: { "Expert Cybersécurité":["Pentest","SIEM","Firewall","IDS/IPS","Cryptographie","ISO 27001","OWASP","Forensics","Python","Vulnerability Assessment"], "Pentester":["Kali Linux","Burp Suite","Metasploit","OWASP","Python","Nmap","Wireshark","Web Security","Reverse Engineering","Reporting"], "Analyste SOC":["SIEM","Log Analysis","Incident Response","Threat Intelligence","Splunk","EDR","MITRE ATT&CK","Forensics","Network Security","Python"], "RSSI / CISO":["Gouvernance","ISO 27001","Risk Management","RGPD","Audit","Stratégie Sécurité","Compliance","SOC Management","Cryptographie","Leadership"], "Ingénieur Sécurité Cloud":["AWS Security","Azure Security","IAM","Zero Trust","Container Security","CSPM","SIEM Cloud","Terraform","Compliance","DevSecOps"] }},
+  "Télécoms & Satellite": { icon:"fa-satellite-dish", jobs: { "Ingénieur Télécoms":["5G/4G","RF Engineering","Fibre Optique","TCP/IP","VoIP","Antenna Design","Cisco","Ericsson","Huawei","Network Planning"], "Expert Réseaux Satellitaires":["VSAT","DVB-S2","Link Budget","Satellite Comm","RF","Modulation","HPA","LNB","Network Design","Monitoring"], "Ingénieur RF":["RF Design","Simulation","Antenna","EMC","Spectrum Analysis","5G NR","MIMO","Matlab","CST Studio","Test & Measurement"], "Network Planner":["Atoll","Network Design","Coverage Planning","Capacity Planning","5G","4G LTE","Propagation Models","KPI","Optimization","Drive Test"], "Ingénieur Fibre Optique":["FTTH","GPON","Soudure Fibre","OTDR","Network Design","WDM","OSP","ISP Design","GIS","AutoCAD"] }},
+  "Digital & Marketing": { icon:"fa-bullhorn", jobs: { "Chef de Projet Digital":["Agile/Scrum","Jira","Gestion de projet","UX/UI","Analytics","Communication","Budget","Stakeholder Management","CMS","SEO"], "Growth Hacker":["Analytics","A/B Testing","SEO","Ads (Google/Meta)","Email Marketing","Landing Pages","Python","SQL","Automation","Conversion Optimization"], "Expert SEO/SEA":["Google Analytics","Search Console","SEMrush","Ahrefs","Google Ads","Content Strategy","Technical SEO","Link Building","Schema.org","Copywriting"], "UX/UI Designer":["Figma","Adobe XD","User Research","Prototyping","Design System","Accessibilité","HTML/CSS","Motion Design","Wireframing","Usability Testing"], "Community Manager":["Réseaux sociaux","Content Creation","Copywriting","Analytics","Canva","Video Editing","Community Engagement","Reporting","Veille","Stratégie éditoriale"], "Product Owner":["Agile/Scrum","User Stories","Backlog Management","Jira","Roadmap","Stakeholders","Analytics","A/B Testing","KPI","UX Research"] }},
+  "IA & Robotique": { icon:"fa-robot", jobs: { "Ingénieur IA":["Python","TensorFlow","PyTorch","Deep Learning","MLOps","Mathematiques","Computer Vision","NLP","Docker","Cloud AI"], "Robotics Engineer":["ROS","C++","Python","Control Systems","Simulation","SLAM","Computer Vision","Embedded Systems","CAD","Linux"], "Prompt Engineer":["LLMs","GPT/Claude","Prompt Design","Fine-tuning","RAG","LangChain","Python","Evaluation","APIs","NLP"], "AI Ethics Specialist":["AI Governance","Bias Detection","Fairness","Explainability","RGPD","Policy","Research","Statistics","Python","Communication"], "MLOps Engineer":["MLflow","Kubeflow","Docker","Kubernetes","CI/CD","AWS SageMaker","Feature Store","Model Monitoring","Python","Terraform"] }},
+  "Management": { icon:"fa-chess-king", jobs: { "CTO":["Architecture","Leadership","Cloud","DevOps","Agile","Recrutement","Roadmap","Budget","Innovation","Stratégie Tech"], "VP Engineering":["Team Management","Hiring","Agile","OKR","Technical Strategy","Mentoring","Process","Architecture","Culture","Stakeholders"], "Product Manager":["Product Strategy","Roadmap","Analytics","User Research","Agile","Jira","Go-to-Market","Pricing","A/B Testing","KPI"], "Scrum Master":["Scrum","Kanban","Facilitation","Coaching","Jira","Retrospectives","Sprint Planning","Continuous Improvement","Team Dynamics","SAFe"], "Tech Lead":["Code Review","Architecture","Mentoring","Agile","CI/CD","Design Patterns","Documentation","Recrutement","Decision Making","Communication"] }}
+};
+
+const TEMPLATES = [
+  {id:"classic",name:"Classique",colors:["#1E3A5F","#EBF0F7","#fff"],desc:"Sobre et professionnel"},
+  {id:"modern",name:"Moderne",colors:["#0D7377","#E0F5F5","#fff"],desc:"Deux colonnes élégant"},
+  {id:"tech",name:"Tech Dark",colors:["#1A1A2E","#16213E","#E0E0E0"],desc:"Esprit développeur"},
+  {id:"creative",name:"Créatif",colors:["#9B2335","#FDE8EC","#fff"],desc:"Coloré et audacieux"},
+  {id:"minimal",name:"Minimaliste",colors:["#333333","#FAFAFA","#fff"],desc:"Épuré et élégant"},
+  {id:"data",name:"Data Viz",colors:["#1B5E20","#E8F5E9","#fff"],desc:"Barres de compétence"},
+  {id:"cloud",name:"Cloud Blue",colors:["#0277BD","#E1F5FE","#fff"],desc:"Tons bleu ciel"},
+  {id:"cyber",name:"Cyber Dark",colors:["#0D0D1A","#1A1A33","#00FF88"],desc:"Ambiance sécurité"},
+  {id:"startup",name:"Startup",colors:["#E65100","#FFF3E0","#fff"],desc:"Dynamique et jeune"},
+  {id:"executive",name:"Exécutif",colors:["#3E2723","#EFEBE9","#fff"],desc:"Senior et raffiné"},
+  {id:"satellite",name:"Telecom Sat",colors:["#01579B","#E3F2FD","#fff"],desc:"Thème télécoms"},
+  {id:"ai",name:"AI Futurist",colors:["#4A148C","#F3E5F5","#fff"],desc:"Intelligence artificielle"}
+];
+
+// ===== STATE =====
+let state = { selectedJob:"", selectedCategory:"", selectedTemplate:"classic", skills:[], photoData:null };
+
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded', () => {
+  loadState();
+  renderJobCategories();
+  renderTemplates();
+  addExperience();
+  addEducation();
+  updateProgress();
+  refreshSkillSuggestions();
+});
+
+// ===== TOAST (replaces alert) =====
+function showToast(type, title, msg, duration=4000) {
+  const container = document.getElementById('toast-container');
+  const icons = { info:'fa-info-circle', success:'fa-check-circle', warning:'fa-exclamation-triangle', error:'fa-times-circle' };
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.innerHTML = `<div class="toast-icon ${type}"><i class="fas ${icons[type]}"></i></div><div class="toast-body"><h4>${title}</h4><p>${msg}</p></div><button class="toast-close" onclick="this.parentElement.classList.add('leaving');setTimeout(()=>this.parentElement.remove(),300)"><i class="fas fa-times"></i></button>`;
+  container.appendChild(toast);
+  setTimeout(() => { toast.classList.add('leaving'); setTimeout(() => toast.remove(), 300); }, duration);
+}
+
+// ===== NAVIGATION =====
+function goSection(el) { goSectionByName(el.dataset.section); }
+function goSectionByName(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.mob-item').forEach(s => s.classList.remove('active'));
+  const si = document.querySelector(`.nav-item[data-section="${id}"]`);
+  if (si) si.classList.add('active');
+  const mi = document.querySelector(`.mob-item[data-section="${id}"]`);
+  if (mi) mi.classList.add('active');
+  if (id === 'score-section') computeScore();
+  if (id === 'preview-section') renderCVPreview();
+  if (id === 'skills-section') refreshSkillSuggestions();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ===== THEME =====
+function toggleTheme() {
+  const d = document.documentElement.getAttribute('data-theme') === 'dark';
+  document.documentElement.setAttribute('data-theme', d ? 'light' : 'dark');
+  document.getElementById('theme-icon').className = d ? 'fas fa-moon' : 'fas fa-sun';
+  localStorage.setItem('cv-theme', d ? 'light' : 'dark');
+}
+(function(){ const t = localStorage.getItem('cv-theme'); if(t==='dark'){ document.documentElement.setAttribute('data-theme','dark'); setTimeout(()=>{ document.getElementById('theme-icon').className='fas fa-sun'; },0); } })();
+
+// ===== PROGRESS =====
+function updateProgress() {
+  const checks = [
+    () => state.selectedJob,
+    () => document.getElementById('f-name')?.value,
+    () => document.getElementById('f-email')?.value,
+    () => document.getElementById('f-summary')?.value,
+    () => document.querySelector('#exp-list .entry-card [id^="exp-title-"]')?.value,
+    () => document.querySelector('#edu-list .entry-card [id^="edu-degree-"]')?.value,
+    () => state.skills.length >= 3,
+    () => state.selectedTemplate
+  ];
+  let filled = 0;
+  checks.forEach(c => { if(c()) filled++; });
+  const pct = Math.round((filled/checks.length)*100);
+  document.getElementById('progress-fill').style.width = pct+'%';
+  document.getElementById('progress-pct').textContent = pct+'%';
+  const n=document.getElementById('f-name')?.value, e=document.getElementById('f-email')?.value;
+  markDone('job-section',!!state.selectedJob);
+  markDone('personal-section',!!(n&&e));
+  markDone('skills-section',state.skills.length>=3);
+  markDone('template-section',!!state.selectedTemplate);
+  if(n&&e) earnBadge('badge-identity');
+  if(state.skills.length>=5) earnBadge('badge-skills');
+  if(pct===100) earnBadge('badge-complete');
+}
+function markDone(id,d){ const el=document.querySelector(`.nav-item[data-section="${id}"]`); if(el) el.classList.toggle('done',d); }
+function earnBadge(id){ const el=document.getElementById(id); if(el&&!el.classList.contains('earned')) el.classList.add('earned'); }
+
+// ===== JOBS =====
+function renderJobCategories() {
+  const el = document.getElementById('cat-tabs');
+  const cats = Object.keys(JOB_DB);
+  el.innerHTML = cats.map((c,i) => `<button class="cat-tab${i===0?' active':''}" onclick="selectCategory('${c}',this)"><i class="fas ${JOB_DB[c].icon}"></i> ${c}</button>`).join('');
+  selectCategory(cats[0], el.querySelector('.cat-tab'));
+}
+function selectCategory(cat, btn) {
+  document.querySelectorAll('.cat-tab').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  const el = document.getElementById('job-grid');
+  el.innerHTML = Object.keys(JOB_DB[cat].jobs).map(j => `<div class="job-card${state.selectedJob===j?' selected':''}" onclick="selectJob('${j}',this)"><i class="fas fa-chevron-right"></i> ${j}</div>`).join('');
+}
+function selectJob(job, el) {
+  state.selectedJob = job;
+  document.querySelectorAll('.job-card').forEach(j=>j.classList.remove('selected'));
+  if(el) el.classList.add('selected');
+  const sugArea = document.getElementById('job-suggestions');
+  sugArea.style.display = 'block';
+  const sugEl = document.getElementById('suggested-skills');
+  sugEl.innerHTML = getJobSkills(job).map(s => `<span class="tag tag-suggestion" onclick="addSkillFromSuggestion('${s}')"><i class="fas fa-plus" style="font-size:0.6rem;"></i> ${s}</span>`).join('');
+  updateProgress();
+}
+function getJobSkills(job){ for(const c of Object.values(JOB_DB)){ if(c.jobs[job]) return c.jobs[job]; } return []; }
+function addSkillFromSuggestion(name){ if(!state.skills.find(s=>s.name.toLowerCase()===name.toLowerCase())){ state.skills.push({name,level:'Intermédiaire'}); renderSkills(); updateProgress(); showToast('success','Compétence ajoutée',`"${name}" a été ajoutée à vos compétences.`,2000); } }
+
+// ===== SKILLS =====
+function addSkill(){ const input=document.getElementById('skill-input'), level=document.getElementById('skill-level').value, name=input.value.trim(); if(!name) return; if(state.skills.find(s=>s.name.toLowerCase()===name.toLowerCase())){ input.value=''; return; } state.skills.push({name,level}); input.value=''; renderSkills(); updateProgress(); }
+function removeSkill(i){ state.skills.splice(i,1); renderSkills(); updateProgress(); }
+function renderSkills(){ document.getElementById('skills-tags').innerHTML = state.skills.map((s,i) => `<span class="tag">${s.name} <small style="color:var(--text3);">(${s.level})</small><button class="remove-tag" onclick="removeSkill(${i})"><i class="fas fa-times"></i></button></span>`).join(''); }
+function refreshSkillSuggestions(){ const el=document.getElementById('skill-suggestions-list'); if(!el)return; const sk=getJobSkills(state.selectedJob), ex=state.skills.map(s=>s.name.toLowerCase()), rem=sk.filter(s=>!ex.includes(s.toLowerCase())); el.innerHTML = rem.map(s=>`<span class="tag tag-suggestion" onclick="addSkillFromSuggestion('${s}')"><i class="fas fa-plus" style="font-size:0.6rem;"></i> ${s}</span>`).join('') || '<span style="color:var(--text3);font-size:0.82rem;">Sélectionnez un métier pour voir les suggestions</span>'; }
+
+// ===== EXPERIENCE =====
+let expCount=0;
+function addExperience(){ expCount++; const id=expCount, el=document.getElementById('exp-list'), div=document.createElement('div'); div.className='entry-card'; div.id=`exp-card-${id}`;
+  div.innerHTML=`<div class="entry-header"><span class="entry-num">Expérience #${id}</span>${id>1?`<button class="btn btn-sm btn-danger" onclick="document.getElementById('exp-card-${id}').remove()"><i class="fas fa-trash"></i></button>`:''}</div>
+  <div class="form-row"><div class="form-group"><label class="form-label">Poste *</label><div class="input-icon-wrap"><input class="form-input" type="text" id="exp-title-${id}" placeholder="Développeur Full Stack" oninput="updateProgress()"><button class="mic-btn" onclick="startDictation(this,'exp-title-${id}')"><i class="fas fa-microphone"></i></button></div></div><div class="form-group"><label class="form-label">Entreprise *</label><input class="form-input" type="text" id="exp-company-${id}" placeholder="Algeria-Tech"></div></div>
+  <div class="form-row"><div class="form-group"><label class="form-label">Début</label><input class="form-input" type="month" id="exp-start-${id}"></div><div class="form-group"><label class="form-label">Fin</label><input class="form-input" type="month" id="exp-end-${id}"><label style="margin-top:4px;display:flex;align-items:center;gap:6px;font-size:0.78rem;cursor:pointer;color:var(--text2);"><input type="checkbox" id="exp-current-${id}" onchange="document.getElementById('exp-end-${id}').disabled=this.checked;if(this.checked)document.getElementById('exp-end-${id}').value='';"> Poste actuel</label></div></div>
+  <div class="form-group"><label class="form-label">Description</label><div class="input-icon-wrap"><textarea class="form-input" id="exp-desc-${id}" placeholder="Réalisations et responsabilités..."></textarea><button class="mic-btn" style="top:16px;transform:none;" onclick="startDictation(this,'exp-desc-${id}')"><i class="fas fa-microphone"></i></button></div></div>`;
+  el.appendChild(div); earnBadge('badge-xp'); }
+
+// ===== EDUCATION =====
+let eduCount=0;
+function addEducation(){ eduCount++; const id=eduCount, el=document.getElementById('edu-list'), div=document.createElement('div'); div.className='entry-card'; div.id=`edu-card-${id}`;
+  div.innerHTML=`<div class="entry-header"><span class="entry-num">Formation #${id}</span>${id>1?`<button class="btn btn-sm btn-danger" onclick="document.getElementById('edu-card-${id}').remove()"><i class="fas fa-trash"></i></button>`:''}</div>
+  <div class="form-row"><div class="form-group"><label class="form-label">Diplôme *</label><div class="input-icon-wrap"><input class="form-input" type="text" id="edu-degree-${id}" placeholder="Master en IA" oninput="updateProgress()"><button class="mic-btn" onclick="startDictation(this,'edu-degree-${id}')"><i class="fas fa-microphone"></i></button></div></div><div class="form-group"><label class="form-label">Établissement *</label><input class="form-input" type="text" id="edu-school-${id}" placeholder="USTHB"></div></div>
+  <div class="form-row"><div class="form-group"><label class="form-label">Début</label><input class="form-input" type="month" id="edu-start-${id}"></div><div class="form-group"><label class="form-label">Fin</label><input class="form-input" type="month" id="edu-end-${id}"><label style="margin-top:4px;display:flex;align-items:center;gap:6px;font-size:0.78rem;cursor:pointer;color:var(--text2);"><input type="checkbox" id="edu-current-${id}" onchange="document.getElementById('edu-end-${id}').disabled=this.checked;if(this.checked)document.getElementById('edu-end-${id}').value='';"> En cours</label></div></div>
+  <div class="form-group"><label class="form-label">Description</label><textarea class="form-input" id="edu-desc-${id}" placeholder="Spécialisation, projets notables..."></textarea></div>`;
+  el.appendChild(div); }
+
+// ===== TEMPLATES =====
+function renderTemplates(){
+  document.getElementById('tpl-grid').innerHTML = TEMPLATES.map(t=>`
+    <div class="tpl-card${t.id===state.selectedTemplate?' selected':''}" onclick="selectTemplate('${t.id}',this)">
+      <div class="tpl-mini" style="background:${t.colors[2]};color:${t.id==='tech'||t.id==='cyber'?t.colors[2]:t.colors[0]};">
+        <div style="background:${t.colors[0]};color:${t.id==='cyber'?'#00FF88':'#fff'};padding:8px 10px;margin:-14px -14px 8px;font-size:8px;font-weight:800;letter-spacing:0.5px;">PRÉNOM NOM</div>
+        <div style="font-size:5.5px;color:${t.colors[0]};font-weight:700;margin-bottom:6px;opacity:0.7;">POSTE VISÉ</div>
+        <div style="height:1.5px;background:${t.colors[0]};margin:5px 0;opacity:0.15;"></div>
+        <div style="font-size:5px;font-weight:700;margin-bottom:3px;text-transform:uppercase;letter-spacing:0.5px;">Expérience</div>
+        <div style="font-size:4px;opacity:0.6;line-height:1.5;">Poste — Entreprise<br>2022 – Présent<br>Description des missions et réalisations...</div>
+        <div style="height:1.5px;background:${t.colors[0]};margin:5px 0;opacity:0.15;"></div>
+        <div style="font-size:5px;font-weight:700;margin-bottom:3px;text-transform:uppercase;letter-spacing:0.5px;">Compétences</div>
+        <div style="display:flex;flex-wrap:wrap;gap:2px;">${['Python','React','Docker'].map(s=>`<span style="background:${t.colors[1]};padding:1px 4px;border-radius:2px;font-size:3.5px;">${s}</span>`).join('')}</div>
+      </div>
+      <div class="tpl-label"><div><div class="tpl-label-name">${t.name}</div><div class="tpl-label-desc">${t.desc}</div></div></div>
+    </div>`).join('');
+}
+function selectTemplate(id,el){ state.selectedTemplate=id; document.querySelectorAll('.tpl-card').forEach(c=>c.classList.remove('selected')); if(el)el.classList.add('selected'); updateProgress(); }
+
+// ===== PHOTO =====
+function handlePhoto(e){ const f=e.target.files[0]; if(!f)return; const r=new FileReader(); r.onload=ev=>{ state.photoData=ev.target.result; showPhotoPreview(); }; r.readAsDataURL(f); }
+function showPhotoPreview(){ const img=document.getElementById('photo-preview'), ph=document.getElementById('photo-placeholder'); img.src=state.photoData; img.style.display='block'; ph.style.display='none'; }
+function openWebcam(){ const m=document.getElementById('webcam-modal'); m.classList.add('visible'); navigator.mediaDevices.getUserMedia({video:{width:480,height:480,facingMode:'user'}}).then(s=>{ const v=document.getElementById('webcam-video'); v.srcObject=s; v.play(); }).catch(()=>{ showToast('error','Erreur','Impossible d\'accéder à la webcam.',4000); closeWebcam(); }); }
+function capturePhoto(){ const v=document.getElementById('webcam-video'),c=document.getElementById('webcam-canvas'),ctx=c.getContext('2d'); ctx.drawImage(v,0,0,480,480); state.photoData=c.toDataURL('image/jpeg',0.85); showPhotoPreview(); closeWebcam(); showToast('success','Photo capturée','Votre photo a été ajoutée au CV.',3000); }
+function closeWebcam(){ const v=document.getElementById('webcam-video'); if(v.srcObject){ v.srcObject.getTracks().forEach(t=>t.stop()); v.srcObject=null; } document.getElementById('webcam-modal').classList.remove('visible'); }
+
+// ===== VOICE =====
+function startDictation(btn,targetId){ if(!('webkitSpeechRecognition' in window)&&!('SpeechRecognition' in window)){ showToast('warning','Non supporté','La dictée vocale nécessite Chrome ou Edge.',4000); return; } const SR=window.SpeechRecognition||window.webkitSpeechRecognition, r=new SR(); r.lang='fr-FR'; r.continuous=false; r.interimResults=false; btn.classList.add('recording'); r.start(); r.onresult=e=>{ const t=e.results[0][0].transcript, el=document.getElementById(targetId); if(el.tagName==='TEXTAREA') el.value+=(el.value?' ':'')+t; else el.value=t; btn.classList.remove('recording'); updateProgress(); showToast('success','Dictée terminée',`"${t.substring(0,40)}${t.length>40?'...':''}"`,3000); }; r.onerror=()=>btn.classList.remove('recording'); r.onend=()=>btn.classList.remove('recording'); }
+
+// ===== CHAT =====
+function toggleChat(){ document.getElementById('chat-panel').classList.toggle('open'); }
+function sendChat(){ const input=document.getElementById('chat-input'), msg=input.value.trim(); if(!msg)return; input.value=''; appendChat(msg,'user'); setTimeout(()=>appendChat(generateChatReply(msg),'bot'),500); }
+function appendChat(text,type){ const el=document.getElementById('chat-msgs'), div=document.createElement('div'); div.className=`chat-msg ${type}`; div.textContent=text; el.appendChild(div); el.scrollTop=el.scrollHeight; }
+function generateChatReply(msg){ const l=msg.toLowerCase(); if(l.includes('compétence')||l.includes('skill')){ const s=getJobSkills(state.selectedJob); return s.length?`Pour "${state.selectedJob}", je recommande : ${s.slice(0,5).join(', ')}. Cliquez sur les suggestions dans l'onglet Compétences pour les ajouter.`:'Sélectionnez d\'abord un métier pour obtenir des suggestions.'; } if(l.includes('reformul')||l.includes('améliore')) return 'Utilisez des verbes d\'action (Développé, Conçu, Optimisé, Déployé) et quantifiez vos résultats. Ex: "Optimisé les performances API de 40%."'; if(l.includes('modèle')||l.includes('template')) return 'Pour un profil tech : "Tech Dark" ou "Moderne". Management : "Exécutif". Data : "Data Viz" pour mettre en valeur les compétences.'; if(l.includes('certif')||l.includes('formation')) return 'Certifications recommandées : AWS Solutions Architect, Google Cloud Professional, Scrum Master (PSM I), CISSP. Ajoutez-les dans la section Formation !'; return 'Je peux vous aider avec : compétences à ajouter, reformulation, choix du modèle, certifications, ou conseils pour améliorer votre score.'; }
+
+// ===== IMPORT =====
+function handleImport(e){ const f=e.target.files[0]; if(!f)return; showToast('info','Fichier importé',`"${f.name}" a été chargé. L'extraction OCR nécessite un backend — les données de démonstration sont utilisées.`,5000);
+  setTimeout(()=>{ document.getElementById('f-name').value='Ines Maya Basta'; document.getElementById('f-email').value='ines.basta@mail.com'; document.getElementById('f-phone').value='+213 550 789 012'; document.getElementById('f-location').value='Alger, Algérie'; document.getElementById('f-summary').value='Ingénieure en informatique avec 3 ans d\'expérience en développement web et data science. Passionnée par l\'IA et les solutions innovantes.';
+  const et=document.getElementById('exp-title-1'); if(et){ et.value='Développeuse Full Stack'; document.getElementById('exp-company-1').value='Algeria-Tech'; document.getElementById('exp-start-1').value='2023-01'; document.getElementById('exp-desc-1').value='Développement d\'applications web React/Node.js. Mise en place de pipelines CI/CD. Optimisation des performances réduisant le temps de réponse de 45%.'; }
+  const ed=document.getElementById('edu-degree-1'); if(ed){ ed.value='Master en Intelligence Artificielle'; document.getElementById('edu-school-1').value='USTHB - Alger'; document.getElementById('edu-start-1').value='2018-09'; document.getElementById('edu-end-1').value='2020-06'; }
+  ['JavaScript','React','Python','Node.js','Docker','SQL'].forEach(s=>state.skills.push({name:s,level:'Avancé'})); renderSkills(); state.selectedJob='Développeur Full Stack'; updateProgress(); goSectionByName('personal-section'); showToast('success','Données extraites','Le formulaire a été pré-rempli avec les données détectées.',4000); },800); }
+
+// ===== SCORE =====
+function computeScore(){
+  const items=[]; let score=0;
+  const n=document.getElementById('f-name')?.value, e=document.getElementById('f-email')?.value, s=document.getElementById('f-summary')?.value||'', p=document.getElementById('f-phone')?.value;
+  if(n&&e){score+=15;items.push({t:'ok',m:'Identité complète (nom + email)'});}else items.push({t:'bad',m:'Complétez votre nom et email'});
+  if(s.length>50){score+=15;items.push({t:'ok',m:'Résumé professionnel rédigé'});}else if(s.length>0){score+=7;items.push({t:'warn',m:'Résumé trop court — visez 3-4 lignes'});}else items.push({t:'bad',m:'Ajoutez un résumé professionnel'});
+  if(p){score+=5;items.push({t:'ok',m:'Téléphone renseigné'});}else items.push({t:'warn',m:'Ajoutez votre téléphone'});
+  if(state.photoData){score+=5;items.push({t:'ok',m:'Photo ajoutée'});}else items.push({t:'warn',m:'Ajoutez une photo professionnelle'});
+  if(state.selectedJob){score+=10;items.push({t:'ok',m:`Métier : ${state.selectedJob}`});}else items.push({t:'bad',m:'Sélectionnez un métier'});
+  let hasExp=false; document.querySelectorAll('#exp-list .entry-card').forEach(c=>{if(c.querySelector('[id^="exp-title-"]')?.value&&c.querySelector('[id^="exp-company-"]')?.value)hasExp=true;});
+  if(hasExp){score+=15;items.push({t:'ok',m:'Expérience renseignée'});}else items.push({t:'bad',m:'Ajoutez une expérience'});
+  let hasQ=false; document.querySelectorAll('#exp-list .entry-card').forEach(c=>{const d=c.querySelector('[id^="exp-desc-"]')?.value||'';if(/\d+\s*%|\d+\s*(utilisateurs|clients|projets)/i.test(d))hasQ=true;});
+  if(hasQ){score+=5;items.push({t:'ok',m:'Réalisations quantifiées détectées'});}else items.push({t:'warn',m:'Quantifiez vos résultats (%, chiffres)'});
+  let hasEdu=false; document.querySelectorAll('#edu-list .entry-card').forEach(c=>{if(c.querySelector('[id^="edu-degree-"]')?.value)hasEdu=true;});
+  if(hasEdu){score+=10;items.push({t:'ok',m:'Formation renseignée'});}else items.push({t:'bad',m:'Ajoutez une formation'});
+  if(state.skills.length>=5){score+=15;items.push({t:'ok',m:`${state.skills.length} compétences`});}else if(state.skills.length>=3){score+=8;items.push({t:'warn',m:`${state.skills.length} compétences — visez 5+`});}else items.push({t:'bad',m:'Ajoutez au moins 3 compétences'});
+  if(state.selectedTemplate){score+=5;items.push({t:'ok',m:'Modèle sélectionné'});}
+  score=Math.min(100,score);
+  const sv=document.getElementById('score-value'),sc=document.getElementById('score-circle'); let cur=0;
+  const iv=setInterval(()=>{cur++;if(cur>score){clearInterval(iv);return;} sv.textContent=cur; sc.style.strokeDashoffset=364-(cur/100)*364; sc.style.stroke=cur>=70?'var(--success)':cur>=40?'var(--warning)':'var(--danger)';},15);
+  document.getElementById('score-items').innerHTML=items.map(it=>`<div class="score-item"><i class="fas ${it.t==='ok'?'fa-check-circle si-ok':it.t==='warn'?'fa-exclamation-circle si-warn':'fa-times-circle si-bad'}"></i><span>${it.m}</span></div>`).join('');
+}
+
+// ===== COLLECT DATA =====
+function collectData(){ const d={name:document.getElementById('f-name')?.value||'',email:document.getElementById('f-email')?.value||'',phone:document.getElementById('f-phone')?.value||'',location:document.getElementById('f-location')?.value||'',linkedin:document.getElementById('f-linkedin')?.value||'',github:document.getElementById('f-github')?.value||'',summary:document.getElementById('f-summary')?.value||'',job:state.selectedJob,photo:state.photoData,skills:state.skills,template:state.selectedTemplate,experiences:[],educations:[]};
+  document.querySelectorAll('#exp-list .entry-card').forEach(c=>{const t=c.querySelector('[id^="exp-title-"]');if(!t)return;const id=t.id.split('-').pop();d.experiences.push({title:t.value,company:c.querySelector(`#exp-company-${id}`)?.value||'',start:c.querySelector(`#exp-start-${id}`)?.value||'',end:c.querySelector(`#exp-current-${id}`)?.checked?'Présent':(c.querySelector(`#exp-end-${id}`)?.value||''),desc:c.querySelector(`#exp-desc-${id}`)?.value||''});});
+  document.querySelectorAll('#edu-list .entry-card').forEach(c=>{const dg=c.querySelector('[id^="edu-degree-"]');if(!dg)return;const id=dg.id.split('-').pop();d.educations.push({degree:dg.value,school:c.querySelector(`#edu-school-${id}`)?.value||'',start:c.querySelector(`#edu-start-${id}`)?.value||'',end:c.querySelector(`#edu-current-${id}`)?.checked?'En cours':(c.querySelector(`#edu-end-${id}`)?.value||''),desc:c.querySelector(`#edu-desc-${id}`)?.value||''});});
+  return d; }
+function fmtDate(d){if(!d||d==='Présent'||d==='En cours')return d||'';const[y,m]=d.split('-');const ms=['Jan','Fév','Mar','Avr','Mai','Jun','Jul','Aoû','Sep','Oct','Nov','Déc'];return ms[parseInt(m)-1]+' '+y;}
+
+// ===== CV PREVIEW =====
+function renderCVPreview(){
+  const d=collectData(), tpl=TEMPLATES.find(t=>t.id===d.template)||TEMPLATES[0], c=tpl.colors, frame=document.getElementById('cv-frame');
+  const photo=d.photo?`<img src="${d.photo}" style="width:76px;height:76px;border-radius:50%;object-fit:cover;border:3px solid ${c[0]};">`:'';
+  const contact=[d.email?`<span style="margin-right:14px;"><i class="fas fa-envelope" style="margin-right:4px;"></i>${d.email}</span>`:'',d.phone?`<span style="margin-right:14px;"><i class="fas fa-phone" style="margin-right:4px;"></i>${d.phone}</span>`:'',d.location?`<span style="margin-right:14px;"><i class="fas fa-map-marker-alt" style="margin-right:4px;"></i>${d.location}</span>`:'',d.linkedin?`<span style="margin-right:14px;"><i class="fab fa-linkedin" style="margin-right:4px;"></i>${d.linkedin}</span>`:'',d.github?`<span><i class="fab fa-github" style="margin-right:4px;"></i>${d.github}</span>`:''].filter(Boolean).join('');
+  const expH=d.experiences.filter(e=>e.title).map(e=>`<div style="margin-bottom:14px;"><div style="display:flex;justify-content:space-between;align-items:baseline;"><strong>${e.title}</strong><span style="font-size:11px;color:#888;">${fmtDate(e.start)} — ${fmtDate(e.end)||'Présent'}</span></div><div style="color:${c[0]};font-weight:600;font-size:12px;margin-bottom:3px;">${e.company}</div><div style="font-size:12px;color:#555;">${e.desc}</div></div>`).join('');
+  const eduH=d.educations.filter(e=>e.degree).map(e=>`<div style="margin-bottom:12px;"><div style="display:flex;justify-content:space-between;align-items:baseline;"><strong>${e.degree}</strong><span style="font-size:11px;color:#888;">${fmtDate(e.start)} — ${fmtDate(e.end)||'En cours'}</span></div><div style="color:${c[0]};font-weight:600;font-size:12px;">${e.school}</div>${e.desc?`<div style="font-size:12px;color:#555;">${e.desc}</div>`:''}</div>`).join('');
+  const skTags=d.skills.map(s=>`<span class="cv-skill-tag" style="background:${c[1]};color:${c[0]};">${s.name}</span>`).join(' ');
+  const skBars=d.skills.map(s=>{const p=s.level==='Expert'?95:s.level==='Avancé'?80:s.level==='Intermédiaire'?60:35;return`<div style="margin-bottom:7px;"><div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:2px;"><span>${s.name}</span><span style="color:#888;">${s.level}</span></div><div style="height:5px;background:#eee;border-radius:3px;"><div style="height:100%;width:${p}%;background:${c[0]};border-radius:3px;"></div></div></div>`;}).join('');
+
+  let html='';
+  if(['classic','minimal','executive'].includes(d.template)){
+    const fs=d.template==='executive'?'font-family:Georgia,serif;':'';
+    html=`<div style="padding:36px;${fs}"><div style="display:flex;align-items:center;gap:20px;padding-bottom:16px;border-bottom:2px solid ${c[0]};margin-bottom:22px;">${photo}<div><h2 style="color:${c[0]};margin-bottom:2px;">${d.name||'Votre Nom'}</h2><div style="font-size:14px;color:${c[0]};opacity:0.7;font-weight:500;">${d.job}</div><div style="font-size:11px;color:#888;margin-top:6px;display:flex;flex-wrap:wrap;gap:4px;">${contact}</div></div></div>${d.summary?`<div style="margin-bottom:18px;"><h3 style="color:${c[0]};border-bottom:1px solid ${c[1]};padding-bottom:4px;">Profil</h3><p style="font-size:12px;color:#555;">${d.summary}</p></div>`:''}${expH?`<div style="margin-bottom:18px;"><h3 style="color:${c[0]};border-bottom:1px solid ${c[1]};padding-bottom:4px;">Expérience</h3>${expH}</div>`:''}${eduH?`<div style="margin-bottom:18px;"><h3 style="color:${c[0]};border-bottom:1px solid ${c[1]};padding-bottom:4px;">Formation</h3>${eduH}</div>`:''}${d.skills.length?`<div><h3 style="color:${c[0]};border-bottom:1px solid ${c[1]};padding-bottom:4px;">Compétences</h3><div style="margin-top:8px;">${skTags}</div></div>`:''}</div>`;
+  } else if(['modern','cloud','satellite','ai'].includes(d.template)){
+    html=`<div style="display:flex;min-height:600px;"><div style="width:35%;background:${c[0]};color:#fff;padding:28px;"><div style="text-align:center;margin-bottom:24px;">${d.photo?`<img src="${d.photo}" style="width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,0.25);margin-bottom:10px;">`:''}<h2 style="font-size:17px;color:#fff;">${d.name||'Votre Nom'}</h2><div style="font-size:12px;opacity:0.75;">${d.job}</div></div><div style="margin-bottom:18px;"><h3 style="font-size:11px;border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:4px;color:#fff;">Contact</h3><div style="font-size:10.5px;margin-top:8px;">${d.email?`<p style="margin-bottom:5px;"><i class="fas fa-envelope" style="width:14px;"></i> ${d.email}</p>`:''}${d.phone?`<p style="margin-bottom:5px;"><i class="fas fa-phone" style="width:14px;"></i> ${d.phone}</p>`:''}${d.location?`<p style="margin-bottom:5px;"><i class="fas fa-map-marker-alt" style="width:14px;"></i> ${d.location}</p>`:''}${d.linkedin?`<p style="margin-bottom:5px;"><i class="fab fa-linkedin" style="width:14px;"></i> ${d.linkedin}</p>`:''}</div></div>${d.skills.length?`<div><h3 style="font-size:11px;border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:4px;color:#fff;">Compétences</h3><div style="margin-top:8px;">${d.skills.map(s=>{const p=s.level==='Expert'?95:s.level==='Avancé'?80:s.level==='Intermédiaire'?60:35;return`<div style="margin-bottom:7px;font-size:10px;">${s.name}<div style="height:4px;background:rgba(255,255,255,0.15);border-radius:2px;margin-top:3px;"><div style="height:100%;width:${p}%;background:#fff;border-radius:2px;"></div></div></div>`;}).join('')}</div></div>`:''}</div><div style="flex:1;padding:28px;">${d.summary?`<div style="margin-bottom:18px;"><h3 style="color:${c[0]};">Profil</h3><p style="font-size:12px;color:#555;">${d.summary}</p></div>`:''}${expH?`<div style="margin-bottom:18px;"><h3 style="color:${c[0]};">Expérience</h3>${expH}</div>`:''}${eduH?`<div><h3 style="color:${c[0]};">Formation</h3>${eduH}</div>`:''}</div></div>`;
+  } else if(d.template==='tech'||d.template==='cyber'){
+    const g=d.template==='cyber'?'#00FF88':'#60A5FA', bg1=c[0], bg2=c[1];
+    html=`<div style="background:${bg1};color:${d.template==='cyber'?'#ccc':'#ddd'};font-family:'JetBrains Mono',monospace;"><div style="padding:24px 28px;border-bottom:2px solid ${g}30;"><div style="display:flex;align-items:center;gap:16px;">${photo}<div><h2 style="color:${g};font-size:19px;">${d.name||'Votre Nom'}</h2><div style="font-size:12px;opacity:0.6;">${d.job}</div><div style="font-size:9.5px;margin-top:6px;opacity:0.5;">${contact}</div></div></div></div><div style="display:flex;"><div style="flex:1;padding:22px 28px;background:${bg2};">${d.summary?`<div style="margin-bottom:18px;"><h3 style="color:${g};font-size:11px;">// PROFIL</h3><p style="font-size:11px;opacity:0.8;">${d.summary}</p></div>`:''}${expH?`<div style="margin-bottom:18px;"><h3 style="color:${g};font-size:11px;">// EXPÉRIENCE</h3>${expH}</div>`:''}${eduH?`<div><h3 style="color:${g};font-size:11px;">// FORMATION</h3>${eduH}</div>`:''}</div><div style="width:35%;padding:22px;background:${bg1};border-left:1px solid rgba(255,255,255,0.06);">${d.skills.length?`<h3 style="color:${g};font-size:11px;">// SKILLS</h3>${d.skills.map(s=>`<div style="margin-bottom:5px;font-size:10px;">▸ ${s.name} <span style="opacity:0.4;">[${s.level}]</span></div>`).join('')}`:''}</div></div></div>`;
+  } else if(d.template==='creative'||d.template==='startup'){
+    html=`<div><div style="text-align:center;padding:32px;background:linear-gradient(135deg,${c[0]},${c[0]}dd);color:#fff;">${d.photo?`<img src="${d.photo}" style="width:84px;height:84px;border-radius:50%;object-fit:cover;border:4px solid rgba(255,255,255,0.35);margin-bottom:8px;">`:''}<h2 style="font-size:22px;color:#fff;">${d.name||'Votre Nom'}</h2><div style="font-size:13px;opacity:0.85;">${d.job}</div><div style="font-size:10px;margin-top:8px;opacity:0.65;">${contact}</div></div><div style="padding:28px;">${d.summary?`<div style="background:${c[1]};padding:16px;border-radius:8px;margin-bottom:18px;border-left:4px solid ${c[0]};"><h3 style="color:${c[0]};margin-bottom:4px;">Profil</h3><p style="font-size:12px;color:#555;">${d.summary}</p></div>`:''}${expH?`<div style="margin-bottom:18px;"><h3 style="color:${c[0]};">Expérience</h3>${expH}</div>`:''}${eduH?`<div style="margin-bottom:18px;"><h3 style="color:${c[0]};">Formation</h3>${eduH}</div>`:''}${d.skills.length?`<h3 style="color:${c[0]};">Compétences</h3><div style="margin-top:8px;">${d.skills.map(s=>`<span style="display:inline-block;background:${c[0]};color:#fff;padding:3px 10px;border-radius:20px;font-size:10px;margin:2px;">${s.name}</span>`).join(' ')}</div>`:''}</div></div>`;
+  } else if(d.template==='data'){
+    html=`<div style="padding:36px;"><div style="display:flex;align-items:center;gap:20px;padding-bottom:16px;border-bottom:3px solid ${c[0]};margin-bottom:22px;">${photo}<div><h2 style="color:${c[0]};">${d.name||'Votre Nom'}</h2><div style="color:${c[0]};opacity:0.7;font-size:14px;">${d.job}</div><div style="font-size:11px;color:#888;margin-top:6px;">${contact}</div></div></div>${d.summary?`<div style="margin-bottom:18px;"><h3 style="color:${c[0]};">Profil</h3><p style="font-size:12px;color:#555;">${d.summary}</p></div>`:''}<div style="display:flex;gap:28px;flex-wrap:wrap;"><div style="flex:2;min-width:280px;">${expH?`<div style="margin-bottom:18px;"><h3 style="color:${c[0]};">Expérience</h3>${expH}</div>`:''}${eduH?`<div><h3 style="color:${c[0]};">Formation</h3>${eduH}</div>`:''}</div><div style="flex:1;min-width:200px;">${d.skills.length?`<h3 style="color:${c[0]};">Compétences</h3><div style="margin-top:8px;">${skBars}</div>`:''}</div></div></div>`;
+  }
+  frame.innerHTML=html;
+}
+
+// ===== EXPORT =====
+function downloadPDF(){ renderCVPreview(); const frame=document.getElementById('cv-frame'), name=document.getElementById('f-name')?.value||'CV', win=window.open('','_blank'); win.document.write(`<!DOCTYPE html><html><head><title>CV — ${name}</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"><style>*{box-sizing:border-box;margin:0;padding:0;}body{font-family:'Inter',sans-serif;}@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact;}}.cv-skill-tag{display:inline-block;padding:2px 8px;border-radius:3px;font-size:11px;margin:2px;}</style></head><body>${frame.innerHTML}</body></html>`); win.document.close(); setTimeout(()=>win.print(),600); }
+
+// ===== SAVE/LOAD =====
+function saveAll(){ const d=collectData(); localStorage.setItem('cv-platinum-data',JSON.stringify(d)); }
+function loadState(){ const r=localStorage.getItem('cv-platinum-data'); if(!r)return; try{ const d=JSON.parse(r); if(d.skills)state.skills=d.skills; if(d.template)state.selectedTemplate=d.template; if(d.job)state.selectedJob=d.job; if(d.photo)state.photoData=d.photo; setTimeout(()=>{ if(d.name)document.getElementById('f-name').value=d.name; if(d.email)document.getElementById('f-email').value=d.email; if(d.phone)document.getElementById('f-phone').value=d.phone; if(d.location)document.getElementById('f-location').value=d.location; if(d.linkedin)document.getElementById('f-linkedin').value=d.linkedin; if(d.github)document.getElementById('f-github').value=d.github; if(d.summary)document.getElementById('f-summary').value=d.summary; if(d.photo)showPhotoPreview(); renderSkills(); updateProgress(); },100); }catch(e){} }
+</script>
+</body>
+</html>
