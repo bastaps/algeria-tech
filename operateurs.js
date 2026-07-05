@@ -830,15 +830,15 @@ async function generateCommArticle() {
 
     genBtn.classList.remove('is-loading');
     genBtn.classList.add('is-done');
-    genBtn.innerHTML = '<i class="fas fa-check"></i> Généré ✓';
-    setTimeout(() => { genBtn.classList.remove('is-done'); genBtn.innerHTML = '<i class="fas fa-pen-nib"></i> Générer'; genBtn.disabled = false; }, 3000);
+    genBtn.innerHTML = '<i class="fas fa-check"></i> OK ✓';
+    setTimeout(() => { genBtn.classList.remove('is-done'); genBtn.innerHTML = '<i class="fas fa-pen-nib"></i> Générer <i class="fas fa-caret-down"></i>'; genBtn.disabled = false; }, 3000);
   } catch (err) {
     genBtn.classList.remove('is-loading');
     genBtn.classList.add('is-error');
     genBtn.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Échec';
     genBtn.disabled = false;
     alert('Erreur génération IA : ' + err.message);
-    setTimeout(() => { genBtn.classList.remove('is-error'); genBtn.innerHTML = '<i class="fas fa-pen-nib"></i> Générer'; }, 3000);
+    setTimeout(() => { genBtn.classList.remove('is-error'); genBtn.innerHTML = '<i class="fas fa-pen-nib"></i> Générer <i class="fas fa-caret-down"></i>'; }, 3000);
   }
 }
 
@@ -858,16 +858,28 @@ function setupCommImport() {
   });
 
   translateBtn.addEventListener('click', translateCommImport);
-  if (genBtn) genBtn.addEventListener('click', generateCommArticle);
   fillBtn.addEventListener('click', fillCommFromExtract);
 
-  document.querySelectorAll('.cf-style-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.cf-style-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      commStyle = btn.dataset.style;
+  const genWrap = document.getElementById('commGenWrap');
+  const genBtnEl = document.getElementById('commGenBtn');
+  if (genWrap && genBtnEl) {
+    genBtnEl.addEventListener('click', () => {
+      if (genBtnEl.disabled) return;
+      genWrap.classList.toggle('open');
     });
-  });
+    document.querySelectorAll('.cf-gen-option').forEach(opt => {
+      opt.addEventListener('click', () => {
+        commStyle = opt.dataset.style;
+        document.querySelectorAll('.cf-gen-option').forEach(o => o.classList.remove('checked'));
+        opt.classList.add('checked');
+        genWrap.classList.remove('open');
+        generateCommArticle();
+      });
+    });
+    document.addEventListener('click', e => {
+      if (!genWrap.contains(e.target)) genWrap.classList.remove('open');
+    });
+  }
 }
 
 /* ── Wiring événements du formulaire ─────────────────────────── */

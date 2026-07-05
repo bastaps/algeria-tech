@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Opérateurs Mobiles | Algeria Tech</title>
-    <link rel="stylesheet" href="operateurs.css?v=6">
+    <link rel="stylesheet" href="operateurs.css?v=7">
     <!-- Font Awesome async — non-bloquant -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
@@ -210,17 +210,19 @@
                     <button type="button" class="cf-translate-btn" id="commTranslateBtn" disabled>
                         <i class="fas fa-language"></i> Traduire en français
                     </button>
-                    <button type="button" class="cf-gen-btn" id="commGenBtn" disabled>
-                        <i class="fas fa-pen-nib"></i> Générer
-                    </button>
+                    <div class="cf-gen-wrap" id="commGenWrap">
+                        <button type="button" class="cf-gen-btn" id="commGenBtn" disabled>
+                            <i class="fas fa-pen-nib"></i> Générer <i class="fas fa-caret-down"></i>
+                        </button>
+                        <div class="cf-gen-dropdown" id="commGenDropdown">
+                            <button type="button" class="cf-gen-option" data-style="aps"><i class="fas fa-landmark"></i> APS <span>agence, factuel</span></button>
+                            <button type="button" class="cf-gen-option" data-style="pro"><i class="fas fa-feather-alt"></i> Pro étoffé <span>magazine, analyse</span></button>
+                            <button type="button" class="cf-gen-option" data-style="breve"><i class="fas fa-bolt"></i> Brève <span>3 paragraphes</span></button>
+                        </div>
+                    </div>
                     <button type="button" class="cf-fill-btn" id="commFillBtn" disabled>
                         <i class="fas fa-fill-drip"></i> Remplir
                     </button>
-                </div>
-                <div class="cf-style-selector" id="commStyleSelector">
-                    <button type="button" class="cf-style-btn active" data-style="aps"><i class="fas fa-landmark"></i> APS</button>
-                    <button type="button" class="cf-style-btn" data-style="pro"><i class="fas fa-feather-alt"></i> Pro</button>
-                    <button type="button" class="cf-style-btn" data-style="breve"><i class="fas fa-bolt"></i> Brève</button>
                 </div>
                 <small class="cf-hint">Importez un communiqué (photo, PDF, TXT ou Word) → Traduire si nécessaire → choisissez un style → Générer (réécriture IA) ou Remplir (structuration brute).</small>
             </div>
@@ -307,6 +309,6 @@
     </div>
 </div>
 
-<script src="operateurs.js?v=6"></script>
+<script src="operateurs.js?v=7"></script>
 </body>
 </html>
