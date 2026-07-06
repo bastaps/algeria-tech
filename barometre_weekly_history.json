@@ -254,6 +254,57 @@
       "sentiment_pos_pct": 22,
       "sentiment_neg_pct": 5,
       "top_topic": "Intelligence Artificielle"
+    },
+    {
+      "period": "2026-W28",
+      "period_label": "Semaine du 6 au 12 Juillet 2026",
+      "generated": "2026-07-06T10:14:13.142Z",
+      "articles_total": 309,
+      "topics": [
+        {
+          "key": "Intelligence Artificielle",
+          "count": 57
+        },
+        {
+          "key": "Formation & Emploi TIC",
+          "count": 16
+        },
+        {
+          "key": "5G & Reseaux Mobiles",
+          "count": 13
+        },
+        {
+          "key": "Cloud & Data Center",
+          "count": 13
+        },
+        {
+          "key": "Cybersecurite",
+          "count": 11
+        },
+        {
+          "key": "Operateurs & Telecom",
+          "count": 10
+        },
+        {
+          "key": "Startups & Innovation",
+          "count": 8
+        },
+        {
+          "key": "E-commerce & Paiement",
+          "count": 4
+        },
+        {
+          "key": "Satellite & Spatial",
+          "count": 4
+        },
+        {
+          "key": "Regulation & Politique",
+          "count": 3
+        }
+      ],
+      "sentiment_pos_pct": 17,
+      "sentiment_neg_pct": 3,
+      "top_topic": "Intelligence Artificielle"
     }
   ]
 }
