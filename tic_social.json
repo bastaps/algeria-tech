@@ -1,6 +1,24 @@
 {
   "posts": [
     {
+      "id": "e07829ac490259e5",
+      "source_name": "Ministère de l'Enseignement Supérieur et de la Recherche",
+      "source_short": "MESRS",
+      "source_color": "#1B5E20",
+      "category": "Ministère",
+      "category_icon": "🎓",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNZlNUblJJZUNfUG5TdHFETG9uRGhtTXB2UEFHYnZ4LUdmOGxJWnl4Z1gtRmJ1Z2VtUnJPdGVwaHl0VkxzWDFFc1hMNXp6VHcyLTJLek9DNGtqdXlRVnY0TW5oZGQ0anR0OWxpdGJ2Q0x0UzN5WWJJQWZDSmg0cHRwZjY5OHhVejdPaHktU1pIbU4xVUFWU0psSXJCMEZZQUJzVmdFNDFsWXd2TU1nR0x2b1lJWlZiZXpkVHVncEc3S0RMQWpUTzE3RlQ1aGJDeVNhZ2pF?oc=5",
+      "image": "",
+      "date": "Tue, 07 Jul 2026 15:35:00 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Lancement des inscriptions des nouveaux bacheliers à partir du 15 juillet - aps.dz — Lancement des inscriptions des nouveaux bacheliers à partir du 15 juillet aps.dz",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "247702cda550d266",
       "source_name": "DGRSDT",
       "source_short": "DGRS",
@@ -337,24 +355,6 @@
       "lang_source": "fr",
       "text": {
         "fr": "ICT Africa Summit 2026 : l’ONE renforce son engagement pour l’innovation et les startups en Afrique - webmanagercenter — ICT Africa Summit 2026 : l’ONE renforce son engagement pour l’innovation et les startups en Afrique webmanagercenter",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "6fd7b754d22cdab3",
-      "source_name": "APS — Algérie Presse Service",
-      "source_short": "APS",
-      "source_color": "#006233",
-      "category": "Ministère",
-      "category_icon": "📡",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBpZ1lLc1BuTUtqc2l6aVdHYTA2S3NweVRFblhka0x6LTQ0TUY2Mjg4Y3pmSHQzcEZ4eURpb2poU3NLcjR4VTB2VEZwZ0cyUW4tLUsw?oc=5",
-      "image": "",
-      "date": "Wed, 22 Apr 2026 08:37:24 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "La Direction générale de la communication à la Présidence de la République présente ses condoléances suite au décès de l'ancien journaliste de l’APS Youssef Zerarka - الإذاعة الجزائرية | — La Direction générale de la communication à la Présidence de la République présente ses condoléances suite au décès de l'ancien journaliste de l’APS Youssef Zerarka الإذاعة الجزائرية |",
         "ar": "",
         "en": ""
       },
@@ -1387,6 +1387,24 @@
       "source_type": "web"
     },
     {
+      "id": "3482727812582127",
+      "source_name": "Ericsson",
+      "source_short": "ER",
+      "source_color": "#009999",
+      "category": "Équipementiers",
+      "category_icon": "🔧",
+      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOVkdzcGFpa0tDZnZKeEpabkJ6NlNtWEd3d2VXQjVkV3BmQkZNS0c0dlY0SkM4T29pZGc3d1RpMTY3aU1QRmZzUXJlaVg5VjBSeXJLcnhEdi1SQzRfODVnZDE1dlVGVm9BbGY4ampHckZqS2tieWxuN0l5OWluWk12UkN0M1FZdVhIQlNzN3ladlFqamQ0SElqVTNUelktZ1VvdGtMYmhaXzhSX0YzSDZTd00wbnFKeER3Y0RpYUlvWV84M0h1ZnJ2eFNUYW9LUDdRWkFndUZNM0lZYmJhRWRyNjA2NA?oc=5",
+      "image": "",
+      "date": "Fri, 19 Jun 2026 07:00:00 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "En Afrique subsaharienne, la 5G devrait représenter 28 % des abonnements mobiles d’ici 2031 (Ericsson) - AGENCE ECOFIN — En Afrique subsaharienne, la 5G devrait représenter 28 % des abonnements mobiles d’ici 2031 (Ericsson) AGENCE ECOFIN",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "fd0402d4672e7f95",
       "source_name": "Huawei Global",
       "source_short": "HW",
@@ -1423,20 +1441,110 @@
       "source_type": "rss"
     },
     {
-      "id": "8b7dff3fb3484b8f",
-      "source_name": "Huawei Mobile DZ",
-      "source_short": "HMD",
-      "source_color": "#CF0A2C",
-      "category": "Équipementiers",
-      "category_icon": "📲",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNMEpDQ3pUTVpwVjZNdWVHT1pBV2kyLXFlR1IyM1pURU4wNVdUY0pRTkVVVVlkcVowYnhMNFJlbUUzdmdmUFRMTzRHSlRlbWJOWDhsRzAyNlFxWmVjVGJJdWk3VW1iNnNqVzQxNi1ZdDJadkVxR1RpazZBZDllcGI4QzJncDVWR0tfZFA0TXFKeEpmQ3lxcUZuSFRmc1RXcUc5RGJ6cDVZYjk0VVE?oc=5",
+      "id": "f949f8b551dd6572",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/07/08/rentree-universitaire-2026-2027-lancement-des-inscriptions-des-nouveaux-bacheliers-a-partir-du-15-juillet/",
       "image": "",
-      "date": "Wed, 17 Jun 2026 16:35:00 GMT",
+      "date": "Wed, 08 Jul 2026 09:09:37 +0000",
       "lang_source": "fr",
       "text": {
-        "fr": "« Mines intelligentes » : Huawei partage son expertise avec l’Algérie - الخبر — « Mines intelligentes » : Huawei partage son expertise avec l’Algérie الخبر",
+        "fr": "Rentrée universitaire 2026-2027 : Lancement des inscriptions des nouveaux bacheliers à partir du 15 juillet — Le ministre de l’Enseignement supérieur et de la Recherche scientifique, Kamel Baddari, a annoncé, mardi à Alger, que l’opération d’inscription et d’orientation des nouveaux bacheliers, session 2026, débutera à partir du 15 juillet. Lors d’une conférence de presse consacrée au contenu de la circulai",
         "ar": "",
         "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "ace3ea314ced8c92",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/07/08/fmi-des-perspectives-favorables-pour-lalgerie-en-2026-mais-des-reformes-restent-necessaires/",
+      "image": "",
+      "date": "Wed, 08 Jul 2026 08:10:53 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "FMI : des perspectives favorables pour l’Algérie en 2026, mais des réformes restent nécessaires — Une mission du Fonds monétaire international (FMI), conduite par M. Charalambos Tsangarides, s’est rendue à Alger du 16 au 30 juin pour mener les consultations de 2026 au titre de l’article IV avec l’Algérie. À l’issue de cette visite, l’institution estime que les perspectives économiques de l’Algér",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "03bb7eb85c2e7a70",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/08/hot-french-startup-zml-releases-free-product-to-speed-inference-across-lots-of-ai-chips/",
+      "image": "",
+      "date": "Wed, 08 Jul 2026 08:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Hot French startup ZML releases free product to speed inference across lots of AI chips — ZML, a hot French AI startup endorsed by Turing Award winner Yann LeCun, has now released ZML/LLMD, software that could make running AI less costly.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "7e6b7a6e47dea188",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/08/sambanova-draws-1b-at-11b-valuation-in-series-f-first-close/",
+      "image": "",
+      "date": "Wed, 08 Jul 2026 07:16:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "AI chip maker SambaNova raises $1B at $11B valuation, 5 months after last mega round — AI chip maker SambaNova has raised at an $11B valuation months after Intel was rumored to be trying to buy it for about $1.6 billion.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "8f331cf680675c89",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/07/final-extension-startup-battlefield-australia-applications-now-close-july-20/",
+      "image": "",
+      "date": "Tue, 07 Jul 2026 22:30:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Final extension: Startup Battlefield Australia applications now close July 20 — If you're building something ambitious, this is a fast track to the people who can move your startup forward.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "43c24424eacf387e",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/07/meta-rolls-out-muse-a-new-ai-image-generator/",
+      "image": "",
+      "date": "Tue, 07 Jul 2026 22:18:10 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Meta just launched a new AI generator, Muse Image, and users are already pushing back over use of their photos — The new image-generating model has numerous use cases, including advertising and decorating, and creator-based opportunities.",
+        "ar": "",
+        "fr": ""
       },
       "source_type": "rss"
     },
@@ -1599,6 +1707,24 @@
         "en": "AI law startup Norm raises $120M, hits unicorn valuation — AI law startup Norm has raised a $120 million Series C round led by Khosla Ventures, valuing the startup at $1.2 billion.",
         "ar": "",
         "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "5f0512b36c7c3dca",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/07/07/dialogue-mondial-sur-la-gouvernance-de-lintelligence-artificielle-br-sid-ali-zerrouki-plaide-pour-une-intelligence-artificielle-au-service-des-pays-du-sud/",
+      "image": "",
+      "date": "Tue, 07 Jul 2026 14:29:25 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Dialogue mondial sur la gouvernance de l’intelligence artificielle BR< Sid Ali Zerrouki plaide pour une intelligence artificielle au service des pays du Sud — Le ministre algérien de la Poste et des Télécommunications, Sid Ali Zerrouki, a participé les 6 et 7 juillet 2026 au premier Dialogue mondial sur …",
+        "ar": "",
+        "en": ""
       },
       "source_type": "rss"
     },
@@ -5273,142 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "d847e44ff01ae7e6",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/29/robot-hand-company-settles-tesla-trade-secret-suit-and-announces-11m-raise/",
-      "image": "",
-      "date": "Mon, 29 Jun 2026 14:00:08 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Robot hand company settles Tesla trade secret suit and announces $11M raise — The startup, Proception, is taking a unique approach to collecting training data to tackle one of the hardest problems in robotics: hands.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "1ef5038173d70f44",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/souverainete-ia-lautriche-pousse-lue-a-accueillir-anthropic-497893.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 29 Jun 2026 13:58:07 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Souveraineté IA : l'Autriche pousse l'UE à accueillir Anthropic — Face aux restrictions de Washington bloquant l'accès à ses modèles d'IA les plus avancés, l'Autriche exhorte l'Union européenne à accueillir et investir dans Anthropic sur son sol.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "a511415b9b5762a8",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/06/29/algerie-haut-conseil-de-la-communaute-scientifique-a-letranger-tient-sa-reunion-constitutive/",
-      "image": "",
-      "date": "Mon, 29 Jun 2026 13:50:50 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Algérie : Haut conseil de la communauté scientifique à l’étranger tient sa réunion constitutive — La réunion constitutive du Haut conseil de la communauté scientifique nationale à l’étranger s’est tenue dimanche 28 juin au Pôle scientifique et technologique Chahid Abdelhafid-Ihaddaden de Sidi Abdellah, à Alger. Cette nouvelle instance consultative, créée à la suite de la dernière réunion du Cons",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "acb3e054371b0b84",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/29/pocket-raises-11m-in-bet-on-rising-demand-for-ai-note-taking-devices/",
-      "image": "",
-      "date": "Mon, 29 Jun 2026 13:16:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Pocket raises $11M in bet on rising demand for AI note-taking devices — Pocket sells a $129 credit card-shaped puck, which sticks to the back of your phone, and promises unlimited recordings, transcriptions, and to-do items.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c118138475cd85fc",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/29/flipper-devices-new-busy-bar-is-a-customizable-display-for-productivity/",
-      "image": "",
-      "date": "Mon, 29 Jun 2026 13:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Flipper Device’s new Busy Bar is a customizable display for productivity — Flipper Device's new Busy Bar will retail for $249.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "85c3f90dcf408dd4",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/06/29/omen-ais-plan-to-optimize-data-centers-is-all-wet/",
-      "image": "",
-      "date": "Mon, 29 Jun 2026 13:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Omen AI’s plan to optimize data centers is all wet — Omen AI raised a $31 million Series A to monitor chip coolant and stop bacterial outbreaks in data centers.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "3a5096071d377ee1",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/la-souverainete-numerique-a-lonu-au-coeur-de-la-dynamique-mondiale-pour-remplacer-les-geants-americains-par-des-technologies-open-source-497889.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 29 Jun 2026 12:45:59 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "La souveraineté numérique à l'ONU : au cœur de la dynamique mondiale pour remplacer les géants américains par des technologies open source — La souveraineté numérique s'est imposée comme le thème central de la Semaine de l'open source des Nations unies de cette année, de nombreux participants estimant que l'open source constitue désormais une infrastructure essentielle et qu'on ne peut pas faire confiance aux entreprises américaines.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-07-07T20:50:07.632661+00:00",
+  "lastUpdated": "2026-07-08T09:25:49.810063+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Tech International": 164,
-    "Médias TIC": 56
+    "Médias TIC": 58,
+    "Tech International": 162
   },
   "total": 300
 }
