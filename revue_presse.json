@@ -1,6 +1,6 @@
 {
   "date": "vendredi 10 juillet",
-  "synthese": "L'Algérie renforce son écosystème numérique avec des décisions institutionnelles majeures : élargissement de la Bourse d'Alger, lancement de la plateforme 'Apostille' et maintien du classement Banque mondiale. Les géants technologiques mondiaux annoncent des investissements colossaux dans les data centers et l'IA, tandis que les innovations mobiles et énergétiques se multiplient.",
+  "synthese": "L'Algérie maintient son classement Banque mondiale et élargit sa Bourse d'Alger. Meta investit 13 milliards de dollars pour un data center au Canada.",
   "articles": [
     {
       "titre": "Algérie : Lancement officiel de la plateforme « Apostille » relative à la légalisation des documents destinés à être utilisés à l’étranger",
@@ -10,7 +10,7 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Algérie : plateforme 'Apostille' lancée pour légaliser documents",
+      "accroche": "Plateforme Apostille lancée pour légaliser documents",
       "categorie": "Innovation"
     },
     {
@@ -21,7 +21,7 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Bourse d’Alger : deux nouvelles sociétés introduites semaine prochaine",
+      "accroche": "Bourse d’Alger : deux nouvelles sociétés dès la semaine prochaine",
       "categorie": "Innovation"
     },
     {
@@ -32,8 +32,8 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Banque mondiale : Algérie classée pays à revenu intermédiaire supérieur",
-      "categorie": "Innovation"
+      "accroche": "Banque mondiale : Algérie en revenu intermédiaire supérieur",
+      "categorie": "Économie numérique"
     },
     {
       "titre": "Comment le Shadow AI s’est invité à l’Assemblée nationale",
@@ -43,8 +43,8 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Shadow IA : présence confirmée à l’Assemblée nationale française",
-      "categorie": "IA"
+      "accroche": "Shadow AI infiltré à l’Assemblée nationale",
+      "categorie": "Cybersécurité"
     },
     {
       "titre": "Meta défie Nvidia en lançant la production de ses propres puces IA",
@@ -54,7 +54,29 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Meta produit ses propres puces IA en concurrence avec Nvidia",
+      "accroche": "Meta produit ses puces IA face à Nvidia",
+      "categorie": "IA"
+    },
+    {
+      "titre": "« Ça va secouer pendant les trois prochaines années au moins » : l’avertissement de Vincent Strubel face au « mur du patch »",
+      "resume": "Devant les sénateurs, le directeur général de l’Anssi vient d’avertir les sénateurs sur l’accroissement de la menace poussée par l’IA.",
+      "url": "https://www.zdnet.fr/actualites/ca-va-secouer-pendant-les-trois-prochaines-annees-au-moins-lavertissement-de-vincent-strubel-face-au-mur-du-patch-498468.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-07-09T13:30:37.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Cybersécurité : avertissement de Vincent Strubel",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Chez Allianz, l’IA passe à l’échelle et s’accompagne d’un plan social touchant “jusqu’à 1800 personnes”",
+      "resume": "",
+      "url": "https://www.usine-digitale.fr/emploi/chez-allianz-lia-passe-a-lechelle-et-saccompagne-dun-plan-social-touchant-jusqua-1800-personnes.FTQ7J4KWYJGQ3EE5FMAFETU5W4.html",
+      "date": "2026-07-10T08:08:45.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Allianz IA : 1800 postes menacés par plan social",
       "categorie": "IA"
     },
     {
@@ -65,30 +87,19 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Meta investit 13 milliards de dollars pour data center au Canada",
+      "accroche": "Meta construit data center de 13 Md$ au Canada",
       "categorie": "Data Centers"
     },
     {
-      "titre": "“Le coeur battant de l’IA” : L’État place les data centers au centre de sa stratégie numérique pour renforcer la souveraineté des infrastructures critiques",
-      "resume": "",
-      "url": "https://www.usine-digitale.fr/informatique/data-centers/le-coeur-battant-de-lia-letat-place-les-data-centers-au-centre-de-sa-strategie-numerique-pour-renforcer-la-souverainete-des-infrastructures-critiques.HGNBIKVMXBEYFEICYX662L3WZA.html",
-      "date": "2026-07-09T14:01:29.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Stratégie numérique française : data centers au cœur du dispositif",
-      "categorie": "Data Centers"
-    },
-    {
-      "titre": "Pratique, prendre l’avion en France juste avec votre smartphone, sans papiers, c’est désormais possible",
-      "resume": "L'application France Identité, qui permet de sauvegarder la carte d'identité numérique sur smartphone, peut désormais être utilisée dans les aéroports",
-      "url": "https://www.frandroid.com/produits-android/smartphone/3176023_pratique-prendre-lavion-en-france-avec-votre-smartphone-cest-desormais-possible",
-      "date": "2026-07-10T06:47:31.000Z",
+      "titre": "Pillage de matériel : les data centers très convoités par les voleurs de cuivre",
+      "resume": "De plus en plus de vols de matériel et d’infrastructure visent les projets de construction de nouveaux centres de données. Entre les composants et les",
+      "url": "https://www.frandroid.com/culture-tech/intelligence-artificielle/3176127_pillage-de-materiel-les-data-centers-tres-convoites-par-les-voleurs-de-cuivre",
+      "date": "2026-07-10T08:15:24.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "France : embarquement en avion sans papiers via smartphone",
-      "categorie": "Mobile"
+      "accroche": "Pillage de cuivre : data centers ciblés par voleurs",
+      "categorie": "Cybersécurité"
     },
     {
       "titre": "Doctolib va utiliser vos données pour entraîner son IA, voici comment s’y opposer",
@@ -98,18 +109,7 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Doctolib utilise données patients pour entraîner son IA",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Grok 4.5 est sorti partout, sauf en Europe. Il existe une parade",
-      "resume": "SpaceXAI a lancé Grok 4.5 le 8 juillet, mais le modèle reste inaccessible depuis l'Union européenne, sans doute jusqu'à la mi-juillet. En attendant, u",
-      "url": "https://www.01net.com/bons-plans/grok-4-5-est-sorti-partout-sauf-en-europe-il-existe-une-parade.html",
-      "date": "2026-07-09T14:33:10.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Grok 4.5 disponible hors Europe avec solution alternative",
+      "accroche": "Doctolib utilise données pour entraîner IA",
       "categorie": "IA"
     },
     {
@@ -120,20 +120,20 @@
       "source": "L'Usine Nouvelle",
       "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
       "pays": "FR",
-      "accroche": "Renault investit 13 milliards d’euros et vise 1 million de véhicules",
+      "accroche": "Renault investit 13 Md€ pour million de véhicules",
       "categorie": "Innovation"
     },
     {
-      "titre": "Photovoltaïque : Les promesses démesurées du quebecois Reflect10 avec son innovation basée sur l’optique géométrique des modules solaires",
+      "titre": "«Ils veulent se développer dans les filières de la défense et de l’aéronautique» : après son redressement judiciaire, le spécialiste de la micromécanique SilMach passe sous pavillon indien",
       "resume": "",
-      "url": "https://www.usinenouvelle.com/industrie-technologie/energie-environnement/photovoltaique-les-promesses-demesurees-du-quebecois-reflect10-avec-son-innovation-basee-sur-loptique-geometrique-des-cellules-solaires.RTCNSC3VANC4ZNPKIL7CX5IEOU.html",
-      "date": "2026-07-10T05:23:52.000Z",
+      "url": "https://www.usinenouvelle.com/quotidien-des-usines/ils-veulent-se-developper-dans-les-filieres-de-la-defense-et-de-laeronautique-apres-son-redressement-judiciaire-le-specialiste-de-la-micromecanique-silmach-passe-sous-pavillon-indien.JOTDODMWXZGVJMKO2AYIJ76FBY.html",
+      "date": "2026-07-10T05:30:00.000Z",
       "source": "L'Usine Nouvelle",
       "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
       "pays": "FR",
-      "accroche": "Québec : Reflect10 promet innovation photovoltaïque majeure",
+      "accroche": "Entreprises visent défense et aéronautique après redressement",
       "categorie": "Innovation"
     }
   ],
-  "lastUpdated": "2026-07-10T07:35:07.367Z"
+  "lastUpdated": "2026-07-10T08:16:45.563Z"
 }
