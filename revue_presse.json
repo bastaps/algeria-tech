@@ -1,7 +1,18 @@
 {
   "date": "samedi 11 juillet",
-  "synthese": "L'Algérie annonce des mesures institutionnelles dans l'éducation et la diplomatie. Le secteur technologique international enregistre des avancées majeures en IA et cybersécurité.",
+  "synthese": "L'Algérie annonce une reprise progressive de son industrie automobile avec des défis persistants. Les data centers dédiés à l'IA redéfinissent la chaîne de valeur de l'électricité mondiale.",
   "articles": [
+    {
+      "titre": "Industrie automobile en Algérie : GTAI constate une reprise progressive, mais des défis persistent",
+      "resume": "L’industrie automobile en Algérie poursuit son redémarrage, mais la relance reste incomplète. C’est le constat dressé par Germany Trade & Invest (GTAI",
+      "url": "https://algerie-eco.com/2026/07/10/industrie-automobile-en-algerie-gtai-constate-une-reprise-progressive-mais-des-defis-persistent/",
+      "date": "2026-07-10T21:18:35.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Industrie automobile : reprise progressive malgré défis persistants",
+      "categorie": "Innovation"
+    },
     {
       "titre": "Algérie : Le gouvernement algérien entend faire de l’orientation scolaire un véritable levier économique en améliorant les mécanismes d’orientation",
       "resume": "Le gouvernement algérien entend faire de l’orientation scolaire un véritable levier économique. Dans cette perspective, la ministre de l’Éducation nat",
@@ -10,63 +21,8 @@
       "source": "EcomNewsMed DZ",
       "logo": "https://www.google.com/s2/favicons?domain=ecomnewsmed.com&sz=32",
       "pays": "DZ",
-      "accroche": "Gouvernement algérien : orientation scolaire levier économique",
+      "accroche": "Gouvernement algérien mise sur orientation scolaire économique",
       "categorie": "Innovation"
-    },
-    {
-      "titre": "L’Algérie annonce le retour de son ambassadeur au Mali",
-      "resume": "L’Algérie a annoncé, ce vendredi, le retour de son ambassadeur à Bamako (Mali), mettant fin à plus d’une année de rappel pour consultations. « Le prés",
-      "url": "https://algerie-eco.com/2026/07/10/lalgerie-annonce-le-retour-de-son-ambassadeur-au-mali/",
-      "date": "2026-07-10T22:03:53.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Algérie : retour de l'ambassadeur au Mali",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Les data centers dédiés à l’IA redessinent la chaîne de valeur de l’électricité et transforment les énergéticiens en “orchestrateurs” des réseaux",
-      "resume": "",
-      "url": "https://www.usine-digitale.fr/informatique/data-centers/les-data-centers-dedies-a-lia-redessinent-la-chaine-de-valeur-de-lelectricite-et-transforment-les-energeticiens-en-orchestrateurs-des-reseaux.NTVUH2263VGD3DWKYYWWXGRB4Y.html",
-      "date": "2026-07-10T15:40:03.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Data centers IA transforment chaîne électrique mondiale",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Allié d’Intel, SambaNova lève 1 milliard de dollars pour s’imposer face à Nvidia et Cerebras sur le marché de l’inférence IA",
-      "resume": "",
-      "url": "https://www.usine-digitale.fr/intelligence-artificielle/ia-generative/allie-dintel-sambanova-leve-1-milliard-de-dollars-pour-simposer-face-a-nvidia-et-cerebras-sur-le-marche-de-linference-ia.RTOONNL47JHQJP6ZY6BEQD24GU.html",
-      "date": "2026-07-10T10:51:19.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
-      "pays": "FR",
-      "accroche": "SambaNova lève 1 milliard USD face à Nvidia et Cerebras",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Apple attaque OpenAI en justice pour espionnage industriel : les secrets de l’iPhone pillés pour concevoir le smartphone ChatGPT",
-      "resume": "Apple attaque OpenAI en justice pour vol de secrets industriels. En ligne de mire : d'anciens salariés d'Apple partis chez OpenAI, accusés d'avoir emp",
-      "url": "https://www.frandroid.com/marques/apple/3177569_apple-attaque-openai-en-justice-pour-espionnage-industriel-les-secrets-de-liphone-pilles-pour-concevoir-le-smartphone-chatgpt",
-      "date": "2026-07-11T06:08:16.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Apple attaque OpenAI en justice pour espionnage industriel",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "Apple dépose plainte contre OpenAI : le roi de l’IA est accusé d’espionnage et de vol de secrets",
-      "resume": "Apple a déposé plainte contre OpenAI. Deux des anciens salariés du groupe californien, désormais employés par OpenAI, sont également visés. Apple les",
-      "url": "https://www.01net.com/actualites/apple-depose-plainte-contre-openai-le-roi-de-lia-est-accuse-espionnage-vol-secrets.html",
-      "date": "2026-07-11T06:50:18.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Apple dépose plainte contre OpenAI : vol de secrets technologiques",
-      "categorie": "Cybersécurité"
     },
     {
       "titre": "LLMD, un serveur d’inférence made in France qui se frotte à vLLM",
@@ -76,7 +32,7 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "LLMD, serveur d'inférence made in France défie vLLM",
+      "accroche": "LLMD serveur d'inférence français défie vLLM",
       "categorie": "IA"
     },
     {
@@ -91,6 +47,28 @@
       "categorie": "Réseaux"
     },
     {
+      "titre": "Les data centers dédiés à l’IA redessinent la chaîne de valeur de l’électricité et transforment les énergéticiens en “orchestrateurs” des réseaux",
+      "resume": "",
+      "url": "https://www.usine-digitale.fr/informatique/data-centers/les-data-centers-dedies-a-lia-redessinent-la-chaine-de-valeur-de-lelectricite-et-transforment-les-energeticiens-en-orchestrateurs-des-reseaux.NTVUH2263VGD3DWKYYWWXGRB4Y.html",
+      "date": "2026-07-10T15:40:03.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Data centers IA transforment chaîne de valeur électrique",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Allié d’Intel, SambaNova lève 1 milliard de dollars pour s’imposer face à Nvidia et Cerebras sur le marché de l’inférence IA",
+      "resume": "",
+      "url": "https://www.usine-digitale.fr/intelligence-artificielle/ia-generative/allie-dintel-sambanova-leve-1-milliard-de-dollars-pour-simposer-face-a-nvidia-et-cerebras-sur-le-marche-de-linference-ia.RTOONNL47JHQJP6ZY6BEQD24GU.html",
+      "date": "2026-07-10T10:51:19.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "pays": "FR",
+      "accroche": "SambaNova lève 1 milliard de dollars face à Nvidia et Cerebras",
+      "categorie": "IA"
+    },
+    {
       "titre": "Chirurgie du futur : Deux robots humanoïdes Unitree téléopérés réalisent une ablation de la vésicule biliaire",
       "resume": "",
       "url": "https://www.usine-digitale.fr/intelligence-artificielle/robotique/chirurgie-du-futur-deux-robots-humanoides-unitree-teleoperes-realisent-une-ablation-de-la-vesicule-biliaire.PDUUVGYWJVHK7A2Y36O2VPSQ5Y.html",
@@ -98,19 +76,41 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Deux robots humanoïdes Unitree réalisent ablation vésicule",
+      "accroche": "Deux robots Unitree réalisent ablation vésiculaire téléopérée",
       "categorie": "Innovation"
     },
     {
-      "titre": "Accro à Claude ? Anthropic lance Reflect, l’outil qui analyse à quel point vous êtes dépendant de l’IA",
-      "resume": "Anthropic lance Reflect, une fonctionnalité qui analyse votre utilisation de Claude afin de vous aider à mieux comprendre la place qu’occupe l’IA dans",
-      "url": "https://www.01net.com/actualites/anthropic-lance-reflect-loutil-qui-analyse-dependance-claude.html",
-      "date": "2026-07-10T15:02:31.000Z",
+      "titre": "OpenAI aurait pillé les secrets de l’iPhone pour concevoir son smartphone",
+      "resume": "Apple attaque OpenAI en justice pour vol de secrets industriels. En ligne de mire : d'anciens salariés d'Apple partis chez OpenAI, accusés d'avoir emp",
+      "url": "https://www.frandroid.com/marques/apple/3177569_apple-attaque-openai-en-justice-pour-espionnage-industriel-les-secrets-de-liphone-pilles-pour-concevoir-le-smartphone-chatgpt",
+      "date": "2026-07-11T07:33:46.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "OpenAI accusé d'espionnage pour conception smartphone",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Apple dépose plainte contre OpenAI : le roi de l’IA est accusé d’espionnage et de vol de secrets",
+      "resume": "Apple a déposé plainte contre OpenAI. Deux des anciens salariés du groupe californien, désormais employés par OpenAI, sont également visés. Apple les",
+      "url": "https://www.01net.com/actualites/apple-depose-plainte-contre-openai-le-roi-de-lia-est-accuse-espionnage-vol-secrets.html",
+      "date": "2026-07-11T06:50:18.000Z",
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Anthropic lance Reflect pour analyser dépendance à l'IA",
-      "categorie": "IA"
+      "accroche": "Apple porte plainte contre OpenAI pour vol de secrets",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Apple attaque OpenAI en justice pour vol de secrets industriels",
+      "resume": "OpenAI est dans le viseur d'Apple, qui accuse le créateur de ChatGPT de lui avoir volé des informations confidentielles, via d'anciens employés. OpenA",
+      "url": "https://www.numerama.com/tech/2294553-apple-attaque-openai-en-justice-pour-vol-de-secrets-industriels.html",
+      "date": "2026-07-11T07:23:47.000Z",
+      "source": "Numerama",
+      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
+      "pays": "FR",
+      "accroche": "Apple attaque OpenAI en justice pour secrets industriels",
+      "categorie": "Cybersécurité"
     },
     {
       "titre": "Lamberet en redressement judiciaire, Blyyd se mue en industriel après la faillite de son fournisseur, le jean français low cost en quête de rentabilité… Les cinq articles les plus lus",
@@ -120,20 +120,9 @@
       "source": "L'Usine Nouvelle",
       "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
       "pays": "FR",
-      "accroche": "Lamberet en redressement judiciaire, Blyyd restructure",
+      "accroche": "Lamberet en redressement judiciaire, Blyyd se reconvertit",
       "categorie": "Startups"
-    },
-    {
-      "titre": "Pâte à papier : dans un communiqué très offensif, la CGT fait état du soutien d’Emmanuel Macron dans le sauvetage de Fibre Excellence",
-      "resume": "",
-      "url": "https://www.usinenouvelle.com/emballage/pate-a-papier-dans-un-communique-tres-offensif-la-cgt-fait-etat-du-soutien-demmanuel-macron-dans-le-sauvetage-de-fibre-excellence.E3P7AU6RJZDFDFW46HZZTWEOCA.html",
-      "date": "2026-07-10T18:09:31.000Z",
-      "source": "L'Usine Nouvelle",
-      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
-      "pays": "FR",
-      "accroche": "Pâte à papier : CGT évoque soutien Macron dans communiqué",
-      "categorie": "Innovation"
     }
   ],
-  "lastUpdated": "2026-07-11T07:06:37.318Z"
+  "lastUpdated": "2026-07-11T08:10:55.052Z"
 }
