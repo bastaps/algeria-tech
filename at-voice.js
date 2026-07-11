@@ -10,6 +10,10 @@
 'use strict';
 
 var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+// Détection mobile : sur téléphone, le visualizer (getUserMedia) monopolise le micro
+// et empêche la reconnaissance vocale d'entendre → on le désactive sur mobile.
+var IS_MOBILE = /Android|iPhone|iPad|iPod|IEMobile|Opera Mini|Mobile/i.test(navigator.userAgent) ||
+                (navigator.maxTouchPoints > 1 && window.matchMedia && window.matchMedia('(pointer:coarse)').matches);
 
 /* ─── State ─── */
 var state = {
@@ -124,7 +128,7 @@ function startListening(){
   $('atvBtn').classList.add('listening');
   setStatus("J'écoute…", 'on');
   showTranscript('Parlez maintenant…');
-  startViz();
+  if (!IS_MOBILE) startViz(); // sur mobile : pas de getUserMedia (sinon le micro est bloqué pour la reconnaissance)
 }
 function stopListening(){
   state._stopping = true; state.listening = false;

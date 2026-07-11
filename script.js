@@ -627,18 +627,27 @@ function premiumLoadVoices() {
         fr.forEach((v, i) => { const o = document.createElement('option'); o.value = v.name; o.textContent = v.name; if (i === 0) o.selected = true; g.appendChild(o); });
         sel.appendChild(g);
         premiumState.selectedVoice = fr[0];
+    } else {
+        // Aucune voix française installée (fréquent sur mobile) : ne PAS forcer une voix
+        // étrangère (sinon le texte français est lu avec un accent anglais). On laisse le
+        // moteur lire en « fr-FR » par défaut. Sur PC ce cas ne se produit pas (voix FR présentes).
+        premiumState.selectedVoice = null;
+        const o = document.createElement('option'); o.value = ''; o.textContent = 'Voix système (fr-FR)'; o.selected = true;
+        sel.appendChild(o);
     }
     if (other.length) {
         const g = document.createElement('optgroup'); g.label = 'Autres';
         other.forEach(v => { const o = document.createElement('option'); o.value = v.name; o.textContent = v.name + ' (' + v.lang + ')'; g.appendChild(o); });
         sel.appendChild(g);
     }
-    if (!premiumState.selectedVoice && premiumVoices.length) premiumState.selectedVoice = premiumVoices[0];
 }
 
 function initAudioReader(textToRead) {
     premiumLoadVoices();
     if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = premiumLoadVoices;
+    // Mobile : la liste des voix arrive souvent en différé → quelques relances (sans effet sur PC)
+    setTimeout(premiumLoadVoices, 300);
+    setTimeout(premiumLoadVoices, 1200);
     const articleText = document.querySelector('.article-text');
     if (!articleText) return;
     premiumState.paragraphs = Array.from(articleText.querySelectorAll('p, h2, h3, li, blockquote')).filter(el => el.textContent.trim().length > 10);

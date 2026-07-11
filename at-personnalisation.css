@@ -379,6 +379,21 @@ body:not(.dark-mode)[data-at-contrast="high"],
 .at-toast.show { transform: translateX(-50%) translateY(0); }
 .at-toast .emoji { font-size: 16px; }
 
+/* ─── Adaptation MOBILE (n'affecte pas le bureau) ──────────────── */
 @media (max-width: 600px) {
-  .at-prefs-fab { bottom: 18px; right: 18px; }
+  .at-prefs-fab { bottom: 18px; right: 18px; width: 52px; height: 52px; }
+  /* Panneau plus large et confortable au doigt sur téléphone */
+  .at-prefs-panel { width: min(400px, 92vw); }
+  .at-prefs-body { padding: 14px 16px calc(24px + env(safe-area-inset-bottom, 0px)); }
+  /* Cibles tactiles agrandies */
+  .at-prefs-row { min-height: 40px; }
+  .at-prefs-row .label .title { font-size: 15px; }
+  .at-seg button { padding: 9px 12px; font-size: 13px; }
+  .at-toggle { --w: 50px; --h: 28px; }
+  .at-preset-chip { padding: 12px; font-size: 13px; }
+  /* Assez de place pour 2 colonnes de préréglages */
+  .at-presets { grid-template-columns: 1fr 1fr; }
+  .at-range { --w: 150px; }
+  .at-prefs-header { padding: 16px 18px 14px; }
+  .at-prefs-footer { padding: 14px 18px calc(14px + env(safe-area-inset-bottom, 0px)); }
 }
