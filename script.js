@@ -525,7 +525,7 @@ window.openArticle = async function(id) {
         mediaHeader = `<img src="${art.image}" alt="${art.titre}" onerror="this.onerror=null;this.style.display='none'" style="width:100%; border-radius:15px; margin-bottom:25px;">`;
     }
     let pdfLink = art.pdf ? `<div style="margin: 20px 0; padding: 15px; background: var(--bg-light); border-radius: 10px; display: flex; align-items: center; gap: 15px;"><i class="fas fa-file-pdf" style="font-size: 2rem; color: #D21034;"></i><div><p style="margin:0; font-weight:600;">Document d'accompagnement</p><a href="${art.pdf}" target="_blank" class="tag-filter" style="display:inline-block; margin-top:5px; text-decoration:none;"><i class="fas fa-download"></i> TÃ©lÃ©charger le PDF</a></div></div>` : '';
-    let html = `${mediaHeader}<div class="article-body"><div class="article-meta"><span class="category-tag ${cls(art.categorie)}">${art.categorie}</span><span><i class="far fa-calendar"></i> ${art.date}</span><span><i class="far fa-clock"></i> ${art.heure}</span><span class="reading-time"><i class="fas fa-book-open"></i> ${art.readingTime} min</span><span><i class="far fa-eye"></i> ${art.views} vues</span><button class="meta-audio-btn" onclick="premiumTogglePlayer()"><i class="fas fa-headphones"></i> Ã‰couter</button><a class="meta-lite-btn" href="/article/${art.id}/lite" title="Version allégée pour connexion lente"><i class="fas fa-bolt"></i> Version légère</a></div><h1>${art.titre}</h1><div class="article-actions"><button class="synthese-btn" id="syntheseBtn" onclick="loadSynthese()"><i class="fas fa-bolt"></i> Synthèse IA</button><button class="debat-btn" id="debatBtn" onclick="openDebat()"><i class="fas fa-comments"></i> Débattre avec l'IA</button></div><div id="syntheseBox"></div><div class="article-text">${bodyImage}${art.contenu}${pdfLink}</div>`;
+    let html = `${mediaHeader}<div class="article-body"><div class="article-meta"><span class="category-tag ${cls(art.categorie)}">${art.categorie}</span><span><i class="far fa-calendar"></i> ${art.date}</span><span><i class="far fa-clock"></i> ${art.heure}</span><span class="reading-time"><i class="fas fa-book-open"></i> ${art.readingTime} min</span><span><i class="far fa-eye"></i> ${art.views} vues</span><button class="meta-audio-btn" onclick="premiumTogglePlayer()"><i class="fas fa-headphones"></i> Écouter l'article</button><a class="meta-lite-btn" href="/article/${art.id}/lite" title="Version allégée pour connexion lente"><i class="fas fa-bolt"></i> Version légère</a></div><h1>${art.titre}</h1><div class="article-actions"><button class="synthese-btn" id="syntheseBtn" onclick="loadSynthese()"><i class="fas fa-bolt"></i> Synthèse IA</button><button class="debat-btn" id="debatBtn" onclick="openDebat()"><i class="fas fa-comments"></i> Débattre avec l'IA</button></div><div id="syntheseBox"></div><div class="article-text">${bodyImage}${art.contenu}${pdfLink}</div>`;
     if (art.tags && art.tags.length) {
         html += `<div style="margin:30px 0;padding-top:20px;border-top:1px solid var(--border)"><strong>Tags: </strong>${art.tags.map(t => `<span class="tag-filter" style="margin-left:8px" onclick="filterByTag('${t}');goHome()">${t}</span>`).join('')}</div>`;
     }
@@ -692,6 +692,15 @@ function premiumStartReading(fromIndex) {
     for (let i = 0; i < premiumState.currentParagraphIndex; i++) premiumState.spokenWords += premiumState.paragraphs[i].textContent.trim().split(/\s+/).length;
     premiumUpdateUI(); premiumSpeakParagraph(premiumState.currentParagraphIndex);
 }
+// Choisit la meilleure voix française disponible (fraîchement, car les voix arrivent
+// tard sur mobile). Préfère une voix « naturelle » (Google/France) si présente.
+// Renvoie null si aucune voix FR → l'utterance reste en lang 'fr-FR' (fallback moteur).
+function premiumPickFrenchVoice() {
+    const vs = synth.getVoices() || [];
+    const fr = vs.filter(v => /^fr/i.test(v.lang || '') || /fran[cç]ais|france/i.test(v.name || ''));
+    if (!fr.length) return null;
+    return fr.find(v => /google|natural|enhanced|julie|paul|france/i.test(v.name || '')) || fr[0];
+}
 function premiumSpeakParagraph(idx) {
     if (idx >= premiumState.paragraphs.length) { premiumFinishReading(); return; }
     premiumState.currentParagraphIndex = idx;
@@ -704,7 +713,9 @@ function premiumSpeakParagraph(idx) {
     premiumUtterance.pitch = premiumState.currentPitch;
     premiumUtterance.volume = premiumState.isMuted ? 0 : premiumState.currentVolume;
     premiumUtterance.lang = 'fr-FR';
-    if (premiumState.selectedVoice) premiumUtterance.voice = premiumState.selectedVoice;
+    // Résolution de la voix AU MOMENT de la lecture (les voix arrivent tard sur mobile)
+    const _voice = premiumState.selectedVoice || premiumPickFrenchVoice();
+    if (_voice) premiumUtterance.voice = _voice;
     let wIdx = 0;
     premiumUtterance.onboundary = (e) => {
         if (e.name === 'word') { premiumHighlightWord(p, wIdx); wIdx++; premiumState.spokenWords++; premiumUpdateProgress(); }

@@ -37,8 +37,11 @@ function speak(text, priority){
   if (state.muted || !window.speechSynthesis || !text) return;
   var u = new SpeechSynthesisUtterance(text);
   u.lang = state.lang; u.rate = 1.05;
-  var voices = speechSynthesis.getVoices();
-  var v = voices.find(function(x){ return x.lang && x.lang.indexOf(state.lang.slice(0,2))===0; });
+  var voices = speechSynthesis.getVoices() || [];
+  var pref = state.lang.slice(0,2).toLowerCase();
+  var cands = voices.filter(function(x){ return x.lang && x.lang.toLowerCase().indexOf(pref)===0; });
+  // préférer une voix « naturelle » (Google/France/…) sinon la première de la langue ; sinon rien → fallback moteur via u.lang
+  var v = cands.find(function(x){ return /google|natural|enhanced|julie|paul|france/i.test(x.name||''); }) || cands[0];
   if (v) u.voice = v;
   if (priority) speechSynthesis.cancel();
   speechSynthesis.speak(u);
@@ -116,27 +119,36 @@ function startListening(){
   if (state.listening) return;
   recog = new SR();
   recog.lang = state.lang; recog.interimResults = true; recog.continuous = false; recog.maxAlternatives = 1;
+  var handled = false;
   recog.onresult = function(e){
-    var txt = Array.prototype.map.call(e.results, function(r){ return r[0].transcript; }).join('');
+    var res = e.results[e.results.length-1];
+    var txt = (res[0].transcript || '').trim();
     showTranscript('« ' + txt + ' »');
-    if (e.results[e.results.length-1].isFinal){ processCommand(txt); }
+    if (res.isFinal && !handled && txt){
+      handled = true;
+      stopListening();          // on coupe le micro AVANT le retour vocal → pas d'écho, pas de « mobilis mobilis »
+      processCommand(txt);
+    }
   };
   recog.onerror = function(ev){ if (ev.error==='not-allowed'||ev.error==='service-not-allowed'){ toast('Micro refusé', 'Autorisez le microphone', 'danger'); } };
-  recog.onend = function(){ if (state.listening && !state._stopping){ try{ recog.start(); }catch(e){} } };
+  recog.onend = function(){ if (state.listening) finishListening(); }; // AUCUN redémarrage auto : une commande par appui
   try{ recog.start(); }catch(e){}
-  state.listening = true; state._stopping = false;
+  state.listening = true;
   $('atvBtn').classList.add('listening');
   setStatus("J'écoute…", 'on');
   showTranscript('Parlez maintenant…');
   if (!IS_MOBILE) startViz(); // sur mobile : pas de getUserMedia (sinon le micro est bloqué pour la reconnaissance)
 }
-function stopListening(){
-  state._stopping = true; state.listening = false;
-  if (recog){ try{ recog.abort(); }catch(e){} }
+function finishListening(){
+  state.listening = false;
   $('atvBtn').classList.remove('listening','wake');
   setStatus('Micro inactif');
-  hideTranscript(0);
+  hideTranscript(1600);
   stopViz();
+}
+function stopListening(){
+  if (recog){ try{ recog.onend = null; recog.abort(); }catch(e){} }
+  finishListening();
 }
 function toggleMic(){ state.listening ? stopListening() : startListening(); }
 

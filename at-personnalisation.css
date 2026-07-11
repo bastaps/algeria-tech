@@ -221,6 +221,20 @@ body:not(.dark-mode)[data-at-contrast="high"],
 }
 .at-prefs-fab .badge:empty { display: none; }
 
+/* Bouton Température (mobile uniquement) — masqué sur desktop */
+.at-temp-fab {
+  position: fixed; bottom: 24px; right: 24px;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+  border: none; color: white; font-size: 24px;
+  place-items: center; cursor: pointer;
+  box-shadow: 0 8px 32px rgba(245, 158, 11, .45);
+  z-index: 9998;
+  transition: transform 0.2s;
+  display: none;
+}
+.at-temp-fab:active { transform: scale(0.92); }
+
 .at-prefs-backdrop {
   position: fixed; inset: 0; background: transparent;
   z-index: 10001; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
@@ -381,7 +395,10 @@ body:not(.dark-mode)[data-at-contrast="high"],
 
 /* ─── Adaptation MOBILE (n'affecte pas le bureau) ──────────────── */
 @media (max-width: 600px) {
-  .at-prefs-fab { bottom: 18px; right: 18px; width: 52px; height: 52px; }
+  /* Sur mobile : on retire la roue ⚙️ (le panneau cachait tout l'article) */
+  .at-prefs-fab { display: none !important; }
+  /* … et on affiche à sa place le seul réglage utile : la Température */
+  .at-temp-fab { display: grid; bottom: 18px; right: 18px; width: 52px; height: 52px; }
   /* Panneau plus large et confortable au doigt sur téléphone */
   .at-prefs-panel { width: min(400px, 92vw); }
   .at-prefs-body { padding: 14px 16px calc(24px + env(safe-area-inset-bottom, 0px)); }

@@ -205,6 +205,9 @@ function buildMarkup() {
   <button class="at-prefs-fab" id="atPrefsFab" aria-label="Préférences d'affichage" title="Préférences d'affichage (Alt+P)">
     <span aria-hidden="true">⚙️</span><span class="badge" id="atPrefsBadge"></span>
   </button>
+  <button class="at-temp-fab" id="atTempFab" aria-label="Température de lecture" title="Température de lecture">
+    <span aria-hidden="true">🌡️</span>
+  </button>
   <div class="at-prefs-backdrop" id="atPrefsBackdrop"></div>
   <aside class="at-prefs-panel" id="atPrefsPanel" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Préférences d'affichage">
     <header class="at-prefs-header">
@@ -283,6 +286,19 @@ const backdrop = document.getElementById('atPrefsBackdrop');
 fab.addEventListener('click', toggle);
 document.getElementById('atPrefsClose').addEventListener('click', close);
 backdrop.addEventListener('click', close);
+
+// ─── Bouton Température (visible sur mobile à la place de la roue ⚙️) ───
+const TEMP_LEVELS = [1, 0.6, 0.38];               // Froid → Tiède → Chaud
+const TEMP_LABELS = ['Froid (normal)', 'Tiède', 'Chaud (nuit)'];
+const tempFab = document.getElementById('atTempFab');
+if (tempFab) tempFab.addEventListener('click', () => {
+  const cur = get('colorTemp');
+  let idx = 0, best = 9;
+  TEMP_LEVELS.forEach((v, i) => { const d = Math.abs(v - cur); if (d < best) { best = d; idx = i; } });
+  idx = (idx + 1) % TEMP_LEVELS.length;
+  set('colorTemp', TEMP_LEVELS[idx]);
+  toast(TEMP_LABELS[idx], idx === 2 ? '🌙' : '🌡️');
+});
 document.addEventListener('keydown', (e) => {
   if (e.altKey && (e.key === 'p' || e.key === 'P')) { e.preventDefault(); toggle(); }
   if (e.key === 'Escape' && panel.classList.contains('open')) close();
