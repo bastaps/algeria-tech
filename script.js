@@ -525,7 +525,7 @@ window.openArticle = async function(id) {
         mediaHeader = `<img src="${art.image}" alt="${art.titre}" onerror="this.onerror=null;this.style.display='none'" style="width:100%; border-radius:15px; margin-bottom:25px;">`;
     }
     let pdfLink = art.pdf ? `<div style="margin: 20px 0; padding: 15px; background: var(--bg-light); border-radius: 10px; display: flex; align-items: center; gap: 15px;"><i class="fas fa-file-pdf" style="font-size: 2rem; color: #D21034;"></i><div><p style="margin:0; font-weight:600;">Document d'accompagnement</p><a href="${art.pdf}" target="_blank" class="tag-filter" style="display:inline-block; margin-top:5px; text-decoration:none;"><i class="fas fa-download"></i> TÃ©lÃ©charger le PDF</a></div></div>` : '';
-    let html = `${mediaHeader}<div class="article-body"><div class="article-meta"><span class="category-tag ${cls(art.categorie)}">${art.categorie}</span><span><i class="far fa-calendar"></i> ${art.date}</span><span><i class="far fa-clock"></i> ${art.heure}</span><span class="reading-time"><i class="fas fa-book-open"></i> ${art.readingTime} min</span><span><i class="far fa-eye"></i> ${art.views} vues</span><button class="meta-audio-btn" onclick="triggerAudio()"><i class="fas fa-volume-up"></i> Ã‰couter</button><a class="meta-lite-btn" href="/article/${art.id}/lite" title="Version allégée pour connexion lente"><i class="fas fa-bolt"></i> Version légère</a></div><h1>${art.titre}</h1><div class="article-actions"><button class="synthese-btn" id="syntheseBtn" onclick="loadSynthese()"><i class="fas fa-bolt"></i> Synthèse IA</button><button class="debat-btn" id="debatBtn" onclick="openDebat()"><i class="fas fa-comments"></i> Débattre avec l'IA</button></div><div id="syntheseBox"></div><div class="article-text">${bodyImage}${art.contenu}${pdfLink}</div>`;
+    let html = `${mediaHeader}<div class="article-body"><div class="article-meta"><span class="category-tag ${cls(art.categorie)}">${art.categorie}</span><span><i class="far fa-calendar"></i> ${art.date}</span><span><i class="far fa-clock"></i> ${art.heure}</span><span class="reading-time"><i class="fas fa-book-open"></i> ${art.readingTime} min</span><span><i class="far fa-eye"></i> ${art.views} vues</span><button class="meta-audio-btn" onclick="premiumTogglePlayer()"><i class="fas fa-headphones"></i> Ã‰couter</button><a class="meta-lite-btn" href="/article/${art.id}/lite" title="Version allégée pour connexion lente"><i class="fas fa-bolt"></i> Version légère</a></div><h1>${art.titre}</h1><div class="article-actions"><button class="synthese-btn" id="syntheseBtn" onclick="loadSynthese()"><i class="fas fa-bolt"></i> Synthèse IA</button><button class="debat-btn" id="debatBtn" onclick="openDebat()"><i class="fas fa-comments"></i> Débattre avec l'IA</button></div><div id="syntheseBox"></div><div class="article-text">${bodyImage}${art.contenu}${pdfLink}</div>`;
     if (art.tags && art.tags.length) {
         html += `<div style="margin:30px 0;padding-top:20px;border-top:1px solid var(--border)"><strong>Tags: </strong>${art.tags.map(t => `<span class="tag-filter" style="margin-left:8px" onclick="filterByTag('${t}');goHome()">${t}</span>`).join('')}</div>`;
     }
@@ -603,162 +603,302 @@ window.closeFloatingVideo = function() {
     }
 };
 
-// ===== LOGIQUE AUDIO (TTS Premium + Highlighting) =====
-function initAudioReader(textToRead) {
-    const playBtn   = document.getElementById('listenBtn');
-    const stopBtn   = document.getElementById('stopBtn');
-    const statusEl  = document.querySelector('.audio-status');
-    const stickyBar = document.getElementById('stickyAudio');
-    const articleText = document.querySelector('.article-text');
+// ===== PREMIUM AUDIO PLAYER ENGINE =====
+const premiumState = {
+    isPlaying: false, isPaused: false, isZen: false, isExpanded: false, isPlayerVisible: false,
+    highlightEnabled: true, autoScrollEnabled: true, currentSpeed: 1, currentPitch: 1,
+    currentVolume: 1, currentParagraphIndex: 0, spokenWords: 0, totalWords: 0,
+    selectedVoice: null, fontSize: 1.12, isMuted: false, previousVolume: 1,
+    startTime: null, paragraphs: [], articleTitle: ''
+};
+let premiumUtterance = null;
+let premiumVoices = [];
+let premiumKeepAlive = null;
 
-    // ── Nettoyage du texte (pas de #, *, -, etc.) ────────────────
-    const cleanText = cleanTextForTTS(textToRead).substring(0, 4090);
-
-    // ── Construction des segments DOM + timestamps estimés ───────
-    const domSegs = articleText
-        ? Array.from(articleText.querySelectorAll('p, h2, h3, li'))
-              .filter(el => el.textContent.trim().length > 15)
-        : [];
-
-    let cursor = 0;
-    // Le titre est lu en premier (≈ 15 premiers mots du cleanText)
-    cursor += (Math.min(cleanText.split(' ').length, 15) / TTS_CONFIG.wpm) * 60;
-
-    const segments = domSegs.map(el => {
-        const wc  = el.textContent.trim().split(/\s+/).length;
-        const dur = (wc / TTS_CONFIG.wpm) * 60;
-        const seg = { el, start: cursor, end: cursor + dur };
-        cursor += dur;
-        return seg;
-    });
-
-    // ── Helpers UI ────────────────────────────────────────────────
-    function resetUI() {
-        if (playBtn)   playBtn.style.display  = 'flex';
-        if (stopBtn)   stopBtn.style.display  = 'none';
-        if (statusEl)  statusEl.textContent   = 'AUDIO';
-        if (stickyBar) stickyBar.classList.remove('playing');
-        domSegs.forEach(el => el.classList.remove('reading-active', 'reading-done'));
-        if (synth) synth.cancel();
+function premiumLoadVoices() {
+    premiumVoices = synth.getVoices();
+    const sel = document.getElementById('premiumVoiceSelect');
+    if (!sel) return;
+    sel.innerHTML = '';
+    const fr = premiumVoices.filter(v => v.lang.startsWith('fr'));
+    const other = premiumVoices.filter(v => !v.lang.startsWith('fr'));
+    if (fr.length) {
+        const g = document.createElement('optgroup'); g.label = 'Français';
+        fr.forEach((v, i) => { const o = document.createElement('option'); o.value = v.name; o.textContent = v.name; if (i === 0) o.selected = true; g.appendChild(o); });
+        sel.appendChild(g);
+        premiumState.selectedVoice = fr[0];
     }
-
-    function highlightAt(time) {
-        let activeEl = null;
-        segments.forEach(seg => {
-            if (time >= seg.start && time < seg.end) {
-                seg.el.classList.add('reading-active');
-                seg.el.classList.remove('reading-done');
-                activeEl = seg.el;
-            } else if (time >= seg.end) {
-                seg.el.classList.remove('reading-active');
-                seg.el.classList.add('reading-done');
-            } else {
-                seg.el.classList.remove('reading-active', 'reading-done');
-            }
-        });
-        // Auto-scroll : paragraphe actif centré dans la fenêtre
-        if (activeEl) activeEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (other.length) {
+        const g = document.createElement('optgroup'); g.label = 'Autres';
+        other.forEach(v => { const o = document.createElement('option'); o.value = v.name; o.textContent = v.name + ' (' + v.lang + ')'; g.appendChild(o); });
+        sel.appendChild(g);
     }
-
-    // ── Résolution de la voix : select > auto-detect ──────────────
-    function resolveVoice() {
-        const sel = document.getElementById('voiceSelect');
-        const voices = synth.getVoices();
-        // Samsung : voiceschanged peut être manqué — repopuler à la demande
-        if (sel && sel.options.length <= 1 && voices.length) populateVoiceSelect();
-        if (sel && sel.value) {
-            const picked = voices.find(v => v.name === sel.value && v.lang.startsWith('fr'));
-            if (picked) return picked;
-        }
-        // Fallback : meilleure voix FR détectée automatiquement
-        return voices.find(v => /neural/i.test(v.name)    && v.lang.startsWith('fr'))
-            || voices.find(v => /microsoft/i.test(v.name) && v.lang.startsWith('fr'))
-            || voices.find(v => /google/i.test(v.name)    && v.lang.startsWith('fr'))
-            || voices.find(v => v.lang === 'fr-FR')
-            || voices.find(v => v.lang.startsWith('fr'))
-            || null;
-    }
-
-    // ── Lecture Web Speech API ────────────────────────────────────
-    function startSpeech() {
-        if (!synth) return;
-
-        // Cancel uniquement si déjà en lecture (évite le bug iOS "cancel on idle")
-        if (synth.speaking || synth.pending) synth.cancel();
-
-        if (playBtn)   playBtn.style.display  = 'none';
-        if (stopBtn)   stopBtn.style.display  = 'flex';
-        if (statusEl)  statusEl.textContent   = '▶ AUDIO';
-        if (stickyBar) stickyBar.classList.add('playing');
-
-        const utt = new SpeechSynthesisUtterance(cleanText);
-        utt.rate  = TTS_CONFIG.rate;
-
-        utt.onboundary = (e) => {
-            if (e.name !== 'word' || cursor === 0) return;
-            highlightAt((e.charIndex / cleanText.length) * cursor);
-        };
-        utt.onend   = resetUI;
-        utt.onerror = resetUI;
-
-        // Voix FR appliquée en premier, lang forcé après pour Samsung
-        const voice = resolveVoice();
-        if (voice) utt.voice = voice;
-        utt.lang = 'fr-FR';
-
-        // DOIT être synchrone dans le handler du geste utilisateur.
-        // setTimeout (même 0ms) sort du contexte de geste → TTS bloqué silencieusement sur mobile.
-        synth.speak(utt);
-    }
-
-    // ── Bouton repli mobile ───────────────────────────────────────
-    const collapseBtn = document.getElementById('audioCollapseBtn');
-    if (collapseBtn && stickyBar) {
-        const doCollapse = (e) => {
-            e.preventDefault();
-            const collapsed = stickyBar.classList.toggle('collapsed');
-            collapseBtn.querySelector('i').className = collapsed ? 'fas fa-chevron-up' : 'fas fa-chevron-down';
-        };
-        collapseBtn.addEventListener('click', doCollapse);
-        collapseBtn.addEventListener('touchend', doCollapse, { passive: false });
-    }
-
-    // ── Bindings anti-double-déclenchement (touchend + click) ────
-    // Sur mobile les deux events tirent pour un seul tap.
-    // touchend prend la main ; click est ignoré s'il suit un touchend récent.
-    let _lastTouchMs = 0;
-    const _bindBtn = (btn, fn) => {
-        if (!btn) return;
-        btn.addEventListener('touchend', (e) => {
-            e.preventDefault();
-            _lastTouchMs = Date.now();
-            fn();
-        }, { passive: false });
-        btn.addEventListener('click', () => {
-            if (Date.now() - _lastTouchMs > 500) fn();
-        });
-    };
-    _bindBtn(playBtn, startSpeech);
-    _bindBtn(stopBtn, resetUI);
-
-    window.triggerAudio = () => {
-        synth?.speaking ? resetUI() : startSpeech();
-    };
+    if (!premiumState.selectedVoice && premiumVoices.length) premiumState.selectedVoice = premiumVoices[0];
 }
+
+function initAudioReader(textToRead) {
+    premiumLoadVoices();
+    if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = premiumLoadVoices;
+    const articleText = document.querySelector('.article-text');
+    if (!articleText) return;
+    premiumState.paragraphs = Array.from(articleText.querySelectorAll('p, h2, h3, li, blockquote')).filter(el => el.textContent.trim().length > 10);
+    premiumState.totalWords = premiumState.paragraphs.reduce((s, el) => s + el.textContent.trim().split(/\s+/).length, 0);
+    premiumState.currentParagraphIndex = 0;
+    premiumState.spokenWords = 0;
+    const title = textToRead ? textToRead.split('.')[0].substring(0, 80) : 'Article';
+    premiumState.articleTitle = title;
+    const titleEl = document.getElementById('premiumPlayerTitle');
+    if (titleEl) titleEl.textContent = title;
+    const timeEl = document.getElementById('premiumPlayerTime');
+    if (timeEl) { const est = Math.floor(premiumState.totalWords / 3); timeEl.textContent = '0:00 / ' + Math.floor(est/60) + ':' + String(est%60).padStart(2,'0'); }
+    window.triggerAudio = () => { premiumTogglePlayPause(); };
+}
+
+function premiumTogglePlayer() {
+    const bar = document.getElementById('premiumPlayerBar');
+    if (!premiumState.isPlayerVisible) {
+        premiumState.isPlayerVisible = true;
+        bar.classList.add('visible');
+        setTimeout(() => premiumStartReading(), 300);
+    } else { premiumTogglePlayPause(); }
+}
+function premiumClosePlayer() {
+    premiumStopReading();
+    document.getElementById('premiumPlayerBar').classList.remove('visible');
+    premiumState.isPlayerVisible = false;
+}
+function premiumTogglePlayPause() {
+    if (!premiumState.isPlayerVisible) { premiumTogglePlayer(); return; }
+    if (premiumState.isPlaying && !premiumState.isPaused) premiumPauseReading();
+    else if (premiumState.isPaused) premiumResumeReading();
+    else premiumStartReading();
+}
+function premiumStartReading(fromIndex) {
+    synth.cancel();
+    premiumClearAllHighlights();
+    if (fromIndex != null) premiumState.currentParagraphIndex = fromIndex;
+    premiumState.isPlaying = true; premiumState.isPaused = false;
+    premiumState.startTime = Date.now();
+    premiumState.spokenWords = 0;
+    for (let i = 0; i < premiumState.currentParagraphIndex; i++) premiumState.spokenWords += premiumState.paragraphs[i].textContent.trim().split(/\s+/).length;
+    premiumUpdateUI(); premiumSpeakParagraph(premiumState.currentParagraphIndex);
+}
+function premiumSpeakParagraph(idx) {
+    if (idx >= premiumState.paragraphs.length) { premiumFinishReading(); return; }
+    premiumState.currentParagraphIndex = idx;
+    const p = premiumState.paragraphs[idx];
+    const text = p.textContent.trim();
+    if (!text) { premiumSpeakParagraph(idx + 1); return; }
+    premiumWrapWords(p);
+    premiumUtterance = new SpeechSynthesisUtterance(text);
+    premiumUtterance.rate = premiumState.currentSpeed;
+    premiumUtterance.pitch = premiumState.currentPitch;
+    premiumUtterance.volume = premiumState.isMuted ? 0 : premiumState.currentVolume;
+    premiumUtterance.lang = 'fr-FR';
+    if (premiumState.selectedVoice) premiumUtterance.voice = premiumState.selectedVoice;
+    let wIdx = 0;
+    premiumUtterance.onboundary = (e) => {
+        if (e.name === 'word') { premiumHighlightWord(p, wIdx); wIdx++; premiumState.spokenWords++; premiumUpdateProgress(); }
+    };
+    premiumUtterance.onend = () => {
+        premiumClearParagraphHL(p); premiumState.currentParagraphIndex = idx + 1;
+        if (premiumState.isPlaying && !premiumState.isPaused) premiumSpeakParagraph(idx + 1);
+    };
+    premiumUtterance.onerror = (e) => {
+        if (e.error !== 'canceled' && e.error !== 'interrupted') { premiumState.currentParagraphIndex = idx + 1; premiumSpeakParagraph(idx + 1); }
+    };
+    if (premiumState.highlightEnabled) p.classList.add('premium-sentence-highlight');
+    if (premiumState.autoScrollEnabled) p.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    premiumStartKeepAlive();
+    synth.speak(premiumUtterance);
+}
+function premiumWrapWords(el) {
+    if (!el.dataset.origHtml) el.dataset.origHtml = el.innerHTML;
+    const text = el.textContent; let html = '', last = 0, cnt = 0;
+    const rx = /\S+/g; let m;
+    while ((m = rx.exec(text)) !== null) {
+        if (m.index > last) html += text.substring(last, m.index);
+        html += '<span class="pw" data-wi="' + cnt + '">' + m[0] + '</span>';
+        last = m.index + m[0].length; cnt++;
+    }
+    if (last < text.length) html += text.substring(last);
+    el.innerHTML = html;
+}
+function premiumHighlightWord(p, wi) {
+    if (!premiumState.highlightEnabled) return;
+    p.querySelectorAll('.premium-word-highlight').forEach(e => e.classList.remove('premium-word-highlight'));
+    const w = p.querySelector('[data-wi="' + wi + '"]');
+    if (w) {
+        w.classList.add('premium-word-highlight');
+        if (premiumState.autoScrollEnabled) {
+            const r = w.getBoundingClientRect();
+            if (r.top < 80 || r.bottom > window.innerHeight - 120) w.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+}
+function premiumClearParagraphHL(p) {
+    p.classList.remove('premium-sentence-highlight');
+    p.querySelectorAll('.premium-word-highlight').forEach(e => e.classList.remove('premium-word-highlight'));
+    if (p.dataset.origHtml) { p.innerHTML = p.dataset.origHtml; delete p.dataset.origHtml; }
+}
+function premiumClearAllHighlights() { premiumState.paragraphs.forEach(p => premiumClearParagraphHL(p)); }
+function premiumPauseReading() { synth.pause(); premiumState.isPaused = true; premiumUpdateUI(); }
+function premiumResumeReading() { synth.resume(); premiumState.isPaused = false; premiumUpdateUI(); }
+function premiumStopReading() {
+    synth.cancel(); clearInterval(premiumKeepAlive);
+    premiumState.isPlaying = false; premiumState.isPaused = false;
+    premiumState.currentParagraphIndex = 0; premiumState.spokenWords = 0;
+    premiumClearAllHighlights(); premiumUpdateUI(); premiumUpdateProgress();
+}
+function premiumFinishReading() {
+    premiumState.isPlaying = false; premiumState.isPaused = false;
+    premiumState.currentParagraphIndex = 0; premiumState.spokenWords = 0;
+    premiumClearAllHighlights(); premiumUpdateUI(); premiumUpdateProgress();
+    premiumShowToast('Lecture terminée');
+}
+function premiumSkipParagraph(dir) {
+    const ni = premiumState.currentParagraphIndex + dir;
+    if (ni < 0 || ni >= premiumState.paragraphs.length) return;
+    synth.cancel(); premiumClearAllHighlights();
+    premiumState.spokenWords = 0;
+    for (let i = 0; i < ni; i++) premiumState.spokenWords += premiumState.paragraphs[i].textContent.trim().split(/\s+/).length;
+    premiumState.currentParagraphIndex = ni;
+    if (premiumState.isPlaying) premiumSpeakParagraph(ni);
+}
+function premiumSeekTo(e) {
+    const bar = document.getElementById('premiumProgressBar');
+    const pct = (e.clientX - bar.getBoundingClientRect().left) / bar.offsetWidth;
+    const target = Math.floor(pct * premiumState.totalWords);
+    let wc = 0;
+    for (let i = 0; i < premiumState.paragraphs.length; i++) {
+        const pw = premiumState.paragraphs[i].textContent.trim().split(/\s+/).length;
+        if (wc + pw >= target) { synth.cancel(); premiumClearAllHighlights(); premiumState.spokenWords = wc; premiumState.currentParagraphIndex = i; if (premiumState.isPlaying) premiumSpeakParagraph(i); break; }
+        wc += pw;
+    }
+}
+function premiumSetSpeed(s) {
+    premiumState.currentSpeed = s;
+    document.querySelectorAll('.premium-speed-btn').forEach(b => b.classList.toggle('active', b.textContent.trim() === s + '×'));
+    if (premiumState.isPlaying) { const ci = premiumState.currentParagraphIndex; synth.cancel(); premiumClearAllHighlights(); premiumSpeakParagraph(ci); }
+    premiumShowToast('Vitesse : ' + s + '×');
+}
+function premiumChangeVoice() {
+    const sel = document.getElementById('premiumVoiceSelect');
+    premiumState.selectedVoice = premiumVoices.find(v => v.name === sel.value) || null;
+    if (premiumState.isPlaying) { const ci = premiumState.currentParagraphIndex; synth.cancel(); premiumClearAllHighlights(); premiumSpeakParagraph(ci); }
+}
+function premiumChangePitch(v) {
+    premiumState.currentPitch = parseFloat(v);
+    document.getElementById('premiumPitchValue').textContent = parseFloat(v).toFixed(1);
+    if (premiumState.isPlaying) { const ci = premiumState.currentParagraphIndex; synth.cancel(); premiumClearAllHighlights(); premiumSpeakParagraph(ci); }
+}
+function premiumChangeVolume(v) {
+    premiumState.currentVolume = parseFloat(v); premiumState.isMuted = v == 0;
+    document.getElementById('premiumVolumeValue').textContent = Math.round(v * 100) + '%';
+}
+function premiumToggleHighlight() {
+    premiumState.highlightEnabled = !premiumState.highlightEnabled;
+    document.getElementById('premiumHighlightToggle').classList.toggle('active', premiumState.highlightEnabled);
+    if (!premiumState.highlightEnabled) premiumClearAllHighlights();
+    premiumShowToast(premiumState.highlightEnabled ? 'Suivi activé' : 'Suivi désactivé');
+}
+function premiumToggleAutoScroll() {
+    premiumState.autoScrollEnabled = !premiumState.autoScrollEnabled;
+    document.getElementById('premiumAutoScrollToggle').classList.toggle('active', premiumState.autoScrollEnabled);
+}
+function premiumToggleZen() {
+    premiumState.isZen = !premiumState.isZen;
+    document.body.classList.toggle('premium-zen-mode', premiumState.isZen);
+    const fb = document.getElementById('zenToggleFloat');
+    if (fb) fb.classList.toggle('active', premiumState.isZen);
+    premiumShowToast(premiumState.isZen ? 'Mode Zen' : 'Mode classique');
+}
+function premiumToggleExpand() {
+    premiumState.isExpanded = !premiumState.isExpanded;
+    document.getElementById('premiumPlayerBar').classList.toggle('expanded', premiumState.isExpanded);
+}
+function premiumChangeFontSize(dir) {
+    premiumState.fontSize = Math.max(0.85, Math.min(1.6, premiumState.fontSize + dir * 0.08));
+    const at = document.querySelector('.article-text');
+    if (at) at.style.fontSize = premiumState.fontSize + 'rem';
+    premiumShowToast('Taille : ' + Math.round(premiumState.fontSize / 1.12 * 100) + '%');
+}
+function premiumToggleMute() {
+    if (premiumState.isMuted) { premiumState.isMuted = false; premiumState.currentVolume = premiumState.previousVolume || 1; }
+    else { premiumState.previousVolume = premiumState.currentVolume; premiumState.isMuted = true; premiumState.currentVolume = 0; }
+    document.getElementById('premiumVolumeSlider').value = premiumState.currentVolume;
+    document.getElementById('premiumVolumeValue').textContent = Math.round(premiumState.currentVolume * 100) + '%';
+    premiumShowToast(premiumState.isMuted ? 'Son coupé' : 'Son activé');
+}
+function premiumUpdateUI() {
+    const pi = document.getElementById('premiumPlayIcon'), pa = document.getElementById('premiumPauseIcon');
+    const sd = document.getElementById('premiumStatusDot'), st = document.getElementById('premiumStatusText');
+    const viz = document.getElementById('premiumVisualizer');
+    if (premiumState.isPlaying && !premiumState.isPaused) {
+        if (pi) pi.style.display = 'none'; if (pa) pa.style.display = 'inline';
+        if (sd) sd.classList.add('active'); if (st) st.textContent = 'En lecture…';
+        if (viz) viz.classList.add('active');
+    } else if (premiumState.isPaused) {
+        if (pi) pi.style.display = 'inline'; if (pa) pa.style.display = 'none';
+        if (sd) sd.classList.remove('active'); if (st) st.textContent = 'En pause';
+        if (viz) viz.classList.remove('active');
+    } else {
+        if (pi) pi.style.display = 'inline'; if (pa) pa.style.display = 'none';
+        if (sd) sd.classList.remove('active'); if (st) st.textContent = 'Prêt';
+        if (viz) viz.classList.remove('active');
+    }
+}
+function premiumUpdateProgress() {
+    const pct = premiumState.totalWords > 0 ? (premiumState.spokenWords / premiumState.totalWords) * 100 : 0;
+    const fill = document.getElementById('premiumProgressFill');
+    if (fill) fill.style.width = Math.min(pct, 100) + '%';
+    const elapsed = premiumState.startTime ? Math.floor((Date.now() - premiumState.startTime) / 1000) : 0;
+    const est = Math.floor(premiumState.totalWords / (premiumState.currentSpeed * 3));
+    const fmt = s => Math.floor(s/60) + ':' + String(s%60).padStart(2,'0');
+    const te = document.getElementById('premiumPlayerTime');
+    if (te) te.textContent = fmt(elapsed) + ' / ' + fmt(est);
+}
+function premiumShowToast(msg) {
+    const t = document.getElementById('premiumToast');
+    if (!t) return;
+    t.textContent = msg; t.classList.add('show');
+    clearTimeout(t._to); t._to = setTimeout(() => t.classList.remove('show'), 2500);
+}
+function premiumStartKeepAlive() {
+    clearInterval(premiumKeepAlive);
+    premiumKeepAlive = setInterval(() => { if (synth.speaking && !synth.paused) { synth.pause(); synth.resume(); } }, 10000);
+}
+
+// Reading progress bar + floating controls on scroll
+window.addEventListener('scroll', () => {
+    const dh = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = dh > 0 ? (window.scrollY / dh) * 100 : 0;
+    const rp = document.getElementById('premiumReadingProgress');
+    if (rp) rp.style.width = pct + '%';
+    const fc = document.getElementById('premiumFloatingControls');
+    if (fc) fc.classList.toggle('visible', window.scrollY > 400);
+});
+
+// Keyboard shortcuts for premium player
+document.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT' || e.target.tagName === 'TEXTAREA') return;
+    if (!premiumState.isPlayerVisible && e.code !== 'Space') return;
+    switch (e.code) {
+        case 'Space': if (document.getElementById('articlePage')?.style.display !== 'none') { e.preventDefault(); premiumTogglePlayPause(); } break;
+        case 'ArrowRight': e.preventDefault(); premiumSkipParagraph(1); break;
+        case 'ArrowLeft': e.preventDefault(); premiumSkipParagraph(-1); break;
+        case 'KeyZ': premiumToggleZen(); break;
+        case 'KeyM': premiumToggleMute(); break;
+        case 'Equal': case 'NumpadAdd': e.preventDefault(); premiumSetSpeed(Math.min(2, premiumState.currentSpeed + 0.25)); break;
+        case 'Minus': case 'NumpadSubtract': e.preventDefault(); premiumSetSpeed(Math.max(0.5, premiumState.currentSpeed - 0.25)); break;
+        case 'Escape': if (premiumState.isExpanded) premiumToggleExpand(); break;
+    }
+});
 
 // ── Stop global (Web Speech) ─────────────────────────────────────
 function stopAllAudio() {
-    if (synth) synth.cancel();
-    const statusEl = document.querySelector('.audio-status');
-    if (statusEl)  statusEl.textContent = 'AUDIO';
-    const stickyBar = document.getElementById('stickyAudio');
-    if (stickyBar)  stickyBar.classList.remove('playing');
-    const playBtn = document.getElementById('listenBtn');
-    const stopBtn = document.getElementById('stopBtn');
-    if (playBtn) playBtn.style.display = 'flex';
-    if (stopBtn) stopBtn.style.display = 'none';
-    document.querySelectorAll('.reading-active, .reading-done')
-        .forEach(el => el.classList.remove('reading-active', 'reading-done'));
+    premiumStopReading();
+    premiumClosePlayer();
 }
 
 // ===== RETOUR ACCUEIL =====
@@ -2367,12 +2507,62 @@ if (searchInput) {
         document.getElementById('heroSection').classList.add('hidden');
         if (query === '') { goHome(); } else {
             currentPage = 1;
-            const filtered = allArticles.filter(a => (a.titre && a.titre.toLowerCase().includes(query)) || (a.extrait && a.extrait.toLowerCase().includes(query)) || (a.tags && a.tags.some(t => t.toLowerCase().includes(query))));
+            // Résultats immédiats (titre/extrait/tags — données déjà en mémoire)
+            const nq = _atNorm(query);
+            const filtered = allArticles.filter(a => _atNorm(a.titre).includes(nq) || _atNorm(a.extrait).includes(nq) || (a.tags && a.tags.some(t => _atNorm(t).includes(nq))));
             renderGrid(filtered.slice(0, ITEMS_PER_PAGE));
             renderPagination(filtered);
+            // Puis recherche plein-texte (corps + brèves) une fois articles.json chargé
+            if (typeof window.atVoiceSearch === 'function' && query.length >= 2) {
+                window.atVoiceSearch(query, () => searchInput.value.toLowerCase().trim() !== query).catch(() => {});
+            }
         }
     });
 }
+
+// ══════════════════════════════════════════════════════════════════════
+// RECHERCHE PLEIN-TEXTE (corps d'article + brèves) — pour l'assistant vocal
+// Charge articles.json (lourd, avec rawContent) à la demande, une seule fois.
+// ══════════════════════════════════════════════════════════════════════
+let _atFtPool = null;
+const _atNorm = s => (s || '').toString().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+function _atShowGridView() {
+    const el = id => document.getElementById(id);
+    if (el('mainContent'))   el('mainContent').style.display = 'block';
+    if (el('articlePage'))   el('articlePage').style.display = 'none';
+    if (el('veilleSection')) el('veilleSection').style.display = 'none';
+    if (el('revueSection'))  el('revueSection').style.display = 'none';
+    if (el('heroSection'))   el('heroSection').classList.add('hidden');
+    currentPage = 1;
+}
+window.atVoiceSearch = async function (rawQuery, isStale) {
+    const q = _atNorm(rawQuery).trim();
+    if (q.length < 2) return 0;
+    if (!_atFtPool) {
+        try { const r = await fetch('/articles.json', { cache: 'force-cache' }); _atFtPool = await r.json(); }
+        catch (e) { _atFtPool = allArticles.concat(breveArticles); }
+    }
+    if (typeof isStale === 'function' && isStale()) return -1; // l'utilisateur a retapé : on n'écrase pas
+    const hits = _atFtPool.filter(a =>
+        _atNorm(a.titre).includes(q) ||
+        _atNorm(a.extrait).includes(q) ||
+        _atNorm(a.rawContent || a.contenu).includes(q) ||
+        (a.tags && a.tags.some(t => _atNorm(t).includes(q)))
+    );
+    // Rendre chaque résultat ouvrable (openArticle → findArticleById) même les brèves/communiqués
+    hits.forEach(h => { h.views = h.views || 0; if (!findArticleById(h.id)) breveArticles.push(h); });
+    _atShowGridView();
+    renderGrid(hits.slice(0, ITEMS_PER_PAGE));
+    renderPagination(hits);
+    return hits.length;
+};
+// Affiche toutes les brèves dans la grille principale
+window.atShowBreves = function () {
+    _atShowGridView();
+    renderGrid(breveArticles.slice(0, ITEMS_PER_PAGE));
+    renderPagination(breveArticles);
+    return breveArticles.length;
+};
 
 // ==========================================
 // [VEILLE] LOGIQUE FRONTEND
@@ -3297,7 +3487,7 @@ function injectWhatsAppWidget() {
 
     const wrap = document.createElement('div');
     wrap.id = 'at-wa-widget';
-    wrap.style.cssText = 'position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:8px';
+    wrap.style.cssText = 'position:fixed;bottom:96px;right:24px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:8px';
     wrap.innerHTML = `
       <div id="at-wa-panel" style="display:none;background:#fff;border-radius:16px;width:272px;
            box-shadow:0 8px 32px rgba(0,0,0,.18);overflow:hidden;

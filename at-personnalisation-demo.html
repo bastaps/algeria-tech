@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="fr" data-at-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#006233">
+<title>Algeria Tech — Panneau de Personnalisation (Démo interactive)</title>
+<meta name="description" content="Démonstration interactive du panneau de préférences d'accessibilité et de confort pour Algeria Tech.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400..700;1,400..700&family=OpenDyslexic:wght@400;700&family=JetBrains+Mono:wght@400;500;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ════════════════════════════════════════════════════════════════════
+   ALGERIA TECH — PERSONNALISATION ENGINE v1.0
+   Toutes les variables préfixées --at- pour éviter les conflits.
+   Pour intégrer : copier ce <style> dans style.css (ou en <link>),
+   copier le markup du panneau + FAB, puis charger at-personnalisation.js
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ─── Variables par défaut (thème Sombre) ──────────────────────── */
+:root,
+[data-at-theme="dark"] {
+  --at-bg:            #0a0e14;
+  --at-bg-elev:       #11161f;
+  --at-bg-elev-2:     #161c27;
+  --at-fg:            #e6e9ef;
+  --at-fg-muted:      #9aa3b2;
+  --at-fg-dim:        #6b7280;
+  --at-border:        rgba(255,255,255,0.08);
+  --at-border-strong: rgba(255,255,255,0.16);
+  --at-accent:        #10b981;       /* Algerian green tint for active */
+  --at-accent-2:      #34d399;
+  --at-danger:        #ef4444;
+  --at-warn:          #f59e0b;
+  --at-info:          #38bdf8;
+  --at-success:       #22c55e;
+  --at-shadow:        0 20px 60px rgba(0,0,0,.45);
+  --at-shadow-sm:     0 4px 16px rgba(0,0,0,.25);
+  --at-radius:        14px;
+  --at-radius-lg:     22px;
+  --at-blur:          blur(24px) saturate(180%);
+  --at-glass-bg:      rgba(17,22,31,0.72);
+  --at-glass-border:  rgba(255,255,255,0.10);
+  --at-color-temp:    1;             /* hue-rotate / sepia filter */
+  --at-saturation:    1;
+  --at-font-scale:    1;
+  --at-line-height:   1.75;
+  --at-letter-spacing:0px;
+  --at-word-spacing:  0px;
+  --at-font-family:   'Inter', system-ui, -apple-system, sans-serif;
+  --at-read-width:    75ch;
+  --at-cursor-scale:  1;
+}
+
+[data-at-theme="light"] {
+  --at-bg:            #fafbfc;
+  --at-bg-elev:       #ffffff;
+  --at-bg-elev-2:     #f1f3f6;
+  --at-fg:            #0f172a;
+  --at-fg-muted:      #475569;
+  --at-fg-dim:        #94a3b8;
+  --at-border:        rgba(15,23,42,0.08);
+  --at-border-strong: rgba(15,23,42,0.16);
+  --at-accent:        #006233;       /* Algerian flag green */
+  --at-accent-2:      #0a8f4d;
+  --at-glass-bg:      rgba(255,255,255,0.78);
+  --at-glass-border:  rgba(15,23,42,0.10);
+  --at-shadow:        0 20px 60px rgba(15,23,42,0.10);
+  --at-shadow-sm:     0 4px 16px rgba(15,23,42,0.08);
+}
+
+[data-at-theme="sepia"] {
+  --at-bg:            #f4ecd8;
+  --at-bg-elev:       #ebe0c4;
+  --at-bg-elev-2:     #e2d4b3;
+  --at-fg:            #3b2f1e;
+  --at-fg-muted:      #6b5a3e;
+  --at-fg-dim:        #94815e;
+  --at-border:        rgba(59,47,30,0.12);
+  --at-border-strong: rgba(59,47,30,0.22);
+  --at-accent:        #8b3a13;
+  --at-accent-2:      #b04e1d;
+  --at-glass-bg:      rgba(244,236,216,0.85);
+  --at-glass-border:  rgba(59,47,30,0.14);
+  --at-shadow:        0 20px 60px rgba(59,47,30,0.12);
+}
+
+[data-at-theme="auto"] {
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: light) {
+  [data-at-theme="auto"] {
+    --at-bg: #fafbfc; --at-bg-elev: #ffffff; --at-bg-elev-2: #f1f3f6;
+    --at-fg: #0f172a; --at-fg-muted: #475569; --at-fg-dim: #94a3b8;
+    --at-border: rgba(15,23,42,0.08); --at-border-strong: rgba(15,23,42,0.16);
+    --at-accent: #006233; --at-accent-2: #0a8f4d;
+    --at-glass-bg: rgba(255,255,255,0.78);
+    --at-glass-border: rgba(15,23,42,0.10);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  [data-at-theme="auto"] {
+    --at-bg: #0a0e14; --at-bg-elev: #11161f; --at-bg-elev-2: #161c27;
+    --at-fg: #e6e9ef; --at-fg-muted: #9aa3b2; --at-fg-dim: #6b7280;
+    --at-border: rgba(255,255,255,0.08); --at-border-strong: rgba(255,255,255,0.16);
+    --at-accent: #10b981; --at-accent-2: #34d399;
+    --at-glass-bg: rgba(17,22,31,0.72);
+    --at-glass-border: rgba(255,255,255,0.10);
+  }
+}
+
+/* ─── High contrast ───────────────────────────────────────────── */
+[data-at-contrast="high"] {
+  --at-border: rgba(255,255,255,0.32);
+  --at-border-strong: rgba(255,255,255,0.55);
+  --at-fg: #ffffff;
+  --at-fg-muted: #e0e0e0;
+  --at-bg: #000000;
+  --at-bg-elev: #0a0a0a;
+  --at-bg-elev-2: #141414;
+  --at-accent: #00ff88;
+  --at-accent-2: #00ffcc;
+}
+[data-at-theme="light"][data-at-contrast="high"] {
+  --at-border: rgba(0,0,0,0.32);
+  --at-border-strong: rgba(0,0,0,0.55);
+  --at-fg: #000000;
+  --at-bg: #ffffff;
+  --at-bg-elev: #ffffff;
+  --at-accent: #003d1f;
+}
+
+/* ─── Reduce motion ───────────────────────────────────────────── */
+[data-at-motion="reduced"] *,
+[data-at-motion="reduced"] *::before,
+[data-at-motion="reduced"] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* ─── Bold text (a11y) ────────────────────────────────────────── */
+[data-at-text="bold"] body,
+[data-at-text="bold"] p,
+[data-at-text="bold"] li,
+[data-at-text="bold"] span:not([class*="icon"]):not([class*="at-"]):not([class*="badge"]) {
+  font-weight: 500 !important;
+}
+
+/* ─── Justify text ────────────────────────────────────────────── */
+[data-at-text="justify"] p,
+[data-at-text="justify"] li {
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* ─── Hide images ─────────────────────────────────────────────── */
+[data-at-images="hidden"] img,
+[data-at-images="hidden"] picture,
+[data-at-images="hidden"] figure,
+[data-at-images="hidden"] [style*="background-image"] {
+  display: none !important;
+}
+
+/* ─── Underline links ─────────────────────────────────────────── */
+[data-at-links="underlined"] a {
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--at-accent);
+}
+
+/* ─── Large cursor ────────────────────────────────────────────── */
+[data-at-cursor="large"] * {
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><path d='M5 5 L5 32 L13 24 L18 35 L23 33 L18 22 L30 22 Z' fill='%2310b981' stroke='%23000' stroke-width='1.5'/></svg>") 5 5, auto !important;
+}
+
+/* ─── Focus mode (hides nav/sidebar/widgets) ──────────────────── */
+[data-at-focus="on"] .demo-header,
+[data-at-focus="on"] .demo-sidebar,
+[data-at-focus="on"] .demo-toc,
+[data-at-focus="on"] .at-prefs-fab,
+[data-at-focus="on"] .integration-banner,
+[data-at-focus="on"] footer:not(.article-footer) {
+  display: none !important;
+}
+[data-at-focus="on"] .demo-content {
+  max-width: var(--at-read-width) !important;
+  margin: 0 auto !important;
+  padding: 4rem 1.5rem !important;
+}
+
+/* ─── Pause autoplay videos ───────────────────────────────────── */
+[data-at-video="paused"] video[autoplay] {
+  paused-by-user: true;
+}
+
+/* ─── Base demo styles ────────────────────────────────────────── */
+* { box-sizing: border-box; }
+
+html {
+  font-size: calc(16px * var(--at-font-scale));
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--at-font-family);
+  background: var(--at-bg);
+  color: var(--at-fg);
+  line-height: var(--at-line-height);
+  letter-spacing: var(--at-letter-spacing);
+  word-spacing: var(--at-word-spacing);
+  font-feature-settings: "kern", "liga", "calt", "ss01";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  filter:
+    sepia(calc((1 - var(--at-color-temp)) * 0.4))
+    saturate(var(--at-saturation));
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: default;
+  min-height: 100vh;
+}
+
+[data-at-font="dyslexic"] body,
+[data-at-font="dyslexic"] .demo-content,
+[data-at-font="dyslexic"] .at-prefs-panel {
+  font-family: 'OpenDyslexic', 'Inter', sans-serif;
+}
+[data-at-font="serif"] body,
+[data-at-font="serif"] .demo-content {
+  font-family: 'Lora', Georgia, serif;
+}
+
+a { color: var(--at-accent); text-decoration: none; }
+a:hover { color: var(--at-accent-2); }
+
+button { font-family: inherit; cursor: pointer; }
+
+::selection { background: var(--at-accent); color: white; }
+
+/* ─── Integration banner (top) ───────────────────────────────── */
+.integration-banner {
+  position: relative;
+  background: linear-gradient(135deg, #006233 0%, #0a8f4d 50%, #10b981 100%);
+  color: white;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.875rem;
+  box-shadow: var(--at-shadow-sm);
+  z-index: 100;
+  flex-wrap: wrap;
+}
+.integration-banner code {
+  background: rgba(0,0,0,0.3);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+.integration-banner button {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-left: auto;
+  transition: 0.2s;
+}
+.integration-banner button:hover { background: rgba(255,255,255,0.3); }
+.integration-banner .close-banner {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.4rem;
+  margin-left: 8px;
+  padding: 0 8px;
+  cursor: pointer;
+}
+.integration-banner .banner-icon {
+  font-size: 1.2rem;
+}
+
+/* ─── Demo header (mimics algeria-tech top) ──────────────────── */
+.demo-header {
+  background: var(--at-bg-elev);
+  border-bottom: 1px solid var(--at-border);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: var(--at-blur);
+  -webkit-backdrop-filter: var(--at-blur);
+}
+.demo-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--at-fg);
+}
+.demo-logo .logo-mark {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #006233 0%, #D21034 100%);
+  display: grid; place-items: center;
+  color: white; font-weight: 900;
+  font-size: 0.9rem;
+}
+.demo-nav {
+  display: flex; gap: 4px;
+  flex: 1;
+}
+.demo-nav a {
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: var(--at-fg-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: 0.15s;
+}
+.demo-nav a:hover { background: var(--at-bg-elev-2); color: var(--at-fg); }
+.demo-nav a.active { color: var(--at-accent); background: color-mix(in srgb, var(--at-accent) 12%, transparent); }
+.demo-header-actions { display: flex; gap: 8px; }
+
+/* ─── Demo article layout ────────────────────────────────────── */
+.demo-page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .demo-page { grid-template-columns: 1fr; padding: 16px; gap: 24px; }
+}
+
+.demo-content {
+  min-width: 0;
+  max-width: 100%;
+}
+.demo-content .article {
+  background: var(--at-bg-elev);
+  border: 1px solid var(--at-border);
+  border-radius: var(--at-radius-lg);
+  padding: 40px;
+  max-width: var(--at-read-width);
+  margin: 0 auto;
+  box-shadow: var(--at-shadow-sm);
+  transition: max-width 0.3s ease, padding 0.3s ease;
+}
+@media (max-width: 600px) { .demo-content .article { padding: 24px; border-radius: 14px; } }
+
+.article-meta {
+  display: flex;
+  gap: 8px; flex-wrap: wrap;
+  margin-bottom: 16px;
+  font-size: 0.8rem;
+  color: var(--at-fg-muted);
+  font-weight: 500;
+}
+.article-tag {
+  background: color-mix(in srgb, var(--at-accent) 15%, transparent);
+  color: var(--at-accent);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.5px;
+}
+
+.article h1 {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  line-height: 1.2;
+  font-weight: 800;
+  margin: 12px 0 20px;
+  letter-spacing: -0.02em;
+  color: var(--at-fg);
+}
+.article .lede {
+  font-size: 1.1em;
+  color: var(--at-fg-muted);
+  font-weight: 500;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--at-border);
+}
+.article p { margin: 0 0 1.2em; }
+.article h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 2em 0 0.6em;
+  letter-spacing: -0.01em;
+}
+.article .demo-hero {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: var(--at-radius);
+  margin: 0 0 24px;
+  background:
+    radial-gradient(at 30% 30%, rgba(0,98,51,0.4), transparent 50%),
+    radial-gradient(at 70% 70%, rgba(210,16,52,0.3), transparent 50%),
+    linear-gradient(135deg, var(--at-bg-elev-2), var(--at-bg));
+  border: 1px solid var(--at-border);
+  position: relative;
+  overflow: hidden;
+}
+.article .demo-hero::after {
+  content: "📡 Image illustrative";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  color: var(--at-fg-muted);
+  font-size: 0.9rem;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 14px,
+    rgba(255,255,255,0.02) 14px,
+    rgba(255,255,255,0.02) 28px
+  );
+}
+.article blockquote {
+  border-left: 4px solid var(--at-accent);
+  padding: 12px 20px;
+  margin: 1.5em 0;
+  background: var(--at-bg-elev-2);
+  border-radius: 0 var(--at-radius) var(--at-radius) 0;
+  font-style: italic;
+  color: var(--at-fg-muted);
+}
+.article ul { padding-left: 1.4em; margin: 0 0 1.2em; }
+.article li { margin-bottom: 0.4em; }
+
+/* ─── Demo sidebar (right column) ───────────────────────────── */
+.demo-sidebar {
+  display: flex; flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 90px;
+}
+.demo-widget {
+  background: var(--at-bg-elev);
+  border: 1px solid var(--at-border);
+  border-radius: var(--at-radius);
+  padding: 20px;
+}
+.demo-widget h4 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--at-fg-muted);
+  margin: 0 0 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.demo-widget h4 .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--at-accent);
+  box-shadow: 0 0 12px var(--at-accent);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.demo-widget .stat {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--at-fg);
+  font-variant-numeric: tabular-nums;
+}
+.demo-widget p { margin: 4px 0 0; font-size: 0.8rem; color: var(--at-fg-muted); }
+
+/* ─── FAB (floating action button) ──────────────────────────── */
+.at-prefs-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--at-accent) 0%, var(--at-accent-2) 100%);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 8px 32px color-mix(in srgb, var(--at-accent) 50%, transparent);
+  z-index: 200;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
+  cursor: pointer;
+}
+.at-prefs-fab:hover {
+  transform: scale(1.1) rotate(45deg);
+  box-shadow: 0 12px 40px color-mix(in srgb, var(--at-accent) 65%, transparent);
+}
+.at-prefs-fab:active { transform: scale(0.95); }
+.at-prefs-fab .badge {
+  position: absolute;
+  top: -4px; right: -4px;
+  background: var(--at-danger);
+  color: white;
+  border-radius: 50%;
+  width: 22px; height: 22px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--at-bg);
+}
+.at-prefs-fab .badge:empty { display: none; }
+
+/* ─── Panel backdrop ─────────────────────────────────────────── */
+.at-prefs-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 299;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.at-prefs-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ─── Settings panel (slide from right) ─────────────────────── */
+.at-prefs-panel {
+  position: fixed;
+  top: 0; right: 0;
+  height: 100dvh;
+  width: min(440px, 100vw);
+  background: var(--at-glass-bg);
+  backdrop-filter: var(--at-blur);
+  -webkit-backdrop-filter: var(--at-blur);
+  border-left: 1px solid var(--at-glass-border);
+  box-shadow: -20px 0 60px rgba(0,0,0,0.3);
+  z-index: 300;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.at-prefs-panel.open { transform: translateX(0); }
+
+.at-prefs-header {
+  padding: 20px 24px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--at-border);
+  flex-shrink: 0;
+}
+.at-prefs-header .icon-wrap {
+  width: 40px; height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--at-accent), var(--at-accent-2));
+  display: grid; place-items: center;
+  color: white; font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.at-prefs-header h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--at-fg);
+}
+.at-prefs-header p {
+  margin: 2px 0 0;
+  font-size: 0.75rem;
+  color: var(--at-fg-muted);
+}
+.at-prefs-close {
+  margin-left: auto;
+  background: var(--at-bg-elev-2);
+  border: 1px solid var(--at-border);
+  color: var(--at-fg-muted);
+  width: 36px; height: 36px;
+  border-radius: 10px;
+  display: grid; place-items: center;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+.at-prefs-close:hover { color: var(--at-fg); background: var(--at-bg-elev); }
+
+.at-prefs-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px 24px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--at-border-strong) transparent;
+}
+.at-prefs-body::-webkit-scrollbar { width: 6px; }
+.at-prefs-body::-webkit-scrollbar-thumb { background: var(--at-border-strong); border-radius: 3px; }
+.at-prefs-body::-webkit-scrollbar-track { background: transparent; }
+
+.at-prefs-section {
+  margin-bottom: 8px;
+}
+.at-prefs-section-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 0 10px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--at-fg-muted);
+}
+.at-prefs-section-head .emoji { font-size: 1rem; }
+.at-prefs-section-head .count {
+  margin-left: auto;
+  font-size: 0.7rem;
+  background: var(--at-bg-elev-2);
+  color: var(--at-fg-dim);
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.at-prefs-card {
+  background: var(--at-bg-elev);
+  border: 1px solid var(--at-border);
+  border-radius: var(--at-radius);
+  padding: 14px 16px;
+  margin-bottom: 8px;
+}
+.at-prefs-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.at-prefs-row + .at-prefs-row { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--at-border); }
+
+.at-prefs-row .label {
+  flex: 1;
+  min-width: 0;
+}
+.at-prefs-row .label .title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--at-fg);
+  display: block;
+}
+.at-prefs-row .label .desc {
+  font-size: 0.72rem;
+  color: var(--at-fg-muted);
+  margin-top: 1px;
+  display: block;
+}
+
+/* ─── Segmented control (3-4 buttons) ──────────────────────── */
+.at-seg {
+  display: inline-flex;
+  background: var(--at-bg-elev-2);
+  border: 1px solid var(--at-border);
+  border-radius: 10px;
+  padding: 3px;
+  gap: 2px;
+}
+.at-seg button {
+  background: transparent;
+  border: none;
+  color: var(--at-fg-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 7px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.at-seg button:hover { color: var(--at-fg); }
+.at-seg button.active {
+  background: var(--at-accent);
+  color: white;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--at-accent) 40%, transparent);
+}
+.at-seg.theme-seg button.active[data-value="dark"]   { background: #0f172a; }
+.at-seg.theme-seg button.active[data-value="light"]  { background: #f8fafc; color: #0f172a; }
+.at-seg.theme-seg button.active[data-value="sepia"]  { background: #b08a4a; }
+.at-seg.theme-seg button.active[data-value="auto"]   { background: linear-gradient(90deg, #0f172a 50%, #f8fafc 50%); color: white; text-shadow: 0 0 2px black, 0 0 2px black; }
+
+/* ─── Toggle switch ─────────────────────────────────────────── */
+.at-toggle {
+  --w: 44px;
+  --h: 24px;
+  position: relative;
+  display: inline-block;
+  width: var(--w);
+  height: var(--h);
+  flex-shrink: 0;
+}
+.at-toggle input {
+  opacity: 0;
+  width: 0; height: 0;
+  position: absolute;
+}
+.at-toggle .slider {
+  position: absolute;
+  inset: 0;
+  background: var(--at-bg-elev-2);
+  border: 1px solid var(--at-border);
+  border-radius: 99px;
+  transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+.at-toggle .slider::before {
+  content: "";
+  position: absolute;
+  top: 2px; left: 2px;
+  width: calc(var(--h) - 6px);
+  height: calc(var(--h) - 6px);
+  background: var(--at-fg-muted);
+  border-radius: 50%;
+  transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.at-toggle input:checked + .slider {
+  background: var(--at-accent);
+  border-color: var(--at-accent);
+}
+.at-toggle input:checked + .slider::before {
+  transform: translateX(calc(var(--w) - var(--h)));
+  background: white;
+}
+
+/* ─── Range slider ──────────────────────────────────────────── */
+.at-range {
+  --w: 180px;
+  width: var(--w);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.at-range input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  flex: 1;
+  height: 6px;
+  background: var(--at-bg-elev-2);
+  border-radius: 99px;
+  outline: none;
+}
+.at-range input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px; height: 20px;
+  background: var(--at-accent);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--at-accent) 20%, transparent);
+  transition: 0.15s;
+}
+.at-range input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+.at-range input[type=range]::-moz-range-thumb {
+  width: 20px; height: 20px;
+  background: var(--at-accent);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--at-accent) 20%, transparent);
+}
+.at-range .val {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--at-fg);
+  font-variant-numeric: tabular-nums;
+  min-width: 36px;
+  text-align: right;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ─── Preset chips ──────────────────────────────────────────── */
+.at-presets {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.at-preset-chip {
+  background: var(--at-bg-elev-2);
+  border: 1px solid var(--at-border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--at-fg);
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: 0.2s;
+  cursor: pointer;
+  text-align: left;
+}
+.at-preset-chip:hover {
+  border-color: var(--at-accent);
+  background: color-mix(in srgb, var(--at-accent) 8%, var(--at-bg-elev-2));
+  transform: translateY(-1px);
+}
+.at-preset-chip .emoji {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+/* ─── Footer actions ────────────────────────────────────────── */
+.at-prefs-footer {
+  padding: 14px 20px;
+  border-top: 1px solid var(--at-border);
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+  background: var(--at-glass-bg);
+  backdrop-filter: var(--at-blur);
+}
+.at-prefs-footer button {
+  flex: 1;
+  background: var(--at-bg-elev-2);
+  border: 1px solid var(--at-border);
+  color: var(--at-fg);
+  padding: 10px 8px;
+  border-radius: 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.at-prefs-footer button:hover {
+  background: var(--at-bg-elev);
+  border-color: var(--at-accent);
+}
+.at-prefs-footer button.danger:hover {
+  border-color: var(--at-danger);
+  color: var(--at-danger);
+}
+.at-prefs-footer .kbd {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  background: var(--at-bg);
+  padding: 1px 5px;
+  border-radius: 3px;
+  border: 1px solid var(--at-border);
+  color: var(--at-fg-dim);
+}
+
+/* ─── Toast ─────────────────────────────────────────────────── */
+.at-toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(120%);
+  background: var(--at-bg-elev);
+  border: 1px solid var(--at-accent);
+  color: var(--at-fg);
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  box-shadow: var(--at-shadow);
+  z-index: 500;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.at-toast.show { transform: translateX(-50%) translateY(0); }
+.at-toast .emoji { font-size: 1.1rem; }
+
+/* ─── Article footer ─────────────────────────────────────────── */
+.article-footer {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid var(--at-border);
+  font-size: 0.8rem;
+  color: var(--at-fg-muted);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.article-footer .source {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: var(--at-bg-elev-2);
+  border: 1px solid var(--at-border);
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* ─── Footer of demo page ───────────────────────────────────── */
+footer.demo-foot {
+  text-align: center;
+  padding: 24px;
+  color: var(--at-fg-dim);
+  font-size: 0.78rem;
+  border-top: 1px solid var(--at-border);
+  margin-top: 32px;
+}
+</style>
+</head>
+<body data-at-theme="dark" data-at-font="sans">
+
+<!-- ═══ Integration banner ═══ -->
+<div class="integration-banner" id="integrationBanner">
+  <span class="banner-icon">⚡</span>
+  <strong>Démo interactive</strong>
+  <span>·</span>
+  <span>Pour intégrer : copiez le bloc dans <code>style.css</code> + ajoutez le markup du panneau + <code>at-personnalisation.js</code> dans <code>index.html</code>.</span>
+  <button onclick="document.getElementById('integrationBanner').style.display='none'">Voir la démo →</button>
+  <button class="close-banner" onclick="document.getElementById('integrationBanner').style.display='none'" aria-label="Fermer">×</button>
+</div>
+
+<!-- ═══ Demo header (simulating algeria-tech) ═══ -->
+<header class="demo-header">
+  <div class="demo-logo">
+    <div class="logo-mark">AT</div>
+    <div>Algeria <span style="color:var(--at-accent)">Tech</span></div>
+  </div>
+  <nav class="demo-nav">
+    <a href="#" class="active">Accueil</a>
+    <a href="#">Algérie</a>
+    <a href="#">Télécoms</a>
+    <a href="#">Startups</a>
+    <a href="#">IA</a>
+  </nav>
+  <div class="demo-header-actions">
+    <button style="background:var(--at-bg-elev-2); border:1px solid var(--at-border); color:var(--at-fg); padding:8px 14px; border-radius:8px; font-size:0.85rem;">🔍</button>
+  </div>
+</header>
+
+<!-- ═══ Demo article + sidebar ═══ -->
+<div class="demo-page">
+  <main class="demo-content">
+    <article class="article">
+      <div class="article-meta">
+        <span class="article-tag">Algérie</span>
+        <span class="article-tag" style="background:color-mix(in srgb, var(--at-info) 15%, transparent); color:var(--at-info);">IA</span>
+        <span>📅 10 juillet 2026</span>
+        <span>⏱ 4 min de lecture</span>
+      </div>
+      <h1>L'Algérie pilote la phase de mise en œuvre du Conseil africain de l'IA</h1>
+      <p class="lede">ALGER, 10/07/2026 (Algeria Tech) — Le Conseil africain de l'intelligence artificielle entame sa phase opérationnelle à l'occasion du Sommet mondial sur la société de l'information 2026.</p>
+
+      <div class="demo-hero"></div>
+
+      <p>Cette annonce marque un <strong>tournant stratégique</strong> pour le numérique continental. L'Algérie, déjà candidate à la gouvernance de plusieurs instances internationales, confirme son positionnement de hub technologique régional. Le Conseil, qui regroupe <a href="#">vingt-deux États membres</a>, vise à coordonner les politiques publiques en matière d'intelligence artificielle sur le continent.</p>
+
+      <h2>Un tournant stratégique</h2>
+
+      <p>Le pilotage algérien s'articule autour de <strong>trois axes prioritaires</strong> : la formation des talents, l'adaptation du cadre réglementaire, et le développement d'infrastructures souveraines. Selon nos sources, une enveloppe initiale de <em>120 millions d'euros</em> serait dédiée à ces chantiers sur la période 2026-2029.</p>
+
+      <blockquote>« L'Afrique ne doit plus être uniquement consommatrice d'IA, mais coproductrice de solutions qui répondent à ses réalités. » — Sid Ali Zouari, coordinateur national</blockquote>
+
+      <h2>Les prochains jalons</h2>
+
+      <ul>
+        <li>Lancement officiel du Conseil à Alger en septembre 2026</li>
+        <li>Appel à projets pour les startups panafricaines</li>
+        <li>Création d'un fonds souverain dédié à l'IA</li>
+        <li>Partenariat avec les universités de Dakar, Le Caire et Nairobi</li>
+      </ul>
+
+      <p>Pour les acteurs économiques algériens, cette initiative ouvre une fenêtre d'opportunité. <a href="#">Plusieurs startups locales</a> ont déjà manifesté leur intérêt pour intégrer les futurs programmes d'accompagnement. Le secteur public, lui, planche sur l'adaptation du <a href="#">cadre juridique existant</a> pour absorber ces nouvelles obligations.</p>
+
+      <div class="article-footer">
+        <span class="source">📰 Source : APS / Algeria Tech</span>
+        <span class="source">🌍 Région : Maghreb + Afrique</span>
+        <span class="source">👁 12.4k vues</span>
+      </div>
+    </article>
+  </main>
+
+  <aside class="demo-sidebar">
+    <div class="demo-widget">
+      <h4><span class="dot"></span> Veille en direct</h4>
+      <div class="stat">847</div>
+      <p>articles indexés aujourd'hui</p>
+    </div>
+    <div class="demo-widget">
+      <h4>🔖 Articles sauvegardés</h4>
+      <div class="stat">0</div>
+      <p>cliquez sur 📑 pour ajouter</p>
+    </div>
+    <div class="demo-widget">
+      <h4>📡 Dernière mise à jour</h4>
+      <p style="font-size:0.9rem; font-weight:600; color:var(--at-fg); margin:0;">Il y a 3 minutes</p>
+    </div>
+  </aside>
+</div>
+
+<footer class="demo-foot">
+  Algeria Tech — Démo Personnalisation v1.0 · ⚙️ Cliquez sur le bouton en bas à droite pour tester
+</footer>
+
+<!-- ═══ FAB ═══ -->
+<button class="at-prefs-fab" id="atPrefsFab" aria-label="Ouvrir les préférences d'affichage" title="Préférences d'affichage (Alt+P)">
+  <span aria-hidden="true">⚙️</span>
+  <span class="badge" id="atPrefsBadge"></span>
+</button>
+
+<!-- ═══ Backdrop ═══ -->
+<div class="at-prefs-backdrop" id="atPrefsBackdrop"></div>
+
+<!-- ═══ Settings panel ═══ -->
+<aside class="at-prefs-panel" id="atPrefsPanel" role="dialog" aria-modal="true" aria-labelledby="atPrefsTitle" aria-hidden="true">
+  <header class="at-prefs-header">
+    <div class="icon-wrap" aria-hidden="true">⚙️</div>
+    <div>
+      <h2 id="atPrefsTitle">Préférences d'affichage</h2>
+      <p>Confort de lecture & accessibilité</p>
+    </div>
+    <button class="at-prefs-close" id="atPrefsClose" aria-label="Fermer">×</button>
+  </header>
+
+  <div class="at-prefs-body">
+
+    <!-- ─── Presets ─── -->
+    <div class="at-prefs-section">
+      <div class="at-prefs-section-head">
+        <span class="emoji">✨</span>
+        <span>Préréglages rapides</span>
+        <span class="count">1 clic</span>
+      </div>
+      <div class="at-presets">
+        <button class="at-preset-chip" data-preset="night">
+          <span class="emoji">🌙</span><span>Lecture soir</span>
+        </button>
+        <button class="at-preset-chip" data-preset="dyslexia">
+          <span class="emoji">📖</span><span>Dyslexie</span>
+        </button>
+        <button class="at-preset-chip" data-preset="data-saver">
+          <span class="emoji">📉</span><span>Économie data</span>
+        </button>
+        <button class="at-preset-chip" data-preset="a11y">
+          <span class="emoji">♿</span><span>Accessibilité</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ─── Theme ─── -->
+    <div class="at-prefs-section">
+      <div class="at-prefs-section-head">
+        <span class="emoji">🎨</span>
+        <span>Thème</span>
+      </div>
+      <div class="at-prefs-card">
+        <div class="at-prefs-row">
+          <div class="label">
+            <span class="title">Mode d'affichage</span>
+            <span class="desc">Sombre, clair, sépia, ou suit votre système</span>
+          </div>
+          <div class="at-seg theme-seg" data-setting="theme">
+            <button data-value="auto">Auto</button>
+            <button data-value="light">☀ Clair</button>
+            <button data-value="dark">🌙 Sombre</button>
+            <button data-value="sepia">📜 Sépia</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Typography ─── -->
+    <div class="at-prefs-section">
+      <div class="at-prefs-section-head">
+        <span class="emoji">📝</span>
+        <span>Typographie</span>
+      </div>
+      <div class="at-prefs-card">
+        <div class="at-prefs-row">
+          <div class="label">
+            <span class="title">Famille de police</span>
+            <span class="desc">OpenDyslexic aide les dyslexiques</span>
+          </div>
+          <div class="at-seg" data-setting="font">
+            <button data-value="sans">Sans</button>
+            <button data-value="serif">Serif</button>
+            <button data-value="dyslexic">Dys</button>
+          </div>
+        </div>
+        <div class="at-prefs-row">
+          <div class="label">
+            <span class="title">Taille de police</span>
+            <span class="desc">Agrandir pour confort visuel</span>
+          </div>
+          <div class="at-range">
+            <input type="range" data-setting="fontScale" min="0.85" max="1.4" step="0.05" value="1">
+            <span class="val" id="val-fontScale">100%</span>
+          </div>
+        </div>
+        <div class="at-prefs-row">
+          <div class="label">
+            <span class="title">Interligne</span>
+            <span class="desc">Espace entre les lignes</span>
+          </div>
+          <div class="at-range">
+            <input type="range" data-setting="lineHeight" min="1.3" max="2.2" step="0.05" value="1.75">
+            <span class="val" id="val-lineHeight">1.75</span>
+          </div>
+        </div>
+        <div class="at-prefs-row">
+          <div class="label">
+            <span class="title">Espacement lettres</span>
+            <span class="desc">Aide pour dyslexie</span>
+          </div>
+          <div class="at-range">
+            <input type="range" data-setting="letterSpacing" min="-0.5" max="3" step="0.5" value="0">
+            <span class="val" id="val-letterSpacing">0px</span>
+          </div>
+        </div>
+        <div class="at-prefs-row">
+          <div class="label">
+            <span class="title">Espacement mots</span>
+            <span class="desc">Agrandit l'espace entre mots</span>
+          </div>
+          <div class="at-range">
+            <input type="range" data-setting="wordSpacing" min="0" max="6" step="0.5" value="0">
+            <span class="val" id="val-wordSpacing">0px</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Display ─── -->
+    <div class="at-prefs-section">
+      <div class="at-prefs-section-head">
+        <span class="emoji">👁️</span>
+        <span>Affichage</span>
+      </div>
+      <div class="at-prefs-card">
+        <div class="at-prefs-row">
+          <div class="label">
+            <span class="title">Contraste élevé</span>
+            <span class="desc">Pour basse vision (WCAG AAA)</span>
+          </div>
+          <label class="at-toggle"><input type="checkbox" data-setting="contrast"><span class="slider"></span></label>
+        </div>
+        <div class="at-prefs-row">
+          <div class="label">
+            <span class="title">Texte en gras</span>
+            <span class="desc">Renforce le poids du texte</span>
+          </div>
+          <label class="at-toggle"><input type="checkbox" data-setting="bold"><span class="slider"></span></label>
+        </div>
+        <div class="at-prefs-row">
+          <div class="label">
+            <span class="title">Texte justifié</span>
+            <span class="desc">Alignement sur les deux côtés</span>
+          </div>
+          <label class="at-toggle"><input type="checkbox" data-setting="justify"><span class="slider"></span></label>
+        </div>
+        <div class="at-prefs-row">
+          <div class="label">
+            <span class="title">Souligner les liens</span>
+            <span class="desc">Repérage visuel des liens</span>
+          </div>
+          <label class="at-toggle"><input type="checkbox" data-setting="underlineLinks"><span class="slider"></span></label>
+        </div>
+        <div class="at-prefs-row">
+          <div class="label">
+            <span class="title">Masquer les images</span>
+            <span class="desc">Économie data + concentration</span>
+          </div>
+          <label class="at-toggle"><input type="checkbox" data-setting="hideImages"><span class="slider"></span></label>
+        </div>
+        <div class="at-prefs-row">
+          <div class="label">
+            <span class="title">Curseur large</span>
+            <span class="desc">Pour troubles moteurs</span>
+          </div>
+          <label class="at-toggle"><input type="checkbox" data-setting="largeCursor"><span class="slider"></span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Color ─── -->
+    <div class="at-prefs-section">
+      <div class="at-prefs-section-head">
+        <span class="emoji">🌡️</span>
+        <span>Couleur</span>
+      </div>
+      <div class="at-prefs-card">
+        <div class="at-prefs-row">
+          <div class="label">
+            <span class="title">Température</span>
+            <span class="desc">Réduit la lumière bleue le soir</span>
+          </div>
+          <div class="at-range">
+            <input type="range" data-setting="colorTemp" min="0" max="1" step="0.05" value="1">
+            <span class="val" id="val-colorTemp">Froid</span>
+          </div>
+        </div>
+        <div class="at-prefs-row">
+          <div class="label">
+            <span class="title">Saturation</span>
+            <span class="desc">Aide pour daltoniens</span>
+          </div>
+          <div class="at-range">
+            <input type="range" data-setting="saturation" min="0.4" max="1.2" step="0.05" value="1">
+            <span class="val" id="val-saturation">100%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Layout ─── -->
+    <div class="at-prefs-section">
+      <div class="at-prefs-section-head">
+        <span class="emoji">📐</span>
+        <span>Mise en page</span>
+      </div>
+      <div class="at-prefs-card">
+        <div class="at-prefs-row">
+          <div class="label">
+            <span class="title">Largeur de lecture</span>
+            <span class="desc">Idéal : 60-75 caractères/ligne</span>
+          </div>
+          <div class="at-seg" data-setting="readWidth">
+            <button data-value="60ch">Étroite</button>
+            <button data-value="75ch">Moyenne</button>
+            <button data-value="95ch">Large</button>
+          </div>
+        </div>
+        <div class="at-prefs-row">
+          <div class="label">
+            <span class="title">Mode Focus</span>
+            <span class="desc">Cache menus et distractions</span>
+          </div>
+          <label class="at-toggle"><input type="checkbox" data-setting="focus"><span class="slider"></span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Motion ─── -->
+    <div class="at-prefs-section">
+      <div class="at-prefs-section-head">
+        <span class="emoji">🎬</span>
+        <span>Mouvement</span>
+      </div>
+      <div class="at-prefs-card">
+        <div class="at-prefs-row">
+          <div class="label">
+            <span class="title">Réduire les animations</span>
+            <span class="desc">Vertige, sensibilité vestibulaire</span>
+          </div>
+          <label class="at-toggle"><input type="checkbox" data-setting="motion"><span class="slider"></span></label>
+        </div>
+        <div class="at-prefs-row">
+          <div class="label">
+            <span class="title">Pause auto-vidéos</span>
+            <span class="desc">Économie data + concentration</span>
+          </div>
+          <label class="at-toggle"><input type="checkbox" data-setting="pauseVideo"><span class="slider"></span></label>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="at-prefs-footer">
+    <button id="atPrefsExport" title="Exporter mes préférences en JSON">📤 Export</button>
+    <button id="atPrefsImport" title="Importer des préférences">📥 Import</button>
+    <button id="atPrefsReset" class="danger" title="Réinitialiser">🔄 Reset <span class="kbd">R</span></button>
+  </footer>
+</aside>
+
+<!-- Hidden file input for import -->
+<input type="file" id="atPrefsFileInput" accept="application/json" hidden>
+
+<!-- Toast -->
+<div class="at-toast" id="atToast" role="status" aria-live="polite">
+  <span class="emoji" id="atToastEmoji">✓</span>
+  <span id="atToastText">Préférences enregistrées</span>
+</div>
+
+<script>
+/* ════════════════════════════════════════════════════════════════════
+   ALGERIA TECH — PERSONNALISATION ENGINE v1.0
+   API publique : window.AT_PERSONNALISATION
+   - .open() / .close() / .toggle()
+   - .set(key, value)
+   - .get(key)
+   - .applyPreset(name)
+   - .export() / .import(json)
+   - .reset()
+   - .on('change', callback)
+   - .on('open', callback) / .on('close', callback)
+   Persistance : localStorage clé "at-prefs-v1"
+   ════════════════════════════════════════════════════════════════════ */
+
+(function () {
+'use strict';
+
+const STORAGE_KEY = 'at-prefs-v1';
+const ROOT = document.documentElement;
+
+/* ─── Default prefs ─────────────────────────────────────────── */
+const DEFAULTS = Object.freeze({
+  theme:         'dark',     // auto | light | dark | sepia
+  font:          'sans',     // sans | serif | dyslexic
+  fontScale:     1,
+  lineHeight:    1.75,
+  letterSpacing: 0,
+  wordSpacing:   0,
+  contrast:      false,
+  bold:          false,
+  justify:       false,
+  underlineLinks:false,
+  hideImages:    false,
+  largeCursor:   false,
+  colorTemp:     1,
+  saturation:    1,
+  readWidth:     '75ch',
+  focus:         false,
+  motion:        false,
+  pauseVideo:    false,
+});
+
+/* ─── Presets ───────────────────────────────────────────────── */
+const PRESETS = {
+  night: {
+    label: 'Lecture soir',
+    icon: '🌙',
+    settings: { theme: 'dark', colorTemp: 0.4, motion: false, saturation: 0.9, fontScale: 1.05 }
+  },
+  dyslexia: {
+    label: 'Dyslexie',
+    icon: '📖',
+    settings: { font: 'dyslexic', letterSpacing: 1.5, wordSpacing: 3, lineHeight: 2.0, fontScale: 1.1, contrast: false, bold: true, readWidth: '60ch' }
+  },
+  'data-saver': {
+    label: 'Économie data',
+    icon: '📉',
+    settings: { hideImages: true, pauseVideo: true, focus: true, motion: true, saturation: 0.7 }
+  },
+  a11y: {
+    label: 'Accessibilité',
+    icon: '♿',
+    settings: { contrast: true, bold: true, underlineLinks: true, largeCursor: true, fontScale: 1.15, lineHeight: 1.95, motion: true }
+  }
+};
+
+/* ─── State ─────────────────────────────────────────────────── */
+let state = { ...DEFAULTS };
+const listeners = { change: [], open: [], close: [] };
+
+function load() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+    state = { ...DEFAULTS, ...saved };
+  } catch (_) { state = { ...DEFAULTS }; }
+}
+
+function save() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (_) {}
+}
+
+/* ─── Apply to DOM ──────────────────────────────────────────── */
+function apply() {
+  // Theme + font (data attributes)
+  ROOT.setAttribute('data-at-theme', state.theme);
+  ROOT.setAttribute('data-at-font',  state.font);
+
+  // CSS variables
+  ROOT.style.setProperty('--at-font-scale',     state.fontScale);
+  ROOT.style.setProperty('--at-line-height',    state.lineHeight);
+  ROOT.style.setProperty('--at-letter-spacing', state.letterSpacing + 'px');
+  ROOT.style.setProperty('--at-word-spacing',   state.wordSpacing + 'px');
+  ROOT.style.setProperty('--at-color-temp',     state.colorTemp);
+  ROOT.style.setProperty('--at-saturation',     state.saturation);
+  ROOT.style.setProperty('--at-read-width',     state.readWidth);
+
+  // Boolean attrs (with values)
+  toggleAttr('data-at-contrast', state.contrast, state.contrast ? 'high' : null);
+  toggleAttr('data-at-text',     state.bold || state.justify, state.bold ? 'bold' : (state.justify ? 'justify' : null));
+  toggleAttr('data-at-links',    state.underlineLinks, state.underlineLinks ? 'underlined' : null);
+  toggleAttr('data-at-images',   state.hideImages,    state.hideImages ? 'hidden' : null);
+  toggleAttr('data-at-cursor',   state.largeCursor,   state.largeCursor ? 'large' : null);
+  toggleAttr('data-at-focus',    state.focus,         state.focus ? 'on' : null);
+  toggleAttr('data-at-motion',   state.motion,        state.motion ? 'reduced' : null);
+  toggleAttr('data-at-video',    state.pauseVideo,    state.pauseVideo ? 'paused' : null);
+
+  save();
+  emit('change', state);
+}
+
+function toggleAttr(name, condition, value) {
+  if (condition && value) ROOT.setAttribute(name, value);
+  else ROOT.removeAttribute(name);
+}
+
+/* ─── Controls sync (UI reflects state) ────────────────────── */
+function syncControls() {
+  // Segmented controls
+  document.querySelectorAll('.at-seg[data-setting]').forEach(seg => {
+    const key = seg.dataset.setting;
+    const val = state[key];
+    seg.querySelectorAll('button').forEach(b => {
+      b.classList.toggle('active', b.dataset.value === val);
+    });
+  });
+  // Toggles
+  document.querySelectorAll('.at-toggle input[type=checkbox]').forEach(t => {
+    t.checked = !!state[t.dataset.setting];
+  });
+  // Ranges
+  document.querySelectorAll('.at-range input[type=range]').forEach(r => {
+    r.value = state[r.dataset.setting];
+  });
+  // Range value labels
+  const valMap = {
+    fontScale:     () => Math.round(state.fontScale * 100) + '%',
+    lineHeight:    () => state.lineHeight.toFixed(2),
+    letterSpacing: () => state.letterSpacing + 'px',
+    wordSpacing:   () => state.wordSpacing + 'px',
+    colorTemp:     () => state.colorTemp < 0.4 ? 'Chaud' : (state.colorTemp < 0.75 ? 'Tiède' : 'Froid'),
+    saturation:    () => Math.round(state.saturation * 100) + '%',
+  };
+  Object.entries(valMap).forEach(([k, fn]) => {
+    const el = document.getElementById('val-' + k);
+    if (el) el.textContent = fn();
+  });
+  // FAB badge: show count of non-default settings
+  const customCount = Object.keys(state).filter(k => state[k] !== DEFAULTS[k]).length;
+  const badge = document.getElementById('atPrefsBadge');
+  if (badge) badge.textContent = customCount > 0 ? customCount : '';
+}
+
+/* ─── Public API ────────────────────────────────────────────── */
+function set(key, value) {
+  if (!(key in DEFAULTS)) return;
+  state[key] = value;
+  apply();
+  syncControls();
+}
+
+function get(key) { return key ? state[key] : { ...state }; }
+
+function applyPreset(name) {
+  const p = PRESETS[name];
+  if (!p) return;
+  state = { ...DEFAULTS, ...p.settings };
+  apply();
+  syncControls();
+  toast(p.icon + ' Préréglage « ' + p.label + ' » appliqué', p.icon);
+}
+
+function exportPrefs() {
+  const json = JSON.stringify(state, null, 2);
+  const blob = new Blob([json], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'algeria-tech-prefs-' + new Date().toISOString().slice(0,10) + '.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  toast('📤 Préférences exportées', '📤');
+}
+
+function importPrefs(json) {
+  try {
+    const obj = typeof json === 'string' ? JSON.parse(json) : json;
+    state = { ...DEFAULTS, ...obj };
+    apply();
+    syncControls();
+    toast('📥 Préférences importées', '📥');
+  } catch (e) {
+    toast('❌ Fichier invalide', '❌');
+  }
+}
+
+function reset() {
+  state = { ...DEFAULTS };
+  apply();
+  syncControls();
+  toast('🔄 Préférences réinitialisées', '🔄');
+}
+
+function open()  { panel.classList.add('open'); backdrop.classList.add('open'); panel.setAttribute('aria-hidden', 'false'); emit('open'); }
+function close() { panel.classList.remove('open'); backdrop.classList.remove('open'); panel.setAttribute('aria-hidden', 'true'); emit('close'); }
+function toggle(){ panel.classList.contains('open') ? close() : open(); }
+
+function on(event, cb) {
+  if (listeners[event]) listeners[event].push(cb);
+}
+function emit(event, payload) {
+  (listeners[event] || []).forEach(cb => { try { cb(payload); } catch(_){} });
+}
+
+/* ─── Toast ─────────────────────────────────────────────────── */
+let toastTimer = null;
+function toast(text, emoji) {
+  const t = document.getElementById('atToast');
+  const e = document.getElementById('atToastEmoji');
+  const x = document.getElementById('atToastText');
+  if (e) e.textContent = emoji || '✓';
+  if (x) x.textContent = text;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+/* ─── Wire up controls ──────────────────────────────────────── */
+const fab      = document.getElementById('atPrefsFab');
+const panel    = document.getElementById('atPrefsPanel');
+const backdrop = document.getElementById('atPrefsBackdrop');
+const closeBtn = document.getElementById('atPrefsClose');
+
+fab.addEventListener('click', toggle);
+closeBtn.addEventListener('click', close);
+backdrop.addEventListener('click', close);
+
+document.addEventListener('keydown', (e) => {
+  if (e.altKey && (e.key === 'p' || e.key === 'P')) { e.preventDefault(); toggle(); }
+  if (e.key === 'Escape' && panel.classList.contains('open')) close();
+  if (e.altKey && (e.key === 'r' || e.key === 'R')) { e.preventDefault(); reset(); }
+});
+
+// Segmented controls
+document.querySelectorAll('.at-seg[data-setting]').forEach(seg => {
+  seg.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-value]');
+    if (!btn) return;
+    set(seg.dataset.setting, btn.dataset.value);
+  });
+});
+
+// Toggles
+document.querySelectorAll('.at-toggle input[type=checkbox]').forEach(t => {
+  t.addEventListener('change', () => set(t.dataset.setting, t.checked));
+});
+
+// Ranges
+document.querySelectorAll('.at-range input[type=range]').forEach(r => {
+  r.addEventListener('input', () => {
+    const key = r.dataset.setting;
+    const v = parseFloat(r.value);
+    set(key, v);
+  });
+});
+
+// Presets
+document.querySelectorAll('[data-preset]').forEach(b => {
+  b.addEventListener('click', () => applyPreset(b.dataset.preset));
+});
+
+// Footer buttons
+document.getElementById('atPrefsExport').addEventListener('click', exportPrefs);
+document.getElementById('atPrefsImport').addEventListener('click', () => {
+  document.getElementById('atPrefsFileInput').click();
+});
+document.getElementById('atPrefsFileInput').addEventListener('change', (e) => {
+  const f = e.target.files[0];
+  if (!f) return;
+  const reader = new FileReader();
+  reader.onload = () => importPrefs(reader.result);
+  reader.readAsText(f);
+});
+document.getElementById('atPrefsReset').addEventListener('click', reset);
+
+/* ─── Init ──────────────────────────────────────────────────── */
+load();
+apply();
+syncControls();
+
+// Expose API
+window.AT_PERSONNALISATION = {
+  open, close, toggle,
+  set, get,
+  applyPreset,
+  export: exportPrefs, import: importPrefs,
+  reset,
+  on,
+  PRESETS,
+  DEFAULTS,
+};
+
+console.log('%c⚙️ AT Personnalisation v1.0 chargé', 'color:#10b981;font-weight:bold;font-size:14px');
+console.log('API : window.AT_PERSONNALISATION');
+})();
+</script>
+
+</body>
+</html>

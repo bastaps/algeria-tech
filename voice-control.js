@@ -353,7 +353,7 @@
     s.textContent = `
       /* ── Bouton ──────────────────────────────────────────────── */
       #${BTN_ID} {
-        position: fixed; bottom: 88px; right: 20px; z-index: 9999;
+        position: fixed; bottom: 168px; right: 20px; z-index: 9999;
         width: 54px; height: 54px; border-radius: 50%; border: none;
         cursor: pointer; color: #fff;
         display: flex; align-items: center; justify-content: center;
@@ -395,7 +395,7 @@
 
       /* ── Toast ───────────────────────────────────────────────── */
       #${TOAST_ID} {
-        position:fixed; bottom:156px; right:20px; z-index:10000;
+        position:fixed; bottom:236px; right:20px; z-index:10000;
         background:rgba(12,12,12,.88); color:#fff;
         padding:10px 18px; border-radius:24px;
         font-size:13.5px; font-family:inherit; font-weight:500;
@@ -411,9 +411,9 @@
 
       /* ── Mobile ──────────────────────────────────────────────── */
       @media(max-width:480px){
-        #${BTN_ID}   { bottom:76px; right:14px; width:48px; height:48px; }
+        #${BTN_ID}   { bottom:150px; right:14px; width:48px; height:48px; }
         .vc-ripple   { width:48px; height:48px; }
-        #${TOAST_ID} { bottom:134px; right:14px; font-size:12px; max-width:220px; }
+        #${TOAST_ID} { bottom:210px; right:14px; font-size:12px; max-width:220px; }
       }
     `;
     document.head.appendChild(s);

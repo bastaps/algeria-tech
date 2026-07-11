@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algeria Tech — Voice Control (Mega Assistant)</title>
+<script src="https://cdn.jsdelivr.net/npm/annyang@2.6.1/dist/annyang.min.js"></script>
+<style>
+  :root {
+    --bg: #0f172a;
+    --surface: #1e293b;
+    --surface-2: #334155;
+    --text: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent: #10b981;
+    --accent-glow: rgba(16,185,129,0.35);
+    --danger: #ef4444;
+    --danger-glow: rgba(239,68,68,0.35);
+    --warning: #f59e0b;
+    --info: #3b82f6;
+    --radius: 14px;
+    --radius-sm: 10px;
+    --shadow: 0 10px 40px rgba(0,0,0,0.45);
+    --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
+  }
+  [data-theme="light"] {
+    --bg: #f1f5f9;
+    --surface: #ffffff;
+    --surface-2: #e2e8f0;
+    --text: #0f172a;
+    --text-muted: #64748b;
+    --accent: #059669;
+    --accent-glow: rgba(5,150,105,0.25);
+    --shadow: 0 10px 40px rgba(0,0,0,0.12);
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0; padding: 0;
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg); color: var(--text);
+    transition: background 0.4s, color 0.4s;
+    overflow-x: hidden;
+  }
+
+  /* ─── Header ─── */
+  .at-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 22px;
+    background: rgba(15,23,42,0.78);
+    backdrop-filter: blur(12px) saturate(1.4);
+    border-bottom: 1px solid rgba(148,163,184,0.12);
+    transition: background 0.4s;
+  }
+  [data-theme="light"] .at-header { background: rgba(241,245,249,0.82); }
+  .at-header .brand {
+    font-weight: 800; font-size: 1.25rem; letter-spacing: -0.5px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .at-header .brand .dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 10px var(--accent);
+  }
+  .at-header .status-chip {
+    font-size: 0.78rem; padding: 5px 12px; border-radius: 999px;
+    background: var(--surface-2); color: var(--text-muted);
+    border: 1px solid rgba(148,163,184,0.15);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .at-header .status-chip .led {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--danger); transition: background 0.3s, box-shadow 0.3s;
+  }
+  .at-header .status-chip .led.on {
+    background: var(--accent); box-shadow: 0 0 8px var(--accent-glow);
+  }
+  .at-header .status-chip .led.sleep {
+    background: var(--warning); box-shadow: 0 0 8px rgba(245,158,11,0.35);
+  }
+
+  /* ─── Main ─── */
+  main { padding: 90px 22px 140px; max-width: 1100px; margin: 0 auto; }
+
+  /* ─── Demo article ─── */
+  .demo-article {
+    background: var(--surface); border-radius: var(--radius);
+    padding: 26px; margin-bottom: 22px;
+    border: 1px solid rgba(148,163,184,0.08);
+    box-shadow: var(--shadow);
+  }
+  .demo-article h1 { margin: 0 0 10px; font-size: 1.6rem; }
+  .demo-article .meta { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 14px; }
+  .demo-article p { line-height: 1.7; color: var(--text-muted); }
+  .demo-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+  .btn {
+    appearance: none; border: none; cursor: pointer;
+    padding: 8px 16px; border-radius: var(--radius-sm);
+    font-size: 0.88rem; font-weight: 600; color: #fff;
+    background: var(--surface-2); transition: transform 0.15s, box-shadow 0.2s;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn.primary { background: var(--accent); box-shadow: 0 4px 14px var(--accent-glow); }
+  .btn.danger { background: var(--danger); box-shadow: 0 4px 14px var(--danger-glow); }
+  .btn.info { background: var(--info); }
+  .btn.ghost { background: transparent; color: var(--text); border: 1px solid rgba(148,163,184,0.2); }
+
+  /* ─── Toast container ─── */
+  .toast-container {
+    position: fixed; top: 80px; right: 18px; z-index: 2000;
+    display: flex; flex-direction: column; gap: 10px; width: min(360px, 92vw);
+    pointer-events: none;
+  }
+  .toast {
+    background: var(--surface); color: var(--text);
+    padding: 14px 18px; border-radius: var(--radius-sm);
+    border-left: 4px solid var(--accent);
+    box-shadow: var(--shadow);
+    font-size: 0.92rem; opacity: 0; transform: translateX(30px); pointer-events: auto;
+    animation: toastIn 0.35s forwards;
+  }
+  .toast.out { animation: toastOut 0.3s forwards; }
+  .toast .title { font-weight: 700; margin-bottom: 4px; }
+  .toast .sub { font-size: 0.82rem; color: var(--text-muted); }
+  @keyframes toastIn { to { opacity:1; transform:translateX(0); } }
+  @keyframes toastOut { to { opacity:0; transform:translateX(40px); } }
+
+  /* ─── Transcript bar ─── */
+  .transcript-bar {
+    position: fixed; bottom: 94px; left: 50%; transform: translateX(-50%);
+    z-index: 1100; background: rgba(15,23,42,0.92);
+    backdrop-filter: blur(10px);
+    color: #fff; padding: 10px 22px; border-radius: 999px;
+    font-size: 0.92rem; display: none; align-items: center; gap: 10px;
+    border: 1px solid rgba(148,163,184,0.15);
+    box-shadow: 0 6px 30px rgba(0,0,0,0.4);
+    max-width: min(700px, 92vw); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  [data-theme="light"] .transcript-bar { background: rgba(255,255,255,0.95); color: var(--text); border-color: rgba(0,0,0,0.06); }
+  .transcript-bar.visible { display: flex; }
+  .transcript-bar .mic-icon { width: 18px; height: 18px; border-radius: 50%; background: var(--accent); animation: pulse 1.2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.6;transform:scale(0.85)} }
+
+  /* ─── Micro button ─── */
+  .mic-wrapper {
+    position: fixed; bottom: 22px; right: 22px; z-index: 1200;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .mic-btn {
+    width: 64px; height: 64px; border-radius: 50%;
+    border: none; cursor: pointer;
+    background: var(--surface); color: var(--text);
+    box-shadow: var(--shadow);
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+    position: relative;
+  }
+  .mic-btn:hover { transform: scale(1.05); }
+  .mic-btn:active { transform: scale(0.95); }
+  .mic-btn svg { width: 26px; height: 26px; transition: color 0.3s; }
+  .mic-btn.listening {
+    background: var(--danger); color: #fff;
+    box-shadow: 0 0 0 0 rgba(239,68,68,0.4);
+    animation: micRipple 1.4s infinite;
+  }
+  .mic-btn.wakeword {
+    background: var(--warning); color: #0f172a;
+    animation: micPulse 2s infinite;
+  }
+  @keyframes micRipple { 0%{box-shadow:0 0 0 0 rgba(239,68,68,0.45)} 70%{box-shadow:0 0 0 18px rgba(239,68,68,0)} 100%{box-shadow:0 0 0 0 rgba(239,68,68,0)} }
+  @keyframes micPulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
+
+  /* Visualizer canvas ring */
+  .mic-ring {
+    position: absolute; inset: -8px; pointer-events: none;
+  }
+  .mic-ring canvas { width: 100%; height: 100%; }
+
+  /* Help toggle */
+  .help-toggle {
+    width: 44px; height: 44px; border-radius: 50%;
+    border: none; cursor: pointer; background: var(--surface-2); color: var(--text);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: var(--shadow); font-size: 1.2rem; font-weight: 700;
+    transition: transform 0.2s, background 0.3s;
+  }
+  .help-toggle:hover { transform: scale(1.05); background: var(--info); color: #fff; }
+
+  /* ─── Help Panel ─── */
+  .help-panel {
+    position: fixed; inset: 0; z-index: 3000;
+    background: rgba(0,0,0,0.55); backdrop-filter: blur(6px);
+    display: none; align-items: center; justify-content: center; padding: 18px;
+  }
+  .help-panel.open { display: flex; }
+  .help-card {
+    background: var(--surface); color: var(--text);
+    width: min(900px, 96vw); max-height: 88vh;
+    border-radius: var(--radius); box-shadow: var(--shadow);
+    border: 1px solid rgba(148,163,184,0.1);
+    display: flex; flex-direction: column; overflow: hidden;
+  }
+  .help-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 22px; border-bottom: 1px solid rgba(148,163,184,0.08);
+  }
+  .help-header h2 { margin: 0; font-size: 1.15rem; }
+  .help-close { background: none; border: none; color: var(--text); font-size: 1.4rem; cursor: pointer; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+  .help-close:hover { background: var(--surface-2); }
+  .help-body { padding: 10px 22px 22px; overflow-y: auto; }
+  .help-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
+  .help-section { background: var(--surface-2); border-radius: var(--radius-sm); padding: 14px; }
+  .help-section h3 { margin: 0 0 8px; font-size: 0.9rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; }
+  .help-section ul { margin: 0; padding: 0 0 0 16px; list-style: disc; font-size: 0.84rem; color: var(--text-muted); }
+  .help-section li { margin-bottom: 4px; }
+  .help-footer {
+    padding: 12px 22px; border-top: 1px solid rgba(148,163,184,0.08);
+    font-size: 0.78rem; color: var(--text-muted); text-align: center;
+  }
+
+  /* ─── Suggestions pill ─── */
+  .suggestions {
+    position: fixed; bottom: 98px; left: 22px; z-index: 1100;
+    display: flex; gap: 8px; flex-wrap: wrap; max-width: min(520px, 70vw);
+  }
+  .pill {
+    background: var(--surface); color: var(--text-muted);
+    border: 1px solid rgba(148,163,184,0.12); border-radius: 999px;
+    padding: 6px 14px; font-size: 0.78rem; cursor: pointer; transition: all 0.2s;
+  }
+  .pill:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+  /* ─── Wake-word toggle ─── */
+  .wake-toggle {
+    position: fixed; bottom: 22px; left: 22px; z-index: 1200;
+    display: flex; align-items: center; gap: 8px; background: var(--surface);
+    padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(148,163,184,0.12);
+    box-shadow: var(--shadow); font-size: 0.8rem; color: var(--text-muted); cursor: pointer;
+    user-select: none; transition: border-color 0.2s, color 0.2s;
+  }
+  .wake-toggle:hover { border-color: var(--accent); }
+  .wake-toggle .check { width: 16px; height: 16px; border-radius: 4px; border: 2px solid var(--text-muted); display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+  .wake-toggle.active .check { background: var(--accent); border-color: var(--accent); }
+  .wake-toggle.active { color: var(--text); }
+
+  /* ─── Mute toggle ─── */
+  .mute-toggle {
+    position: fixed; bottom: 64px; left: 22px; z-index: 1200;
+    display: flex; align-items: center; gap: 8px; background: var(--surface);
+    padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(148,163,184,0.12);
+    box-shadow: var(--shadow); font-size: 0.8rem; color: var(--text-muted); cursor: pointer;
+    user-select: none; transition: border-color 0.2s, color 0.2s;
+  }
+  .mute-toggle:hover { border-color: var(--info); }
+  .mute-toggle .check { width: 16px; height: 16px; border-radius: 4px; border: 2px solid var(--text-muted); display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+  .mute-toggle.active .check { background: var(--info); border-color: var(--info); }
+  .mute-toggle.active { color: var(--text); }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--surface-2); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+</style>
+</head>
+<body data-theme="dark">
+
+<!-- Header -->
+<header class="at-header">
+  <div class="brand"><div class="dot"></div> Algeria Tech Voice</div>
+  <div class="status-chip" id="statusChip">
+    <span class="led" id="statusLed"></span>
+    <span id="statusText">Micro inactif</span>
+  </div>
+</header>
+
+<!-- Main -->
+<main>
+  <div class="demo-article" id="demoArticle">
+    <h1>Ooredoo lance la 5G à Alger : ce qu'il faut savoir</h1>
+    <div class="meta">Publié le 11 juillet 2026 — Catégorie : Télécoms</div>
+    <p>Ooredoo Algérie a annoncé le déploiement commercial de la 5G dans plusieurs wilayas dès le troisième trimestre 2026. L'opérateur promet des débits jusqu'à 1 Gbps et une latence réduite pour les usages professionnels...</p>
+    <div class="demo-actions">
+      <button class="btn primary" onclick="demoTTS()">▶ Écouter</button>
+      <button class="btn info" onclick="demoSynthese()">Synthèse IA</button>
+      <button class="btn ghost" onclick="demoLite()">Version légère</button>
+      <button class="btn ghost" onclick="window.print()">Imprimer</button>
+    </div>
+  </div>
+
+  <div class="demo-article">
+    <h1>Baromètre TIC : le marché mobile en hausse de 8 %</h1>
+    <div class="meta">Publié le 10 juillet 2026 — Baromètre</div>
+    <p>Les données du premier semestre 2026 révèlent une croissance soutenue du secteur des télécommunications en Algérie. Mobilis conserve sa place de leader avec 48 % de parts de marché...</p>
+  </div>
+</main>
+
+<!-- Toast container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- Transcript -->
+<div class="transcript-bar" id="transcriptBar">
+  <span class="mic-icon"></span>
+  <span id="transcriptText">En attente...</span>
+</div>
+
+<!-- Suggestions -->
+<div class="suggestions" id="suggestions"></div>
+
+<!-- Wake-word toggle -->
+<div class="wake-toggle" id="wakeToggle" onclick="toggleWakeWord()">
+  <span class="check" id="wakeCheck">✓</span>
+  <span>Wake-word «&nbsp;ok tech&nbsp;»</span>
+</div>
+
+<!-- Mute toggle -->
+<div class="mute-toggle" id="muteToggle" onclick="toggleMute()">
+  <span class="check" id="muteCheck">✓</span>
+  <span>TTS feedback</span>
+</div>
+
+<!-- Micro button -->
+<div class="mic-wrapper">
+  <button class="mic-btn" id="micBtn" onclick="toggleMic()" aria-label="Activer le micro">
+    <div class="mic-ring"><canvas id="vizCanvas" width="160" height="160"></canvas></div>
+    <svg id="micIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+  </button>
+  <button class="help-toggle" onclick="openHelp()" aria-label="Aide">?</button>
+</div>
+
+<!-- Help Panel -->
+<div class="help-panel" id="helpPanel">
+  <div class="help-card">
+    <div class="help-header">
+      <h2>🎙️ Commandes vocales — Algeria Tech</h2>
+      <button class="help-close" onclick="closeHelp()">×</button>
+    </div>
+    <div class="help-body">
+      <div class="help-grid" id="helpGrid"></div>
+    </div>
+    <div class="help-footer">
+      Algeria Tech Voice v1.0 — Reconnaissance : Annyang.js + Web Speech API — TTS natif
+    </div>
+  </div>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   ALGERIA TECH VOICE — Mega Assistant (at-voice.html)
+   Scope C : ~120+ commandes + TTS feedback + wake-word
+   + aide vocale + visualizer audio
+   ═══════════════════════════════════════════════════════ */
+
+(function() {
+  'use strict';
+
+  /* ─── State ─── */
+  const state = {
+    listening: false,
+    wakeEnabled: false,
+    muted: false,          // TTS feedback muted
+    sleepTimer: null,
+    lastCmd: null,
+    lastAction: null,
+    lang: 'fr-FR',
+    wakeListening: false,  // continuous listening for wake-word
+    audioCtx: null,
+    analyser: null,
+    micStream: null,
+    animationId: null,
+    ttsQueue: [],
+    isSpeaking: false,
+    onArticlePage: true,   // demo assumes article open
+    onHomePage: false,
+  };
+
+  /* ─── DOM refs ─── */
+  const $ = id => document.getElementById(id);
+  const micBtn = $('micBtn');
+  const micIcon = $('micIcon');
+  const statusLed = $('statusLed');
+  const statusText = $('statusText');
+  const transcriptBar = $('transcriptBar');
+  const transcriptText = $('transcriptText');
+  const toastContainer = $('toastContainer');
+  const suggestions = $('suggestions');
+  const wakeToggle = $('wakeToggle');
+  const wakeCheck = $('wakeCheck');
+  const muteToggle = $('muteToggle');
+  const muteCheck = $('muteCheck');
+  const helpPanel = $('helpPanel');
+  const helpGrid = $('helpGrid');
+  const vizCanvas = $('vizCanvas');
+  const ctx = vizCanvas.getContext('2d');
+
+  /* ─── TTS ─── */
+  function speak(text, priority=false) {
+    if (state.muted || !window.speechSynthesis) return;
+    if (!text) return;
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = state.lang;
+    utter.rate = 1.05; utter.pitch = 1.0;
+    const voices = speechSynthesis.getVoices();
+    const fr = voices.find(v => v.lang.includes('fr'));
+    const en = voices.find(v => v.lang.includes('en'));
+    const ar = voices.find(v => v.lang.includes('ar'));
+    if (state.lang === 'fr-FR' && fr) utter.voice = fr;
+    if (state.lang === 'en-US' && en) utter.voice = en;
+    if (state.lang === 'ar-SA' && ar) utter.voice = ar;
+    utter.onstart = () => { state.isSpeaking = true; };
+    utter.onend = () => { state.isSpeaking = false; };
+    if (priority) { speechSynthesis.cancel(); speechSynthesis.speak(utter); }
+    else { speechSynthesis.speak(utter); }
+  }
+  function speakAction(text) { speak(text, true); }
+  function speakToast(title, sub) { speakAction(title + '. ' + (sub||'')); }
+
+  /* ─── Toast ─── */
+  function toast(title, sub='', type='accent') {
+    const el = document.createElement('div');
+    el.className = 'toast';
+    if (type==='danger') el.style.borderLeftColor='var(--danger)';
+    if (type==='warning') el.style.borderLeftColor='var(--warning)';
+    if (type==='info') el.style.borderLeftColor='var(--info)';
+    el.innerHTML = `<div class="title">${title}</div>${sub?`<div class="sub">${sub}</div>`:''}`;
+    toastContainer.appendChild(el);
+    speakToast(title, sub);
+    setTimeout(() => { el.classList.add('out'); setTimeout(()=>el.remove(), 350); }, 4000);
+  }
+
+  /* ─── Status ─── */
+  function setStatus(text, mode='off') {
+    statusText.textContent = text;
+    statusLed.className = 'led' + (mode==='on'?' on':'') + (mode==='sleep'?' sleep':'');
+  }
+
+  /* ─── Transcript ─── */
+  function showTranscript(text) {
+    transcriptText.textContent = text;
+    transcriptBar.classList.add('visible');
+  }
+  function hideTranscript(delay=2600) {
+    clearTimeout(state._hideTimer);
+    state._hideTimer = setTimeout(()=>transcriptBar.classList.remove('visible'), delay);
+  }
+
+  /* ─── Suggestions ─── */
+  function updateSuggestions() {
+    const pills = [];
+    if (state.onArticlePage) {
+      pills.push('Écoute article','Synthèse','Débattre','Version légère','Article suivant','Imprimer');
+    } else if (state.onHomePage) {
+      pills.push('Catégorie mobile','Revue de presse','Baromètre','Ooredoo','Samsung');
+    } else {
+      pills.push('Accueil','Catégorie IA','Recherche','Mode nuit','Aide');
+    }
+    suggestions.innerHTML = pills.map(p => `<span class="pill" onclick="simulateVoice('${p}')">${p}</span>`).join('');
+  }
+  window.simulateVoice = phrase => { processCommand(phrase); };
+  updateSuggestions();
+
+  /* ─── Visualizer (Audio Analyser) ─── */
+  async function startVisualizer() {
+    try {
+      if (!state.audioCtx) state.audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+      if (state.micStream) return;
+      state.micStream = await navigator.mediaDevices.getUserMedia({audio:true});
+      const src = state.audioCtx.createMediaStreamSource(state.micStream);
+      state.analyser = state.audioCtx.createAnalyser();
+      state.analyser.fftSize = 256;
+      src.connect(state.analyser);
+      drawVisualizer();
+    } catch(e) { console.warn('Visualizer:', e.message); }
+  }
+  function stopVisualizer() {
+    if (state.animationId) cancelAnimationFrame(state.animationId);
+    if (state.micStream) { state.micStream.getTracks().forEach(t=>t.stop()); state.micStream=null; }
+    ctx.clearRect(0,0,vizCanvas.width,vizCanvas.height);
+  }
+  function drawVisualizer() {
+    if (!state.analyser) return;
+    const data = new Uint8Array(state.analyser.frequencyBinCount);
+    state.analyser.getByteFrequencyData(data);
+    const w = vizCanvas.width, h = vizCanvas.height;
+    ctx.clearRect(0,0,w,h);
+    const cx=w/2, cy=h/2, rBase=48;
+    const bars = 60, step = (Math.PI*2)/bars;
+    for (let i=0;i<bars;i++) {
+      const val = data[i % data.length] / 255;
+      const r = rBase + val * 28;
+      const a = i * step - Math.PI/2;
+      const x1 = cx + Math.cos(a)*rBase;
+      const y1 = cy + Math.sin(a)*rBase;
+      const x2 = cx + Math.cos(a)*r;
+      const y2 = cy + Math.sin(a)*r;
+      ctx.beginPath();
+      ctx.moveTo(x1,y1); ctx.lineTo(x2,y2);
+      ctx.strokeStyle = state.listening ? `rgba(239,68,68,${0.3+val*0.7})` : `rgba(16,185,129,${0.2+val*0.6})`;
+      ctx.lineWidth = 3; ctx.lineCap='round'; ctx.stroke();
+    }
+    state.animationId = requestAnimationFrame(drawVisualizer);
+  }
+
+  /* ─── Wake-word logic ─── */
+  function toggleWakeWord() {
+    state.wakeEnabled = !state.wakeEnabled;
+    wakeToggle.classList.toggle('active', state.wakeEnabled);
+    wakeCheck.style.opacity = state.wakeEnabled ? '1' : '0';
+    if (state.wakeEnabled) { toast('Wake-word activé', 'Dites « ok tech » puis votre commande'); startWakeListening(); }
+    else { stopWakeListening(); toast('Wake-word désactivé'); }
+  }
+  let wakeRecognition = null;
+  function startWakeListening() {
+    if (!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) return;
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    wakeRecognition = new SR();
+    wakeRecognition.continuous = true; wakeRecognition.interimResults = true; wakeRecognition.lang = state.lang;
+    wakeRecognition.onresult = e => {
+      const transcript = Array.from(e.results).map(r=>r[0].transcript).join('').toLowerCase();
+      if (transcript.includes('ok tech') || transcript.includes('oktek') || transcript.includes('ok ta')) {
+        if (!state.listening) { activateCommandMode(); }
+      }
+    };
+    wakeRecognition.onerror = () => { if (state.wakeEnabled) setTimeout(startWakeListening, 600); };
+    wakeRecognition.onend = () => { if (state.wakeEnabled) setTimeout(startWakeListening, 300); };
+    wakeRecognition.start();
+  }
+  function stopWakeListening() { if (wakeRecognition) { wakeRecognition.stop(); wakeRecognition=null; } }
+
+  /* ─── Mic toggle ─── */
+  function toggleMic() {
+    if (state.listening) { stopListening(); }
+    else { startListening(); }
+  }
+  window.toggleMic = toggleMic;
+
+  function startListening() {
+    if (!annyang) { toast('Reconnaissance vocale non supportée', 'Utilisez Chrome / Edge','danger'); return; }
+    annyang.setLanguage(state.lang);
+    annyang.start({autoRestart:true, continuous:false});
+    state.listening = true;
+    micBtn.classList.add('listening'); micBtn.classList.remove('wakeword');
+    setStatus('🎙️ J\'écoute...', 'on');
+    showTranscript('Parlez maintenant...');
+    startVisualizer();
+  }
+  function stopListening() {
+    if (annyang) annyang.abort();
+    state.listening = false;
+    micBtn.classList.remove('listening');
+    setStatus('Micro inactif');
+    hideTranscript(0);
+    stopVisualizer();
+  }
+  function activateCommandMode() {
+    micBtn.classList.add('wakeword'); micBtn.classList.remove('listening');
+    showTranscript('Wake-word détecté — commande ?');
+    speakAction('Je vous écoute');
+    setTimeout(() => startListening(), 1200);
+  }
+
+  /* ─── TTS mute toggle ─── */
+  function toggleMute() {
+    state.muted = !state.muted;
+    muteToggle.classList.toggle('active', state.muted);
+    muteCheck.style.opacity = state.muted ? '1' : '0';
+    toast(state.muted ? 'TTS feedback coupé' : 'TTS feedback activé');
+  }
+  window.toggleMute = toggleMute;
+
+  /* ─── Helpers ─── */
+  function slugify(str) { return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,''); }
+  function go(url) { window.location.href = url; }
+  function search(query) { go('/?s=' + encodeURIComponent(query)); }
+  function cat(slug) { go('/categorie/' + slug); }
+  function brand(q) { search(q); }
+  function scrollToTop() { window.scrollTo({top:0,behavior:'smooth'}); }
+  function scrollToBottom() { window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'}); }
+  function scrollByY(y) { window.scrollBy({top:y,behavior:'smooth'}); }
+  function setTheme(t) { document.body.setAttribute('data-theme', t); localStorage.setItem('at-theme', t); }
+  function getTheme() { return localStorage.getItem('at-theme') || 'dark'; }
+  setTheme(getTheme());
+
+  /* ─── Demo functions (simulate existing site functions) ─── */
+  window.premiumTogglePlayer = () => toast('▶ Lecture TTS lancée', 'Player premium actif');
+  window.loadSynthese = () => toast('Synthèse IA générée', 'Résumé en 3 paragraphes');
+  window.openDebat = () => toast('Débat IA ouvert', 'Posez votre question');
+  window.addToReadLater = () => toast('Article sauvegardé', 'Ajouté à votre liste de lecture');
+  window.shareArticle = () => { if(navigator.share) navigator.share({title:'Article',url:location.href}); else toast('Partage', 'Menu de partage ouvert'); };
+  function liteVersion() { toast('Version légère', 'Chargement...'); }
+  function demoTTS() { premiumTogglePlayer(); }
+  function demoSynthese() { loadSynthese(); }
+  function demoLite() { liteVersion(); }
+
+  /* ─── Command processor (manual fallback) ─── */
+  function processCommand(raw) {
+    const txt = raw.toLowerCase().trim(); if (!txt) return;
+    showTranscript('« ' + raw + ' »');
+    state.lastCmd = txt;
+
+    /* ── Aide ── */
+    if (/(aide|commandes|que peux-tu faire|quelles sont mes commandes)/.test(txt)) { openHelp(); speakAction('Voici le panneau d\'aide'); toast('Aide ouverte', '130 commandes disponibles'); return; }
+    if (/version/.test(txt)) { toast('Algeria Tech Voice v1.0'); speakAction('Version 1 point 0'); return; }
+
+    /* ── Wake word ── */
+    if (/(ok tech|oktek)/.test(txt) && !state.listening) { activateCommandMode(); return; }
+
+    /* ── Stop / Pause ── */
+    if (/(stop|arrête|coupe|silence|mute)/.test(txt)) {
+      speechSynthesis.cancel(); stopListening(); toast('Arrêt'); speakAction('Arrêt'); return;
+    }
+    if (/(pause|pause article|pause lecture)/.test(txt)) { speechSynthesis.pause(); toast('Pause'); return; }
+    if (/(reprend|continue|play)/.test(txt)) { speechSynthesis.resume(); toast('Reprise'); return; }
+
+    /* ── Accueil / Marque ── */
+    if (/(accueil|algeria tech|retour accueil|home)/.test(txt)) { go('/'); toast('Accueil'); return; }
+
+    /* ── Catégories ── */
+    const cats = [
+      ['algerie','algérie'], ['telecoms','télécoms','telecom'], ['mobile','mobiles'], ['startups','startup'],
+      ['ia','intelligence artificielle','ai'], ['fintech','finance'], ['innovation'], ['internationale','international'],
+      ['entreprises','entreprise'], ['video','vidéo','vidéos'], ['infographie','infographies'],
+      ['barometre','baromètre'], ['veille'], ['operateurs','opérateurs'], ['revue de presse','revue'],
+      ['wiki','wiki algérie'], ['autotech','auto tech'], ['tutoriel','tutoriels']
+    ];
+    for (const c of cats) {
+      const re = new RegExp('catégorie ('+c.join('|')+')|('+c.join('|')+')');
+      if (re.test(txt)) { cat(slugify(c[0])); toast('Catégorie : '+c[0]); speakAction('Catégorie '+c[0]); return; }
+    }
+    if (/catégorie/.test(txt)) { toast('Catégories disponibles', 'Algérie, Télécoms, Mobile, Startups, IA, Fintech, Innovation, Internationale, Entreprises, Vidéo, Infographies, Baromètre, Veille, Opérateurs, Revue de presse, Wiki, AutoTech, Tutoriel'); return; }
+
+    /* ── Recherche ── */
+    const mSearch = txt.match(/(ouvre|cherche|trouve|voir|article sur|tous les articles)\s+(.+)/);
+    if (mSearch) { search(mSearch[2]); toast('Recherche : '+mSearch[2]); speakAction('Recherche de '+mSearch[2]); return; }
+
+    /* ── Sections ── */
+    if (/(revue de presse|revue)/.test(txt)) { go('/revue-de-presse'); toast('Revue de presse'); return; }
+    if (/(veille|veille technologique)/.test(txt)) { go('/veille'); toast('Veille'); return; }
+    if (/(operateurs|opérateurs)/.test(txt)) { go('/operateurs'); toast('Opérateurs'); return; }
+    if (/(barometre|baromètre)/.test(txt)) { go('/barometre'); toast('Baromètre'); return; }
+    if (/(wiki)/.test(txt)) { go('/wiki'); toast('Wiki'); return; }
+
+    /* ── Langues ── */
+    if (/(français|francais|mode français)/.test(txt)) { state.lang='fr-FR'; annyang&&annyang.setLanguage('fr-FR'); toast('Langue : français'); speakAction('Français'); return; }
+    if (/(anglais|english|mode anglais)/.test(txt)) { state.lang='en-US'; annyang&&annyang.setLanguage('en-US'); toast('Langue : anglais'); speakAction('English'); return; }
+    if (/(arabe|عربية|mode arabe)/.test(txt)) { state.lang='ar-SA'; annyang&&annyang.setLanguage('ar-SA'); toast('Langue : arabe'); speakAction('Arabe'); return; }
+    if (/traduis en arabe/.test(txt)) { toast('Traduction en arabe'); return; }
+    if (/traduis en français/.test(txt)) { toast('Traduction en français'); return; }
+    if (/traduis en anglais/.test(txt)) { toast('Traduction en anglais'); return; }
+
+    /* ── Thème ── */
+    if (/(mode nuit|nuit|dark)/.test(txt)) { setTheme('dark'); toast('Mode nuit'); speakAction('Mode nuit'); return; }
+    if (/(mode jour|jour|light|clair)/.test(txt)) { setTheme('light'); toast('Mode jour'); speakAction('Mode jour'); return; }
+    if (/(sepia|mode sépia)/.test(txt)) { document.body.style.filter='sepia(0.35)'; toast('Mode sépia'); return; }
+    if (/(contraste|contraste élevé)/.test(txt)) { document.body.style.filter='contrast(1.25)'; toast('Contraste élevé'); return; }
+    if (/dyslexie/.test(txt)) { document.body.style.fontFamily='"OpenDyslexic", "Comic Sans MS", sans-serif'; toast('Preset dyslexie'); return; }
+    if (/réinitialiser/.test(txt)) { document.body.style.filter=''; document.body.style.fontFamily=''; toast('Réinitialisation'); return; }
+
+    /* ── Actions article ── */
+    if (/(écoute article|lis l'article|lecture article)/.test(txt)) { premiumTogglePlayer(); speakAction('Lecture article'); return; }
+    if (/(arrête écoute|stop lecture)/.test(txt)) { speechSynthesis.cancel(); toast('Lecture arrêtée'); return; }
+    if (/(plus vite|accélère)/.test(txt)) { toast('Vitesse +', 'Lecture accélérée'); return; }
+    if (/(mollo|ralentis|ralentir)/.test(txt)) { toast('Vitesse -', 'Lecture ralentie'); return; }
+    if (/(synthèse|synthese)/.test(txt)) { loadSynthese(); speakAction('Synthèse générée'); return; }
+    if (/(débattre|débat|débatte)/.test(txt)) { openDebat(); speakAction('Débat ouvert'); return; }
+    if (/(version légère|lite|version lite)/.test(txt)) { liteVersion(); toast('Version légère'); return; }
+    if (/imprimer/.test(txt)) { window.print(); toast('Impression'); return; }
+    if (/(sauvegarde|sauvegarder)/.test(txt)) { addToReadLater(); speakAction('Article sauvegardé'); return; }
+    if (/(partage|partager)/.test(txt)) { shareArticle(); speakAction('Partage'); return; }
+    if (/article suivant/.test(txt)) { toast('Article suivant'); return; }
+    if (/article précédent/.test(txt)) { toast('Article précédent'); return; }
+    if (/ouvre le premier article/.test(txt)) { toast('Premier article'); return; }
+    if (/ouvre le dernier article/.test(txt)) { toast('Dernier article'); return; }
+    const mNum = txt.match(/article num[eé]ro (\d+)/);
+    if (mNum) { toast('Article numéro '+mNum[1]); return; }
+    if (/lis les titres/.test(txt)) { toast('Lecture des titres'); speakAction('Titres des articles'); return; }
+    if (/résume cette page/.test(txt)) { toast('Résumé de la page'); loadSynthese(); return; }
+    if (/(trier par date|tri date)/.test(txt)) { toast('Tri par date'); return; }
+    if (/(trier par popularité|tri popularité)/.test(txt)) { toast('Tri par popularité'); return; }
+
+    /* ── Outils / Préférences ── */
+    if (/(ouvre les préférences|paramètres|préférences)/.test(txt)) { toast('Préférences ouvertes'); return; }
+    if (/(mode focus|focus)/.test(txt)) { toast('Mode focus'); document.body.style.filter='brightness(1.05)'; return; }
+    if (/(taille de police \+|police \+|agrandis)/.test(txt)) { document.documentElement.style.fontSize='1.15rem'; toast('Police +'); return; }
+    if (/(taille de police -|police -|réduis)/.test(txt)) { document.documentElement.style.fontSize='0.95rem'; toast('Police -'); return; }
+    if (/(interligne \+|a[eè]re)/.test(txt)) { document.body.style.lineHeight='1.9'; toast('Interligne +'); return; }
+    if (/(réduis les animations|arrête le mouvement)/.test(txt)) { document.body.style.setProperty('animation','none','important'); toast('Animations réduites'); return; }
+    if (/(images off|cache les images|masquer images)/.test(txt)) { document.body.classList.add('hide-images'); toast('Images masquées'); return; }
+    if (/(plein écran|mode lecture|fullscreen)/.test(txt)) { if(document.documentElement.requestFullscreen)document.documentElement.requestFullscreen(); toast('Plein écran'); return; }
+    if (/remets le son/.test(txt)) { toast('Son réactivé'); return; }
+
+    /* ── Pages / Hub ── */
+    if (/(ouvre le hub|ouvre le menu explorer|hub)/.test(txt)) { go('/hub'); toast('Hub explorateur'); return; }
+    if (/(comparateur mobile|comparateur smartphones|comparateur)/.test(txt)) { go('/comparateur-mobile'); toast('Comparateur mobile'); return; }
+    if (/infographies/.test(txt)) { go('/infographies'); toast('Infographies'); return; }
+    if (/(ae tech|auto entrepreneur|guide auto-entrepreneur)/.test(txt)) { go('/guide-auto-entrepreneur'); toast('Guide Auto-Entrepreneur'); return; }
+    if (/(cv tech|génère un cv)/.test(txt)) { go('/cv-tech'); toast('CV Tech'); return; }
+    if (/(actualités tic|réseaux sociaux)/.test(txt)) { go('/actualites-tic'); toast('Actualités TIC'); return; }
+    if (/(studio|ouvre le studio)/.test(txt)) { go('/studio'); toast('Studio'); return; }
+    if (/simulateur fiscal/.test(txt)) { go('/simulateur-fiscal'); toast('Simulateur fiscal'); return; }
+    if (/(lexique|glossaire|jargon)/.test(txt)) { go('/lexique'); toast('Lexique'); return; }
+    if (/comparateur de prix/.test(txt)) { go('/comparateur-prix'); toast('Comparateur de prix'); return; }
+    if (/(algerie telecom|algérie télécom)/.test(txt)) { go('/categorie/algerie-telecom'); toast('Algérie Télécom'); return; }
+
+    /* ── Réseaux sociaux ── */
+    if (/(facebook|notre facebook)/.test(txt)) { go('https://facebook.com/algeriatech'); toast('Facebook'); speakAction('Facebook'); return; }
+    if (/(youtube|chaîne youtube)/.test(txt)) { go('https://youtube.com/@algeriatech'); toast('YouTube'); speakAction('YouTube'); return; }
+    if (/linkedin/.test(txt)) { go('https://linkedin.com/company/algeriatech'); toast('LinkedIn'); speakAction('LinkedIn'); return; }
+    if (/(twitter|x)/.test(txt)) { go('https://x.com/algeriatech'); toast('X / Twitter'); speakAction('X'); return; }
+    if (/(whatsapp|contact whatsapp)/.test(txt)) { go('https://wa.me/213xxxxxxxx'); toast('WhatsApp'); return; }
+    if (/instagram/.test(txt)) { go('https://instagram.com/algeriatech'); toast('Instagram'); speakAction('Instagram'); return; }
+
+    /* ── Marques / Entreprises ── */
+    const brands = ['ooredoo','mobilis','djezzy','algérie télécom','algerie telecom','huawei','samsung','apple','nvidia','amd','starlink','meta','google','microsoft'];
+    for (const b of brands) { if (txt.includes(b)) { brand(b); toast('Marque : '+b); speakAction('Recherche '+b); return; } }
+
+    /* ── Navigation ── */
+    if (/(haut de page|remonte|top)/.test(txt)) { scrollToTop(); toast('Haut de page'); return; }
+    if (/(bas de page|descends|bottom)/.test(txt)) { scrollToBottom(); toast('Bas de page'); return; }
+    if (/scrolle vers le haut/.test(txt)) { scrollByY(-500); toast('Scroll haut'); return; }
+    if (/scrolle vers le bas/.test(txt)) { scrollByY(500); toast('Scroll bas'); return; }
+    if (/page suivante/.test(txt)) { toast('Page suivante'); return; }
+    if (/page précédente/.test(txt)) { toast('Page précédente'); return; }
+    if (/(recharge|rafraîchis|f5)/.test(txt)) { location.reload(); toast('Actualisation'); return; }
+    if (/(retour|page précédente du navigateur)/.test(txt)) { history.back(); toast('Retour'); return; }
+    if (/(menu|hamburger)/.test(txt)) { toast('Menu ouvert'); return; }
+    if (/(ferme|ferme le panneau|ferme la modale)/.test(txt)) { closeHelp(); toast('Fermeture'); return; }
+    if (/(ouvre la recherche)/.test(txt)) { toast('Recherche ouverte'); return; }
+    if (/(ferme la recherche)/.test(txt)) { toast('Recherche fermée'); return; }
+
+    /* ── Avancées ── */
+    if (/(réveille toi|réveille-toi)/.test(txt)) { toast('Je suis là', 'Assistant réactivé'); speakAction('Je suis là'); return; }
+    if (/(endors toi|endors-toi)/.test(txt)) { toast('Bonne nuit', 'Sleep timer 10 min'); speakAction('Bonne nuit'); setTimeout(()=>stopListening(),60000); return; }
+    if (/(répète|repete)/.test(txt)) { if(state.lastCmd){processCommand(state.lastCmd);} else {toast('Rien à répéter');} return; }
+    if (/(annule|retour arrière)/.test(txt)) { toast('Action annulée'); return; }
+    if (/(mute|couper le son)/.test(txt)) { state.muted=true; muteToggle.classList.add('active'); muteCheck.style.opacity='1'; toast('Son coupé'); return; }
+
+    /* ── Fallback ── */
+    toast('Commande non reconnue', 'Essayez « aide » pour la liste','warning');
+    speakAction('Commande non reconnue');
+  }
+
+  /* ─── Annyang commands ─── */
+  if (window.annyang) {
+    const commands = {};
+    const add = (phrases, fn) => { phrases.forEach(p => commands[p]=fn); };
+
+    add(['accueil','algeria tech','retour accueil'], ()=>processCommand('accueil'));
+    add(['aide','commandes','que peux-tu faire','quelles sont mes commandes'], ()=>processCommand('aide'));
+    add(['version'], ()=>processCommand('version'));
+    add(['stop','arrête','coupe','silence'], ()=>processCommand('stop'));
+    add(['pause','pause article'], ()=>processCommand('pause'));
+    add(['reprend','continue'], ()=>processCommand('reprend'));
+    add(['mode nuit','nuit'], ()=>processCommand('nuit'));
+    add(['mode jour','jour'], ()=>processCommand('jour'));
+    add(['français','mode français'], ()=>processCommand('français'));
+    add(['anglais','mode anglais'], ()=>processCommand('anglais'));
+    add(['arabe','mode arabe'], ()=>processCommand('arabe'));
+    add(['ok tech','oktek'], ()=>processCommand('ok tech'));
+    add(['écoute article','lis l\'article'], ()=>processCommand('écoute article'));
+    add(['synthèse','synthese'], ()=>processCommand('synthèse'));
+    add(['débattre','débat'], ()=>processCommand('débattre'));
+    add(['version légère','lite'], ()=>processCommand('version légère'));
+    add(['imprimer'], ()=>processCommand('imprimer'));
+    add(['sauvegarde','sauvegarder article'], ()=>processCommand('sauvegarde'));
+    add(['partage','partager'], ()=>processCommand('partage'));
+    add(['article suivant'], ()=>processCommand('article suivant'));
+    add(['article précédent'], ()=>processCommand('article précédent'));
+    add(['haut de page','remonte'], ()=>processCommand('haut de page'));
+    add(['bas de page','descends'], ()=>processCommand('bas de page'));
+    add(['recharge','rafraîchis'], ()=>processCommand('recharge'));
+    add(['retour'], ()=>processCommand('retour'));
+    add(['menu','hamburger'], ()=>processCommand('menu'));
+    add(['ferme','ferme le panneau'], ()=>processCommand('ferme'));
+    add(['ouvre la recherche'], ()=>processCommand('ouvre la recherche'));
+    add(['ferme la recherche'], ()=>processCommand('ferme la recherche'));
+    add(['facebook','notre facebook'], ()=>processCommand('facebook'));
+    add(['youtube','chaîne youtube'], ()=>processCommand('youtube'));
+    add(['linkedin'], ()=>processCommand('linkedin'));
+    add(['twitter','x'], ()=>processCommand('twitter'));
+    add(['whatsapp','contact whatsapp'], ()=>processCommand('whatsapp'));
+    add(['instagram'], ()=>processCommand('instagram'));
+    add(['réveille toi','réveille-toi'], ()=>processCommand('réveille toi'));
+    add(['endors toi','endors-toi'], ()=>processCommand('endors toi'));
+    add(['répète'], ()=>processCommand('répète'));
+    add(['annule','retour arrière'], ()=>processCommand('annule'));
+    add(['comparateur','comparateur mobile'], ()=>processCommand('comparateur mobile'));
+    add(['infographies'], ()=>processCommand('infographies'));
+    add(['ae tech','auto entrepreneur'], ()=>processCommand('ae tech'));
+    add(['cv tech','génère un cv'], ()=>processCommand('cv tech'));
+    add(['actualités tic','réseaux sociaux'], ()=>processCommand('actualités tic'));
+    add(['studio','ouvre le studio'], ()=>processCommand('studio'));
+    add(['simulateur fiscal'], ()=>processCommand('simulateur fiscal'));
+    add(['lexique','glossaire'], ()=>processCommand('lexique'));
+    add(['wiki'], ()=>processCommand('wiki'));
+    add(['algerie telecom','algérie télécom'], ()=>processCommand('algerie telecom'));
+    add(['comparateur de prix'], ()=>processCommand('comparateur de prix'));
+    add(['ouvre le hub','hub'], ()=>processCommand('hub'));
+    add(['revue de presse'], ()=>processCommand('revue de presse'));
+    add(['veille'], ()=>processCommand('veille'));
+    add(['operateurs','opérateurs'], ()=>processCommand('opérateurs'));
+    add(['barometre','baromètre'], ()=>processCommand('barometre'));
+    add(['mode focus','focus'], ()=>processCommand('mode focus'));
+    add(['plein écran','mode lecture'], ()=>processCommand('plein écran'));
+    add(['paramètres','préférences'], ()=>processCommand('paramètres'));
+    add(['sepia','mode sépia'], ()=>processCommand('sepia'));
+    add(['contraste','contraste élevé'], ()=>processCommand('contraste'));
+    add(['dyslexie'], ()=>processCommand('dyslexie'));
+    add(['réduis les animations'], ()=>processCommand('réduis les animations'));
+    add(['images off','cache les images'], ()=>processCommand('images off'));
+    add(['réinitialiser'], ()=>processCommand('réinitialiser'));
+    add(['remets le son'], ()=>processCommand('remets le son'));
+    add(['traduis en arabe'], ()=>processCommand('traduis en arabe'));
+    add(['traduis en français'], ()=>processCommand('traduis en français'));
+    add(['traduis en anglais'], ()=>processCommand('traduis en anglais'));
+    add(['lis les titres'], ()=>processCommand('lis les titres'));
+    add(['résume cette page'], ()=>processCommand('résume cette page'));
+    add(['trier par date'], ()=>processCommand('trier par date'));
+    add(['trier par popularité'], ()=>processCommand('trier par popularité'));
+    add(['ouvre le premier article'], ()=>processCommand('ouvre le premier article'));
+    add(['ouvre le dernier article'], ()=>processCommand('ouvre le dernier article'));
+    add(['plus vite','accélère'], ()=>processCommand('plus vite'));
+    add(['mollo','ralentis'], ()=>processCommand('mollo'));
+    add(['scrolle vers le haut'], ()=>processCommand('scrolle vers le haut'));
+    add(['scrolle vers le bas'], ()=>processCommand('scrolle vers le bas'));
+    add(['page suivante'], ()=>processCommand('page suivante'));
+    add(['page précédente'], ()=>processCommand('page précédente'));
+    add(['taille de police +','police +','agrandis'], ()=>processCommand('taille de police +'));
+    add(['taille de police -','police -','réduis'], ()=>processCommand('taille de police -'));
+    add(['interligne +','aère'], ()=>processCommand('interligne +'));
+    add(['mute','couper le son'], ()=>processCommand('mute'));
+
+    /* catégories */
+    add(['catégorie algérie','algérie'], ()=>processCommand('catégorie algérie'));
+    add(['catégorie télécoms','télécoms'], ()=>processCommand('catégorie télécoms'));
+    add(['catégorie mobile'], ()=>processCommand('catégorie mobile'));
+    add(['catégorie startups'], ()=>processCommand('catégorie startups'));
+    add(['catégorie ia','catégorie intelligence artificielle'], ()=>processCommand('catégorie ia'));
+    add(['catégorie fintech'], ()=>processCommand('catégorie fintech'));
+    add(['catégorie innovation'], ()=>processCommand('catégorie innovation'));
+    add(['catégorie internationale'], ()=>processCommand('catégorie internationale'));
+    add(['catégorie entreprises'], ()=>processCommand('catégorie entreprises'));
+    add(['catégorie vidéo'], ()=>processCommand('catégorie vidéo'));
+    add(['catégorie infographies'], ()=>processCommand('catégorie infographies'));
+    add(['catégorie baromètre'], ()=>processCommand('catégorie baromètre'));
+    add(['catégorie veille'], ()=>processCommand('catégorie veille'));
+    add(['catégorie opérateurs'], ()=>processCommand('catégorie opérateurs'));
+    add(['catégorie revue de presse'], ()=>processCommand('catégorie revue de presse'));
+    add(['catégorie wiki'], ()=>processCommand('catégorie wiki'));
+    add(['catégorie autotech'], ()=>processCommand('catégorie autotech'));
+    add(['catégorie tutoriel'], ()=>processCommand('catégorie tutoriel'));
+
+    /* marques */
+    add(['Ooredoo'], ()=>processCommand('ooredoo'));
+    add(['Mobilis'], ()=>processCommand('mobilis'));
+    add(['Djezzy'], ()=>processCommand('djezzy'));
+    add(['Huawei'], ()=>processCommand('huawei'));
+    add(['Samsung'], ()=>processCommand('samsung'));
+    add(['Apple'], ()=>processCommand('apple'));
+    add(['NVIDIA'], ()=>processCommand('nvidia'));
+    add(['AMD'], ()=>processCommand('amd'));
+    add(['Starlink'], ()=>processCommand('starlink'));
+    add(['Meta'], ()=>processCommand('meta'));
+    add(['Google'], ()=>processCommand('google'));
+    add(['Microsoft'], ()=>processCommand('microsoft'));
+
+    /* recherche variable */
+    const qPatterns = ['ouvre *q','cherche *q','trouve *q','voir *q','article sur *q','tous les articles *q'];
+    qPatterns.forEach(p => { commands[p] = q => processCommand('cherche ' + q); });
+    commands['article numéro *n'] = n => processCommand('article numéro ' + n);
+
+    annyang.addCommands(commands);
+    annyang.addCallback('result', (phrases)=>{ showTranscript('« '+phrases[0]+' »'); });
+    annyang.addCallback('end', ()=>{ if(!state.wakeEnabled) stopListening(); });
+  }
+
+  /* ─── Help panel ─── */
+  function openHelp() { helpPanel.classList.add('open'); renderHelp(); }
+  function closeHelp() { helpPanel.classList.remove('open'); }
+  window.openHelp = openHelp; window.closeHelp = closeHelp;
+
+  function renderHelp() {
+    const sections = [
+      {t:'Navigation', items:['Accueil','Catégorie [nom]','Revue de presse','Veille','Opérateurs','Baromètre','Wiki','Hub','Page suivante / précédente']},
+      {t:'Recherche', items:['Cherche [terme]','Ouvre [terme]','Article sur [terme]','Marque : Ooredoo, Mobilis, Djezzy, Huawei, Samsung, Apple, NVIDIA, AMD, Starlink, Meta, Google, Microsoft']},
+      {t:'Article ouvert', items:['Écoute article','Pause / Reprend','Plus vite / Mollo','Synthèse','Débattre','Version légère','Imprimer','Sauvegarder','Partager','Article suivant / précédent','Article numéro N']},
+      {t:'Outils & Accessibilité', items:['Mode focus','Police + / -','Interligne +','Sépia / Contraste / Dyslexie','Réduis animations','Images off','Plein écran','Réinitialiser']},
+      {t:'Pages & Hub', items:['Comparateur mobile','Infographies','AE Tech / Guide auto-entrepreneur','CV Tech','Actualités TIC','Studio','Simulateur fiscal','Lexique / Glossaire','Comparateur de prix']},
+      {t:'Réseaux sociaux', items:['Facebook','YouTube','LinkedIn','X / Twitter','WhatsApp','Instagram']},
+      {t:'Scroll & Navigation', items:['Haut de page / Bas de page','Scrolle vers le haut / bas','Recharge / Retour','Menu / Ferme / Ouvre recherche']},
+      {t:'Langues & Thème', items:['Français / Anglais / Arabe','Mode nuit / jour','Traduis en [langue]']},
+      {t:'Avancées', items:['Wake-word « ok tech »','Lis les titres','Résume cette page','Trier par date / popularité','Réveille-toi / Endors-toi','Répète / Annule','Mute']},
+      {t:'Aide', items:['Aide / Commandes / Que peux-tu faire','Version']},
+    ];
+    helpGrid.innerHTML = sections.map(s => `
+      <div class="help-section">
+        <h3>${s.t}</h3>
+        <ul>${s.items.map(i=>`<li>${i}</li>`).join('')}</ul>
+      </div>
+    `).join('');
+  }
+
+  /* ─── Keyboard shortcuts ─── */
+  document.addEventListener('keydown', e => {
+    if (e.key==='Escape') closeHelp();
+    if (e.key==='?' && !e.ctrlKey && !e.metaKey) { e.preventDefault(); openHelp(); }
+    if (e.code==='Space' && e.ctrlKey) { e.preventDefault(); toggleMic(); }
+  });
+
+  /* ─── Init voice list ─── */
+  if (speechSynthesis.onvoiceschanged !== undefined) {
+    speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices();
+  }
+  speechSynthesis.getVoices(); // preload
+
+  /* ─── Expose globals for demo integration ─── */
+  window.AT_VOICE = { state, processCommand, speak, toast, startListening, stopListening, toggleMic, toggleWakeWord, toggleMute };
+})();
+</script>
+</body>
+</html>

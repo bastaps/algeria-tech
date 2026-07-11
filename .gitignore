@@ -34,3 +34,14 @@ archives/*.json
 # --- SSG build outputs (générés par node build.js à chaque déploiement) ---
 /article/
 /sitemap.xml
+
+# --- Secrets & identifiants (NE JAMAIS pousser) ---
+client_secret.json
+get-youtube-token.js
+debug_cookies.py
+*cookies*.json
+*token*.json
+.env.template
+.env.*
+client_secret*.json
+credentials*.json

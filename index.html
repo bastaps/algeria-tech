@@ -49,6 +49,7 @@
     <!-- CSS critique chargé en priorité -->
     <link rel="preload" href="/style.css?v=7" as="style">
     <link rel="stylesheet" href="/style.css?v=7">
+    <link rel="stylesheet" href="/at-personnalisation.css?v=1">
 
     <!-- Font Awesome : async (non-bloquant) — icônes apparaissent après le contenu, évite les 7s de blocage CDN -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -129,15 +130,16 @@
                             <a class="at-badge at-badge--tool" href="/infographies/index.html" style="--chip:#f87171" data-i18n-ar="الإنفوغرافيك" data-i18n-en="Infographics"><i class="fas fa-chart-pie"></i>Infographies</a>
                             <a class="at-badge at-badge--tool" href="/ae-tech.html" style="--chip:#10b981" data-i18n-ar="دليل المقاول الذاتي" data-i18n-en="AE Guide"><i class="fas fa-briefcase"></i>AE Tech DZ</a>
                             <a class="at-badge at-badge--tool" href="/cv-generator-premium.html" style="--chip:#d4a017" data-i18n-ar="سيرة ذاتية تقنية" data-i18n-en="CV Tech"><i class="fas fa-file-alt"></i>CV Tech</a>
+                            <!-- Studio : visible uniquement sur l'installation locale (révélé par JS) -->
+                            <a class="at-badge at-badge--tool at-local-only" id="nav-studio" href="/studio" hidden style="--chip:#e7c66b;display:none" data-i18n-ar="الاستوديو" data-i18n-en="Studio"><i class="fas fa-layer-group"></i>Studio</a>
 
-                            <span class="at-hub-sep" aria-hidden="true"></span>
-
-                            <!-- Menu déroulant : le reste des catégories & outils -->
-                            <button type="button" id="exploreBtn" class="at-badge at-badge--explore" aria-haspopup="true" aria-expanded="false" aria-controls="exploreMenu" data-i18n-ar="استكشاف" data-i18n-en="Explore">
-                                <i class="fas fa-compass"></i>Explorer<i class="fas fa-chevron-down at-explore-caret" aria-hidden="true"></i>
-                                <span class="at-explore-live" aria-hidden="true"></span>
-                            </button>
                         </div>
+
+                        <!-- Menu déroulant épinglé hors du rail défilant : toujours visible -->
+                        <button type="button" id="exploreBtn" class="at-badge at-badge--explore" aria-haspopup="true" aria-expanded="false" aria-controls="exploreMenu" data-i18n-ar="استكشاف" data-i18n-en="Explore">
+                            <i class="fas fa-compass"></i>Explorer<i class="fas fa-chevron-down at-explore-caret" aria-hidden="true"></i>
+                            <span class="at-explore-live" aria-hidden="true"></span>
+                        </button>
                     </div>
                 </div>
 
@@ -175,6 +177,8 @@
         <div class="at-explore-sep" aria-hidden="true"></div>
         <a role="menuitem" href="#" onclick="showReglementaire();return false;" style="--chip:#818cf8" data-i18n-ar="الإطار القانوني"><i class="fas fa-gavel"></i><span>Cadre légal</span></a>
         <a role="menuitem" href="/wiki" style="--chip:#2dd4bf" data-i18n-ar="المعجم"><i class="fas fa-book-open"></i><span>Lexique TIC</span></a>
+        <!-- Studio : local uniquement (révélé par JS) -->
+        <a role="menuitem" href="/studio" class="at-local-only" hidden style="--chip:#e7c66b;display:none" data-i18n-ar="الاستوديو"><i class="fas fa-layer-group"></i><span>Studio (local)</span><span class="at-mini-dot" aria-hidden="true"></span></a>
     </div>
 
     <main id="mainContent">
@@ -332,15 +336,6 @@
         <div class="container">
             <button class="back-btn" onclick="goHome()" data-i18n-ar="العودة إلى الرئيسية"><i class="fas fa-arrow-left"></i> Retour à l'accueil</button>
             <div class="article-wrapper">
-                <div class="audio-sticky-bar" id="stickyAudio">
-                    <button class="audio-collapse-btn" id="audioCollapseBtn" title="Masquer"><i class="fas fa-chevron-down"></i></button>
-                    <button class="audio-fab" id="listenBtn" title="Écouter"><i class="fas fa-play"></i></button>
-                    <button class="audio-fab stop" id="stopBtn" style="display:none;" title="Arrêter"><i class="fas fa-stop"></i></button>
-                    <select id="voiceSelect" class="voice-select" title="Choisir la voix">
-                        <option>🎙 Voix</option>
-                    </select>
-                    <span class="audio-status">AUDIO</span>
-                </div>
                 <div class="article-content" id="articleContent">
                       <div class="share-buttons">
                         <button class="share-btn youtube" onclick="window.open('https://www.youtube.com/@algeria-tech-by-basta', '_blank')">
@@ -554,6 +549,7 @@
             <li><a href="#" onclick="showRevue(); toggleMobileMenu()" data-i18n-ar="مراجعة الصحافة"><i class="fas fa-newspaper" style="color:#4ade80"></i> Revue de Presse</a></li>
             <li><a href="/actualites-tic" data-i18n-ar="مراقبة الشبكات الاجتماعية"><i class="fas fa-share-alt" style="color:#fb7185"></i> Veille Réseaux Sociaux <span style="font-size:0.6rem;background:#22c55e;color:#fff;padding:1px 5px;border-radius:8px;margin-left:4px;">LIVE</span></a></li>
             <li class="mobile-nav-section-label" data-i18n-ar="أدوات المنصة">PLATEFORME — OUTILS</li>
+            <li class="at-local-only" hidden style="display:none"><a href="/studio" data-i18n-ar="الاستوديو"><i class="fas fa-layer-group" style="color:#e7c66b"></i> Studio <span style="font-size:0.6rem;background:#e7c66b;color:#1a1a2e;padding:1px 5px;border-radius:8px;margin-left:4px;">LOCAL</span></a></li>
             <li><a href="/barometre" data-i18n-ar="مرصد الرقمنة"><i class="fas fa-chart-line" style="color:#a78bfa"></i> Observatoire du Numérique</a></li>
             <li><a href="#" onclick="showComparateur(); toggleMobileMenu()" data-i18n-ar="مقارنة العروض"><i class="fas fa-mobile-alt" style="color:#fb923c"></i> Comparateur Mobile</a></li>
             <li><a href="#" onclick="showReglementaire(); toggleMobileMenu()" data-i18n-ar="الإطار القانوني"><i class="fas fa-gavel" style="color:#818cf8"></i> Cadre légal</a></li>
@@ -727,7 +723,97 @@
       }
     </script>
 
-    <!-- Voice Control v2 — Annyang.js fr-FR · Commandes fixes + dynamiques + recherche dictée -->
-    <script src="/voice-control.js" defer></script>
+    <!-- Premium Audio Player -->
+    <div class="premium-reading-progress" id="premiumReadingProgress"></div>
+    <div class="premium-toast" id="premiumToast"></div>
+    <div class="premium-floating-controls" id="premiumFloatingControls">
+        <button class="premium-float-btn" id="zenToggleFloat" onclick="premiumToggleZen()" title="Mode Zen (Z)"><i class="fas fa-moon"></i></button>
+        <button class="premium-float-btn" onclick="premiumChangeFontSize(1)" title="Agrandir"><i class="fas fa-plus"></i></button>
+        <button class="premium-float-btn" onclick="premiumChangeFontSize(-1)" title="Réduire"><i class="fas fa-minus"></i></button>
+        <button class="premium-float-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Haut de page"><i class="fas fa-chevron-up"></i></button>
+    </div>
+    <div class="premium-player-bar" id="premiumPlayerBar">
+        <div class="premium-progress-bar" id="premiumProgressBar" onclick="premiumSeekTo(event)">
+            <div class="premium-progress-fill" id="premiumProgressFill"></div>
+        </div>
+        <div class="premium-player-main">
+            <button class="premium-player-btn" onclick="premiumSkipParagraph(-1)" title="Précédent (←)"><i class="fas fa-step-backward"></i></button>
+            <button class="premium-player-btn premium-play-btn" id="premiumPlayPauseBtn" onclick="premiumTogglePlayPause()" title="Lecture/Pause (Espace)">
+                <i class="fas fa-play" id="premiumPlayIcon"></i>
+                <i class="fas fa-pause" id="premiumPauseIcon" style="display:none"></i>
+            </button>
+            <button class="premium-player-btn" onclick="premiumSkipParagraph(1)" title="Suivant (→)"><i class="fas fa-step-forward"></i></button>
+            <div class="premium-visualizer" id="premiumVisualizer"><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="premium-player-info">
+                <div class="premium-player-title" id="premiumPlayerTitle">Article</div>
+                <div class="premium-player-status"><span class="premium-status-dot" id="premiumStatusDot"></span><span id="premiumStatusText">Prêt</span></div>
+            </div>
+            <div class="premium-player-time" id="premiumPlayerTime">0:00 / 0:00</div>
+            <button class="premium-player-btn" id="premiumExpandBtn" onclick="premiumToggleExpand()" title="Paramètres"><i class="fas fa-sliders-h"></i></button>
+            <button class="premium-player-btn" id="premiumZenBtn" onclick="premiumToggleZen()" title="Mode Zen (Z)"><i class="fas fa-moon"></i></button>
+            <button class="premium-player-btn" onclick="premiumClosePlayer()" title="Fermer"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="premium-player-expanded" id="premiumPlayerExpanded">
+            <div class="premium-control-section">
+                <span class="premium-control-label">Vitesse</span>
+                <div class="premium-speed-btns">
+                    <button class="premium-speed-btn" onclick="premiumSetSpeed(0.5)">0.5×</button>
+                    <button class="premium-speed-btn" onclick="premiumSetSpeed(0.75)">0.75×</button>
+                    <button class="premium-speed-btn active" onclick="premiumSetSpeed(1)">1×</button>
+                    <button class="premium-speed-btn" onclick="premiumSetSpeed(1.25)">1.25×</button>
+                    <button class="premium-speed-btn" onclick="premiumSetSpeed(1.5)">1.5×</button>
+                    <button class="premium-speed-btn" onclick="premiumSetSpeed(2)">2×</button>
+                </div>
+            </div>
+            <div class="premium-control-section">
+                <span class="premium-control-label">Voix</span>
+                <select class="premium-voice-select" id="premiumVoiceSelect" onchange="premiumChangeVoice()"><option>Chargement...</option></select>
+            </div>
+            <div class="premium-control-section">
+                <span class="premium-control-label">Tonalité</span>
+                <div class="premium-slider-row"><input type="range" id="premiumPitchSlider" min="0.5" max="2" step="0.1" value="1" oninput="premiumChangePitch(this.value)"><span id="premiumPitchValue">1.0</span></div>
+            </div>
+            <div class="premium-control-section">
+                <span class="premium-control-label">Volume</span>
+                <div class="premium-slider-row"><input type="range" id="premiumVolumeSlider" min="0" max="1" step="0.05" value="1" oninput="premiumChangeVolume(this.value)"><span id="premiumVolumeValue">100%</span></div>
+            </div>
+            <div class="premium-control-section">
+                <span class="premium-control-label">Options</span>
+                <div class="premium-toggles-row">
+                    <label class="premium-toggle-label"><div class="premium-toggle active" id="premiumHighlightToggle" onclick="premiumToggleHighlight()"></div>Suivi du texte</label>
+                    <label class="premium-toggle-label"><div class="premium-toggle active" id="premiumAutoScrollToggle" onclick="premiumToggleAutoScroll()"></div>Défilement auto</label>
+                </div>
+            </div>
+            <div class="premium-control-section premium-shortcuts-hint">
+                <kbd>Espace</kbd> Lecture &nbsp; <kbd>←</kbd><kbd>→</kbd> Naviguer &nbsp; <kbd>Z</kbd> Zen &nbsp; <kbd>M</kbd> Muet &nbsp; <kbd>+</kbd><kbd>-</kbd> Vitesse
+            </div>
+        </div>
+    </div>
+
+    <!-- Voice Mega Assistant v1.0 — Web Speech natif · ~130 commandes · wake-word · TTS feedback · visualizer -->
+    <!-- (remplace voice-control.js — pour revenir en arrière : réactiver la ligne ci-dessous) -->
+    <!-- <script src="/voice-control.js" defer></script> -->
+    <script src="/at-voice.js?v=1" defer></script>
+
+    <!-- Panneau de personnalisation / accessibilité (FAB ⚙️) -->
+    <script src="/at-personnalisation.js?v=1" defer></script>
+
+    <!-- Studio : révélé uniquement sur l'installation locale (jamais en production Cloudflare/GitHub Pages) -->
+    <script>
+    (function(){
+        var h = location.hostname || '';
+        var isLocal =
+            h === 'localhost' || h === '127.0.0.1' || h === '::1' || h === '' ||
+            /\.local$/i.test(h) ||
+            /^192\.168\./.test(h) || /^10\./.test(h) ||
+            /^172\.(1[6-9]|2\d|3[01])\./.test(h);
+        if (isLocal) {
+            document.querySelectorAll('.at-local-only').forEach(function(el){
+                el.hidden = false;
+                el.style.display = '';
+            });
+        }
+    })();
+    </script>
 </body>
 </html>
