@@ -266,6 +266,11 @@ app.get('/actualites-tic/', (req, res) => res.sendFile(path.join(__dirname, 'act
 app.get('/ae-tech', (req, res) => res.sendFile(path.join(__dirname, 'ae-tech.html')));
 app.get('/ae-tech/', (req, res) => res.sendFile(path.join(__dirname, 'ae-tech.html')));
 
+// === ROUTE STUDIO (plateforme d'outils premium 3D) ===
+app.get('/studio', (req, res) => res.sendFile(path.join(__dirname, 'studio.html')));
+app.get('/studio.html', (req, res) => res.sendFile(path.join(__dirname, 'studio.html')));
+app.get('/plateforme', (req, res) => res.sendFile(path.join(__dirname, 'studio.html')));
+
 // === ROUTE SMART INGEST ===
 app.get('/smart-ingest', (req, res) => res.sendFile(path.join(__dirname, 'smart-ingest.html')));
 app.get('/smart-ingest.html', (req, res) => res.sendFile(path.join(__dirname, 'smart-ingest.html')));
@@ -738,6 +743,8 @@ app.post('/api/fetch-url', express.json(), async (req, res) => {
         const html = await fetchWebPage(url);
         const rawTitle = (html.match(/<title[^>]*>([^<]{1,200})<\/title>/i) || [])[1] || '';
         const title = rawTitle.replace(/\s+/g, ' ').trim();
+        const ogImage = (html.match(/<meta\s+(?:property|name)=["']og:image["']\s+content=["']([^"']+)["']/i) || html.match(/content=["']([^"']+)["']\s+(?:property|name)=["']og:image["']/i) || [])[1] || '';
+        const ogVideo = (html.match(/<meta\s+(?:property|name)=["']og:video(?::url)?["']\s+content=["']([^"']+)["']/i) || html.match(/content=["']([^"']+)["']\s+(?:property|name)=["']og:video(?::url)?["']/i) || [])[1] || '';
         const text = extractMainText(html);
 
         // Certains sites (Next.js App Router avec streaming RSC, ex. aps.dz) ne rendent
@@ -749,7 +756,7 @@ app.post('/api/fetch-url', express.json(), async (req, res) => {
         const isStreamedRSC = /self\.__next_f\.push/.test(html);
 
         if (text.length >= MIN_LEN && !isStreamedRSC) {
-            return res.json({ text: text.substring(0, 8000), title, url });
+            return res.json({ text: text.substring(0, 8000), title, url, image: ogImage || undefined, video: ogVideo || undefined });
         }
         directErr = new Error(isStreamedRSC
             ? 'Page avec contenu streamé côté client (Next.js RSC) — rendu complet requis'
@@ -2506,13 +2513,16 @@ const os = require('os');
 
 const YTDLP = 'C:\\Users\\Aps\\AppData\\Local\\Python\\pythoncore-3.14-64\\Scripts\\yt-dlp.exe';
 const FFMPEG_PATH = 'C:\\Users\\Aps\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1-full_build\\bin\\ffmpeg.exe';
+function ytdlpExtra() {
+    return ['--socket-timeout', '30', '--retries', '3'];
+}
 
 // GET /api/video-info?url=...
 app.get('/api/video-info', async (req, res) => {
     const { url } = req.query;
     if (!url) return res.status(400).json({ error: 'URL manquante' });
 
-    const args = ['--dump-json', '--no-playlist', url];
+    const args = [...ytdlpExtra(), '--dump-json', '--no-playlist', url];
     const proc = spawn(YTDLP, args);
 
     let out = '';
@@ -2553,12 +2563,14 @@ app.get('/api/download-video', (req, res) => {
     if (!url) return res.status(400).json({ error: 'URL manquante' });
 
     const tmpFile = path.join(os.tmpdir(), `vid_${Date.now()}.%(ext)s`);
-    const fmt = quality === '1080' ? 'bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[height<=1080][ext=mp4]/best'
-              : quality === '720'  ? 'bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/best[height<=720][ext=mp4]/best'
-              : quality === '480'  ? 'bestvideo[height<=480][ext=mp4]+bestaudio[ext=m4a]/best[height<=480][ext=mp4]/best'
-              : 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best';
+    // Full HD 1080p en priorité (DASH av01) ; fallback progressif hd/sd si connexion faible.
+    const fmt = quality === '1080' ? 'bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/hd/sd/best[height<=1080]/best'
+              : quality === '720'  ? 'bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/hd/sd/best[height<=720]/best'
+              : quality === '480'  ? 'bestvideo[height<=480][ext=mp4]+bestaudio[ext=m4a]/sd/best[height<=480]/best'
+              : 'bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/hd/sd/best[ext=mp4]/best';
 
     const args = [
+        ...ytdlpExtra(),
         '--no-playlist',
         '--format', fmt,
         '--merge-output-format', 'mp4',
@@ -2611,6 +2623,7 @@ app.get('/api/download-audio', (req, res) => {
     const tmpFile = path.join(os.tmpdir(), `aud_${Date.now()}.%(ext)s`);
 
     const args = [
+        ...ytdlpExtra(),
         '--no-playlist',
         '--format', 'bestaudio/best',
         '--extract-audio',
@@ -2954,17 +2967,8 @@ ${sourceText.substring(0, 3500) || '(Pas de description — génère un article 
     // Durée lisible
     const fmtDur = s => { if (!s) return ''; const m = Math.floor(s/60), sec = Math.floor(s%60); return `${m}m ${String(sec).padStart(2,'0')}s`; };
 
-    // Iframe YouTube responsive
-    const iframeBlock = `<div class="video-embed" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;margin:1.5rem 0">
-  <iframe
-    src="https://www.youtube.com/embed/${videoId}?rel=0"
-    style="position:absolute;top:0;left:0;width:100%;height:100%"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen loading="lazy"
-    title="${titre.replace(/"/g, '&quot;')}">
-  </iframe>
-</div>`;
+    // Note : la vidéo est rendue par le champ frontmatter `video:` (en Une + haut d'article).
+    // On n'injecte PAS d'iframe dans le corps pour éviter le doublon.
 
     // Ligne de métadonnées discrète
     const metaLine = [
@@ -2973,8 +2977,8 @@ ${sourceText.substring(0, 3500) || '(Pas de description — génère un article 
         sourceUrl  ? `**Source :** [Publication originale Facebook](${sourceUrl})` : null,
     ].filter(Boolean).join('  \n');
 
-    // Corps complet : lead + iframe + contenu IA + méta
-    const bodyMd = `${lead}\n\n${iframeBlock}\n\n${contenu}\n\n---\n${metaLine}`;
+    // Corps complet : lead + contenu IA + méta (pas d'iframe : voir frontmatter `video:`)
+    const bodyMd = `${lead}\n\n${contenu}\n\n---\n${metaLine}`;
 
     const frontMatter = `---
 titre: "${titreEsc}"

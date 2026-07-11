@@ -45,6 +45,7 @@
                     </button>
                 </div>
                 <div id="sourceBadge" class="si-source-badge hidden"></div>
+                <div id="embedInlinePreview" class="si-embed-inline hidden"></div>
                 <textarea id="smartBox" class="si-smart-box" placeholder="Collez le texte source ici (Arabe, Anglais ou Français)..."></textarea>
                 <div class="si-char-count" id="charCount">0 caractères</div>
                 
@@ -53,6 +54,9 @@
                         <i class="fas fa-file-pdf"></i> <span>PDF</span>
                     </button>
                     <input type="file" id="pdfInput" accept=".pdf" style="display:none" onchange="transcribePDF(this)">
+                    <button id="embedBtn" class="si-btn si-btn-primary" onclick="openEmbedModal()">
+                        <i class="fas fa-code"></i> <span>Embed</span>
+                    </button>
                     <button id="translateBtn" class="si-btn si-btn-primary" onclick="translateContent()">
                         <i class="fas fa-language"></i> <span>Traduire</span>
                     </button>
@@ -180,6 +184,27 @@
             </form>
         </div>
     </main>
+</div>
+
+<!-- Modal Embed Social -->
+<div id="siEmbedModal" class="si-modal-overlay hidden">
+    <div class="si-modal-box" style="max-width:620px;text-align:left;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+            <h2 style="margin:0;font-size:1.2rem;"><i class="fas fa-code"></i> Intégrer un Embed</h2>
+            <button onclick="closeEmbedModal()" style="background:none;border:none;font-size:1.4rem;cursor:pointer;color:inherit;">&times;</button>
+        </div>
+        <p style="font-size:0.85rem;color:#888;margin-bottom:12px;">Collez un code embed (iframe Facebook, Instagram, X/Twitter, TikTok, YouTube...)</p>
+        <textarea id="embedCodeInput" class="si-smart-box" rows="5" placeholder='<iframe src="https://www.facebook.com/plugins/post.php?href=..." ...></iframe>'></textarea>
+        <div id="embedPreviewBox" class="si-embed-preview hidden"></div>
+        <div class="si-embed-actions">
+            <button class="si-btn si-btn-primary" onclick="previewEmbed()" style="flex:1;">
+                <i class="fas fa-eye"></i> <span>Aperçu</span>
+            </button>
+            <button class="si-btn si-btn-primary" onclick="applyEmbed()" style="flex:1;background:#10a37f;">
+                <i class="fas fa-check"></i> <span>Valider & Intégrer</span>
+            </button>
+        </div>
+    </div>
 </div>
 
 <!-- Modal de succès -->

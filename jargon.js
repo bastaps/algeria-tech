@@ -187,6 +187,107 @@ const JARGON = {
   'Docker'            : 'Plateforme de conteneurisation — isole les applications dans des conteneurs légers et portables.',
   'CI/CD'             : 'Intégration Continue / Déploiement Continu — automatisation des tests et de la mise en production. Pratique standard des startups algériennes.',
   'API'               : 'Application Programming Interface — interface permettant à deux logiciels de communiquer. Base de l\'économie des plateformes numériques algériennes.',
+
+  /* Régulateurs & institutions algériennes ─────────────────── */
+  'Autorité de Régulation de la Poste et des Communications Électroniques' : 'ARPCE — régulateur algérien du secteur poste et télécoms (ex-ARPT depuis 2020), sous tutelle du ministère de la Poste et des Télécommunications.',
+  'ARPCE'             : 'Autorité de Régulation de la Poste et des Communications Électroniques — régulateur télécom algérien, nouveau nom de l\'ARPT depuis 2020.',
+  'ARAV'             : 'Autorité de Régulation de l\'Audiovisuel — régulateur algérien des médias audiovisuels.',
+  'ANF'              : 'Agence Nationale des Fréquences — gère l\'attribution du spectre radioélectrique en Algérie.',
+  'CDTA'             : 'Centre de Développement des Technologies Avancées — institut public algérien de R&D en IA, robotique et microélectronique.',
+  'Ministère de la Poste et des Télécommunications' : 'Département ministériel de tutelle du secteur des télécommunications et du numérique en Algérie.',
+  'Algérie Télécom'  : 'Opérateur public historique des télécommunications fixes et de l\'Internet en Algérie.',
+  'Algérie Poste'    : 'Opérateur postal public algérien, émetteur de la carte de paiement Edahabia.',
+  'Sonelgaz'         : 'Société nationale de l\'électricité et du gaz d\'Algérie, engagée dans les projets Smart Grid.',
+  'Sonatrach'        : 'Compagnie nationale des hydrocarbures algérienne, premier acteur industriel du pays.',
+
+  /* Opérateurs mobiles ──────────────────────────────────────── */
+  'Mobilis'          : 'ATM Mobilis — opérateur mobile public algérien, filiale d\'Algérie Télécom.',
+  'Djezzy'           : 'Opérateur mobile algérien (Optimum Telecom Algérie), détenu majoritairement par l\'État via le FNI.',
+  'Ooredoo'          : 'Opérateur mobile algérien, filiale du groupe qatari Ooredoo.',
+  'Optimum Telecom'  : 'Raison sociale de l\'opérateur mobile Djezzy en Algérie.',
+  'Orange'           : 'Opérateur télécom français ; absent du marché algérien, souvent cité comme référence internationale.',
+  'Free Mobile'      : 'Opérateur mobile français réputé pour ses prix bas ; cité en référence, non présent en Algérie.',
+
+  /* Équipementiers & Big Tech ──────────────────────────────── */
+  'Huawei'           : 'Équipementier télécom chinois, principal fournisseur des réseaux 4G/5G des opérateurs algériens.',
+  'ZTE'              : 'Équipementier télécom chinois présent en Algérie pour les infrastructures réseau.',
+  'Nokia'            : 'Équipementier télécom finlandais, fournisseur de réseaux mobiles en Algérie.',
+  'Ericsson'         : 'Équipementier télécom suédois, fournisseur d\'infrastructures mobiles en Algérie.',
+  'Cisco'            : 'Équipementier réseau américain, référence du matériel IP et de la certification (CCNA).',
+  'Samsung'          : 'Conglomérat sud-coréen, leader mondial des smartphones et de l\'électronique grand public.',
+  'Google'           : 'Filiale d\'Alphabet, leader mondial de la recherche en ligne, d\'Android et du cloud (GCP).',
+  'Microsoft'        : 'Géant américain du logiciel (Windows, Office, Azure) et partenaire majeur d\'OpenAI.',
+  'Apple'            : 'Entreprise américaine, fabricant de l\'iPhone, de l\'iPad et de macOS.',
+  'Meta'             : 'Maison mère de Facebook, Instagram et WhatsApp, plateformes très utilisées en Algérie.',
+  'Amazon'           : 'Géant américain du e-commerce et du cloud (AWS), leader mondial de l\'IaaS.',
+  'AWS'              : 'Amazon Web Services — premier fournisseur mondial de cloud, utilisé par de nombreuses startups algériennes.',
+  'Azure'            : 'Plateforme cloud de Microsoft, concurrente d\'AWS et de Google Cloud.',
+  'IBM'              : 'International Business Machines — pionnier américain de l\'informatique et du conseil technologique.',
+  'Oracle'           : 'Éditeur américain de bases de données et de logiciels d\'entreprise.',
+  'OpenAI'           : 'Laboratoire américain d\'IA, créateur de ChatGPT et des modèles GPT.',
+  'Starlink'         : 'Service d\'Internet par satellite de SpaceX ; son autorisation en Algérie fait l\'objet de discussions.',
+
+  /* Organisations internationales ──────────────────────────── */
+  'Union Internationale des Télécommunications' : 'UIT — agence spécialisée de l\'ONU chargée des télécommunications et du spectre radioélectrique (siège à Genève).',
+  'UIT'              : 'Union Internationale des Télécommunications — agence de l\'ONU pour les télécoms. L\'Algérie en est membre.',
+  'ITU'              : 'International Telecommunication Union — nom anglais de l\'UIT, agence onusienne des télécommunications.',
+  'Conseil africain de l\'intelligence artificielle' : 'CAIA — organe continental coordonnant la stratégie africaine en IA, présidé par l\'Algérie en 2026.',
+  'CAIA'             : 'Conseil Africain de l\'Intelligence Artificielle — instance de gouvernance de l\'IA en Afrique, présidée par l\'Algérie en 2026.',
+  'Union Africaine'  : 'UA — organisation continentale regroupant 55 États africains, dont l\'Algérie est membre fondateur.',
+  'ONU'              : 'Organisation des Nations unies — organisation internationale dont l\'Algérie est membre depuis 1962.',
+  'UNESCO'           : 'Organisation des Nations unies pour l\'éducation, la science et la culture ; copilote du SMSI.',
+  'SMSI'             : 'Sommet Mondial sur la Société de l\'Information — processus onusien (UIT/UNESCO) sur le numérique.',
+  'WSIS'             : 'World Summit on the Information Society — nom anglais du SMSI, sommet onusien sur la société de l\'information.',
+  'OMC'              : 'Organisation Mondiale du Commerce — l\'Algérie négocie son adhésion depuis plusieurs années.',
+  'OMS'              : 'Organisation Mondiale de la Santé — agence de l\'ONU pour la santé publique.',
+  'FMI'              : 'Fonds Monétaire International — institution financière internationale de stabilité monétaire.',
+  'Banque mondiale'  : 'Institution internationale de financement du développement, partenaire de projets numériques en Afrique.',
+  'BAD'              : 'Banque Africaine de Développement — institution finançant infrastructures et projets numériques en Afrique.',
+  'UA'               : 'Union Africaine — organisation continentale des États africains, dont l\'Algérie est un membre influent.',
+  'UE'               : 'Union Européenne — principal partenaire commercial de l\'Algérie, liée par un accord d\'association.',
+
+  /* Pays, villes & géographie ──────────────────────────────── */
+  'Algérie'          : 'République algérienne démocratique et populaire — plus vaste pays d\'Afrique, marché télécom de plus de 45 millions d\'habitants.',
+  'Alger'            : 'Capitale de l\'Algérie et principal pôle économique et technologique du pays.',
+  'Oran'             : 'Deuxième ville d\'Algérie, pôle économique de l\'ouest du pays.',
+  'Constantine'      : 'Grande ville de l\'est algérien, pôle universitaire et technologique.',
+  'Sidi Abdallah'    : 'Ville nouvelle près d\'Alger accueillant le cyberparc et les technopoles algériennes.',
+  'Maghreb'          : 'Région d\'Afrique du Nord regroupant Algérie, Maroc, Tunisie, Libye et Mauritanie.',
+
+  /* Acronymes secteur & économie ───────────────────────────── */
+  'NTIC'             : 'Nouvelles Technologies de l\'Information et de la Communication — terme antérieur, aujourd\'hui simplifié en TIC.',
+  'TIC'              : 'Technologies de l\'Information et de la Communication — secteur clé de la stratégie Algeria Digital.',
+  'ICT'              : 'Information and Communication Technology — équivalent anglais de TIC.',
+  'PIB'              : 'Produit Intérieur Brut — mesure de la richesse produite ; le numérique vise une part croissante du PIB algérien.',
+  'R&D'              : 'Recherche et Développement — l\'Algérie renforce ses centres publics (CERIST, CDTA) et universitaires.',
+  'DZD'              : 'Code ISO du dinar algérien, la monnaie nationale de l\'Algérie.',
+
+  /* Termes savants, anglicismes & concepts ─────────────────── */
+  'Deeptech'         : 'Startups fondées sur des innovations scientifiques de rupture (IA, biotech, quantique).',
+  'Greentech'        : 'Technologies au service de l\'environnement et de la transition écologique.',
+  'Edtech'           : 'Technologies appliquées à l\'éducation et à la formation en ligne.',
+  'Healthtech'       : 'Technologies appliquées à la santé (télémédecine, dossier patient numérique).',
+  'Agritech'         : 'Technologies appliquées à l\'agriculture (capteurs, drones, irrigation intelligente).',
+  'GovTech'          : 'Technologies au service de la modernisation de l\'administration publique (e-gouvernement).',
+  'Souveraineté numérique' : 'Capacité d\'un État à maîtriser ses données, infrastructures et technologies. Objectif affiché de l\'Algérie.',
+  'Cloud souverain'  : 'Infrastructure cloud hébergée nationalement pour garantir la souveraineté des données (projet Algeria Cloud).',
+  'Cloud'            : 'Informatique en nuage — accès à des ressources (serveurs, stockage, logiciels) via Internet à la demande. Projet Algeria Cloud souverain en cours.',
+  'Transformation numérique' : 'Intégration du numérique dans tous les pans de l\'économie et de l\'administration.',
+  'Digitalisation'   : 'Transformation des processus par le numérique — axe majeur de la modernisation en Algérie.',
+  'Fracture numérique' : 'Écart d\'accès au numérique entre territoires ou populations. Défi des zones rurales et sahariennes algériennes.',
+  'E-gouvernement'   : 'Dématérialisation des services publics ; priorité de la stratégie numérique algérienne.',
+  'E-commerce'       : 'Commerce électronique — encadré en Algérie par la loi 18-05.',
+  'E-paiement'       : 'Paiement électronique en ligne, en essor en Algérie via les cartes CIB et Edahabia.',
+  'Darija'           : 'Arabe dialectal algérien — enjeu clé pour le NLP et les assistants vocaux locaux.',
+  'Open source'      : 'Logiciel au code librement accessible et modifiable ; promu dans l\'administration algérienne.',
+  'Freemium'         : 'Modèle économique combinant offre gratuite de base et fonctions payantes.',
+  'Scalabilité'      : 'Capacité d\'un système à absorber une hausse de charge sans perte de performance.',
+  'Disruption'       : 'Rupture d\'un marché établi par une innovation technologique.',
+  'Uberisation'      : 'Transformation d\'un secteur par des plateformes mettant en relation directe offre et demande.',
+  'Métavers'         : 'Univers virtuels immersifs et persistants ; concept émergent sans déploiement notable en Algérie.',
+  'Informatique quantique' : 'Calcul exploitant la physique quantique pour des performances inatteignables par l\'informatique classique.',
+  'Biométrie'        : 'Identification par caractéristiques physiques (empreinte, visage). Utilisée dans le passeport et la CNIE algériens.',
+  'CNIE'             : 'Carte Nationale d\'Identité Électronique algérienne, dotée d\'une puce biométrique.',
 };
 
 /* ═══════════════════════════════════════════════════════════════
@@ -280,6 +381,10 @@ const JARGON = {
       nodes.push(n);
     }
 
+    // Un même terme n'est surligné qu'à sa 1re occurrence dans tout l'article,
+    // pour éviter une surcharge de bleu sur les mots fréquents (Algérie, TIC…).
+    var seen = {};
+
     nodes.forEach(function (textNode) {
       var text = textNode.textContent;
       re.lastIndex = 0;
@@ -288,7 +393,11 @@ const JARGON = {
 
       var frag = document.createDocumentFragment();
       var last = 0, m;
+      var used = false; // ce nœud a-t-il produit au moins un surlignage ?
       while ((m = re.exec(text)) !== null) {
+        var canon = m[0].toLowerCase();
+        if (seen[canon]) continue; // déjà surligné ailleurs → laisser en texte brut
+        seen[canon] = true;
         if (m.index > last) {
           frag.appendChild(document.createTextNode(text.slice(last, m.index)));
         }
@@ -305,8 +414,10 @@ const JARGON = {
         }, { passive: true });
         frag.appendChild(sp);
         last = m.index + m[0].length;
+        used = true;
         count++;
       }
+      if (!used) return; // rien de neuf dans ce nœud → ne pas le remplacer
       if (last < text.length) {
         frag.appendChild(document.createTextNode(text.slice(last)));
       }

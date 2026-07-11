@@ -1,61 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
     xmlns:tools="http://schemas.android.com/tools">
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    <!-- CETTE LIGNE EST INDISPENSABLE POUR VOTRE SITE -->
-    <uses-permission android:name="android.permission.INTERNET" />
-=======
-    xmlns:tools="http://tools.android.com/tools"
-    package="com.algeriatech.basta">
-
-    <!-- Permissions pour que le site web s'affiche -->
+    <!-- Indispensable pour charger le site distant -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
->>>>>>> 5896176 (Sauvegarde complète locale avant synchronisation)
-=======
-    <!-- Autorisation pour accéder à Internet -->
-    <uses-permission android:name="android.permission.INTERNET" />
->>>>>>> Stashed changes
-=======
-    <!-- Autorisation pour accéder à Internet -->
-    <uses-permission android:name="android.permission.INTERNET" />
->>>>>>> Stashed changes
-=======
-    <!-- Autorisation pour accéder à Internet -->
-    <uses-permission android:name="android.permission.INTERNET" />
->>>>>>> Stashed changes
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-<<<<<<< HEAD
         android:icon="@mipmap/ic_launcher"
         android:label="Algeria Tech"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AlgeriaTech"
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-        android:icon="@drawable/ic_launcher_foreground"
-        android:label="Algeria Tech"
-        android:roundIcon="@drawable/ic_launcher_foreground"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.AlgeriaTech"
         android:hardwareAccelerated="true"
->>>>>>> 5896176 (Sauvegarde complète locale avant synchronisation)
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
         tools:targetApi="31">
 
         <activity

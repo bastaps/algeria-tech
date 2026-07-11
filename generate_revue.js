@@ -50,17 +50,18 @@ function logoUrl(sourceName) {
     return `https://www.google.com/s2/favicons?domain=${domainMap[sourceName] || 'google.com'}&sz=32`;
 }
 
+// Récolte large (48h) : le tri 24h/48h se fait en aval, sans re-télécharger les flux
 async function fetchRSS(source) {
     try {
         const feed = await parser.parseURL(source.url);
-        const cutoff = Date.now() - 24 * 60 * 60 * 1000; // timestamp ms — STRICT 24h
+        const cutoff = Date.now() - 48 * 60 * 60 * 1000;
         return feed.items
             .filter(item => {
                 const rawDate = item.isoDate || item.pubDate;
                 if (!rawDate) return false;                          // pas de date → rejeté
                 const pubTs = new Date(rawDate).getTime();
                 if (isNaN(pubTs))      return false;                 // date invalide → rejeté
-                if (pubTs < cutoff)    return false;                 // > 24h → rejeté
+                if (pubTs < cutoff)    return false;                 // > 48h → rejeté
                 const text = (item.title + ' ' + (item.contentSnippet || '')).toLowerCase();
                 return TECH_KW.some(k => text.includes(k));
             })
@@ -69,11 +70,11 @@ async function fetchRSS(source) {
                 resume: (item.contentSnippet || '').substring(0, 150).replace(/<[^>]+>/g, '').trim(),
                 url: item.link,
                 date: item.isoDate || item.pubDate,
+                ts: new Date(item.isoDate || item.pubDate).getTime(),
                 source: source.name,
                 logo: logoUrl(source.name),
                 pays: source.pays,
-            }))
-            .slice(0, 3);
+            }));
     } catch(e) {
         console.warn(`  ⚠️  ${source.name} : ${e.message}`);
         return [];
@@ -156,21 +157,37 @@ Réponds EXCLUSIVEMENT en JSON pur: {"synthese":"...", "selected":[{"i":0, "accr
     };
 }
 
+// Applique une fenêtre temporelle + cap de 3 articles/source sur la récolte 48h
+function selectWindow(allResults, hours) {
+    const cutoff = Date.now() - hours * 60 * 60 * 1000;
+    return allResults
+        .map(items => items.filter(a => a.ts >= cutoff).slice(0, 3))
+        .flat()
+        .map(({ ts, ...rest }) => rest); // ts = interne, ne doit pas finir dans le JSON
+}
+
+const MIN_CANDIDATS = 8; // en dessous → fenêtre élargie à 48h (week-end, jours creux)
+
 async function main() {
-    console.log('📡 SCAN RSS — FILTRE STRICT 24H...');
+    console.log('📡 SCAN RSS — FILTRE 24H (filet 48h si récolte maigre)...');
     const cutoffDisplay = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
     console.log(`   Seuil : articles publiés après ${cutoffDisplay}`);
 
     const allResults = await Promise.all(SOURCES.map(async s => {
         const items = await fetchRSS(s);
-        if (items.length > 0) console.log(`  • ${s.name.padEnd(22)} ✅ ${items.length} art.`);
-        else                   console.log(`  • ${s.name.padEnd(22)} — 0 (aucun dans les 24h)`);
+        if (items.length > 0) console.log(`  • ${s.name.padEnd(22)} ✅ ${items.length} art. (48h)`);
+        else                   console.log(`  • ${s.name.padEnd(22)} — 0 (aucun dans les 48h)`);
         return items;
     }));
 
-    let rawArticles = allResults.flat();
+    let rawArticles = selectWindow(allResults, 24);
+    if (rawArticles.length < MIN_CANDIDATS) {
+        console.warn(`\n⚠️  Seulement ${rawArticles.length} candidat(s) en 24h (< ${MIN_CANDIDATS}) → fenêtre élargie à 48h.`);
+        rawArticles = selectWindow(allResults, 48);
+        console.warn(`   Fenêtre 48h : ${rawArticles.length} candidat(s).`);
+    }
     if (rawArticles.length === 0) {
-        console.error('❌ Aucun article dans les 24 dernières heures. Aucun fichier écrit.');
+        console.error('❌ Aucun article dans les 48 dernières heures. Aucun fichier écrit.');
         process.exit(1); // Échec visible dans GitHub Actions → notification
     }
 
@@ -178,6 +195,7 @@ async function main() {
     const result = await processWithMistral(rawArticles);
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify(result, null, 2));
     console.log(`\n✅ SUCCÈS : revue_presse.json généré (${result.articles.length} articles retenus).`);
+    process.exit(0); // sortie explicite : des sockets RSS restés ouverts empêchent node de se terminer seul
 }
 
 main().catch(e => {
