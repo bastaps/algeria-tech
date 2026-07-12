@@ -1622,6 +1622,27 @@ async function checkArpceWithAlert(pages = 1) {
 
 // ── FIN Alertes Email ─────────────────────────────────────────────────────────
 
+// ── Vidéos YouTube (grille accueil) — proxy pour garder la clé côté serveur ──
+// N'a AUCUN lien avec video-downloader / smart-ingest / boutons +/crayon, qui
+// utilisent leurs propres endpoints (yt-dlp / OAuth). Ici : simple listing chaîne.
+const YOUTUBE_API_KEY  = process.env.YOUTUBE_API_KEY || "";
+const YOUTUBE_CHANNEL  = process.env.YOUTUBE_CHANNEL_ID || "UCyIYnT60oAg8iVZKoz8seAA";
+app.get('/api/youtube', (req, res) => {
+    if (!YOUTUBE_API_KEY)
+        return res.status(503).json({ error: { message: 'Service vidéos non configuré (clé API manquante).', code: 503 } });
+
+    const url = `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}` +
+                `&channelId=${YOUTUBE_CHANNEL}&part=snippet,id&order=date&maxResults=12&type=video`;
+    https.get(url, apiRes => {
+        let data = '';
+        apiRes.on('data', c => data += c);
+        apiRes.on('end', () => {
+            res.set('Cache-Control', 'public, max-age=600');
+            res.type('application/json').status(apiRes.statusCode || 200).send(data);
+        });
+    }).on('error', e => res.status(502).json({ error: { message: 'Réseau YouTube : ' + e.message, code: 502 } }));
+});
+
 // ── Débat IA — chat contextuel par article (Mistral) ────────────────────────
 app.post('/api/debat', express.json(), async (req, res) => {
     const { titre, contenu, historique, message, langue } = req.body || {};

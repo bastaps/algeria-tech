@@ -208,7 +208,7 @@ const isLocal = window.location.hostname === 'localhost' || window.location.host
 const REMOTE_API = 'https://dz-tech-press-api.onrender.com';
 const API_BASE = isLocal ? '' : REMOTE_API;
 const ADMIN_PASSWORD = 'admin2026';
-const YOUTUBE_API_KEY = 'AIzaSyDw_grxmStmAgZ6-WUWHNLPa5ozKIgVMiA';
+// Clé YouTube déplacée côté serveur (proxy /api/youtube) — plus aucune clé dans le client.
 const YOUTUBE_CHANNEL_ID = 'UCyIYnT60oAg8iVZKoz8seAA';
 
 // ===== INITIALISATION AU CHARGEMENT =====
@@ -2820,8 +2820,7 @@ async function loadYouTubeVideos() {
     if(hero) hero.classList.add('hidden');
     if(grid) grid.innerHTML = '<div class="loader">Chargement des vidÃ©os Algeria Tech...</div>';
     try {
-        const url = `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${YOUTUBE_CHANNEL_ID}&part=snippet,id&order=date&maxResults=12&type=video`;
-        const res = await fetch(url);
+        const res = await fetch('/api/youtube');
         const data = await res.json();
         if (data.items && data.items.length > 0) {
             renderYouTubeGrid(data.items);
