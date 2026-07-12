@@ -97,6 +97,21 @@ body.dark-mode .article-text code,
 body.dark-mode .article-text pre { background: #0f172a !important; color: #7dd3fc !important; border-color: #334155 !important; }
 body.dark-mode .article-text blockquote { border-left-color: var(--primary) !important; background: rgba(255,255,255,0.04) !important; }
 
+/* ── Photos insérées dans le corps de l'article (at-inline-images.js) ── */
+.article-text::after { content: ""; display: block; clear: both; } /* contient les figures flottantes */
+.at-photo { margin: 20px 0; max-width: 100%; }
+.at-photo img { width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,.14); display: block; }
+.at-photo figcaption { font-size: .85rem; color: var(--text-muted, #64748b); text-align: center; margin-top: 7px; font-style: italic; }
+body.dark-mode .at-photo figcaption { color: #94a3b8 !important; }
+.at-photo--center { margin-left: auto; margin-right: auto; width: var(--w, 70%); }
+.at-photo--full { width: 100%; }
+.at-photo--left { float: left; width: var(--w, 45%); margin: 6px 24px 16px 0; }
+.at-photo--right { float: right; width: var(--w, 45%); margin: 6px 0 16px 24px; }
+@media (max-width: 640px) {
+    .at-photo--left, .at-photo--right { float: none; width: 100% !important; margin: 18px 0; }
+    .at-photo--center { width: 100% !important; }
+}
+
 /* Inputs, textarea, select */
 body.dark-mode input:not([type="submit"]):not([type="button"]):not([type="checkbox"]),
 body.dark-mode textarea,
@@ -195,6 +210,9 @@ padding: 0 15px; width: 100px; border: 1px solid var(--border); transition: var(
 .hero-meta-wrapper { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
 .hero-meta-tag { background: rgba(0, 0, 0, 0.5); color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; display: inline-block; backdrop-filter: blur(4px); }
 .category-tag { background: var(--secondary); color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; display: inline-block; }
+/* Masque la pastille de catégorie superposée à l'image/vidéo (Une + cartes) — gardée dans la barre méta de l'article */
+.hero-overlay .category-tag,
+.news-card-img .category-tag { display: none !important; }
 .tag-algerie { background: #1a73e8; }
 .tag-telecoms { background: var(--primary); }
 .tag-mobile { background: #f59e0b; }

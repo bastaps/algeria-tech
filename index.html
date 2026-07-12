@@ -48,7 +48,7 @@
 
     <!-- CSS critique chargé en priorité -->
     <link rel="preload" href="/style.css?v=7" as="style">
-    <link rel="stylesheet" href="/style.css?v=7">
+    <link rel="stylesheet" href="/style.css?v=8">
     <link rel="stylesheet" href="/at-personnalisation.css?v=1">
 
     <!-- Font Awesome : async (non-bloquant) — icônes apparaissent après le contenu, évite les 7s de blocage CDN -->
@@ -576,6 +576,8 @@
     <!-- marked.js chargé AVANT script.js (requis pour le rendu markdown des articles) -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="/script.js?v=11"></script>
+    <!-- Insertion + aperçu visuel des photos dans le corps des articles (Hub éditeur) -->
+    <script src="/at-inline-images.js?v=2"></script>
     <!-- Moteur i18n FR ↔ AR (chargé après script.js pour accéder aux grilles) -->
     <script src="/i18n.js"></script>
     <!-- Déchiffrer le jargon — dictionnaire télécom/tech Algérie -->
@@ -680,7 +682,15 @@
       if ('serviceWorker' in navigator) {
         // En dev local le SW est désactivé : sinon il sert des fichiers périmés
         // et impose des Ctrl+Shift+R. En production il fonctionne normalement.
-        var IS_DEV = ['localhost', '127.0.0.1', '[::1]'].indexOf(location.hostname) !== -1;
+        var _h = location.hostname;
+        // Dev = localhost, IPv6 loopback, OU toute IP privée LAN (192.168.*, 10.*,
+        // 172.16–31.*) et les hôtes *.local. Sinon le SW s'installe quand on ouvre
+        // le serveur local via l'IP de la machine et sert une version périmée en cache.
+        var IS_DEV = ['localhost', '127.0.0.1', '[::1]'].indexOf(_h) !== -1
+          || /^192\.168\./.test(_h)
+          || /^10\./.test(_h)
+          || /^172\.(1[6-9]|2[0-9]|3[0-1])\./.test(_h)
+          || /\.local$/.test(_h);
 
         if (IS_DEV) {
           // Désinstalle tout SW déjà installé + vide les caches (sinon il continue de servir)
