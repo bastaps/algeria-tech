@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#006233" />
+  <meta name="description" content="Assistant vocal francophone d'Algeria Tech — reconnaissance et synthèse vocale 100% dans le navigateur, aucune donnée envoyée." />
+  <title>Assistant Vocal — Algeria Tech</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
+  <style>
+    /* ===== Assistant Vocal — thème aligné sur Algeria Tech ===== */
+    .av-page {
+      --av-accent: var(--primary, #006233);
+      --av-accent-2: var(--secondary, #D21034);
+      --av-surface: var(--bg-white, #fff);
+      --av-surface-2: var(--bg, #f4f5f7);
+      --av-text: var(--text-dark, #1a1a2e);
+      --av-muted: var(--text-muted, #6b7280);
+      --av-border: var(--border, #e5e7eb);
+      --av-success: #10b981;
+      --av-danger: #ef4444;
+      --av-warning: #f59e0b;
+      min-height: 100vh;
+      background:
+        radial-gradient(1200px 500px at 15% -10%, rgba(0,98,51,0.10), transparent 60%),
+        radial-gradient(1000px 500px at 100% 0%, rgba(210,16,52,0.08), transparent 55%),
+        var(--av-surface-2);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ---- Barre supérieure ---- */
+    .av-topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; padding: 14px 20px;
+      background: var(--av-surface);
+      border-bottom: 1px solid var(--av-border);
+      position: sticky; top: 0; z-index: 20;
+      box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,.08));
+    }
+    .av-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--av-text); }
+    .av-brand .av-logo {
+      width: 38px; height: 38px; border-radius: 10px; flex: 0 0 auto;
+      background: linear-gradient(135deg, var(--av-accent), #05512b);
+      display: grid; place-items: center; color: #fff; font-size: 18px;
+      box-shadow: 0 4px 12px rgba(0,98,51,.35);
+    }
+    .av-brand b { font-size: 15px; font-weight: 800; letter-spacing: .2px; }
+    .av-brand span { display: block; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--av-muted); }
+    .av-top-actions { display: flex; align-items: center; gap: 8px; }
+    .av-icon-btn, .av-back {
+      display: inline-flex; align-items: center; gap: 7px;
+      height: 38px; padding: 0 14px; border-radius: 999px;
+      border: 1px solid var(--av-border); background: var(--av-surface-2);
+      color: var(--av-text); font-size: 13px; font-weight: 600; cursor: pointer;
+      text-decoration: none; transition: var(--transition, all .2s);
+    }
+    .av-icon-btn { width: 38px; padding: 0; justify-content: center; }
+    .av-icon-btn:hover, .av-back:hover { border-color: var(--av-accent); color: var(--av-accent); }
+
+    /* ---- Contenu ---- */
+    .av-main { flex: 1; width: 100%; max-width: 560px; margin: 0 auto; padding: 28px 18px 48px; }
+    .av-hero { text-align: center; margin-bottom: 22px; }
+    .av-kicker {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+      color: var(--av-accent); background: rgba(0,98,51,.10);
+      padding: 5px 12px; border-radius: 999px; margin-bottom: 12px;
+    }
+    .av-hero h1 { font-size: clamp(26px, 6vw, 34px); font-weight: 800; color: var(--av-text); margin: 0 0 8px; }
+    .av-hero p { font-size: 14.5px; line-height: 1.55; color: var(--av-muted); max-width: 440px; margin: 0 auto; }
+
+    .av-card {
+      background: var(--av-surface);
+      border: 1px solid var(--av-border);
+      border-radius: 22px;
+      box-shadow: var(--shadow-lg, 0 10px 30px rgba(0,0,0,.12));
+      padding: 26px 22px 22px;
+      position: relative; overflow: hidden;
+    }
+    .av-card::before {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--av-accent), var(--av-accent-2));
+    }
+
+    .av-warning, .av-hint {
+      border-radius: 12px; padding: 11px 14px; font-size: 12.5px; line-height: 1.45; margin-bottom: 16px;
+      display: none;
+    }
+    .av-warning { background: #fef3c7; border: 1px solid #fde68a; color: #92400e; }
+    .av-hint { background: rgba(0,98,51,.08); border: 1px solid rgba(0,98,51,.2); color: var(--av-accent); text-align: center; }
+    .av-warning.show, .av-hint.show { display: block; }
+
+    /* ---- Orbe micro + visualiseur ---- */
+    .av-orb-wrap { display: grid; place-items: center; padding: 8px 0 18px; }
+    .av-orb {
+      --size: 116px;
+      width: var(--size); height: var(--size); border-radius: 50%;
+      border: none; cursor: pointer; position: relative;
+      background: linear-gradient(135deg, var(--av-accent), #0a7a44);
+      color: #fff; display: grid; place-items: center;
+      box-shadow: 0 12px 34px rgba(0,98,51,.42);
+      transition: transform .2s, box-shadow .3s;
+    }
+    .av-orb:hover { transform: scale(1.04); }
+    .av-orb:active { transform: scale(.96); }
+    .av-orb:disabled { opacity: .5; cursor: not-allowed; }
+    .av-orb svg { width: 44px; height: 44px; position: relative; z-index: 3; }
+    .av-orb .ring {
+      position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--av-accent);
+      opacity: 0; pointer-events: none;
+    }
+    .av-orb.listening {
+      background: linear-gradient(135deg, var(--av-danger), #f87171);
+      box-shadow: 0 12px 40px rgba(239,68,68,.5);
+    }
+    .av-orb.listening .ring { animation: av-ring 1.8s ease-out infinite; border-color: var(--av-danger); }
+    .av-orb.listening .ring:nth-child(2) { animation-delay: .6s; }
+    .av-orb.listening .ring:nth-child(3) { animation-delay: 1.2s; }
+    @keyframes av-ring {
+      0% { opacity: .55; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.8); }
+    }
+    .av-orb.speaking { background: linear-gradient(135deg, var(--av-success), #34d399); box-shadow: 0 12px 40px rgba(16,185,129,.5); }
+
+    /* Égaliseur animé (uniquement à l'écoute) */
+    .av-eq { display: flex; align-items: flex-end; gap: 4px; height: 26px; margin-top: 14px; opacity: 0; transition: opacity .25s; }
+    .av-eq.on { opacity: 1; }
+    .av-eq span { width: 4px; height: 6px; border-radius: 3px; background: var(--av-accent); }
+    .av-eq.on span { animation: av-eq 900ms ease-in-out infinite; }
+    .av-eq span:nth-child(1){animation-delay:0ms} .av-eq span:nth-child(2){animation-delay:120ms}
+    .av-eq span:nth-child(3){animation-delay:240ms} .av-eq span:nth-child(4){animation-delay:360ms}
+    .av-eq span:nth-child(5){animation-delay:180ms} .av-eq span:nth-child(6){animation-delay:300ms}
+    .av-eq span:nth-child(7){animation-delay:60ms}
+    @keyframes av-eq { 0%,100%{ height:6px } 50%{ height:26px } }
+
+    /* ---- Statut ---- */
+    .av-status { display: flex; align-items: center; justify-content: center; gap: 9px;
+      padding: 10px 14px; background: var(--av-surface-2); border: 1px solid var(--av-border);
+      border-radius: 12px; font-size: 13px; color: var(--av-muted); margin-bottom: 16px; }
+    .av-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--av-muted); flex: 0 0 auto; }
+    .av-dot.listening { background: var(--av-danger); animation: av-pulse 1.2s infinite; }
+    .av-dot.speaking { background: var(--av-success); animation: av-pulse 1.2s infinite; }
+    .av-dot.error { background: var(--av-warning); }
+    @keyframes av-pulse { 0%,100%{ opacity:1; transform:scale(1) } 50%{ opacity:.5; transform:scale(1.3) } }
+
+    /* ---- Suggestions rapides ---- */
+    .av-chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 16px; }
+    .av-chip {
+      border: 1px solid var(--av-border); background: var(--av-surface);
+      color: var(--av-text); font-size: 12.5px; font-weight: 600;
+      padding: 7px 13px; border-radius: 999px; cursor: pointer; transition: var(--transition, all .2s);
+    }
+    .av-chip:hover { background: var(--av-accent); color: #fff; border-color: var(--av-accent); transform: translateY(-1px); }
+
+    /* ---- Transcription ---- */
+    .av-transcript {
+      min-height: 130px; max-height: 260px; overflow-y: auto;
+      padding: 14px; background: var(--av-surface-2); border: 1px solid var(--av-border);
+      border-radius: 14px; margin-bottom: 16px;
+    }
+    .av-placeholder { color: var(--av-muted); font-style: italic; font-size: 13.5px; text-align: center; padding: 24px 8px; }
+    .av-msg { margin-bottom: 10px; padding: 9px 13px; border-radius: 12px; animation: av-fade .3s ease; font-size: 14.5px; line-height: 1.5; color: var(--av-text); }
+    .av-msg .lbl { font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .6px; color: var(--av-muted); margin-bottom: 3px; }
+    .av-msg.user { background: rgba(0,98,51,.10); border-left: 3px solid var(--av-accent); }
+    .av-msg.bot { background: rgba(210,16,52,.08); border-left: 3px solid var(--av-accent-2); }
+    .av-msg.interim { color: var(--av-muted); font-style: italic; background: transparent; border-left: 3px dashed var(--av-border); }
+    @keyframes av-fade { from{ opacity:0; transform:translateY(6px) } to{ opacity:1; transform:translateY(0) } }
+
+    /* ---- Contrôles secondaires ---- */
+    .av-controls { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 16px; }
+    .av-ctrl {
+      width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--av-border);
+      background: var(--av-surface); color: var(--av-muted); cursor: pointer;
+      display: grid; place-items: center; transition: var(--transition, all .2s);
+    }
+    .av-ctrl:hover { color: var(--av-text); border-color: var(--av-accent); }
+    .av-ctrl.active { background: var(--av-accent); color: #fff; border-color: var(--av-accent); }
+    .av-ctrl svg { width: 20px; height: 20px; }
+
+    /* ---- Réglages ---- */
+    .av-settings { border-top: 1px solid var(--av-border); padding-top: 16px; margin-bottom: 14px; }
+    .av-field { margin-bottom: 13px; }
+    .av-field label { display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 700; color: var(--av-muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: .4px; }
+    .av-field label .val { color: var(--av-accent); font-variant-numeric: tabular-nums; }
+    .av-select, .av-range { width: 100%; font-family: inherit; }
+    .av-select {
+      padding: 10px 12px; border: 1px solid var(--av-border); background: var(--av-surface);
+      color: var(--av-text); border-radius: 10px; font-size: 13px; cursor: pointer;
+    }
+    .av-select:focus { outline: 2px solid var(--av-accent); outline-offset: 1px; }
+    .av-range { -webkit-appearance: none; appearance: none; height: 6px; border-radius: 3px; background: var(--av-border); outline: none; }
+    .av-range::-webkit-slider-thumb { -webkit-appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--av-accent); cursor: pointer; box-shadow: 0 2px 6px rgba(0,98,51,.4); }
+    .av-range::-moz-range-thumb { width: 18px; height: 18px; border: none; border-radius: 50%; background: var(--av-accent); cursor: pointer; }
+
+    /* ---- Actions ---- */
+    .av-actions { display: flex; gap: 8px; }
+    .av-action {
+      flex: 1; padding: 11px; border: 1px solid var(--av-border); background: var(--av-surface);
+      border-radius: 10px; font-size: 13px; font-weight: 700; color: var(--av-text);
+      cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+      transition: var(--transition, all .2s);
+    }
+    .av-action:hover { border-color: var(--av-accent); color: var(--av-accent); }
+    .av-action svg { width: 15px; height: 15px; }
+
+    .av-foot { text-align: center; font-size: 12px; color: var(--av-muted); margin-top: 18px; line-height: 1.6; }
+    .av-foot code { background: var(--av-surface); border: 1px solid var(--av-border); padding: 2px 7px; border-radius: 5px; font-size: 11px; }
+    .av-foot a { color: var(--av-accent); text-decoration: none; font-weight: 600; }
+
+    @media (max-width: 480px) {
+      .av-brand span { display: none; }
+      .av-back span { display: none; }
+      .av-back { width: 38px; padding: 0; justify-content: center; }
+      .av-main { padding: 20px 14px 40px; }
+      .av-card { padding: 22px 16px 18px; border-radius: 18px; }
+      .av-orb { --size: 100px; }
+      .av-orb svg { width: 38px; height: 38px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="av-page">
+    <!-- Barre supérieure -->
+    <header class="av-topbar">
+      <a class="av-brand" href="/" title="Retour à l'accueil Algeria Tech">
+        <span class="av-logo"><i class="fas fa-microphone-lines"></i></span>
+        <span><b>Algeria Tech</b><span>Assistant Vocal</span></span>
+      </a>
+      <div class="av-top-actions">
+        <button id="themeBtn" class="av-icon-btn" title="Changer le thème" aria-label="Changer le thème">
+          <i class="fas fa-moon"></i>
+        </button>
+        <a class="av-back" href="/" title="Retour au site"><i class="fas fa-arrow-left"></i><span>Retour</span></a>
+      </div>
+    </header>
+
+    <main class="av-main">
+      <div class="av-hero">
+        <span class="av-kicker"><i class="fas fa-shield-halved"></i> 100% local · aucune donnée envoyée</span>
+        <h1>Assistant Vocal</h1>
+        <p>Parlez, il vous répond. Reconnaissance et synthèse vocale directement dans votre navigateur, en français.</p>
+      </div>
+
+      <div class="av-card">
+        <div id="warning" class="av-warning">
+          ⚠️ Votre navigateur ne prend pas en charge la reconnaissance vocale. Essayez <b>Chrome</b>, <b>Edge</b> ou <b>Safari</b>.
+        </div>
+        <div id="iosHint" class="av-hint">
+          💡 Sur iOS : touchez le micro une première fois pour autoriser l'accès.
+        </div>
+
+        <!-- Orbe micro -->
+        <div class="av-orb-wrap">
+          <button id="micBtn" class="av-orb" title="Activer le micro" aria-label="Activer le micro">
+            <span class="ring"></span><span class="ring"></span><span class="ring"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/>
+            </svg>
+          </button>
+          <div id="eq" class="av-eq"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        </div>
+
+        <!-- Statut -->
+        <div class="av-status">
+          <span id="statusDot" class="av-dot"></span>
+          <span id="statusText">Prêt — touchez le micro pour parler</span>
+        </div>
+
+        <!-- Suggestions -->
+        <div id="chips" class="av-chips">
+          <button class="av-chip" data-cmd="Bonjour">👋 Bonjour</button>
+          <button class="av-chip" data-cmd="Quelle heure est-il ?">🕐 L'heure</button>
+          <button class="av-chip" data-cmd="Quel jour sommes-nous ?">📅 La date</button>
+          <button class="av-chip" data-cmd="Qui es-tu ?">🤖 Qui es-tu ?</button>
+          <button class="av-chip" data-cmd="Raconte-moi une blague">😄 Une blague</button>
+        </div>
+
+        <!-- Transcription -->
+        <div id="transcript" class="av-transcript">
+          <div class="av-placeholder">Vos échanges apparaîtront ici…</div>
+        </div>
+
+        <!-- Contrôles -->
+        <div class="av-controls">
+          <button id="clearBtn" class="av-ctrl" title="Effacer la conversation" aria-label="Effacer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="3 6 5 6 21 6"/><path d="M19 6l-2 14H7L5 6"/><path d="M10 11v6M14 11v6"/>
+            </svg>
+          </button>
+          <button id="speakerBtn" class="av-ctrl active" title="Activer / couper la voix" aria-label="Synthèse vocale">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Réglages -->
+        <div class="av-settings">
+          <div class="av-field">
+            <label for="voiceSelect">Voix</label>
+            <select id="voiceSelect" class="av-select" aria-label="Choisir une voix française">
+              <option value="">Voix française par défaut</option>
+            </select>
+          </div>
+          <div class="av-field">
+            <label for="rate">Vitesse <span class="val" id="rateVal">1.0×</span></label>
+            <input id="rate" class="av-range" type="range" min="0.5" max="1.8" step="0.1" value="1" />
+          </div>
+          <div class="av-field">
+            <label for="pitch">Tonalité <span class="val" id="pitchVal">1.0</span></label>
+            <input id="pitch" class="av-range" type="range" min="0.5" max="1.8" step="0.1" value="1" />
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="av-actions">
+          <button id="copyBtn" class="av-action">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+            <span>Copier</span>
+          </button>
+          <button id="downloadBtn" class="av-action">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span>Télécharger</span>
+          </button>
+        </div>
+      </div>
+
+      <p class="av-foot">
+        Propulsé par <code>Web Speech API</code> · aucune donnée envoyée<br>
+        <a href="/">← Retour à l'accueil Algeria Tech</a>
+      </p>
+    </main>
+  </div>
+
+  <script>
+    // ===== Thème (synchronisé avec le site : localStorage 'theme') =====
+    (function () {
+      if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
+      const btn = document.getElementById('themeBtn');
+      const sync = () => { btn.querySelector('i').className = document.body.classList.contains('dark-mode') ? 'fas fa-sun' : 'fas fa-moon'; };
+      sync();
+      btn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        sync();
+      });
+    })();
+
+    // ===== Assistant vocal =====
+    (function () {
+      'use strict';
+
+      const micBtn = document.getElementById('micBtn');
+      const clearBtn = document.getElementById('clearBtn');
+      const copyBtn = document.getElementById('copyBtn');
+      const downloadBtn = document.getElementById('downloadBtn');
+      const speakerBtn = document.getElementById('speakerBtn');
+      const voiceSelect = document.getElementById('voiceSelect');
+      const transcript = document.getElementById('transcript');
+      const statusDot = document.getElementById('statusDot');
+      const statusText = document.getElementById('statusText');
+      const warning = document.getElementById('warning');
+      const iosHint = document.getElementById('iosHint');
+      const eq = document.getElementById('eq');
+      const rate = document.getElementById('rate');
+      const pitch = document.getElementById('pitch');
+      const rateVal = document.getElementById('rateVal');
+      const pitchVal = document.getElementById('pitchVal');
+      const chips = document.getElementById('chips');
+
+      let recognition = null;
+      let isListening = false;
+      let speakerEnabled = true;
+      let conversation = [];
+      const LANG = 'fr-FR';
+
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const synth = window.speechSynthesis;
+
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+      if (isIOS) iosHint.classList.add('show');
+
+      // ---- Helpers ----
+      function setStatus(type, text) {
+        statusDot.className = 'av-dot' + (type ? ' ' + type : '');
+        statusText.textContent = text;
+      }
+      function escapeHtml(s) {
+        return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+      }
+      function clearInterim() { const el = transcript.querySelector('.interim'); if (el) el.remove(); }
+      function clearPlaceholder() { const el = transcript.querySelector('.av-placeholder'); if (el) el.remove(); }
+
+      function addMessage(role, text) {
+        clearPlaceholder(); clearInterim();
+        const div = document.createElement('div');
+        div.className = 'av-msg ' + (role === 'user' ? 'user' : 'bot');
+        div.innerHTML = '<div class="lbl">' + (role === 'user' ? 'Vous' : 'Assistant') + '</div><div>' + escapeHtml(text) + '</div>';
+        transcript.appendChild(div);
+        transcript.scrollTop = transcript.scrollHeight;
+        conversation.push({ role, text, ts: new Date().toISOString() });
+      }
+
+      // Réponses locales (démo). Branchez un backend via callYourAI(text) pour une vraie IA.
+      function generateLocalReply(input) {
+        const s = input.toLowerCase().trim();
+        if (/^(bonjour|salut|coucou|hello|bonsoir|hey)\b/.test(s)) return 'Bonjour ! Comment puis-je vous aider aujourd’hui ?';
+        if (/(merci|thanks|thank you)/.test(s)) return 'Avec plaisir ! 😊';
+        if (/(au revoir|bye|à bientôt|ciao|adieu)/.test(s)) return 'Au revoir et à bientôt sur Algeria Tech !';
+        if (/(qui es-tu|tu es qui|comment tu t’appelles|comment t’appelles|ton nom)/.test(s)) return 'Je suis l’assistant vocal d’Algeria Tech, propulsé par la Web Speech API de votre navigateur.';
+        if (/(quelle heure|il est quelle heure|l’heure)/.test(s)) return 'Il est ' + new Date().toLocaleTimeString('fr-FR') + '.';
+        if (/(quel jour|quelle date|la date|aujourd’hui)/.test(s)) return 'Nous sommes le ' + new Date().toLocaleDateString('fr-FR', { weekday:'long', day:'numeric', month:'long', year:'numeric' }) + '.';
+        if (/(blague|rigoler|drôle|fais-moi rire)/.test(s)) {
+          const jokes = [
+            'Pourquoi les développeurs préfèrent le noir ? Parce que la lumière attire les bugs !',
+            'Un octet entre dans un bar… le barman dit : « désolé, on ne sert pas les demi-octets ».',
+            'Comment appelle-t-on un algorithme qui chante ? Un algo-rythme !'
+          ];
+          return jokes[Math.floor(Math.random() * jokes.length)];
+        }
+        if (/(ça va|comment vas-tu|comment ça va)/.test(s)) return 'Je fonctionne parfaitement, merci ! Et vous ?';
+        if (/(aide|help|que sais-tu faire|tu sais faire quoi)/.test(s)) return 'Je peux vous donner l’heure, la date, raconter une blague… Essayez les suggestions sous le micro.';
+        return 'J’ai bien entendu : « ' + input + ' ». Pour une vraie réponse IA, branchez l’assistant sur votre backend.';
+      }
+
+      function speakText(text) {
+        if (!speakerEnabled || !synth) return;
+        synth.cancel();
+        const u = new SpeechSynthesisUtterance(text);
+        u.lang = LANG;
+        u.rate = parseFloat(rate.value) || 1;
+        u.pitch = parseFloat(pitch.value) || 1;
+        const sel = voiceSelect.value;
+        if (sel) { const v = synth.getVoices().find(v => v.name === sel); if (v) u.voice = v; }
+        u.onstart = () => { if (!isListening) { statusDot.className = 'av-dot speaking'; statusText.textContent = '🔊 Je réponds…'; } micBtn.classList.toggle('speaking', !isListening); };
+        u.onend = () => { micBtn.classList.remove('speaking'); if (!isListening) setStatus('', 'Prêt — touchez le micro pour parler'); };
+        synth.speak(u);
+      }
+
+      // Entrée unifiée : reconnaissance vocale + suggestions cliquables
+      function handleUserInput(text) {
+        if (!text) return;
+        addMessage('user', text);
+        const reply = generateLocalReply(text);
+        addMessage('bot', reply);
+        if (speakerEnabled) speakText(reply);
+      }
+
+      // ---- Reconnaissance vocale ----
+      if (!SpeechRecognition) {
+        warning.classList.add('show');
+        micBtn.disabled = true;
+        setStatus('error', 'Reconnaissance vocale indisponible');
+      } else {
+        recognition = new SpeechRecognition();
+        recognition.lang = LANG;
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        recognition.maxAlternatives = 1;
+
+        recognition.onstart = () => {
+          isListening = true;
+          micBtn.classList.add('listening');
+          eq.classList.add('on');
+          setStatus('listening', 'Je vous écoute…');
+        };
+        recognition.onresult = (event) => {
+          let interim = '';
+          for (let i = event.resultIndex; i < event.results.length; i++) {
+            const r = event.results[i];
+            if (r.isFinal) {
+              const txt = r[0].transcript.trim();
+              if (txt) handleUserInput(txt);
+            } else { interim += r[0].transcript; }
+          }
+          clearPlaceholder();
+          let el = transcript.querySelector('.interim');
+          if (interim) {
+            if (!el) { el = document.createElement('div'); el.className = 'av-msg interim'; transcript.appendChild(el); }
+            el.textContent = '✎ ' + interim;
+          } else if (el) { el.remove(); }
+          transcript.scrollTop = transcript.scrollHeight;
+        };
+        recognition.onerror = (event) => {
+          let msg = 'Une erreur est survenue';
+          if (event.error === 'not-allowed' || event.error === 'service-not-allowed') msg = '🎤 Accès au micro refusé. Autorisez-le dans le navigateur.';
+          else if (event.error === 'no-speech') msg = 'Aucun son détecté. Réessayez.';
+          else if (event.error === 'network') msg = 'Erreur réseau. Vérifiez votre connexion.';
+          else if (event.error === 'aborted') return;
+          setStatus('error', msg);
+        };
+        recognition.onend = () => {
+          isListening = false;
+          micBtn.classList.remove('listening');
+          eq.classList.remove('on');
+          clearInterim();
+          if (!synth || !synth.speaking) setStatus('', 'Prêt — touchez le micro pour parler');
+        };
+      }
+
+      function startListening() { try { recognition.start(); } catch (e) {} }
+      function stopListening() { try { recognition.stop(); } catch (e) {} }
+
+      // ---- Voix (TTS) ----
+      function loadVoices() {
+        if (!synth) return;
+        const voices = synth.getVoices();
+        if (!voices.length) return;
+        const fr = voices.filter(v => /fr[-_]/i.test(v.lang));
+        const cur = voiceSelect.value;
+        voiceSelect.innerHTML = '<option value="">Voix française par défaut</option>';
+        fr.forEach(v => {
+          const o = document.createElement('option');
+          o.value = v.name;
+          o.textContent = v.name + ' (' + v.lang + ')' + (v.localService ? ' — local' : '');
+          voiceSelect.appendChild(o);
+        });
+        if (!fr.length) {
+          const o = document.createElement('option'); o.textContent = 'Aucune voix française détectée'; o.disabled = true; voiceSelect.appendChild(o);
+        }
+        if (cur) voiceSelect.value = cur;
+      }
+      loadVoices();
+      if (synth && synth.onvoiceschanged !== undefined) synth.onvoiceschanged = loadVoices;
+
+      // ---- Événements ----
+      micBtn.addEventListener('click', () => {
+        if (!recognition) return;
+        if (!isListening) {
+          if (isIOS && synth) { const u = new SpeechSynthesisUtterance(' '); u.volume = 0; synth.speak(u); }
+          startListening();
+        } else { stopListening(); }
+      });
+
+      chips.addEventListener('click', (e) => {
+        const b = e.target.closest('.av-chip');
+        if (b) handleUserInput(b.dataset.cmd);
+      });
+
+      clearBtn.addEventListener('click', () => {
+        transcript.innerHTML = '<div class="av-placeholder">Vos échanges apparaîtront ici…</div>';
+        conversation = [];
+        if (synth) synth.cancel();
+      });
+
+      speakerBtn.addEventListener('click', () => {
+        speakerEnabled = !speakerEnabled;
+        speakerBtn.classList.toggle('active', speakerEnabled);
+        speakerBtn.title = speakerEnabled ? 'Couper la voix' : 'Activer la voix';
+        if (!speakerEnabled && synth) synth.cancel();
+      });
+
+      rate.addEventListener('input', () => { rateVal.textContent = parseFloat(rate.value).toFixed(1) + '×'; });
+      pitch.addEventListener('input', () => { pitchVal.textContent = parseFloat(pitch.value).toFixed(1); });
+      voiceSelect.addEventListener('change', () => { if (speakerEnabled) speakText('Bonjour, je suis votre assistant vocal.'); });
+
+      copyBtn.addEventListener('click', async () => {
+        const text = conversation.map(m => '[' + (m.role === 'user' ? 'Vous' : 'Assistant') + '] ' + m.text).join('\n');
+        if (!text) return;
+        try {
+          await navigator.clipboard.writeText(text);
+          const span = copyBtn.querySelector('span'); const old = span.textContent;
+          span.textContent = '✓ Copié'; setTimeout(() => span.textContent = old, 1500);
+        } catch (e) { alert('Copie impossible. Sélectionnez le texte manuellement.'); }
+      });
+
+      downloadBtn.addEventListener('click', () => {
+        const text = conversation.map(m => '[' + new Date(m.ts).toLocaleString('fr-FR') + '] ' + (m.role === 'user' ? 'Vous' : 'Assistant') + ' : ' + m.text).join('\n');
+        if (!text) return;
+        const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'conversation-' + Date.now() + '.txt'; a.click();
+        URL.revokeObjectURL(url);
+      });
+
+      document.addEventListener('visibilitychange', () => { if (document.hidden && isListening) stopListening(); });
+    })();
+  </script>
+</body>
+</html>
