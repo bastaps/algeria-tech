@@ -498,15 +498,14 @@ function setupTheme() {
 /* ══════════════════════════════════════════════════════════════
    FORMULAIRE COMMUNIQUÉ — Création / Édition / Suppression
    ══════════════════════════════════════════════════════════════ */
-const COMM_PASSWORD  = 'admin2026';
-let   commAuthed     = false;   // authentifié pour cette session de page
-
-/* ── Authentification légère ─────────────────────────────────── */
+/* ── Accès admin : localhost uniquement ──────────────────────────
+   Plus de mot de passe dans le client. Les écritures (création / édition /
+   suppression de communiqués) sont verrouillées côté serveur en production
+   (403). On ne gère les communiqués qu'en local. */
 function ensureAuthed() {
-  if (commAuthed) return true;
-  const pwd = prompt('Mot de passe administrateur :');
-  if (pwd === COMM_PASSWORD) { commAuthed = true; return true; }
-  alert('Mot de passe incorrect.');
+  const isLocalhost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if (isLocalhost) return true;
+  alert('Administration disponible uniquement en local.');
   return false;
 }
 

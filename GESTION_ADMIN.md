@@ -1,3 +1,9 @@
+> ⚠️ **OBSOLÈTE (mis à jour 2026-07-12)** : le mot de passe admin a été **supprimé**.
+> L'administration est désormais **disponible uniquement en localhost** (ton PC), sans mot de passe.
+> Le site déployé (pages.dev / Render) est en **lecture seule** : toute écriture est bloquée
+> côté serveur (403), y compris via F12 ou un appel direct à l'API. Les sections ci-dessous
+> décrivant un mot de passe ne sont conservées qu'à titre historique.
+
 Voici un **fichier de référence complet**, structuré pour être sauvegardé dans ton projet (ex: `REFERENCE_ADMIN.md`), suivi des **commandes PowerShell optimisées** et du **guide d'utilisation**.
 
 ---
@@ -8,7 +14,7 @@ Voici un **fichier de référence complet**, structuré pour être sauvegardé d
 ## 🔑 Configuration Actuelle
 | Paramètre | Valeur |
 |-----------|--------|
-| **Mot de passe admin** | `admin2026` |
+| **Mot de passe admin** | `admin-local-sans-mot-de-passe` |
 | **Clé localStorage** | `AT_Admin_2026` |
 | **Détection localhost** | `window.location.hostname === 'localhost' \|\| '127.0.0.1'` |
 | **Raccourci déverrouiller** | `Ctrl + Shift + A` |
@@ -37,7 +43,7 @@ Voici un **fichier de référence complet**, structuré pour être sauvegardé d
 ```javascript
 // 1. CONFIG & DÉTECTION
 const ADMIN_CONFIG = {
-    password: 'admin2026',
+    password: 'admin-local-sans-mot-de-passe',
     unlockKey: 'AT_Admin_2026',
     isLocalhost: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
 };
@@ -146,7 +152,7 @@ Write-Host "✅ Déploiement lancé. Vérifie https://algeria-tech.pages.dev dan
 ### 🟢 Pour accéder au mode admin :
 1. Clique sur le petit cadenas **🔒** (en bas à droite, opacité 30%)  
    **OU** fais `Ctrl + Shift + A`
-2. Entre le mot de passe : **`admin2026`**
+2. Entre le mot de passe : **`admin-local-sans-mot-de-passe`**
 3. ✅ Le bouton **"+"** rouge apparaît ✨
 4. Le statut est sauvegardé dans ton navigateur (même après fermeture)
 

@@ -12,7 +12,8 @@ let currentUtterance = null;
 const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 const REMOTE_API = 'https://dz-tech-press-api.onrender.com';
 const API_BASE = isLocal ? '' : REMOTE_API;
-const ADMIN_PASSWORD = 'admin2026';
+// Auth admin retirée du client (écritures verrouillées côté serveur en prod).
+const IS_LOCALHOST_ADMIN = isLocal;
 // Clé YouTube déplacée côté serveur (proxy /api/youtube) — plus aucune clé dans le client.
 const YOUTUBE_CHANNEL_ID = 'UCyIYnT60oAg8iVZKoz8seAA';
 
@@ -434,8 +435,7 @@ function initCounters() {
 
 // ===== GESTION ADMIN =====
 window.toggleAdminPanel = function() {
-    const pass = prompt('Mot de passe Admin:');
-    if (pass !== ADMIN_PASSWORD) return showToast('  AccÃ¨s refusÃ©');
+    if (!IS_LOCALHOST_ADMIN) return showToast('Administration disponible uniquement en local');
     const modal = document.getElementById('adminModal');
     modal.classList.add('show');
     if (currentEditingId) {

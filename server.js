@@ -88,6 +88,23 @@ const octokit = process.env.GITHUB_TOKEN ? new Octokit({ auth: process.env.GITHU
 const OWNER = "bastaps";
 const REPO = "algeria-tech";
 
+// ── VERROU ÉCRITURE EN PRODUCTION ───────────────────────────────────────────
+// Le site déployé (Render/Cloudflare) est en LECTURE SEULE. Toute création,
+// modification ou suppression se fait UNIQUEMENT en localhost, via les outils
+// dédiés, puis publication par `git push`. En cloud, seuls les GET et une petite
+// liste de POST publics sont autorisés ; TOUTE autre mutation renvoie 403 — y
+// compris via la console F12 ou un appel direct à l'API. La protection est côté
+// serveur, donc elle ne peut pas être contournée depuis le navigateur.
+const PUBLIC_CLOUD_POST = new Set(['/api/debat', '/api/synthese', '/api/subscribe']);
+if (isCloud) {
+    app.use((req, res, next) => {
+        if (req.method === 'GET' || req.method === 'HEAD' || req.method === 'OPTIONS') return next();
+        if (PUBLIC_CLOUD_POST.has(req.path)) return next();
+        return res.status(403).json({ error: "Modification désactivée sur le site déployé. Les articles se gèrent uniquement en local." });
+    });
+    console.log('[secu] 🔒 Mode cloud : écritures verrouillées (lecture seule + POST publics debat/synthese/subscribe).');
+}
+
 const storage = isCloud ? multer.memoryStorage() : multer.diskStorage({
     destination: (req, file, cb) => {
         const dir = file.mimetype === 'application/pdf' ? 'documents/' : 'images/';

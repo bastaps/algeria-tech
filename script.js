@@ -1,30 +1,20 @@
 // === ADMIN VISIBILITY CONTROL ===
 const ADMIN_CONFIG = {
-    password: 'admin2026', // Change ce mot de passe si tu veux
     unlockKey: 'AT_Admin_2026',
     isLocalhost: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
 };
 
-// Vérifier si admin est déverrouillé
+// L'admin n'existe QU'EN LOCALHOST. Le site déployé est en lecture seule : les
+// écritures sont bloquées côté serveur (403), donc aucun mot de passe n'est requis
+// ni stocké dans le client (plus de secret exposé dans le JS).
 function isAdminUnlocked() {
-    if (ADMIN_CONFIG.isLocalhost) return true;
-    return localStorage.getItem(ADMIN_CONFIG.unlockKey) === 'unlocked';
+    return ADMIN_CONFIG.isLocalhost;
 }
 
-// Déverrouiller l'admin
+// Plus de mot de passe : admin = localhost uniquement.
 function unlockAdmin() {
     if (ADMIN_CONFIG.isLocalhost) return true;
-    
-    const input = prompt(' Accès Administration Algeria Tech\n\nEntrez le mot de passe:');
-    if (input === ADMIN_CONFIG.password) {
-        localStorage.setItem(ADMIN_CONFIG.unlockKey, 'unlocked');
-        updateAdminVisibility();
-        showToast('✅ Mode administrateur activé');
-        return true;
-    } else if (input !== null) {
-        showToast('❌ Mot de passe incorrect');
-        return false;
-    }
+    showToast('🔒 Administration disponible uniquement en local');
     return false;
 }
 
@@ -207,7 +197,8 @@ if (synth) {
 const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 const REMOTE_API = 'https://dz-tech-press-api.onrender.com';
 const API_BASE = isLocal ? '' : REMOTE_API;
-const ADMIN_PASSWORD = 'admin2026';
+// Auth admin retirée du client : l'admin n'existe qu'en localhost, les écritures
+// sont verrouillées côté serveur en production (403). Plus de mot de passe exposé.
 // Clé YouTube déplacée côté serveur (proxy /api/youtube) — plus aucune clé dans le client.
 const YOUTUBE_CHANNEL_ID = 'UCyIYnT60oAg8iVZKoz8seAA';
 
@@ -2051,12 +2042,9 @@ window.hubFill = function() {
 // ===== GESTION ADMIN =====
 window.toggleAdminPanel = async function() {
     // Vérifier si admin est déverrouillé (production uniquement)
-    if (!ADMIN_CONFIG.isLocalhost && !isAdminUnlocked()) {
-        if (!unlockAdmin()) return;
+    if (!isAdminUnlocked()) {
+        return showToast('🔒 Administration disponible uniquement en local');
     }
-
-    const pass = prompt('Mot de passe Admin:');
-    if (pass !== ADMIN_PASSWORD) return showToast('Accès refusé');
 
     const modal = document.getElementById('adminModal');
     modal.classList.add('show');

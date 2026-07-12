@@ -1,3 +1,8 @@
+> ⚠️ **OBSOLÈTE (mis à jour 2026-07-12)** : le mot de passe admin a été **supprimé**.
+> Administration = **localhost uniquement** (sans mot de passe). Le site déployé est en
+> **lecture seule** (écritures bloquées côté serveur, 403, même via F12). Les mentions de
+> mot de passe ci-dessous sont conservées à titre historique.
+
 Voici un fichier **GESTION_GLOBAL.md** complet et structuré, prêt à être sauvegardé dans ton projet :
 
 ```markdown
@@ -12,7 +17,7 @@ Voici un fichier **GESTION_GLOBAL.md** complet et structuré, prêt à être sau
 ### Configuration Actuelle
 | Paramètre | Valeur |
 |-----------|--------|
-| **Mot de passe admin** | `admin2026` |
+| **Mot de passe admin** | `admin-local-sans-mot-de-passe` |
 | **Clé localStorage** | `AT_Admin_2026` |
 | **Détection localhost** | `window.location.hostname === 'localhost' \|\| '127.0.0.1'` |
 | **Raccourci déverrouiller** | `Ctrl + Shift + A` |
@@ -23,7 +28,7 @@ Voici un fichier **GESTION_GLOBAL.md** complet et structuré, prêt à être sau
 #### 🟢 Pour accéder au mode admin :
 1. Clique sur le petit cadenas **🔒** (en bas à droite, opacité 30%)  
    **OU** fais `Ctrl + Shift + A`
-2. Entre le mot de passe : **`admin2026`**
+2. Entre le mot de passe : **`admin-local-sans-mot-de-passe`**
 3. ✅ Le bouton **"+"** rouge apparaît ✨
 4. Le statut est sauvegardé dans ton navigateur (même après fermeture)
 
@@ -74,7 +79,7 @@ Voici un fichier **GESTION_GLOBAL.md** complet et structuré, prêt à être sau
 ```javascript
 // === ADMIN VISIBILITY CONTROL ===
 const ADMIN_CONFIG = {
-    password: 'admin2026',
+    password: 'admin-local-sans-mot-de-passe',
     unlockKey: 'AT_Admin_2026',
     isLocalhost: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
 };
