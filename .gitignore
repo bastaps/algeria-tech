@@ -2,6 +2,12 @@ node_modules/
 .DS_Store
 .env
 facebook_cookies.json
+# Fichiers de secrets / clés API — ne jamais committer
+clé-api.txt
+cle-api.txt
+*api*.txt
+*secret*
+*.key
 # apify_cache.json  # committé par GitHub Actions (partagé entre workflows)
 .env.local
 *.log

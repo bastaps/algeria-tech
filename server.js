@@ -30,7 +30,46 @@ const PORT = process.env.PORT || 3000;
 app.use(compression({ level: 6, threshold: 1024 }));
 
 // ── CONFIGURATION IA (MISTRAL est l'alternative stable déjà présente dans votre projet) ──
-const MISTRAL_API_KEY = process.env.MISTRAL_API_KEY || "5AJzJhu9hZF0a7Q05tfbIxDF20NseEpd"; 
+// Clé lue UNIQUEMENT depuis l'environnement (.env en local, variables d'env en prod).
+// Ne jamais remettre la clé en dur ici : ce fichier est dans un dépôt public.
+const MISTRAL_API_KEY = process.env.MISTRAL_API_KEY || "";
+if (!MISTRAL_API_KEY) console.warn("[config] ⚠️ MISTRAL_API_KEY absente — les fonctions IA (débat, synthèse…) échoueront.");
+
+// ── Helper robuste pour appeler l'API Mistral ──────────────────────────────────
+// Corrige les "getaddrinfo ENOTFOUND api.mistral.ai" intermittents (DNS du host
+// qui flanche) et les requêtes qui pendent : timeout par tentative + retry sur
+// erreurs réseau transitoires (DNS, reset, timeout). Renvoie le corps brut (string).
+const MISTRAL_TRANSIENT = new Set(['ENOTFOUND', 'EAI_AGAIN', 'ECONNRESET', 'ETIMEDOUT', 'ECONNREFUSED', 'EPIPE']);
+function callMistral(payload, { timeout = 25000, retries = 2, retryDelay = 700 } = {}) {
+    const body = typeof payload === 'string' ? payload : JSON.stringify(payload);
+    const attempt = (left) => new Promise((resolve, reject) => {
+        const req = https.request({
+            hostname: 'api.mistral.ai',
+            path: '/v1/chat/completions',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${MISTRAL_API_KEY}`,
+                'Content-Length': Buffer.byteLength(body)
+            }
+        }, apiRes => {
+            let data = '';
+            apiRes.on('data', chunk => data += chunk);
+            apiRes.on('end', () => resolve(data));
+        });
+        req.setTimeout(timeout, () => req.destroy(Object.assign(new Error(`Timeout Mistral (${timeout / 1000}s)`), { code: 'ETIMEDOUT' })));
+        req.on('error', reject);
+        req.write(body);
+        req.end();
+    }).catch(err => {
+        if (left > 0 && MISTRAL_TRANSIENT.has(err.code)) {
+            console.warn(`[mistral] ${err.code} — nouvelle tentative (${left} restante·s)`);
+            return new Promise(r => setTimeout(r, retryDelay)).then(() => attempt(left - 1));
+        }
+        throw err;
+    });
+    return attempt(retries);
+}
 
 app.use(cors({
     origin: [
@@ -1254,36 +1293,23 @@ ARTICLE : ${contenu.substring(0, 3500)}`;
         max_tokens: 400
     });
 
-    const options = {
-        hostname: 'api.mistral.ai',
-        path: '/v1/chat/completions',
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${MISTRAL_API_KEY}`,
-            'Content-Length': Buffer.byteLength(payload)
-        }
-    };
-
-    const apiReq = https.request(options, apiRes => {
-        let data = '';
-        apiRes.on('data', chunk => data += chunk);
-        apiRes.on('end', () => {
-            try {
-                const result = JSON.parse(data);
-                if (result.error) throw new Error(result.error.message);
-                const parsed = JSON.parse(result.choices[0].message.content);
-                if (!Array.isArray(parsed.points) || parsed.points.length === 0)
-                    throw new Error('Format inattendu');
-                res.json({ points: parsed.points.slice(0, 5) });
-            } catch (e) {
-                res.status(500).json({ error: 'Erreur IA : ' + e.message });
-            }
+    try {
+        const data   = await callMistral(payload);
+        const result = JSON.parse(data);
+        if (result.error) throw new Error(result.error.message);
+        const parsed = JSON.parse(result.choices[0].message.content);
+        if (!Array.isArray(parsed.points) || parsed.points.length === 0)
+            throw new Error('Format inattendu');
+        res.json({ points: parsed.points.slice(0, 5) });
+    } catch (e) {
+        console.error('[synthese]', e.code || '', e.message);
+        const reseau = MISTRAL_TRANSIENT.has(e.code);
+        res.status(reseau ? 503 : 500).json({
+            error: reseau
+                ? "Service IA momentanément indisponible, réessayez dans un instant."
+                : 'Erreur IA : ' + e.message
         });
-    });
-    apiReq.on('error', e => res.status(500).json({ error: 'Réseau : ' + e.message }));
-    apiReq.write(payload);
-    apiReq.end();
+    }
 });
 
 // ── Veille Réglementaire — Journal Officiel Algérien (JORADP) ───────────────
@@ -1634,36 +1660,22 @@ ${String(contenu || '').substring(0, 4200)}
         temperature: 0.5
     });
 
-    const options = {
-        hostname: 'api.mistral.ai',
-        path:     '/v1/chat/completions',
-        method:   'POST',
-        headers: {
-            'Content-Type':   'application/json',
-            'Authorization':  `Bearer ${MISTRAL_API_KEY}`,
-            'Content-Length': Buffer.byteLength(payload)
-        }
-    };
-
-    const apiReq = https.request(options, apiRes => {
-        let data = '';
-        apiRes.on('data', chunk => data += chunk);
-        apiRes.on('end', () => {
-            try {
-                const result = JSON.parse(data);
-                if (result.error) throw new Error(result.error.message);
-                const reponse = result.choices?.[0]?.message?.content;
-                if (!reponse) throw new Error('Réponse Mistral vide');
-                res.json({ reponse });
-            } catch (e) {
-                console.error('[debat]', e.message);
-                res.status(500).json({ error: 'Erreur IA : ' + e.message });
-            }
+    try {
+        const data   = await callMistral(payload);
+        const result = JSON.parse(data);
+        if (result.error) throw new Error(result.error.message);
+        const reponse = result.choices?.[0]?.message?.content;
+        if (!reponse) throw new Error('Réponse Mistral vide');
+        res.json({ reponse });
+    } catch (e) {
+        console.error('[debat]', e.code || '', e.message);
+        const reseau = MISTRAL_TRANSIENT.has(e.code);
+        res.status(reseau ? 503 : 500).json({
+            error: reseau
+                ? "Service IA momentanément indisponible, réessayez dans un instant."
+                : 'Erreur IA : ' + e.message
         });
-    });
-    apiReq.on('error', e => res.status(500).json({ error: 'Réseau : ' + e.message }));
-    apiReq.write(payload);
-    apiReq.end();
+    }
 });
 
 // Un seul article peut occuper la position 1 (Une principale) ou 2 (Une secondaire).
@@ -1726,6 +1738,37 @@ app.post('/api/create-article', upload, async (req, res) => {
             res.json({ success: true, message: "Enregistré localement" });
         }
     } catch (e) { console.error("Erreur API:", e); res.status(500).json({ message: e.message }); }
+});
+
+// ── UPLOAD PHOTO INLINE — insertion dans le corps d'un article ──
+// Reçoit un fichier image unique (champ "photo"), l'enregistre dans images/
+// (disque en local, GitHub en cloud) et renvoie { url } prêt à insérer.
+const inlineImgUpload = multer({
+    storage: multer.memoryStorage(),
+    limits: { fileSize: 12 * 1024 * 1024 }
+}).single('photo');
+
+app.post('/api/upload-inline-image', (req, res) => {
+    inlineImgUpload(req, res, async (err) => {
+        try {
+            if (err) throw err;
+            if (!req.file) return res.status(400).json({ message: "Aucune image reçue." });
+            const ext = (path.extname(req.file.originalname) || '.jpg').toLowerCase();
+            const safeExt = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.avif', '.svg'].includes(ext) ? ext : '.jpg';
+            const fileName = `inline-${Date.now()}-${Math.random().toString(36).slice(2, 8)}${safeExt}`;
+            const imagePath = `images/${fileName}`;
+            if (isCloud) {
+                await pushToGithub(imagePath, req.file.buffer, "Upload photo inline", true);
+            } else {
+                if (!fsSync.existsSync('images')) fsSync.mkdirSync('images', { recursive: true });
+                await fs.writeFile(path.join('images', fileName), req.file.buffer);
+            }
+            res.json({ success: true, url: '/' + imagePath });
+        } catch (e) {
+            console.error("Erreur upload-inline-image:", e);
+            res.status(500).json({ message: e.message });
+        }
+    });
 });
 
 app.delete('/api/delete-article/:id', async (req, res) => {
