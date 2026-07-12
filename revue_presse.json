@@ -1,29 +1,7 @@
 {
   "date": "dimanche 12 juillet",
-  "synthese": "L'Algérie accélère sa numérisation administrative avec Dzair Di. La coopération énergétique internationale se renforce avec la Côte d’Ivoire.",
+  "synthese": "Trois accords énergétiques signés en 48h avec la Côte d’Ivoire, l’Allemagne et l’Italie. La réception de deux nouveaux appareils par Air Algérie porte la flotte à 51 avions.",
   "articles": [
-    {
-      "titre": "L’Algérie passe à la vitesse supérieure <BR> Bienvenue dans l’administration de demain avec Dzair Digital Services",
-      "resume": "Le 16 octobre 2025, lors de l’ouverture du salon Ecsel Expo à Alger, la ministre et Haut-commissaire à la numérisation, Meriem Benmouloud, a officiali",
-      "url": "https://www.itmag.dz/2026/07/12/lalgerie-passe-a-la-vitesse-superieure-br-bienvenue-dans-ladministration-de-demain-avec-dzair-digital-services/",
-      "date": "2026-07-12T07:23:54.000Z",
-      "source": "ITMAG.dz",
-      "logo": "https://www.google.com/s2/favicons?domain=itmag.dz&sz=32",
-      "pays": "DZ",
-      "accroche": "Dzair Di lance l’administration numérique algérienne",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Projet de transfert d’eau vers Gara Djebilet : la dernière phase des études réalisée à 70 %",
-      "resume": "Les études relatives au projet de transfert des eaux Sud-Sud reliant les wilayas de Timimoun et de Tindouf à la région de Gara Djebilet se poursuivent",
-      "url": "https://algerie-eco.com/2026/07/11/projet-de-transfert-deau-vers-gara-djebilet-la-derniere-phase-des-etudes-realisee-a-70/",
-      "date": "2026-07-11T19:15:44.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Projet Gara Djebilet : 70 % des études terminées",
-      "categorie": "Innovation"
-    },
     {
       "titre": "Air Algérie réceptionne deux nouveaux avions, un Boeing et un ATR",
       "resume": "La compagnie aérienne nationale Air Algérie a réceptionné, ce samedi 11 juin à l’Aéroport international d’Alger, deux nouveaux avions dans le cadre de",
@@ -32,8 +10,8 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Air Algérie réceptionne un Boeing et un ATR",
-      "categorie": "Innovation"
+      "accroche": "Air Algérie réceptionne deux nouveaux avions",
+      "categorie": "Aérien"
     },
     {
       "titre": "L’Algérie et la Côte d’Ivoire renforcent leur coopération énergétique avec la signature d’un accord cadre de coopération dans les domaines de l’énergie et des énergies renouvelables",
@@ -43,8 +21,63 @@
       "source": "EcomNewsMed DZ",
       "logo": "https://www.google.com/s2/favicons?domain=ecomnewsmed.com&sz=32",
       "pays": "DZ",
-      "accroche": "Algérie-Côte d’Ivoire : accord renforcé en énergie",
+      "accroche": "Algérie-Côte d’Ivoire : accord énergétique signé",
+      "categorie": "Énergie"
+    },
+    {
+      "titre": "Corée, Chine, Japon... À court de terrains et d’eau douce, l’industrie du data center se tourne vers l’océan dans les pays d’Asie avec des projets portés par Samsung, HiCloud ou Hitachi",
+      "resume": "Entre la barge nearshore de Samsung, les navires reconvertis de MOL et Hitachi, et le module sous-marin déjà opérationnel en Chine, la prochaine vague",
+      "url": "https://www.usine-digitale.fr/informatique/data-centers/coree-chine-japon-a-court-de-terrains-et-deau-douce-lindustrie-du-data-center-se-tourne-vers-locean-dans-les-pays-dasie-avec-des-projets-portes-par-samsung-hicloud-ou-hitachi.7C35LLFTSBGHBOPKQXQGXEPORI.html",
+      "date": "2026-07-11T11:50:42.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Industrie du data center : Corée, Chine, Japon",
       "categorie": "Réseaux"
+    },
+    {
+      "titre": "Émulation PS5 sur PC : deux projets débarquent, et l’un fait déjà tourner des jeux",
+      "resume": "En quelques jours, l’émulation PS5 est passée de la théorie à la démo qui tourne : deux projets ont surgi presque en même temps, et l’un d’eux, KytyPS",
+      "url": "https://www.frandroid.com/produits-android/console/console-de-jeux/3177809_sharpemu-le-premier-projet-demulateur-ps5-fait-ses-debuts-en-lancant-demons-souls-sur-pc",
+      "date": "2026-07-12T07:53:00.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Émulation PS5 sur PC : deux projets en test",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Badges, alliages secrets, transports dédiés : comment Apple verrouille ses secrets",
+      "resume": "En attaquant OpenAI pour vol de secrets industriels, Apple a dû prouver qu'elle protège sérieusement lesdits secrets. Résultat : onze paragraphes qui",
+      "url": "https://www.frandroid.com/marques/apple/3177749_badges-alliages-secrets-transports-dedies-comment-apple-verrouille-ses-secrets",
+      "date": "2026-07-12T06:30:00.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Apple verrouille secrets : badges, alliages, transports",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "MG dégaine la concurrente de la R5 électrique, Xiaomi annonce sa nouvelle voiture et les caméras deviennent obligatoires dans la voitures – Récap’ Survoltés",
+      "resume": "Cette semaine, l’actualité Survoltés a été riche : des annonces de Xiaomi et MG, en passant par des enquêtes autour de la Twingo E-Tech ou des caméras",
+      "url": "https://www.frandroid.com/survoltes/3176687_recap-survoltes-202628",
+      "date": "2026-07-11T18:01:00.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "MG et Xiaomi lancent voitures électriques",
+      "categorie": "Mobile"
+    },
+    {
+      "titre": "Vos photos de vacances sont un danger : avec l’IA, les criminels peuvent vous localiser pour vous piéger",
+      "resume": "Une simple photo de vacances est susceptible de vous mettre en danger. Avec l'IA générative, les cybercriminels peuvent facilement deviner où vous ête",
+      "url": "https://www.01net.com/actualites/photos-vacances-danger-ia-criminels-peuvent-deviner-pieger.html",
+      "date": "2026-07-12T08:04:26.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Photos de vacances : danger avec IA pour localisation",
+      "categorie": "Cybersécurité"
     },
     {
       "titre": "Faux paiement Wero : cette arnaque par SMS peut vider votre compte bancaire",
@@ -54,19 +87,8 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Arnaque par SMS Wero : alerte sur les faux paiements",
+      "accroche": "Faux paiement Wero : arnaque par SMS",
       "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "Pénurie de puces : cette décision chinoise risque encore de faire exploser les prix",
-      "resume": "Pékin coupe ses exportations d'hélium, gaz discret mais vital pour les usines de puces. Après le néon en 2022, la tech redécouvre sa fragilité. Et vot",
-      "url": "https://www.01net.com/actualites/penurie-de-puces-cette-decision-chinoise-risque-encore-de-faire-exploser-les-prix.html",
-      "date": "2026-07-11T11:04:42.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Pénurie de puces : décision chinoise impacte les prix",
-      "categorie": "Télécoms"
     },
     {
       "titre": "Le gouvernement oriente vos achats de voitures électriques avec l’argent des autres",
@@ -76,8 +98,8 @@
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Gouvernement : incitations pour achats de voitures électriques",
-      "categorie": "Mobile"
+      "accroche": "Gouvernement oriente achats voitures électriques",
+      "categorie": "Innovation"
     },
     {
       "titre": "Les Russes passent au VE faute de carburant, les usines menacées en Hongrie et polémique sur le leasing social 2026 : le récap’ Vroom de la semaine",
@@ -87,7 +109,7 @@
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Russie : passage accéléré aux véhicules électriques",
+      "accroche": "Russes adoptent véhicules électriques faute carburant",
       "categorie": "Mobile"
     },
     {
@@ -98,42 +120,20 @@
       "source": "L'Usine Nouvelle",
       "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
       "pays": "FR",
-      "accroche": "Marché des robots : 300 à 750 Md$ d’ici 2035",
+      "accroche": "Marché robots : 300 à 750 milliards USD d’ici 2035",
       "categorie": "IA"
     },
     {
-      "titre": "En retard sur les batteries et les solutions numériques : la France sous-investit dans les technologies bas carbone",
-      "resume": "La tendance est claire, même si les chiffres datent de 2022.",
-      "url": "https://www.usinenouvelle.com/juridique/brevets/en-retard-sur-les-batteries-et-les-solutions-numeriques-la-france-sous-investit-dans-les-technologies-bas-carbone.D5NA4GFUNNKPFDTM4YB6JI423Q.html",
-      "date": "2026-07-11T09:00:00.000Z",
-      "source": "L'Usine Nouvelle",
-      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
-      "pays": "FR",
-      "accroche": "France : sous-investissement dans batteries et numérique",
+      "titre": "Projet de transfert d’eau vers Gara Djebilet : la dernière phase des études réalisée à 70 %",
+      "resume": "Les études relatives au projet de transfert des eaux Sud-Sud reliant les wilayas de Timimoun et de Tindouf à la région de Gara Djebilet se poursuivent",
+      "url": "https://algerie-eco.com/2026/07/11/projet-de-transfert-deau-vers-gara-djebilet-la-derniere-phase-des-etudes-realisee-a-70/",
+      "date": "2026-07-11T19:15:44.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Transfert d’eau vers Gara Djebilet : 70 % des études",
       "categorie": "Innovation"
-    },
-    {
-      "titre": "Pâte à papier : dans un nouveau courrier adressé à Emmanuel Macron, l’organisation d’une «table ronde» est demandée à l’Etat pour sauver Fibre Excellence",
-      "resume": "",
-      "url": "https://www.usinenouvelle.com/emballage/pate-a-papier-dans-un-nouveau-courrier-adresse-a-emmanuel-macron-lorganisation-dune-table-ronde-est-demandee-a-letat-pour-sauver-fibre-excellence.REQJR3NIKNAJ7OOYJXWRQLNEUM.html",
-      "date": "2026-07-11T08:56:43.000Z",
-      "source": "L'Usine Nouvelle",
-      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
-      "pays": "FR",
-      "accroche": "Pâte à papier : courrier de Macron à l’UE",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Corée, Chine, Japon... À court de terrains et d’eau douce, l’industrie du data center se tourne vers l’océan dans les pays d’Asie avec des projets portés par Samsung, HiCloud ou Hitachi",
-      "resume": "Entre la barge nearshore de Samsung, les navires reconvertis de MOL et Hitachi, et le module sous-marin déjà opérationnel en Chine, la prochaine vague",
-      "url": "https://www.usine-digitale.fr/informatique/data-centers/coree-chine-japon-a-court-de-terrains-et-deau-douce-lindustrie-du-data-center-se-tourne-vers-locean-dans-les-pays-dasie-avec-des-projets-portes-par-samsung-hicloud-ou-hitachi.7C35LLFTSBGHBOPKQXQGXEPORI.html",
-      "date": "2026-07-11T11:50:42.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Data centers : pénurie de terrains et d’eau douce",
-      "categorie": "Télécoms"
     }
   ],
-  "lastUpdated": "2026-07-12T07:26:03.178Z"
+  "lastUpdated": "2026-07-12T08:34:13.242Z"
 }
