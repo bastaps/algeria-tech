@@ -1,40 +1,7 @@
 {
   "date": "lundi 13 juillet",
-  "synthese": "L'Algérie accélère sa transition numérique avec le lancement de plateformes officielles et d'initiatives institutionnelles. Les acteurs internationaux renforcent leurs investissements dans les data centers et l'innovation technologique, tandis que les régulations sur l'IA et la cybersécurité s'intensifient.",
+  "synthese": "L'Algérie renforce son infrastructure numérique avec un système d'information agricole et une plateforme de facturation électronique. La cybersécurité et l'intelligence artificielle dominent les enjeux technologiques mondiaux.",
   "articles": [
-    {
-      "titre": "L’Algérie passe à la vitesse supérieure <BR> Bienvenue dans l’administration de demain avec Dzair Digital Services",
-      "resume": "Le 16 octobre 2025, lors de l’ouverture du salon Ecsel Expo à Alger, la ministre et Haut-commissaire à la numérisation, Meriem Benmouloud, a officiali",
-      "url": "https://www.itmag.dz/2026/07/12/lalgerie-passe-a-la-vitesse-superieure-br-bienvenue-dans-ladministration-de-demain-avec-dzair-digital-services/",
-      "date": "2026-07-12T07:23:54.000Z",
-      "source": "ITMAG.dz",
-      "logo": "https://www.google.com/s2/favicons?domain=itmag.dz&sz=32",
-      "pays": "DZ",
-      "accroche": "Dzair Di modernise l'administration publique algérienne",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "La Cnep-Banque inaugure lundi sa nouvelle agence à Illizi",
-      "resume": "La Caisse nationale d’épargne et de prévoyance (Cnep-Banque) ouvrira demain lundi une agence commerciale à Illizi, dans le cadre de son plan d’expansi",
-      "url": "https://algerie-eco.com/2026/07/12/la-cnep-banque-inaugure-lundi-sa-nouvelle-agence-a-illizi/",
-      "date": "2026-07-12T20:55:35.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Cnep-Banque ouvre une agence à Illizi",
-      "categorie": "Télécoms"
-    },
-    {
-      "titre": "Services numériques, startups, tourisme, jumelage entre Tipaza et Kansas City : les décisions du président Tebboune",
-      "resume": "Le président de la République, Abdelmadjid Tebboune, a présidé, ce dimanche 12 juillet, une réunion du Conseil des ministres, consacrée à des exposés",
-      "url": "https://algerie-eco.com/2026/07/12/services-numeriques-startups-tourisme-jumelage-entre-tipaza-et-kansas-city-les-decisions-du-president-tebboune/",
-      "date": "2026-07-12T20:45:41.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Préfecture de Tipaza signe jumelage avec Kansas City",
-      "categorie": "Innovation"
-    },
     {
       "titre": "L’Algérie a lancé le Système national d’information agricole, une plateforme numérique destinée à centraliser les données du secteur et à améliorer la gouvernance des politiques agricoles",
       "resume": "Le ministre de l’Agriculture, du Développement rural et de la Pêche, Mohamed Abdelhafid Henni, a lancé le 29 juin le Système national d’information ag",
@@ -43,7 +10,7 @@
       "source": "EcomNewsMed DZ",
       "logo": "https://www.google.com/s2/favicons?domain=ecomnewsmed.com&sz=32",
       "pays": "DZ",
-      "accroche": "Système national d'information agricole lancé par l'Algérie",
+      "accroche": "Lancement du Système national d'information agricole",
       "categorie": "Innovation"
     },
     {
@@ -54,8 +21,19 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Course à la facturation électronique avant 2026 en Europe",
-      "categorie": "Cybersécurité"
+      "accroche": "Course accélérée vers la facturation électronique en 2026",
+      "categorie": "Télécoms"
+    },
+    {
+      "titre": "La solution doit être proposée prochainement aux pays utilisateurs du Rafale : Harmattan AI et Dassault Aviation lancent un drone chasseur de radars paré au combat collaboratif",
+      "resume": "",
+      "url": "https://www.usinenouvelle.com/aero-spatial/aeronautique/drones/la-solution-doit-etre-proposee-prochainement-aux-pays-utilisateurs-du-rafale-harmattan-ai-et-dassault-aviation-lancent-un-drone-chasseur-de-radars-pare-au-combat-collaboratif.DCYVTEE6RZAERFOLTQXEZ7LZHM.html",
+      "date": "2026-07-13T07:00:00.000Z",
+      "source": "L'Usine Nouvelle",
+      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
+      "pays": "FR",
+      "accroche": "Harmattan AI et Dassa proposés aux utilisateurs du Rafale",
+      "categorie": "IA"
     },
     {
       "titre": "Cerebras arrive en force en Europe avec 200 MW de capacité énergétique prévue pour des data centers en France et dans les pays nordiques",
@@ -65,19 +43,19 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Cerebras investit 200 MW dans des data centers en Europe",
+      "accroche": "Cerebras déploie 200 MW pour data centers en Europe",
       "categorie": "Réseaux"
     },
     {
-      "titre": "“De plus gros montants mais pour beaucoup moins d’entreprises” : L’IA et la souveraineté redessinent la carte des levées de fonds européennes au premier semestre 2026",
-      "resume": "Le baromètre des levées de fonds dans les entreprises françaises et européennes dresse le portrait d'un capital-risque en pleine mutation au premier s",
-      "url": "https://www.usine-digitale.fr/start-up/financement/de-plus-gros-montants-mais-pour-beaucoup-moins-dentreprises-lia-et-la-souverainete-redessinent-la-carte-des-levees-de-fonds-europeennes-au-premier-semestre-2026.E4M2W3GM35G33ICXLT4Q5D34PE.html",
-      "date": "2026-07-12T10:52:02.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "titre": "Apple abandonnerait les puces M6 Pro et Max pour passer au M7",
+      "resume": "Apple s'apprête à sauter les puces M6 haut de gamme pour passer directement au M7. La raison tient en deux lettres : l'IA.",
+      "url": "https://www.frandroid.com/culture-tech/intelligence-artificielle/3178037_apple-abandonnerait-les-puces-m6-pro-et-max-pour-passer-au-m7",
+      "date": "2026-07-13T06:40:00.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "IA et souveraineté redessinent les investissements technologiques",
-      "categorie": "IA"
+      "accroche": "Apple abandonne puces M6 pour transition vers M7",
+      "categorie": "Mobile"
     },
     {
       "titre": "Instagram : Meta n’autorisera finalement pas tout le monde à utiliser vos contenus publics avec l’IA",
@@ -87,19 +65,41 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Meta restreint l'utilisation des contenus publics par l'IA",
+      "accroche": "Meta limite usage IA sur contenus publics Instagram",
       "categorie": "Cybersécurité"
     },
     {
-      "titre": "Le géant suisse pCloud fait -70% sur le stockage cloud à vie et met KO ses rivales",
-      "resume": "Pour célébrer le 14 juillet, pCloud propose jusqu'à 70% de réduction sur ses forfaits de stockage cloud à vie avec le chiffrement pCloud Encryption of",
-      "url": "https://www.01net.com/bons-plans/le-geant-suisse-pcloud-fait-70-sur-le-stockage-cloud-a-vie-et-met-ko-ses-rivales.html",
-      "date": "2026-07-12T16:40:00.000Z",
+      "titre": "Le robot NEO s’offre de nouvelles mains presque humaines, et ça change tout",
+      "resume": "Attraper un œuf sans le casser : la robotique bute dessus depuis soixante ans. 1X affirme avoir trouvé la parade avec des mains à 25 articulations, ti",
+      "url": "https://www.01net.com/actualites/robot-neo-mains-bardees-tendons-comme-les-votres.html",
+      "date": "2026-07-13T05:30:03.000Z",
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "pCloud propose -70% sur le stockage cloud à vie",
-      "categorie": "Mobile"
+      "accroche": "Robot NEO doté de mains quasi humaines",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Services numériques, startups, tourisme, jumelage entre Tipaza et Kansas City : les décisions du président Tebboune",
+      "resume": "Le président de la République, Abdelmadjid Tebboune, a présidé, ce dimanche 12 juillet, une réunion du Conseil des ministres, consacrée à des exposés",
+      "url": "https://algerie-eco.com/2026/07/12/services-numeriques-startups-tourisme-jumelage-entre-tipaza-et-kansas-city-les-decisions-du-president-tebboune/",
+      "date": "2026-07-12T20:45:41.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Jumelage Tipaza-Kansas City : décisions du président",
+      "categorie": "Startups"
+    },
+    {
+      "titre": "La Cnep-Banque inaugure lundi sa nouvelle agence à Illizi",
+      "resume": "La Caisse nationale d’épargne et de prévoyance (Cnep-Banque) ouvrira demain lundi une agence commerciale à Illizi, dans le cadre de son plan d’expansi",
+      "url": "https://algerie-eco.com/2026/07/12/la-cnep-banque-inaugure-lundi-sa-nouvelle-agence-a-illizi/",
+      "date": "2026-07-12T20:55:35.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Cnep-Banque ouvre agence à Illizi lundi",
+      "categorie": "Télécoms"
     },
     {
       "titre": "Avec 200 Go en 5G et 35 Go pour l’étranger, ce forfait voyage est ultra complet",
@@ -109,31 +109,31 @@
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Forfait voyage 5G : 200 Go en Algérie et 35 Go à l'étranger",
-      "categorie": "Télécoms"
+      "accroche": "Forfait voyage 200 Go 5G et 35 Go à l'étranger",
+      "categorie": "Mobile"
     },
     {
-      "titre": "Il gère tout le réseau électrique du tiers nord-est de la France : dans le centre francilien de RTE, Cose-P, des «équipes en tension» veillent 24 heures sur 24 pour éviter les coupures de courant",
-      "resume": "",
-      "url": "https://www.usinenouvelle.com/energie/electricite/rte/dans-le-centre-francilien-de-rte-cose-p-des-equipes-en-tension-24-heures-sur-24-pour-eviter-les-coupures-de-courant.CXY4LDX5BVDEHCTDYLA4E64OR4.html",
-      "date": "2026-07-13T06:00:00.000Z",
-      "source": "L'Usine Nouvelle",
-      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
+      "titre": "HalluSquatting : quand les hallucinations de l’IA deviennent une porte d’entrée pour les hackers",
+      "resume": "Des chercheurs de l’université de Tel-Aviv, du Technion et d’Intuit viennent de démontrer qu’il n’est plus nécessaire de tromper l’utilisateur pour co",
+      "url": "https://www.zdnet.fr/actualites/hallusquatting-quand-les-hallucinations-de-lia-deviennent-une-porte-dentree-pour-les-hackers-498564.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-07-13T06:01:45.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "RTE gère le réseau électrique du nord-est de la France",
-      "categorie": "Réseaux"
+      "accroche": "Hallucinations IA : risque cyber HalluSquatting",
+      "categorie": "Cybersécurité"
     },
     {
-      "titre": "«Lors des trois prochaines années nos dépenses d’investissement industriel vont progresser de 50% au niveau mondial», indique Vikram Agarwal, directeur des opérations de Danone",
-      "resume": "Crise des laits infantiles, réorganisation des opérations depuis 2022 pour retrouver une performance solide, cure d’amaigrissement pour les stocks...",
-      "url": "https://www.usinenouvelle.com/agro/lors-des-trois-prochaines-annees-nos-depenses-dinvestissement-industriel-vont-progresser-de-50-au-niveau-mondial-indique-vikram-agarwal-directeur-des-operations-de-danone.M7C2EWW3KFFZREQO5BZPDCD7SQ.html",
-      "date": "2026-07-13T03:00:00.000Z",
-      "source": "L'Usine Nouvelle",
-      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
+      "titre": "“De plus gros montants mais pour beaucoup moins d’entreprises” : L’IA et la souveraineté redessinent la carte des levées de fonds européennes au premier semestre 2026",
+      "resume": "Le baromètre des levées de fonds dans les entreprises françaises et européennes dresse le portrait d'un capital-risque en pleine mutation au premier s",
+      "url": "https://www.usine-digitale.fr/start-up/financement/de-plus-gros-montants-mais-pour-beaucoup-moins-dentreprises-lia-et-la-souverainete-redessinent-la-carte-des-levees-de-fonds-europeennes-au-premier-semestre-2026.E4M2W3GM35G33ICXLT4Q5D34PE.html",
+      "date": "2026-07-12T10:52:02.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Dépenses d'investissement industriel en hausse de 50%",
-      "categorie": "Innovation"
+      "accroche": "IA et souveraineté réduisent montants pour entreprises",
+      "categorie": "IA"
     }
   ],
-  "lastUpdated": "2026-07-13T06:53:10.012Z"
+  "lastUpdated": "2026-07-13T08:10:40.237Z"
 }
