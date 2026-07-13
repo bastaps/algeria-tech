@@ -1,6 +1,24 @@
 {
   "posts": [
     {
+      "id": "838a6c3e6dada10d",
+      "source_name": "APS — Algérie Presse Service",
+      "source_short": "APS",
+      "source_color": "#006233",
+      "category": "Ministère",
+      "category_icon": "📡",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE02S29vel9kd2NkQzRLSDBDekFhc2ZPY0N5dTZFdEx1emdVNW9UUHVBd3RLOERTRWtMOU9CRHRYb01TamRqVzRwVUhPTnloVHk5eDVn?oc=5",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 16:00:35 GMT",
+      "lang_source": "ar",
+      "text": {
+        "ar": "Université d'Alger 3 - APS : lancement d'un master en \"journalisme d'agence\" - الإذاعة الجزائرية | — Université d'Alger 3 - APS : lancement d'un master en \"journalisme d'agence\" الإذاعة الجزائرية |",
+        "fr": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "6be782d7ee81cdf4",
       "source_name": "APS — Algérie Presse Service",
       "source_short": "APS",
@@ -343,19 +361,37 @@
       "source_type": "web"
     },
     {
-      "id": "e611b1ff908ce8dd",
-      "source_name": "Ministère de l'Enseignement Supérieur et de la Recherche",
-      "source_short": "MESRS",
-      "source_color": "#1B5E20",
-      "category": "Ministère",
-      "category_icon": "🎓",
-      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE16ZU1NMGdMOGNjTG9Zci10dmZ1ekVJWFRFN1pNVFpnRC1Yb1YzZFVZSFB0bGpxX0hEZjlQRlBFaGRxbUFQUXRrRlpYWEN6bkRPMHBPWQ?oc=5",
+      "id": "28e9cce6b77e0b0e",
+      "source_name": "Mobilis",
+      "source_short": "MB",
+      "source_color": "#00A651",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://www.youtube.com/watch?v=Ka_BgAP6buw",
       "image": "",
-      "date": "Wed, 17 Jun 2026 14:50:07 GMT",
-      "lang_source": "fr",
+      "date": "2026-07-13T18:00:33+00:00",
+      "lang_source": "ar",
       "text": {
-        "fr": "Enseignement supérieur : lancement de la plateforme numérique du Cadre national de certification et de qualification - الإذاعة الجزائرية | — Enseignement supérieur : lancement de la plateforme numérique du Cadre national de certification et de qualification الإذاعة الجزائرية |",
-        "ar": "",
+        "ar": "الجيل الجديد من العروض Revolution ( أنترنت / SMS / مكالمات اليونيت لي يبقاو؟ تديهم معاك للشهر الجاي",
+        "fr": "",
+        "en": ""
+      },
+      "source_type": "youtube"
+    },
+    {
+      "id": "e5dd76e394d7fa52",
+      "source_name": "Mobilis",
+      "source_short": "MB",
+      "source_color": "#00A651",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1GOWF0TjhPeFlTd2p5aUtlUGNFanB6aUQ5VklUVkp0cmQ0Qm13QVVaY1llYmpVLTcyWEhLYUliVHhRZU9ZRHVybmJ5TVhvanJFb1kw?oc=5",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 16:00:46 GMT",
+      "lang_source": "ar",
+      "text": {
+        "ar": "Ligue 1 Mobilis : la LFP dévoile le calendrier de la saison 2026-2027 - الإذاعة الجزائرية | — Ligue 1 Mobilis : la LFP dévoile le calendrier de la saison 2026-2027 الإذاعة الجزائرية |",
+        "fr": "",
         "en": ""
       },
       "source_type": "rss"
@@ -683,42 +719,6 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "ef48622f313b594d",
-      "source_name": "Ooredoo Algérie",
-      "source_short": "OR",
-      "source_color": "#E30613",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://www.youtube.com/shorts/rm2JnGLFzVI",
-      "image": "",
-      "date": "2026-06-22T15:03:23+00:00",
-      "lang_source": "ar",
-      "text": {
-        "ar": "علام الجزائر يجمعنا",
-        "fr": "",
-        "en": ""
-      },
-      "source_type": "youtube"
-    },
-    {
-      "id": "22f8a409864f1a34",
-      "source_name": "Ooredoo Algérie",
-      "source_short": "OR",
-      "source_color": "#E30613",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://www.youtube.com/shorts/JjTKgpwGcRo",
-      "image": "",
-      "date": "2026-06-22T15:03:09+00:00",
-      "lang_source": "ar",
-      "text": {
-        "ar": "تحيا الجزائر!",
-        "fr": "",
-        "en": ""
-      },
-      "source_type": "youtube"
     },
     {
       "id": "e1d849064593529f",
@@ -1441,6 +1441,384 @@
       "source_type": "rss"
     },
     {
+      "id": "f92cc7d1138189de",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/test-tp-link-tapo-c465-le-panneau-solaire-de-cette-camera-de-surveillance-nest-pas-son-seul-avantage-498557.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 20:00:54 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Test TP-Link Tapo C465 : le panneau solaire de cette caméra de surveillance n’est pas son seul avantage — Facilité d’utilisation, images en 4K de qualité et enregistrement en local sur carte micro SD sont les autres atouts de cet appareil autonome.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e3380a01457a5ba0",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/13/apple-says-former-employee-exploited-rare-bug-to-download-confidential-files-after-leaving-for-openai/",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 20:00:17 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Apple says former employee exploited ‘rare’ bug to download confidential files after leaving for OpenAI — Apple would not comment on the \"security breach,\" which allegedly allowed a former employee to download sensitive files from Apple's network long after he departed the company for rival OpenAI.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "481466a2715faf49",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/07/13/allocation-touristique-la-banque-dalgerie-fixe-les-nouvelles-regles-de-versement-par-carte-bancaire/",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 18:46:40 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Allocation touristique : la Banque d’Algérie fixe les nouvelles règles de versement par carte bancaire — La Banque d’Algérie a publié ce lundi une nouvelle instruction relative au versement de l’allocation touristique par carte de paiement internationale. Il s’agit de l’instruction n° 07-2026 du 13 juillet 2026 relative au droit de change pour voyage à l’étranger par carte de paiement internationale ou",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "25a33f9e528154aa",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/13/the-wildest-allegations-in-apples-trade-secrets-lawsuit-against-openai/",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 18:22:10 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "The wildest allegations in Apple’s trade secrets lawsuit against OpenAI — Apple’s trade secrets lawsuit against OpenAI contains allegations that range from employees joking about unauthorized access to Apple’s systems to claims that job candidates were asked to bring Apple hardware to interviews. Here are the complaint’s most eye-catching claims.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c0b352c36c1e4c8a",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/13/sam-altmans-space-data-center-trash-talk-is-what-most-experts-already-believe/",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 17:28:37 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Sam Altman’s space data center trash talk is what most experts already believe — Responding to Musk accusing him of being a scammer, Altman said, \"homeboy you're the one sellling [sic] public market investors on short-term space datacenters.\"",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f5557a7f6a5508a5",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/07/13/electricite-nouveau-pic-de-consommation-enregistre-lundi-apres-midi/",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 17:27:57 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Electricité : Nouveau pic de consommation enregistré lundi après-midi — La consommation nationale d’électricité a enregistré, dimanche après-midi, un nouveau pic de 21.378 mégawatts, a indiqué un communiqué du ministère de l’Energie et des Energies renouvelables. « En raison de la vague de chaleur que connaissent plusieurs wilayas du pays, le groupe Sonelgaz a enregistr",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "0057848acd4a0a11",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/13/investors-send-general-fusion-soaring-in-debut-as-first-publicly-traded-fusion-company/",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 17:03:11 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Investors send General Fusion soaring in debut as first publicly traded fusion company — General Fusion started trading on the Nasdaq following a reverse merger that saw high redemptions.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "0e7e142d3d4e5786",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/13/should-ai-help-you-get-away-with-killing-your-spouse/",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 16:31:23 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Should AI help you get away with killing your spouse? — What does a world of total user-aligned AI actually look like?",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "4e9881a14a9b502b",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/data-ia-1372/ibm-cofrgenet-228271",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 16:14:13 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Pour optimiser les LLM, IBM leur fait faire des divisions — IBM Research propose une méthode à base de fractions continues pour optimiser deux composantes-clés des modèles transformateurs. The post Pour optimiser les LLM, IBM leur fait faire des divisions appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "492ab2ea7a65e9fc",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/pratique/informatique-pratique-au-lieu-de-google-drive-misez-sur-nextcloud-498560.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 16:11:43 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Informatique pratique : au lieu de Google Drive, misez sur Nextcloud — Cette solution de stockage open source et gratuite présente plusieurs avantages. Voici comment cela fonctionne.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "cda1dfeab597be05",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/13/anthropic-starts-localizing-claude-pricing-for-india-its-biggest-market-after-the-us/",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 15:34:59 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Anthropic starts localizing Claude pricing for India, its biggest market after the US — Claude users in India are starting to see Indian rupee-denominated subscription plans.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "a7d51cc74183dee0",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/07/13/abdelkader-cherfaoui-nouveau-president-dalnaft/",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 15:06:36 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Abdelkader Cherfaoui, nouveau président d’Alnaft — Le ministre d’Etat, ministre des Hydrocarbures Mohamed Arkab, a procédé, ce lundi 13 juillet à Alger, à l’installation de Abdelkader Cherfaoui en qualité de nouveau président de l’Agence nationale pour la valorisation des ressources en hydrocarbures (Alnaft), en remplacement de Samir Bakhti, rapport",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "0f79a12f68c674f9",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/13/spacex-cleared-to-fly-starship-again-after-booster-failure-in-may/",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 14:19:44 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "SpaceX cleared to fly Starship again after booster failure in May — This will be the first Starship test flight for SpaceX as a public company, testing the market's appetite for the company's \"fly, fail, fix\" approach to rocket development, which often ends in fireballs.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e05cb5c1953da064",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/13/waze-adds-new-ai-powered-features-and-customization-updates/",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 14:18:16 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Waze adds new AI-powered features and customization updates — Some of the new features are powered by Google's Gemini AI assistant, which reflects the tech giant's broader push to integrate Gemini across its products while also better positioning Waze to compete with rival services such as Apple Maps.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "4b510c0ce2679cb5",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/13/lapd-lets-contract-with-surveillance-giant-flock-expire-citing-serious-concerns-over-civil-liberties-and-privacy/",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 14:13:38 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "LAPD lets contract with surveillance giant Flock expire, citing ‘serious concerns’ over civil liberties and privacy — The LAPD, one of Flock's biggest government customers, is ending its contract with the company citing civil liberties concerns.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "15a7c74459a8bb3b",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/07/13/education-concours-de-recrutement-pour-plus-de-26-000-postes-dans-plusieurs-grades/",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 13:44:31 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Education : Concours de recrutement pour plus de 26 000 postes dans plusieurs grades — Le ministère de l’Education nationale a annoncé, lundi dans un communiqué, l’ouverture d’un concours de recrutement sur la base d’épreuves afin de pourvoir plus de 26 000 postes dans plusieurs grades à travers les wilayas du pays. Le concours concerne les postes de 5628 superviseurs d’éducation, 166",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "fd46431dda08afd5",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/la-veille-du-14-juillet-la-diplomatie-francaise-pointe-a-nouveau-lespionnage-cyber-russe-498578.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 13:30:57 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "La veille du 14-Juillet, la diplomatie française pointe à nouveau l’espionnage cyber russe — Après les activités du renseignement militaire russe l’an passé, la diplomatie française accuse le FSB, le service de sécurité intérieur russe, de mener des actions d'espionnage en France.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "1bdcfa778b63db2d",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/publicite/landing-page-formulaire-offre-temporaire-ionos-accelere-les-campagnes-web-de-lete-498121.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 13:00:16 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Landing page, formulaire, offre temporaire : IONOS accélère les campagnes web de l’été — Entre pages d’atterrissage, formulaires et offres temporaires, IONOS propose une solution d’hébergement à 1 € HT/mois pour lancer rapidement une campagne web sans complexité technique.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "3d95a6ede6489aa5",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/vpn-avec-ip-dediee-a-quoi-ca-sert-et-pour-qui-est-ce-utile-498457.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 12:30:53 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "VPN avec IP dédiée : à quoi ça sert et pour qui est-ce utile ? — La plupart des abonnés à un service VPN partagent sans le savoir la même adresse IP avec des dizaines, voire des centaines d'autres utilisateurs connectés au même serveur VPN. C'est le fonctionnement standard d'une IP partagée, et il convient parfaitement à la navigation quotidienne sur les sites in",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "0658b25f71a49912",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/data-ia-1372/bi-analytics-magic-quadrant-2026-228263",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 12:14:32 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "En BI, le rapport standardisé devient l’exception — Sur le segment de l'ABI (analytics & BI), les principaux fournisseurs tendent à prioriser les modes de consommation interactifs voire agentiques. The post En BI, le rapport standardisé devient l’exception appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "0b5f2e7bf621beea",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/07/13/naftal-recoit-100-camions-citernes-produits-en-algerie/",
+      "image": "",
+      "date": "Mon, 13 Jul 2026 11:21:36 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Naftal reçoit 100 camions-citernes produits en Algérie — La société Naftal a réceptionné un premier lot de véhicules destinés au transport des produits pétroliers, dans le cadre d’une opération menée par la Direction des industries militaires du ministère de la Défense nationale (MDN), par l’intermédiaire de l’Etablissement de développement de l’industrie",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "a3a8c1773ac74c57",
       "source_name": "Algérie Éco",
       "source_short": "AEC",
@@ -1693,6 +2071,24 @@
       "source_type": "rss"
     },
     {
+      "id": "6e077239c4278259",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/07/12/crise-mondiale-de-lhelium-br-une-opportunite-en-or-pour-lalgerie/",
+      "image": "",
+      "date": "Sun, 12 Jul 2026 11:33:22 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Crise mondiale de l’hélium <BR Une opportunité en or pour l’Algérie — L’hélium, gaz noble invisible et pourtant indispensable à la fabrication des puces électroniques, traverse sa cinquième crise majeure en vingt ans. Les frappes iraniennes sur …",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "b1dae457197b5439",
       "source_name": "Algérie Éco",
       "source_short": "AEC",
@@ -1705,6 +2101,24 @@
       "lang_source": "fr",
       "text": {
         "fr": "Bac 2026 : le taux de réussite atteint 56,18 % — Le taux national de réussite à l’examen du Baccalauréat (session juin 2026) a atteint 56,18 %, a annoncé, dimanche à Alger, le ministre de l’Education nationale, M. Mohammed Seghir Sadaoui. Lors d’une conférence de presse, M. Sadaoui a précisé que 588.611 élèves scolarisés ont passé les épreuves du",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c54964e5d4375d0f",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/07/12/lalgerie-passe-a-la-vitesse-superieure-br-bienvenue-dans-ladministration-de-demain-avec-dzair-digital-services/",
+      "image": "",
+      "date": "Sun, 12 Jul 2026 07:23:54 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "L’Algérie passe à la vitesse supérieure <BR Bienvenue dans l’administration de demain avec Dzair Digital Services — Le 16 octobre 2025, lors de l’ouverture du salon Ecsel Expo à Alger, la ministre et Haut-commissaire à la numérisation, Meriem Benmouloud, a officialisé le …",
         "ar": "",
         "en": ""
       },
@@ -4985,430 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "6d2d9fde80214e1e",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/06/reddit-is-using-llms-to-solve-a-problem-llms-largely-created/",
-      "image": "",
-      "date": "Mon, 06 Jul 2026 15:22:08 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Reddit is using LLMs to solve a problem LLMs largely created — In the AI era, platforms have no choice but to fight fire with fire to cull spam.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "820a2036ef52f644",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/06/canadian-spy-agency-says-it-hacked-drug-traffickers-extremists-and-a-ransomware-gang-last-year/",
-      "image": "",
-      "date": "Mon, 06 Jul 2026 14:43:59 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Canadian spy agency says it hacked drug traffickers, extremists, and a ransomware gang last year — The hacking operations disclosed in a Canadian spy agency's annual report underscores some pressing national security threats facing the country and its top allies.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "6fa6fa255ce0a0d0",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/business-1367/ia-en-entreprise-pourquoi-microsoft-et-aws-court-circuitent-les-intermediaires-228183",
-      "image": "",
-      "date": "Mon, 06 Jul 2026 14:18:28 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "IA en entreprise : pourquoi Microsoft et AWS court-circuitent les intermédiaires — En déployant par milliers leurs propres ingénieurs directement au cœur des entreprises clientes, Microsoft et AWS court-circuitent les ESN, partenaires traditionnels de l'intégration de leurs offres. The post IA en entreprise : pourquoi Microsoft et AWS court-circuitent les intermédiaires appeared f",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "ac2df0fa713139d0",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/07/06/ali-kessaci-nouveau-dg-de-la-sntf/",
-      "image": "",
-      "date": "Mon, 06 Jul 2026 13:21:21 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Ali Kessaci, nouveau DG de la SNTF — M. Ali Kessaci a été installé, samedi à Alger, nouveau directeur général de la Société nationale des transports ferroviaires (SNTF), indique un communiqué du ministère de l’Intérieur, des Collectivités locales et des Transports. « En application des instructions du ministre de l’Intérieur, des Colle",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "140a5ddad531823e",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/07/06/petrole-lalgerie-et-six-autres-pays-de-lopep-augmentent-leur-production-de-188-000-b-j-des-aout-prochain/",
-      "image": "",
-      "date": "Mon, 06 Jul 2026 13:14:07 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Pétrole : l’Algérie et six autres pays de l’Opep+ augmentent leur production de 188.000 b/j dès août prochain — L’Algérie et six autres pays de l’Opep+ ont décidé, dimanche, d’une nouvelle hausse collective de leur production de l’ordre de 188.000 barils de pétrole par jour (b/j) à compter du mois d’août prochain, tout en réaffirmant leur engagement à adopter une approche prudente afin de préserver la stabili",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "834cb01fb7883791",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/07/06/le-kazakhstan-veut-exporter-des-moutons-vers-lalgerie-des-2027/",
-      "image": "",
-      "date": "Mon, 06 Jul 2026 13:07:27 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Le Kazakhstan veut exporter des moutons vers l’Algérie dès 2027 — Le Kazakhstan entend élargir sa coopération économique avec l’Algérie en misant sur de nouveaux secteurs, notamment l’agriculture, l’industrie agroalimentaire et l’élevage. Après l’augmentation des exportations de blé vers le marché algérien, Astana envisage désormais d’expédier des moutons vivants",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "6f235eb6d9b85fed",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/06/station-f-ramps-up-as-a-launchpad-for-europes-hottest-ai-startups/",
-      "image": "",
-      "date": "Mon, 06 Jul 2026 13:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Station F ramps up as a launchpad for Europe’s hottest AI startups — Station F, a Paris-based startup hub founded by French billionaire Xavier Niel, is gearing up for a new edition of its F/ai accelerator program in a bid to strengthen its positioning as a stepping stone for promising AI startups.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "804dcdd9eda8413b",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/07/06/algerie-espagne-pedro-sanchez-attendu-a-alger-le-20-juillet/",
-      "image": "",
-      "date": "Mon, 06 Jul 2026 11:23:28 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Algérie-Espagne : Pedro Sanchez attendu à Alger le 20 juillet — Le président du gouvernement espagnol, Pedro Sanchez, est attendu à Alger le 20 juillet pour une visite officielle qui s’inscrit dans le processus de normalisation des relations entre l’Algérie et l’Espagne, après plusieurs années de tensions diplomatiques. D’après des informations relayées par la p",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "930cccc55555a145",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/07/06/inauguration-du-centre-national-des-services-numeriques-br-un-tournant-pour-la-souverainete-numerique/",
-      "image": "",
-      "date": "Mon, 06 Jul 2026 11:18:34 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Inauguration du Centre national des services numériques <BR Un tournant pour la souveraineté numérique — Le président de la République, Abdelmadjid Tebboune, a procédé à l’inauguration officielle du Centre national algérien des services numériques (CNASN), une infrastructure inédite et première …",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "5b6e56d18962e667",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/07/06/logements-numerique-sante-le-president-tebboune-inaugure-et-lance-plusieurs-projets-a-alger/",
-      "image": "",
-      "date": "Mon, 06 Jul 2026 11:12:17 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Logements, numérique, santé : le président Tebboune inaugure et lance plusieurs projets à Alger — Le président de la République, Abdelmadjid Tebboune, a effectué dimanche 5 juillet une série de visites dans la capitale Alger à l’occasion du 64e anniversaire de la Fête de l’indépendance et du recouvrement de la souveraineté nationale. Cette tournée a été marquée par l’inauguration de plusieurs in",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e66c880a82d2b969",
-      "source_name": "Algérie Télécom",
-      "source_short": "AT",
-      "source_color": "#0055A4",
-      "category": "Infrastructure",
-      "category_icon": "📡",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOMWhoSmpadTBJb2pEc1Nab0U4eVdPNGNzczRkSEdZX0wtekxLSFRRVk8wU05LalNnMVQ3N1Z4NVRqSFhlZW8ydENycUdrQm9GVUVPYnJaTk50UUF3MzdTTkE3dXhiRE1HekQwc0tBYVR6dVZzaVFyaGdtbUdGOVVyMHd0TUNEb0NCMmNiLWhyY1RLcUlOcUc2Y1ktQkNtS3RxM0JfdW1JNWRDUVNBVDRJclRlX3g?oc=5",
-      "image": "",
-      "date": "Mon, 06 Jul 2026 11:12:01 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Algérie Télécom lance un recensement des quartiers non couverts par la fibre optique FTTH - La patrie news — Algérie Télécom lance un recensement des quartiers non couverts par la fibre optique FTTH La patrie news",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c9dff6044dc1b3cd",
-      "source_name": "Algérie 360",
-      "source_short": "A360",
-      "source_color": "#1565C0",
-      "category": "Médias TIC",
-      "category_icon": "📰",
-      "url": "https://www.algerie360.com/indrive-une-voiture-et-des-voyages-a-gagner-pour-les-chauffeurs/",
-      "image": "",
-      "date": "Mon, 06 Jul 2026 11:10:30 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "inDrive : une voiture et des voyages à gagner pour les chauffeurs — inDrive, l’une des principales plateformes mondiales de VTC, lance une nouvelle édition de son concours estival annuel destiné à récompenser les chauffeurs Platinum opérant à […] L’article inDrive : une voiture et des voyages à gagner pour les chauffeurs est apparu en premier sur .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "d5df599037a6fd25",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/workspace-1376/pc-ia-npu-228146",
-      "image": "",
-      "date": "Mon, 06 Jul 2026 10:49:30 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "PC IA : le NPU, emblème d’un marché qui se cherche encore — Pièce maîtresse du narratif autour des PC IA, le NPU trouve très progressivement sa place dans les usages pratiques. The post PC IA : le NPU, emblème d’un marché qui se cherche encore appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c2817a15421ef111",
-      "source_name": "Algérie Télécom",
-      "source_short": "AT",
-      "source_color": "#0055A4",
-      "category": "Infrastructure",
-      "category_icon": "📡",
-      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQTEZVX3cxSjU4ZDhVSUJYTExEVDdqRHowVmxGVjBLZnl6am51X0laakdESWVIWFZDbWFqMUl4bEdybWh6amJqT2JmYTVJMXI0Vm1oYVIxUGI4X0U3Y2JXYl9SZ1dxLXlQenBOWFJNZFRWYjY0eS1KTUFpS1A1c3o1SUZpd241TzNsOFV1ZENSVFJpY1dMYk1zUG43YjRhcFdxaXFDOWpzNTNEc1BHc1pRU0dXc01yRXFjVjZfbjVHUFZhdVJzVzU3Y05ZMGxWMm1mV2dwZQ?oc=5",
-      "image": "",
-      "date": "Mon, 06 Jul 2026 10:46:03 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Algérie Télécom appelle les comités de quartiers à signaler les zones non couvertes par la fibre optique - النهار أونلاين — Algérie Télécom appelle les comités de quartiers à signaler les zones non couvertes par la fibre optique النهار أونلاين",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c0e1504ae7412391",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/06/smart-glasses-maker-even-realities-hits-1b-valuation-with-150m-funding-led-by-meituan-tencent/",
-      "image": "",
-      "date": "Mon, 06 Jul 2026 09:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Smart glasses maker Even Realities hits $1B valuation with $150M funding led by Meituan, Tencent — Even Realities, an ex-Apple team building camera-free smart glasses, raised $150M from Meituan and Tencent at a $1B valuation.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "d2bff24ae09ec43b",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/05/this-humanoid-robotics-company-is-going-public-but-its-ceo-isnt-promising-a-robot-in-your-home-anytime-soon/",
-      "image": "",
-      "date": "Mon, 06 Jul 2026 06:05:29 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "This humanoid robotics company is going public, but its CEO isn’t promising a robot in your home anytime soon — While other humanoid startups chase sky-high valuations, Agility Robotics is betting its future on execution — and a SPAC.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "5bc2038eeaa7481a",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/05/what-is-bending-spoons-everything-to-know-about-aols-acquirer/",
-      "image": "",
-      "date": "Sun, 05 Jul 2026 13:33:32 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "What is Bending Spoons? The little-known AOL and Vimeo owner that’s now public — Bending Spoons remains largely unknown, even as its portfolio of products has served more than a billion people.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "eb9d1942265e01ae",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/05/almost-40-new-unicorns-have-been-minted-so-far-this-year-here-they-are/",
-      "image": "",
-      "date": "Sun, 05 Jul 2026 12:47:39 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Almost 90 new unicorns have been minted so far this year — here they are — With AI igniting an investor frenzy, more startups are achieving unicorn status every month.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "2d7dda6223f5d6fa",
-      "source_name": "Algérie Poste",
-      "source_short": "AP",
-      "source_color": "#F9A825",
-      "category": "Infrastructure",
-      "category_icon": "✉️",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNMDR0QlBQUU55UEwya1NZcjVIMlhrOUxOY0wtclpNbVcwc1FCdTZpMC0xcjVOcUZGblhFZHZ5aGRoYnptNzdSZ0M1amtWTkdqVmJKWUUwQUppSWlEZnpGZmZEWV91UUp2Rjk0VGdhR0VoQXhvX2hPZW9GTFY4aWgtbGVpMkMwWlRGTGFQV2F5Y2tfOTZQd1NwNmQtVTFZTndzeHpSNzR3?oc=5",
-      "image": "",
-      "date": "Sat, 04 Jul 2026 22:58:39 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "De Quoi j'me Mêle - Algérie poste met en garde ses clients - L'Expression — De Quoi j'me Mêle - Algérie poste met en garde ses clients L'Expression",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "4aeb7d2c2c242453",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/04/new-google-commercial-imagines-a-declaration-of-independence-written-with-help-from-ai/",
-      "image": "",
-      "date": "Sat, 04 Jul 2026 20:55:25 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "New Google commercial imagines a Declaration of Independence written with help from AI — Two hundred and fifty years after the signing of the Declaration of Independence, a new commercial asks: What if the Founding Fathers had access to Google Workspace?",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "ac4fa7da627ad236",
-      "source_name": "ARPCE (Autorité de Régulation)",
-      "source_short": "ARPC",
-      "source_color": "#4A148C",
-      "category": "Infrastructure",
-      "category_icon": "⚖️",
-      "url": "https://www.facebook.com/ARPCE.DZ",
-      "image": "",
-      "date": "2026-07-04T20:30:34+00:00",
-      "lang_source": "ar",
-      "text": {
-        "ar": "أيها المهنيون،  قصد تسهيل إجراءات تقديم طلبات الخدمة عبر البوابة الإلكترونية لسلطة ضبط البريد والاتصالات الإلكترونية، نضع بين أيدي… — أيها المهنيون، \nقصد تسهيل إجراءات تقديم طلبات الخدمة عبر البوابة الإلكترونية لسلطة ضبط البريد والاتصالات الإلكترونية، نضع بين أيديكم فيديو توضيحي يشرح كيفية التسجيل، إيداع الطلبات، وتتبعها ومعالجتها\nhttps://esvc.arpce.dz/\n\n#سلطة_ضبط_البريد_والاتصالات_الإلكترونية #منصة_الكترونية #platforme #ARPCE #in",
-        "fr": "",
-        "en": ""
-      },
-      "source_type": "facebook"
-    },
-    {
-      "id": "81db9c8e2dbcafee",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/04/midjourney-wants-hollywood-studios-to-reveal-the-details-of-their-ai-usage/",
-      "image": "",
-      "date": "Sat, 04 Jul 2026 18:00:05 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Midjourney wants Hollywood studios to reveal the details of their AI usage — As part of an ongoing legal dispute with three Hollywood studios, Midjourney is seeking to compel those studios to reveal how they use AI themselves.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "a00e4ef278625b98",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/04/what-is-mistral-ai-everything-to-know-about-the-openai-competitor/",
-      "image": "",
-      "date": "Sat, 04 Jul 2026 15:51:32 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "What is Mistral AI? Everything to know about the OpenAI competitor — Mistral AI, which offers some open source AI models, has raised significant funding since its creation in 2023, with the ambition to “put frontier AI in the hands of everyone.”",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-07-13T10:25:48.382058+00:00",
+  "lastUpdated": "2026-07-13T20:14:10.254202+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
-    "Infrastructure": 37,
+    "Infrastructure": 33,
     "Équipementiers": 20,
-    "Médias TIC": 60,
-    "Tech International": 143
+    "Tech International": 147,
+    "Médias TIC": 60
   },
   "total": 300
 }
