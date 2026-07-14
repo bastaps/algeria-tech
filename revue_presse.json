@@ -1,6 +1,6 @@
 {
   "date": "mardi 14 juillet",
-  "synthese": "Le ministre des Postes et Télécommunications a présidé une réunion du Comité de liaison des télécommunications. Une fuite historique révèle 30 failles et 2,7 milliards de dollars de rançons dans un rançongiciel.",
+  "synthese": "Le ministre des Postes et Télécommunications a présidé une réunion du Comité de Liaison pour le Développement des Télécommunications. Une fuite de données révèle 30 failles et 2,7 milliards de dollars de rançons liés à un rançongiciel, tandis que Microsoft annonce une hausse de 25 % de ses émissions carbone en 2025 malgré ses objectifs climatiques.",
   "articles": [
     {
       "titre": "Postes et Télécommunications: Le ministre Zerrouki préside une réunion du CLDT",
@@ -10,19 +10,8 @@
       "source": "Les Enjeux Éco",
       "logo": "https://www.google.com/s2/favicons?domain=lesenjeuxeco.dz&sz=32",
       "pays": "DZ",
-      "accroche": "Zerrouki préside réunion du CLDT",
+      "accroche": "Ministre Zerrouki préside réunion du CLDT",
       "categorie": "Télécoms"
-    },
-    {
-      "titre": "L’Opep revoit à la baisse la croissance de la demande de pétrole en 2026",
-      "resume": "Dans son rapport mensuel publié lundi, l’Opep a revu à la baisse ses prévisions concernant la demande mondiale de pétrole pour 2026. L’organisation év",
-      "url": "https://algerie-eco.com/2026/07/13/lopep-revoit-a-la-baisse-la-croissance-de-la-demande-de-petrole-en-2026/",
-      "date": "2026-07-13T22:04:55.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Opep révise à la baisse croissance pétrole 2026",
-      "categorie": "Algérie Éco"
     },
     {
       "titre": "Allocation touristique : la Banque d’Algérie fixe les nouvelles règles de versement par carte bancaire",
@@ -32,8 +21,8 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Banque d’Algérie fixe règles allocation touristique",
-      "categorie": "Algérie Éco"
+      "accroche": "Banque d’Algérie fixe règles allocation touristique par carte",
+      "categorie": "Innovation"
     },
     {
       "titre": "En BI, le rapport standardisé devient l’exception",
@@ -43,7 +32,7 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Rapport standardisé devient exception en BI",
+      "accroche": "En BI, le rapport standardisé devient l’exception",
       "categorie": "Innovation"
     },
     {
@@ -54,7 +43,7 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Æther se lance dans les AI Gigafactories",
+      "accroche": "Æther dévoile projet AI Gigafactories face à AION",
       "categorie": "IA"
     },
     {
@@ -65,8 +54,8 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "IA, drones, robots au service lutte anti-feux",
-      "categorie": "Innovation"
+      "accroche": "IA, drones et robots au secours de la lutte anti-incendie",
+      "categorie": "IA"
     },
     {
       "titre": "Data centers : Les émissions carbone de Microsoft ont bondi de 25% en 2025, malgré son ambition affichée d’atteindre une empreinte carbone négative d’ici 2030",
@@ -76,7 +65,7 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Émissions carbone Microsoft bondissent de 25% en 2025",
+      "accroche": "Microsoft : +25 % d’émissions carbone en 2025",
       "categorie": "Innovation"
     },
     {
@@ -87,8 +76,8 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Holiday Robotics lève 1 milliard de wons",
-      "categorie": "Startups"
+      "accroche": "Robotique : Holiday Robotics lève 1 milliard de wons sud-coréens",
+      "categorie": "IA"
     },
     {
       "titre": "Ces emails sur les « pixels de suivi » qui envahissent votre boîte mail : voici ce qu’ils veulent vraiment dire",
@@ -98,7 +87,7 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Pixels de suivi envahissent les boîtes mail",
+      "accroche": "30 failles, 2,7 Md$ de rançons : fuite historique rançongiciel",
       "categorie": "Cybersécurité"
     },
     {
@@ -109,8 +98,30 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Fuite historique : 30 failles, 2,7 Md$ de rançons",
+      "accroche": "Fuite historique de données sur rançongiciel révèle 30 failles",
       "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Drones, combat sol-air et numérique : comment suivre le défilé du 14 juillet 2026",
+      "resume": "Le dixième et dernier défilé du 14 juillet d'Emmanuel Macron promet du lourd sur le plan technologique : drones, commissariat au numérique de défense",
+      "url": "https://www.numerama.com/tech/2294991-drones-combat-sol-air-et-numerique-comment-suivre-le-defile-du-14-juillet-2026.html",
+      "date": "2026-07-14T04:30:00.000Z",
+      "source": "Numerama",
+      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
+      "pays": "FR",
+      "accroche": "Suivre défilé 14 juillet 2026 via drones et numérique",
+      "categorie": "Réseaux"
+    },
+    {
+      "titre": "«La plus forte augmentation depuis la fin de la guerre froide» : le réarmement des pays européens tire les dépenses militaires mondiales vers le haut",
+      "resume": "Les dépenses militaires mondiales ont augmenté de 2,9 % en 2025, atteignant 2 287 milliards de dollars, selon un rapport de l’Institut international d",
+      "url": "https://www.usinenouvelle.com/aero-spatial/defense/la-plus-forte-augmentation-depuis-la-fin-de-la-guerre-froide-le-rearmement-des-pays-europeens-tire-les-depenses-militaires-mondiales-vers-le-haut.X3FADXWG6VI5FGZAOJER32NXJQ.html",
+      "date": "2026-07-14T06:00:00.000Z",
+      "source": "L'Usine Nouvelle",
+      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
+      "pays": "FR",
+      "accroche": "Réarmement européen : hausse record depuis la fin guerre froide",
+      "categorie": "Innovation"
     },
     {
       "titre": "Robotique : Le consortium Maestro s’appuie sur une plateforme logicielle open source pour favoriser le développement européen de l’IA physique",
@@ -120,20 +131,9 @@
       "source": "L'Usine Nouvelle",
       "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
       "pays": "FR",
-      "accroche": "Consortium Maestro utilise open source pour robotique",
+      "accroche": "Consortium Maestro adopte plateforme open source pour robotique",
       "categorie": "IA"
-    },
-    {
-      "titre": "«Toute notre industrie de défense doit se mobiliser pour gagner en agilité» : lors de son discours aux armées, Emmanuel Macron appelle à intensifier les investissements dans la défense",
-      "resume": "",
-      "url": "https://www.usinenouvelle.com/aero-spatial/defense/toute-notre-industrie-de-defense-doit-se-mobiliser-pour-gagner-en-agilite-lors-de-son-discours-aux-armees-emmanuel-macron-appelle-a-intensifier-les-investissements-dans-la-defense.JUEHYERHMBCG5BXJPDOLNZWKEY.html",
-      "date": "2026-07-13T15:10:14.000Z",
-      "source": "L'Usine Nouvelle",
-      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
-      "pays": "FR",
-      "accroche": "Discours sur mobilisation industrie défense",
-      "categorie": "Réseaux"
     }
   ],
-  "lastUpdated": "2026-07-14T06:11:02.983Z"
+  "lastUpdated": "2026-07-14T07:04:09.900Z"
 }
