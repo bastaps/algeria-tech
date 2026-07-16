@@ -138,13 +138,14 @@ body {
 .header-btn:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2); }
 /* Le bouton Derja est un lien : .header-btn est pensé pour <button>. */
 a.header-btn { text-decoration: none; }
-a.header-btn.derja { border-color: rgba(212,160,23,0.45); }
-a.header-btn.derja:hover { border-color: var(--accent); }
-/* Sous ~700px, le libellé « Derja » poussait le logo sur deux lignes.
-   On ne garde que l'icône : le bouton reste entier et cliquable. */
-@media(max-width:760px) {
-  a.header-btn.derja .derja-label { display: none; }
-  a.header-btn.derja { padding: 0 12px; }
+a.header-btn.derja, a.header-btn.parle { border-color: rgba(212,160,23,0.45); }
+a.header-btn.derja:hover, a.header-btn.parle:hover { border-color: var(--accent); }
+/* En-tête étroit : on garde les icônes, on masque les libellés. Sans ça, logo
+   (198px) + actions (351px) = exactement la largeur dispo → le logo se replie
+   sur 2 lignes. Les title/aria-label conservent le sens pour tous. */
+@media(max-width:900px) {
+  .header-btn .hb-label { display: none; }
+  .header-btn { padding: 0 12px; }
 }
 .header-btn.gold {
   background: linear-gradient(135deg, var(--accent), #E8A930);
@@ -1153,14 +1154,17 @@ body.app-active #landing{display:none;}
     CV Massar <span>El Mihani</span>
   </div>
   <div class="header-actions">
-    <button class="header-btn" onclick="backToLanding()" title="Retour à l'accueil">
-      <i class="fas fa-house"></i> Accueil
+    <button class="header-btn" onclick="backToLanding()" title="Retour à l'accueil" aria-label="Retour à l'accueil">
+      <i class="fas fa-house"></i> <span class="hb-label">Accueil</span>
     </button>
-    <button class="header-btn gold" onclick="showToast('info','Sauvegardé','Vos données ont été sauvegardées localement.',3000); saveAll();">
-      <i class="fas fa-save"></i> Sauvegarder
+    <button class="header-btn gold" onclick="showToast('info','Sauvegardé','Vos données ont été sauvegardées localement.',3000); saveAll();" title="Sauvegarder" aria-label="Sauvegarder">
+      <i class="fas fa-save"></i> <span class="hb-label">Sauvegarder</span>
     </button>
     <a class="header-btn derja" href="./derja/" title="Kateb t'explique ton CV en derja" aria-label="Kateb en derja">
-      <i class="fas fa-language"></i><span class="derja-label">Derja</span>
+      <i class="fas fa-language"></i><span class="hb-label">Derja</span>
+    </a>
+    <a class="header-btn parle" href="./parle/" title="CV Parlé : faites entendre votre pitch" aria-label="CV Parlé">
+      <i class="fas fa-microphone-lines"></i><span class="hb-label">Parlé</span>
     </a>
     <button class="header-btn" onclick="toggleTheme()" title="Mode sombre/clair">
       <i class="fas fa-moon" id="theme-icon"></i>

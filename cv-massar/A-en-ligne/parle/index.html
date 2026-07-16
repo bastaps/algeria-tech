@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0e1a">
+<title>CV Parlé — Yasmine Benali</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0e1a;
+    --bg-2: #11162a;
+    --surface: #1a1f3a;
+    --surface-2: #232845;
+    --line: rgba(212, 175, 55, 0.12);
+    --line-strong: rgba(212, 175, 55, 0.32);
+    --gold: #d4af37;
+    --gold-soft: #b8941f;
+    --gold-light: #f0d878;
+    --ink: #f0e6d2;
+    --ink-2: #b8b0a0;
+    --ink-3: #6a6a7a;
+    --teal: #5eead4;
+    --crimson: #e85a6a;
+    --green: #4ade80;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); color: var(--ink); font-family: 'Outfit', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  body {
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 0%, rgba(212, 175, 55, 0.10), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 90% 50%, rgba(94, 234, 212, 0.05), transparent 60%),
+      var(--bg);
+    min-height: 100vh;
+  }
+
+  /* Top bar */
+  .topbar { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; background: rgba(10, 14, 26, 0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--line); gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--gold); letter-spacing: 0.05em; flex-shrink: 0; }
+  .brand-mark { width: 32px; height: 32px; background: linear-gradient(135deg, var(--gold), var(--gold-soft)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--bg); font-weight: 700; font-family: 'Outfit', sans-serif; font-size: 14px; }
+  .topbar-center { display: flex; gap: 8px; align-items: center; flex: 1; justify-content: center; }
+  .topbar-right { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+  .backend-status { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; display: flex; align-items: center; gap: 6px; }
+  .backend-status.online { color: var(--teal); background: rgba(94, 234, 212, 0.08); border: 1px solid rgba(94, 234, 212, 0.3); }
+  .backend-status.offline { color: var(--ink-3); background: rgba(255, 255, 255, 0.03); border: 1px solid var(--line); }
+  .backend-dot { width: 6px; height: 6px; border-radius: 50%; }
+  .backend-status.online .backend-dot { background: var(--teal); box-shadow: 0 0 8px var(--teal); animation: pulse 2s infinite; }
+  .backend-status.offline .backend-dot { background: var(--ink-3); }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  .play-counter { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-2); padding: 4px 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--line); border-radius: 100px; }
+  .play-counter strong { color: var(--gold); font-weight: 600; }
+
+  button { cursor: pointer; border: none; background: none; color: inherit; font-family: inherit; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 6px; font-size: 13px; font-weight: 500; border: 1px solid var(--line-strong); color: var(--ink); background: rgba(212, 175, 55, 0.05); transition: all 0.2s ease; }
+  .btn:hover { background: rgba(212, 175, 55, 0.12); border-color: var(--gold); }
+  .btn.primary { background: linear-gradient(135deg, var(--gold), var(--gold-soft)); color: var(--bg); border-color: var(--gold); font-weight: 600; }
+  .btn.primary:hover { background: linear-gradient(135deg, var(--gold-light), var(--gold)); }
+  .btn.ghost { background: transparent; border-color: var(--line); color: var(--ink-2); }
+  .btn.ghost:hover { color: var(--ink); border-color: var(--line-strong); }
+  .btn.danger { color: var(--crimson); border-color: rgba(232, 90, 106, 0.3); }
+  .btn.danger:hover { background: rgba(232, 90, 106, 0.1); border-color: var(--crimson); }
+  .btn.tiny { padding: 5px 10px; font-size: 11px; }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* App */
+  .app { max-width: 1280px; margin: 0 auto; padding: 32px 28px; }
+  .view { display: none; }
+  .view.active { display: block; }
+
+  /* Owner layout */
+  .owner-grid { display: grid; grid-template-columns: 1fr 380px; gap: 28px; }
+  @media (max-width: 1024px) { .owner-grid { grid-template-columns: 1fr; } }
+
+  /* CV paper */
+  .cv-paper { background: #fefefe; color: #1a1a1a; width: 100%; aspect-ratio: 210 / 297; max-height: 1100px; box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.5), 0 8px 30px rgba(0, 0, 0, 0.3); position: relative; overflow: hidden; font-family: 'Outfit', sans-serif; }
+  .cv-pad { padding: 32px 36px; height: 100%; display: flex; flex-direction: column; position: relative; }
+  .cv-paper::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--gold) 0%, var(--gold-soft) 50%, var(--gold) 100%); }
+  .cv-head { display: flex; gap: 16px; align-items: center; padding-bottom: 12px; border-bottom: 1px solid #d4af37; margin-bottom: 14px; }
+  .cv-avatar-wrap { position: relative; flex-shrink: 0; cursor: pointer; }
+  .cv-avatar { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #1a1f3a, #232845); color: #d4af37; font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; display: flex; align-items: center; justify-content: center; border: 2px solid #d4af37; overflow: hidden; }
+  .cv-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .cv-avatar-edit { position: absolute; bottom: -2px; right: -2px; width: 22px; height: 22px; background: #d4af37; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; border: 2px solid white; }
+  .cv-info { flex: 1; min-width: 0; }
+  .cv-name { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: #1a1a1a; line-height: 1; letter-spacing: -0.01em; cursor: text; }
+  .cv-name[contenteditable]:focus, .cv-role[contenteditable]:focus { outline: 1px dashed #d4af37; outline-offset: 2px; }
+  .cv-role { color: #b8941f; font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; margin-top: 3px; font-weight: 500; cursor: text; }
+  .cv-contact { display: flex; gap: 10px; margin-top: 5px; font-size: 8.5px; color: #4a4a4a; flex-wrap: wrap; }
+  .cv-contact span { display: flex; align-items: center; gap: 5px; }
+  .cv-contact span::before { content: ""; width: 3px; height: 3px; background: #d4af37; border-radius: 50%; }
+  .cv-contact span:first-child::before { display: none; }
+
+  .cv-body { flex: 1; display: flex; flex-direction: column; gap: 10px; }
+  .cv-section-title { font-family: 'Cormorant Garamond', serif; font-size: 11px; font-weight: 600; color: #1a1a1a; letter-spacing: 0.2em; text-transform: uppercase; padding-bottom: 3px; border-bottom: 1px solid #d4af37; margin-bottom: 5px; }
+  .cv-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1px; gap: 8px; }
+  .cv-row strong { font-size: 9.5px; font-weight: 600; }
+  .cv-row em { font-size: 8.5px; color: #b8941f; font-style: normal; font-family: 'JetBrains Mono', monospace; }
+  .cv-sub { font-size: 8.5px; color: #6a6a6a; font-style: italic; margin-bottom: 2px; }
+  .cv-text { font-size: 8.5px; line-height: 1.4; color: #2a2a2a; }
+  .cv-bullets { list-style: none; padding-left: 0; }
+  .cv-bullets li { font-size: 8.5px; line-height: 1.4; padding-left: 9px; position: relative; margin-bottom: 1px; }
+  .cv-bullets li::before { content: "▸"; position: absolute; left: 0; color: #d4af37; }
+  .cv-skills { display: flex; flex-wrap: wrap; gap: 3px; }
+  .cv-skill { font-size: 7.5px; padding: 1px 6px; background: #faf3e0; color: #1a1a1a; border-radius: 100px; font-weight: 500; }
+
+  /* QR zone */
+  .cv-qr-zone { margin-top: auto; padding: 12px 14px; background: linear-gradient(135deg, #1a1f3a, #232845); border-radius: 8px; display: flex; gap: 12px; align-items: center; color: #f0e6d2; }
+  .cv-qr-img { width: 64px; height: 64px; background: white; padding: 3px; border-radius: 4px; flex-shrink: 0; }
+  .cv-qr-img img { width: 100%; height: 100%; display: block; }
+  .cv-qr-text { flex: 1; }
+  .cv-qr-label { font-family: 'Cormorant Garamond', serif; font-size: 13px; color: #d4af37; font-style: italic; margin-bottom: 2px; }
+  .cv-qr-desc { font-size: 8px; color: #b8b0a0; line-height: 1.35; }
+  .cv-qr-desc strong { color: #d4af37; font-weight: 500; }
+  .cv-qr-mode { font-size: 7.5px; color: #5eead4; margin-top: 3px; font-family: 'JetBrains Mono', monospace; }
+
+  /* Configurator */
+  .configurator { background: var(--bg-2); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; align-self: start; position: sticky; top: 80px; max-height: calc(100vh - 100px); display: flex; flex-direction: column; }
+  .config-tabs { display: flex; background: var(--surface); border-bottom: 1px solid var(--line); }
+  .config-tab { flex: 1; padding: 14px 8px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); font-weight: 500; border-bottom: 2px solid transparent; transition: all 0.2s; text-align: center; }
+  .config-tab:hover { color: var(--ink-2); }
+  .config-tab.active { color: var(--gold); border-bottom-color: var(--gold); background: var(--bg-2); }
+  .config-tab-count { display: inline-block; margin-left: 4px; padding: 1px 6px; background: var(--surface-2); border-radius: 100px; font-size: 9px; color: var(--ink-2); }
+  .config-tab.active .config-tab-count { background: var(--gold); color: var(--bg); }
+  .config-body { padding: 16px 18px; overflow-y: auto; flex: 1; }
+  .config-foot { padding: 14px 18px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 8px; background: var(--bg-2); }
+
+  /* Pitch list */
+  .pitch-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 14px; }
+  .pitch-card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; transition: all 0.2s; }
+  .pitch-card.active { border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold); }
+  .pitch-card-head { padding: 10px 12px; display: flex; align-items: center; gap: 10px; cursor: pointer; }
+  .pitch-card.active .pitch-card-head { background: rgba(212, 175, 55, 0.05); }
+  .pitch-star { color: var(--ink-3); font-size: 14px; flex-shrink: 0; }
+  .pitch-card.active .pitch-star { color: var(--gold); }
+  .pitch-info { flex: 1; min-width: 0; }
+  .pitch-name { font-size: 12px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+  .pitch-meta { font-size: 10px; color: var(--ink-3); display: flex; gap: 8px; align-items: center; }
+  .pitch-meta .flag { display: inline-block; padding: 1px 5px; background: var(--bg-2); border-radius: 3px; font-family: 'JetBrains Mono', monospace; font-size: 9px; }
+  .pitch-meta .provider { display: inline-block; padding: 1px 5px; background: var(--surface-2); border-radius: 3px; font-size: 9px; }
+  .pitch-card.active .pitch-meta .provider { background: rgba(212, 175, 55, 0.2); color: var(--gold); }
+  .pitch-actions { display: flex; gap: 4px; }
+  .pitch-body { padding: 0 12px 12px; display: none; }
+  .pitch-card.expanded .pitch-body { display: block; padding-top: 4px; }
+  .field { margin-bottom: 12px; }
+  .field-label { display: block; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 5px; font-weight: 500; }
+  textarea, input[type="text"], input[type="email"], input[type="tel"], select { width: 100%; padding: 8px 10px; background: var(--bg); border: 1px solid var(--line); border-radius: 5px; color: var(--ink); font-family: inherit; font-size: 12px; line-height: 1.5; resize: vertical; transition: border-color 0.2s; }
+  textarea { min-height: 80px; font-size: 12px; }
+  textarea:focus, input:focus, select:focus { outline: none; border-color: var(--gold); }
+  .lang-tabs { display: flex; gap: 3px; margin-bottom: 8px; padding: 3px; background: var(--bg); border-radius: 5px; }
+  .lang-tab { flex: 1; padding: 5px 8px; font-size: 10px; color: var(--ink-3); border-radius: 3px; text-align: center; transition: all 0.2s; font-weight: 500; }
+  .lang-tab.active { background: var(--surface); color: var(--gold); }
+  .char-count { font-size: 9px; color: var(--ink-3); text-align: right; margin-top: 3px; font-family: 'JetBrains Mono', monospace; }
+  .char-count.warn { color: var(--gold); }
+  .char-count.over { color: var(--crimson); }
+  .action-row { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 8px; }
+  .action-row.full { grid-template-columns: 1fr; }
+  .action-row .btn { padding: 7px 10px; font-size: 11px; justify-content: center; }
+  .audio-status { padding: 8px 10px; background: var(--bg); border: 1px solid var(--line); border-radius: 5px; font-size: 11px; color: var(--ink-2); display: flex; align-items: center; gap: 8px; }
+  .audio-status.has-audio { color: var(--green); border-color: rgba(74, 222, 128, 0.3); }
+  .audio-status-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ink-3); }
+  .audio-status.has-audio .audio-status-dot { background: var(--green); box-shadow: 0 0 6px var(--green); }
+  .audio-status.recording .audio-status-dot { background: var(--crimson); box-shadow: 0 0 6px var(--crimson); animation: pulse 0.8s infinite; }
+
+  /* Profile tab */
+  .photo-uploader { display: flex; align-items: center; gap: 14px; padding: 14px; background: var(--surface); border: 1px dashed var(--line-strong); border-radius: 8px; margin-bottom: 14px; }
+  .photo-preview { width: 64px; height: 64px; border-radius: 50%; background: var(--surface-2); color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0; }
+  .photo-preview img { width: 100%; height: 100%; object-fit: cover; }
+  .photo-info { flex: 1; }
+  .photo-info-title { font-size: 12px; color: var(--ink); margin-bottom: 2px; }
+  .photo-info-hint { font-size: 10px; color: var(--ink-3); margin-bottom: 6px; }
+  .photo-actions { display: flex; gap: 6px; }
+  .photo-actions .btn { padding: 5px 10px; font-size: 11px; }
+
+  /* Analytics tab */
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+  .stat-card { padding: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+  .stat-label { font-size: 10px; color: var(--ink-3); letter-spacing: 0.15em; text-transform: uppercase; }
+  .stat-trend { font-size: 10px; color: var(--green); margin-top: 4px; font-family: 'JetBrains Mono', monospace; }
+  .bar-chart { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+  .bar-row { display: grid; grid-template-columns: 1fr 2fr auto; gap: 8px; align-items: center; font-size: 11px; }
+  .bar-label { color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .bar-track { height: 8px; background: var(--bg); border-radius: 4px; overflow: hidden; }
+  .bar-fill { height: 100%; background: linear-gradient(90deg, var(--gold-soft), var(--gold)); border-radius: 4px; transition: width 0.5s ease; }
+  .bar-val { font-family: 'JetBrains Mono', monospace; color: var(--ink-2); font-size: 10px; min-width: 30px; text-align: right; }
+  .recent-list { display: flex; flex-direction: column; gap: 6px; }
+  .recent-item { padding: 8px 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 5px; font-size: 11px; display: flex; justify-content: space-between; align-items: center; }
+  .recent-time { color: var(--ink-3); font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+  .empty-state { padding: 30px 20px; text-align: center; color: var(--ink-3); font-size: 12px; font-style: italic; }
+
+  /* Pitch view (single recruiter view) */
+  .pitch-stage { min-height: calc(100vh - 70px); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 24px; text-align: center; }
+  .pitch-card { max-width: 480px; width: 100%; }
+  .pitch-avatar { width: 140px; height: 140px; border-radius: 50%; background: linear-gradient(135deg, var(--surface), var(--surface-2)); border: 3px solid var(--gold); margin: 0 auto 24px; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 600; color: var(--gold); box-shadow: 0 0 60px -10px rgba(212, 175, 55, 0.4); position: relative; overflow: hidden; }
+  .pitch-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .pitch-avatar::after { content: ""; position: absolute; inset: -12px; border-radius: 50%; border: 1px solid var(--line-strong); opacity: 0.5; animation: ringPulse 3s ease-in-out infinite; }
+  @keyframes ringPulse { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 0; } }
+  .pitch-eyebrow { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .pitch-name { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 500; line-height: 1; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .pitch-role { color: var(--ink-2); font-size: 15px; font-weight: 300; margin-bottom: 32px; }
+  .play-btn { width: 92px; height: 92px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-soft)); color: var(--bg); margin: 0 auto 22px; display: flex; align-items: center; justify-content: center; font-size: 32px; box-shadow: 0 10px 40px -10px rgba(212, 175, 55, 0.5); transition: all 0.3s; position: relative; }
+  .play-btn:hover { transform: scale(1.05); box-shadow: 0 15px 50px -10px rgba(212, 175, 55, 0.7); }
+  .play-btn.playing { background: linear-gradient(135deg, var(--teal), #0ea5e9); box-shadow: 0 10px 40px -10px rgba(94, 234, 212, 0.5); }
+  .play-btn svg { width: 32px; height: 32px; fill: currentColor; }
+  .waveform { display: flex; align-items: center; justify-content: center; gap: 2px; height: 40px; margin-bottom: 12px; }
+  .wave-bar { width: 2.5px; background: var(--gold); border-radius: 2px; opacity: 0.5; transition: opacity 0.2s; }
+  .waveform.active .wave-bar { opacity: 1; animation: wave 0.6s ease-in-out infinite; }
+  @keyframes wave { 0%, 100% { transform: scaleY(0.3); } 50% { transform: scaleY(1); } }
+  .waveform:not(.active) .wave-bar { height: 4px !important; animation: none; }
+  .pitch-time { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-3); margin-bottom: 32px; }
+  .pitch-time strong { color: var(--ink); }
+  .pitch-divider { width: 60px; height: 1px; background: var(--line-strong); margin: 0 auto 24px; }
+  .pitch-label { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 16px; }
+  .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .contact-btn { padding: 14px 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; color: var(--ink); text-decoration: none; font-size: 11px; font-weight: 500; display: flex; flex-direction: column; align-items: center; gap: 6px; transition: all 0.2s; }
+  .contact-btn:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+  .contact-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .transcript { margin-top: 32px; padding: 20px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; text-align: left; max-height: 200px; overflow-y: auto; }
+  .transcript-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .transcript-text { font-size: 13px; line-height: 1.6; color: var(--ink-2); font-style: italic; }
+  .transcript-text .ar { font-family: 'Amiri', serif; font-size: 15px; }
+  .powered-by { margin-top: 36px; font-size: 10px; color: var(--ink-3); letter-spacing: 0.2em; text-transform: uppercase; }
+  .powered-by span { color: var(--gold); }
+
+  /* Menu view (multi-pitch picker) */
+  .menu-stage { min-height: calc(100vh - 70px); padding: 48px 24px; max-width: 800px; margin: 0 auto; }
+  .menu-header { text-align: center; margin-bottom: 40px; }
+  .menu-avatar { width: 96px; height: 96px; border-radius: 50%; background: linear-gradient(135deg, var(--surface), var(--surface-2)); border: 2px solid var(--gold); margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 38px; color: var(--gold); overflow: hidden; }
+  .menu-avatar img { width: 100%; height: 100%; object-fit: cover; }
+  .menu-eyebrow { font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .menu-name { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 500; margin-bottom: 4px; }
+  .menu-sub { color: var(--ink-2); font-size: 14px; }
+  .menu-pitches { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+  .menu-pitch { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; cursor: pointer; transition: all 0.2s; text-align: left; }
+  .menu-pitch:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.3); }
+  .menu-pitch-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .menu-pitch-flag { font-family: 'JetBrains Mono', monospace; font-size: 11px; padding: 3px 8px; background: var(--bg-2); border-radius: 4px; color: var(--gold); }
+  .menu-pitch-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--ink); flex: 1; }
+  .menu-pitch-meta { font-size: 10px; color: var(--ink-3); display: flex; gap: 8px; margin-bottom: 8px; }
+  .menu-pitch-text { font-size: 12px; color: var(--ink-2); line-height: 1.5; font-style: italic; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .menu-pitch-arrow { margin-top: 12px; font-size: 12px; color: var(--gold); display: flex; align-items: center; gap: 4px; }
+
+  /* Print */
+  @media print { body { background: white; } .topbar, .configurator, .topbar-actions, .topbar-center { display: none !important; } .app { padding: 0; max-width: 100%; } .cv-paper { box-shadow: none; max-height: none; aspect-ratio: auto; page-break-inside: avoid; } }
+  .fade-in { animation: fadeIn 0.4s ease-out; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  @media (max-width: 640px) {
+    .topbar { padding: 12px 14px; }
+    .app { padding: 20px 14px; }
+    .brand { font-size: 15px; }
+    .topbar-right .btn { padding: 6px 10px; font-size: 11px; }
+    .pitch-name { font-size: 32px; }
+    .pitch-avatar { width: 100px; height: 100px; font-size: 38px; }
+    .cv-pad { padding: 20px 18px; }
+    .cv-name { font-size: 20px; }
+    .cv-head { gap: 10px; }
+    .cv-avatar { width: 48px; height: 48px; font-size: 18px; }
+    .stats-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark" id="brandMark">YB</div>
+    <span>CV Parlé <em style="font-style:italic; color: var(--ink-3); font-size: 13px;">· exclusif</em></span>
+  </div>
+  <div class="topbar-center">
+    <div id="backendStatus" class="backend-status offline"><span class="backend-dot"></span><span id="backendStatusText">Backend offline</span></div>
+    <div class="play-counter" id="playCounter">✦ <strong id="playCountValue">0</strong> écoutes</div>
+  </div>
+  <div class="topbar-right">
+    <a class="btn ghost" href="../" title="Retour à l'outil CV Massar El Mihani" style="text-decoration:none">← CV</a>
+    <button id="toggleMode" class="btn ghost">👁 Aperçu</button>
+    <button id="printBtn" class="btn">🖨 PDF</button>
+  </div>
+</header>
+
+<main class="app">
+
+  <!-- OWNER VIEW -->
+  <section id="ownerView" class="view active">
+    <div class="owner-grid">
+      <!-- CV -->
+      <div class="cv-paper fade-in">
+        <div class="cv-pad">
+          <header class="cv-head">
+            <div class="cv-avatar-wrap" id="avatarWrap" title="Cliquez pour ajouter une photo">
+              <div class="cv-avatar" id="cvAvatar">YB</div>
+              <div class="cv-avatar-edit">📷</div>
+              <input type="file" id="photoInput" accept="image/*" style="display:none">
+            </div>
+            <div class="cv-info">
+              <h1 class="cv-name" id="cvName" contenteditable="true">Yasmine Benali</h1>
+              <div class="cv-role" id="cvRole" contenteditable="true">Architecte Logiciel Senior</div>
+              <div class="cv-contact">
+                <span id="cvEmail">y.benali@example.com</span>
+                <span id="cvPhone">+213 555 12 34 56</span>
+                <span id="cvLocation">Alger · Paris</span>
+              </div>
+            </div>
+          </header>
+
+          <div class="cv-body">
+            <div class="cv-section">
+              <div class="cv-section-title">Profil</div>
+              <p class="cv-text">Ingénieure logicielle avec 8+ ans d'expérience en conception de systèmes distribués et leadership technique d'équipes produit. Spécialisée en architectures cloud natives et migrations à grande échelle.</p>
+            </div>
+
+            <div class="cv-section">
+              <div class="cv-section-title">Expérience</div>
+              <div class="cv-row"><strong>Tech Lead</strong><em>2022 — Présent</em></div>
+              <div class="cv-sub">Sonatrach · Alger</div>
+              <ul class="cv-bullets">
+                <li>Direction d'une équipe de 8 ingénieurs sur la plateforme data interne</li>
+                <li>Migration cloud AWS de 14 services critiques, réduction coûts 35%</li>
+              </ul>
+              <div class="cv-row" style="margin-top:5px"><strong>Senior Engineer</strong><em>2019 — 2022</em></div>
+              <div class="cv-sub">Yassir · Alger</div>
+              <ul class="cv-bullets">
+                <li>Architecture microservices, scale x10, latency divisée par 3</li>
+                <li>Mentorat de 4 ingénieurs juniors</li>
+              </ul>
+            </div>
+
+            <div class="cv-section">
+              <div class="cv-section-title">Formation</div>
+              <div class="cv-row"><strong>Master Informatique — Systèmes Distribués</strong><em>2019</em></div>
+              <div class="cv-sub">ENSTA Paris · Major de promotion</div>
+              <div class="cv-row" style="margin-top:3px"><strong>Licence Mathématiques-Informatique</strong><em>2017</em></div>
+              <div class="cv-sub">USTHB Alger</div>
+            </div>
+
+            <div class="cv-section">
+              <div class="cv-section-title">Compétences</div>
+              <div class="cv-skills">
+                <span class="cv-skill">TypeScript</span><span class="cv-skill">Go</span><span class="cv-skill">Python</span>
+                <span class="cv-skill">Kubernetes</span><span class="cv-skill">AWS</span><span class="cv-skill">PostgreSQL</span>
+                <span class="cv-skill">gRPC</span><span class="cv-skill">Terraform</span>
+              </div>
+            </div>
+
+            <div class="cv-qr-zone">
+              <div class="cv-qr-img"><img id="qrImg" alt="QR Code" src=""></div>
+              <div class="cv-qr-text">
+                <div class="cv-qr-label">✦ CV Parlé</div>
+                <div class="cv-qr-desc"><strong>Scannez</strong> pour écouter mon pitch. <strong id="qrPitchCount">Plusieurs versions</strong> disponibles — vous choisissez.</div>
+                <div class="cv-qr-mode" id="qrMode">→ Menu multi-pitch</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Configurator -->
+      <aside class="configurator">
+        <div class="config-tabs">
+          <button class="config-tab active" data-tab="pitches">Pitches <span class="config-tab-count" id="pitchCountBadge">1</span></button>
+          <button class="config-tab" data-tab="profile">Profil</button>
+          <button class="config-tab" data-tab="analytics">Stats</button>
+        </div>
+        <div class="config-body">
+
+          <!-- PITCHES TAB -->
+          <div class="tab-pane" data-pane="pitches">
+            <div class="pitch-list" id="pitchList"></div>
+            <button id="addPitchBtn" class="btn ghost full-width" style="width:100%; justify-content:center;">+ Nouveau pitch</button>
+          </div>
+
+          <!-- PROFILE TAB -->
+          <div class="tab-pane" data-pane="profile" style="display:none">
+            <div class="photo-uploader">
+              <div class="photo-preview" id="profilePhotoPreview">YB</div>
+              <div class="photo-info">
+                <div class="photo-info-title">Photo de profil</div>
+                <div class="photo-info-hint">JPG/PNG, recadrée automatiquement</div>
+                <div class="photo-actions">
+                  <button class="btn tiny" id="uploadPhotoBtn">📷 Choisir</button>
+                  <button class="btn tiny danger" id="removePhotoBtn">✕</button>
+                </div>
+                <input type="file" id="profilePhotoInput" accept="image/*" style="display:none">
+              </div>
+            </div>
+            <div class="field">
+              <label class="field-label">Email</label>
+              <input type="email" id="profileEmail" value="y.benali@example.com">
+            </div>
+            <div class="field">
+              <label class="field-label">Téléphone</label>
+              <input type="tel" id="profilePhone" value="+213 555 12 34 56">
+            </div>
+            <div class="field">
+              <label class="field-label">Localisation</label>
+              <input type="text" id="profileLocation" value="Alger · Paris">
+            </div>
+            <button id="saveProfileBtn" class="btn primary" style="width:100%; justify-content:center;">Enregistrer le profil</button>
+          </div>
+
+          <!-- ANALYTICS TAB -->
+          <div class="tab-pane" data-pane="analytics" style="display:none">
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-num" id="statTotal">0</div>
+                <div class="stat-label">Écoutes totales</div>
+                <div class="stat-trend" id="statTrend">+ cette semaine</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-num" id="statUnique">0</div>
+                <div class="stat-label">Pitchs écoutés</div>
+                <div class="stat-trend" id="statUniqueTrend">—</div>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field-label">Par pitch</label>
+              <div class="bar-chart" id="barChart"></div>
+            </div>
+            <div class="field">
+              <label class="field-label">Écoutes récentes</label>
+              <div class="recent-list" id="recentList"></div>
+            </div>
+            <button id="exportAnalytics" class="btn ghost" style="width:100%; justify-content:center;">📥 Exporter (JSON)</button>
+            <button id="resetAnalytics" class="btn ghost danger" style="width:100%; justify-content:center; margin-top:6px;">✕ Réinitialiser</button>
+          </div>
+
+        </div>
+        <div class="config-foot">
+          <button id="downloadQr" class="btn primary">📥 QR code</button>
+          <button id="copyLink" class="btn ghost">🔗 Copier le lien</button>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- PITCH VIEW (single) -->
+  <section id="pitchView" class="view">
+    <div class="pitch-stage">
+      <div class="pitch-card fade-in">
+        <div class="pitch-avatar" id="pitchViewAvatar">YB</div>
+        <div class="pitch-eyebrow">CV Parlé · Exclusif</div>
+        <h1 class="pitch-name" id="pitchViewName">Yasmine Benali</h1>
+        <div class="pitch-role" id="pitchViewRole">Architecte Logiciel Senior</div>
+
+        <button id="recruiterPlay" class="play-btn" aria-label="Lire le pitch">
+          <svg viewBox="0 0 24 24" id="playIcon"><path d="M8 5v14l11-7z"/></svg>
+        </button>
+
+        <div class="waveform" id="waveform"></div>
+        <div class="pitch-time"><strong id="currentTime">0:00</strong> / <span id="totalTime">0:30</span></div>
+
+        <div class="pitch-divider"></div>
+        <div class="pitch-label" id="pitchViewLabel">✦ Mon pitch</div>
+
+        <div class="contact-grid">
+          <a class="contact-btn" id="contactEmail" href="mailto:y.benali@example.com">
+            <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>
+            Email
+          </a>
+          <a class="contact-btn" href="https://linkedin.com" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a class="contact-btn" id="contactPhone" href="tel:+213555123456">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Appeler
+          </a>
+        </div>
+
+        <div class="transcript">
+          <div class="transcript-label">✦ Transcription du pitch</div>
+          <p class="transcript-text" id="recruiterTranscript"></p>
+        </div>
+
+        <div class="powered-by">Propulsé par <span>Algérie-Tech</span> · CV Parlé</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU VIEW (multi-pitch) -->
+  <section id="menuView" class="view">
+    <div class="menu-stage">
+      <div class="menu-header">
+        <div class="menu-avatar" id="menuAvatar">YB</div>
+        <div class="menu-eyebrow">CV Parlé · Plusieurs versions</div>
+        <h1 class="menu-name" id="menuName">Yasmine Benali</h1>
+        <div class="menu-sub" id="menuRole">Architecte Logiciel Senior</div>
+      </div>
+      <div class="menu-pitches" id="menuPitches"></div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+/* =========================================================
+   CV PARLÉ v2 — single-file app
+   Features:
+   - Multi-pitch management
+   - Premium voices (Azure, ElevenLabs) via backend
+   - Photo upload
+   - Analytics (local + backend)
+   - QR menu (recruiter picks the pitch they want)
+   ========================================================= */
+
+const STORE_KEY = 'cvParleData_v2';
+const BACKEND_URL = window.location.origin;  // same origin when served
+
+const DEFAULT_PITCH = {
+  fr: `Bonjour, je suis Yasmine Benali, architecte logiciel senior avec 8 ans d'expérience en systèmes distribués. Aujourd'hui Tech Lead chez Sonatrach, j'ai piloté la migration cloud de 14 services critiques et dirigé des équipes de 8 ingénieurs. Mon obsession : transformer la complexité en produits simples, scalables et fiables. Je cherche désormais un rôle de Staff Engineer dans une structure où l'excellence technique rencontre l'impact produit.`,
+  en: `Hi, I'm Yasmine Benali, a senior software architect with 8 years of experience in distributed systems. Currently Tech Lead at Sonatrach, I've led the cloud migration of 14 critical services and managed teams of 8 engineers. My obsession: turning complexity into simple, scalable, reliable products. I'm now looking for a Staff Engineer role where technical excellence meets product impact.`,
+  ar: `مرحبا، أنا ياسمين بن علي، مهندسة برمجيات أولى متخصصة في الأنظمة الموزعة، لدي 8 سنوات من الخبرة. أشغل حاليا منصب Tech Lead في سوناطراك. شغفي هو تحويل التعقيد إلى منتجات بسيطة وقابلة للتطوير وموثوقة.`
+};
+
+const state = {
+  profile: { name: 'Yasmine Benali', role: 'Architecte Logiciel Senior', email: 'y.benali@example.com', phone: '+213 555 12 34 56', location: 'Alger · Paris', photo: null },
+  pitches: [],
+  selectedPitchId: null,
+  qrMode: 'menu',  // 'menu' | 'direct'
+  analytics: { events: [] },
+  backend: { available: false, elevenlabs: false, azure: false }
+};
+
+let voices = [];
+let backendAvailable = false;
+
+/* ---------- Persistence ---------- */
+function saveState() { try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {} }
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORE_KEY);
+    if (!raw) return false;
+    const data = JSON.parse(raw);
+    if (data.profile) state.profile = { ...state.profile, ...data.profile };
+    if (data.pitches && data.pitches.length) {
+      state.pitches = data.pitches;
+      state.selectedPitchId = data.selectedPitchId || data.pitches[0].id;
+    }
+    if (data.qrMode) state.qrMode = data.qrMode;
+    if (data.analytics) state.analytics = data.analytics;
+    return true;
+  } catch { return false; }
+}
+
+function uid() { return 'p_' + Date.now() + '_' + Math.random().toString(36).slice(2, 8); }
+
+function initDefaultPitches() {
+  if (state.pitches.length === 0) {
+    const p1 = {
+      id: uid(), name: 'Version standard', lang: 'fr',
+      text: DEFAULT_PITCH.fr, audio: null,
+      voiceProvider: 'system', voiceId: null, voiceName: null,
+      createdAt: Date.now()
+    };
+    const p2 = {
+      id: uid(), name: 'International (EN)', lang: 'en',
+      text: DEFAULT_PITCH.en, audio: null,
+      voiceProvider: 'system', voiceId: null, voiceName: null,
+      createdAt: Date.now() + 1
+    };
+    state.pitches = [p1, p2];
+    state.selectedPitchId = p1.id;
+  }
+}
+
+/* ---------- Backend integration ---------- */
+async function checkBackend() {
+  try {
+    const r = await fetch('/api/health', { cache: 'no-store' });
+    if (!r.ok) return;
+    const data = await r.json();
+    backendAvailable = true;
+    state.backend = { available: true, ...data };
+    document.getElementById('backendStatus').classList.remove('offline');
+    document.getElementById('backendStatus').classList.add('online');
+    const features = [];
+    if (data.elevenlabs) features.push('ElevenLabs');
+    if (data.azure) features.push('Azure');
+    document.getElementById('backendStatusText').textContent = features.length ? `Premium · ${features.join(' + ')}` : 'Backend OK';
+  } catch { /* offline */ }
+}
+
+async function apiListVoices(provider) {
+  if (!backendAvailable) return [];
+  try {
+    const r = await fetch(`/api/voices?provider=${provider}`);
+    if (!r.ok) return [];
+    return await r.json();
+  } catch { return []; }
+}
+
+async function apiSynthesize(text, provider, voiceId, lang) {
+  if (!backendAvailable) throw new Error('Backend indisponible');
+  const r = await fetch('/api/tts', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ text, provider, voiceId, lang })
+  });
+  if (!r.ok) {
+    const err = await r.json().catch(() => ({ error: 'Erreur' }));
+    throw new Error(err.error || 'Erreur de synthèse');
+  }
+  return await r.blob();
+}
+
+async function apiLogPlay(pitchId, pitchName, duration) {
+  // Always log locally
+  state.analytics.events.push({ ts: Date.now(), pitchId, pitchName, duration });
+  saveState();
+  // Try backend
+  if (backendAvailable) {
+    try {
+      await fetch('/api/analytics/play', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pitchId, pitchName, duration })
+      });
+    } catch { /* ignore */ }
+  }
+  updatePlayCounter();
+}
+
+async function apiFetchStats() {
+  if (!backendAvailable) return null;
+  try {
+    const r = await fetch('/api/analytics/stats');
+    if (!r.ok) return null;
+    return await r.json();
+  } catch { return null; }
+}
+
+/* ---------- Voices ---------- */
+function loadVoices() {
+  return new Promise((resolve) => {
+    let v = speechSynthesis.getVoices();
+    if (v.length) return resolve(v);
+    speechSynthesis.onvoiceschanged = () => resolve(speechSynthesis.getVoices());
+    setTimeout(() => resolve(speechSynthesis.getVoices()), 800);
+  });
+}
+
+async function populateSystemVoices(selectEl, lang, selectedName) {
+  const all = await loadVoices();
+  const filtered = all.filter(v => v.lang.toLowerCase().startsWith(lang.slice(0, 2)));
+  const list = filtered.length ? filtered : all;
+  selectEl.innerHTML = '';
+  list.forEach(v => {
+    const opt = document.createElement('option');
+    opt.value = v.name;
+    opt.textContent = `${v.name} (${v.lang})`;
+    if (v.name === selectedName) opt.selected = true;
+    selectEl.appendChild(opt);
+  });
+}
+
+async function populatePremiumVoices(selectEl, provider, selectedId) {
+  if (!backendAvailable || !state.backend[provider]) {
+    selectEl.innerHTML = '<option value="">Backend ou clé API manquante</option>';
+    return;
+  }
+  selectEl.innerHTML = '<option>Chargement…</option>';
+  const list = await apiListVoices(provider);
+  selectEl.innerHTML = '';
+  if (!list.length) {
+    selectEl.innerHTML = '<option value="">Aucune voix disponible</option>';
+    return;
+  }
+  list.forEach(v => {
+    const opt = document.createElement('option');
+    opt.value = v.id;
+    opt.textContent = v.name + (v.gender ? ` (${v.gender})` : '') + (v.lang ? ` · ${v.lang}` : '');
+    if (v.id === selectedId) opt.selected = true;
+    selectEl.appendChild(opt);
+  });
+}
+
+/* ---------- TTS ---------- */
+function speak(text, lang, voiceName) {
+  return new Promise((resolve) => {
+    if (!('speechSynthesis' in window)) { resolve(); return; }
+    speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = lang === 'fr' ? 'fr-FR' : lang === 'en' ? 'en-US' : 'ar-SA';
+    if (voiceName) {
+      const v = speechSynthesis.getVoices().find(x => x.name === voiceName);
+      if (v) u.voice = v;
+    }
+    u.onend = resolve;
+    u.onerror = resolve;
+    speechSynthesis.speak(u);
+  });
+}
+
+/* ---------- Recording ---------- */
+let mediaRecorder = null;
+let recordChunks = [];
+let recordTimer = null;
+let recordingPitchId = null;
+
+async function startRecording(pitchId) {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    mediaRecorder = new MediaRecorder(stream);
+    recordChunks = [];
+    recordingPitchId = pitchId;
+    mediaRecorder.ondataavailable = e => { if (e.data.size) recordChunks.push(e.data); };
+    mediaRecorder.onstop = async () => {
+      const blob = new Blob(recordChunks, { type: 'audio/webm' });
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const pitch = state.pitches.find(p => p.id === recordingPitchId);
+        if (pitch) {
+          pitch.audio = reader.result;
+          pitch.voiceProvider = 'recorded';
+          saveState();
+          renderPitches();
+        }
+      };
+      reader.readAsDataURL(blob);
+      stream.getTracks().forEach(t => t.stop());
+    };
+    mediaRecorder.start();
+    recordTimer = setTimeout(stopRecording, 30000);
+    const statusEl = document.getElementById(`status-${pitchId}`);
+    if (statusEl) {
+      statusEl.classList.add('recording');
+      statusEl.querySelector('.audio-status-text').textContent = '⏺ Enregistrement en cours…';
+    }
+    // Update record button
+    document.querySelectorAll(`[data-action="record"][data-pitch="${pitchId}"]`).forEach(b => {
+      b.textContent = '⏹ Arrêter';
+      b.onclick = stopRecording;
+    });
+  } catch (err) {
+    alert('Accès microphone refusé.');
+  }
+}
+function stopRecording() {
+  if (mediaRecorder && mediaRecorder.state !== 'inactive') mediaRecorder.stop();
+  clearTimeout(recordTimer);
+  if (recordingPitchId) {
+    const statusEl = document.getElementById(`status-${recordingPitchId}`);
+    if (statusEl) statusEl.classList.remove('recording');
+    document.querySelectorAll(`[data-action="record"][data-pitch="${recordingPitchId}"]`).forEach(b => {
+      b.textContent = '🎙 Enregistrer';
+      b.onclick = () => startRecording(recordingPitchId);
+    });
+  }
+  setTimeout(renderPitches, 300);
+}
+
+/* ---------- Photo upload ---------- */
+function handlePhotoUpload(file) {
+  if (!file || !file.type.startsWith('image/')) return;
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      const max = 400;
+      let w = img.width, h = img.height;
+      if (w > h && w > max) { h = h * max / w; w = max; }
+      else if (h > max) { w = w * max / h; h = max; }
+      canvas.width = w; canvas.height = h;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, w, h);
+      const dataUrl = canvas.toDataURL('image/jpeg', 0.85);
+      state.profile.photo = dataUrl;
+      saveState();
+      applyProfileToUI();
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function applyProfileToUI() {
+  const p = state.profile;
+  // CV
+  const cvAv = document.getElementById('cvAvatar');
+  if (p.photo) cvAv.innerHTML = `<img src="${p.photo}" alt="">`;
+  else cvAv.textContent = getInitials(p.name);
+  document.getElementById('cvName').textContent = p.name;
+  document.getElementById('cvRole').textContent = p.role;
+  document.getElementById('cvEmail').textContent = p.email;
+  document.getElementById('cvPhone').textContent = p.phone;
+  document.getElementById('cvLocation').textContent = p.location;
+  // Profile tab
+  const pp = document.getElementById('profilePhotoPreview');
+  if (p.photo) pp.innerHTML = `<img src="${p.photo}" alt="">`;
+  else pp.textContent = getInitials(p.name);
+  document.getElementById('profileEmail').value = p.email;
+  document.getElementById('profilePhone').value = p.phone;
+  document.getElementById('profileLocation').value = p.location;
+  // Brand
+  document.getElementById('brandMark').textContent = getInitials(p.name);
+}
+
+function getInitials(name) {
+  return name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+}
+
+/* ---------- QR ---------- */
+function getTargetUrl(pitchId) {
+  const base = location.origin + location.pathname;
+  if (state.qrMode === 'direct' && pitchId) return base + '#pitch-' + pitchId;
+  return base + '#menu';
+}
+function updateQR() {
+  const url = getTargetUrl(state.selectedPitchId);
+  qrImgEl.src = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=2&data=${encodeURIComponent(url)}`;
+  const modeEl = document.getElementById('qrMode');
+  if (state.qrMode === 'direct') {
+    const p = state.pitches.find(x => x.id === state.selectedPitchId);
+    modeEl.textContent = `→ Direct · ${p ? p.name : 'pitch sélectionné'}`;
+  } else {
+    modeEl.textContent = '→ Menu multi-pitch';
+  }
+  document.getElementById('qrPitchCount').textContent = state.pitches.length > 1 ? `${state.pitches.length} versions` : '1 version';
+}
+
+/* ---------- Render pitches ---------- */
+function renderPitches() {
+  const list = document.getElementById('pitchList');
+  list.innerHTML = '';
+  state.pitches.forEach(p => list.appendChild(renderPitchCard(p)));
+  document.getElementById('pitchCountBadge').textContent = state.pitches.length;
+  updateQR();
+}
+
+function renderPitchCard(p) {
+  const card = document.createElement('div');
+  card.className = 'pitch-card' + (p.id === state.selectedPitchId ? ' active expanded' : '');
+  const langFlag = { fr: 'FR', en: 'EN', ar: 'AR' }[p.lang] || p.lang.toUpperCase();
+  const providerLabel = p.audio ? (p.voiceProvider === 'recorded' ? '🎙 Ma voix' : (p.voiceProvider === 'system' ? '🔊 Système' : '✨ Premium')) : '— Aucun audio';
+  const audioStatus = p.audio ? 'has-audio' : '';
+  const audioText = p.audio ? '✓ Audio prêt' : 'Aucun audio — utilisez TTS ou enregistrement';
+  card.innerHTML = `
+    <div class="pitch-card-head">
+      <span class="pitch-star" data-action="star" data-pitch="${p.id}" title="Définir par défaut">${p.id === state.selectedPitchId ? '★' : '☆'}</span>
+      <div class="pitch-info">
+        <div class="pitch-name">${escapeHtml(p.name)}</div>
+        <div class="pitch-meta">
+          <span class="flag">${langFlag}</span>
+          <span class="provider">${providerLabel}</span>
+        </div>
+      </div>
+      <div class="pitch-actions">
+        <button class="btn tiny ghost" data-action="expand" data-pitch="${p.id}">${card.classList.contains('expanded') ? '▾' : '▸'}</button>
+        ${state.pitches.length > 1 ? `<button class="btn tiny ghost danger" data-action="delete" data-pitch="${p.id}" title="Supprimer">✕</button>` : ''}
+      </div>
+    </div>
+    <div class="pitch-body">
+      <div class="field">
+        <label class="field-label">Nom du pitch</label>
+        <input type="text" data-field="name" data-pitch="${p.id}" value="${escapeHtml(p.name)}">
+      </div>
+      <div class="field">
+        <label class="field-label">Langue</label>
+        <div class="lang-tabs">
+          <button class="lang-tab ${p.lang==='fr'?'active':''}" data-lang="fr" data-pitch="${p.id}">Français</button>
+          <button class="lang-tab ${p.lang==='en'?'active':''}" data-lang="en" data-pitch="${p.id}">English</button>
+          <button class="lang-tab ${p.lang==='ar'?'active':''}" data-lang="ar" data-pitch="${p.id}">العربية</button>
+        </div>
+      </div>
+      <div class="field">
+        <label class="field-label">Texte du pitch</label>
+        <textarea data-field="text" data-pitch="${p.id}" maxlength="800">${escapeHtml(p.text)}</textarea>
+      </div>
+      <div class="field">
+        <label class="field-label">Voix</label>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:6px; margin-bottom:6px;">
+          <select data-field="voiceProvider" data-pitch="${p.id}">
+            <option value="system" ${p.voiceProvider==='system'?'selected':''}>🔊 Système (gratuit)</option>
+            <option value="azure" ${p.voiceProvider==='azure'?'selected':''}>☁ Azure Neural</option>
+            <option value="elevenlabs" ${p.voiceProvider==='elevenlabs'?'selected':''}>✨ ElevenLabs</option>
+          </select>
+          <select data-field="voiceId" data-pitch="${p.id}" class="voice-select">
+            <option>Chargement…</option>
+          </select>
+        </div>
+        <button class="btn tiny ghost" data-action="generate" data-pitch="${p.id}" style="width:100%; justify-content:center; margin-top:4px;">✨ Générer avec ${p.voiceProvider}</button>
+      </div>
+      <div class="audio-status ${audioStatus}" id="status-${p.id}">
+        <span class="audio-status-dot"></span>
+        <span class="audio-status-text">${audioText}</span>
+      </div>
+      <div class="action-row">
+        <button class="btn ghost" data-action="record" data-pitch="${p.id}">🎙 Enregistrer</button>
+        <button class="btn ghost" data-action="preview" data-pitch="${p.id}">▶ Preview</button>
+      </div>
+      <div class="action-row" style="margin-top:6px;">
+        <button class="btn ghost" data-action="previewUrl" data-pitch="${p.id}">🔗 Lien direct</button>
+        <button class="btn ghost danger" data-action="clearAudio" data-pitch="${p.id}">✕ Effacer audio</button>
+      </div>
+    </div>
+  `;
+
+  // Wire up events
+  card.querySelectorAll('[data-action]').forEach(b => {
+    b.addEventListener('click', e => handlePitchAction(b.dataset.action, b.dataset.pitch, b, e));
+  });
+  card.querySelectorAll('[data-field]').forEach(el => {
+    el.addEventListener('input', e => updatePitchField(el.dataset.field, el.dataset.pitch, el));
+    el.addEventListener('change', e => updatePitchField(el.dataset.field, el.dataset.pitch, el));
+  });
+  // Populate voice select after render
+  setTimeout(() => populateVoiceSelect(p), 50);
+
+  return card;
+}
+
+async function populateVoiceSelect(p) {
+  const card = document.querySelector(`.pitch-card .pitch-body [data-field="voiceId"][data-pitch="${p.id}"]`);
+  if (!card) return;
+  if (p.voiceProvider === 'system') {
+    await populateSystemVoices(card, p.lang, p.voiceName || p.voiceId);
+    // For system, value is name
+  } else {
+    await populatePremiumVoices(card, p.voiceProvider, p.voiceId);
+  }
+}
+
+function updatePitchField(field, pitchId, el) {
+  const p = state.pitches.find(x => x.id === pitchId);
+  if (!p) return;
+  if (field === 'name') {
+    p.name = el.value;
+    // Update header
+    el.closest('.pitch-card').querySelector('.pitch-name').textContent = el.value;
+  } else if (field === 'text') {
+    p.text = el.value;
+  } else if (field === 'lang') {
+    p.lang = el.dataset.lang;
+    populateVoiceSelect(p);
+  } else if (field === 'voiceProvider') {
+    p.voiceProvider = el.value;
+    populateVoiceSelect(p);
+  } else if (field === 'voiceId') {
+    if (p.voiceProvider === 'system') p.voiceName = el.value;
+    else p.voiceId = el.value;
+  }
+  saveState();
+}
+
+function handlePitchAction(action, pitchId, btn, e) {
+  const p = state.pitches.find(x => x.id === pitchId);
+  if (!p) return;
+  if (action === 'star') {
+    state.selectedPitchId = pitchId;
+    saveState();
+    renderPitches();
+  } else if (action === 'expand') {
+    const card = btn.closest('.pitch-card');
+    card.classList.toggle('expanded');
+    btn.textContent = card.classList.contains('expanded') ? '▾' : '▸';
+  } else if (action === 'delete') {
+    if (!confirm(`Supprimer "${p.name}" ?`)) return;
+    state.pitches = state.pitches.filter(x => x.id !== pitchId);
+    if (state.selectedPitchId === pitchId) state.selectedPitchId = state.pitches[0]?.id;
+    saveState();
+    renderPitches();
+  } else if (action === 'record') {
+    startRecording(pitchId);
+  } else if (action === 'preview') {
+    if (p.audio) {
+      const a = new Audio(p.audio); a.play();
+    } else {
+      speak(p.text, p.lang, p.voiceName);
+    }
+  } else if (action === 'previewUrl') {
+    const url = getTargetUrl(p.id);
+    navigator.clipboard.writeText(url);
+    const orig = btn.textContent;
+    btn.textContent = '✓ Copié';
+    setTimeout(() => btn.textContent = orig, 1500);
+  } else if (action === 'clearAudio') {
+    p.audio = null;
+    p.voiceProvider = 'system';
+    saveState();
+    renderPitches();
+  } else if (action === 'generate') {
+    generatePremium(p, btn);
+  }
+}
+
+async function generatePremium(p, btn) {
+  if (p.voiceProvider === 'system') {
+    speak(p.text, p.lang, p.voiceName);
+    return;
+  }
+  if (!backendAvailable || !state.backend[p.voiceProvider]) {
+    alert(`Backend indisponible ou clé ${p.voiceProvider} manquante. Configurez le serveur (voir README).`);
+    return;
+  }
+  const voiceId = p.voiceId;
+  if (!voiceId) { alert('Sélectionnez une voix d\'abord.'); return; }
+  const orig = btn.textContent;
+  btn.textContent = '⏳ Génération…';
+  btn.disabled = true;
+  try {
+    const blob = await apiSynthesize(p.text, p.voiceProvider, voiceId, p.lang === 'fr' ? 'fr-FR' : p.lang === 'en' ? 'en-US' : 'ar-SA');
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      p.audio = reader.result;
+      saveState();
+      renderPitches();
+    };
+    reader.readAsDataURL(blob);
+  } catch (e) {
+    alert('Erreur : ' + e.message);
+  } finally {
+    btn.textContent = orig;
+    btn.disabled = false;
+  }
+}
+
+function escapeHtml(s) { return (s || '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+
+/* ---------- Analytics ---------- */
+function updatePlayCounter() {
+  document.getElementById('playCountValue').textContent = state.analytics.events.length;
+}
+function renderAnalytics() {
+  const events = state.analytics.events;
+  document.getElementById('statTotal').textContent = events.length;
+  const byPitch = {};
+  events.forEach(e => { byPitch[e.pitchId] = (byPitch[e.pitchId] || 0) + 1; });
+  document.getElementById('statUnique').textContent = Object.keys(byPitch).length;
+
+  // Last 7 days
+  const week = Date.now() - 7 * 24 * 60 * 60 * 1000;
+  const recent = events.filter(e => e.ts > week).length;
+  document.getElementById('statTrend').textContent = recent > 0 ? `+${recent} cette semaine` : '— cette semaine';
+
+  // Bar chart
+  const chart = document.getElementById('barChart');
+  chart.innerHTML = '';
+  const max = Math.max(...Object.values(byPitch), 1);
+  state.pitches.forEach(p => {
+    const count = byPitch[p.id] || 0;
+    if (count === 0) return;
+    const row = document.createElement('div');
+    row.className = 'bar-row';
+    row.innerHTML = `<div class="bar-label">${escapeHtml(p.name)}</div><div class="bar-track"><div class="bar-fill" style="width:${(count/max)*100}%"></div></div><div class="bar-val">${count}</div>`;
+    chart.appendChild(row);
+  });
+  if (!chart.children.length) chart.innerHTML = '<div class="empty-state">Aucune écoute pour le moment</div>';
+
+  // Recent list
+  const recentList = document.getElementById('recentList');
+  recentList.innerHTML = '';
+  const last10 = events.slice(-10).reverse();
+  if (!last10.length) {
+    recentList.innerHTML = '<div class="empty-state">Les écoutes apparaîtront ici</div>';
+  } else {
+    last10.forEach(e => {
+      const item = document.createElement('div');
+      item.className = 'recent-item';
+      const p = state.pitches.find(x => x.id === e.pitchId);
+      const ago = timeAgo(e.ts);
+      item.innerHTML = `<span>▶ ${escapeHtml(p ? p.name : 'Pitch inconnu')}</span><span class="recent-time">${ago}</span>`;
+      recentList.appendChild(item);
+    });
+  }
+}
+
+function timeAgo(ts) {
+  const diff = Date.now() - ts;
+  if (diff < 60000) return 'à l\'instant';
+  if (diff < 3600000) return Math.floor(diff/60000) + 'min';
+  if (diff < 86400000) return Math.floor(diff/3600000) + 'h';
+  return Math.floor(diff/86400000) + 'j';
+}
+
+/* ---------- Mode switching ---------- */
+function showView(viewId) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById(viewId).classList.add('active');
+  if (viewId === 'pitchView') setupPitchView();
+  if (viewId === 'menuView') setupMenuView();
+}
+function showOwner() { showView('ownerView'); history.replaceState(null, '', location.pathname); document.getElementById('toggleMode').textContent = '👁 Aperçu'; }
+function setupPitchView() {
+  const url = location.hash;
+  const m = url.match(/#pitch-(.+)/);
+  let pitch = m ? state.pitches.find(p => p.id === m[1]) : state.pitches.find(p => p.id === state.selectedPitchId);
+  if (!pitch) pitch = state.pitches[0];
+  document.getElementById('pitchViewName').textContent = state.profile.name;
+  document.getElementById('pitchViewRole').textContent = state.profile.role;
+  document.getElementById('pitchViewLabel').textContent = `✦ ${pitch.name}`;
+  const av = document.getElementById('pitchViewAvatar');
+  if (state.profile.photo) av.innerHTML = `<img src="${state.profile.photo}" alt="">`;
+  else av.textContent = getInitials(state.profile.name);
+  document.getElementById('contactEmail').href = `mailto:${state.profile.email}`;
+  document.getElementById('contactPhone').href = `tel:${state.profile.phone.replace(/\s/g,'')}`;
+  document.getElementById('recruiterTranscript').innerHTML = renderTranscript(pitch.text, pitch.lang);
+  document.getElementById('totalTime').textContent = formatTime(Math.ceil(pitch.text.length / 15));
+  buildWaveform();
+  // Auto-play
+  setTimeout(() => playRecruiterPitch(pitch), 600);
+  document.getElementById('toggleMode').textContent = '← Retour';
+  history.replaceState(null, '', '#pitch-' + pitch.id);
+}
+function setupMenuView() {
+  document.getElementById('menuName').textContent = state.profile.name;
+  document.getElementById('menuRole').textContent = state.profile.role;
+  const av = document.getElementById('menuAvatar');
+  if (state.profile.photo) av.innerHTML = `<img src="${state.profile.photo}" alt="">`;
+  else av.textContent = getInitials(state.profile.name);
+  const container = document.getElementById('menuPitches');
+  container.innerHTML = '';
+  state.pitches.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'menu-pitch';
+    const langLabel = { fr: '🇫🇷 Français', en: '🇬🇧 English', ar: '🇸🇦 العربية' }[p.lang] || p.lang;
+    const dur = Math.ceil(p.text.length / 15);
+    card.innerHTML = `
+      <div class="menu-pitch-head">
+        <span class="menu-pitch-flag">${langLabel}</span>
+        <span class="menu-pitch-name">${escapeHtml(p.name)}</span>
+      </div>
+      <div class="menu-pitch-meta">
+        <span>~${dur}s</span>
+        <span>·</span>
+        <span>${p.audio ? '✓ Audio prêt' : 'TTS disponible'}</span>
+      </div>
+      <div class="menu-pitch-text">"${escapeHtml(p.text)}"</div>
+      <div class="menu-pitch-arrow">▶ Écouter ce pitch →</div>
+    `;
+    card.onclick = () => { location.hash = '#pitch-' + p.id; };
+    container.appendChild(card);
+  });
+  document.getElementById('toggleMode').textContent = '← Retour';
+  history.replaceState(null, '', '#menu');
+}
+function renderTranscript(text, lang) {
+  if (lang === 'ar') return `<span class="ar" dir="rtl">${text}</span>`;
+  return text;
+}
+
+/* ---------- Waveform & audio ---------- */
+function buildWaveform() {
+  const wf = document.getElementById('waveform');
+  wf.innerHTML = '';
+  for (let i = 0; i < 32; i++) {
+    const bar = document.createElement('div');
+    bar.className = 'wave-bar';
+    bar.style.height = (4 + Math.random() * 8) + 'px';
+    bar.style.animationDelay = (i * 0.04) + 's';
+    wf.appendChild(bar);
+  }
+}
+
+let currentAudio = null;
+let currentPitch = null;
+let playStartTime = 0;
+
+async function playRecruiterPitch(pitch) {
+  if (!pitch) pitch = state.pitches.find(p => p.id === state.selectedPitchId) || state.pitches[0];
+  currentPitch = pitch;
+  const playBtn = document.getElementById('recruiterPlay');
+  const wf = document.getElementById('waveform');
+  const icon = document.getElementById('playIcon');
+
+  if (playBtn.classList.contains('playing')) { stopRecruiterPitch(); return; }
+
+  playStartTime = Date.now();
+  playBtn.classList.add('playing');
+  wf.classList.add('active');
+  icon.innerHTML = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+
+  // Log the play
+  await apiLogPlay(pitch.id, pitch.name, 0);
+
+  if (pitch.audio) {
+    if (!currentAudio) currentAudio = new Audio();
+    currentAudio.src = pitch.audio;
+    currentAudio.addEventListener('ended', stopRecruiterPitch);
+    currentAudio.addEventListener('loadedmetadata', () => {
+      document.getElementById('totalTime').textContent = formatTime(currentAudio.duration);
+    });
+    currentAudio.addEventListener('timeupdate', () => {
+      document.getElementById('currentTime').textContent = formatTime(currentAudio.currentTime);
+    });
+    currentAudio.play();
+  } else {
+    // TTS fallback
+    const lang = pitch.lang === 'fr' ? 'fr-FR' : pitch.lang === 'en' ? 'en-US' : 'ar-SA';
+    const totalEstimate = Math.ceil(pitch.text.length / 15);
+    document.getElementById('totalTime').textContent = formatTime(totalEstimate);
+    await speak(pitch.text, pitch.lang, pitch.voiceName);
+    stopRecruiterPitch();
+  }
+}
+
+function stopRecruiterPitch() {
+  const playBtn = document.getElementById('recruiterPlay');
+  const wf = document.getElementById('waveform');
+  const icon = document.getElementById('playIcon');
+  const wasPlaying = playBtn.classList.contains('playing');
+  playBtn.classList.remove('playing');
+  wf.classList.remove('active');
+  icon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+  if (currentAudio) { currentAudio.pause(); currentAudio.currentTime = 0; }
+  if ('speechSynthesis' in window) speechSynthesis.cancel();
+  document.getElementById('currentTime').textContent = '0:00';
+  // Log duration
+  if (wasPlaying && currentPitch) {
+    const dur = Math.round((Date.now() - playStartTime) / 1000);
+    apiLogPlay(currentPitch.id, currentPitch.name, dur);
+  }
+}
+function formatTime(s) { const m = Math.floor(s / 60); const sec = Math.floor(s % 60); return `${m}:${sec.toString().padStart(2, '0')}`; }
+
+/* ---------- Tabs ---------- */
+function initTabs() {
+  document.querySelectorAll('.config-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.config-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const target = tab.dataset.tab;
+      document.querySelectorAll('.tab-pane').forEach(p => p.style.display = p.dataset.pane === target ? 'block' : 'none');
+      if (target === 'analytics') renderAnalytics();
+    });
+  });
+}
+
+/* ---------- Init ---------- */
+async function init() {
+  const loaded = loadState();
+  if (!loaded) initDefaultPitches();
+  else if (state.pitches.length === 0) initDefaultPitches();
+
+  applyProfileToUI();
+  renderPitches();
+  updatePlayCounter();
+  initTabs();
+
+  // Top bar
+  document.getElementById('toggleMode').addEventListener('click', () => {
+    if (document.getElementById('pitchView').classList.contains('active') || document.getElementById('menuView').classList.contains('active')) showOwner();
+    else showView('menuView');
+  });
+  document.getElementById('printBtn').addEventListener('click', () => window.print());
+  document.getElementById('downloadQr').addEventListener('click', () => {
+    const a = document.createElement('a'); a.href = qrImgEl.src; a.download = 'cv-parle-qrcode.png'; a.target = '_blank'; a.click();
+  });
+  document.getElementById('copyLink').addEventListener('click', () => {
+    navigator.clipboard.writeText(getTargetUrl(state.selectedPitchId));
+    const b = document.getElementById('copyLink');
+    const orig = b.textContent; b.textContent = '✓ Copié'; setTimeout(() => b.textContent = orig, 1500);
+  });
+
+  // CV inline edits
+  const cvName = document.getElementById('cvName');
+  const cvRole = document.getElementById('cvRole');
+  cvName.addEventListener('blur', () => { state.profile.name = cvName.textContent.trim(); saveState(); applyProfileToUI(); });
+  cvRole.addEventListener('blur', () => { state.profile.role = cvRole.textContent.trim(); saveState(); applyProfileToUI(); });
+
+  // Photo upload
+  document.getElementById('avatarWrap').addEventListener('click', () => document.getElementById('photoInput').click());
+  document.getElementById('photoInput').addEventListener('change', e => handlePhotoUpload(e.target.files[0]));
+  document.getElementById('uploadPhotoBtn').addEventListener('click', () => document.getElementById('profilePhotoInput').click());
+  document.getElementById('profilePhotoInput').addEventListener('change', e => handlePhotoUpload(e.target.files[0]));
+  document.getElementById('removePhotoBtn').addEventListener('click', () => {
+    state.profile.photo = null; saveState(); applyProfileToUI();
+  });
+
+  // Profile save
+  document.getElementById('saveProfileBtn').addEventListener('click', () => {
+    state.profile.email = document.getElementById('profileEmail').value;
+    state.profile.phone = document.getElementById('profilePhone').value;
+    state.profile.location = document.getElementById('profileLocation').value;
+    saveState(); applyProfileToUI();
+    const b = document.getElementById('saveProfileBtn');
+    const orig = b.textContent; b.textContent = '✓ Enregistré'; setTimeout(() => b.textContent = orig, 1500);
+  });
+
+  // Add pitch
+  document.getElementById('addPitchBtn').addEventListener('click', () => {
+    const p = {
+      id: uid(), name: 'Nouveau pitch', lang: 'fr',
+      text: DEFAULT_PITCH.fr, audio: null,
+      voiceProvider: 'system', voiceId: null, voiceName: null,
+      createdAt: Date.now()
+    };
+    state.pitches.push(p);
+    state.selectedPitchId = p.id;
+    saveState();
+    renderPitches();
+    // Auto-expand the new card
+    setTimeout(() => {
+      const newCard = document.querySelector(`.pitch-card.active .pitch-card-head [data-action="expand"]`);
+      if (newCard) newCard.click();
+    }, 100);
+  });
+
+  // Analytics
+  document.getElementById('exportAnalytics').addEventListener('click', () => {
+    const data = JSON.stringify(state.analytics, null, 2);
+    const blob = new Blob([data], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = `cv-parle-analytics-${new Date().toISOString().slice(0,10)}.json`;
+    a.click();
+  });
+  document.getElementById('resetAnalytics').addEventListener('click', () => {
+    if (!confirm('Réinitialiser toutes les statistiques ?')) return;
+    state.analytics = { events: [] };
+    saveState();
+    updatePlayCounter();
+    renderAnalytics();
+  });
+
+  // Recruiter play
+  document.getElementById('recruiterPlay').addEventListener('click', () => playRecruiterPitch());
+
+  // QR mode toggle (long press on QR for options)
+  let qrClickTimer = null;
+  document.querySelector('.cv-qr-zone').addEventListener('click', () => {
+    if (qrClickTimer) { clearTimeout(qrClickTimer); qrClickTimer = null; return; }
+    qrClickTimer = setTimeout(() => {
+      state.qrMode = state.qrMode === 'menu' ? 'direct' : 'menu';
+      saveState();
+      updateQR();
+      const qrText = document.querySelector('.cv-qr-desc');
+      const orig = qrText.innerHTML;
+      qrText.innerHTML = `<strong style="color:var(--teal)">✓ Mode ${state.qrMode === 'menu' ? 'menu' : 'direct'}</strong>`;
+      setTimeout(() => qrText.innerHTML = orig, 1500);
+    }, 250);
+  });
+
+  // Backend check
+  await checkBackend();
+
+  // Route based on hash
+  const hash = location.hash;
+  if (hash.startsWith('#pitch-')) showView('pitchView');
+  else if (hash === '#pitch') showView('pitchView');
+  else if (hash === '#menu') showView('menuView');
+  else showOwner();
+}
+
+const qrImgEl = document.getElementById('qrImg');
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
