@@ -54,7 +54,10 @@ Darija algérienne : « Rani ma3ellem fi l-binaa 3andi 3achra snin, w rani n9all
 
 ⛔ ZÉRO INVENTION : n'invente jamais un lieu, un employeur, une date, un chiffre ni un diplôme qui ne figure pas dans le texte fourni. Ne change jamais le métier de la personne : traduis-le fidèlement, et si tu hésites, garde le mot français.`;
 
-async function mistral(env, messages, { temperature = 0.7, max_tokens = 380 } = {}) {
+// `model` par défaut : mistral-small-latest, le modèle historique de Kateb.
+// Les modes Derja demandent explicitement mistral-large : small confond la darija
+// algérienne avec la marocaine et inverse parfois le sens (testé en prod).
+async function mistral(env, messages, { temperature = 0.7, max_tokens = 380, model = 'mistral-small-latest' } = {}) {
   const apiRes = await fetch('https://api.mistral.ai/v1/chat/completions', {
     method: 'POST',
     headers: {
@@ -62,7 +65,7 @@ async function mistral(env, messages, { temperature = 0.7, max_tokens = 380 } = 
       'Authorization': `Bearer ${env.MISTRAL_API_KEY}`
     },
     body: JSON.stringify({
-      model: 'mistral-small-latest',
+      model,
       messages,
       temperature,
       max_tokens
@@ -203,7 +206,7 @@ Réponds uniquement en darija algérienne (translittération latine). Ne reprend
 
 TEXTE :
 ${text}` }
-      ], { temperature: 0.5, max_tokens: 400 });
+      ], { temperature: 0.3, max_tokens: 400, model: 'mistral-large-latest' });
       return json({ text: out });
     }
 
@@ -227,7 +230,7 @@ Réponds STRICTEMENT par un objet JSON, sans texte autour, sans bloc de code :
 
 TEXTE :
 ${text}` }
-      ], { temperature: 0.3, max_tokens: 700 });
+      ], { temperature: 0.2, max_tokens: 700, model: 'mistral-large-latest' });
 
       // Le modèle peut enrober le JSON (bloc de code, phrase d'intro) : on reste tolérant.
       let raw = null;
