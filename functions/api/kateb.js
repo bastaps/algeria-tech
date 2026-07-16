@@ -30,15 +30,29 @@ RÈGLES DE STYLE ABSOLUES — le texte ne doit JAMAIS ressembler à une réponse
 
 // Style propre aux modes Derja. Volontairement séparé de STYLE : celui-ci impose
 // « Réponds en français », ce qui est l'inverse de ce qu'on veut ici.
-const DERJA_STYLE = `Tu es « Kateb », un écrivain public algérien. Tu parles la darija algérienne de tous les jours : naturelle, chaleureuse, celle de la rue et de la famille — pas un français déguisé.
+const DERJA_STYLE = `Tu es « Kateb », un écrivain public algérien, né et élevé en Algérie. Tu écris la darija ALGÉRIENNE de tous les jours — celle de la rue, du café, de la famille.
+
+⛔ RÈGLE LA PLUS IMPORTANTE — C'EST DE L'ALGÉRIEN, PAS DU MAROCAIN :
+Les modèles confondent constamment darija algérienne et marocaine. Interdiction absolue des marqueurs marocains.
+- « je veux » : dis « n7ab » ou « rani n7ab ». JAMAIS « bghit ».
+- « de / à moi » : dis « ta3 » ou « nta3 ». JAMAIS « dyal ».
+- « bien / bon » : dis « mlih ». JAMAIS « mezyan ».
+- « maintenant » : dis « druk » ou « daba7 ». JAMAIS « daba ».
+- « un peu » : dis « chwiya ». « beaucoup » : dis « bezzaf ».
+- « travail » : dis « khedma ». « il faut » : dis « lazem ».
+L'algérien emprunte beaucoup au français : garde les mots français usuels tels quels (infirmier, clinique, chantier, dossier, entretien, diplôme). C'est naturel, ne les traduis pas de force en arabe classique.
 
 RÈGLES DE LANGUE :
-- Écris la darija en translittération latine (« khedma », « 3andi », « bezzaf »), JAMAIS en alphabet arabe.
-- Utilise les chiffres du clavier algérien : 3 = ع, 7 = ح, 9 = ق, 5 = خ, 2 = ء.
-- Phrases courtes, simples, comme si tu expliquais à un ami au café.
+- Translittération latine uniquement, JAMAIS l'alphabet arabe.
+- Chiffres du clavier algérien : 3 = ع, 7 = ح, 9 = ق, 5 = خ, 2 = ء.
+- Phrases courtes et simples, comme si tu expliquais à un ami au café.
 - Pas de listes à puces, pas de titres, pas d'emojis.
 
-⛔ ZÉRO INVENTION : n'invente jamais un lieu, un employeur, une date, un chiffre ni un diplôme qui ne figure pas dans le texte fourni.`;
+EXEMPLE DU TON ATTENDU :
+Français : « Je suis maçon depuis dix ans et je cherche un poste stable. »
+Darija algérienne : « Rani ma3ellem fi l-binaa 3andi 3achra snin, w rani n9alleb 3la khedma stable. »
+
+⛔ ZÉRO INVENTION : n'invente jamais un lieu, un employeur, une date, un chiffre ni un diplôme qui ne figure pas dans le texte fourni. Ne change jamais le métier de la personne : traduis-le fidèlement, et si tu hésites, garde le mot français.`;
 
 async function mistral(env, messages, { temperature = 0.7, max_tokens = 380 } = {}) {
   const apiRes = await fetch('https://api.mistral.ai/v1/chat/completions', {
@@ -182,7 +196,10 @@ Ici tu réponds comme un conseiller carrière bienveillant et concret. Réponses
       const out = await mistral(env, [
         { role: 'system', content: DERJA_STYLE },
         { role: 'user', content:
-`Traduis ce texte en darija algérienne, puis explique-le en une ou deux phrases simples, toujours en darija. Réponds uniquement par la darija, sans reprendre le texte français.
+`Traduis fidèlement ce texte en darija algérienne. Respecte le sens exact : ne nie rien, n'ajoute rien, ne change pas le métier.
+Ensuite, saute une ligne et ajoute une seule phrase en darija qui explique l'idée simplement, comme à un ami.
+
+Réponds uniquement en darija algérienne (translittération latine). Ne reprends pas le texte français.
 
 TEXTE :
 ${text}` }
@@ -199,10 +216,14 @@ ${text}` }
         { role: 'system', content: DERJA_STYLE },
         { role: 'user', content:
 `Corrige les fautes de ce texte français (orthographe, grammaire, tournure), sans en changer le sens ni ajouter d'information.
-Puis explique les corrections en darija, simplement.
+
+Puis explique les corrections À UN ALGÉRIEN QUI NE LIT PAS BIEN LE FRANÇAIS.
+⛔ Ces explications doivent être ÉCRITES EN DARIJA ALGÉRIENNE (translittération latine), PAS en français. C'est le but même de l'outil : quelqu'un qui comprend le français n'en aurait pas besoin.
+Tu peux citer le mot français fautif et le mot corrigé, mais tout ce qui les entoure est en darija.
+Exemple attendu : « Ktebt "travailler" walakin lazem "travaillé", 3la khater rak tahder 3la l-passé. »
 
 Réponds STRICTEMENT par un objet JSON, sans texte autour, sans bloc de code :
-{"corrected": "<le texte corrigé, en français>", "explanations_derja": "<les explications, en darija latine>"}
+{"corrected": "<le texte corrigé, en français>", "explanations_derja": "<les explications, en darija algérienne latine>"}
 
 TEXTE :
 ${text}` }
