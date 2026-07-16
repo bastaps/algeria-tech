@@ -140,6 +140,12 @@ body {
 a.header-btn { text-decoration: none; }
 a.header-btn.derja { border-color: rgba(212,160,23,0.45); }
 a.header-btn.derja:hover { border-color: var(--accent); }
+/* Sous ~700px, le libellé « Derja » poussait le logo sur deux lignes.
+   On ne garde que l'icône : le bouton reste entier et cliquable. */
+@media(max-width:760px) {
+  a.header-btn.derja .derja-label { display: none; }
+  a.header-btn.derja { padding: 0 12px; }
+}
 .header-btn.gold {
   background: linear-gradient(135deg, var(--accent), #E8A930);
   border: none;
@@ -1153,8 +1159,8 @@ body.app-active #landing{display:none;}
     <button class="header-btn gold" onclick="showToast('info','Sauvegardé','Vos données ont été sauvegardées localement.',3000); saveAll();">
       <i class="fas fa-save"></i> Sauvegarder
     </button>
-    <a class="header-btn derja" href="./derja/" title="Kateb t'explique ton CV en derja">
-      <i class="fas fa-language"></i> Derja
+    <a class="header-btn derja" href="./derja/" title="Kateb t'explique ton CV en derja" aria-label="Kateb en derja">
+      <i class="fas fa-language"></i><span class="derja-label">Derja</span>
     </a>
     <button class="header-btn" onclick="toggleTheme()" title="Mode sombre/clair">
       <i class="fas fa-moon" id="theme-icon"></i>
