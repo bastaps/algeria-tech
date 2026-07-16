@@ -136,6 +136,10 @@ body {
   transition: var(--transition);
 }
 .header-btn:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2); }
+/* Le bouton Derja est un lien : .header-btn est pensé pour <button>. */
+a.header-btn { text-decoration: none; }
+a.header-btn.derja { border-color: rgba(212,160,23,0.45); }
+a.header-btn.derja:hover { border-color: var(--accent); }
 .header-btn.gold {
   background: linear-gradient(135deg, var(--accent), #E8A930);
   border: none;
@@ -1149,6 +1153,9 @@ body.app-active #landing{display:none;}
     <button class="header-btn gold" onclick="showToast('info','Sauvegardé','Vos données ont été sauvegardées localement.',3000); saveAll();">
       <i class="fas fa-save"></i> Sauvegarder
     </button>
+    <a class="header-btn derja" href="./derja/" title="Kateb t'explique ton CV en derja">
+      <i class="fas fa-language"></i> Derja
+    </a>
     <button class="header-btn" onclick="toggleTheme()" title="Mode sombre/clair">
       <i class="fas fa-moon" id="theme-icon"></i>
     </button>
