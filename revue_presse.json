@@ -1,6 +1,6 @@
 {
   "date": "jeudi 16 juillet",
-  "synthese": "L’Algérie accélère la transition numérique avec l’adoption du protocole IPv6 et l’introduction d’Ayrade en Bourse. Le secteur technologique national enregistre des avancées institutionnelles et industrielles sous supervision officielle.",
+  "synthese": "L'Algérie annonce l'introduction d'Ayrade à la Bourse d'Alger et étend les pouvoirs des guichets uniques via l'AAPI. À l'international, OpenAI lance un clavier IA et l'État de New York impose un moratoire sur les data centers énergivores.",
   "articles": [
     {
       "titre": "AAPI : Extension de la délégation de pouvoir aux guichets uniques pour inclure les secteurs des impôts et de l’énergie",
@@ -10,8 +10,8 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "AAPI étend délégation de pouvoir aux guichets uniques",
-      "categorie": "Télécoms"
+      "accroche": "AAPI : Extension des guichets uniques aux impôts",
+      "categorie": "Innovation"
     },
     {
       "titre": "Ayrade, première entreprise technologique introduite à la Bourse d’Alger",
@@ -21,40 +21,29 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Ayrade première entreprise algérienne cotée à la Bourse d’Alger",
-      "categorie": "Startups"
-    },
-    {
-      "titre": "Internet : l’Algérie va accélérer l’adoption du protocole IPv6",
-      "resume": "feed\n\nLe ministre de la Poste et des Télécommunications, Sid Ali Zerrouki a présidé, mardi à Alger, une rencontre sur l’avenir de l’Internet en Algéri",
-      "url": "https://www.ntic-dz.com/internet-lalgerie-va-accelerer-ladoption-du-protocole-ipv6/?utm_source=rss&utm_medium=rss&utm_campaign=internet-lalgerie-va-accelerer-ladoption-du-protocole-ipv6",
-      "date": "2026-07-15T14:54:55.000Z",
-      "source": "NTIC.dz",
-      "logo": "https://www.google.com/s2/favicons?domain=ntic-dz.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Algérie accélère adoption du protocole IPv6",
-      "categorie": "Réseaux"
-    },
-    {
-      "titre": "Cloud hybride : une décision de maîtrise, pas un choix technique",
-      "resume": "Le cloud hybride n’est ni une version édulcorée du cloud public, ni une simple stratégie multi-fournisseurs. C’est un choix de maîtrise pour les organ",
-      "url": "https://www.silicon.fr/cloud-1370/cloud-hybride-une-decision-de-maitrise-pas-un-choix-technique-228288",
-      "date": "2026-07-15T13:14:07.000Z",
-      "source": "Silicon.fr",
-      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Cloud hybride : décision stratégique de maîtrise",
+      "accroche": "Ayrade première tech algérienne cotée à la Bourse d'Alger",
       "categorie": "Innovation"
     },
     {
-      "titre": "L’IA, refrain douloureux pour IBM",
-      "resume": "Nouvelle journée noire en Bourse pour IBM, dont l'activité mainframe souffre des réallocations de budgets consécutives à la « course à l'IA ».\nThe pos",
-      "url": "https://www.silicon.fr/business-1367/ibm-ia-mainframe-228281",
-      "date": "2026-07-15T09:38:43.000Z",
-      "source": "Silicon.fr",
-      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
+      "titre": "OpenAI lance son premier appareil : le clavier Codex Micro pour piloter l'IA du bout des doigts",
+      "resume": "Le spécialiste de l’intelligence artificielle lance son premier produit en collaboration avec Work Louder. Baptisé Codex Micro, ce clavier compact est",
+      "url": "https://www.zdnet.fr/actualites/openai-lance-son-tout-premier-appareil-le-clavier-codex-micro-pour-piloter-lia-du-bout-des-doigts-498674.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-07-16T07:00:20.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "L’IA reste un défi douloureux pour IBM",
+      "accroche": "OpenAI lance un clavier Codex Micro pour piloter l'IA",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Puces IA : Apple prêt à briser sa prudence historique en matière d’acquisitions",
+      "resume": "Après des années passées à miser presque exclusivement sur ses équipes internes de conception, Apple regarderait désormais vers l’extérieur pour combl",
+      "url": "https://www.zdnet.fr/actualites/puces-ia-apple-pret-a-briser-sa-prudence-historique-en-matiere-dacquisitions-498668.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-07-16T06:02:37.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Apple prêt à acquérir des puces IA malgré sa prudence historique",
       "categorie": "IA"
     },
     {
@@ -65,7 +54,7 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "New York impose moratoire sur data centers énergivores",
+      "accroche": "New York moratoire sur data centers consommant plus de 50 MW",
       "categorie": "Cybersécurité"
     },
     {
@@ -76,8 +65,8 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Walden Robotics soutenue par Toyota et Nvidia",
-      "categorie": "IA"
+      "accroche": "Walden Robotics lève des fonds avec Toyota, Nvidia et Boeing",
+      "categorie": "Startups"
     },
     {
       "titre": "“Dans cinq ans, l’inférence, c’est nous” : Le pari ambitieux du français ZML pour libérer l’IA du joug de CUDA",
@@ -87,53 +76,64 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "ZML parie sur l’inférence pour libérer l’IA du joug",
+      "accroche": "ZML parie sur l'IA pour libérer la puissance d'inférence",
       "categorie": "IA"
     },
     {
-      "titre": "Fin du disque : PlayStation lance des « Super Promo » sur le PlayStation Store",
-      "resume": "C'est l'occasion de commencer à se faire une bibliothèque de jeux numérique. Sony a lancé ses Super Promo d'été 2026 avec des jeux à tarif très réduit",
-      "url": "https://www.frandroid.com/marques/sony/3181541_fin-du-disque-playstation-lance-des-super-promo-sur-le-playstation-store",
-      "date": "2026-07-16T06:08:42.000Z",
+      "titre": "IPv6 : la France championne du monde, et c’est grâce à Free Mobile",
+      "resume": "La France est devenue le pays qui utilise le plus l'IPv6 au monde. Le grand artisan de ce sacre ? Free Mobile, longtemps le dernier de la classe côté",
+      "url": "https://www.frandroid.com/culture-tech/3181581_ipv6-la-france-championne-du-monde-et-cest-grace-a-free-mobile",
+      "date": "2026-07-16T07:06:02.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "PlayStation lance promotions sur le PlayStation Store",
+      "accroche": "La France championne mondiale de déploiement IPv6 grâce à Free Mobile",
+      "categorie": "Réseaux"
+    },
+    {
+      "titre": "Ce forfait à seulement 6,99 euros s’associe idéalement à un smartphone à moins de 200 euros",
+      "resume": "À 6,99 euros par mois, le forfait 60 Go de Lebara mise sur l'essentiel, sans engagement, sur le réseau de SFR. Associé à un smartphone à moins de 200",
+      "url": "https://www.frandroid.com/bons-plans/3180989_ce-forfait-a-699-euros-sassocie-idealement-a-un-smartphone-a-moins-de-200-euros",
+      "date": "2026-07-16T06:35:00.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Forfait mobile à 6,99 € compatible smartphones sous 200 €",
       "categorie": "Mobile"
     },
     {
-      "titre": "B&You Pure fibre : un prix plancher et 100 % des frais d’activation offerts [Sponso]",
-      "resume": "Grâce à B&You et à ses offres Pure fibre et Pure fibre Plus, dites bonjour aux économies. En plus de proposer deux abonnements accessibles sans engage",
-      "url": "https://www.frandroid.com/telecom/forfait-internet/3178853_byou-pure-fibre-un-prix-plancher-et-100-des-frais-dactivation-offerts",
-      "date": "2026-07-16T05:31:00.000Z",
+      "titre": "Suno s’est entraîné sur des millions de titres volés sur YouTube et Deezer",
+      "resume": "Connue pour ses outils de génération de musique par IA, la plateforme Suno vient de se faire épingler pour vol de musique copyrightée à la faveur d’un",
+      "url": "https://www.frandroid.com/services/streaming-musical/3181567_suno-sest-entraine-sur-des-millions-de-titres-voles-sur-youtube-et-deezer",
+      "date": "2026-07-16T06:19:17.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "B&You Pure fibre : prix plancher et frais offerts",
-      "categorie": "Télécoms"
+      "accroche": "Suno formé sur des millions de titres volés sur YouTube et Deezer",
+      "categorie": "IA"
     },
     {
-      "titre": "La fibre à 22,99 euros, sans engagement, c’est possible grâce à RED by SFR",
-      "resume": "Avec les offres RED by SFR, dites adieu aux prix fous grâce à une offre unique, sans engagement, à partir de 22,99 euros par mois !",
-      "url": "https://www.01net.com/bons-plans/la-fibre-a-2299-euros-sans-engagement-cest-possible-grace-a-red-by-sfr.html",
-      "date": "2026-07-15T18:24:43.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "titre": "Flex Titanium : Samsung a trouvé une solution au problème des smartphones pliants",
+      "resume": "À quelques semaines de l'annonce du premier iPhone pliant, Samsung dévoile la technologie Flex Titanium qui associe un film en alliage de titane et un",
+      "url": "https://www.numerama.com/tech/2295661-flex-titanium-samsung-a-trouve-une-solution-au-probleme-des-smartphones-pliants.html",
+      "date": "2026-07-15T15:50:22.000Z",
+      "source": "Numerama",
+      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "RED by SFR propose fibre à 22,99 € sans engagement",
-      "categorie": "Télécoms"
+      "accroche": "Samsung solution Flex Titanium pour smartphones pliants",
+      "categorie": "Mobile"
     },
     {
-      "titre": "Produire de l’ammoniac sans ressources fossiles : La start-up toulousaine Swan-H table sur 2028 pour son passage à échelle industrielle",
-      "resume": "La guerre en Iran n'est qu'un rappel de plus, montrant à quel point l'ammoniac (NH3) reste l'un des produits chimiques les plus importants du monde mo",
-      "url": "https://www.usinenouvelle.com/mes-magazines/magazine-info-chimie/produire-de-lammoniac-sans-ressources-fossiles-la-start-up-toulousaine-swan-h-table-sur-2028-pour-son-passage-a-echelle-industrielle.CBC6IL5WFZJA3AMOIJIB4GZOEM.html",
-      "date": "2026-07-16T04:30:00.000Z",
-      "source": "L'Usine Nouvelle",
-      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
+      "titre": "Le créateur de Hinge lance une app de rencontre où l’IA choisit votre date à votre place",
+      "resume": "Après avoir créé Hinge, Justin McLeod veut de nouveau bouleverser les rencontres en ligne. Son nouveau service, Overtone, a levé 18 millions de dollar",
+      "url": "https://www.numerama.com/tech/2295633-le-createur-de-hinge-lance-une-app-de-rencontre-ou-lia-choisit-votre-date-a-votre-place.html",
+      "date": "2026-07-15T14:30:00.000Z",
+      "source": "Numerama",
+      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Swan-H vise production d’ammoniac vert d’ici 2028",
-      "categorie": "Innovation"
+      "accroche": "Créateur de Hinge lance une app de rencontre pilotée par IA",
+      "categorie": "IA"
     }
   ],
-  "lastUpdated": "2026-07-16T06:16:30.964Z"
+  "lastUpdated": "2026-07-16T07:16:34.656Z"
 }
