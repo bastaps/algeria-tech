@@ -1,0 +1,1782 @@
+<!DOCTYPE html>
+<html lang="ar-DZ" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5" />
+<meta name="theme-color" content="#006233" />
+<title>Kateb IA — Explique-moi en Derja 🇩🇿</title>
+<meta name="description" content="Outil gratuit et illimité qui explique, traduit et corrige en darija algérienne, à l'oral." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='50' fill='%23006233'/%3E%3Crect y='50' width='100' height='50' fill='white'/%3E%3Ccircle cx='50' cy='50' r='12' fill='%23d21034'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-size='22' font-family='Arial' fill='white' font-weight='bold'%3EK%3C/text%3E%3C/svg%3E" />
+<style>
+  /* ============== RESET & BASE ============== */
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --green:#006233;
+    --green-dark:#00472a;
+    --green-light:#0a8a4a;
+    --red:#d21034;
+    --sand:#fdf6e3;
+    --bg:#fafafa;
+    --card:#ffffff;
+    --text:#1a1a1a;
+    --muted:#6b6b6b;
+    --border:#e5e5e5;
+    --primary:var(--green);
+    --primary-hover:var(--green-dark);
+    --accent:var(--red);
+    --shadow:0 4px 20px rgba(0,0,0,.08);
+    --shadow-lg:0 10px 40px rgba(0,0,0,.12);
+    --radius:14px;
+    --radius-sm:8px;
+    --font-ar:"Segoe UI",Tahoma,"Geeza Pro","Noto Sans Arabic",Arial,sans-serif;
+    --font-fr:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  [data-theme="dark"]{
+    --bg:#0f1411;
+    --card:#1a211d;
+    --text:#e8e8e8;
+    --muted:#a0a0a0;
+    --border:#2a332e;
+    --sand:#1f2823;
+  }
+  html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--font-fr);-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  input,textarea,select{font-family:inherit;font-size:inherit;color:inherit;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:12px;width:100%;transition:border-color .2s,box-shadow .2s}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(0,98,51,.15)}
+  ::-webkit-scrollbar{width:8px;height:8px}
+  ::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+  ::-webkit-scrollbar-thumb:hover{background:var(--muted)}
+
+  /* ============== LAYOUT ============== */
+  .app{display:flex;flex-direction:column;min-height:100vh}
+  header{
+    background:var(--card);
+    border-bottom:1px solid var(--border);
+    padding:14px 20px;
+    position:sticky;top:0;z-index:100;
+    box-shadow:var(--shadow);
+  }
+  .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.25rem;color:var(--primary)}
+  .logo-icon{
+    width:40px;height:40px;border-radius:10px;
+    background:linear-gradient(135deg,var(--green),var(--green-light));
+    color:white;display:flex;align-items:center;justify-content:center;
+    font-size:1.3rem;font-weight:bold;box-shadow:0 4px 12px rgba(0,98,51,.3)
+  }
+  .logo-text{display:flex;flex-direction:column;line-height:1.1}
+  .logo-text small{font-size:.7rem;font-weight:500;color:var(--muted)}
+  .header-actions{display:flex;gap:8px;align-items:center}
+
+  .main{flex:1;max-width:1200px;width:100%;margin:0 auto;padding:20px;padding-bottom:120px}
+  .view{display:none;animation:fadeIn .3s ease}
+  .view.active{display:block}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @keyframes recording{0%,100%{box-shadow:0 0 0 0 rgba(210,16,52,.5)}50%{box-shadow:0 0 0 16px rgba(210,16,52,0)}}
+
+  /* ============== CARDS ============== */
+  .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);margin-bottom:16px}
+  .card h2{font-size:1.1rem;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .card h3{font-size:.95rem;margin-bottom:8px;color:var(--muted);font-weight:600}
+  .grid{display:grid;gap:16px}
+  .grid-2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+
+  /* ============== BUTTONS ============== */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:10px 18px;border-radius:var(--radius-sm);
+    font-weight:600;font-size:.92rem;
+    transition:all .2s;white-space:nowrap;
+    border:1px solid transparent;
+  }
+  .btn:active{transform:scale(.97)}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+  .btn-primary{background:var(--primary);color:white}
+  .btn-primary:hover:not(:disabled){background:var(--primary-hover);box-shadow:0 4px 12px rgba(0,98,51,.3)}
+  .btn-accent{background:var(--accent);color:white}
+  .btn-accent:hover:not(:disabled){background:#b50d2b}
+  .btn-secondary{background:var(--card);color:var(--text);border-color:var(--border)}
+  .btn-secondary:hover:not(:disabled){background:var(--sand);border-color:var(--primary)}
+  .btn-ghost{background:transparent;color:var(--text);padding:8px 12px}
+  .btn-ghost:hover{background:var(--sand)}
+  .btn-icon{width:42px;height:42px;padding:0;border-radius:50%}
+  .btn-sm{padding:6px 12px;font-size:.85rem}
+  .btn-lg{padding:14px 24px;font-size:1rem;border-radius:12px}
+  .btn-block{width:100%}
+
+  /* ============== HERO ============== */
+  .hero{text-align:center;padding:40px 20px;background:linear-gradient(135deg,var(--green) 0%,var(--green-light) 100%);color:white;border-radius:var(--radius);margin-bottom:24px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;top:-50%;right:-20%;width:400px;height:400px;background:rgba(255,255,255,.05);border-radius:50%}
+  .hero::after{content:"";position:absolute;bottom:-30%;left:-10%;width:300px;height:300px;background:rgba(210,16,52,.15);border-radius:50%}
+  .hero h1{font-size:clamp(1.5rem,4vw,2.2rem);margin-bottom:12px;position:relative}
+  .hero p{font-size:clamp(.95rem,2.5vw,1.1rem);opacity:.95;max-width:600px;margin:0 auto 20px;position:relative}
+  .hero-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;position:relative}
+  .badge{background:rgba(255,255,255,.2);padding:4px 12px;border-radius:20px;font-size:.8rem;font-weight:600;backdrop-filter:blur(8px)}
+
+  /* ============== BIG MIC ============== */
+  .big-mic-wrap{display:flex;justify-content:center;padding:30px 0}
+  .big-mic{
+    width:140px;height:140px;border-radius:50%;
+    background:linear-gradient(135deg,var(--green),var(--green-light));
+    color:white;font-size:3.5rem;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 30px rgba(0,98,51,.3);
+    transition:all .2s;
+  }
+  .big-mic:hover{transform:scale(1.05);box-shadow:0 14px 40px rgba(0,98,51,.4)}
+  .big-mic.recording{background:linear-gradient(135deg,var(--red),#ff3050);animation:recording 1.5s infinite}
+  .big-mic.paused{background:linear-gradient(135deg,#f59e0b,#fbbf24)}
+  .big-mic:disabled{opacity:.6;cursor:wait}
+
+  /* Voice controls (Pause/Stop + Timer) */
+  .voice-controls{display:flex;gap:12px;justify-content:center;align-items:center;margin-top:16px;flex-wrap:wrap}
+  .ctrl-btn{
+    width:56px;height:56px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.4rem;
+    background:var(--card);border:2px solid var(--border);
+    color:var(--text);
+    transition:all .2s;
+  }
+  .ctrl-btn:hover:not(:disabled){transform:scale(1.08);box-shadow:var(--shadow)}
+  .ctrl-btn:disabled{opacity:.4;cursor:not-allowed}
+  .ctrl-btn.pause-btn.active{background:var(--accent);color:white;border-color:var(--accent);animation:recording 1.5s infinite}
+  .ctrl-btn.stop-btn{background:var(--red);color:white;border-color:var(--red)}
+  .voice-timer{
+    font-family:'Courier New',monospace;font-size:1.5rem;font-weight:700;
+    color:var(--primary);letter-spacing:2px;
+    padding:8px 16px;background:var(--sand);border-radius:8px;
+    min-width:90px;text-align:center;
+  }
+  .voice-timer.recording{color:var(--accent);background:rgba(210,16,52,.08)}
+
+  /* ============== TEXTAREAS ============== */
+  textarea{min-height:120px;resize:vertical;font-size:1rem;line-height:1.5}
+  .text-ar{font-family:var(--font-ar);direction:rtl;text-align:right;font-size:1.1rem;line-height:1.8}
+  .label{display:block;font-size:.85rem;font-weight:600;color:var(--muted);margin-bottom:6px}
+
+  /* ============== RESULT BLOCK ============== */
+  .result{margin-top:16px;padding:16px;background:var(--sand);border-radius:var(--radius-sm);border-left:4px solid var(--primary);position:relative}
+  .result-actions{position:absolute;top:10px;right:10px;display:flex;gap:4px}
+  .result-text{font-size:1.05rem;line-height:1.7;white-space:pre-wrap;word-wrap:break-word}
+
+  /* ============== WORD CHIPS ============== */
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .chip{background:var(--card);border:1px solid var(--border);padding:4px 10px;border-radius:20px;font-size:.82rem;display:inline-flex;align-items:center;gap:4px}
+  .chip.fr{color:var(--text)}
+  .chip.ar{font-family:var(--font-ar);color:var(--primary);font-weight:600}
+
+  /* ============== BOTTOM NAV (mobile) ============== */
+  .bottom-nav{
+    position:fixed;bottom:0;left:0;right:0;
+    background:var(--card);
+    border-top:1px solid var(--border);
+    display:none;
+    padding:8px 4px env(safe-area-inset-bottom,8px);
+    z-index:90;
+    box-shadow:0 -4px 20px rgba(0,0,0,.08);
+  }
+  .bottom-nav-inner{display:flex;justify-content:space-around;max-width:600px;margin:0 auto}
+  .nav-item{
+    flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;
+    padding:6px 4px;border-radius:8px;
+    color:var(--muted);font-size:.7rem;font-weight:600;
+    transition:color .2s;
+  }
+  .nav-item.active{color:var(--primary)}
+  .nav-item .icon{font-size:1.4rem}
+
+  /* ============== TOAST ============== */
+  .toast{
+    position:fixed;top:80px;left:50%;transform:translateX(-50%) translateY(-20px);
+    background:var(--text);color:var(--card);
+    padding:12px 20px;border-radius:10px;
+    box-shadow:var(--shadow-lg);
+    opacity:0;pointer-events:none;
+    transition:all .3s;z-index:200;
+    max-width:90%;
+    font-size:.9rem;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .toast.success{background:var(--primary)}
+  .toast.error{background:var(--accent)}
+
+  /* ============== MODAL ============== */
+  .modal-backdrop{
+    position:fixed;inset:0;background:rgba(0,0,0,.5);
+    display:none;align-items:center;justify-content:center;
+    padding:20px;z-index:150;
+    animation:fadeIn .2s;
+  }
+  .modal-backdrop.show{display:flex}
+  .modal{
+    background:var(--card);border-radius:var(--radius);
+    width:100%;max-width:500px;max-height:90vh;overflow-y:auto;
+    box-shadow:var(--shadow-lg);
+    animation:fadeIn .3s;
+  }
+  .modal-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+  .modal-body{padding:20px}
+  .modal-footer{padding:12px 20px;border-top:1px solid var(--border);display:flex;justify-content:flex-end;gap:8px}
+
+  /* ============== DICT TABLE ============== */
+  .dict-list{max-height:400px;overflow-y:auto}
+  .dict-item{
+    display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;
+    padding:10px;border-bottom:1px solid var(--border);
+  }
+  .dict-item:last-child{border-bottom:none}
+  .dict-fr{font-weight:600}
+  .dict-ar{font-family:var(--font-ar);color:var(--primary);text-align:right;direction:rtl}
+  .empty{text-align:center;padding:30px;color:var(--muted);font-size:.9rem}
+
+  /* ============== SETTINGS ============== */
+  .setting-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)}
+  .setting-row:last-child{border-bottom:none}
+  .setting-row label{font-weight:500}
+  .setting-row select{max-width:180px}
+
+  /* ============== HISTORY ============== */
+  .history-item{
+    background:var(--card);border:1px solid var(--border);
+    border-radius:var(--radius-sm);padding:12px;margin-bottom:8px;
+    display:flex;justify-content:space-between;align-items:start;gap:10px;
+  }
+  .history-content{flex:1;min-width:0}
+  .history-text{font-size:.9rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+  .history-meta{font-size:.75rem;color:var(--muted);margin-top:4px}
+  .history-actions{display:flex;gap:4px;flex-shrink:0}
+
+  /* ============== UTILS ============== */
+  .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .row-end{justify-content:flex-end}
+  .mb-1{margin-bottom:8px}.mb-2{margin-bottom:16px}.mb-3{margin-bottom:24px}
+  .mt-1{margin-top:8px}.mt-2{margin-top:16px}
+  .text-muted{color:var(--muted)}
+  .text-center{text-align:center}
+  .text-small{font-size:.85rem}
+  .hidden{display:none!important}
+  .pill{display:inline-block;padding:2px 10px;background:var(--sand);border-radius:12px;font-size:.75rem;font-weight:600;color:var(--primary)}
+  .spinner{width:18px;height:18px;border:2px solid var(--border);border-top-color:var(--primary);border-radius:50%;animation:spin .8s linear infinite;display:inline-block}
+
+  /* ============== MOBILE ============== */
+  @media (max-width:768px){
+    .bottom-nav{display:block}
+    .main{padding:16px;padding-bottom:140px}
+    .hero{padding:30px 16px}
+    .header-actions .btn-text-mobile{display:none}
+    .grid-2{grid-template-columns:1fr}
+    .modal{max-height:95vh;border-radius:var(--radius) var(--radius) 0 0;align-self:flex-end}
+    .modal-backdrop{padding:0;align-items:flex-end}
+  }
+  @media (min-width:769px){
+    .desktop-only{display:flex}
+  }
+
+  /* ============== CORRECTION HIGHLIGHT ============== */
+  .correction-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .correction-item{
+    background:var(--card);border:1px solid var(--border);
+    border-left:3px solid var(--accent);
+    padding:10px 12px;border-radius:6px;
+    display:flex;align-items:start;gap:10px;
+  }
+  .correction-item.fixed{border-left-color:var(--primary)}
+  .correction-num{background:var(--accent);color:white;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:bold;flex-shrink:0}
+  .correction-item.fixed .correction-num{background:var(--primary)}
+  .correction-content{flex:1;font-size:.9rem}
+  .correction-why{color:var(--muted);font-size:.8rem;margin-top:2px}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ============== HEADER ============== -->
+<header>
+  <div class="header-inner">
+    <button class="logo" id="logoHomeBtn" title="العودة للرئيسية — Retour à l'accueil" aria-label="Accueil" style="background:none;border:none;padding:0;cursor:pointer;text-align:left">
+      <div class="logo-icon">ك</div>
+      <div class="logo-text">
+        <span>Kateb IA</span>
+        <small>🇩🇿 بالدارجة الجزائرية</small>
+      </div>
+    </button>
+    <div class="header-actions">
+      <a class="btn btn-ghost btn-sm" href="../" title="Retour à l'outil CV Massar El Mihani" style="text-decoration:none">← CV</a>
+      <button class="btn btn-ghost btn-sm" id="backBtn" title="Retour au menu" style="display:none">← القائمة</button>
+      <button class="btn btn-ghost btn-icon" id="themeBtn" title="Mode sombre / clair" aria-label="Changer de thème">🌓</button>
+      <button class="btn btn-ghost btn-icon" id="helpBtn" title="Aide" aria-label="Aide">❓</button>
+      <button class="btn btn-primary btn-sm" id="shareBtn"><span class="btn-text-mobile">📤</span><span class="btn-text-mobile">شارك</span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============== MAIN ============== -->
+<main class="main">
+
+  <!-- ============== HOME ============== -->
+  <section class="view active" id="view-home">
+    <div class="hero">
+      <h1>🎙️ Kateb IA — اشرح لي بالدارجة</h1>
+      <p>برنامج مجاني وبلا حدود، يفهمك الفرنسي، يشرحلك بالدارجة، ويقرالك بصوت. <br>صعيب عليك الفرنسوية؟ هوني عليك.</p>
+      <div class="hero-badges">
+        <span class="badge">✓ 100% مجاني</span>
+        <span class="badge">∞ بلا حدود</span>
+        <span class="badge">🔒 عندك في الجهاز</span>
+        <span class="badge">📱 يجي مع الموبايل</span>
+      </div>
+    </div>
+
+    <div class="grid grid-2 mb-3">
+      <div class="card" style="cursor:pointer" onclick="showView('explain')">
+        <h2>📖 اشرح لي</h2>
+        <p class="text-muted text-small">حط نص بالفرنسي، نقراوه ونشرحهولك بالدارجة. <br><em>Colle un texte en français, on te l'explique en derja.</em></p>
+        <button class="btn btn-primary btn-block mt-2">ابدأ → Commencer</button>
+      </div>
+
+      <div class="card" style="cursor:pointer" onclick="showView('correct')">
+        <h2>✍️ صحح لي</h2>
+        <p class="text-muted text-small">كتبتي نص؟ نعطيك التصحيحات بالدارجة وبصوت. <br><em>Tu as écrit un texte ? On te le corrige en derja, à l'oral.</em></p>
+        <button class="btn btn-accent btn-block mt-2">ابدأ → Commencer</button>
+      </div>
+
+      <div class="card" style="cursor:pointer" onclick="showView('voice')">
+        <h2>🎤 تع بالزهر</h2>
+        <p class="text-muted text-small">هضر معنا بالزهر، نفهموك ونجاوبك بالدارجة. <br><em>Parle, on t'écoute et on te répond en derja.</em></p>
+        <button class="btn btn-primary btn-block mt-2">هضر → Parler</button>
+      </div>
+
+      <div class="card" style="cursor:pointer" onclick="showView('dictionary')">
+        <h2>📚 قاموس</h2>
+        <p class="text-muted text-small">قلب على معاني الكلمات من الفرنسي للدارجة والعكس. <br><em>Dictionnaire français ↔ derja avec prononciation.</em></p>
+        <button class="btn btn-secondary btn-block mt-2">ابحث → Chercher</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>💡 علاش هاد الأداة فريدة؟</h3>
+      <ul style="line-height:1.9;padding-left:20px">
+        <li>🇩🇿 أول أداة ذكية <strong>تشربالك بالدارجة الجزائرية بصوت</strong></li>
+        <li>♾️ بلا اشتراك، بلا حدود، بلا إشهار</li>
+        <li>🔐 ما يخرج والو من عندك — خدمها أوفلاين</li>
+        <li>📱 تخدم على التلفون والتابلت والكمبيوتر</li>
+        <li>🎓 باهية للتلاميذة، الموظفين، واللي يحب يفهم الورقاش</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============== EXPLAIN ============== -->
+  <section class="view" id="view-explain">
+    <div class="card">
+      <h2>📖 اشرح لي بالدارجة</h2>
+      <p class="text-muted text-small mb-2">حط النص هنا (فرنسي أو عربي)، ونعطيك شرح بالدارجة بصوت.</p>
+      <textarea id="explainInput" placeholder="Colle ici ton texte en français...&#10;Exemple: 'Bonjour, je vous écris pour vous informer que votre rendez-vous est confirmé pour demain à 14h.'" rows="6"></textarea>
+      <div class="row mt-2">
+        <button class="btn btn-primary btn-lg btn-block" onclick="explainText()">🪄 اشرح لي</button>
+      </div>
+      <div class="row mt-2">
+        <button class="btn btn-ghost btn-sm" onclick="loadSample('explain')">📝 جرب بمثال</button>
+        <button class="btn btn-ghost btn-sm" onclick="clearText('explain')">🗑️ امسح</button>
+        <button class="btn btn-ghost btn-sm" onclick="pasteFromClipboard('explainInput')">📋 ألصق</button>
+      </div>
+    </div>
+
+    <div class="card hidden" id="explainResult">
+      <h2>🪄 الشرح بالدارجة</h2>
+      <div class="result">
+        <div class="result-actions">
+          <button class="btn btn-ghost btn-icon btn-sm" onclick="speakText('explainDerja')" title="اسمع">🔊</button>
+          <button class="btn btn-ghost btn-icon btn-sm" onclick="copyText('explainDerja')" title="انسخ">📋</button>
+        </div>
+        <div class="result-text text-ar" id="explainDerja"></div>
+      </div>
+
+      <h3 class="mt-2">📝 النص الأصلي</h3>
+      <div class="result">
+        <div class="result-actions">
+          <button class="btn btn-ghost btn-icon btn-sm" onclick="speakText('explainOriginal', 'fr-FR')" title="اسمع بالفرنسي">🔊</button>
+        </div>
+        <div class="result-text" id="explainOriginal"></div>
+      </div>
+
+      <h3 class="mt-2">🔤 الكلمات المفتاحية</h3>
+      <div class="chips" id="explainChips"></div>
+
+      <div class="row mt-2">
+        <button class="btn btn-secondary" onclick="saveToHistory('explain')">💾 حفظ في الأرشيف</button>
+        <button class="btn btn-secondary" onclick="shareResult('explain')">📤 شارك</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CORRECT ============== -->
+  <section class="view" id="view-correct">
+    <div class="card">
+      <h2>✍️ صحح لي النص</h2>
+      <p class="text-muted text-small mb-2">كتبتي نص بالفرنسي أو بالعربية؟ نعطيك تصحيحات بالدارجة.</p>
+      <textarea id="correctInput" placeholder="Écris ou colle ton texte ici...&#10;Exemple: 'je suis allé au marché pour acheté des pomme'" rows="6"></textarea>
+      <div class="row mt-2">
+        <button class="btn btn-accent btn-lg btn-block" onclick="correctText()">✨ صحح لي</button>
+      </div>
+      <div class="row mt-2">
+        <button class="btn btn-ghost btn-sm" onclick="loadSample('correct')">📝 جرب بمثال</button>
+        <button class="btn btn-ghost btn-sm" onclick="clearText('correct')">🗑️ امسح</button>
+      </div>
+    </div>
+
+    <div class="card hidden" id="correctResult">
+      <h2>✅ النص المصحح</h2>
+      <div class="result">
+        <div class="result-actions">
+          <button class="btn btn-ghost btn-icon btn-sm" onclick="speakText('corrected', 'fr-FR')" title="اسمع">🔊</button>
+          <button class="btn btn-ghost btn-icon btn-sm" onclick="copyText('corrected')" title="انسخ">📋</button>
+          <button class="btn btn-ghost btn-icon btn-sm" onclick="applyCorrections()" title="طبّق التصحيحات">✓</button>
+        </div>
+        <div class="result-text" id="corrected"></div>
+      </div>
+
+      <h3 class="mt-2">🔍 التصحيحات</h3>
+      <ul class="correction-list" id="correctionList"></ul>
+
+      <h3 class="mt-2">🗣️ الشرح الصوتي بالدارجة</h3>
+      <div class="result">
+        <div class="result-actions">
+          <button class="btn btn-ghost btn-icon btn-sm" onclick="speakText('correctAudioDerja')" title="اسمع">🔊</button>
+        </div>
+        <div class="result-text text-ar" id="correctAudioDerja"></div>
+      </div>
+
+      <div class="row mt-2">
+        <button class="btn btn-secondary" onclick="saveToHistory('correct')">💾 حفظ في الأرشيف</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== VOICE ============== -->
+  <section class="view" id="view-voice">
+    <div class="card">
+      <h2>🎤 هضر معانا</h2>
+      <p class="text-muted text-small text-center mb-2">دوس على الميكرو وهدر بحرية. استعمل ⏸️ للوقف المؤقت و ⏹️ للإنهاء الكلي.</p>
+
+      <div class="big-mic-wrap">
+        <button class="big-mic" id="bigMic" onclick="startVoice()" title="ابدأ التسجيل">🎙️</button>
+      </div>
+
+      <div class="voice-controls">
+        <div class="voice-timer" id="voiceTimer">00:00</div>
+        <button class="ctrl-btn pause-btn" id="pauseBtn" onclick="togglePause()" disabled title="وقف مؤقت">⏸️</button>
+        <button class="ctrl-btn stop-btn" id="stopBtn" onclick="stopVoice()" disabled title="إنهاء كامل">⏹️</button>
+      </div>
+
+      <div class="text-center text-muted text-small mt-2" id="voiceStatus">دوس على الميكرو وهدر</div>
+
+      <div class="card mt-2" style="background:var(--sand)">
+        <h3>🗣️ شنو قلت (transcription live)</h3>
+        <div class="result-text text-ar" id="voiceTranscript">—</div>
+      </div>
+
+      <div class="card" style="background:var(--sand)">
+        <h3>💬 جاوبتك</h3>
+        <div class="result-text text-ar" id="voiceResponse">—</div>
+        <div class="row mt-2">
+          <button class="btn btn-primary btn-sm" onclick="speakCleaned('voiceResponse')">🔊 سمع الجواب</button>
+          <button class="btn btn-secondary btn-sm" onclick="stopSpeaking()">⏹️ وقف القراءة</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== DICTIONARY ============== -->
+  <section class="view" id="view-dictionary">
+    <div class="card">
+      <h2>📚 قاموس فرنسي ↔ دارجة</h2>
+      <div class="row mb-2">
+        <input type="text" id="dictSearch" placeholder="ابحث على كلمة... cherche un mot..." oninput="searchDict()" />
+        <button class="btn btn-secondary btn-icon" onclick="document.getElementById('dictSearch').value='';searchDict()">✖️</button>
+      </div>
+      <div class="row mb-2">
+        <button class="btn btn-ghost btn-sm" onclick="addCustomWord()">➕ أضف كلمة</button>
+        <button class="btn btn-ghost btn-sm" onclick="exportDict()">📤 صدّر</button>
+      </div>
+      <div class="dict-list" id="dictList"></div>
+    </div>
+  </section>
+
+  <!-- ============== HISTORY ============== -->
+  <section class="view" id="view-history">
+    <div class="card">
+      <div class="row" style="justify-content:space-between">
+        <h2>📜 الأرشيف</h2>
+        <button class="btn btn-ghost btn-sm" onclick="clearHistory()">🗑️ امسح الكل</button>
+      </div>
+      <div id="historyList"></div>
+    </div>
+  </section>
+
+  <!-- ============== SETTINGS ============== -->
+  <section class="view" id="view-settings">
+    <div class="card">
+      <h2>⚙️ الإعدادات</h2>
+
+      <div class="card" style="background:var(--sand);border:1px solid var(--border);padding:14px;margin-bottom:16px">
+        <div class="row" style="justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+          <div>
+            <strong>🔑 Source de traduction</strong>
+            <div id="apiStatus" class="text-small text-muted mt-1">…</div>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="promptMistralKey()">🔑 Gérer la clé</button>
+        </div>
+        <p class="text-small text-muted mt-2">💡 Par défaut, l'outil utilise le <strong>dictionnaire local</strong> (gratuit, offline, illimité).<br>
+        Avec une clé Mistral, tu obtiens des traductions et corrections par IA de meilleure qualité.</p>
+      </div>
+
+      <div class="setting-row">
+        <label>🎙️ الصوت (Voice)</label>
+        <select id="voiceSelect"></select>
+      </div>
+
+      <div class="setting-row">
+        <label>🐢 سرعة القراءة (Vitesse)</label>
+        <select id="rateSelect">
+          <option value="0.7">بشوية — Lent</option>
+          <option value="0.9">عادي — Normal</option>
+          <option value="1.1" selected>سريع — Rapide</option>
+          <option value="1.3">سريع بزاف — Très rapide</option>
+        </select>
+      </div>
+
+      <div class="setting-row">
+        <label>🎵 درجة الصوت (Pitch)</label>
+        <select id="pitchSelect">
+          <option value="0.8">منخفض — Grave</option>
+          <option value="1" selected>عادي — Normal</option>
+          <option value="1.3">عالي — Aigu</option>
+        </select>
+      </div>
+
+      <div class="setting-row">
+        <label>🌙 المظهر (Thème)</label>
+        <select id="themeSelect">
+          <option value="light">☀️ فاتح — Clair</option>
+          <option value="dark">🌙 ليلي — Sombre</option>
+          <option value="auto">🔄 تلقائي — Auto</option>
+        </select>
+      </div>
+
+      <div class="setting-row">
+        <label>🗣️ لهجة (Dialecte TTS)</label>
+        <select id="langSelect">
+          <option value="ar-DZ">الجزائرية (ar-DZ)</option>
+          <option value="ar-SA">السعودية (ar-SA)</option>
+          <option value="ar-EG">المصرية (ar-EG)</option>
+          <option value="ar" selected>عربي عام</option>
+        </select>
+      </div>
+
+      <div class="setting-row">
+        <label>📊 إحصائيات</label>
+        <span class="text-muted text-small" id="statsInfo">—</span>
+      </div>
+
+      <div class="row mt-2">
+        <button class="btn btn-accent" onclick="if(confirm('متأكد؟ مسح كل البيانات؟')){localStorage.clear();location.reload()}">🗑️ مسح كل البيانات</button>
+        <button class="btn btn-primary" onclick="testSpeak()">🔊 جرب الصوت</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>ℹ️ حول الأداة</h3>
+      <p class="text-small text-muted">Kateb IA v1.0 — صنع بحب في الجزائر 🇩🇿<br>
+      مجاني 100%، بلا حدود، ما يخدمش على خادم. كلش عندك في المتصفح.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============== BOTTOM NAV (mobile) ============== -->
+<nav class="bottom-nav" aria-label="Navigation principale">
+  <div class="bottom-nav-inner">
+    <button class="nav-item active" data-view="home" onclick="showView('home')">
+      <span class="icon">🏠</span><span>الرئيسية</span>
+    </button>
+    <button class="nav-item" data-view="explain" onclick="showView('explain')">
+      <span class="icon">📖</span><span>اشرح</span>
+    </button>
+    <button class="nav-item" data-view="correct" onclick="showView('correct')">
+      <span class="icon">✍️</span><span>صحح</span>
+    </button>
+    <button class="nav-item" data-view="voice" onclick="showView('voice')">
+      <span class="icon">🎤</span><span>هضر</span>
+    </button>
+    <button class="nav-item" data-view="dictionary" onclick="showView('dictionary')">
+      <span class="icon">📚</span><span>قاموس</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ============== TOAST ============== -->
+<div class="toast" id="toast"></div>
+
+<!-- ============== MODAL ============== -->
+<div class="modal-backdrop" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modalTitle">—</h2>
+      <button class="btn btn-ghost btn-icon" onclick="closeModal()">✖️</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer" id="modalFooter"></div>
+  </div>
+</div>
+
+</div><!-- /app -->
+
+<script>
+/* ==================== DATA: DICTIONARY FR → DERJA ==================== */
+const BASE_DICT = {
+  // Salutations
+  "bonjour":"صباح الخير / سلام","bonsoir":"مساء الخير","salut":"سلام","au revoir":"بسلامة","bonne nuit":"تصبح على خير","merci":"بارك الله فيك / شكرا","merci beaucoup":"بارك الله فيك بزاف","s'il te plaît":"عافاك","s'il vous plaît":"عافاكم","pardon":"سمحلي","excusez-moi":"سمحوا لي","oui":"إيه / نعم","non":"لا","peut-être":"يمكن","bien sûr":"أكيد","d'accord":"موافق / صاب","voilà":"تاني / هاهو","de rien":"لا شكر على واجب",
+  // Pronoms
+  "je":"أنا","tu":"إنت / نتا","il":"هو","elle":"هي","nous":"إحنا","vous":"إنتو / نتوما","ils":"هوما","elles":"هومات","on":"إحنا / الناس","me":"لي / راني","te":"لك / راك","se":"راه / راهي","mon":"ميا / ديالي","ma":"ميا / ديالي","mes":"ديايلي","ton":"مياك","ta":"مياك","tes":"مياك","son":"مياه","sa":"مياه","notre":"دياولنا","votre":"ديالكم","leur":"ديالهم",
+  // Verbes courants
+  "être":"نكون / كان","avoir":"عندي","aller":"نمشي","venir":"نجي","faire":"ندير","dire":"نقول","voir":"نشوف","savoir":"نعرف","pouvoir":"نقدر","vouloir":"نحب","devoir":"لازم","prendre":"ناخذ","donner":"نعطي","mettre":"نحط","trouver":"نلقى","chercher":"نقلّب","parler":"نهدر","écouter":"نسمع","comprendre":"نفهم","manger":"ناكل","boire":"نشرب","dormir":"نعس","travailler":"نخدم","aimer":"نحب","détester":"نكره","acheter":"نشري","vendre":"نبيع","lire":"نقرا","écrire":"نكتب","ouvrir":"نفتح","fermer":"نسكّر","partir":"نمشي","arriver":"نوصل","entrer":"ندخل","sortir":"نخرج","monter":"نطلع","descendre":"ننزّل","rester":"نبقى","vivre":"نعيش","mourir":"نموت","courir":"نركض","marcher":"نمشى","tomber":"نطيح","tenir":"نمسك","laisser":"نخلي","envoyer":"نرسّل","recevoir":"نستقبل","appeler":"نعيّط","demander":"نسول","répondre":"نجاوب","ouvrir":"نفتح",
+  // Noms
+  "maison":"دار","porte":"باب","fenêtre":"شبّاك","toit":"سطح","mur":"حيط","sol":"أرض","table":"طابلة","chaise":"كرسي","lit":"فراش","cuisine":"كوزينة","salle":"بيانة","chambre":"بيت","salle de bain":"بيت الما","toilettes":"التوليط","jardin":"جنان","voiture":"طوموبيل","bus":"باص","train":"طرام","avion":"طيارة","bateau":"مركب","vélo":"بسكليت","route":"طريق","rue":"زنقة","ville":"مدينة","pays":"بلاد","monde":"ناس","école":"مدرسة","classe":"كول","élève":"تلميد","professeur":"معلم / بروفيسور","livre":"كتاب","cahier":"كراراس","stylo":"قلم","papier":"ورقة","travail":"خدمة","bureau":"بيكرو / مكتب","magasin":"دكان","marché":"سوق","hôpital":"مستشفى","médecin":"طبيب","pharmacie":"صيدلية","argent":"فلوس","prix":"ثمن / تمن","boutique":"محل","pain":"خبز","eau":"ما","lait":"حليب","café":"قهوة","thé":"أتاي","sucre":"سكر","sel":"ملح","viande":"لحم","poisson":"سلمون / حوت","poulet":"دجاج","légumes":"خضرة","fruits":"فواكه","pomme":"تفاح","orange":"برتقال","banane":"موز","tomate":"طماطم","pomme de terre":"بطاطا","oignon":"بصل","ail":"ثوم","riz":"رز","pâtes":"معكرونة","fromage":"فروماج / جبن","œuf":"بيض","huile":"زيت",
+  // Temps
+  "aujourd'hui":"اليوم / ليوم","demain":"غدا","hier":"البارح / لبارح","maintenant":"دروك / دابا","toujours":"دايما","jamais":"عمري / ما عمري","souvent":"كثير","parfois":"أحيانا","ce matin":"صباح","ce soir":"مسا","cette nuit":"الليل","semaine":"سيمانة / أسبوع","mois":"شهر","année":"عام / سنة","jour":"يوم / نهار","nuit":"ليل","matin":"صباح","soir":"مسا","midi":"نص نهار","minuit":"نص الليل","heure":"ساعة","minute":"دقيقة","seconde":"ثانية","lundi":"الإثنين","mardi":"الثلاثاء","mercredi":"الأربعاء","jeudi":"الخميس","vendredi":"الجمعة","samedi":"السبت","dimanche":"الأحد",
+  // Famille
+  "père":"بابا","mère":"يمّا","frère":"خويا","sœur":"أختي","fils":"إبني","fille":"بنتي","grand-père":"جدّي","grand-mère":"جدّاتي","oncle":"عمّي / خالّي","tante":"عمّتي / خالتي","cousin":"ابن العم / ابن الخال","ami":"صاحبي / خويا","amie":"صاحبتي","mari":"زوجي / راجل","femme":"مرتي / مرا","enfant":"ولد / صبي","bébé":"بيبي","famille":"عائلة",
+  // Adjectifs
+  "bon":"مزيان","bonne":"مزيانة","mauvais":"خايب","grand":"كبير","petit":"صغير","vieux":"قديم / كبير","nouveau":"جديد","jeune":"صغير / شاب","beau":"زوين","belle":"زوينة","joli":"زوين","laid":"خايب","chaud":"سخون","froid":"بارد","rapide":"سريع","lent":"بشوية","facile":"ساهل","difficile":"صعيب","important":"مهم","cher":"غالي","bon marché":"رخيص","cher":"غالي","grand":"كبير","haut":"طويل","bas":"وطيء","plein":"مليان","vide":"خاوي","propre":"نقي","sale":"وسخ","content":"فرحان","triste":"محزون","fatigué":"عيان / تعبان","malade":"مريض","en bonne santé":"صالح","mort":"ميّت","vivant":"حي",
+  // Couleurs
+  "rouge":"أحمر","vert":"أخضر","bleu":"أزرق","jaune":"أصفر","blanc":"أبيض","noir":"كحل / أسود","gris":"رمادي","rose":"وردي","orange":"برتقالي",
+  // Directions
+  "ici":"هنا","là":"هناك","où":"فين","partout":"كل بلاصة","nulle part":"ولا بلاصة","tout droit":"دغري","à gauche":"ليسار","à droite":"ليمين","en haut":"لفوق","en bas":"لتحت","devant":"قدام","derrière":"ور","à côté":"حدا","près":"قريب","loin":"بعيد",
+  // Question words
+  "qui":"شكون","quoi":"أش","quand":"إمتا","pourquoi":"علاش","comment":"كيفاش","combien":"بشحال","lequel":"أشمن","où":"فين",
+  // Pays / langues
+  "algérie":"الجزائر","algérien":"جزائري","algérienne":"جزائرية","france":"فرنسا","français":"فرنسي","arabe":"عربي","anglais":"إنجليزي","langue":"لغة",
+  // Expressions utiles
+  "je ne comprends pas":"ما نفهمش","je ne sais pas":"ما نعرفش","répète s'il te plaît":"عاود عافاك","plus lentement":"بشوية بشوية","beaucoup":"بزاف","peu":"شوية","trop":"كثير بزاف","assez":"كافي","encore":"مرة أخرى / زيد","déjà":"من قبل","peut-être":"يمكن","voici":"هاهو / تاني","c'est":"هذا","ce n'est pas":"هذا موش","il y a":"كاين","il n'y a pas":"ما كاينش","avec":"مع","sans":"بلا","pour":"باش / ل","contre":"ضد","dans":"في","sur":"فوق","sous":"حت","entre":"بين","avant":"قبل","après":"بعد","pendant":"فيها / خلال","depuis":"منذ","jusque":"حتى","aussi":"حتى / زيد","mais":"ولكن","donc":"إذن","parce que":"بسباب / حيت","si":"إذا / واش","quand":"إمتا","comme":"كيف / بحال","alors":"إذن","puis":"بعدها","enfin":"أخيرا","d'abord":"أولا","ensuite":"من بعد","vite":"سريع","lentement":"بشوية","toujours":"دايما",
+  // Email / formel
+  "monsieur":"سيد","madame":"مادام","cher":"عزيز","chère":"عزيزة","cordialement":"مع التحية","salutations":"التحايا","je vous écris":"نكتبلكم","je vous informe":"نعلمكم","veuillez":"عافاكم","recevez":"تقبلو","respectueusement":"مع الاحترام","veuillez agréer":"عافاكم تقبلو",
+  // École
+  "examen":"إمتحان","devoir":"ديفو / واجب","leçon":"ديسون / درس","note":"نقطة / علامة","résultat":"نتيجة","réussir":"ننجح","échouer":"نرسب","diplôme":"ديبلوم","université":"جامعة","baccalauréat":"باكالوريا","licence":"ليسونس","master":"ماستر","études":"دراسة","étudiant":"طالب","faculté":"كليّة"
+};
+
+/* ==================== PHRASE PATTERNS ==================== */
+const PHRASE_PATTERNS = [
+  {pattern:/\bje ne ([a-zéèêàâôûîç]+) pas\b/gi, derja:(m)=>`ما ن${m[1]}ش`,explain:"نفي الفعل"},
+  {pattern:/\bje ([a-zéèêàâôûîç]+)\b/gi, derja:(m)=>`راني ن${m[1]}`,explain:"أنا فعل"},
+  {pattern:/\btu ([a-zéèêàâôûîç]+)\b/gi, derja:(m)=>`راك ت${m[1]}`,explain:"إنت فعل"},
+  {pattern:/\bil ([a-zéèêàâôûîç]+)\b/gi, derja:(m)=>`راه ي${m[1]}`,explain:"هو فعل"},
+  {pattern:/\belle ([a-zéèêàâôûîç]+)\b/gi, derja:(m)=>`راهي ت${m[1]}`,explain:"هي فعل"},
+  {pattern:/\bnous ([a-zéèêàâôûîç]+)\b/gi, derja:(m)=>`رانا ن${m[1]}`,explain:"إحنا فعل"},
+  {pattern:/\bvous ([a-zéèêàâôûîç]+)\b/gi, derja:(m)=>`راكم ت${m[1]}`,explain:"إنتو فعل"},
+  {pattern:/\bje suis\b/gi, derja:()=>"راني",explain:"أنا = راني"},
+  {pattern:/\btu es\b/gi, derja:()=>"راك",explain:"إنت = راك"},
+  {pattern:/\bil est\b/gi, derja:()=>"راه",explain:"هو = راه"},
+  {pattern:/\belle est\b/gi, derja:()=>"راهي",explain:"هي = راهي"},
+  {pattern:/\bnous sommes\b/gi, derja:()=>"رانا",explain:"إحنا = رانا"},
+  {pattern:/\bvous êtes\b/gi, derja:()=>"راكم",explain:"إنتو = راكم"},
+  {pattern:/\bje vais\b/gi, derja:()=>"غادي نمشي",explain:"غادي + فعل = مستقبل"},
+  {pattern:/\btu vas\b/gi, derja:()=>"غادي تمشي",explain:"غادي + فعل = مستقبل"},
+  {pattern:/\bil va\b/gi, derja:()=>"غادي يمشي",explain:"غادي + فعل = مستقبل"},
+  {pattern:/\bje veux\b/gi, derja:()=>"نحب",explain:"أريد = نحب"},
+  {pattern:/\bje peux\b/gi, derja:()=>"نقدر",explain:"أستطيع = نقدر"},
+  {pattern:/\bje dois\b/gi, derja:()=>"لازم",explain:"يجب = لازم"},
+  {pattern:/\bil faut\b/gi, derja:()=>"لازم",explain:"يجب = لازم"},
+  {pattern:/\bmerci beaucoup\b/gi, derja:()=>"بارك الله فيك بزاف",explain:"شكرا جزيلا"},
+  {pattern:/\bs'il te plaît\b/gi, derja:()=>"عافاك",explain:"من فضلك = عافاك"},
+  {pattern:/\bs'il vous plaît\b/gi, derja:()=>"عافاكم",explain:"من فضلكم = عافاكم"},
+  {pattern:/\bje ne comprends pas\b/gi, derja:()=>"ما نفهمش",explain:"لا أفهم = ما نفهمش"},
+  {pattern:/\bbonne journée\b/gi, derja:()=>"يومك مزيان",explain:"يوم سعيد"},
+  {pattern:/\bbonne soirée\b/gi, derja:()=>"مساك مزيان",explain:"مساء سعيد"},
+  {pattern:/\bbonne nuit\b/gi, derja:()=>"تصبح على خير",explain:"ليلة سعيدة"},
+  {pattern:/\bquel(?:le|) (.*?)\b/gi, derja:(m)=>`أشمن ${m[1]}`,explain:"أي = أشمن"},
+  {pattern:/\boù (?:est|sont)\b/gi, derja:()=>"فين كاين/كاينة",explain:"أين = فين"},
+  {pattern:/\bcomment (?:ça va|allez-vous|vas-tu|tu vas)\b/gi, derja:()=>"كيفاش راك؟",explain:"كيف حالك؟"},
+  {pattern:/\bje m'appelle\b/gi, derja:()=>"سميتي",explain:"اسمي = سميتي"},
+  {pattern:/\bje t'aime\b/gi, derja:()=>"نحبك",explain:"أحبك = نحبك"},
+];
+
+/* ==================== CORRECTION RULES ==================== */
+const CORRECTIONS = [
+  // Espaces avant ponctuation
+  {test:t=>/\s+([?!:;])/g, fix:(t)=>t.replace(/\s+([?!:;])/g,"$1"),why:"Y'a pas d'espace avant la ponctuation en français.",fr:"Pas d'espace avant : ; ? !"},
+  // Double espace
+  {test:t=>/ {2,}/g, fix:(t)=>t.replace(/ {2,}/g," "),why:"Pas de double espace.",fr:"Un seul espace"},
+  // Majuscule en début
+  {test:t=>/^[a-zàâçéèêëîïôûùüÿñæœ]/m, fix:(t)=>t.replace(/(^|\.\s+)([a-zàâçéèêëîïôûùüÿñæœ])/g,(m,a,b)=>a+b.toUpperCase()),why:"Commence par une majuscule.",fr:"Majuscule en début de phrase"},
+  // a/à
+  {test:t=>/\ba (?!l'|le|la|les|ce|cette|certaine|chaque|quelqu'|un|une|mes|tes|ses|nos|vos|leurs|mon|ton|son|notre|votre|leur)\b/gi, fix:(t)=>t.replace(/\ba (?!l'|le|la|les|ce|cette|certaine|chaque|quelqu'|un|une|mes|tes|ses|nos|vos|leurs|mon|ton|son|notre|votre|leur)\b/gi,"à"),why:"Verbe 'avoir' → 'a', mais préposition → 'à'.",fr:"a / à — verbe vs préposition"},
+  // et/es/est
+  {test:t=>/\best (?!un|une|le|la|les|de|du|des|à|au|aux|que|qui|quoi)\b/gi, fix:(t)=>t.replace(/\best (que|quoi|où|quand|comment|pourquoi|le|la|les|vraiment|bien|mal)\b/gi,(m,w)=>`et ${w}`).replace(/\best (un|une|le|la|les|de|du|des|à|au|aux)\b/gi,(m,w)=>`et ${w}`),why:"'est' = verbe être. 'et' = et puis.",fr:"est / et — être vs conjonction"},
+  // son/sont
+  {test:t=>/\bsont\b/g, fix:null, why:"Vérifie 'son' (possessif) ou 'sont' (verbe être).",fr:"son / sont — possessif vs verbe"},
+  // Acheté sans accord
+  {test:t=>/\bacheté\b/gi, fix:(t)=>t.replace(/\bacheté (\w+)\b/gi,(m,n)=>`acheté des ${n}s`),why:"Le participe passé avec 'avoir' ne s'accorde pas si pas de COD avant.",fr:"acheté (invariable après avoir)"},
+  // allé sans accord (cas courant)
+  {test:t=>/\bje suis allé\b/gi, fix:(t)=>t,why:"Si tu parles d'une femme, il faut 'allée'.",fr:"allé / allée (avec être)"},
+  // Orthographe de base
+  {test:t=>/\bappele\b/gi, fix:(t)=>t.replace(/\bappele\b/gi,"appelle"),why:"'appelle' prend deux L.",fr:"appelle (2L)"},
+  {test:t=>/\bje suis appele\b/gi, fix:(t)=>t.replace(/\bje suis appele\b/gi,"je m'appelle"),why:"'je m'appelle' — pronominal.",fr:"je m'appelle (pronominal)"},
+  {test:t=>/\bje peu\b/gi, fix:(t)=>t.replace(/\bje peu\b/gi,"je peux"),why:"'peux' (verbe pouvoir) ≠ 'peu' (quantité).",fr:"peux / peu"},
+  {test:t=>/\bsa va\b/gi, fix:(t)=>t.replace(/\bsa va\b/gi,"ça va"),why:"'ça' (cela) ≠ 'sa' (possessif).",fr:"ça / sa"},
+  {test:t=>/\bces (?!que|à|donc|là)\b/gi, fix:(t)=>t.replace(/\bces (\w+)\b/gi,(m,n)=>`c'est ${n}`).replace(/\bces\b/gi,"c'est"),why:"'ces' (pluriel) vs 'c'est' (cela est).",fr:"ces / c'est — pluriel vs pronom"},
+  {test:t=>/\ba ces (?!que|donc|là|à)\b/gi, fix:(t)=>t.replace(/\ba ces\b/gi,"a cessé"),why:"Vérifie 'a/à' et 'ces/cessé'.",fr:"a / à — préposition"},
+];
+
+/* ==================== SAMPLES ==================== */
+const SAMPLES = {
+  explain:[
+    "Bonjour Madame, je vous écris pour vous informer que votre rendez-vous est confirmé pour demain à 14h dans notre bureau.",
+    "Pour réussir cet examen, il faut beaucoup travailler, bien dormir et manger sainement. Bonne chance à tous les étudiants.",
+    "S'il vous plaît, pourriez-vous m'indiquer où se trouve la pharmacie la plus proche ? Je ne connais pas bien ce quartier."
+  ],
+  correct:[
+    "je suis allé au marché pour acheté des pomme et j'ai peu de l'argent",
+    "ces mon amie, elle a 20 ans et elle est très sympa, sa va bien merci",
+    "je veut que tu m'aide pour faire mes devoir d'école, c'est tres important pour moi"
+  ]
+};
+
+/* ==================== STATE ==================== */
+const STATE = {
+  history:JSON.parse(localStorage.getItem('kateb_history')||'[]'),
+  customDict:JSON.parse(localStorage.getItem('kateb_dict')||'{}'),
+  voices:[],
+  isRecording:false,
+  recognition:null,
+  utterance:null,
+  lastExplain:{fr:'',derja:''},
+  lastCorrect:{original:'',corrected:'',corrections:[]}
+};
+
+/* ==================== UTILS ================== */
+const $=s=>document.querySelector(s);
+const $$=s=>document.querySelectorAll(s);
+
+function escapeHTML(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+
+/* ==================== TTS CLEANING ==================== */
+// Nettoie le texte pour que la synthèse vocale ne lise pas les symboles techniques
+// (slash, tirets, underscores, etc.). Le but : un TTS naturel, sans "slash", "pipe", etc.
+function cleanForTTS(text){
+  if(!text) return '';
+  let t = String(text);
+
+  // 1) Symboles à remplacer par leur équivalent parlé
+  const replacements = {
+    '→': ' ',         // flèche → silence
+    '➜': ' ',
+    '⇒': ' ',
+    '&': ' و ',
+    '+': ' plus ',
+    '=': 'égal',
+    '<': ' inférieur à ',
+    '>': ' supérieur à ',
+    '≤': ' inférieur ou égal ',
+    '≥': ' supérieur ou égal ',
+    '≠': ' différent de ',
+    '±': ' plus ou moins ',
+    '×': ' fois ',
+    '÷': ' divisé par ',
+    '°': ' degrés ',
+    '%': ' pour cent ',
+    '€': ' euros ',
+    '$': ' dollars ',
+    '£': ' livres ',
+    '©': ' ',
+    '®': ' ',
+    '™': ' ',
+    '§': ' paragraphe ',
+  };
+  for(const [k,v] of Object.entries(replacements)) t = t.split(k).join(v);
+
+  // 2) Symboles à supprimer entièrement
+  t = t.replace(/[\/\\|_*#@~^`{}\[\]<>]/g, ' ');
+
+  // 3) Points de suspension → virgule (sinon TTS dit "point point point")
+  t = t.replace(/\.{2,}/g, ', ');
+  t = t.replace(/…/g, ', ');
+
+  // 4) Tirets longs/em-dash → virgule
+  t = t.replace(/[—–]/g, ', ');
+
+  // 5) Guillemets décoratifs → apostrophes simples
+  t = t.replace(/[«»]/g, "'");
+  t = t.replace(/[“”„‟]/g, "'");
+
+  // 6) Emojis : on les retire (le TTS les lirait comme du charabia)
+  t = t.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{1F000}-\u{1F2FF}]/gu, ' ');
+
+  // 7) Abréviations courantes à déplier (sinon TTS épelle)
+  const abbrs = {
+    'M.': 'Monsieur',
+    'Mme': 'Madame',
+    'Mlle': 'Mademoiselle',
+    'Dr': 'Docteur',
+    'Pr': 'Professeur',
+    'St': 'Saint',
+    'Ste': 'Sainte',
+    'etc': 'et cetera',
+    'cv': 'c.v.',
+    'M.': 'Monsieur',
+    'BD': 'bé dé',
+    'M²': 'mètre carré',
+    'km': 'kilomètre',
+    'cm': 'centimètre',
+    'mm': 'millimètre',
+    'kg': 'kilogramme',
+    'mg': 'milligramme',
+    'h': 'heure',
+    'min': 'minute',
+    'sec': 'seconde',
+    'ex': 'exemple',
+    'cf': 'voir',
+    'p.': 'page',
+    'pp.': 'pages',
+    'ch.': 'chapitre',
+    'fig.': 'figure',
+    'n°': 'numéro',
+    'NB': 'nota bene',
+    'PS': 'post-scriptum',
+  };
+  for(const [k,v] of Object.entries(abbrs)){
+    const re = new RegExp(`\\b${k.replace('.','\\.').replace('°','°')}\\b`, 'g');
+    t = t.replace(re, v);
+  }
+
+  // 8) Nombres → on les laisse en chiffres arabes, le TTS français les dit bien
+  //    (pour derja on laisse aussi, l'arabe vocalise les chiffres)
+
+  // 9) Emails et URLs → on les retire
+  t = t.replace(/[\w.-]+@[\w.-]+\.\w+/g, ' adresse email ');
+  t = t.replace(/https?:\/\/\S+/g, ' lien ');
+
+  // 10) Espaces multiples → un seul
+  t = t.replace(/\s+/g, ' ').trim();
+
+  return t;
+}
+
+// Helper pour parler un texte d'un élément DOM après nettoyage
+function speakCleaned(elId, lang = null){
+  const el = document.getElementById(elId);
+  if(!el) return;
+  const cleaned = cleanForTTS(el.textContent);
+  if(!cleaned) return;
+  if(lang) speakTextRaw(cleaned, lang);
+  else speakArabic(cleaned);
+}
+
+function toast(msg,type='info',duration=2500){
+  const t=$('#toast');t.textContent=msg;t.className='toast show '+type;
+  clearTimeout(t._timer);t._timer=setTimeout(()=>t.className='toast',duration);
+}
+
+function showView(name){
+  $$('.view').forEach(v=>v.classList.remove('active'));
+  const v=document.getElementById('view-'+name);
+  if(v)v.classList.add('active');
+  $$('.nav-item').forEach(n=>n.classList.toggle('active',n.dataset.view===name));
+  window.scrollTo({top:0,behavior:'smooth'});
+  // Affiche/masque le bouton "retour"
+  const backBtn=document.getElementById('backBtn');
+  if(backBtn) backBtn.style.display = name==='home' ? 'none' : 'inline-flex';
+  if(name==='dictionary')renderDict();
+  if(name==='history')renderHistory();
+  if(name==='settings')loadSettings();
+  if(name==='voice')updateVoiceStatus();
+  // Si on quitte la vue voice, on coupe le micro proprement
+  if(name!=='voice' && STATE.isRecording){stopVoice()}
+}
+
+function openModal(title,bodyHtml,footerHtml=''){
+  $('#modalTitle').textContent=title;
+  $('#modalBody').innerHTML=bodyHtml;
+  $('#modalFooter').innerHTML=footerHtml;
+  $('#modal').classList.add('show');
+}
+function closeModal(){$('#modal').classList.remove('show')}
+
+function getAllDict(){
+  return {...BASE_DICT,...STATE.customDict};
+}
+
+function lookupWord(fr){
+  const d=getAllDict();
+  const key=fr.toLowerCase().trim();
+  return d[key]||null;
+}
+
+function frToDerjaWord(w){
+  if(!w)return '';
+  const lower=w.toLowerCase().replace(/[.,!?;:]$/,'');
+  const punct=w.match(/[.,!?;:]$/)?.[0]||'';
+  const derja=lookupWord(lower);
+  if(derja)return derja+punct;
+  return w; // garde tel quel
+}
+
+function translatePhrase(text){
+  let result=text;
+  // 1. Patterns d'abord (phrases)
+  const matched=new Set();
+  for(const p of PHRASE_PATTERNS){
+    result=result.replace(p.pattern,(match,...args)=>{
+      matched.add(match.toLowerCase());
+      return p.derja(args);
+    });
+  }
+  // 2. Mots individuels
+  result=result.replace(/[a-zA-ZàâçéèêëîïôûùüÿñæœÀÂÇÉÈÊËÎÏÔÛÙÜŸÑÆŒ'-]+/g,(w)=>{
+    if(matched.has(w.toLowerCase()))return w;
+    return frToDerjaWord(w);
+  });
+  return result;
+}
+
+function extractKeywords(text){
+  const dict=getAllDict();
+  const words=text.toLowerCase().match(/[a-zA-Zàâçéèêëîïôûùüÿñæœ'-]+/g)||[];
+  const seen=new Set();
+  const out=[];
+  for(const w of words){
+    if(w.length<3||seen.has(w))continue;
+    seen.add(w);
+    if(dict[w])out.push({fr:w,ar:dict[w]});
+    if(out.length>=12)break;
+  }
+  return out;
+}
+
+function explainInDerja(text){
+  // Explication pédagogique complète
+  const derjaText=translatePhrase(text);
+  const kws=extractKeywords(text);
+  let explanation=`📜 النص الأصلي: ${text}\n\n`;
+  explanation+=`🗣️ الترجمة بالدارجة:\n${derjaText}\n\n`;
+  if(kws.length){
+    explanation+=`📚 كلمات مهمة:\n`;
+    kws.forEach(k=>{explanation+=`• ${k.fr} = ${k.ar}\n`;});
+  }
+  return {full:explanation,derja:derjaText,keywords:kws};
+}
+
+function detectCorrections(text){
+  const corrections=[];
+  for(const rule of CORRECTIONS){
+    if(rule.test(text)){
+      let example=text;
+      // capture l'erreur la plus parlante
+      const m=text.match(rule.test);
+      if(m){
+        if(rule.fix){
+          const fixed=rule.fix(text);
+          if(fixed!==text){
+            corrections.push({before:m[0],after:rule.fix(m[0])||m[0],why:rule.why,fr:rule.fr,fixed:fixed});
+            text=fixed;
+          }
+        } else {
+          corrections.push({before:m[0],after:m[0],why:rule.why,fr:rule.fr,fixed:text});
+        }
+      }
+    }
+  }
+  return {text,corrections};
+}
+
+function explainCorrectionsInDerja(corrections){
+  if(!corrections.length)return"ما كاينش أخطاء. النص صحيح!";
+  let s=`لقينا ${corrections.length} تصحيحات:\n\n`;
+  corrections.forEach((c,i)=>{
+    s+=`${i+1}. ✏️ ${c.before} → ${c.after}\n   علاش؟ ${c.why}\n\n`;
+  });
+  return s;
+}
+
+/* ==================== EXPLAIN FLOW ================== */
+async function explainText(){
+  const input=$('#explainInput').value.trim();
+  if(!input){toast('حط نص أولا — Mets du texte d\'abord','error');return;}
+
+  // Affiche l'UI d'abord
+  $('#explainResult').classList.remove('hidden');
+  $('#explainOriginal').textContent=input;
+  $('#explainDerja').textContent='⏳ '+(STATE._lastExplainLoadingMsg||'Je traduis en derja...');
+  toast('⏳ Traduction en cours...','info');
+
+  // 1) Essaie l'API (serveur ou Mistral)
+  const api = await callDerjaAPI(input, 'derja-explain');
+
+  let result;
+  if (api.source !== 'local' && api.text) {
+    // Résultat IA — meilleure qualité
+    result = {
+      full: `🤖 Traduction IA (${api.source}):\n\n${api.text}\n\n📜 Texte original:\n${input}`,
+      derja: api.text,
+      keywords: extractKeywords(input)
+    };
+    toast(`✅ Traduit par ${api.source==='server'?'serveur':'Mistral AI'}`,'success');
+  } else {
+    // Fallback local
+    result = explainInDerja(input);
+    toast('✅ Traduit (dictionnaire local)','success');
+  }
+
+  $('#explainDerja').textContent=result.full;
+  const chips=$('#explainChips');chips.innerHTML='';
+  if(result.keywords.length){
+    result.keywords.forEach(k=>{
+      const c=document.createElement('span');
+      c.className='chip';
+      c.innerHTML=`<span class="fr">${k.fr}</span> <span>→</span> <span class="ar">${k.ar}</span>`;
+      c.onclick=()=>speakArabic(k.ar);
+      c.style.cursor='pointer';
+      chips.appendChild(c);
+    });
+  } else {
+    chips.innerHTML='<span class="text-muted text-small">ما لقينا والو في القاموس</span>';
+  }
+  STATE.lastExplain={fr:input,derja:result.full,keywords:result.keywords,source:api.source};
+  speakArabic(result.derja);
+}
+
+/* ==================== CORRECT FLOW ================== */
+async function correctText(){
+  const input=$('#correctInput').value.trim();
+  if(!input){toast('حط نص أولا — Mets du texte d\'abord','error');return;}
+
+  // Affiche l'UI d'abord
+  $('#correctResult').classList.remove('hidden');
+  $('#corrected').textContent='⏳ Correction en cours...';
+  $('#correctionList').innerHTML='';
+  $('#correctAudioDerja').textContent='⏳ Analyse...';
+  toast('⏳ Correction en cours...','info');
+
+  // 1) Essaie l'API
+  const api = await callDerjaAPI(input, 'derja-correct');
+
+  let corrected, corrections, audioDerja;
+  if (api.source !== 'local' && api.text) {
+    // Résultat IA
+    const raw = api.raw || {};
+    corrected = raw.corrected || api.text;
+    const explanations = (raw.explanations_derja || '').toString();
+    corrections = [{
+      before: input,
+      after: corrected,
+      why: explanations || 'Correction IA',
+      fr: 'Mistral AI',
+      fixed: corrected
+    }];
+    audioDerja = `🤖 Correction IA (${api.source}):\n\n${explanations || 'Texte corrigé.'}`;
+    toast(`✅ Corrigé par ${api.source==='server'?'serveur':'Mistral AI'}`,'success');
+  } else {
+    // Fallback local
+    const r = detectCorrections(input);
+    corrected = r.text;
+    corrections = r.corrections;
+    audioDerja = explainCorrectionsInDerja(corrections);
+    toast('✅ Corrigé (règles locales)','success');
+  }
+
+  $('#corrected').textContent=corrected;
+  const list=$('#correctionList');list.innerHTML='';
+  if(corrections.length===0){
+    list.innerHTML='<li class="text-muted">✅ ما كاينش أخطاء كبيرة. Mais relis quand même!</li>';
+  } else {
+    corrections.forEach((c,i)=>{
+      const li=document.createElement('li');
+      li.className='correction-item'+(c.fixed!==input?' fixed':'');
+      li.innerHTML=`<div class="correction-num">${i+1}</div>
+        <div class="correction-content">
+          <div><strong>${escapeHTML(c.before)}</strong> → <span style="color:var(--primary)">${escapeHTML(c.after)}</span></div>
+          <div class="correction-why">${escapeHTML(c.why)} <em>(${escapeHTML(c.fr)})</em></div>
+        </div>
+        <button class="btn btn-ghost btn-icon btn-sm" onclick="speakTextEl(this,'${encodeURIComponent(c.why)}')">🔊</button>`;
+      list.appendChild(li);
+    });
+  }
+  $('#correctAudioDerja').textContent=audioDerja;
+  STATE.lastCorrect={original:input,corrected,corrections,audioDerja};
+  $('#correctResult').classList.remove('hidden');
+  speakArabic(audioDerja);
+  toast(`✅ ${corrections.length} تصحيح/ات — Correction(s) trouvée(s)`,'success');
+}
+
+function applyCorrections(){
+  if(!STATE.lastCorrect.corrected)return;
+  $('#correctInput').value=STATE.lastCorrect.corrected;
+  toast('✅ تم التطبيق — Appliqué','success');
+}
+
+/* ==================== VOICE ==================== */
+// États possibles: 'idle' | 'recording' | 'paused' | 'stopped'
+// Comportement : on NE S'ARRÊTE JAMAIS automatiquement sur silence.
+// Le micro reste actif jusqu'à ce que l'utilisateur clique Stop.
+
+function updateVoiceStatus(){
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if(!SR){
+    $('#voiceStatus').textContent = '🚫 المتصفح ما يدعمش التعرف على الصوت';
+    $('#bigMic').disabled = true;
+    return;
+  }
+  // Le bouton micro démarre l'enregistrement (il n'est jamais l'arrêt)
+  const mode = STATE.voiceMode || 'idle';
+  if(mode === 'idle'){
+    $('#voiceStatus').textContent = 'دوس على الميكرو وهدر (ال⏸️ يوقف، ال⏹️ ينهي)';
+  } else if(mode === 'recording'){
+    $('#voiceStatus').textContent = '🔴 كنسمعك... هدر براحتك';
+  } else if(mode === 'paused'){
+    $('#voiceStatus').textContent = '⏸️ في الوقف المؤقت. دوس ▶️ للرجوع أو ⏹️ للإنهاء';
+  }
+  $('#bigMic').disabled = mode === 'recording' || mode === 'paused';
+  $('#pauseBtn').disabled = mode === 'idle' || mode === 'stopped';
+  $('#stopBtn').disabled = mode === 'idle' || mode === 'stopped';
+  const pb = $('#pauseBtn');
+  if(pb){
+    pb.classList.toggle('active', mode === 'paused');
+    pb.textContent = mode === 'paused' ? '▶️' : '⏸️';
+    pb.title = mode === 'paused' ? 'استأنف' : 'وقف مؤقت';
+  }
+}
+
+let _voiceTimer = null;
+function startVoiceTimer(){
+  if(_voiceTimer) clearInterval(_voiceTimer);
+  const t0 = Date.now();
+  const el = document.getElementById('voiceTimer');
+  el.classList.add('recording');
+  _voiceTimer = setInterval(()=>{
+    if((STATE.voiceMode||'') !== 'recording') return;
+    const s = Math.floor((Date.now() - t0) / 1000);
+    const m = String(Math.floor(s/60)).padStart(2,'0');
+    const ss = String(s%60).padStart(2,'0');
+    if(el) el.textContent = `${m}:${ss}`;
+  }, 250);
+}
+function stopVoiceTimer(){
+  if(_voiceTimer) clearInterval(_voiceTimer);
+  _voiceTimer = null;
+  const el = document.getElementById('voiceTimer');
+  el.classList.remove('recording');
+  setTimeout(()=>{ if(el && (STATE.voiceMode==='idle' || STATE.voiceMode==='stopped')) el.textContent='00:00'; }, 1000);
+}
+
+function startVoice(){
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if(!SR){toast('🚫 المتصفح ما يدعمش هاد الخاصية','error');return;}
+
+  // Si on est en pause, on reprend
+  if(STATE.voiceMode === 'paused'){
+    resumeVoice();
+    return;
+  }
+  // Si déjà en enregistrement, on ne fait rien
+  if(STATE.voiceMode === 'recording') return;
+
+  STATE.voiceMode = 'recording';
+  STATE.finalTranscript = '';
+  STATE.interimTranscript = '';
+  $('#voiceTranscript').textContent = '...';
+  $('#voiceResponse').textContent = '...';
+
+  // Démarre le timer
+  startVoiceTimer();
+
+  // Démarre la reconnaissance
+  startRecognition();
+
+  updateVoiceStatus();
+}
+
+function startRecognition(){
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if(!SR) return;
+  try{
+    const rec = new SR();
+    rec.lang = $('#langSelect').value || 'ar-DZ';
+    rec.interimResults = true;
+    rec.continuous = true; // garde la session ouverte, ne coupe pas sur silence
+    rec.maxAlternatives = 1;
+
+    rec.onstart = ()=>{
+      // statut déjà géré par updateVoiceStatus
+    };
+
+    rec.onresult = (e)=>{
+      let interim = '';
+      let final = '';
+      for(let i = e.resultIndex; i < e.results.length; i++){
+        const t = e.results[i][0].transcript;
+        if(e.results[i].isFinal) final += t + ' ';
+        else interim += t;
+      }
+      if(final){
+        STATE.finalTranscript = (STATE.finalTranscript||'') + final;
+        // On déclenche la réponse sur la phrase finale
+        handleVoiceInput((STATE.finalTranscript||'').trim());
+      }
+      STATE.interimTranscript = interim;
+      // Affichage live
+      const full = ((STATE.finalTranscript||'') + ' ' + interim).trim();
+      if(full) $('#voiceTranscript').textContent = full;
+    };
+
+    rec.onerror = (e)=>{
+      console.warn('SR error:', e.error);
+      if(e.error === 'not-allowed' || e.error === 'service-not-allowed'){
+        toast('🚫 الميكرو مرفوض — Accès micro refusé','error');
+        stopVoice();
+        return;
+      }
+      if(e.error === 'no-speech'){
+        // Pas une erreur : silence. On ne coupe PAS, on continue.
+        return;
+      }
+      // autres erreurs : on tente un redémarrage si on est encore en mode recording
+      if(STATE.voiceMode === 'recording'){
+        setTimeout(()=>{
+          if(STATE.voiceMode === 'recording') startRecognition();
+        }, 200);
+      }
+    };
+
+    rec.onend = ()=>{
+      // ASTUCE CLÉ : si l'utilisateur n'a pas arrêté manuellement,
+      // on redémarre la reconnaissance automatiquement pour éviter l'auto-stop sur silence.
+      if(STATE.voiceMode === 'recording'){
+        // petit délai pour ne pas spammer
+        setTimeout(()=>{
+          if(STATE.voiceMode === 'recording') startRecognition();
+        }, 100);
+      }
+    };
+
+    rec.start();
+    STATE.recognition = rec;
+  } catch(err){
+    console.error('startRecognition error:', err);
+    toast('🚫 خطأ في بدء التسجيل','error');
+    stopVoice();
+  }
+}
+
+function togglePause(){
+  const mode = STATE.voiceMode;
+  if(mode === 'recording'){
+    // On passe en pause : on coupe la reconnaissance (mais on garde le transcript)
+    STATE.voiceMode = 'paused';
+    if(STATE.recognition){
+      try{ STATE.recognition.stop(); }catch{}
+    }
+    // Le timer s'arrête visuellement
+    stopVoiceTimer();
+    updateVoiceStatus();
+    toast('⏸️ في الوقف المؤقت','info');
+  } else if(mode === 'paused'){
+    resumeVoice();
+  }
+}
+
+function resumeVoice(){
+  STATE.voiceMode = 'recording';
+  startVoiceTimer();
+  startRecognition();
+  updateVoiceStatus();
+  toast('▶️ استأنفنا التسجيل','info');
+}
+
+function stopVoice(){
+  // Arrêt DÉFINITIF (uniquement via clic Stop ou sortie de la vue)
+  STATE.voiceMode = 'stopped';
+  STATE.isRecording = false;
+  if(STATE.recognition){
+    try{ STATE.recognition.stop(); }catch{}
+  }
+  STATE.recognition = null;
+  stopVoiceTimer();
+  updateVoiceStatus();
+  setTimeout(()=>{ STATE.voiceMode = 'idle'; updateVoiceStatus(); }, 500);
+
+  // Si on a un transcript final, on génère la réponse une dernière fois
+  const finalTxt = (STATE.finalTranscript||'').trim();
+  if(finalTxt) handleVoiceInput(finalTxt);
+}
+
+function handleVoiceInput(text){
+  if(!text) return;
+  const cleaned = text.trim();
+  if(!cleaned) return;
+
+  // Au lieu de "écris ta question", on essaie de répondre intelligemment.
+  // 1) Détection de question (français ou derja)
+  const isQuestion = /[?؟]/.test(cleaned)
+    || /^(qu'est|qu est|qui|quoi|où|quand|comment|pourquoi|combien|quel|اشمن|كيفاش|علاش|إمتا|فين|شكون|أش|شحال)/i.test(cleaned);
+
+  const lower = cleaned.toLowerCase();
+  const dict = getAllDict();
+  const words = lower.split(/[\s,.!?;:]+/).filter(Boolean);
+  const found = [];
+  for(const w of words){
+    const d = dict[w] || dict[w.toLowerCase()];
+    if(d && !found.find(f=>f.fr===w)) found.push({fr:w,ar:d});
+  }
+
+  let response = '';
+
+  if(isQuestion){
+    // Cherche une réponse dans le dictionnaire (phrases d'abord)
+    let answered = false;
+    // phrases
+    for(const p of PHRASE_PATTERNS){
+      const m = cleaned.match(p.pattern);
+      if(m){
+        const derja = p.derja({1:m[1]||''} ,m[0], cleaned.split(/\s+/), 0, cleaned);
+        response = `${derja}.`;
+        answered = true;
+        break;
+      }
+    }
+    if(!answered){
+      // traduction mot à mot en derja
+      const derja = translatePhrase(cleaned);
+      if(derja && derja !== cleaned){
+        response = derja;
+        answered = true;
+      }
+    }
+    if(!answered){
+      // fallback : mots trouvés + relance
+      response = `سمعتك قلت: ${cleaned}. `;
+      if(found.length){
+        response += `\nالكلمات اللي لقيت: \n`;
+        found.forEach(f=> response += `${f.fr} يعني ${f.ar}. `);
+      } else {
+        response += `ما عنديش جواب مباشر. جرّب تكتبها في "اشرح لي" و نخدمولك أحسن.`;
+      }
+    }
+  } else {
+    // Phrase déclarative : on traduit
+    const derja = translatePhrase(cleaned);
+    if(derja && derja !== cleaned){
+      response = derja;
+    } else {
+      response = `سمعتك. `;
+    }
+    if(found.length){
+      response += `\nالكلمات المفتاحية: \n`;
+      found.forEach(f=> response += `${f.fr} يعني ${f.ar}. `);
+    }
+  }
+
+  $('#voiceResponse').textContent = response;
+  speakArabic(response);
+}
+
+/* ==================== TTS ================== */
+function loadVoices(){
+  STATE.voices=speechSynthesis.getVoices();
+  const sel=$('#voiceSelect');
+  sel.innerHTML='<option value="">Auto (par défaut)</option>'+
+    STATE.voices.filter(v=>v.lang.startsWith('ar')||v.lang.startsWith('fr'))
+    .map(v=>`<option value="${v.name}">${v.name} (${v.lang})</option>`).join('');
+}
+
+function speakTextRaw(text, lang='ar'){
+  if(!text) return;
+  if(!('speechSynthesis' in window)){toast('🚫 TTS غير مدعم','error');return;}
+  speechSynthesis.cancel();
+  const cleaned = cleanForTTS(text);
+  if(!cleaned) return;
+  const u = new SpeechSynthesisUtterance(cleaned);
+  u.lang = lang;
+  u.rate = parseFloat($('#rateSelect')?.value || 1);
+  u.pitch = parseFloat($('#pitchSelect')?.value || 1);
+  // Priorité : voix sélectionnée manuellement > voix de la langue > fallback
+  const vName = $('#voiceSelect')?.value;
+  if(vName){
+    const v = STATE.voices.find(v => v.name === vName);
+    if(v) u.voice = v;
+  } else {
+    const v = STATE.voices.find(v => v.lang === lang)
+           || STATE.voices.find(v => v.lang.startsWith(lang.split('-')[0]));
+    if(v) u.voice = v;
+  }
+  STATE.utterance = u;
+  speechSynthesis.speak(u);
+}
+
+function speakArabic(text){
+  const lang = $('#langSelect')?.value || 'ar';
+  speakTextRaw(text, lang);
+}
+
+function speakText(elId, lang='ar'){
+  const el = document.getElementById(elId);
+  if(!el) return;
+  speakTextRaw(el.textContent, lang);
+}
+
+function speakTextEl(btn, encodedText){
+  speakArabic(decodeURIComponent(encodedText));
+}
+
+function stopSpeaking(){speechSynthesis.cancel()}
+
+function testSpeak(){
+  speakArabic('مرحبا! أنا كاتب ذكاء اصطناعي. كيفاش نقدر نعاونك؟');
+}
+
+/* ==================== DICTIONARY ================== */
+function renderDict(filter=''){
+  const list=$('#dictList');
+  const all=getAllDict();
+  const entries=Object.entries(all)
+    .filter(([fr,ar])=>!filter||fr.toLowerCase().includes(filter.toLowerCase())||ar.includes(filter));
+  if(entries.length===0){
+    list.innerHTML='<div class="empty">ما لقينا والو — Rien trouvé</div>';
+    return;
+  }
+  list.innerHTML=entries.sort((a,b)=>a[0].localeCompare(b[0]))
+    .map(([fr,ar])=>`<div class="dict-item">
+      <div class="dict-fr">${fr}</div>
+      <button class="btn btn-ghost btn-icon btn-sm" onclick="speakFrench('${fr.replace(/'/g,"\\'")}')">🔊</button>
+      <div class="dict-ar">${ar}</div>
+    </div>`).join('');
+}
+
+function searchDict(){renderDict($('#dictSearch').value)}
+
+function speakFrench(text){
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);u.lang='fr-FR';u.rate=0.9;
+  const v=STATE.voices.find(v=>v.lang.startsWith('fr'));
+  if(v)u.voice=v;
+  speechSynthesis.speak(u);
+}
+
+function addCustomWord(){
+  openModal('➕ أضف كلمة جديدة',`
+    <div class="mb-2">
+      <label class="label">🇫🇷 Français</label>
+      <input type="text" id="newFr" placeholder="exemple: ordinateur" />
+    </div>
+    <div class="mb-2">
+      <label class="label">🇩🇿 الدارجة</label>
+      <input type="text" id="newAr" placeholder="مثال: كومبیوتر" dir="rtl" />
+    </div>
+  `,`<button class="btn btn-ghost" onclick="closeModal()">إلغاء</button>
+     <button class="btn btn-primary" onclick="saveCustomWord()">💾 حفظ</button>`);
+}
+
+function saveCustomWord(){
+  const fr=$('#newFr').value.trim().toLowerCase();
+  const ar=$('#newAr').value.trim();
+  if(!fr||!ar){toast('كمل الكلمة — Complete','error');return;}
+  STATE.customDict[fr]=ar;
+  localStorage.setItem('kateb_dict',JSON.stringify(STATE.customDict));
+  closeModal();
+  renderDict($('#dictSearch').value);
+  toast('✅ تمت الإضافة','success');
+}
+
+function exportDict(){
+  const data=JSON.stringify(STATE.customDict,null,2);
+  const blob=new Blob([data],{type:'application/json'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='kateb-dictionnaire.json';a.click();
+  URL.revokeObjectURL(url);
+  toast('📤 تم التصدير','success');
+}
+
+/* ==================== HISTORY ================== */
+function saveToHistory(type){
+  const item={type,date:new Date().toISOString()};
+  if(type==='explain'){item.fr=STATE.lastExplain.fr;item.derja=STATE.lastExplain.derja}
+  if(type==='correct'){item.original=STATE.lastCorrect.original;item.corrected=STATE.lastCorrect.corrected;item.corrections=STATE.lastCorrect.corrections}
+  STATE.history.unshift(item);
+  if(STATE.history.length>50)STATE.history.pop();
+  localStorage.setItem('kateb_history',JSON.stringify(STATE.history));
+  toast('💾 تم الحفظ في الأرشيف','success');
+}
+
+function renderHistory(){
+  const list=$('#historyList');
+  if(STATE.history.length===0){list.innerHTML='<div class="empty">الأرشيف فارغ — Pas encore d\'historique</div>';return}
+  list.innerHTML=STATE.history.map((h,i)=>{
+    const txt=h.type==='explain'?h.fr:h.original;
+    const date=new Date(h.date).toLocaleString('fr-FR');
+    return `<div class="history-item">
+      <div class="history-content">
+        <div class="text-small"><span class="pill">${h.type==='explain'?'📖 اشرح':'✍️ صحح'}</span></div>
+        <div class="history-text mt-1">${txt}</div>
+        <div class="history-meta">${date}</div>
+      </div>
+      <div class="history-actions">
+        <button class="btn btn-ghost btn-icon btn-sm" onclick="playHistory(${i})" title="Réécouter">▶️</button>
+        <button class="btn btn-ghost btn-icon btn-sm" onclick="deleteHistory(${i})" title="Supprimer">🗑️</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function playHistory(i){
+  const h=STATE.history[i];
+  if(h.type==='explain')speakArabic(h.derja);
+  else {speakArabic(h.corrected);speakFrench(h.original)}
+}
+
+function deleteHistory(i){
+  if(!confirm('مسح هاد العنصر؟ — Supprimer ?'))return;
+  STATE.history.splice(i,1);
+  localStorage.setItem('kateb_history',JSON.stringify(STATE.history));
+  renderHistory();
+}
+
+function clearHistory(){
+  if(!confirm('مسح الأرشيف كامل؟ — Tout supprimer ?'))return;
+  STATE.history=[];
+  localStorage.removeItem('kateb_history');
+  renderHistory();
+  toast('🗑️ تم المسح','success');
+}
+
+/* ==================== SETTINGS ================== */
+function loadSettings(){
+  $('#themeSelect').value=localStorage.getItem('kateb_theme')||'auto';
+  $('#langSelect').value=localStorage.getItem('kateb_lang')||'ar';
+  const stat=`${Object.keys(BASE_DICT).length}+ mots • ${STATE.history.length} entrées`;
+  $('#statsInfo').textContent=stat;
+  updateApiStatus();
+}
+
+function applyTheme(theme){
+  if(theme==='auto'){
+    const dark=window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme',dark?'dark':'light');
+  } else {
+    document.documentElement.setAttribute('data-theme',theme);
+  }
+}
+
+/* ==================== SAMPLES ================== */
+function loadSample(type){
+  const arr=SAMPLES[type];
+  const t=arr[Math.floor(Math.random()*arr.length)];
+  $('#'+type+'Input').value=t;
+}
+
+function clearText(type){$('#'+type+'Input').value=''}
+
+async function pasteFromClipboard(elId){
+  try{
+    const t=await navigator.clipboard.readText();
+    $('#'+elId).value=t;
+    toast('📋 تم اللصق','success');
+  }catch{toast('🚫 ما قدرناش نلصقو','error')}
+}
+
+function copyText(elId){
+  const t=document.getElementById(elId).textContent;
+  navigator.clipboard.writeText(t).then(()=>toast('📋 تم النسخ','success'));
+}
+
+function shareResult(type){
+  let text='';
+  if(type==='explain')text=`🗣️ Kateb IA m'a expliqué:\n\n${STATE.lastExplain.fr}\n\n💬 En derja:\n${STATE.lastExplain.derja}`;
+  else text=`✍️ Kateb IA a corrigé mon texte:\n\n${STATE.lastCorrect.corrected}`;
+  if(navigator.share){
+    navigator.share({title:'Kateb IA',text});
+  } else {
+    navigator.clipboard.writeText(text);
+    toast('📋 تم النسخ (pas de partage natif)','success');
+  }
+}
+
+/* ==================== API MISTRAL (optionnel) ==================== */
+// Permet d'utiliser une vraie IA Mistral si une clé est fournie.
+// Ordre de priorité :
+//   1) Endpoint serveur /api/kateb (recommandé en production, clé cachée)
+//   2) Clé Mistral stockée localement (localStorage, dev/test)
+//   3) Dictionnaire local embarqué (fallback, 100% offline)
+
+async function callDerjaAPI(text, mode = 'derja-explain') {
+  // 1) Tente d'abord l'endpoint serveur (clé cachée côté Cloudflare)
+  try {
+    const r = await fetch('/api/kateb', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ mode, text })
+    });
+    if (r.ok) {
+      const j = await r.json();
+      if (j.text) return { source: 'server', text: j.text, raw: j.raw || {} };
+    }
+  } catch (e) { /* serveur absent ou erreur, on continue */ }
+
+  // 2) Tente avec la clé Mistral locale
+  const localKey = localStorage.getItem('kateb_mistral_key');
+  if (localKey) {
+    try {
+      const prompt = mode === 'derja-correct'
+        ? `Tu es Kateb, correcteur de texte. Corrige le texte français suivant et explique brièvement les corrections en darija algérienne (translittération latine). Réponds en JSON {\"corrected\": \"...\", \"explanations_derja\": \"...\"}.\n\nTEXTE:\n${text}`
+        : `Tu es Kateb, traducteur. Traduis ce texte français en darija algérienne (translittération latine, pas l'arabe). Donne aussi une explication simple en darija. Réponds en JSON {\"derja\": \"...\", \"explanation_derja\": \"...\"}.\n\nTEXTE:\n${text}`;
+
+      const r = await fetch('https://api.mistral.ai/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localKey}`
+        },
+        body: JSON.stringify({
+          model: 'mistral-small-latest',
+          messages: [
+            { role: 'system', content: 'Tu réponds toujours en JSON valide. Tu es un assistant algérien qui parle derja (translittération latine).' },
+            { role: 'user', content: prompt }
+          ],
+          temperature: 0.5,
+          max_tokens: 800
+        })
+      });
+      if (r.ok) {
+        const j = await r.json();
+        const content = j?.choices?.[0]?.message?.content || '';
+        // Tente de parser le JSON, sinon retourne le texte brut
+        try {
+          const parsed = JSON.parse(content);
+          return { source: 'mistral', text: parsed.derja || parsed.corrected || content, raw: parsed };
+        } catch {
+          return { source: 'mistral', text: content };
+        }
+      } else if (r.status === 401) {
+        toast('🚫 Clé Mistral invalide', 'error');
+      }
+    } catch (e) {
+      console.error('Mistral API error:', e);
+    }
+  }
+
+  // 3) Fallback local (dico embarqué)
+  return { source: 'local', text: null };
+}
+
+function setMistralKey(key) {
+  if (!key) localStorage.removeItem('kateb_mistral_key');
+  else localStorage.setItem('kateb_mistral_key', key);
+  updateApiStatus();
+}
+
+function updateApiStatus() {
+  const hasKey = !!localStorage.getItem('kateb_mistral_key');
+  const el = document.getElementById('apiStatus');
+  if (el) {
+    el.innerHTML = hasKey
+      ? '🟢 <strong>Clé Mistral active</strong> — Traductions via IA'
+      : '🟡 <strong>Mode local</strong> — Dictionnaire embarqué (250+ mots)';
+  }
+}
+
+function promptMistralKey() {
+  const cur = localStorage.getItem('kateb_mistral_key') || '';
+  const masked = cur ? cur.slice(0, 4) + '••••••••' + cur.slice(-4) : '';
+  openModal('🔑 Clé API Mistral', `
+    <p class="text-small mb-2">Colle ta clé Mistral (<code>MISTRAL_API_KEY</code>) pour des traductions et corrections de meilleure qualité via l'IA.</p>
+    <p class="text-small text-muted mb-2">⚠️ <strong>Attention :</strong> la clé est stockée dans le <em>localStorage</em> de ton navigateur. Pour un usage production, préfère l'endpoint serveur <code>/api/kateb</code> (clé cachée côté Cloudflare).</p>
+    <label class="label">Clé Mistral ${masked ? `<span class="text-muted text-small">(actuelle: ${masked})</span>` : ''}</label>
+    <input type="password" id="mistralKeyInput" placeholder="sk-..." value="${cur}" autocomplete="off" />
+    <p class="text-small text-muted mt-2">Sans clé, l'outil utilise le <strong>dictionnaire local embarqué</strong> (gratuit, illimité, offline).</p>
+  `, `
+    <button class="btn btn-ghost" onclick="setMistralKey('');closeModal();toast('🗑️ Clé supprimée','success')">🗑️ Supprimer</button>
+    <button class="btn btn-ghost" onclick="closeModal()">إلغاء</button>
+    <button class="btn btn-primary" id="saveKeyBtn">💾 Sauvegarder</button>
+  `);
+  document.getElementById('saveKeyBtn').onclick = () => {
+    const k = document.getElementById('mistralKeyInput').value.trim();
+    setMistralKey(k);
+    closeModal();
+    toast(k ? '✅ Clé sauvegardée' : '🗑️ Clé supprimée', 'success');
+  };
+}
+
+/* ==================== INIT ================== */
+function init(){
+  // Theme
+  const theme=localStorage.getItem('kateb_theme')||'auto';
+  applyTheme(theme);
+  $('#themeSelect')?.addEventListener('change',e=>{
+    localStorage.setItem('kateb_theme',e.target.value);
+    applyTheme(e.target.value);
+  });
+  $('#themeBtn')?.addEventListener('click',()=>{
+    const cur=document.documentElement.getAttribute('data-theme');
+    const next=cur==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',next);
+    localStorage.setItem('kateb_theme',next);
+    $('#themeSelect').value=next;
+  });
+  $('#langSelect')?.addEventListener('change',e=>localStorage.setItem('kateb_lang',e.target.value));
+
+  // TTS voices
+  loadVoices();
+  speechSynthesis.onvoiceschanged=loadVoices;
+
+  // Logo cliquable + bouton retour
+  document.getElementById('logoHomeBtn')?.addEventListener('click',()=>showView('home'));
+  document.getElementById('backBtn')?.addEventListener('click',()=>showView('home'));
+
+  // Help modal
+  $('#helpBtn')?.addEventListener('click',()=>{
+    openModal('❓ علاش هاد الأداة؟',`
+      <p style="line-height:1.7">
+        <strong>Kateb IA</strong> أداة جزائرية حرة، تشرحلك النص بالفرنسي بالدارجة، وتصححلك النص بصوت.
+      </p>
+      <h3 class="mt-2">🛠️ كيفاش تستعملها؟</h3>
+      <ol style="padding-left:20px;line-height:1.8">
+        <li><strong>📖 اشرح لي:</strong> حط نص بالفرنسي → تشرحلك بالدارجة + تقرالك إياه</li>
+        <li><strong>✍️ صحح لي:</strong> حط نص كتبتيه → تتصححو + تشرحلك العلاش</li>
+        <li><strong>🎤 هضر:</strong> دوس على الزر الكبير وهضر → تسمعك وتفهمك</li>
+        <li><strong>📚 قاموس:</strong> قلب على الكلمات فرنسي ↔ دارجة</li>
+      </ol>
+      <h3 class="mt-2">🔐 الخصوصية</h3>
+      <p class="text-small text-muted">كلش يخدم في المتصفح. ما يخرج والو من عندك. لا serveur, pas de cloud.</p>
+      <h3 class="mt-2">♾️ بلا حدود</h3>
+      <p class="text-small text-muted">اشرح، صحح، هدر بزاف كيف ما تحب. ما كاينش اشتراك.</p>
+    `,`<button class="btn btn-primary" onclick="closeModal()">فهمت — J'ai compris</button>`);
+  });
+
+  // Share button
+  $('#shareBtn')?.addEventListener('click',()=>{
+    if(navigator.share)navigator.share({title:'Kateb IA',text:'جرب Kateb IA — أداة جزائرية تشرحلك بالدارجة',url:location.href});
+    else{navigator.clipboard.writeText(location.href);toast('📋 تم نسخ الرابط','success')}
+  });
+
+  // Show dictionary
+  renderDict();
+  loadSettings();
+  updateVoiceStatus();
+  updateApiStatus();
+
+  // ESC closes modal
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+
+  // Welcome
+  setTimeout(()=>{
+    if(!localStorage.getItem('kateb_welcomed')){
+      toast('🇩🇿 مرحبا! / Bienvenue sur Kateb IA','success',4000);
+      localStorage.setItem('kateb_welcomed','1');
+    }
+  },500);
+}
+
+document.addEventListener('DOMContentLoaded',init);
+</script>
+</body>
+</html>

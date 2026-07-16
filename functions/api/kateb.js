@@ -28,6 +28,18 @@ RÈGLES DE STYLE ABSOLUES — le texte ne doit JAMAIS ressembler à une réponse
 - Utilise EXCLUSIVEMENT les lieux, employeurs et dates explicitement fournis dans les données. Si un lieu, un employeur ou une date n'est pas fourni, ne le mentionne pas du tout — n'en fabrique aucun, même « à titre d'exemple ».
 - Tu peux enrichir UNIQUEMENT la description des tâches, responsabilités et méthodes liées au métier (ex. méthodes d'enseignement, préparation de cours). Reste strictement factuel sur le contexte géographique et temporel.`;
 
+// Style propre aux modes Derja. Volontairement séparé de STYLE : celui-ci impose
+// « Réponds en français », ce qui est l'inverse de ce qu'on veut ici.
+const DERJA_STYLE = `Tu es « Kateb », un écrivain public algérien. Tu parles la darija algérienne de tous les jours : naturelle, chaleureuse, celle de la rue et de la famille — pas un français déguisé.
+
+RÈGLES DE LANGUE :
+- Écris la darija en translittération latine (« khedma », « 3andi », « bezzaf »), JAMAIS en alphabet arabe.
+- Utilise les chiffres du clavier algérien : 3 = ع, 7 = ح, 9 = ق, 5 = خ, 2 = ء.
+- Phrases courtes, simples, comme si tu expliquais à un ami au café.
+- Pas de listes à puces, pas de titres, pas d'emojis.
+
+⛔ ZÉRO INVENTION : n'invente jamais un lieu, un employeur, une date, un chiffre ni un diplôme qui ne figure pas dans le texte fourni.`;
+
 async function mistral(env, messages, { temperature = 0.7, max_tokens = 380 } = {}) {
   const apiRes = await fetch('https://api.mistral.ai/v1/chat/completions', {
     method: 'POST',
@@ -160,6 +172,59 @@ Ici tu réponds comme un conseiller carrière bienveillant et concret. Réponses
         { role: 'user', content: message }
       ], { temperature: 0.6, max_tokens: 300 });
       return json({ reply });
+    }
+
+    // ── 4. Derja : traduire/expliquer un texte français en darija ────────────
+    // Contrat attendu par la page Derja : { mode, text } → { text }.
+    if (mode === 'derja-explain') {
+      const text = (body.text || '').toString().slice(0, 1500);
+      if (!text) return json({ error: 'Texte vide.' }, 400);
+      const out = await mistral(env, [
+        { role: 'system', content: DERJA_STYLE },
+        { role: 'user', content:
+`Traduis ce texte en darija algérienne, puis explique-le en une ou deux phrases simples, toujours en darija. Réponds uniquement par la darija, sans reprendre le texte français.
+
+TEXTE :
+${text}` }
+      ], { temperature: 0.5, max_tokens: 400 });
+      return json({ text: out });
+    }
+
+    // ── 5. Derja : corriger un texte français, expliquer en darija ───────────
+    // Le client lit d'abord raw.corrected / raw.explanations_derja, sinon text.
+    if (mode === 'derja-correct') {
+      const text = (body.text || '').toString().slice(0, 1500);
+      if (!text) return json({ error: 'Texte vide.' }, 400);
+      const out = await mistral(env, [
+        { role: 'system', content: DERJA_STYLE },
+        { role: 'user', content:
+`Corrige les fautes de ce texte français (orthographe, grammaire, tournure), sans en changer le sens ni ajouter d'information.
+Puis explique les corrections en darija, simplement.
+
+Réponds STRICTEMENT par un objet JSON, sans texte autour, sans bloc de code :
+{"corrected": "<le texte corrigé, en français>", "explanations_derja": "<les explications, en darija latine>"}
+
+TEXTE :
+${text}` }
+      ], { temperature: 0.3, max_tokens: 700 });
+
+      // Le modèle peut enrober le JSON (bloc de code, phrase d'intro) : on reste tolérant.
+      let raw = null;
+      try {
+        const m = out.match(/\{[\s\S]*\}/);
+        if (m) raw = JSON.parse(m[0]);
+      } catch { /* pas de JSON exploitable : on renverra le texte brut */ }
+
+      const corrected = (raw && typeof raw.corrected === 'string' && raw.corrected.trim())
+        ? raw.corrected.trim()
+        : out;
+      return json({
+        text: corrected,
+        raw: {
+          corrected,
+          explanations_derja: (raw && raw.explanations_derja) ? String(raw.explanations_derja) : ''
+        }
+      });
     }
 
     return json({ error: 'Mode inconnu.' }, 400);
