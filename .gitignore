@@ -51,3 +51,8 @@ debug_cookies.py
 .env.*
 client_secret*.json
 credentials*.json
+
+# --- Donnees d'abonnes (NE JAMAIS pousser : depot public + site public) ---
+# Base locale lue/ecrite par email_alert.js (fs, jamais par HTTP).
+# Aucun workflow n'en a besoin : la garder hors du depot.
+subscribers.json
