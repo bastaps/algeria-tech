@@ -1,18 +1,7 @@
 {
   "date": "jeudi 16 juillet",
-  "synthese": "L'Algérie annonce l'introduction d'Ayrade à la Bourse d'Alger et étend les pouvoirs des guichets uniques via l'AAPI. À l'international, OpenAI lance un clavier IA et l'État de New York impose un moratoire sur les data centers énergivores.",
+  "synthese": "L’Algérie accélère son adoption du protocole IPv6 et ouvre son marché boursier à une entreprise technologique. Les acteurs internationaux renforcent leurs stratégies en matière d’IA et de semi-conducteurs.",
   "articles": [
-    {
-      "titre": "AAPI : Extension de la délégation de pouvoir aux guichets uniques pour inclure les secteurs des impôts et de l’énergie",
-      "resume": "L’Agence algérienne de promotion de l’investissement (AAPI) a annoncé, mercredi dans un communiqué, la publication de nouveaux arrêtés ministériels po",
-      "url": "https://algerie-eco.com/2026/07/15/aapi-extension-de-la-delegation-de-pouvoir-aux-guichets-uniques-pour-inclure-les-secteurs-des-impots-et-de-lenergie/",
-      "date": "2026-07-15T21:44:05.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "AAPI : Extension des guichets uniques aux impôts",
-      "categorie": "Innovation"
-    },
     {
       "titre": "Ayrade, première entreprise technologique introduite à la Bourse d’Alger",
       "resume": "L’entreprise Ayrade, spécialisée dans les technologies de l’information, l’ingénierie logicielle et le développement de services numériques, a été int",
@@ -21,30 +10,30 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Ayrade première tech algérienne cotée à la Bourse d'Alger",
+      "accroche": "Ayrade première tech en Bourse d'Alger",
+      "categorie": "Startups"
+    },
+    {
+      "titre": "Internet : l’Algérie va accélérer l’adoption du protocole IPv6",
+      "resume": "feed\n\nLe ministre de la Poste et des Télécommunications, Sid Ali Zerrouki a présidé, mardi à Alger, une rencontre sur l’avenir de l’Internet en Algéri",
+      "url": "https://www.ntic-dz.com/internet-lalgerie-va-accelerer-ladoption-du-protocole-ipv6/?utm_source=rss&utm_medium=rss&utm_campaign=internet-lalgerie-va-accelerer-ladoption-du-protocole-ipv6",
+      "date": "2026-07-15T14:54:55.000Z",
+      "source": "NTIC.dz",
+      "logo": "https://www.google.com/s2/favicons?domain=ntic-dz.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Algérie accélère adoption du protocole IPv6",
+      "categorie": "Réseaux"
+    },
+    {
+      "titre": "AAPI : Extension de la délégation de pouvoir aux guichets uniques pour inclure les secteurs des impôts et de l’énergie",
+      "resume": "L’Agence algérienne de promotion de l’investissement (AAPI) a annoncé, mercredi dans un communiqué, la publication de nouveaux arrêtés ministériels po",
+      "url": "https://algerie-eco.com/2026/07/15/aapi-extension-de-la-delegation-de-pouvoir-aux-guichets-uniques-pour-inclure-les-secteurs-des-impots-et-de-lenergie/",
+      "date": "2026-07-15T21:44:05.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "AAPI étend délégation de pouvoir aux impôts",
       "categorie": "Innovation"
-    },
-    {
-      "titre": "OpenAI lance son premier appareil : le clavier Codex Micro pour piloter l'IA du bout des doigts",
-      "resume": "Le spécialiste de l’intelligence artificielle lance son premier produit en collaboration avec Work Louder. Baptisé Codex Micro, ce clavier compact est",
-      "url": "https://www.zdnet.fr/actualites/openai-lance-son-tout-premier-appareil-le-clavier-codex-micro-pour-piloter-lia-du-bout-des-doigts-498674.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-07-16T07:00:20.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "OpenAI lance un clavier Codex Micro pour piloter l'IA",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Puces IA : Apple prêt à briser sa prudence historique en matière d’acquisitions",
-      "resume": "Après des années passées à miser presque exclusivement sur ses équipes internes de conception, Apple regarderait désormais vers l’extérieur pour combl",
-      "url": "https://www.zdnet.fr/actualites/puces-ia-apple-pret-a-briser-sa-prudence-historique-en-matiere-dacquisitions-498668.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-07-16T06:02:37.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Apple prêt à acquérir des puces IA malgré sa prudence historique",
-      "categorie": "IA"
     },
     {
       "titre": "L’État de New York lance un moratoire sur la construction de data centers consommant plus de 50 mégawatts",
@@ -54,7 +43,7 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "New York moratoire sur data centers consommant plus de 50 MW",
+      "accroche": "New York limite construction data centers énergivores",
       "categorie": "Cybersécurité"
     },
     {
@@ -65,8 +54,8 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Walden Robotics lève des fonds avec Toyota, Nvidia et Boeing",
-      "categorie": "Startups"
+      "accroche": "Walden Robotics soutenue par Toyota et Nvidia",
+      "categorie": "IA"
     },
     {
       "titre": "“Dans cinq ans, l’inférence, c’est nous” : Le pari ambitieux du français ZML pour libérer l’IA du joug de CUDA",
@@ -76,41 +65,52 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "ZML parie sur l'IA pour libérer la puissance d'inférence",
+      "accroche": "ZML pari sur inférence IA d’ici cinq ans",
       "categorie": "IA"
     },
     {
-      "titre": "IPv6 : la France championne du monde, et c’est grâce à Free Mobile",
-      "resume": "La France est devenue le pays qui utilise le plus l'IPv6 au monde. Le grand artisan de ce sacre ? Free Mobile, longtemps le dernier de la classe côté",
-      "url": "https://www.frandroid.com/culture-tech/3181581_ipv6-la-france-championne-du-monde-et-cest-grace-a-free-mobile",
-      "date": "2026-07-16T07:06:02.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "titre": "Puces IA : Apple prêt à briser sa prudence historique en matière d’acquisitions",
+      "resume": "Après des années passées à miser presque exclusivement sur ses équipes internes de conception, Apple regarderait désormais vers l’extérieur pour combl",
+      "url": "https://www.zdnet.fr/actualites/puces-ia-apple-pret-a-briser-sa-prudence-historique-en-matiere-dacquisitions-498668.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-07-16T06:02:37.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "La France championne mondiale de déploiement IPv6 grâce à Free Mobile",
-      "categorie": "Réseaux"
-    },
-    {
-      "titre": "Ce forfait à seulement 6,99 euros s’associe idéalement à un smartphone à moins de 200 euros",
-      "resume": "À 6,99 euros par mois, le forfait 60 Go de Lebara mise sur l'essentiel, sans engagement, sur le réseau de SFR. Associé à un smartphone à moins de 200",
-      "url": "https://www.frandroid.com/bons-plans/3180989_ce-forfait-a-699-euros-sassocie-idealement-a-un-smartphone-a-moins-de-200-euros",
-      "date": "2026-07-16T06:35:00.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Forfait mobile à 6,99 € compatible smartphones sous 200 €",
+      "accroche": "Apple prêt à briser prudence acquisitions puces IA",
       "categorie": "Mobile"
     },
     {
-      "titre": "Suno s’est entraîné sur des millions de titres volés sur YouTube et Deezer",
-      "resume": "Connue pour ses outils de génération de musique par IA, la plateforme Suno vient de se faire épingler pour vol de musique copyrightée à la faveur d’un",
-      "url": "https://www.frandroid.com/services/streaming-musical/3181567_suno-sest-entraine-sur-des-millions-de-titres-voles-sur-youtube-et-deezer",
-      "date": "2026-07-16T06:19:17.000Z",
+      "titre": "Free et YouTube s’allient pour le lancement d’une nouvelle offre réservée aux abonnés Freebox et Free Mobile",
+      "resume": "Free et YouTube annoncent un partenariat inauguré par le lancement d'une nouvelle offre chez l'opérateur du groupe Iliad. Désormais, les abonnés Freeb",
+      "url": "https://www.frandroid.com/marques/free/3181651_free-et-youtube-sallient-pour-le-lancement-dune-nouvelle-offre-reservee-aux-abonnes-freebox-et-free-mobile",
+      "date": "2026-07-16T08:12:11.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Suno formé sur des millions de titres volés sur YouTube et Deezer",
-      "categorie": "IA"
+      "accroche": "Free et YouTube lancent offre commune abonnés",
+      "categorie": "Télécoms"
+    },
+    {
+      "titre": "Trois éditeurs, dont Hachette, accusent Google Gemini d’avoir pillé des millions de livres",
+      "resume": "La méthode a déjà coûté 1,5 milliard de dollars à Anthropic. Cette fois, c'est Google qu'Hachette, Elsevier et Cengage accusent d'avoir gavé Gemini de",
+      "url": "https://www.01net.com/actualites/trois-editeurs-dont-hachette-accusent-google-gemini-davoir-pille-des-millions-de-livres.html",
+      "date": "2026-07-16T07:00:25.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Trois éditeurs accusent Google Gemini de pillage livres",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "OnePlus quitte l’Europe : un auto-sabotage historique pour une marque de smartphones autrefois géniale",
+      "resume": "Selon les informations de WinFuture et de Bloomberg, le groupe Oppo, propriétaire de la marque OnePlus, s'apprête à annoncer la fin de OnePlus en Euro",
+      "url": "https://www.numerama.com/tech/2295933-oneplus-quitte-leurope-un-auto-sabotage-historique-pour-une-marque-de-smartphones-autrefois-geniale.html",
+      "date": "2026-07-16T07:48:27.000Z",
+      "source": "Numerama",
+      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
+      "pays": "FR",
+      "accroche": "OnePlus quitte l’Europe après déclin historique",
+      "categorie": "Mobile"
     },
     {
       "titre": "Flex Titanium : Samsung a trouvé une solution au problème des smartphones pliants",
@@ -120,7 +120,7 @@
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Samsung solution Flex Titanium pour smartphones pliants",
+      "accroche": "Samsung résout problème smartphones pliants",
       "categorie": "Mobile"
     },
     {
@@ -131,9 +131,9 @@
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Créateur de Hinge lance une app de rencontre pilotée par IA",
+      "accroche": "Créateur de Hinge lance app rencontre pilotée IA",
       "categorie": "IA"
     }
   ],
-  "lastUpdated": "2026-07-16T07:16:34.656Z"
+  "lastUpdated": "2026-07-16T08:29:24.219Z"
 }
