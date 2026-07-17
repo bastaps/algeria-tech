@@ -1,18 +1,7 @@
 {
   "date": "vendredi 17 juillet",
-  "synthese": "L'Algérie annonce un basculement accéléré vers IPv6 et signe un accord pour la création de l'Organisation mondiale de l'intelligence artificielle. Plusieurs projets d'infrastructures, dont des extensions routières et ferroviaires, sont en cours de mise en œuvre sous supervision officielle.",
+  "synthese": "L'Algérie signe accord création Organisation mondiale IA. L'UE impose double ouverture données à Google. Intel investit 5 milliards d'euros en Irlande. Uber finalise rachat Delivery Hero pour 14,8 milliards de dollars.",
   "articles": [
-    {
-      "titre": "Internet <BR> L’Algérie accélère enfin son basculement vers IPv6",
-      "resume": "Le ministre de la Poste et des Télécommunications, Sid Ali Zerrouki, a présidé mardi à Alger une rencontre sur l’avenir de l’Internet en Algérie. L’oc",
-      "url": "https://www.itmag.dz/2026/07/16/internet-br-lalgerie-accelere-enfin-son-basculement-vers-ipv6/",
-      "date": "2026-07-16T12:31:01.000Z",
-      "source": "ITMAG.dz",
-      "logo": "https://www.google.com/s2/favicons?domain=itmag.dz&sz=32",
-      "pays": "DZ",
-      "accroche": "Algérie : IPv6, passage accéléré vers nouveau protocole",
-      "categorie": "Télécoms"
-    },
     {
       "titre": "L’Algérie signe l’accord de création de l’Organisation mondiale de l’intelligence artificielle",
       "resume": "Chargée par le président de la République, M. Abdelmadjid Tebboune, la ministre, Haut-commissaire à la numérisation, Mme Meriem Benmouloud, a signé, j",
@@ -21,7 +10,7 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Algérie : signature accord création Organisation IA mondiale",
+      "accroche": "Algérie signe accord création Organisation mondiale IA",
       "categorie": "IA"
     },
     {
@@ -32,7 +21,7 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Métro d’Alger : Djellaoui exige accélération Bab El Oued",
+      "accroche": "Métro d’Alger : accélération extension vers Bab El Oued",
       "categorie": "Réseaux"
     },
     {
@@ -43,7 +32,7 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Tebboune : 900 millions USD de projets allemands en Algérie",
+      "accroche": "Près de 900 millions de dollars de projets allemands en Algérie",
       "categorie": "Innovation"
     },
     {
@@ -54,7 +43,7 @@
       "source": "EcomNewsMed DZ",
       "logo": "https://www.google.com/s2/favicons?domain=ecomnewsmed.com&sz=32",
       "pays": "DZ",
-      "accroche": "Algérie : mise en service infrastructures routières majeures",
+      "accroche": "Mise en service nouvelles infrastructures routières en Algérie",
       "categorie": "Réseaux"
     },
     {
@@ -65,8 +54,8 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Airbus choisit Scaleway fournisseur cloud principal",
-      "categorie": "Télécoms"
+      "accroche": "Airbus choisit Scaleway fournisseur cloud",
+      "categorie": "Cloud"
     },
     {
       "titre": "Open source, moratoire sur les data centers…29 propositions pour reconquérir la souveraineté numérique",
@@ -76,19 +65,30 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "29 propositions pour souveraineté numérique open source",
+      "accroche": "29 propositions souveraineté numérique via open source",
       "categorie": "Cybersécurité"
     },
     {
       "titre": "Un rapport choc de l’Assemblée nationale veut imposer le 100% open source à l’État dès 2030 et le 0% Microsoft à l’école",
       "resume": "Le retour de Donald Trump à la Maison-Blanche a renforcé les velléités européennes et françaises à  s’affranchir des acteurs numériques américains com",
       "url": "https://www.usine-digitale.fr/secteur-public/souverainete-un-rapport-choc-de-lassemblee-nationale-veut-imposer-le-100-open-source-a-letat-francais-des-2030-et-le-0-microsoft-a-lecole.R7YW3HJLMNGHHMWBVS5CJWO3JA.html",
+      "date": "2026-07-17T07:15:26.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Assemblée nationale impose 100% open source à l’État dès 2030",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Livraison de repas : Uber met 14,8 milliards de dollars sur la table pour avaler l’allemand Delivery Hero",
+      "resume": "Après une décennie de croissance à tout prix, le marché de la livraison entre dans une phase de rentabilité. Les principaux acteurs cherchent désormai",
+      "url": "https://www.usine-digitale.fr/mobilite/uber/livraison-de-repas-uber-met-148-milliards-de-dollars-sur-la-table-pour-avaler-lallemand-delivery-hero.ILIMX7VQVVBBRO2DAUVHDA2T5U.html",
       "date": "2026-07-17T04:00:01.000Z",
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Assemblée nationale : 100% open source État dès 2030",
-      "categorie": "Cybersécurité"
+      "accroche": "Uber finalise rachat Delivery Hero pour 14,8 milliards de dollars",
+      "categorie": "Startups"
     },
     {
       "titre": "Intel investit 5 milliards d’euros dans son usine irlandaise pour répondre à la demande liée au boom de l’IA agentique",
@@ -98,7 +98,7 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Intel investit 5 milliards d’euros en Irlande",
+      "accroche": "Intel investit 5 milliards d’euros dans usine irlandaise",
       "categorie": "Innovation"
     },
     {
@@ -109,19 +109,8 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Bruxelles impose ouverture données à Google sur Android",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Le leasing social pour voitures électriques fait son retour : comment obtenir les 9 500 € d’aides",
-      "resume": "Troisième round pour le leasing social. Le guichet a rouvert ce jeudi 16 juillet, et avec lui la promesse qui a fait le succès du dispositif depuis 20",
-      "url": "https://www.01net.com/actualites/voitures-electriques-le-leasing-social-fait-son-retour-ce-jeudi-jusqua-9-500-e-daide.html",
-      "date": "2026-07-16T15:02:28.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Leasing social : 9 500 € d’aides pour voitures électriques",
-      "categorie": "Startups"
+      "accroche": "Bruxelles impose double ouverture données à Google",
+      "categorie": "Réseaux"
     },
     {
       "titre": "«Produire l’optique en France nous permet de conserver le contrôle et la confidentialité de la technologie» : Engo lève plus de 5 millions d’euros pour industrialiser ses lunettes connectées pour sportifs",
@@ -131,9 +120,20 @@
       "source": "L'Usine Nouvelle",
       "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
       "pays": "FR",
-      "accroche": "France : production optique nationale pour contrôle technologique",
+      "accroche": "Production optique en France pour contrôle technologique",
       "categorie": "Innovation"
+    },
+    {
+      "titre": "Une valorisation à 18 milliards de dollars : Helsing, preuve que la frénésie des investisseurs pour l’intelligence artificielle fait son entrée dans le secteur de la défense",
+      "resume": "",
+      "url": "https://www.usinenouvelle.com/aero-spatial/defense/une-valorisation-a-18-milliards-de-dollars-helsing-preuve-que-la-frenesie-des-investisseurs-pour-lintelligence-artificielle-fait-son-entree-dans-le-secteur-de-la-defense.X3B67PL6EFAEBO45XKTUFOWU64.html",
+      "date": "2026-07-17T05:52:13.000Z",
+      "source": "L'Usine Nouvelle",
+      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
+      "pays": "FR",
+      "accroche": "Helsing atteint valorisation de 18 milliards de dollars",
+      "categorie": "Startups"
     }
   ],
-  "lastUpdated": "2026-07-17T07:11:38.159Z"
+  "lastUpdated": "2026-07-17T08:26:28.819Z"
 }
