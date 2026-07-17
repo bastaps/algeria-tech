@@ -1,7 +1,18 @@
 {
   "date": "vendredi 17 juillet",
-  "synthese": "L'Algérie signe un accord historique pour l'IA. L'Europe renforce ses cadres réglementaires numériques. Les investissements technologiques globaux atteignent des sommets.",
+  "synthese": "L'Algérie annonce un basculement accéléré vers IPv6 et signe un accord pour la création de l'Organisation mondiale de l'intelligence artificielle. Plusieurs projets d'infrastructures, dont des extensions routières et ferroviaires, sont en cours de mise en œuvre sous supervision officielle.",
   "articles": [
+    {
+      "titre": "Internet <BR> L’Algérie accélère enfin son basculement vers IPv6",
+      "resume": "Le ministre de la Poste et des Télécommunications, Sid Ali Zerrouki, a présidé mardi à Alger une rencontre sur l’avenir de l’Internet en Algérie. L’oc",
+      "url": "https://www.itmag.dz/2026/07/16/internet-br-lalgerie-accelere-enfin-son-basculement-vers-ipv6/",
+      "date": "2026-07-16T12:31:01.000Z",
+      "source": "ITMAG.dz",
+      "logo": "https://www.google.com/s2/favicons?domain=itmag.dz&sz=32",
+      "pays": "DZ",
+      "accroche": "Algérie : IPv6, passage accéléré vers nouveau protocole",
+      "categorie": "Télécoms"
+    },
     {
       "titre": "L’Algérie signe l’accord de création de l’Organisation mondiale de l’intelligence artificielle",
       "resume": "Chargée par le président de la République, M. Abdelmadjid Tebboune, la ministre, Haut-commissaire à la numérisation, Mme Meriem Benmouloud, a signé, j",
@@ -10,7 +21,7 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Algérie signe accord création OMIA",
+      "accroche": "Algérie : signature accord création Organisation IA mondiale",
       "categorie": "IA"
     },
     {
@@ -21,7 +32,7 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Djellaoui accélère extension métro Alger",
+      "accroche": "Métro d’Alger : Djellaoui exige accélération Bab El Oued",
       "categorie": "Réseaux"
     },
     {
@@ -32,7 +43,7 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Tebboune : 900 M$ de projets allemands en Algérie",
+      "accroche": "Tebboune : 900 millions USD de projets allemands en Algérie",
       "categorie": "Innovation"
     },
     {
@@ -43,7 +54,7 @@
       "source": "EcomNewsMed DZ",
       "logo": "https://www.google.com/s2/favicons?domain=ecomnewsmed.com&sz=32",
       "pays": "DZ",
-      "accroche": "Algérie active développement réseau routier",
+      "accroche": "Algérie : mise en service infrastructures routières majeures",
       "categorie": "Réseaux"
     },
     {
@@ -54,8 +65,8 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Airbus choisit Scaleway fournisseur cloud",
-      "categorie": "Cloud"
+      "accroche": "Airbus choisit Scaleway fournisseur cloud principal",
+      "categorie": "Télécoms"
     },
     {
       "titre": "Open source, moratoire sur les data centers…29 propositions pour reconquérir la souveraineté numérique",
@@ -65,19 +76,8 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "29 propositions pour souveraineté numérique",
+      "accroche": "29 propositions pour souveraineté numérique open source",
       "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "Livraison de repas : Uber met 14,8 milliards de dollars sur la table pour avaler l’allemand Delivery Hero",
-      "resume": "Après une décennie de croissance à tout prix, le marché de la livraison entre dans une phase de rentabilité. Les principaux acteurs cherchent désormai",
-      "url": "https://www.usine-digitale.fr/mobilite/uber/livraison-de-repas-uber-met-148-milliards-de-dollars-sur-la-table-pour-avaler-lallemand-delivery-hero.ILIMX7VQVVBBRO2DAUVHDA2T5U.html",
-      "date": "2026-07-17T04:00:01.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Uber dépense 14,8 Md$ pour racheter Delivery Hero",
-      "categorie": "Startups"
     },
     {
       "titre": "Un rapport choc de l’Assemblée nationale veut imposer le 100% open source à l’État dès 2030 et le 0% Microsoft à l’école",
@@ -87,7 +87,7 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Assemblée nationale impose 100% open source",
+      "accroche": "Assemblée nationale : 100% open source État dès 2030",
       "categorie": "Cybersécurité"
     },
     {
@@ -98,19 +98,8 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Intel investit 5 Md€ dans usine irlandaise",
+      "accroche": "Intel investit 5 milliards d’euros en Irlande",
       "categorie": "Innovation"
-    },
-    {
-      "titre": "Pour défier Tesla et Ionity, Xpeng va lancer des bornes de recharge record à 1 000 kW en Europe cette année",
-      "resume": "Xpeng ne veut plus dépendre uniquement des opérateurs tiers pour recharger ses voitures en Europe : le constructeur chinois va y installer son propre",
-      "url": "https://www.frandroid.com/marques/xpeng/3182767_pour-defier-tesla-et-ionity-xpeng-va-lancer-des-bornes-de-recharge-record-a-1-000-kw-en-europe-cette-annee",
-      "date": "2026-07-16T16:30:57.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Xpeng lance bornes recharge 1000 kW en Europe",
-      "categorie": "Mobile"
     },
     {
       "titre": "IA sur Android et données de recherche : Bruxelles impose une double ouverture à Google",
@@ -120,20 +109,31 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Bruxelles impose ouverture données à Google",
-      "categorie": "Télécoms"
+      "accroche": "Bruxelles impose ouverture données à Google sur Android",
+      "categorie": "Mobile"
     },
     {
-      "titre": "Une valorisation à 18 milliards de dollars : Helsing, preuve que la frénésie des investisseurs pour l’intelligence artificielle fait son entrée dans le secteur de la défense",
+      "titre": "Le leasing social pour voitures électriques fait son retour : comment obtenir les 9 500 € d’aides",
+      "resume": "Troisième round pour le leasing social. Le guichet a rouvert ce jeudi 16 juillet, et avec lui la promesse qui a fait le succès du dispositif depuis 20",
+      "url": "https://www.01net.com/actualites/voitures-electriques-le-leasing-social-fait-son-retour-ce-jeudi-jusqua-9-500-e-daide.html",
+      "date": "2026-07-16T15:02:28.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Leasing social : 9 500 € d’aides pour voitures électriques",
+      "categorie": "Startups"
+    },
+    {
+      "titre": "«Produire l’optique en France nous permet de conserver le contrôle et la confidentialité de la technologie» : Engo lève plus de 5 millions d’euros pour industrialiser ses lunettes connectées pour sportifs",
       "resume": "",
-      "url": "https://www.usinenouvelle.com/aero-spatial/defense/une-valorisation-a-18-milliards-de-dollars-helsing-preuve-que-la-frenesie-des-investisseurs-pour-lintelligence-artificielle-fait-son-entree-dans-le-secteur-de-la-defense.X3B67PL6EFAEBO45XKTUFOWU64.html",
-      "date": "2026-07-17T05:52:13.000Z",
+      "url": "https://www.usinenouvelle.com/eco-social/economie/start-up/produire-loptique-en-france-nous-permet-de-conserver-le-controle-et-la-confidentialite-de-la-technologie-engo-leve-plus-de-5-millions-deuros-pour-industrialiser-ses-lunettes-connectees-pour-sportifs.77C6JBKPBNAJTL3B2DZLHA6BUE.html",
+      "date": "2026-07-17T07:00:00.000Z",
       "source": "L'Usine Nouvelle",
       "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
       "pays": "FR",
-      "accroche": "Helsing atteint valorisation 18 Md$",
-      "categorie": "Startups"
+      "accroche": "France : production optique nationale pour contrôle technologique",
+      "categorie": "Innovation"
     }
   ],
-  "lastUpdated": "2026-07-17T06:14:40.332Z"
+  "lastUpdated": "2026-07-17T07:11:38.159Z"
 }
