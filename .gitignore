@@ -41,6 +41,13 @@ archives/*.json
 /article/
 /sitemap.xml
 
+# --- CV Massar : clé locale Kateb (version C) — NE JAMAIS pousser ---
+.dev.vars
+**/.dev.vars
+.dev.vars.example
+**/.dev.vars.example
+**/.dev.vars*
+
 # --- Secrets & identifiants (NE JAMAIS pousser) ---
 client_secret.json
 get-youtube-token.js
