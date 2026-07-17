@@ -2036,6 +2036,60 @@ app.delete('/api/veille/:id', (req, res) => {
     saveVeilleData(data); res.json({ success: true });
 });
 
+// ==========================================
+// [REVUE DE PRESSE] CRUD MANUEL (admin local uniquement — verrou 403 cloud ci-dessus)
+// N'affecte en rien la génération auto (generate_revue.js / Mistral) : simples
+// ajustements manuels sur le fichier déjà généré.
+// ==========================================
+const REVUE_FILE = path.join(__dirname, 'revue_presse.json');
+
+function loadRevueDataFile() {
+    return JSON.parse(fsSync.readFileSync(REVUE_FILE, 'utf-8'));
+}
+
+function saveRevueDataFile(data) { fsSync.writeFileSync(REVUE_FILE, JSON.stringify(data, null, 2)); }
+
+app.post('/api/revue/article', (req, res) => {
+    const { titre, url, source, categorie, pays } = req.body;
+    if (!titre || !url) return res.status(400).json({ error: 'Titre et URL requis' });
+    const data = loadRevueDataFile();
+    data.articles.unshift({
+        titre, url,
+        resume: '', accroche: titre,
+        source: source || 'Ajout manuel',
+        logo: `https://www.google.com/s2/favicons?domain=${(() => { try { return new URL(url).hostname; } catch { return 'google.com'; } })()}&sz=32`,
+        pays: pays === 'FR' ? 'FR' : 'DZ',
+        categorie: categorie || 'Innovation',
+        date: new Date().toISOString(),
+        isManual: true
+    });
+    saveRevueDataFile(data);
+    res.json({ success: true });
+});
+
+app.delete('/api/revue/article/:index', (req, res) => {
+    const idx = parseInt(req.params.index, 10);
+    const data = loadRevueDataFile();
+    if (isNaN(idx) || idx < 0 || idx >= data.articles.length) return res.status(404).json({ error: 'Non trouvé' });
+    data.articles.splice(idx, 1);
+    saveRevueDataFile(data);
+    res.json({ success: true });
+});
+
+app.put('/api/revue/tour-horizon', (req, res) => {
+    const { titre, lead, corps } = req.body;
+    if (!titre || !lead || !Array.isArray(corps)) return res.status(400).json({ error: 'titre, lead et corps (tableau) requis' });
+    const data = loadRevueDataFile();
+    data.syntheseArticle = {
+        titre,
+        dateline: (data.syntheseArticle && data.syntheseArticle.dateline) || `Alger, ${new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })} (Algeria Tech)`,
+        lead,
+        corpsHtml: corps.filter(p => p && p.trim()).map(p => `<p>${p}</p>`)
+    };
+    saveRevueDataFile(data);
+    res.json({ success: true });
+});
+
 // ── Cotation Officielle Banque d'Algérie — Scraper PDF ───────────────────────
 // URL pattern : https://www.bank-of-algeria.dz/stoodroa/{YYYY}/{MM}/cotation-commerciale-{N}.pdf
 // N est un compteur mensuel (jours ouvrables). On tente N+1, N+2 puis recule si besoin.

@@ -1455,6 +1455,7 @@ function renderRevueCards() {
                             onclick="setRevueFilter('${f.key}')">${f.label}</button>
                 `).join('')}
             </div>
+            ${isAdminUnlocked() ? `<button class="revue-add-btn" onclick="openRevueAddModal()" title="Ajouter un article manuellement"><i class="fas fa-plus"></i></button>` : ''}
         </div>`;
 
     const syntheseHtml = `
@@ -1463,9 +1464,20 @@ function renderRevueCards() {
             <p class="revue-synthese-text">${_revueData.synthese}</p>
         </div>`;
 
+    const syntheseArticleHtml = _revueData.syntheseArticle ? `
+        <div class="revue-article-du-jour" onclick="openRevueArticle()">
+            <div class="revue-article-du-jour-icon"><i class="fas fa-newspaper"></i></div>
+            <div class="revue-article-du-jour-text">
+                <span class="revue-article-du-jour-label">Tour d'horizon (${_revueData.articles.length} articles)</span>
+                <span class="revue-article-du-jour-titre">${_revueData.syntheseArticle.titre}</span>
+            </div>
+            <span class="revue-article-du-jour-cta">Lire l'article complet <i class="fas fa-arrow-down"></i></span>
+        </div>` : '';
+
     const uneHtml = une ? `
         <div class="revue-une" style="--revue-glow:${glowByCategorie(une.categorie)}">
             <div class="revue-card-shine"></div>
+            ${isAdminUnlocked() ? `<button class="revue-delete-btn" onclick="event.stopPropagation();deleteRevueArticle(${_revueData.articles.indexOf(une)})" title="Supprimer cet article"><i class="fas fa-trash"></i></button>` : ''}
             <div class="revue-une-left">
                 <span class="revue-une-cat">${une.categorie}</span>
                 <a href="${une.url}" target="_blank" rel="noopener" class="revue-une-title-link">
@@ -1491,6 +1503,7 @@ function renderRevueCards() {
             ${rest.map(a => `
                 <div class="revue-card-journal" style="--revue-glow:${glowByCategorie(a.categorie)}">
                     <div class="revue-card-shine"></div>
+                    ${isAdminUnlocked() ? `<button class="revue-delete-btn" onclick="event.stopPropagation();deleteRevueArticle(${_revueData.articles.indexOf(a)})" title="Supprimer cet article"><i class="fas fa-trash"></i></button>` : ''}
                     <span class="revue-card-cat ${catSlug(a.categorie)}">${a.categorie}</span>
                     <a href="${a.url}" target="_blank" rel="noopener" class="revue-card-title-link">
                         <h3 class="revue-card-title-journal">${a.titre}</h3>
@@ -1524,11 +1537,220 @@ function renderRevueCards() {
             </div>
         </div>`;
 
-    container.innerHTML = mastheadHtml + toolbarHtml + syntheseHtml + (showArchives ? archiveHtml : uneHtml + gridHtml) + footerHtml;
+    container.innerHTML = mastheadHtml + toolbarHtml + syntheseHtml + syntheseArticleHtml + (showArchives ? archiveHtml : uneHtml + gridHtml) + footerHtml;
 
     // Activer le moteur de lévitation 3D après chaque rendu
     initRevueTilt3D();
 }
+
+function _stripTags(html) { return (html || '').replace(/<[^>]+>/g, ''); }
+
+function _revueReadingTime(art) {
+    const words = (_stripTags(art.lead) + ' ' + (art.corpsHtml || []).map(_stripTags).join(' ')).trim().split(/\s+/).filter(Boolean).length;
+    return Math.max(1, Math.ceil(words / 200));
+}
+
+function _revueViewsKey() { return 'tourHorizonViews_' + (_revueData.date || 'default'); }
+function _revueIncrementViews() {
+    const k = _revueViewsKey();
+    const v = parseInt(localStorage.getItem(k) || '0', 10) + 1;
+    localStorage.setItem(k, v);
+    return v;
+}
+function _revueGetViews() { return parseInt(localStorage.getItem(_revueViewsKey()) || '0', 10); }
+
+let _tourHorizonEditing = false;
+let _tourHorizonUtterance = null;
+
+function renderRevueArticleBody() {
+    const art = _revueData && _revueData.syntheseArticle;
+    const body = document.getElementById('revueArticleBody');
+    if (!art || !body) return;
+
+    if (_tourHorizonEditing) {
+        body.innerHTML = `
+            <h2 class="revue-article-full-titre">Modifier le Tour d'horizon</h2>
+            <div class="form-group"><label>Titre</label><input type="text" id="revueEditTitre" value="${(art.titre || '').replace(/"/g, '&quot;')}"></div>
+            <div class="form-group"><label>Lead</label><textarea id="revueEditLead" rows="3">${_stripTags(art.lead)}</textarea></div>
+            <div class="form-group"><label>Paragraphes</label>
+                <div id="revueEditParagraphs">
+                    ${(art.corpsHtml || []).map(p => `
+                        <div class="revue-edit-para-row">
+                            <textarea class="revue-edit-para" rows="3">${p.replace(/^<p>|<\/p>$/g, '')}</textarea>
+                            <button type="button" class="revue-para-del" onclick="this.parentElement.remove()" title="Supprimer ce paragraphe"><i class="fas fa-trash"></i></button>
+                        </div>`).join('')}
+                </div>
+                <button type="button" class="revue-para-add" onclick="addRevueParagraphField()"><i class="fas fa-plus"></i> Ajouter un paragraphe</button>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn-secondary" onclick="cancelRevueEditMode()">Annuler</button>
+                <button type="button" class="btn-primary" onclick="saveRevueEdit()"><i class="fas fa-check"></i> Enregistrer</button>
+            </div>
+        `;
+        return;
+    }
+
+    const heure = _revueData.lastUpdated ? new Date(_revueData.lastUpdated).toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }) : '';
+    const readingTime = _revueReadingTime(art);
+    const views = _revueGetViews();
+
+    body.innerHTML = `
+        ${isAdminUnlocked() ? `<div class="revue-article-admin-bar">
+            <button class="revue-edit-btn" onclick="enterRevueEditMode()" title="Modifier le Tour d'horizon"><i class="fas fa-pencil-alt"></i> Modifier</button>
+        </div>` : ''}
+        <h2 class="revue-article-full-titre">${art.titre || ''}</h2>
+        <div class="revue-article-full-meta">
+            <span><i class="far fa-clock"></i> ${heure}</span>
+            <span><i class="fas fa-book-open"></i> ${readingTime} min</span>
+            <span><i class="far fa-eye"></i> ${views} vue${views > 1 ? 's' : ''}</span>
+        </div>
+        <div class="revue-article-full-actions">
+            <button class="meta-audio-btn" id="revueArticleListenBtn" onclick="toggleTourHorizonAudio()"><i class="fas fa-headphones"></i> Écouter l'article</button>
+            <button class="debat-btn" id="revueArticleExplainBtn" onclick="explainTourHorizon()"><i class="fas fa-bolt"></i> Expliquer l'article par l'IA</button>
+        </div>
+        <div id="revueArticleExplainBox"></div>
+        <p class="revue-article-full-lead">${art.dateline ? `<strong class="revue-article-full-dateline">${art.dateline}</strong>- ` : ''}${art.lead || ''}</p>
+        <div class="revue-article-full-corps">${(art.corpsHtml || []).join('')}</div>
+        <div class="share-buttons">
+            <button class="share-btn facebook" onclick="share('facebook')"><i class="fab fa-facebook-f"></i> Facebook</button>
+            <button class="share-btn twitter" onclick="share('twitter')"><i class="fab fa-twitter"></i> Twitter</button>
+            <button class="share-btn whatsapp" onclick="share('whatsapp')"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+            <button class="share-btn linkedin" onclick="share('linkedin')"><i class="fab fa-linkedin-in"></i> LinkedIn</button>
+            <button class="share-btn copy" onclick="copyLink()"><i class="fas fa-link"></i> Copier</button>
+        </div>
+    `;
+}
+
+function openRevueArticle() {
+    const art = _revueData && _revueData.syntheseArticle;
+    const modal = document.getElementById('revueArticleModal');
+    if (!art || !modal) return;
+    _tourHorizonEditing = false;
+    _revueIncrementViews();
+    renderRevueArticleBody();
+    modal.classList.add('show');
+}
+
+function closeRevueArticle() {
+    if (typeof speechSynthesis !== 'undefined') speechSynthesis.cancel();
+    _tourHorizonUtterance = null;
+    _tourHorizonEditing = false;
+    const modal = document.getElementById('revueArticleModal');
+    if (modal) modal.classList.remove('show');
+}
+
+function toggleTourHorizonAudio() {
+    const btn = document.getElementById('revueArticleListenBtn');
+    if (speechSynthesis.speaking) {
+        speechSynthesis.cancel();
+        _tourHorizonUtterance = null;
+        if (btn) btn.innerHTML = '<i class="fas fa-headphones"></i> Écouter l\'article';
+        return;
+    }
+    const art = _revueData.syntheseArticle;
+    const text = art.titre + '. ' + _stripTags(art.lead) + ' ' + (art.corpsHtml || []).map(_stripTags).join(' ');
+    _tourHorizonUtterance = new SpeechSynthesisUtterance(text);
+    _tourHorizonUtterance.lang = 'fr-FR';
+    _tourHorizonUtterance.onend = () => { _tourHorizonUtterance = null; if (btn) btn.innerHTML = '<i class="fas fa-headphones"></i> Écouter l\'article'; };
+    speechSynthesis.speak(_tourHorizonUtterance);
+    if (btn) btn.innerHTML = '<i class="fas fa-pause"></i> Mettre en pause';
+}
+
+window.explainTourHorizon = async function () {
+    const art = _revueData && _revueData.syntheseArticle;
+    const btn = document.getElementById('revueArticleExplainBtn');
+    const box = document.getElementById('revueArticleExplainBox');
+    if (!art || !btn || !box || btn.dataset.loading) return;
+    if (box.classList.contains('synthese-visible')) { box.classList.remove('synthese-visible'); box.innerHTML = ''; return; }
+    btn.dataset.loading = '1';
+    const orig = btn.innerHTML;
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Analyse en cours…';
+    btn.disabled = true;
+    try {
+        const contenu = _stripTags(art.lead) + ' ' + (art.corpsHtml || []).map(_stripTags).join(' ');
+        const r = await fetch(`${API_BASE}/api/synthese`, {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ titre: art.titre, contenu, lang: 'fr' }),
+            signal: AbortSignal.timeout(25000)
+        });
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        const data = await r.json();
+        if (data.error) throw new Error(data.error);
+        _renderSynthese(box, data, false);
+    } catch (e) {
+        box.innerHTML = '<div class="synthese-inner"><p class="synthese-error">Erreur — réessayez</p></div>';
+        box.classList.add('synthese-visible');
+        setTimeout(() => { box.classList.remove('synthese-visible'); box.innerHTML = ''; }, 4000);
+    } finally {
+        delete btn.dataset.loading; btn.disabled = false; btn.innerHTML = orig;
+    }
+};
+
+// ── Édition manuelle du Tour d'horizon (admin local uniquement) ───
+function enterRevueEditMode() { _tourHorizonEditing = true; renderRevueArticleBody(); }
+function cancelRevueEditMode() { _tourHorizonEditing = false; renderRevueArticleBody(); }
+
+window.addRevueParagraphField = function () {
+    const wrap = document.getElementById('revueEditParagraphs');
+    if (!wrap) return;
+    const row = document.createElement('div');
+    row.className = 'revue-edit-para-row';
+    row.innerHTML = `<textarea class="revue-edit-para" rows="3"></textarea><button type="button" class="revue-para-del" onclick="this.parentElement.remove()" title="Supprimer ce paragraphe"><i class="fas fa-trash"></i></button>`;
+    wrap.appendChild(row);
+};
+
+window.saveRevueEdit = async function () {
+    const titre = document.getElementById('revueEditTitre').value.trim();
+    const lead = document.getElementById('revueEditLead').value.trim();
+    const corps = Array.from(document.querySelectorAll('.revue-edit-para')).map(t => t.value.trim()).filter(Boolean);
+    if (!titre || !lead) { showToast('❌ Titre et lead requis'); return; }
+    try {
+        const res = await fetch(`${API_BASE}/api/revue/tour-horizon`, {
+            method: 'PUT', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ titre, lead, corps })
+        });
+        if (res.ok) {
+            showToast('✅ Tour d\'horizon mis à jour !');
+            _tourHorizonEditing = false;
+            await loadRevue();
+            openRevueArticle();
+        } else { showToast('❌ Erreur serveur'); }
+    } catch (e) { showToast('❌ Erreur réseau'); }
+};
+
+// ── Ajout / suppression manuelle d'articles de la revue (admin local) ──
+window.openRevueAddModal = function () {
+    document.getElementById('revueAddForm').reset();
+    document.getElementById('revueAddModal').classList.add('show');
+};
+window.closeRevueAddModal = () => document.getElementById('revueAddModal').classList.remove('show');
+
+window.handleRevueAddSubmit = async function (e) {
+    e.preventDefault();
+    const titre = document.getElementById('revueAddTitre').value;
+    const url = document.getElementById('revueAddUrl').value;
+    const source = document.getElementById('revueAddSource').value;
+    const categorie = document.getElementById('revueAddCategorie').value;
+    const pays = document.getElementById('revueAddPays').value;
+    try {
+        const res = await fetch(`${API_BASE}/api/revue/article`, {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ titre, url, source, categorie, pays })
+        });
+        if (res.ok) { showToast('✅ Article ajouté !'); closeRevueAddModal(); loadRevue(); }
+        else { showToast('❌ Erreur serveur'); }
+    } catch (err) { showToast('❌ Erreur réseau'); }
+};
+
+window.deleteRevueArticle = async function (index) {
+    if (index == null || index < 0) return;
+    if (!confirm('Supprimer définitivement cet article de la revue de presse ?')) return;
+    try {
+        const res = await fetch(`${API_BASE}/api/revue/article/${index}`, { method: 'DELETE' });
+        if (res.ok) { showToast('✅ Supprimé !'); loadRevue(); }
+        else { showToast('❌ Erreur serveur'); }
+    } catch (e) { showToast('❌ Erreur réseau'); }
+};
 
 // ── Couleur de lueur par catégorie ────────────────────────────────
 function glowByCategorie(cat) {
@@ -2193,7 +2415,7 @@ window.previewImage = function(e) {
 
 window.share = (p) => {
     const u = encodeURIComponent(window.location.href); const t = encodeURIComponent(document.title);
-    const urls = { facebook: `https://www.facebook.com/sharer/sharer.php?u=${u}`, twitter: `https://twitter.com/intent/tweet?text=${t}&url=${u}`, whatsapp: `https://wa.me/?text=${t}%20${u}` };
+    const urls = { facebook: `https://www.facebook.com/sharer/sharer.php?u=${u}`, twitter: `https://twitter.com/intent/tweet?text=${t}&url=${u}`, whatsapp: `https://wa.me/?text=${t}%20${u}`, linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${u}` };
     if(urls[p]) window.open(urls[p], '_blank');
 };
 

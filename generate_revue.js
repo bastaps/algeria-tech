@@ -137,22 +137,47 @@ STYLE APS OBLIGATOIRE :
 1. Sélectionne les 12 articles les plus factuellement importants (impact institutionnel, chiffres, décisions officielles).
 2. Pour chaque article : accroche style APS (max 18 mots) + catégorie (Télécoms, IA, Startups, Mobile, Cybersécurité, Réseaux, Innovation).
 3. Synthèse globale : 2 phrases APS — faits du jour, sans opinion.
+4. Article de synthèse complet, façon dépêche APS, qui couvre les 12 articles sélectionnés avec des transitions fluides (pas une liste à puces) :
+   - "titre" : titre factuel et percutant résumant la tendance principale.
+   - "lead" : un paragraphe qui répond à qui/quoi/où/quand/pourquoi.
+   - "corps" : un tableau de 3 à 6 paragraphes rédigés qui reprennent TOUS les 12 articles, avec citation systématique de la source. Pour chaque mention de source, encadre EXACTEMENT le nom du site avec des doubles astérisques, ex: "Selon **Algérie Éco**, ..." ou "d'après **Silicon.fr**". Le nom entre astérisques doit correspondre EXACTEMENT au champ "s" de l'article cité dans Data.
 
 Data:${JSON.stringify(input)}
-Réponds EXCLUSIVEMENT en JSON pur: {"synthese":"...", "selected":[{"i":0, "accroche":"...", "categorie":"..."}]}`;
+Réponds EXCLUSIVEMENT en JSON pur: {"synthese":"...", "selected":[{"i":0, "accroche":"...", "categorie":"..."}], "article":{"titre":"...", "lead":"...", "corps":["...", "..."]}}`;
 
     const response = await callMistral(prompt);
     const aiResult = JSON.parse(response.choices[0].message.content);
-    
+
     const finalArticles = aiResult.selected.map(sel => {
         const orig = rawArticles[sel.i];
         return orig ? { ...orig, accroche: sel.accroche, categorie: sel.categorie } : null;
     }).filter(Boolean);
 
+    // Article de synthèse quotidien (style APS) — lie chaque **Nom de site** vers l'URL réelle de l'article cité
+    const sourceQueues = {};
+    finalArticles.forEach(a => { (sourceQueues[a.source] = sourceQueues[a.source] || []).push(a.url); });
+    function linkifySources(text) {
+        return text.replace(/\*\*([^*]+)\*\*/g, (match, name) => {
+            const queue = sourceQueues[name];
+            if (queue && queue.length) {
+                const url = queue.shift();
+                return `<a href="${url}" target="_blank" rel="noopener" class="revue-article-source-link">${name}</a>`;
+            }
+            return name;
+        });
+    }
+    const syntheseArticle = aiResult.article ? {
+        titre: aiResult.article.titre,
+        dateline: `Alger, ${new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })} (Algeria Tech)`,
+        lead: linkifySources(aiResult.article.lead || ''),
+        corpsHtml: (aiResult.article.corps || []).map(p => `<p>${linkifySources(p)}</p>`)
+    } : null;
+
     return {
         date: new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' }),
         synthese: aiResult.synthese,
         articles: finalArticles,
+        syntheseArticle,
         lastUpdated: new Date().toISOString()
     };
 }
