@@ -1,84 +1,76 @@
 {
-  "generated": "2026-07-06T10:14:13.142Z",
+  "generated": "2026-07-13T09:21:00.718Z",
   "mode": "weekly",
-  "period": "2026-W28",
-  "period_label": "Semaine du 6 au 12 Juillet 2026",
+  "period": "2026-W29",
+  "period_label": "Semaine du 13 au 19 Juillet 2026",
   "stats": {
-    "articles_total": 309,
-    "veille_articles": 104,
-    "social_posts": 201,
-    "presse_articles": 4,
-    "sources_count": 20
+    "articles_total": 412,
+    "veille_articles": 150,
+    "social_posts": 250,
+    "presse_articles": 12,
+    "sources_count": 32
   },
   "top_topics": [
     {
       "key": "Intelligence Artificielle",
       "emoji": "🤖",
-      "count": 57,
-      "prev_count": 74,
-      "trend": -17,
-      "trend_pct": -23
+      "count": 50,
+      "prev_count": 57,
+      "trend": -7,
+      "trend_pct": -12
+    },
+    {
+      "key": "Operateurs & Telecom",
+      "emoji": "📶",
+      "count": 29,
+      "prev_count": 10,
+      "trend": 19,
+      "trend_pct": 190
     },
     {
       "key": "Formation & Emploi TIC",
       "emoji": "🎓",
-      "count": 16,
-      "prev_count": 10,
-      "trend": 6,
-      "trend_pct": 60
-    },
-    {
-      "key": "5G & Reseaux Mobiles",
-      "emoji": "📡",
-      "count": 13,
-      "prev_count": 14,
-      "trend": -1,
-      "trend_pct": -7
-    },
-    {
-      "key": "Cloud & Data Center",
-      "emoji": "☁️",
       "count": 13,
       "prev_count": 16,
       "trend": -3,
       "trend_pct": -19
     },
     {
+      "key": "5G & Reseaux Mobiles",
+      "emoji": "📡",
+      "count": 11,
+      "prev_count": 13,
+      "trend": -2,
+      "trend_pct": -15
+    },
+    {
       "key": "Cybersecurite",
       "emoji": "🔒",
       "count": 11,
-      "prev_count": 14,
-      "trend": -3,
-      "trend_pct": -21
+      "prev_count": 11,
+      "trend": 0,
+      "trend_pct": 0
     },
     {
-      "key": "Operateurs & Telecom",
-      "emoji": "📶",
+      "key": "Cloud & Data Center",
+      "emoji": "☁️",
       "count": 10,
-      "prev_count": 17,
-      "trend": -7,
-      "trend_pct": -41
+      "prev_count": 13,
+      "trend": -3,
+      "trend_pct": -23
     },
     {
       "key": "Startups & Innovation",
       "emoji": "🚀",
       "count": 8,
-      "prev_count": 17,
-      "trend": -9,
-      "trend_pct": -53
+      "prev_count": 8,
+      "trend": 0,
+      "trend_pct": 0
     },
     {
-      "key": "E-commerce & Paiement",
-      "emoji": "🛒",
-      "count": 4,
-      "prev_count": 2,
-      "trend": 2,
-      "trend_pct": 100
-    },
-    {
-      "key": "Satellite & Spatial",
-      "emoji": "🛰️",
-      "count": 4,
+      "key": "Fibre Optique",
+      "emoji": "🔌",
+      "count": 5,
       "prev_count": null,
       "trend": null,
       "trend_pct": null
@@ -86,36 +78,44 @@
     {
       "key": "Regulation & Politique",
       "emoji": "⚖️",
-      "count": 3,
+      "count": 4,
       "prev_count": 3,
-      "trend": 0,
-      "trend_pct": 0
+      "trend": 1,
+      "trend_pct": 33
+    },
+    {
+      "key": "E-commerce & Paiement",
+      "emoji": "🛒",
+      "count": 1,
+      "prev_count": 4,
+      "trend": -3,
+      "trend_pct": -75
     }
   ],
   "sentiment": {
-    "positive": 54,
-    "negative": 9,
-    "neutral": 246,
-    "positive_pct": 17,
-    "negative_pct": 3,
-    "neutral_pct": 80
+    "positive": 81,
+    "negative": 17,
+    "neutral": 314,
+    "positive_pct": 20,
+    "negative_pct": 4,
+    "neutral_pct": 76
   },
   "top_sources": [
     {
       "source": "TechCrunch",
-      "count": 92
-    },
-    {
-      "source": "ZDNet France",
-      "count": 45
-    },
-    {
-      "source": "Algérie Éco",
-      "count": 42
+      "count": 99
     },
     {
       "source": "Wired",
-      "count": 38
+      "count": 68
+    },
+    {
+      "source": "Algérie Éco",
+      "count": 51
+    },
+    {
+      "source": "ZDNet France",
+      "count": 34
     },
     {
       "source": "Le Monde Pixels",
@@ -123,13 +123,13 @@
     }
   ],
   "highlights": [
-    "\"Intelligence Artificielle\" est le sujet dominant cette semaine avec 57 occurrences dans les publications.",
-    "\"Formation & Emploi TIC\" en forte hausse : +60% par rapport a la semaine precedente.",
-    "\"Intelligence Artificielle\" en recul : -23% par rapport a la semaine precedente.",
-    "Sentiment equilibre cette semaine : 17% positif, 3% negatif sur 309 publications."
+    "\"Intelligence Artificielle\" est le sujet dominant cette semaine avec 50 occurrences dans les publications.",
+    "\"Operateurs & Telecom\" en forte hausse : +190% par rapport a la semaine precedente.",
+    "\"Cloud & Data Center\" en recul : -23% par rapport a la semaine precedente.",
+    "Sentiment equilibre cette semaine : 20% positif, 4% negatif sur 412 publications."
   ],
   "previous_period": {
-    "period": "2026-W27",
-    "period_label": "Semaine du 29 Juin au 5 Juillet 2026"
+    "period": "2026-W28",
+    "period_label": "Semaine du 6 au 12 Juillet 2026"
   }
 }
