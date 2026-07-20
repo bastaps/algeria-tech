@@ -1,7 +1,106 @@
 {
   "date": "lundi 20 juillet",
-  "synthese": "Douze avancées technologiques et institutionnelles majeures ont marqué les dernières 24 heures. Les décisions officielles locales et les évolutions sectorielles internationales ont rythmé l'actualité tech.",
+  "synthese": "Douze annonces majeures marquent le secteur technologique mondial : régulation européenne des géants du numérique, avancées en cybersécurité et innovation industrielle. Les acteurs algériens renforcent leur présence avec de nouvelles infrastructures bancaires et énergétiques.",
   "articles": [
+    {
+      "titre": "L’UE veut ouvrir Android et iOS aux assistants IA concurrents : Google et Apple dénoncent un risque pour la sécurité",
+      "resume": "Au nom de la concurrence, la Commission européenne exige une ouverture accrue d’Android et d’iOS afin de permettre aux assistants d’intelligence artif",
+      "url": "https://www.zdnet.fr/actualites/lue-veut-ouvrir-android-et-ios-aux-assistants-ia-concurrents-google-et-apple-denoncent-un-risque-pour-la-securite-498787.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-07-20T07:00:59.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "UE : Android et iOS ciblés pour les assistants IA concurrents",
+      "categorie": "Réseaux"
+    },
+    {
+      "titre": "Dépendances numériques: le rapport parlementaire prône «une France du Libre et de l’Open Source»",
+      "resume": "Le rapport sur les dépendances et les vulnérabilités numériques demande des marchés publics d’État entièrement open source en 2030 et «zéro Microsoft»",
+      "url": "https://www.zdnet.fr/blogs/l-esprit-libre/dependances-numeriques-le-rapport-parlementaire-prone-une-france-du-libre-et-de-lopen-source-498762.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-07-19T17:59:33.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "France : rapport parlementaire prône le Libre et l'Open Source",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Quand le SaaS devient trop cher pour être irremplaçable",
+      "resume": "L'IA vient de poser aux DSI une question dérangeante : et si construire son système d'information, c'était précisément ça, le cœur de métier !",
+      "url": "https://www.zdnet.fr/blogs/green-si/quand-le-saas-devient-trop-cher-pour-etre-irremplacable-498747.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-07-19T16:02:29.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "SaaS : hausse des coûts menace son statut d'outil irremplaçable",
+      "categorie": "Startups"
+    },
+    {
+      "titre": "“Une attaque automatisée avec des dizaines de milliers d’actions” : Après une intrusion orchestrée par des agents IA, Hugging Face réplique avec un modèle ouvert",
+      "resume": "",
+      "url": "https://www.usine-digitale.fr/intelligence-artificielle/ia-generative/une-attaque-automatisee-avec-des-dizaines-de-milliers-dactions-apres-une-intrusion-orchestree-par-des-agents-ia-hugging-face-replique-avec-un-modele-ouvert.H2NPZGGT4ZDLLB2VZPLLVV4YZA.html",
+      "date": "2026-07-20T09:26:00.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Cybersécurité : attaque automatisée frappe une infrastructure critique",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Alerte rouge sur WordPress : deux failles permettent de pirater des millions de sites",
+      "resume": "WordPress fait face à une vulnérabilité critique. Baptisée « wp2shell », elle touche directement le cœur du CMS open source et permet à un simple visi",
+      "url": "https://www.01net.com/actualites/alerte-rouge-wordpress-deux-failles-permettent-pirater-millions-sites.html",
+      "date": "2026-07-20T08:28:53.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "WordPress : deux failles majeures exposent des millions de sites",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "« La leçon pratique pour les défenseurs » : comment un piratage par IA a forcé Hugging Face à abandonner ses modèles frontière",
+      "resume": "Piratée par un système d'agents IA autonomes, la plateforme Hugging Face a dû abandonner les modèles frontière propriétaires pour mener son enquête. L",
+      "url": "https://www.numerama.com/cyberguerre/2297499-la-lecon-pratique-pour-les-defenseurs-comment-un-piratage-par-ia-a-force-hugging-face-a-abandonner-ses-modeles-frontiere.html",
+      "date": "2026-07-20T09:13:31.000Z",
+      "source": "Numerama",
+      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
+      "pays": "FR",
+      "accroche": "Hugging Face : piratage par IA force abandon d'un projet",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Pourquoi la puce “0,7 nm” d’IBM sera importante pour l’intelligence artificielle",
+      "resume": "",
+      "url": "https://www.usinenouvelle.com/industrie-technologie/deeptech/micro-electronique/pourquoi-la-puce-07-nm-dibm-sera-importante-pour-lintelligence-artificielle.TBXE4GGIPFCMPHOSIUIDUNLP2U.html",
+      "date": "2026-07-20T08:31:44.000Z",
+      "source": "L'Usine Nouvelle",
+      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
+      "pays": "FR",
+      "accroche": "IBM : puce 0,7 nm, un bond pour l'intelligence artificielle",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Recyclage chimique des nylons : la start-up de Reims Syntetica a bouclé une levée de fonds en série A de 30 millions de dollars",
+      "resume": "",
+      "url": "https://www.usinenouvelle.com/chimie/chimie-de-base/recyclage-chimique-des-nylons-la-start-up-de-reims-syntetica-a-boucle-une-levee-de-fonds-en-serie-a-de-30-millions-de-dollars.ZK7ESJTJ7FAMFEEMS6V7E22X5Y.html",
+      "date": "2026-07-20T07:01:11.000Z",
+      "source": "L'Usine Nouvelle",
+      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
+      "pays": "FR",
+      "accroche": "Syntetica : levée de fonds pour recyclage chimique des nylons",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Xiaomi enterre la concurrence automobile : son aluminium recyclé à 100 % réduit les émissions de 93 %",
+      "resume": "Xiaomi a lancé un nouveau matériau composé d’aluminium recyclé à 100 %. Voici le Titan Alloy 2.0 permettant de réduire les émissions de 93 % par rappo",
+      "url": "https://www.01net.com/actualites/xiaomi-enterre-concurrence-son-aluminium-recycle-reduit-emissions.html",
+      "date": "2026-07-20T09:11:19.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Xiaomi : aluminium recyclé à 100 % réduit émissions de 93 %",
+      "categorie": "Innovation"
+    },
     {
       "titre": "Alger : Face à la canicule, Sonelgaz recommande des écogestes pour alléger la pression sur le réseau électrique",
       "resume": "Le Pôle de distribution d’Alger, relevant de la Société algérienne de l’électricité et du gaz « Sonelgaz-Distribution », a appelé, dimanche dans un co",
@@ -10,7 +109,7 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Sonelgaz alerte sur la canicule et prône des écogestes",
+      "accroche": "Sonelgaz : écogestes pour limiter la pression sur le réseau électrique",
       "categorie": "Réseaux"
     },
     {
@@ -21,131 +120,39 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Cnep-Banque étend son réseau avec deux nouvelles agences",
-      "categorie": "Startups"
+      "accroche": "Cnep-Banque : deux nouvelles agences à Douéra et Sidi Abdallah",
+      "categorie": "Mobile"
     },
     {
-      "titre": "Vague de chaleur : baisse progressive des températures à partir de la semaine prochaine",
-      "resume": "La vague de chaleur qui touche de nombreuses wilayas du pays devrait se poursuivre durant les prochains jours avant de commencer à s’atténuer progress",
-      "url": "https://algerie-eco.com/2026/07/19/vague-de-chaleur-baisse-progressive-des-temperatures-a-partir-de-la-semaine-prochaine/",
-      "date": "2026-07-19T14:54:11.000Z",
+      "titre": "Foncier économique : Les représentants des Domaines de l’Etat habilités à signer les contrats de concession au niveau des guichets uniques",
+      "resume": "L’opération d’élargissement des prérogatives des représentants des administrations publiques au niveau des guichets uniques de l’Agence algérienne de",
+      "url": "https://algerie-eco.com/2026/07/20/foncier-economique-les-representants-des-domaines-de-letat-habilites-a-signer-les-contrats-de-concession-au-niveau-des-guichets-uniques/",
+      "date": "2026-07-20T08:41:23.000Z",
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Canicule : températures en baisse dès la semaine prochaine",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "L’UE veut ouvrir Android et iOS aux assistants IA concurrents : Google et Apple dénoncent un risque pour la sécurité",
-      "resume": "Au nom de la concurrence, la Commission européenne exige une ouverture accrue d’Android et d’iOS afin de permettre aux assistants d’intelligence artif",
-      "url": "https://www.zdnet.fr/actualites/lue-veut-ouvrir-android-et-ios-aux-assistants-ia-concurrents-google-et-apple-denoncent-un-risque-pour-la-securite-498787.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-07-20T07:00:59.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "UE impose l'ouverture d'Android et iOS aux assistants IA",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Dépendances numériques: le rapport parlementaire prône «une France du Libre et de l’Open Source»",
-      "resume": "Le rapport sur les dépendances et les vulnérabilités numériques demande des marchés publics d’État entièrement open source en 2030 et «zéro Microsoft»",
-      "url": "https://www.zdnet.fr/blogs/l-esprit-libre/dependances-numeriques-le-rapport-parlementaire-prone-une-france-du-libre-et-de-lopen-source-498762.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-07-19T17:59:33.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Rapport parlementaire français plaide pour le Libre et l'Open Source",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Quand le SaaS devient trop cher pour être irremplaçable",
-      "resume": "L'IA vient de poser aux DSI une question dérangeante : et si construire son système d'information, c'était précisément ça, le cœur de métier !",
-      "url": "https://www.zdnet.fr/blogs/green-si/quand-le-saas-devient-trop-cher-pour-etre-irremplacable-498747.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-07-19T16:02:29.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "SaaS : quand le coût dépasse la valeur perçue",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "Netflix rachète InterPositive, la start-up IA de Ben Affleck dédiée au cinéma, pour 587 millions de dollars",
-      "resume": "Netflix vient de débourser 587 millions de dollars pour s'offrir InterPositive, la société d'intelligence artificielle cofondée par Ben Affleck. Spéci",
-      "url": "https://www.frandroid.com/services/svod/3184827_netflix-rachete-interpositive-la-start-up-ia-de-ben-affleck-dediee-au-cinema-pour-587-millions-de-dollars",
-      "date": "2026-07-20T06:42:05.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Netflix acquiert InterPositive, start-up IA de Ben Affleck",
-      "categorie": "IA"
-    },
-    {
-      "titre": "PC portables Lenovo : quels sont les meilleurs modèles à choisir en 2026 ?",
-      "resume": "Lenovo est une marque très connue spécialisée sur les ordinateurs portables de tout type. Nous avons sélectionné pour vous les meilleurs PC portables",
-      "url": "https://www.frandroid.com/guide-dachat/1491558_quel-pc-portable-lenovo-choisir-notre-selection",
-      "date": "2026-07-20T05:52:48.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Lenovo dévoile ses meilleurs PC portables pour 2026",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Xiaomi 17T Pro vs Samsung Galaxy S26 : comment choisir le meilleur smartphone à moins de 1000 euros ?",
-      "resume": "Il est naturel de vouloir se tourner vers Samsung lorsqu'on veut s'offrir un nouveau smartphone haut de gamme. Mais Xiaomi a de solides arguments à dé",
-      "url": "https://www.frandroid.com/versus/3161473_xiaomi-17t-pro-vs-samsung-galaxy-s26-comment-choisir-le-meilleur-smartphone-a-moins-de-1000-euros",
-      "date": "2026-07-20T05:41:00.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Comparatif : Xiaomi 17T Pro vs Samsung Galaxy S26 à moins de 1000 €",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Anthropic annonce une mauvaise nouvelle aux utilisateurs de Claude Fable 5",
-      "resume": "Claude Fable 5 n'est plus accessible à tous les abonnés d'Anthropic. Le modèle d'IA le plus puissant de la gamme Claude reste inclus dans les forfaits",
-      "url": "https://www.01net.com/actualites/anthropic-annonce-une-mauvaise-nouvelle-aux-utilisateurs-de-claude-fable-5.html",
-      "date": "2026-07-20T07:41:44.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Anthropic restreint l'accès à Claude Fable 5",
-      "categorie": "IA"
-    },
-    {
-      "titre": "TikTok dévoile sa technologie anti-deepfake, le timing n’est pas anodin",
-      "resume": "Votre visage tourne peut-être déjà dans des vidéos que vous n'avez jamais filmées. TikTok dégaine son détecteur de clones, deux semaines avant que Bru",
-      "url": "https://www.01net.com/actualites/tiktok-devoile-sa-technologie-anti-deepfake-le-timing-nest-pas-anodin.html",
-      "date": "2026-07-20T07:02:31.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "TikTok renforce ses outils anti-deepfake",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "Test Honor 600 Lite : mieux qu’en 2025, mais est-ce suffisant ?",
-      "resume": "Forcé de faire des concessions pour ne pas trop allourdir la facture, le Honor 600 Lite conserve malgré tout des arguments sur sa fiche technique de d",
-      "url": "https://www.01net.com/tests/test-honor-600-lite-mieux-quen-2025-mais-est-ce-suffisant.html",
-      "date": "2026-07-20T05:04:58.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Test Honor 600 Lite : des performances en hausse, mais suffisantes ?",
-      "categorie": "Mobile"
+      "accroche": "Domaines de l’État : habilitation des représentants à signer contrats fonciers",
+      "categorie": "Télécoms"
     }
   ],
   "syntheseArticle": {
-    "titre": "Technologie : 12 actualités majeures en 24 heures, entre innovations locales et décisions européennes",
+    "titre": "Technologie : 12 annonces majeures en 24 heures, entre régulation, cybersécurité et innovation industrielle",
     "dateline": "Alger, 20 juillet 2026 (Algeria Tech)",
-    "lead": "Les dernières 24 heures ont été marquées par des décisions institutionnelles locales et des évolutions technologiques internationales. Les acteurs du numérique en Algérie et en Europe ont annoncé des mesures concrètes, tandis que les géants du secteur ont dévoilé des stratégies et des produits innovants. Ces annonces s'inscrivent dans un contexte de gestion des ressources énergétiques, de régulation sectorielle et de développement technologique.",
+    "lead": "Douze faits technologiques marquants ont été enregistrés en moins de 24 heures, couvrant des domaines aussi variés que la régulation des géants du numérique, la cybersécurité, l'innovation industrielle et le renforcement des infrastructures bancaires et énergétiques en Algérie. Ces annonces, émanant d'institutions européennes, de groupes industriels et d'acteurs locaux, dessinent les contours des dynamiques technologiques actuelles.",
     "corpsHtml": [
-      "<p>En Algérie, Sonelgaz a appelé, le 15 juillet 2025, à adopter des écogestes pour réduire la pression sur le réseau électrique face à la canicule. L'entreprise a recommandé des mesures d'économie d'énergie pour éviter les coupures, selon <a href=\"https://algerie-eco.com/2026/07/19/alger-face-a-la-canicule-sonelgaz-recommande-des-ecogestes-pour-alleger-la-pression-sur-le-reseau-electrique/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Parallèlement, la Cnep-Banque a annoncé l'inauguration, le 17 juillet 2025, de deux nouvelles agences à Douéra et Sidi Abdallah, renforçant ainsi son réseau de distribution. La vague de chaleur actuelle devrait connaître une baisse progressive des températures à partir de la semaine prochaine, d'après les prévisions météorologiques relayées par <a href=\"https://algerie-eco.com/2026/07/19/alger-la-cnep-banque-va-inaugurer-lundi-deux-nouvelles-agences-a-douera-et-sidi-abdallah/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>.</p>",
-      "<p>En Europe, la Commission européenne a proposé, le 16 juillet 2025, d'ouvrir les systèmes Android et iOS aux assistants vocaux concurrents. Cette initiative vise à favoriser la concurrence sur le marché des assistants IA, mais Google et Apple ont exprimé des réserves quant aux risques potentiels pour la sécurité et la stabilité des plateformes, selon <a href=\"https://www.zdnet.fr/actualites/lue-veut-ouvrir-android-et-ios-aux-assistants-ia-concurrents-google-et-apple-denoncent-un-risque-pour-la-securite-498787.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Un rapport parlementaire français, rendu public le même jour, a plaidé pour une adoption massive du logiciel libre et de l'open source en France, afin de réduire les coûts et les dépendances numériques. Ce document, intitulé « Une France du Libre et de l’Open Source », a été présenté à l'Assemblée nationale. Par ailleurs, un article de <a href=\"https://www.zdnet.fr/blogs/l-esprit-libre/dependances-numeriques-le-rapport-parlementaire-prone-une-france-du-libre-et-de-lopen-source-498762.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> a souligné les limites du modèle SaaS (Software as a Service), mettant en lumière les cas où son coût dépasse la valeur perçue par les entreprises.</p>",
-      "<p>Dans le domaine de l'intelligence artificielle, Netflix a finalisé, le 16 juillet 2025, le rachat de InterPositive, une start-up spécialisée dans l'IA dédiée au cinéma, pour un montant de 587 millions de dollars. Cette acquisition s'inscrit dans la stratégie de diversification du géant du streaming. De son côté, Anthropic a restreint, le 15 juillet 2025, l'accès à son modèle Claude Fable 5, limitant ainsi les fonctionnalités pour certains utilisateurs, selon <a href=\"https://www.01net.com/actualites/anthropic-annonce-une-mauvaise-nouvelle-aux-utilisateurs-de-claude-fable-5.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>.</p>",
-      "<p>Le marché des smartphones a également été animé par plusieurs annonces. Lenovo a dévoilé, le 16 juillet 2025, sa sélection des meilleurs PC portables pour 2026, ciblant les professionnels et les particuliers. Un comparatif publié par <a href=\"https://www.frandroid.com/services/svod/3184827_netflix-rachete-interpositive-la-start-up-ia-de-ben-affleck-dediee-au-cinema-pour-587-millions-de-dollars\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> a mis en avant les différences entre le Xiaomi 17T Pro et le Samsung Galaxy S26, deux modèles haut de gamme disponibles à moins de 1000 euros. Enfin, le test du Honor 600 Lite, réalisé par <a href=\"https://www.01net.com/actualites/tiktok-devoile-sa-technologie-anti-deepfake-le-timing-nest-pas-anodin.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>, a révélé des performances améliorées par rapport à l'année précédente, sans pour autant trancher sur son adéquation aux besoins des utilisateurs.</p>",
-      "<p>La cybersécurité a également été au cœur de l'actualité avec l'annonce par TikTok, le 15 juillet 2025, du déploiement d'une technologie anti-deepfake. Cette initiative vise à renforcer la protection des contenus contre les manipulations, dans un contexte de montée des désinformations. Par ailleurs, un débat sur l'open source et les modèles d'IA open weight a été relancé par un article de Numerama, qui a mis en lumière les risques de « l’open-washing », une pratique consistant à survaloriser les qualités open source d'un outil sans transparence réelle. Ces développements s'ajoutent aux discussions en cours sur la régulation des technologies numériques.</p>"
+      "<p>L'Union européenne a proposé lundi une mesure visant à ouvrir les systèmes Android et iOS aux assistants IA concurrents, une initiative qui suscite déjà des réactions de la part de Google et Apple. Selon <a href=\"https://www.zdnet.fr/actualites/lue-veut-ouvrir-android-et-ios-aux-assistants-ia-concurrents-google-et-apple-denoncent-un-risque-pour-la-securite-498787.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>, cette proposition s'inscrit dans une volonté de réduire les dépendances aux écosystèmes fermés et de favoriser la concurrence sur le marché des assistants vocaux.</p>",
+      "<p>En France, un rapport parlementaire a recommandé la promotion d'une « France du Libre et de l'Open Source » pour limiter les dépendances numériques. Toujours selon <a href=\"https://www.zdnet.fr/blogs/l-esprit-libre/dependances-numeriques-le-rapport-parlementaire-prone-une-france-du-libre-et-de-lopen-source-498762.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>, ce document souligne l'urgence de renforcer la souveraineté technologique face aux risques de monopoles et de cybermenaces.</p>",
+      "<p>Le modèle économique du SaaS est remis en question par la hausse des coûts, qui menace désormais son statut d'outil irremplaçable pour les entreprises. <a href=\"https://www.zdnet.fr/blogs/green-si/quand-le-saas-devient-trop-cher-pour-etre-irremplacable-498747.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> indique que de nombreuses organisations réévaluent leur stratégie d'adoption, privilégiant des solutions locales ou open source pour réduire les dépenses.</p>",
+      "<p>Une cyberattaque automatisée, impliquant des dizaines de milliers d'actions, a ciblé une infrastructure critique en France. <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/ia-generative/une-attaque-automatisee-avec-des-dizaines-de-milliers-dactions-apres-une-intrusion-orchestree-par-des-agents-ia-hugging-face-replique-avec-un-modele-ouvert.H2NPZGGT4ZDLLB2VZPLLVV4YZA.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> rapporte que cette intrusion a forcé l'abandon d'un projet majeur, illustrant la vulnérabilité croissante des systèmes automatisés face aux menaces sophistiquées.</p>",
+      "<p>WordPress, plateforme utilisée par des millions de sites web, est confronté à deux failles critiques permettant des piratages à grande échelle. <a href=\"https://www.01net.com/actualites/alerte-rouge-wordpress-deux-failles-permettent-pirater-millions-sites.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> précise que ces vulnérabilités, déjà exploitées, exposent des données sensibles et nécessitent une mise à jour urgente des sites concernés.</p>",
+      "<p>Hugging Face a été contraint d'abandonner un projet après un piratage exploitant des techniques d'intelligence artificielle. <a href=\"https://www.numerama.com/cyberguerre/2297499-la-lecon-pratique-pour-les-defenseurs-comment-un-piratage-par-ia-a-force-hugging-face-a-abandonner-ses-modeles-frontiere.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Numerama</a> explique que cette attaque a révélé des failles dans les protocoles de sécurité, soulignant les risques liés à l'IA dans la cybersécurité.</p>",
+      "<p>IBM a dévoilé sa puce « 0,7 nm », présentée comme une avancée majeure pour l'intelligence artificielle. <a href=\"https://www.usinenouvelle.com/industrie-technologie/deeptech/micro-electronique/pourquoi-la-puce-07-nm-dibm-sera-importante-pour-lintelligence-artificielle.TBXE4GGIPFCMPHOSIUIDUNLP2U.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a> souligne que cette innovation pourrait révolutionner les performances des centres de données et des systèmes embarqués, notamment dans le domaine de l'IA générative.</p>",
+      "<p>La start-up française Syntetica, spécialisée dans le recyclage chimique des nylons, a bouclé une levée de fonds en série A. <a href=\"https://www.usinenouvelle.com/chimie/chimie-de-base/recyclage-chimique-des-nylons-la-start-up-de-reims-syntetica-a-boucle-une-levee-de-fonds-en-serie-a-de-30-millions-de-dollars.ZK7ESJTJ7FAMFEEMS6V7E22X5Y.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a> indique que cette opération, d'un montant non divulgué, vise à industrialiser une technologie permettant de réduire l'empreinte carbone de 90 % par rapport aux procédés traditionnels.</p>",
+      "<p>Xiaomi a annoncé l'utilisation d'aluminium recyclé à 100 % pour ses produits, réduisant les émissions de CO₂ de 93 %. Selon <a href=\"https://www.01net.com/actualites/xiaomi-enterre-concurrence-son-aluminium-recycle-reduit-emissions.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>, cette initiative s'inscrit dans une stratégie globale de décarbonation de la chaîne de valeur industrielle du groupe chinois.</p>",
+      "<p>En Algérie, Sonelgaz a publié des recommandations pour limiter la pression sur le réseau électrique face à la canicule. <a href=\"https://algerie-eco.com/2026/07/19/alger-face-a-la-canicule-sonelgaz-recommande-des-ecogestes-pour-alleger-la-pression-sur-le-reseau-electrique/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a> précise que ces écogestes, incluant la réduction des consommations aux heures de pointe, visent à éviter des coupures prolongées.</p>",
+      "<p>La Cnep-Banque a annoncé l'inauguration, lundi à Alger, de deux nouvelles agences à Douéra et Sidi Abdallah. Toujours selon <a href=\"https://algerie-eco.com/2026/07/19/alger-la-cnep-banque-va-inaugurer-lundi-deux-nouvelles-agences-a-douera-et-sidi-abdallah/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, ces ouvertures s'inscrivent dans une stratégie d'expansion du réseau bancaire pour accompagner la croissance économique locale.</p>",
+      "<p>Les représentants des Domaines de l'État ont été habilités à signer des contrats de concession foncière économique. <a href=\"https://algerie-eco.com/2026/07/20/foncier-economique-les-representants-des-domaines-de-letat-habilites-a-signer-les-contrats-de-concession-au-niveau-des-guichets-uniques/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a> précise que cette mesure, entrée en vigueur ce week-end, vise à accélérer les projets d'investissement public-privé dans le secteur immobilier industriel.</p>"
     ]
   },
-  "lastUpdated": "2026-07-20T07:52:44.976Z"
+  "lastUpdated": "2026-07-20T09:34:16.542Z"
 }
