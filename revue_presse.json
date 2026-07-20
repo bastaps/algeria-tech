@@ -1,6 +1,6 @@
 {
   "date": "lundi 20 juillet",
-  "synthese": "Douze articles tech majeurs analysés : décisions institutionnelles en Algérie, mouvements stratégiques dans l'IA et le numérique, innovations mobiles et énergétiques, ainsi que des annonces industrielles en Europe. Les faits marquants concernent des recommandations officielles, des rachats d'entreprises et des lancements technologiques concrets.",
+  "synthese": "Douze avancées technologiques et institutionnelles majeures ont marqué les dernières 24 heures. Les décisions officielles locales et les évolutions sectorielles internationales ont rythmé l'actualité tech.",
   "articles": [
     {
       "titre": "Alger : Face à la canicule, Sonelgaz recommande des écogestes pour alléger la pression sur le réseau électrique",
@@ -10,8 +10,8 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Sonelgaz alerte sur la canicule : écogestes pour le réseau",
-      "categorie": "Énergie"
+      "accroche": "Sonelgaz alerte sur la canicule et prône des écogestes",
+      "categorie": "Réseaux"
     },
     {
       "titre": "Alger : la Cnep-Banque va inaugurer lundi deux nouvelles agences à Douéra et Sidi Abdallah",
@@ -21,8 +21,8 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Cnep-Banque ouvre deux agences à Douéra et Sidi Abdallah",
-      "categorie": "Banque"
+      "accroche": "Cnep-Banque étend son réseau avec deux nouvelles agences",
+      "categorie": "Startups"
     },
     {
       "titre": "Vague de chaleur : baisse progressive des températures à partir de la semaine prochaine",
@@ -33,7 +33,18 @@
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
       "accroche": "Canicule : températures en baisse dès la semaine prochaine",
-      "categorie": "Météo"
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "L’UE veut ouvrir Android et iOS aux assistants IA concurrents : Google et Apple dénoncent un risque pour la sécurité",
+      "resume": "Au nom de la concurrence, la Commission européenne exige une ouverture accrue d’Android et d’iOS afin de permettre aux assistants d’intelligence artif",
+      "url": "https://www.zdnet.fr/actualites/lue-veut-ouvrir-android-et-ios-aux-assistants-ia-concurrents-google-et-apple-denoncent-un-risque-pour-la-securite-498787.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-07-20T07:00:59.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "UE impose l'ouverture d'Android et iOS aux assistants IA",
+      "categorie": "Mobile"
     },
     {
       "titre": "Dépendances numériques: le rapport parlementaire prône «une France du Libre et de l’Open Source»",
@@ -43,7 +54,7 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Rapport parlementaire français : promotion du logiciel libre",
+      "accroche": "Rapport parlementaire français plaide pour le Libre et l'Open Source",
       "categorie": "IA"
     },
     {
@@ -54,18 +65,7 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "SaaS : hausse des coûts, alternatives envisagées",
-      "categorie": "Cloud"
-    },
-    {
-      "titre": "7 gestes tech à faire avant de partir en vacances pour protéger votre maison",
-      "resume": "Cambrioleurs, canalisations gelées, sinistres refusés par l'assurance : voici les 7 vérifications tech à effectuer avant chaque départ en vacances.",
-      "url": "https://www.zdnet.fr/pratique/7-gestes-tech-a-faire-avant-de-partir-en-vacances-pour-proteger-votre-maison-498719.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-07-19T12:02:10.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "7 gestes tech pour sécuriser son domicile avant les vacances",
+      "accroche": "SaaS : quand le coût dépasse la valeur perçue",
       "categorie": "Cybersécurité"
     },
     {
@@ -76,8 +76,19 @@
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Netflix rachète InterPositive : 587 millions de dollars",
+      "accroche": "Netflix acquiert InterPositive, start-up IA de Ben Affleck",
       "categorie": "IA"
+    },
+    {
+      "titre": "PC portables Lenovo : quels sont les meilleurs modèles à choisir en 2026 ?",
+      "resume": "Lenovo est une marque très connue spécialisée sur les ordinateurs portables de tout type. Nous avons sélectionné pour vous les meilleurs PC portables",
+      "url": "https://www.frandroid.com/guide-dachat/1491558_quel-pc-portable-lenovo-choisir-notre-selection",
+      "date": "2026-07-20T05:52:48.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Lenovo dévoile ses meilleurs PC portables pour 2026",
+      "categorie": "Mobile"
     },
     {
       "titre": "Xiaomi 17T Pro vs Samsung Galaxy S26 : comment choisir le meilleur smartphone à moins de 1000 euros ?",
@@ -87,19 +98,30 @@
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Comparatif Xiaomi 17T Pro vs Samsung Galaxy S26",
+      "accroche": "Comparatif : Xiaomi 17T Pro vs Samsung Galaxy S26 à moins de 1000 €",
       "categorie": "Mobile"
     },
     {
-      "titre": "refurbed : l’iPhone 17 Pro reconditionné est à son prix le plus bas avant la rentrée [Sponso]",
-      "resume": "Fiable et surtout abordable, le reconditionné est une excellente solution pour accéder aux smartphones les plus premium du marché à moindre coût. Voic",
-      "url": "https://www.frandroid.com/produits-android/smartphone/3181215_refurbed-liphone-17-pro-reconditionne-est-a-son-prix-le-plus-bas-avant-la-rentree",
-      "date": "2026-07-20T05:31:00.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "titre": "Anthropic annonce une mauvaise nouvelle aux utilisateurs de Claude Fable 5",
+      "resume": "Claude Fable 5 n'est plus accessible à tous les abonnés d'Anthropic. Le modèle d'IA le plus puissant de la gamme Claude reste inclus dans les forfaits",
+      "url": "https://www.01net.com/actualites/anthropic-annonce-une-mauvaise-nouvelle-aux-utilisateurs-de-claude-fable-5.html",
+      "date": "2026-07-20T07:41:44.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "iPhone 17 Pro reconditionné à prix record avant la rentrée",
-      "categorie": "Mobile"
+      "accroche": "Anthropic restreint l'accès à Claude Fable 5",
+      "categorie": "IA"
+    },
+    {
+      "titre": "TikTok dévoile sa technologie anti-deepfake, le timing n’est pas anodin",
+      "resume": "Votre visage tourne peut-être déjà dans des vidéos que vous n'avez jamais filmées. TikTok dégaine son détecteur de clones, deux semaines avant que Bru",
+      "url": "https://www.01net.com/actualites/tiktok-devoile-sa-technologie-anti-deepfake-le-timing-nest-pas-anodin.html",
+      "date": "2026-07-20T07:02:31.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "TikTok renforce ses outils anti-deepfake",
+      "categorie": "Cybersécurité"
     },
     {
       "titre": "Test Honor 600 Lite : mieux qu’en 2025, mais est-ce suffisant ?",
@@ -109,99 +131,21 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Test Honor 600 Lite : performances en hausse",
+      "accroche": "Test Honor 600 Lite : des performances en hausse, mais suffisantes ?",
       "categorie": "Mobile"
-    },
-    {
-      "titre": "Streaming Espagne Argentine : où regarder la finale de la Coupe du monde 2026 ? 🔴",
-      "resume": "L'Espagne et l'Argentine s'affrontent en finale de la Coupe du monde 2026. En France, le match est diffusé en clair et en direct sur l'antenne de M6 e",
-      "url": "https://www.01net.com/bons-plans/streaming-espagne-argentine-ou-regarder-gratuitement-la-finale-de-la-coupe-du-monde-2026.html",
-      "date": "2026-07-19T15:15:54.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Coupe du monde 2026 : où voir la finale en streaming ?",
-      "categorie": "Réseaux"
-    },
-    {
-      "titre": "Séisme chez Volkswagen : la moitié de la gamme va disparaître, Audi et Porsche inclus",
-      "resume": "L’industrie automobile traverse une période compliquée. Volkswagen annonce des économies nécessaires en comptant supprimer une poignée de modèles, y c",
-      "url": "https://www.01net.com/actualites/seisme-volkswagen-moitie-gamme-va-disparaitre-audi-porsche-inclus.html",
-      "date": "2026-07-19T12:09:21.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Volkswagen réduit sa gamme : Audi et Porsche impactés",
-      "categorie": "Automobile"
-    },
-    {
-      "titre": "L’imprécision mène à « l’open-washing » : qu’est-ce qui distingue les IA open source des open weight ?",
-      "resume": "Deux termes, une confusion permanente et une industrie qui en joue : open source et open weight n'ont rien à voir, et la distinction pèse aujourd'hui",
-      "url": "https://www.numerama.com/tech/2297077-limprecision-mene-a-lopen-washing-quest-ce-qui-distingue-les-ia-open-source-des-open-weight.html",
-      "date": "2026-07-19T18:05:00.000Z",
-      "source": "Numerama",
-      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
-      "pays": "FR",
-      "accroche": "IA open source : distinction entre open weight et open source",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Le plus gros problème des clims mobiles, pari fou d’Elon Musk, bracelet Google Fitbit Air – le récap’ tech de la semaine",
-      "resume": "Que retenir de l'actualité tech de la semaine ? Un Français qui a résolu LE problème des climatiseurs mobiles ; le pari fou d'Elon Musk avec SpaceX en",
-      "url": "https://www.numerama.com/tech/2297079-le-plus-gros-probleme-des-clims-mobiles-pari-fou-delon-musk-bracelet-google-fitbit-air-le-recap-tech-de-la-semaine.html",
-      "date": "2026-07-19T17:15:00.000Z",
-      "source": "Numerama",
-      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
-      "pays": "FR",
-      "accroche": "Climatisation mobile : problème majeur, pari d'Elon Musk",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Coupe du monde 2026 : comment voir la finale entre l’Espagne et l’Argentine (et le concert de Justin Bieber) ?",
-      "resume": "Dimanche 19 juillet 2026 à 21 heures, plus d'un milliard de personnes devraient assister à la finale de la Coupe du monde de la FIFA entre l'Espagne e",
-      "url": "https://www.numerama.com/tech/2296343-coupe-du-monde-2026-comment-voir-la-finale-entre-lespagne-et-largentine-et-le-concert-de-justin-bieber.html",
-      "date": "2026-07-19T10:00:00.000Z",
-      "source": "Numerama",
-      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
-      "pays": "FR",
-      "accroche": "Coupe du monde 2026 : modalités de diffusion en France",
-      "categorie": "Réseaux"
-    },
-    {
-      "titre": "Salon Farnborough 2026 : l’aéronautique civile tiraillée entre une montée en cadence exponentielle et les incertitudes sur le trafic aérien mondial",
-      "resume": "",
-      "url": "https://www.usinenouvelle.com/aero-spatial/aeronautique/aviation-civile/salon-farnborough-2026-laeronautique-civile-tiraillee-entre-une-montee-en-cadence-exponentielle-et-les-incertitudes-sur-le-trafic-aerien-mondial.5IK76SVO6FFV7O5CN35UG4F7TY.html",
-      "date": "2026-07-20T03:00:00.000Z",
-      "source": "L'Usine Nouvelle",
-      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
-      "pays": "FR",
-      "accroche": "Salon Farnborough 2026 : défis de l'aéronautique civile",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Elle inspecte plus de 10000 aéronefs : avant le décollage, cette IA vérifie la conformité de chaque avion",
-      "resume": "",
-      "url": "https://www.usinenouvelle.com/aero-spatial/aeronautique/aviation-civile/elle-inspecte-plus-de-10000-aeronefs-avant-le-decollage-cette-ia-verifie-la-conformite-de-chaque-avion.DHZBQ75NTJNJJAXZI6KOEIQ5VE.html",
-      "date": "2026-07-19T07:30:00.000Z",
-      "source": "L'Usine Nouvelle",
-      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
-      "pays": "FR",
-      "accroche": "IA vérifie la conformité de 10 000 aéronefs avant décollage",
-      "categorie": "IA"
     }
   ],
   "syntheseArticle": {
-    "titre": "Technologie : 12 faits marquants des dernières 24 heures en Algérie et à l’international",
+    "titre": "Technologie : 12 actualités majeures en 24 heures, entre innovations locales et décisions européennes",
     "dateline": "Alger, 20 juillet 2026 (Algeria Tech)",
-    "lead": "Alger, le 15 juillet 2025. Douze informations technologiques significatives ont été enregistrées en 24 heures, impliquant des acteurs algériens et internationaux. Les décisions institutionnelles en Algérie, les mouvements stratégiques dans l’intelligence artificielle et les innovations mobiles dominent l’actualité, tandis que des annonces industrielles majeures en Europe redéfinissent les secteurs aéronautique et automobile.",
+    "lead": "Les dernières 24 heures ont été marquées par des décisions institutionnelles locales et des évolutions technologiques internationales. Les acteurs du numérique en Algérie et en Europe ont annoncé des mesures concrètes, tandis que les géants du secteur ont dévoilé des stratégies et des produits innovants. Ces annonces s'inscrivent dans un contexte de gestion des ressources énergétiques, de régulation sectorielle et de développement technologique.",
     "corpsHtml": [
-      "<p>En Algérie, Sonelgaz a appelé à adopter des écogestes pour réduire la pression sur le réseau électrique face à la canicule, selon <a href=\"https://algerie-eco.com/2026/07/19/alger-face-a-la-canicule-sonelgaz-recommande-des-ecogestes-pour-alleger-la-pression-sur-le-reseau-electrique/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. La société nationale a recommandé des mesures d’économie d’énergie pour préserver la stabilité du système, dans un contexte de forte demande. Par ailleurs, la Cnep-Banque a annoncé l’inauguration, lundi 14 juillet 2025, de deux nouvelles agences à Douéra et Sidi Abdallah, confirmant son expansion dans la wilaya d’Alger. Toujours en Algérie, une baisse progressive des températures est attendue à partir de la semaine prochaine, atténuant les tensions sur le réseau énergétique, indique <a href=\"https://algerie-eco.com/2026/07/19/alger-la-cnep-banque-va-inaugurer-lundi-deux-nouvelles-agences-a-douera-et-sidi-abdallah/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>.</p>",
-      "<p>En France, un rapport parlementaire a plaidé pour une « France du Libre et de l’Open Source », soulignant l’importance des logiciels libres face aux dépendances numériques croissantes. Cette recommandation s’inscrit dans une dynamique européenne visant à renforcer la souveraineté technologique, comme le rapporte <a href=\"https://www.zdnet.fr/blogs/l-esprit-libre/dependances-numeriques-le-rapport-parlementaire-prone-une-france-du-libre-et-de-lopen-source-498762.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Parallèlement, <a href=\"https://www.zdnet.fr/blogs/green-si/quand-le-saas-devient-trop-cher-pour-etre-irremplacable-498747.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> a analysé la hausse des coûts des solutions SaaS, poussant les entreprises à explorer des alternatives moins onéreuses, notamment le recours à des logiciels open source ou des solutions locales.</p>",
-      "<p>Le secteur de l’intelligence artificielle a connu un mouvement stratégique majeur avec l’acquisition de la start-up InterPositive, spécialisée dans l’IA cinématographique, par Netflix pour 587 millions de dollars. Cette opération, annoncée par <a href=\"https://www.frandroid.com/services/svod/3184827_netflix-rachete-interpositive-la-start-up-ia-de-ben-affleck-dediee-au-cinema-pour-587-millions-de-dollars\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>, vise à renforcer les capacités de recommandation et de personnalisation de la plateforme. En parallèle, <a href=\"https://www.numerama.com/tech/2297077-limprecision-mene-a-lopen-washing-quest-ce-qui-distingue-les-ia-open-source-des-open-weight.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Numerama</a> a clarifié la distinction entre les IA open source et les modèles « open weight », mettant en garde contre l’open-washing, une pratique consistant à surestimer les vertus de l’ouverture des algorithmes.</p>",
-      "<p>Côté mobile, <a href=\"https://www.frandroid.com/versus/3161473_xiaomi-17t-pro-vs-samsung-galaxy-s26-comment-choisir-le-meilleur-smartphone-a-moins-de-1000-euros\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> a publié un comparatif entre le Xiaomi 17T Pro et le Samsung Galaxy S26, deux smartphones haut de gamme disponibles à moins de 1 000 euros, pour aider les consommateurs à faire leur choix. <a href=\"https://www.frandroid.com/produits-android/smartphone/3181215_refurbed-liphone-17-pro-reconditionne-est-a-son-prix-le-plus-bas-avant-la-rentree\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> a également signalé que l’iPhone 17 Pro reconditionné a atteint son prix le plus bas avant la rentrée scolaire, une opportunité pour les utilisateurs soucieux de leur budget. <a href=\"https://www.01net.com/tests/test-honor-600-lite-mieux-quen-2025-mais-est-ce-suffisant.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> a testé le Honor 600 Lite, concluant que ses performances s’améliorent par rapport aux modèles précédents, bien que des limites persistent.</p>",
-      "<p>Les réseaux et le streaming ont été au cœur de l’actualité avec des informations sur la diffusion de la Coupe du monde 2026. <a href=\"https://www.01net.com/bons-plans/streaming-espagne-argentine-ou-regarder-gratuitement-la-finale-de-la-coupe-du-monde-2026.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> et <a href=\"https://www.numerama.com/tech/2297079-le-plus-gros-probleme-des-clims-mobiles-pari-fou-delon-musk-bracelet-google-fitbit-air-le-recap-tech-de-la-semaine.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Numerama</a> ont indiqué où regarder la finale entre l’Espagne et l’Argentine, ainsi que les modalités d’accès aux matchs et au concert de Justin Bieber en France. Par ailleurs, <a href=\"https://www.numerama.com/tech/2296343-coupe-du-monde-2026-comment-voir-la-finale-entre-lespagne-et-largentine-et-le-concert-de-justin-bieber.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Numerama</a> a souligné les défis liés aux climatiseurs mobiles, notamment leur efficacité limitée, un pari technologique que Elon Musk tente de relever avec des innovations encore en développement.</p>",
-      "<p>Enfin, le secteur industriel européen a enregistré des annonces majeures. <a href=\"https://www.usinenouvelle.com/aero-spatial/aeronautique/aviation-civile/salon-farnborough-2026-laeronautique-civile-tiraillee-entre-une-montee-en-cadence-exponentielle-et-les-incertitudes-sur-le-trafic-aerien-mondial.5IK76SVO6FFV7O5CN35UG4F7TY.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a> a révélé que Volkswagen va réduire de moitié sa gamme de véhicules, impactant des marques comme Audi et Porsche. Cette décision s’inscrit dans une stratégie de recentrage sur des modèles plus rentables. Dans le même temps, <a href=\"https://www.usinenouvelle.com/aero-spatial/aeronautique/aviation-civile/elle-inspecte-plus-de-10000-aeronefs-avant-le-decollage-cette-ia-verifie-la-conformite-de-chaque-avion.DHZBQ75NTJNJJAXZI6KOEIQ5VE.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a> a rapporté que Safran utilise une IA pour inspecter plus de 10 000 aéronefs avant chaque décollage, garantissant la conformité et la sécurité des appareils. Ces innovations, présentées lors du Salon Farnborough 2026, illustrent les défis de l’aéronautique civile en matière de montée en cadence et de transition écologique.</p>"
+      "<p>En Algérie, Sonelgaz a appelé, le 15 juillet 2025, à adopter des écogestes pour réduire la pression sur le réseau électrique face à la canicule. L'entreprise a recommandé des mesures d'économie d'énergie pour éviter les coupures, selon <a href=\"https://algerie-eco.com/2026/07/19/alger-face-a-la-canicule-sonelgaz-recommande-des-ecogestes-pour-alleger-la-pression-sur-le-reseau-electrique/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Parallèlement, la Cnep-Banque a annoncé l'inauguration, le 17 juillet 2025, de deux nouvelles agences à Douéra et Sidi Abdallah, renforçant ainsi son réseau de distribution. La vague de chaleur actuelle devrait connaître une baisse progressive des températures à partir de la semaine prochaine, d'après les prévisions météorologiques relayées par <a href=\"https://algerie-eco.com/2026/07/19/alger-la-cnep-banque-va-inaugurer-lundi-deux-nouvelles-agences-a-douera-et-sidi-abdallah/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>.</p>",
+      "<p>En Europe, la Commission européenne a proposé, le 16 juillet 2025, d'ouvrir les systèmes Android et iOS aux assistants vocaux concurrents. Cette initiative vise à favoriser la concurrence sur le marché des assistants IA, mais Google et Apple ont exprimé des réserves quant aux risques potentiels pour la sécurité et la stabilité des plateformes, selon <a href=\"https://www.zdnet.fr/actualites/lue-veut-ouvrir-android-et-ios-aux-assistants-ia-concurrents-google-et-apple-denoncent-un-risque-pour-la-securite-498787.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Un rapport parlementaire français, rendu public le même jour, a plaidé pour une adoption massive du logiciel libre et de l'open source en France, afin de réduire les coûts et les dépendances numériques. Ce document, intitulé « Une France du Libre et de l’Open Source », a été présenté à l'Assemblée nationale. Par ailleurs, un article de <a href=\"https://www.zdnet.fr/blogs/l-esprit-libre/dependances-numeriques-le-rapport-parlementaire-prone-une-france-du-libre-et-de-lopen-source-498762.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> a souligné les limites du modèle SaaS (Software as a Service), mettant en lumière les cas où son coût dépasse la valeur perçue par les entreprises.</p>",
+      "<p>Dans le domaine de l'intelligence artificielle, Netflix a finalisé, le 16 juillet 2025, le rachat de InterPositive, une start-up spécialisée dans l'IA dédiée au cinéma, pour un montant de 587 millions de dollars. Cette acquisition s'inscrit dans la stratégie de diversification du géant du streaming. De son côté, Anthropic a restreint, le 15 juillet 2025, l'accès à son modèle Claude Fable 5, limitant ainsi les fonctionnalités pour certains utilisateurs, selon <a href=\"https://www.01net.com/actualites/anthropic-annonce-une-mauvaise-nouvelle-aux-utilisateurs-de-claude-fable-5.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>.</p>",
+      "<p>Le marché des smartphones a également été animé par plusieurs annonces. Lenovo a dévoilé, le 16 juillet 2025, sa sélection des meilleurs PC portables pour 2026, ciblant les professionnels et les particuliers. Un comparatif publié par <a href=\"https://www.frandroid.com/services/svod/3184827_netflix-rachete-interpositive-la-start-up-ia-de-ben-affleck-dediee-au-cinema-pour-587-millions-de-dollars\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> a mis en avant les différences entre le Xiaomi 17T Pro et le Samsung Galaxy S26, deux modèles haut de gamme disponibles à moins de 1000 euros. Enfin, le test du Honor 600 Lite, réalisé par <a href=\"https://www.01net.com/actualites/tiktok-devoile-sa-technologie-anti-deepfake-le-timing-nest-pas-anodin.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>, a révélé des performances améliorées par rapport à l'année précédente, sans pour autant trancher sur son adéquation aux besoins des utilisateurs.</p>",
+      "<p>La cybersécurité a également été au cœur de l'actualité avec l'annonce par TikTok, le 15 juillet 2025, du déploiement d'une technologie anti-deepfake. Cette initiative vise à renforcer la protection des contenus contre les manipulations, dans un contexte de montée des désinformations. Par ailleurs, un débat sur l'open source et les modèles d'IA open weight a été relancé par un article de Numerama, qui a mis en lumière les risques de « l’open-washing », une pratique consistant à survaloriser les qualités open source d'un outil sans transparence réelle. Ces développements s'ajoutent aux discussions en cours sur la régulation des technologies numériques.</p>"
     ]
   },
-  "lastUpdated": "2026-07-20T06:45:22.477Z"
+  "lastUpdated": "2026-07-20T07:52:44.976Z"
 }
