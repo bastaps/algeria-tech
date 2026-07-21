@@ -1,6 +1,6 @@
 {
   "date": "mardi 21 juillet",
-  "synthese": "Douze dossiers technologiques majeurs ont marqué les dernières 24 heures, mêlant décisions institutionnelles, investissements et avancées sectorielles. Les enjeux portent sur l’intelligence artificielle, les infrastructures numériques et les partenariats internationaux, avec des implications directes pour l’Algérie et l’Afrique.",
+  "synthese": "Douze faits technologiques majeurs ont marqué les dernières 24 heures, incluant des décisions institutionnelles, des investissements stratégiques et des avancées sectorielles. Les annonces concernent principalement l'Algérie, l'Europe et les États-Unis, avec des enjeux liés à l'IA, aux infrastructures et aux partenariats internationaux.",
   "articles": [
     {
       "titre": "Le FBI ouvre un bureau à l’ambassade des États-Unis en Algérie",
@@ -10,7 +10,7 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "FBI : ouverture d'un bureau diplomatique en Algérie",
+      "accroche": "FBI : ouverture d'un bureau à Alger",
       "categorie": "Cybersécurité"
     },
     {
@@ -43,8 +43,8 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "NetApp s'appuie sur DataPelago pour l'IA",
-      "categorie": "Réseaux"
+      "accroche": "NetApp mise sur DataPelago pour l'IA",
+      "categorie": "IA"
     },
     {
       "titre": "Quantique : la Cour des comptes alerte sur les pépites françaises",
@@ -56,6 +56,17 @@
       "pays": "FR",
       "accroche": "Cour des comptes alerte sur les pépites quantiques françaises",
       "categorie": "Innovation"
+    },
+    {
+      "titre": "Washington envisage de durcir les sanctions contre l’IA chinoise et cible les modèles open source",
+      "resume": "Les États-Unis pourraient renforcer leurs restrictions visant les technologies d’intelligence artificielle chinoises. Selon Axios, l’administration Tr",
+      "url": "https://www.zdnet.fr/actualites/washington-envisage-de-durcir-les-sanctions-contre-lia-chinoise-et-cible-les-modeles-open-source-498833.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-07-21T07:00:06.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Washington durcit les sanctions contre l'IA chinoise open source",
+      "categorie": "IA"
     },
     {
       "titre": "Avec « Frozen v2 », Google veut graver Gemini directement dans le silicium",
@@ -76,7 +87,7 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Nouvel outil lève le dernier verrou de l'intégration IA",
+      "accroche": "Nouvel outil pour lever le verrou de l'intégration de l'IA",
       "categorie": "IA"
     },
     {
@@ -87,7 +98,7 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "France-Allemagne évaluent la sûreté des modèles d'IA",
+      "accroche": "France-Allemagne évaluent la sûreté des modèles d'IA puissants",
       "categorie": "IA"
     },
     {
@@ -98,7 +109,7 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "CuspAI lève 450 M$ en un an avec soutien de Jeff Bezos",
+      "accroche": "CuspAI lève 450 M$ en un an avec Jeff Bezos",
       "categorie": "Startups"
     },
     {
@@ -109,7 +120,7 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Alibaba Qwen3.8 revendique la deuxième place mondiale",
+      "accroche": "Qwen3.8 d'Alibaba talonne Fable 5 d'Anthropic",
       "categorie": "IA"
     },
     {
@@ -120,34 +131,22 @@
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Nvidia présente le DLSS 5 pour enrichir les graphismes",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Choc chez les géants : Geely détrône BYD et s’impose comme leader chinois de l’automobile",
-      "resume": "Alors que BYD veut devenir numéro un mondial devant Toyota, le voilà confronté à une menace venue de l’intérieur. Geely a en effet réussi à vendre plu",
-      "url": "https://www.01net.com/actualites/geely-detrone-byd-comme-leader-chinois-automobile.html",
-      "date": "2026-07-21T05:27:15.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Geely dépasse BYD et domine le marché automobile chinois",
+      "accroche": "Nvidia dévoile le DLSS 5 pour enrichir les graphismes",
       "categorie": "Mobile"
     }
   ],
   "syntheseArticle": {
-    "titre": "Technologie : un tour d'horizon des décisions et innovations majeures des dernières 24 heures",
+    "titre": "Technologies : l'Algérie au cœur des partenariats stratégiques et l'IA au centre des enjeux mondiaux",
     "dateline": "Alger, 21 juillet 2026 (Algeria Tech)",
-    "lead": "L'Algérie et plusieurs pays africains, européens et asiatiques ont enregistré des avancées technologiques significatives, marquées par des investissements, des partenariats stratégiques et des innovations sectorielles. Ces évolutions s'inscrivent dans un contexte de transformation numérique accélérée et de compétition internationale accrue.",
+    "lead": "L'Algérie renforce ses partenariats technologiques avec des annonces majeures en 24 heures, tandis que l'intelligence artificielle et les infrastructures numériques dominent les débats internationaux. Les décisions officielles, investissements et innovations sectorielles dessinent une actualité technologique dense entre Alger, Washington, Paris et Pékin.",
     "corpsHtml": [
-      "<p>En Algérie, l'Afreximbank a annoncé le déblocage d'un financement de 200 millions de dollars pour un projet pétrolier d'un montant total de 980 millions de dollars, selon <a href=\"https://algerie-eco.com/2026/07/20/le-fbi-ouvre-un-bureau-a-lambassade-des-etats-unis-en-algerie/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Cette initiative s'inscrit dans le cadre du renforcement des capacités industrielles nationales et de la diversification économique. Par ailleurs, le FBI a ouvert un bureau à l'ambassade des États-Unis en Algérie, une décision qui vise à renforcer la coopération sécuritaire et technologique entre les deux pays, comme le rapporte <a href=\"https://algerie-eco.com/2026/07/20/afreximbank-debloque-200-millions-de-dollars-pour-un-projet-petrolier-de-980-millions-en-algerie/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>.</p>",
-      "<p>Sur le plan institutionnel, l'Autorité de la concurrence a publié un cadrage réglementaire concernant les agents IA, soulignant la nécessité de garantir une concurrence équitable dans ce secteur en pleine expansion, d'après <a href=\"https://www.silicon.fr/data-ia-1372/agents-ia-autorite-concurrence-228336\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. En France, la Cour des comptes a alerté sur les opportunités et risques liés aux technologies quantiques, mettant en lumière les lacunes en matière d'investissement et de souveraineté technologique, selon <a href=\"https://www.silicon.fr/data-ia-1372/netapp-mise-sur-datapelago-pour-rester-dans-la-course-a-infrastructure-ia-228352\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>.</p>",
-      "<p>Dans le domaine de l'intelligence artificielle, Google a dévoilé une nouvelle version de son outil Frozen v2, permettant d'intégrer directement le modèle d'IA Gemini dans le silicium, une avancée qui pourrait révolutionner les performances des smartphones et des dispositifs embarqués, indique <a href=\"https://www.zdnet.fr/actualites/avec-frozen-v2-google-veut-graver-gemini-directement-dans-le-silicium-498828.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Parallèlement, un nouvel outil, mentionné par <a href=\"https://www.zdnet.fr/actualites/zd-tech-ce-nouvel-outil-pourrait-bien-lever-le-dernier-verrou-qui-bloquait-lintegration-de-lia-dans-le-conseil-patrimonial-498189.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>, pourrait lever le dernier verrou technique bloquant l'intégration de l'IA dans certains systèmes, ouvrant la voie à des applications plus poussées.</p>",
-      "<p>En Europe, la France et l'Allemagne ont annoncé une collaboration pour évaluer la sûreté des modèles d'IA les plus puissants, une initiative visant à renforcer la confiance dans ces technologies, comme le précise <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/la-france-et-lallemagne-unissent-leurs-forces-pour-evaluer-la-surete-des-modeles-dia-les-plus-puissants.LQYOWT5QW5AVTKA7V57WKZPJPI.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. De son côté, Alibaba a présenté Qwen3.8, un modèle d'IA revendiquant la deuxième place mondiale derrière Fable 5 d'Anthropic, selon <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/ia-generative/450-millions-de-dollars-en-un-an-comment-la-start-up-britannique-cuspai-soutenue-par-jeff-bezos-veut-revolutionner-la-decouverte-de-materiaux-par-lia.WR4BIRGRJFD33PUJKIZX7XILVI.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>.</p>",
-      "<p>Le secteur des startups a également été marqué par des levées de fonds spectaculaires. La société britannique CuspAI, soutenue par Jeff Bezos, a levé 450 millions de dollars en un an, une performance qui reflète l'engouement pour les technologies d'IA avancées, rapporte <a href=\"https://www.usine-digitale.fr/logiciels-applications/alibaba/avec-qwen38-alibaba-revendique-la-deuxieme-place-mondiale-derriere-fable-5-danthropic-et-promet-de-bientot-en-publier-les-poids.TR5AKELRRNEAJIQY5PYBJWFHCU.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>.</p>",
-      "<p>Dans le domaine du hardware, Nvidia a dévoilé une nouvelle version de son outil DLSS 5, conçu pour enrichir les graphismes sans remplacer les techniques traditionnelles, comme l'explique <a href=\"https://www.frandroid.com/marques/nvidia/3186387_lia-ne-remplace-pas-les-graphismes-elle-les-enrichit-nvidia-devoile-a-nouveau-le-dlss-5-et-veut-rassurer-les-joueurs\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>. Par ailleurs, NetApp a annoncé un partenariat avec DataPelago pour renforcer ses infrastructures dédiées à l'IA, une décision qui s'inscrit dans une stratégie de modernisation des réseaux, selon <a href=\"https://www.silicon.fr/business-1367/quantique-la-cour-des-comptes-alerte-sur-les-pepites-francaises-228348\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>.</p>",
-      "<p>Enfin, sur le marché automobile, Geely a détrôné BYD et s'est imposé comme le leader chinois du secteur, une performance qui illustre les dynamiques concurrentielles en Asie, comme le souligne <a href=\"https://www.01net.com/actualites/geely-detrone-byd-comme-leader-chinois-automobile.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>.</p>"
+      "<p>En Algérie, <a href=\"https://algerie-eco.com/2026/07/20/le-fbi-ouvre-un-bureau-a-lambassade-des-etats-unis-en-algerie/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a> rapporte l'ouverture d'un bureau du Federal Bureau of Investigation (FBI) à l'ambassade des États-Unis en Algérie, marquant une étape dans la coopération sécuritaire bilatérale. Par ailleurs, <a href=\"https://algerie-eco.com/2026/07/20/afreximbank-debloque-200-millions-de-dollars-pour-un-projet-petrolier-de-980-millions-en-algerie/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a> indique qu'Afreximbank a débloqué 200 millions de dollars pour un projet pétrolier de 980 millions de dollars en Algérie, consolidant les investissements africains dans le secteur énergétique.</p>",
+      "<p>En Europe, <a href=\"https://www.silicon.fr/data-ia-1372/agents-ia-autorite-concurrence-228336\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a> révèle que l'Autorité française de la concurrence a encadré l'utilisation des agents IA, précisant les règles pour éviter les distorsions de concurrence. Toujours en France, <a href=\"https://www.silicon.fr/data-ia-1372/netapp-mise-sur-datapelago-pour-rester-dans-la-course-a-infrastructure-ia-228352\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a> souligne que NetApp mise sur DataPelago pour renforcer ses infrastructures dédiées à l'IA, tandis que la Cour des comptes française alerte sur les retards dans le développement des technologies quantiques, qualifiées de « pépites » stratégiques.</p>",
+      "<p>Aux États-Unis, <a href=\"https://www.zdnet.fr/actualites/washington-envisage-de-durcir-les-sanctions-contre-lia-chinoise-et-cible-les-modeles-open-source-498833.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> indique que Washington envisage de durcir les sanctions contre les modèles d'IA chinois open source, ciblant spécifiquement les acteurs technologiques de Pékin. Parallèlement, <a href=\"https://www.zdnet.fr/actualites/avec-frozen-v2-google-veut-graver-gemini-directement-dans-le-silicium-498828.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> rapporte que Google repousse la sortie de son modèle d'IA le plus puissant en raison de défauts techniques internes, retardant ainsi son déploiement commercial.</p>",
+      "<p>En Asie, <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/la-france-et-lallemagne-unissent-leurs-forces-pour-evaluer-la-surete-des-modeles-dia-les-plus-puissants.LQYOWT5QW5AVTKA7V57WKZPJPI.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> révèle que la start-up britannique CuspAI, soutenue par Jeff Bezos, a levé 450 millions de dollars en un an, confirmant l'attrait des investisseurs pour les technologies émergentes. De son côté, <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/ia-generative/450-millions-de-dollars-en-un-an-comment-la-start-up-britannique-cuspai-soutenue-par-jeff-bezos-veut-revolutionner-la-decouverte-de-materiaux-par-lia.WR4BIRGRJFD33PUJKIZX7XILVI.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> indique qu'Alibaba a lancé Qwen3.8, un modèle d'IA revendiquant la deuxième place mondiale derrière Fable 5 d'Anthropic, renforçant la compétition dans le secteur.</p>",
+      "<p>Enfin, <a href=\"https://www.frandroid.com/marques/nvidia/3186387_lia-ne-remplace-pas-les-graphismes-elle-les-enrichit-nvidia-devoile-a-nouveau-le-dlss-5-et-veut-rassurer-les-joueurs\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> souligne que Nvidia a présenté le DLSS 5, une technologie visant à enrichir les graphismes via l'IA, tandis que Frandroid détaille comment Google compte graver son modèle Gemini directement dans le silicium avec la version Frozen v2, optimisant ainsi les performances des appareils mobiles. <a href=\"https://www.zdnet.fr/actualites/zd-tech-ce-nouvel-outil-pourrait-bien-lever-le-dernier-verrou-qui-bloquait-lintegration-de-lia-dans-le-conseil-patrimonial-498189.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> ajoute qu'un nouvel outil pourrait lever le dernier verrou technique pour l'intégration massive de l'IA dans les systèmes existants.</p>",
+      "<p>En Europe, <a href=\"https://www.usine-digitale.fr/logiciels-applications/alibaba/avec-qwen38-alibaba-revendique-la-deuxieme-place-mondiale-derriere-fable-5-danthropic-et-promet-de-bientot-en-publier-les-poids.TR5AKELRRNEAJIQY5PYBJWFHCU.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> précise que la France et l'Allemagne ont uni leurs forces pour évaluer la sûreté des modèles d'IA les plus puissants, répondant aux enjeux de régulation et de sécurité. Ces initiatives s'inscrivent dans un contexte où les technologies quantiques, l'IA et les infrastructures numériques redéfinissent les équilibres géopolitiques et économiques mondiaux.</p>"
     ]
   },
-  "lastUpdated": "2026-07-21T06:28:30.197Z"
+  "lastUpdated": "2026-07-21T07:29:06.536Z"
 }
