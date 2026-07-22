@@ -1,6 +1,6 @@
 {
   "date": "mercredi 22 juillet",
-  "synthese": "Douze annonces technologiques majeures ont marqué les dernières 24 heures, impliquant des acteurs institutionnels et privés en Algérie, en France et à l'international. Les domaines de l'intelligence artificielle, de la cybersécurité et des infrastructures numériques ont concentré l'essentiel des initiatives.",
+  "synthese": "Douze décisions et initiatives majeures marquent la journée dans les secteurs technologiques et industriels. Les annonces portent sur des partenariats stratégiques, des exportations, des innovations produits et des mesures de cybersécurité.",
   "articles": [
     {
       "titre": "Sonelgaz exporte 200 bornes de recharge pour véhicules électriques vers le Portugal",
@@ -43,7 +43,7 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "HP adopte OpenAI pour accélérer sa transformation IA",
+      "accroche": "HP adopte OpenAI pour sa transformation par l'IA",
       "categorie": "IA"
     },
     {
@@ -54,7 +54,7 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Cruciferra : service de chiffrement transformé en malware",
+      "accroche": "Cruciferra : un service de chiffrement transformé en malware",
       "categorie": "Cybersécurité"
     },
     {
@@ -76,78 +76,76 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Microsoft et AMD déploient des racks Helios pour l'IA",
+      "accroche": "Microsoft et AMD déploient des racks Helios à grande échelle",
       "categorie": "IA"
     },
     {
-      "titre": "La France ferme définitivement les réseaux sociaux aux moins de 15 ans, une première historique en Europe",
-      "resume": "Le Parlement a définitivement adopté, le 21 juillet 2026, la loi interdisant l'accès aux réseaux sociaux aux mineurs de moins de 15 ans, plaçant la Fr",
-      "url": "https://www.frandroid.com/culture-tech/politique/3188007_la-france-ferme-definitivement-les-reseaux-sociaux-aux-moins-de-15-ans-une-premiere-historique-en-europe",
-      "date": "2026-07-22T06:02:45.000Z",
+      "titre": "Pénurie de RAM : NordVPN confirme l’impact sur les VPN, mais refuse de rogner sur la sécurité",
+      "resume": "On entend parler de la crise de la RAM depuis plusieurs mois, et elle est responsable de la hausse des prix de nombreux produits tech : smartphones, o",
+      "url": "https://www.frandroid.com/services/vpn/3186689_crise-de-la-ram-les-vpn-sont-aussi-impactes-par-la-penurie-des-composants-selon-lun-des-leaders-du-marche",
+      "date": "2026-07-22T07:17:56.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "La France interdit les réseaux sociaux aux moins de 15 ans",
-      "categorie": "Réseaux"
+      "accroche": "Pénurie de RAM : NordVPN maintient ses standards de sécurité",
+      "categorie": "Cybersécurité"
     },
     {
-      "titre": "Google déploie ses réponses par IA en France : les Aperçus IA et le Mode IA arrivent",
-      "resume": "Après plusieurs années d'attente, Google annonce le déploiement de Google Aperçu IA (AI Overviews) et Google Mode IA en France. Concrètement, le moteu",
-      "url": "https://www.frandroid.com/marques/google/3187965_google-deploie-ses-reponses-par-ia-en-france-les-apercus-ia-et-le-mode-ia-arrivent",
-      "date": "2026-07-22T05:00:00.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Google active les Aperçus IA et le Mode IA en France",
-      "categorie": "IA"
-    },
-    {
-      "titre": "France Travail veut utiliser l’IA pour choisir les demandeurs d’emploi à contrôler en priorité",
-      "resume": "France Travail expérimente un système d'IA destiné à détecter les demandeurs d’emploi à contrôler en priorité. Pour y parvenir, l'algorithme analyse 2",
-      "url": "https://www.01net.com/actualites/france-travail-veut-utiliser-lia-pour-choisir-les-demandeurs-demploi-a-controler-en-priorite.html",
-      "date": "2026-07-21T15:00:10.000Z",
+      "titre": "Google transforme son moteur de recherche en France : voici les Aperçus IA et le Mode IA",
+      "resume": "Google lance enfin ses Aperçus IA et son Mode IA en France. Probablement le plus gros changement du moteur de recherche depuis sa création en 1998.",
+      "url": "https://www.01net.com/actualites/google-transforme-moteur-recherche-france-voici-apercus-ia-mode-ia.html",
+      "date": "2026-07-22T06:50:31.000Z",
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "France Travail utilise l'IA pour prioriser les contrôles",
-      "categorie": "IA"
+      "accroche": "Google intègre Aperçus IA et Mode IA dans son moteur de recherche",
+      "categorie": "Mobile"
     },
     {
-      "titre": "Après deux ans de blocage, Google lance les Résumés IA en France (AI Overviews)",
-      "resume": "Google déploie les Résumés IA (AI Overviews) et le mode conversationnel (AI Mode) en France, deux ans après leur lancement aux États-Unis. Le moteur d",
-      "url": "https://www.numerama.com/tech/2299179-apres-deux-ans-de-blocage-google-lance-les-resumes-ia-en-france-ai-overviews.html",
-      "date": "2026-07-22T05:00:00.000Z",
+      "titre": "L’interdiction des réseaux sociaux aux moins de 15 ans a été définitivement adoptée",
+      "resume": "Après des mois de négociations, les deux chambres du Parlement ont définitivement adopté la proposition de loi visant à interdire l’accès aux réseaux",
+      "url": "https://www.01net.com/actualites/interdiction-des-reseaux-sociaux-aux-moins-de-15-ans-le-projet-de-loi-franchit-une-nouvelle-etape.html",
+      "date": "2026-07-22T05:20:09.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Interdiction définitive des réseaux sociaux pour les moins de 15 ans",
+      "categorie": "Réseaux"
+    },
+    {
+      "titre": "Galaxy Z Fold 8 : les annonces en direct de la conférence Samsung",
+      "resume": "Samsung tient sa conférence Galaxy Unpacked le mercredi 22 juillet 2026 à Londres, à partir de 15h (heure de Paris). La marque devrait y annoncer sa n",
+      "url": "https://www.numerama.com/tech/2299225-galaxy-z-fold-8-les-annonces-en-direct-de-la-conference-samsung.html",
+      "date": "2026-07-22T07:14:48.000Z",
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Google lance les Résumés IA en France après deux ans de blocage",
-      "categorie": "IA"
+      "accroche": "Samsung présente en direct les annonces du Galaxy Z Fold 8",
+      "categorie": "Mobile"
     },
     {
-      "titre": "Phishing : Kaspersky alerte sur une campagne ciblant les entreprises de la région MENA",
-      "resume": "Une demande de prix anodine, un échange de mails courtois, puis un lien pour consulter un document technique. Derrière ce scénario parfaitement rodé s",
-      "url": "https://www.algerie360.com/phishing-kaspersky-alerte-sur-une-campagne-ciblant-les-entreprises-de-la-region-mena/",
-      "date": "2026-07-21T12:42:42.000Z",
-      "source": "Algérie360 Tech",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie360.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Kaspersky alerte sur une campagne de phishing en MENA",
-      "categorie": "Cybersécurité"
+      "titre": "Pâte à papier : un rapport confidentiel conforte le projet de sauvetage de Fibre Excellence porté par Matthieu Pigasse à condition que...",
+      "resume": "",
+      "url": "https://www.usinenouvelle.com/emballage/pate-a-papier-un-rapport-confidentiel-conforte-le-projet-de-sauvetage-de-fibre-excellence-porte-par-matthieu-pigasse.PW7MZZ2KEVDYPDSJH3PNQSVCSY.html",
+      "date": "2026-07-22T06:49:06.000Z",
+      "source": "L'Usine Nouvelle",
+      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
+      "pays": "FR",
+      "accroche": "Fibre Excellence : rapport confirme projet de sauvetage",
+      "categorie": "Innovation"
     }
   ],
   "syntheseArticle": {
-    "titre": "Technologie : feu roulant d'annonces en IA, cybersécurité et infrastructures énergétiques",
+    "titre": "Technologie : partenariats industriels, exportations et innovations marquent la journée",
     "dateline": "Alger, 22 juillet 2026 (Algeria Tech)",
-    "lead": "Douze initiatives technologiques majeures ont été dévoilées ces dernières 24 heures en Algérie, en France et à l'international. Ces annonces couvrent des domaines variés allant de l'intelligence artificielle aux infrastructures énergétiques, en passant par la cybersécurité et les réseaux sociaux.",
+    "lead": "Douze annonces majeures, couvrant l'intelligence artificielle, la cybersécurité, les réseaux et l'innovation industrielle, ont été enregistrées au cours des dernières 24 heures. Ces initiatives impliquent des acteurs nationaux et internationaux, avec des impacts économiques et technologiques significatifs.",
     "corpsHtml": [
-      "<p>En Algérie, Sonelgaz a annoncé l'exportation de 200 bornes de recharge pour véhicules électriques vers le Portugal, marquant une avancée dans la coopération énergétique transfrontalière. Selon <a href=\"https://algerie-eco.com/2026/07/21/sonelgaz-exporte-200-bornes-de-recharge-pour-vehicules-electriques-vers-le-portugal/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, cette initiative s'inscrit dans le cadre de la stratégie nationale de transition énergétique.</p>",
-      "<p>Côté partenariats technologiques, Microsoft et Mistral AI ont officialisé un accord industriel centré sur l'infrastructure d'intelligence artificielle. D'après <a href=\"https://www.silicon.fr/business-1367/microsoft-et-mistral-ai-passent-a-lechelle-industrielle-avec-un-partenariat-centre-sur-linfrastructure-228406\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>, ce partenariat vise à passer à l'échelle industrielle les solutions d'IA générative développées conjointement. Par ailleurs, Microsoft a également annoncé un engagement avec AMD pour le déploiement à grande échelle de ses racks Helios, dédiés aux charges de travail IA, comme le rapporte <a href=\"https://www.usine-digitale.fr/cybersecurite/cybersecurite-gare-a-cruciferra-ce-service-de-chiffrement-pour-cheval-de-troie-propose-en-malware-as-a-service.LVYLJ6PEKVGUFNR7EYLBFMXLOY.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>.</p>",
-      "<p>L'industrie automobile n'est pas en reste, avec une analyse publiée par <a href=\"https://www.silicon.fr/data-ia-1372/automobile-comment-lia-et-les-logiciels-redefinissent-le-time-to-market-228393\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a> soulignant comment l'IA et les logiciels redéfinissent le time-to-market, réduisant ainsi les délais de mise sur le marché des nouveaux modèles. De son côté, HP a choisi de s'appuyer sur OpenAI pour accélérer sa transformation par l'IA, selon <a href=\"https://www.silicon.fr/data-ia-1372/hp-sappuie-sur-openai-pour-sa-transformation-par-lia-228387\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>.</p>",
-      "<p>En France, le gouvernement a adopté une mesure historique interdisant l'accès aux réseaux sociaux pour les moins de 15 ans. Cette décision, confirmée par <a href=\"https://www.01net.com/actualites/france-travail-veut-utiliser-lia-pour-choisir-les-demandeurs-demploi-a-controler-en-priorite.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> et <a href=\"https://www.frandroid.com/culture-tech/politique/3188007_la-france-ferme-definitivement-les-reseaux-sociaux-aux-moins-de-15-ans-une-premiere-historique-en-europe\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>, s'accompagne d'un débat sur les modalités de vérification d'âge, comme le souligne <a href=\"https://www.numerama.com/tech/2299179-apres-deux-ans-de-blocage-google-lance-les-resumes-ia-en-france-ai-overviews.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Numerama</a>.</p>",
-      "<p>Le géant Google a également marqué l'actualité technologique en France avec le déploiement des Aperçus IA et du Mode IA, disponibles dans le moteur de recherche. Selon <a href=\"https://www.frandroid.com/marques/google/3187965_google-deploie-ses-reponses-par-ia-en-france-les-apercus-ia-et-le-mode-ia-arrivent\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>, ces fonctionnalités visent à enrichir l'expérience utilisateur avec des réponses générées par IA. Après deux ans de blocage, Google a enfin lancé les Résumés IA (AI Overviews) en France, comme le confirme Numerama.</p>",
-      "<p>Dans le domaine de l'emploi, France Travail a annoncé l'utilisation de l'IA pour prioriser les contrôles des demandeurs d'emploi, une initiative rapportée par 01net. Parallèlement, Google a intégré une fonctionnalité basée sur l'IA de Chrome pour automatiser le remplissage des formulaires en ligne, réduisant ainsi les pertes de temps, d'après 01net.</p>",
-      "<p>La cybersécurité reste un enjeu majeur, avec Kaspersky alertant sur une campagne de phishing ciblant les entreprises de la région MENA, comme le rapporte <a href=\"https://www.algerie360.com/phishing-kaspersky-alerte-sur-une-campagne-ciblant-les-entreprises-de-la-region-mena/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie360 Tech</a>. Par ailleurs, <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/ia-generative/intelligence-artificielle-derriere-les-projets-colossaux-des-hyperscalers-dans-lia-1650-milliards-de-dollars-de-dette-cachee.NQMHSJCIOZEUPNNWGTB637L3IQ.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> a mis en garde contre Cruciferra, un service de chiffrement initialement légitime transformé en malware pour propager des chevaux de Troie. Enfin, <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/ia-generative/intelligence-artificielle-microsoft-sengage-aupres-damd-pour-deployer-ses-racks-helios-a-grande-echelle-au-sein-dazure.T2IS3X2TV5AB7EB5IJ6F3TSI6U.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> a révélé que les hyperscalers investiraient 1 650 milliards de dollars dans l'IA d'ici 2030, reflétant l'ampleur des investissements dans ce secteur.</p>"
+      "<p>Côté exportations, Sonelgaz a annoncé l'envoi de 200 bornes de recharge pour véhicules électriques vers le Portugal, renforçant ainsi la coopération énergétique entre les deux pays. Selon <a href=\"https://algerie-eco.com/2026/07/21/sonelgaz-exporte-200-bornes-de-recharge-pour-vehicules-electriques-vers-le-portugal/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, cette opération s'inscrit dans le cadre de la transition énergétique régionale. Par ailleurs, Air Algérie a lancé une promotion sur plusieurs lignes internationales, avec des réductions allant jusqu'à 30%, toujours d'après Algérie Éco.</p>",
+      "<p>Dans le domaine de l'intelligence artificielle, Microsoft et Mistral AI ont officialisé un partenariat industriel axé sur l'infrastructure IA à grande échelle. Selon <a href=\"https://www.silicon.fr/business-1367/microsoft-et-mistral-ai-passent-a-lechelle-industrielle-avec-un-partenariat-centre-sur-linfrastructure-228406\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>, cette collaboration vise à accélérer les capacités de calcul et de déploiement de solutions d'IA avancées. De son côté, Microsoft a également annoncé un engagement conjoint avec AMD pour le déploiement à grande échelle de ses racks Helios, une initiative qui pourrait transformer les infrastructures cloud. Toujours dans l'IA, HP a choisi de s'appuyer sur OpenAI pour accélérer sa transformation numérique, comme le rapporte <a href=\"https://www.silicon.fr/data-ia-1372/automobile-comment-lia-et-les-logiciels-redefinissent-le-time-to-market-228393\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>.</p>",
+      "<p>L'industrie automobile bénéficie également des avancées technologiques. Selon <a href=\"https://www.silicon.fr/data-ia-1372/hp-sappuie-sur-openai-pour-sa-transformation-par-lia-228387\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>, l'intégration de l'IA et des logiciels réduit significativement le time-to-market, optimisant ainsi la production et la compétitivité des constructeurs. Parallèlement, Xiaomi a présenté son robot humanoïde, affirmant qu'il est presque aussi précis qu'un ouvrier automobile, comme l'évoque <a href=\"https://www.01net.com/actualites/google-transforme-moteur-recherche-france-voici-apercus-ia-mode-ia.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>.</p>",
+      "<p>La cybersécurité reste une priorité absolue. <a href=\"https://www.usine-digitale.fr/cybersecurite/cybersecurite-gare-a-cruciferra-ce-service-de-chiffrement-pour-cheval-de-troie-propose-en-malware-as-a-service.LVYLJ6PEKVGUFNR7EYLBFMXLOY.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> a alerté sur Cruciferra, un service de chiffrement initialement légitime mais détourné en malware pour chevaux de Troie. De même, <a href=\"https://www.frandroid.com/services/vpn/3186689_crise-de-la-ram-les-vpn-sont-aussi-impactes-par-la-penurie-des-composants-selon-lun-des-leaders-du-marche\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> a confirmé l'impact de la pénurie de RAM sur les services VPN, bien que NordVPN maintienne ses standards de sécurité malgré cette contrainte. Par ailleurs, Google a transformé son moteur de recherche en France en intégrant des Aperçus IA et un Mode IA, une évolution majeure pour l'expérience utilisateur, selon <a href=\"https://www.01net.com/actualites/interdiction-des-reseaux-sociaux-aux-moins-de-15-ans-le-projet-de-loi-franchit-une-nouvelle-etape.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>.</p>",
+      "<p>Dans le secteur des réseaux, une mesure législative majeure a été adoptée : l'interdiction définitive des réseaux sociaux pour les moins de 15 ans, comme le rapporte 01net. Cette décision s'inscrit dans une stratégie de protection des mineurs en ligne. Enfin, dans l'innovation industrielle, un rapport confidentiel a confirmé le projet de sauvetage de Fibre Excellence, porté par des acteurs locaux, indique <a href=\"https://www.usinenouvelle.com/emballage/pate-a-papier-un-rapport-confidentiel-conforte-le-projet-de-sauvetage-de-fibre-excellence-porte-par-matthieu-pigasse.PW7MZZ2KEVDYPDSJH3PNQSVCSY.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a>.</p>"
     ]
   },
-  "lastUpdated": "2026-07-22T06:27:47.002Z"
+  "lastUpdated": "2026-07-22T07:31:08.761Z"
 }
