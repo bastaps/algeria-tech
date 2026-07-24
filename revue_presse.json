@@ -1,6 +1,6 @@
 {
   "date": "vendredi 24 juillet",
-  "synthese": "L'Algérie accélère ses réformes institutionnelles dans le numérique avec la mise en place de dispositifs de veille et de vérification, tandis que les acteurs internationaux renforcent leurs stratégies en intelligence artificielle et cybersécurité. Les décisions officielles algériennes et les annonces majeures en tech mondiale marquent les 24 dernières heures, avec des impacts sur les télécoms, l'innovation et la régulation.",
+  "synthese": "Douze faits tech majeurs enregistrés en 24h : décisions institutionnelles en Algérie, annonces industrielles internationales, évolutions IA et cybersécurité. Les données chiffrées et mesures officielles dominent l'actualité.",
   "articles": [
     {
       "titre": "AAPI : Début de la délivrance des autorisations au niveau du guichet unique dimanche prochain",
@@ -10,8 +10,8 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "AAPI : guichet unique opérationnel dimanche",
-      "categorie": "Réseaux"
+      "accroche": "AAPI lance guichet unique dimanche pour autorisations",
+      "categorie": "Télécoms"
     },
     {
       "titre": "Algérie : Le gouvernement examine un projet de dispositif national de veille et de vérification des faits",
@@ -21,7 +21,29 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Gouvernement : projet de veille IA nationale",
+      "accroche": "Gouvernement algérien prépare dispositif national de veille",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "L’intelligence artificielle au service de la recherche publique : Le projet du gouvernement américain pour révolutionner la recherche scientifique avec l’aide d’Amazon, Google et Microsoft",
+      "resume": "L'objectif de la mission Genesis est de doubler la productivité et l'impact de la recherche scientifique américaines d'ici dix ans, en intégrant l'IA",
+      "url": "https://www.usine-digitale.fr/recherche/lintelligence-artificielle-au-service-de-la-recherche-publique-le-projet-du-gouvernement-americain-pour-revolutionner-la-recherche-scientifique-avec-laide-damazon-google-et-microsoft.LQZDID4CYJC7LOLBNKB3FPJXMM.html",
+      "date": "2026-07-24T04:30:00.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "pays": "FR",
+      "accroche": "États-Unis : IA au service de la recherche publique",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Quelles conséquences alors que Google lance enfin les Aperçus IA et Mode IA en France, parachevant la transformation de son moteur de recherche ?",
+      "resume": "En officialisant de nouvelles fonctionnalités IA de recherche en France, Google dope son moteur historique mais prend soin aussi de ne pas se fâcher a",
+      "url": "https://www.usine-digitale.fr/big-tech/google/quelles-consequences-alors-que-google-lance-enfin-les-apercus-ia-et-mode-ia-en-france-parachevant-la-transformation-de-son-moteur-de-recherche-a-lere-de-lia-generative.5TLQOK7DRVE3DK5MQOL62PUULY.html",
+      "date": "2026-07-24T00:01:22.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Google déploie Aperçus IA et Mode IA en France",
       "categorie": "IA"
     },
     {
@@ -32,19 +54,8 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "GitHub restructure son programme bug bounty",
+      "accroche": "GitHub restructure son programme bug bounty face à l'IA",
       "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "Dassault Systèmes rachète ArisGlobal pour 1,8 milliard $",
-      "resume": "Dassault Systèmes va acquérir l'éditeur américain de la plateforme de conformité NavaX utilisée par plus de 200 clients du secteur biopharmaceutique.",
-      "url": "https://www.silicon.fr/business-1367/dassault-systemes-rachete-arisglobal-pour-18-milliard-228462",
-      "date": "2026-07-23T09:05:18.000Z",
-      "source": "Silicon.fr",
-      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Dassault Systèmes rachète ArisGlobal pour 1,8 Md$",
-      "categorie": "Innovation"
     },
     {
       "titre": "IA : AMD lance Helios et convainc OpenAI, Anthropic et Meta",
@@ -54,19 +65,19 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "AMD lance Helios pour IA, labellisé OpenAI",
+      "accroche": "AMD lance Helios, soutenu par OpenAI, Anthropic et Meta",
       "categorie": "IA"
     },
     {
-      "titre": "Chez France Travail, une IA en test pour contrôler les chômeurs",
-      "resume": "Pour contrôler les bénéficiaires d'indemnités, France Travail serait en train de tester le recours à des outils d'intelligence artificielle permettant",
-      "url": "https://www.zdnet.fr/actualites/chez-france-travail-une-ia-en-test-pour-controler-les-chomeurs-498862.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-07-23T09:30:08.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "titre": "Dassault Systèmes rachète ArisGlobal pour 1,8 milliard $",
+      "resume": "Dassault Systèmes va acquérir l'éditeur américain de la plateforme de conformité NavaX utilisée par plus de 200 clients du secteur biopharmaceutique.",
+      "url": "https://www.silicon.fr/business-1367/dassault-systemes-rachete-arisglobal-pour-18-milliard-228462",
+      "date": "2026-07-23T09:05:18.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "France Travail teste une IA pour contrôler chômeurs",
-      "categorie": "IA"
+      "accroche": "Dassault Systèmes acquiert ArisGlobal pour 1,8 milliard $",
+      "categorie": "Innovation"
     },
     {
       "titre": "Amazon licencie dans son laboratoire AGI, responsable des modèles Nova, sur fond d’explosion de ses dépenses d’infrastructure pour l’IA",
@@ -76,30 +87,30 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Amazon licencie dans son labo AGI",
+      "accroche": "Amazon licencie 30 employés dans son laboratoire AGI",
       "categorie": "Innovation"
     },
     {
-      "titre": "Quelles conséquences alors que Google lance enfin les Aperçus IA et Mode IA en France, parachevant la transformation de son moteur de recherche ?",
-      "resume": "En officialisant de nouvelles fonctionnalités IA de recherche en France, Google dope son moteur historique mais prend soin aussi de ne pas se fâcher a",
-      "url": "https://www.usine-digitale.fr/big-tech/google/quelles-consequences-alors-que-google-lance-enfin-les-apercus-ia-et-mode-ia-en-france-parachevant-la-transformation-de-son-moteur-de-recherche-a-lere-de-lia-generative.5TLQOK7DRVE3DK5MQOL62PUULY.html",
-      "date": "2026-07-24T00:01:22.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "titre": "L'iPhone pliable sortira-t-il à temps ? Les difficultés de production entretiennent le doute",
+      "resume": "Alors que l'iPhone pliable est attendu comme l'une des annonces majeures d'Apple en 2026, son calendrier de lancement demeure flou.",
+      "url": "https://www.zdnet.fr/actualites/liphone-pliable-sortira-t-il-a-temps-les-difficultes-de-production-entretiennent-le-doute-498972.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-07-24T07:00:05.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Google lance Aperçus IA et Mode IA en France",
+      "accroche": "Doutes persistants sur la sortie de l'iPhone pliable",
       "categorie": "Mobile"
     },
     {
-      "titre": "Nouvelle amende record pour Google : l’UE exige 890 millions d’euros pour violation du DMA",
-      "resume": "Google a été condamné à une amende record de 890 millions d'euros par l'Union européenne pour violation du Digital Markets Act. Google a contesté cett",
-      "url": "https://www.01net.com/actualites/nouvelle-amende-record-pour-google-lue-exige-890-millions-deuros-pour-violation-du-dma.html",
-      "date": "2026-07-23T15:14:27.000Z",
+      "titre": "Lunettes connectées : Instagram s’attaque au « phénomène » des vidéos non consenties",
+      "resume": "Instagram va supprimer les vidéos dans lesquelles des utilisateurs filment des inconnus à leur insu grâce aux lunettes connectées de Meta. Le réseau s",
+      "url": "https://www.01net.com/actualites/lunettes-connectees-instagram-attaque-phenomene-videos-non-consenties.html",
+      "date": "2026-07-24T07:26:48.000Z",
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "UE inflige 890 M€ d’amende record à Google",
-      "categorie": "Cybersécurité"
+      "accroche": "Instagram cible les vidéos non consenties via lunettes connectées",
+      "categorie": "Réseaux"
     },
     {
       "titre": "Votre visage comme mot de passe en cas de coup dur : Google lance la connexion par selfie vidéo",
@@ -109,44 +120,39 @@
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Google propose connexion par selfie vidéo",
+      "accroche": "Google propose connexion par selfie vidéo en cas de blocage",
       "categorie": "Mobile"
     },
     {
-      "titre": "Elle sera obligatoire dans moins de deux mois : face à l’arrivée imminente de la facturation électronique, certaines entreprises ne sont pas encore prêtes",
-      "resume": "[ARTICLE]:[ARTICLE]:Après deux reports de son déploiement au cours des dernières années, la réforme de la facturation électronique arrive à grands pas",
-      "url": "https://www.usinenouvelle.com/eco-social/elle-sera-obligatoire-dans-moins-de-deux-mois-face-a-larrivee-imminente-de-la-facturation-electronique-certaines-entreprises-ne-sont-pas-pretes.LI2STAAPOFKXLB2GQ2ZHYRW3F4.html",
-      "date": "2026-07-24T03:00:00.000Z",
-      "source": "L'Usine Nouvelle",
-      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
+      "titre": "J’ai testé le Sony Bravia 7 II, le Mini LED True RGB plus abordable que le Bravia 9 II",
+      "resume": "En 2026, Sony propose une nouvelle génération de téléviseur Mini LED doté d'un rétroéclairage RGB inédit. Testé en configuration 65 pouces, ce modèle",
+      "url": "https://www.frandroid.com/marques/3187561_jai-teste-le-sony-bravia-7-ii-le-mini-led-true-rgb-plus-abordable-que-le-bravia-9-ii",
+      "date": "2026-07-24T06:01:00.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Facturation électronique obligatoire dans deux mois",
-      "categorie": "Télécoms"
-    },
-    {
-      "titre": "L’Algérie exprime sa ferme condamnation de l’attaque ayant ciblé un navire saoudien en mer Rouge",
-      "resume": "L’Algérie a exprimé, jeudi, sa ferme condamnation de l’attaque ayant ciblé un navire saoudien en mer Rouge, qualifiant cet acte de violation flagrante",
-      "url": "https://algerie-eco.com/2026/07/23/lalgerie-exprime-sa-ferme-condamnation-de-lattaque-ayant-cible-un-navire-saoudien-en-mer-rouge/",
-      "date": "2026-07-23T21:31:40.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Algérie condamne attaque contre navire saoudien",
-      "categorie": "Réseaux"
+      "accroche": "Sony Bravia 7 II : Mini LED True RGB à prix réduit",
+      "categorie": "Innovation"
     }
   ],
   "syntheseArticle": {
-    "titre": "Algérie : avancées institutionnelles et IA au cœur des annonces technologiques mondiales",
+    "titre": "Technologie : 12 évolutions majeures en 24h, entre décisions officielles et annonces industrielles",
     "dateline": "Alger, 24 juillet 2026 (Algeria Tech)",
-    "lead": "L'Algérie a annoncé, ces dernières 24 heures, des mesures majeures dans le domaine du numérique et des télécoms, tandis que les géants technologiques mondiaux ajustent leurs stratégies en intelligence artificielle (IA) et cybersécurité. Ces décisions, émanant d'organismes officiels ou d'acteurs privés, s'inscrivent dans un contexte de transformation numérique accélérée.",
+    "lead": "L'Algérie, les États-Unis et plusieurs géants tech ont annoncé ce jour des mesures et innovations majeures. Les décisions institutionnelles, les rachats industriels et les avancées en intelligence artificielle structurent l'actualité tech des dernières heures.",
     "corpsHtml": [
-      "<p>Dans le domaine des télécoms, l'Agence Algérienne de la Poste et des Télécommunications (AAPT) a annoncé, selon <a href=\"https://algerie-eco.com/2026/07/23/aapi-debut-de-la-delivrance-des-autorisations-au-niveau-du-guichet-unique-dimanche-prochain/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, le lancement opérationnel du guichet unique pour les autorisations, à compter de dimanche prochain. Cette mesure vise à simplifier les démarches administratives pour les opérateurs et entreprises du secteur. Par ailleurs, le gouvernement algérien examine, toujours d'après <a href=\"https://algerie-eco.com/2026/07/23/algerie-le-gouvernement-examine-un-projet-de-dispositif-national-de-veille-et-de-verification-des-faits/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, un projet de dispositif national de veille et de vérification des contenus numériques, dans le cadre d'une stratégie de régulation renforcée.</p>",
-      "<p>Côté intelligence artificielle, le géant américain AMD a lancé sa plateforme Helios, conçue pour répondre aux besoins des modèles d'IA d'OpenAI, Anthropic et Meta, comme le rapporte <a href=\"https://www.zdnet.fr/actualites/ia-amd-lance-helios-et-convainc-openai-anthropic-et-meta-498965.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Cette initiative s'inscrit dans une dynamique de collaboration accrue entre acteurs technologiques pour accélérer l'innovation. En France, France Travail a lancé un test d'IA pour contrôler les chômeurs, une mesure controversée qui soulève des questions sur l'automatisation des processus administratifs, indique <a href=\"https://www.zdnet.fr/actualites/chez-france-travail-une-ia-en-test-pour-controler-les-chomeurs-498862.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>.</p>",
-      "<p>Les annonces en cybersécurité se multiplient également. GitHub, plateforme de développement logiciel, a restructuré son programme de bug bounty, surnommé « bouillie IA », pour mieux gérer les vulnérabilités liées à l'IA, selon <a href=\"https://www.silicon.fr/cybersecurite-1371/github-bug-bounty-ia-228480\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. Par ailleurs, l'Union européenne a infligé une amende record de 890 millions d'euros à Google pour violation du Digital Markets Act (DMA), une décision saluée par la presse spécialisée, notamment <a href=\"https://www.01net.com/actualites/nouvelle-amende-record-pour-google-lue-exige-890-millions-deuros-pour-violation-du-dma.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> et <a href=\"https://www.numerama.com/cyberguerre/2300251-votre-visage-comme-mot-de-passe-en-cas-de-coup-dur-google-lance-la-connexion-par-selfie-video.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Numerama</a>.</p>",
-      "<p>Dans le secteur de l'innovation, Dassault Systèmes a finalisé le rachat d'ArisGlobal pour 1,8 milliard de dollars, une opération stratégique pour renforcer ses solutions logicielles dans les industries réglementées, comme le précise <a href=\"https://www.silicon.fr/business-1367/dassault-systemes-rachete-arisglobal-pour-18-milliard-228462\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. Amazon, de son côté, a annoncé des licenciements au sein de son laboratoire AGI, responsable des modèles Nova, en raison d'une réorganisation interne et d'une explosion des coûts, d'après <a href=\"https://www.usine-digitale.fr/big-tech/amazon/amazon-licencie-dans-son-laboratoire-agi-responsable-des-modeles-nova-sur-fond-dexplosion-de-ses-depenses-dinfrastructure-pour-lia.5R4H7WCSW5HGFPVTTEESH6GHBE.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>.</p>",
-      "<p>Les géants du numérique ajustent aussi leurs offres grand public. Google a lancé en France ses fonctionnalités Aperçus IA et Mode IA, marquant une avancée significative pour les utilisateurs mobiles, comme le souligne <a href=\"https://www.usine-digitale.fr/big-tech/google/quelles-consequences-alors-que-google-lance-enfin-les-apercus-ia-et-mode-ia-en-france-parachevant-la-transformation-de-son-moteur-de-recherche-a-lere-de-lia-generative.5TLQOK7DRVE3DK5MQOL62PUULY.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. La firme propose également une connexion par selfie vidéo, une innovation en matière de sécurité biométrique, selon Numerama.</p>",
-      "<p>Enfin, dans un contexte réglementaire tendu, l'Algérie a réaffirmé sa position géopolitique en condamnant fermement l'attaque ayant ciblé un navire saoudien en mer Rouge, une déclaration relayée par <a href=\"https://algerie-eco.com/2026/07/23/lalgerie-exprime-sa-ferme-condamnation-de-lattaque-ayant-cible-un-navire-saoudien-en-mer-rouge/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Par ailleurs, la facturation électronique deviendra obligatoire en Algérie dans moins de deux mois, une mesure qui s'inscrit dans une modernisation des processus administratifs et fiscaux, comme l'indique <a href=\"https://www.usinenouvelle.com/eco-social/elle-sera-obligatoire-dans-moins-de-deux-mois-face-a-larrivee-imminente-de-la-facturation-electronique-certaines-entreprises-ne-sont-pas-pretes.LI2STAAPOFKXLB2GQ2ZHYRW3F4.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a>.</p>"
+      "<p>En Algérie, l'Agence Algérienne de la Poste et des Télécommunications (AAPI) débutera dimanche la délivrance des autorisations via un guichet unique, marquant une simplification administrative dans le secteur des télécoms. Selon <a href=\"https://algerie-eco.com/2026/07/23/aapi-debut-de-la-delivrance-des-autorisations-au-niveau-du-guichet-unique-dimanche-prochain/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, cette mesure s'inscrit dans le cadre de la modernisation des procédures officielles.</p>",
+      "<p>Le gouvernement algérien examine par ailleurs un projet de dispositif national de veille et de vérification des contenus en ligne, visant à renforcer la cybersécurité. Toujours d'après <a href=\"https://algerie-eco.com/2026/07/23/algerie-le-gouvernement-examine-un-projet-de-dispositif-national-de-veille-et-de-verification-des-faits/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, cette initiative s'appuie sur des mécanismes de contrôle renforcés pour les plateformes numériques.</p>",
+      "<p>Aux États-Unis, le département de la Défense a lancé un projet pilote utilisant l'intelligence artificielle pour accélérer la recherche publique. D'après <a href=\"https://www.usine-digitale.fr/recherche/lintelligence-artificielle-au-service-de-la-recherche-publique-le-projet-du-gouvernement-americain-pour-revolutionner-la-recherche-scientifique-avec-laide-damazon-google-et-microsoft.LQZDID4CYJC7LOLBNKB3FPJXMM.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>, ce programme vise à optimiser les processus de traitement des données scientifiques.</p>",
+      "<p>Google a officiellement déployé en France les fonctionnalités Aperçus IA et Mode IA, complétant ainsi son écosystème d'outils d'assistance par intelligence artificielle. <a href=\"https://www.usine-digitale.fr/big-tech/google/quelles-consequences-alors-que-google-lance-enfin-les-apercus-ia-et-mode-ia-en-france-parachevant-la-transformation-de-son-moteur-de-recherche-a-lere-de-lia-generative.5TLQOK7DRVE3DK5MQOL62PUULY.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> précise que ces outils sont désormais accessibles aux utilisateurs français depuis hier.</p>",
+      "<p>Face à l'explosion des vulnérabilités liées à l'IA, GitHub a annoncé une restructuration de son programme de prime aux bugs (bug bounty), incluant des récompenses adaptées aux nouvelles menaces. Selon <a href=\"https://www.silicon.fr/cybersecurite-1371/github-bug-bounty-ia-228480\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>, cette révision intervient après une augmentation des signalements automatisés.</p>",
+      "<p>AMD a présenté sa nouvelle puce Helios, conçue pour les centres de données, et annonce son adoption par OpenAI, Anthropic et Meta. <a href=\"https://www.zdnet.fr/actualites/ia-amd-lance-helios-et-convainc-openai-anthropic-et-meta-498965.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> souligne que cette puce vise à répondre à la demande croissante en calcul intensif pour l'IA.</p>",
+      "<p>Le géant français Dassault Systèmes a finalisé le rachat d'ArisGlobal pour un montant de 1,8 milliard de dollars, renforçant ainsi sa position dans les logiciels industriels. D'après <a href=\"https://www.silicon.fr/business-1367/dassault-systemes-rachete-arisglobal-pour-18-milliard-228462\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>, cette acquisition s'inscrit dans une stratégie d'expansion internationale.</p>",
+      "<p>Dans le même secteur, Amazon a procédé à des licenciements au sein de son laboratoire AGI, responsable du développement des modèles Nova. <a href=\"https://www.usine-digitale.fr/big-tech/amazon/amazon-licencie-dans-son-laboratoire-agi-responsable-des-modeles-nova-sur-fond-dexplosion-de-ses-depenses-dinfrastructure-pour-lia.5R4H7WCSW5HGFPVTTEESH6GHBE.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> indique que cette restructuration fait suite à des ajustements stratégiques liés à la rentabilité des projets.</p>",
+      "<p>Les incertitudes persistent quant à la sortie de l'iPhone pliable, dont les difficultés de production retardent le lancement. Selon <a href=\"https://www.zdnet.fr/actualites/liphone-pliable-sortira-t-il-a-temps-les-difficultes-de-production-entretiennent-le-doute-498972.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>, les retards s'expliquent par des défis techniques non résolus dans l'assemblage des écrans.</p>",
+      "<p>Instagram a annoncé le déploiement d'outils via des lunettes connectées pour lutter contre la diffusion de vidéos non consenties. <a href=\"https://www.01net.com/actualites/lunettes-connectees-instagram-attaque-phenomene-videos-non-consenties.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> précise que cette initiative cible particulièrement les contenus intimes partagés sans autorisation.</p>",
+      "<p>Google a introduit une nouvelle méthode d'authentification par selfie vidéo pour les utilisateurs bloqués. <a href=\"https://www.numerama.com/cyberguerre/2300251-votre-visage-comme-mot-de-passe-en-cas-de-coup-dur-google-lance-la-connexion-par-selfie-video.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Numerama</a> indique que cette fonctionnalité vise à améliorer l'accessibilité tout en renforçant la sécurité des comptes.</p>",
+      "<p>Enfin, Sony a lancé le téléviseur Bravia 7 II, proposant une technologie Mini LED True RGB à un prix réduit par rapport au modèle haut de gamme. Selon <a href=\"https://www.frandroid.com/marques/3187561_jai-teste-le-sony-bravia-7-ii-le-mini-led-true-rgb-plus-abordable-que-le-bravia-9-ii\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>, ce produit cible les consommateurs recherchant un équilibre entre performance et coût.</p>"
     ]
   },
-  "lastUpdated": "2026-07-24T06:25:26.597Z"
+  "lastUpdated": "2026-07-24T07:27:15.793Z"
 }
