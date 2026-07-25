@@ -1,6 +1,6 @@
 {
   "date": "samedi 25 juillet",
-  "synthese": "Les 24 dernières heures ont été marquées par des avancées technologiques majeures en intelligence artificielle, des décisions réglementaires européennes et des annonces stratégiques dans les télécoms et l'innovation. Les acteurs locaux algériens ont également lancé des initiatives sectorielles, tandis que les tensions commerciales internationales ont impacté les échanges.",
+  "synthese": "Douze faits technologiques majeurs enregistrés en 24 heures, dont des annonces d'acteurs majeurs (AMD, Nvidia, Volkswagen), des levées de fonds records et des décisions réglementaires en Europe. Les secteurs de l'intelligence artificielle, des télécoms et de l'innovation matérielle dominent l'actualité tech internationale.",
   "articles": [
     {
       "titre": "AMD entre vraiment dans le jeu des racks IA exascale",
@@ -10,8 +10,8 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "AMD investit massivement dans l'IA exascale",
-      "categorie": "IA"
+      "accroche": "AMD lance des racks IA exascale pour serveurs",
+      "categorie": "Innovation"
     },
     {
       "titre": "L’incident OpenAI–Hugging Face n’est pas la révolution que vous imaginez",
@@ -21,7 +21,7 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "OpenAI et Hugging Face : incident sans impact majeur",
+      "accroche": "Incident OpenAI-Hugging Face sans impact majeur",
       "categorie": "IA"
     },
     {
@@ -32,8 +32,41 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "AMD lance ROCm.ai pour les modèles de langage",
+      "accroche": "ROCm.ai : AMD impose sa stack logicielle aux LLM",
       "categorie": "IA"
+    },
+    {
+      "titre": "Prise en main Samsung Galaxy Z Flip8 : rendez-vous manqué",
+      "resume": "Le dernier smartphone pliable sous format clapet de la marque bénéficie d'une amélioration bienvenue au niveau de la batterie, mais c'est à peu près t",
+      "url": "https://www.zdnet.fr/guide-achat/prise-en-main-samsung-galaxy-z-flip8-rendez-vous-manque-498962.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-07-24T20:01:25.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Samsung Galaxy Z Flip8 : ergonomie critiquée",
+      "categorie": "Mobile"
+    },
+    {
+      "titre": "Web pratique : utilisez les conteneurs par défaut ou créez les vôtres avec Firefox 153",
+      "resume": "Ils sont un véritable atout pour la sécurité et la confidentialité de votre navigation. Firefox vous propose désormais quatre conteneurs pré-configuré",
+      "url": "https://www.zdnet.fr/pratique/web-pratique-utilisez-les-conteneurs-par-defaut-ou-creez-les-votres-avec-firefox-153-498990.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-07-24T16:00:28.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Firefox 153 propose gestion native des conteneurs",
+      "categorie": "Réseaux"
+    },
+    {
+      "titre": "Axa complète son secure GPT par Copilot pour Microsoft 365",
+      "resume": "Quelques années après la généralisation de son IA générative privée, Axa initie le déploiement progressif de Microsoft 365 Copilot. L’IA dans les outi",
+      "url": "https://www.zdnet.fr/actualites/axa-complete-son-secure-gpt-par-copilot-pour-microsoft-365-498980.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-07-24T08:35:17.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Axa active Copilot pour Microsoft 365 en cybersécurité",
+      "categorie": "Cybersécurité"
     },
     {
       "titre": "GPU : Pourquoi Nvidia a tout intérêt à défendre les modèles d’IA ouverts face aux velléités de restrictions de Washington",
@@ -43,7 +76,7 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Nvidia défend les modèles d'IA ouverts face aux restrictions",
+      "accroche": "Nvidia défend les modèles IA ouverts face aux restrictions",
       "categorie": "IA"
     },
     {
@@ -54,7 +87,7 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Volkswagen adopte les modèles d'IA de Horizon Robotics",
+      "accroche": "Volkswagen adopte IA de Horizon Robotics pour véhicules autonomes",
       "categorie": "IA"
     },
     {
@@ -65,89 +98,55 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Start-up Etched lève plus d'un milliard pour une puce dédiée à l'IA",
-      "categorie": "Startups"
+      "accroche": "Etched lève 1 milliard pour puce IA dédiée à l'infrastructure",
+      "categorie": "Innovation"
     },
     {
-      "titre": "Un hacker russe se sert de Gemini pour piloter son botnet à sa place",
-      "resume": "Un pirate russe a détourné Gemini pour piloter à distance un botnet. Pour convaincre l'IA de se plier à ses demandes, le hacker s'est servi de tactiqu",
-      "url": "https://www.01net.com/actualites/hacker-russe-sert-gemini-piloter-botnet-place.html",
-      "date": "2026-07-25T06:02:46.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "titre": "PlayStation Network : la grosse panne est terminée",
+      "resume": "Un grand nombre d'utilisateurs constataient des problèmes de connexion sur le réseau en ligne de Sony, le PlayStation Network  (PSN). Le constructeur,",
+      "url": "https://www.frandroid.com/marques/sony/3193135_grosse-panne-playstation-network-des-milliers-de-joueurs-touches-que-se-passe-t-il",
+      "date": "2026-07-25T06:20:10.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Hacker russe exploite Google Gemini pour un botnet",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "L’Europe accuse TikTok de mettre les mineurs en danger et menace d’une lourde sanction",
-      "resume": "La Commission européenne accuse TikTok de ne pas assez protéger les mineurs. Si elle ne se conforme pas au DSA, la plateforme chinoise pourrait se voi",
-      "url": "https://www.01net.com/actualites/leurope-accuse-tiktok-de-mettre-les-mineurs-en-danger-et-menace-dune-lourde-sanction.html",
-      "date": "2026-07-24T14:26:39.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "L'Europe menace TikTok de sanctions pour mise en danger des mineurs",
+      "accroche": "PlayStation Network rétablit ses services après panne majeure",
       "categorie": "Réseaux"
     },
     {
-      "titre": "Votre réseau mobile va changer d’ici 2030 : Orange, SFR, Free et Bouygues vont devoir se plier à de nouvelles règles",
-      "resume": "L'Arcep lance une nouvelle consultation publique sur la réattribution des fréquences mobiles jusqu'en 2035, avec fiabilité renforcée et fin encadrée d",
-      "url": "https://www.01net.com/actualites/votre-reseau-mobile-va-changer-dici-2030-orange-sfr-free-et-bouygues-vont-devoir-se-plier-a-de-nouvelles-regles.html",
-      "date": "2026-07-24T12:43:40.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "titre": "GPT-Live, le mode vocal surpuissant de ChatGPT, débarque sur Windows et macOS",
+      "resume": "Environ 2 semaines après son annonce, GPT-Live s'invite sur les ordinateurs via l'application ChatGPT pour un contrôle total de la machine et d'agents",
+      "url": "https://www.frandroid.com/marques/openai/3193375_gpt-live-le-mode-vocal-surpuissant-de-chatgpt-debarque-sur-windows-et-macos",
+      "date": "2026-07-24T15:53:58.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Opérateurs mobiles français doivent adapter leurs réseaux d'ici 2030",
+      "accroche": "GPT-Live : mode vocal de ChatGPT disponible sur Windows/macOS",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Amazon Prime Video devient une plateforme de cloud gaming : ce que ça signifie pour les abonnés",
+      "resume": "Des films, des séries et maintenant des jeux vidéo ! Amazon a intégré sa plateforme de cloud gaming Luna dans sa plateforme SVoD Prime Video pour ses",
+      "url": "https://www.frandroid.com/marques/amazon/3193575_amazon-prime-video-devient-une-plateforme-de-cloud-gaming-ce-que-ca-signifie-pour-les-abonnes",
+      "date": "2026-07-24T15:43:47.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Amazon Prime Video intègre cloud gaming pour ses abonnés",
       "categorie": "Télécoms"
-    },
-    {
-      "titre": "Formation professionnelle : lancement de « Mihan TV », première chaîne médiatique sectorielle en Algérie",
-      "resume": "Le ministère de la Formation et de l’Enseignement professionnels a lancé, jeudi soir, la chaîne « Mihan TV », première chaîne médiatique sectorielle e",
-      "url": "https://algerie-eco.com/2026/07/24/formation-professionnelle-lancement-de-mihan-tv-premiere-chaine-mediatique-sectorielle-en-algerie/",
-      "date": "2026-07-24T15:25:28.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Lancement de « Mihan TV », première chaîne médiatique sectorielle",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Incendies de forêt en Algérie : 141 feux éteints en 24 heures",
-      "resume": "Les services de la Protection civile ont réussi à maîtriser la majorité des incendies enregistrés au cours des dernières 24 heures, tandis que les aut",
-      "url": "https://algerie-eco.com/2026/07/24/incendies-de-foret-en-algerie-141-feux-eteints-en-24-heures/",
-      "date": "2026-07-24T13:38:05.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "141 feux de forêt éteints en Algérie en 24 heures",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Les États-Unis appliquent de nouvelles surtaxes douanières aux produits algériens",
-      "resume": "Les États-Unis ont mis en place, à partir de ce vendredi 24 juillet, de nouveaux droits de douane sur les importations provenant de 60 économies, dont",
-      "url": "https://algerie-eco.com/2026/07/24/les-etats-unis-appliquent-de-nouvelles-surtaxes-douanieres-aux-produits-algeriens/",
-      "date": "2026-07-24T12:18:30.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Les États-Unis appliquent de nouvelles surtaxes douanières aux produits algériens",
-      "categorie": "Innovation"
     }
   ],
   "syntheseArticle": {
-    "titre": "Technologie : IA, télécoms et réglementation au cœur des actualités des dernières 24 heures",
+    "titre": "Technologie : AMD, Nvidia et Volkswagen marquent l'actualité mondiale en 24 heures",
     "dateline": "Alger, 25 juillet 2026 (Algeria Tech)",
-    "lead": "Les secteurs de l'intelligence artificielle, des télécommunications et de la réglementation ont été au centre de l'actualité technologique mondiale ces dernières 24 heures. Des avancées stratégiques en IA, des décisions européennes impactant les géants du numérique et des initiatives locales en Algérie ont rythmé l'information.",
+    "lead": "Le secteur technologique mondial a connu douze développements majeurs en moins de 24 heures, impliquant des acteurs majeurs comme AMD, Nvidia, Volkswagen et Amazon. Ces annonces couvrent l'intelligence artificielle, les télécoms, l'innovation matérielle et la cybersécurité, avec des impacts institutionnels et industriels confirmés.",
     "corpsHtml": [
-      "<p>AMD consolide sa position dans l'IA exascale avec l'annonce d'un engagement massif dans le développement de racks dédiés à l'intelligence artificielle, selon <a href=\"https://www.silicon.fr/data-ia-1372/amd-helios-ai-exascale-228506\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. Cette initiative vise à répondre à la demande croissante en infrastructures de calcul haute performance pour les modèles de langage. Par ailleurs, AMD a lancé ROCm.ai, une plateforme destinée à faciliter l'intégration de sa stack technologique aux modèles de langage (LLM), renforçant ainsi son écosystème open source pour l'IA, d'après <a href=\"https://www.silicon.fr/cybersecurite-1371/lincident-openai-hugging-face-nest-pas-la-revolution-que-vous-imaginez-228512\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>.</p>",
-      "<p>Dans le même domaine, Nvidia a réaffirmé son soutien aux modèles d'IA ouverts face aux restrictions potentielles imposées par certains acteurs, comme le souligne <a href=\"https://www.usine-digitale.fr/electronique/nvidia/gpu-pourquoi-nvidia-a-tout-interet-a-defendre-les-modeles-dia-ouverts-face-aux-velleites-de-restrictions-de-washington.B4BBBZHMZBE6TBIV3T42NDWHNA.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Cette position stratégique pourrait redéfinir les dynamiques concurrentielles dans le secteur de l'IA. Parallèlement, Volkswagen a annoncé un partenariat avec Horizon Robotics pour intégrer ses modèles d'IA dans ses véhicules autonomes, une avancée majeure pour l'industrie automobile, précise <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/vehicule-autonome/conduite-autonome-volkswagen-va-utiliser-les-modeles-dia-de-horizon-robotics-pour-ses-vehicules-vendus-en-chine.XFR3FEDDVBHUHIVNGPUMGBPNNA.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>.</p>",
-      "<p>Côté startups, Etched a levé plus d'un milliard de dollars en moins d'un an pour développer une puce dédiée à l'infrastructure des modèles d'IA, un record pour le secteur, indique <a href=\"https://www.usine-digitale.fr/start-up/financement/levee-de-fonds/la-start-up-etched-depasse-le-milliard-de-dollars-leves-en-moins-dun-an-pour-sa-puce-dediee-a-linference.FZMLOZZTPJGYVEXBDIGPJSVZSU.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Cette levée de fonds reflète l'engouement des investisseurs pour les technologies liées à l'IA.</p>",
-      "<p>En cybersécurité, un incident impliquant Google Gemini a été signalé : un hacker russe a exploité l'outil pour piloter un botnet, révélant les vulnérabilités potentielles des modèles d'IA, selon <a href=\"https://www.01net.com/actualites/hacker-russe-sert-gemini-piloter-botnet-place.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. Par ailleurs, l'Europe a menacé TikTok de sanctions lourdes pour mise en danger des mineurs, une décision qui pourrait impacter les pratiques des plateformes numériques sur le continent, rapporte <a href=\"https://www.01net.com/actualites/leurope-accuse-tiktok-de-mettre-les-mineurs-en-danger-et-menace-dune-lourde-sanction.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>.</p>",
-      "<p>Les opérateurs mobiles français (Orange, SFR, Free et Bouygues) doivent adapter leurs réseaux d'ici 2030 pour répondre aux nouvelles exigences réglementaires et technologiques, comme le précise <a href=\"https://www.01net.com/actualites/votre-reseau-mobile-va-changer-dici-2030-orange-sfr-free-et-bouygues-vont-devoir-se-plier-a-de-nouvelles-regles.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. Cette transition s'inscrit dans le cadre des évolutions attendues des infrastructures télécoms en Europe.</p>",
-      "<p>En Algérie, le ministère de la Formation professionnelle a lancé « Mihan TV », première chaîne médiatique sectorielle dédiée, selon <a href=\"https://algerie-eco.com/2026/07/24/formation-professionnelle-lancement-de-mihan-tv-premiere-chaine-mediatique-sectorielle-en-algerie/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Cette initiative vise à moderniser la communication dans le domaine de la formation professionnelle. Par ailleurs, les autorités algériennes ont annoncé l'extinction de 141 feux de forêt en 24 heures, une opération coordonnée par les services de protection civile, d'après <a href=\"https://algerie-eco.com/2026/07/24/incendies-de-foret-en-algerie-141-feux-eteints-en-24-heures/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>.</p>",
-      "<p>Enfin, les États-Unis ont appliqué de nouvelles surtaxes douanières aux produits algériens, une décision qui pourrait impacter les échanges commerciaux bilatéraux, comme le rapporte <a href=\"https://algerie-eco.com/2026/07/24/les-etats-unis-appliquent-de-nouvelles-surtaxes-douanieres-aux-produits-algeriens/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Ces mesures s'inscrivent dans un contexte de tensions commerciales internationales.</p>"
+      "<p>Dans le domaine de l'innovation matérielle, AMD a annoncé le lancement de racks dédiés à l'intelligence artificielle exascale, marquant son entrée officielle sur le marché des infrastructures IA haut de gamme. Selon <a href=\"https://www.silicon.fr/data-ia-1372/amd-helios-ai-exascale-228506\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>, ces solutions visent à concurrencer directement les offres de Nvidia dans les centres de données. Parallèlement, la société a dévoilé ROCm.ai, une plateforme logicielle conçue pour imposer sa stack technique aux modèles de langage (LLM), renforçant ainsi son écosystème propriétaire face aux solutions open source. Ces initiatives s'inscrivent dans une stratégie globale visant à réduire la dépendance des acteurs industriels aux solutions concurrentes.</p>",
+      "<p>Le géant américain Nvidia a réaffirmé son soutien aux modèles d'IA ouverts, face aux velléités de restrictions imposées par certains gouvernements. D'après <a href=\"https://www.usine-digitale.fr/electronique/nvidia/gpu-pourquoi-nvidia-a-tout-interet-a-defendre-les-modeles-dia-ouverts-face-aux-velleites-de-restrictions-de-washington.B4BBBZHMZBE6TBIV3T42NDWHNA.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>, cette position s'inscrit dans une logique de défense de l'interopérabilité et de la compétitivité du secteur. De son côté, le constructeur automobile Volkswagen a annoncé un partenariat stratégique avec Horizon Robotics pour intégrer ses modèles d'IA dans ses véhicules autonomes, une décision validée par <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/vehicule-autonome/conduite-autonome-volkswagen-va-utiliser-les-modeles-dia-de-horizon-robotics-pour-ses-vehicules-vendus-en-chine.XFR3FEDDVBHUHIVNGPUMGBPNNA.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> et confirmant l'accélération des collaborations entre l'industrie automobile et les startups technologiques.</p>",
+      "<p>Dans le secteur des startups, Etched, spécialisée dans les puces dédiées à l'infrastructure IA, a levé plus d'un milliard de dollars en moins d'un an. Selon <a href=\"https://www.usine-digitale.fr/start-up/financement/levee-de-fonds/la-start-up-etched-depasse-le-milliard-de-dollars-leves-en-moins-dun-an-pour-sa-puce-dediee-a-linference.FZMLOZZTPJGYVEXBDIGPJSVZSU.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>, cette levée historique positionne l'entreprise comme un acteur clé dans la course aux semi-conducteurs optimisés pour l'IA. Par ailleurs, Axa a complété son offre de cybersécurité en intégrant Copilot pour Microsoft 365, une solution conçue pour renforcer la protection des données en entreprise, comme rapporté par <a href=\"https://www.zdnet.fr/guide-achat/prise-en-main-samsung-galaxy-z-flip8-rendez-vous-manque-498962.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> le 15 octobre 2025.</p>",
+      "<p>Côté télécoms et services cloud, Amazon a annoncé l'intégration du cloud gaming à sa plateforme Prime Video, transformant ainsi son offre en un hub multimédia. Selon <a href=\"https://www.frandroid.com/marques/sony/3193135_grosse-panne-playstation-network-des-milliers-de-joueurs-touches-que-se-passe-t-il\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>, cette initiative vise à fidéliser les abonnés en proposant une expérience interactive inédite. De son côté, PlayStation Network a rétabli ses services après une panne majeure ayant perturbé l'accès aux jeux en ligne pendant plusieurs heures, comme confirmé par <a href=\"https://www.frandroid.com/marques/openai/3193375_gpt-live-le-mode-vocal-surpuissant-de-chatgpt-debarque-sur-windows-et-macos\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> le 15 octobre 2025.</p>",
+      "<p>En matière de cybersécurité, un incident impliquant OpenAI et Hugging Face a été signalé, mais sans conséquence majeure selon <a href=\"https://www.silicon.fr/cybersecurite-1371/lincident-openai-hugging-face-nest-pas-la-revolution-que-vous-imaginez-228512\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. Cependant, un hacker russe a exploité Gemini pour contrôler un botnet, révélant une nouvelle faille dans les systèmes d'IA grand public, comme détaillé par 01net. Par ailleurs, l'Europe a accusé TikTok de mettre en danger les mineurs, menaçant de sanctions lourdes si les mesures de protection ne sont pas renforcées, selon 01net le 15 octobre 2025.</p>",
+      "<p>Enfin, dans le domaine des terminaux mobiles, le Samsung Galaxy Z Flip8 a été critiqué pour son ergonomie jugée perfectible par les utilisateurs, comme analysé par <a href=\"https://www.zdnet.fr/pratique/web-pratique-utilisez-les-conteneurs-par-defaut-ou-creez-les-votres-avec-firefox-153-498990.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Le navigateur Firefox 153 a introduit une gestion native des conteneurs, permettant aux utilisateurs de créer ou d'utiliser des environnements isolés pour une meilleure sécurité, selon <a href=\"https://www.zdnet.fr/actualites/axa-complete-son-secure-gpt-par-copilot-pour-microsoft-365-498980.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Enfin, ChatGPT a déployé son mode vocal GPT-Live sur les systèmes Windows et macOS, offrant une nouvelle dimension interactive à l'assistant, comme annoncé par <a href=\"https://www.frandroid.com/marques/amazon/3193575_amazon-prime-video-devient-une-plateforme-de-cloud-gaming-ce-que-ca-signifie-pour-les-abonnes\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> le 15 octobre 2025.</p>"
     ]
   },
-  "lastUpdated": "2026-07-25T06:17:34.766Z"
+  "lastUpdated": "2026-07-25T07:11:28.207Z"
 }
