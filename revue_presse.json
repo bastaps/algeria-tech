@@ -1,28 +1,39 @@
 {
   "date": "mardi 28 juillet",
-  "synthese": "Douze initiatives technologiques majeures ont marqué les dernières 24 heures, avec des annonces institutionnelles en Algérie et des décisions stratégiques internationales en matière d'IA, de cybersécurité et d'innovation. Les acteurs publics et privés ont confirmé des projets concrets, des partenariats et des ajustements réglementaires impactant directement les marchés locaux et globaux.",
+  "synthese": "Douze initiatives majeures ont marqué l'actualité tech mondiale en 24h : déploiements de constellations satellites, annonces réglementaires sur l'IA, partenariats cloud souverains et crises cyber. Les acteurs américains dominent les annonces stratégiques tandis que l'Europe renforce ses régulations et la Chine accélère sur l'électromobilité.",
   "articles": [
     {
-      "titre": "Importation des services : lancement d’une plateforme numérique à partir du 1er août",
-      "resume": "Le ministère du Commerce extérieur et de la Promotion des exportations a annoncé, dans un communiqué publié ce dimanche 26 juillet, le lancement, à co",
-      "url": "https://algerie-eco.com/2026/07/27/importation-des-services-lancement-dune-plateforme-numerique-a-partir-du-1er-aout/",
-      "date": "2026-07-27T08:16:25.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Plateforme numérique pour importation de services dès août",
-      "categorie": "Innovation"
+      "titre": "Amazon sollicite la FCC pour déployer une constellation de 5 000 satellites face à Starlink",
+      "resume": "Amazon a demandé à la FCC américain l’autorisation de lancer 5 000 satellites afin de connecter directement les smartphones depuis l’espace. Cette ini",
+      "url": "https://www.zdnet.fr/actualites/amazon-sollicite-la-fcc-pour-deployer-une-constellation-de-5-000-satellites-face-a-starlink-499046.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-07-28T08:03:23.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Amazon demande 5 000 satellites face à Starlink",
+      "categorie": "Télécoms"
     },
     {
-      "titre": "LG Algerie met l’innovation au service du confort et des économies d’énergie",
-      "resume": "feed\n\nChaque été, les températures grimpent à travers l’Algérie, dépassant parfois les 40 °C dans plusieurs régions. Face à ces épisodes de forte chal",
-      "url": "https://www.ntic-dz.com/lg-algerie-met-linnovation-au-service-du-confort-et-des-economies-denergie/?utm_source=rss&utm_medium=rss&utm_campaign=lg-algerie-met-linnovation-au-service-du-confort-et-des-economies-denergie",
-      "date": "2026-07-27T16:30:55.000Z",
-      "source": "NTIC.dz",
-      "logo": "https://www.google.com/s2/favicons?domain=ntic-dz.com&sz=32",
-      "pays": "DZ",
-      "accroche": "LG Algérie optimise confort et économies d’énergie",
-      "categorie": "Innovation"
+      "titre": "Data centers IA : Nvidia envisage un soutien financier record de 250 milliards de dollars à OpenAI",
+      "resume": "Nvidia et OpenAI discutent d’un soutien financier pouvant atteindre 250 milliards de dollars pour un campus de data centers dans l’Ohio. Ce mécanisme",
+      "url": "https://www.zdnet.fr/actualites/data-centers-ia-nvidia-envisage-un-soutien-financier-record-de-250-milliards-de-dollars-a-openai-499043.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-07-28T06:02:43.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Nvidia propose 250 milliards de dollars à OpenAI",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Jeff Bezos impose une refonte de Prime Video autour de l’intelligence artificielle avec le projet Lighthouse",
+      "resume": "Le fondateur d’Amazon, qui a quitté la direction opérationnelle du groupe en 2021 mais en reste président exécutif, souhaite ériger Prime Video en vit",
+      "url": "https://www.usine-digitale.fr/big-tech/amazon/jeff-bezos-impose-une-refonte-de-prime-video-autour-de-lintelligence-artificielle-avec-le-projet-lighthouse.WMUOJWU5LBAIRO37QRAIHWUYV4.html",
+      "date": "2026-07-28T07:53:45.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Bezos relance Prime Video avec l'IA et le projet Li",
+      "categorie": "IA"
     },
     {
       "titre": "Un « kill switch » pour l’IA ? Ce que projette le législateur américain",
@@ -32,7 +43,7 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "États-Unis envisagent un « kill switch » pour l’IA",
+      "accroche": "Les États-Unis envisagent un « kill switch » pour l'IA",
       "categorie": "IA"
     },
     {
@@ -43,8 +54,41 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Nvidia fédère standard sécurité IA avec Open Secure AI Alliance",
+      "accroche": "Nvidia fédère le standard de sécurité de l'IA",
       "categorie": "IA"
+    },
+    {
+      "titre": "Un « rappel des enjeux » : Sam Altman revient sur la cyberattaque provoquée par une IA d’OpenAI",
+      "resume": "Plusieurs jours après la fuite de deux modèles d’IA d’OpenAI et le piratage de Hugging Face, Sam Altman s'est pour la première fois exprimé sur l'inci",
+      "url": "https://www.01net.com/actualites/rappel-enjeux-sam-altman-revient-cyberattaque-provoquee-par-ia-dopenai.html",
+      "date": "2026-07-28T08:29:44.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Sam Altman revient sur la cyberattaque d'OpenAI",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Avec iOS 26.6, Apple corrige près de 90 failles de sécurité, mettez à jour votre iPhone !",
+      "resume": "Apple vient de déployer iOS 26.6 sur iPhone et iPad. Cette mise à jour intermédiaire corrige un impressionnant total de 87 failles de sécurité dans le",
+      "url": "https://www.01net.com/actualites/ios-26-6-apple-corrige-pres-90-failles-securite-mettez-jour-iphone.html",
+      "date": "2026-07-28T07:45:24.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Apple corrige 90 failles avec iOS 26.6",
+      "categorie": "Mobile"
+    },
+    {
+      "titre": "« Cette situation est inacceptable » : Xbox s’excuse de son énorme panne de 15h, mais PlayStation reste silencieux",
+      "resume": "Xbox vient de s'excuser officiellement de sa panne du 27 juillet par l'intermédiaire de son directeur technique, qui s'est exprimé longuement sur X /",
+      "url": "https://www.frandroid.com/marques/microsoft/3195987_cette-situation-est-inacceptable-xbox-sexcuse-de-son-enorme-panne-de-15h-mais-playstation-reste-silencieux",
+      "date": "2026-07-28T08:49:49.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Xbox s'excuse après 15h de panne sur ses serveurs",
+      "categorie": "Réseaux"
     },
     {
       "titre": "Airbus mise sur SAP Sovereign Cloud",
@@ -54,105 +98,54 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Airbus adopte SAP Sovereign Cloud pour ses data centers",
-      "categorie": "Cybersécurité"
+      "accroche": "Airbus adopte SAP Sovereign Cloud",
+      "categorie": "Cloud"
     },
     {
-      "titre": "La pénurie de mémoire fait grimper le prix des appareils photo, Fujifilm ouvre le bal",
-      "resume": "Après les PC, les smartphones et les consoles de jeux, la pénurie de composants liée à l’explosion de la demande en intelligence artificielle commence",
-      "url": "https://www.zdnet.fr/actualites/la-penurie-de-memoire-fait-grimper-le-prix-des-appareils-photo-fujifilm-ouvre-le-bal-499050.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-07-28T07:10:29.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "titre": "Starlink propose de lancer son service mobile en France pour répondre aux incendies",
+      "resume": "En plein mégafeu en Gironde, SpaceX propose d'activer gratuitement son service Starlink Mobile pour remplacer les antennes cellulaires détruites. Derr",
+      "url": "https://www.numerama.com/tech/2302717-starlink-propose-de-lancer-son-service-mobile-en-france-pour-repondre-aux-incendies.html",
+      "date": "2026-07-28T08:13:25.000Z",
+      "source": "Numerama",
+      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Pénurie mémoire : Fujifilm augmente prix appareils photo",
-      "categorie": "Mobile"
+      "accroche": "Starlink propose un service mobile en France",
+      "categorie": "Télécoms"
     },
     {
-      "titre": "Data centers IA : Nvidia envisage un soutien financier record de 250 milliards de dollars à OpenAI",
-      "resume": "Nvidia et OpenAI discutent d’un soutien financier pouvant atteindre 250 milliards de dollars pour un campus de data centers dans l’Ohio. Ce mécanisme",
-      "url": "https://www.zdnet.fr/actualites/data-centers-ia-nvidia-envisage-un-soutien-financier-record-de-250-milliards-de-dollars-a-openai-499043.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-07-28T06:02:43.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Nvidia prévoit 250 milliards de dollars pour data centers IA",
-      "categorie": "IA"
-    },
-    {
-      "titre": "ZD Tech : Ce nouvel outil basé sur l'IA pourrait simplifier la vie de vos équipes de conformité (et de vos développeurs)",
-      "resume": "La scale-up Sumsub frappe un grand coup en ouvrant sa plateforme aux agents d'IA comme ChatGPT et Claude. Une innovation qui transforme de lourdes règ",
-      "url": "https://www.zdnet.fr/actualites/zd-tech-ce-nouvel-outil-base-sur-lia-pourrait-simplifier-la-vie-de-vos-equipes-de-conformite-et-de-vos-developpeurs-498191.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-07-28T05:30:41.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Nouvel outil IA pour simplifier conformité des équipes",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Alors que Mobileye accélère dans la conduite autonome et la robotique humanoïde, son cofondateur et CEO Amnon Shashua quitte ses fonctions",
-      "resume": "",
-      "url": "https://www.usine-digitale.fr/intelligence-artificielle/vehicule-autonome/alors-que-mobileye-accelere-dans-la-conduite-autonome-et-la-robotique-humanoide-son-cofondateur-et-ceo-amnon-shashua-quitte-ses-fonctions.IQ7UXZKRXNEBHDRQ5JJLA7ZPO4.html",
-      "date": "2026-07-27T09:29:32.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Mobileye accélère conduite autonome et robotique humanoïde",
-      "categorie": "Réseaux"
-    },
-    {
-      "titre": "Le premier robot humanoïde de BYD, c’est imminent",
-      "resume": "Le constructeur automobile chinois BYD a confirmé qu'il présenterait son premier robot humanoïde au mois d'août, dans son espace Di Space à Zhengzhou.",
-      "url": "https://www.frandroid.com/marques/byd/3195797_le-premier-robot-humanoide-de-byd-cest-imminent",
-      "date": "2026-07-28T07:19:19.000Z",
+      "titre": "La Leapmotor B03 se montre enfin : la future citadine électrique chinoise arrive bientôt en Europe pour viser la Renault 5 et la Peugeot 208",
+      "resume": "Après le B03X, Leapmotor lève le voile en Chine sur sa nouvelle A05, qui devrait être vendue en Europe sous le nom de B03. La petite voiture électriqu",
+      "url": "https://www.frandroid.com/marques/leapmotor/3195803_la-leapmotor-b03-se-montre-enfin-la-future-citadine-electrique-chinoise-arrive-bientot-en-europe-pour-viser-la-renault-5-et-la-peugeot-208",
+      "date": "2026-07-28T08:49:32.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Premier robot humanoïde de BYD annoncé pour bientôt",
+      "accroche": "La citadine électrique Leapmotor B03 arrive en Europe",
       "categorie": "Innovation"
     },
     {
-      "titre": "Le plus fin des nouveaux pliants Samsung, le Galaxy Z Flip 8, est déjà à moitié prix avant même sa sortie grâce à cette astuce",
-      "resume": "Le Samsung Galaxy Z Flip 8 est le tout nouveau smartphone pliant à clapet de la marque coréenne. Pour les précommandes, on le trouve déjà à 599 euros",
-      "url": "https://www.frandroid.com/bons-plans/3194995_le-plus-fin-des-nouveaux-pliants-samsung-le-galaxy-z-flip-8-est-deja-a-moitie-prix-avant-meme-sa-sortie-grace-a-cette-astuce",
-      "date": "2026-07-28T05:24:00.000Z",
+      "titre": "Incendies en Gironde et dans les Landes : Bouygues Télécom et Orange offrent de l’Internet mobile à leurs clients",
+      "resume": "La France est touchée par de violents incendies, en particulier en Gironde et dans les Landes. Les opérateurs français se mobilisent à leur tour pour",
+      "url": "https://www.frandroid.com/marques/orange/3195819_incendies-en-gironde-et-dans-les-landes-bouygues-telecom-et-orange-offrent-de-linternet-mobile-a-leurs-clients",
+      "date": "2026-07-28T08:17:11.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Galaxy Z Flip 8 déjà à moitié prix avant lancement",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "J’ai essayé la Mercedes-Benz Classe C électrique : sûrement la meilleure voiture électrique pour tracer la route",
-      "resume": "Le constructeur allemand Mercedes-Benz est en plein renouvellement de sa gamme de voitures électriques. Après avoir lancé le GLC, voici la berline Cla",
-      "url": "https://www.frandroid.com/marques/mercedes-benz/3190567_jai-essaye-la-mercedes-benz-classe-c-electrique-surement-la-meilleure-voiture-electrique-pour-tracer-la-route",
-      "date": "2026-07-28T01:00:00.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Mercedes-Benz Classe C électrique testée par Frandroid",
-      "categorie": "Mobile"
+      "accroche": "Orange et Bouygues offrent Internet mobile aux zones sinistrées",
+      "categorie": "Télécoms"
     }
   ],
   "syntheseArticle": {
-    "titre": "Technologie : l’Algérie et le monde en 12 mouvements stratégiques en 24 heures",
+    "titre": "L'actualité tech mondiale en 24h : constellations, IA et régulations au cœur des annonces",
     "dateline": "Alger, 28 juillet 2026 (Algeria Tech)",
-    "lead": "L’Algérie et la scène technologique internationale ont connu 12 évolutions majeures en 24 heures, mêlant innovations locales, décisions réglementaires et partenariats globaux. Les acteurs publics, privés et institutionnels ont acté des projets concrets impactant les secteurs de l’IA, des télécoms et de l’innovation numérique.",
+    "lead": "Entre déploiements de satellites, annonces stratégiques sur l'intelligence artificielle et crises cyber, l'écosystème tech a connu une journée dense. Les acteurs américains mènent les initiatives majeures tandis que l'Europe durcit ses régulations. La Chine marque sa présence avec l'arrivée d'une citadine électrique sur le marché européen.",
     "corpsHtml": [
-      "<p>En Algérie, le ministère du Commerce a annoncé le lancement d’une plateforme numérique dédiée à l���importation des services à partir du 1er août, selon <a href=\"https://algerie-eco.com/2026/07/27/importation-des-services-lancement-dune-plateforme-numerique-a-partir-du-1er-aout/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Cette initiative vise à moderniser les procédures administratives et à accélérer les échanges économiques avec l’étranger.</p>",
-      "<p>Par ailleurs, LG Algérie a mis en avant ses solutions innovantes pour optimiser le confort et les économies d’énergie, comme rapporté par <a href=\"https://www.ntic-dz.com/lg-algerie-met-linnovation-au-service-du-confort-et-des-economies-denergie/?utm_source=rss&utm_medium=rss&utm_campaign=lg-algerie-met-linnovation-au-service-du-confort-et-des-economies-denergie\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">NTIC.dz</a>. L’entreprise a présenté des technologies adaptées aux besoins des ménages et des entreprises locales.</p>",
-      "<p>Sur le plan international, le législateur américain a relancé le débat sur l’encadrement de l’intelligence artificielle avec un projet de « kill switch », une mesure visant à désactiver temporairement les systèmes d’IA jugés dangereux, d’après <a href=\"https://www.silicon.fr/data-ia-1372/ai-kill-switch-228527\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. Cette proposition s’inscrit dans un contexte de régulation accrue des technologies émergentes.</p>",
-      "<p>Dans le même domaine, Nvidia a annoncé la création de l’Open Secure AI Alliance pour fédérer un standard de sécurité commun pour l’IA, comme indiqué par <a href=\"https://www.silicon.fr/cybersecurite-1371/open-secure-ai-alliance-nvidia-veut-federer-le-standard-de-securite-de-lia-228526\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. Cette alliance rassemble des acteurs majeurs du secteur pour renforcer la confiance dans les solutions d’IA.</p>",
-      "<p>Le géant européen Airbus a choisi SAP Sovereign Cloud pour sécuriser ses data centers, une décision stratégique pour garantir la souveraineté des données, selon <a href=\"https://www.silicon.fr/cloud-1370/airbus-mise-sur-sap-sovereign-cloud-228521\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. Ce partenariat s’inscrit dans une logique de protection des infrastructures critiques.</p>",
-      "<p>La pénurie mondiale de mémoire DRAM a entraîné une hausse des prix des appareils photo, avec Fujifilm en première ligne pour ajuster ses tarifs, comme le souligne <a href=\"https://www.zdnet.fr/actualites/la-penurie-de-memoire-fait-grimper-le-prix-des-appareils-photo-fujifilm-ouvre-le-bal-499050.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Cette situation reflète les tensions persistantes sur les chaînes d’approvisionnement technologiques.</p>",
-      "<p>Nvidia a également révélé un plan de soutien financier record de 250 milliards de dollars pour les data centers d’OpenAI, une initiative visant à accélérer le développement de l’IA générative, d’après <a href=\"https://www.zdnet.fr/actualites/data-centers-ia-nvidia-envisage-un-soutien-financier-record-de-250-milliards-de-dollars-a-openai-499043.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Ce montant colossal souligne l’enjeu stratégique des infrastructures cloud.</p>",
-      "<p>Un nouvel outil basé sur l’IA, conçu pour simplifier la conformité réglementaire des équipes, a été présenté par <a href=\"https://www.zdnet.fr/actualites/zd-tech-ce-nouvel-outil-base-sur-lia-pourrait-simplifier-la-vie-de-vos-equipes-de-conformite-et-de-vos-developpeurs-498191.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Cette solution s’adresse aux secteurs exigeant une gestion rigoureuse des normes, comme la finance ou la santé.</p>",
-      "<p>Mobileye, filiale d’Intel, a accéléré ses projets dans la conduite autonome et la robotique humanoïde, comme en témoigne <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/vehicule-autonome/alors-que-mobileye-accelere-dans-la-conduite-autonome-et-la-robotique-humanoide-son-cofondateur-et-ceo-amnon-shashua-quitte-ses-fonctions.IQ7UXZKRXNEBHDRQ5JJLA7ZPO4.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. L’entreprise mise sur des innovations pour transformer les secteurs des transports et de l’industrie.</p>",
-      "<p>BYD, leader chinois de l’électronique, a annoncé la commercialisation imminente de son premier robot humanoïde, selon <a href=\"https://www.frandroid.com/marques/byd/3195797_le-premier-robot-humanoide-de-byd-cest-imminent\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>. Ce produit marque une avancée significative dans le domaine de la robotique grand public.</p>",
-      "<p>Samsung a surpris le marché en proposant le Galaxy Z Flip 8 à moitié prix avant même son lancement officiel, comme rapporté par <a href=\"https://www.frandroid.com/bons-plans/3194995_le-plus-fin-des-nouveaux-pliants-samsung-le-galaxy-z-flip-8-est-deja-a-moitie-prix-avant-meme-sa-sortie-grace-a-cette-astuce\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>. Cette stratégie vise à capter rapidement une part du marché des smartphones pliants.</p>",
-      "<p>Enfin, <a href=\"https://www.frandroid.com/marques/mercedes-benz/3190567_jai-essaye-la-mercedes-benz-classe-c-electrique-surement-la-meilleure-voiture-electrique-pour-tracer-la-route\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> a testé la Mercedes-Benz Classe C électrique, saluée pour ses performances et son autonomie, positionnant ce modèle comme une référence sur le segment des véhicules électriques haut de gamme.</p>"
+      "<p>Dans le domaine des télécoms, Amazon a sollicité la FCC pour déployer une constellation de 5 000 satellites, un projet destiné à concurrencer Starlink selon <a href=\"https://www.zdnet.fr/actualites/amazon-sollicite-la-fcc-pour-deployer-une-constellation-de-5-000-satellites-face-a-starlink-499046.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Parallèlement, Starlink a proposé de lancer son service mobile en France pour répondre aux besoins de connectivité lors des incendies en Gironde et dans les Landes, une initiative relayée par <a href=\"https://www.numerama.com/tech/2302717-starlink-propose-de-lancer-son-service-mobile-en-france-pour-repondre-aux-incendies.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Numerama</a>. En Algérie, Bouygues Télécom et Orange ont offert de l'Internet mobile aux zones sinistrées, une action signalée par <a href=\"https://www.frandroid.com/marques/microsoft/3195987_cette-situation-est-inacceptable-xbox-sexcuse-de-son-enorme-panne-de-15h-mais-playstation-reste-silencieux\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>.</p>",
+      "<p>Côté intelligence artificielle, Nvidia a annoncé un soutien financier record de 250 milliards de dollars à OpenAI, une décision rapportée par <a href=\"https://www.zdnet.fr/actualites/data-centers-ia-nvidia-envisage-un-soutien-financier-record-de-250-milliards-de-dollars-a-openai-499043.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Le géant californien a également lancé l'Open Secure AI Alliance pour fédérer les standards de sécurité de l'IA, une initiative détaillée par <a href=\"https://www.silicon.fr/data-ia-1372/ai-kill-switch-228527\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. Aux États-Unis, les législateurs envisagent un « kill switch » pour l'IA, une mesure évoquée par <a href=\"https://www.silicon.fr/cybersecurite-1371/open-secure-ai-alliance-nvidia-veut-federer-le-standard-de-securite-de-lia-228526\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. En parallèle, Jeff Bezos a imposé une refonte de Prime Video autour de l'IA avec le projet Li, selon <a href=\"https://www.usine-digitale.fr/big-tech/amazon/jeff-bezos-impose-une-refonte-de-prime-video-autour-de-lintelligence-artificielle-avec-le-projet-lighthouse.WMUOJWU5LBAIRO37QRAIHWUYV4.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>.</p>",
+      "<p>La cybersécurité reste un enjeu majeur avec Sam Altman, cofondateur d'OpenAI, revenant sur la cyberattaque provoquée par une IA de son entreprise, un incident commenté par <a href=\"https://www.01net.com/actualites/rappel-enjeux-sam-altman-revient-cyberattaque-provoquee-par-ia-dopenai.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. Apple a corrigé près de 90 failles de sécurité avec iOS 26.6, une mise à jour essentielle pour les utilisateurs d'iPhone, comme le souligne <a href=\"https://www.01net.com/actualites/ios-26-6-apple-corrige-pres-90-failles-securite-mettez-jour-iphone.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. Google a par ailleurs modifié le nom des hackers les plus traqués au monde, une décision rapportée par Numerama sans résoudre les problèmes sous-jacents. La panne de 15 heures sur les serveurs de Xbox, qui a suscité des excuses de la part de la plateforme, a également marqué la journée, d'après <a href=\"https://www.frandroid.com/marques/leapmotor/3195803_la-leapmotor-b03-se-montre-enfin-la-future-citadine-electrique-chinoise-arrive-bientot-en-europe-pour-viser-la-renault-5-et-la-peugeot-208\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>.</p>",
+      "<p>Dans l'écosystème cloud, Airbus a choisi le SAP Sovereign Cloud pour renforcer sa souveraineté numérique, une décision annoncée par <a href=\"https://www.silicon.fr/cloud-1370/airbus-mise-sur-sap-sovereign-cloud-228521\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. En Algérie, LG Algeria a mis en avant ses solutions innovantes pour le confort et les économies d'énergie via NTIC.dz. Par ailleurs, Mobileye, filiale d'Intel, accélère dans la conduite autonome et la robotique humanoïde, une progression évoquée par Usine Digitale.</p>",
+      "<p>L'innovation se manifeste également avec l'arrivée prochaine en Europe de la citadine électrique Leapmotor B03, un modèle chinois attendu sur le marché, selon <a href=\"https://www.frandroid.com/marques/orange/3195819_incendies-en-gironde-et-dans-les-landes-bouygues-telecom-et-orange-offrent-de-linternet-mobile-a-leurs-clients\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>. Enfin, l'industrie française renforce ses infrastructures avec Daher, qui muscle son réseau mondial de support à l'aéroport de Jonzac-Neulles, une information publiée par L'Usine Nouvelle.</p>"
     ]
   },
-  "lastUpdated": "2026-07-28T07:33:53.696Z"
+  "lastUpdated": "2026-07-28T08:51:25.036Z"
 }
