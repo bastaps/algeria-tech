@@ -1,6 +1,24 @@
 {
   "posts": [
     {
+      "id": "b1b2e659fa584366",
+      "source_name": "Ministère de l'Enseignement Supérieur et de la Recherche",
+      "source_short": "MESRS",
+      "source_color": "#1B5E20",
+      "category": "Ministère",
+      "category_icon": "🎓",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNSEp3UWNaS25UNUEySjFlcXRic2VzR25SdVRBNWFUeG52TjhlcnBVQWpha1haTC0zOGY1aHpfMndaaGFPb0JMcEQxcnk2MHRFS1NuU2ZwVENTemM1M1c1RDJHTElEMmVpSnRldDN3Xy1LbVd0ejQ2U25VWEJjSE90bVc0U3VHMUhsX21xVmtCYUJvbHJqVTBMajJ0Q1YzTFp3U1hvX0s4ZXNuU1BNVDhzdkQxRVU?oc=5",
+      "image": "",
+      "date": "Tue, 28 Jul 2026 17:11:05 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Enseignement supérieur : IFAG Higher Institute obtient la certification ISO 9001 - Algerie Eco — Enseignement supérieur : IFAG Higher Institute obtient la certification ISO 9001 Algerie Eco",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "48eb6dad78eeff16",
       "source_name": "APS — Algérie Presse Service",
       "source_short": "APS",
@@ -325,36 +343,18 @@
       "source_type": "rss"
     },
     {
-      "id": "247702cda550d266",
-      "source_name": "DGRSDT",
-      "source_short": "DGRS",
-      "source_color": "#1A237E",
-      "category": "Ministère",
-      "category_icon": "🔬",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQbzh4WHdtR05qQ3FQZ2pJRGNRSnNGNkdfNFBVT3BoU3BpeXVsMUZibFJKU3BhZEdWVUo1Tng5VDhHRUlfOWlGZEx3NjcxazNTTGdqbjVQRG5ONWFwdkwxMDF5NS1fX2QtMnJheDBSQzlfVS1wMGhESUVoaGpKOEZ6dUlDal9rZjg?oc=5",
-      "image": "",
-      "date": "Fri, 26 Jun 2026 16:14:17 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "PR SAHIR HALOUANE FATIMA, DIRECTRICE À LA DGRSDT À HORIZONS - horizons.dz — PR SAHIR HALOUANE FATIMA, DIRECTRICE À LA DGRSDT À HORIZONS horizons.dz",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e253f0787b97293f",
+      "id": "6d6352d7deb07062",
       "source_name": "Ministère de l'Enseignement Supérieur et de la Recherche",
       "source_short": "MESRS",
       "source_color": "#1B5E20",
       "category": "Ministère",
       "category_icon": "🎓",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxORXR6aTFtZ3F3bDZJVmx1cURIOTBoUlZNaW5ORlJUSUhldE5RTmhuNWowa0pNOWotUGZYWnRfUmFqUmZORHg5eFZQNUFrM1c4LXJkNEd4QkxjeGMwZTZ6RVhITjF5RWg3ZDVJVncxaTE4NmJwQ2hjXzJRZVF4TFdRSlV1VWpvOFpJZXlJM1dZU1k2T0psMGFzZWZwa2xqT3FxamN3U3hkSE15YnRNLUxTSA?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPZ05DVWhWSGtranVOVk9yTjYxb3BZcjZuVDVtWEFfTTAtaFFxY2loaWx1Wk54TzRTMzFJYkY2N1BYd2VUcXVxekZSbldzdHFBTldIU3ROY281TlVpOWsxOFp1TDdIaWRkU0xQRkplb19JY3RWbzd2WEtBZXYxN0tyVFBhcnFMZw?oc=5",
       "image": "",
-      "date": "Wed, 24 Jun 2026 17:39:22 GMT",
+      "date": "Wed, 01 Jul 2026 07:14:57 GMT",
       "lang_source": "fr",
       "text": {
-        "fr": "progres.mesrs.dz/webauthentification : Guide de légalisation des diplômes en Algérie - elkhadra.com — progres.mesrs.dz/webauthentification : Guide de légalisation des diplômes en Algérie elkhadra.com",
+        "fr": "Un grand recensement des compétences algériennes - L'Algérie Aujourd'hui — Un grand recensement des compétences algériennes L'Algérie Aujourd'hui",
         "ar": "",
         "en": ""
       },
@@ -1437,6 +1437,132 @@
         "fr": "Rezig reçoit le PDG de Huawei Algérie - Algeria Invest — Rezig reçoit le PDG de Huawei Algérie Algeria Invest",
         "ar": "",
         "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "19416ea1d832ebc6",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/genai-manque-de-transparence-et-ai-for-green-negligee-499062.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 29 Jul 2026 09:00:29 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "GenAI : manque de transparence et AI for Green négligée — D’après l’Ademe, GenAI et agentique bouleversent le numérique et font exploser l’usage d’équipements et infrastructures énergivores aux impacts environnementaux importants. Les datacenters sont un problème, mais aussi une solution, sous conditions.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "a0d481b149e981c3",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/les-etats-unis-interdisent-limportation-de-robots-et-donduleurs-chinois-pour-proteger-leur-chaine-dapprovisionnement-de-lia-499083.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 29 Jul 2026 08:01:57 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Les Etats-Unis interdisent l’importation de robots et d’onduleurs chinois pour protéger leur chaîne d’approvisionnement de l’IA — L’administration Trump a annoncé l’interdiction d’importation de nouveaux robots humanoïdes et onduleurs électriques chinois. La mesure, prise par la FCC, vise à protéger la chaîne d’approvisionnement des infrastructures d’intelligence artificielle américaines.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e128aa78263d7316",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/ebay-condamne-a-verser-56-millions-de-dollars-apres-une-campagne-de-cyberharcelement-contre-des-journalistes-499085.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 29 Jul 2026 07:00:33 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "eBay condamné à verser 56 millions de dollars après une campagne de cyberharcèlement contre des journalistes — Le géant du e-commerce eBay va verser 56 millions de dollars pour mettre fin aux poursuites civiles engagées par un couple de journalistes ciblé par une campagne de harcèlement orchestrée en interne. Menaces en ligne, faux comptes et colis macabres avaient notamment été utilisés pour les intimider a",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "187f42db431cb9ee",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/satya-nadella-microsoft-previent-les-entreprises-trop-dependantes-dune-seule-ia-ne-survivront-pas-499081.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 29 Jul 2026 06:01:51 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Satya Nadella (Microsoft) prévient : les entreprises trop dépendantes d’une seule IA ne survivront pas — Le PDG de Microsoft a averti que les entreprises dépendant entièrement d’un seul fournisseur d’intelligence artificielle risquent de ne pas survivre à long terme. Il appelle les sociétés à garder le contrôle de leurs données, prompts et métadonnées.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "992c30afce209403",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/28/cyera-agrees-to-acquire-oasis-security-for-1b-to-safeguard-proliferating-ai-agents/",
+      "image": "",
+      "date": "Wed, 29 Jul 2026 00:09:05 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Cyera agrees to acquire Oasis Security for $1B to safeguard proliferating AI agents — The deal is Cyera's third acquisition this year.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "2853fe7b4466c2b7",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/28/bot-detection-startup-spur-nabs-200m-from-insight/",
+      "image": "",
+      "date": "Tue, 28 Jul 2026 21:29:34 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Bot-detection startup Spur nabs $200M from Insight — Spur Intelligence has raised a $200 million round from Insight Partners for its tech that can identify legit human traffic from bots.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "ab5715c29e352d7e",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/07/28/mcp-startup-runlayer-accuses-rippling-of-stealing-its-product-idea/",
+      "image": "",
+      "date": "Tue, 28 Jul 2026 20:45:12 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "MCP startup Runlayer accuses Rippling of stealing its product idea — Runlayer is suing Rippling after Rippling evaluated the startup's MCP gateway product and then opted to build one itself.",
+        "ar": "",
+        "fr": ""
       },
       "source_type": "rss"
     },
@@ -5273,142 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "27421537c448f31a",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/22/synthesias-ai-training-platform-is-moving-beyond-videos-into-live-coaching/",
-      "image": "",
-      "date": "Wed, 22 Jul 2026 08:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Synthesia’s AI training platform is moving beyond videos into live coaching — Synthesia launched AI Roleplay Sessions, an interactive enterprise training platform where employees practice workplace conversations with AI avatars that provide feedback, scoring, and analytics to help companies measure training effectiveness.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "4defe112c31b6ca0",
-      "source_name": "NTIC-DZ",
-      "source_short": "NTC",
-      "source_color": "#01579B",
-      "category": "Médias TIC",
-      "category_icon": "🌐",
-      "url": "https://www.ntic-dz.com/lg-sassocie-a-prime-video-pour-offrir-une-premiere-epique-a-domicile-de-masters-of-the-univers/?utm_source=rss&utm_medium=rss&utm_campaign=lg-sassocie-a-prime-video-pour-offrir-une-premiere-epique-a-domicile-de-masters-of-the-univers",
-      "image": "",
-      "date": "Wed, 22 Jul 2026 07:51:00 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "LG s’associe à prime video pour offrir une première épique à domicile de masters of the univers — feed LG Electronics s’associe à Prime Video pour célébrer la sortie en streaming de Masters of the Universe, en faisant entrer la magie, la puissance et les combats d’Eternia dans les salons du monde entier. Cette collaboration introduit le Creator Original Picture Mode, un nouveau réglage d’image i",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "f92906dcc15f3030",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/business-1367/vpn-cjue-228415",
-      "image": "",
-      "date": "Wed, 22 Jul 2026 07:47:54 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "VPN et géoblocage : la CJUE clarifie les responsabilités — Dans une affaire touchant au droit d'auteur, la CJUE a clarifié les responsabilités en cas de contournement d'un géoblocage par VPN. The post VPN et géoblocage : la CJUE clarifie les responsabilités appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "8a316ce3c63ff3b5",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/openai-muscle-sa-gouvernance-avec-deux-poids-lourds-de-la-finance-avant-une-possible-introduction-en-bourse-498871.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 22 Jul 2026 07:00:13 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "OpenAI muscle sa gouvernance avec deux poids lourds de la finance avant une possible introduction en Bourse — En nommant David Vélez, fondateur de NuBank, et Robin Vince, PDG de BNY, à son conseil d'administration, OpenAI renforce sa gouvernance. Une décision stratégique qui intervient alors que l'entreprise se prépare à une éventuelle introduction en Bourse.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "cd5ad2c72ec3f342",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/vers-des-iphones-plus-chers-tsmc-releverait-ses-tarifs-de-production-de-10-498867.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 22 Jul 2026 06:01:14 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Vers des iPhones plus chers ? TSMC relèverait ses tarifs de production de 10 % — Le fondeur taïwanais TSMC envisagerait d’augmenter ses prix 5 à 10 % à partir de 2027, pour compenser la hausse des coûts de matières premières et d’équipements de fabrication. Apple, son principal client, pourrait être directement impactée par cette augmentation.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "0f1ee6934ed4bd12",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/21/the-anthropic-physical-intelligence-rumor-roiling-ai-twitter/",
-      "image": "",
-      "date": "Wed, 22 Jul 2026 03:20:57 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "The Anthropic-Physical Intelligence rumor roiling AI Twitter — Anthropic and OpenAI's aggressive 2026 acquisition sprees set the stage for a weekend rumor.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "86519c5dd5f1afa3",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/21/meta-is-testing-an-ai-bedtime-story-app-for-people-with-no-imagination/",
-      "image": "",
-      "date": "Tue, 21 Jul 2026 23:55:10 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Meta is testing an AI bedtime story app for people with no imagination — At last, a tech company has found a way to outsource humanity's oldest pastime: using our imaginations.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-07-28T20:16:10.384006+00:00",
+  "lastUpdated": "2026-07-29T09:37:28.198741+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Tech International": 165,
-    "Médias TIC": 55
+    "Tech International": 166,
+    "Médias TIC": 54
   },
   "total": 300
 }
