@@ -1,7 +1,18 @@
 {
   "date": "mercredi 29 juillet",
-  "synthese": "Douze faits technologiques marquants des dernières 24 heures ont été identifiés, couvrant des domaines variés tels que l'intelligence artificielle, les télécoms, la cybersécurité et les startups. Les décisions officielles, certifications et innovations stratégiques ont dominé l'actualité tech institutionnelle et internationale.",
+  "synthese": "Douze décisions et annonces majeures marquent le secteur technologique algérien et international. Les institutions locales renforcent leurs certifications et projets d'investissement, tandis que les géants mondiaux accélèrent leurs innovations en cybersécurité et intelligence artificielle.",
   "articles": [
+    {
+      "titre": "LG Algerie met l’innovation au service du confort et des économies d’énergie",
+      "resume": "Alors que les températures estivales grimpent, LG Electronics met en avant des solutions de climatisation intelligentes qui allient confort, efficacit",
+      "url": "https://algerie-eco.com/2026/07/28/lg-algerie-met-linnovation-au-service-du-confort-et-des-economies-denergie/",
+      "date": "2026-07-28T17:00:39.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "LG Algérie mise sur l'innovation énergétique",
+      "categorie": "Innovation"
+    },
     {
       "titre": "Enseignement Supérieur : IFAG Higher Institute obtient la certification ISO 9001",
       "resume": "feed\n\nIFAG Higher Institute annonce l’obtention de la certification ISO 9001, la norme internationale de référence en matière de systèmes de managemen",
@@ -14,6 +25,28 @@
       "categorie": "Innovation"
     },
     {
+      "titre": "Algérie : Khalida Boufedech élue présidente de l’APN",
+      "resume": "La députée du parti du Front de libération nationale (FLN), Mme Khalida Boufedech, a été élue, mardi, nouvelle présidente de l’Assemblée populaire nat",
+      "url": "https://algerie-eco.com/2026/07/28/algerie-khalida-boufedech-elue-presidente-de-lapn/",
+      "date": "2026-07-28T20:32:19.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Khalida Boufedech élue présidente de l'APN",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Tourisme : 240 assiettes foncières identifiées pour des projets d’investissement",
+      "resume": "La ministre du Tourisme et de l’Artisanat, Houria Meddahi, a présidé lundi une réunion de coordination consacrée au suivi du foncier économique réserv",
+      "url": "https://algerie-eco.com/2026/07/28/tourisme-240-assiettes-foncieres-identifiees-pour-des-projets-dinvestissement/",
+      "date": "2026-07-28T18:42:44.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "240 assiettes foncières pour projets touristiques",
+      "categorie": "Innovation"
+    },
+    {
       "titre": "Microsoft lance MAI-Cyber-1-Flash et pousse l’IA au cœur du SOC",
       "resume": "MAI-Cyber-1-Flash est le premier modèle d’IA conçu pour la cybersécurité. Intégré à MDASH, il promet d'accélérer la détection des failles tout en rédu",
       "url": "https://www.silicon.fr/cybersecurite-1371/microsoft-lance-mai-cyber-1-flash-et-pousse-lia-au-coeur-du-soc-228554",
@@ -21,7 +54,29 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Microsoft lance MAI-Cyber-1-Flash pour SOC",
+      "accroche": "Microsoft lance MAI-Cyber-1-Flash",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Microsoft dévoile Project Perception, son nouvel arsenal pour contrer les cyberattaques IA",
+      "resume": "Microsoft annonce MAI-Cyber-1-Flash, son premier modèle d'intelligence artificielle entièrement dédié à la cybersécurité. Le modèle est intégré à Proj",
+      "url": "https://www.01net.com/actualites/microsoft-devoile-project-perception-nouvel-arsenal-contrer-cyberattaques-ia.html",
+      "date": "2026-07-29T05:30:42.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Microsoft dévoile Project Perception contre cyberattaques",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Microsoft dévoile Project Perception, sa propre armée d’agents IA pour la cybersécurité",
+      "resume": "Microsoft a présenté le 27 juillet 2026 une architecture de sécurité entièrement bâtie sur l'IA agentique, avec une préversion publique annoncée pour",
+      "url": "https://www.numerama.com/cyberguerre/2303025-microsoft-devoile-project-perception-sa-propre-armee-dagents-ia-pour-la-cybersecurite.html",
+      "date": "2026-07-28T13:29:00.000Z",
+      "source": "Numerama",
+      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
+      "pays": "FR",
+      "accroche": "Microsoft présente Project Perception pour la cybersécurité",
       "categorie": "Cybersécurité"
     },
     {
@@ -54,19 +109,8 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Microsoft met en garde contre la dépendance IA",
+      "accroche": "Microsoft alerte sur la dépendance aux IA uniques",
       "categorie": "IA"
-    },
-    {
-      "titre": "Avec son rack Helios, AMD se calque sur la stratégie de Nvidia mais veut le surpasser sur chaque composant, du CPU au GPU en passant par le réseau",
-      "resume": "",
-      "url": "https://www.usine-digitale.fr/intelligence-artificielle/avec-son-rack-helios-amd-se-calque-sur-la-strategie-de-nvidia-mais-veut-le-surpasser-sur-chaque-composant-du-cpu-au-gpu-en-passant-par-le-reseau.JIOH4MFWDZCFJMLI2JAPCJCYQ4.html",
-      "date": "2026-07-28T14:46:49.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
-      "pays": "FR",
-      "accroche": "AMD défie Nvidia avec sa stratégie Helios",
-      "categorie": "Réseaux"
     },
     {
       "titre": "Jeff Bezos impose une refonte de Prime Video autour de l’intelligence artificielle avec le projet Lighthouse",
@@ -76,30 +120,8 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Jeff Bezos refonde Prime Video autour de l'IA",
+      "accroche": "Jeff Bezos refond Prime Video autour de l'IA",
       "categorie": "IA"
-    },
-    {
-      "titre": "Nouvelle phase de confrontation entre l’UE et les géants américains de la tech avec l’amende record de 890 millions d’euros contre Google infligée par le Digital Markets Act",
-      "resume": "La Commission européenne a infligé jeudi une double sanction à Google au titre du Digital Markets Act (DMA), pour un montant total de 890 millions d'e",
-      "url": "https://www.usine-digitale.fr/big-tech/google/nouvelle-phase-de-confrontation-entre-lue-et-les-geants-americains-de-la-tech-avec-lamende-record-de-890-millions-deuros-contre-google-infligee-par-le-digital-markets-act.IC37A2SY7ZFHNFWC6IG434YZ5Y.html",
-      "date": "2026-07-28T07:52:55.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
-      "pays": "FR",
-      "accroche": "UE inflige une amende record aux géants tech américains",
-      "categorie": "Régulation"
-    },
-    {
-      "titre": "Microsoft dévoile Project Perception, son nouvel arsenal pour contrer les cyberattaques IA",
-      "resume": "Microsoft annonce MAI-Cyber-1-Flash, son premier modèle d'intelligence artificielle entièrement dédié à la cybersécurité. Le modèle est intégré à Proj",
-      "url": "https://www.01net.com/actualites/microsoft-devoile-project-perception-nouvel-arsenal-contrer-cyberattaques-ia.html",
-      "date": "2026-07-29T05:30:42.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Microsoft dévoile Project Perception contre cyberattaques",
-      "categorie": "Cybersécurité"
     },
     {
       "titre": "Le double jeu d’OpenAI et Anthropic contre l’IA gratuite fait scandale",
@@ -111,41 +133,19 @@
       "pays": "FR",
       "accroche": "Scandale autour du double jeu d'OpenAI et Anthropic",
       "categorie": "IA"
-    },
-    {
-      "titre": "Fini WhatsApp : la France choisit sa propre messagerie et veut convertir l’Europe",
-      "resume": "Alors que Tchap est devenue la messagerie sécurisée de référence de l'État, la France cherche désormais à étendre sa stratégie de souveraineté numériq",
-      "url": "https://www.01net.com/actualites/fini-whatsapp-la-france-choisit-sa-propre-messagerie-et-veut-convertir-leurope.html",
-      "date": "2026-07-28T13:55:21.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "La France adopte sa messagerie souveraine sans WhatsApp",
-      "categorie": "Télécoms"
-    },
-    {
-      "titre": "Algérie : Khalida Boufedech élue présidente de l’APN",
-      "resume": "La députée du parti du Front de libération nationale (FLN), Mme Khalida Boufedech, a été élue, mardi, nouvelle présidente de l’Assemblée populaire nat",
-      "url": "https://algerie-eco.com/2026/07/28/algerie-khalida-boufedech-elue-presidente-de-lapn/",
-      "date": "2026-07-28T20:32:19.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Khalida Boufedech élue présidente de l'APN",
-      "categorie": "Innovation"
     }
   ],
   "syntheseArticle": {
-    "titre": "Actualité tech des dernières 24h : certifications, innovations IA et décisions stratégiques majeures",
+    "titre": "Technologie : certifications locales, innovations énergétiques et avancées mondiales en IA et cybersécurité",
     "dateline": "Alger, 29 juillet 2026 (Algeria Tech)",
-    "lead": "Douze faits technologiques significatifs ont été enregistrés entre hier et aujourd’hui, incluant des certifications officielles, des lancements de solutions IA et des décisions institutionnelles. Ces annonces, émanant d’organismes publics, d’entreprises internationales et de startups, illustrent les dynamiques en cours dans les secteurs de l’intelligence artificielle, des télécoms et de l’innovation.",
+    "lead": "Le secteur technologique algérien et international a enregistré douze annonces majeures en 24 heures. Les institutions locales renforcent leurs certifications et projets d'investissement, tandis que les géants mondiaux accélèrent leurs innovations en cybersécurité et intelligence artificielle.",
     "corpsHtml": [
-      "<p>Côté Algérie, l’enseignement supérieur a enregistré une certification majeure avec l’obtention de la norme ISO 9001 par l’IFAG Higher Institute, selon <a href=\"https://www.ntic-dz.com/enseignement-superieur-ifag-higher-institute-obtient-la-certification-iso-9001/?utm_source=rss&utm_medium=rss&utm_campaign=enseignement-superieur-ifag-higher-institute-obtient-la-certification-iso-9001\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">NTIC.dz</a>. Cette démarche s’inscrit dans une logique d’amélioration continue des processus pédagogiques et administratifs, validée par un organisme certificateur indépendant. Par ailleurs, l’Assemblée populaire nationale (APN) a connu un changement à sa tête avec l’élection de Khalida Boufedech à la présidence, un fait politique majeur rapporté par <a href=\"https://algerie-eco.com/2026/07/28/algerie-khalida-boufedech-elue-presidente-de-lapn/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a> qui pourrait influencer les orientations législatives futures. Dans le secteur privé, LG Algérie a mis en avant ses innovations en matière d’efficacité énergétique, promouvant des solutions technologiques pour réduire la consommation électrique des ménages, toujours d’après Algérie Éco</p>",
-      "<p>Sur le plan international, Microsoft a annoncé le lancement de MAI-Cyber-1-Flash, une solution dédiée à renforcer les centres opérationnels de sécurité (SOC) via l’intelligence artificielle, comme détaillé par <a href=\"https://www.silicon.fr/cybersecurite-1371/microsoft-lance-mai-cyber-1-flash-et-pousse-lia-au-coeur-du-soc-228554\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. Parallèlement, le géant californien a dévoilé Project Perception, une plateforme conçue pour contrer les cyberattaques exploitant l’IA, selon <a href=\"https://www.01net.com/actualites/microsoft-devoile-project-perception-nouvel-arsenal-contrer-cyberattaques-ia.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> et Numerama. Satya Nadella, PDG de Microsoft, a également alerté sur les risques de dépendance excessive des entreprises à une seule solution d’IA, soulignant la nécessité d’une approche diversifiée pour garantir la résilience opérationnelle, une déclaration relayée par <a href=\"https://www.zdnet.fr/actualites/satya-nadella-microsoft-previent-les-entreprises-trop-dependantes-dune-seule-ia-ne-survivront-pas-499081.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>.</p>",
-      "<p>L’intelligence artificielle a également été au cœur des stratégies de plusieurs acteurs. Jeff Bezos, via Amazon, a lancé le projet Liberty pour restructurer Prime Video autour de l’IA, une initiative visant à optimiser la recommandation de contenus et l’engagement des utilisateurs, rapportée par <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/avec-son-rack-helios-amd-se-calque-sur-la-strategie-de-nvidia-mais-veut-le-surpasser-sur-chaque-composant-du-cpu-au-gpu-en-passant-par-le-reseau.JIOH4MFWDZCFJMLI2JAPCJCYQ4.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. De son côté, Nvidia a renforcé son positionnement avec une stratégie axée sur le mystère entourant Ilya Sutskever, cofondateur d’OpenAI, un choix analysé par <a href=\"https://www.silicon.fr/data-ia-1372/kimi-k3-228544\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. Le double jeu présumé d’OpenAI et Anthropic, critiqué pour leur approche restrictive de l’IA gratuite, a suscité un scandale documenté par <a href=\"https://www.01net.com/actualites/le-double-jeu-dopenai-et-anthropic-contre-lia-gratuite-fait-scandale.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>, tandis que Moonshot AI a annoncé le passage à l’échelle de son modèle Kimi K3, selon <a href=\"https://www.silicon.fr/business-1367/nvidia-mise-gros-sur-le-mystere-sutskever-228543\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>.</p>",
-      "<p>Le secteur des réseaux et infrastructures a vu AMD lancer son rack Helios, une solution visant à concurrencer directement Nvidia sur les performances par composant, comme expliqué par <a href=\"https://www.usine-digitale.fr/big-tech/amazon/jeff-bezos-impose-une-refonte-de-prime-video-autour-de-lintelligence-artificielle-avec-le-projet-lighthouse.WMUOJWU5LBAIRO37QRAIHWUYV4.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Dans un autre domaine, l’Union européenne a infligé une amende record à plusieurs géants américains de la tech, une décision symbolique de la régulation croissante des plateformes numériques, selon <a href=\"https://www.usine-digitale.fr/big-tech/google/nouvelle-phase-de-confrontation-entre-lue-et-les-geants-americains-de-la-tech-avec-lamende-record-de-890-millions-deuros-contre-google-infligee-par-le-digital-markets-act.IC37A2SY7ZFHNFWC6IG434YZ5Y.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Par ailleurs, la France a officialisé le choix de sa propre messagerie souveraine, excluant WhatsApp au profit d’une solution européenne, une annonce faite par <a href=\"https://www.01net.com/actualites/fini-whatsapp-la-france-choisit-sa-propre-messagerie-et-veut-convertir-leurope.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> qui s’inscrit dans une logique de souveraineté numérique.</p>",
-      "<p>Enfin, des initiatives technologiques variées ont marqué l’actualité. Samsung a lancé une offre de précommande exclusive pour ses modèles Galaxy Z Fold8 et Z Fold8 Ultra, une stratégie commerciale rapportée par Frandroid. Dans le domaine de l’énergie, Naval Group a finalisé l’équipement de ses sous-marins avec des batteries lithium-ion après vingt ans de R&D, une avancée technologique majeure soulignée par L'Usine Nouvelle. Airbus, quant à lui, a annoncé l’utilisation d’un A321neo pour évaluer le comportement des systèmes embarqués en conditions réelles, une étape clé pour les certifications futures, d’après L'Usine Nouvelle.</p>"
+      "<p>LG Algérie annonce une initiative visant à promouvoir l'innovation technologique au service du confort et des économies d'énergie, selon <a href=\"https://algerie-eco.com/2026/07/28/lg-algerie-met-linnovation-au-service-du-confort-et-des-economies-denergie/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. L'entreprise met en avant des solutions intégrées pour optimiser la consommation énergétique des ménages et des entreprises. Par ailleurs, l'IFAG Higher Institute obtient la certification ISO 9001, confirmant la qualité de ses formations et processus pédagogiques. Cette certification, annoncée par <a href=\"https://www.ntic-dz.com/enseignement-superieur-ifag-higher-institute-obtient-la-certification-iso-9001/?utm_source=rss&utm_medium=rss&utm_campaign=enseignement-superieur-ifag-higher-institute-obtient-la-certification-iso-9001\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">NTIC.dz</a>, s'inscrit dans une démarche d'amélioration continue des standards éducatifs en Algérie. Dans le même temps, Khalida Boufedech est élue présidente de l'Assemblée Populaire Nationale (APN), marquant une étape institutionnelle significative pour le paysage politique algérien, d'après <a href=\"https://algerie-eco.com/2026/07/28/algerie-khalida-boufedech-elue-presidente-de-lapn/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Le ministère du Tourisme et de l'Artisanat identifie également 240 assiettes foncières dédiées à des projets d'investissement touristique, selon <a href=\"https://algerie-eco.com/2026/07/28/tourisme-240-assiettes-foncieres-identifiees-pour-des-projets-dinvestissement/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, renforçant ainsi le développement du secteur.</p>",
+      "<p>Dans le domaine de la cybersécurité, Microsoft lance MAI-Cyber-1-Flash, une solution intégrant l'intelligence artificielle au cœur des centres opérationnels de sécurité (SOC). Cette initiative, rapportée par <a href=\"https://www.silicon.fr/cybersecurite-1371/microsoft-lance-mai-cyber-1-flash-et-pousse-lia-au-coeur-du-soc-228554\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>, vise à renforcer les capacités de détection et de réponse aux cybermenaces. Parallèlement, Microsoft dévoile Project Perception, une plateforme dédiée à la lutte contre les cyberattaques alimentées par l'IA, selon <a href=\"https://www.01net.com/actualites/microsoft-devoile-project-perception-nouvel-arsenal-contrer-cyberattaques-ia.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> et <a href=\"https://www.numerama.com/cyberguerre/2303025-microsoft-devoile-project-perception-sa-propre-armee-dagents-ia-pour-la-cybersecurite.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Numerama</a>. Cette annonce s'inscrit dans une stratégie globale pour contrer les menaces émergentes dans le cyberespace.</p>",
+      "<p>Côté intelligence artificielle, Moonshot AI franchit une étape clé avec le déploiement à grande échelle de son modèle Kimi K3, comme le détaille <a href=\"https://www.silicon.fr/data-ia-1372/kimi-k3-228544\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. Cette avancée technologique positionne l'entreprise comme un acteur majeur dans le domaine des grands modèles de langage. Nvidia, de son côté, mise sur des investissements stratégiques autour du mystère entourant Ilya Sutskever, figure emblématique de l'IA, selon <a href=\"https://www.silicon.fr/business-1367/nvidia-mise-gros-sur-le-mystere-sutskever-228543\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. Cette stratégie vise à consolider la position de l'entreprise dans un marché en pleine mutation.</p>",
+      "<p>Les géants technologiques américains renforcent également leurs positions. Jeff Bezos impose une refonte majeure de Prime Video autour de l'intelligence artificielle, avec le projet Llama, comme le révèle <a href=\"https://www.usine-digitale.fr/big-tech/amazon/jeff-bezos-impose-une-refonte-de-prime-video-autour-de-lintelligence-artificielle-avec-le-projet-lighthouse.WMUOJWU5LBAIRO37QRAIHWUYV4.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Cette initiative vise à personnaliser l'expérience utilisateur et optimiser les contenus proposés. Par ailleurs, Satya Nadella, PDG de Microsoft, met en garde les entreprises contre une dépendance excessive à une seule solution d'IA, soulignant les risques stratégiques liés à cette pratique, selon <a href=\"https://www.zdnet.fr/actualites/satya-nadella-microsoft-previent-les-entreprises-trop-dependantes-dune-seule-ia-ne-survivront-pas-499081.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Cette déclaration intervient dans un contexte de compétition accrue entre les acteurs du secteur.</p>",
+      "<p>Enfin, OpenAI et Anthropic sont au cœur d'un scandale lié à leur positionnement ambigu sur les modèles d'IA gratuits, comme le rapporte <a href=\"https://www.01net.com/actualites/le-double-jeu-dopenai-et-anthropic-contre-lia-gratuite-fait-scandale.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. Cette controverse met en lumière les tensions entre les acteurs majeurs du secteur et leurs engagements envers l'accessibilité des technologies d'IA.</p>"
     ]
   },
-  "lastUpdated": "2026-07-29T06:30:27.415Z"
+  "lastUpdated": "2026-07-29T07:38:44.742Z"
 }
