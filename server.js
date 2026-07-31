@@ -331,6 +331,8 @@ app.get('/plateforme', (req, res) => res.sendFile(path.join(__dirname, 'studio.h
 app.get('/smart-ingest', (req, res) => res.sendFile(path.join(__dirname, 'smart-ingest.html')));
 app.get('/smart-ingest.html', (req, res) => res.sendFile(path.join(__dirname, 'smart-ingest.html')));
 app.get('/video-downloader', (req, res) => res.sendFile(path.join(__dirname, 'video-downloader.html')));
+app.get('/video-transcription', (req, res) => res.sendFile(path.join(__dirname, 'video-transcription.html')));
+app.get('/multimedia-studio', (req, res) => res.sendFile(path.join(__dirname, 'algeria-tech-multimedia-studio.html')));
 
 // === ROUTE ARTICLES (SPA — hard refresh support) ===
 app.get('/article/:id', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
