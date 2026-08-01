@@ -20,9 +20,8 @@ jobs:
         with:
           node-version: '18'
 
-      # ÉTAPE AJOUTÉE : Installation des dépendances
       - name: Installer les dépendances
-        run: npm install rss-parser
+        run: npm ci
 
       - name: Générer la revue
         run: node generate_revue.js

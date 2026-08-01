@@ -23,7 +23,6 @@ jobs:
         run: pip install requests
 
       - name: Scraper Facebook via Apify
-        if: ${{ secrets.APIFY_TOKEN != '' }}
         run: python fetch_apify_facebook.py
         env:
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}

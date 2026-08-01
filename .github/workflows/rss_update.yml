@@ -20,6 +20,9 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Installation des dépendances
+        run: npm ci
+
       - name: Mise à jour de la veille
         run: node update_veille.js
 
