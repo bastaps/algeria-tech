@@ -7,6 +7,9 @@ on:
   workflow_dispatch:
     # Permet de lancer manuellement depuis GitHub Actions
 
+permissions:
+  contents: write
+
 jobs:
   update-revue:
     runs-on: ubuntu-latest

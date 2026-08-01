@@ -1,0 +1,75 @@
+name: "📦 Backup JSON Critiques"
+
+on:
+  # Exécuter tous les jours à 7h UTC
+  schedule:
+    - cron: "0 7 * * *"
+  # Aussi exécutable manuellement (workflow_dispatch)
+  workflow_dispatch:
+  # Et après chaque déploiement
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # Générer les données (comme ton générateur local)
+      - name: Run daily scripts
+        run: |
+          npm install
+          node generate_rss_themes.js
+          node generate_revue.js
+          node generate_barometre.js
+          node build.js
+        continue-on-error: true  # Continue même si un script échoue
+
+      # Fichiers JSON à tracker
+      - name: Track critical JSON files
+        run: |
+          echo "=== JSON files to backup ==="
+          for file in \
+            "articles.json" \
+            "articles-list.json" \
+            "revue_presse.json" \
+            "veille_data.json" \
+            "tic_social.json" \
+            "barometre_data.json" \
+            "barometre_history.json" \
+            "barometre_weekly.json" \
+            "barometre_weekly_history.json" \
+            "wiki_data.json" \
+            "subscribers.json" \
+            "social_config.json" \
+            "apify_cache.json" \
+            "revue_presse.json"; do
+            if [ -f "$file" ]; then
+              echo "  ✅ $file ($(wc -c < $file) bytes)"
+              git add $file
+            else
+              echo "  ⚠️  $file (not found)"
+            fi
+          done
+
+      - name: Commit and push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "📦 AUTO: JSON backup $(date -u +'%Y-%m-%d %H:%M UTC')"
+          file_pattern: "*.json"
+          skip_dirty: true
+          skip_fetch: true
+          skip_checkout: true
