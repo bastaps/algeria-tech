@@ -29,10 +29,7 @@ function parseFrontmatter(text, fileName) {
     const id    = fileName.replace('.md', '');
     const image = get('image');
 
-    // Les images relatives → URL raw GitHub pour accès public
-    const imageUrl = (image && image.trim() !== '' && !image.startsWith('http'))
-        ? `https://raw.githubusercontent.com/bastaps/algeria-tech/main/${image}`
-        : image;
+    const imageUrl = image;
 
     const titre = get('titre');
     if (!titre) return null;  // article invalide, on saute
