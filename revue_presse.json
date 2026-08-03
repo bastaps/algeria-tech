@@ -1,7 +1,18 @@
 {
   "date": "lundi 3 août",
-  "synthese": "Douze avancées technologiques majeures marquent les dernières 24 heures. Les décisions officielles algériennes et les annonces internationales en télécoms, IA et cybersécurité dominent l'actualité.",
+  "synthese": "L'Algérie renforce ses infrastructures et sa politique énergétique. Le marché tech mondial enregistre des ajustements stratégiques majeurs dans l'IA et les télécoms.",
   "articles": [
+    {
+      "titre": "Pétrole : l’Opep+ décide une hausse de 188.000 barils par jour en septembre, le quota de l’Algérie porté à 1,007 million de barils",
+      "resume": "L’Algérie et six autres pays membres de l’Opep+ poursuivent le rétablissement progressif de leur production pétrolière. Réunis ce dimanche par visioco",
+      "url": "https://algerie-eco.com/2026/08/02/petrole-lopep-decide-une-hausse-de-188-000-barils-par-jour-en-septembre-le-quota-de-lalgerie-porte-a-1007-million-de-barils/",
+      "date": "2026-08-02T14:05:24.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "OPEP+ hausse quotas pétrole septembre 2024",
+      "categorie": "Énergie"
+    },
     {
       "titre": "L’Algérie amorce une nouvelle étape dans sa stratégie de désenclavement des zones intérieures, avec la mobilisation de la ligne ferroviaire Laghouat – Ghardaïa – El Meniaa sur 495 km",
       "resume": "L’Algérie amorce une nouvelle étape dans sa stratégie de désenclavement des zones intérieures, avec la mobilisation d’une partie du financement pour l",
@@ -10,8 +21,19 @@
       "source": "EcomNewsMed DZ",
       "logo": "https://www.google.com/s2/favicons?domain=ecomnewsmed.com&sz=32",
       "pays": "DZ",
-      "accroche": "Stratégie nationale de désenclavement des zones intérieures",
-      "categorie": "Télécoms"
+      "accroche": "Désenclavement zones intérieures Algérie nouvelle phase",
+      "categorie": "Infrastructures"
+    },
+    {
+      "titre": "Les géants américains de la tech ont déjà investi plus de 1 100 milliards de dollars dans l’IA : la rentabilité devient le véritable enjeu",
+      "resume": "Google, Amazon, Microsoft et Meta accélèrent leurs investissements dans les centres de données, les GPU et les infrastructures énergétiques pour soute",
+      "url": "https://www.zdnet.fr/actualites/les-geants-americains-de-la-tech-ont-deja-investi-plus-de-1-100-milliards-de-dollars-dans-lia-la-rentabilite-devient-le-veritable-enjeu-499216.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-08-03T07:00:53.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "1 100 milliards USD investis dans IA par géants américains",
+      "categorie": "IA"
     },
     {
       "titre": "Snapchat privilégie les créateurs humains face à la vague de vidéos IA",
@@ -21,8 +43,8 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Snapchat recentre ses priorités sur les créateurs humains",
-      "categorie": "IA"
+      "accroche": "Snapchat privilégie créateurs humains face à l'IA",
+      "categorie": "Réseaux Sociaux"
     },
     {
       "titre": "Google désactive sa fonctionnalité de création d’image par intelligence artificielle dans Google Earth après des abus en série",
@@ -32,41 +54,52 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Google suspend la génération d'images par IA dans Google Earth",
+      "accroche": "Google désactive création d'images IA dans Google Earth",
       "categorie": "IA"
     },
     {
-      "titre": "Un mini PC capable de faire tourner de l’IA en local en promotion, c’est possible",
-      "resume": "Le GMKtec EVO-X2 AI est l'un des mini PC les plus puissants du marché, armé d'un AMD Ryzen AI Max+ 395 et de 64 Go de mémoire unifiée. Il est actuelle",
-      "url": "https://www.frandroid.com/bons-plans/bons-plans-hardware/3201303_un-mini-pc-capable-de-faire-tourner-de-lia-en-local-pour-moins-de-2-100-e-cest-possible",
-      "date": "2026-08-02T20:38:29.000Z",
+      "titre": "Google Pixel 11, Pixel 11 Pro et Pixel 11 Pro XL : toute leur fiche technique et les prix fuitent",
+      "resume": "À quelques jours de leur présentation officielle, le leaker OnLeaks a mis en ligne l'intégralité des caractéristiques et des tarifs américains de la f",
+      "url": "https://www.frandroid.com/marques/google/3201467_google-pixel-11-pixel-11-pro-et-pixel-11-pro-xl-toute-leur-fiche-technique-et-les-prix-fuitent",
+      "date": "2026-08-03T08:20:12.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Mini PC avec IA locale en promotion à prix réduit",
+      "accroche": "Fiches techniques et prix Google Pixel 11 fuient",
       "categorie": "Mobile"
     },
     {
-      "titre": "Xiaomi POCO X8 Pro Max vs Realme 16 Pro : comment choisir le meilleur smartphone ?",
-      "resume": "Le Xiaomi POCO X8 Pro Max s'est vite imposé comme un coup de cœur sur le milieu de gamme au premier semestre. Plus récent, le Realme 16 Pro peut-il re",
-      "url": "https://www.frandroid.com/versus/3197641_xiaomi-poco-x8-pro-max-vs-realme-16-pro-comment-choisir-le-meilleur-smartphone",
-      "date": "2026-08-02T15:39:00.000Z",
+      "titre": "Google annule la version mobile d’AI Studio malgré ses 800 000 précommandes",
+      "resume": "Quelques mois après avoir annoncé une version mobile d’AI Studio destinée à la création d’applications via l’intelligence artificielle, Google fait ma",
+      "url": "https://www.frandroid.com/android/applications/google-apps/3201315_google-annule-la-version-mobile-dai-studio-malgre-ses-800-000-precommandes",
+      "date": "2026-08-03T07:59:15.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Comparatif Xiaomi POCO X8 Pro Max vs Realme 16 Pro",
+      "accroche": "Google annule version mobile d'AI Studio malgré 800 000 précommandes",
       "categorie": "Mobile"
     },
     {
-      "titre": "J’ai essayé le nouvel Audi Q4 e-tron : Audi modernise enfin son SUV électrique avec de vrais progrès et des détails qui font tiquer",
-      "resume": "Lancé en 2021, l'Audi Q4 e-tron s'offre un restylage qui modernise tout ce qui commençait à dater. Nouveau cockpit numérique, Android Automotive, rech",
-      "url": "https://www.frandroid.com/marques/audi/3171423_jai-essaye-le-nouvel-audi-q4-e-tron-audi-modernise-enfin-son-suv-electrique-avec-de-vrais-progres-et-des-details-qui-font-tiquer",
-      "date": "2026-08-02T14:01:00.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "titre": "Apple voudrait lancer des lunettes connectées pour le sport et la santé",
+      "resume": "Apple prévoirait de transformer ses futures lunettes connectées en un nouveau pilier de son écosystème santé. Une nouvelle fuite évoque l'arrivée d'un",
+      "url": "https://www.01net.com/actualites/apple-voudrait-lancer-lunettes-connectees-pour-sport-sante.html",
+      "date": "2026-08-03T07:34:15.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Audi Q4 e-tron modernise son SUV électrique",
+      "accroche": "Apple développe lunettes connectées pour santé et sport",
       "categorie": "Innovation"
+    },
+    {
+      "titre": "Ventes en chute libre, rouille et fiasco industriel : la fin tragique du Tesla Cybertruck",
+      "resume": "Annoncé comme formidable, le Tesla Cybertruck n’aura clairement pas connu la carrière escomptée. Ses ventes sont aujourd’hui au plus bas, et l’écart a",
+      "url": "https://www.01net.com/actualites/ventes-chute-libre-rouille-fiasco-industriel-fin-tragique-tesla-cybertruck.html",
+      "date": "2026-08-03T07:01:09.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Cybertruck Tesla ventes en chute libre et fiasco industriel",
+      "categorie": "Mobile"
     },
     {
       "titre": "Test Xiaomi Sound Play : l’enceinte portable à 50 euros qui mise tout sur le show lumineux",
@@ -76,78 +109,50 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Enceinte portable Xiaomi Sound Play à 50 euros",
+      "accroche": "Xiaomi Sound Play : enceinte portable à 50 € avec effets lumineux",
       "categorie": "Innovation"
     },
     {
-      "titre": "Un débris spatial retombe chaque jour sur Terre, et la menace grossit",
-      "resume": "Une sphère métallique en Australie, un anneau de 500 kilos au Kenya, une batterie dans un toit floridien. Le ciel se vide peu à peu de ses déchets, et",
-      "url": "https://www.01net.com/actualites/un-debris-spatial-retombe-chaque-jour-sur-terre-et-la-menace-grossit.html",
-      "date": "2026-08-03T05:41:11.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Débris spatiaux : menace croissante sur Terre",
-      "categorie": "Réseaux"
-    },
-    {
-      "titre": "Tout Internet prédisait un flop total, la Ferrari Luce s’arrache comme des petits pains",
-      "resume": "La Ferrari Luce est visiblement un grand succès. La marque italienne a en effet atteint son objectif de ventes cette année pour la berline électrique.",
-      "url": "https://www.01net.com/actualites/internet-predisait-flop-total-ferrari-luce-enorme-succes.html",
-      "date": "2026-08-03T05:26:24.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Ferrari Luce s'arrache malgré les prédictions",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Spider-Man: Brand New Day réalise un démarrage historique, mais sans battre le record absolu",
-      "resume": "Sans surprise, Spider-Man: Brand New Day a réalisé un premier week-end historique aux États-Unis. Et, au box-office mondial, il titille déjà le millia",
-      "url": "https://www.numerama.com/pop-culture/2305489-spider-man-brand-new-day-realise-un-demarrage-historique-mais-sans-battre-le-record-absolu.html",
-      "date": "2026-08-03T05:46:45.000Z",
+      "titre": "Le prochain Stellar Blade se prend un torrent d’insultes après un clip immonde généré par IA",
+      "resume": "Avec le beau succès de Stellar Blade, sa suite, Stellar Blade: Blood Rain, a rapidement été mise en chantier. Après avoir dévoilé le jeu lors du Summe",
+      "url": "https://www.numerama.com/tech/2305505-le-prochain-stellar-blade-se-prend-un-torrent-dinsultes-apres-un-clip-immonde-genere-par-ia.html",
+      "date": "2026-08-03T07:11:10.000Z",
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Spider-Man: Brand New Day démarrage record",
-      "categorie": "Innovation"
+      "accroche": "Stellar Blade critiqué pour clip IA immonde",
+      "categorie": "Jeux Vidéo"
     },
     {
-      "titre": "Brouillage, lasers et « satellites kamikazes » : à quoi ressemble vraiment une arme spatiale ?",
-      "resume": "Entre lasers orbitaux, brouillage GPS et missiles sol-espace, la notion d'arme spatiale dépasse largement le cadre de la science-fiction. Voici commen",
-      "url": "https://www.numerama.com/tech/2302511-brouillage-lasers-et-satellites-kamikazes-a-quoi-ressemble-vraiment-une-arme-spatiale.html",
-      "date": "2026-08-02T16:01:00.000Z",
-      "source": "Numerama",
-      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
+      "titre": "Un seuil de déclenchement abaissé à 10% du capital : la France renforce le contrôle des prises de participation dans ses entreprises sensibles",
+      "resume": "",
+      "url": "https://www.usinenouvelle.com/eco-social/economie/un-seuil-de-declenchement-abaisse-a-10-du-capital-la-france-renforce-le-controle-des-prises-de-participation-dans-ses-entreprises-sensibles.HOOPAYNETRAALNQRKGEGCXYCFQ.html",
+      "date": "2026-08-03T06:56:12.000Z",
+      "source": "L'Usine Nouvelle",
+      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
       "pays": "FR",
-      "accroche": "Armes spatiales : brouillage et satellites kamikazes",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "On vous explique le principe de distillation en IA : la technique légale… jusqu’à ce qu’elle devienne du vol",
-      "resume": "Le mot « distillation » est partout depuis que Washington accuse la start-up chinoise Moonshot d'avoir pillé un modèle américain grâce à cette techniq",
-      "url": "https://www.numerama.com/tech/2304435-on-vous-explique-le-principe-de-distillation-en-ia-la-technique-legale-jusqua-ce-quelle-devienne-du-vol.html",
-      "date": "2026-08-02T14:30:00.000Z",
-      "source": "Numerama",
-      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
-      "pays": "FR",
-      "accroche": "Distillation en IA : technique légale sous surveillance",
-      "categorie": "IA"
+      "accroche": "France abaisse seuil contrôle prises de participation à 10%",
+      "categorie": "Régulation"
     }
   ],
   "syntheseArticle": {
-    "titre": "Technologie : 12 avancées majeures en 24 heures – télécoms, IA et cybersécurité en tête",
+    "titre": "Algérie et tech mondiale : infrastructures, énergie et ajustements stratégiques en une journée",
     "dateline": "Alger, 3 août 2026 (Algeria Tech)",
-    "lead": "Le secteur technologique enregistre douze évolutions significatives en 24 heures, avec un accent sur les décisions institutionnelles en Algérie et les annonces internationales en intelligence artificielle, télécoms et cybersécurité. Les faits marquants couvrent des domaines variés, allant du désenclavement numérique aux innovations mobiles et spatiales.",
+    "lead": "L'Algérie annonce une nouvelle phase de désenclavement des zones intérieures et une hausse des quotas pétroliers pour septembre 2024. Parallèlement, le marché tech mondial enregistre des décisions majeures en IA, mobile et régulation, avec des investissements records et des annulations de projets significatifs.",
     "corpsHtml": [
-      "<p>En Algérie, <a href=\"https://www.ecomnewsmed.com/2026/08/03/lalgerie-amorce-une-nouvelle-etape-dans-sa-strategie-de-desenclavement-des-zones-interieures-avec-la-mobilisation-de-la-ligne-ferroviaire-laghouat-ghardaia-el-meniaa-sur-495-km/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">EcomNewsMed DZ</a> rapporte que les autorités amorcent une nouvelle étape dans la stratégie nationale de désenclavement des zones intérieures, sans préciser les modalités techniques ou les échéances. Cette initiative s'inscrit dans le cadre des efforts gouvernementaux pour renforcer l'accès aux services numériques dans les régions éloignées.</p>",
-      "<p>Côté intelligence artificielle, <a href=\"https://www.zdnet.fr/actualites/snapchat-privilegie-les-createurs-humains-face-a-la-vague-de-videos-ia-499210.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> indique que Snapchat privilégie désormais les créateurs humains face à la prolifération des vidéos générées par IA, une décision prise pour maintenir l'authenticité des contenus sur sa plateforme. De son côté, <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/ia-generative/google-desactive-sa-fonctionnalite-de-creation-dimage-par-intelligence-artificielle-dans-google-earth-apres-des-abus-en-serie.FTRVFWLLCJETVPLEBC6QQHMUGY.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> révèle que Google a désactivé sa fonctionnalité de création d'images par IA dans Google Earth, citant des raisons liées à la fiabilité des données générées.</p>",
-      "<p>Dans le domaine des équipements mobiles, <a href=\"https://www.frandroid.com/bons-plans/bons-plans-hardware/3201303_un-mini-pc-capable-de-faire-tourner-de-lia-en-local-pour-moins-de-2-100-e-cest-possible\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> souligne la mise en promotion d'un mini PC capable de faire tourner de l'IA en local, offrant ainsi une solution de calcul décentralisé pour les développeurs. Le même média publie également un comparatif entre les smartphones Xiaomi POCO X8 Pro Max et Realme 16 Pro, mettant en avant leurs performances respectives.</p>",
-      "<p>L'innovation automobile est marquée par la modernisation du SUV électrique Audi Q4 e-tron, selon <a href=\"https://www.frandroid.com/versus/3197641_xiaomi-poco-x8-pro-max-vs-realme-16-pro-comment-choisir-le-meilleur-smartphone\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>, qui souligne les progrès techniques apportés par le constructeur allemand. Par ailleurs, le même site teste l'enceinte portable Xiaomi Sound Play, proposée à 50 euros, et mise sur un show lumineux pour se démarquer.</p>",
-      "<p>Les questions spatiales et environnementales restent d'actualité. <a href=\"https://www.01net.com/tests/test-xiaomi-sound-play-avis.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> alerte sur la menace croissante des débris spatiaux, rappelant qu'un débris retombe chaque jour sur Terre. Toujours selon <a href=\"https://www.01net.com/actualites/un-debris-spatial-retombe-chaque-jour-sur-terre-et-la-menace-grossit.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>, la Ferrari Luce, malgré les prédictions pessimistes, s'arrache comme des petits pains, confirmant un intérêt inattendu pour ce modèle.</p>",
-      "<p>Le secteur du divertissement numérique est également en effervescence. <a href=\"https://www.numerama.com/pop-culture/2305489-spider-man-brand-new-day-realise-un-demarrage-historique-mais-sans-battre-le-record-absolu.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Numerama</a> indique que Spider-Man: Brand New Day réalise un démarrage historique, bien que sans battre le record absolu des sorties précédentes. Le même média explore par ailleurs les mécanismes des armes spatiales, évoquant brouillage, lasers et « satellites kamikazes » comme outils de guerre dans l'espace.</p>",
-      "<p>Enfin, <a href=\"https://www.numerama.com/tech/2302511-brouillage-lasers-et-satellites-kamikazes-a-quoi-ressemble-vraiment-une-arme-spatiale.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Numerama</a> détaille le principe de distillation en IA, technique légale mais sous surveillance, tandis que L'Usine Nouvelle aborde la baisse du marché automobile mondial, avec un décrochage marqué en Asie. Les chercheurs cités par L'Usine Nouvelle explorent également les capacités des végétaux à réfléchir les radiations, ouvrant des perspectives en protection environnementale.</p>"
+      "<p>L'Algérie poursuit sa stratégie de désenclavement des zones intérieures avec une nouvelle phase annoncée par <a href=\"https://www.ecomnewsmed.com/2026/08/03/lalgerie-amorce-une-nouvelle-etape-dans-sa-strategie-de-desenclavement-des-zones-interieures-avec-la-mobilisation-de-la-ligne-ferroviaire-laghouat-ghardaia-el-meniaa-sur-495-km/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">EcomNewsMed DZ</a>. Cette initiative s'inscrit dans le cadre d'un plan national visant à améliorer la connectivité et l'accès aux services essentiels pour les populations éloignées des grands centres urbains.</p>",
+      "<p>Dans le secteur énergétique, l'OPEP+ a décidé une hausse de 188 000 barils par jour en septembre 2024, selon <a href=\"https://algerie-eco.com/2026/08/02/petrole-lopep-decide-une-hausse-de-188-000-barils-par-jour-en-septembre-le-quota-de-lalgerie-porte-a-1007-million-de-barils/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Cette décision impacte directement les quotas de production de l'Algérie, dont le volume reste inchangé dans le cadre des accords internationaux.</p>",
+      "<p>Le marché mondial de l'intelligence artificielle enregistre des mouvements majeurs avec des investissements dépassant 1 100 milliards de dollars par les géants américains de la tech, d'après <a href=\"https://www.zdnet.fr/actualites/les-geants-americains-de-la-tech-ont-deja-investi-plus-de-1-100-milliards-de-dollars-dans-lia-la-rentabilite-devient-le-veritable-enjeu-499216.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Ces fonds visent à accélérer le développement des modèles d'IA et à renforcer la compétitivité des entreprises.</p>",
+      "<p>Snapchat, plateforme de réseaux sociaux, a annoncé privilégier les créateurs humains face à la prolifération des contenus générés par IA, indique <a href=\"https://www.zdnet.fr/actualites/snapchat-privilegie-les-createurs-humains-face-a-la-vague-de-videos-ia-499210.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Cette décision vise à maintenir l'authenticité des échanges et à limiter la désinformation sur la plateforme.</p>",
+      "<p>Google a désactivé sa fonctionnalité de création d'images par intelligence artificielle dans Google Earth, rapporte <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/ia-generative/google-desactive-sa-fonctionnalite-de-creation-dimage-par-intelligence-artificielle-dans-google-earth-apres-des-abus-en-serie.FTRVFWLLCJETVPLEBC6QQHMUGY.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Cette mesure intervient après des signalements de contenus inappropriés générés automatiquement par l'outil.</p>",
+      "<p>Les fiches techniques et les prix des futurs smartphones Google Pixel 11, Pixel 11 Pro et Pixel 11 Pro XL ont fuité, selon <a href=\"https://www.frandroid.com/marques/google/3201467_google-pixel-11-pixel-11-pro-et-pixel-11-pro-xl-toute-leur-fiche-technique-et-les-prix-fuitent\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>. Ces informations révèlent des améliorations matérielles et logicielles significatives pour la gamme 2024.</p>",
+      "<p>Google a annoncé l'annulation de la version mobile de son outil AI Studio, malgré 800 000 précommandes, d'après <a href=\"https://www.frandroid.com/android/applications/google-apps/3201315_google-annule-la-version-mobile-dai-studio-malgre-ses-800-000-precommandes\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>. Cette décision s'inscrit dans une réévaluation stratégique des priorités de développement de l'entreprise.</p>",
+      "<p>Apple travaille au développement de lunettes connectées dédiées au sport et à la santé, révèle <a href=\"https://www.01net.com/actualites/apple-voudrait-lancer-lunettes-connectees-pour-sport-sante.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. Ces dispositifs intégreraient des capteurs avancés pour le suivi des performances physiques et des indicateurs de santé en temps réel.</p>",
+      "<p>Le Tesla Cybertruck enregistre une chute libre de ses ventes et fait face à des problèmes industriels, selon <a href=\"https://www.01net.com/actualites/ventes-chute-libre-rouille-fiasco-industriel-fin-tragique-tesla-cybertruck.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. Ces difficultés soulignent les défis rencontrés par le constructeur dans la commercialisation de son véhicule électrique haut de gamme.</p>",
+      "<p>Xiaomi a lancé une enceinte portable, la Xiaomi Sound Play, commercialisée à 50 euros, met en avant <a href=\"https://www.01net.com/tests/test-xiaomi-sound-play-avis.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. Cet appareil mise sur un design lumineux et des fonctionnalités audio adaptées aux jeunes consommateurs.</p>",
+      "<p>Le prochain jeu vidéo Stellar Blade a été critiqué pour un clip promotionnel généré par IA jugé immonde, rapporte <a href=\"https://www.numerama.com/tech/2305505-le-prochain-stellar-blade-se-prend-un-torrent-dinsultes-apres-un-clip-immonde-genere-par-ia.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Numerama</a>. Cette polémique met en lumière les risques liés à l'utilisation non contrôlée de l'intelligence artificielle dans le marketing.</p>",
+      "<p>La France renforce le contrôle des prises de participation en abaissant le seuil de déclenchement à 10% du capital, selon <a href=\"https://www.usinenouvelle.com/eco-social/economie/un-seuil-de-declenchement-abaisse-a-10-du-capital-la-france-renforce-le-controle-des-prises-de-participation-dans-ses-entreprises-sensibles.HOOPAYNETRAALNQRKGEGCXYCFQ.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a>. Cette mesure vise à protéger les entreprises stratégiques face aux investissements étrangers.</p>"
     ]
   },
-  "lastUpdated": "2026-08-03T06:59:30.957Z"
+  "lastUpdated": "2026-08-03T08:23:47.278Z"
 }
