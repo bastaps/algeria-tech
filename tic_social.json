@@ -721,6 +721,24 @@
       "source_type": "youtube"
     },
     {
+      "id": "0b4ef74e26136edc",
+      "source_name": "Algérie Télécom",
+      "source_short": "AT",
+      "source_color": "#0055A4",
+      "category": "Infrastructure",
+      "category_icon": "📡",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPbXBrUHNHMXp6S1RnZFpucWVwMWo5YlRGdFFVSEZEdHQzbHk1cm5ZVzhreW1EQ042Z3RRenI1bFFSSUxqcHVBcE9yVjlBYWVCVHhERXRvTllzLWtTZGVWd1EtaE16V2tDWFBwVXZXcHJIVjRjTU1XVHg5azVmaVhIVXVCNmRfN3hzQWNlcU41QVFudlZiOUZfZW5ON0Rnc2RmVEs3QW9yOUtuRWE5ekduYQ?oc=5",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 14:13:28 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Algérie Télécom renforce la couverture 4G à Béjaïa avec une nouvelle station à Tazmalt - La patrie news — Algérie Télécom renforce la couverture 4G à Béjaïa avec une nouvelle station à Tazmalt La patrie news",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "c73c43df3fd48c5b",
       "source_name": "Algérie Poste",
       "source_short": "AP",
@@ -1057,24 +1075,6 @@
       "lang_source": "fr",
       "text": {
         "fr": "Vignette Apostille : Forte affluence dans les bureaux d’Algérie Poste - Le Jeune Indépendant — Vignette Apostille : Forte affluence dans les bureaux d’Algérie Poste Le Jeune Indépendant",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "94ffda6e3ea402b7",
-      "source_name": "Algérie Poste",
-      "source_short": "AP",
-      "source_color": "#F9A825",
-      "category": "Infrastructure",
-      "category_icon": "✉️",
-      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQTlY5akxxTE91aHlIdExSU21Jb3I5UFRPUi1IMmNETjcwTklHaFNxaURvWFhSVUowZGVmYnMtUFAxRGZhUHlFRVZIc1F1UUZtbklTMFktMHRRV3NjaE0ycTZjbHRYTjR0Tm1DUGV3N2h3Y0ZMcHFLdy1CVVYzbW15a1ZoSURTY29qZnNCSQ?oc=5",
-      "image": "",
-      "date": "Sun, 12 Jul 2026 17:49:51 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Équipe d’Algérie : pourquoi Petkovic est toujours en poste - tsa-algerie.com — Équipe d’Algérie : pourquoi Petkovic est toujours en poste tsa-algerie.com",
         "ar": "",
         "en": ""
       },
@@ -1441,6 +1441,510 @@
       "source_type": "rss"
     },
     {
+      "id": "82252f1a7ee6ede3",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/pratique/smartphone-pratique-combien-de-temps-faut-il-le-garder-499201.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 20:05:09 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Smartphone pratique : combien de temps faut-il le garder ? — De nos jours, les mises à jour annuelles ont moins d'importance, et grâce à un meilleur support logiciel, vous pouvez conserver votre téléphone plus longtemps qu’avant.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "4d7bc75aa17b4e7f",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/03/aws-is-helping-vibe-coding-startup-superblocks-and-the-implications-are-big/",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 20:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "AWS is helping vibe-coding startup Superblocks, and the implications are big — AWS now allows vibe coding tool Superblocks to be embedded into the private clouds of AWS customers. It's another step towards decoupling apps from models.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "d3807dc56de27c05",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/03/whos-legally-to-blame-for-anthropic-and-openais-autonomous-ai-hacks-its-complicated/",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 19:45:35 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Who’s legally to blame for Anthropic and OpenAI’s autonomous AI hacks? It’s complicated — OpenAI and Anthropic admitted that their unreleased AI models escaped their sandboxes and hacked several companies in unprecedented cyberattacks. Who is legally to blame? Should prosecutors charge the two AI frontier labs? Can victims sue them? We spoke to lawyers who specialize in computer hacking",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "5c210e03771f39bb",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/03/designarena-creators-raise-7-9-million-to-bring-taste-to-ai-models/",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 19:28:57 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "DesignArena creators raise $7.9 million to bring taste to AI models — DesignArena is used by 5.3 million people around the world, providing critical human evaluations to frontier labs.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "29dbca12f879ba88",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/03/influencers-draw-backlash-for-attending-openais-first-luxury-trip/",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 19:09:56 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Influencers draw backlash for attending OpenAI’s first luxury trip — OpenAI’s first-ever influencer brand trip is sparking online backlash as tensions over the use of AI continue.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "67b8389f1b5512ae",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/03/apple-challenges-uk-governments-latest-demand-for-icloud-backdoor-report/",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 18:54:09 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Apple challenges UK government’s latest demand for iCloud backdoor: report — Apple has appealed a new legal demand by the U.K. government, which critics say could threaten the privacy rights of users all over the world.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "bead3af33d16a520",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/03/apple-finally-fixed-siri-so-why-does-it-feel-anticlimactic/",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 18:43:43 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Apple finally fixed Siri. So why does it feel anticlimactic? — Apple’s long-awaited AI overhaul finally makes Siri the assistant it was always supposed to be. But after years of delays, the launch lands in an AI landscape where chatbots have evolved into agents that can code, reason, create media, and complete complex tasks. Siri AI is genuinely useful, yet it",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e5895e668bc3fb15",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/03/sequoias-shaun-maguire-leads-1b-round-for-nuclear-startup-valar-atomics/",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 17:16:43 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Sequoia’s Shaun Maguire leads $1B round for nuclear startup Valar Atomics — Valar Atomics raised $1 billion at a $6 billion valuation after signing a development deal with Nvidia in June.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "7af611089cff8287",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/taxe-de-sejour-airbnb-pourrait-bien-payer-la-douloureuse-499258.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 16:51:26 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Taxe de séjour : Airbnb pourrait bien payer la douloureuse — Le Conseil constitutionnel a validé l'amende de 8,6 millions d'euros infligée à Airbnb pour manquements à la collecte de la taxe de séjour.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "8f22e6cc5bace775",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/03/base-power-raises-another-1b-to-save-the-grid-using-backyard-batteries/",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 16:46:57 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Base Power raises another $1B to save the grid using backyard batteries — Base Power’s $1 billion round will help the startup ramp production of its home batteries.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "d0bd8659148e449b",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/03/congresss-favorite-ai-tool-chatgpt/",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 16:40:55 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Congress’ favorite AI tool? ChatGPT — House spending records show OpenAI's ChatGPT dominates paid AI use on Capitol Hill, with congressional offices relying on the chatbot to draft memos, summarize legislation, and assist constituent communications.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "dce684123fcefbf9",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/data-ia-1372/ai-gigafactories-appel-offres-gigafabriques-228646",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 16:30:21 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "AI gigafactories : les détails de l’appel d’offres — L'appel d'offres pour les gigafabriques d'IA est publié. Le point sur les critères d'évaluation, les mécanismes de financement et les engagements des États membres à date. The post AI gigafactories : les détails de l’appel d’offres appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "ec971dc12329b074",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/08/03/revolution-technologique-ou-menace-silencieuse-br-les-enjeux-dune-intelligence-qui-depasse-notre-comprehension/",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 16:17:17 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Révolution technologique ou menace silencieuse <BR Les enjeux d’une intelligence qui dépasse notre compréhension — Trois ans après l’arrivée fracassante de ChatGPT, l’intelligence artificielle générative s’impose dans tous les secteurs. Mais entre promesses de productivité et risques systémiques, spécialistes et …",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "10282705ea710692",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/point-tech-ce-que-signifie-mah-pour-la-batterie-de-votre-smartphone-499204.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 16:07:49 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Point tech : ce que signifie « mAh » pour la batterie de votre smartphone — Les nouveaux mobiles sont équipés de batteries dont la capacité en mAh est plus élevée que jamais, mais cela ne joue en réalité un rôle absolu dans l'autonomie de l’appareil.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "790adcc335b7bb24",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/03/sonatrach-incident-au-niveau-du-puits-tg-16-a-tiguentourine/",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 15:47:08 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Sonatrach : Incident au niveau du puits TG 16 à Tiguentourine — Le groupe Sonatrach a annoncé qu’« en date du 02 août 2026 vers 15h00, une éruption sans feu du puits TG 16 de gaz situé au niveau du champ Tiguentourine, relevant de la Division Production In Amenas, s’est déclarée pendant une opération de Workover (maintenance du puits) ». « Cet incident n’a enreg",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "8983e885d4040f18",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/03/visa-americain-une-caution-pouvant-atteindre-20-000-dollars-exigee-pour-les-demandeurs-de-50-pays-dont-lalgerie/",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 14:47:51 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Visa américain : une caution pouvant atteindre 20.000 dollars exigée pour les demandeurs de 50 pays, dont l’Algérie — Les autorités américaines ont mis en place une nouvelle mesure permettant d’exiger une caution financière de certains demandeurs de visas temporaires. Cette garantie peut atteindre 20.000 dollars et concerne les ressortissants de 50 pays, parmi lesquels figure l’Algérie. La décision a été annoncée p",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "23e93d71cfe7664e",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/03/sous-traitance-mecanique-une-filiere-en-plein-essor-grace-au-soutien-de-laapi/",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 13:46:43 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Sous-traitance mécanique : Une filière en plein essor grâce au soutien de l’AAPI — La filière de la sous-traitance mécanique connaît, ces dernières années, une dynamique remarquable en Algérie, portée notamment par les mesures d’accompagnement et les facilitations accordées aux porteurs de projets par l’Agence algérienne de promotion de l’investissement (AAPI). Cette filière émerg",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "6e42afe2751c73c8",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/ai-act-transparence-obligatoire-audits-renforces-et-sanctions-leurope-serre-la-vis-sur-lia-generative-499256.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 13:41:04 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "AI Act : transparence obligatoire, audits renforcés et sanctions, l'Europe serre la vis sur l'IA générative — L'entrée en vigueur de nouvelles dispositions clés de l'AI Act marque un tournant réglementaire majeur pour l'écosystème numérique européen. Entre obligations d'étiquetage des contenus synthétiques, pouvoirs accrus du Bureau de l'IA et sanctions pouvant atteindre 7 % du chiffre d'affaires, les entre",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "bc386f652c5bcc37",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/03/parking-de-la-promenade-des-sablettes-mise-en-service-de-bornes-automatiques-de-paiement/",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 13:38:24 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Parking de la Promenade des Sablettes : Mise en service de bornes automatiques de paiement — Des bornes automatiques de paiement ont été mises en service au niveau du parking de la Promenade des Sablettes (Alger), en vue de faciliter l’accès et la sortie des véhicules, a indiqué dimanche l’Office des parcs des sports et loisirs de la wilaya d’Alger (OPLA) dans un communiqué. « Dans le cadre",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "6f224a824e649a62",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/il-ny-a-pas-quopenai-anthropic-explique-que-claude-aussi-peut-partir-en-sucette-499253.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 13:28:59 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Il n'y a pas qu'OpenAI : Anthropic explique que Claude aussi peut partir en sucette — Trois modèles « Claude » se sont rebellés lors des épreuves de sécurité « Capture the Flag ». Voici les dégâts causés par chacun d'entre eux.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "89aaadabe13721de",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/voici-comment-lagent-dopenai-sest-echappe-libere-par-des-humains-a-la-suite-dune-serie-devenements-qui-auraient-pu-tout-a-fait-etre-evites-499250.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 13:19:45 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Voici comment l'agent d'OpenAI s'est échappé : libéré par des humains à la suite d'une série d'événements qui auraient pu tout à fait être évités — Derrière l'attaque menée par cet agent rebelle contre Hugging Face se cache une succession bien précise de décisions humaines. Nous devons tous redoubler de vigilance, car les pirates, eux aussi, apprennent.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "fc270c239d6d351c",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/data-ia-1372/ai-office-qui-sont-les-gendarmes-de-lia-au-sein-de-lue-228645",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 12:59:05 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "AI Office : qui sont les gendarmes de l’IA au sein de l’UE — Documentation exigée, évaluations techniques, amendes pouvant atteindre 3 % du chiffre d'affaires mondial… Zoom sur l'AI Office, la petite structure bruxelloise chargée de faire respecter l'AI Act. The post AI Office : qui sont les gendarmes de l’IA au sein de l’UE appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "7020405ec7f9e616",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/le-nouveau-bouton-ia-slop-de-linkedin-vous-permet-de-signaler-toutes-ces-publications-embarrassantes-499246.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 12:52:57 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Le nouveau bouton « IA slop » de LinkedIn vous permet de signaler toutes ces publications embarrassantes — Ce nouveau bouton de LinkedIn va être mis à la disposition des utilisateurs, et son existence témoigne d'un changement de perspective concernant l'intrusion de l'IA dans les communautés numériques.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "a44655c52f06749e",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/03/horizon3-hits-2-billion-valuation-with-250m-series-e-as-ai-threats-escalate/",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 12:50:46 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Horizon3 hits $2 billion valuation with $250M Series E as AI threats escalate — Cybersecurity startup Horizon3 raised $250 million at a $2 billion valuation as companies want continuous, AI-powered security validation instead of annual pen testing.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "85e25d9788a6f1b6",
+      "source_name": "NTIC-DZ",
+      "source_short": "NTC",
+      "source_color": "#01579B",
+      "category": "Médias TIC",
+      "category_icon": "🌐",
+      "url": "https://www.ntic-dz.com/lg-thinq-quand-lintelligence-artificielle-simplifie-le-quotidien/?utm_source=rss&utm_medium=rss&utm_campaign=lg-thinq-quand-lintelligence-artificielle-simplifie-le-quotidien",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 12:29:51 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "LG ThinQ : quand l’intelligence artificielle simplifie le quotidien — feed L’été est synonyme de vacances, de déplacements et de températures élevées. Durant cette période, les consommateurs recherchent davantage de confort, de flexibilité et de sérénité dans la gestion de leur foyer. Avec LG ThinQ, LG Electronics propose un écosystème intelligent qui permet de rester",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "34a36d56b0eeeb8d",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/03/samsung-bans-smart-tv-apps-that-share-users-internet-connections-with-strangers/",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 12:10:41 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Samsung bans smart TV apps that share users’ internet connections with strangers — New security research offers a rare view inside residential proxy networks, which rely on apps that share a person's internet connection with someone else.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "56e381ce932e419d",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/08/03/gouvernance-du-commerce-exterieur-fin-du-papier-place-au-digital-br-lalgerie-passe-a-la-vitesse-superieure-avec-une-plateforme-100-numerique/",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 11:06:54 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Gouvernance du commerce extérieur, fin du papier, place au digital <BR L’Algérie passe à la vitesse supérieure avec une plateforme 100% numérique — Le ministre du Commerce extérieur lance une plateforme numérique pour moderniser et sécuriser les importations de services. Dématérialisation des dossiers, suivi en temps réel, échanges …",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "8f0f132b171e6b22",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/business-1367/linkedin-degaine-son-bouton-anti-slop-ia-228639",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 10:54:45 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "LinkedIn dégaine son bouton anti « Slop IA » — Face au déferlement de posts « bouillie IA », LinkedIn dégaine un bouton de signalement et fait le tri dans ses propres outils de réécriture automatique. The post LinkedIn dégaine son bouton anti « Slop IA » appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "24dcaad1a644c936",
       "source_name": "Silicon.fr",
       "source_short": "SI",
@@ -1453,6 +1957,24 @@
       "lang_source": "fr",
       "text": {
         "fr": "Infrastructures IA : Gartner met OVHcloud et Scaleway sur sa carte mondiale — Absents du Magic Quadrant du cloud public d'infrastructure, OVHcloud et Scaleway figurent en revanche dans celui dédié aux « infrastructures cloud pour l'IA ». The post Infrastructures IA : Gartner met OVHcloud et Scaleway sur sa carte mondiale appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "88343d56b1706eb5",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/08/03/lere-de-lia-agentique-br-quand-les-machines-apprennent-a-agir-a-communiquer-et-a-penser-par-elles-memes/",
+      "image": "",
+      "date": "Mon, 03 Aug 2026 10:03:12 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "L’ère de l’IA agentique <BR Quand les machines apprennent à agir, à communiquer et à penser par elles-mêmes — De simples assistants conversationnels à des collaborateurs autonomes, les agents IA redéfinissent notre rapport à la technologie Il y a encore trois ans, l’idée qu’une …",
         "ar": "",
         "en": ""
       },
@@ -4877,538 +5399,16 @@
         "fr": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "456dca54dee4bf81",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/24/social-media-ban-children-countries-list/",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 21:15:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Vietnam is looking to restrict social media for kids; here are the growing number of other countries doing the same — Australia was the first country to issue a ban in late 2025, aiming to reduce the pressures and risks that young users may face on social media, including cyberbullying, social media addiction, and exposure to predators.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "a2ffc5f3cfb1c987",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/24/waymo-reportedly-mulling-a-breakup-with-uber/",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 20:43:35 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Waymo reportedly mulling a breakup with Uber — The contract between the two companies ends in May 2028, Uber told TechCrunch.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "7a4f4ec560c7e242",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/guide-achat/prise-en-main-samsung-galaxy-z-flip8-rendez-vous-manque-498962.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 20:01:25 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Prise en main Samsung Galaxy Z Flip8 : rendez-vous manqué — Le dernier smartphone pliable sous format clapet de la marque bénéficie d'une amélioration bienvenue au niveau de la batterie, mais c'est à peu près tout…",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "ef71623ca86efc1b",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/24/volkswagen-engineers-charged-with-insider-trading-tied-to-rivian-joint-venture/",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 19:56:23 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Volkswagen engineers charged with insider trading tied to Rivian joint venture — The indictment, which was unsealed Friday, alleges the Volkswagen engineers used confidential insider information to buy stock in Rivian.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "fc836a71f9ce98dd",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/24/why-cognition-bought-poke-ai-personality-is-becoming-a-competitive-advantage/",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 18:07:32 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Why Cognition bought Poke: AI personality is becoming a competitive advantage — AI coding startup Cognition has acquired Poke, the AI assistant you text like a friend, in a deal valuing the startup in the low nine figures. The acquisition brings Poke’s conversational style and interaction model to Cognition’s coding agent Devin, reflecting a growing belief that how AI assistant",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "9ba761d46af3aced",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/24/us-accuses-american-of-allegedly-wiping-his-phone-using-a-duress-password-during-border-search/",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 17:53:30 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "US accuses American of allegedly wiping his phone using a ‘duress’ password during border search — A U.S. citizen has asked a court to throw out the government's claim that he gave over a passcode to border authorities that wiped his phone's data, opening up fresh questions about a person's constitutional rights at the U.S. border.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "eb9a0e9abc5bcf5b",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/24/anduril-reportedly-in-talks-to-raise-funding-at-100b-valuation-more-than-3x-last-years-mark/",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 17:33:19 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Anduril reportedly in talks to raise funding at $100B valuation, more than 3x last year’s mark — Anduril is said to be raising a new round of funding that may push its valuation up to about $100 billion, per Reuters.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "10d54bf8208bc002",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/24/build-in-public-fail-in-public-what-its-like-to-be-a-founder-under-20-right-now/",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 17:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Build in public, fail in public: what it’s like to be a founder under 20 right now — AI tools have democratized the opportunity to build, shortening the timelines of success and enabling more young people to start successful companies without stepping foot inside a Big Tech company.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "111f86e73cf32abf",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/24/indias-move-against-jack-dorseys-bitchat-sparks-legal-debate/",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 16:54:58 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "India’s move against Jack Dorsey’s Bitchat sparks legal debate — The offline messaging app surged in popularity in India amid protests in New Delhi.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c115e03514c780e2",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/video/openais-own-model-went-rogue-before-kimi-had-wall-street-sweating/",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 16:50:08 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "OpenAI’s own model went rogue before Kimi had Wall Street sweating — Chinese AI lab Moonshot’s open model Kimi went viral this week for reasons that had less to do with the model itself and more to do with how the U.S. AI industry reacted to it. Meanwhile, an unreleased OpenAI model wandered outside its test environment and ended up connected to a real security breac",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "5a3c2ced0f812a4c",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/24/sam-altmans-biometric-startup-world-raises-52-5-million-via-crypto-sale/",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 16:11:56 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Sam Altman’s biometric startup World raises $52.5M via crypto sale — Sam Altman's side project — which seeks to scan the world's eyeballs and turn them into unique digital identifiers — has raised some fresh cash through a crypto sale.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "f280d33fe1e9883d",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/pratique/web-pratique-utilisez-les-conteneurs-par-defaut-ou-creez-les-votres-avec-firefox-153-498990.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 16:00:28 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Web pratique : utilisez les conteneurs par défaut ou créez les vôtres avec Firefox 153 — Ils sont un véritable atout pour la sécurité et la confidentialité de votre navigation. Firefox vous propose désormais quatre conteneurs pré-configurés où ranger vos onglets : « Personnel », « Professionnel », « Bancaire » et « Achats en ligne ».",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "3e70bd1d4df50627",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/24/as-us-weighs-response-to-chinese-ai-industry-urges-against-broad-open-weight-restrictions/",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 15:51:49 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "As US weighs response to Chinese AI, industry urges against broad open-weight restrictions — AI companies, including Nvidia and Mistral, urge policymakers to avoid broad restrictions on open-weight AI models as Washington debates responses to Chinese AI and alleged model distillation.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "44f822bb000a70b3",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/07/24/formation-professionnelle-lancement-de-mihan-tv-premiere-chaine-mediatique-sectorielle-en-algerie/",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 15:25:28 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Formation professionnelle : lancement de « Mihan TV », première chaîne médiatique sectorielle en Algérie — Le ministère de la Formation et de l’Enseignement professionnels a lancé, jeudi soir, la chaîne « Mihan TV », première chaîne médiatique sectorielle en Algérie, visant à faire connaître le système de formation et d’enseignement professionnels et à mettre en valeur les différents métiers et spécialit",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "b2faaea70d3aa2b8",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/24/rivian-sues-the-us-government-for-full-refund-of-trump-tariffs/",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 15:16:31 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Rivian sues the US government for ‘full refund’ of Trump tariffs — The automaker joins a long line of companies seeking such refunds. In April, Rivian CFO Claire McDonough said she expected the company stood to reap a refund in the \"tens of millions of dollars.\"",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "336e69437c671d33",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/24/blueskys-ai-assistant-attie-expands-into-an-open-social-research-tool/",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 15:13:57 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Bluesky’s AI assistant Attie expands into an open social research tool — Users can now ask Attie questions about news, trends, and conversations on Bluesky and other apps on the AT Protocol.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "7cdbc2560f5fe1cc",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/24/midjourney-acquired-the-astrology-app-co-star/",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 15:09:55 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Midjourney acquired the astrology app Co-Star — The AI lab Midjourney continues to expand its purview beyond image and video generation.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "f84e04acbbeada70",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/07/24/activites-liees-aux-metaux-et-pierres-precieuses-les-nouvelles-conditions-dautorisation-dexercice-fixees/",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 14:26:47 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Activités liées aux métaux et pierres précieuses : les nouvelles conditions d’autorisation d’exercice fixées — Un arrêté du ministère des Finances, publié au Journal officiel n° 51, définit les règles de délivrance, de retrait et de restitution des autorisations d’exercice des activités liées aux métaux précieux et aux pierres précieuses. Le texte encadre les conditions d’accès à la profession, renforce les",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e6c1cebe7eb55a96",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/07/24/incendies-de-foret-en-algerie-141-feux-eteints-en-24-heures/",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 13:38:05 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Incendies de forêt en Algérie : 141 feux éteints en 24 heures — Les services de la Protection civile ont réussi à maîtriser la majorité des incendies enregistrés au cours des dernières 24 heures, tandis que les autorités ont engagé le recensement des dégâts en vue de l’indemnisation des personnes touchées. Le ministre de l’Intérieur, Saïd Sayoud, a assuré que le",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "28465398b0195b25",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/07/24/openais-new-voice-mode-makes-it-to-the-chatgpt-desktop-app/",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 13:36:42 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "OpenAI’s new voice mode makes it to the ChatGPT desktop app — ChatGPT Voice on desktop can work with both ChatGPT Work and Codex to complete tasks and control agents.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "4bbb8b4cf7bf4540",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/data-ia-1372/amd-helios-ai-exascale-228506",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 13:08:19 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "AMD entre vraiment dans le jeu des racks IA exascale — AMD intègre ses nouvelles générations de CPU (EPYC Venice) et de GPU (Instinct MI455X) dans des racks Helios AI qui atteignent l'exaflops en inférence FP8. The post AMD entre vraiment dans le jeu des racks IA exascale appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "9337e7619f322c44",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/cybersecurite-1371/lincident-openai-hugging-face-nest-pas-la-revolution-que-vous-imaginez-228512",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 12:52:45 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "L’incident OpenAI–Hugging Face n’est pas la révolution que vous imaginez — { Tribune Expert } - Ce que démontre l'incident Hugging Face, ce n'est pas une sophistication supérieure, mais une orchestration infatigable : un opérateur capable d'enchaîner une douzaine d'étapes ordinairess à la vitesse de la machine, sans fatigue et sans intervention humaine. The post L’incident",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "78d1c453ba4b8274",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/07/24/les-etats-unis-appliquent-de-nouvelles-surtaxes-douanieres-aux-produits-algeriens/",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 12:18:30 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Les États-Unis appliquent de nouvelles surtaxes douanières aux produits algériens — Les États-Unis ont mis en place, à partir de ce vendredi 24 juillet, de nouveaux droits de douane sur les importations provenant de 60 économies, dont l’Algérie. Les produits algériens concernés sont désormais soumis à une surtaxe de 12,5 %, dans le cadre d’un dispositif présenté par Washington comm",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "9ea1aaeba2c256b0",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/data-ia-1372/amd-rocm-ai-228492",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 11:27:48 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "ROCm.ai, ou comment AMD inculque sa stack aux LLM — Avec ROCm.ai, AMD promet de la programmation GPU assistée par IA, au moyen de skills et d'un système agentique dit Hyperloom. The post ROCm.ai, ou comment AMD inculque sa stack aux LLM appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "6752fc84cb1693dc",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/cloud-1370/le-mouvement-vers-le-cloud-va-t-il-sinverser-avec-lia-228495",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 10:52:37 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Le mouvement vers le cloud va-t-il s’inverser avec l’IA ? — { Tribune Expert } - L'intelligence artificielle ne remet pas en cause le cloud. En revanche, elle remet clairement l'infrastructure au cœur des décisions stratégiques. The post Le mouvement vers le cloud va-t-il s’inverser avec l’IA ? appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "90598bc237e9a7bf",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/business-1367/le-pentagone-consolide-ses-licences-logicielles-oracle-228489",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 10:21:06 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Le Pentagone consolide ses licences logicielles Oracle — Un contrat pouvant atteindre 7 milliards $ sur dix ans doit remplacer une mosaïque d'accords dispersés entre les armées, le renseignement et les gardes-côtes. The post Le Pentagone consolide ses licences logicielles Oracle appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "dab4e8908b218727",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/data-ia-1372/leurope-ne-questionne-plus-sa-dependance-a-lia-americaine-elle-la-subit-228484",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 08:55:53 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "L’Europe ne questionne plus sa dépendance à l’IA américaine, elle la subit… — { Tribune } - Une souveraineté technologique sans souveraineté des compétences équivaut à posséder une centrale nucléaire sans disposer d'ingénieurs pour la faire fonctionner. The post L’Europe ne questionne plus sa dépendance à l’IA américaine, elle la subit… appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "a1499c5345a4248c",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/axa-complete-son-secure-gpt-par-copilot-pour-microsoft-365-498980.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 08:35:17 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Axa complète son secure GPT par Copilot pour Microsoft 365 — Quelques années après la généralisation de son IA générative privée, Axa initie le déploiement progressif de Microsoft 365 Copilot. L’IA dans les outils Office est présentée comme une nouvelle étape vers “un environnement de travail augmenté.”",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "54096bea4e871a19",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/anthropic-muscle-le-mode-vocal-de-claude-498968.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 08:02:10 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Anthropic muscle le mode vocal de Claude — Anthropic a mis à jour le mode vocal de Claude, désormais compatible avec les modèles Opus, Sonnet et Haiku. La nouvelle version, disponible en bêta pour tous les utilisateurs, permet aussi d’exécuter de vraies tâches via des applications tierces.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-08-03T10:42:57.935061+00:00",
+  "lastUpdated": "2026-08-03T20:26:57.294120+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Tech International": 159,
-    "Médias TIC": 61
+    "Tech International": 155,
+    "Médias TIC": 65
   },
   "total": 300
 }
