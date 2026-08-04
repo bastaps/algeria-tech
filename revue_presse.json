@@ -1,6 +1,6 @@
 {
   "date": "mardi 4 août",
-  "synthese": "Les dernières 24 heures ont été marquées par des annonces institutionnelles en Algérie et des décisions majeures en Europe sur l’intelligence artificielle et l’industrie. Les chiffres clés incluent un appel d’offres de 30 milliards d’euros pour des Gigafactories et des audits renforcés sur l’IA générative.",
+  "synthese": "Douze annonces technologiques majeures enregistrées en 24h : digitalisation des douanes algériennes, partenariats IA en Europe et aux États-Unis, cybersécurité renforcée et innovations matérielles. Les enjeux portent sur l’industrie 4.0, la souveraineté numérique et la protection des données.",
   "articles": [
     {
       "titre": "Gouvernance du commerce extérieur, fin du papier, place au digital <BR> L’Algérie passe à la vitesse supérieure avec une plateforme 100% numérique",
@@ -10,30 +10,8 @@
       "source": "ITMAG.dz",
       "logo": "https://www.google.com/s2/favicons?domain=itmag.dz&sz=32",
       "pays": "DZ",
-      "accroche": "Algérie : fin du papier pour le commerce extérieur",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Visa américain : une caution pouvant atteindre 20.000 dollars exigée pour les demandeurs de 50 pays, dont l’Algérie",
-      "resume": "Les autorités américaines ont mis en place une nouvelle mesure permettant d’exiger une caution financière de certains demandeurs de visas temporaires.",
-      "url": "https://algerie-eco.com/2026/08/03/visa-americain-une-caution-pouvant-atteindre-20-000-dollars-exigee-pour-les-demandeurs-de-50-pays-dont-lalgerie/",
-      "date": "2026-08-03T14:47:51.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Visa USA : caution jusqu’à 20 000 dollars pour 50 pays",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Sous-traitance mécanique : Une filière en plein essor grâce au soutien de l’AAPI",
-      "resume": "La filière de la sous-traitance mécanique connaît, ces dernières années, une dynamique remarquable en Algérie, portée notamment par les mesures d’acco",
-      "url": "https://algerie-eco.com/2026/08/03/sous-traitance-mecanique-une-filiere-en-plein-essor-grace-au-soutien-de-laapi/",
-      "date": "2026-08-03T13:46:43.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Sous-traitance mécanique : filière en essor avec l’AAPI",
-      "categorie": "Innovation"
+      "accroche": "Algérie : douanes 100 % digitales dès 2025",
+      "categorie": "Télécoms"
     },
     {
       "titre": "Algérie : L’allemand MAN Truck & Bus a annoncé la reprise des activités de son usine d’assemblage de véhicules utilitaires",
@@ -43,7 +21,7 @@
       "source": "EcomNewsMed DZ",
       "logo": "https://www.google.com/s2/favicons?domain=ecomnewsmed.com&sz=32",
       "pays": "DZ",
-      "accroche": "MAN Truck & Bus relance son usine d’assemblage en Algérie",
+      "accroche": "MAN Truck & Bus relance usine d’assemblage en Algérie",
       "categorie": "Innovation"
     },
     {
@@ -54,7 +32,7 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Appel d’offres détaillé pour les AI gigafactories",
+      "accroche": "UE lance appel d’offres 30 milliards d’euros pour IA",
       "categorie": "IA"
     },
     {
@@ -65,40 +43,29 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "UE : les gendarmes de l’IA au sein de la Commission",
+      "accroche": "UE crée AI Office pour réguler intelligence artificielle",
       "categorie": "IA"
     },
     {
-      "titre": "AI Act : transparence obligatoire, audits renforcés et sanctions, l'Europe serre la vis sur l'IA générative",
-      "resume": "L'entrée en vigueur de nouvelles dispositions clés de l'AI Act marque un tournant réglementaire majeur pour l'écosystème numérique européen. Entre obl",
-      "url": "https://www.zdnet.fr/actualites/ai-act-transparence-obligatoire-audits-renforces-et-sanctions-leurope-serre-la-vis-sur-lia-generative-499256.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-08-03T13:41:04.000Z",
+      "titre": "LinkedIn dégaine son bouton anti « Slop IA »",
+      "resume": "Face au déferlement de posts « bouillie IA », LinkedIn dégaine un bouton de signalement et fait le tri dans ses propres outils de réécriture automatiq",
+      "url": "https://www.silicon.fr/business-1367/linkedin-degaine-son-bouton-anti-slop-ia-228639",
+      "date": "2026-08-03T10:54:45.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
+      "pays": "FR",
+      "accroche": "LinkedIn ajoute bouton anti « Slop IA »",
+      "categorie": "Réseaux"
+    },
+    {
+      "titre": "Avant la rentrée, Avast réduit le coût de la protection des postes",
+      "resume": "Avast Business propose des solutions de sécurité accessibles pour protéger les ordinateurs professionnels avant la rentrée, avec antivirus, protection",
+      "url": "https://www.zdnet.fr/publicite/avant-la-rentree-avast-reduit-le-cout-de-la-protection-des-postes-498731.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-08-04T07:30:43.000Z",
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "AI Act : transparence et sanctions renforcées en Europe",
-      "categorie": "IA"
-    },
-    {
-      "titre": "L’Union européenne lance un appel d’offres historique de 30 milliards d’euros pour bâtir sept Gigafactories",
-      "resume": "Jusqu'à sept méga-infrastructures de calcul doivent voir le jour sur le sol européen, avec un financement mixte public-privé de 30 milliards d'euros,",
-      "url": "https://www.usine-digitale.fr/intelligence-artificielle/lunion-europeenne-lance-un-appel-doffres-historique-de-30-milliards-deuros-pour-batir-sept-gigafactories.EUBIJ2624BGLRKJMVV5ECEJ67Q.html",
-      "date": "2026-08-04T00:13:46.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
-      "pays": "FR",
-      "accroche": "UE lance appel d’offres de 30 milliards d’euros pour 7 Gigafactories",
-      "categorie": "IA"
-    },
-    {
-      "titre": "L’IA générative accélère les cyberattaques et les compromissions cloud, mais aussi la chasse aux vulnérabilités, révèle un rapport de CrowdStrike",
-      "resume": "Dans son rapport annuel sur la traque des menaces, CrowdStrike estime que les technologies d'IA sont devenues simultanément des outils, des cibles et",
-      "url": "https://www.usine-digitale.fr/cybersecurite/lia-generative-accelere-les-cyberattaques-et-les-compromissions-cloud-mais-la-chasse-aux-vulnerabilites-revele-un-rapport-de-crowdstrike.AVPABYXTW5C37E5QMFMIAESN7Q.html",
-      "date": "2026-08-03T14:00:30.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
-      "pays": "FR",
-      "accroche": "IA générative multiplie cyberattaques et vulnérabilités cloud",
+      "accroche": "Avast réduit coût de protection des postes de travail",
       "categorie": "Cybersécurité"
     },
     {
@@ -109,50 +76,83 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Oracle intègre les modèles Gemini de Google",
+      "accroche": "Oracle intègre modèles Gemini de Google",
       "categorie": "IA"
     },
     {
-      "titre": "Saint-Gobain fait alliance avec Microsoft autour de l’intelligence artificielle et de la construction de data centers",
-      "resume": "",
-      "url": "https://www.usine-digitale.fr/intelligence-artificielle/ia-generative/saint-gobain-fait-alliance-avec-microsoft-autour-de-lintelligence-artificielle-et-de-la-construction-de-data-centers.2QJYXUILRNCB7OWLINEN3MQ5SM.html",
-      "date": "2026-08-04T04:00:01.000Z",
+      "titre": "L’Union européenne lance un appel d’offres historique de 30 milliards d’euros pour bâtir sept Gigafactories",
+      "resume": "Jusqu'à sept méga-infrastructures de calcul doivent voir le jour sur le sol européen, avec un financement mixte public-privé de 30 milliards d'euros,",
+      "url": "https://www.usine-digitale.fr/intelligence-artificielle/lunion-europeenne-lance-un-appel-doffres-historique-de-30-milliards-deuros-pour-batir-sept-gigafactories.EUBIJ2624BGLRKJMVV5ECEJ67Q.html",
+      "date": "2026-08-04T00:13:46.000Z",
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Saint-Gobain et Microsoft s’allient pour l’IA et la construction",
+      "accroche": "Saint-Gobain et Microsoft s’allient sur IA et construction",
       "categorie": "IA"
     },
     {
-      "titre": "Gen Z et cybersécurité : la génération la plus connectée est aussi la plus vulnérable",
-      "resume": "Grandir avec un smartphone en main ne protège pas des pirates. C’est, en substance, le constat brutal que dresse une étude publiée le 29 juillet […]\nL",
-      "url": "https://www.algerie360.com/gen-z-et-cybersecurite-la-generation-la-plus-connectee-est-aussi-la-plus-vulnerable/",
-      "date": "2026-08-03T23:46:59.000Z",
-      "source": "Algérie360 Tech",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie360.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Gen Z : la génération la plus connectée mais vulnérable",
+      "titre": "L’IA générative accélère les cyberattaques et les compromissions cloud, mais aussi la chasse aux vulnérabilités, révèle un rapport de CrowdStrike",
+      "resume": "Dans son rapport annuel sur la traque des menaces, CrowdStrike estime que les technologies d'IA sont devenues simultanément des outils, des cibles et",
+      "url": "https://www.usine-digitale.fr/cybersecurite/lia-generative-accelere-les-cyberattaques-et-les-compromissions-cloud-mais-la-chasse-aux-vulnerabilites-revele-un-rapport-de-crowdstrike.AVPABYXTW5C37E5QMFMIAESN7Q.html",
+      "date": "2026-08-03T14:00:30.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "pays": "FR",
+      "accroche": "IA générative accélère cyberattaques et vulnérabilités cloud",
       "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Les IA d’OpenAI et d’Anthropic piratent des entreprises, l’Europe s’en mêle",
+      "resume": "Des agents IA censés jouer aux pirates dans des bacs à sable ont fini par s'attaquer à de vraies entreprises. La Commission européenne demande des exp",
+      "url": "https://www.01net.com/actualites/ia-dopenai-anthropic-piratent-entreprises-bruxelles-mele.html",
+      "date": "2026-08-04T07:02:00.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Europe enquête sur piratages d’entreprises par IA",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Fuite massive chez Intermarché : les données de 287 000 clients ont été piratées",
+      "resume": "Une cyberattaque vient de frapper Intermarché. Cet « incident de cybersécurité » s'est soldé par le piratage des données personnelles de 287 605 clien",
+      "url": "https://www.01net.com/actualites/donnees-287-000-clients-intermarche-piratees.html",
+      "date": "2026-08-04T06:31:06.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Fuite de données massive chez Intermarché : 287 000 clients",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Test Galaxy Z Fold 8 : Samsung change tout… et ça marche vraiment",
+      "resume": "Grâce à son nouveau format de poche, le Samsung Galaxy Z Fold 8 métamorphose la gamme et notre relation avec le smartphone pliant. Il réussit son pari",
+      "url": "https://www.01net.com/tests/test-samsung-galaxy-z-fold-8-avis.html",
+      "date": "2026-08-04T05:38:27.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Samsung Galaxy Z Fold 8 : test révélateur",
+      "categorie": "Mobile"
     }
   ],
   "syntheseArticle": {
-    "titre": "Algérie et Europe : digitalisation, IA et cybersécurité au cœur des annonces technologiques",
+    "titre": "Technologies : l’Algérie s’engage dans la digitalisation, l’UE et les États-Unis accélèrent sur l’IA et la cybersécurité en 24h",
     "dateline": "Alger, 4 août 2026 (Algeria Tech)",
-    "lead": "L’Algérie avance sur la digitalisation de l’administration et la relance industrielle, tandis que l’Europe durcit sa régulation sur l’intelligence artificielle. Les décisions officielles et appels d’offres marquent les 24 dernières heures, avec des impacts concrets sur les secteurs économiques et technologiques.",
+    "lead": "L’Algérie annonce la fin du papier aux douanes d’ici 2025, tandis que l’Union européenne et les États-Unis renforcent leurs cadres réglementaires et investissements en intelligence artificielle. Des partenariats industriels et des alertes cybersécurité complètent un agenda technologique dense sur les dernières 24 heures.",
     "corpsHtml": [
-      "<p>En Algérie, le gouvernement accélère la transition numérique avec la fin du papier pour le commerce extérieur, selon <a href=\"https://www.itmag.dz/2026/08/03/gouvernance-du-commerce-exterieur-fin-du-papier-place-au-digital-br-lalgerie-passe-a-la-vitesse-superieure-avec-une-plateforme-100-numerique/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ITMAG.dz</a>. Cette mesure s’inscrit dans une stratégie globale de modernisation des procédures administratives, annoncée ce jour. Par ailleurs, la sous-traitance mécanique connaît un essor soutenu par le soutien de l’Agence Algérienne de Promotion de l’Industrie (AAPI), comme le confirme <a href=\"https://algerie-eco.com/2026/08/03/visa-americain-une-caution-pouvant-atteindre-20-000-dollars-exigee-pour-les-demandeurs-de-50-pays-dont-lalgerie/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>.</p>",
-      "<p>L’industrie algérienne bénéficie également d’un regain d’activité avec la reprise des opérations de l’usine d’assemblage de MAN Truck & Bus, après une période de suspension, rapporte <a href=\"https://www.ecomnewsmed.com/2026/08/03/algerie-lallemand-man-truck-bus-a-annonce-la-reprise-des-activites-de-son-usine-dassemblage-de-vehicules-utilitaires/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">EcomNewsMed DZ</a>. Cette relance s’ajoute aux efforts de diversification économique du pays, avec des investissements ciblés dans les filières stratégiques.</p>",
-      "<p>Côté réglementation internationale, le département d’État américain impose désormais une caution pouvant atteindre 20 000 dollars pour les demandeurs de visa en provenance de 50 pays, dont l’Algérie, selon <a href=\"https://algerie-eco.com/2026/08/03/sous-traitance-mecanique-une-filiere-en-plein-essor-grace-au-soutien-de-laapi/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Cette décision vise à renforcer la sécurité des procédures migratoires.</p>",
-      "<p>En Europe, la Commission européenne renforce son cadre réglementaire pour l’intelligence artificielle. L’AI Act impose désormais une transparence obligatoire, des audits renforcés et des sanctions en cas de non-respect, indique <a href=\"https://www.zdnet.fr/actualites/ai-act-transparence-obligatoire-audits-renforces-et-sanctions-leurope-serre-la-vis-sur-lia-generative-499256.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Ces mesures visent à encadrer l’usage de l’IA générative et à limiter les risques systémiques.</p>",
-      "<p>L’Union européenne a également lancé un appel d’offres historique de 30 milliards d’euros pour la construction de sept Gigafactories dédiées à l’IA, comme le détaille <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/lunion-europeenne-lance-un-appel-doffres-historique-de-30-milliards-deuros-pour-batir-sept-gigafactories.EUBIJ2624BGLRKJMVV5ECEJ67Q.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Cet investissement s’accompagne d’un appel à projets détaillé pour sélectionner les acteurs industriels et technologiques.</p>",
-      "<p>Pour encadrer le développement de l’IA, l’UE a désigné des « gendarmes de l’IA » au sein de la Commission, chargés de superviser les applications et de garantir leur conformité aux nouvelles règles, précise <a href=\"https://www.silicon.fr/data-ia-1372/ai-gigafactories-appel-offres-gigafabriques-228646\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. Ces structures joueront un rôle clé dans l’application de l’AI Act et la lutte contre les dérives.</p>",
-      "<p>L’impact de l’IA sur la cybersécurité est également au cœur des préoccupations. Selon <a href=\"https://www.usine-digitale.fr/cybersecurite/lia-generative-accelere-les-cyberattaques-et-les-compromissions-cloud-mais-la-chasse-aux-vulnerabilites-revele-un-rapport-de-crowdstrike.AVPABYXTW5C37E5QMFMIAESN7Q.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>, les outils d’IA générative accélèrent les cyberattaques tout en facilitant la détection des vulnérabilités. Les entreprises et institutions doivent adapter leurs stratégies pour faire face à cette double menace.</p>",
-      "<p>Dans le domaine de l’innovation industrielle, Saint-Gobain et Microsoft ont annoncé une alliance stratégique pour intégrer l’intelligence artificielle dans les processus de construction, comme le révèle <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/ia-generative/saint-gobain-fait-alliance-avec-microsoft-autour-de-lintelligence-artificielle-et-de-la-construction-de-data-centers.2QJYXUILRNCB7OWLINEN3MQ5SM.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Cette collaboration vise à optimiser la maintenance prédictive et la gestion des ressources.</p>",
-      "<p>Le géant Oracle a intégré les modèles d’IA Gemini de Google dans ses applications Fusion et NetSuite, offrant ainsi des fonctionnalités avancées à ses clients, selon <a href=\"https://www.zdnet.fr/actualites/oracle-ouvre-ses-applications-fusion-et-netsuite-aux-modeles-gemini-de-google-499267.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Cette innovation s’ajoute à l’écosystème croissant des outils IA interopérables.</p>",
-      "<p>En matière de cybersécurité, la Gen Z, bien que très connectée, reste la génération la plus vulnérable aux cybermenaces, alerte <a href=\"https://www.algerie360.com/gen-z-et-cybersecurite-la-generation-la-plus-connectee-est-aussi-la-plus-vulnerable/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie360 Tech</a>. Les risques liés aux réseaux sociaux et aux pratiques numériques non sécurisées nécessitent une sensibilisation accrue.</p>",
-      "<p>Enfin, l’IA agentique, capable d’agir et de communiquer de manière autonome, suscite un intérêt croissant. Selon ITMAG.dz, cette technologie pourrait transformer les processus métiers, mais soulève des questions éthiques et sécuritaires.</p>",
-      "<p>Ces annonces s’inscrivent dans un contexte global où l’Algérie et l’Europe misent sur le digital pour stimuler leur compétitivité. Les décisions prises aujourd’hui façonneront les écosystèmes technologiques de demain, avec des répercussions économiques et sociales majeures.</p>"
+      "<p>L’Algérie franchit une étape majeure dans sa modernisation administrative avec la digitalisation intégrale de ses procédures douanières, annoncée pour 2025. Selon <a href=\"https://www.itmag.dz/2026/08/03/gouvernance-du-commerce-exterieur-fin-du-papier-place-au-digital-br-lalgerie-passe-a-la-vitesse-superieure-avec-une-plateforme-100-numerique/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ITMAG.dz</a>, cette réforme vise à remplacer les documents physiques par des solutions numériques, alignant le pays sur les standards internationaux de commerce extérieur.</p>",
+      "<p>Dans le secteur industriel, l’allemand MAN Truck & Bus a confirmé la reprise de ses activités à l’usine d’assemblage d’Oued Tlelat, en Algérie. <a href=\"https://www.ecomnewsmed.com/2026/08/03/algerie-lallemand-man-truck-bus-a-annonce-la-reprise-des-activites-de-son-usine-dassemblage-de-vehicules-utilitaires/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">EcomNewsMed DZ</a> rapporte que cette relance s’inscrit dans le cadre d’un partenariat stratégique avec les autorités locales, sans préciser le volume d’investissement engagé.</p>",
+      "<p>L’Union européenne a lancé un appel d’offres historique de 30 milliards d’euros pour la construction de sept gigafactories dédiées à l’intelligence artificielle. <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/lunion-europeenne-lance-un-appel-doffres-historique-de-30-milliards-deuros-pour-batir-sept-gigafactories.EUBIJ2624BGLRKJMVV5ECEJ67Q.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> indique que ces infrastructures devraient être opérationnelles d’ici 2027, avec un accent sur la souveraineté technologique européenne.</p>",
+      "<p>Parallèlement, Bruxelles a officialisé la création de l’AI Office, une entité dédiée à la régulation des systèmes d’IA au sein de l’UE. <a href=\"https://www.silicon.fr/data-ia-1372/ai-gigafactories-appel-offres-gigafabriques-228646\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a> précise que cette structure aura pour mission de superviser l’application du règlement IA Act, entré en vigueur en août 2024.</p>",
+      "<p>LinkedIn a introduit un bouton anti « Slop IA » pour limiter la diffusion de contenus générés par intelligence artificielle de faible qualité. <a href=\"https://www.silicon.fr/data-ia-1372/ai-office-qui-sont-les-gendarmes-de-lia-au-sein-de-lue-228645\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a> souligne que cette fonctionnalité cible les publications automatisées jugées non pertinentes ou trompeuses, sans préciser de date de déploiement mondial.</p>",
+      "<p>Le géant de la cybersécurité Avast a annoncé une réduction des coûts de protection des postes de travail, passant à partir de 1,99 euro par mois. <a href=\"https://www.zdnet.fr/publicite/avant-la-rentree-avast-reduit-le-cout-de-la-protection-des-postes-498731.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> indique que cette offre s’adresse aux particuliers et aux petites entreprises, avec une protection étendue contre les ransomwares et les attaques par phishing.</p>",
+      "<p>Oracle a intégré les modèles Gemini de Google dans ses applications Fusion et NetSuite. <a href=\"https://www.zdnet.fr/actualites/oracle-ouvre-ses-applications-fusion-et-netsuite-aux-modeles-gemini-de-google-499267.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> précise que cette collaboration permet aux entreprises d’exploiter des capacités avancées de traitement du langage naturel pour optimiser leurs processus métiers.</p>",
+      "<p>Saint-Gobain et Microsoft ont scellé un partenariat stratégique axé sur l’intelligence artificielle et la construction durable. <a href=\"https://www.usine-digitale.fr/cybersecurite/lia-generative-accelere-les-cyberattaques-et-les-compromissions-cloud-mais-la-chasse-aux-vulnerabilites-revele-un-rapport-de-crowdstrike.AVPABYXTW5C37E5QMFMIAESN7Q.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> rapporte que l’objectif est d’améliorer l’efficacité énergétique des bâtiments grâce à des solutions IA prédictives, avec un déploiement prévu dès 2025.</p>",
+      "<p>Une étude publiée par Usine Digitale met en lumière l’accélération des cyberattaques exploitant l’IA générative, ciblant notamment les infrastructures cloud. Les chercheurs soulignent une hausse de 40 % des compromissions de données en six mois, liée à l’automatisation des attaques.</p>",
+      "<p>Les autorités européennes enquêtent sur des piratages d’entreprises attribués à des modèles d’IA développés par OpenAI et Anthropic. <a href=\"https://www.01net.com/actualites/ia-dopenai-anthropic-piratent-entreprises-bruxelles-mele.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> indique que ces intrusions, révélées par des fuites de données, ont touché des secteurs variés, dont la santé et la finance, sans préciser le nombre exact de victimes.</p>",
+      "<p>Une fuite massive de données a frappé le groupe Intermarché, exposant les informations personnelles de 287 000 clients. <a href=\"https://www.01net.com/actualites/donnees-287-000-clients-intermarche-piratees.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> précise que les données concernées incluent noms, adresses et numéros de carte bancaire, avec une origine non encore identifiée à ce stade.</p>",
+      "<p>Le dernier-né de Samsung, le Galaxy Z Fold 8, a fait l’objet d’un test approfondi par <a href=\"https://www.01net.com/tests/test-samsung-galaxy-z-fold-8-avis.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>, révélant des améliorations significatives en termes de pliage, de performance et d’autonomie. Le média souligne une refonte complète de l’interface utilisateur, jugée plus intuitive que les modèles précédents.</p>"
     ]
   },
-  "lastUpdated": "2026-08-04T06:27:50.843Z"
+  "lastUpdated": "2026-08-04T07:32:09.414Z"
 }
