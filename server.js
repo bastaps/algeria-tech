@@ -2806,6 +2806,180 @@ app.get('/api/download-audio', (req, res) => {
 });
 // ── FIN VIDEO DOWNLOADER ──────────────────────────────────────────────────────
 
+// ── CONVERTISSEUR — proxy fetch-video vers download-video ────────────────────
+app.get('/api/convertisseur/fetch-video', (req, res) => {
+    const { url } = req.query;
+    if (!url) return res.status(400).json({ error: 'URL manquante' });
+
+    const tmpFile = path.join(os.tmpdir(), `conv_${Date.now()}.%(ext)s`);
+    const fmt = 'bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/hd/sd/best[ext=mp4]/best';
+
+    const args = [
+        ...ytdlpExtra(),
+        '--no-playlist',
+        '--format', fmt,
+        '--merge-output-format', 'mp4',
+        '--ffmpeg-location', FFMPEG_PATH,
+        '-o', tmpFile,
+        url
+    ];
+
+    const proc = spawn(YTDLP, args);
+    let logOut = '';
+    let responded = false;
+
+    proc.on('error', e => {
+        if (!responded) { responded = true; res.status(500).json({ error: 'yt-dlp introuvable', details: e.message }); }
+    });
+    proc.stderr.on('data', d => logOut += d);
+
+    proc.on('close', code => {
+        if (responded) return;
+        if (code !== 0) { responded = true; return res.status(500).json({ error: 'Échec du téléchargement', details: logOut.slice(-800) }); }
+
+        const tmpDir = path.dirname(tmpFile);
+        const prefix = path.basename(tmpFile.replace('%(ext)s', ''));
+        const files = fsSync.readdirSync(tmpDir).filter(f => f.startsWith(prefix));
+        if (!files.length) return res.status(500).json({ error: 'Fichier introuvable après téléchargement' });
+
+        const finalFile = path.join(tmpDir, files[0]);
+        const stat = fsSync.statSync(finalFile);
+        responded = true;
+
+        res.setHeader('Content-Type', 'video/mp4');
+        res.setHeader('Content-Length', stat.size);
+        res.setHeader('Content-Disposition', `attachment; filename="video.mp4"`);
+
+        const stream = fsSync.createReadStream(finalFile);
+        stream.pipe(res);
+        stream.on('close', () => { try { fsSync.unlinkSync(finalFile); } catch (e) {} });
+    });
+});
+
+// ── TRANSCRIPTION AUDIO/VIDEO (Groq Whisper) ─────────────────────────────────
+const transcribeUpload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 250 * 1024 * 1024 } }).single('file');
+
+async function transcribeWithGroq(audioBuffer, filename) {
+    const https = require('https');
+    const boundary = '----GroqBoundary' + Date.now();
+
+    const header = `--${boundary}\r\nContent-Disposition: form-data; name="file"; filename="${filename}"\r\nContent-Type: audio/mpeg\r\n\r\n`;
+    const modelField = `\r\n--${boundary}\r\nContent-Disposition: form-data; name="model"\r\n\r\nwhisper-large-v3\r\n--${boundary}--\r\n`;
+
+    const body = Buffer.concat([Buffer.from(header), audioBuffer, Buffer.from(modelField)]);
+
+    return new Promise((resolve, reject) => {
+        const req = https.request({
+            hostname: 'api.groq.com',
+            path: '/openai/v1/audio/transcriptions',
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${process.env.GROQ_API_KEY}`,
+                'Content-Type': `multipart/form-data; boundary=${boundary}`,
+                'Content-Length': body.length
+            }
+        }, resp => {
+            let data = '';
+            resp.on('data', d => data += d);
+            resp.on('end', () => {
+                try {
+                    const j = JSON.parse(data);
+                    if (j.error) reject(new Error(j.error.message || JSON.stringify(j.error)));
+                    else resolve(j.text || '');
+                } catch (e) { reject(new Error('Réponse Groq invalide')); }
+            });
+        });
+        req.on('error', reject);
+        req.write(body);
+        req.end();
+    });
+}
+
+async function extractAudioFromVideo(videoPath) {
+    const audioPath = videoPath.replace(/\.[^.]+$/, '.mp3');
+    return new Promise((resolve, reject) => {
+        const proc = spawn(FFMPEG_PATH, ['-i', videoPath, '-vn', '-ab', '128k', '-ar', '16000', '-y', audioPath]);
+        proc.on('error', reject);
+        proc.on('close', code => code === 0 ? resolve(audioPath) : reject(new Error('FFmpeg extraction audio échouée')));
+    });
+}
+
+app.post('/api/transcribe-video', express.json(), async (req, res) => {
+    const { url } = req.body || {};
+    if (!url) return res.status(400).json({ error: 'URL manquante' });
+    if (!process.env.GROQ_API_KEY) return res.status(503).json({ error: 'GROQ_API_KEY non configurée' });
+
+    let tmpVideo = null, tmpAudio = null;
+    try {
+        const tmpFile = path.join(os.tmpdir(), `tr_${Date.now()}.%(ext)s`);
+        const args = [
+            ...ytdlpExtra(), '--no-playlist',
+            '--format', 'bestaudio/best',
+            '--extract-audio', '--audio-format', 'mp3', '--audio-quality', '0',
+            '--ffmpeg-location', FFMPEG_PATH,
+            '-o', tmpFile, url
+        ];
+
+        await new Promise((resolve, reject) => {
+            const proc = spawn(YTDLP, args);
+            let log = '';
+            proc.stderr.on('data', d => log += d);
+            proc.on('error', reject);
+            proc.on('close', code => code === 0 ? resolve() : reject(new Error('yt-dlp: ' + log.slice(-500))));
+        });
+
+        const tmpDir = path.dirname(tmpFile);
+        const prefix = path.basename(tmpFile.replace('%(ext)s', ''));
+        const files = fsSync.readdirSync(tmpDir).filter(f => f.startsWith(prefix));
+        if (!files.length) return res.status(500).json({ error: 'Fichier audio introuvable' });
+
+        tmpAudio = path.join(tmpDir, files[0]);
+        const audioBuffer = await fs.readFile(tmpAudio);
+        const transcript = await transcribeWithGroq(audioBuffer, 'audio.mp3');
+
+        res.json({ transcript });
+    } catch (e) {
+        console.error('[transcribe-video]', e.message);
+        res.status(500).json({ error: e.message });
+    } finally {
+        if (tmpVideo) try { fsSync.unlinkSync(tmpVideo); } catch (e) {}
+        if (tmpAudio) try { fsSync.unlinkSync(tmpAudio); } catch (e) {}
+    }
+});
+
+app.post('/api/transcribe-local', (req, res) => {
+    transcribeUpload(req, res, async (err) => {
+        if (err) return res.status(400).json({ error: 'Upload: ' + err.message });
+        if (!req.file) return res.status(400).json({ error: 'Aucun fichier reçu' });
+        if (!process.env.GROQ_API_KEY) return res.status(503).json({ error: 'GROQ_API_KEY non configurée' });
+
+        let tmpAudio = null;
+        try {
+            const ext = path.extname(req.file.originalname).toLowerCase();
+            let audioBuffer;
+
+            if (['.mp3', '.wav', '.ogg', '.flac', '.m4a', '.aac', '.wma', '.opus'].includes(ext)) {
+                audioBuffer = req.file.buffer;
+            } else {
+                const tmpVideo = path.join(os.tmpdir(), `tl_${Date.now()}${ext}`);
+                fsSync.writeFileSync(tmpVideo, req.file.buffer);
+                tmpAudio = await extractAudioFromVideo(tmpVideo);
+                audioBuffer = await fs.readFile(tmpAudio);
+                try { fsSync.unlinkSync(tmpVideo); } catch (e) {}
+            }
+
+            const transcript = await transcribeWithGroq(audioBuffer, req.file.originalname.replace(/\.[^.]+$/, '.mp3'));
+            res.json({ transcript });
+        } catch (e) {
+            console.error('[transcribe-local]', e.message);
+            res.status(500).json({ error: e.message });
+        } finally {
+            if (tmpAudio) try { fsSync.unlinkSync(tmpAudio); } catch (e) {}
+        }
+    });
+});
+// ── FIN TRANSCRIPTION ────────────────────────────────────────────────────────
+
 // ── YOUTUBE PUBLISHER ─────────────────────────────────────────────────────────
 let youtubeUploader = null;
 try {

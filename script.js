@@ -516,7 +516,8 @@ window.openArticle = async function(id) {
         mediaHeader = `<img src="${art.image}" alt="${art.titre}" onerror="this.onerror=null;this.style.display='none'" style="width:100%; border-radius:15px; margin-bottom:25px;">`;
     }
     let pdfLink = art.pdf ? `<div style="margin: 20px 0; padding: 15px; background: var(--bg-light); border-radius: 10px; display: flex; align-items: center; gap: 15px;"><i class="fas fa-file-pdf" style="font-size: 2rem; color: #D21034;"></i><div><p style="margin:0; font-weight:600;">Document d'accompagnement</p><a href="${art.pdf}" target="_blank" class="tag-filter" style="display:inline-block; margin-top:5px; text-decoration:none;"><i class="fas fa-download"></i> TÃ©lÃ©charger le PDF</a></div></div>` : '';
-    let html = `${mediaHeader}<div class="article-body"><div class="article-meta"><span class="category-tag ${cls(art.categorie)}">${art.categorie}</span><span><i class="far fa-calendar"></i> ${art.date}</span><span><i class="far fa-clock"></i> ${art.heure}</span><span class="reading-time"><i class="fas fa-book-open"></i> ${art.readingTime} min</span><span><i class="far fa-eye"></i> ${art.views} vues</span><button class="meta-audio-btn" onclick="premiumTogglePlayer()"><i class="fas fa-headphones"></i> Écouter l'article</button><a class="meta-lite-btn" href="/article/${art.id}/lite" title="Version allégée pour connexion lente"><i class="fas fa-bolt"></i> Version légère</a></div><h1>${art.titre}</h1><div class="article-actions"><button class="synthese-btn" id="syntheseBtn" onclick="loadSynthese()"><i class="fas fa-bolt"></i> Synthèse IA</button><button class="debat-btn" id="debatBtn" onclick="openDebat()"><i class="fas fa-comments"></i> Débattre avec l'IA</button></div><div id="syntheseBox"></div><div class="article-text">${bodyImage}${art.contenu}${pdfLink}</div>`;
+    const immersiveBtn = IMMERSIVE_ARTICLES.includes(String(art.id)) ? `<button class="at-immersive-btn" onclick="openImmersiveMode('${art.id}')"><i class="fas fa-layer-group"></i> Version Interactive</button>` : '';
+    let html = `${mediaHeader}<div class="article-body"><div class="article-meta"><span class="category-tag ${cls(art.categorie)}">${art.categorie}</span><span><i class="far fa-calendar"></i> ${art.date}</span><span><i class="far fa-clock"></i> ${art.heure}</span><span class="reading-time"><i class="fas fa-book-open"></i> ${art.readingTime} min</span><span><i class="far fa-eye"></i> ${art.views} vues</span><button class="meta-audio-btn" onclick="premiumTogglePlayer()"><i class="fas fa-headphones"></i> Écouter l'article</button><a class="meta-lite-btn" href="/article/${art.id}/lite" title="Version allégée pour connexion lente"><i class="fas fa-bolt"></i> Version légère</a></div><h1>${art.titre}</h1><div class="article-actions">${immersiveBtn}<button class="synthese-btn" id="syntheseBtn" onclick="loadSynthese()"><i class="fas fa-bolt"></i> Synthèse IA</button><button class="debat-btn" id="debatBtn" onclick="openDebat()"><i class="fas fa-comments"></i> Débattre avec l'IA</button></div><div id="syntheseBox"></div><div class="article-text">${bodyImage}${art.contenu}${pdfLink}</div>`;
     if (art.tags && art.tags.length) {
         html += `<div style="margin:30px 0;padding-top:20px;border-top:1px solid var(--border)"><strong>Tags: </strong>${art.tags.map(t => `<span class="tag-filter" style="margin-left:8px" onclick="filterByTag('${t}');goHome()">${t}</span>`).join('')}</div>`;
     }
@@ -537,6 +538,72 @@ window.openArticle = async function(id) {
         }).join('');
     } else if (relBox) { relBox.style.display = 'none'; }
 };
+
+// ===== MODE IMMERSIF (version interactive maison d'un article) =====
+// Liste blanche des articles disposant d'une carte interactive (interactifs/<id>.html) — curation manuelle, pas d'automatisation.
+const IMMERSIVE_ARTICLES = ['1785539788809'];
+
+window.openImmersiveMode = async function(id) {
+    const modal = document.getElementById('immersiveModal');
+    const body = document.getElementById('immersiveModalBody');
+    if (!modal || !body) return;
+    body.innerHTML = '<div style="padding:60px;text-align:center;color:var(--text-muted);"><i class="fas fa-spinner fa-spin"></i> Chargement…</div>';
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    try {
+        const res = await fetch(`/interactifs/${id}.html`);
+        if (!res.ok) throw new Error('not found');
+        body.innerHTML = await res.text();
+    } catch (e) {
+        body.innerHTML = '<p style="padding:60px;text-align:center;color:var(--text-muted);">Impossible de charger la version interactive.</p>';
+    }
+};
+
+window.closeImmersiveMode = function() {
+    document.getElementById('immersiveModal')?.classList.remove('show');
+    document.body.style.overflow = '';
+};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.getElementById('immersiveModal')?.classList.contains('show')) {
+        closeImmersiveMode();
+    }
+});
+
+// Interactions internes à la carte immersive (onglets, "J'aime", partage) — déléguées
+// car le fragment est injecté dynamiquement via fetch() dans openImmersiveMode().
+document.addEventListener('click', (e) => {
+    const body = document.getElementById('immersiveModalBody');
+    if (!body || !body.contains(e.target)) return;
+
+    const tabBtn = e.target.closest('.tab-btn');
+    if (tabBtn) {
+        const group = tabBtn.closest('.tabs-interactif');
+        const wrapper = group?.parentElement;
+        if (!group || !wrapper) return;
+        group.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        wrapper.querySelectorAll(':scope > .tab-content').forEach(c => c.classList.remove('active'));
+        tabBtn.classList.add('active');
+        document.getElementById(tabBtn.dataset.tab)?.classList.add('active');
+        return;
+    }
+
+    const likeBtn = e.target.closest('#atLikeButton');
+    if (likeBtn) {
+        const countSpan = document.getElementById('atLikeCount');
+        let count = parseInt(countSpan.textContent, 10) || 0;
+        const liked = likeBtn.classList.toggle('liked');
+        count = liked ? count + 1 : count - 1;
+        countSpan.textContent = count;
+        likeBtn.innerHTML = `<i class="fas fa-thumbs-up"></i> ${liked ? 'Aimé' : "J'aime"} <span id="atLikeCount">${count}</span>`;
+        return;
+    }
+
+    if (e.target.closest('.share-icons a')) {
+        e.preventDefault();
+        showToast('🔗 Partage social — à connecter avec vos APIs.');
+    }
+});
 
 // ===== FLOATING VIDEO PLAYER =====
 // L'iframe reste dans le DOM (position: fixed via CSS) — aucun rechargement, lecture continue.

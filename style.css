@@ -2824,6 +2824,22 @@ html.ar .comp-disclaimer { flex-direction:row-reverse; border-left:none; border-
 .debat-btn:hover { opacity:.9; transform:translateY(-1px); box-shadow:0 5px 18px rgba(98,0,234,.38); }
 .debat-btn:active { transform:translateY(0); }
 
+/* ── Bouton "Version Interactive" (Mode Immersif) ─────────── */
+.at-immersive-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 9px 20px; margin: 0;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: #fff; border: none; border-radius: 25px;
+  font-size: 0.92rem; font-weight: 600; letter-spacing: 0.02em;
+  cursor: pointer; box-shadow: 0 3px 12px rgba(0,98,51,.35);
+  transition: transform .15s, box-shadow .15s;
+}
+.at-immersive-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,98,51,.45); }
+
+/* ── Modale plein écran (carte interactive) ───────────────── */
+.at-immersive-modal .modal-content { max-width: 960px; width: 95%; max-height: 92vh; padding: 0; overflow-y: auto; }
+@media (max-width: 600px) { .at-immersive-btn { width: 100%; justify-content: center; } }
+
 /* ── Panneau flottant ──────────────────────────────────── */
 .debat-panel {
   position: fixed;
