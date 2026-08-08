@@ -1,6 +1,24 @@
 {
   "posts": [
     {
+      "id": "da0a22cc5a76b25c",
+      "source_name": "Ministère de l'Enseignement Supérieur et de la Recherche",
+      "source_short": "MESRS",
+      "source_color": "#1B5E20",
+      "category": "Ministère",
+      "category_icon": "🎓",
+      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNSUJWX2FsZE1pWEpUay1ZaHh2QW9adDRtMDZNMmpJMkIyRnhpRy1QZU9acjdQQjZnX2FBSzNkVnJaVmtiTThBNWJmYXJLWHlsLXAwbmIweVZMbE8zZTh1TklKbzhYUVlyN3dnRGpHby03WVgtcnYwUm82UFVzcDNLUl90RnFKcF9wcEgtNGJKU242NExLdTFSSHBvS0VQNjdoWEJiOG9YUWZmRldJam9YTVRNT0VkOWV2NTQ2bWowQ3N1UG9QMjZxWnZOakZwVnd1TkIzTEgtUW84bGI2XzRr?oc=5",
+      "image": "",
+      "date": "Wed, 05 Aug 2026 11:22:00 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Ouverture des inscriptions universitaires définitives pour les nouveaux bacheliers - aps.dz — Ouverture des inscriptions universitaires définitives pour les nouveaux bacheliers aps.dz",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "952018abb6cc8523",
       "source_name": "Ministère de l'Enseignement Supérieur et de la Recherche",
       "source_short": "MESRS",
@@ -341,24 +359,6 @@
         "en": ""
       },
       "source_type": "web"
-    },
-    {
-      "id": "0aef2c644c46c06f",
-      "source_name": "DGRSDT",
-      "source_short": "DGRS",
-      "source_color": "#1A237E",
-      "category": "Ministère",
-      "category_icon": "🔬",
-      "url": "https://www.facebook.com/DGRSDT.ALGERIA",
-      "image": "",
-      "date": "2026-07-09T22:07:39+00:00",
-      "lang_source": "fr",
-      "text": {
-        "fr": "CRAPC.Centre de Recherche Scientifique et en Analyses Physico Chimiques",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "facebook"
     },
     {
       "id": "7cadce4d18780550",
@@ -1441,6 +1441,150 @@
       "source_type": "rss"
     },
     {
+      "id": "778bf2cbb763fea6",
+      "source_name": "NTIC-DZ",
+      "source_short": "NTC",
+      "source_color": "#01579B",
+      "category": "Médias TIC",
+      "category_icon": "🌐",
+      "url": "https://www.ntic-dz.com/la-revolution-robotique-dxsto-une-technologie-qui-brise-les-barrieres-et-ouvre-la-porte-de-lespoir-aux-personnes-a-mobilite-reduite/?utm_source=rss&utm_medium=rss&utm_campaign=la-revolution-robotique-dxsto-une-technologie-qui-brise-les-barrieres-et-ouvre-la-porte-de-lespoir-aux-personnes-a-mobilite-reduite",
+      "image": "",
+      "date": "Sat, 08 Aug 2026 07:20:00 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "La révolution robotique d’XSTO : Une technologie qui brise les « barrières » et ouvre la « porte de l’espoir » aux personnes à mobilité réduite — feed Comment l’intelligence artificielle transforme les fauteuils roulants en robots mobiles autonomes qui restaurent la dignité humaine et défient les obstacles infrastructurels en Algérie ?: De nos jours, la technologie est devenue une partie intégrante de la vie humaine, régissant la majeure part",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "ef55506d5fe07d16",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/pratique/confidentialite-confort-securite-16-reglages-apple-messages-a-connaitre-absolument-499380.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sat, 08 Aug 2026 07:01:37 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Confidentialité, confort, sécurité : 16 réglages Apple Messages à connaître absolument — Sauvegardes chiffrées, accusés de lecture, filtrage des spams, arrière-plans personnalisés : nous détaillons les 16 réglages Apple Messages qu'elle configure systématiquement sur chaque iPhone.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "59163ffd3cbeaf46",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/07/openai-says-it-slowed-astra-model-development-over-security-concerns/",
+      "image": "",
+      "date": "Fri, 07 Aug 2026 22:48:24 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "OpenAI says it slowed Astra model development over security concerns — OpenAI said this model, which is still in development, reached its \"critical cybersecurity threshold,\" meaning it could independently identify and carry out cyberattacks against traditionally well-protected real-world systems.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c534158d528e5b56",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/07/after-rippling-blew-millions-on-ai-in-months-it-built-an-employee-roi-tool/",
+      "image": "",
+      "date": "Fri, 07 Aug 2026 21:30:11 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "After Rippling blew millions on AI in months, it built an employee ROI tool — After its own AI usage wake-up call, Rippling this week unveiled AI Spend Console, a product that tracks individual and team employee AI spending.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "0affb2b287a0cb83",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/07/arabie-saoudite-pakistan-et-turquie-scellent-un-pacte-de-defense-en-pleine-guerre-au-moyen-orient/",
+      "image": "",
+      "date": "Fri, 07 Aug 2026 21:21:45 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Arabie saoudite, Pakistan et Turquie scellent un pacte de défense en pleine guerre au Moyen-Orient — L’Arabie saoudite, le Pakistan et la Turquie ont conclu vendredi un pacte de défense liant les trois pays dans un contexte marqué par des attaques contre le royaume saoudien et la guerre au Moyen-Orient. Le pays du Golfe, où a été signé l’accord, entend renforcer ses alliances sécuritaires alors qu’",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "3ac7659d9bc3f0ac",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/07/wacoms-movinkpad-11-is-a-fun-and-mid-priced-entry-point-for-digital-artists/",
+      "image": "",
+      "date": "Fri, 07 Aug 2026 21:20:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Wacom’s MovinkPad 11 is a fun, midpriced entry point for digital artists — The MovinkPad 11 a versatile little graphics tablet that can help make your wildest digital art dreams come true.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "7feef810b4515ae3",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/07/security-researchers-scanned-the-polish-web-and-found-courts-hospitals-and-airports-at-risk-of-hacks/",
+      "image": "",
+      "date": "Fri, 07 Aug 2026 21:00:08 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Security researchers scanned the Polish web and found courts, hospitals, and airports at risk of hacks — Researchers found common points of failure, like software used to organize and display web content, could have allowed hackers to run riot through government websites.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "397b75734ecda27b",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/prise-en-main-samsung-galaxy-watch-9-legere-et-confortable-499402.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Fri, 07 Aug 2026 20:03:25 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Prise en main Samsung Galaxy Watch 9 : légère et confortable — Testée lors d'une course à pied à Londres, la montre a confirmé son usage agréable. Parmi les fonctionnalités testées, l’envoi de rappels incitant à s’hydrater durant l’activité sportive.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "7b62789e2215c1db",
       "source_name": "NTIC-DZ",
       "source_short": "NTC",
@@ -1549,6 +1693,24 @@
       "source_type": "rss"
     },
     {
+      "id": "eb07a33eb5521e87",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/07/le-cder-developpe-un-pilote-pour-produire-du-biodiesel-a-partir-dhuiles-de-cuisson-usagees/",
+      "image": "",
+      "date": "Fri, 07 Aug 2026 15:28:05 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Le CDER développe un pilote pour produire du biodiesel à partir d’huiles de cuisson usagées — Le Centre de développement des énergies renouvelables (CDER) a mis au point un pilote semi-industriel capable de transformer des huiles alimentaires usagées en biodiesel. Le dispositif peut traiter jusqu’à 150 litres d’huile par cycle et produire environ 140 litres de carburant renouvelable. Le Cent",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "2c848082fc22609b",
       "source_name": "ZDNet France",
       "source_short": "ZD",
@@ -1561,6 +1723,24 @@
       "lang_source": "fr",
       "text": {
         "fr": "Les meilleurs processeurs pour le poste de travail et la bureautique avancée en 2026 — L’arbitrage en 2026 pour renouveler un parc de cartes mères ou équiper des stations de travail fixes intègre désormais la maîtrise du TCO (Total Cost of Ownership), l'efficience énergétique sous charge, la pérennité des sockets (AM5 vs LGA1851) et les exigences de refroidissement.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f85e6c9e3ea7b0d1",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/07/importation-de-bus-les-modalites-de-dedouanement-et-dexoneration-des-droits-et-taxes-fixees/",
+      "image": "",
+      "date": "Fri, 07 Aug 2026 14:34:12 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Importation de bus : les modalités de dédouanement et d’exonération des droits et taxes fixées — Un arrêté interministériel publié au Journal officiel n° 57 fixe les conditions de dédouanement et d’exonération des droits et taxes applicables aux véhicules destinés au transport de dix personnes ou plus, chauffeur compris. Le texte encadre l’importation de 10 000 unités, à l’état fini ou non mont",
         "ar": "",
         "en": ""
       },
@@ -1621,6 +1801,42 @@
       "source_type": "rss"
     },
     {
+      "id": "48aea2ea931cd751",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/07/la-russie-exporte-plus-de-11-millions-de-tonnes-de-produits-agricoles-vers-lafrique-au-premier-semestre-2026/",
+      "image": "",
+      "date": "Fri, 07 Aug 2026 14:12:16 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "La Russie exporte plus de 11 millions de tonnes de produits agricoles vers l’Afrique au premier semestre 2026 — Les exportations de produits agricoles russes à destination de l’Afrique ont progressé durant les six premiers mois de 2026. Leur valeur a atteint 2,9 milliards de dollars, en hausse de 35 % sur un an, tandis que les volumes expédiés ont augmenté de 40 %, à plus de 11 millions de tonnes. Ces chiffre",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "7f75e7743e17b452",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/07/spacexs-terafab-will-rely-on-natural-gas-power-plants-not-tesla-solar-panels/",
+      "image": "",
+      "date": "Fri, 07 Aug 2026 14:07:31 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "SpaceX’s Terafab will rely on natural gas power plants, not Tesla solar panels — The fab is intended to build chips for data centers that will be run by SpaceX and its xAI subsidiary.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "b08ae15fdacea77c",
       "source_name": "Silicon.fr",
       "source_short": "SI",
@@ -1651,6 +1867,42 @@
       "lang_source": "fr",
       "text": {
         "fr": "Comment je survis à l'été sans clim : mes meilleurs conseils, astuces et gadgets pour affronter la chaleur — Pas de clim ? Moi non plus. Voici comment rester au frais et rafraîchir votre intérieur pendant une vague de chaleur.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "7487f863dc2770ba",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/07/web-marchands-paiements-electroniques-retraits-par-carte-les-chiffres-de-la-monetique-en-algerie-au-premier-semestre-2026/",
+      "image": "",
+      "date": "Fri, 07 Aug 2026 13:16:41 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Web-marchands, paiements électroniques, retraits par carte … les chiffres de la monétique en Algérie au premier semestre 2026 — Le Groupement d’intérêt économique de la monétique (GIE Monétique) a publié les chiffres relatifs au paiement électronique en Algérie durant le premier semestre 2026. Selon les données de GIE Monétique, rapportées par l’APS, le nombre de commerçants proposant le paiement sur Internet a dépassé la ba",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "1b4667f9d8b72f73",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/07/campagne-de-nettoyage-de-45-ports-et-abris-de-peche-a-travers-les-wilayas-cotieres/",
+      "image": "",
+      "date": "Fri, 07 Aug 2026 12:52:41 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Campagne de nettoyage de 45 ports et abris de pêche à travers les wilayas côtières — La Chambre algérienne de la pêche et de l’aquaculture (CAPA) a lancé une campagne nationale de nettoyage des ports et abris de pêche et d’aquaculture, touchant 45 ports et abris de pêche à travers différentes wilayas côtières du pays, indique un communiqué de la Chambre. Cette initiative, lancée jeu",
         "ar": "",
         "en": ""
       },
@@ -5147,268 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "7ec2bdc49c525801",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/pratique/ce-que-les-regles-des-compagnies-aeriennes-revelent-sur-nos-mauvaises-habitudes-avec-les-batteries-externes-499156.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Sun, 02 Aug 2026 12:01:22 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Ce que les règles des compagnies aériennes révèlent sur nos mauvaises habitudes avec les batteries externes — Beaucoup de choses interdites à bord d'un avion sont en réalité des choses qu'il ne faudrait jamais faire.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "4729e20e71a8650a",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/08/02/embellie-hivernale-sursaut-de-janvier-repli-de-printemps-br-les-chiffres-des-tpe-dessine-une-courbe-en-dents-de-scie/",
-      "image": "",
-      "date": "Sun, 02 Aug 2026 10:42:58 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Embellie hivernale, sursaut de janvier, repli de printemps <BR Les chiffres des TPE dessine une courbe en dents de scie — Les indices de base des volumes et valeurs échangés oscillent entre 0,85 et 1,2 sur la période juillet 2025 – juin 2026. Si le début …",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e95f439f1c27a669",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/pratique/aio-launcher-le-lanceur-android-parfait-pour-une-utilisation-a-une-seule-main-499114.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Sun, 02 Aug 2026 07:02:01 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "AIO Launcher : le lanceur Android parfait pour une utilisation à une seule main — Un lanceur Android minimaliste peut simplifier vos interactions avec votre téléphone, mais simple ne veut pas forcément dire ennuyeux.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "0bb15545c7382957",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/08/01/inside-one-london-founder-house-rewriting-the-founder-house-rules/",
-      "image": "",
-      "date": "Sat, 01 Aug 2026 21:14:48 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Inside the London hacker house taking a stand against founder burnout — How one founder house is betting work-life balance can beat burnout .",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "88ab0b7f770b58a2",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/08/01/judge-denies-xais-request-to-block-minnesota-ban-on-nudify-apps/",
-      "image": "",
-      "date": "Sat, 01 Aug 2026 20:26:04 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Judge denies xAI’s request to block Minnesota ban on ‘nudify’ apps — Despite a lawsuit from xAI, a Minnesota ban on apps that allow users to “nudify” images can move forward.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c3a681b5291466f9",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/08/01/youtuber-hank-green-says-his-ai-usage-is-not-healthy/",
-      "image": "",
-      "date": "Sat, 01 Aug 2026 19:45:45 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "YouTuber Hank Green says his AI usage is ‘not healthy’ — Green offered a remarkable apology, saying that \"the level of dopamine that I've been getting from interacting with LLMs ... is not healthy for me or good for the world.\"",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "d7b75e91e7948807",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/01/naftal-les-pneumatiques-disponibles-dans-les-points-de-vente/",
-      "image": "",
-      "date": "Sat, 01 Aug 2026 18:02:15 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Naftal : les pneumatiques disponibles dans les points de vente — La Société nationale de commercialisation et de distribution de produits pétroliers (Naftal) a assuré, samedi dans un communiqué, la disponibilité de tous types de pneumatiques, en quantités suffisantes, dans ses points de vente à travers les wilayas du pays, permettant ainsi de répondre à la demand",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "46b49e93011a8617",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/08/01/sam-altman-is-still-making-the-case-for-parenting-via-chatgpt/",
-      "image": "",
-      "date": "Sat, 01 Aug 2026 17:07:34 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Sam Altman is still making the case for parenting via ChatGPT — OpenAI's CEO seemed excited to share a \"cool use case\" for parents.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "51271744ead333c9",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/pratique/pourquoi-jai-relie-ma-tele-connectee-a-un-vpn-et-pourquoi-vous-devriez-faire-pareil-499111.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Sat, 01 Aug 2026 12:01:55 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Pourquoi j'ai relié ma télé connectée à un VPN, et pourquoi vous devriez faire pareil — Configurer un VPN sur votre télé connectée empêche les pirates d'accéder à votre réseau et de dérober vos données. Mais les avantages ne s'arrêtent pas là.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "88a5b8a1fa7b4256",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/01/installation-et-maintenance-des-tpe-lenie-obtient-lagrement-du-gie-monetique/",
-      "image": "",
-      "date": "Sat, 01 Aug 2026 11:28:35 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Installation et maintenance des TPE : l’ENIE obtient l’agrément du GIE Monétique — L’Entreprise nationale des industries électroniques (ENIE) a franchi une nouvelle étape stratégique dans le renforcement des systèmes de monétique et de paiement électronique en Algérie, en obtenant officiellement l’agrément du Groupement d’intérêt économique monétique (GIE Monétique), a-t-on appris",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c734ea4312a79e4e",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/08/01/vers-une-universite-algerienne-plus-internationale-br-luniversite-oran-2-et-luniversite-al-balqa-de-jordanie-signent-un-accord-de-cooperation-academique/",
-      "image": "",
-      "date": "Sat, 01 Aug 2026 11:17:59 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Vers une université algérienne plus internationale <BR L’Université Oran 2 et l’Université Al-Balqa de Jordanie signent un accord de coopération académique — En signant un accord avec l’Université Al-Balqa, l’Université Oran 2 franchit une nouvelle étape dans sa stratégie d’ouverture internationale. Au-delà des échanges académiques et scientifiques, …",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e7397b45f4e83d12",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/01/timimoune-quatre-morts-et-43-blesses-dans-une-collision-entre-un-bus-et-un-camion/",
-      "image": "",
-      "date": "Sat, 01 Aug 2026 11:10:48 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Timimoune : quatre morts et 43 blessés dans une collision entre un bus et un camion — Un nouvel accident impliquant un bus est survenu ce samedi 1er août dans la wilaya de Timimoune, moins de 24 heures après le drame de Boumerdès. Selon les services de la Protection civile, la collision entre un bus de transport de voyageurs de marque Higer et un poids lourd a coûté la vie à quatre [",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "8b13869e4226bcaf",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/08/01/numero-vert-3017-br-le-haut-commissariat-a-la-numerisation-ouvre-une-hotline-dediee-aux-services-digitaux/",
-      "image": "",
-      "date": "Sat, 01 Aug 2026 10:34:45 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Numéro vert 3017 <BR Le Haut-Commissariat à la Numérisation ouvre une hotline dédiée aux services digitaux — Dans le cadre de son programme d’amélioration de la qualité des services publics numériques, la Haut-Commissariat à la Numérisation met à la disposition des citoyens …",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "bda77f5e9532d343",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/pratique/comment-reprogrammer-la-touche-copilot-de-votre-clavier-pour-lui-donner-une-fonction-plus-utile-499096.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Sat, 01 Aug 2026 07:00:09 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Comment reprogrammer la touche Copilot de votre clavier pour lui donner une fonction plus utile — Que vous utilisiez ou non l'IA de Microsoft, il est possible de remapper la touche Copilot pour déclencher une tout autre fonctionnalité.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-08-07T19:53:01.053783+00:00",
+  "lastUpdated": "2026-08-08T07:49:14.420962+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Médias TIC": 55,
-    "Tech International": 165
+    "Médias TIC": 56,
+    "Tech International": 164
   },
   "total": 300
 }
