@@ -25,6 +25,13 @@ public static class CtrlCGuard {
     }
     [CtrlCGuard]::Register()
 
+    # ── Auto-lancement Article Interactif (port 5000) au demarrage du Sync ──
+    $articleInteractifOk = Test-NetConnection -ComputerName localhost -Port 5000 -InformationLevel Quiet -WarningAction SilentlyContinue
+    if (-not $articleInteractifOk) {
+        Start-Process powershell -ArgumentList "-NoExit", "-Command",
+            "Set-Location 'E:\algeria-tech\article-interactif'; Write-Host 'Algeria Tech - Article Interactif - localhost:5000' -ForegroundColor Yellow; python app.py"
+    }
+
     # ── Fichiers auto-générés à ne jamais pousser ────────────────────────────
     # articles.json est EXCLU : il doit etre commite avec les articles de l'utilisateur
     # joradp_veille.json / arpce_veille.json : bases de données locales (changent en continu, jamais à pousser)
@@ -75,6 +82,7 @@ public static class CtrlCGuard {
         Write-Host "  V. [VIDEO]  http://localhost:3000/video-downloader" -ForegroundColor Magenta
         Write-Host "  I. [INGEST] http://localhost:3000/smart-ingest" -ForegroundColor Magenta
         Write-Host "  G. [GEN]    http://localhost:3000/generator" -ForegroundColor Magenta
+        Write-Host "  F. [INTERACTIF] http://localhost:5000  (Article Interactif, lance automatiquement)" -ForegroundColor Magenta
         Write-Host "------------------------------------------"
         Write-Host "9. [IDE]      Lancer Algeria Tech IDE + Serveur + Navigateur" -ForegroundColor Cyan
         Write-Host "0. [ELECTRON] Lancer en mode bureau (fenetre desktop)" -ForegroundColor Cyan
@@ -530,6 +538,12 @@ public static class CtrlCGuard {
                 Write-Host "`nOuverture Generateur Infographies..." -ForegroundColor Magenta
                 Start-Process "http://localhost:3000/generator"
                 Write-Host "OK http://localhost:3000/generator" -ForegroundColor Green
+                Start-Sleep -Milliseconds 800
+            }
+            "f" {
+                Write-Host "`nOuverture Article Interactif..." -ForegroundColor Magenta
+                Start-Process "http://localhost:5000"
+                Write-Host "OK http://localhost:5000" -ForegroundColor Green
                 Start-Sleep -Milliseconds 800
             }
 

@@ -78,7 +78,11 @@ app.use(cors({
         'http://localhost:3000',
         'http://127.0.0.1:3000',
         'http://localhost:5173',
-        'http://127.0.0.1:5173'
+        'http://127.0.0.1:5173',
+        // article-interactif (Flask, e:\algeria-tech\article-interactif) — permet à sa
+        // page de récupérer un lien /article/:id de smart-ingest en fetch() direct.
+        'http://localhost:5000',
+        'http://127.0.0.1:5000'
     ],
     credentials: true
 }));
@@ -1022,27 +1026,81 @@ ${rawText.substring(0, 6000)}`;
 }
 
 // ── TRANSLATE — Proxy serveur (évite CORS + limite URL client) ──
+// ── TRADUCTION IA — traduction professionnelle, non-littérale (Mistral) ─────
+// L'ancienne implémentation (Google Translate gratuit) produisait des
+// traductions mot-à-mot de piètre qualité, en particulier vers l'arabe. On
+// passe par Mistral avec un prompt qui impose une traduction intelligente,
+// naturelle, et un arabe classique soutenu (فصحى journalistique).
+const LANG_NAMES = {
+    fr: 'français', en: 'anglais', ar: 'arabe', es: 'espagnol', de: 'allemand',
+    it: 'italien', pt: 'portugais', tr: 'turc', 'zh-CN': 'chinois (mandarin)', ru: 'russe'
+};
+
+function chunkTextByParagraph(text, maxLen) {
+    const paras = text.split(/\n\n+/);
+    const chunks = [];
+    let current = '';
+    for (const p of paras) {
+        if (current && (current.length + p.length + 2) > maxLen) {
+            chunks.push(current);
+            current = p;
+        } else {
+            current = current ? current + '\n\n' + p : p;
+        }
+    }
+    if (current) chunks.push(current);
+    return chunks;
+}
+
 app.post('/api/translate', express.json(), async (req, res) => {
     const { text, to = 'fr' } = req.body || {};
     if (!text) return res.status(400).json({ error: 'Texte requis' });
+    if (!MISTRAL_API_KEY) return res.status(503).json({ error: 'MISTRAL_API_KEY non configurée' });
+
+    const langName = LANG_NAMES[to] || to;
+    const arabicNote = to === 'ar'
+        ? " Utilise un arabe classique moderne (الفصحى) soutenu et professionnel, digne d'une publication de presse — jamais de dialecte, jamais de calque syntaxique du français ou de l'anglais."
+        : '';
+
     try {
-        /* NB : Google renvoie du texte corrompu ("????") pour les scripts non-latins
-           (arabe, etc.) via POST — la requête GET avec la query encodée fonctionne
-           correctement quelle que soit la langue source. */
-        const chunks = [];
-        for (let i = 0; i < text.length; i += 1800) chunks.push(text.slice(i, i + 1800));
+        const chunks = chunkTextByParagraph(text, 6000);
 
         const translatedChunks = await Promise.all(chunks.map(async (chunk) => {
-            const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${encodeURIComponent(to)}&dt=t&q=${encodeURIComponent(chunk)}`;
-            const r = await fetch(url);
-            if (!r.ok) throw new Error(`Google Translate HTTP ${r.status}`);
-            const d = await r.json();
-            return d[0].map(s => s[0]).join('');
+            const prompt = `Tu es un traducteur professionnel expert, spécialisé en traduction journalistique et audiovisuelle.
+
+Traduis le texte ci-dessous vers ${langName}.${arabicNote}
+
+Règles impératives :
+- Traduction INTELLIGENTE et NATURELLE, jamais mot à mot : restitue le sens, le ton et le registre, reformule les tournures idiomatiques pour qu'elles sonnent naturelles dans la langue cible plutôt que de calquer la syntaxe source.
+- Conserve la structure telle quelle (sauts de paragraphe, horodatages du type [mm:ss], labels d'intervenants comme "Intervenant :" ou un nom) — ne traduis pas les horodatages, garde-les identiques.
+- Ne résume pas, ne coupe rien, ne commente pas : traduis l'intégralité du texte fourni.
+- Réponds UNIQUEMENT avec le texte traduit, sans introduction, guillemets ni explication.
+
+TEXTE À TRADUIRE :
+${chunk}`;
+
+            const payload = JSON.stringify({
+                model: 'mistral-small-latest',
+                messages: [{ role: 'user', content: prompt }],
+                temperature: 0.3,
+                max_tokens: 8000
+            });
+
+            const data = await callMistral(payload, { timeout: 45000 });
+            const result = JSON.parse(data);
+            if (result.error) throw new Error(result.error.message);
+            const translated = result.choices?.[0]?.message?.content;
+            if (!translated || !translated.trim()) throw new Error('Traduction vide');
+            return translated.trim();
         }));
 
-        res.json({ translated: translatedChunks.join('') });
+        res.json({ translated: translatedChunks.join('\n\n') });
     } catch (e) {
-        res.status(500).json({ error: e.message });
+        console.error('[translate]', e.code || '', e.message);
+        const reseau = MISTRAL_TRANSIENT.has(e.code);
+        res.status(reseau ? 503 : 500).json({
+            error: reseau ? "Service de traduction momentanément indisponible, réessayez." : 'Erreur traduction : ' + e.message
+        });
     }
 });
 
@@ -1807,6 +1865,36 @@ app.post('/api/upload-inline-image', (req, res) => {
         } catch (e) {
             console.error("Erreur upload-inline-image:", e);
             res.status(500).json({ message: e.message });
+        }
+    });
+});
+
+// ── UPLOAD VIDÉO INLINE — fichier collé/importé pour Illustration/Vidéo/Contenu ──
+// Toujours en local (jamais pushToGithub) : *.mp4 est exclu du dépôt Git
+// (.gitignore, fix erreur Cloudflare Pages 25 Mo) — un fichier poussé via l'API
+// GitHub contournerait ce .gitignore et referait planter le déploiement.
+// Utile pour la prévisualisation/le brouillon ; pour publier durablement,
+// utiliser /video-downloader (pipeline de republication YouTube).
+const inlineVideoUpload = multer({
+    storage: multer.memoryStorage(),
+    limits: { fileSize: 45 * 1024 * 1024 }
+}).single('video');
+
+app.post('/api/upload-inline-video', (req, res) => {
+    inlineVideoUpload(req, res, async (err) => {
+        try {
+            if (err) throw err;
+            if (!req.file) return res.status(400).json({ message: "Aucune vidéo reçue." });
+            const ext = (path.extname(req.file.originalname) || '.mp4').toLowerCase();
+            const safeExt = ['.mp4', '.webm', '.mov', '.m4v', '.avi', '.mkv', '.ogg'].includes(ext) ? ext : '.mp4';
+            const fileName = `inline-${Date.now()}-${Math.random().toString(36).slice(2, 8)}${safeExt}`;
+            if (!fsSync.existsSync('videos')) fsSync.mkdirSync('videos', { recursive: true });
+            await fs.writeFile(path.join('videos', fileName), req.file.buffer);
+            res.json({ success: true, url: '/videos/' + fileName, local: true });
+        } catch (e) {
+            console.error("Erreur upload-inline-video:", e);
+            const msg = e.code === 'LIMIT_FILE_SIZE' ? 'Vidéo trop volumineuse (45 Mo max).' : e.message;
+            res.status(500).json({ message: msg });
         }
     });
 });
@@ -2651,7 +2739,7 @@ const os = require('os');
 const YTDLP = 'C:\\Users\\Aps\\AppData\\Local\\Python\\pythoncore-3.14-64\\Scripts\\yt-dlp.exe';
 const FFMPEG_PATH = 'C:\\Users\\Aps\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1-full_build\\bin\\ffmpeg.exe';
 function ytdlpExtra() {
-    return ['--socket-timeout', '30', '--retries', '3'];
+    return ['--socket-timeout', '30', '--retries', '3', '--js-runtimes', 'node'];
 }
 
 // GET /api/video-info?url=...
@@ -2806,6 +2894,46 @@ app.get('/api/download-audio', (req, res) => {
 });
 // ── FIN VIDEO DOWNLOADER ──────────────────────────────────────────────────────
 
+// ── EXTRACTION VIDÉO (Smart Ingest) — résout le flux direct d'un lien tiers
+// (TikTok, Instagram, Facebook, X, ou tout site pris en charge par yt-dlp) SANS
+// rien télécharger : on ne renvoie que l'URL du flux, propre, sans le reste de
+// la page (pubs, commentaires, JS du site). Le lien direct peut expirer après
+// quelques heures — pour une publication durable, republier sur YouTube via
+// /video-downloader.
+app.get('/api/extract-video-url', (req, res) => {
+    const { url } = req.query;
+    if (!url || !/^https?:\/\//.test(url)) return res.status(400).json({ error: 'URL manquante ou invalide' });
+
+    const args = [...ytdlpExtra(), '--no-playlist', '-f', 'best[ext=mp4]/best', '--dump-single-json', url];
+    const proc = spawn(YTDLP, args);
+
+    let out = '', errOut = '', responded = false;
+    proc.on('error', e => {
+        if (!responded) { responded = true; res.status(500).json({ error: 'yt-dlp introuvable sur ce serveur', details: e.message }); }
+    });
+    proc.stdout.on('data', d => out += d);
+    proc.stderr.on('data', d => errOut += d);
+
+    proc.on('close', code => {
+        if (responded) return;
+        responded = true;
+        if (code !== 0) return res.status(422).json({ error: 'Lien mort ou plateforme non supportée', details: errOut.slice(-500) });
+        try {
+            const info = JSON.parse(out);
+            if (!info.url) return res.status(422).json({ error: 'Aucun flux vidéo direct trouvé pour ce lien' });
+            res.json({
+                success: true,
+                directUrl: info.url,
+                title: info.title || '',
+                thumbnail: info.thumbnail || '',
+                platform: info.extractor_key || ''
+            });
+        } catch (e) {
+            res.status(500).json({ error: 'Erreur analyse yt-dlp', details: e.message });
+        }
+    });
+});
+
 // ── CONVERTISSEUR — proxy fetch-video vers download-video ────────────────────
 app.get('/api/convertisseur/fetch-video', (req, res) => {
     const { url } = req.query;
@@ -2864,9 +2992,13 @@ async function transcribeWithGroq(audioBuffer, filename) {
     const boundary = '----GroqBoundary' + Date.now();
 
     const header = `--${boundary}\r\nContent-Disposition: form-data; name="file"; filename="${filename}"\r\nContent-Type: audio/mpeg\r\n\r\n`;
-    const modelField = `\r\n--${boundary}\r\nContent-Disposition: form-data; name="model"\r\n\r\nwhisper-large-v3\r\n--${boundary}--\r\n`;
+    const fields =
+        `\r\n--${boundary}\r\nContent-Disposition: form-data; name="model"\r\n\r\nwhisper-large-v3\r\n` +
+        `--${boundary}\r\nContent-Disposition: form-data; name="response_format"\r\n\r\nverbose_json\r\n` +
+        `--${boundary}\r\nContent-Disposition: form-data; name="timestamp_granularities[]"\r\n\r\nsegment\r\n` +
+        `--${boundary}--\r\n`;
 
-    const body = Buffer.concat([Buffer.from(header), audioBuffer, Buffer.from(modelField)]);
+    const body = Buffer.concat([Buffer.from(header), audioBuffer, Buffer.from(fields)]);
 
     return new Promise((resolve, reject) => {
         const req = https.request({
@@ -2885,7 +3017,10 @@ async function transcribeWithGroq(audioBuffer, filename) {
                 try {
                     const j = JSON.parse(data);
                     if (j.error) reject(new Error(j.error.message || JSON.stringify(j.error)));
-                    else resolve(j.text || '');
+                    else resolve({
+                        text: j.text || '',
+                        segments: (j.segments || []).map(s => ({ start: s.start, end: s.end, text: s.text.trim() }))
+                    });
                 } catch (e) { reject(new Error('Réponse Groq invalide')); }
             });
         });
@@ -2895,13 +3030,177 @@ async function transcribeWithGroq(audioBuffer, filename) {
     });
 }
 
-async function extractAudioFromVideo(videoPath) {
-    const audioPath = videoPath.replace(/\.[^.]+$/, '.mp3');
+// ── DIARISATION LOCUTEURS (pyannote.audio, local & gratuit) ─────────────────
+const PYTHON_PATH = 'C:\\Users\\Aps\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe';
+const DIARIZE_SCRIPT = path.join(__dirname, 'scripts', 'diarize.py');
+
+function runDiarization(audioPath) {
     return new Promise((resolve, reject) => {
-        const proc = spawn(FFMPEG_PATH, ['-i', videoPath, '-vn', '-ab', '128k', '-ar', '16000', '-y', audioPath]);
-        proc.on('error', reject);
-        proc.on('close', code => code === 0 ? resolve(audioPath) : reject(new Error('FFmpeg extraction audio échouée')));
+        // Désactivé temporairement : pyannote.audio (vieille API) segfault avec le
+        // torch récent installé sur cette machine (incompatibilité binaire ABI, pas
+        // une simple erreur Python) — nécessite un Python isolé avec versions
+        // compatibles pour être réactivé proprement.
+        if (!process.env.HF_TOKEN || true) return resolve([]);
+        const proc = spawn(PYTHON_PATH, [DIARIZE_SCRIPT, audioPath]);
+        let out = '', err = '';
+        proc.stdout.on('data', d => out += d);
+        proc.stderr.on('data', d => err += d);
+        proc.on('error', () => resolve([]));
+        proc.on('close', code => {
+            if (code !== 0) { console.warn('[diarize]', err.slice(-500)); return resolve([]); }
+            try { resolve(JSON.parse(out)); }
+            catch (e) { console.warn('[diarize] sortie invalide:', out.slice(-300)); resolve([]); }
+        });
     });
+}
+
+function assignSpeakers(segments, turns) {
+    if (!turns || !turns.length) return segments.map(s => ({ ...s, speaker: null }));
+    return segments.map(seg => {
+        let best = null, bestOverlap = 0;
+        for (const t of turns) {
+            const overlap = Math.min(seg.end, t.end) - Math.max(seg.start, t.start);
+            if (overlap > bestOverlap) { bestOverlap = overlap; best = t.speaker; }
+        }
+        return { ...seg, speaker: best };
+    });
+}
+
+function formatTimestamp(sec) {
+    const m = Math.floor(sec / 60), s = Math.floor(sec % 60);
+    return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+}
+
+function buildDiarizedText(segments) {
+    if (!segments.length) return '';
+    const speakerMap = new Map();
+    let nextIdx = 1;
+    const labelFor = spk => {
+        if (!spk) return null;
+        if (!speakerMap.has(spk)) speakerMap.set(spk, `Intervenant ${nextIdx++}`);
+        return speakerMap.get(spk);
+    };
+    const blocks = [];
+    let current = null;
+    for (const seg of segments) {
+        const label = labelFor(seg.speaker);
+        // Sans diarisation (label null pour tous), on découpe quand même un
+        // nouveau bloc toutes les ~45s pour garder des repères de temps utiles
+        // (sinon tout le monologue finit en un seul bloc géant).
+        const sameSpeakerBlockTooLong = !label && current && (seg.start - current.start > 45);
+        if (current && current.label === label && !sameSpeakerBlockTooLong) {
+            current.text += ' ' + seg.text;
+            current.end = seg.end;
+        } else {
+            if (current) blocks.push(current);
+            current = { label, start: seg.start, end: seg.end, text: seg.text };
+        }
+    }
+    if (current) blocks.push(current);
+
+    return blocks.map(b =>
+        b.label ? `${b.label} [${formatTimestamp(b.start)}] : ${b.text}` : `[${formatTimestamp(b.start)}] ${b.text}`
+    ).join('\n\n');
+}
+
+async function formatTranscriptProfessional(rawDiarized, multiSpeaker) {
+    if (!MISTRAL_API_KEY || !rawDiarized.trim()) return rawDiarized;
+
+    const prompt = `Tu es un expert en transcription professionnelle. Voici une transcription brute ${multiSpeaker ? "d'un débat/entretien avec plusieurs intervenants (déjà séparés par locuteur et horodatés)" : "d'un monologue (discours/déclaration)"}.
+
+Reformate-la selon ces règles, SANS changer le sens, SANS résumer, SANS inventer de contenu :
+
+1. FIDÉLITÉ LINGUISTIQUE ABSOLUE — AUCUNE TRADUCTION : écris chaque mot dans la langue/le dialecte réellement employé par l'intervenant. Si l'intervenant parle en arabe classique, écris en arabe classique. S'il parle en arabe dialectal (darija/algérien), écris en arabe dialectal tel quel, sans le "corriger" vers l'arabe classique. S'il insère des mots ou phrases en français, garde-les en français. Le résultat doit être un mélange fidèle des langues/dialectes tels qu'ils sont parlés, jamais une traduction uniforme vers une seule langue.
+2. Identification :
+   - Plusieurs intervenants : garde les labels existants ("Intervenant 1", "Intervenant 2"...) ; si un nom, un titre ou une fonction est dit explicitement dans le texte, remplace le label générique par celui-ci (ex: "JOURNALISTE :", "M. LEROY :").
+   - Un seul intervenant : donne son nom/titre/fonction UNE SEULE FOIS au tout début si c'est clairement identifiable dans le texte (ex: "Ahmed Benali, ministre de..."), sinon écris simplement "Intervenant" une seule fois au début. Ne répète pas ce label ensuite.
+3. Un saut de paragraphe à chaque changement de locuteur (multi-intervenants) ou à chaque changement de sujet/idée (monologue), environ 5 à 8 lignes par paragraphe.
+4. Verbatim lissé : retire les tics de langage ("euh", répétitions bégayées) sans changer les mots employés ni la langue.
+5. Interruptions/chevauchements si perceptibles dans le texte : utilise un tiret long (—) en fin/début de réplique coupée.
+6. Horodatage toutes les 5 minutes UNIQUEMENT : insère un repère [mm:ss] seulement quand le texte franchit une nouvelle tranche de 5 minutes (ex: [05:00], [10:00], [15:00]...) — pas à chaque paragraphe, pas à chaque changement de locuteur. Utilise les horodatages présents dans la transcription brute pour repérer ces tranches.
+7. Réponds UNIQUEMENT avec le texte brut de la transcription reformatée, sans commentaire, titre, ni résumé.
+
+TRANSCRIPTION BRUTE :
+${rawDiarized.substring(0, 12000)}`;
+
+    const payload = JSON.stringify({
+        model: 'mistral-small-latest',
+        messages: [{ role: 'user', content: prompt }],
+        temperature: 0.2,
+        max_tokens: 8000
+    });
+
+    try {
+        const data = await callMistral(payload, { timeout: 45000 });
+        const result = JSON.parse(data);
+        if (result.error) throw new Error(result.error.message);
+        const formatted = result.choices?.[0]?.message?.content;
+        return (formatted && formatted.trim()) ? formatted.trim() : rawDiarized;
+    } catch (e) {
+        console.error('[format-transcript]', e.code || '', e.message);
+        return rawDiarized;
+    }
+}
+
+// ── AUDIO LONG : compression + découpage (limite de taille de l'API Groq) ──
+// Groq refuse les fichiers trop volumineux ("Request Entity Too Large"). On
+// recompresse systématiquement en mono 16 kHz 64 kbps (largement suffisant
+// pour Whisper) et on découpe en morceaux de 20 min ⇒ ~9,6 Mo/morceau, très
+// en dessous de la limite, quelle que soit la durée d'origine.
+const FFPROBE_PATH = FFMPEG_PATH.replace(/ffmpeg\.exe$/i, 'ffprobe.exe');
+const GROQ_CHUNK_SECONDS = 1200;
+
+function getAudioDuration(filePath) {
+    return new Promise((resolve, reject) => {
+        const proc = spawn(FFPROBE_PATH, ['-v', 'quiet', '-show_entries', 'format=duration', '-of', 'csv=p=0', filePath]);
+        let out = '';
+        proc.stdout.on('data', d => out += d);
+        proc.on('error', reject);
+        proc.on('close', code => {
+            const dur = parseFloat(out.trim());
+            (code === 0 && !isNaN(dur)) ? resolve(dur) : reject(new Error('ffprobe: durée introuvable'));
+        });
+    });
+}
+
+function compressAndSplitAudio(inputPath) {
+    return new Promise((resolve, reject) => {
+        const dir = fsSync.mkdtempSync(path.join(os.tmpdir(), 'chunks_'));
+        const pattern = path.join(dir, 'chunk_%03d.mp3');
+        const proc = spawn(FFMPEG_PATH, [
+            '-y', '-i', inputPath, '-vn',
+            '-ac', '1', '-ar', '16000', '-b:a', '64k',
+            '-f', 'segment', '-segment_time', String(GROQ_CHUNK_SECONDS), '-reset_timestamps', '1',
+            pattern
+        ]);
+        let err = '';
+        proc.stderr.on('data', d => err += d);
+        proc.on('error', reject);
+        proc.on('close', code => {
+            if (code !== 0) return reject(new Error('Compression audio échouée: ' + err.slice(-500)));
+            const files = fsSync.readdirSync(dir).filter(f => f.startsWith('chunk_')).sort().map(f => path.join(dir, f));
+            resolve({ dir, files });
+        });
+    });
+}
+
+async function transcribeLongAudio(inputPath) {
+    const { dir, files } = await compressAndSplitAudio(inputPath);
+    try {
+        let offset = 0;
+        const allSegments = [];
+        for (const file of files) {
+            const buf = await fs.readFile(file);
+            const result = await transcribeWithGroq(buf, 'chunk.mp3');
+            for (const seg of result.segments) {
+                allSegments.push({ start: seg.start + offset, end: seg.end + offset, text: seg.text });
+            }
+            offset += await getAudioDuration(file);
+        }
+        return allSegments;
+    } finally {
+        try { fsSync.rmSync(dir, { recursive: true, force: true }); } catch (e) {}
+    }
 }
 
 app.post('/api/transcribe-video', express.json(), async (req, res) => {
@@ -2935,9 +3234,20 @@ app.post('/api/transcribe-video', express.json(), async (req, res) => {
 
         tmpAudio = path.join(tmpDir, files[0]);
         const audioBuffer = await fs.readFile(tmpAudio);
-        const transcript = await transcribeWithGroq(audioBuffer, 'audio.mp3');
 
-        res.json({ transcript });
+        const [groqResult, speakerTurns] = await Promise.all([
+            transcribeWithGroq(audioBuffer, 'audio.mp3'),
+            runDiarization(tmpAudio)
+        ]);
+
+        const speakers = new Set(speakerTurns.map(t => t.speaker));
+        const merged = assignSpeakers(groqResult.segments, speakerTurns);
+        const rawDiarized = buildDiarizedText(merged);
+        const transcript = rawDiarized
+            ? await formatTranscriptProfessional(rawDiarized, speakers.size > 1)
+            : groqResult.text;
+
+        res.json({ transcript, speakerCount: speakers.size });
     } catch (e) {
         console.error('[transcribe-video]', e.message);
         res.status(500).json({ error: e.message });
@@ -2953,28 +3263,20 @@ app.post('/api/transcribe-local', (req, res) => {
         if (!req.file) return res.status(400).json({ error: 'Aucun fichier reçu' });
         if (!process.env.GROQ_API_KEY) return res.status(503).json({ error: 'GROQ_API_KEY non configurée' });
 
-        let tmpAudio = null;
+        const ext = path.extname(req.file.originalname).toLowerCase();
+        const tmpInput = path.join(os.tmpdir(), `tl_${Date.now()}${ext || '.bin'}`);
+        fsSync.writeFileSync(tmpInput, req.file.buffer);
+
         try {
-            const ext = path.extname(req.file.originalname).toLowerCase();
-            let audioBuffer;
-
-            if (['.mp3', '.wav', '.ogg', '.flac', '.m4a', '.aac', '.wma', '.opus'].includes(ext)) {
-                audioBuffer = req.file.buffer;
-            } else {
-                const tmpVideo = path.join(os.tmpdir(), `tl_${Date.now()}${ext}`);
-                fsSync.writeFileSync(tmpVideo, req.file.buffer);
-                tmpAudio = await extractAudioFromVideo(tmpVideo);
-                audioBuffer = await fs.readFile(tmpAudio);
-                try { fsSync.unlinkSync(tmpVideo); } catch (e) {}
-            }
-
-            const transcript = await transcribeWithGroq(audioBuffer, req.file.originalname.replace(/\.[^.]+$/, '.mp3'));
+            const segments = await transcribeLongAudio(tmpInput);
+            const rawDiarized = buildDiarizedText(assignSpeakers(segments, []));
+            const transcript = rawDiarized ? await formatTranscriptProfessional(rawDiarized, false) : segments.map(s => s.text).join(' ');
             res.json({ transcript });
         } catch (e) {
             console.error('[transcribe-local]', e.message);
             res.status(500).json({ error: e.message });
         } finally {
-            if (tmpAudio) try { fsSync.unlinkSync(tmpAudio); } catch (e) {}
+            try { fsSync.unlinkSync(tmpInput); } catch (e) {}
         }
     });
 });

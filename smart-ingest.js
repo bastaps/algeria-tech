@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initDateTime();
     fetchCurrentPositions();
     setupStyleSelector();
+    setupIllustrationInput();
+    setupVideoInput();
 
     document.getElementById('smartBox').addEventListener('input', function() {
         document.getElementById('charCount').textContent = this.value.length + " caractères";
@@ -241,12 +243,30 @@ function stripLeadingTitle(content) {
     return content.replace(/^\s*#*[^\n]*\n+/, '');
 }
 
+// ═══════════════════════════════════════════════════════════
+// DATELINE AUTOMATIQUE — "Alger, [jour] [mois] [année] (Algeria Tech) — "
+// ═══════════════════════════════════════════════════════════
+function buildDateline() {
+    const today = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+    return `Alger, ${today} (Algeria Tech) — `;
+}
+// Retire un dateline déjà présent en tête (ex: "ALGER — ", "ALGER, 7 août 2026 (APS) — ")
+// pour éviter d'en avoir deux quand on ajoute le nôtre.
+function stripLeadingDateline(text) {
+    if (!text) return text;
+    return text.replace(/^[A-ZÀ-Ÿ][A-ZÀ-Ÿ' -]{1,24}(?:,\s*[^()\n]{0,40})?(?:\s*\([^)\n]{1,30}\))?\s*[—–-]\s+/, '');
+}
+function withDateline(text) {
+    const body = stripLeadingDateline((text || '').replace(/^\s+/, ''));
+    return buildDateline() + body;
+}
+
 function fillFromRawText(text) {
     const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
     const titre = lines[0].replace(/^#+\s*/, '').substring(0, 200);
     document.getElementById('siTitre').value = titre;
     document.getElementById('siExtrait').value = lines.slice(1, 3).join(' ').substring(0, 300);
-    let finalContent = stripLeadingTitle(text);
+    let finalContent = withDateline(stripLeadingTitle(text));
     if (window._embedCode) {
         finalContent = '<div class="article-embed">\n' + window._embedCode + '\n</div>\n\n' + finalContent;
     }
@@ -274,7 +294,7 @@ function fillFromAI(data) {
     document.getElementById('siTags').value = (data.tags || []).join(', ');
     const existingVideo = document.getElementById('siVideo').value;
     document.getElementById('siVideo').value = data.video || existingVideo || '';
-    let finalContent = stripLeadingTitle(document.getElementById('previewContent').value);
+    let finalContent = withDateline(stripLeadingTitle(document.getElementById('previewContent').value));
     if (window._embedCode && !/article-embed/.test(finalContent)) {
         finalContent = '<div class="article-embed">\n' + window._embedCode + '\n</div>\n\n' + finalContent;
     }
@@ -566,6 +586,10 @@ async function applyEmbed() {
 function previewSIImage(e) {
     const file = e.target.files[0];
     if(!file) return;
+    // Un fichier choisi manuellement prend le dessus sur une URL/collage précédent.
+    window._autoImage = null;
+    const urlIn = document.getElementById('siImageUrl');
+    if (urlIn) urlIn.value = '';
     const reader = new FileReader();
     reader.onload = ev => {
         const p = document.getElementById('siImagePreview');
@@ -573,4 +597,152 @@ function previewSIImage(e) {
         p.classList.remove('hidden');
     };
     reader.readAsDataURL(file);
+}
+
+// ═══════════════════════════════════════════════════════════
+// ILLUSTRATION — collage (Ctrl+V) d'une image + URL directe
+// ═══════════════════════════════════════════════════════════
+async function uploadImageToServer(file) {
+    const fd = new FormData();
+    fd.append('photo', file);
+    const r = await fetch(`${API_BASE}/api/upload-inline-image`, { method: 'POST', body: fd });
+    const data = await r.json().catch(() => ({}));
+    if (!r.ok || !data.url) throw new Error(data.message || "Échec de l'upload");
+    return (API_BASE && data.url.startsWith('/')) ? API_BASE + data.url : data.url;
+}
+
+function setIllustration(url) {
+    window._autoImage = url || null;
+    const p = document.getElementById('siImagePreview');
+    if (!p) return;
+    if (url) {
+        p.innerHTML = `<img src="${url}" onerror="this.parentNode.innerHTML='<small style=color:#ef4444>Image introuvable</small>'">`;
+        p.classList.remove('hidden');
+    } else {
+        p.innerHTML = '';
+        p.classList.add('hidden');
+    }
+}
+
+function setupIllustrationInput() {
+    const urlIn = document.getElementById('siImageUrl');
+    const fileIn = document.getElementById('siImage');
+    if (!urlIn) return;
+
+    urlIn.addEventListener('input', () => {
+        const u = urlIn.value.trim();
+        if (u.startsWith('http') || u.startsWith('/')) {
+            if (fileIn) fileIn.value = '';
+            setIllustration(u);
+        } else if (!u) {
+            setIllustration('');
+        }
+    });
+
+    async function handlePastedImage(file) {
+        if (fileIn) fileIn.value = '';
+        urlIn.value = '';
+        urlIn.placeholder = 'Import en cours…';
+        try {
+            const url = await uploadImageToServer(file);
+            setIllustration(url);
+            urlIn.placeholder = 'ou URL d\'image (tous formats) / Ctrl+V pour coller';
+        } catch (e) {
+            urlIn.placeholder = 'ou URL d\'image (tous formats) / Ctrl+V pour coller';
+            alert("Erreur import illustration : " + e.message);
+        }
+    }
+
+    urlIn.addEventListener('paste', e => {
+        const items = e.clipboardData?.items;
+        if (!items) return;
+        for (const item of items) {
+            if (item.kind === 'file' && item.type.startsWith('image/')) {
+                e.preventDefault();
+                handlePastedImage(item.getAsFile());
+                return;
+            }
+        }
+    });
+}
+
+// ═══════════════════════════════════════════════════════════
+// VIDÉO / RÉSEAUX SOCIAUX — collage fichier/URL + extraction auto
+// ═══════════════════════════════════════════════════════════
+function isYouTubeUrl(u) {
+    return /(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))/.test(u);
+}
+function isDirectVideoUrl(u) {
+    return /\.(mp4|webm|ogv|ogg|mov|m4v|avi|mkv)(\?|#|$)/i.test(u);
+}
+
+async function uploadVideoToServer(file) {
+    const fd = new FormData();
+    fd.append('video', file);
+    const r = await fetch(`${API_BASE}/api/upload-inline-video`, { method: 'POST', body: fd });
+    const data = await r.json().catch(() => ({}));
+    if (!r.ok || !data.url) throw new Error(data.message || "Échec de l'upload");
+    return { url: (API_BASE && data.url.startsWith('/')) ? API_BASE + data.url : data.url, local: !!data.local };
+}
+
+function setVideoStatus(html) {
+    const box = document.getElementById('siVideoPreview');
+    if (!box) return;
+    box.innerHTML = html || '';
+    box.classList.toggle('hidden', !html);
+}
+
+function renderVideoPreview(url, opts = {}) {
+    if (!url) { setVideoStatus(''); return; }
+    if (isYouTubeUrl(url)) {
+        setVideoStatus(`<span class="si-embed-video-link"><i class="fab fa-youtube"></i> Vidéo YouTube détectée — s'affichera nativement</span>`);
+    } else if (opts.local) {
+        setVideoStatus(`<video controls src="${url}"></video><span class="si-embed-video-link si-video-warn"><i class="fas fa-exclamation-triangle"></i> Fichier local — non déployé sur le site (limite Cloudflare 25 Mo). Pour publier, utilisez l'outil Téléchargeur Vidéo (republication YouTube).</span>`);
+    } else {
+        setVideoStatus(`<video controls src="${url}" onerror="this.outerHTML='<span class=si-embed-video-link>Aperçu indisponible — le lien est tout de même utilisé tel quel</span>'"></video>`);
+    }
+}
+
+async function handleVideoUrlEntered(url) {
+    url = (url || '').trim();
+    if (!url) { setVideoStatus(''); return; }
+    if (!/^https?:\/\//.test(url)) return;
+    if (isYouTubeUrl(url) || isDirectVideoUrl(url)) { renderVideoPreview(url); return; }
+
+    setVideoStatus(`<span class="si-embed-video-link"><i class="fas fa-spinner fa-spin"></i> Extraction de la vidéo…</span>`);
+    try {
+        const r = await fetch(`${API_BASE}/api/extract-video-url?url=${encodeURIComponent(url)}`);
+        const data = await r.json();
+        if (!r.ok || !data.directUrl) throw new Error(data.error || 'Extraction impossible');
+        document.getElementById('siVideo').value = data.directUrl;
+        renderVideoPreview(data.directUrl);
+    } catch (e) {
+        setVideoStatus(`<span class="si-embed-video-link si-video-error"><i class="fas fa-exclamation-triangle"></i> ${e.message} — essayez le bouton "Embed" avec le code d'intégration officiel à la place.</span>`);
+    }
+}
+
+function setupVideoInput() {
+    const videoIn = document.getElementById('siVideo');
+    if (!videoIn) return;
+
+    videoIn.addEventListener('paste', e => {
+        const items = e.clipboardData?.items;
+        if (!items) return;
+        for (const item of items) {
+            if (item.kind === 'file' && item.type.startsWith('video/')) {
+                e.preventDefault();
+                setVideoStatus(`<span class="si-embed-video-link"><i class="fas fa-spinner fa-spin"></i> Import du fichier vidéo…</span>`);
+                uploadVideoToServer(item.getAsFile()).then(res => {
+                    videoIn.value = res.url;
+                    renderVideoPreview(res.url, { local: res.local });
+                }).catch(err => {
+                    setVideoStatus(`<span class="si-embed-video-link si-video-error"><i class="fas fa-exclamation-triangle"></i> Erreur : ${err.message}</span>`);
+                });
+                return;
+            }
+        }
+    });
+
+    videoIn.addEventListener('change', () => handleVideoUrlEntered(videoIn.value));
+    videoIn.addEventListener('blur', () => handleVideoUrlEntered(videoIn.value));
 }

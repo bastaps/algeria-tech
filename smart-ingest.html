@@ -165,11 +165,13 @@
                         <div class="si-field">
                             <label><i class="fas fa-image"></i> Illustration</label>
                             <input type="file" id="siImage" name="image" accept="image/*" onchange="previewSIImage(event)">
+                            <input type="text" id="siImageUrl" class="si-mini-url" placeholder="ou URL d'image (tous formats) / Ctrl+V pour coller">
                             <div id="siImagePreview" class="si-img-preview hidden"></div>
                         </div>
                         <div class="si-field">
                             <label><i class="fab fa-youtube"></i> Vidéo / Réseaux Sociaux</label>
-                            <input type="url" id="siVideo" name="video" placeholder="Lien YouTube, FB, TikTok...">
+                            <input type="url" id="siVideo" name="video" placeholder="Lien YouTube, TikTok, FB... ou Ctrl+V un fichier">
+                            <div id="siVideoPreview" class="si-video-preview hidden"></div>
                         </div>
                     </div>
                     <div class="si-field">
@@ -222,5 +224,7 @@
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <!-- Insertion + aperçu visuel des photos dans le corps de l'article -->
 <script src="/at-inline-images.js?v=2"></script>
+<!-- Insertion de vidéos (upload/URL/extraction) dans le corps de l'article -->
+<script src="/at-inline-video.js?v=1"></script>
 </body>
 </html>

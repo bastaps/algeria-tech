@@ -100,6 +100,13 @@ body {
 
 .si-img-preview img { width: 100%; border-radius: 10px; margin-top: 10px; }
 
+.si-mini-url { margin-top: 6px; font-size: 0.78rem !important; padding: 8px 10px !important; }
+.si-video-preview { margin-top: 8px; }
+.si-video-preview video { width: 100%; border-radius: 8px; background: #000; display: block; }
+.si-video-preview .si-embed-video-link { display: flex; align-items: center; gap: 8px; margin-top: 6px; padding: 8px 12px; background: #2d1b69; border-radius: 8px; color: #a78bfa; font-size: 12px; }
+.si-video-preview .si-video-warn { background: #7f1d1d; color: #fca5a5; }
+.si-video-preview .si-video-error { background: #7f1d1d; color: #fca5a5; }
+
 .hidden { display: none; }
 
 @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.6; } 100% { opacity: 1; } }

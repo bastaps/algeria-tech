@@ -508,6 +508,9 @@ window.openArticle = async function(id) {
         if (vId) {
             articleVideoId = vId;
             mediaHeader = `<div id="articleVideoAnchor" class="video-anchor"><div class="video-container" id="articleVideoContainer" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;background:#000;margin-bottom:20px;"><iframe src="https://www.youtube-nocookie.com/embed/${vId}" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen></iframe></div><div id="floatingVideoHeader" class="floating-video-header"><span class="floating-video-title"><i class="fab fa-youtube" style="color:#ff0000;margin-right:6px;"></i>Vidéo</span><button class="floating-video-close" onclick="closeFloatingVideo()" title="Fermer"><i class="fas fa-times"></i></button></div></div>`;
+        } else if (/\.(mp4|webm|ogv|ogg|mov|m4v)(\?|#|$)/i.test(art.video.trim())) {
+            // Lien vidéo direct (fichier hébergé hors YouTube) : lecteur HTML5 natif.
+            mediaHeader = `<div class="video-anchor"><div class="video-container" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:12px;background:#000;margin-bottom:20px;"><video controls playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:contain;background:#000;" src="${art.video.trim()}"></video></div></div>`;
         }
         if (art.image && art.image.trim() !== "  ") {
             bodyImage = `<img src="${art.image}" alt="${art.titre}" style="max-width:350px; width:100%; float:right; margin:0 0 20px 20px; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">`;
