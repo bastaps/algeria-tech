@@ -1,6 +1,24 @@
 {
   "posts": [
     {
+      "id": "90813b309ccd638e",
+      "source_name": "APS — Algérie Presse Service",
+      "source_short": "APS",
+      "source_color": "#006233",
+      "category": "Ministère",
+      "category_icon": "📡",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1oeDdIYXoyTTN0bXZydThscVEtenFXd1V3aDF3RVNpUWxuNlpOS2RiTGc1MVVGTkdERWUyNjFBWW1rcFRTUDZJX2FocWFLUDRUYnk1b2JNQndPSmVrYlk3M3huLXFEcUp0NU9mbkUzR1JINnJHZWlmUDd5RTkzTTA?oc=5",
+      "image": "",
+      "date": "Sun, 09 Aug 2026 08:00:00 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "L’Algérie gagne au Maroc, l’APS fait disparaître le pays - Bladi.net — L’Algérie gagne au Maroc, l’APS fait disparaître le pays Bladi.net",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "da0a22cc5a76b25c",
       "source_name": "Ministère de l'Enseignement Supérieur et de la Recherche",
       "source_short": "MESRS",
@@ -343,22 +361,130 @@
       "source_type": "web"
     },
     {
-      "id": "9058bad2d1eaf7d4",
-      "source_name": "Ministère de l'Enseignement Supérieur et de la Recherche",
-      "source_short": "MESRS",
-      "source_color": "#1B5E20",
-      "category": "Ministère",
-      "category_icon": "🎓",
-      "url": "https://www.mesrs.dz/fr/accueil/",
+      "id": "4885d1dc4a6519bb",
+      "source_name": "Ooredoo Algérie",
+      "source_short": "OR",
+      "source_color": "#E30613",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://www.youtube.com/shorts/iHu5FbB7Owo",
       "image": "",
-      "date": "2026-07-10T20:22:40.631071+00:00",
+      "date": "2026-08-13T11:02:00+00:00",
+      "lang_source": "ar",
+      "text": {
+        "ar": "Ooredoo تكونيكتي القلوب",
+        "fr": "",
+        "en": ""
+      },
+      "source_type": "youtube"
+    },
+    {
+      "id": "753c8451b0af4f2e",
+      "source_name": "Ooredoo Algérie",
+      "source_short": "OR",
+      "source_color": "#E30613",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://www.youtube.com/shorts/J95NpehKCUg",
+      "image": "",
+      "date": "2026-08-13T11:01:57+00:00",
+      "lang_source": "ar",
+      "text": {
+        "ar": "لنشجّع الجزائر",
+        "fr": "",
+        "en": ""
+      },
+      "source_type": "youtube"
+    },
+    {
+      "id": "7ed22be21221ce9f",
+      "source_name": "Ooredoo Algérie",
+      "source_short": "OR",
+      "source_color": "#E30613",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://www.youtube.com/shorts/h81PpkqPPTc",
+      "image": "",
+      "date": "2026-08-13T11:01:49+00:00",
+      "lang_source": "ar",
+      "text": {
+        "ar": "تحيا الجزائر!",
+        "fr": "",
+        "en": ""
+      },
+      "source_type": "youtube"
+    },
+    {
+      "id": "c3a26664287aa7c8",
+      "source_name": "Ooredoo Algérie",
+      "source_short": "OR",
+      "source_color": "#E30613",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://www.youtube.com/shorts/Oy2z9jE15zk",
+      "image": "",
+      "date": "2026-08-13T11:01:44+00:00",
       "lang_source": "fr",
       "text": {
-        "fr": "Ministèrede l'enseignement supérieuret de la recherche scientifique",
+        "fr": "Gagne avec GIGAS CUP Ooredoo !",
         "ar": "",
         "en": ""
       },
-      "source_type": "web"
+      "source_type": "youtube"
+    },
+    {
+      "id": "03aea8724263c2b0",
+      "source_name": "Ooredoo Algérie",
+      "source_short": "OR",
+      "source_color": "#E30613",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://www.youtube.com/shorts/lP_piki-9wc",
+      "image": "",
+      "date": "2026-08-13T11:01:41+00:00",
+      "lang_source": "ar",
+      "text": {
+        "ar": "فعّل GIGAS CUP على My Ooredoo",
+        "fr": "",
+        "en": ""
+      },
+      "source_type": "youtube"
+    },
+    {
+      "id": "e3178233f7d57229",
+      "source_name": "Ooredoo Algérie",
+      "source_short": "OR",
+      "source_color": "#E30613",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxONXBPS1dWUXJ4dHhIQ01LUVEyYS1ocDFRbURvYkJxZXp4X20yWEJ5bXNWa0FZbUp6QlFnOS1qYnJZbVpKbnBjUDFmSHVPVkF3eFVESVV0T1NnMm91UnF3YnZQYWdaeVlIRWtUV2E5LWlkTzlqbmdmR3d3Rm5jLTZYUndoWV9WZTlJT3poN3E3OHY?oc=5",
+      "image": "",
+      "date": "Wed, 12 Aug 2026 08:28:00 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Communiqué : Ooredoo enrichit sa gamme avec «Gold PROMO» - Mobiles - Le soir d'Algérie — Communiqué : Ooredoo enrichit sa gamme avec «Gold PROMO» - Mobiles Le soir d'Algérie",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c5d03dc2f98601f9",
+      "source_name": "Mobilis",
+      "source_short": "MB",
+      "source_color": "#00A651",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQR2ZqNFRaZmZQWGF2UWNJN1NJT1UtTklMd01RWjFIMjZxclYtVWVMZnhMeWhILWt0OHl3enlFWUxFN2xkX3MwT0lfM0tVVEtwV29uVUhVYTJlb2J6cWFaY2NWNXc0dmRYZE00V1ljLTRMNDNsNGMxeE9Zd2J4a0Z5QVZOMGRpNE9vS3RYVXp3RQ?oc=5",
+      "image": "",
+      "date": "Mon, 10 Aug 2026 10:40:07 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Mobilis désigne Youssef Zoghba nouvel ambassadeur de sa marque - al24news.dz — Mobilis désigne Youssef Zoghba nouvel ambassadeur de sa marque al24news.dz",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
     },
     {
       "id": "7cadce4d18780550",
@@ -427,6 +553,24 @@
       "lang_source": "fr",
       "text": {
         "fr": "Foot / Ligue 1 Mobilis (2026-2027) : Le champion en titre, le MC Alger, débutera face au MC Oran - El Watan — Foot / Ligue 1 Mobilis (2026-2027) : Le champion en titre, le MC Alger, débutera face au MC Oran El Watan",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "268b5b47958c740d",
+      "source_name": "Mobilis",
+      "source_short": "MB",
+      "source_color": "#00A651",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPREx2RHAyaWlDUy1KT2pKdW83dWo4Z2JZbTFhemdDc1UzbTFtdmRydjVEUkEzZVhNWVFiNk51RzZpSVluYnNtQW9EcUtKdHRPVUljODdzTTR3cFp4WTlXQlpjSnFOb1NpZ2hiR2h2TllpdDdyYjBkVjdVOFBiazZ4Vlp4bmFFMnQ3WkRSdDdpNmxUc01jZkRuUDlzSjlqeHpIRGUzMlBvc0I?oc=5",
+      "image": "",
+      "date": "Tue, 04 Aug 2026 07:00:00 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Ligue 1 Mobilis : le calendrier 2026-2027 dévoilé, le MC Alger démarre fort - DzBallon — Ligue 1 Mobilis : le calendrier 2026-2027 dévoilé, le MC Alger démarre fort DzBallon",
         "ar": "",
         "en": ""
       },
@@ -577,144 +721,180 @@
       "source_type": "rss"
     },
     {
-      "id": "b2858f18ee9914c4",
-      "source_name": "Djezzy",
-      "source_short": "DJ",
-      "source_color": "#FF6B00",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNeTVLak1SbGdVMC1rbWs3TFJLTUxOVGkycWxoVVk5cHUwVko1elpiVVloLXl6U0E0dlZPOERTZFU3Y2s3TnZOWGZtd2dsOXVoNFJUWlY5Y1pWYS0xZ2RUZ1g3T0VWS0FZeU9kaW5DTld2UC1FZWxobWVGX1hWVW1RdkJrb0JVZGZTV2kzbXVEclc5ejJnU0ZSeWRIN1lDTkJxT1ZabUtSWHZVTjZrRFdWRkVPbjA0dXVHSW44ZnlHZVpCdw?oc=5",
+      "id": "4d6fc8344bc0665a",
+      "source_name": "Algérie Télécom",
+      "source_short": "AT",
+      "source_color": "#0055A4",
+      "category": "Infrastructure",
+      "category_icon": "📡",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNbHZhcGtMWlRzRVZxUWFxMDBkUTJ1dU1GX3I5VE1PSjdTLVR5SHRVZkpJWlVIbktXcU5oVmdLUTY5UUtwX24xem9BYVpOa1FsMnBVV2IxOTRCMDFsaXNab2NMNm9JUjlhSEZxeGdoQUF5enFqNExUREtKb05HX0NUSE5vZmtOTEdQM0tjekstYWFOVjVSUEVrZXdlWENnaDYwTlFZUWJR?oc=5",
       "image": "",
-      "date": "Sun, 26 Jul 2026 14:39:41 GMT",
+      "date": "Thu, 13 Aug 2026 10:52:26 GMT",
       "lang_source": "fr",
       "text": {
-        "fr": "Djezzy réalise une hausse de 8,7 % de son chiffre d’affaires au premier semestre 2026 - Algerie Patriotique — Djezzy réalise une hausse de 8,7 % de son chiffre d’affaires au premier semestre 2026 Algerie Patriotique",
+        "fr": "Idoomly : Algérie Télécom offre désormais 96 heures de connexion supplémentaires - La patrie news — Idoomly : Algérie Télécom offre désormais 96 heures de connexion supplémentaires La patrie news",
         "ar": "",
         "en": ""
       },
       "source_type": "rss"
     },
     {
-      "id": "5c26550bf1da415d",
-      "source_name": "Djezzy",
-      "source_short": "DJ",
-      "source_color": "#FF6B00",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNczJPd3VkclppZlBJaFVMWmd5aXlyTC1BeF8wRzZFUHpQT1RVckVUb1FBOUZZNUdJbUVfUXBacy1BRkZMLXdCZU9fN241QllIR0h2ak9iWGVSbHlOallIM0IyUjhSMGw2Ujh2WWJaTG8ySW9URnJtOWROelpSdGxJM2FJcE0zUlp4UlpWVERrcHlzSkpBUndaVEtENTdBZS1JckJGbGZweHVPSDF6NHhrdEt5SWNGbUhyV3dKWEFFMl82NEV0TGxDdGQ1SQ?oc=5",
+      "id": "eaf20d51b6c84af5",
+      "source_name": "Algérie Télécom",
+      "source_short": "AT",
+      "source_color": "#0055A4",
+      "category": "Infrastructure",
+      "category_icon": "📡",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNUERHLXp3NTZJMkhFSm1Wblh4SnRzN01NdTZoYkRzN0ZadnNxR3dtLVFyZjBKYWlEYlF6TXJHXzQzLWUtVmMtaTRZZk9kYVd6NXNwTVdsVXFhZjVJOGtueGtlTHFMZHhyY3JZVm9jeVdzYktZbHhodVI0elA1NjFjVXlTaU1vUC1EQUtNY0FxaHo0ZHk1Rm5IT0ZzTksxNHlRQ0lQaDNLOA?oc=5",
       "image": "",
-      "date": "Sun, 26 Jul 2026 11:47:56 GMT",
+      "date": "Wed, 12 Aug 2026 20:10:55 GMT",
       "lang_source": "fr",
       "text": {
-        "fr": "Djezzy : un chiffre d'affaires de 62,2 milliards de dinars au premier semestre 2026, en hausse de 8,7 - Algerie Eco — Djezzy : un chiffre d'affaires de 62,2 milliards de dinars au premier semestre 2026, en hausse de 8,7 Algerie Eco",
+        "fr": "Annaba : Algérie Télécom lance une session en mode présentiel - elmoudjahid.dz — Annaba : Algérie Télécom lance une session en mode présentiel elmoudjahid.dz",
         "ar": "",
         "en": ""
       },
       "source_type": "rss"
     },
     {
-      "id": "c892036e7658285b",
-      "source_name": "Djezzy",
-      "source_short": "DJ",
-      "source_color": "#FF6B00",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5tdXZLUGRXRlFFOEVLdDdMb2EzQmlFNU9wREVNS05hdkdEWkJUWk9aVlpZcUtsckFadDVUdkdzdzV0bTBFSEFqSEtVUzhKdlVVNFlN?oc=5",
+      "id": "418612fcf28261e8",
+      "source_name": "Algérie Poste",
+      "source_short": "AP",
+      "source_color": "#F9A825",
+      "category": "Infrastructure",
+      "category_icon": "✉️",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1RSDRrLXMwaXhqbWEwWkRXTzVwVGIxOGtFS2ZXazFDYmY4TTlQSnByVEEwQjRYcWxNQ0JoWE16UXlhbndOOEQzdlVVZm5oS0VGdm5VdGh1NS1zMmdudGZ3WVA2aw?oc=5",
       "image": "",
-      "date": "Sun, 26 Jul 2026 11:10:00 GMT",
+      "date": "Wed, 12 Aug 2026 17:37:13 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Algérie-FAF : Moussa Saïb dans le viseur de Sadi, pour ce poste ! - Just-InfoDZ — Algérie-FAF : Moussa Saïb dans le viseur de Sadi, pour ce poste ! Just-InfoDZ",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "2772e65dd7fa7199",
+      "source_name": "Algérie Télécom",
+      "source_short": "AT",
+      "source_color": "#0055A4",
+      "category": "Infrastructure",
+      "category_icon": "📡",
+      "url": "https://www.youtube.com/watch?v=xUEquJj38Ls",
+      "image": "",
+      "date": "2026-08-11T14:24:02+00:00",
       "lang_source": "ar",
       "text": {
-        "ar": "Djezzy réalise une hausse de 8,7 % de son chiffre d'affaire au premier semestre 2026 - الإذاعة الجزائرية | — Djezzy réalise une hausse de 8,7 % de son chiffre d'affaire au premier semestre 2026 الإذاعة الجزائرية |",
+        "ar": "خلص مستحقاتك الهاتفية  مع تطبيق  My Idoom",
         "fr": "",
         "en": ""
       },
-      "source_type": "rss"
+      "source_type": "youtube"
     },
     {
-      "id": "17fa5e318a437ad1",
-      "source_name": "Djezzy",
-      "source_short": "DJ",
-      "source_color": "#FF6B00",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOVm5WZjg0OE0tZnV5d05RZUhJZG03RXFuLUxaNTZoNjdfbVVXb1ZoeUFCV0U1VXlwNzB6bDJBa0hmSjhmem9rb0JyYl9RZEpUS2luWXpSZlQ0Mks0Z2stVjhYanZOWkg1NEo0Q2hvMFBZYUQ1cGlDNUFTN21MQWZoclBETlRxaFZwQjBPNU5IQ0VReW85cko0?oc=5",
+      "id": "8312c9c76f632099",
+      "source_name": "Algérie Télécom",
+      "source_short": "AT",
+      "source_color": "#0055A4",
+      "category": "Infrastructure",
+      "category_icon": "📡",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQS2dsalJ0YXA5WDRnY2JUZGpxaE5EXzdKdmY3Nnp5TEdNLW9EWkxkTlJRZFRfa3pxR1Qya0tlc0ZNS1F3UWF2dXMzTlFUNU4zNDl6UFp3bVRYMzl6cWVhaUt1TURZd0QxMkdvVS1SSk55UHZOdGNUS285Z2ZXWEN4X21iQjdpWlRIZkxQMTZmNlRKbmtJdkowOHgxR1dvRXl6dlhDRlpiOWU4Z1dMdW1rNDVjVTZvT3hV?oc=5",
       "image": "",
-      "date": "Sun, 26 Jul 2026 11:02:01 GMT",
+      "date": "Tue, 11 Aug 2026 01:36:43 GMT",
       "lang_source": "fr",
       "text": {
-        "fr": "Djezzy poursuit sa dynamique de croissance au premier semestre 2026 - dia-algerie.com — Djezzy poursuit sa dynamique de croissance au premier semestre 2026 dia-algerie.com",
+        "fr": "Forum du SMSI : Algérie Télécom décroche un prix international à Genève - elmoudjahid.com — Forum du SMSI : Algérie Télécom décroche un prix international à Genève elmoudjahid.com",
         "ar": "",
         "en": ""
       },
       "source_type": "rss"
     },
     {
-      "id": "4948dc8b7e00a107",
-      "source_name": "Djezzy",
-      "source_short": "DJ",
-      "source_color": "#FF6B00",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOSXVIWThJX2tjdlNxNzU2UHZ3VGZOVHVmWFJMSjVBbGRJWFNUdHV6VUZFRlRzQVVPSEd1c1dMUUJYNkpZZ2hGb1U2UG5WZTc0NnZ2VDJkNFgwSnFZcTVNZVJ2OUtGUkpnMGpsSWN2TTUyQXdhYndKdnZ1RFdySVNZNmozSG8ySWpWNjAtUDVPZlhLSHdoY1AyM25oYUdhY0t0Mjl3RGtTY0FkOGtfQXp0S3cwVQ?oc=5",
+      "id": "a66f69b90860d2f6",
+      "source_name": "Algérie Télécom",
+      "source_short": "AT",
+      "source_color": "#0055A4",
+      "category": "Infrastructure",
+      "category_icon": "📡",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQUllBdXYwLXhVYVh1LXg3RzJ0WkhQU01WZGkyU2VZZlZyWmdjZFBHV2FhcFZvRmtHV1BaUWNkSnR0Y1AzY2pPVm9jTXREeXg2T3A4TGhBcExocTVzN1JCS3VEZ0lOLWRlekQyRWlrX21rX3JwYXZKTGJfWS1QWE9mbnBRSThzWmx6YUtiV3B5TjdqeXE1M2RLaE1HZEwtMUpQZGY0WlZQQV8?oc=5",
       "image": "",
-      "date": "Sun, 26 Jul 2026 08:49:00 GMT",
+      "date": "Tue, 11 Aug 2026 00:59:01 GMT",
       "lang_source": "fr",
       "text": {
-        "fr": "Communiqué : Djezzy poursuit sa dynamique de croissance au premier semestre 2026 - Mobiles - Le soir d'Algérie — Communiqué : Djezzy poursuit sa dynamique de croissance au premier semestre 2026 - Mobiles Le soir d'Algérie",
+        "fr": "Algérie Télécom : L’autonomisation numérique à l’heure du présentiel à Sétif - Le Courrier d'Algérie — Algérie Télécom : L’autonomisation numérique à l’heure du présentiel à Sétif Le Courrier d'Algérie",
         "ar": "",
         "en": ""
       },
       "source_type": "rss"
     },
     {
-      "id": "0e187cdd8c761f1a",
-      "source_name": "Mobilis",
-      "source_short": "MB",
-      "source_color": "#00A651",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNeU9vaE9za2FLY1Y3RTV5c0NjSGtGT0ZWUldqZXdqbGZtQzk4MDVIaVN0bk1XRW1hVWl3cjBMLXYwUWd5TWxKcERUcVJtb2wweVozX2lkUnRuMTBDYmlnYUJFVlZxUDg1aVRVbnhsWHB5Slp5Y0hZVjNjTXZxV0lqX2wwSlVCUzlmbkhXS3dPT0piOWlwSkZDcFhBMWlDekRxcXZ3MUNOZ196S2dPYkpVZTh3?oc=5",
+      "id": "12e95b6a7204daf4",
+      "source_name": "Algérie Télécom",
+      "source_short": "AT",
+      "source_color": "#0055A4",
+      "category": "Infrastructure",
+      "category_icon": "📡",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNd2h6VkhjRzZVbU1nNWFLYmdlVENMbEFocUI5ZnVmbW55TjdxU0o2b3Y0bk9wbExjOEgxN3NCbzhaMmVwTV9FX2FpMWxZamMzSm1FeFJabkFXelpjQ29KWmhZbDRiXy02Ykh5NVlwbHlTcmNwZlo0TlZyT0tzMjF3NV81OE96UXEwVG91RWluNklNWHU3cHdMUmU5WC1lTzNvN2g0Z1JrdUFWNk01cDluVUlidEZFNGNmbWtHQldoNGl4TExvbDNnUHp1R2ZLZWZXVHdxTk1FMA?oc=5",
       "image": "",
-      "date": "Mon, 20 Jul 2026 00:00:00 GMT",
+      "date": "Mon, 10 Aug 2026 13:24:40 GMT",
       "lang_source": "fr",
       "text": {
-        "fr": "Algérie – Ligue 1 Mobilis : la LFP dévoile la date du début de la saison 2026-2027 - Tunisie Numerique — Algérie – Ligue 1 Mobilis : la LFP dévoile la date du début de la saison 2026-2027 Tunisie Numerique",
+        "fr": "Algérie Télécom déploie le programme 7-77 en sessions présentielles dans ses SkillsCenters de Sétif, Annaba et Saïda - La patrie news — Algérie Télécom déploie le programme 7-77 en sessions présentielles dans ses SkillsCenters de Sétif, Annaba et Saïda La patrie news",
         "ar": "",
         "en": ""
       },
       "source_type": "rss"
     },
     {
-      "id": "d218033796640f43",
-      "source_name": "Mobilis",
-      "source_short": "MB",
-      "source_color": "#00A651",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNXzJ0b2NGWEVaUVZKbjdQQVo1b3M3LW56R3hyeXdUMTF3X012dlAyMzk0bTdnYVc1T25YZXpMMEw0UWpIVFkzSUtteDkzbkRaaFAtZ1J6YzdsMGphVHczdkRnajdQUjV6YTNnLWVaanR5VTRKdTBpOGdfaEdwbW5Nd0ZNWnlFS3Jt?oc=5",
+      "id": "0b778c4fb03f9fe3",
+      "source_name": "Algérie Télécom",
+      "source_short": "AT",
+      "source_color": "#0055A4",
+      "category": "Infrastructure",
+      "category_icon": "📡",
+      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPSDBoVzR3T3Qwclg3bUVvY004cnhPZjlMN1RtWGVpS0l5dFc3QnYxRTZYdVp5OWVpbW5DYzBLRm5FaXZJUnNhMnNRMDVTNWExUXFCNElONmZhUGlrQkxEWG1qZDJ5c1N4Nmc2dnItNjBWSklNUmFwUkZzUlJRS21lRk1RazNhUzdlRDFza2hXbTRvU3pULU81MHNuUHdHNVl5dGwzb2F3VWNrQWRMalVDTTJjS091cVdZWF9JM01NWVp6RzRmX2pPd3hwR1RVX3Z0aF8ySEc4dFNZeUZad2tqZm1NNjQxZw?oc=5",
       "image": "",
-      "date": "Sun, 19 Jul 2026 10:37:04 GMT",
+      "date": "Sat, 08 Aug 2026 20:15:13 GMT",
       "lang_source": "fr",
       "text": {
-        "fr": "Téléphonie : Mobilis lance sa caravane à Tlemcen - Régions - Le soir d'Algérie — Téléphonie : Mobilis lance sa caravane à Tlemcen - Régions Le soir d'Algérie",
+        "fr": "Consolidation de l’autonomisation numérique : Algérie Télécom lance un programme en mode présentiel à Sétif - elmoudjahid.dz — Consolidation de l’autonomisation numérique : Algérie Télécom lance un programme en mode présentiel à Sétif elmoudjahid.dz",
         "ar": "",
         "en": ""
       },
       "source_type": "rss"
     },
     {
-      "id": "447fadd68b951091",
-      "source_name": "Mobilis",
-      "source_short": "MB",
-      "source_color": "#00A651",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBiM0pkWnl2UEdsMndRSmNDMWFLUWplaG1NSEkwRFZqUzdsTkVPYVVpbkRKb096SlM3aFpCcjJkcjB3bzF1UVAxVnM2N3hnZndLN1JuZE5SY09nbFFUa3E5MjlBelZXMWFSRjF6VWlmdjY0TW5j?oc=5",
+      "id": "05dca23c822ae55c",
+      "source_name": "Algérie Télécom",
+      "source_short": "AT",
+      "source_color": "#0055A4",
+      "category": "Infrastructure",
+      "category_icon": "📡",
+      "url": "https://www.youtube.com/watch?v=NnHXiEWh6KA",
       "image": "",
-      "date": "Sat, 18 Jul 2026 20:43:31 GMT",
+      "date": "2026-08-08T18:00:35+00:00",
+      "lang_source": "ar",
+      "text": {
+        "ar": "جدّد اشتراكك للإنترنت أينما كنت مع تطبيق My Idoom",
+        "fr": "",
+        "en": ""
+      },
+      "source_type": "youtube"
+    },
+    {
+      "id": "b916b21d4db2bf27",
+      "source_name": "Algérie Télécom",
+      "source_short": "AT",
+      "source_color": "#0055A4",
+      "category": "Infrastructure",
+      "category_icon": "📡",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPMkpPMTN3VzY4VENxSno1VGpHRExrMnBYeTVtaEd5NUk0cGNaMmNhMkx4TjJGMWx6WVRzN0NqbUhOdml0TXBQV1VnZzB6UThUS1hIVU5COS01TG1xcWItVS1CMG5tYzROZGprOTg3RU5tNlJjcVhXWmgxVzVwWUxTWTNzajk2dzA0NnVLRXkwZFh1V2k4U19YLUV5aWdjQzNtcDhUS08wWG9jNVljY0dKQ0FOdGlFNTVlUFA4?oc=5",
+      "image": "",
+      "date": "Sat, 08 Aug 2026 09:00:00 GMT",
       "lang_source": "fr",
       "text": {
-        "fr": "La 5G de Mobils est déjà lancée - La Nouvelle République Algérie — La 5G de Mobils est déjà lancée La Nouvelle République Algérie",
+        "fr": "L’INFO DE LA SEMAINE : Algérie Télécom lance l'offre «SIM ONLY» pour réactiver les lignes IDOOM 4G - Mobiles - Le soir d'Algérie — L’INFO DE LA SEMAINE : Algérie Télécom lance l'offre «SIM ONLY» pour réactiver les lignes IDOOM 4G - Mobiles Le soir d'Algérie",
         "ar": "",
         "en": ""
       },
@@ -895,186 +1075,6 @@
       "lang_source": "fr",
       "text": {
         "fr": "​Algérie Poste : Un prélèvement automatique sur votre compte CCP dès le 27 juillet, voici le montant - Just-InfoDZ — ​Algérie Poste : Un prélèvement automatique sur votre compte CCP dès le 27 juillet, voici le montant Just-InfoDZ",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c9d17c719614af7c",
-      "source_name": "Algérie Poste",
-      "source_short": "AP",
-      "source_color": "#F9A825",
-      "category": "Infrastructure",
-      "category_icon": "✉️",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNejNMYjJNR3Vfd3J5cjNJdVFmWUZaazFFNjkwWWt5cTRCMFFrckhyZUJ4dkZoS25XREk4Y0RlRTVEeGVxSXdvdnRFZ2lWNmR5Um5sRG5rLTBaQ0E1NWdYWWRGUXRPOWtpd3NucFd5dTZEeXN1a0dTREE4QlNDaEVWY0hB?oc=5",
-      "image": "",
-      "date": "Sun, 26 Jul 2026 09:57:08 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Offres sous faux profils : Algérie Poste met en garde - La patrie news — Offres sous faux profils : Algérie Poste met en garde La patrie news",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "a57d61c0317c3a97",
-      "source_name": "Algérie Poste",
-      "source_short": "AP",
-      "source_color": "#F9A825",
-      "category": "Infrastructure",
-      "category_icon": "✉️",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOU2dEcGFuYTByZFNHaTdLdEx2WEZkMVp4YjVHNkFxSWJJZjFaVlpoZVQ1MkV3RE5OamJrVlNLZHNvd1VYZFphbFZZZk45TThHOHFrNWYzY01DUjFORWxWWEM2SUJsc3FveGZuWXVNMV9majUwUEU0UUZJeUdDbE95WU8wdmQxX2h4aE4xZlZxZDVoYU9FSGQ2Y0g5azQ0R0tnVm52X3ROZmc1SEk2VU9XZWxNZw?oc=5",
-      "image": "",
-      "date": "Sun, 26 Jul 2026 07:00:00 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Faux concours et piratage de données : Algérie Poste tire à nouveau la sonnette d’alarme - Algerie360 — Faux concours et piratage de données : Algérie Poste tire à nouveau la sonnette d’alarme Algerie360",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "17ce652ea6b55714",
-      "source_name": "Algérie Poste",
-      "source_short": "AP",
-      "source_color": "#F9A825",
-      "category": "Infrastructure",
-      "category_icon": "✉️",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPSGhuSVVwVElHTDNHYWR5RzNjTzlPbzJKUldwd1Y2WFNIUFhJSWxLZHdjUDRTOE50TDQzTkFabDhoTkRHN3FsUUhYQjJKNW9ZZHVsbURFMDZSQkJMWnRNS0NONk1qclFpQ3k2NTN6c1R4TTlBaXFOTGdncmtEbjUwRnk4OVAwVDJHdWdOaW9pOXM3eF9VMmpGZEc3SVo1Qk13WFRfMXRR?oc=5",
-      "image": "",
-      "date": "Sun, 26 Jul 2026 07:00:00 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Algérie Poste : ce qui attend les détenteurs de comptes CCP dès le 27 juillet - Algerie360 — Algérie Poste : ce qui attend les détenteurs de comptes CCP dès le 27 juillet Algerie360",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "8102c887e6f232d7",
-      "source_name": "Algérie Télécom",
-      "source_short": "AT",
-      "source_color": "#0055A4",
-      "category": "Infrastructure",
-      "category_icon": "📡",
-      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQLXZaTFNGcmZpbXZ3WjUtNjF2OWYzUGh4cl9iNDRVdjFvUWlBZTlrQUpBcmhPbnFOY2FyUlJoR016SU5NTGFadFhqVXhVWU56aDdyMEU3dVg5cmViZUlYMThGTEpFS01XdUZiQ3prcUVGSmRwTUJYRDYyUmZLYkl2Y05RV2ptTFhhVlE3Zy1nZkRuX3A4VWhPaXJXYVNfMnBpZGJCTlQwbjlLVXlFMmxrTVA2Z3c1SHBfV0RkbGpIcUY?oc=5",
-      "image": "",
-      "date": "Sat, 25 Jul 2026 09:00:00 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Algérie Télécom lance un programme de parrainage pour ses abonnés IDOOM Fibre - Le soir d'Algérie — Algérie Télécom lance un programme de parrainage pour ses abonnés IDOOM Fibre Le soir d'Algérie",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "8675c23fb278e954",
-      "source_name": "Algérie Poste",
-      "source_short": "AP",
-      "source_color": "#F9A825",
-      "category": "Infrastructure",
-      "category_icon": "✉️",
-      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNM1k3ZU5ZR3E4dVNXd0tsQ0RKX1BCYWpGTy1fcWJ6VlRZdW9NSTBIUlBsMTViWnBobE91VXV6ZWlTTVBhYnJBeF85V2hGQWlHUktnQ0FlR1dPamhLUDdCWEpOQUR5LXdyZFF3X3dQQU12UXE0ZDgyeVdyS1dNNVJvOEZyZF9pR25hOGFlNXFfN2Y0bS0zWGYxb01DaTZMU3JkRVRJaG9neUtqeE5rbUJ0Mjl3bE1hTXVubjlwT1ZWc3gyRVo5OGtNMjI0TQ?oc=5",
-      "image": "",
-      "date": "Fri, 24 Jul 2026 01:41:31 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Commerce: lancement de la saison des soldes d'été à partir du 26 juillet - Algeria Invest — Commerce: lancement de la saison des soldes d'été à partir du 26 juillet Algeria Invest",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "082de8dd00fe33e8",
-      "source_name": "ARPCE (Autorité de Régulation)",
-      "source_short": "ARPC",
-      "source_color": "#4A148C",
-      "category": "Infrastructure",
-      "category_icon": "⚖️",
-      "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxNR1ZIZ1pPLXl1ZzFYM25XZVo5WGdEdmZfLXVLa0k3NnFSN3k0aDl4S3ZGTWdCU29XNlhDbzhyY0NGaHJQa2k2ZzVCT29fcXZEQXNtaWk5eGtyNVY2UHlKMkJ6ak1udjJqUFhlck5ZYmo3cDBQcl9WVmtOOHdpTzZGYmoxbjRBalMtak0zcFJ3dWFBYnpXOTNFUmg2MjJqT25nbW94R3kyOGFGd3YxRU9OTXdvM3ktLTB2cWw2Z0t0Wk1RY3FJaVdIOGxrRVVkaDg2cWN6amF6OHlUdVptWTFxV3hpYlB6QXl3WjdpWVc3M0drazI1ZTFMazJhazNOWFFIeEZWU0JkYw?oc=5",
-      "image": "",
-      "date": "Thu, 23 Jul 2026 11:28:00 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "ANGOTIC 2026 : L’ARPCE partage son expérience sur « les défis de la réglementation dans le processus de transformation numérique » - AGENCE ECOFIN — ANGOTIC 2026 : L’ARPCE partage son expérience sur « les défis de la réglementation dans le processus de transformation numérique » AGENCE ECOFIN",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "df0d4fbf7c9ae891",
-      "source_name": "Algérie Télécom",
-      "source_short": "AT",
-      "source_color": "#0055A4",
-      "category": "Infrastructure",
-      "category_icon": "📡",
-      "url": "https://www.youtube.com/watch?v=9c0YtEa98jY",
-      "image": "",
-      "date": "2026-07-18T14:05:22+00:00",
-      "lang_source": "ar",
-      "text": {
-        "ar": "فعّل خدمة Idoomly بسهولة من تطبيق My Idoom",
-        "fr": "",
-        "en": ""
-      },
-      "source_type": "youtube"
-    },
-    {
-      "id": "63b662e38da9abdd",
-      "source_name": "Algérie Télécom",
-      "source_short": "AT",
-      "source_color": "#0055A4",
-      "category": "Infrastructure",
-      "category_icon": "📡",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOYS1kd1J3TmtnZmdWUy1IUXlMbHZNNXdpZGpIX3Q2SEVEMWNtVDMzLVlJV255ODdFNVRLbVVsdkwxSUE5OXAtVWRrUE1vd1o4YzZVenlIX2ZvQ0NiMmRoTVpMcmJ3YWt3T09JNTk0TG1xczdQSG9XdnZMYkVEZ1ZjT0VkMEhDQTFyVEpCTm42SGlsS3RPZ3M4?oc=5",
-      "image": "",
-      "date": "Sat, 18 Jul 2026 10:52:31 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "L’INFO DE LA SEMAINE : Algérie Télécom triomphe au SMSI-2026 à Genève - Mobiles - Le soir d'Algérie — L’INFO DE LA SEMAINE : Algérie Télécom triomphe au SMSI-2026 à Genève - Mobiles Le soir d'Algérie",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "003855e72980e901",
-      "source_name": "Algérie Poste",
-      "source_short": "AP",
-      "source_color": "#F9A825",
-      "category": "Infrastructure",
-      "category_icon": "✉️",
-      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQcU1uWGNHUXhJdEhXaTE3RjYzcGlrcUllQ0xOaWpFdE5lYW82ZnEydnlRRWVDUVRNa1pmU3FwSWc5eUZhUDRZQVFxaG5rZmdCUVBCcnZMa1dxU21ZNmlLY3ZJR09kUmhpUm1SUFNCMGUyb3FmLW5xV2hFWHI3VUdocGI5QVlTLVNRSV81VGJiMG96enc5MmhiRjJxNnQxUGM?oc=5",
-      "image": "",
-      "date": "Thu, 16 Jul 2026 15:24:08 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Algérie Poste lance la commercialisation de la vignette «Apostille» - horizons.dz — Algérie Poste lance la commercialisation de la vignette «Apostille» horizons.dz",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "d185691cd2beeaa6",
-      "source_name": "Algérie Poste",
-      "source_short": "AP",
-      "source_color": "#F9A825",
-      "category": "Infrastructure",
-      "category_icon": "✉️",
-      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNY0ZjVTl3ZVRLUHl3QnNqX3ZoN0dfUG15Z2NVZmh1QlpsdGhfbG5HNVJsb0QyRm1ySEJhaGRnSlljOHBzX1A1ZnhpQVBwQklXRElkdjVWd3VXd2xVUE9jd3BtOHZFalMxZmFUdEtrT3BEclhjOG9iTHRqT0dWdVF3NTY4ZWxiSS0zRWFYbw?oc=5",
-      "image": "",
-      "date": "Wed, 15 Jul 2026 15:36:11 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Algérie Poste : retour à la normale de l’ensemble des services - La patrie news — Algérie Poste : retour à la normale de l’ensemble des services La patrie news",
         "ar": "",
         "en": ""
       },
@@ -1435,6 +1435,600 @@
       "lang_source": "fr",
       "text": {
         "fr": "Algérie : Huawei au cœur des discussions sur la modernisation numérique du commerce extérieur - AL24 News — Algérie : Huawei au cœur des discussions sur la modernisation numérique du commerce extérieur AL24 News",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "7e37825fb53ff2ee",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/13/nvidias-new-500b-plan-is-risky-but-brilliant-especially-for-aging-gpus/",
+      "image": "",
+      "date": "Thu, 13 Aug 2026 15:08:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Nvidia’s new $500B plan is risky but brilliant, especially for aging GPUs — Nvidia has a plan to make sure its GPUs won't lose value. It wants to convince a new crop of financiers to keep lending for AI buildouts.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "0f85b325ebf4aacd",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/13/bartesian-duet-cocktail-maker-review/",
+      "image": "",
+      "date": "Thu, 13 Aug 2026 15:00:00 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Who really needs a cocktail robot? — Bartesian's cocktail makers would be best described like a Keurig or Nespresso machine, but for alcoholic drinks.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "6b59f482f92c5156",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/13/sonatrach-lance-le-forage-de-quatre-puits-dexploration-sur-le-permis-de-kafra-au-niger/",
+      "image": "",
+      "date": "Thu, 13 Aug 2026 14:43:29 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Sonatrach lance le forage de quatre puits d’exploration sur le permis de Kafra au Niger — Le groupe Sonatrach et la société nigérienne Sonidep ont lancé, ce jeudi 13 août, une nouvelle phase d’exploration sur le permis de Kafra, au Niger. Quatre puits seront forés par Enafor, filiale de Sonatrach, afin de mieux évaluer les réservoirs et le potentiel de production du périmètre. « Dans le",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f31b1a5b40ca366d",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/13/apple-in-talks-to-pay-publishers-to-provide-siri-with-current-news-report/",
+      "image": "",
+      "date": "Thu, 13 Aug 2026 14:34:43 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Apple in talks to pay publishers to provide Siri with current news: report — The tech giant has considered a nine-figure budget for the payments, according to the WSJ.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c205fb2f3a61deed",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/13/can-social-media-start-over-blueskys-ceo-and-coo-deliver-their-case-at-techcrunch-disrupt-2026/",
+      "image": "",
+      "date": "Thu, 13 Aug 2026 13:30:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Can social media start over? Bluesky’s CEO and COO deliver their case at TechCrunch Disrupt 2026 — Bluesky CEO Toni Schneider is joined by COO Rose Wang for a Disrupt Stage session on whether social media can start over and where Bluesky fits into that potential reboot.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c312c536c59c3ee7",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/13/algerie-vers-un-partenariat-avec-china-baowu-pour-rehabiliter-et-developper-le-complexe-siderurgique-del-hadjar/",
+      "image": "",
+      "date": "Thu, 13 Aug 2026 12:29:34 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Algérie : vers un partenariat avec China Baowu pour réhabiliter et développer le complexe sidérurgique d’El Hadjar — Le ministre de l’Industrie, Yahia Bachir, a tenu mercredi 12 août à Alger une nouvelle réunion avec une délégation du groupe chinois China Baowu Steel Group autour du projet de réhabilitation et de développement du complexe sidérurgique d’El Hadjar, dans la wilaya d’Annaba. La rencontre, organisée a",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "8d38c8555d97b41d",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/13/le-premier-ministre-au-niger-pour-le-lancement-du-forage-du-puits-dexploration-kafra-sud-est-1/",
+      "image": "",
+      "date": "Thu, 13 Aug 2026 12:27:10 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Le Premier ministre au Niger pour le lancement du forage du puits d’exploration Kafra Sud-Est 1 — Le Premier ministre, Sifi Ghrieb, est arrivé, ce jeudi 13 août au Niger, pour une visite de travail au cours de laquelle il présidera, aux côtés de son homologue nigérien, Ali Mahaman Lamine Zeine, la cérémonie de lancement officiel des travaux de forage du puits d’exploration Kafra Sud-Est 1, rappo",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "7d231aa9aeca5e3c",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/13/allocation-touristique-la-banque-dalgerie-dement-une-fausse-instruction-diffusee-sur-les-reseaux-sociaux/",
+      "image": "",
+      "date": "Thu, 13 Aug 2026 11:06:53 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Allocation touristique : la Banque d’Algérie dément une fausse instruction diffusée sur les réseaux sociaux — La Banque d’Algérie a indiqué, ce jeudi 13 août, qu’un document présenté comme une nouvelle instruction relative à l’allocation touristique et relayé sur les réseaux sociaux sous l’intitulé « Instruction n°08-2026 » est un faux. L’institution précise qu’aucun changement n’a été apporté aux règles fi",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "7aec71555d90796b",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/spacex-souhaite-lancer-100-000-satellites-starlink-supplementaires-pour-multiplier-par-100-la-bande-passante-499842.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 13 Aug 2026 10:30:52 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "SpaceX souhaite lancer 100 000 satellites Starlink supplémentaires, pour multiplier par 100 la bande passante — Cela pourrait se traduire par un accès Internet plus rapide pour les habitants des zones rurales, mais tout le monde n'est pas satisfait.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "6fd2ee4f4629ab75",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/le-fbi-met-en-garde-des-pirates-informatiques-sont-a-la-recherche-de-vos-photos-intimes-voici-6-conseils-pour-eviter-le-cauchemar-du-chantage-sexuel-499836.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 13 Aug 2026 09:30:29 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Le FBI met en garde : des pirates informatiques sont à la recherche de vos photos intimes. Voici 6 conseils pour éviter le cauchemar du chantage sexuel — Les pirates informatiques qui dérobent des photos compromettantes vous concernant sur les réseaux sociaux et vos comptes personnels les revendent sur le dark web. Voici comment vous protéger.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "ef82b159cffe31af",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/microsoft-corrige-421-failles-et-une-faille-zero-day-de-windows-lors-du-patch-tuesday-du-mois-daout-mettez-a-jour-des-que-possible-499833.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 13 Aug 2026 08:36:25 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Microsoft corrige 421 failles et une faille « zero-day » de Windows lors du « Patch Tuesday » du mois d'août — mettez à jour dès que possible — La faille « zero-day », exploitée, pourrait permettre à un pirate d'obtenir des privilèges système sur un PC Windows.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "6535131c6041adbb",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/la-nouvelle-fonction-de-la-pixel-watch-5-pourrait-bien-remplacer-mon-application-preferee-pour-la-musculation-plus-besoin-de-smartphone-499830.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 13 Aug 2026 08:24:47 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "La nouvelle fonction de la Pixel Watch 5 pourrait bien remplacer mon application préférée pour la musculation : plus besoin de smartphone — La musculation fait fureur. Google a intégré un programme d'entraînement spécial à la Pixel Watch 5 pour vous aider à vous lancer plus facilement.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "52a2b14e9ea4630f",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/tous-les-pixel-devoiles-lors-de-levenement-made-by-google-2026-le-11-pro-fold-la-pixel-watch-5-et-bien-dautres-encore-499826.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 13 Aug 2026 08:15:10 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Tous les Pixel dévoilés lors de l'événement « Made by Google 2026 » : le 11 Pro Fold, la Pixel Watch 5 et bien d'autres encore — La dernière gamme Pixel de Google est un peu plus chère, intègre une nouvelle fonctionnalité d'éclairage LED et est lancée en même temps qu'un nouveau « finder tag ».",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e5fecc333eb53010",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/google-sacrifie-lautonomie-de-deepmind-pour-rattraper-openai-et-anthropic-499816.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 13 Aug 2026 08:02:55 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Google sacrifie l’autonomie de DeepMind pour rattraper OpenAI et Anthropic — En rompant avec l’autonomie accordée à DeepMind depuis son rachat en 2014, Google cherche à combler un retard technique face à OpenAI et Anthropic, alors que son modèle phare ne figure plus qu’au 11e rang des classements de performance.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "78aa15c801fdf001",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/smartphone/google-pixel-11-pro-vs-apple-iphone-17-pro-quel-modele-pro-choisir-499810.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 13 Aug 2026 08:00:10 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Google Pixel 11 Pro vs. Apple iPhone 17 Pro : quel modèle « Pro » choisir ? — Les deux smartphones se livrent une bataille au coude à coude, mais un seul répondra à vos besoins.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "9298732750bc004f",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/jai-pris-en-main-le-google-pixel-11-pro-fold-3-bonnes-raisons-de-le-preferer-a-un-samsung-499823.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 13 Aug 2026 07:56:31 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "J'ai pris en main le Google Pixel 11 Pro Fold : 3 bonnes raisons de le préférer à un Samsung — Il n'est pas aussi mignon et charmant que le Galaxy Z Fold 8. Mais le dernier Pixel pliable reste le meilleur choix sur certains points essentiels.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e886125cf95b6263",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/le-nouveau-google-pixel-11-donne-de-bonnes-raisons-de-faire-limpasse-sur-les-modeles-pro-voici-pourquoi-499820.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 13 Aug 2026 07:46:04 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Le nouveau Google Pixel 11 donne de bonnes raisons de faire l'impasse sur les modèles Pro : voici pourquoi — Bien que son design soit pratiquement inchangé, le Pixel 11 bénéficie d'améliorations notables, notamment la puce Tensor G6 et de nouveaux appareils photo.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "79ba0d5b9ddaf8f2",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/12/some-claude-users-are-mad-that-anthropics-new-watermarks-will-catch-them-cheating-at-their-jobs-classes/",
+      "image": "",
+      "date": "Wed, 12 Aug 2026 22:26:37 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Some Claude users are mad that Anthropic’s new watermarks will catch them using it at their jobs, classes — Is Anthropic's new watermarking system a travesty? Some have taken to social media to complain that it is.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "1a9b4529c1e0607b",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/12/ai-nuclear-power-firm-fermi-finally-has-a-new-ceo/",
+      "image": "",
+      "date": "Wed, 12 Aug 2026 22:24:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "AI nuclear power firm Fermi finally has a new CEO — Lee McIntire, an independent member of Fermi's board, has been hired as CEO, more than three months since the company fired co-founder Toby Neugebauer from the top post.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "275752d074ef0a17",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/12/northrops-robot-space-mechanic-is-a-new-way-to-keep-satellites-at-work-longer/",
+      "image": "",
+      "date": "Wed, 12 Aug 2026 20:53:41 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Northrop’s robot space mechanic is a new way to keep satellites at work longer — The Mission Robotic Vehicle is making the first attempt to attach a new thruster to an aging satellite.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "0e1a976108c71a3d",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/12/amazon-will-train-on-twitch-streamers-content-by-default-unless-they-opt-out/",
+      "image": "",
+      "date": "Wed, 12 Aug 2026 20:10:40 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Amazon will train on Twitch streamers’ content by default, unless they opt out — \"If this was opt-in, nobody would opt in,\" Twitch CPO Mike Minton said on a livestream responding to user feedback. \"That's honestly the answer.\"",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "17f519f2af4b21e5",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/12/grubhubs-24m-ftc-settlement-is-finally-reaching-diners-and-drivers/",
+      "image": "",
+      "date": "Wed, 12 Aug 2026 18:34:21 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Grubhub’s $24M FTC settlement is finally reaching diners and drivers — Checks are being mailed from Grubhub's $23.8 million fine from the FTC after it settled allegations over its business practices.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "fedb51cc07b1d84a",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/12/ai-coding-startup-cognition-reportedly-already-in-talks-to-raise-at-40b-valuation/",
+      "image": "",
+      "date": "Wed, 12 Aug 2026 18:19:12 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "AI coding startup Cognition reportedly already in talks to raise at $40B valuation — Cognition may be looking to raise another mega round just a few months after raising $1 billion at a $26 billion valuation.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "b77f0ff8e5502479",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/12/as-ai-safety-concerns-mount-three-pioneers-make-the-case-for-staying-open/",
+      "image": "",
+      "date": "Wed, 12 Aug 2026 17:51:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "As AI safety concerns mount, three pioneers make the case for staying open — At Ai4, three of the world's most respected AI experts — Geoffrey Hinton, Fei-Fei Li, and Andrew Ng — debated regulation, open source access, and how America can compete as China advances in Asia.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "2fd40c918be85521",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/12/openai-backed-thrive-holdings-raises-2b-to-bring-ai-to-the-enterprise/",
+      "image": "",
+      "date": "Wed, 12 Aug 2026 17:41:29 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "OpenAI-backed Thrive Holdings raises $2B to bring AI to the enterprise — Thrive Holdings has raised $2 billion in new funding at a $12 billion valuation from investors like SoftBank, D1 Capital Partners, and Altimeter Capital.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "cd0432e472a77f3c",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/12/uber-freight-reportedly-investigating-after-hacking-group-claims-data-breach/",
+      "image": "",
+      "date": "Wed, 12 Aug 2026 17:15:41 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Uber Freight reportedly investigating after hacking group claims data breach — An extortion gang known for targeting transportation companies and private equity firms has taken credit for a breach at Uber Freight.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "667e84b17d073839",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/12/mesh-automattics-crm-for-everyone-comes-to-android/",
+      "image": "",
+      "date": "Wed, 12 Aug 2026 16:57:58 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Mesh, Automattic’s CRM for everyone, comes to Android — Mesh, an AI-powered contacts app and relationship manager from Automattic, is now an Android app.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "b1463765cca45b9a",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/12/projet-phosphate-integre-sonatrach-signe-deux-contrats-avec-saipem-et-chec/",
+      "image": "",
+      "date": "Wed, 12 Aug 2026 14:54:47 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Projet Phosphate Intégré : Sonatrach signe deux contrats avec Saipem et CHEC — Le groupe Sonatrach et la société Algerian Fertilizer Company (AFC) ont procédé, ce mercredi 12 août, à la signature de deux contrats EPC (Engineering, Procurement & Construction) dans le cadre de la première phase de réalisation du Projet Phosphate Intégré, avec la société italienne Saipem et la so",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "4ddc24dd8bd57b21",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/12/sonelgaz-signature-de-deux-accords-pour-la-fabrication-locale-dequipements-electriques/",
+      "image": "",
+      "date": "Wed, 12 Aug 2026 14:35:47 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Sonelgaz : Signature de deux accords pour la fabrication locale d’équipements électriques — Le groupe Sonelgaz a annoncé, ce mercredi dans un communiqué, la signature de deux accords entre la Société algérienne des industries électriques et gazières (SAIEG) et General Electric Algeria Turbines (GEAT), visant à renforcer la fabrication locale de structures métalliques, d’armoires et de comp",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "996300b1a277fa8e",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/12/houria-meddahi-preside-une-reunion-sur-le-foncier-touristique/",
+      "image": "",
+      "date": "Wed, 12 Aug 2026 14:21:07 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Houria Meddahi préside une réunion sur le foncier touristique — La ministre du Tourisme et de l’Artisanat, Houria Meddahi, a présidé mardi une réunion consacrée à la situation du foncier touristique dans les wilayas de Jijel, Skikda et Oran. La rencontre a porté notamment sur l’assainissement des terrains et leur préparation pour accueillir de nouveaux projets t",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "b10f248a20709d59",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/12/cgci-pme-les-credits-dinvestissement-garantis-ont-atteint-41-milliards-de-dinars-en-2025/",
+      "image": "",
+      "date": "Wed, 12 Aug 2026 14:10:21 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "CGCI-PME : les crédits d’investissement garantis ont atteint 41 milliards de dinars en 2025 — Les garanties accordées par la Caisse de garantie des crédits d’investissements pour les PME (CGCI-PME) ont nettement augmenté durant l’année 2025, atteignant 41 milliards de dinars (mds DA) contre 35 mds Da au cours de l’exercice précédent, a-t-on appris auprès de cet organisme d’accompagnement. Au",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "828504b7a84065c6",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/12/cereales-les-centres-de-collecte-des-recoltes-ouverts-jusquau-30-septembre/",
+      "image": "",
+      "date": "Wed, 12 Aug 2026 13:49:15 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Céréales : Les centres de collecte des récoltes ouverts jusqu’au 30 septembre — Les centres de collecte des céréales resteront ouverts jusqu’au 30 septembre prochain pour recevoir les récoltes de la campagne agricole 2025/2026, parallèlement au lancement des préparatifs de la campagne labours-semailles pour la saison 2026/2027, a-t-on appris auprès de l’Office algérien interpro",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "a50a1a26d2d33e23",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/12/automobile-lalgerie-parmi-les-principaux-importateurs-de-vehicules-chinois/",
+      "image": "",
+      "date": "Wed, 12 Aug 2026 13:44:12 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Automobile : l’Algérie parmi les principaux importateurs de véhicules chinois — L’Algérie s’est hissée dans le classement des dix premiers marchés mondiaux pour les exportations automobiles chinoises au premier semestre 2026. Quelque 143 012 véhicules chinois ont été importés par des particuliers algériens entre janvier et juin, soit une progression de 235,5 % sur un an. Ces do",
         "ar": "",
         "en": ""
       },
@@ -4805,610 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "10282705ea710692",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/guide-achat/point-tech-ce-que-signifie-mah-pour-la-batterie-de-votre-smartphone-499204.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 16:07:49 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Point tech : ce que signifie « mAh » pour la batterie de votre smartphone — Les nouveaux mobiles sont équipés de batteries dont la capacité en mAh est plus élevée que jamais, mais cela ne joue en réalité un rôle absolu dans l'autonomie de l’appareil.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "790adcc335b7bb24",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/03/sonatrach-incident-au-niveau-du-puits-tg-16-a-tiguentourine/",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 15:47:08 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Sonatrach : Incident au niveau du puits TG 16 à Tiguentourine — Le groupe Sonatrach a annoncé qu’« en date du 02 août 2026 vers 15h00, une éruption sans feu du puits TG 16 de gaz situé au niveau du champ Tiguentourine, relevant de la Division Production In Amenas, s’est déclarée pendant une opération de Workover (maintenance du puits) ». « Cet incident n’a enreg",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "8983e885d4040f18",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/03/visa-americain-une-caution-pouvant-atteindre-20-000-dollars-exigee-pour-les-demandeurs-de-50-pays-dont-lalgerie/",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 14:47:51 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Visa américain : une caution pouvant atteindre 20.000 dollars exigée pour les demandeurs de 50 pays, dont l’Algérie — Les autorités américaines ont mis en place une nouvelle mesure permettant d’exiger une caution financière de certains demandeurs de visas temporaires. Cette garantie peut atteindre 20.000 dollars et concerne les ressortissants de 50 pays, parmi lesquels figure l’Algérie. La décision a été annoncée p",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "23e93d71cfe7664e",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/03/sous-traitance-mecanique-une-filiere-en-plein-essor-grace-au-soutien-de-laapi/",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 13:46:43 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Sous-traitance mécanique : Une filière en plein essor grâce au soutien de l’AAPI — La filière de la sous-traitance mécanique connaît, ces dernières années, une dynamique remarquable en Algérie, portée notamment par les mesures d’accompagnement et les facilitations accordées aux porteurs de projets par l’Agence algérienne de promotion de l’investissement (AAPI). Cette filière émerg",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "6e42afe2751c73c8",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/ai-act-transparence-obligatoire-audits-renforces-et-sanctions-leurope-serre-la-vis-sur-lia-generative-499256.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 13:41:04 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "AI Act : transparence obligatoire, audits renforcés et sanctions, l'Europe serre la vis sur l'IA générative — L'entrée en vigueur de nouvelles dispositions clés de l'AI Act marque un tournant réglementaire majeur pour l'écosystème numérique européen. Entre obligations d'étiquetage des contenus synthétiques, pouvoirs accrus du Bureau de l'IA et sanctions pouvant atteindre 7 % du chiffre d'affaires, les entre",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "bc386f652c5bcc37",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/03/parking-de-la-promenade-des-sablettes-mise-en-service-de-bornes-automatiques-de-paiement/",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 13:38:24 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Parking de la Promenade des Sablettes : Mise en service de bornes automatiques de paiement — Des bornes automatiques de paiement ont été mises en service au niveau du parking de la Promenade des Sablettes (Alger), en vue de faciliter l’accès et la sortie des véhicules, a indiqué dimanche l’Office des parcs des sports et loisirs de la wilaya d’Alger (OPLA) dans un communiqué. « Dans le cadre",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "6f224a824e649a62",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/il-ny-a-pas-quopenai-anthropic-explique-que-claude-aussi-peut-partir-en-sucette-499253.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 13:28:59 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Il n'y a pas qu'OpenAI : Anthropic explique que Claude aussi peut partir en sucette — Trois modèles « Claude » se sont rebellés lors des épreuves de sécurité « Capture the Flag ». Voici les dégâts causés par chacun d'entre eux.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "89aaadabe13721de",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/voici-comment-lagent-dopenai-sest-echappe-libere-par-des-humains-a-la-suite-dune-serie-devenements-qui-auraient-pu-tout-a-fait-etre-evites-499250.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 13:19:45 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Voici comment l'agent d'OpenAI s'est échappé : libéré par des humains à la suite d'une série d'événements qui auraient pu tout à fait être évités — Derrière l'attaque menée par cet agent rebelle contre Hugging Face se cache une succession bien précise de décisions humaines. Nous devons tous redoubler de vigilance, car les pirates, eux aussi, apprennent.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "fc270c239d6d351c",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/data-ia-1372/ai-office-qui-sont-les-gendarmes-de-lia-au-sein-de-lue-228645",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 12:59:05 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "AI Office : qui sont les gendarmes de l’IA au sein de l’UE — Documentation exigée, évaluations techniques, amendes pouvant atteindre 3 % du chiffre d'affaires mondial… Zoom sur l'AI Office, la petite structure bruxelloise chargée de faire respecter l'AI Act. The post AI Office : qui sont les gendarmes de l’IA au sein de l’UE appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "7020405ec7f9e616",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/le-nouveau-bouton-ia-slop-de-linkedin-vous-permet-de-signaler-toutes-ces-publications-embarrassantes-499246.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 12:52:57 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Le nouveau bouton « IA slop » de LinkedIn vous permet de signaler toutes ces publications embarrassantes — Ce nouveau bouton de LinkedIn va être mis à la disposition des utilisateurs, et son existence témoigne d'un changement de perspective concernant l'intrusion de l'IA dans les communautés numériques.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "a44655c52f06749e",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/08/03/horizon3-hits-2-billion-valuation-with-250m-series-e-as-ai-threats-escalate/",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 12:50:46 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Horizon3 hits $2 billion valuation with $250M Series E as AI threats escalate — Cybersecurity startup Horizon3 raised $250 million at a $2 billion valuation as companies want continuous, AI-powered security validation instead of annual pen testing.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "85e25d9788a6f1b6",
-      "source_name": "NTIC-DZ",
-      "source_short": "NTC",
-      "source_color": "#01579B",
-      "category": "Médias TIC",
-      "category_icon": "🌐",
-      "url": "https://www.ntic-dz.com/lg-thinq-quand-lintelligence-artificielle-simplifie-le-quotidien/?utm_source=rss&utm_medium=rss&utm_campaign=lg-thinq-quand-lintelligence-artificielle-simplifie-le-quotidien",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 12:29:51 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "LG ThinQ : quand l’intelligence artificielle simplifie le quotidien — feed L’été est synonyme de vacances, de déplacements et de températures élevées. Durant cette période, les consommateurs recherchent davantage de confort, de flexibilité et de sérénité dans la gestion de leur foyer. Avec LG ThinQ, LG Electronics propose un écosystème intelligent qui permet de rester",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "34a36d56b0eeeb8d",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/08/03/samsung-bans-smart-tv-apps-that-share-users-internet-connections-with-strangers/",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 12:10:41 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Samsung bans smart TV apps that share users’ internet connections with strangers — New security research offers a rare view inside residential proxy networks, which rely on apps that share a person's internet connection with someone else.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "56e381ce932e419d",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/08/03/gouvernance-du-commerce-exterieur-fin-du-papier-place-au-digital-br-lalgerie-passe-a-la-vitesse-superieure-avec-une-plateforme-100-numerique/",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 11:06:54 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Gouvernance du commerce extérieur, fin du papier, place au digital <BR L’Algérie passe à la vitesse supérieure avec une plateforme 100% numérique — Le ministre du Commerce extérieur lance une plateforme numérique pour moderniser et sécuriser les importations de services. Dématérialisation des dossiers, suivi en temps réel, échanges …",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "8f0f132b171e6b22",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/business-1367/linkedin-degaine-son-bouton-anti-slop-ia-228639",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 10:54:45 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "LinkedIn dégaine son bouton anti « Slop IA » — Face au déferlement de posts « bouillie IA », LinkedIn dégaine un bouton de signalement et fait le tri dans ses propres outils de réécriture automatique. The post LinkedIn dégaine son bouton anti « Slop IA » appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "24dcaad1a644c936",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/data-ia-1372/infrastructure-ia-cloud-magic-quadrant-2026-228633",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 10:07:36 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Infrastructures IA : Gartner met OVHcloud et Scaleway sur sa carte mondiale — Absents du Magic Quadrant du cloud public d'infrastructure, OVHcloud et Scaleway figurent en revanche dans celui dédié aux « infrastructures cloud pour l'IA ». The post Infrastructures IA : Gartner met OVHcloud et Scaleway sur sa carte mondiale appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "88343d56b1706eb5",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/08/03/lere-de-lia-agentique-br-quand-les-machines-apprennent-a-agir-a-communiquer-et-a-penser-par-elles-memes/",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 10:03:12 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "L’ère de l’IA agentique <BR Quand les machines apprennent à agir, à communiquer et à penser par elles-mêmes — De simples assistants conversationnels à des collaborateurs autonomes, les agents IA redéfinissent notre rapport à la technologie Il y a encore trois ans, l’idée qu’une …",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "a7754f051081bacf",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/08/03/a-marc-benioff-backed-startup-thinks-ai-can-solve-the-ai-deployment-problem/",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 10:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "A Marc Benioff-backed startup thinks AI can solve the AI deployment problem — June emerged from stealth today with a $20 million pre-seed round to make AI adoption simpler.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "b543ec80d2585fa2",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/la-taille-de-vos-fichiers-de-telechargement-windows-ne-cesse-daugmenter-et-cest-a-cause-de-lia-voici-pourquoi-cest-important-499242.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 08:43:14 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "La taille de vos fichiers de téléchargement Windows ne cesse d'augmenter, et c'est à cause de l'IA. Voici pourquoi c'est important — Ce n'est pas une impression. La taille des fichiers d'installation de Windows ne cesse d'augmenter. Et vous ne devinerez jamais d'où vient le problème.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "ee2bd1dcdbd6b178",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/lattaque-de-lagent-rebelle-dopenai-ne-sest-pas-limite-a-hugging-face-voici-ce-que-nous-savons-499238.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 08:28:19 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "L'attaque de l'agent rebelle d'OpenAI ne s'est pas limitée à Hugging Face : voici ce que nous savons — Le même agent autonome d'OpenAI qui s'était échappé de son environnement de test et avait piraté Hugging Face s'était également livré à des attaques contre d'autres systèmes d'IA.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "4493aeaa160e4e1f",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/apple-preparerait-la-plus-grande-refonte-de-lipad-air-depuis-2020-499213.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 08:02:46 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Apple préparerait la plus grande refonte de l’iPad Air depuis 2020 — 2027 sera l’année de la transformation pour l’iPad Air, avec le passage à l’OLED, une éventuelle puce M5 et un nouveau design potentiellement calqué sur celui du futur iPad mini.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "25e2266d7c003cb8",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/les-geants-americains-de-la-tech-ont-deja-investi-plus-de-1-100-milliards-de-dollars-dans-lia-la-rentabilite-devient-le-veritable-enjeu-499216.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 07:00:53 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Les géants américains de la tech ont déjà investi plus de 1 100 milliards de dollars dans l’IA : la rentabilité devient le véritable enjeu — Google, Amazon, Microsoft et Meta accélèrent leurs investissements dans les centres de données, les GPU et les infrastructures énergétiques pour soutenir l'essor de l'intelligence artificielle générative. Si la croissance du cloud confirme la pertinence de cette stratégie, les investisseurs attenden",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e298aa7fd92b220e",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/snapchat-privilegie-les-createurs-humains-face-a-la-vague-de-videos-ia-499210.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 03 Aug 2026 06:02:07 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Snapchat privilégie les créateurs humains face à la vague de vidéos IA — Snapchat a annoncé une refonte de l’algorithme de son service Spotlight, qui n’affichera plus les vidéos entièrement générées par IA en recommandation et les exclut de la monétisation, sauf lorsqu’elles sont réalisées avec les propres outils IA de l’application.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "97319d1fc46e3c11",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/08/02/the-global-memory-shortage-hits-the-macbook-air/",
-      "image": "",
-      "date": "Sun, 02 Aug 2026 21:33:59 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "The global memory shortage hits the MacBook Air — The global memory chip shortage appears to be affecting the availability of Apple’s most popular Mac.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "80e7e83282c871df",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/08/02/sam-altman-and-ais-decel-debate/",
-      "image": "",
-      "date": "Sun, 02 Aug 2026 20:54:22 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Sam Altman and AI’s decel debate — On the latest episode of Equity, we discuss why Sam Altman has calling on the industry to \"pace the rate of AI development.\"",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "3eedc404afc861b7",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/02/accident-de-bus-a-boumerdes-le-conducteur-etait-sous-lemprise-de-stupefiants-et-roulait-a-plus-de-120-km-h-selon-lenquete/",
-      "image": "",
-      "date": "Sun, 02 Aug 2026 17:34:32 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Accident de bus à Boumerdès : le conducteur était sous l’emprise de stupéfiants et roulait à plus de 120 km/h, selon l’enquête — Les premiers éléments de l’enquête menée après l’accident de bus survenu dans la wilaya de Boumerdès ont révélé que le conducteur décédé était sous l’emprise de stupéfiants et que deux (2) comprimés psychotropes ont été retrouvés dans ses vêtements, indique dimanche un communiqué du parquet général",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "dad54bb61460fe1c",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/08/02/malaysia-is-reportedly-shutting-down-balaji-srinivasans-network-school/",
-      "image": "",
-      "date": "Sun, 02 Aug 2026 17:05:07 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Malaysia is reportedly shutting down Balaji Srinivasan’s Network School — Let's see how this \"frontier community for techno-optimists\" is doing ...",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "304b24846b02543a",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/02/bdl-nomination-dun-nouveau-pdg/",
-      "image": "",
-      "date": "Sun, 02 Aug 2026 16:19:38 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "BDL : Nomination d’un nouveau PDG — La Banque de Développement Local (BDL) a annoncé ce dimanche 2 août des changements à la tête de son équipe dirigeante. Dans un communiqué, l’établissement a indiqué que son Conseil d’administration, réuni le 23 juillet 2026, a nommé Mustapha Ferfera au poste de président-directeur général (PDG). Mo",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "657b386943d1f62b",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/08/02/techcrunch-mobility-two-roads-diverged-for-robotaxis/",
-      "image": "",
-      "date": "Sun, 02 Aug 2026 16:05:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "TechCrunch Mobility: Two roads diverged — for robotaxis — Welcome back to TechCrunch Mobility, your hub for the future of transportation and now, more than ever, the role AI is playing in it.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "bfcc85078217986e",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/08/02/these-app-store-hidden-gems-prove-theres-still-room-for-great-software-in-the-ai-era/",
-      "image": "",
-      "date": "Sun, 02 Aug 2026 15:23:19 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "These App Store hidden gems prove there’s still room for great software in the AI era — Despite predictions that AI agents could make traditional apps obsolete, developers are shipping new software faster than ever. From smarter bookmarking tools and neighborhood marketplaces to digital pen pals and nature journals, here are the latest App Store finds worth adding to your Home Screen.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "7a0177d4af5f150a",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/02/alger-de-nouvelles-mesures-pour-ameliorer-la-qualite-du-service-public-de-distribution-deau-potable/",
-      "image": "",
-      "date": "Sun, 02 Aug 2026 15:02:19 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Alger : de nouvelles mesures pour améliorer la qualité du service public de distribution d’eau potable — Le ministre de l’Hydraulique, Lounès Bouzegza, a présidé, samedi, en compagnie du ministre, wali d’Alger, Abdenour Rabehi, une réunion de travail sur la situation du secteur dans la capitale, lors de laquelle de nouvelles mesures ont été prises pour améliorer la qualité du service public de distribu",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "13b09f580f450da7",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/02/petrole-lopep-decide-une-hausse-de-188-000-barils-par-jour-en-septembre-le-quota-de-lalgerie-porte-a-1007-million-de-barils/",
-      "image": "",
-      "date": "Sun, 02 Aug 2026 14:05:24 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Pétrole : l’Opep+ décide une hausse de 188.000 barils par jour en septembre, le quota de l’Algérie porté à 1,007 million de barils — L’Algérie et six autres pays membres de l’Opep+ poursuivent le rétablissement progressif de leur production pétrolière. Réunis ce dimanche par visioconférence, les ministres des sept pays ayant mis en œuvre des réductions volontaires ont décidé d’augmenter leur production globale de 188.000 barils p",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "23b15b58c1a58eac",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/02/education-les-resultats-des-examens-professionnels-et-du-concours-de-recrutement-annonces-lundi-et-jeudi-prochains/",
-      "image": "",
-      "date": "Sun, 02 Aug 2026 13:53:12 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Education : Les résultats des examens professionnels et du concours de recrutement annoncés lundi et jeudi prochains — Les résultats des examens professionnels d’accès aux différents grades des corps spécifiques de l’Education nationale seront annoncés lundi, et ceux du concours de recrutement des enseignants jeudi prochain, a indiqué, dimanche, un communiqué du ministère de l’Education nationale. Les résultats des",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-08-08T07:49:14.420962+00:00",
+  "lastUpdated": "2026-08-13T15:30:09.032235+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Médias TIC": 56,
-    "Tech International": 164
+    "Tech International": 166,
+    "Médias TIC": 54
   },
   "total": 300
 }
