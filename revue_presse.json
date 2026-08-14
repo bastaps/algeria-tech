@@ -1,83 +1,39 @@
 {
-  "date": "jeudi 13 août",
-  "synthese": "Douze annonces technologiques et économiques majeures ont marqué les dernières 24 heures, impliquant des acteurs institutionnels, des levées de fonds et des décisions industrielles. Les domaines des télécoms, de l'intelligence artificielle et de l'énergie concentrent les principaux développements.",
+  "date": "vendredi 14 août",
+  "synthese": "Douze faits technologiques marquants ont été enregistrés en 24 heures, incluant des décisions officielles algériennes, des partenariats stratégiques et des avancées sectorielles en Algérie et à l'international. Les secteurs des télécoms, de l'innovation et de la cybersécurité dominent l'actualité avec des enjeux institutionnels et économiques majeurs.",
   "articles": [
     {
-      "titre": "Sonatrach lance le forage de quatre puits d’exploration sur le permis de Kafra au Niger",
-      "resume": "Le groupe Sonatrach et la société nigérienne Sonidep ont lancé, ce jeudi 13 août, une nouvelle phase d’exploration sur le permis de Kafra, au Niger. Q",
-      "url": "https://algerie-eco.com/2026/08/13/sonatrach-lance-le-forage-de-quatre-puits-dexploration-sur-le-permis-de-kafra-au-niger/",
-      "date": "2026-08-13T14:43:29.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "titre": "Usernames sur WhatsApp <BR> L’Algérie exige de Meta un ancrage territorial des comptes",
+      "resume": "WhatsApp déploie peu à peu ses fameux « noms d’utilisateurs » en Algérie, une nouveauté qui permet enfin de discuter sans avoir à balancer son …",
+      "url": "https://www.itmag.dz/2026/08/13/usernames-sur-whatsapp-br-lalgerie-exige-de-meta-un-ancrage-territorial-des-comptes/",
+      "date": "2026-08-13T14:16:49.000Z",
+      "source": "ITMAG.dz",
+      "logo": "https://www.google.com/s2/favicons?domain=itmag.dz&sz=32",
       "pays": "DZ",
-      "accroche": "Sonatrach : forage de quatre puits au Niger",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Algérie : vers un partenariat avec China Baowu pour réhabiliter et développer le complexe sidérurgique d’El Hadjar",
-      "resume": "Le ministre de l’Industrie, Yahia Bachir, a tenu mercredi 12 août à Alger une nouvelle réunion avec une délégation du groupe chinois China Baowu Steel",
-      "url": "https://algerie-eco.com/2026/08/13/algerie-vers-un-partenariat-avec-china-baowu-pour-rehabiliter-et-developper-le-complexe-siderurgique-del-hadjar/",
-      "date": "2026-08-13T12:29:34.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Partenariat Algérie-China Baowu pour la sidérurgie",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Spotify va étiqueter la musique générée par intelligence artificielle",
-      "resume": "feed\n\nAprès Deezer, Spotify s’apprête à renforcer la transparence autour de la musique créée à l’aide de l’intelligence artificielle. La plateforme de",
-      "url": "https://www.ntic-dz.com/spotify-va-etiqueter-la-musique-generee-par-intelligence-artificielle/?utm_source=rss&utm_medium=rss&utm_campaign=spotify-va-etiqueter-la-musique-generee-par-intelligence-artificielle",
-      "date": "2026-08-12T21:49:17.000Z",
-      "source": "NTIC.dz",
-      "logo": "https://www.google.com/s2/favicons?domain=ntic-dz.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Spotify étiquette la musique générée par IA",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Algérie : L’allemand MAN Truck & Bus a annoncé la reprise des activités de son usine d’assemblage de véhicules utilitaires",
-      "resume": "L’allemand MAN Truck & Bus a annoncé, le 22 juillet, la reprise des activités de son usine d’assemblage de véhicules utilitaires en Algérie après plus",
-      "url": "https://www.ecomnewsmed.com/2026/08/13/algerie-lallemand-man-truck-bus-a-annonce-la-reprise-des-activites-de-son-usine-dassemblage-de-vehicules-utilitaires/",
-      "date": "2026-08-13T04:52:00.000Z",
-      "source": "EcomNewsMed DZ",
-      "logo": "https://www.google.com/s2/favicons?domain=ecomnewsmed.com&sz=32",
-      "pays": "DZ",
-      "accroche": "MAN Truck & Bus relance son usine d'assemblage en Algérie",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Télécoms : les frais de résiliation, l’arme secrète des opérateurs pour la rentrée",
-      "resume": "Les coûts liés à la rupture de contrat constituent une arme à double tranchant pour retenir un abonné ou, inversement, le débaucher. En cette rentrée,",
-      "url": "https://www.zdnet.fr/actualites/telecoms-les-frais-de-resiliation-larme-secrete-des-operateurs-pour-la-rentree-499847.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-08-13T15:30:14.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Frais de résiliation télécoms, arme des opérateurs",
+      "accroche": "Algérie : Meta sommée d’ancrer les comptes WhatsApp localement",
       "categorie": "Télécoms"
     },
     {
-      "titre": "SpaceX souhaite lancer 100 000 satellites Starlink supplémentaires, pour multiplier par 100 la bande passante",
-      "resume": "Cela pourrait se traduire par un accès Internet plus rapide pour les habitants des zones rurales, mais tout le monde n'est pas satisfait.",
-      "url": "https://www.zdnet.fr/actualites/spacex-souhaite-lancer-100-000-satellites-starlink-supplementaires-pour-multiplier-par-100-la-bande-passante-499842.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-08-13T10:30:52.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "SpaceX vise 100 000 satellites Starlink supplémentaires",
-      "categorie": "Réseaux"
+      "titre": "Importation pour la revente en l’état : réouverture exceptionnelle de la plateforme dédiée au certificat de respect",
+      "resume": "Le ministère du Commerce intérieur et de la Régulation du marché national a annoncé, jeudi, la réouverture exceptionnelle, pour une durée de dix jours",
+      "url": "https://algerie-eco.com/2026/08/13/importation-pour-la-revente-en-letat-reouverture-exceptionnelle-de-la-plateforme-dediee-au-certificat-de-respect/",
+      "date": "2026-08-13T16:18:32.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Importation : plateforme de certificats rouverte exceptionnellement",
+      "categorie": "Innovation"
     },
     {
-      "titre": "Le FBI met en garde : des pirates informatiques sont à la recherche de vos photos intimes. Voici 6 conseils pour éviter le cauchemar du chantage sexuel",
-      "resume": "Les pirates informatiques qui dérobent des photos compromettantes vous concernant sur les réseaux sociaux et vos comptes personnels les revendent sur",
-      "url": "https://www.zdnet.fr/actualites/le-fbi-met-en-garde-des-pirates-informatiques-sont-a-la-recherche-de-vos-photos-intimes-voici-6-conseils-pour-eviter-le-cauchemar-du-chantage-sexuel-499836.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-08-13T09:30:29.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "FBI alerte sur la recherche de photos intimes par des pirates",
-      "categorie": "Cybersécurité"
+      "titre": "Services aériens : Air Algérie signe un protocole d’accord avec Oman Airports, une ligne Alger-Mascate prévue pour 2027",
+      "resume": "Air Algérie a signé, ce jeudi 13 août à Alger, un protocole d’accord avec Oman Airports-Transom, en vue de développer leur coopération dans les servic",
+      "url": "https://algerie-eco.com/2026/08/13/services-aeriens-air-algerie-signe-un-protocole-daccord-avec-oman-airports-une-ligne-alger-mascate-prevue-pour-2027/",
+      "date": "2026-08-13T16:03:47.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Air Algérie et Oman Airports signent un protocole pour Alger-Mascate",
+      "categorie": "Réseaux"
     },
     {
       "titre": "Vibe coding : Lovable lève 400 millions de dollars, sa valorisation s’envole à 13,3 milliards de dollars",
@@ -87,7 +43,7 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Lovable lève 400 millions de dollars en financement",
+      "accroche": "Lovable lève 400 millions de dollars, valorisation à 13,3 milliards $",
       "categorie": "Startups"
     },
     {
@@ -98,7 +54,7 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Data centers : plus de 50% des sinistres liés aux incendies",
+      "accroche": "50% des sinistres des data centers liés aux incendies",
       "categorie": "Cybersécurité"
     },
     {
@@ -109,18 +65,29 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Ryanair adopte une stratégie multicloud avec AWS et Google Cloud",
-      "categorie": "Cloud"
+      "accroche": "Ryanair intègre Google Cloud après AWS dans sa stratégie multicloud",
+      "categorie": "Réseaux"
     },
     {
-      "titre": "Cloud gaming en 2026 : GeForce Now, Xbox Cloud Gaming, Shadow… notre comparatif complet",
-      "resume": "Qu'est-ce que le cloud gaming ? Et surtout, quel est le meilleur service à choisir parmi Nvidia GeForce Now, Xbox Cloud Gaming de Microsoft, Shadow ou",
-      "url": "https://www.frandroid.com/produits-android/console/575680_cloud-gaming-tout-savoir-sur-le-futur-du-jeu-video-et-les-differents-services-disponibles",
-      "date": "2026-08-13T14:46:01.000Z",
+      "titre": "Gemini 3.7 Flash : Google sort une nouvelle IA trois semaines après la 3.6",
+      "resume": "Google ajoute Gemini 3.7 Flash à sa gamme d'IA, quelques semaines seulement après la version 3.6. Le rythme en dit autant que le modèle lui-même sur l",
+      "url": "https://www.frandroid.com/marques/google/3211861_gemini-3-7-flash-google-sort-une-nouvelle-ia-trois-semaines-apres-la-3-6",
+      "date": "2026-08-14T05:07:41.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Comparatif des plateformes de cloud gaming pour 2026",
+      "accroche": "Google lance Gemini 3.7 Flash trois semaines après la 3.6",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Fin du moteur thermique : Renault prépare une rupture totale pour la prochaine Clio",
+      "resume": "Alors que la Clio actuelle est encore toute récente, Renault anticipe déjà la relève avec une sixième génération qui sera surprenante à plus d’un titr",
+      "url": "https://www.01net.com/actualites/fin-thermique-format-inedit-renault-prepare-rupture-totale-clio.html",
+      "date": "2026-08-14T05:34:51.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Renault abandonne le moteur thermique pour la future Clio",
       "categorie": "Mobile"
     },
     {
@@ -131,24 +98,55 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Lunettes connectées Meta en procès en Allemagne",
+      "accroche": "Lunettes connectées Meta sous le coup d’une action en justice en Allemagne",
       "categorie": "Mobile"
+    },
+    {
+      "titre": "Amazon va utiliser les données des utilisateurs Twitch pour entraîner son IA, comment s’y opposer ?",
+      "resume": "Amazon va utiliser les contenus des chaînes Twitch pour entraîner un nouveau modèle d’intelligence artificielle générative. Heureusement, il est possi",
+      "url": "https://www.01net.com/actualites/amazon-utiliser-donnees-utilisateurs-twitch-entrainer-ia-voici-comment-opposer.html",
+      "date": "2026-08-13T14:01:46.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Amazon utilise les données Twitch pour entraîner son IA",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Cinq technologies, un même objectif : comment le programme Proqcima façonne les ordinateurs quantiques français",
+      "resume": "",
+      "url": "https://www.usinenouvelle.com/technos-et-innovations/quantique/cinq-technologies-un-meme-objectif-comment-le-programme-proqcima-faconne-les-ordinateurs-quantiques-francais.C24IVCZ6KNC5PFPAG5FC4GAFWE.html",
+      "date": "2026-08-14T04:30:00.000Z",
+      "source": "L'Usine Nouvelle",
+      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
+      "pays": "FR",
+      "accroche": "Proqcima façonne les ordinateurs quantiques via cinq technologies",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "«2025 a été une année de prise de commandes historique» : TechnicAtome est propulsé par les marchés de la défense",
+      "resume": "« 2025 a été une année de prise de commandes historique pour TechnicAtome ! se réjouit Nasrine Winther, la directrice développement et stratégie de Te",
+      "url": "https://www.usinenouvelle.com/energie/nucleaire/2025-a-ete-une-annee-de-prise-de-commandes-historique-technicatome-est-propulse-par-les-marches-de-la-defense.DZIHZJCERVKU7HP4RY6GK2QAJ4.html",
+      "date": "2026-08-13T16:30:00.000Z",
+      "source": "L'Usine Nouvelle",
+      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
+      "pays": "FR",
+      "accroche": "TechnicAtome enregistre une année de commandes historique en 2025",
+      "categorie": "Innovation"
     }
   ],
   "syntheseArticle": {
-    "titre": "Technologie : les 24 heures qui ont marqué l'économie et l'innovation mondiale",
-    "dateline": "Alger, 13 août 2026 (Algeria Tech)",
-    "lead": "Entre partenariats industriels, avancées technologiques et alertes cybernétiques, les dernières 24 heures ont vu se multiplier les initiatives stratégiques. Les acteurs publics, privés et internationaux ont annoncé des mesures concrètes impactant plusieurs secteurs clés.",
+    "titre": "Technologie : l’Algérie et l’international en mouvement, les faits marquants des dernières 24 heures",
+    "dateline": "Alger, 14 août 2026 (Algeria Tech)",
+    "lead": "L’Algérie et le secteur technologique mondial ont connu des évolutions majeures en 24 heures, avec des décisions institutionnelles locales et des avancées sectorielles à l’échelle internationale. Les enjeux portent sur la régulation des télécoms, l’innovation industrielle et les stratégies des géants du numérique.",
     "corpsHtml": [
-      "<p>Côté énergie, Sonatrach a lancé le forage de quatre puits d’exploration sur le permis de Kafra au Niger, selon <a href=\"https://algerie-eco.com/2026/08/13/sonatrach-lance-le-forage-de-quatre-puits-dexploration-sur-le-permis-de-kafra-au-niger/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Cette opération s’inscrit dans la stratégie d’expansion de la société nationale hors des frontières algériennes. Par ailleurs, un partenariat entre l’Algérie et le groupe chinois China Baowu a été évoqué pour la réhabilitation et le développement du complexe sidérurgique national, toujours d’après <a href=\"https://algerie-eco.com/2026/08/13/algerie-vers-un-partenariat-avec-china-baowu-pour-rehabiliter-et-developper-le-complexe-siderurgique-del-hadjar/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>.</p>",
-      "<p>Dans le domaine industriel, l’allemand MAN Truck & Bus a annoncé la reprise des activités de son usine d’assemblage en Algérie, marquant un regain d’intérêt pour le secteur manufacturier local, indique <a href=\"https://www.ecomnewsmed.com/2026/08/13/algerie-lallemand-man-truck-bus-a-annonce-la-reprise-des-activites-de-son-usine-dassemblage-de-vehicules-utilitaires/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">EcomNewsMed DZ</a>.</p>",
-      "<p>L’intelligence artificielle a également été au cœur des actualités. Spotify a annoncé qu’il allait étiqueter la musique générée par IA, une mesure visant à clarifier l’origine des contenus diffusés, selon <a href=\"https://www.ntic-dz.com/spotify-va-etiqueter-la-musique-generee-par-intelligence-artificielle/?utm_source=rss&utm_medium=rss&utm_campaign=spotify-va-etiqueter-la-musique-generee-par-intelligence-artificielle\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">NTIC.dz</a>.</p>",
-      "<p>Les télécoms et les réseaux ont connu des évolutions majeures. Les opérateurs de télécommunications en France ont utilisé les frais de résiliation comme levier stratégique pour fidéliser leur clientèle, révèle <a href=\"https://www.zdnet.fr/actualites/telecoms-les-frais-de-resiliation-larme-secrete-des-operateurs-pour-la-rentree-499847.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. De son côté, SpaceX a annoncé son intention de lancer 100 000 satellites Starlink supplémentaires, visant à multiplier par 100 la bande passante disponible, toujours selon <a href=\"https://www.zdnet.fr/actualites/spacex-souhaite-lancer-100-000-satellites-starlink-supplementaires-pour-multiplier-par-100-la-bande-passante-499842.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>.</p>",
-      "<p>La cybersécurité a fait l’objet d’une alerte du FBI, qui met en garde contre des pirates informatiques recherchant des photos intimes des utilisateurs. Six conseils ont été publiés pour se prémunir contre ces attaques, d’après <a href=\"https://www.zdnet.fr/actualites/le-fbi-met-en-garde-des-pirates-informatiques-sont-a-la-recherche-de-vos-photos-intimes-voici-6-conseils-pour-eviter-le-cauchemar-du-chantage-sexuel-499836.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Par ailleurs, les data centers sont désormais confrontés à des risques croissants d’incendies, représentant plus de 50 % des sinistres dans ce secteur, selon <a href=\"https://www.usine-digitale.fr/start-up/financement/levee-de-fonds/vibe-coding-lovable-leve-400-millions-de-dollars-sa-valorisation-senvole-a-133-milliards-de-dollars.BZYJXC64Y5F6DGWJDSGM3JTH3U.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>.</p>",
-      "<p>Le secteur des startups a été marqué par une levée de fonds record. Lovable, une plateforme de développement logiciel, a levé 400 millions de dollars, portant sa valorisation à 13,3 milliards de dollars, indique <a href=\"https://www.usine-digitale.fr/informatique/data-centers/plus-de-50-du-cout-des-sinistres-lies-aux-incendies-les-data-centers-face-a-des-risques-grandissants.2LJ2WO2U6NFOLKH4TS4LDCJFXM.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>.</p>",
-      "<p>Le cloud et le gaming ont également connu des avancées significatives. Ryanair a prolongé son partenariat avec AWS et intégré Google Cloud dans sa stratégie multicloud, selon <a href=\"https://www.usine-digitale.fr/aeronautique-spatial/strategie-multicloud-apres-avoir-prolonge-avec-aws-ryanair-fait-aussi-monter-google-cloud-a-bord.NMBJXPYH4VFKNLFHMMJXFFWBB4.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Un comparatif complet des plateformes de cloud gaming, incluant GeForce Now, Xbox Cloud Gaming et Shadow, a été publié par <a href=\"https://www.frandroid.com/produits-android/console/575680_cloud-gaming-tout-savoir-sur-le-futur-du-jeu-video-et-les-differents-services-disponibles\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> pour 2026. Enfin, les lunettes connectées de Meta risquent un procès pénal en Allemagne, rapportent <a href=\"https://www.01net.com/actualites/les-lunettes-connectees-de-meta-risquent-le-tribunal-penal-en-allemagne.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>.</p>",
-      "<p>Enfin, le marché des équipements technologiques a été dynamique. Midea a relancé son climatiseur PortaSplit en stock limité à 899 euros, selon Frandroid et Numerama. Amazon a également annoncé l’utilisation des données des utilisateurs Twitch pour entraîner son IA, suscitant des interrogations sur la protection des données, d’après 01net.</p>"
+      "<p>Côté algérien, les autorités ont exigé de Meta l’ancrage territorial des comptes utilisateurs sur WhatsApp, selon <a href=\"https://www.itmag.dz/2026/08/13/usernames-sur-whatsapp-br-lalgerie-exige-de-meta-un-ancrage-territorial-des-comptes/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ITMAG.dz</a>. Cette mesure s’inscrit dans une volonté de renforcer la souveraineté numérique et la conformité aux réglementations locales. Par ailleurs, la plateforme dédiée à l’importation pour la revente en l’état a fait l’objet d’une réouverture exceptionnelle des certificats, comme rapporté par <a href=\"https://algerie-eco.com/2026/08/13/importation-pour-la-revente-en-letat-reouverture-exceptionnelle-de-la-plateforme-dediee-au-certificat-de-respect/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, afin de fluidifier les échanges commerciaux.</p>",
+      "<p>Le secteur aérien algérien a également été marqué par la signature d’un protocole d’accord entre Air Algérie et Oman Airports, officialisant l’ouverture d’une ligne directe entre Alger et Mascate. Cette initiative, annoncée par <a href=\"https://algerie-eco.com/2026/08/13/services-aeriens-air-algerie-signe-un-protocole-daccord-avec-oman-airports-une-ligne-alger-mascate-prevue-pour-2027/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, vise à renforcer les liaisons commerciales et touristiques entre les deux pays.</p>",
+      "<p>À l’international, l’écosystème des startups a enregistré un levée de fonds record pour Lovable, qui a levé 400 millions de dollars, portant sa valorisation à 13,3 milliards de dollars. Selon <a href=\"https://www.usine-digitale.fr/start-up/financement/levee-de-fonds/vibe-coding-lovable-leve-400-millions-de-dollars-sa-valorisation-senvole-a-133-milliards-de-dollars.BZYJXC64Y5F6DGWJDSGM3JTH3U.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>, cette opération reflète l’attractivité croissante des solutions technologiques innovantes. Dans le domaine de la cybersécurité, une étude révèle que plus de 50 % des sinistres touchant les data centers sont liés à des incendies, soulignant les risques majeurs encourus par ces infrastructures critiques, d’après <a href=\"https://www.usine-digitale.fr/informatique/data-centers/plus-de-50-du-cout-des-sinistres-lies-aux-incendies-les-data-centers-face-a-des-risques-grandissants.2LJ2WO2U6NFOLKH4TS4LDCJFXM.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>.</p>",
+      "<p>Les stratégies cloud des entreprises ont également évolué, avec Ryanair intégrant Google Cloud à sa plateforme multicloud, après avoir prolongé son partenariat avec AWS, comme indiqué par <a href=\"https://www.usine-digitale.fr/aeronautique-spatial/strategie-multicloud-apres-avoir-prolonge-avec-aws-ryanair-fait-aussi-monter-google-cloud-a-bord.NMBJXPYH4VFKNLFHMMJXFFWBB4.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Cette décision s’inscrit dans une logique de diversification et de résilience opérationnelle. Parallèlement, Google a lancé Gemini 3.7 Flash, une nouvelle version de son modèle d’IA, seulement trois semaines après la sortie de la version 3.6, selon <a href=\"https://www.frandroid.com/marques/google/3211861_gemini-3-7-flash-google-sort-une-nouvelle-ia-trois-semaines-apres-la-3-6\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>.</p>",
+      "<p>Le secteur automobile a été marqué par l’annonce de Renault concernant l’abandon du moteur thermique pour sa prochaine Clio, une rupture technologique majeure attendue pour 2026, comme le révèle <a href=\"https://www.01net.com/actualites/fin-thermique-format-inedit-renault-prepare-rupture-totale-clio.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. Les lunettes connectées de Meta pourraient quant à elles faire face à une action en justice en Allemagne, suite à des préoccupations liées à la vie privée, rapporte <a href=\"https://www.01net.com/actualites/les-lunettes-connectees-de-meta-risquent-le-tribunal-penal-en-allemagne.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>.</p>",
+      "<p>Dans le domaine de l’intelligence artificielle, Amazon a confirmé l’utilisation des données des utilisateurs de Twitch pour entraîner ses modèles d’IA, suscitant des interrogations sur la protection des données personnelles, selon <a href=\"https://www.01net.com/actualites/amazon-utiliser-donnees-utilisateurs-twitch-entrainer-ia-voici-comment-opposer.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. Enfin, le programme Proqcima a présenté cinq technologies clés pour façonner les ordinateurs quantiques de demain, comme détaillé par <a href=\"https://www.usinenouvelle.com/technos-et-innovations/quantique/cinq-technologies-un-meme-objectif-comment-le-programme-proqcima-faconne-les-ordinateurs-quantiques-francais.C24IVCZ6KNC5PFPAG5FC4GAFWE.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a>. TechnicAtome a également annoncé une année 2025 historique en termes de commandes, propulsant l’entreprise sur le devant de la scène industrielle française, comme le souligne <a href=\"https://www.usinenouvelle.com/energie/nucleaire/2025-a-ete-une-annee-de-prise-de-commandes-historique-technicatome-est-propulse-par-les-marches-de-la-defense.DZIHZJCERVKU7HP4RY6GK2QAJ4.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a>.</p>"
     ]
   },
-  "lastUpdated": "2026-08-13T15:46:13.004Z"
+  "lastUpdated": "2026-08-14T05:38:00.630Z"
 }
