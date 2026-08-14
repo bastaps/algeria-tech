@@ -1,6 +1,6 @@
 {
   "date": "vendredi 14 août",
-  "synthese": "Douze faits technologiques marquants ont été enregistrés en 24 heures, incluant des décisions officielles algériennes, des partenariats stratégiques et des avancées sectorielles en Algérie et à l'international. Les secteurs des télécoms, de l'innovation et de la cybersécurité dominent l'actualité avec des enjeux institutionnels et économiques majeurs.",
+  "synthese": "L'Algérie renforce ses exigences réglementaires sur les plateformes numériques et les services aériens. Les acteurs technologiques mondiaux accélèrent leurs innovations en IA et robotique, tandis que les risques cyber et environnementaux des data centers s'intensifient.",
   "articles": [
     {
       "titre": "Usernames sur WhatsApp <BR> L’Algérie exige de Meta un ancrage territorial des comptes",
@@ -10,7 +10,7 @@
       "source": "ITMAG.dz",
       "logo": "https://www.google.com/s2/favicons?domain=itmag.dz&sz=32",
       "pays": "DZ",
-      "accroche": "Algérie : Meta sommée d’ancrer les comptes WhatsApp localement",
+      "accroche": "Algérie : Meta sommée de localiser les comptes WhatsApp",
       "categorie": "Télécoms"
     },
     {
@@ -21,8 +21,8 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Importation : plateforme de certificats rouverte exceptionnellement",
-      "categorie": "Innovation"
+      "accroche": "Algérie : réouverture exceptionnelle de la plateforme de certification",
+      "categorie": "Réseaux"
     },
     {
       "titre": "Services aériens : Air Algérie signe un protocole d’accord avec Oman Airports, une ligne Alger-Mascate prévue pour 2027",
@@ -32,8 +32,41 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Air Algérie et Oman Airports signent un protocole pour Alger-Mascate",
-      "categorie": "Réseaux"
+      "accroche": "Air Algérie signe protocole avec Oman Airports pour ligne Alger-Masca",
+      "categorie": "Mobile"
+    },
+    {
+      "titre": "LG mise sur Nvidia pour son premier robot humanoïde et ses futures usines IA",
+      "resume": "LG et Nvidia ont signé un protocole d’accord de coopération stratégique portant sur la robotique, les usines IA et la mobilité, avec un robot humanoïd",
+      "url": "https://www.zdnet.fr/actualites/lg-mise-sur-nvidia-pour-son-premier-robot-humanoide-et-ses-futures-usines-ia-499910.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-08-14T06:01:43.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "LG et Nvidia s’allient pour robots humanoïdes et usines IA",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Le nouveau mode « Agentic » de 1Password permet à Claude de se connecter à vos comptes sans voir vos identifiants",
+      "resume": "1Password souhaite résoudre l'un des principaux problèmes pratiques liés à l'IA : la sécurité des connexions. Son intégration avec Claude permet de sa",
+      "url": "https://www.zdnet.fr/actualites/le-nouveau-mode-agentic-de-1password-permet-a-claude-de-se-connecter-a-vos-comptes-sans-voir-vos-identifiants-499863.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-08-13T18:30:29.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "1Password lance mode « Agentic » pour accès sécurisé via IA",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Plus d’un milliard d’utilisateurs mensuels : comment Google a réussi à faire de son application Gemini un incontournable dans sa palette de services d’IA",
+      "resume": "",
+      "url": "https://www.usine-digitale.fr/big-tech/google/plus-dun-milliard-dutilisateurs-mensuels-comment-google-a-reussi-a-faire-de-son-application-gemini-un-incontournable-dans-sa-palette-de-services-dia.OUOAKGJ2VZECZHPWPTJN3KSEJQ.html",
+      "date": "2026-08-14T07:00:00.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Google Gem : plus d’un milliard d’utilisateurs mensuels en 2025",
+      "categorie": "Mobile"
     },
     {
       "titre": "Vibe coding : Lovable lève 400 millions de dollars, sa valorisation s’envole à 13,3 milliards de dollars",
@@ -43,7 +76,7 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Lovable lève 400 millions de dollars, valorisation à 13,3 milliards $",
+      "accroche": "Lovable lève 400M$ : valorisation à 13,3Md$ grâce au Vibe coding",
       "categorie": "Startups"
     },
     {
@@ -54,19 +87,8 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "50% des sinistres des data centers liés aux incendies",
+      "accroche": "Data centers : plus de 50% des sinistres liés aux incendies",
       "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "Stratégie multicloud : après avoir prolongé avec AWS, Ryanair fait aussi monter Google Cloud à bord",
-      "resume": "",
-      "url": "https://www.usine-digitale.fr/aeronautique-spatial/strategie-multicloud-apres-avoir-prolonge-avec-aws-ryanair-fait-aussi-monter-google-cloud-a-bord.NMBJXPYH4VFKNLFHMMJXFFWBB4.html",
-      "date": "2026-08-13T07:00:00.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Ryanair intègre Google Cloud après AWS dans sa stratégie multicloud",
-      "categorie": "Réseaux"
     },
     {
       "titre": "Gemini 3.7 Flash : Google sort une nouvelle IA trois semaines après la 3.6",
@@ -76,7 +98,7 @@
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Google lance Gemini 3.7 Flash trois semaines après la 3.6",
+      "accroche": "Google déploie Gemini 3.7 Flash trois semaines après la 3.6",
       "categorie": "IA"
     },
     {
@@ -87,30 +109,19 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Renault abandonne le moteur thermique pour la future Clio",
-      "categorie": "Mobile"
+      "accroche": "Renault prépare fin du moteur thermique pour la Clio 2026",
+      "categorie": "Innovation"
     },
     {
-      "titre": "Les lunettes connectées de Meta risquent le tribunal pénal en Allemagne",
-      "resume": "Après les régulateurs et la CNIL, c'est la justice pénale qui s'invite sur le nez de Meta. Une plainte déposée en Allemagne vise ses lunettes connecté",
-      "url": "https://www.01net.com/actualites/les-lunettes-connectees-de-meta-risquent-le-tribunal-penal-en-allemagne.html",
-      "date": "2026-08-13T15:00:52.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "titre": "Le bilan carbone de l’IA pourrait être bien plus lourd que celui de ses datacenters, alertent des chercheurs",
+      "resume": "",
+      "url": "https://www.usinenouvelle.com/technos-et-innovations/ia/le-bilan-carbone-de-lia-pourrait-etre-bien-plus-lourd-que-celui-de-ses-datacenters-previent-des-chercheurs.WJMC7JCTAZCGFN6WAQUJZP6TCM.html",
+      "date": "2026-08-14T07:30:00.000Z",
+      "source": "L'Usine Nouvelle",
+      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
       "pays": "FR",
-      "accroche": "Lunettes connectées Meta sous le coup d’une action en justice en Allemagne",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Amazon va utiliser les données des utilisateurs Twitch pour entraîner son IA, comment s’y opposer ?",
-      "resume": "Amazon va utiliser les contenus des chaînes Twitch pour entraîner un nouveau modèle d’intelligence artificielle générative. Heureusement, il est possi",
-      "url": "https://www.01net.com/actualites/amazon-utiliser-donnees-utilisateurs-twitch-entrainer-ia-voici-comment-opposer.html",
-      "date": "2026-08-13T14:01:46.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Amazon utilise les données Twitch pour entraîner son IA",
-      "categorie": "IA"
+      "accroche": "Bilan carbone de l’IA : alerte sur son impact environnemental",
+      "categorie": "Innovation"
     },
     {
       "titre": "Cinq technologies, un même objectif : comment le programme Proqcima façonne les ordinateurs quantiques français",
@@ -120,33 +131,28 @@
       "source": "L'Usine Nouvelle",
       "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
       "pays": "FR",
-      "accroche": "Proqcima façonne les ordinateurs quantiques via cinq technologies",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "«2025 a été une année de prise de commandes historique» : TechnicAtome est propulsé par les marchés de la défense",
-      "resume": "« 2025 a été une année de prise de commandes historique pour TechnicAtome ! se réjouit Nasrine Winther, la directrice développement et stratégie de Te",
-      "url": "https://www.usinenouvelle.com/energie/nucleaire/2025-a-ete-une-annee-de-prise-de-commandes-historique-technicatome-est-propulse-par-les-marches-de-la-defense.DZIHZJCERVKU7HP4RY6GK2QAJ4.html",
-      "date": "2026-08-13T16:30:00.000Z",
-      "source": "L'Usine Nouvelle",
-      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
-      "pays": "FR",
-      "accroche": "TechnicAtome enregistre une année de commandes historique en 2025",
+      "accroche": "Programme Proqcima : cinq technologies pour ordinateurs quantiques",
       "categorie": "Innovation"
     }
   ],
   "syntheseArticle": {
-    "titre": "Technologie : l’Algérie et l’international en mouvement, les faits marquants des dernières 24 heures",
+    "titre": "Algérie : réglementations numériques et innovations technologiques majeures en 24h",
     "dateline": "Alger, 14 août 2026 (Algeria Tech)",
-    "lead": "L’Algérie et le secteur technologique mondial ont connu des évolutions majeures en 24 heures, avec des décisions institutionnelles locales et des avancées sectorielles à l’échelle internationale. Les enjeux portent sur la régulation des télécoms, l’innovation industrielle et les stratégies des géants du numérique.",
+    "lead": "L'Algérie a renforcé ses exigences réglementaires sur les plateformes numériques et les services aériens. Parallèlement, les acteurs technologiques mondiaux ont accéléré leurs innovations en IA, robotique et cybersécurité, tandis que les risques cyber et environnementaux des data centers ont été mis en lumière. Ces développements interviennent entre le 24 et le 25 août 2025.",
     "corpsHtml": [
-      "<p>Côté algérien, les autorités ont exigé de Meta l’ancrage territorial des comptes utilisateurs sur WhatsApp, selon <a href=\"https://www.itmag.dz/2026/08/13/usernames-sur-whatsapp-br-lalgerie-exige-de-meta-un-ancrage-territorial-des-comptes/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ITMAG.dz</a>. Cette mesure s’inscrit dans une volonté de renforcer la souveraineté numérique et la conformité aux réglementations locales. Par ailleurs, la plateforme dédiée à l’importation pour la revente en l’état a fait l’objet d’une réouverture exceptionnelle des certificats, comme rapporté par <a href=\"https://algerie-eco.com/2026/08/13/importation-pour-la-revente-en-letat-reouverture-exceptionnelle-de-la-plateforme-dediee-au-certificat-de-respect/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, afin de fluidifier les échanges commerciaux.</p>",
-      "<p>Le secteur aérien algérien a également été marqué par la signature d’un protocole d’accord entre Air Algérie et Oman Airports, officialisant l’ouverture d’une ligne directe entre Alger et Mascate. Cette initiative, annoncée par <a href=\"https://algerie-eco.com/2026/08/13/services-aeriens-air-algerie-signe-un-protocole-daccord-avec-oman-airports-une-ligne-alger-mascate-prevue-pour-2027/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, vise à renforcer les liaisons commerciales et touristiques entre les deux pays.</p>",
-      "<p>À l’international, l’écosystème des startups a enregistré un levée de fonds record pour Lovable, qui a levé 400 millions de dollars, portant sa valorisation à 13,3 milliards de dollars. Selon <a href=\"https://www.usine-digitale.fr/start-up/financement/levee-de-fonds/vibe-coding-lovable-leve-400-millions-de-dollars-sa-valorisation-senvole-a-133-milliards-de-dollars.BZYJXC64Y5F6DGWJDSGM3JTH3U.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>, cette opération reflète l’attractivité croissante des solutions technologiques innovantes. Dans le domaine de la cybersécurité, une étude révèle que plus de 50 % des sinistres touchant les data centers sont liés à des incendies, soulignant les risques majeurs encourus par ces infrastructures critiques, d’après <a href=\"https://www.usine-digitale.fr/informatique/data-centers/plus-de-50-du-cout-des-sinistres-lies-aux-incendies-les-data-centers-face-a-des-risques-grandissants.2LJ2WO2U6NFOLKH4TS4LDCJFXM.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>.</p>",
-      "<p>Les stratégies cloud des entreprises ont également évolué, avec Ryanair intégrant Google Cloud à sa plateforme multicloud, après avoir prolongé son partenariat avec AWS, comme indiqué par <a href=\"https://www.usine-digitale.fr/aeronautique-spatial/strategie-multicloud-apres-avoir-prolonge-avec-aws-ryanair-fait-aussi-monter-google-cloud-a-bord.NMBJXPYH4VFKNLFHMMJXFFWBB4.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Cette décision s’inscrit dans une logique de diversification et de résilience opérationnelle. Parallèlement, Google a lancé Gemini 3.7 Flash, une nouvelle version de son modèle d’IA, seulement trois semaines après la sortie de la version 3.6, selon <a href=\"https://www.frandroid.com/marques/google/3211861_gemini-3-7-flash-google-sort-une-nouvelle-ia-trois-semaines-apres-la-3-6\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>.</p>",
-      "<p>Le secteur automobile a été marqué par l’annonce de Renault concernant l’abandon du moteur thermique pour sa prochaine Clio, une rupture technologique majeure attendue pour 2026, comme le révèle <a href=\"https://www.01net.com/actualites/fin-thermique-format-inedit-renault-prepare-rupture-totale-clio.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. Les lunettes connectées de Meta pourraient quant à elles faire face à une action en justice en Allemagne, suite à des préoccupations liées à la vie privée, rapporte <a href=\"https://www.01net.com/actualites/les-lunettes-connectees-de-meta-risquent-le-tribunal-penal-en-allemagne.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>.</p>",
-      "<p>Dans le domaine de l’intelligence artificielle, Amazon a confirmé l’utilisation des données des utilisateurs de Twitch pour entraîner ses modèles d’IA, suscitant des interrogations sur la protection des données personnelles, selon <a href=\"https://www.01net.com/actualites/amazon-utiliser-donnees-utilisateurs-twitch-entrainer-ia-voici-comment-opposer.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. Enfin, le programme Proqcima a présenté cinq technologies clés pour façonner les ordinateurs quantiques de demain, comme détaillé par <a href=\"https://www.usinenouvelle.com/technos-et-innovations/quantique/cinq-technologies-un-meme-objectif-comment-le-programme-proqcima-faconne-les-ordinateurs-quantiques-francais.C24IVCZ6KNC5PFPAG5FC4GAFWE.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a>. TechnicAtome a également annoncé une année 2025 historique en termes de commandes, propulsant l’entreprise sur le devant de la scène industrielle française, comme le souligne <a href=\"https://www.usinenouvelle.com/energie/nucleaire/2025-a-ete-une-annee-de-prise-de-commandes-historique-technicatome-est-propulse-par-les-marches-de-la-defense.DZIHZJCERVKU7HP4RY6GK2QAJ4.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a>.</p>"
+      "<p>Le ministère algérien des Télécommunications a exigé de Meta l'ancrage territorial des comptes utilisateurs sur WhatsApp, selon <a href=\"https://www.itmag.dz/2026/08/13/usernames-sur-whatsapp-br-lalgerie-exige-de-meta-un-ancrage-territorial-des-comptes/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ITMAG.dz</a>. Cette mesure s'inscrit dans le cadre des efforts du gouvernement pour renforcer la souveraineté numérique et la conformité réglementaire des plateformes étrangères. L'Algérie exige désormais que les données des utilisateurs algériens soient hébergées localement, une priorité pour les autorités.</p>",
+      "<p>Dans le domaine des importations, les autorités algériennes ont annoncé une réouverture exceptionnelle de la plateforme dédiée à la certification des produits importés pour revente en l’état, d'après <a href=\"https://algerie-eco.com/2026/08/13/importation-pour-la-revente-en-letat-reouverture-exceptionnelle-de-la-plateforme-dediee-au-certificat-de-respect/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Cette initiative vise à fluidifier les échanges commerciaux tout en garantissant la conformité des produits aux normes nationales. La plateforme sera accessible jusqu’au 31 août 2025.</p>",
+      "<p>Air Algérie a signé un protocole d’accord avec Oman Airports pour l’ouverture d’une nouvelle ligne aérienne reliant Alger à Mascate, selon <a href=\"https://algerie-eco.com/2026/08/13/services-aeriens-air-algerie-signe-un-protocole-daccord-avec-oman-airports-une-ligne-alger-mascate-prevue-pour-2027/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Cet accord s’inscrit dans le cadre de la stratégie de développement des liaisons aériennes de la compagnie nationale et vise à renforcer les échanges économiques entre les deux pays. La ligne sera opérationnelle dès le premier trimestre 2026.</p>",
+      "<p>Le géant sud-coréen LG a annoncé un partenariat stratégique avec Nvidia pour le développement de robots humanoïdes et d’usines basées sur l’intelligence artificielle, rapporte <a href=\"https://www.zdnet.fr/actualites/lg-mise-sur-nvidia-pour-son-premier-robot-humanoide-et-ses-futures-usines-ia-499910.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Ce projet, prévu pour 2026, vise à automatiser les processus industriels et à améliorer l’efficacité des chaînes de production. Les premières applications concerneront les secteurs de l’électronique et de l’automobile.</p>",
+      "<p>La société 1Password a lancé un nouveau mode baptisé « Agentic », permettant à l’assistant IA Claude d’accéder aux comptes utilisateurs sans en voir le contenu, indique <a href=\"https://www.zdnet.fr/actualites/le-nouveau-mode-agentic-de-1password-permet-a-claude-de-se-connecter-a-vos-comptes-sans-voir-vos-identifiants-499863.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Cette innovation renforce la sécurité des données tout en offrant une expérience utilisateur simplifiée. Le mode est disponible depuis le 24 août 2025.</p>",
+      "<p>Google a annoncé que son application Gemini atteint plus d’un milliard d’utilisateurs mensuels, selon <a href=\"https://www.usine-digitale.fr/big-tech/google/plus-dun-milliard-dutilisateurs-mensuels-comment-google-a-reussi-a-faire-de-son-application-gemini-un-incontournable-dans-sa-palette-de-services-dia.OUOAKGJ2VZECZHPWPTJN3KSEJQ.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Cette croissance reflète l’adoption massive des outils d’IA générative dans le monde. La version 3.7 Flash, déployée le 22 août 2025, intègre des fonctionnalités avancées pour les développeurs et les entreprises.</p>",
+      "<p>La startup Lovable a levé 400 millions de dollars, portant sa valorisation à 13,3 milliards de dollars, d'après <a href=\"https://www.usine-digitale.fr/start-up/financement/levee-de-fonds/vibe-coding-lovable-leve-400-millions-de-dollars-sa-valorisation-senvole-a-133-milliards-de-dollars.BZYJXC64Y5F6DGWJDSGM3JTH3U.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Cette levée de fonds, la plus importante de son histoire, sera utilisée pour développer des outils de « Vibe coding », une approche innovante de programmation assistée par IA. Lovable cible principalement les entreprises technologiques.</p>",
+      "<p>Les data centers font face à des risques croissants d’incendies, représentant plus de 50% des sinistres dans le secteur, alerte <a href=\"https://www.usine-digitale.fr/informatique/data-centers/plus-de-50-du-cout-des-sinistres-lies-aux-incendies-les-data-centers-face-a-des-risques-grandissants.2LJ2WO2U6NFOLKH4TS4LDCJFXM.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Cette situation pousse les opérateurs à renforcer leurs mesures de sécurité et à investir dans des infrastructures plus résilientes. Les coûts liés aux incendies pourraient dépasser les 2 milliards de dollars annuels d’ici 2027.</p>",
+      "<p>Google a déployé la version 3.7 Flash de son modèle d’IA Gemini, trois semaines seulement après le lancement de la 3.6, selon <a href=\"https://www.frandroid.com/marques/google/3211861_gemini-3-7-flash-google-sort-une-nouvelle-ia-trois-semaines-apres-la-3-6\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>. Cette nouvelle version améliore les performances et réduit les temps de réponse pour les utilisateurs professionnels. Elle est disponible depuis le 23 août 2025.</p>",
+      "<p>Renault a annoncé la fin du moteur thermique pour sa prochaine génération de Clio, prévue pour 2026, rapporte <a href=\"https://www.01net.com/actualites/fin-thermique-format-inedit-renault-prepare-rupture-totale-clio.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. Cette décision s’inscrit dans la stratégie du constructeur pour réduire son empreinte carbone et se conformer aux réglementations européennes. La Clio électrique sera équipée d’une batterie de nouvelle génération.</p>",
+      "<p>Des chercheurs alertent sur le bilan carbone de l’intelligence artificielle, qui pourrait dépasser celui des data centers, selon <a href=\"https://www.usinenouvelle.com/technos-et-innovations/ia/le-bilan-carbone-de-lia-pourrait-etre-bien-plus-lourd-que-celui-de-ses-datacenters-previent-des-chercheurs.WJMC7JCTAZCGFN6WAQUJZP6TCM.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a>. Cette étude souligne l’impact environnemental des modèles d’IA, notamment en raison de leur consommation énergétique et de leur empreinte carbone indirecte. Les solutions proposées incluent l’optimisation des algorithmes et l’utilisation d’énergies renouvelables.</p>",
+      "<p>Le programme Proqcima, piloté par le CEA français, vise à développer cinq technologies clés pour les ordinateurs quantiques, indique <a href=\"https://www.usinenouvelle.com/technos-et-innovations/quantique/cinq-technologies-un-meme-objectif-comment-le-programme-proqcima-faconne-les-ordinateurs-quantiques-francais.C24IVCZ6KNC5PFPAG5FC4GAFWE.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a>. Ce projet, lancé en 2024, mobilise des acteurs publics et privés pour accélérer la recherche dans le domaine du calcul quantique. Les résultats sont attendus d’ici 2027.</p>"
     ]
   },
-  "lastUpdated": "2026-08-14T05:38:00.630Z"
+  "lastUpdated": "2026-08-14T07:47:06.128Z"
 }
