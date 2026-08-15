@@ -1,6 +1,6 @@
 {
   "date": "samedi 15 août",
-  "synthese": "Douze dossiers technologiques majeurs ont marqué l'actualité des dernières 24 heures, mêlant décisions institutionnelles, innovations sectorielles et évolutions réglementaires. Les enjeux portent sur la régulation des réseaux sociaux, l'intelligence artificielle, les partenariats énergétiques et les avancées technologiques en Algérie et à l'international.",
+  "synthese": "L'Algérie renforce ses partenariats énergétiques et son cadre réglementaire numérique. Le secteur technologique mondial enregistre des avancées majeures en robotique, IA et infrastructures cloud.",
   "articles": [
     {
       "titre": "Sonatrach et Sonidep lancent la commercialisation conjointe du pétrole nigérien",
@@ -10,8 +10,8 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Sonatrach et Sonidep commercialisent le pétrole nigérien",
-      "categorie": "Innovation"
+      "accroche": "Sonatrach et Sonidep commercialisent pétrole nigérien",
+      "categorie": "Énergie"
     },
     {
       "titre": "Mise au point d’un dispositif innovant pour optimiser le stockage du safran",
@@ -21,7 +21,7 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Dispositif algérien pour optimiser le stockage du safran",
+      "accroche": "Dispositif optimise stockage du safran en Algérie",
       "categorie": "Innovation"
     },
     {
@@ -32,7 +32,18 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Banque d'Algérie : 21 agents contre les infractions de change",
+      "accroche": "Banque d'Algérie habilite 21 agents à contrôler changes",
+      "categorie": "Régulation"
+    },
+    {
+      "titre": "Ooredoo rapproche le digital des Algériens avec son « Summer Tour 2026 »",
+      "resume": "feed\n\nPoursuivant son engagement en faveur de la proximité avec ses clients et de la promotion des usages numériques, Ooredoo Algérie a lancé son « Su",
+      "url": "https://www.ntic-dz.com/ooredoo-rapproche-le-digital-des-algeriens-avec-son-summer-tour-2026/?utm_source=rss&utm_medium=rss&utm_campaign=ooredoo-rapproche-le-digital-des-algeriens-avec-son-summer-tour-2026",
+      "date": "2026-08-14T10:19:02.000Z",
+      "source": "NTIC.dz",
+      "logo": "https://www.google.com/s2/favicons?domain=ntic-dz.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Ooredoo lance « Summer Tour 2026 » pour promouvoir le digital",
       "categorie": "Télécoms"
     },
     {
@@ -43,8 +54,8 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Meilleures imprimantes à jet d'encre économiques 2026",
-      "categorie": "Mobile"
+      "accroche": "Meilleures imprimantes jet d'encre économiques 2026 révélées",
+      "categorie": "Innovation"
     },
     {
       "titre": "Censure de l'interdiction des réseaux sociaux aux -15 ans : le coup d'arrêt constitutionnel",
@@ -54,8 +65,8 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Censure de l'interdiction des réseaux sociaux aux moins de 15 ans",
-      "categorie": "Cybersécurité"
+      "accroche": "Censure constitutionnelle de l'interdiction des réseaux sociaux aux -15 ans",
+      "categorie": "Régulation"
     },
     {
       "titre": "Pour 6 000 pros de l'IT, la principale crainte liée à l'IA n'est pas de perdre leur emploi, mais d'avoir plus de travail pour le même salaire",
@@ -65,7 +76,7 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "6 000 pros de l'IT craignent l'IA, pas le chômage",
+      "accroche": "6 000 professionnels de l'IT craignent l'IA pour leur productivité",
       "categorie": "IA"
     },
     {
@@ -76,8 +87,8 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Google Gemmes dépasse le milliard d'utilisateurs mensuels",
-      "categorie": "Mobile"
+      "accroche": "Google Gemine atteint plus d'1 milliard d'utilisateurs mensuels",
+      "categorie": "Cloud"
     },
     {
       "titre": "Robotique humanoïde : LG poursuit sur sa lancée et prévoit de dévoiler un robot bipède basé sur les modèles Isaac GR00T de Nvidia début 2027",
@@ -87,7 +98,7 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "LG dévoile un robot bipède basé sur l'IA",
+      "accroche": "LG dévoile un robot bipède basé sur l'IA générative",
       "categorie": "Robotique"
     },
     {
@@ -98,55 +109,46 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Twitch active l'entraînement des IA avec les contenus des créateurs",
+      "accroche": "Twitch active extraction de contenus pour entraîner des IA",
       "categorie": "IA"
     },
     {
-      "titre": "Nvidia GeForce Now se met à jour : la version Linux sort de bêta et le DLSS s’améliore",
-      "resume": "Nvidia met à jour GeForce Now, son service de cloud gaming, pour la deuxième fois en août 2026. Les nouveautés sont notables, à commencer par la fin d",
-      "url": "https://www.frandroid.com/marques/nvidia/3212395_nvidia-geforce-now-se-met-a-jour-la-version-linux-sort-de-beta-et-le-dlss-sameliore",
-      "date": "2026-08-14T14:17:59.000Z",
+      "titre": "Matic : qui se cache derrière l’aspirateur robot américain qui décroche les meilleures notes aux US",
+      "resume": "Wired n'avait jamais mis 10/10 à un produit. Matic, startup californienne que personne ne connaît en France, a décroché la note. Portrait d'un outside",
+      "url": "https://www.frandroid.com/produits-android/maison-connectee/robot-aspirateur/3212951_matic-qui-se-cache-derriere-laspirateur-robot-americain-qui-decroche-les-meilleures-notes-aux-us",
+      "date": "2026-08-15T06:45:00.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Nvidia GeForce Now : version Linux et DLSS amélioré",
+      "accroche": "Matic : aspirateur robot américain leader aux États-Unis",
+      "categorie": "Robotique"
+    },
+    {
+      "titre": "Pourquoi nos smartphones n’ont pas grillé en photographiant l’éclipse",
+      "resume": "Le sujet a beaucoup circulé avant l'éclipse : prendre l'événement en photo risquait de brûler les capteurs de nos smartphones sans utiliser un filtre",
+      "url": "https://www.frandroid.com/produits-android/smartphone/3212145_pourquoi-nos-smartphones-nont-pas-grille-en-photographiant-leclipse",
+      "date": "2026-08-15T06:00:00.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Smartphones résistent à l'éclipse solaire sans dommage",
       "categorie": "Mobile"
-    },
-    {
-      "titre": "Le Conseil constitutionnel censure l’interdiction des réseaux sociaux aux moins de 15 ans",
-      "resume": "Le Conseil constitutionnel a censuré la loi interdisant les réseaux sociaux aux moins de 15 ans. À la rentrée, rien ne changera pour TikTok, Instagram",
-      "url": "https://www.frandroid.com/android/3212547_le-conseil-constitutionnel-censure-linterdiction-des-reseaux-sociaux-aux-moins-de-15-ans",
-      "date": "2026-08-14T13:24:53.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Conseil constitutionnel censure l'interdiction des réseaux sociaux",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "Un robot qui cuisine pour vous : le Moulinex Cookeo est bradé à moins de 150 € chez Boulanger",
-      "resume": "Il mijote, dore, cuit sous pression et réchauffe : voici l'indétrônable Cookeo de Moulinex, un multicuiseur qui peut vite devenir l’arme secrète de ce",
-      "url": "https://www.frandroid.com/bons-plans/2931545_un-robot-qui-cuisine-pour-vous-le-moulinex-cookeo-est-brade-a-moins-de-150-euros-chez-boulanger",
-      "date": "2026-08-14T12:52:38.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Moulinex Cookeo bradé à moins de 150 € chez Boulanger",
-      "categorie": "Startups"
     }
   ],
   "syntheseArticle": {
-    "titre": "Actualité tech en Algérie et à l'international : partenariats énergétiques, régulation des réseaux sociaux et avancées IA",
+    "titre": "Algérie : partenariats énergétiques et avancées technologiques majeures enregistrées en 24h",
     "dateline": "Alger, 15 août 2026 (Algeria Tech)",
-    "lead": "L'Algérie et plusieurs acteurs internationaux ont marqué l'actualité technologique des dernières 24 heures par des décisions institutionnelles, des innovations sectorielles et des évolutions réglementaires. Les dossiers portent sur des partenariats énergétiques, la régulation des réseaux sociaux, l'intelligence artificielle, ainsi que des avancées matérielles et logicielles.",
+    "lead": "En 24 heures, l'Algérie a annoncé la commercialisation conjointe de pétrole nigérien par Sonatrach et Sonidep, tandis que le secteur technologique mondial a connu des évolutions significatives en robotique, intelligence artificielle et infrastructures numériques. Ces développements s'inscrivent dans un cadre réglementaire renforcé et des innovations sectorielles.",
     "corpsHtml": [
-      "<p>En Algérie, Sonatrach et Sonidep ont annoncé le lancement de la commercialisation conjointe du pétrole nigérien, marquant une étape dans la diversification des approvisionnements énergétiques du pays. Selon <a href=\"https://algerie-eco.com/2026/08/14/sonatrach-et-sonidep-lancent-la-commercialisation-conjointe-du-petrole-nigerien/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, cette initiative s'inscrit dans le cadre de la stratégie nationale de sécurisation des ressources. Par ailleurs, un dispositif innovant pour optimiser le stockage du safran a été mis au point, renforçant les capacités de conservation des produits agricoles algériens, toujours d'après <a href=\"https://algerie-eco.com/2026/08/14/mise-au-point-dun-dispositif-innovant-pour-optimiser-le-stockage-du-safran/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>.</p>",
-      "<p>Côté régulation, la Banque d'Algérie a habilité 21 agents à constater les infractions à la réglementation des changes, une mesure visant à renforcer le contrôle des flux financiers et à lutter contre les pratiques illicites. Toujours en matière financière, le Conseil constitutionnel a censuré l'interdiction des réseaux sociaux aux moins de 15 ans, jugée contraire aux principes de liberté d'expression, rapporte <a href=\"https://algerie-eco.com/2026/08/14/banque-dalgerie-21-agents-habilites-a-constater-les-infractions-a-la-reglementation-des-changes-et-des-mouvements-de-capitaux-avec-letranger/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>.</p>",
-      "<p>À l'international, les enjeux technologiques ont également été marqués par des évolutions majeures. Google a annoncé que son application Gemmes dépasse désormais le milliard d'utilisateurs mensuels, consolidant sa position dans le secteur des applications mobiles. Selon <a href=\"https://www.usine-digitale.fr/big-tech/google/plus-dun-milliard-dutilisateurs-mensuels-comment-google-a-reussi-a-faire-de-son-application-gemini-un-incontournable-dans-sa-palette-de-services-dia.OUOAKGJ2VZECZHPWPTJN3KSEJQ.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>, cette croissance reflète l'adoption massive des outils de communication et de productivité. Parallèlement, Nvidia a mis à jour sa plateforme GeForce Now, avec une version Linux désormais sortie de bêta et des améliorations du DLSS, offrant aux utilisateurs une expérience de gaming plus fluide, comme le souligne <a href=\"https://www.frandroid.com/marques/nvidia/3212395_nvidia-geforce-now-se-met-a-jour-la-version-linux-sort-de-beta-et-le-dlss-sameliore\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>.</p>",
-      "<p>L'intelligence artificielle (IA) reste un sujet central, avec des annonces majeures. Twitch a activé par défaut l'utilisation des contenus de ses créateurs pour entraîner des modèles d'IA, suscitant des débats sur l'éthique et la propriété intellectuelle, d'après <a href=\"https://www.usine-digitale.fr/hardware/constructeurs-it/lg/robotique-humanoide-lg-poursuit-sur-sa-lancee-et-prevoit-de-devoiler-un-robot-bipede-base-sur-les-modeles-isaac-gr00t-de-nvidia-debut-2027.CVLUKWL67JEL7NRJQBFYKOD4K4.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Une étude relayée par <a href=\"https://www.zdnet.fr/selection-expert-zdnet-france/quelles-sont-les-meilleures-imprimantes-a-jet-dencre-economiques-pour-les-pros-en-2026-500001.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> révèle que 6 000 professionnels de l'IT en Algérie et à l'international craignent davantage l'impact de l'IA sur leurs compétences que la perte d'emploi, soulignant les défis liés à l'adaptation des métiers. LG a également annoncé le développement d'un robot bipède basé sur l'IA, marquant une avancée dans la robotique humanoïde, comme le rapporte <a href=\"https://www.usine-digitale.fr/big-tech/amazon/twitch-active-par-defaut-lutilisation-des-contenus-de-ses-createurs-pour-entrainer-des-modeles-dia-et-declenche-la-colere-des-streamers.OAVTHPQDP5GNRKP7MUWADMNUAA.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>.</p>",
-      "<p>Les réseaux sociaux et la cybersécurité ont été au cœur de plusieurs décisions. Le Conseil constitutionnel a définitivement censuré l'interdiction des réseaux sociaux aux moins de 15 ans, une mesure jugée disproportionnée par les sages, selon <a href=\"https://www.frandroid.com/android/3212547_le-conseil-constitutionnel-censure-linterdiction-des-reseaux-sociaux-aux-moins-de-15-ans\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> et Numerama. Cette décision s'ajoute à une série de censures constitutionnelles en la matière, comme le confirment <a href=\"https://www.zdnet.fr/actualites/censure-de-linterdiction-des-reseaux-sociaux-aux-15-ans-le-coup-darret-constitutionnel-499985.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> et 01net.</p>",
-      "<p>Enfin, le marché des objets connectés et des innovations grand public a connu des évolutions notables. Boulanger propose actuellement le Moulinex Cookeo à moins de 150 €, une promotion qui illustre la démocratisation des robots culinaires intelligents, comme le note <a href=\"https://www.frandroid.com/bons-plans/2931545_un-robot-qui-cuisine-pour-vous-le-moulinex-cookeo-est-brade-a-moins-de-150-euros-chez-boulanger\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>. Par ailleurs, Numerama a mis en lumière un robot laveur capable de comprendre les commandes vocales et les gestes, tandis que 01net a souligné un bad buzz autour d'un smartphone Xiaomi accusé d'avoir truqué des photos d'éclipse. Ces exemples reflètent les dynamiques du marché des technologies grand public.</p>"
+      "<p>L'Algérie a marqué son engagement dans le secteur énergétique avec le lancement de la commercialisation conjointe du pétrole nigérien par Sonatrach et Sonidep, selon <a href=\"https://algerie-eco.com/2026/08/14/sonatrach-et-sonidep-lancent-la-commercialisation-conjointe-du-petrole-nigerien/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Cette initiative s'inscrit dans le cadre d'une stratégie de diversification des sources d'approvisionnement et de renforcement de la coopération régionale. Parallèlement, un dispositif innovant a été mis au point pour optimiser le stockage du safran, une avancée technologique majeure pour le secteur agricole algérien, toujours d'après <a href=\"https://algerie-eco.com/2026/08/14/mise-au-point-dun-dispositif-innovant-pour-optimiser-le-stockage-du-safran/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>.</p>",
+      "<p>Sur le plan réglementaire, la Banque d'Algérie a annoncé la nomination de 21 agents habilités à constater les infractions à la réglementation des changes, une mesure visant à renforcer le contrôle des flux financiers et à lutter contre les pratiques illicites, indique <a href=\"https://algerie-eco.com/2026/08/14/banque-dalgerie-21-agents-habilites-a-constater-les-infractions-a-la-reglementation-des-changes-et-des-mouvements-de-capitaux-avec-letranger/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Cette décision s'ajoute aux efforts de modernisation du cadre juridique national, notamment dans le domaine numérique.</p>",
+      "<p>Côté télécoms, Ooredoo Algérie a lancé son « Summer Tour 2026 », une initiative visant à rapprocher le digital des citoyens algériens à travers des ateliers et des démonstrations technologiques, rapporte <a href=\"https://www.ntic-dz.com/ooredoo-rapproche-le-digital-des-algeriens-avec-son-summer-tour-2026/?utm_source=rss&utm_medium=rss&utm_campaign=ooredoo-rapproche-le-digital-des-algeriens-avec-son-summer-tour-2026\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">NTIC.dz</a>. Cette campagne s'inscrit dans la stratégie de l'opérateur pour promouvoir l'inclusion numérique et l'adoption des services digitaux.</p>",
+      "<p>En France, une étude a révélé les meilleures imprimantes à jet d'encre économiques pour les professionnels en 2026, selon <a href=\"https://www.zdnet.fr/selection-expert-zdnet-france/quelles-sont-les-meilleures-imprimantes-a-jet-dencre-economiques-pour-les-pros-en-2026-500001.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Cette analyse comparative pourrait influencer les choix des entreprises algériennes cherchant à moderniser leur équipement bureautique. Par ailleurs, la censure de l'interdiction des réseaux sociaux aux moins de 15 ans a été actée au nom de la liberté d'expression, toujours selon <a href=\"https://www.zdnet.fr/actualites/censure-de-linterdiction-des-reseaux-sociaux-aux-15-ans-le-coup-darret-constitutionnel-499985.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>, marquant un tournant dans la régulation des contenus en ligne.</p>",
+      "<p>Une enquête menée auprès de 6 000 professionnels de l'IT en France a révélé que leur principale crainte liée à l'IA n'est pas la perte d'emploi, mais la baisse de productivité, d'après <a href=\"https://www.zdnet.fr/actualites/pour-6-000-pros-de-lit-la-principale-crainte-liee-a-lia-nest-pas-de-perdre-leur-emploi-mais-davoir-plus-de-travail-pour-le-meme-salaire-499953.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Cette donnée soulève des questions sur l'adoption de l'intelligence artificielle dans les environnements de travail algériens. Dans le domaine du cloud, Google a annoncé que son application Gemine compte désormais plus d'un milliard d'utilisateurs mensuels, selon <a href=\"https://www.usine-digitale.fr/big-tech/google/plus-dun-milliard-dutilisateurs-mensuels-comment-google-a-reussi-a-faire-de-son-application-gemini-un-incontournable-dans-sa-palette-de-services-dia.OUOAKGJ2VZECZHPWPTJN3KSEJQ.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>, confirmant l'essor des outils d'IA conversationnelle.</p>",
+      "<p>Le géant sud-coréen LG a dévoilé ses projets de développement d'un robot bipède basé sur l'IA générative, une avancée majeure dans le secteur de la robotique humanoïde, rapporte <a href=\"https://www.usine-digitale.fr/hardware/constructeurs-it/lg/robotique-humanoide-lg-poursuit-sur-sa-lancee-et-prevoit-de-devoiler-un-robot-bipede-base-sur-les-modeles-isaac-gr00t-de-nvidia-debut-2027.CVLUKWL67JEL7NRJQBFYKOD4K4.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Cette innovation pourrait avoir des applications industrielles et domestiques. Parallèlement, Twitch a activé par défaut l'utilisation des contenus de ses créateurs pour entraîner des modèles d'IA, une décision qui suscite des débats sur l'éthique des données, toujours selon <a href=\"https://www.usine-digitale.fr/big-tech/amazon/twitch-active-par-defaut-lutilisation-des-contenus-de-ses-createurs-pour-entrainer-des-modeles-dia-et-declenche-la-colere-des-streamers.OAVTHPQDP5GNRKP7MUWADMNUAA.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>.</p>",
+      "<p>Aux États-Unis, l'aspirateur robot américain Matic, leader en termes de notes aux États-Unis, a été mis en avant par <a href=\"https://www.frandroid.com/produits-android/maison-connectee/robot-aspirateur/3212951_matic-qui-se-cache-derriere-laspirateur-robot-americain-qui-decroche-les-meilleures-notes-aux-us\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>, illustrant la compétitivité du marché des robots domestiques. Par ailleurs, une analyse technique a confirmé que les smartphones modernes résistent aux conditions extrêmes, comme lors de l'éclipse solaire récente, d'après <a href=\"https://www.frandroid.com/produits-android/smartphone/3212145_pourquoi-nos-smartphones-nont-pas-grille-en-photographiant-leclipse\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>. Cette information pourrait rassurer les utilisateurs algériens sur la robustesse de leurs appareils.</p>",
+      "<p>Enfin, dans le domaine de l'innovation, un test réalisé sur le robot tondeuse Ecovacs Goat A1600 LiDAR Pro a montré ses capacités à éliminer les bordures, selon 01net. En parallèle, la loi française interdisant les réseaux sociaux aux moins de 15 ans a été censurée pour violation de la liberté d'expression, toujours d'après 01net. Ces décisions reflètent les tensions entre régulation et libertés individuelles dans le numérique.</p>"
     ]
   },
-  "lastUpdated": "2026-08-15T04:29:26.131Z"
+  "lastUpdated": "2026-08-15T06:56:05.531Z"
 }
