@@ -47,8 +47,8 @@
     <link rel="dns-prefetch" href="https://rss.app">
 
     <!-- CSS critique chargé en priorité -->
-    <link rel="preload" href="/style.css?v=7" as="style">
-    <link rel="stylesheet" href="/style.css?v=8">
+    <link rel="preload" href="/style.css?v=10" as="style">
+    <link rel="stylesheet" href="/style.css?v=10">
     <link rel="stylesheet" href="/at-personnalisation.css?v=1">
 
     <!-- Font Awesome : async (non-bloquant) — icônes apparaissent après le contenu, évite les 7s de blocage CDN -->
@@ -186,7 +186,10 @@
 
         <section class="breaking-news" id="breakingNewsSection">
             <div class="container">
-                <span class="breaking-label" data-i18n-ar="عاجل">URGENT</span>
+                <span class="breaking-label-group">
+                    <span class="breaking-label" data-i18n-ar="عاجل">URGENT</span>
+                    <span class="breaking-live-dot" aria-hidden="true"></span>
+                </span>
                 <div class="breaking-ticker">
                     <div class="ticker-track" id="breakingTicker"></div>
                 </div>
@@ -617,7 +620,9 @@
 
     <!-- marked.js chargé AVANT script.js (requis pour le rendu markdown des articles) -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="/script.js?v=11"></script>
+    <!-- vanilla-tilt.js : effet d'inclinaison 3D sur les cartes de la Une (hero) -->
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+    <script src="/script.js?v=13"></script>
     <!-- Insertion + aperçu visuel des photos dans le corps des articles (Hub éditeur) -->
     <script src="/at-inline-images.js?v=2"></script>
     <!-- Moteur i18n FR ↔ AR (chargé après script.js pour accéder aux grilles) -->

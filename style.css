@@ -53,7 +53,6 @@ a, button, [onclick], input, select, textarea,
 /* 6. Hover uniquement sur appareils avec pointeur précis (pas tactile)
    Le logo est exclu : l'effet s'applique aussi au tap sur mobile */
 @media (hover: none) {
-    .hero-main:hover img               { transform: none; }
     .hero-side-card > div:hover img    { transform: none; }
     .news-card:hover                   { transform: none; box-shadow: var(--shadow-sm); }
     .tag-filter:hover                  { background: var(--bg-white); color: inherit; border-color: var(--border); }
@@ -188,8 +187,10 @@ padding: 0 15px; width: 100px; border: 1px solid var(--border); transition: var(
 .search-icon { color: var(--text-muted); font-size: 0.9rem; }
 .breaking-news { background: linear-gradient(135deg, var(--secondary), #b00d2b); color: #fff; padding: 10px 0; overflow: hidden; }
 .breaking-news .container { display: flex; align-items: center; gap: 15px; }
-.breaking-label { background: #fff; color: var(--secondary); padding: 4px 12px; border-radius: 4px; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; white-space: nowrap; animation: pulse 2s infinite; }
-@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+.breaking-label { background: #fff; color: var(--secondary); padding: 4px 12px; border-radius: 4px; font-weight: 700; font-size: 0.75rem; text-transform: uppercase; white-space: nowrap; }
+.breaking-label-group { display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.breaking-live-dot { width: 7px; height: 7px; border-radius: 50%; background: #fff; box-shadow: 0 0 0 0 rgba(255,255,255,0.5); animation: breakingLiveDot 1.6s ease-in-out infinite; }
+@keyframes breakingLiveDot { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(255,255,255,0.5); } 50% { opacity: 0.45; box-shadow: 0 0 0 4px rgba(255,255,255,0); } }
 .breaking-news .breaking-ticker { overflow: hidden; flex: 1; }
 .ticker-track { display: flex; animation: ticker 40s linear infinite; white-space: nowrap; }
 .ticker-track:hover { animation-play-state: paused; }
@@ -200,13 +201,26 @@ padding: 0 15px; width: 100px; border: 1px solid var(--border); transition: var(
 .hero-section.hidden { display: none; }
 .hero-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; height: 520px; overflow: hidden; }
 .hero-main { position: relative; border-radius: var(--radius); overflow: hidden; cursor: pointer; box-shadow: var(--shadow-md); height: 100%; }
-.hero-main img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
-.hero-main:hover img { transform: scale(1.03); }
+.hero-main img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.2s ease-out; }
+/* Balayage de lumière diagonal, en boucle, sur la Une (indépendant du survol) */
+.hero-main::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 35%; height: 100%;
+    background: linear-gradient(75deg, transparent 0%, rgba(255,255,255,0.55) 50%, transparent 100%);
+    transform: translateX(-220%) skewX(-20deg);
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: overlay;
+    animation: heroLightSweep 5s ease-in-out infinite;
+}
+@keyframes heroLightSweep { 0%, 10% { transform: translateX(-220%) skewX(-20deg); } 45%, 100% { transform: translateX(320%) skewX(-20deg); } }
 .hero-side-card { display: grid; grid-template-rows: 1fr 1fr; gap: 20px; height: 100%; overflow: hidden; }
 .hero-side-card > div { position: relative; border-radius: var(--radius); overflow: hidden; cursor: pointer; box-shadow: var(--shadow-md); height: 100%; }
-.hero-side-card > div img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
-.hero-side-card > div:hover img { transform: scale(1.03); }
-.hero-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 25px 20px 20px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); color: #fff; pointer-events: none; }
+.hero-side-card > div img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 6s ease-out; }
+.hero-side-card > div:hover img { transform: scale(1.05); }
+.hero-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 25px 20px 20px; background: linear-gradient(transparent, rgba(0,0,0,0.9)); color: #fff; pointer-events: none; z-index: 2; transition: transform 0.2s ease-out; }
 .hero-meta-wrapper { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
 .hero-meta-tag { background: rgba(0, 0, 0, 0.5); color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; display: inline-block; backdrop-filter: blur(4px); }
 .category-tag { background: var(--secondary); color: #fff; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; display: inline-block; }

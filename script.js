@@ -441,6 +441,30 @@ function renderHero(arts) {
     });
     html += '</div>';
     grid.innerHTML = html;
+    const noHover = window.matchMedia('(hover: none)').matches;
+    // Tilt 3D — les 2 cartes latérales uniquement (la Une utilise le parallaxe ci-dessous)
+    if (window.VanillaTilt && !noHover) {
+        VanillaTilt.init(grid.querySelectorAll('.hero-side-card > div'), {
+            max: 8, speed: 400, scale: 1, glare: false, gyroscope: false
+        });
+    }
+    // Parallaxe souris sur la Une : le texte se déplace plus que l'image de fond ("pop out")
+    const heroMainEl = grid.querySelector('.hero-main');
+    if (heroMainEl && !noHover) {
+        const pImg = heroMainEl.querySelector('img');
+        const pOverlay = heroMainEl.querySelector('.hero-overlay');
+        heroMainEl.addEventListener('mousemove', (e) => {
+            const r = heroMainEl.getBoundingClientRect();
+            const nx = ((e.clientX - r.left) / r.width - 0.5) * 2;
+            const ny = ((e.clientY - r.top) / r.height - 0.5) * 2;
+            if (pImg) pImg.style.transform = `translate(${(nx * 8).toFixed(1)}px, ${(ny * 8).toFixed(1)}px) scale(1.05)`;
+            if (pOverlay) pOverlay.style.transform = `translate(${(nx * 22).toFixed(1)}px, ${(ny * 14).toFixed(1)}px)`;
+        });
+        heroMainEl.addEventListener('mouseleave', () => {
+            if (pImg) pImg.style.transform = '';
+            if (pOverlay) pOverlay.style.transform = '';
+        });
+    }
 }
 
 function renderGrid(arts) {
