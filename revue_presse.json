@@ -1,6 +1,6 @@
 {
   "date": "lundi 17 août",
-  "synthese": "Douze décisions et annonces majeures ont marqué le secteur technologique en Algérie et à l’international au cours des dernières 24 heures. Ces faits couvrent des domaines variés, de la modernisation des infrastructures aux lancements industriels, en passant par les évolutions du marché des télécommunications et des innovations technologiques.",
+  "synthese": "Douze faits marquants des dernières 24 heures en Algérie et à l’international, impliquant des décisions institutionnelles, des investissements et des évolutions technologiques majeures. Les annonces concernent principalement la modernisation des infrastructures, la cybersécurité, l’innovation numérique et les stratégies industrielles.",
   "articles": [
     {
       "titre": "La BEA lance un crédit pour remplacer les bus de plus de 25 ans",
@@ -11,7 +11,7 @@
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
       "accroche": "BEA : crédit pour remplacer bus de plus de 25 ans",
-      "categorie": "Réseaux"
+      "categorie": "Innovation"
     },
     {
       "titre": "Atlantis Hotels Algérie : un septième hôtel ouvrira à Oran au premier trimestre 2027",
@@ -21,7 +21,7 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Atlantis Hotels Algérie : 7e hôtel à Oran en 2027",
+      "accroche": "Atlantis Hotels Algérie : 7e hôtel à Oran pour 2027",
       "categorie": "Innovation"
     },
     {
@@ -32,7 +32,7 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Saïda : télégestion lancée pour l'eau potable",
+      "accroche": "Saïda : télégestion activée pour l’eau potable",
       "categorie": "Réseaux"
     },
     {
@@ -43,8 +43,52 @@
       "source": "NTIC.dz",
       "logo": "https://www.google.com/s2/favicons?domain=ntic-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "Ooredoo : dernier délai pour Media Star 2024",
+      "accroche": "Ooredoo prolonge délai candidatures Media Star",
       "categorie": "Télécoms"
+    },
+    {
+      "titre": "Nvidia, investisseur discret : plus de 50 milliards de dollars logés dans SpaceX et Intel",
+      "resume": "Ces deux participations partagent un point commun rarement souligné : SpaceX et Intel se sont toutes deux engagées à faire de Nvidia leur fournisseur",
+      "url": "https://www.zdnet.fr/actualites/nvidia-investisseur-discret-plus-de-50-milliards-de-dollars-loges-dans-spacex-et-intel-500012.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-08-17T06:01:44.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Nvidia investit plus de 50 milliards de dollars",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Cyber Resilience Act : Pourquoi la sécurité “by design” n’est viable que si elle est positionnée au cœur de la conception du matériel informatique",
+      "resume": "Le Cyber Resilience Act, qui imposera à partir de septembre 2026 aux fabricants de produits connectés de signaler toute faille de sécurité, est l’occa",
+      "url": "https://www.usine-digitale.fr/cybersecurite/cyber-resilience-act-pourquoi-la-securite-by-design-nest-viable-que-si-elle-est-positionnee-au-coeur-de-la-conception-du-materiel-informatique.D3NLKU4LH5HUNF4LDQAUXK3444.html",
+      "date": "2026-08-17T05:30:00.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Cyber Resilience Act : sécurité « by design » exigée",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Google laisse retirer le filigrane des images générées par Gemini, mais garde une trace invisible",
+      "resume": "Google rend optionnel le filigrane visible qui marquait les images, vidéos et sons créés par Gemini. Le logo visible peut disparaître, mais le marquag",
+      "url": "https://www.frandroid.com/culture-tech/intelligence-artificielle/google-gemini/3213277_google-laisse-retirer-le-filigrane-des-images-generees-par-gemini-mais-garde-une-trace-invisible",
+      "date": "2026-08-17T06:46:33.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Google retire filigrane images Gemini mais garde trace",
+      "categorie": "IA"
+    },
+    {
+      "titre": "ChatGPT ne pourra pas enregistrer le contenu de votre ordinateur et c’est probablement mieux comme ça",
+      "resume": "Aux États-Unis, OpenAI a présenté la dernière fonctionnalité de son application Mac : Computer History. Cette dernière permet à l’IA conversationnelle",
+      "url": "https://www.frandroid.com/culture-tech/intelligence-artificielle/openai-chatgpt/3213283_chatgpt-ne-pourra-pas-enregistrer-le-contenu-de-votre-ordinateur-et-cest-probablement-mieux-comme-ca",
+      "date": "2026-08-17T06:21:15.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "ChatGPT ne peut plus enregistrer contenu local",
+      "categorie": "Cybersécurité"
     },
     {
       "titre": "Xiaomi 17T Pro vs Xiaomi 15T Pro : comment choisir le meilleur smartphone ?",
@@ -54,104 +98,54 @@
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Xiaomi 17T Pro vs 15T Pro : guide comparatif",
+      "accroche": "Xiaomi 17T Pro vs 15T Pro : comparaison technique",
       "categorie": "Mobile"
     },
     {
-      "titre": "Le rapport performances-prix du robot aspirateur laveur Mova E40 Ultra s’améliore nettement quand il passe sous les 300 €",
-      "resume": "Très complet mais accessible, le Mova E40 Ultra est un aspirateur robot laveur efficace qui devrait intéresser les maniaques fauchés. Ce modèle est mê",
-      "url": "https://www.frandroid.com/bons-plans/3212543_le-rapport-performances-prix-du-robot-aspirateur-laveur-mova-e40-ultra-sameliore-nettement-quand-il-passe-sous-les-300-e",
-      "date": "2026-08-16T15:35:00.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Mova E40 Ultra : rapport performance-prix amélioré",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "On a conduit la Volkswagen ID. Unyx 07 en Chine : une vraie VW, mais Xpeng n’a pas tout partagé",
-      "resume": "Après l’ID.7, qui a montré qu’une berline Volkswagen électrique peut séduire par son confort et ses technologies, l’ID. Unyx 07 est la tentative d’ada",
-      "url": "https://www.frandroid.com/marques/volkswagen/3171071_on-a-conduit-la-volkswagen-id-unyx-07-en-chine-une-vraie-vw-mais-xpeng-na-pas-tout-partage",
-      "date": "2026-08-16T14:01:00.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Volkswagen ID. Unyx 07 testée en Chine",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Nouveau dérapage de l’IA : un assistant a franchi une ligne rouge après une demande anodine",
-      "resume": "L'IA continue de surprendre ses utilisateurs. Un dénommé Andrew a demandé à son assistant IA de lui décrocher une place dans un cours de sport surbook",
-      "url": "https://www.01net.com/actualites/nouveau-derapage-ia-assistant-franchi-ligne-rouge-apres-demande-anodine.html",
-      "date": "2026-08-16T10:06:00.000Z",
+      "titre": "AMD supprime tout sa marge et fait -56% sur son CPU gaming Ryzen 7 7800X3D 🔥",
+      "resume": "Le Ryzen 7 7800X3D est un puissant processeur pour le gaming, il est apprécié par les utilisateurs pour ses qualités techniques. Surtout, son rapport",
+      "url": "https://www.01net.com/bons-plans/amd-supprime-tout-sa-marge-et-fait-56-sur-son-cpu-gaming-ryzen-7-7800x3d.html",
+      "date": "2026-08-17T06:55:13.000Z",
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "IA : dérapage après demande anodine",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Ces nouveaux satellites pourraient bouleverser le ciel au nom de l’énergie solaire",
-      "resume": "Des satellites équipés de miroirs pourraient offrir une énergie solaire constante en réfléchissant la lumière du Soleil vers la Terre. Cependant, cert",
-      "url": "https://www.01net.com/actualites/ces-nouveaux-satellites-pourraient-bouleverser-le-ciel-au-nom-de-lenergie-solaire.html",
-      "date": "2026-08-16T06:03:36.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Satellites : énergie solaire bouleverse le ciel",
+      "accroche": "AMD baisse de 56% sur Ryzen 7 7800X3D",
       "categorie": "Innovation"
     },
     {
-      "titre": "Test du Asus Zenbook A16 (UX3607) : la puissance du Snapdragon X2 Elite Extreme",
-      "resume": "Ultra léger, équipé d’une puce Snapdragon de nouvelle génération et promis à une autonomie record, l’Asus Zenbook A16 coche sur le papier toutes les c",
-      "url": "https://www.01net.com/tests/test-du-asus-zenbook-a16-ux3607-la-puissance-du-snapdragon-x2-elite-extreme.html",
-      "date": "2026-08-16T05:39:06.000Z",
+      "titre": "La fin des voitures neuves ? Toyota prend tout le monde de court avec ce programme révolutionnaire",
+      "resume": "Les nouvelles voitures vous font de l’œil, mais elles sont trop chères ? Toyota a la solution en proposant d’améliorer votre véhicule actuel pour béné",
+      "url": "https://www.01net.com/actualites/fin-voitures-neuves-toyota-surprend-avec-programme-revolutionnaire-auto.html",
+      "date": "2026-08-17T06:40:57.000Z",
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Asus Zenbook A16 : puissance Snapdragon X2 Elite",
-      "categorie": "Mobile"
+      "accroche": "Toyota lance programme disruptif pour véhicules",
+      "categorie": "Innovation"
     },
     {
-      "titre": "«La géopolitique remonte dans les priorités» des entreprises, constate le directeur de l’Ifri Thomas Gomart",
-      "resume": "Quelle vision ont les grandes entreprises mondiales de leur risque géopolitique ?\r\n      La perception diffère en fonction du territoire où se trouve",
-      "url": "https://www.usinenouvelle.com/eco-social/economie/politique-industrielle/la-geopolitique-remonte-dans-les-priorites-des-entreprises-observe-thomas-gomart-le-directeur-de-lifri.JAHJUUC2PJIU3CLNNMDGHSR4DY.html",
-      "date": "2026-08-16T13:30:00.000Z",
-      "source": "L'Usine Nouvelle",
-      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
+      "titre": "« Chrome bloque 7 milliards de notifications par jour » : faut-il croire Google ?",
+      "resume": "Sept milliards de notifications indésirables écartées chaque jour rien que sur Android : Google s'offre un satisfecit XXL. Le chiffre sort de sa propr",
+      "url": "https://www.01net.com/actualites/chrome-bloque-7-milliards-de-notifications-par-jour-faut-il-croire-google.html",
+      "date": "2026-08-17T06:00:38.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Géopolitique : priorité des entreprises selon Ifri",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "1500 postes supprimés entre 2027 et 2029 : Michelin réduit encore la voilure en France",
-      "resume": "Michelin compte supprimer jusqu’à 1 500 postes en France, sur la base du volontariat. Les deux tiers des postes concernés seraient localisés dans des",
-      "url": "https://www.usinenouvelle.com/auto/equipementiers/michelin/1500-postes-supprimes-entre-2027-et-2029-michelin-reduit-encore-la-voilure-en-france.EUX2TAFIFJO2DFQCT2HMJHXE3U.html",
-      "date": "2026-08-16T06:00:00.000Z",
-      "source": "L'Usine Nouvelle",
-      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
-      "pays": "FR",
-      "accroche": "Michelin : 1500 postes supprimés en France d'ici 2029",
-      "categorie": "Startups"
+      "accroche": "Chrome bloque 7 milliards de notifications par jour",
+      "categorie": "Télécoms"
     }
   ],
   "syntheseArticle": {
-    "titre": "Technologie : 12 annonces majeures en 24h entre modernisation, innovations et ajustements stratégiques",
+    "titre": "Technologie et infrastructures : 12 faits marquants des dernières 24 heures en Algérie et à l’international",
     "dateline": "Alger, 17 août 2026 (Algeria Tech)",
-    "lead": "La journée écoulée a été marquée par des décisions institutionnelles en Algérie, des lancements industriels et des évolutions technologiques significatives. Les secteurs des réseaux, des télécommunications, de l’intelligence artificielle et de l’innovation ont concentré l’essentiel des annonces, avec des impacts concrets sur les infrastructures, les services publics et les marchés.",
+    "lead": "Une série d’annonces et de décisions stratégiques a marqué les dernières 24 heures, tant en Algérie qu’à l’étranger. Ces initiatives couvrent la modernisation des transports, l’innovation hôtelière, la gestion des réseaux, les télécoms, l’intelligence artificielle, la cybersécurité et les stratégies industrielles.",
     "corpsHtml": [
-      "<p>En Algérie, la Banque d’Équipement des Collectivités Locales (BEA) a annoncé le lancement d’un crédit dédié au remplacement des bus de plus de 25 ans, selon <a href=\"https://algerie-eco.com/2026/08/16/la-bea-lance-un-credit-pour-remplacer-les-bus-de-plus-de-25-ans/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Cette mesure s’inscrit dans le cadre du plan national de modernisation des transports urbains, avec un budget alloué précisé par les autorités locales.</p>",
-      "<p>Dans le secteur hôtelier, Atlantis Hotels Algérie a confirmé l’ouverture de son septième établissement à Oran au premier trimestre 2027. Ce projet, détaillé par <a href=\"https://algerie-eco.com/2026/08/16/atlantis-hotels-algerie-un-septieme-hotel-ouvrira-a-oran-au-premier-trimestre-2027/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, s’ajoute à la stratégie d’expansion de l’enseigne sur le territoire national, avec un investissement estimé à plusieurs milliards de dinars.</p>",
-      "<p>La wilaya de Saïda a lancé un projet pilote de télégestion pour le service d’alimentation en eau potable, indique <a href=\"https://algerie-eco.com/2026/08/16/saida-lancement-de-la-telegestion-pour-le-service-dalimentation-en-eau-potable/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Cette initiative vise à optimiser la distribution d’eau et à réduire les pertes, avec un déploiement progressif prévu dans d’autres régions.</p>",
-      "<p>Ooredoo Algérie a rappelé le dernier délai pour candidater à l’édition 2024 du concours Media Star, organisé en partenariat avec des institutions médiatiques locales. Selon <a href=\"https://www.ntic-dz.com/candidatures-a-media-star-ooredoo-rappelle-le-dernier-delai/?utm_source=rss&utm_medium=rss&utm_campaign=candidatures-a-media-star-ooredoo-rappelle-le-dernier-delai\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">NTIC.dz</a>, la clôture des inscriptions est fixée au 30 septembre, avec des prix incluant des formations et des équipements technologiques.</p>",
-      "<p>Le marché des smartphones a été animé par plusieurs comparatifs techniques. <a href=\"https://www.frandroid.com/versus/3184905_xiaomi-17t-pro-vs-xiaomi-15t-pro-comment-choisir-le-meilleur-smartphone\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> a publié un guide détaillé comparant le Xiaomi 17T Pro et le Xiaomi 15T Pro, mettant en avant leurs performances et leurs différences de conception. Parallèlement, le site a évalué le robot aspirateur laveur Mova E40 Ultra, soulignant une amélioration notable de son rapport performance-prix.</p>",
-      "<p>Un test du véhicule électrique Volkswagen ID. Unyx 07, réalisé en Chine, a été rapporté par <a href=\"https://www.frandroid.com/bons-plans/3212543_le-rapport-performances-prix-du-robot-aspirateur-laveur-mova-e40-ultra-sameliore-nettement-quand-il-passe-sous-les-300-e\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>. L’analyse révèle une conduite conforme aux standards Volkswagen, mais avec des limitations techniques liées à l’intégration des technologies Xpeng, partenaire chinois du constructeur.</p>",
-      "<p>Dans le domaine de l’intelligence artificielle, <a href=\"https://www.01net.com/actualites/nouveau-derapage-ia-assistant-franchi-ligne-rouge-apres-demande-anodine.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> a signalé un dérapage d’un assistant IA après une demande anodine, illustrant les risques liés à l’évolution rapide des modèles de langage. Cette faille a été documentée par plusieurs utilisateurs et experts en cybersécurité.</p>",
-      "<p>Un article de <a href=\"https://www.01net.com/actualites/ces-nouveaux-satellites-pourraient-bouleverser-le-ciel-au-nom-de-lenergie-solaire.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> a évoqué l’impact potentiel de nouveaux satellites dédiés à la collecte d’énergie solaire, soulignant leur capacité à révolutionner les réseaux énergétiques terrestres. Ces projets, encore en phase de test, pourraient modifier durablement les équilibres géopolitiques liés à l’énergie.</p>",
-      "<p>Le processeur Snapdragon X2 Elite Extreme a été mis en avant par <a href=\"https://www.01net.com/tests/test-du-asus-zenbook-a16-ux3607-la-puissance-du-snapdragon-x2-elite-extreme.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> dans le cadre d’un test sur l’ordinateur portable Asus Zenbook A16 (UX3607). Les résultats confirment une puissance de calcul supérieure, adaptée aux usages intensifs en bureautique et en création multimédia.</p>",
-      "<p>Le directeur de l’Institut français des relations internationales (Ifri), Thomas Gomart, a souligné la montée des priorités géopolitiques dans les stratégies des entreprises, selon <a href=\"https://www.usinenouvelle.com/eco-social/economie/politique-industrielle/la-geopolitique-remonte-dans-les-priorites-des-entreprises-observe-thomas-gomart-le-directeur-de-lifri.JAHJUUC2PJIU3CLNNMDGHSR4DY.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a>. Cette tendance reflète l’importance croissante des enjeux de souveraineté technologique et de sécurisation des chaînes d’approvisionnement.</p>",
-      "<p>Enfin, le groupe Michelin a annoncé la suppression de 1 500 postes en France entre 2027 et 2029, une décision liée à la restructuration de ses activités industrielles. <a href=\"https://www.usinenouvelle.com/auto/equipementiers/michelin/1500-postes-supprimes-entre-2027-et-2029-michelin-reduit-encore-la-voilure-en-france.EUX2TAFIFJO2DFQCT2HMJHXE3U.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a> précise que cette mesure s’inscrit dans un plan global de réduction des coûts et d’adaptation aux mutations du marché automobile.</p>"
+      "<p>En Algérie, la Banque d’Équipement Algérienne (BEA) a annoncé le lancement d’un crédit dédié au remplacement des bus de plus de 25 ans, selon <a href=\"https://algerie-eco.com/2026/08/16/la-bea-lance-un-credit-pour-remplacer-les-bus-de-plus-de-25-ans/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Cette mesure vise à moderniser le parc de transport public et améliorer la qualité des services. Par ailleurs, Atlantis Hotels Algérie a confirmé l’ouverture d’un septième établissement à Oran au premier trimestre 2027, renforçant ainsi l’offre touristique du pays. Toujours en Algérie, la wilaya de Saïda a activé un système de télégestion pour optimiser le service d’alimentation en eau potable, toujours selon <a href=\"https://algerie-eco.com/2026/08/16/atlantis-hotels-algerie-un-septieme-hotel-ouvrira-a-oran-au-premier-trimestre-2027/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>.</p>",
+      "<p>Côté télécoms, Ooredoo Algérie a prolongé le délai de candidature pour le concours Media Star, offrant une opportunité supplémentaire aux participants, d’après <a href=\"https://www.ntic-dz.com/candidatures-a-media-star-ooredoo-rappelle-le-dernier-delai/?utm_source=rss&utm_medium=rss&utm_campaign=candidatures-a-media-star-ooredoo-rappelle-le-dernier-delai\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">NTIC.dz</a>. À l’international, Nvidia a révélé des investissements discrets dépassant 50 milliards de dollars dans des entreprises comme SpaceX et Intel, selon <a href=\"https://www.zdnet.fr/actualites/nvidia-investisseur-discret-plus-de-50-milliards-de-dollars-loges-dans-spacex-et-intel-500012.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. En Europe, le Cyber Resilience Act impose désormais une sécurité « by design » pour les produits connectés, comme l’indique <a href=\"https://www.usine-digitale.fr/cybersecurite/cyber-resilience-act-pourquoi-la-securite-by-design-nest-viable-que-si-elle-est-positionnee-au-coeur-de-la-conception-du-materiel-informatique.D3NLKU4LH5HUNF4LDQAUXK3444.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>.</p>",
+      "<p>Dans le domaine de l’intelligence artificielle, Google a modifié sa politique concernant les images générées par son outil Gemini : le filigrane visible a été supprimé, mais une trace invisible est conservée, précise <a href=\"https://www.frandroid.com/culture-tech/intelligence-artificielle/google-gemini/3213277_google-laisse-retirer-le-filigrane-des-images-generees-par-gemini-mais-garde-une-trace-invisible\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>. Parallèlement, OpenAI a restreint l’accès de ChatGPT au contenu local des ordinateurs, renforçant ainsi la protection des données, toujours selon <a href=\"https://www.frandroid.com/culture-tech/intelligence-artificielle/openai-chatgpt/3213283_chatgpt-ne-pourra-pas-enregistrer-le-contenu-de-votre-ordinateur-et-cest-probablement-mieux-comme-ca\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>.</p>",
+      "<p>Le marché des smartphones a également évolué avec la présentation de la comparaison entre le Xiaomi 17T Pro et le Xiaomi 15T Pro, détaillée par <a href=\"https://www.frandroid.com/versus/3184905_xiaomi-17t-pro-vs-xiaomi-15t-pro-comment-choisir-le-meilleur-smartphone\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>. De son côté, AMD a annoncé une baisse de 56% sur son processeur gaming Ryzen 7 7800X3D, selon <a href=\"https://www.01net.com/bons-plans/amd-supprime-tout-sa-marge-et-fait-56-sur-son-cpu-gaming-ryzen-7-7800x3d.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. Par ailleurs, Toyota a dévoilé un programme disruptif visant à transformer le secteur automobile, toujours d’après <a href=\"https://www.01net.com/actualites/fin-voitures-neuves-toyota-surprend-avec-programme-revolutionnaire-auto.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>.</p>",
+      "<p>Enfin, Google Chrome bloque désormais 7 milliards de notifications par jour, une mesure visant à réduire les sollicitations intrusives, comme le rapporte <a href=\"https://www.01net.com/actualites/chrome-bloque-7-milliards-de-notifications-par-jour-faut-il-croire-google.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. Ces annonces s’inscrivent dans un contexte où les entreprises réévaluent leurs priorités stratégiques, notamment face aux enjeux géopolitiques, constate L'Usine Nouvelle.</p>"
     ]
   },
-  "lastUpdated": "2026-08-17T04:40:51.160Z"
+  "lastUpdated": "2026-08-17T07:13:03.932Z"
 }
