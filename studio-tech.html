@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algeria Tech — Flash Info Live</title>
+<style>
+  :root{
+    --red:#e1121b;
+    --red-glow:rgba(225,18,27,.5);
+    --black:#050505;
+    --gray:#b7b7b7;
+  }
+  *{ box-sizing:border-box; }
+  html,body{
+    margin:0; padding:0; width:100%; height:100%;
+    background:#000; color:#fff;
+    font-family:'Arial Narrow', Arial, 'Helvetica Neue', sans-serif;
+    overflow:hidden;
+  }
+  .studio{
+    position:relative; width:100vw; height:100vh;
+    background:
+      radial-gradient(ellipse at 50% 28%, #1b1b1b 0%, #050505 68%),
+      #000;
+  }
+
+  /* ---- Top bar ---- */
+  .topbar{
+    position:absolute; top:0; left:0; right:0; height:64px; z-index:20;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 30px;
+    background:linear-gradient(180deg, rgba(0,0,0,.9), rgba(0,0,0,0));
+  }
+  .live-tag{ display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:1px; font-size:14px; }
+  .live-dot{ width:10px; height:10px; border-radius:50%; background:var(--red); animation:pulse 1.2s infinite; }
+  @keyframes pulse{ 0%,100%{ opacity:1; transform:scale(1);} 50%{ opacity:.4; transform:scale(.7);} }
+  .clock{ font-variant-numeric:tabular-nums; color:var(--gray); font-weight:700; margin-left:16px; letter-spacing:1px; }
+  .logo{ font-weight:900; font-size:clamp(18px,2.2vw,26px); letter-spacing:.5px; }
+  .logo span{ color:var(--red); }
+
+  /* ---- Presenter stage ---- */
+  .presenter-stage{
+    position:absolute; inset:0; z-index:5;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:16px; padding:70px 20px 100px;
+  }
+  .presenter-frame{
+    width:min(280px,34vh); height:min(280px,34vh); border-radius:18px;
+    border:3px solid var(--red);
+    background:linear-gradient(160deg,#1c1c1c,#000);
+    box-shadow:0 0 46px var(--red-glow), inset 0 0 30px rgba(0,0,0,.6);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    position:relative; flex-shrink:0;
+  }
+  .presenter-frame .corner-tag{
+    position:absolute; top:10px; left:10px; background:var(--red); color:#fff;
+    font-size:11px; font-weight:800; padding:3px 9px; letter-spacing:1px; border-radius:2px;
+  }
+  .presenter-frame svg{ width:38%; height:38%; }
+  .eq{ display:flex; gap:5px; align-items:flex-end; height:30px; margin-top:12px; }
+  .eq span{ width:6px; background:var(--red); border-radius:2px; height:6px; opacity:.35; }
+  .presenter-frame.speaking .eq span{ animation:eqbar .9s ease-in-out infinite; opacity:1; }
+  .eq span:nth-child(1){ animation-delay:0s; }
+  .eq span:nth-child(2){ animation-delay:.15s; }
+  .eq span:nth-child(3){ animation-delay:.3s; }
+  .eq span:nth-child(4){ animation-delay:.1s; }
+  .eq span:nth-child(5){ animation-delay:.22s; }
+  @keyframes eqbar{ 0%,100%{ height:6px; } 50%{ height:28px; } }
+  .presenter-label{ font-weight:800; letter-spacing:2px; color:var(--gray); font-size:12px; text-transform:uppercase; }
+  .voice-mode{ font-size:11px; letter-spacing:1px; color:var(--gray); text-transform:uppercase; font-weight:700; }
+  .voice-mode.premium{ color:#2ee6a6; }
+  .voice-mode.premium::before{ content:"● "; }
+
+  .teleprompter{
+    width:min(760px,90vw); height:min(150px,20vh); margin-top:6px;
+    background:rgba(10,10,10,.72); border:1px solid rgba(255,255,255,.14); border-radius:10px;
+    overflow:hidden; position:relative; padding:16px 22px;
+  }
+  .teleprompter::before{
+    content:"PROMPTEUR"; position:absolute; top:6px; right:14px; font-size:10px; letter-spacing:2px;
+    color:var(--red); font-weight:800; opacity:.85;
+  }
+  .teleprompter-inner{
+    font-size:clamp(15px,1.6vw,20px); line-height:1.6; font-weight:700; color:#777;
+    height:100%; overflow-y:auto; scrollbar-width:none;
+  }
+  .teleprompter-inner::-webkit-scrollbar{ display:none; }
+  .word{ opacity:.5; transition:opacity .15s, color .15s; }
+  .word.said{ opacity:.3; }
+  .word.active{ opacity:1; color:var(--red); }
+
+  /* ---- Lower third ---- */
+  .lower-third{
+    position:absolute; left:0; right:0; bottom:78px; z-index:15;
+    display:flex; align-items:center;
+    transform:translateY(14px); opacity:0;
+    transition:transform .4s ease, opacity .4s ease;
+    padding-left:30px;
+  }
+  .lower-third.show{ transform:translateY(0); opacity:1; }
+  .lower-third .badge{
+    background:var(--red); color:#fff; font-weight:900; padding:11px 20px;
+    font-size:clamp(12px,1.3vw,16px); letter-spacing:1px; text-transform:uppercase;
+    clip-path:polygon(0 0,100% 0,92% 100%,0% 100%);
+  }
+  .lower-third .headline{
+    background:rgba(0,0,0,.8); color:#fff; font-weight:800; font-size:clamp(14px,1.6vw,19px);
+    padding:11px 26px 11px 18px; margin-left:-10px; border-left:3px solid var(--red);
+    max-width:80vw;
+  }
+
+  /* ---- Ticker ---- */
+  .ticker-bar{
+    position:absolute; left:0; right:0; bottom:0; height:56px; z-index:25;
+    display:flex; align-items:stretch; background:#000; border-top:2px solid var(--red);
+  }
+  .ticker-label{
+    background:var(--red); color:#fff; font-weight:900; letter-spacing:1px;
+    display:flex; align-items:center; padding:0 24px 0 20px; font-size:15px; white-space:nowrap;
+    clip-path:polygon(0 0,100% 0,86% 100%,0 100%); padding-right:42px; z-index:2;
+    text-shadow:0 1px 1px rgba(0,0,0,.3);
+  }
+  .ticker-viewport{ flex:1; overflow:hidden; position:relative; }
+  .ticker-track{
+    position:absolute; top:0; left:0; height:100%; display:flex; align-items:center;
+    white-space:nowrap; animation:scrollTicker 50s linear infinite;
+  }
+  .ticker-track span{ padding-right:70px; font-weight:700; font-size:16px; color:#fff; }
+  @keyframes scrollTicker{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+
+  /* ---- Start overlay ---- */
+  .start-overlay{
+    position:absolute; inset:0; z-index:50;
+    background:rgba(0,0,0,.85);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:22px;
+    transition:opacity .5s ease, visibility .5s ease; text-align:center; padding:20px;
+  }
+  .start-overlay.hidden{ opacity:0; visibility:hidden; pointer-events:none; }
+  .start-overlay h1{ font-size:clamp(20px,3.4vw,32px); font-weight:900; letter-spacing:1px; margin:0; }
+  .start-overlay h1 span{ color:var(--red); }
+  .start-btn{
+    background:var(--red); color:#fff; border:none; cursor:pointer;
+    font-weight:900; font-size:clamp(15px,2vw,20px); letter-spacing:1px;
+    padding:20px 42px; border-radius:60px; text-transform:uppercase;
+    animation:btnpulse 1.8s infinite;
+  }
+  .start-btn:hover{ filter:brightness(1.1); }
+  @keyframes btnpulse{
+    0%{ box-shadow:0 0 0 0 rgba(225,18,27,.55); }
+    70%{ box-shadow:0 0 0 24px rgba(225,18,27,0); }
+    100%{ box-shadow:0 0 0 0 rgba(225,18,27,0); }
+  }
+  .start-overlay p{ color:var(--gray); font-size:14px; margin:0; max-width:480px; }
+</style>
+</head>
+<body>
+<div class="studio">
+
+  <div class="topbar">
+    <div class="live-tag">
+      <span class="live-dot"></span> EN DIRECT
+      <span class="clock" id="clock">--:--:--</span>
+    </div>
+    <div class="logo">ALGERIA<span>TECH</span></div>
+  </div>
+
+  <div class="presenter-stage">
+    <div class="presenter-frame" id="presenterFrame">
+      <span class="corner-tag">LIVE</span>
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="34" r="18" fill="#e8e8e8"/>
+        <path d="M14 92c2-24 18-38 36-38s34 14 36 38" stroke="#e8e8e8" stroke-width="6" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div class="eq"><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="presenter-label">Présentateur IA — Algeria Tech</div>
+    <div class="voice-mode" id="voiceMode">Voix : vérification…</div>
+
+    <div class="teleprompter">
+      <div class="teleprompter-inner" id="prompter">Prêt à démarrer — cliquez sur « Lancer le direct ».</div>
+    </div>
+  </div>
+
+  <div class="lower-third" id="lowerThird">
+    <div class="badge" id="lowerBadge">LIVE</div>
+    <div class="headline" id="lowerHeadline">Flash Info Algeria Tech</div>
+  </div>
+
+  <div class="ticker-bar">
+    <div class="ticker-label">ALERTE INFO</div>
+    <div class="ticker-viewport">
+      <div class="ticker-track" id="tickerTrack"><span>Chargement des dernières actualités Algeria Tech…</span></div>
+    </div>
+  </div>
+
+  <div class="start-overlay" id="startOverlay">
+    <h1>ALGERIA<span>TECH</span> — FLASH INFO</h1>
+    <button class="start-btn" id="startBtn">▶ Lancer le direct</button>
+    <p id="overlaySubtitle">Cliquez pour activer le son — le présentateur IA va lire votre revue de presse en direct.</p>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var SEGMENTS = [
+    {
+      category: `IA`,
+      title: `Anthropic intègre un filigrane invisible dans Claude`,
+      text: `Flash info Algeria Tech, en direct de la rédaction. Il est dix-huit heures, l'actualité tech s'accélère. À la Une mondiale : Anthropic verrouille ses IA avec un filigrane invisible, une mesure de transparence imposée par Bruxelles. Mais aujourd'hui, cap sur l'Algérie, où la tech avance vite entre santé, institutions et finance. Trois infos, deux minutes, c'est parti.`
+    },
+    {
+      category: `SANTÉ`,
+      title: `1ère chirurgie robotique en Algérie`,
+      text: `Première étape : la santé. À Alger, la clinique Alouia signe une première historique pour le pays : la toute première opération de chirurgie robotique jamais réalisée en Algérie. Un tournant porté par le docteur Khelifa Aït Saïd, qui annonce dans la foulée la création d'une académie nationale dédiée à cette discipline. L'objectif : former localement les chirurgiens de demain, et réduire durablement la dépendance de l'Algérie à l'étranger dans ce domaine de pointe.`
+    },
+    {
+      category: `INSTITUTIONS`,
+      title: `APN : numérisation et Data Center`,
+      text: `Deuxième info : cap sur les institutions. À l'Assemblée populaire nationale, la présidente Khalida Boufedeche s'est rendue en personne au nouveau Data Center de l'institution, pour constater l'avancée des travaux. L'ambition affichée : accélérer la numérisation des méthodes de travail parlementaires, dans le cadre de la stratégie Algérie Vision 2030, avec un mot d'ordre : plus d'efficacité, et plus de transparence pour les citoyens.`
+    },
+    {
+      category: `FINANCE`,
+      title: `Banque d'Algérie : Comité national des paiements`,
+      text: `Troisième info : la finance. La Banque d'Algérie officialise la création de son Comité national des paiements. Sa mission : élaborer la stratégie nationale de développement des moyens de paiement scripturaux, chèques, virements, cartes. Un signal fort, envoyé vers une économie algérienne plus digitale, et de moins en moins dépendante du cash.`
+    },
+    {
+      category: `ALGERIA TECH`,
+      title: `Merci de nous avoir suivis`,
+      text: `Voilà pour ce flash. Santé, institutions, finance : la tech algérienne trace sa route, sur tous les fronts, aux quatre coins du pays. Retrouvez l'intégralité de ces articles, leurs sources et nos analyses complètes sur Algeria Tech. Abonnez-vous pour ne rater aucun flash. À très vite, et bonne tech à toutes et à tous !`
+    }
+  ];
+
+  var FALLBACK_TITLES = [
+    `IA — Anthropic intègre un filigrane invisible dans les textes générés par Claude`,
+    `INNOVATION — Première opération de chirurgie robotique en Algérie`,
+    `ALGÉRIE — L'APN accélère sa transformation numérique avec la visite du Data Center`,
+    `ALGÉRIE — Banque d'Algérie : instauration d'un comité national des paiements`,
+    `MOBILE — Ooredoo lance son Summer Tour 2026`,
+    `MOBILE — Ooredoo Algérie lance l'offre Gold PROMO`,
+    `IA — Google Chrome clarifie les conditions d'utilisation de son IA locale`,
+    `IA — Qoder fête son 1er anniversaire avec le lancement de Qwen3.8-Max`,
+    `MOBILE — ATM Mobilis officialise un partenariat avec Youcef Ibrahim ZEGHBA`,
+    `ALGÉRIE — Modernisation du bureau de poste Ain Arnat à Sétif`
+  ];
+
+  var clockEl = document.getElementById('clock');
+  var prompterEl = document.getElementById('prompter');
+  var lowerThird = document.getElementById('lowerThird');
+  var lowerBadge = document.getElementById('lowerBadge');
+  var lowerHeadline = document.getElementById('lowerHeadline');
+  var tickerTrack = document.getElementById('tickerTrack');
+  var presenterFrame = document.getElementById('presenterFrame');
+  var startOverlay = document.getElementById('startOverlay');
+  var startBtn = document.getElementById('startBtn');
+  var overlaySubtitle = document.getElementById('overlaySubtitle');
+
+  var currentSegment = 0;
+  var keepAliveTimer = null;
+  var voiceFr = null;
+  var voiceModeEl = document.getElementById('voiceMode');
+  var ttsAvailable = false;
+  var ttsVoiceId = null;
+  var audioPlayer = new Audio();
+  var objectUrls = [];
+  var preparedAudio = [];
+
+  /* ---------- Horloge ---------- */
+  function tickClock(){
+    clockEl.textContent = new Date().toLocaleTimeString('fr-FR');
+  }
+  tickClock();
+  setInterval(tickClock, 1000);
+
+  /* ---------- Bandeau d'alerte (données réelles) ---------- */
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c];
+    });
+  }
+
+  function renderTicker(titles){
+    var content = titles.join('   ★   ');
+    var safe = escapeHtml(content);
+    tickerTrack.innerHTML = '<span>' + safe + '</span><span aria-hidden="true">' + safe + '</span>';
+    var duration = Math.max(28, Math.min(120, content.length / 9));
+    tickerTrack.style.animationDuration = duration + 's';
+  }
+
+  function loadTicker(){
+    fetch('articles-list.json', { cache: 'no-store' })
+      .then(function(res){
+        if(!res.ok) throw new Error('HTTP ' + res.status);
+        return res.json();
+      })
+      .then(function(data){
+        var items = Array.isArray(data) ? data.slice() : [];
+        if(!items.length) throw new Error('empty');
+        items.sort(function(a, b){
+          return new Date(b.date + 'T' + (b.heure || '00:00')) - new Date(a.date + 'T' + (a.heure || '00:00'));
+        });
+        var titles = items.slice(0, 14).map(function(a){
+          return (a.categorie || 'INFO').toUpperCase() + ' — ' + a.titre;
+        });
+        renderTicker(titles);
+      })
+      .catch(function(){
+        renderTicker(FALLBACK_TITLES);
+      });
+  }
+
+  /* ---------- Prompteur ---------- */
+  function buildPrompterSegment(text){
+    var tokens = text.split(/(\s+)/);
+    var idx = 0;
+    var frag = document.createDocumentFragment();
+    var wordEls = [];
+    tokens.forEach(function(tok){
+      if(/^\s+$/.test(tok)){
+        frag.appendChild(document.createTextNode(tok));
+        idx += tok.length;
+      } else if(tok.length){
+        var span = document.createElement('span');
+        span.className = 'word';
+        span.textContent = tok;
+        span.dataset.start = idx;
+        span.dataset.end = idx + tok.length;
+        frag.appendChild(span);
+        wordEls.push(span);
+        idx += tok.length;
+      }
+    });
+    return { frag: frag, wordEls: wordEls };
+  }
+
+  function findWordAt(wordEls, pos){
+    var best = null;
+    for(var i = 0; i < wordEls.length; i++){
+      var start = +wordEls[i].dataset.start;
+      var end = +wordEls[i].dataset.end;
+      if(pos >= start && pos < end) return wordEls[i];
+      if(start <= pos) best = wordEls[i]; else break;
+    }
+    return best || wordEls[0];
+  }
+
+  /* ---------- Bandeau titre (lower third) ---------- */
+  function updateLowerThird(seg){
+    lowerBadge.textContent = seg.category;
+    lowerHeadline.textContent = seg.title;
+    lowerThird.classList.remove('show');
+    void lowerThird.offsetWidth; // relance l'animation
+    lowerThird.classList.add('show');
+  }
+
+  /* ---------- Voix française ---------- */
+  function pickVoice(){
+    if(!('speechSynthesis' in window)) return;
+    var voices = speechSynthesis.getVoices();
+    voiceFr = voices.find(function(v){ return v.lang === 'fr-FR'; })
+      || voices.find(function(v){ return v.lang && v.lang.indexOf('fr') === 0; })
+      || voices[0] || null;
+  }
+  if('speechSynthesis' in window){
+    pickVoice();
+    speechSynthesis.onvoiceschanged = pickVoice;
+  }
+
+  /* ---------- Voix premium (réutilise /api/tts, /api/voices, /api/health déjà en prod pour CV Parlé) ---------- */
+  function initPremiumVoice(){
+    return fetch('/api/health', { cache: 'no-store' })
+      .then(function(r){ return r.ok ? r.json() : { elevenlabs: false }; })
+      .then(function(data){
+        if(!data.elevenlabs) throw new Error('elevenlabs indisponible');
+        return fetch('/api/voices?provider=elevenlabs');
+      })
+      .then(function(r){ return r.ok ? r.json() : []; })
+      .then(function(voices){
+        if(Array.isArray(voices) && voices.length){
+          ttsVoiceId = voices[0].id;
+          ttsAvailable = true;
+          voiceModeEl.textContent = 'Voix : ElevenLabs (premium)';
+          voiceModeEl.classList.add('premium');
+        } else {
+          voiceModeEl.textContent = 'Voix : navigateur (secours)';
+        }
+      })
+      .catch(function(){
+        voiceModeEl.textContent = 'Voix : navigateur (secours)';
+      });
+  }
+  var ttsInitPromise = initPremiumVoice();
+
+  function fetchPremiumAudio(text){
+    var controller = new AbortController();
+    var timeoutId = setTimeout(function(){ controller.abort(); }, 15000);
+    return fetch('/api/tts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text: text, provider: 'elevenlabs', voiceId: ttsVoiceId, lang: 'fr-FR' }),
+      signal: controller.signal
+    }).then(function(r){
+      clearTimeout(timeoutId);
+      if(!r.ok) throw new Error('tts http ' + r.status);
+      return r.blob();
+    }).then(function(blob){
+      var url = URL.createObjectURL(blob);
+      objectUrls.push(url);
+      return url;
+    });
+  }
+
+  /* ---------- Surbrillance du prompteur par fraction de progression ---------- */
+  function highlightByFraction(wordEls, frac, state){
+    var idx = Math.min(wordEls.length - 1, Math.floor(frac * wordEls.length));
+    var w = wordEls[idx];
+    if(w && w !== state.lastActive){
+      wordEls.forEach(function(el, i2){
+        el.classList.toggle('said', i2 < idx);
+        el.classList.toggle('active', i2 === idx);
+      });
+      w.scrollIntoView({ block: 'center', behavior: 'smooth' });
+      state.lastActive = w;
+    }
+  }
+
+  /* ---------- Anti-coupure Chrome (bug ~15s) ---------- */
+  function startKeepAlive(){
+    stopKeepAlive();
+    keepAliveTimer = setInterval(function(){
+      if(speechSynthesis.speaking && !speechSynthesis.paused){
+        speechSynthesis.pause();
+        speechSynthesis.resume();
+      }
+    }, 9000);
+  }
+  function stopKeepAlive(){
+    if(keepAliveTimer) clearInterval(keepAliveTimer);
+    keepAliveTimer = null;
+  }
+
+  /* ---------- Lecture séquentielle des segments ---------- */
+  function playSegment(i){
+    if(i >= SEGMENTS.length){ onBroadcastEnd(); return; }
+    var seg = SEGMENTS[i];
+    updateLowerThird(seg);
+
+    var built = buildPrompterSegment(seg.text);
+    prompterEl.innerHTML = '';
+    prompterEl.appendChild(built.frag);
+    prompterEl.scrollTop = 0;
+    var wordEls = built.wordEls;
+
+    var prep = preparedAudio[i];
+    if(prep && prep.mode === 'premium'){
+      playPremiumSegment(seg, prep.url, wordEls, i);
+    } else {
+      playFallbackSegment(seg, wordEls, i);
+    }
+  }
+
+  function advanceToNext(i){
+    presenterFrame.classList.remove('speaking');
+    currentSegment = i + 1;
+    playSegment(currentSegment);
+  }
+
+  function playPremiumSegment(seg, url, wordEls, i){
+    var state = { lastActive: null };
+    audioPlayer.src = url;
+
+    function onTimeUpdate(){
+      if(!audioPlayer.duration) return;
+      highlightByFraction(wordEls, audioPlayer.currentTime / audioPlayer.duration, state);
+    }
+    function cleanup(){
+      audioPlayer.removeEventListener('timeupdate', onTimeUpdate);
+      audioPlayer.removeEventListener('ended', onEnded);
+      audioPlayer.removeEventListener('error', onError);
+    }
+    function onEnded(){
+      cleanup();
+      advanceToNext(i);
+    }
+    function onError(){
+      cleanup();
+      presenterFrame.classList.remove('speaking');
+      playFallbackSegment(seg, wordEls, i);
+    }
+    audioPlayer.addEventListener('timeupdate', onTimeUpdate);
+    audioPlayer.addEventListener('ended', onEnded);
+    audioPlayer.addEventListener('error', onError);
+
+    presenterFrame.classList.add('speaking');
+    audioPlayer.play().catch(onError);
+  }
+
+  function playFallbackSegment(seg, wordEls, i){
+    var state = { lastActive: null };
+    var boundaryFired = false;
+    var done = false;
+    var estWords = seg.text.split(/\s+/).length;
+    var estDurationMs = Math.max(1500, (estWords / 2.6) * 1000);
+    var startTime = performance.now();
+    var fallbackRAF = null;
+
+    function finish(){
+      if(done) return;
+      done = true;
+      if(fallbackRAF) cancelAnimationFrame(fallbackRAF);
+      advanceToNext(i);
+    }
+
+    function fallbackScroll(){
+      if(boundaryFired || done) return;
+      var frac = Math.min(1, (performance.now() - startTime) / estDurationMs);
+      highlightByFraction(wordEls, frac, state);
+      if(frac < 1) fallbackRAF = requestAnimationFrame(fallbackScroll);
+      else if(!('speechSynthesis' in window)) finish();
+    }
+    fallbackRAF = requestAnimationFrame(fallbackScroll);
+
+    if(!('speechSynthesis' in window)) return;
+
+    var utter = new SpeechSynthesisUtterance(seg.text);
+    utter.lang = 'fr-FR';
+    if(voiceFr) utter.voice = voiceFr;
+    utter.rate = 0.97;
+    utter.pitch = 1;
+
+    utter.onboundary = function(e){
+      if(e.name && e.name !== 'word') return;
+      boundaryFired = true;
+      if(fallbackRAF) cancelAnimationFrame(fallbackRAF);
+      var w = findWordAt(wordEls, e.charIndex);
+      if(w && w !== state.lastActive){
+        var wi = wordEls.indexOf(w);
+        wordEls.forEach(function(el, i2){
+          el.classList.toggle('said', i2 < wi);
+          el.classList.toggle('active', i2 === wi);
+        });
+        w.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        state.lastActive = w;
+      }
+    };
+
+    utter.onstart = function(){
+      presenterFrame.classList.add('speaking');
+    };
+
+    utter.onend = finish;
+    utter.onerror = finish;
+
+    speechSynthesis.speak(utter);
+  }
+
+  function onBroadcastEnd(){
+    stopKeepAlive();
+    presenterFrame.classList.remove('speaking');
+    objectUrls.forEach(function(u){ URL.revokeObjectURL(u); });
+    objectUrls = [];
+    preparedAudio = [];
+    startOverlay.classList.remove('hidden');
+    startBtn.disabled = false;
+    startBtn.textContent = '↻ Revoir le direct';
+    overlaySubtitle.textContent = 'Le direct est terminé — cliquez pour le relancer.';
+  }
+
+  /* ---------- Démarrage : pré-génère l'audio ElevenLabs de chaque segment, puis diffuse ---------- */
+  function runBroadcast(){
+    startBtn.disabled = true;
+    startBtn.textContent = '⏳ Préparation…';
+    if('speechSynthesis' in window) speechSynthesis.cancel();
+    pickVoice();
+
+    ttsInitPromise.then(function(){
+      var chain = Promise.resolve();
+      var prepared = [];
+      SEGMENTS.forEach(function(seg, idx){
+        chain = chain.then(function(){
+          overlaySubtitle.textContent = 'Préparation ' + (idx + 1) + '/' + SEGMENTS.length + '…';
+          if(!ttsAvailable){ prepared[idx] = { mode: 'fallback' }; return; }
+          return fetchPremiumAudio(seg.text)
+            .then(function(url){ prepared[idx] = { mode: 'premium', url: url }; })
+            .catch(function(){ prepared[idx] = { mode: 'fallback' }; });
+        });
+      });
+      return chain.then(function(){ return prepared; });
+    }).then(function(prepared){
+      preparedAudio = prepared;
+      startOverlay.classList.add('hidden');
+      startBtn.disabled = false;
+      currentSegment = 0;
+      startKeepAlive();
+      playSegment(0);
+    });
+  }
+
+  startBtn.addEventListener('click', runBroadcast);
+
+  window.addEventListener('beforeunload', function(){
+    if('speechSynthesis' in window) speechSynthesis.cancel();
+  });
+
+  loadTicker();
+})();
+</script>
+</body>
+</html>
