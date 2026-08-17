@@ -2180,6 +2180,106 @@ app.put('/api/revue/tour-horizon', (req, res) => {
     res.json({ success: true });
 });
 
+// ── COMPARATEUR MOBILE — Import assisté d'offres (PDF/URL/texte → IA → ajout) ──
+// Extraction fichier : réutilise /api/extract-communique (mêmes types acceptés).
+// Extraction URL : réutilise /api/fetch-url. Ici uniquement structuration + écriture.
+const COMPARATEUR_OFFERS_FILE = path.join(__dirname, 'comparateur_offers.json');
+
+function loadComparateurOffers() {
+    return JSON.parse(fsSync.readFileSync(COMPARATEUR_OFFERS_FILE, 'utf-8'));
+}
+function saveComparateurOffers(data) {
+    fsSync.writeFileSync(COMPARATEUR_OFFERS_FILE, JSON.stringify(data, null, 2));
+}
+function _nextComparateurId(data, op) {
+    const prefix = { mobilis: 'm', djezzy: 'd', ooredoo: 'o' }[op] || 'x';
+    const nums = data
+        .filter(o => o.op === op && typeof o.id === 'string' && o.id.startsWith(prefix))
+        .map(o => parseInt(o.id.slice(prefix.length), 10))
+        .filter(n => !isNaN(n));
+    return prefix + ((nums.length ? Math.max(...nums) : 0) + 1);
+}
+
+// Structuration IA du texte brut (communiqué/grille tarifaire) → champs offre comparateur
+async function structureOfferIA(rawText) {
+    const prompt = `Tu es assistant pour Algeria Tech. On te fournit le texte brut d'un communiqué ou d'une grille tarifaire d'un opérateur télécom algérien (Mobilis, Djezzy ou Ooredoo), décrivant UNE offre mobile ou internet.
+
+Analyse ce texte et retourne UNIQUEMENT du JSON pur avec cette structure exacte :
+{
+  "op": "mobilis" | "djezzy" | "ooredoo" | "",
+  "name": "nom commercial de l'offre",
+  "type": "prepaid" | "postpaid" | "internet",
+  "price": nombre (prix en DA),
+  "data": nombre (volume data en Go),
+  "validity": nombre (durée de validité en jours, 30 si non précisé),
+  "calls": "description des appels inclus",
+  "sms": "description des SMS inclus, ou chaîne vide",
+  "intl": booléen (true si l'offre inclut de l'international),
+  "extras": ["avantage 1", "avantage 2"],
+  "link": "URL officielle de l'offre si présente dans le texte, sinon chaîne vide"
+}
+
+Règles :
+- "op" doit être détecté depuis le texte (mentions explicites de Mobilis, Djezzy ou Ooredoo) ; si ambigu ou absent, laisse une chaîne vide.
+- Ne fabrique aucun prix, volume ou avantage absent du texte source.
+- "extras" : 2 à 5 éléments courts maximum.
+
+TEXTE SOURCE :
+${rawText.substring(0, 6000)}`;
+
+    const payload = JSON.stringify({
+        model: 'mistral-small-latest',
+        messages: [{ role: 'user', content: prompt }],
+        response_format: { type: 'json_object' },
+        temperature: 0.2,
+        max_tokens: 1200
+    });
+
+    const data = await callMistral(payload);
+    const result = JSON.parse(data);
+    if (result.error) throw new Error(result.error.message);
+    return JSON.parse(result.choices[0].message.content);
+}
+
+app.post('/api/comparateur/structure', express.json({ limit: '2mb' }), async (req, res) => {
+    const rawText = (req.body && req.body.rawText || '').trim();
+    if (!rawText) return res.status(400).json({ error: 'Texte requis' });
+    try {
+        const structured = await structureOfferIA(rawText);
+        res.json(structured);
+    } catch (e) {
+        console.error('[comparateur/structure]', e.code || '', e.message);
+        res.status(500).json({ error: e.message || "Échec de l'analyse du texte" });
+    }
+});
+
+app.post('/api/comparateur/offer', express.json({ limit: '1mb' }), (req, res) => {
+    const b = req.body || {};
+    if (!['mobilis', 'djezzy', 'ooredoo'].includes(b.op)) return res.status(400).json({ error: 'Opérateur invalide' });
+    if (!b.name || !b.price || !b.data) return res.status(400).json({ error: 'name, price et data requis' });
+
+    const data = loadComparateurOffers();
+    const offer = {
+        id: _nextComparateurId(data, b.op),
+        op: b.op,
+        name: String(b.name).trim(),
+        type: ['prepaid', 'postpaid', 'internet'].includes(b.type) ? b.type : 'prepaid',
+        price: Number(b.price) || 0,
+        data: Number(b.data) || 0,
+        validity: Number(b.validity) || 30,
+        dateAdded: new Date().toISOString().slice(0, 10),
+        calls: b.calls || '',
+        sms: b.sms || null,
+        intl: !!b.intl,
+        badge: b.badge || null,
+        extras: Array.isArray(b.extras) ? b.extras.filter(Boolean) : [],
+        link: b.link || ''
+    };
+    data.push(offer);
+    saveComparateurOffers(data);
+    res.json({ success: true, offer });
+});
+
 // ── Cotation Officielle Banque d'Algérie — Scraper PDF ───────────────────────
 // URL pattern : https://www.bank-of-algeria.dz/stoodroa/{YYYY}/{MM}/cotation-commerciale-{N}.pdf
 // N est un compteur mensuel (jours ouvrables). On tente N+1, N+2 puis recule si besoin.

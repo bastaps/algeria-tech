@@ -56,7 +56,8 @@ jobs:
             "subscribers.json" \
             "social_config.json" \
             "apify_cache.json" \
-            "revue_presse.json"; do
+            "revue_presse.json" \
+            "comparateur_offers.json"; do
             if [ -f "$file" ]; then
               echo "  ✅ $file ($(wc -c < $file) bytes)"
               git add $file

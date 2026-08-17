@@ -287,6 +287,31 @@
 .cv3.cv3-day .cv3-empty{color:rgba(0,0,0,.3)}
 .cv3.cv3-day .cv3-b-pop{background:rgba(21,101,192,.12);color:#1565C0;border-color:rgba(21,101,192,.22)}
 .cv3.cv3-day .cv3-b-val{background:rgba(34,139,34,.12);color:#1a7a1a;border-color:rgba(34,139,34,.22)}
+/* ADMIN — Ajouter une offre */
+.cv3-addbtn{padding:9px 16px;border-radius:9px;border:1px solid rgba(255,215,0,.3);background:rgba(255,215,0,.08);color:#ffd700;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .2s;white-space:nowrap}
+.cv3-addbtn:hover{background:rgba(255,215,0,.16);transform:translateY(-1px)}
+.cv3-ad-tabs{display:flex;gap:7px;margin:0 24px 14px}
+.cv3-ad-tab{flex:1;padding:9px 10px;border-radius:9px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);color:rgba(255,255,255,.55);font-size:.76rem;font-weight:600;cursor:pointer;transition:all .2s}
+.cv3-ad-tab.on{border-color:#60a5fa;background:rgba(96,165,250,.14);color:#60a5fa}
+.cv3-ad-src{margin:0 24px 14px}
+.cv3-ad-src input,.cv3-ad-src textarea,.cv3-ad-grid input,.cv3-ad-grid select,.cv3-ad-grid textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:9px;color:#e2e8f0;padding:9px 11px;font-size:.83rem;font-family:inherit;outline:none}
+.cv3-ad-src input:focus,.cv3-ad-grid input:focus,.cv3-ad-grid select:focus,.cv3-ad-grid textarea:focus{border-color:#60a5fa}
+.cv3-ad-src textarea{min-height:90px;resize:vertical}
+.cv3-ad-analyzebtn{margin-top:9px;padding:9px 16px;border-radius:9px;border:none;background:linear-gradient(135deg,#2979ff,#7b2ff7);color:#fff;font-weight:700;font-size:.8rem;cursor:pointer}
+.cv3-ad-analyzebtn:disabled{opacity:.5;cursor:wait}
+.cv3-ad-status{font-size:.74rem;color:rgba(255,255,255,.45);margin-top:8px;min-height:1.2em}
+.cv3-ad-ops{display:flex;gap:8px;margin:0 24px 12px}
+.cv3-ad-opbtn{flex:1;padding:9px;border-radius:9px;border:1.5px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);color:rgba(255,255,255,.6);font-weight:700;font-size:.78rem;cursor:pointer;transition:all .2s}
+.cv3-ad-opbtn.on{border-color:var(--oc);background:rgba(var(--oc-rgb),.16);color:var(--oc)}
+.cv3-ad-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 24px 14px}
+.cv3-ad-grid label{display:block;font-size:.68rem;color:rgba(255,255,255,.4);margin-bottom:4px}
+.cv3-ad-full{grid-column:1/-1}
+.cv3-ad-check{display:flex;align-items:center;gap:7px;font-size:.78rem;color:rgba(255,255,255,.6);cursor:pointer}
+.cv3-ad-submitbtn{margin:4px 24px 22px;padding:11px;border-radius:9px;border:none;background:linear-gradient(90deg,#ffd700,#ff8c00);color:#000;font-weight:900;font-size:.85rem;cursor:pointer;width:calc(100% - 48px)}
+.cv3-ad-submitbtn:disabled{opacity:.5;cursor:wait}
+.cv3.cv3-day .cv3-ad-tab,.cv3.cv3-day .cv3-ad-opbtn{background:rgba(255,255,255,.7);border-color:rgba(0,0,0,.12);color:rgba(0,0,0,.6)}
+.cv3.cv3-day .cv3-ad-src input,.cv3.cv3-day .cv3-ad-src textarea,.cv3.cv3-day .cv3-ad-grid input,.cv3.cv3-day .cv3-ad-grid select,.cv3.cv3-day .cv3-ad-grid textarea{background:#fff;border-color:rgba(0,0,0,.15);color:#1a1a2e}
+.cv3.cv3-day .cv3-ad-grid label,.cv3.cv3-day .cv3-ad-status,.cv3.cv3-day .cv3-ad-check{color:rgba(0,0,0,.5)}
   `;
   document.head.appendChild(s);
 })();
@@ -318,205 +343,24 @@ const COMP_OPS = {
 
 /* ══ Offres ══════════════════════════════════════════════════ */
 /*
- * ── Ajouter une nouvelle offre ────────────────────────────────
- * Copier un objet existant, changer l'id (ex: 'm6'), renseigner :
- *   op, name, price, data, validity, calls, sms, extras, link
- *   dateAdded: 'YYYY-MM-DD'  ← date de publication sur le site opérateur
- *   badge: 'Populaire' | 'Meilleur rapport' | null
+ * Les offres vivent dans comparateur_offers.json (fetch au chargement,
+ * voir initComparateur). Ajout manuel : éditer ce fichier directement,
+ * en respectant le schéma : id, op, name, price, data, validity, calls,
+ * sms, extras, link, dateAdded:'YYYY-MM-DD', badge:'Populaire'|'Meilleur rapport'|null.
+ * Ajout assisté (PDF/URL/texte → IA → prévisualisation) : bouton ➕ admin
+ * dans l'en-tête des résultats (visible si isAdminUnlocked()).
  * Le badge 🆕 Nouveau est attribué automatiquement si dateAdded
  * est dans les 30 derniers jours.
- * ─────────────────────────────────────────────────────────────
  */
-const COMP_OFFERS = [
-  /* ── Mobilis Revolution ─────────────────────────────────── */
-  {id:'m1',op:'mobilis',name:'Revolution 1200',type:'prepaid',price:1200,data:35,validity:30,dateAdded:'2026-01-15',
-   calls:'Illimités vers Mobilis',sms:'Via Mobilis Units',intl:false,badge:null,
-   extras:['Facebook après épuisement MU','4G/5G inclus','MU cumulables (dès 1 000 DA)'],
-   link:'https://www.mobilis.dz/revolution_prepaid'},
-  {id:'m2',op:'mobilis',name:'Revolution 1500',type:'prepaid',price:1500,data:55,validity:30,dateAdded:'2026-01-15',
-   calls:'Illimités vers Mobilis',sms:'Via Mobilis Units',intl:false,badge:'Populaire',
-   extras:['Facebook illimité','4G/5G inclus','MU cumulables','+200 MU si renouvellement avant J20'],
-   link:'https://www.mobilis.dz/revolution_prepaid'},
-  {id:'m3',op:'mobilis',name:'Revolution 1800',type:'prepaid',price:1800,data:80,validity:30,dateAdded:'2026-02-01',
-   calls:'Illimités vers Mobilis',sms:'Via Mobilis Units',intl:false,badge:null,
-   extras:['Facebook illimité','4G/5G inclus','MU cumulables','+200 MU renouvellement'],
-   link:'https://www.mobilis.dz/revolution_prepaid'},
-  {id:'m4',op:'mobilis',name:'Revolution 2000',type:'prepaid',price:2000,data:90,validity:30,dateAdded:'2026-02-01',
-   calls:'Illimités vers tous réseaux',sms:'Illimités Mobilis + 35 SMS autres',intl:false,badge:'Meilleur rapport',
-   extras:['Facebook illimité','4G/5G inclus','MU cumulables','+200 MU bonus renouvellement'],
-   link:'https://www.mobilis.dz/revolution_prepaid'},
-  {id:'m5',op:'mobilis',name:'Revolution 2500',type:'prepaid',price:2500,data:120,validity:30,dateAdded:'2026-05-20',
-   calls:'Illimités vers tous réseaux',sms:'Illimités Mobilis + 50 SMS autres',intl:false,badge:null,
-   extras:['Facebook illimité','4G/5G inclus','MU cumulables','+200 MU bonus renouvellement'],
-   link:'https://www.mobilis.dz/revolution_prepaid'},
-  /* ── Mobilis Revolution Control (prépayé, crédit MU flexible) ── */
-  {id:'m6',op:'mobilis',name:'Revolution Control 1200',type:'prepaid',price:1200,data:45,validity:30,dateAdded:'2026-06-29',
-   calls:'Crédit MU flexible (appels/SMS/data)',sms:'Inclus dans le crédit MU',intl:false,badge:null,
-   extras:['Crédit unique 2250 MU (flexible)','1 Go=50 MU · 1 min=5 MU','MU cumulables','+250 MU au renouvellement','Facebook illimité après épuisement MU','Boost 200 DA=500 MU','4G/5G'],
-   link:'https://www.mobilis.dz/revolution_control'},
-  {id:'m7',op:'mobilis',name:'Revolution Control 1500',type:'prepaid',price:1500,data:70,validity:30,dateAdded:'2026-06-29',
-   calls:'Crédit MU flexible (appels/SMS/data)',sms:'Inclus dans le crédit MU',intl:false,badge:null,
-   extras:['Crédit unique 3500 MU (flexible)','1 Go=50 MU · 1 min=5 MU','MU cumulables','+250 MU au renouvellement','Facebook illimité','Boost 200 DA=500 MU','4G/5G'],
-   link:'https://www.mobilis.dz/revolution_control'},
-  {id:'m8',op:'mobilis',name:'Revolution Control 1800',type:'prepaid',price:1800,data:100,validity:30,dateAdded:'2026-06-29',
-   calls:'Crédit MU flexible (appels/SMS/data)',sms:'Inclus dans le crédit MU',intl:false,badge:null,
-   extras:['Crédit unique 5000 MU (flexible)','1 Go=50 MU · 1 min=5 MU','MU cumulables','+250 MU au renouvellement','Facebook illimité','Boost 200 DA=500 MU','4G/5G'],
-   link:'https://www.mobilis.dz/revolution_control'},
-  {id:'m9',op:'mobilis',name:'Revolution Control 2000',type:'prepaid',price:2000,data:118,validity:30,dateAdded:'2026-06-29',
-   calls:'Crédit MU flexible (appels/SMS/data)',sms:'Inclus dans le crédit MU',intl:false,badge:'Meilleur rapport',
-   extras:['Crédit unique 5900 MU (flexible)','1 Go=50 MU · 1 min=5 MU','MU cumulables','+250 MU complet au renouvellement','Facebook illimité','Boost 200 DA=500 MU','4G/5G'],
-   link:'https://www.mobilis.dz/revolution_control'},
-  {id:'m10',op:'mobilis',name:'Revolution Control 2500',type:'prepaid',price:2500,data:150,validity:30,dateAdded:'2026-06-29',
-   calls:'Crédit MU flexible (appels/SMS/data)',sms:'Inclus dans le crédit MU',intl:false,badge:null,
-   extras:['Crédit unique 7500 MU (flexible)','1 Go=50 MU · 1 min=5 MU','MU cumulables','+250 MU complet au renouvellement','Facebook illimité','Boost 200 DA=500 MU','4G/5G'],
-   link:'https://www.mobilis.dz/revolution_control'},
-  {id:'m11',op:'mobilis',name:'Revolution Control 3000',type:'prepaid',price:3000,data:188,validity:30,dateAdded:'2026-06-29',
-   calls:'Crédit MU flexible (appels/SMS/data)',sms:'Inclus dans le crédit MU',intl:false,badge:null,
-   extras:['Crédit unique 9400 MU (flexible)','1 Go=50 MU · 1 min=5 MU','MU cumulables','+250 MU complet au renouvellement','Facebook illimité','Boost 200 DA=500 MU','4G/5G'],
-   link:'https://www.mobilis.dz/revolution_control'},
-  /* ── Mobilis Revolution Postpaid (facture mensuelle, crédit MU) ── */
-  {id:'m12',op:'mobilis',name:'Revolution Postpaid 1500',type:'postpaid',price:1500,data:60,validity:30,dateAdded:'2026-06-29',
-   calls:'Crédit MU flexible (appels/SMS/data)',sms:'Inclus dans le crédit MU',intl:false,badge:null,
-   extras:['Crédit unique 3000 MU (flexible)','Facture mensuelle sans surprise','Extra Unit 1 DA=2 MU','Facebook illimité','4G/5G'],
-   link:'https://www.mobilis.dz/revolution_postpaid'},
-  /* ── Djezzy Legend ──────────────────────────────────────── */
-  {id:'d1',op:'djezzy',name:'Legend 1 000 DA',type:'prepaid',price:1000,data:15,validity:30,dateAdded:'2026-02-15',
-   calls:'Illimités vers Djezzy',sms:'Illimités vers Djezzy',intl:false,badge:null,
-   extras:['2 000 DA de crédit offert','4G/5G inclus'],
-   link:'https://www.djezzy.dz/particuliers/offres/djezzy-legend/'},
-  {id:'d2',op:'djezzy',name:'Legend 1 500 DA',type:'prepaid',price:1500,data:45,validity:30,dateAdded:'2026-02-15',
-   calls:'Illimités vers Djezzy',sms:'Illimités vers Djezzy',intl:false,badge:'Populaire',
-   extras:['3 000 DA de crédit offert','4G/5G inclus','Gigas cumulables'],
-   link:'https://www.djezzy.dz/particuliers/offres/djezzy-legend/'},
-  {id:'d3',op:'djezzy',name:'Legend 2 000 DA',type:'prepaid',price:2000,data:70,validity:30,dateAdded:'2026-03-01',
-   calls:'Illimités vers tous réseaux',sms:'Illimités Djezzy + 50 SMS autres',intl:false,badge:'Meilleur rapport',
-   extras:['4G/5G inclus','Gigas cumulables'],
-   link:'https://www.djezzy.dz/particuliers/offres/djezzy-legend/'},
-  {id:'d4',op:'djezzy',name:'Legend 2 500 DA',type:'prepaid',price:2500,data:120,validity:30,dateAdded:'2026-03-01',
-   calls:'Illimités vers tous réseaux',sms:'Illimités Djezzy + 20 SMS autres',intl:false,badge:null,
-   extras:['4G/5G inclus','Gigas cumulables'],
-   link:'https://www.djezzy.dz/particuliers/offres/djezzy-legend/'},
-  {id:'d5',op:'djezzy',name:'Legend 3 000 DA',type:'prepaid',price:3000,data:145,validity:30,dateAdded:'2026-06-01',
-   calls:'Illimités vers tous réseaux',sms:'Illimités Djezzy + 25 SMS autres',intl:false,badge:null,
-   extras:['4G/5G inclus','Gigas cumulables'],
-   link:'https://www.djezzy.dz/particuliers/offres/djezzy-legend/'},
-  {id:'d6',op:'djezzy',name:'Legend 4 000 DA',type:'prepaid',price:4000,data:200,validity:30,dateAdded:'2026-06-01',
-   calls:'Illimités vers tous réseaux',sms:'Illimités Djezzy + 30 SMS autres',intl:false,badge:null,
-   extras:['4G/5G inclus','Gigas cumulables'],
-   link:'https://www.djezzy.dz/particuliers/offres/djezzy-legend/'},
-  /* ── Ooredoo Dima ───────────────────────────────────────── */
-  {id:'o1',op:'ooredoo',name:'Dima 500',type:'prepaid',price:500,data:3,validity:15,dateAdded:'2026-03-15',
-   calls:'Illimités Ooredoo + 100 min autres',sms:'50 SMS tous réseaux',intl:false,badge:null,
-   extras:['Facebook gratuit','4G/5G inclus'],
-   link:'https://www.ooredoo.dz/fr/'},
-  {id:'o2',op:'ooredoo',name:'Dima 750',type:'prepaid',price:750,data:10,validity:14,dateAdded:'2026-03-15',
-   calls:'Illimités Ooredoo + 100 min autres',sms:'50 SMS tous réseaux',intl:false,badge:null,
-   extras:['Facebook gratuit','4G/5G inclus'],
-   link:'https://www.ooredoo.dz/fr/'},
-  {id:'o3',op:'ooredoo',name:'Dima 1200',type:'prepaid',price:1200,data:8,validity:30,dateAdded:'2026-04-01',
-   calls:'Illimités Ooredoo + 100 min autres',sms:'120 SMS tous réseaux',intl:false,badge:null,
-   extras:['Facebook gratuit','ANAFLIX inclus','4G/5G inclus'],
-   link:'https://www.ooredoo.dz/fr/'},
-  {id:'o4',op:'ooredoo',name:'Dima 1500',type:'prepaid',price:1500,data:30,validity:30,dateAdded:'2026-04-15',
-   calls:'Illimités Ooredoo + 150 min autres',sms:'150 SMS tous réseaux',intl:false,badge:'Populaire',
-   extras:['Facebook gratuit','ANAFLIX inclus','4G/5G inclus'],
-   link:'https://www.ooredoo.dz/fr/'},
-  {id:'o5',op:'ooredoo',name:'Dima 2000',type:'prepaid',price:2000,data:50,validity:30,dateAdded:'2026-04-15',
-   calls:'Illimités Ooredoo + 300 min autres',sms:'200 SMS tous réseaux',intl:false,badge:'Meilleur rapport',
-   extras:['Facebook gratuit','ANAFLIX + ANAZIK inclus','4G/5G inclus'],
-   link:'https://www.ooredoo.dz/fr/'},
-  {id:'o6',op:'ooredoo',name:'Dima 2500',type:'prepaid',price:2500,data:100,validity:30,dateAdded:'2026-05-20',
-   calls:'Illimités vers tous réseaux',sms:'Illimités Ooredoo + 100 SMS autres',intl:false,badge:null,
-   extras:['Facebook gratuit','ANAFLIX + ANAZIK + GoPlay','4G/5G inclus'],
-   link:'https://www.ooredoo.dz/fr/'},
-  {id:'o7',op:'ooredoo',name:'Dima 4000',type:'prepaid',price:4000,data:200,validity:30,dateAdded:'2026-05-20',
-   calls:'Illimités vers tous réseaux',sms:'Illimités Ooredoo + 200 SMS autres',intl:false,badge:null,
-   extras:['4G/5G inclus'],
-   link:'https://www.ooredoo.dz/fr/'},
-  /* ── Ooredoo 500 ────────────────────────────────────────── */
-  {id:'o8',op:'ooredoo',name:'Ooredoo 500',type:'prepaid',price:500,data:5,validity:28,dateAdded:'2026-06-29',
-   calls:'Illimités vers Ooredoo + 500 DA crédit tous réseaux',sms:'Via crédit 500 DA',intl:false,badge:null,
-   extras:['500 DA de crédit tous réseaux','Pass longue durée dispo','4G/5G inclus'],
-   link:'https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-500'},
-  /* ── N'YOOZ ─────────────────────────────────────────────── */
-  {id:'o9',op:'ooredoo',name:"N'YOOZ 500",type:'prepaid',price:500,data:5,validity:30,dateAdded:'2026-06-29',
-   calls:'50 min tous réseaux',sms:'50 SMS vers Ooredoo',intl:false,badge:null,
-   extras:['+2 Go bonus (appli)','Snapchat 300 Mo/j','Numéro au choix','4G/5G inclus'],
-   link:'https://www.ooredoo.dz/fr/particuliers/offres-mobiles/n-yooz'},
-  {id:'o10',op:'ooredoo',name:"N'YOOZ 1000",type:'prepaid',price:1000,data:15,validity:30,dateAdded:'2026-06-29',
-   calls:'Illimités Ooredoo + 100 min autres',sms:'—',intl:false,badge:null,
-   extras:['Snapchat 300 Mo/j','Numéro au choix','4G/5G inclus'],
-   link:'https://www.ooredoo.dz/fr/particuliers/offres-mobiles/n-yooz'},
-  {id:'o11',op:'ooredoo',name:"N'YOOZ 1500",type:'prepaid',price:1500,data:30,validity:30,dateAdded:'2026-06-29',
-   calls:'Illimités Ooredoo + 150 min autres',sms:'—',intl:false,badge:null,
-   extras:['Facebook/Messenger illimité','Snapchat 300 Mo/j','4G/5G inclus'],
-   link:'https://www.ooredoo.dz/fr/particuliers/offres-mobiles/n-yooz'},
-  /* ── Ooredoo Scholar (étudiants) ────────────────────────── */
-  {id:'o12',op:'ooredoo',name:'Scholar 500',type:'prepaid',price:500,data:7,validity:28,dateAdded:'2026-06-29',
-   calls:'Illimités vers Ooredoo + 500 DA crédit',sms:'Via crédit',intl:false,badge:'Étudiants',
-   extras:['5 Go + 2 Go bonus (appli)','Offre étudiants','4G/5G inclus'],
-   link:'https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-scholar'},
-  {id:'o13',op:'ooredoo',name:'Scholar 1000',type:'prepaid',price:1000,data:20,validity:28,dateAdded:'2026-06-29',
-   calls:'Illimités vers Ooredoo + 2000 DA crédit',sms:'Via crédit',intl:false,badge:null,
-   extras:['Bonus data (appli)','Offre étudiants','4G/5G inclus'],
-   link:'https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-scholar'},
-  {id:'o14',op:'ooredoo',name:'Scholar 1500',type:'prepaid',price:1500,data:50,validity:28,dateAdded:'2026-06-29',
-   calls:'Illimités vers Ooredoo + 3000 DA crédit',sms:'Via crédit',intl:false,badge:null,
-   extras:['Bonus data (appli)','Offre étudiants','4G/5G inclus'],
-   link:'https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-scholar'},
-  {id:'o15',op:'ooredoo',name:'Scholar 2000',type:'prepaid',price:2000,data:80,validity:28,dateAdded:'2026-06-29',
-   calls:'Illimités vers Ooredoo + 6000 DA crédit',sms:'Via crédit',intl:false,badge:null,
-   extras:['Bonus data (appli)','Offre étudiants','4G/5G inclus'],
-   link:'https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-scholar'},
-  {id:'o16',op:'ooredoo',name:'Scholar 2500',type:'prepaid',price:2500,data:120,validity:28,dateAdded:'2026-06-29',
-   calls:'Illimités vers tous réseaux',sms:'Illimités Ooredoo + 100 SMS autres',intl:false,badge:null,
-   extras:['Offre étudiants','4G/5G inclus'],
-   link:'https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-scholar'},
-  /* ══ INTERNET & BOX (Mobilis) ════════════════════════════════ */
-  /* ── Packs modem (matériel inclus) ──────────────────────────── */
-  {id:'i1',op:'mobilis',cat:'internet',name:'Pack MobiNet',type:'internet',price:9000,data:200,validity:270,dateAdded:'2026-06-29',
-   calls:'Modem WiFi + SIM · jusqu’à 16 appareils',sms:null,intl:false,badge:'Pack modem',
-   extras:['Bonus 200 Go inclus (9 mois)','Recharges : 1500 DA = 60 Go/30j','Boost 30 Go = 500 DA','YouTube illimité après quota','Sans engagement'],
-   link:'https://mobilis.dz/mobinet'},
-  {id:'i2',op:'mobilis',cat:'internet',name:'Pack MobiNet Plus',type:'internet',price:16000,data:300,validity:365,dateAdded:'2026-06-29',
-   calls:'Modem WiFi + SIM · jusqu’à 32 appareils',sms:null,intl:false,badge:'Pack modem',
-   extras:['Bonus 300 Go inclus (12 mois)','Recharges : 1500/3500/6500 DA','Boost 30 Go = 500 DA','YouTube illimité après quota','Sans engagement'],
-   link:'https://mobilis.dz/mobinet_plus'},
-  /* ── Recharges data box MobiNet ─────────────────────────────── */
-  {id:'i3',op:'mobilis',cat:'internet',name:'Recharge MobiNet 60 Go',type:'internet',price:1500,data:60,validity:30,dateAdded:'2026-06-29',
-   calls:'Recharge data (box MobiNet)',sms:null,intl:false,badge:null,
-   extras:['YouTube illimité après quota','Compatible Pack MobiNet / Plus'],
-   link:'https://mobilis.dz/mobinet'},
-  {id:'i4',op:'mobilis',cat:'internet',name:'Recharge MobiNet 200 Go',type:'internet',price:3500,data:200,validity:90,dateAdded:'2026-06-29',
-   calls:'Recharge data (box MobiNet)',sms:null,intl:false,badge:null,
-   extras:['YouTube illimité après quota','Validité 3 mois'],
-   link:'https://mobilis.dz/mobinet'},
-  {id:'i5',op:'mobilis',cat:'internet',name:'Recharge MobiNet 400 Go',type:'internet',price:6500,data:400,validity:180,dateAdded:'2026-06-29',
-   calls:'Recharge data (box MobiNet)',sms:null,intl:false,badge:null,
-   extras:['YouTube illimité après quota','Validité 6 mois'],
-   link:'https://mobilis.dz/mobinet'},
-  /* ── Navigui (SIM data, sans modem) ─────────────────────────── */
-  {id:'i6',op:'mobilis',cat:'internet',name:'Navigui 4G (SIM)',type:'internet',price:300,data:15,validity:180,dateAdded:'2026-06-29',
-   calls:'SIM data 3G/4G (sans modem)',sms:null,intl:false,badge:null,
-   extras:['Bonus 3 Go + Facebook/WhatsApp (30j)','2 Go/mois pendant 6 mois','Data cumulable','Connexion maintenue après quota (débit réduit)'],
-   link:'https://mobilis.dz/naviguiinternet'},
-  {id:'i7',op:'mobilis',cat:'internet',name:'Pass Navigui 10 Go',type:'internet',price:1000,data:10,validity:30,dateAdded:'2026-06-29',
-   calls:'Pass optionnel Navigui',sms:null,intl:false,badge:null,
-   extras:['Cumulable','Activation via *600#'],
-   link:'https://mobilis.dz/naviguiinternet'},
-  {id:'i8',op:'mobilis',cat:'internet',name:'Pass Navigui 25 Go',type:'internet',price:2000,data:25,validity:30,dateAdded:'2026-06-29',
-   calls:'Pass optionnel Navigui',sms:null,intl:false,badge:null,
-   extras:['Cumulable','Activation via *600#'],
-   link:'https://mobilis.dz/naviguiinternet'},
-  {id:'i9',op:'mobilis',cat:'internet',name:'Pass Navigui 80 Go',type:'internet',price:6000,data:80,validity:90,dateAdded:'2026-06-29',
-   calls:'Pass optionnel Navigui',sms:null,intl:false,badge:null,
-   extras:['Validité 3 mois','Activation via *600#'],
-   link:'https://mobilis.dz/naviguiinternet'},
-  {id:'i10',op:'mobilis',cat:'internet',name:'Pass Navigui 300 Go',type:'internet',price:15000,data:300,validity:180,dateAdded:'2026-06-29',
-   calls:'Pass optionnel Navigui',sms:null,intl:false,badge:null,
-   extras:['Validité 6 mois','Activation via *600#'],
-   link:'https://mobilis.dz/naviguiinternet'},
-];
+let COMP_OFFERS = [];
+async function _cv3LoadOffers(){
+  if(COMP_OFFERS.length) return COMP_OFFERS;
+  try{
+    var res = await fetch('/comparateur_offers.json');
+    COMP_OFFERS = await res.json();
+  }catch(e){ console.error('Chargement comparateur_offers.json échoué', e); COMP_OFFERS = []; }
+  return COMP_OFFERS;
+}
 
 /* ══ Profils usage ════════════════════════════════════════════ */
 const CV3_PROFILES = [
@@ -546,7 +390,8 @@ function _ppg(o){
 }
 function _isNew(o){
   if(!o.dateAdded) return false;
-  return (new Date('2026-06-12') - new Date(o.dateAdded)) / 86400000 <= 30;
+  var diff = (new Date() - new Date(o.dateAdded)) / 86400000;
+  return diff >= 0 && diff <= 30;
 }
 function _fmtDate(iso){
   var d=new Date(iso);
@@ -1025,6 +870,9 @@ function _buildHTML(){
         +'</div>'
         +'<div class="cv3-rhead">'
           +'<div class="cv3-cnt" id="cv3-cnt"></div>'
+          +((typeof isAdminUnlocked==='function' && isAdminUnlocked())
+            ? '<button class="cv3-addbtn" onclick="window._cv3OpenAdd()" title="Ajouter une offre (PDF / URL / texte)">➕ Ajouter une offre</button>'
+            : '')
         +'</div>'
         +'<div id="cv3-results"></div>'
       +'</main>'
@@ -1207,11 +1055,175 @@ window._cv3Close     = function(){ var m=document.getElementById('cv3modal'); if
 /* Compat avec l'ancienne API */
 window._compSetFilter = function(key,val,btn){ window._cv3Filter(key,val,btn); };
 
+/* ══ Ajout assisté d'offre (admin) ═══════════════════════════════
+   PDF/image → /api/extract-communique · URL → /api/fetch-url
+   texte collé → direct · puis /api/comparateur/structure (IA)
+   → formulaire éditable → /api/comparateur/offer (insertion). ══ */
+function _buildAddModal(){
+  var opBtns = ['mobilis','djezzy','ooredoo'].map(function(k){
+    var op = COMP_OPS[k];
+    return '<button type="button" class="cv3-ad-opbtn" data-op="'+k+'" style="--oc:'+op.color+';--oc-rgb:'+op.rgb+'" onclick="window._cv3AdPickOp(\''+k+'\',this)">'+op.name+'</button>';
+  }).join('');
+
+  return '<div class="cv3-overlay" id="cv3admodal" onclick="if(event.target===this)window._cv3AdClose()">'
+    +'<div class="cv3-modal">'
+      +'<div class="cv3-mhead">'
+        +'<span class="cv3-mtitle">➕ Ajouter une offre</span>'
+        +'<button class="cv3-mclose" onclick="window._cv3AdClose()">✕</button>'
+      +'</div>'
+      +'<div class="cv3-ad-tabs">'
+        +'<button type="button" class="cv3-ad-tab on" data-src="file" onclick="window._cv3AdSrcTab(\'file\',this)">📄 Fichier (PDF/Image)</button>'
+        +'<button type="button" class="cv3-ad-tab" data-src="url" onclick="window._cv3AdSrcTab(\'url\',this)">🔗 URL</button>'
+        +'<button type="button" class="cv3-ad-tab" data-src="text" onclick="window._cv3AdSrcTab(\'text\',this)">📋 Texte collé</button>'
+      +'</div>'
+      +'<div class="cv3-ad-src">'
+        +'<input type="file" id="cv3adFile" accept=".pdf,.jpg,.jpeg,.png">'
+        +'<input type="url" id="cv3adUrl" placeholder="https://... communiqué ou grille tarifaire" style="display:none">'
+        +'<textarea id="cv3adText" placeholder="Coller ici le texte du communiqué ou de la grille tarifaire..." style="display:none"></textarea>'
+        +'<button type="button" class="cv3-ad-analyzebtn" id="cv3adAnalyzeBtn" onclick="window._cv3AdAnalyze()">🔍 Analyser</button>'
+        +'<div class="cv3-ad-status" id="cv3adStatus"></div>'
+      +'</div>'
+      +'<div class="cv3-ad-ops" id="cv3adOps">'+opBtns+'</div>'
+      +'<div class="cv3-ad-grid">'
+        +'<div><label>Nom de l\'offre</label><input type="text" id="cv3adName" placeholder="Ex : Revolution 2000"></div>'
+        +'<div><label>Type</label><select id="cv3adType"><option value="prepaid">Prépayé</option><option value="postpaid">Postpayé</option><option value="internet">Internet</option></select></div>'
+        +'<div><label>Prix (DA)</label><input type="number" id="cv3adPrice" min="0"></div>'
+        +'<div><label>Data (Go)</label><input type="number" id="cv3adData" min="0"></div>'
+        +'<div><label>Validité (jours)</label><input type="number" id="cv3adValidity" value="30" min="1"></div>'
+        +'<div><label class="cv3-ad-check" style="margin-top:22px"><input type="checkbox" id="cv3adIntl"> International inclus</label></div>'
+        +'<div class="cv3-ad-full"><label>Appels</label><input type="text" id="cv3adCalls" placeholder="Ex : Illimités vers Mobilis"></div>'
+        +'<div class="cv3-ad-full"><label>SMS</label><input type="text" id="cv3adSms" placeholder="Ex : 50 SMS tous réseaux"></div>'
+        +'<div class="cv3-ad-full"><label>Avantages (un par ligne)</label><textarea id="cv3adExtras" style="min-height:70px"></textarea></div>'
+        +'<div class="cv3-ad-full"><label>Lien officiel</label><input type="url" id="cv3adLink" placeholder="https://..."></div>'
+      +'</div>'
+      +'<button type="button" class="cv3-ad-submitbtn" id="cv3adSubmitBtn" onclick="window._cv3AdSubmit()">✅ Confirmer et ajouter au comparateur</button>'
+    +'</div></div>';
+}
+
+window._cv3OpenAdd = function(){
+  var old=document.getElementById('cv3admodal');
+  if(old) old.remove();
+  document.body.insertAdjacentHTML('beforeend', _buildAddModal());
+};
+window._cv3AdClose = function(){ var m=document.getElementById('cv3admodal'); if(m) m.remove(); };
+
+window._cv3AdSrcTab = function(mode, btn){
+  document.querySelectorAll('.cv3-ad-tab').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');
+  document.getElementById('cv3adFile').style.display = mode==='file' ? 'block' : 'none';
+  document.getElementById('cv3adUrl').style.display  = mode==='url'  ? 'block' : 'none';
+  document.getElementById('cv3adText').style.display = mode==='text' ? 'block' : 'none';
+};
+
+window._cv3AdPickOp = function(op, btn){
+  document.querySelectorAll('.cv3-ad-opbtn').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');
+  document.getElementById('cv3adOps').dataset.op = op;
+};
+
+window._cv3AdAnalyze = async function(){
+  var statusEl = document.getElementById('cv3adStatus');
+  var btn = document.getElementById('cv3adAnalyzeBtn');
+  var activeTab = document.querySelector('.cv3-ad-tab.on');
+  var mode = activeTab ? activeTab.dataset.src : 'file';
+  btn.disabled = true;
+  statusEl.textContent = '⏳ Extraction en cours...';
+  try{
+    var text = '';
+    if(mode==='file'){
+      var f = document.getElementById('cv3adFile').files[0];
+      if(!f) throw new Error('Choisissez un fichier');
+      var fd = new FormData(); fd.append('file', f);
+      var r = await fetch('/api/extract-communique', { method:'POST', body: fd });
+      var j = await r.json();
+      if(!r.ok) throw new Error(j.error||'Extraction échouée');
+      text = j.rawText;
+    } else if(mode==='url'){
+      var url = document.getElementById('cv3adUrl').value.trim();
+      if(!url) throw new Error('Collez une URL');
+      var r2 = await fetch('/api/fetch-url', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({url:url}) });
+      var j2 = await r2.json();
+      if(!r2.ok) throw new Error(j2.error||'Extraction échouée');
+      text = j2.text;
+    } else {
+      text = document.getElementById('cv3adText').value.trim();
+      if(!text) throw new Error('Collez le texte du communiqué');
+    }
+
+    statusEl.textContent = '🤖 Analyse IA en cours...';
+    var r3 = await fetch('/api/comparateur/structure', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({rawText:text}) });
+    var offer = await r3.json();
+    if(!r3.ok) throw new Error(offer.error||'Analyse échouée');
+
+    if(offer.op && COMP_OPS[offer.op]){
+      var opBtn = document.querySelector('.cv3-ad-opbtn[data-op="'+offer.op+'"]');
+      if(opBtn) window._cv3AdPickOp(offer.op, opBtn);
+    }
+    document.getElementById('cv3adName').value     = offer.name || '';
+    document.getElementById('cv3adType').value     = offer.type || 'prepaid';
+    document.getElementById('cv3adPrice').value    = offer.price || '';
+    document.getElementById('cv3adData').value     = offer.data || '';
+    document.getElementById('cv3adValidity').value = offer.validity || 30;
+    document.getElementById('cv3adCalls').value    = offer.calls || '';
+    document.getElementById('cv3adSms').value      = offer.sms || '';
+    document.getElementById('cv3adIntl').checked   = !!offer.intl;
+    document.getElementById('cv3adExtras').value   = Array.isArray(offer.extras) ? offer.extras.join('\n') : '';
+    document.getElementById('cv3adLink').value     = offer.link || '';
+
+    statusEl.textContent = '✅ Brouillon prêt — vérifiez et complétez les champs ci-dessous avant de confirmer.';
+  }catch(e){
+    statusEl.textContent = '❌ '+e.message;
+  }finally{
+    btn.disabled = false;
+  }
+};
+
+window._cv3AdSubmit = async function(){
+  var btn = document.getElementById('cv3adSubmitBtn');
+  var statusEl = document.getElementById('cv3adStatus');
+  var op = document.getElementById('cv3adOps').dataset.op;
+  var name = document.getElementById('cv3adName').value.trim();
+  var price = parseFloat(document.getElementById('cv3adPrice').value);
+  var dataVal = parseFloat(document.getElementById('cv3adData').value);
+  if(!op){ statusEl.textContent = '❌ Choisissez un opérateur.'; return; }
+  if(!name || !price || !dataVal){ statusEl.textContent = '❌ Nom, prix et data sont requis.'; return; }
+
+  var body = {
+    op: op, name: name,
+    type: document.getElementById('cv3adType').value,
+    price: price, data: dataVal,
+    validity: parseFloat(document.getElementById('cv3adValidity').value) || 30,
+    calls: document.getElementById('cv3adCalls').value.trim(),
+    sms: document.getElementById('cv3adSms').value.trim(),
+    intl: document.getElementById('cv3adIntl').checked,
+    extras: document.getElementById('cv3adExtras').value.split('\n').map(function(s){return s.trim();}).filter(Boolean),
+    link: document.getElementById('cv3adLink').value.trim()
+  };
+
+  btn.disabled = true;
+  statusEl.textContent = '⏳ Ajout en cours...';
+  try{
+    var r = await fetch('/api/comparateur/offer', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+    var j = await r.json();
+    if(!r.ok) throw new Error(j.error||"Échec de l'ajout");
+    COMP_OFFERS.push(j.offer);
+    window._cv3AdClose();
+    _render();
+    if(typeof showToast==='function') showToast('✅ Offre ajoutée : '+j.offer.name);
+  }catch(e){
+    statusEl.textContent = '❌ '+e.message;
+    btn.disabled = false;
+  }
+};
+
 /* ══ Entry point ═════════════════════════════════════════════ */
-window.initComparateur = function(){
+window.initComparateur = async function(){
   var sec=document.getElementById('comparateurSection');
   if(!sec) return;
-  if(!sec.querySelector('.cv3')) sec.innerHTML=_buildHTML();
+  if(!sec.querySelector('.cv3')){
+    await _cv3LoadOffers();
+    sec.innerHTML=_buildHTML();
+  }
   _C = { budget:9999, data:0, type:'any', ops:new Set(['mobilis','djezzy','ooredoo']), view:'battle', sort:'score', duel:[], profile:null };
   _tray(); _render();
   // Restore day/night preference
