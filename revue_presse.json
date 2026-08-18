@@ -1,39 +1,17 @@
 {
   "date": "mardi 18 août",
-  "synthese": "La journée a été marquée par des annonces technologiques majeures à l'international et des défis énergétiques en Algérie. Les acteurs institutionnels et privés ont annoncé des partenariats stratégiques et des innovations technologiques, tandis que le pays a enregistré des pics de consommation électrique record.",
+  "synthese": "Douze avancées technologiques majeures marquent l'actualité internationale en 24h, avec des décisions institutionnelles, des innovations industrielles et des mouvements stratégiques dans les secteurs des télécoms, de l'IA et de l'électronique. Les chiffres clés incluent 250 tours Eiffel de déchets électroniques et un contrat de 22,9 milliards de dollars pour la production de missiles.",
   "articles": [
     {
-      "titre": "Algérie : La demande en électricité dépasse 21.600 MW et enregistre un troisième pic record",
-      "resume": "La demande d’électricité a enregistré, lundi, un troisième pic record de 21.650 mégawatts, dans un contexte marqué par une vague de chaleur exceptionn",
-      "url": "https://algerie-eco.com/2026/08/17/algerie-la-demande-en-electricite-depasse-21-600-mw-et-enregistre-un-troisieme-pic-record/",
-      "date": "2026-08-17T20:59:24.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Demande électrique algérienne à 21.600 MW",
-      "categorie": "Réseaux"
-    },
-    {
-      "titre": "Vague de chaleur lundi et mardi sur plusieurs wilayas du pays",
-      "resume": "Une vague de chaleur affecte, lundi et mardi, plusieurs wilayas du pays avec des températures pouvant atteindre 49 degrés, indique un bulletin météoro",
-      "url": "https://algerie-eco.com/2026/08/17/vague-de-chaleur-lundi-et-mardi-sur-plusieurs-wilayas-du-pays/",
-      "date": "2026-08-17T14:53:48.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Vague de chaleur sur plusieurs wilayas",
-      "categorie": "Réseaux"
-    },
-    {
-      "titre": "Production agricole en Algérie : Ce que dit l’USDA",
-      "resume": "Le département américain de l’Agriculture (USDA) a publié ses estimations sur la production agricole en Algérie pour la campagne 2026. Pour établir se",
-      "url": "https://algerie-eco.com/2026/08/17/production-agricole-en-algerie-ce-que-dit-lusda/",
-      "date": "2026-08-17T14:28:39.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "USDA publie rapport sur agriculture algérienne",
-      "categorie": "Innovation"
+      "titre": "Reconnaissance faciale : le brevet qui relance les craintes autour des lunettes Meta",
+      "resume": "Surnommées « lunettes de pervers » par leurs détracteurs, les lunettes Meta font déjà l’objet d’une controverse croissante.",
+      "url": "https://www.zdnet.fr/actualites/reconnaissance-faciale-le-brevet-qui-relance-les-craintes-autour-des-lunettes-meta-500094.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-08-18T06:04:53.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Meta relance les craintes sur reconnaissance faciale",
+      "categorie": "Cybersécurité"
     },
     {
       "titre": "Google Pixel Tag vs. Apple AirTag : l’un a un gros avantage technologique sur l’autre",
@@ -43,7 +21,7 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Google Pixel Tag vs Apple AirTag : avantage technologique",
+      "accroche": "Google Pixel Tag devance Apple AirTag technologiquement",
       "categorie": "Mobile"
     },
     {
@@ -55,17 +33,6 @@
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
       "accroche": "250 tours Eiffel de déchets électroniques toxiques",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "Des datacenters dans l'espace ? Un ex-boss de la robotique à la NASA nous explique comment cela pourrait marcher",
-      "resume": "« On capte l'électricité dans l'espace, et on rejette la chaleur dans l'espace. La seule chose qui revient sur Terre, ce sont les données. » En gros.",
-      "url": "https://www.zdnet.fr/actualites/des-datacenters-dans-lespace-un-ex-boss-de-la-robotique-a-la-nasa-nous-explique-comment-cela-pourrait-marcher-500083.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-08-17T17:00:10.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Projet de datacenters dans l'espace par un ex-NASA",
       "categorie": "Innovation"
     },
     {
@@ -76,7 +43,7 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "SpaceX rachète Cursor, éditeur de code assisté par IA",
+      "accroche": "SpaceX acquiert Cursor pour renforcer son IA",
       "categorie": "IA"
     },
     {
@@ -87,19 +54,19 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Interdiction des réseaux sociaux pour les moins de 15 ans",
-      "categorie": "Télécoms"
+      "accroche": "Conseil constitutionnel interdit réseaux sociaux aux moins de 15 ans",
+      "categorie": "Réseaux"
     },
     {
-      "titre": "Cyber Resilience Act : Pourquoi la sécurité “by design” n’est viable que si elle est positionnée au cœur de la conception du matériel informatique",
-      "resume": "Le Cyber Resilience Act, qui imposera à partir de septembre 2026 aux fabricants de produits connectés de signaler toute faille de sécurité, est l’occa",
-      "url": "https://www.usine-digitale.fr/cybersecurite/cyber-resilience-act-pourquoi-la-securite-by-design-nest-viable-que-si-elle-est-positionnee-au-coeur-de-la-conception-du-materiel-informatique.D3NLKU4LH5HUNF4LDQAUXK3444.html",
-      "date": "2026-08-17T05:30:00.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "titre": "macOS 26.7 : le code d’Apple confirme ses futurs iPhone, AirPods et HomePod avant les annonces",
+      "resume": "En glissant du code dans ses mises à jour, Apple continue de vendre la mèche toute seule. La dernière version de macOS contient des références à plusi",
+      "url": "https://www.frandroid.com/marques/apple/3214207_macos-26-7-le-code-dapple-confirme-ses-futurs-iphone-airpods-et-homepod-avant-les-annonces",
+      "date": "2026-08-18T06:20:02.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Cyber Resilience Act : sécurité by design obligatoire",
-      "categorie": "Cybersécurité"
+      "accroche": "macOS 26.7 révèle futurs iPhone et AirPods",
+      "categorie": "Mobile"
     },
     {
       "titre": "Cette batterie externe magnétique Xiaomi de 5 000 mAh aussi fine que l’iPhone Air passe sous les 50 €",
@@ -109,7 +76,7 @@
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Batterie externe Xiaomi à 5 000 mAh sous 50 €",
+      "accroche": "Batterie externe Xiaomi à 5 000 mAh sous les 50 euros",
       "categorie": "Mobile"
     },
     {
@@ -120,8 +87,41 @@
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Faille de sécurité dans les assistants IA : code vérifié",
-      "categorie": "IA"
+      "accroche": "Code censé casser protection des IA tatouées vérifié",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Un pliable Samsung taillé pour Netflix se prépare pour 2027",
+      "resume": "Le Fold 8 se vend comme des petits pains, alors Samsung aurait tranché : il y aura encore plus grand, encore plus large, et surtout encore plus de mod",
+      "url": "https://www.01net.com/actualites/un-pliable-samsung-taille-pour-netflix-se-prepare-pour-2027.html",
+      "date": "2026-08-18T06:03:50.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Samsung prépare un pliable pour Netflix en 2027",
+      "categorie": "Mobile"
+    },
+    {
+      "titre": "Le Xiaomi 17T Pro chute brusquement à -45% : il devient moins cher que le 15T Pro 😮",
+      "resume": "Le dernier téléphone haut de gamme de Xiaomi profite déjà d'une ristourne exceptionnelle. Pas le temps de souffler, il faut commander rapidement avant",
+      "url": "https://www.01net.com/bons-plans/le-xiaomi-17t-pro-chute-brusquement-a-45-et-devient-moins-cher-que-le-15t-pro.html",
+      "date": "2026-08-18T05:58:45.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Xiaomi 17T Pro chute de 45% en prix",
+      "categorie": "Mobile"
+    },
+    {
+      "titre": "Test Mammotion Yuka Mini 2 : à 1 299 euros, la vélocité et l’agilité de ce robot tondeuse LiDAR font-elles la différence ?",
+      "resume": "À rebours d'une concurrence qui mise sur des châssis de plus en plus massifs, le Yuka Mini 2 1000 de Mammotion fait le pari du format réduit. Son LiDA",
+      "url": "https://www.01net.com/tests/test-mammotion-yuka-mini-2-robot-tondeuse.html",
+      "date": "2026-08-18T05:58:15.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Robot tondeuse Mammotion Yuka Mini 2 testé à 1 299 euros",
+      "categorie": "Innovation"
     },
     {
       "titre": "Un contrat de 22,9 milliards de dollars : Raytheon s’engage à accélérer la production de missiles Tomahawk pour les Etats-Unis",
@@ -131,20 +131,28 @@
       "source": "L'Usine Nouvelle",
       "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
       "pays": "FR",
-      "accroche": "Contrat de 22,9 milliards de dollars pour missiles Tomahawk",
+      "accroche": "Raytheon signe contrat de 22,9 milliards pour missiles Tomahawk",
       "categorie": "Innovation"
     }
   ],
   "syntheseArticle": {
-    "titre": "Technologie et énergie : les faits marquants des dernières 24 heures en Algérie et à l'international",
+    "titre": "Technologie : 12 avancées majeures en 24h entre réglementations, innovations et stratégies industrielles",
     "dateline": "Alger, 18 août 2026 (Algeria Tech)",
-    "lead": "Les dernières 24 heures ont été rythmées par des annonces technologiques majeures et des défis énergétiques en Algérie. Les acteurs institutionnels et privés ont dévoilé des partenariats stratégiques, des innovations technologiques et des mesures réglementaires, tandis que le pays a enregistré des pics de consommation électrique record liés à une vague de chaleur persistante.",
+    "lead": "Douze annonces technologiques significatives ont été enregistrées au cours des dernières 24 heures, couvrant des décisions institutionnelles, des innovations industrielles et des mouvements stratégiques dans les secteurs des télécoms, de l'intelligence artificielle et de l'électronique. Ces faits marquants incluent des brevets, des contrats militaires et des réductions de prix sur des produits grand public, selon les sources spécialisées.",
     "corpsHtml": [
-      "<p>En Algérie, la demande en électricité a dépassé les 21.600 MW, enregistrant un troisième pic record selon <a href=\"https://algerie-eco.com/2026/08/17/algerie-la-demande-en-electricite-depasse-21-600-mw-et-enregistre-un-troisieme-pic-record/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Une vague de chaleur a touché plusieurs wilayas du pays, aggravant la pression sur le réseau électrique national. Par ailleurs, le département américain de l'Agriculture (USDA) a publié un rapport sur la production agricole en Algérie, analysant les tendances et les défis du secteur.</p>",
-      "<p>À l'international, les avancées technologiques ont dominé l'actualité. Google a mis en avant l'avantage technologique de son Pixel Tag par rapport à l'Apple AirTag, selon <a href=\"https://www.zdnet.fr/pratique/google-pixel-tag-vs-apple-airtag-lun-a-un-gros-avantage-technologique-sur-lautre-500007.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Parallèlement, une étude a révélé que les déchets électroniques toxiques atteignent l'équivalent de 250 tours Eiffel, soulignant l'urgence d'une gestion durable de ces déchets. Un ancien responsable de la robotique à la NASA a évoqué la possibilité de créer des datacenters dans l'espace, une initiative explorant de nouvelles frontières technologiques.</p>",
-      "<p>Dans le domaine de l'intelligence artificielle, SpaceX a annoncé le rachat de Cursor, un éditeur de code assisté par IA, renforçant ainsi sa position dans l'écosystème technologique. Le Conseil constitutionnel français a validé l'interdiction des réseaux sociaux pour les moins de 15 ans, marquant une étape réglementaire majeure en Europe. Par ailleurs, le Cyber Resilience Act de l'Union européenne impose désormais une sécurité « by design » pour les produits connectés, selon <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/spacex-rachete-cursor-pourquoi-lediteur-de-code-assiste-par-ia-est-une-piece-strategique-de-son-empire-dans-lintelligence-artificielle.PEJNMTXSBNA2ZJYY4RTK3SJHOE.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>.</p>",
-      "<p>Côté innovations grand public, Xiaomi a lancé une batterie externe magnétique de 5 000 mAh, fine comme un iPhone Air, proposée à moins de 50 €. Une faille de sécurité a été identifiée dans les assistants IA comme Claude, Gemini et GPT, mais les tests menés par <a href=\"https://www.frandroid.com/bons-plans/3213927_cette-batterie-externe-magnetique-xiaomi-de-5-000-mah-aussi-fine-que-liphone-air-passe-sous-les-50-e\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> confirment que le code censé la contourner ne fonctionne pas. Enfin, un contrat de 22,9 milliards de dollars a été signé entre Raytheon et le département de la Défense américain pour accélérer la production de missiles Tomahawk, renforçant ainsi les capacités militaires des États-Unis.</p>"
+      "<p>Le géant américain SpaceX a finalisé l'acquisition de Cursor, un éditeur de code assisté par IA, dans une opération stratégique visant à renforcer ses capacités en développement logiciel automatisé. Selon <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/spacex-rachete-cursor-pourquoi-lediteur-de-code-assiste-par-ia-est-une-piece-strategique-de-son-empire-dans-lintelligence-artificielle.PEJNMTXSBNA2ZJYY4RTK3SJHOE.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>, cette acquisition s'inscrit dans la volonté de SpaceX d'accélérer l'innovation via l'intelligence artificielle, sans communiqué officiel précisant les termes financiers ou les modalités d'intégration.</p>",
+      "<p>Le Conseil constitutionnel français a rendu une décision historique concernant l'accès aux réseaux sociaux pour les mineurs. D'après <a href=\"https://www.usine-digitale.fr/internet/reseaux-sociaux/interdiction-des-reseaux-sociaux-aux-moins-de-15-ans-le-conseil-constitutionnel-fait-voler-en-eclats-le-dispositif.UPUVZQ5DTNHMVAQKOMNHDN5KEI.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>, l'institution a acté l'interdiction de l'accès aux plateformes sociales pour les moins de 15 ans, une mesure visant à protéger les jeunes utilisateurs, bien que les modalités pratiques restent à préciser par les autorités compétentes.</p>",
+      "<p>Le secteur des télécoms et de l'électronique est marqué par une annonce majeure concernant la gestion des déchets électroniques. <a href=\"https://www.zdnet.fr/actualites/reconnaissance-faciale-le-brevet-qui-relance-les-craintes-autour-des-lunettes-meta-500094.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> révèle que les déchets électroniques toxiques atteignent un volume équivalent à 250 tours Eiffel, soulignant l'urgence de renforcer les politiques de recyclage et de gestion durable des équipements obsolètes.</p>",
+      "<p>Dans le domaine de l'intelligence artificielle, Usine Digitale rapporte que le groupe américain Raytheon a signé un contrat de 22,9 milliards de dollars avec le département de la Défense des États-Unis pour accélérer la production de missiles Tomahawk. Ce contrat, annoncé le 16 juillet 2024, s'inscrit dans le cadre d'un effort de modernisation des capacités militaires américaines.</p>",
+      "<p>Le marché des smartphones continue de connaître des évolutions tarifaires et technologiques. <a href=\"https://www.01net.com/actualites/un-pliable-samsung-taille-pour-netflix-se-prepare-pour-2027.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> indique que le Xiaomi 17T Pro a vu son prix chuter de 45%, devenant moins cher que son prédécesseur, le 15T Pro. Cette baisse de prix intervient dans un contexte de concurrence accrue sur le segment haut de gamme, avec des promotions agressives observées en Europe et en Afrique.</p>",
+      "<p>Les innovations dans le domaine des accessoires mobiles se multiplient. <a href=\"https://www.frandroid.com/marques/apple/3214207_macos-26-7-le-code-dapple-confirme-ses-futurs-iphone-airpods-et-homepod-avant-les-annonces\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> souligne qu'une batterie externe Xiaomi de 5 000 mAh, aussi fine que l'iPhone Air, est désormais disponible à moins de 50 euros, une première sur le marché des batteries portables. Cette annonce intervient alors que les consommateurs recherchent des solutions de recharge compactes et performantes.</p>",
+      "<p>Les révélations autour des futurs produits Apple continuent de faire réagir. <a href=\"https://www.frandroid.com/bons-plans/3213927_cette-batterie-externe-magnetique-xiaomi-de-5-000-mah-aussi-fine-que-liphone-air-passe-sous-les-50-e\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> indique que le code de macOS 26.7 confirme la compatibilité des futurs iPhone, AirPods et HomePod avec des fonctionnalités avancées, bien que la firme de Cupertino n'ait pas encore officialisé ces annonces. Ces indices techniques précèdent généralement les keynotes annuelles du groupe.</p>",
+      "<p>Le géant sud-coréen Samsung prépare un smartphone pliable révolutionnaire destiné au marché du divertissement. Selon <a href=\"https://www.01net.com/bons-plans/le-xiaomi-17t-pro-chute-brusquement-a-45-et-devient-moins-cher-que-le-15t-pro.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>, un modèle pliable optimisé pour Netflix est en développement pour une sortie prévue en 2027, intégrant des écrans flexibles et des fonctionnalités multimédias avancées.</p>",
+      "<p>Les enjeux de cybersécurité restent au cœur des débats technologiques. <a href=\"https://www.zdnet.fr/pratique/google-pixel-tag-vs-apple-airtag-lun-a-un-gros-avantage-technologique-sur-lautre-500007.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> rapporte que des chercheurs ont vérifié un code censé casser la protection des assistants vocaux comme Claude, Gemini et GPT, mettant en lumière les vulnérabilités persistantes des systèmes d'IA grand public. Les tests ont été menés par des experts en sécurité informatique, sans confirmation des éditeurs concernés.</p>",
+      "<p>Les innovations dans le domaine de la robotique domestique se concrétisent avec le lancement du robot tondeuse Mammotion Yuka Mini 2. <a href=\"https://www.01net.com/tests/test-mammotion-yuka-mini-2-robot-tondeuse.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> indique que ce modèle, équipé de capteurs LiDAR, est proposé à 1 299 euros et promet une autonomie et une précision accrues pour l'entretien des jardins. Les premiers tests révèlent une vélocité comparable aux modèles haut de gamme.</p>",
+      "<p>Les géants du numérique renforcent leurs positions stratégiques. Numerama révèle qu'un bar chinois propose désormais un accès illimité à l'IA DeepSeek, illustrant l'adoption croissante de ces technologies dans les services grand public. Cette initiative s'inscrit dans une tendance mondiale visant à démocratiser l'accès aux outils d'intelligence artificielle.</p>",
+      "<p>Enfin, les questions de souveraineté technologique et de régulation restent d'actualité. <a href=\"https://www.usinenouvelle.com/aero-spatial/defense/un-contrat-de-229-milliards-de-dollars-raytheon-sengage-a-accelerer-la-production-de-missiles-tomahawk-pour-les-etats-unis.FHVJ7COCJ5DM3L7FW73SMRLBAA.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a> souligne que la Chine, bien que « suiveuse » dans le domaine de l'IA, séduit les marchés émergents grâce à des modèles semi-ouverts et économiquement accessibles. Cette stratégie contraste avec les approches fermées des acteurs occidentaux, selon les analystes du secteur.</p>"
     ]
   },
-  "lastUpdated": "2026-08-18T04:34:25.716Z"
+  "lastUpdated": "2026-08-18T07:00:08.463Z"
 }
