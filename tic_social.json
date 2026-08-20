@@ -1,6 +1,24 @@
 {
   "posts": [
     {
+      "id": "e998b72a126a38c2",
+      "source_name": "Ministère de la Poste et des TIC",
+      "source_short": "MPT",
+      "source_color": "#006233",
+      "category": "Ministère",
+      "category_icon": "🏛️",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNMlNjUjBVaXF3WmdOUFBLM29LbG1wU0RhRGxrNjR5OVNnTHdvYXFaaTAxZFFNUmJDaG5reTd1Z3Z4TVR6VWdZbVBYeXNndk1uYzBBT2RaRnlBSFZKNkZrcGVCNjhRSGNUQmpsbnNiLWpsc25mSXV5X0FUTVNrbDBsWkE5MA?oc=5",
+      "image": "",
+      "date": "Wed, 19 Aug 2026 12:26:03 GMT",
+      "lang_source": "ar",
+      "text": {
+        "ar": "Houda Imane Faraoun ministre de la Poste et des TIC - الإذاعة الجزائرية | — Houda Imane Faraoun ministre de la Poste et des TIC الإذاعة الجزائرية |",
+        "fr": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "67030596cccf8a36",
       "source_name": "Ministère de l'Enseignement Supérieur et de la Recherche",
       "source_short": "MESRS",
@@ -338,24 +356,6 @@
       "text": {
         "fr": "Incendie maitrisé et 19 blessés secourus - aps.dz — Incendie maitrisé et 19 blessés secourus aps.dz",
         "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "007d8a5ad24f942d",
-      "source_name": "Ministère de l'Économie de la Connaissance & Startups",
-      "source_short": "MKESME",
-      "source_color": "#0D47A1",
-      "category": "Ministère",
-      "category_icon": "🚀",
-      "url": "https://www.facebook.com/mkesme.dz/posts/pfbid0c2oHF4RivETzZhMynUutjP1fvYtazSdfRnD3AYALW6X8VYLqg7kL3GDdcVP7suoFl",
-      "image": "https://www.facebook.com/mkesme.dz/posts/pfbid0c2oHF4RivETzZhMynUutjP1fvYtazSdfRnD3AYALW6X8VYLqg7kL3GDdcVP7suoFl",
-      "date": "2026-07-15T18:51:51.000Z",
-      "lang_source": "ar",
-      "text": {
-        "ar": "في إطار تعزيز مساهمة المؤسسات الناشئة والمصغرة في المشاريع الاستراتيجية التابعة لقطاع الري، وتنفيذا لتوجيهات السيد رئيس الجمهورية … — في إطار تعزيز مساهمة المؤسسات الناشئة والمصغرة في المشاريع الاستراتيجية التابعة لقطاع الري، وتنفيذا لتوجيهات السيد رئيس الجمهورية خلال مجلس الوزراء الاخير،  أشرف السيد نورالدين واضح، وزير اقتصاد المعرفة والمؤسسات الناشئة والمؤسسات المصغرة والسيد لوناس بوزقزة وزير الري، على ملتقى حول إشراك المؤسسات ا",
-        "fr": "",
         "en": ""
       },
       "source_type": "rss"
@@ -1435,6 +1435,222 @@
       "lang_source": "fr",
       "text": {
         "fr": "Rezig reçoit le PDG de Huawei Algérie : Le renforcement de la coopération examiné - El Moudjahid — Rezig reçoit le PDG de Huawei Algérie : Le renforcement de la coopération examiné El Moudjahid",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "03f613bd787672c8",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/openai-vise-une-entree-en-bourse-dici-2027-voire-avant-500252.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 20 Aug 2026 06:02:00 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "OpenAI vise une entrée en Bourse d’ici 2027, voire avant — L’annonce intervient après le départ successif de plusieurs cadres dirigeants, alimentant les interrogations sur la stabilité de la gouvernance à l’approche d’une opération financière scrutée de près par les investisseurs.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "42bbaa081fc3b432",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/19/stripe-didnt-really-buy-openrouter-because-of-the-singularity/",
+      "image": "",
+      "date": "Wed, 19 Aug 2026 23:32:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Stripe didn’t really buy OpenRouter because of the ‘singularity’ — What does a payments giant want with a startup that routes prompts between different AI models? Stripe says it's because of \"the singularity\" but it's really for a far more real and powerful reason.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "0d7656e70636b53a",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/19/waymos-cheaper-next-gen-robotaxi-is-now-open-to-all-riders-in-these-three-cities/",
+      "image": "",
+      "date": "Wed, 19 Aug 2026 22:25:01 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Waymo’s cheaper, next-gen robotaxi is now open to all riders in these three cities — The next-generation robotaxi, called the Waymo Ojai, is central to the company's push towards mass scale, and eventually, profitability.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "d306eafa18af68ae",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/19/openai-seeks-to-one-up-anthropic-with-new-customer-privacy-protections/",
+      "image": "",
+      "date": "Wed, 19 Aug 2026 22:10:46 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "OpenAI seeks to one-up Anthropic with new customer privacy protections — A competition is developing between OpenAI and Anthropic over who can provide the best privacy protections for enterprise customer data.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "6aba2536a5ec84cd",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/19/cognition-ceo-denies-report-that-spacex-tried-to-acquire-the-startup/",
+      "image": "",
+      "date": "Wed, 19 Aug 2026 21:51:23 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Cognition CEO denies report that SpaceX tried to acquire the startup — SpaceX was reportedly in talks to buy AI coding startup Cognition. SpaceX has already acquired Cursor as it races to catch up to rivals like OpenAI and Anthropic in enterprise AI.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "d3297bafc197b712",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/19/travis-kalanick-kicks-off-another-round-of-vc-bashing-1-are-helpful/",
+      "image": "",
+      "date": "Wed, 19 Aug 2026 21:48:24 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Travis Kalanick kicks off another round of VC bashing: ‘1% are helpful’ — After raising $1.7 billion for his new robotics company Atoms, Travis Kalanick is introspective about the role VCs have played in his career.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "4056d1bb61122f70",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/19/la-badr-lance-un-credit-pour-financer-lacquisition-de-nouveaux-bus/",
+      "image": "",
+      "date": "Wed, 19 Aug 2026 21:48:17 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "La BADR lance un crédit pour financer l’acquisition de nouveaux bus — La Banque de l’Agriculture et du Développement rural (BADR) a annoncé, mercredi, le lancement d’un nouveau produit destiné aux transporteurs pour financer le renouvellement du parc de transport public de voyageurs, avec une prise en charge pouvant atteindre 90 % du coût d’acquisition du bus, dans le",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "948daf8c23b58c79",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/19/une-entreprise-chinoise-decroche-un-contrat-dans-le-projet-de-la-raffinerie-de-hassi-messaoud/",
+      "image": "",
+      "date": "Wed, 19 Aug 2026 21:39:15 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Une entreprise chinoise décroche un contrat dans le projet de la raffinerie de Hassi Messaoud — Une entreprise chinoise vient de décrocher un contrat dans le cadre du projet de la nouvelle raffinerie de Hassi Messaoud, dans la wilaya de Ouargla. Shaanxi Huajian Engineering Co., Ltd. a annoncé la signature d’un accord portant sur les travaux d’installation électromécanique d’une partie des unit",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e420cef7b480bcf5",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/19/algerie-la-demande-delectricite-enregistre-un-nouveau-pic-record-de-21-828-mw/",
+      "image": "",
+      "date": "Wed, 19 Aug 2026 21:39:01 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Algérie : La demande d’électricité enregistre un nouveau pic record de 21.828 MW — La demande nationale d’électricité a enregistré, mercredi, un nouveau pic record de 21.828 MW, dans un contexte marqué par la poursuite de la vague de chaleur accompagnée d’un taux d’humidité élevé dans plusieurs wilayas du pays, a indiqué un communiqué du ministère de l’Energie et des Energies reno",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "7aa8fd0ea313b3b0",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/19/rillet-raises-100m-series-c-at-1b-valuation-2-years-after-emerging-from-stealth/",
+      "image": "",
+      "date": "Wed, 19 Aug 2026 20:12:33 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Rillet raises $100M Series C at $1B valuation — 2 years after emerging from stealth — AI-native account startup Rillet became a unicorn, led by Iconiq, after it doubled its ARR in the past three months, it said.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f2a9d67de6097ec9",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/19/gambling-on-the-little-league-world-series-sports-bettors-have-gone-too-far/",
+      "image": "",
+      "date": "Wed, 19 Aug 2026 20:01:02 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Gambling on the Little League World Series? Sports bettors have gone too far — Have we tried turning off society and turning it back on again?",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "3b22c860e475515c",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/vous-voulez-faire-tourner-une-distro-linux-votre-smartphone-android-jai-trouve-la-methode-la-plus-simple-500231.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 19 Aug 2026 20:00:24 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Vous voulez faire tourner une distro Linux votre smartphone Android ? J'ai trouvé la méthode la plus simple — Avez-vous déjà eu envie d'utiliser une distribution Linux sur votre appareil Android ? Si oui, UserLAnd est sans doute la meilleure solution.",
         "ar": "",
         "en": ""
       },
@@ -5183,232 +5399,16 @@
         "fr": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "c312c536c59c3ee7",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/13/algerie-vers-un-partenariat-avec-china-baowu-pour-rehabiliter-et-developper-le-complexe-siderurgique-del-hadjar/",
-      "image": "",
-      "date": "Thu, 13 Aug 2026 12:29:34 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Algérie : vers un partenariat avec China Baowu pour réhabiliter et développer le complexe sidérurgique d’El Hadjar — Le ministre de l’Industrie, Yahia Bachir, a tenu mercredi 12 août à Alger une nouvelle réunion avec une délégation du groupe chinois China Baowu Steel Group autour du projet de réhabilitation et de développement du complexe sidérurgique d’El Hadjar, dans la wilaya d’Annaba. La rencontre, organisée a",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "8d38c8555d97b41d",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/13/le-premier-ministre-au-niger-pour-le-lancement-du-forage-du-puits-dexploration-kafra-sud-est-1/",
-      "image": "",
-      "date": "Thu, 13 Aug 2026 12:27:10 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Le Premier ministre au Niger pour le lancement du forage du puits d’exploration Kafra Sud-Est 1 — Le Premier ministre, Sifi Ghrieb, est arrivé, ce jeudi 13 août au Niger, pour une visite de travail au cours de laquelle il présidera, aux côtés de son homologue nigérien, Ali Mahaman Lamine Zeine, la cérémonie de lancement officiel des travaux de forage du puits d’exploration Kafra Sud-Est 1, rappo",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "7d231aa9aeca5e3c",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/13/allocation-touristique-la-banque-dalgerie-dement-une-fausse-instruction-diffusee-sur-les-reseaux-sociaux/",
-      "image": "",
-      "date": "Thu, 13 Aug 2026 11:06:53 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Allocation touristique : la Banque d’Algérie dément une fausse instruction diffusée sur les réseaux sociaux — La Banque d’Algérie a indiqué, ce jeudi 13 août, qu’un document présenté comme une nouvelle instruction relative à l’allocation touristique et relayé sur les réseaux sociaux sous l’intitulé « Instruction n°08-2026 » est un faux. L’institution précise qu’aucun changement n’a été apporté aux règles fi",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "7aec71555d90796b",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/spacex-souhaite-lancer-100-000-satellites-starlink-supplementaires-pour-multiplier-par-100-la-bande-passante-499842.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Thu, 13 Aug 2026 10:30:52 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "SpaceX souhaite lancer 100 000 satellites Starlink supplémentaires, pour multiplier par 100 la bande passante — Cela pourrait se traduire par un accès Internet plus rapide pour les habitants des zones rurales, mais tout le monde n'est pas satisfait.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "6fd2ee4f4629ab75",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/le-fbi-met-en-garde-des-pirates-informatiques-sont-a-la-recherche-de-vos-photos-intimes-voici-6-conseils-pour-eviter-le-cauchemar-du-chantage-sexuel-499836.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Thu, 13 Aug 2026 09:30:29 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Le FBI met en garde : des pirates informatiques sont à la recherche de vos photos intimes. Voici 6 conseils pour éviter le cauchemar du chantage sexuel — Les pirates informatiques qui dérobent des photos compromettantes vous concernant sur les réseaux sociaux et vos comptes personnels les revendent sur le dark web. Voici comment vous protéger.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "bc9c5d417fdd394b",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/08/13/edito-du-mois-daout-la-conquete-par-la-ruse/",
-      "image": "",
-      "date": "Thu, 13 Aug 2026 09:09:29 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Edito du mois d’Août: La conquête par la ruse — Comment l’intelligence artificielle redessine l’architecture de la connaissance sans que le monde ne prête attention. On a déjà assisté à ce ballet. Les réseaux sociaux …",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "ef82b159cffe31af",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/microsoft-corrige-421-failles-et-une-faille-zero-day-de-windows-lors-du-patch-tuesday-du-mois-daout-mettez-a-jour-des-que-possible-499833.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Thu, 13 Aug 2026 08:36:25 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Microsoft corrige 421 failles et une faille « zero-day » de Windows lors du « Patch Tuesday » du mois d'août — mettez à jour dès que possible — La faille « zero-day », exploitée, pourrait permettre à un pirate d'obtenir des privilèges système sur un PC Windows.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "6535131c6041adbb",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/la-nouvelle-fonction-de-la-pixel-watch-5-pourrait-bien-remplacer-mon-application-preferee-pour-la-musculation-plus-besoin-de-smartphone-499830.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Thu, 13 Aug 2026 08:24:47 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "La nouvelle fonction de la Pixel Watch 5 pourrait bien remplacer mon application préférée pour la musculation : plus besoin de smartphone — La musculation fait fureur. Google a intégré un programme d'entraînement spécial à la Pixel Watch 5 pour vous aider à vous lancer plus facilement.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "52a2b14e9ea4630f",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/tous-les-pixel-devoiles-lors-de-levenement-made-by-google-2026-le-11-pro-fold-la-pixel-watch-5-et-bien-dautres-encore-499826.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Thu, 13 Aug 2026 08:15:10 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Tous les Pixel dévoilés lors de l'événement « Made by Google 2026 » : le 11 Pro Fold, la Pixel Watch 5 et bien d'autres encore — La dernière gamme Pixel de Google est un peu plus chère, intègre une nouvelle fonctionnalité d'éclairage LED et est lancée en même temps qu'un nouveau « finder tag ».",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e5fecc333eb53010",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/google-sacrifie-lautonomie-de-deepmind-pour-rattraper-openai-et-anthropic-499816.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Thu, 13 Aug 2026 08:02:55 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Google sacrifie l’autonomie de DeepMind pour rattraper OpenAI et Anthropic — En rompant avec l’autonomie accordée à DeepMind depuis son rachat en 2014, Google cherche à combler un retard technique face à OpenAI et Anthropic, alors que son modèle phare ne figure plus qu’au 11e rang des classements de performance.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "78aa15c801fdf001",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/smartphone/google-pixel-11-pro-vs-apple-iphone-17-pro-quel-modele-pro-choisir-499810.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Thu, 13 Aug 2026 08:00:10 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Google Pixel 11 Pro vs. Apple iPhone 17 Pro : quel modèle « Pro » choisir ? — Les deux smartphones se livrent une bataille au coude à coude, mais un seul répondra à vos besoins.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "9298732750bc004f",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/jai-pris-en-main-le-google-pixel-11-pro-fold-3-bonnes-raisons-de-le-preferer-a-un-samsung-499823.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Thu, 13 Aug 2026 07:56:31 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "J'ai pris en main le Google Pixel 11 Pro Fold : 3 bonnes raisons de le préférer à un Samsung — Il n'est pas aussi mignon et charmant que le Galaxy Z Fold 8. Mais le dernier Pixel pliable reste le meilleur choix sur certains points essentiels.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-08-19T19:23:28.616326+00:00",
+  "lastUpdated": "2026-08-20T07:40:29.559993+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Tech International": 146,
-    "Médias TIC": 74
+    "Tech International": 147,
+    "Médias TIC": 73
   },
   "total": 300
 }
