@@ -1,6 +1,6 @@
 {
   "date": "vendredi 21 août",
-  "synthese": "Douze annonces majeures ont marqué le secteur tech en 24 heures, incluant des décisions industrielles, des lancements technologiques et des ajustements réglementaires. Les initiatives s'articulent autour de l'innovation locale, de la cybersécurité, de l'IA et des infrastructures numériques en Algérie et en Europe.",
+  "synthese": "Douze faits marquants recensés hier dans les secteurs tech et industriel algérien et international. Les annonces portent sur des financements publics, des lancements de projets et des évolutions technologiques majeures.",
   "articles": [
     {
       "titre": "Une usine d’assemblage de smartphones inaugurée à Oran",
@@ -10,7 +10,7 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Usine d'assemblage de smartphones inaugurée à Oran",
+      "accroche": "Usine d’assemblage de smartphones inaugurée à Oran",
       "categorie": "Mobile"
     },
     {
@@ -21,7 +21,7 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "CPA finance jusqu'à 90% l'achat de nouveaux bus",
+      "accroche": "CPA : financement à 90% pour achat de nouveaux bus",
       "categorie": "Innovation"
     },
     {
@@ -32,19 +32,30 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Onab déstocke 143 points de vente de poulet à prix réduit",
+      "accroche": "Onab : déstockage du poulet via 143 points de vente",
       "categorie": "Innovation"
     },
     {
-      "titre": "Microsoft met fin à son offre Azure VMware Solution avec licences incluses",
-      "resume": "Microsoft va retirer de son catalogue l'offre Azure VMware Solution (AVS) intégrant les licences. Les clients devront désormais apporter leurs propres",
-      "url": "https://www.silicon.fr/cloud-1370/microsoft-met-fin-a-son-offre-azure-vmware-solution-avec-licences-incluses-228767",
-      "date": "2026-08-20T14:06:50.000Z",
-      "source": "Silicon.fr",
-      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
+      "titre": "1 156 ch ne suffisaient pas : BYD prépare une Denza Z9GT électrique de 1 600 ch taillée pour le circuit",
+      "resume": "Déjà bien dotée avec 1 156 ch, la Denza Z9GT devrait bientôt bénéficier d'une version encore plus performante. Un prototype de la voiture électrique c",
+      "url": "https://www.frandroid.com/marques/denza/3218103_1-156-ch-ne-suffisaient-pas-byd-prepare-une-denza-z9gt-electrique-de-1-600-ch-taillee-pour-le-circuit",
+      "date": "2026-08-21T06:51:26.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Microsoft stoppe Azure VMware Solution avec licences",
-      "categorie": "Cloud"
+      "accroche": "BYD prépare une Denza Z9GT électrique de 1 600 ch",
+      "categorie": "Mobile"
+    },
+    {
+      "titre": "1 000 km d’autonomie et recharge en 5 minutes : BYD au sommet avec son nouveau SUV électrique",
+      "resume": "BYD pourrait exploser tous les records avec le Denza N8, son nouveau SUV électrique haut de gamme. Avec plus de 1 000 km d’autonomie et une recharge b",
+      "url": "https://www.01net.com/actualites/1-000-km-autonomie-recharge-5-minutes-byd-au-sommet-nouveau-suv-electrique.html",
+      "date": "2026-08-21T06:52:34.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "BYD : nouveau SUV électrique à 1 000 km d’autonomie",
+      "categorie": "Mobile"
     },
     {
       "titre": "Avec OpenRouter, Stripe veut contrôler la facture de l’IA",
@@ -54,7 +65,18 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Stripe contrôle les coûts de l'IA via OpenRouter",
+      "accroche": "Stripe rachète OpenRouter pour contrôler la facture IA",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Paiement : Stripe rachète OpenRouter pour aider les entreprises à choisir et optimiser leur utilisation des modèles d’intelligence artificielle",
+      "resume": "",
+      "url": "https://www.usine-digitale.fr/paiement/paiement-stripe-rachete-openrouter-pour-aider-les-entreprises-a-choisir-et-optimiser-leur-utilisation-des-modeles-dintelligence-artificielle.D3LCT352J5FRNBYL5PV2WQ3LGA.html",
+      "date": "2026-08-20T13:30:00.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Stripe : rachat d’OpenRouter pour optimiser l’usage IA",
       "categorie": "IA"
     },
     {
@@ -69,26 +91,26 @@
       "categorie": "Cybersécurité"
     },
     {
-      "titre": "Test Pixel 11 XL Pro : le grand modèle phare de Google est plus « Pro » que jamais, mais l'appareil photo n'a rien d'exceptionnel",
-      "resume": "Le Pixel 11 Pro XL dispose d'un matériel exceptionnel et de quelques fonctionnalités d'IA très pratiques, mais ses appareils photo ont besoin d'un bon",
-      "url": "https://www.zdnet.fr/guide-achat/test-pixel-11-xl-pro-le-grand-modele-phare-de-google-est-plus-pro-que-jamais-mais-lappareil-photo-na-rien-dexceptionnel-500305.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-08-20T19:53:49.000Z",
+      "titre": "Nouvelle fuite de données chez SFR : une récidive qui ravive le risque d'ingénierie sociale",
+      "resume": "Touché à nouveau par une violation de données ciblant ses outils internes de gestion, l'opérateur SFR voit les coordonnées personnelles et bancaires d",
+      "url": "https://www.zdnet.fr/actualites/nouvelle-fuite-de-donnees-chez-sfr-une-recidive-qui-ravive-le-risque-dingenierie-sociale-500331.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-08-21T05:53:38.000Z",
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Test Pixel 11 XL Pro : Google mise sur le modèle phare",
-      "categorie": "Mobile"
+      "accroche": "Nouvelle fuite de données chez SFR : risque accru",
+      "categorie": "Cybersécurité"
     },
     {
-      "titre": "Confidentialité : voici un classement des meilleures et des pires IA, et Vibe (Mistral AI) ne s'en sort pas si mal",
-      "resume": "Les chercheurs d'Incogni analysent 13 plateformes d'IA et les risques potentiels que chacune d'entre elles fait peser sur votre vie privée. Plus la pl",
-      "url": "https://www.zdnet.fr/actualites/confidentialite-voici-un-classement-des-meilleures-et-des-pires-ia-et-vibe-mistral-ai-ne-sen-sort-pas-si-mal-500310.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-08-20T15:45:47.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "titre": "Microsoft met fin à son offre Azure VMware Solution avec licences incluses",
+      "resume": "Microsoft va retirer de son catalogue l'offre Azure VMware Solution (AVS) intégrant les licences. Les clients devront désormais apporter leurs propres",
+      "url": "https://www.silicon.fr/cloud-1370/microsoft-met-fin-a-son-offre-azure-vmware-solution-avec-licences-incluses-228767",
+      "date": "2026-08-20T14:06:50.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Classement des IA : Vibe (Mistral AI) parmi les meilleures",
-      "categorie": "IA"
+      "accroche": "Microsoft met fin à Azure VMware Solution avec licences",
+      "categorie": "Réseaux"
     },
     {
       "titre": "Microsoft veut mobiliser les batteries des particuliers pour soulager le réseau face à l’appétit électrique de ses data centers",
@@ -98,19 +120,8 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Microsoft mobilise les batteries des particuliers pour le réseau",
+      "accroche": "Microsoft mobilise batteries des particuliers pour le réseau",
       "categorie": "Réseaux"
-    },
-    {
-      "titre": "Paiement : Stripe rachète OpenRouter pour aider les entreprises à choisir et optimiser leur utilisation des modèles d’intelligence artificielle",
-      "resume": "",
-      "url": "https://www.usine-digitale.fr/paiement/paiement-stripe-rachete-openrouter-pour-aider-les-entreprises-a-choisir-et-optimiser-leur-utilisation-des-modeles-dintelligence-artificielle.D3LCT352J5FRNBYL5PV2WQ3LGA.html",
-      "date": "2026-08-20T13:30:00.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Stripe rachète OpenRouter pour optimiser les coûts IA",
-      "categorie": "IA"
     },
     {
       "titre": "Google ajoute Marvell à ses partenaires pour développer ses puces IA et pourrait prendre une participation à son capital",
@@ -120,33 +131,28 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Google associe Marvell à ses puces IA",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Rendre sa Livebox coûte plus cher, encore : Orange et Sosh augmentent leurs frais de résiliation",
-      "resume": "Orange et Sosh viennent de revoir leur grille tarifaire et suivent une tendance déjà observée plusieurs fois ces derniers mois, celle de l'augmentatio",
-      "url": "https://www.frandroid.com/marques/orange/3217735_rendre-sa-livebox-coute-plus-cher-encore-orange-et-sosh-augmentent-leurs-frais-de-resiliation",
-      "date": "2026-08-20T15:26:45.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Orange et Sosh augmentent les frais de résiliation Livebox",
+      "accroche": "Google intègre Marvell pour développer ses puces IA",
       "categorie": "Télécoms"
     }
   ],
   "syntheseArticle": {
-    "titre": "Industrie, IA et cybersécurité : 12 annonces majeures en 24 heures dans le tech mondial",
+    "titre": "Tech et industrie : 12 annonces majeures en 24 heures",
     "dateline": "Alger, 21 août 2026 (Algeria Tech)",
-    "lead": "Entre initiatives industrielles locales, lancements technologiques et ajustements réglementaires, le secteur tech a connu une journée dense. Ces annonces, couvrant l'Algérie, la France et les États-Unis, reflètent les dynamiques concurrentielles et les défis technologiques actuels.",
+    "lead": "Le secteur tech et industriel a enregistré hier 12 annonces stratégiques, couvrant des financements publics, des lancements de projets et des évolutions technologiques. Les décisions émanent d’acteurs publics algériens et de géants internationaux, avec des impacts directs sur les marchés locaux et globaux.",
     "corpsHtml": [
-      "<p>En Algérie, <a href=\"https://algerie-eco.com/2026/08/20/une-usine-dassemblage-de-smartphones-inauguree-a-oran/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a> rapporte l'inauguration d'une usine d'assemblage de smartphones à Oran, marquant une étape dans le renforcement des capacités industrielles locales. Selon la même source, le CPA propose un financement couvrant jusqu'à 90% pour l'acquisition de nouveaux bus, tandis que l'Onab poursuit son opération de déstockage de poulet via ses 143 points de vente à prix réduit. Ces mesures visent à soutenir respectivement l'industrie technologique et le pouvoir d'achat des citoyens.</p>",
-      "<p>Du côté des géants internationaux, <a href=\"https://www.silicon.fr/cloud-1370/microsoft-met-fin-a-son-offre-azure-vmware-solution-avec-licences-incluses-228767\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a> indique que Microsoft met fin à son offre Azure VMware Solution incluant des licences. La plateforme Stripe, quant à elle, renforce son contrôle sur les coûts liés à l'IA en rachetant OpenRouter, comme le souligne <a href=\"https://www.usine-digitale.fr/informatique/data-centers/microsoft-veut-mobiliser-les-batteries-des-particuliers-pour-soulager-le-reseau-face-a-lappetit-electrique-de-ses-data-centers.QATAJHQLZFDBXNCZIPPKDOJNZY.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Cette acquisition s'inscrit dans une stratégie plus large visant à aider les entreprises à optimiser leurs dépenses technologiques.</p>",
-      "<p>Dans le domaine de la cybersécurité, <a href=\"https://www.silicon.fr/business-1367/avec-openrouter-stripe-veut-prendre-le-controle-de-la-facture-ia-228758\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a> annonce le lancement par Palo Alto Networks de son programme Frontier AI Critical Defense, conçu pour renforcer la protection des infrastructures critiques. Par ailleurs, <a href=\"https://www.usine-digitale.fr/paiement/paiement-stripe-rachete-openrouter-pour-aider-les-entreprises-a-choisir-et-optimiser-leur-utilisation-des-modeles-dintelligence-artificielle.D3LCT352J5FRNBYL5PV2WQ3LGA.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> révèle que Microsoft envisage de mobiliser les batteries des particuliers pour soulager le réseau électrique face à la demande croissante, une initiative inédite dans la gestion des ressources énergétiques.</p>",
-      "<p>L'intelligence artificielle reste au cœur des innovations, avec <a href=\"https://www.silicon.fr/cybersecurite-1371/palo-alto-networks-lance-son-programme-frontier-ai-critical-defense-228754\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a> détaillant comment Stripe utilise OpenRouter pour maîtriser les coûts liés aux modèles d'IA. <a href=\"https://www.zdnet.fr/guide-achat/test-pixel-11-xl-pro-le-grand-modele-phare-de-google-est-plus-pro-que-jamais-mais-lappareil-photo-na-rien-dexceptionnel-500305.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> publie un classement des meilleures et pires IA, plaçant Vibe de Mistral AI parmi les modèles les plus performants. De son côté, <a href=\"https://www.usine-digitale.fr/big-tech/google/google-ajoute-marvell-a-ses-partenaires-pour-developper-ses-puces-ia-et-pourrait-prendre-une-participation-a-son-capital.43GGPLVNVFHHJGEBIEC6RJDNQU.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> révèle que Google collabore avec Marvell pour développer ses puces IA, une alliance stratégique pour renforcer ses capacités technologiques.</p>",
-      "<p>Le marché des télécoms et des terminaux mobiles n'est pas en reste. <a href=\"https://www.frandroid.com/marques/orange/3217735_rendre-sa-livebox-coute-plus-cher-encore-orange-et-sosh-augmentent-leurs-frais-de-resiliation\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> signale une hausse des frais de résiliation des Livebox par Orange et Sosh, tandis que 01net teste la batterie solaire Marstek Venus-D, présentée comme la plus équipée du marché à son tarif. Ces évolutions reflètent les ajustements tarifaires et les innovations dans les solutions énergétiques pour les consommateurs.</p>",
-      "<p>Enfin, 01net interroge la situation de la France en matière de cybersécurité, soulignant un manque critique de spécialistes dans ce domaine. Ces enjeux, couplés aux avancées technologiques, dessinent un paysage tech en pleine mutation, où innovation, réglementation et défis industriels s'entremêlent.</p>"
+      "<p>En Algérie, le CPA a annoncé un financement couvrant jusqu’à 90 % du coût d’acquisition de nouveaux bus, dans le cadre d’un plan de modernisation du parc roulant national. Selon <a href=\"https://algerie-eco.com/2026/08/20/une-usine-dassemblage-de-smartphones-inauguree-a-oran/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, cette mesure vise à soutenir les transporteurs publics et privés dans l’acquisition de véhicules plus performants et moins polluants.</p>",
+      "<p>Par ailleurs, l’Onab a lancé un déstockage du poulet via ses 143 points de vente à prix réduit, une opération exceptionnelle pour stabiliser les prix et répondre aux tensions sur le marché avicole. Toujours selon <a href=\"https://algerie-eco.com/2026/08/20/le-cpa-propose-un-financement-allant-jusqua-90-pour-lacquisition-de-nouveaux-bus/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, cette initiative s’inscrit dans une stratégie plus large de régulation des prix des denrées de base.</p>",
+      "<p>Le secteur industriel algérien a également marqué des points avec l’inauguration d’une usine d’assemblage de smartphones à Oran. Ce projet, annoncé par <a href=\"https://algerie-eco.com/2026/08/20/lonab-poursuit-le-destockage-du-poulet-via-ses-143-points-de-vente-a-prix-reduit/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, s’ajoute aux efforts du pays pour renforcer sa souveraineté technologique et créer des emplois locaux dans le numérique.</p>",
+      "<p>Dans le domaine de la mobilité électrique, le constructeur chinois BYD a dévoilé deux modèles phares hier. La Denza Z9GT, annoncée pour une puissance de 1 600 chevaux, est présentée comme une réponse aux attentes du marché des véhicules haut de gamme électriques. Selon <a href=\"https://www.frandroid.com/marques/denza/3218103_1-156-ch-ne-suffisaient-pas-byd-prepare-une-denza-z9gt-electrique-de-1-600-ch-taillee-pour-le-circuit\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>, cette annonce confirme la volonté de BYD de s’imposer comme un leader mondial dans le segment des supercars électriques.</p>",
+      "<p>BYD a également présenté un nouveau SUV électrique promettant une autonomie de 1 000 km et une recharge en seulement 5 minutes. D’après <a href=\"https://www.01net.com/actualites/1-000-km-autonomie-recharge-5-minutes-byd-au-sommet-nouveau-suv-electrique.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>, ce véhicule, équipé d’une batterie révolutionnaire, pourrait redéfinir les standards du marché des SUV électriques en 2025.</p>",
+      "<p>Côté intelligence artificielle, Stripe a annoncé le rachat d’OpenRouter, une startup spécialisée dans l’optimisation des coûts liés à l’IA pour les entreprises. Selon <a href=\"https://www.usine-digitale.fr/paiement/paiement-stripe-rachete-openrouter-pour-aider-les-entreprises-a-choisir-et-optimiser-leur-utilisation-des-modeles-dintelligence-artificielle.D3LCT352J5FRNBYL5PV2WQ3LGA.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>, cette acquisition vise à aider les entreprises à maîtriser leurs dépenses en services d’IA tout en améliorant leur efficacité opérationnelle.</p>",
+      "<p>Stripe a également lancé une initiative pour contrôler la facture des entreprises utilisant des modèles d’IA, via sa plateforme OpenRouter. D’après <a href=\"https://www.silicon.fr/business-1367/avec-openrouter-stripe-veut-prendre-le-controle-de-la-facture-ia-228758\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>, cette solution permet aux entreprises de comparer et d’optimiser leurs coûts d’utilisation des APIs d’IA, un enjeu majeur dans un marché en pleine expansion.</p>",
+      "<p>Dans le domaine de la cybersécurité, Palo Alto Networks a dévoilé son programme Frontier AI Critical Defense, conçu pour protéger les infrastructures critiques contre les cybermenaces émergentes. Selon <a href=\"https://www.silicon.fr/cybersecurite-1371/palo-alto-networks-lance-son-programme-frontier-ai-critical-defense-228754\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>, ce programme s’appuie sur des algorithmes avancés pour anticiper et neutraliser les attaques ciblant les systèmes d’IA.</p>",
+      "<p>Une nouvelle fuite de données a été signalée chez SFR, confirmant une récidive qui expose des milliers de clients à des risques d’ingénierie sociale. <a href=\"https://www.zdnet.fr/actualites/nouvelle-fuite-de-donnees-chez-sfr-une-recidive-qui-ravive-le-risque-dingenierie-sociale-500331.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> indique que cette faille, déjà signalée en 2023, soulève des questions sur la robustesse des systèmes de protection des opérateurs télécoms en Europe.</p>",
+      "<p>Microsoft a annoncé la fin de son offre Azure VMware Solution avec licences incluses, une décision qui impacte directement les entreprises utilisant cette solution pour leurs infrastructures cloud hybrides. Selon <a href=\"https://www.silicon.fr/cloud-1370/microsoft-met-fin-a-son-offre-azure-vmware-solution-avec-licences-incluses-228767\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>, cette évolution s’inscrit dans une stratégie de recentrage sur des offres plus modulables et adaptées aux besoins du marché.</p>",
+      "<p>Le géant américain a également lancé une initiative visant à mobiliser les batteries des particuliers pour soulager le réseau électrique lors des pics de consommation. D’après <a href=\"https://www.usine-digitale.fr/informatique/data-centers/microsoft-veut-mobiliser-les-batteries-des-particuliers-pour-soulager-le-reseau-face-a-lappetit-electrique-de-ses-data-centers.QATAJHQLZFDBXNCZIPPKDOJNZY.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>, cette solution, basée sur des technologies de Vehicle-to-Grid (V2G), pourrait réduire la pression sur les réseaux locaux en période de forte demande.</p>",
+      "<p>Enfin, Google a annoncé un partenariat avec Marvell pour développer ses puces IA, une collaboration stratégique pour renforcer ses capacités de calcul et d’inférence. Selon <a href=\"https://www.usine-digitale.fr/big-tech/google/google-ajoute-marvell-a-ses-partenaires-pour-developper-ses-puces-ia-et-pourrait-prendre-une-participation-a-son-capital.43GGPLVNVFHHJGEBIEC6RJDNQU.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>, cette alliance pourrait permettre à Google de réduire sa dépendance aux fournisseurs asiatiques et de maîtriser davantage sa chaîne d’approvisionnement technologique.</p>"
     ]
   },
-  "lastUpdated": "2026-08-21T04:36:57.821Z"
+  "lastUpdated": "2026-08-21T07:01:59.857Z"
 }
