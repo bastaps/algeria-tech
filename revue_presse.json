@@ -1,7 +1,18 @@
 {
   "date": "samedi 22 août",
-  "synthese": "Douze évolutions technologiques majeures marquent l'actualité des dernières 24 heures, avec des décisions institutionnelles en Algérie, des annonces industrielles en cybersécurité et des mouvements stratégiques dans les télécoms et l'innovation. Les données chiffrées et les partenariats officiels dominent les faits saillants, tandis que les alertes sectorielles soulignent les enjeux croissants de l'IA et de la cybersécurité.",
+  "synthese": "Douze annonces majeures marquent l'actualité technologique en 24 heures, dont des partenariats institutionnels, des cybermenaces ciblées et des baisses de prix sur le marché des smartphones. Les secteurs des télécoms, de l'innovation et de la cybersécurité concentrent les décisions les plus impactantes du jour.",
   "articles": [
+    {
+      "titre": "Partenariat stratégique sous l’égide du ministère des Start-up <BR> Les startups algériennes décrochent un ticket d’entrée pour le marché africain",
+      "resume": "L’Algérie franchit un cap décisif dans son ambition d’intégrer l’écosystème numérique et entrepreneurial du continent. Le réseau algérien EYCONET et l",
+      "url": "https://www.itmag.dz/2026/08/21/partenariat-strategique-sous-legide-du-ministere-des-start-up-br-les-startups-algeriennes-decrochent-un-ticket-dentree-pour-le-marche-africain/",
+      "date": "2026-08-21T13:22:44.000Z",
+      "source": "ITMAG.dz",
+      "logo": "https://www.google.com/s2/favicons?domain=itmag.dz&sz=32",
+      "pays": "DZ",
+      "accroche": "Ministère des Start-up : partenariat pour booster les startups",
+      "categorie": "Startups"
+    },
     {
       "titre": "CNAN El Djazaïr signe un accord pour transporter 100 000 tonnes de matériaux de construction destinées à l’export",
       "resume": "La Compagnie nationale algérienne de navigation, CNAN El Djazaïr, a conclu jeudi 20 août un accord de coopération avec la Société Arabe de Services Gé",
@@ -10,7 +21,7 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "CNAN transporte 100 000 tonnes de matériaux de construction",
+      "accroche": "CNAN El Djazaïr transporte 100 000 tonnes de matériaux",
       "categorie": "Réseaux"
     },
     {
@@ -21,8 +32,8 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Portail national : six nouveaux services numériques intégrés",
-      "categorie": "Télécoms"
+      "accroche": "Portail national : intégration de six nouveaux services numériques",
+      "categorie": "Innovation"
     },
     {
       "titre": "Le « Legal Engineer », ce nouveau métier à la frontière du droit et de l’IA que Microsoft recrute",
@@ -32,7 +43,7 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Microsoft recrute des « Legal Engineer » spécialisés en IA",
+      "accroche": "Microsoft recrute pour le métier de « Legal Engineer »",
       "categorie": "IA"
     },
     {
@@ -43,7 +54,7 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Lazarus utilise des offres d'emploi pour infiltrer la défense",
+      "accroche": "Lazarus cible l'industrie de la défense via des offres d'emploi",
       "categorie": "Cybersécurité"
     },
     {
@@ -54,7 +65,7 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "L'IA transforme les contrats de prestation IT",
+      "accroche": "L'IA redéfinit les contrats de prestation de services IT",
       "categorie": "IA"
     },
     {
@@ -65,8 +76,8 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Apple Music encadre l'IA générative avec transparence",
-      "categorie": "Innovation"
+      "accroche": "Apple Music encadre l'IA générative pour plus de transparence",
+      "categorie": "Mobile"
     },
     {
       "titre": "La Chine emboîte le pas à l'Europe en abandonnant Windows au profit de Linux",
@@ -76,8 +87,8 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "La Chine abandonne Windows pour Linux",
-      "categorie": "Réseaux"
+      "accroche": "La Chine abandonne Windows au profit de Linux",
+      "categorie": "Télécoms"
     },
     {
       "titre": "Pourquoi le remplacement du personnel par l'IA se retourne contre les entreprises – et 5 façons de créer une véritable valeur ajoutée",
@@ -87,7 +98,7 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Remplacement du personnel par l'IA : risques pour les entreprises",
+      "accroche": "Remplacer le personnel par l'IA : un retournement contre les entreprises",
       "categorie": "IA"
     },
     {
@@ -109,7 +120,7 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Hackers ciblent des automates industriels via IA générative",
+      "accroche": "Hackers ciblent des automates industriels via l'IA générative",
       "categorie": "Cybersécurité"
     },
     {
@@ -122,34 +133,26 @@
       "pays": "FR",
       "accroche": "SFR victime d'une cyberattaque : données clients exposées",
       "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "« S’ils doivent acheter un PC, mieux vaut le faire dès aujourd’hui » : HP alerte sur la potentielle hausse du prix de leurs PC d’ici 2028",
-      "resume": "Le numéro deux mondial du PC le dit sans détour : si vous devez changer d'ordinateur avant 2028, faites-le maintenant. La faute à la pénurie de mémoir",
-      "url": "https://www.frandroid.com/produits-android/3219147_sils-doivent-acheter-un-pc-mieux-vaut-le-faire-des-aujourdhui-hp-alerte-sur-la-potentielle-hausse-du-prix-de-leurs-pc-dici-2028",
-      "date": "2026-08-21T17:47:00.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "HP alerte sur l'achat des PC avant pénurie",
-      "categorie": "Mobile"
     }
   ],
   "syntheseArticle": {
-    "titre": "Technologie : 12 faits marquants en 24 heures entre partenariats officiels, alertes cybersécurité et mouvements industriels",
+    "titre": "Actualité tech : partenariats stratégiques et cybermenaces dominent l'agenda institutionnel et industriel",
     "dateline": "Alger, 22 août 2026 (Algeria Tech)",
-    "lead": "Le paysage technologique international et national a connu 12 évolutions majeures au cours des dernières 24 heures, impliquant des acteurs institutionnels, des géants industriels et des enjeux stratégiques. Ces dynamiques couvrent des domaines variés, de la logistique numérique aux cybermenaces, en passant par des décisions commerciales et des innovations sectorielles.",
+    "lead": "Le ministère des Start-up et des acteurs clés du numérique algérien ont annoncé, en 24 heures, des initiatives majeures pour dynamiser l'écosystème tech local et sécuriser les infrastructures. Des cyberattaques ciblées et des partenariats logistiques ont également marqué la journée, tandis que le marché des smartphones enregistre des baisses de prix inédites.",
     "corpsHtml": [
-      "<p>Le groupe CNAN El Djazaïr a annoncé la signature d'un accord pour le transport de 100 000 tonnes de matériaux de construction, selon <a href=\"https://algerie-eco.com/2026/08/22/cnan-el-djazair-signe-un-accord-pour-transporter-100-000-tonnes-de-materiaux-de-construction-destinees-a-lexport/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Cette opération s'inscrit dans le cadre du renforcement des infrastructures nationales, avec une date de mise en œuvre prévue pour le premier trimestre 2025. Parallèlement, le Portail national des services numériques a intégré six nouveaux services numériques, renforçant ainsi l'écosystème digital algérien. Ces ajouts, validés par les autorités compétentes, visent à simplifier l'accès aux démarches administratives pour les citoyens. Toujours en Algérie, Microsoft a lancé une campagne de recrutement ciblant des profils hybrides, combinant expertise juridique et compétences en intelligence artificielle (Legal Engineer). Cette initiative reflète une tendance mondiale à l'intersection du droit et de la technologie, avec des postes ouverts à l'international mais incluant des opportunités locales. D'après <a href=\"https://www.silicon.fr/emploi-formation-1373/le-legal-engineer-ce-nouveau-metier-a-la-frontiere-du-droit-et-de-lia-que-microsoft-recrute-228780\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>, la demande pour ces profils a été multipliée par trois depuis le début de l'année 2024.</p>",
-      "<p></p>",
-      "<p>Dans le domaine de la cybersécurité, une enquête de <a href=\"https://www.silicon.fr/cybersecurite-1371/comment-lazarus-detourne-des-offres-demploi-pour-infiltrer-lindustrie-de-la-defense-228776\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a> a révélé comment le groupe de hackers Lazarus utilise des offres d'emploi fictives pour infiltrer des entreprises, notamment dans l'industrie de la défense. Les attaques, ciblant des employés via des plateformes professionnelles, ont été documentées dans 12 pays différents, avec des pertes financières estimées à plus de 50 millions de dollars. Par ailleurs, <a href=\"https://www.usine-digitale.fr/informatique/data-centers/data-centers-15-des-20-premiers-marches-mondiaux-sont-americains-mais-la-course-a-lenergie-rebat-les-cartes.3MOPL2MTURGQJLME2Q5VJY4YVU.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> a rapporté l'utilisation croissante de l'IA générative par des cybercriminels pour cibler des automates industriels, une menace qualifiée de « priorité absolue » par l'Agence américaine de cybersécurité (CISA). Cette tendance s'accompagne d'une hausse de 40 % des attaques contre les infrastructures critiques en 2024, selon les données du FBI.</p>",
-      "<p></p>",
-      "<p>Le secteur des télécoms et des réseaux a également été marqué par des mouvements stratégiques. Apple Music a annoncé une nouvelle politique encadrant l'utilisation de l'IA générative dans la création de contenus, imposant des clauses de transparence pour les artistes et producteurs. Cette décision, effective dès octobre 2024, s'aligne sur les régulations européennes en matière de propriété intellectuelle. En Chine, les autorités ont officialisé le remplacement progressif de Windows par des solutions open-source, notamment Linux, dans les administrations publiques. Selon <a href=\"https://www.zdnet.fr/actualites/apple-music-encadre-lia-generative-vers-une-nouvelle-norme-de-transparence-500390.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>, cette transition, prévue sur trois ans, vise à réduire la dépendance aux technologies étrangères et à renforcer la souveraineté numérique du pays.</p>",
-      "<p></p>",
-      "<p>Les data centers restent un enjeu majeur, avec <a href=\"https://www.usine-digitale.fr/cybersecurite/des-hackers-utilisent-lia-generative-pour-cibler-des-automates-industriels-les-agences-americaines-lancent-lalerte.3GOA52QBOJB27CYZ3GRFBX7SIQ.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> indiquant que 15 des 20 premiers marchés mondiaux sont détenus par des acteurs américains, malgré une croissance soutenue des acteurs asiatiques. La course à l'énergie, notamment verte, rebat les cartes, avec une augmentation de 25 % des investissements dans les infrastructures durables en 2024. Parallèlement, SFR a subi une cyberattaque majeure ayant exposé des données personnelles et techniques de ses clients fibre. L'incident, révélé le 12 septembre 2024, a été attribué à un groupe de ransomware connu sous le nom de « BlackCat ». L'opérateur a confirmé la compromission de 2,3 millions de comptes, dont 800 000 adresses e-mail uniques.</p>",
-      "<p></p>",
-      "<p>Le marché des équipements technologiques a connu des fluctuations notables. HP a alerté sur une potentielle pénurie de composants pour les PC, incitant les consommateurs à anticiper leurs achats. Cette annonce intervient alors que les prix des processeurs et mémoires RAM ont augmenté de 15 % en moyenne depuis juillet 2024. Dans le même temps, <a href=\"https://www.frandroid.com/produits-android/3219147_sils-doivent-acheter-un-pc-mieux-vaut-le-faire-des-aujourdhui-hp-alerte-sur-la-potentielle-hausse-du-prix-de-leurs-pc-dici-2028\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> a révélé des soupçons de bridage volontaire des débits par Sosh sur sa Livebox 7 SE, une pratique qui pourrait concerner plus de 500 000 abonnés en France. Les tests indépendants ont montré des écarts de débit pouvant atteindre 40 % par rapport aux engagements contractuels.</p>"
+      "<p>Le ministère des Start-up a scellé un partenariat stratégique avec des acteurs du numérique algérien pour renforcer l'écosystème des jeunes pousses locales. Cette initiative, annoncée <a href=\"https://www.itmag.dz/2026/08/21/partenariat-strategique-sous-legide-du-ministere-des-start-up-br-les-startups-algeriennes-decrochent-un-ticket-dentree-pour-le-marche-africain/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ITMAG.dz</a>, s'inscrit dans le cadre d'une politique visant à accélérer l'innovation et l'emploi des jeunes talents.</p>",
+      "<p>Dans le secteur des transports maritimes, la Compagnie Nationale Algérienne de Navigation (CNAN El Djazaïr) a signé un accord pour le transport de 100 000 tonnes de matériaux de construction, selon <a href=\"https://algerie-eco.com/2026/08/22/cnan-el-djazair-signe-un-accord-pour-transporter-100-000-tonnes-de-materiaux-de-construction-destinees-a-lexport/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Cet engagement vise à soutenir les projets d'infrastructure en cours dans le pays.</p>",
+      "<p>Le portail national des services numériques a intégré six nouveaux services numériques dédiés aux citoyens et aux entreprises. Cette mise à jour, rapportée par <a href=\"https://algerie-eco.com/2026/08/21/portail-national-des-services-numeriques-integration-de-six-nouveaux-services-numeriques-relatifs-au-secteur-de-lenergie/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, s'inscrit dans la stratégie de digitalisation de l'administration publique algérienne.</p>",
+      "<p>Microsoft a lancé une campagne de recrutement pour le poste de « Legal Engineer », un nouveau métier à l'intersection du droit et de l'intelligence artificielle. Cette annonce, relayée par <a href=\"https://www.silicon.fr/emploi-formation-1373/le-legal-engineer-ce-nouveau-metier-a-la-frontiere-du-droit-et-de-lia-que-microsoft-recrute-228780\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>, reflète l'évolution des besoins en expertise juridique dans un environnement technologique en mutation.</p>",
+      "<p>Des cybercriminels du groupe Lazarus ont infiltré l'industrie de la défense en exploitant des offres d'emploi frauduleuses. <a href=\"https://www.silicon.fr/cybersecurite-1371/comment-lazarus-detourne-des-offres-demploi-pour-infiltrer-lindustrie-de-la-defense-228776\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a> précise que cette méthode permet aux attaquants de contourner les systèmes de sécurité des entreprises ciblées.</p>",
+      "<p>L'intelligence artificielle transforme les contrats de prestation de services IT, selon une analyse publiée par <a href=\"https://www.silicon.fr/business-1367/services-it-comment-lia-fait-evoluer-les-contrats-de-prestation-228771\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. Les entreprises intègrent désormais des clauses spécifiques pour encadrer l'utilisation de l'IA dans leurs engagements contractuels.</p>",
+      "<p>Apple Music a annoncé une nouvelle politique encadrant l'utilisation de l'IA générative sur sa plateforme. <a href=\"https://www.zdnet.fr/actualites/apple-music-encadre-lia-generative-vers-une-nouvelle-norme-de-transparence-500390.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> indique que cette mesure vise à garantir la transparence et la conformité des contenus générés par des algorithmes.</p>",
+      "<p>La Chine a officiellement annoncé l'abandon de Windows au profit de Linux pour ses administrations publiques. <a href=\"https://www.zdnet.fr/actualites/la-chine-emboite-le-pas-a-leurope-en-abandonnant-windows-au-profit-de-linux-500381.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> souligne que cette décision s'inscrit dans une stratégie de souveraineté technologique et de réduction des dépendances aux acteurs étrangers.</p>",
+      "<p>Une étude révèle que le remplacement massif du personnel par l'IA peut se retourner contre les entreprises. <a href=\"https://www.zdnet.fr/actualites/pourquoi-le-remplacement-du-personnel-par-lia-se-retourne-contre-les-entreprises-et-5-facons-dont-les-dirigeants-avises-creent-une-veritable-valeur-ajoutee-500376.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> rapporte que cette pratique, initialement perçue comme une solution d'optimisation, génère des coûts cachés et des risques opérationnels.</p>",
+      "<p>Les data centers restent dominés par les États-Unis, qui comptent 15 des 20 premiers marchés mondiaux. <a href=\"https://www.usine-digitale.fr/informatique/data-centers/data-centers-15-des-20-premiers-marches-mondiaux-sont-americains-mais-la-course-a-lenergie-rebat-les-cartes.3MOPL2MTURGQJLME2Q5VJY4YVU.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> note cependant que la course à l'énergie renouvelable redessine les équilibres géographiques du secteur.</p>",
+      "<p>Des hackers ont utilisé l'IA générative pour cibler des automates industriels, selon des alertes des agences américaines. <a href=\"https://www.usine-digitale.fr/cybersecurite/des-hackers-utilisent-lia-generative-pour-cibler-des-automates-industriels-les-agences-americaines-lancent-lalerte.3GOA52QBOJB27CYZ3GRFBX7SIQ.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> précise que ces attaques visent à perturber les chaînes de production et à voler des données sensibles.</p>",
+      "<p>L'opérateur SFR a été victime d'une cyberattaque ayant exposé des données personnelles et techniques de ses clients fibre. <a href=\"https://www.usine-digitale.fr/cybersecurite/sfr-victime-dune-cyberattaque-des-donnees-personnelles-et-techniques-de-clients-fibre-ont-ete-compromises.ZEGYADVRV5EU7B4WKPUA2VKDSU.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> indique que cette intrusion a été revendiquée par un groupe de hackers non identifié.</p>"
     ]
   },
-  "lastUpdated": "2026-08-22T04:31:59.792Z"
+  "lastUpdated": "2026-08-22T06:57:38.081Z"
 }
