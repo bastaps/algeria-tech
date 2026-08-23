@@ -2851,7 +2851,26 @@ html.ar .comp-disclaimer { flex-direction:row-reverse; border-left:none; border-
 .at-immersive-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,98,51,.45); }
 
 /* ── Modale plein écran (carte interactive) ───────────────── */
-.at-immersive-modal .modal-content { max-width: 960px; width: 95%; max-height: 92vh; padding: 0; overflow-y: auto; }
+/* Version interactive : elle occupe tout l'ecran et masque entierement
+   l'article normal — sinon on lit les deux mises en page l'une sur l'autre. */
+/* Au-dessus des widgets flottants du site (assistant vocal, WhatsApp,
+   panneau de préférences...), qui montent jusqu'à 9999. */
+.at-immersive-modal { background: var(--bg, #0b0f19); padding: 0; z-index: 2147482000; }
+body.at-immersive-open #premiumPlayerBar,
+body.at-immersive-open .premium-reading-progress,
+body.at-immersive-open .reading-progress { display: none !important; }
+.at-immersive-modal .modal-content {
+  max-width: 100%; width: 100%; max-height: 100vh; height: 100vh;
+  padding: 0; margin: 0; border-radius: 0; overflow: hidden;
+  background: transparent; box-shadow: none;
+}
+.at-immersive-modal .modal-content > iframe { height: 100vh !important; border-radius: 0 !important; }
+.at-immersive-modal .modal-close {
+  position: fixed; top: 14px; right: 16px; z-index: 5;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(0,0,0,0.55); color: #fff; backdrop-filter: blur(4px);
+}
+.at-immersive-modal .modal-close:hover { background: var(--secondary, #d21034); color: #fff; }
 @media (max-width: 600px) { .at-immersive-btn { width: 100%; justify-content: center; } }
 
 /* ── Panneau flottant ──────────────────────────────────── */
@@ -4687,3 +4706,62 @@ body.dark-mode .header.at-scrolled { background: color-mix(in srgb, var(--bg-whi
     .at-logo .logo-img { height: 50px; width: 50px; }
     .at-logo .logo-text h1 { font-size: 1.15rem; }
 }
+
+/* ── « À retenir » : l'essentiel de l'article, avant le corps du texte ── */
+.at-retenir {
+  margin: 22px 0 28px;
+  padding: 20px 24px;
+  background: var(--bg-light, #f6f8fc);
+  border: 1px solid var(--border, #e3e8f0);
+  border-left: 5px solid var(--secondary, #d21034);
+  border-radius: 14px;
+}
+.at-retenir-title {
+  display: flex; align-items: center; gap: 10px;
+  font-size: .8rem; font-weight: 800; letter-spacing: .6px;
+  text-transform: uppercase; color: var(--text-muted, #64748b);
+  margin-bottom: 12px;
+}
+.at-retenir-title i { color: var(--secondary, #d21034); }
+.at-retenir ul { margin: 0; padding-left: 20px; }
+.at-retenir li {
+  font-size: .97rem; line-height: 1.65; color: var(--text-dark, #1e2f3f);
+  margin-bottom: 9px;
+}
+.at-retenir li:last-child { margin-bottom: 0; }
+.at-retenir li::marker { color: var(--secondary, #d21034); }
+@media (max-width: 600px) { .at-retenir { padding: 16px 18px; } }
+
+/* ── Signalétique « version interactive » sur la vignette d'article ──────
+   Le lecteur doit voir, dès la liste, qu'un article a son rendu interactif.
+   Le badge suit le coin opposé à l'étiquette de catégorie. */
+.at-badge-interactif {
+    position: absolute; bottom: 10px; right: 10px; z-index: 3;
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 11px; border-radius: 999px;
+    font-size: .68rem; font-weight: 700; letter-spacing: .04em;
+    color: #fff; pointer-events: none; white-space: nowrap;
+    background: linear-gradient(135deg, #006233 0%, #0a8a4a 100%);
+    border: 1px solid rgba(255, 255, 255, .28);
+    box-shadow: 0 4px 12px rgba(0, 98, 51, .38);
+}
+.at-badge-interactif i { font-size: .7rem; }
+@media (max-width: 600px) {
+    .at-badge-interactif { bottom: 8px; right: 8px; padding: 4px 9px; font-size: .62rem; }
+}
+
+/* Renvoi vers la version interactive quand des visuels ont été écartés
+   de l'article (ils ne vivent que dans le fichier .html). */
+.at-visuels-note {
+    margin: 22px 0 6px; padding: 12px 16px;
+    border-left: 3px solid var(--primary, #006233);
+    background: var(--bg-light, rgba(0, 98, 51, .06));
+    border-radius: 0 10px 10px 0;
+    font-size: .9rem; color: var(--text-muted, #555);
+}
+.at-visuels-note i { color: var(--primary, #006233); margin-right: 7px; }
+
+/* Un tableau de données ne doit jamais élargir la page sur mobile :
+   il défile dans son propre cadre. */
+.article-text .at-data { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.article-text .at-data table { min-width: 100%; }

@@ -63,3 +63,7 @@ credentials*.json
 # Base locale lue/ecrite par email_alert.js (fs, jamais par HTTP).
 # Aucun workflow n'en a besoin : la garder hors du depot.
 subscribers.json
+
+# Journaux du Hub lance en arriere-plan
+_hub.log
+_hub_err.log

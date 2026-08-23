@@ -25,8 +25,22 @@ public static class CtrlCGuard {
     }
     [CtrlCGuard]::Register()
 
+    # -- Test de port sans barre de progression (Test-NetConnection affiche un
+    #    bandeau bleu Write-Progress qui masque le haut de la console) ---------
+    $ProgressPreference = 'SilentlyContinue'
+    function Test-PortOpen {
+        param([string]$ComputerName = 'localhost', [int]$Port, [int]$TimeoutMs = 600)
+        $client = New-Object System.Net.Sockets.TcpClient
+        try {
+            $iar = $client.BeginConnect($ComputerName, $Port, $null, $null)
+            if (-not $iar.AsyncWaitHandle.WaitOne($TimeoutMs, $false)) { return $false }
+            $client.EndConnect($iar)
+            return $true
+        } catch { return $false } finally { $client.Close() }
+    }
+
     # ── Auto-lancement Article Interactif (port 5000) au demarrage du Sync ──
-    $articleInteractifOk = Test-NetConnection -ComputerName localhost -Port 5000 -InformationLevel Quiet -WarningAction SilentlyContinue
+    $articleInteractifOk = Test-PortOpen -ComputerName localhost -Port 5000
     if (-not $articleInteractifOk) {
         Start-Process powershell -ArgumentList "-NoExit", "-Command",
             "Set-Location 'E:\algeria-tech\article-interactif'; Write-Host 'Algeria Tech - Article Interactif - localhost:5000' -ForegroundColor Yellow; python app.py"
@@ -594,8 +608,8 @@ public static class CtrlCGuard {
                     Pop-Location
                 }
                 # Verifier si Vite tourne deja
-                $viteOk = (Test-NetConnection -ComputerName localhost -Port 5173 -InformationLevel Quiet -WarningAction SilentlyContinue) -or
-                          (Test-NetConnection -ComputerName localhost -Port 5174 -InformationLevel Quiet -WarningAction SilentlyContinue)
+                $viteOk = (Test-PortOpen -ComputerName localhost -Port 5173) -or
+                          (Test-PortOpen -ComputerName localhost -Port 5174)
                 if (-not $viteOk) {
                     Write-Host "Vite non detecte, lancement serveur + client..." -ForegroundColor Yellow
                     Start-Process powershell -ArgumentList "-NoExit", "-Command",

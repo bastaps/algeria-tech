@@ -481,7 +481,7 @@ function renderGrid(arts) {
         if (hasImg) return art.image;
     };
     grid.innerHTML = arts.map((a, i) => `<div class="news-card" style="animation-delay:${i*0.1}s" onclick="openArticle('${a.id}')">
-<div class="news-card-img" style="position:relative;"><img src="${getT(a)}" alt="${a.titre}" onerror="this.onerror=null;this.style.display='none'">${a.video ? '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(210,16,52,0.8);color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;z-index:2;pointer-events:none;"><i class="fas fa-play"></i></div>' : ''}<span class="category-tag ${cls(a.categorie)}">${a.categorie}</span></div>
+<div class="news-card-img" style="position:relative;"><img src="${getT(a)}" alt="${a.titre}" onerror="this.onerror=null;this.style.display='none'">${a.video ? '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(210,16,52,0.8);color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;z-index:2;pointer-events:none;"><i class="fas fa-play"></i></div>' : ''}<span class="category-tag ${cls(a.categorie)}">${a.categorie}</span>${window.hasImmersive && window.hasImmersive(a) ? '<span class="at-badge-interactif" title="Cet article a une version interactive"><i class="fas fa-layer-group"></i> Interactif</span>' : ''}</div>
 <div class="news-card-body"><h3>${a.titre}</h3><p>${a.extrait}</p>
 <div class="card-meta"><span><i class="far fa-calendar"></i> ${a.date}</span><span><i class="far fa-clock"></i> ${a.heure}</span><span><i class="far fa-eye"></i> ${a.views}</span></div></div></div>`).join('');
 }
@@ -512,6 +512,9 @@ window.openArticle = async function(id) {
             : art.rawContent;
         art.readingTime = Math.ceil(art.rawContent.split(/\s+/).length / 200);
     }
+    // Slides, infographies et graphiques appartiennent au .html interactif :
+    // la page de l'article ne montre que les tableaux.
+    art.contenu = filtrerVisuelsArticle(art.contenu, hasImmersive(art));
 
     art.views++;
     articleViews[id] = art.views;
@@ -543,8 +546,9 @@ window.openArticle = async function(id) {
         mediaHeader = `<img src="${art.image}" alt="${art.titre}" onerror="this.onerror=null;this.style.display='none'" style="width:100%; border-radius:15px; margin-bottom:25px;">`;
     }
     let pdfLink = art.pdf ? `<div style="margin: 20px 0; padding: 15px; background: var(--bg-light); border-radius: 10px; display: flex; align-items: center; gap: 15px;"><i class="fas fa-file-pdf" style="font-size: 2rem; color: #D21034;"></i><div><p style="margin:0; font-weight:600;">Document d'accompagnement</p><a href="${art.pdf}" target="_blank" class="tag-filter" style="display:inline-block; margin-top:5px; text-decoration:none;"><i class="fas fa-download"></i> TÃ©lÃ©charger le PDF</a></div></div>` : '';
-    const immersiveBtn = IMMERSIVE_ARTICLES.includes(String(art.id)) ? `<button class="at-immersive-btn" onclick="openImmersiveMode('${art.id}')"><i class="fas fa-layer-group"></i> Version Interactive</button>` : '';
-    let html = `${mediaHeader}<div class="article-body"><div class="article-meta"><span class="category-tag ${cls(art.categorie)}">${art.categorie}</span><span><i class="far fa-calendar"></i> ${art.date}</span><span><i class="far fa-clock"></i> ${art.heure}</span><span class="reading-time"><i class="fas fa-book-open"></i> ${art.readingTime} min</span><span><i class="far fa-eye"></i> ${art.views} vues</span><button class="meta-audio-btn" onclick="premiumTogglePlayer()"><i class="fas fa-headphones"></i> Écouter l'article</button><a class="meta-lite-btn" href="/article/${art.id}/lite" title="Version allégée pour connexion lente"><i class="fas fa-bolt"></i> Version légère</a></div><h1>${art.titre}</h1><div class="article-actions">${immersiveBtn}<button class="synthese-btn" id="syntheseBtn" onclick="loadSynthese()"><i class="fas fa-bolt"></i> Synthèse IA</button><button class="debat-btn" id="debatBtn" onclick="openDebat()"><i class="fas fa-comments"></i> Débattre avec l'IA</button></div><div id="syntheseBox"></div><div class="article-text">${bodyImage}${art.contenu}${pdfLink}</div>`;
+    const immersiveBtn = hasImmersive(art) ? `<button class="at-immersive-btn" onclick="openImmersiveMode('${art.id}')"><i class="fas fa-layer-group"></i> Version Interactive</button>` : '';
+    const retenirBox = buildARetenir(art);
+    let html = `${mediaHeader}<div class="article-body"><div class="article-meta"><span class="category-tag ${cls(art.categorie)}">${art.categorie}</span><span><i class="far fa-calendar"></i> ${art.date}</span><span><i class="far fa-clock"></i> ${art.heure}</span><span class="reading-time"><i class="fas fa-book-open"></i> ${art.readingTime} min</span><span><i class="far fa-eye"></i> ${art.views} vues</span><button class="meta-audio-btn" onclick="premiumTogglePlayer()"><i class="fas fa-headphones"></i> Écouter l'article</button><a class="meta-lite-btn" href="/article/${art.id}/lite" title="Version allégée pour connexion lente"><i class="fas fa-bolt"></i> Version légère</a></div><h1>${art.titre}</h1><div class="article-actions">${immersiveBtn}<button class="synthese-btn" id="syntheseBtn" onclick="loadSynthese()"><i class="fas fa-bolt"></i> Synthèse IA</button><button class="debat-btn" id="debatBtn" onclick="openDebat()"><i class="fas fa-comments"></i> Débattre avec l'IA</button></div><div id="syntheseBox"></div>${retenirBox}<div class="article-text">${bodyImage}${art.contenu}${pdfLink}</div>`;
     if (art.tags && art.tags.length) {
         html += `<div style="margin:30px 0;padding-top:20px;border-top:1px solid var(--border)"><strong>Tags: </strong>${art.tags.map(t => `<span class="tag-filter" style="margin-left:8px" onclick="filterByTag('${t}');goHome()">${t}</span>`).join('')}</div>`;
     }
@@ -566,9 +570,133 @@ window.openArticle = async function(id) {
     } else if (relBox) { relBox.style.display = 'none'; }
 };
 
+// ===== « À RETENIR » — l'essentiel de l'article en trois points =====
+// Utilise le champ "aretenir" de l'en-tête quand il existe (fourni par le
+// générateur d'articles interactifs) ; sinon les points sont extraits du texte :
+// on ne garde que des phrases telles quelles, jamais de reformulation.
+window.buildARetenir = function (art) {
+    let points = [];
+
+    if (art.aretenir) {
+        points = String(art.aretenir)
+            .split(/\s*\|\s*|\s*;;\s*|\n+/)
+            .map(p => p.trim())
+            .filter(Boolean);
+    }
+
+    if (!points.length) {
+        const decode = (s) => {
+            const d = document.createElement('textarea');
+            d.innerHTML = s;
+            return d.value;
+        };
+        const texte = decode(String(art.contenu || art.rawContent || ''))
+            .replace(/^---[\s\S]*?---/, '')
+            .replace(/<[^>]+>/g, ' ')
+            .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')      // images markdown
+            .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')     // liens markdown
+            .replace(/^#{1,6}\s.*$/gm, ' ')              // intertitres sur leur ligne
+            .replace(/[#>*`_|]/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim();
+        const phrases = (texte.match(/[^.!?]+[.!?]/g) || [])
+            .map(p => p.trim())
+            .filter(p => p.length > 55 && p.length < 260);
+        if (phrases.length < 2) return '';
+
+        const notes = phrases.map((p, i) => {
+            let score = 0;
+            const chiffres = (p.match(/\d/g) || []).length;
+            score += Math.min(chiffres, 8) * 1.6;
+            if (/\b(%|milliards?|millions?|dinars?|DA|USD|MW|tonnes?)\b/i.test(p)) score += 3;
+            if (/\b(20\d{2}|trimestre|janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)\b/i.test(p)) score += 2;
+            if (/\b(annonc|lanc|prévoit|permettra|vise|objectif|décid|sign|approuv)/i.test(p)) score += 2;
+            if (i === 0) score += 2.5;
+            return { p, score, i };
+        });
+        points = notes.sort((a, b) => b.score - a.score).slice(0, 3)
+                      .sort((a, b) => a.i - b.i).map(n => n.p);
+    }
+
+    points = points.slice(0, 4);
+    if (points.length < 2) return '';
+
+    const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return `<div class="at-retenir">
+        <div class="at-retenir-title"><i class="fas fa-bookmark"></i> À retenir</div>
+        <ul>${points.map(p => `<li>${esc(p)}</li>`).join('')}</ul>
+    </div>`;
+};
+
+// ===== VISUELS DE DONNÉES : l'article du site ne garde que les tableaux =====
+// Smart Ingest PRO fabrique des blocs `.at-data` (chiffres clés, graphiques,
+// jauges, anneaux, frises, comparateurs, infographies, citations en exergue).
+// Leur place est le fichier .html interactif, pas la page de l'article : ici
+// on n'affiche que les tableaux. Le filtrage se fait au rendu, jamais dans le
+// fichier .md — les articles déjà publiés sont donc traités eux aussi, et rien
+// n'est perdu : la version interactive continue de tout montrer.
+const AT_VISUELS_GARDES = ['at-data-table'];
+
+window.filtrerVisuelsArticle = function (html, aUneVersionInteractive) {
+    if (!html || html.indexOf('at-data') === -1) return html;
+    try {
+        const doc = new DOMParser().parseFromString('<div id="at-root">' + html + '</div>', 'text/html');
+        const racine = doc.getElementById('at-root');
+        const garde = function (n) {
+            return AT_VISUELS_GARDES.some(function (c) { return n.classList.contains(c); });
+        };
+
+        // Les blocs s'imbriquent : une infographie enveloppe ses chiffres et son
+        // graphique, et le markdown mal refermé peut en emboîter d'autres. On ne
+        // traite donc que les blocs de premier niveau, une seule fois.
+        const sommets = Array.prototype.filter.call(
+            racine.querySelectorAll('.at-data'),
+            function (n) { return !n.parentElement.closest('.at-data'); });
+
+        let retires = 0;
+        sommets.forEach(function (bloc) {
+            if (garde(bloc)) return;
+
+            // Un bloc écarté peut contenir un tableau — c'est de la donnée, pas
+            // de la décoration : on le remonte au lieu de le perdre.
+            const sauves = [];
+            bloc.querySelectorAll('.at-data').forEach(function (n) {
+                if (garde(n) && !sauves.some(function (x) { return x.contains(n); })) sauves.push(n);
+            });
+            if (!sauves.length) {
+                bloc.querySelectorAll('table').forEach(function (t) { sauves.push(t); });
+            }
+
+            if (sauves.length) bloc.replaceWith.apply(bloc, sauves);
+            else bloc.remove();
+            retires++;
+        });
+
+        if (retires && aUneVersionInteractive) {
+            const note = doc.createElement('p');
+            note.className = 'at-visuels-note';
+            note.innerHTML = '<i class="fas fa-chart-pie"></i> ' + retires
+                + ' visualisation' + (retires > 1 ? 's' : '') + ' (graphiques, infographies, frises) '
+                + (retires > 1 ? 'sont' : 'est') + ' à voir dans la <b>version interactive</b> de cet article.';
+            racine.appendChild(note);
+        }
+        return racine.innerHTML;
+    } catch (e) {
+        console.warn('Filtrage des visuels impossible :', e);
+        return html;
+    }
+};
+
 // ===== MODE IMMERSIF (version interactive maison d'un article) =====
-// Liste blanche des articles disposant d'une carte interactive (interactifs/<id>.html) — curation manuelle, pas d'automatisation.
+// La carte vit dans interactifs/<id>.html. C'est un document HTML complet
+// (styles + scripts) : il s'affiche dans une iframe et non en innerHTML, sinon
+// ses styles déborderaient sur le site et ses scripts ne tourneraient pas.
+// Liste de repli pour les articles publiés avant le champ "interactif".
 const IMMERSIVE_ARTICLES = ['1785539788809'];
+
+window.hasImmersive = function(art) {
+    return !!(art && (art.interactif || IMMERSIVE_ARTICLES.includes(String(art.id))));
+};
 
 window.openImmersiveMode = async function(id) {
     const modal = document.getElementById('immersiveModal');
@@ -576,20 +704,35 @@ window.openImmersiveMode = async function(id) {
     if (!modal || !body) return;
     body.innerHTML = '<div style="padding:60px;text-align:center;color:var(--text-muted);"><i class="fas fa-spinner fa-spin"></i> Chargement…</div>';
     modal.classList.add('show');
+    document.body.classList.add('at-immersive-open');
     document.body.style.overflow = 'hidden';
+
+    const closeBtn = '<button class="modal-close" onclick="closeImmersiveMode()" aria-label="Fermer"><i class="fas fa-times"></i></button>';
+    const url = `/interactifs/${id}.html`;
     try {
-        const res = await fetch(`/interactifs/${id}.html`);
+        const res = await fetch(url, { method: 'HEAD' });
         if (!res.ok) throw new Error('not found');
-        body.innerHTML = await res.text();
+        body.innerHTML = closeBtn +
+            `<iframe src="${url}" title="Version interactive de l'article" ` +
+            `style="width:100%;height:100vh;border:0;background:transparent;display:block;" ` +
+            `allow="fullscreen; clipboard-write"></iframe>`;
     } catch (e) {
-        body.innerHTML = '<p style="padding:60px;text-align:center;color:var(--text-muted);">Impossible de charger la version interactive.</p>';
+        body.innerHTML = closeBtn +
+            '<p style="padding:60px;text-align:center;color:var(--text-muted);">' +
+            'Aucune version interactive n’a encore été publiée pour cet article.</p>';
     }
 };
 
 window.closeImmersiveMode = function() {
     document.getElementById('immersiveModal')?.classList.remove('show');
+    document.body.classList.remove('at-immersive-open');
     document.body.style.overflow = '';
 };
+
+// La carte interactive vit dans une iframe : sa croix demande la fermeture ici.
+window.addEventListener('message', function (e) {
+    if (e.data && e.data.type === 'at-close-interactif') closeImmersiveMode();
+});
 
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && document.getElementById('immersiveModal')?.classList.contains('show')) {

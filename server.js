@@ -120,7 +120,9 @@ const storage = isCloud ? multer.memoryStorage() : multer.diskStorage({
 
 const upload = multer({ storage }).fields([{ name: 'image', maxCount: 1 }, { name: 'pdf', maxCount: 1 }]);
 
-app.use(express.json());
+// Les cartes interactives (interactifs/<id>.html) pèsent ~200 Ko :
+// la limite par défaut de 100 Ko les rejetait en 413.
+app.use(express.json({ limit: '12mb' }));
 
 // === [AUTO-MEDIA] Route pour lister dynamiquement les fichiers dans infographies/media ===
 app.get('/api/infographies/media', (req, res) => {
@@ -353,9 +355,54 @@ function escapeHtml(s) {
 
 // Rendu Markdown minimal → HTML (couvre le style des dépêches générées :
 // titres ##, listes -, gras/italique, liens, règles ---).
+// Retire les blocs visuels `.at-data` d'un markdown d'article.
+// Ces blocs (chiffres cles, graphiques, jauges, frises, infographies...) sont
+// fabriques par Smart Ingest PRO pour le rendu .html interactif. La version
+// legere est du texte : ils n'y produiraient qu'une bouillie de balises.
+// `garderTableaux` conserve le <table> interieur quand il y en a un.
+function retirerVisuelsData(md, garderTableaux) {
+    let src = String(md || '');
+    if (src.indexOf('at-data') === -1) return src;
+
+    let out = '', i = 0;
+    const ouvre = /<div[^>]*class="[^"]*\bat-data\b[^"]*"[^>]*>/i;
+    for (;;) {
+        const reste = src.slice(i);
+        const m = reste.match(ouvre);
+        if (!m) { out += reste; break; }
+
+        out += reste.slice(0, m.index);
+        // On avance balise par balise pour retrouver le </div> qui ferme
+        // CE bloc : une expression reguliere ne sait pas compter les niveaux.
+        let j = i + m.index + m[0].length, profondeur = 1;
+        const balise = /<\s*(\/?)div\b[^>]*>/gi;
+        balise.lastIndex = j;
+        let b;
+        while ((b = balise.exec(src)) !== null) {
+            profondeur += b[1] ? -1 : 1;
+            if (profondeur === 0) break;
+        }
+        const fin = b ? balise.lastIndex : src.length;
+        const bloc = src.slice(i + m.index, fin);
+
+        if (garderTableaux) {
+            const t = bloc.match(/<table[\s\S]*?<\/table>/i);
+            if (t) out += t[0];
+        }
+        i = fin;
+    }
+    return out;
+}
+
 function renderLiteMarkdown(md) {
     // Retire les blocs HTML lourds (embeds vidéo/iframe) — remplacés en amont
-    let src = String(md || '')
+    // Les visuels `.at-data` sont retires en bloc AVANT le nettoyage generique :
+    // celui-ci ne supprime que les balises <div>, ce qui laissait leur contenu
+    // (styles en ligne, chiffres isoles) s'echouer en clair dans la page.
+    let src = retirerVisuelsData(md, false)
+        // Les declarations @keyframes des blocs visuels s'affichaient en clair :
+        // une feuille de style n'a rien a faire dans une version texte.
+        .replace(/<style[\s\S]*?<\/style>/gi, '')
         .replace(/<div class="video-embed"[\s\S]*?<\/div>\s*<\/div>/gi, '')
         .replace(/<iframe[\s\S]*?<\/iframe>/gi, '')
         .replace(/<div[^>]*>|<\/div>/gi, '');
@@ -647,7 +694,7 @@ async function regenerateArticlesJson() {
                 const tags = tagsMatch ? tagsMatch[1].split(',').map(t => t.trim().replace(/^["']|["']$/g, '')) : [];
                 const titre = get('titre');
                 if (!titre) continue;
-                articles.push({ id: file.replace('.md', ''), titre, date: get('date'), heure: get('heure'), categorie: get('categorie'), image: get('image'), video: get('video'), pdf: get('pdf'), extrait: get('extrait'), rawContent: content, tags, type: get('type'), position: get('position') });
+                articles.push({ id: file.replace('.md', ''), titre, date: get('date'), heure: get('heure'), categorie: get('categorie'), image: get('image'), video: get('video'), pdf: get('pdf'), extrait: get('extrait'), rawContent: content, tags, type: get('type'), position: get('position'), interactif: get('interactif'), aretenir: get('aretenir') });
             } catch (e) { console.warn(`Skipping ${file}:`, e.message); }
         }
         articles.sort((a, b) => new Date(`${b.date}T${b.heure || '00:00'}`) - new Date(`${a.date}T${a.heure || '00:00'}`));
@@ -1820,7 +1867,24 @@ app.post('/api/create-article', upload, async (req, res) => {
         let pdfPath = req.body.existingPdf || "";
         if (req.files && req.files.pdf) pdfPath = isCloud ? `documents/${Date.now()}-${req.files.pdf[0].originalname}` : `documents/${req.files.pdf[0].filename}`;
 
-        const frontMatter = `---\ntitre: "${titre.replace(/"/g, '\\"')}"\ncategorie: ${categorie}\ndate: ${date}\nheure: ${heure}\nimage: "${imagePath}"\npdf: "${pdfPath}"\nvideo: "${video || ''}"\nsource: "${(source || '').replace(/"/g, '\\"')}"\nextrait: "${extrait.replace(/"/g, '\\"')}"\ntags: [${tagsFormatted}]\ntype: ${type || ''}\nposition: ${position || ''}\n---\n\n${contenu}\n`;
+        const frontMatter = `---
+titre: "${titre.replace(/"/g, '\\"')}"
+categorie: ${categorie}
+date: ${date}
+heure: ${heure}
+image: "${imagePath}"
+pdf: "${pdfPath}"
+video: "${video || ''}"
+source: "${(source || '').replace(/"/g, '\\"')}"
+extrait: "${extrait.replace(/"/g, '\\"')}"
+tags: [${tagsFormatted}]
+type: ${type || ''}
+position: ${position || ''}
+interactif: "${req.body.interactif || ''}"\naretenir: "${(req.body.aretenir || '').replace(/"/g, '\\"')}"
+---
+
+${contenu}
+`;
 
         if (position === '1' || position === '2') await clearPositionConflicts(position, fileName);
 
@@ -1836,6 +1900,56 @@ app.post('/api/create-article', upload, async (req, res) => {
             res.json({ success: true, message: "Enregistré localement" });
         }
     } catch (e) { console.error("Erreur API:", e); res.status(500).json({ message: e.message }); }
+});
+
+// ── QUESTIONS À L'ARTICLE — relais vers article-interactif (Flask) ──
+// La carte publiée dans interactifs/ interroge /api/ask. Le moteur (chaîne IA
+// + recherche de lectures complémentaires) vit dans l'application Flask : on
+// relaie plutôt que de le dupliquer. Si elle est éteinte, la carte bascule
+// toute seule sur sa recherche de passages intégrée.
+const ARTICLE_INTERACTIF_URL = process.env.ARTICLE_INTERACTIF_URL || 'http://localhost:5000';
+
+app.post('/api/ask', express.json({ limit: '4mb' }), async (req, res) => {
+    try {
+        const r = await fetch(`${ARTICLE_INTERACTIF_URL}/api/ask`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(req.body || {}),
+            signal: AbortSignal.timeout(30000)
+        });
+        const data = await r.json();
+        res.status(r.status).json(data);
+    } catch (e) {
+        console.warn('/api/ask : article-interactif injoignable —', e.message);
+        res.status(503).json({ error: "Moteur de questions indisponible (lancez article-interactif)." });
+    }
+});
+
+// ── VERSION INTERACTIVE — carte HTML autonome d'un article ──
+// Reçoit le document complet produit par article-interactif (Flask) et
+// l'enregistre dans interactifs/<id>.html. Le site l'affiche ensuite dans une
+// iframe via le bouton « Version Interactive ».
+app.post('/api/interactif', express.json({ limit: '12mb' }), async (req, res) => {
+    try {
+        const { id, html } = req.body || {};
+        if (!id || !/^[A-Za-z0-9_-]+$/.test(String(id))) {
+            return res.status(400).json({ message: "Identifiant d'article invalide." });
+        }
+        if (!html || typeof html !== 'string' || html.length < 50) {
+            return res.status(400).json({ message: "Contenu HTML manquant." });
+        }
+        const rel = `interactifs/${id}.html`;
+        if (isCloud) {
+            await pushToGithub(rel, html, `Version interactive: ${id}`);
+        } else {
+            if (!fsSync.existsSync('interactifs')) fsSync.mkdirSync('interactifs', { recursive: true });
+            await fs.writeFile(path.join('interactifs', `${id}.html`), html, 'utf-8');
+        }
+        res.json({ success: true, url: '/' + rel });
+    } catch (e) {
+        console.error("Erreur /api/interactif:", e);
+        res.status(500).json({ message: e.message });
+    }
 });
 
 // ── UPLOAD PHOTO INLINE — insertion dans le corps d'un article ──
