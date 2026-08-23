@@ -255,6 +255,28 @@
         #comparateur .etiq.g { left: 10px; }
         #comparateur .etiq.d { right: 10px; }
 
+
+        /* --- Studio de campagne (NOUVEAU) --- */
+        #blocStudio { background: rgba(40,120,90,0.07); border: 1px dashed #4fae86; border-radius: 8px; padding: 12px; }
+        #blocStudio h3 { color: #7fd3ae; }
+        #blocStudio .hint { color: #7c9a8d; }
+        #studioFormats { display: grid; gap: 5px; margin: 8px 0; }
+        #studioFormats label {
+            display: flex; align-items: center; gap: 7px; justify-content: flex-start;
+            font-size: 0.7rem; color: #cfe6dc; margin: 0; cursor: pointer;
+            background: rgba(0,0,0,.25); border-radius: 5px; padding: 5px 7px;
+        }
+        #studioFormats label span.dim { color: #6f8c80; margin-left: auto; font-size: 0.62rem; }
+        #btnCampagne { background: linear-gradient(135deg,#1e7d5a 0%,#7fd3ae 50%,#1e7d5a 100%); color: #06231a; border: none; font-weight: bold; width: 100%; padding: 12px; }
+        #btnArchive { width: 100%; margin-top: 8px; border-color: #4fae86; color: #7fd3ae; display: none; }
+        #btnArchive.pret { display: flex; }
+        #studioResultats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 7px; margin-top: 10px; }
+        .campagne-vignette { border: 1px solid #2f4d42; border-radius: 6px; overflow: hidden; background: #000; position: relative; cursor: pointer; }
+        .campagne-vignette img { width: 100%; display: block; }
+        .campagne-vignette b { display: block; font-size: 0.6rem; color: #cfe6dc; padding: 3px 5px; font-weight: 600; }
+        .campagne-vignette .alerte { position: absolute; top: 3px; right: 3px; background: #c8102e; color: #fff; font-size: 0.58rem; padding: 1px 5px; border-radius: 10px; }
+        .campagne-vignette .ok { position: absolute; top: 3px; right: 3px; background: #1e7d5a; color: #fff; font-size: 0.58rem; padding: 1px 5px; border-radius: 10px; }
+
         .batch-bar {
             height: 90px; background: var(--glass); border-top: 1px solid var(--gold);
             display: flex; align-items: center; padding: 10px; gap: 10px; overflow-x: auto;
@@ -373,6 +395,24 @@
             <button id="btnCreatif" class="magic" onclick="lancerCreatif(16/9)">✨ Générer en 16:9</button>
             <div id="propositions"></div>
             <div id="creatifInfo" class="hint" style="text-align:center;"></div>
+        </div>
+
+
+        <!-- Studio de campagne (NOUVEAU) -->
+        <div class="section" id="blocStudio">
+            <div class="section-header">
+                <h3>🎬 Studio de campagne</h3>
+                <button class="btn-reset" onclick="studioAide()">Zones de sécurité ?</button>
+            </div>
+            <p class="hint">Un visuel, tous les formats. Chaque déclinaison est recomposée séparément, puis contrôlée : si du texte tombe là où l'interface du réseau le recouvre, c'est signalé avant publication.</p>
+            <div id="studioFormats"></div>
+            <label style="color:var(--gold); cursor:pointer; font-size:0.7rem;">
+                <span><input type="checkbox" id="studioZones" checked> Marquer les zones de sécurité dans l'aperçu</span>
+            </label>
+            <button id="btnCampagne" class="magic" onclick="lancerCampagne()">🚀 Produire la campagne</button>
+            <button id="btnArchive" onclick="telechargerCampagne()">📦 Télécharger l'archive</button>
+            <div id="studioResultats"></div>
+            <div id="studioInfo" class="hint" style="text-align:center;"></div>
         </div>
 
         <!-- Géométrie & Taille -->
@@ -1347,7 +1387,7 @@
 
             /* --- 1. Analyse : fond, masque de contenu, blocs --- */
             analyse(img) {
-                const iw = img.naturalWidth, ih = img.naturalHeight;
+                const iw = img.naturalWidth || img.width, ih = img.naturalHeight || img.height;
                 const k = Math.min(1, this.ANALYSE / Math.max(iw, ih));
                 const w = Math.max(16, Math.round(iw * k)), h = Math.max(16, Math.round(ih * k));
 
@@ -1599,7 +1639,7 @@
                ne peut jamais abîmer l'image de départ.                                */
             async outpaint(base, img, ratio, endpoint) {
                 const W = base.W, H = base.H;
-                const iw = img.naturalWidth, ih = img.naturalHeight;
+                const iw = img.naturalWidth || img.width, ih = img.naturalHeight || img.height;
                 const kk = Math.min(W / iw, H / ih);
                 const dw = Math.round(iw * kk), dh = Math.round(ih * kk);
                 const x0 = Math.round((W - dw) / 2), y0 = Math.round((H - dh) / 2);
@@ -1757,7 +1797,7 @@
                Fond d'origine ancre a droite (le decor reste a sa place), colonne de
                contenu a gauche : logos en bandeau, puis les bandes empilees. */
             composerAffiche(img, ratio, R) {
-                const iw = img.naturalWidth, ih = img.naturalHeight;
+                const iw = img.naturalWidth || img.width, ih = img.naturalHeight || img.height;
                 let W = Math.round(Math.sqrt(iw * ih * ratio)), H = Math.round(W / ratio);
                 const cap = 2600, mx = Math.max(W, H);
                 if (mx > cap) { W = Math.round(W * cap / mx); H = Math.round(H * cap / mx); }
@@ -1853,7 +1893,7 @@
             /* ---------- Fond d'origine débarrassé de son contenu ----------
                Sert à prolonger le décor sans jamais recopier un morceau de texte. */
             fondNu(img, R, zones) {
-                const iw = img.naturalWidth, ih = img.naturalHeight;
+                const iw = img.naturalWidth || img.width, ih = img.naturalHeight || img.height;
                 const cap = 1800, k = Math.min(1, cap / Math.max(iw, ih));
                 const w = Math.round(iw * k), h = Math.round(ih * k);
                 const c = document.createElement('canvas'); c.width = w; c.height = h;
@@ -1881,7 +1921,7 @@
             /* ---------- Stratégie « étendre » ----------
                L'image reste intacte, à sa place, à sa taille : on fabrique le décor manquant. */
             etendre(img, ratio, R, genre) {
-                const iw = img.naturalWidth, ih = img.naturalHeight;
+                const iw = img.naturalWidth || img.width, ih = img.naturalHeight || img.height;
                 let W, H;
                 if (iw / ih < ratio) { H = ih; W = Math.round(ih * ratio); }
                 else { W = iw; H = Math.round(iw / ratio); }
@@ -2579,6 +2619,287 @@
                 if (e.key === 'Escape' && comparateurActif) fermerComparateur();
             });
         })();
+
+
+        /* ================= STUDIO DE CAMPAGNE (NOUVEAU) =================
+           Produit toutes les declinaisons d'un visuel en une passe, verifie que
+           le texte ne tombe pas sous l'interface des reseaux, et empaquette le
+           tout dans une archive ZIP ecrite ici meme (aucune librairie).       */
+
+        // Marges indicatives, volontairement prudentes : les interfaces changent
+        // souvent et varient selon l'appareil. Elles servent d'alerte, pas de loi.
+        const CAMPAGNE = [
+            { id: 'youtube',  nom: 'Miniature YouTube', ratio: 16 / 9,   w: 1920, h: 1080, coche: true,
+              zones: [ { x: 0.79, y: 0.85, w: 0.21, h: 0.15, quoi: 'dur\u00e9e de la vid\u00e9o' },
+                       { x: 0, y: 0.95, w: 1, h: 0.05, quoi: 'barre de lecture' } ] },
+            { id: 'story',    nom: 'Story / Reel / TikTok', ratio: 9 / 16, w: 1080, h: 1920, coche: true,
+              zones: [ { x: 0, y: 0, w: 1, h: 0.13, quoi: 'en-t\u00eate du compte' },
+                       { x: 0, y: 0.80, w: 1, h: 0.20, quoi: 'l\u00e9gende et boutons' },
+                       { x: 0.85, y: 0.40, w: 0.15, h: 0.45, quoi: 'colonne d\'actions' } ] },
+            { id: 'carre',    nom: 'Post carr\u00e9', ratio: 1, w: 1080, h: 1080, coche: true, zones: [] },
+            { id: 'portrait', nom: 'Portrait 4:5', ratio: 4 / 5, w: 1080, h: 1350, coche: false,
+              zones: [ { x: 0, y: 0, w: 1, h: 0.10, quoi: 'recadrage carr\u00e9 possible' },
+                       { x: 0, y: 0.90, w: 1, h: 0.10, quoi: 'recadrage carr\u00e9 possible' } ] },
+            { id: 'og',       nom: 'Partage de lien 1.91:1', ratio: 1.91, w: 1200, h: 628, coche: true, zones: [] },
+            { id: 'banniere', nom: 'Banni\u00e8re 3:1', ratio: 3, w: 1500, h: 500, coche: false,
+              zones: [ { x: 0.02, y: 0.40, w: 0.14, h: 0.60, quoi: 'photo de profil' } ] }
+        ];
+
+        let campagne = [];   // { def, canvas, alertes }
+
+        (function construireFormats() {
+            const z = $('studioFormats');
+            if (!z) return;
+            CAMPAGNE.forEach(f => {
+                const l = document.createElement('label');
+                l.innerHTML = '<input type="checkbox" data-format="' + f.id + '"' + (f.coche ? ' checked' : '') + '>'
+                            + '<span>' + f.nom + '</span><span class="dim">' + f.w + '\u00d7' + f.h + '</span>';
+                z.appendChild(l);
+            });
+        })();
+
+        function studioAide() {
+            alert("Zones de s\u00e9curit\u00e9\n\n"
+                + "Chaque r\u00e9seau pose son interface par-dessus votre visuel : l'en-t\u00eate du compte "
+                + "et la l\u00e9gende sur une story, la dur\u00e9e sur une miniature YouTube, la photo de profil "
+                + "sur une banni\u00e8re.\n\n"
+                + "Le studio analyse chaque d\u00e9clinaison et signale le texte qui tombe dans ces zones.\n\n"
+                + "Ces marges sont indicatives et prudentes : les interfaces changent souvent et varient "
+                + "selon l'appareil. Prenez-les comme une alerte, pas comme une r\u00e8gle absolue.");
+        }
+
+        /* Produit une declinaison au format demande, avec la meme decision
+           automatique que le bouton 16:9 (recomposer ou etendre). */
+        function produireFormat(source, R, def) {
+            const genre = Smart.nature(R);
+            const c = R.boxes.length ? Smart.confiance(R, def.ratio) : { ok: false };
+            let res;
+            if (genre === 'affiche' && c.ok) {
+                try {
+                    res = def.ratio >= 1 ? Smart.composerAffiche(source, def.ratio, R)
+                                         : Smart.compose(source, def.ratio, R);
+                } catch (e) { res = Smart.etendre(source, def.ratio, R, genre); }
+            } else {
+                res = Smart.etendre(source, def.ratio, R, genre);
+            }
+            // mise a la taille exacte du format (meme rapport : aucune deformation)
+            const out = document.createElement('canvas');
+            out.width = def.w; out.height = def.h;
+            const o = out.getContext('2d');
+            o.imageSmoothingEnabled = true; o.imageSmoothingQuality = 'high';
+            o.drawImage(res.out, 0, 0, res.W, res.H, 0, 0, def.w, def.h);
+            return out;
+        }
+
+        /* Le texte du rendu tombe-t-il sous l'interface ? On re-analyse la
+           declinaison produite : c'est valable aussi bien pour une recomposition
+           que pour une image simplement etendue. */
+        function controlerZones(cv, def) {
+            if (!def.zones.length) return [];
+            let R2;
+            try { R2 = Smart.analyse(cv); } catch (e) { return []; }
+            const blocs = R2.boxes.filter(b => !b.decor);
+            const alertes = [];
+            def.zones.forEach(z => {
+                const zx = z.x * cv.width, zy = z.y * cv.height;
+                const zw = z.w * cv.width, zh = z.h * cv.height;
+                let pire = 0;
+                blocs.forEach(b => {
+                    const ox = Math.min(b.x + b.w, zx + zw) - Math.max(b.x, zx);
+                    const oy = Math.min(b.y + b.h, zy + zh) - Math.max(b.y, zy);
+                    if (ox > 0 && oy > 0) pire = Math.max(pire, (ox * oy) / Math.max(1, b.w * b.h));
+                });
+                if (pire > 0.12) alertes.push({ quoi: z.quoi, part: Math.round(pire * 100) });
+            });
+            return alertes;
+        }
+
+        /* Aperçu : la declinaison avec ses zones de securite tramees */
+        function apercuAvecZones(cv, def) {
+            const a = document.createElement('canvas');
+            a.width = 300; a.height = Math.round(300 * cv.height / cv.width);
+            const o = a.getContext('2d');
+            o.drawImage(cv, 0, 0, a.width, a.height);
+            if ($('studioZones') && $('studioZones').checked) {
+                def.zones.forEach(z => {
+                    const x = z.x * a.width, y = z.y * a.height, w = z.w * a.width, h = z.h * a.height;
+                    o.fillStyle = 'rgba(200,16,46,0.22)';
+                    o.fillRect(x, y, w, h);
+                    o.strokeStyle = 'rgba(255,90,110,0.85)';
+                    o.setLineDash([4, 3]); o.lineWidth = 1;
+                    o.strokeRect(x + 0.5, y + 0.5, w - 1, h - 1);
+                    o.setLineDash([]);
+                });
+            }
+            return a;
+        }
+
+        async function lancerCampagne() {
+            if (!originalImg) { showToast('Importez une image'); return; }
+            const choisis = CAMPAGNE.filter(f => {
+                const c = document.querySelector('#studioFormats input[data-format="' + f.id + '"]');
+                return c && c.checked;
+            });
+            if (!choisis.length) { showToast('Cochez au moins un format'); return; }
+
+            const source = originalImg;
+            campagne = [];
+            $('studioResultats').innerHTML = '';
+            $('studioInfo').textContent = '';
+            $('btnArchive').classList.remove('pret');
+            $('btnCampagne').disabled = true;
+            progOuvrir('Analyse du visuel\u2026');
+
+            let R;
+            try { R = Smart.analyse(source); }
+            catch (e) { progFermer(); $('btnCampagne').disabled = false; showToast('Image prot\u00e9g\u00e9e (CORS)'); return; }
+
+            let total = 0;
+            for (let i = 0; i < choisis.length; i++) {
+                const def = choisis[i];
+                progEtape(def.nom + ' \u2014 ' + (i + 1) + '/' + choisis.length);
+                await new Promise(r => setTimeout(r, 20));   // laisse le temoin se rafraichir
+                try {
+                    const cv = produireFormat(source, R, def);
+                    const alertes = controlerZones(cv, def);
+                    campagne.push({ def, canvas: cv, alertes });
+                    total += alertes.length;
+                    afficherCampagne();
+                } catch (e) {
+                    campagne.push({ def, canvas: null, alertes: [], erreur: String(e.message || e) });
+                }
+            }
+            progFermer();
+            $('btnCampagne').disabled = false;
+            const reussis = campagne.filter(c => c.canvas).length;
+            $('btnArchive').classList.toggle('pret', reussis > 0);
+            $('studioInfo').textContent = reussis + ' format(s) produit(s)'
+                + (total ? ' \u2014 ' + total + ' alerte(s) de zone' : ' \u2014 aucune zone \u00e0 risque');
+            showToast(reussis + ' d\u00e9clinaison(s) pr\u00eate(s)');
+        }
+
+        function afficherCampagne() {
+            const z = $('studioResultats');
+            z.innerHTML = '';
+            campagne.forEach((c, i) => {
+                const d = document.createElement('div');
+                d.className = 'campagne-vignette';
+                if (c.canvas) {
+                    const im = new Image();
+                    im.src = apercuAvecZones(c.canvas, c.def).toDataURL('image/jpeg', 0.7);
+                    d.appendChild(im);
+                    const t = document.createElement('span');
+                    if (c.alertes.length) { t.className = 'alerte'; t.textContent = '\u26a0 ' + c.alertes.length; t.title = c.alertes.map(a => a.quoi + ' (' + a.part + '%)').join(' \u2014 '); }
+                    else { t.className = 'ok'; t.textContent = '\u2713'; }
+                    d.appendChild(t);
+                    d.onclick = () => { setRatio(c.def.ratio); replaceSource(c.canvas, c.def.nom + ' appliqu\u00e9'); };
+                }
+                const b = document.createElement('b');
+                b.textContent = c.def.nom + (c.erreur ? ' \u2014 \u00e9chec' : '');
+                d.appendChild(b);
+                z.appendChild(d);
+            });
+        }
+
+        /* ---- Archive ZIP ecrite a la main (methode « stored », sans compression) ---- */
+        const TABLE_CRC = (() => {
+            const t = new Uint32Array(256);
+            for (let n = 0; n < 256; n++) {
+                let c = n;
+                for (let k = 0; k < 8; k++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+                t[n] = c >>> 0;
+            }
+            return t;
+        })();
+
+        function crc32(u8) {
+            let c = 0xFFFFFFFF;
+            for (let i = 0; i < u8.length; i++) c = TABLE_CRC[(c ^ u8[i]) & 0xFF] ^ (c >>> 8);
+            return (c ^ 0xFFFFFFFF) >>> 0;
+        }
+
+        function fabriquerZip(entrees) {
+            const enc = new TextEncoder();
+            const morceaux = [], central = [];
+            let position = 0;
+            entrees.forEach(e => {
+                const nom = enc.encode(e.nom);
+                const crc = crc32(e.data), taille = e.data.length;
+                const local = new Uint8Array(30 + nom.length);
+                const v = new DataView(local.buffer);
+                v.setUint32(0, 0x04034b50, true);
+                v.setUint16(4, 20, true); v.setUint16(6, 0, true); v.setUint16(8, 0, true);
+                v.setUint16(10, 0, true); v.setUint16(12, 0, true);
+                v.setUint32(14, crc, true); v.setUint32(18, taille, true); v.setUint32(22, taille, true);
+                v.setUint16(26, nom.length, true); v.setUint16(28, 0, true);
+                local.set(nom, 30);
+                morceaux.push(local, e.data);
+
+                const cen = new Uint8Array(46 + nom.length);
+                const w = new DataView(cen.buffer);
+                w.setUint32(0, 0x02014b50, true);
+                w.setUint16(4, 20, true); w.setUint16(6, 20, true); w.setUint16(8, 0, true);
+                w.setUint16(10, 0, true); w.setUint16(12, 0, true); w.setUint16(14, 0, true);
+                w.setUint32(16, crc, true); w.setUint32(20, taille, true); w.setUint32(24, taille, true);
+                w.setUint16(28, nom.length, true); w.setUint16(30, 0, true); w.setUint16(32, 0, true);
+                w.setUint16(34, 0, true); w.setUint16(36, 0, true); w.setUint32(38, 0, true);
+                w.setUint32(42, position, true);
+                cen.set(nom, 46);
+                central.push(cen);
+                position += local.length + taille;
+            });
+            const debutCentral = position;
+            let tailleCentral = 0;
+            central.forEach(c => { morceaux.push(c); tailleCentral += c.length; });
+            const fin = new Uint8Array(22);
+            const f = new DataView(fin.buffer);
+            f.setUint32(0, 0x06054b50, true);
+            f.setUint16(4, 0, true); f.setUint16(6, 0, true);
+            f.setUint16(8, entrees.length, true); f.setUint16(10, entrees.length, true);
+            f.setUint32(12, tailleCentral, true); f.setUint32(16, debutCentral, true);
+            f.setUint16(20, 0, true);
+            morceaux.push(fin);
+            return new Blob(morceaux, { type: 'application/zip' });
+        }
+
+        async function construireArchive() {
+            const format = $('exportFormat').value;
+            const ext = format.split('/')[1];
+            const q = $('rangeQual').value / 100;
+            const entrees = [];
+            const lignes = ['Campagne Algeria Tech', 'Genere le ' + new Date().toLocaleString('fr-FR'), ''];
+            for (const c of campagne) {
+                if (!c.canvas) continue;
+                const blob = await new Promise(ok => c.canvas.toBlob(ok, format, q));
+                const data = new Uint8Array(await blob.arrayBuffer());
+                const nom = 'campagne-' + c.def.id + '-' + c.def.w + 'x' + c.def.h + '.' + ext;
+                entrees.push({ nom, data });
+                lignes.push(c.def.nom + ' : ' + nom
+                    + (c.alertes.length ? '  ATTENTION : ' + c.alertes.map(a => a.quoi + ' (' + a.part + '%)').join(', ')
+                                        : '  (aucune zone a risque)'));
+            }
+            lignes.push('', 'Les zones de securite sont indicatives : les interfaces des reseaux',
+                        'changent souvent et varient selon l appareil.');
+            // BOM : sans lui, le Bloc-notes de Windows casse les accents
+            entrees.push({ nom: 'lisez-moi.txt', data: new TextEncoder().encode('﻿' + lignes.join('\r\n')) });
+            return fabriquerZip(entrees);
+        }
+
+        async function telechargerCampagne() {
+            if (!campagne.filter(c => c.canvas).length) { showToast('Produisez d\'abord la campagne'); return; }
+            $('btnArchive').disabled = true;
+            try {
+                const blob = await construireArchive();
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url; a.download = 'campagne-algeria-tech-' + Date.now() + '.zip';
+                a.click();
+                setTimeout(() => URL.revokeObjectURL(url), 4000);
+                showToast('Archive t\u00e9l\u00e9charg\u00e9e (' + Math.round(blob.size / 1024) + ' Ko)');
+            } catch (e) {
+                showToast('\u00c9chec de l\'archive : ' + (e.message || e));
+            } finally { $('btnArchive').disabled = false; }
+        }
 
         updateLabels();
         majBoutonCopier();
