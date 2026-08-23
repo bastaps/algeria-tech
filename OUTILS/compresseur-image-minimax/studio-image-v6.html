@@ -330,6 +330,9 @@
                     <option value="3" selected>3 propositions</option>
                 </select>
             </div>
+            <label style="color:var(--gold); cursor:pointer; font-size:0.7rem;">
+                <span><input type="checkbox" id="creatifPersonnages"> Autoriser des personnages (déconseillé)</span>
+            </label>
             <label>Débord autorisé sur l'image <span id="valDebord">8%</span></label>
             <input type="range" id="creatifDebord" min="0" max="25" value="8">
             <p class="hint" style="margin-top:0;">0 % = bords d'origine intacts. Plus haut, l'IA peut faire « sortir » des objets du cadre.</p>
@@ -2356,6 +2359,7 @@
                                 mask: mk.toDataURL('image/png'),
                                 width: c.W, height: c.H,
                                 prompt: consigne,
+                                personnages: $('creatifPersonnages') && $('creatifPersonnages').checked,
                                 seed: Math.floor(Math.random() * 1e9)
                             })
                         });

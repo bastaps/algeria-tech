@@ -31,12 +31,18 @@ const MODELE_VISION = '@cf/llava-hf/llava-1.5-7b-hf';
 
 // Le mode créatif a le droit d'inventer des objets : on ne lui interdit que ce qui
 // abîmerait la marque (texte, logos) ou trahirait la génération (visages ratés).
+// Les visages et les mains sont le point faible des modeles libres : on les
+// interdit par defaut, l'appelant peut les reautoriser avec personnages:true.
 const NEGATIF_CREATIF =
   'text, letters, words, arabic script, typography, logo, watermark, signature, ' +
-  'deformed faces, extra limbs, distorted hands, low quality, blurry, jpeg artifacts';
+  'low quality, blurry, jpeg artifacts, cluttered, messy';
+const NEGATIF_PERSONNES =
+  ', people, person, human, face, faces, portrait, crowd, hands, deformed face, extra limbs';
+// On demande un DECOR, pas une scene avec des acteurs : sans cette precision le
+// modele peuple l'image de figurants rates.
 const STYLE_CREATIF =
-  'high quality advertising photography, coherent scene, consistent lighting and ' +
-  'perspective with the original, professional composition';
+  'background scenery only, empty environment, depth and perspective matching the ' +
+  'original, soft consistent lighting, clean professional backdrop';
 
 const PROMPT_DEFAUT =
   'seamless background extension, same style, same colors, same lighting, ' +
@@ -68,7 +74,7 @@ export async function onRequestPost({ request, env }) {
   try { body = await request.json(); }
   catch { return json({ error: 'Requête invalide.' }, 400); }
 
-  const { image, mask, prompt, width, height, mode, seed, action } = body || {};
+  const { image, mask, prompt, width, height, mode, seed, action, personnages } = body || {};
 
   // ── Action « décrire » : LLaVA raconte l'image, le client s'en sert de prompt ──
   if (action === 'decrire') {
@@ -77,8 +83,9 @@ export async function onRequestPost({ request, env }) {
     try {
       const r = await env.AI.run(MODELE_VISION, {
         image: [...versOctets(image)],
-        prompt: "Describe this advertising visual in one short English sentence: the setting, " +
-                "the main subject, the colors and the mood. Do not mention any text or logo.",
+        prompt: "Describe ONLY the background environment of this image in one short " +
+                "English sentence: the setting, the architecture or landscape, the colors " +
+                "and the lighting. Do not describe people, text, logos or the main subject.",
         max_tokens: 96
       });
       const texte = String((r && (r.description || r.response)) || '').trim().replace(/\s+/g, ' ');
@@ -113,8 +120,8 @@ export async function onRequestPost({ request, env }) {
     for (const modele of MODELES_CREATIFS) {
       try {
         const r = await env.AI.run(modele, {
-          prompt: consigne + ', ' + STYLE_CREATIF,
-          negative_prompt: NEGATIF_CREATIF,
+          prompt: 'background extension: ' + consigne + ', ' + STYLE_CREATIF,
+          negative_prompt: NEGATIF_CREATIF + (personnages ? '' : NEGATIF_PERSONNES),
           image: [...octetsImage],
           mask: [...octetsMasque],
           width: w,
