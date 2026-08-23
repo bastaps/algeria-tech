@@ -19,8 +19,13 @@ const json = (obj, status = 200) =>
   });
 
 const MODELE_WAI = '@cf/runwayml/stable-diffusion-v1-5-inpainting';
-// Mode créatif : SDXL accepte aussi un masque et compose des scènes bien plus riches.
-const MODELE_CREATIF = '@cf/stabilityai/stable-diffusion-xl-base-1.0';
+// Mode créatif : on essaie plusieurs modèles, du plus riche au plus sûr.
+// (SDXL base est text-to-image seul sur Workers AI : il refuse l'entrée image.)
+const MODELES_CREATIFS = [
+  '@cf/runwayml/stable-diffusion-v1-5-inpainting',
+  '@cf/runwayml/stable-diffusion-v1-5-img2img',
+  '@cf/lykon/dreamshaper-8-lcm'
+];
 // Description de l'image, pour construire un prompt qui parle vraiment du visuel.
 const MODELE_VISION = '@cf/llava-hf/llava-1.5-7b-hf';
 
@@ -98,34 +103,42 @@ export async function onRequestPost({ request, env }) {
   const consigne = String(prompt || '').slice(0, 400) ||
                    (creatif ? STYLE_CREATIF : PROMPT_DEFAUT);
 
-  // ── 0. Mode créatif : SDXL, autorisé à inventer la scène ────────────────────
+  // ── 0. Mode créatif : premier modèle capable d'inpainting qui répond ────────
+  // Tous les modèles image de Workers AI n'acceptent pas de masque : SDXL base est
+  // text-to-image seulement (« input tensor image is not present »). On essaie donc
+  // dans l'ordre et on garde celui qui accepte réellement image + mask.
   if (creatif && env.AI) {
-    try {
-      const r = await env.AI.run(MODELE_CREATIF, {
-        prompt: consigne + ', ' + STYLE_CREATIF,
-        negative_prompt: NEGATIF_CREATIF,
-        image: [...octetsImage],
-        mask: [...octetsMasque],
-        width: w,
-        height: h,
-        strength: 1,
-        guidance: 6.5,
-        num_steps: 20,
-        seed: Number.isFinite(Number(seed)) ? Number(seed) : Math.floor(Math.random() * 1e9)
-      });
-      const buf = r instanceof ReadableStream ? await new Response(r).arrayBuffer()
-                : r instanceof ArrayBuffer ? r
-                : r && r.image ? versOctets(r.image).buffer
-                : null;
-      if (buf) return json({
-        image: 'data:image/png;base64,' + versBase64(buf),
-        moteur: 'sdxl-creatif',
-        prompt: consigne
-      });
-      return json({ error: 'Le modèle créatif n\'a rien renvoyé.' }, 502);
-    } catch (e) {
-      return json({ error: 'Mode créatif indisponible : ' + String(e.message || e).slice(0, 160) }, 502);
+    const graine = Number.isFinite(Number(seed)) ? Number(seed) : Math.floor(Math.random() * 1e9);
+    const essais = [];
+    for (const modele of MODELES_CREATIFS) {
+      try {
+        const r = await env.AI.run(modele, {
+          prompt: consigne + ', ' + STYLE_CREATIF,
+          negative_prompt: NEGATIF_CREATIF,
+          image: [...octetsImage],
+          mask: [...octetsMasque],
+          width: w,
+          height: h,
+          strength: 1,
+          guidance: 6.5,
+          num_steps: 20,
+          seed: graine
+        });
+        const buf = r instanceof ReadableStream ? await new Response(r).arrayBuffer()
+                  : r instanceof ArrayBuffer ? r
+                  : r && r.image ? versOctets(r.image).buffer
+                  : null;
+        if (buf) return json({
+          image: 'data:image/png;base64,' + versBase64(buf),
+          moteur: modele.split('/').pop(),
+          prompt: consigne
+        });
+        essais.push(modele.split('/').pop() + ' : réponse vide');
+      } catch (e) {
+        essais.push(modele.split('/').pop() + ' : ' + String(e.message || e).slice(0, 90));
+      }
     }
+    return json({ error: 'Mode créatif indisponible.', detail: essais.join(' | ') }, 502);
   }
 
   // ── 1. Workers AI ───────────────────────────────────────────────────────────
