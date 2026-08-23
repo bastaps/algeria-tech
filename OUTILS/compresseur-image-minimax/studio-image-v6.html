@@ -277,6 +277,39 @@
         .campagne-vignette .alerte { position: absolute; top: 3px; right: 3px; background: #c8102e; color: #fff; font-size: 0.58rem; padding: 1px 5px; border-radius: 10px; }
         .campagne-vignette .ok { position: absolute; top: 3px; right: 3px; background: #1e7d5a; color: #fff; font-size: 0.58rem; padding: 1px 5px; border-radius: 10px; }
 
+
+        /* --- Edition par zones (NOUVEAU) --- */
+        #blocZones { background: rgba(60,90,160,0.07); border: 1px dashed #6c8fd5; border-radius: 8px; padding: 12px; }
+        #blocZones h3 { color: #a2c0ee; }
+        #blocZones .hint { color: #7a8aa3; }
+        #zonesListe { max-height: 168px; overflow-y: auto; margin: 8px 0; display: grid; gap: 4px; }
+        #zonesListe .item {
+            display: flex; align-items: center; gap: 6px; font-size: 0.66rem; color: #cfdcee;
+            background: rgba(0,0,0,.28); border-radius: 5px; padding: 5px 7px; cursor: pointer;
+            border: 1px solid transparent;
+        }
+        #zonesListe .item.sel { border-color: var(--gold); background: rgba(212,175,55,.12); }
+        #zonesListe .item .etat { margin-left: auto; font-size: 0.62rem; }
+        #zonesActions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+        #zonesActions button { font-size: 0.68rem; padding: 7px 4px; }
+        #btnZones { width: 100%; }
+        #btnZones.actif { background: var(--gold); color: var(--espresso); }
+
+        #zonesLayer { position: absolute; z-index: 16; display: none; }
+        #zonesLayer.actif { display: block; }
+        .zone-bloc {
+            position: absolute; border: 2px solid rgba(212,175,55,.75); border-radius: 3px;
+            background: rgba(212,175,55,.07); cursor: move; touch-action: none;
+        }
+        .zone-bloc.sel { border-color: #fff; background: rgba(255,255,255,.14); box-shadow: 0 0 0 2px rgba(212,175,55,.85); }
+        .zone-bloc.verrou { border-color: #4fae86; background: rgba(79,174,134,.16); }
+        .zone-bloc.efface { border-color: #c8102e; background: rgba(200,16,46,.20); }
+        .zone-bloc.deplace { border-style: dashed; }
+        .zone-bloc b {
+            position: absolute; top: -10px; left: 4px; font-size: 0.55rem; font-weight: 600;
+            background: #120c08; color: var(--gold); padding: 0 5px; border-radius: 3px; white-space: nowrap;
+        }
+
         .batch-bar {
             height: 90px; background: var(--glass); border-top: 1px solid var(--gold);
             display: flex; align-items: center; padding: 10px; gap: 10px; overflow-x: auto;
@@ -308,6 +341,7 @@
         <div class="section" style="background: rgba(212,175,55,0.05); padding: 10px; border-radius: 8px; border: 1px dashed var(--gold);">
             <div class="section-header">
                 <h3>🔗 URL ou COLLER (Ctrl+V)</h3>
+                <button class="btn-reset" onclick="resetImport()">Réinitialiser</button>
             </div>
             <p style="font-size: 0.65rem; color: #888; margin-bottom: 5px;">Collez un lien OU faites Ctrl+V ici</p>
             <div style="display:flex; gap:5px;">
@@ -323,7 +357,7 @@
         <div class="section">
             <div class="section-header">
                 <h3>🖼️ Format (Ratio)</h3>
-                <button class="btn-reset" onclick="setRatio(null)">Libre</button>
+                <button class="btn-reset" onclick="resetFormat()">Réinitialiser</button>
             </div>
             <div class="ratio-grid" id="ratioGrid"></div>
 
@@ -349,7 +383,10 @@
         <div class="section" style="background: rgba(212,175,55,0.05); border: 1px dashed var(--gold); border-radius: 8px; padding: 12px;">
             <div class="section-header">
                 <h3>🪄 Recomposer la mise en page</h3>
-                <button class="btn-reset" onclick="smartPreviewBlocks()">Voir les blocs</button>
+                <span style="display:flex; gap:10px;">
+                    <button class="btn-reset" onclick="smartPreviewBlocks()">Voir les blocs</button>
+                    <button class="btn-reset" onclick="resetRecomposition()">Réinitialiser</button>
+                </span>
             </div>
             <p class="hint">Détecte les blocs de l'affiche (logos, titre, badges, encadrés, décor) et les <b>replace</b> dans le nouveau format. Rien n'est coupé, rien n'est étiré : la mise en page est refaite.</p>
             <div class="seg">
@@ -373,7 +410,10 @@
         <div class="section" id="blocCreatif">
             <div class="section-header">
                 <h3>🔮 Extension créative (IA)</h3>
-                <button class="btn-reset" onclick="creatifAide()">À quoi ça sert ?</button>
+                <span style="display:flex; gap:10px;">
+                    <button class="btn-reset" onclick="creatifAide()">À quoi ça sert ?</button>
+                    <button class="btn-reset" onclick="resetCreatif()">Réinitialiser</button>
+                </span>
             </div>
             <p class="hint">L'IA <b>invente</b> le décor manquant au lieu de le prolonger. Le sujet, le texte et les logos restent intacts.<br>
             ⚠ Résultat aléatoire : plusieurs propositions sont générées, vous choisissez.</p>
@@ -398,11 +438,34 @@
         </div>
 
 
+
+        <!-- Edition par zones (NOUVEAU) -->
+        <div class="section" id="blocZones">
+            <div class="section-header">
+                <h3>🧩 Édition par zones</h3>
+                <button class="btn-reset" onclick="resetZones()">Réinitialiser</button>
+            </div>
+            <p class="hint">Chaque bloc détecté devient manipulable : <b>verrouillez</b> un logo pour qu'aucune génération n'y touche, effacez un bandeau, déplacez un élément en le glissant sur l'image.</p>
+            <button id="btnZones" onclick="basculerZones()">🔍 Analyser et afficher les blocs</button>
+            <div id="zonesListe"></div>
+            <div id="zonesActions">
+                <button onclick="zoneVerrouiller()">🔒 Verrouiller</button>
+                <button onclick="zoneEffacer()">🧽 Effacer</button>
+                <button onclick="zoneRegenerer()">♻️ Régénérer (IA)</button>
+                <button onclick="zoneAnnuler()">↺ Annuler ce bloc</button>
+            </div>
+            <button class="magic" style="width:100%; margin-top:8px;" onclick="appliquerZones()">✔ Appliquer les modifications</button>
+            <div id="zonesInfo" class="hint" style="text-align:center;"></div>
+        </div>
+
         <!-- Studio de campagne (NOUVEAU) -->
         <div class="section" id="blocStudio">
             <div class="section-header">
                 <h3>🎬 Studio de campagne</h3>
-                <button class="btn-reset" onclick="studioAide()">Zones de sécurité ?</button>
+                <span style="display:flex; gap:10px;">
+                    <button class="btn-reset" onclick="studioAide()">Zones ?</button>
+                    <button class="btn-reset" onclick="resetStudio()">Réinitialiser</button>
+                </span>
             </div>
             <p class="hint">Un visuel, tous les formats. Chaque déclinaison est recomposée séparément, puis contrôlée : si du texte tombe là où l'interface du réseau le recouvre, c'est signalé avant publication.</p>
             <div id="studioFormats"></div>
@@ -493,7 +556,10 @@
 
         <!-- Export Haute Performance -->
         <div class="section" style="border:none;">
-            <h3>💾 Publication SEO</h3>
+            <div class="section-header">
+                <h3>💾 Publication SEO</h3>
+                <button class="btn-reset" onclick="resetExport()">Réinitialiser</button>
+            </div>
             <select id="exportFormat">
                 <option value="image/webp">Format WebP (Recommandé SEO)</option>
                 <option value="image/jpeg">Format JPEG (Standard)</option>
@@ -549,6 +615,7 @@
                 </svg>
                 <span>Avant / Après</span>
             </button>
+            <div id="zonesLayer"></div>
             <div id="comparateur">
                 <div id="cmpAvant"><img alt=""></div>
                 <span class="etiq g">AVANT</span>
@@ -909,6 +976,7 @@
 
             positionCropOverlay();
             placerComparateur();
+            if (zonesOuvertes) dessinerZones();
             estimateWeight();
         }
 
@@ -1700,6 +1768,7 @@
                 nc.globalCompositeOperation = 'destination-in';
                 nc.drawImage(m2, 0, 0);
                 o.drawImage(net, x0, y0);
+                if (typeof recollerVerrous === 'function') recollerVerrous(o, img, x0, y0, dw, dh);
                 return { out, W, H, blocs: base.blocs, moteur: data.moteur || 'ia' };
             },
 
@@ -2508,6 +2577,8 @@
             nc.globalCompositeOperation = 'destination-in';
             nc.drawImage(m, 0, 0);
             o.drawImage(net, Math.round(dx), Math.round(dy));
+            if (typeof recollerVerrous === 'function')
+                recollerVerrous(o, source, c.x0 * ech, c.y0 * ech, c.dw * ech, c.dh * ech);
             return out;
         }
 
@@ -2899,6 +2970,367 @@
             } catch (e) {
                 showToast('\u00c9chec de l\'archive : ' + (e.message || e));
             } finally { $('btnArchive').disabled = false; }
+        }
+
+
+        /* ================= REMISES A ZERO PAR ZONE (NOUVEAU) ================= */
+
+        function resetImport() {
+            $('urlInput').value = '';
+            $('urlLoader').style.display = 'none';
+            showToast('Zone import r\u00e9initialis\u00e9e');
+        }
+
+        function resetFormat() {
+            setFit('contain');
+            $('padColor').value = '#ffffff';
+            $('lockRatio').checked = true;
+            setRatio(null);
+            if (originalImg) resetGeometry();
+            processImage();
+            showToast('Format r\u00e9initialis\u00e9');
+        }
+
+        function resetRecomposition() {
+            $('smartMode').value = 'auto';
+            $('smartIA').checked = false;
+            $('smartEndpoint').value = '/api/outpaint';
+            $('smartEndpoint').style.display = 'none';
+            $('smartInfo').textContent = '';
+            if (originalImg) processImage();
+            showToast('Recomposition r\u00e9initialis\u00e9e');
+        }
+
+        function resetCreatif() {
+            $('creatifPrompt').value = '';
+            $('creatifNb').value = '3';
+            $('creatifDebord').value = '0';
+            $('valDebord').textContent = '0%';
+            if ($('creatifPersonnages')) $('creatifPersonnages').checked = false;
+            propositions = [];
+            $('propositions').innerHTML = '';
+            $('creatifInfo').textContent = '';
+            showToast('Extension cr\u00e9ative r\u00e9initialis\u00e9e');
+        }
+
+        function resetStudio() {
+            document.querySelectorAll('#studioFormats input').forEach(c => {
+                const def = CAMPAGNE.find(f => f.id === c.dataset.format);
+                c.checked = !!(def && def.coche);
+            });
+            if ($('studioZones')) $('studioZones').checked = true;
+            campagne = [];
+            $('studioResultats').innerHTML = '';
+            $('studioInfo').textContent = '';
+            $('btnArchive').classList.remove('pret');
+            showToast('Studio r\u00e9initialis\u00e9');
+        }
+
+        function resetExport() {
+            $('exportFormat').value = 'image/webp';
+            $('rangeQual').value = 85;
+            updateLabels();
+            estimateWeight();
+            showToast('R\u00e9glages d\'export r\u00e9initialis\u00e9s');
+        }
+
+
+        /* ================= EDITION PAR ZONES (NOUVEAU) =================
+           Les blocs deja detectes par le moteur deviennent des objets que l'on
+           selectionne, verrouille, efface ou deplace. Le verrou est respecte par
+           toutes les generations : la zone est recollee depuis l'original.     */
+
+        let zones = [];            // { b:{x,y,w,h} en pixels source, nom, verrou, efface, dx, dy, el }
+        let zoneSel = -1;
+        let zonesOuvertes = false;
+        let zonesSource = null;    // image sur laquelle les zones ont ete relevees
+
+        function basculerZones() {
+            if (!originalImg) { showToast('Importez une image'); return; }
+            zonesOuvertes ? fermerZones() : ouvrirZones();
+        }
+
+        function ouvrirZones() {
+            if (isCropMode) toggleCropMode();
+            if (comparateurActif) fermerComparateur();
+            progOuvrir('Rep\u00e9rage des blocs\u2026');
+            setTimeout(() => {
+                let R;
+                try { R = Smart.analyse(originalImg); }
+                catch (e) { progFermer(); showToast('Image prot\u00e9g\u00e9e (CORS)'); return; }
+                const ro = Smart.roles(R);
+                const nommer = (b, nom) => ({ b: { x: b.x, y: b.y, w: b.w, h: b.h }, nom,
+                                              verrou: false, efface: false, dx: 0, dy: 0 });
+                zones = [];
+                ro.head.forEach((b, i) => zones.push(nommer(b, 'En-t\u00eate ' + (i + 1))));
+                if (ro.title) zones.push(nommer(ro.title, 'Titre'));
+                ro.items.forEach((b, i) => zones.push(nommer(b, 'Contenu ' + (i + 1))));
+                ro.decor.forEach((b, i) => zones.push(nommer(b, 'D\u00e9cor ' + (i + 1))));
+                zonesSource = originalImg;
+                zoneSel = -1;
+                zonesOuvertes = true;
+                $('btnZones').classList.add('actif');
+                $('btnZones').textContent = '\u2716 Masquer les blocs';
+                $('zonesLayer').classList.add('actif');
+                dessinerZones();
+                progFermer();
+                $('zonesInfo').textContent = zones.length + ' bloc(s) \u2014 cliquez pour s\u00e9lectionner, glissez pour d\u00e9placer';
+            }, 30);
+        }
+
+        function fermerZones() {
+            zonesOuvertes = false;
+            zoneSel = -1;
+            $('btnZones').classList.remove('actif');
+            $('btnZones').textContent = '\ud83d\udd0d Analyser et afficher les blocs';
+            $('zonesLayer').classList.remove('actif');
+            $('zonesLayer').innerHTML = '';
+            $('zonesListe').innerHTML = '';
+        }
+
+        function resetZones() {
+            zones.forEach(z => { z.verrou = false; z.efface = false; z.dx = 0; z.dy = 0; });
+            if (zonesOuvertes) dessinerZones();
+            $('zonesInfo').textContent = zones.length ? 'Blocs remis \u00e0 l\'\u00e9tat d\'origine' : '';
+            showToast('\u00c9dition par zones r\u00e9initialis\u00e9e');
+        }
+
+        /* Conversion des coordonnees source vers l'affichage du canvas */
+        function zoneVersEcran(z) {
+            const d = lastDraw, b = canvasBox();
+            const kx = (d.dw / d.sw) * (b.w / canvas.width);
+            const ky = (d.dh / d.sh) * (b.h / canvas.height);
+            return {
+                x: (d.dx * (b.w / canvas.width)) + ((z.b.x + z.dx) - d.sx) * kx,
+                y: (d.dy * (b.h / canvas.height)) + ((z.b.y + z.dy) - d.sy) * ky,
+                w: z.b.w * kx, h: z.b.h * ky, kx, ky
+            };
+        }
+
+        function dessinerZones() {
+            const L = $('zonesLayer');
+            if (!zonesOuvertes || !lastDraw) return;
+            const b = canvasBox();
+            L.style.left = b.ox + 'px'; L.style.top = b.oy + 'px';
+            L.style.width = b.w + 'px'; L.style.height = b.h + 'px';
+            L.innerHTML = '';
+            zones.forEach((z, i) => {
+                const r = zoneVersEcran(z);
+                const d = document.createElement('div');
+                d.className = 'zone-bloc' + (i === zoneSel ? ' sel' : '')
+                            + (z.verrou ? ' verrou' : '') + (z.efface ? ' efface' : '')
+                            + ((z.dx || z.dy) ? ' deplace' : '');
+                d.style.left = r.x + 'px'; d.style.top = r.y + 'px';
+                d.style.width = r.w + 'px'; d.style.height = r.h + 'px';
+                const t = document.createElement('b');
+                t.textContent = (z.verrou ? '\ud83d\udd12 ' : '') + (z.efface ? '\ud83e\uddfd ' : '') + z.nom;
+                d.appendChild(t);
+                d.onpointerdown = e => demarrerZone(e, i, d);
+                L.appendChild(d);
+                z.el = d;
+            });
+            listerZones();
+        }
+
+        function listerZones() {
+            const z = $('zonesListe');
+            z.innerHTML = '';
+            zones.forEach((v, i) => {
+                const d = document.createElement('div');
+                d.className = 'item' + (i === zoneSel ? ' sel' : '');
+                const etat = v.efface ? '\ud83e\uddfd effac\u00e9' : v.verrou ? '\ud83d\udd12 verrouill\u00e9'
+                           : (v.dx || v.dy) ? '\u2725 d\u00e9plac\u00e9' : '';
+                d.innerHTML = '<span>' + v.nom + '</span><span class="etat">' + etat + '</span>';
+                d.onclick = () => { zoneSel = i; dessinerZones(); };
+                z.appendChild(d);
+            });
+        }
+
+        /* Selection et deplacement a la souris ou au doigt */
+        function demarrerZone(e, i, el) {
+            zoneSel = i;
+            const z = zones[i];
+            const depart = { x: e.clientX, y: e.clientY, dx: z.dx, dy: z.dy };
+            const r = zoneVersEcran(z);
+            // surbrillance immediate SANS reconstruire le calque : redessiner ici
+            // detruirait l'element en cours de glissement, et le deplacement serait perdu
+            document.querySelectorAll('.zone-bloc').forEach(d => d.classList.remove('sel'));
+            el.classList.add('sel');
+            listerZones();
+            const bouger = ev => {
+                z.dx = depart.dx + (ev.clientX - depart.x) / r.kx;
+                z.dy = depart.dy + (ev.clientY - depart.y) / r.ky;
+                const n = zoneVersEcran(z);
+                el.style.left = n.x + 'px'; el.style.top = n.y + 'px';
+                if (z.dx || z.dy) el.classList.add('deplace');
+            };
+            const finir = () => {
+                window.removeEventListener('pointermove', bouger);
+                window.removeEventListener('pointerup', finir);
+                dessinerZones();
+            };
+            window.addEventListener('pointermove', bouger);
+            window.addEventListener('pointerup', finir);
+            e.preventDefault(); e.stopPropagation();
+        }
+
+        function zoneCourante() {
+            if (zoneSel < 0 || !zones[zoneSel]) { showToast('S\u00e9lectionnez d\'abord un bloc'); return null; }
+            return zones[zoneSel];
+        }
+
+        function zoneVerrouiller() {
+            const z = zoneCourante(); if (!z) return;
+            z.verrou = !z.verrou;
+            if (z.verrou) { z.efface = false; }
+            dessinerZones();
+            showToast(z.verrou ? z.nom + ' verrouill\u00e9 : les g\u00e9n\u00e9rations n\'y toucheront plus'
+                               : z.nom + ' d\u00e9verrouill\u00e9');
+        }
+
+        function zoneEffacer() {
+            const z = zoneCourante(); if (!z) return;
+            z.efface = !z.efface;
+            if (z.efface) { z.verrou = false; z.dx = 0; z.dy = 0; }
+            dessinerZones();
+            showToast(z.efface ? z.nom + ' sera effac\u00e9' : z.nom + ' conserv\u00e9');
+        }
+
+        function zoneAnnuler() {
+            const z = zoneCourante(); if (!z) return;
+            z.verrou = false; z.efface = false; z.dx = 0; z.dy = 0;
+            dessinerZones();
+            showToast(z.nom + ' remis \u00e0 l\'\u00e9tat d\'origine');
+        }
+
+        /* Applique effacements et deplacements : on reconstruit l'image source */
+        function appliquerZones() {
+            if (!zones.length) { showToast('Analysez d\'abord les blocs'); return; }
+            const src = zonesSource || originalImg;
+            const iw = src.naturalWidth || src.width, ih = src.naturalHeight || src.height;
+            const modifs = zones.filter(z => z.efface || z.dx || z.dy);
+            if (!modifs.length) { showToast('Aucune modification \u00e0 appliquer'); return; }
+
+            const out = document.createElement('canvas');
+            out.width = iw; out.height = ih;
+            const o = out.getContext('2d', { willReadFrequently: true });
+            o.drawImage(src, 0, 0, iw, ih);
+
+            // 1. gommer les zones effacees et les emplacements d'origine des blocs deplaces
+            modifs.forEach(z => {
+                const t = Smart.bordure(o, iw, ih, z.b);
+                if (!t) return;
+                const fl = Math.max(5, Math.min(24, Math.round(Math.min(z.b.w, z.b.h) * 0.12)));
+                o.save();
+                o.fillStyle = t;
+                o.fillRect(z.b.x - 1, z.b.y - 1, z.b.w + 2, z.b.h + 2);
+                o.filter = 'blur(' + fl + 'px)';
+                o.fillRect(z.b.x - fl, z.b.y - fl, z.b.w + fl * 2, z.b.h + fl * 2);
+                o.fillRect(z.b.x - fl, z.b.y - fl, z.b.w + fl * 2, z.b.h + fl * 2);
+                o.restore();
+            });
+
+            // 2. recoller les blocs deplaces a leur nouvelle place
+            zones.filter(z => !z.efface && (z.dx || z.dy)).forEach(z => {
+                Smart.sprite(o, src, z.b, z.b.x + z.dx, z.b.y + z.dy, 1);
+            });
+
+            const eff = zones.filter(z => z.efface).length;
+            const dep = zones.filter(z => !z.efface && (z.dx || z.dy)).length;
+            fermerZones();
+            replaceSource(out, eff + ' effac\u00e9(s), ' + dep + ' d\u00e9plac\u00e9(s)', true);
+            $('zonesInfo').textContent = 'Appliqu\u00e9 : ' + eff + ' effac\u00e9(s), ' + dep + ' d\u00e9plac\u00e9(s)';
+        }
+
+        /* Les zones verrouillees, en coordonnees de la source courante */
+        function verrousActifs() {
+            if (!zonesSource || zonesSource !== originalImg) return [];
+            return zones.filter(z => z.verrou && !z.efface).map(z => z.b);
+        }
+
+        /* Recolle les zones verrouillees sur un rendu, en connaissant le placement
+           de la source dans ce rendu (x0,y0,dw,dh en pixels du rendu). */
+        function recollerVerrous(ctxSortie, src, x0, y0, dw, dh) {
+            const v = verrousActifs();
+            if (!v.length) return 0;
+            const iw = src.naturalWidth || src.width, ih = src.naturalHeight || src.height;
+            const kx = dw / iw, ky = dh / ih;
+            v.forEach(b => {
+                const c = document.createElement('canvas');
+                c.width = Math.max(2, Math.round(b.w * kx));
+                c.height = Math.max(2, Math.round(b.h * ky));
+                c.getContext('2d').drawImage(src, b.x, b.y, b.w, b.h, 0, 0, c.width, c.height);
+                const f = Math.max(3, Math.round(Math.min(c.width, c.height) * 0.06));
+                const m = document.createElement('canvas'); m.width = c.width; m.height = c.height;
+                const mc = m.getContext('2d');
+                mc.filter = 'blur(' + Math.round(f / 2) + 'px)';
+                mc.fillStyle = '#fff'; mc.fillRect(f / 2, f / 2, c.width - f, c.height - f);
+                const cc = c.getContext('2d');
+                cc.globalCompositeOperation = 'destination-in';
+                cc.drawImage(m, 0, 0);
+                ctxSortie.drawImage(c, Math.round(x0 + b.x * kx), Math.round(y0 + b.y * ky));
+            });
+            return v.length;
+        }
+
+        /* Regeneration d'une seule zone par le modele */
+        async function zoneRegenerer() {
+            const z = zoneCourante(); if (!z) return;
+            if (!originalImg) return;
+            const src = zonesSource || originalImg;
+            const iw = src.naturalWidth || src.width, ih = src.naturalHeight || src.height;
+            const k = Math.min(1, 1024 / Math.max(iw, ih));
+            const w = Math.max(64, Math.round(iw * k / 8) * 8), h = Math.max(64, Math.round(ih * k / 8) * 8);
+
+            const dep = document.createElement('canvas'); dep.width = w; dep.height = h;
+            dep.getContext('2d').drawImage(src, 0, 0, w, h);
+            const mk = document.createElement('canvas'); mk.width = w; mk.height = h;
+            const mc = mk.getContext('2d');
+            mc.fillStyle = '#000'; mc.fillRect(0, 0, w, h);
+            mc.fillStyle = '#fff';
+            mc.fillRect(Math.round(z.b.x * w / iw), Math.round(z.b.y * h / ih),
+                        Math.max(8, Math.round(z.b.w * w / iw)), Math.max(8, Math.round(z.b.h * h / ih)));
+
+            progOuvrir('R\u00e9g\u00e9n\u00e9ration de \u00ab ' + z.nom + ' \u00bb\u2026');
+            try {
+                const point = ($('smartEndpoint') ? $('smartEndpoint').value.trim() : '') || '/api/outpaint';
+                const rep = await fetch(point, {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        mode: 'creatif', image: dep.toDataURL('image/png'), mask: mk.toDataURL('image/png'),
+                        width: w, height: h,
+                        prompt: ($('creatifPrompt') ? $('creatifPrompt').value.trim() : '') || 'clean background, same style and colors',
+                        seed: Math.floor(Math.random() * 1e9)
+                    })
+                });
+                const d = await rep.json();
+                if (!rep.ok || !d.image) throw new Error(d.error || 'r\u00e9ponse invalide');
+                const gen = await new Promise((ok, ko) => { const i = new Image(); i.onload = () => ok(i); i.onerror = ko; i.src = d.image; });
+
+                // on ne garde du rendu que la zone demandee, le reste vient de l'original
+                const out = document.createElement('canvas'); out.width = iw; out.height = ih;
+                const o = out.getContext('2d');
+                o.drawImage(src, 0, 0, iw, ih);
+                const morceau = document.createElement('canvas');
+                morceau.width = Math.max(8, Math.round(z.b.w)); morceau.height = Math.max(8, Math.round(z.b.h));
+                morceau.getContext('2d').drawImage(gen,
+                    z.b.x * w / iw, z.b.y * h / ih, z.b.w * w / iw, z.b.h * h / ih,
+                    0, 0, morceau.width, morceau.height);
+                const f = Math.max(3, Math.round(Math.min(morceau.width, morceau.height) * 0.08));
+                const m2 = document.createElement('canvas'); m2.width = morceau.width; m2.height = morceau.height;
+                const m2c = m2.getContext('2d');
+                m2c.filter = 'blur(' + Math.round(f / 2) + 'px)';
+                m2c.fillStyle = '#fff'; m2c.fillRect(f / 2, f / 2, morceau.width - f, morceau.height - f);
+                const mcx = morceau.getContext('2d');
+                mcx.globalCompositeOperation = 'destination-in';
+                mcx.drawImage(m2, 0, 0);
+                o.drawImage(morceau, Math.round(z.b.x), Math.round(z.b.y));
+
+                fermerZones();
+                replaceSource(out, '\u00ab ' + z.nom + ' \u00bb r\u00e9g\u00e9n\u00e9r\u00e9', true);
+            } catch (e) {
+                showToast('R\u00e9g\u00e9n\u00e9ration indisponible');
+            } finally { progFermer(); }
         }
 
         updateLabels();
