@@ -155,6 +155,53 @@
             padding: 2px 8px; border-radius: 20px; white-space: nowrap; pointer-events: none;
         }
 
+
+        /* --- Copier le rendu, suppression des miniatures, progression (NOUVEAU) --- */
+        #btnCopier {
+            position: absolute; top: 14px; right: 14px; z-index: 20;
+            background: var(--glass); border: 1px solid var(--gold); color: var(--gold);
+            padding: 8px 12px; border-radius: 8px; font-size: 0.72rem; display: none;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.5); backdrop-filter: blur(4px);
+        }
+        #btnCopier.pret { display: flex; }
+        #btnCopier svg { width: 15px; height: 15px; }
+        #btnCopier.ok { background: var(--gold); color: var(--espresso); }
+
+        .thumb-box { position: relative; }
+        .thumb-box .suppr {
+            position: absolute; top: 2px; right: 2px; width: 18px; height: 18px;
+            border-radius: 50%; background: rgba(10,6,4,0.85); color: #fff;
+            border: 1px solid var(--gold); font-size: 0.7rem; line-height: 1;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; opacity: 0; transition: opacity .2s; padding: 0;
+        }
+        .thumb-box:hover .suppr, .thumb-box.active .suppr { opacity: 1; }
+        .thumb-box .suppr:hover { background: #c8102e; color: #fff; border-color: #c8102e; }
+
+        #progression {
+            position: absolute; inset: 0; z-index: 30; display: none;
+            align-items: center; justify-content: center; flex-direction: column; gap: 14px;
+            background: rgba(8,5,3,0.72); backdrop-filter: blur(2px);
+        }
+        #progression.actif { display: flex; }
+        #progression .roue {
+            width: 46px; height: 46px; border-radius: 50%;
+            border: 3px solid rgba(212,175,55,0.25); border-top-color: var(--gold);
+            animation: tourne 0.9s linear infinite;
+        }
+        @keyframes tourne { to { transform: rotate(360deg); } }
+        #progression .etape { color: var(--gold); font-size: 0.8rem; letter-spacing: 1px; }
+        #progression .piste {
+            width: 230px; height: 4px; border-radius: 4px; overflow: hidden;
+            background: rgba(212,175,55,0.2);
+        }
+        #progression .piste i {
+            display: block; height: 100%; width: 35%; border-radius: 4px;
+            background: var(--accent-grad); animation: defile 1.3s ease-in-out infinite;
+        }
+        @keyframes defile { 0% { margin-left: -35%; } 100% { margin-left: 100%; } }
+        #progression .duree { color: #8a7a63; font-size: 0.65rem; }
+
         .batch-bar {
             height: 90px; background: var(--glass); border-top: 1px solid var(--gold);
             display: flex; align-items: center; padding: 10px; gap: 10px; overflow-x: auto;
@@ -366,6 +413,19 @@
                 <div class="crop-handle" data-handle="sw"></div>
                 <div class="crop-handle" data-handle="s"></div>
                 <div class="crop-handle" data-handle="se"></div>
+            </div>
+            <button id="btnCopier" onclick="copierRendu()" title="Copier l'image dans le presse-papier">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="12" height="12" rx="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span id="btnCopierTexte">Copier</span>
+            </button>
+            <div id="progression">
+                <div class="roue"></div>
+                <div class="etape" id="progEtape">Analyse…</div>
+                <div class="piste"><i></i></div>
+                <div class="duree" id="progDuree"></div>
             </div>
             <div id="dropMsg" style="text-align:center;">
                 <h2 style="font-family:'Playfair Display'; color:var(--gold); margin:0;">Glissez ou Collez (Ctrl+V) ici</h2>
@@ -630,6 +690,7 @@
 
         function loadImg(img, idx) {
             originalImg = img;
+            setTimeout(majBoutonCopier, 0);
             if (typeof idx === 'number') activeIndex = idx;
             cancelCrop();
             focal = { x: 0.5, y: 0.5 };
@@ -1078,7 +1139,13 @@
                 box.className = "thumb-box" + (idx === activeIndex ? " active" : "");
                 box.onclick = () => loadImg(img, idx);
                 const thumb = new Image(); thumb.src = img.src;
-                box.appendChild(thumb); bar.appendChild(box);
+                box.appendChild(thumb);
+                const x = document.createElement('button');
+                x.className = 'suppr'; x.textContent = '\u00d7';
+                x.title = 'Retirer cette image';
+                x.onclick = (ev) => supprimerImage(idx, ev);
+                box.appendChild(x);
+                bar.appendChild(box);
             });
         }
 
@@ -1963,10 +2030,11 @@
         function smartReformat(ratio) {
             if (!originalImg) { showToast('Importez une image'); return; }
             $('currentStatus').textContent = 'ANALYSE…';
+            progOuvrir('Analyse de la mise en page…');
             setTimeout(() => {
                 let R;
                 try { R = Smart.analyse(originalImg); }
-                catch (e) { showToast('Image externe protégée (CORS)'); $('currentStatus').textContent = 'PRÊT'; return; }
+                catch (e) { showToast('Image externe protégée (CORS)'); $('currentStatus').textContent = 'PRÊT'; progFermer(); return; }
 
                 const choix = $('smartMode') ? $('smartMode').value : 'auto';
                 const genre = Smart.nature(R);
@@ -1980,6 +2048,8 @@
                 else if (choix === 'extend') mode = 'extend';
                 else mode = (genre === 'affiche' && c.ok) ? 'layout' : 'extend';
 
+                progEtape(mode === 'layout' ? 'Recomposition de la mise en page…'
+                                           : 'Reconstruction du décor…');
                 let res, note;
                 if (mode === 'layout' && R.boxes.length) {
                     try {
@@ -1993,6 +2063,7 @@
                     if (choix === 'auto' && genre === 'affiche' && !c.ok) note += ` (${c.motif})`;
                 }
                 const finir = (r, texte, msg) => {
+                    progFermer();
                     setRatio(ratio);
                     $('smartInfo').textContent = `${texte} — ${r.W}×${r.H}`;
                     replaceSource(r.out, msg);
@@ -2009,6 +2080,7 @@
                 }
                 if ($('smartIA') && $('smartIA').checked) {
                     $('currentStatus').textContent = 'OUTPAINTING IA…';
+                    progEtape('Outpainting IA sur le serveur…');
                     showToast('Renfort IA en cours…');
                     Smart.outpaint(res, originalImg, ratio, $('smartEndpoint') ? $('smartEndpoint').value.trim() : '')
                         .then(r => finir(r, `IA (${r.moteur}) · image d'origine intacte`, 'Décor étendu par IA'))
@@ -2053,7 +2125,85 @@
             showToast('Blocs détectés (aperçu non destructif)');
         }
 
+
+        /* ================= COPIE, GALERIE, PROGRESSION (NOUVEAU) ================= */
+
+        /* Copie du rendu dans le presse-papier (PNG). Repli sur le telechargement
+           si le navigateur refuse l'acces au presse-papier. */
+        async function copierRendu() {
+            if (!originalImg) { showToast('Aucun rendu \u00e0 copier'); return; }
+            const b = $('btnCopier'), t = $('btnCopierTexte');
+            try {
+                const blob = await new Promise(ok => canvas.toBlob(ok, 'image/png'));
+                if (!blob) throw new Error('rendu vide');
+                if (!navigator.clipboard || !window.ClipboardItem) throw new Error('presse-papier indisponible');
+                await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+                b.classList.add('ok'); t.textContent = 'Copi\u00e9 !';
+                showToast('Image copi\u00e9e \u2014 collez-la o\u00f9 vous voulez');
+                setTimeout(() => { b.classList.remove('ok'); t.textContent = 'Copier'; }, 2200);
+            } catch (e) {
+                showToast('Copie refus\u00e9e par le navigateur \u2014 t\u00e9l\u00e9chargement');
+                downloadImage();
+            }
+        }
+
+        function majBoutonCopier() {
+            const b = $('btnCopier');
+            if (b) b.classList.toggle('pret', !!originalImg);
+        }
+
+        /* Retrait d'une image de la galerie */
+        function supprimerImage(idx, ev) {
+            if (ev) ev.stopPropagation();
+            if (idx < 0 || idx >= imagesList.length) return;
+            imagesList.splice(idx, 1);
+            if (!imagesList.length) {
+                originalImg = null; activeIndex = -1;
+                ctx.setTransform(1, 0, 0, 1, 0, 0);
+                canvas.width = 300; canvas.height = 150;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                cancelCrop();
+                $('dropMsg').style.display = '';
+                $('currentStatus').textContent = 'PR\u00caT';
+                $('smartInfo').textContent = '';
+                $('weightHint').textContent = '';
+                majBoutonCopier(); updateBatchBar();
+                showToast('Galerie vid\u00e9e');
+                return;
+            }
+            if (idx === activeIndex) {
+                const suivant = Math.min(idx, imagesList.length - 1);
+                loadImg(imagesList[suivant], suivant);
+            } else {
+                if (idx < activeIndex) activeIndex--;
+                updateBatchBar();
+            }
+            showToast('Image retir\u00e9e');
+        }
+
+        /* Temoin de progression */
+        let progDepart = 0, progTimer = null;
+        function progOuvrir(etape) {
+            const p = $('progression');
+            if (!p) return;
+            $('progEtape').textContent = etape;
+            $('progDuree').textContent = '0 s';
+            progDepart = Date.now();
+            clearInterval(progTimer);
+            progTimer = setInterval(() => {
+                $('progDuree').textContent = Math.round((Date.now() - progDepart) / 1000) + ' s';
+            }, 500);
+            p.classList.add('actif');
+        }
+        function progEtape(texte) { if ($('progEtape')) $('progEtape').textContent = texte; }
+        function progFermer() {
+            clearInterval(progTimer);
+            const p = $('progression');
+            if (p) p.classList.remove('actif');
+        }
+
         updateLabels();
+        majBoutonCopier();
     </script>
 </body>
 </html>
