@@ -104,7 +104,7 @@ export async function onRequestPost({ request, env }) {
       const r = await env.AI.run(MODELE_CREATIF, {
         prompt: consigne + ', ' + STYLE_CREATIF,
         negative_prompt: NEGATIF_CREATIF,
-        image_b64: String(image).replace(/^data:[^,]+,/, ''),
+        image: [...octetsImage],
         mask: [...octetsMasque],
         width: w,
         height: h,
