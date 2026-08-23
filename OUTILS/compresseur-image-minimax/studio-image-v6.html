@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algeria Tech by Basta — Station d'Image Pro V6</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --gold-glow: rgba(212, 175, 55, 0.4);
+            --espresso: #120c08;
+            --espresso-light: #251a12;
+            --text: #f4f4f4;
+            --accent-grad: linear-gradient(135deg, #d4af37 0%, #f1d592 50%, #d4af37 100%);
+            --glass: rgba(25, 18, 12, 0.95);
+        }
+
+        * { box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body {
+            background: var(--espresso);
+            color: var(--text);
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* --- Sidebar --- */
+        aside {
+            width: 380px;
+            background: var(--glass);
+            border-right: 1px solid var(--gold);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            padding: 20px;
+            box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+            z-index: 100;
+        }
+
+        .brand { text-align: center; margin-bottom: 25px; }
+        .brand h1 {
+            font-family: 'Playfair Display', serif;
+            background: var(--accent-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.8rem; margin: 0;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .section h3 {
+            font-size: 0.75rem; color: var(--gold);
+            text-transform: uppercase; letter-spacing: 2px; margin: 0;
+        }
+        .btn-reset {
+            background: transparent; border: none; color: #666;
+            font-size: 0.65rem; cursor: pointer; text-decoration: underline;
+        }
+
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+
+        button {
+            background: var(--espresso-light);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 8px; border-radius: 6px;
+            cursor: pointer; transition: 0.3s; font-size: 0.75rem;
+            display: flex; align-items: center; justify-content: center; gap: 5px;
+        }
+        button:hover { background: var(--gold); color: var(--espresso); }
+        button.active { background: var(--gold); color: var(--espresso); }
+        button.magic { background: var(--accent-grad); color: var(--espresso); font-weight: bold; border: none; }
+
+        input[type="range"] { width: 100%; accent-color: var(--gold); cursor: pointer; margin: 10px 0; }
+        label { font-size: 0.75rem; display: flex; justify-content: space-between; color: #aaa; margin-top: 5px;}
+        label span { color: var(--gold); }
+
+        select, input[type="text"], input[type="url"], input[type="number"] {
+            width: 100%; background: #000; border: 1px solid #444; color: white;
+            padding: 10px; border-radius: 5px; margin-top: 5px; font-size: 0.8rem;
+        }
+        input[type="number"] { padding: 7px; }
+
+        /* --- Ratios (NOUVEAU) --- */
+        .ratio-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+        .ratio-grid button {
+            flex-direction: column; gap: 4px; padding: 7px 3px; font-size: 0.62rem; line-height: 1;
+        }
+        .ratio-ico { border: 1.5px solid currentColor; border-radius: 2px; display: block; }
+        .hint { font-size: 0.62rem; color: #7a6a55; margin: 8px 0 4px; line-height: 1.4; }
+
+        .seg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+        /* --- Main Area --- */
+        main { flex: 1; display: flex; flex-direction: column; background: #080503; position: relative; }
+
+        .toolbar {
+            height: 60px; background: var(--glass); display: flex;
+            align-items: center; justify-content: space-between; padding: 0 20px;
+            border-bottom: 1px solid var(--gold);
+        }
+
+        .canvas-container {
+            flex: 1; display: flex; align-items: center; justify-content: center;
+            padding: 20px; position: relative; overflow: hidden;
+            touch-action: none;
+        }
+
+        canvas {
+            max-width: 100%; max-height: 100%; box-shadow: 0 0 50px rgba(0,0,0,0.9);
+            background-image: linear-gradient(45deg,#1a1a1a 25%,transparent 25%),linear-gradient(-45deg,#1a1a1a 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#1a1a1a 75%),linear-gradient(-45deg,transparent 75%,#1a1a1a 75%);
+            background-size: 20px 20px;
+            background-position: 0 0,0 10px,10px -10px,-10px 0px;
+        }
+
+        /* --- Rognage type Paint (NOUVEAU) --- */
+        #cropOverlay {
+            position: absolute; display: none; z-index: 10;
+            border: 1px solid rgba(255,255,255,0.9);
+            outline: 1px dashed var(--gold);
+            box-shadow: 0 0 0 9999px rgba(0,0,0,0.6);
+            cursor: move; pointer-events: none;
+        }
+        body.cropping #cropOverlay { pointer-events: auto; }
+        #cropOverlay .thirds { position: absolute; inset: 0; pointer-events: none; }
+        #cropOverlay .thirds i { position: absolute; background: rgba(255,255,255,0.28); }
+        #cropOverlay .thirds i.v { top: 0; bottom: 0; width: 1px; }
+        #cropOverlay .thirds i.h { left: 0; right: 0; height: 1px; }
+        .crop-handle {
+            position: absolute; width: 12px; height: 12px; margin: -6px 0 0 -6px;
+            background: var(--gold); border: 1px solid #000; border-radius: 2px;
+        }
+        .crop-handle[data-handle="nw"] { left: 0;    top: 0;    cursor: nwse-resize; }
+        .crop-handle[data-handle="n"]  { left: 50%;  top: 0;    cursor: ns-resize; }
+        .crop-handle[data-handle="ne"] { left: 100%; top: 0;    cursor: nesw-resize; }
+        .crop-handle[data-handle="w"]  { left: 0;    top: 50%;  cursor: ew-resize; }
+        .crop-handle[data-handle="e"]  { left: 100%; top: 50%;  cursor: ew-resize; }
+        .crop-handle[data-handle="sw"] { left: 0;    top: 100%; cursor: nesw-resize; }
+        .crop-handle[data-handle="s"]  { left: 50%;  top: 100%; cursor: ns-resize; }
+        .crop-handle[data-handle="se"] { left: 100%; top: 100%; cursor: nwse-resize; }
+        #cropSize {
+            position: absolute; left: 50%; top: -26px; transform: translateX(-50%);
+            background: var(--gold); color: var(--espresso); font-size: 0.65rem; font-weight: bold;
+            padding: 2px 8px; border-radius: 20px; white-space: nowrap; pointer-events: none;
+        }
+
+        .batch-bar {
+            height: 90px; background: var(--glass); border-top: 1px solid var(--gold);
+            display: flex; align-items: center; padding: 10px; gap: 10px; overflow-x: auto;
+        }
+        .thumb-box {
+            min-width: 70px; height: 70px; border: 2px solid #333;
+            border-radius: 6px; overflow: hidden; cursor: pointer;
+        }
+        .thumb-box.active { border-color: var(--gold); }
+        .thumb-box img { width: 100%; height: 100%; object-fit: cover; }
+
+        #toast {
+            position: fixed; bottom: 110px; right: 20px; background: var(--gold);
+            color: var(--espresso); padding: 12px 20px; border-radius: 50px;
+            font-weight: bold; transform: translateY(200px); transition: 0.5s; z-index: 1000;
+        }
+        #toast.show { transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <aside>
+        <div class="brand">
+            <h1>ALGERIA TECH</h1>
+            <p style="letter-spacing: 3px; font-size: 0.6rem; color: var(--gold);">BY BASTA — IMAGE STATION</p>
+        </div>
+
+        <!-- Importation URL -->
+        <div class="section" style="background: rgba(212,175,55,0.05); padding: 10px; border-radius: 8px; border: 1px dashed var(--gold);">
+            <div class="section-header">
+                <h3>🔗 URL ou COLLER (Ctrl+V)</h3>
+            </div>
+            <p style="font-size: 0.65rem; color: #888; margin-bottom: 5px;">Collez un lien OU faites Ctrl+V ici</p>
+            <div style="display:flex; gap:5px;">
+                <input type="url" id="urlInput" placeholder="https://...">
+                <button onclick="importViaURL()" id="btnUrl" style="width: 50px;">Go</button>
+            </div>
+            <div id="urlLoader" style="display:none; color: var(--gold); font-size: 0.7rem; margin-top:5px; text-align:center;">
+                Analyse en cours...
+            </div>
+        </div>
+
+        <!-- Formats / Ratios (NOUVEAU) -->
+        <div class="section">
+            <div class="section-header">
+                <h3>🖼️ Format (Ratio)</h3>
+                <button class="btn-reset" onclick="setRatio(null)">Libre</button>
+            </div>
+            <div class="ratio-grid" id="ratioGrid"></div>
+
+            <p class="hint"><b>Contenir</b> (par défaut) : l'image entière reste visible, proportions exactes, aucun détail coupé.<br><b>Remplir</b> : remplit le cadre en recadrant les bords (l'image n'est jamais étirée).</p>
+            <div class="seg">
+                <button id="btnContain" class="active" onclick="setFit('contain')">▢ Contenir (tout visible)</button>
+                <button id="btnCover" onclick="setFit('cover')">⛶ Remplir (recadre)</button>
+            </div>
+            <div id="padWrap">
+                <label style="margin-top:8px;">Fond (mode Contenir)</label>
+                <select id="padColor">
+                    <option value="#ffffff">Blanc</option>
+                    <option value="#000000">Noir</option>
+                    <option value="#120c08">Espresso Algeria Tech</option>
+                    <option value="#d4af37">Or</option>
+                    <option value="blur">Flou de l'image</option>
+                    <option value="transparent">Transparent (PNG/WebP)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Reformatage intelligent (NOUVEAU) -->
+        <div class="section" style="background: rgba(212,175,55,0.05); border: 1px dashed var(--gold); border-radius: 8px; padding: 12px;">
+            <div class="section-header">
+                <h3>🪄 Recomposer la mise en page</h3>
+                <button class="btn-reset" onclick="smartPreviewBlocks()">Voir les blocs</button>
+            </div>
+            <p class="hint">Détecte les blocs de l'affiche (logos, titre, badges, encadrés, décor) et les <b>replace</b> dans le nouveau format. Rien n'est coupé, rien n'est étiré : la mise en page est refaite.</p>
+            <div class="seg">
+                <button class="magic" onclick="smartReformat(16/9)">🖥️ Recomposer 16:9</button>
+                <button class="magic" onclick="smartReformat(9/16)">📱 Recomposer 9:16</button>
+            </div>
+            <label style="color:var(--gold); cursor:pointer; font-size:0.7rem; margin-top:6px;">
+                <span><input type="checkbox" id="smartIA"> Renfort IA serveur (outpainting)</span>
+            </label>
+            <input type="text" id="smartEndpoint" value="/api/outpaint" placeholder="/api/outpaint" title="Endpoint Cloudflare Function" style="display:none;">
+            <select id="smartMode" title="Stratégie de mise au format">
+                <option value="auto">Automatique (recommandé)</option>
+                <option value="extend">Garder l'image intacte, étendre le décor</option>
+                <option value="layout">Forcer la recomposition des blocs</option>
+            </select>
+            <div id="smartInfo" class="hint" style="text-align:center; margin-top:8px;"></div>
+        </div>
+
+        <!-- Géométrie & Taille -->
+        <div class="section">
+            <div class="section-header">
+                <h3>📏 Géométrie & Taille</h3>
+                <button class="btn-reset" onclick="resetGeometry()">Réinitialiser</button>
+            </div>
+            <div class="grid">
+                <button onclick="toggleCropMode()" id="btnCrop">✂️ Mode Rogner</button>
+                <button onclick="applyCrop()" class="magic">Appliquer Crop</button>
+            </div>
+            <div class="grid">
+                <button onclick="rotateImage()">🔄 Rotation 90°</button>
+                <button onclick="flipImage()">↔️ Effet Miroir</button>
+            </div>
+            <div class="grid">
+                <button onclick="setPreset(1200, 630)">📄 Article Web</button>
+                <button onclick="setPreset(1080, 1080)">🟦 Social Carré</button>
+            </div>
+            <div class="grid">
+                <button onclick="setPreset(1280, 720)">▶️ Miniature 720p</button>
+                <button onclick="setPreset(1080, 1920)">📱 Story / Reel</button>
+            </div>
+            <div class="grid">
+                <button onclick="setPreset(1080, 1350)">📸 Portrait 4:5</button>
+                <button onclick="setPreset(1500, 500)">🎗️ Bannière X</button>
+            </div>
+            <div style="margin-top:10px">
+                <label>Largeur <span id="valW">0px</span></label>
+                <input type="range" id="rangeW" min="100" max="4000">
+                <label>Hauteur <span id="valH">0px</span></label>
+                <input type="range" id="rangeH" min="100" max="4000">
+                <div class="grid" style="margin-top:6px;">
+                    <input type="number" id="numW" min="1" max="10000" placeholder="Largeur px">
+                    <input type="number" id="numH" min="1" max="10000" placeholder="Hauteur px">
+                </div>
+                <label style="color:var(--gold); cursor:pointer; font-size: 0.7rem;">
+                    <span><input type="checkbox" id="lockRatio" checked> Verrouiller Ratio</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Filtres Avancés -->
+        <div class="section">
+            <div class="section-header">
+                <h3>🎨 Filtres & Intelligence</h3>
+                <button class="btn-reset" onclick="resetFilters()">Réinitialiser</button>
+            </div>
+            <div class="grid">
+                <button onclick="applyMagicEnhance()" class="magic">✨ Algérie Glow</button>
+                <button onclick="removeBg()" style="border-color:#ef4444; color:#ef4444;">🪄 Suppr. Fond</button>
+            </div>
+            <label>Amélioration (Sharpen) <span id="valSharp">0</span></label>
+            <input type="range" id="rangeSharp" min="0" max="100" value="0">
+            <label>Luminosité <span id="valBright">100%</span></label>
+            <input type="range" id="rangeBright" min="50" max="150" value="100">
+            <label>Contraste <span id="valContrast">100%</span></label>
+            <input type="range" id="rangeContrast" min="50" max="150" value="100">
+            <label>Saturation <span id="valSatur">100%</span></label>
+            <input type="range" id="rangeSaturation" min="0" max="200" value="100">
+        </div>
+
+        <!-- Identité Visuelle -->
+        <div class="section">
+            <div class="section-header">
+                <h3>🏷️ Identité Algeria Tech</h3>
+                <button class="btn-reset" onclick="resetWatermark()">Réinitialiser</button>
+            </div>
+            <input type="text" id="watermarkText" placeholder="Texte filigrane...">
+            <div class="grid" style="margin-top:10px;">
+                <button onclick="addLogoBadge()" id="btnBadge">➕ Ajouter Badge</button>
+                <button onclick="toggleBw()" id="btnBw">Noir & Blanc</button>
+            </div>
+            <label>Opacité Badge/Texte</label>
+            <input type="range" id="watermarkOpacity" min="0" max="100" value="30">
+        </div>
+
+        <!-- Export Haute Performance -->
+        <div class="section" style="border:none;">
+            <h3>💾 Publication SEO</h3>
+            <select id="exportFormat">
+                <option value="image/webp">Format WebP (Recommandé SEO)</option>
+                <option value="image/jpeg">Format JPEG (Standard)</option>
+                <option value="image/png">Format PNG (Sans Perte)</option>
+            </select>
+            <label style="margin-top:10px;">Qualité <span id="valQual">85%</span></label>
+            <input type="range" id="rangeQual" min="1" max="100" value="85">
+            <button class="magic" style="width:100%; padding:15px; margin-top:10px;" onclick="downloadImage()">TÉLÉCHARGER L'IMAGE</button>
+            <p class="hint" id="weightHint" style="text-align:center;"></p>
+        </div>
+    </aside>
+
+    <main>
+        <div class="toolbar">
+            <div style="display:flex; gap:10px;">
+                <button onclick="document.getElementById('fileInput').click()" class="magic">➕ IMPORTER</button>
+                <button onclick="undo()" style="width:40px;" title="Annuler (Ctrl+Z)">↩️</button>
+                <button onclick="redo()" style="width:40px;" title="Rétablir (Ctrl+Y)">↪️</button>
+            </div>
+            <div style="color:var(--gold); font-size: 0.7rem; letter-spacing: 2px; font-weight: bold;">
+                STATION BASTA v6 — <span id="currentStatus">PRÊT</span>
+            </div>
+            <button onclick="applyToAll()" class="magic">✨ APPLIQUER À TOUS</button>
+        </div>
+
+        <div class="canvas-container" id="container">
+            <canvas id="mainCanvas"></canvas>
+            <div id="cropOverlay">
+                <div class="thirds">
+                    <i class="v" style="left:33.33%"></i><i class="v" style="left:66.66%"></i>
+                    <i class="h" style="top:33.33%"></i><i class="h" style="top:66.66%"></i>
+                </div>
+                <div id="cropSize">0 × 0</div>
+                <div class="crop-handle" data-handle="nw"></div>
+                <div class="crop-handle" data-handle="n"></div>
+                <div class="crop-handle" data-handle="ne"></div>
+                <div class="crop-handle" data-handle="w"></div>
+                <div class="crop-handle" data-handle="e"></div>
+                <div class="crop-handle" data-handle="sw"></div>
+                <div class="crop-handle" data-handle="s"></div>
+                <div class="crop-handle" data-handle="se"></div>
+            </div>
+            <div id="dropMsg" style="text-align:center;">
+                <h2 style="font-family:'Playfair Display'; color:var(--gold); margin:0;">Glissez ou Collez (Ctrl+V) ici</h2>
+                <p style="color:#666; font-size: 0.8rem;">Station de traitement Algeria Tech</p>
+            </div>
+        </div>
+
+        <div class="batch-bar" id="batchBar"></div>
+    </main>
+
+    <input type="file" id="fileInput" hidden accept="image/*" multiple>
+    <div id="toast">Action confirmée</div>
+
+    <script>
+        const canvas = document.getElementById('mainCanvas');
+        const ctx = canvas.getContext('2d', {willReadFrequently: true});
+        const cropOverlay = document.getElementById('cropOverlay');
+        const container = document.getElementById('container');
+        const $ = id => document.getElementById(id);
+        const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+        let originalImg = null;
+        let imagesList = [];
+        let activeIndex = -1;
+        let history = [];
+        let historyStep = -1;
+        let isCropMode = false;
+
+        /* --- Etat de cadrage (NOUVEAU) --- */
+        let fitMode = 'contain';        // 'contain' (défaut) = toute l'image visible ; 'cover' = remplit en recadrant
+        let activeRatio = null;         // largeur/hauteur imposé, ou null = libre
+        let focal = { x: 0.5, y: 0.5 }; // point de cadrage (déplaçable à la souris en mode Remplir)
+        let isBw = false;
+        let showBadge = false;
+        let lastDraw = null;            // dernière transformation source -> canvas
+
+        /* ---------------- RATIOS PRÉDÉFINIS ---------------- */
+        const RATIOS = [
+            { label: 'Libre',   w: null, h: null, tip: "Taille native de l'image" },
+            { label: '1:1',     w: 1,  h: 1,  tip: 'Carré — post social' },
+            { label: '16:9',    w: 16, h: 9,  tip: 'Vidéo / miniature / hero' },
+            { label: '9:16',    w: 9,  h: 16, tip: 'Story, Reel, TikTok' },
+            { label: '4:3',     w: 4,  h: 3,  tip: 'Photo classique' },
+            { label: '3:4',     w: 3,  h: 4,  tip: 'Portrait classique' },
+            { label: '3:2',     w: 3,  h: 2,  tip: 'Photo reflex' },
+            { label: '2:3',     w: 2,  h: 3,  tip: 'Portrait reflex' },
+            { label: '4:5',     w: 4,  h: 5,  tip: 'Portrait Instagram' },
+            { label: '1.91:1',  w: 191,h: 100,tip: 'Open Graph / Facebook / LinkedIn' },
+            { label: '2:1',     w: 2,  h: 1,  tip: "Bandeau d'article" },
+            { label: '21:9',    w: 21, h: 9,  tip: 'Cinémascope / bannière large' }
+        ];
+
+        (function buildRatioButtons() {
+            const grid = $('ratioGrid');
+            RATIOS.forEach((r, i) => {
+                const b = document.createElement('button');
+                b.title = r.tip;
+                b.dataset.ratio = i;
+                const ico = document.createElement('span');
+                ico.className = 'ratio-ico';
+                if (r.w) {
+                    const rr = r.w / r.h, box = 20;
+                    ico.style.width = Math.max(6, rr >= 1 ? box : box * rr) + 'px';
+                    ico.style.height = Math.max(6, rr >= 1 ? box / rr : box) + 'px';
+                } else {
+                    ico.style.width = '18px'; ico.style.height = '14px';
+                    ico.style.borderStyle = 'dashed';
+                }
+                const txt = document.createElement('span');
+                txt.textContent = r.label;
+                b.appendChild(ico); b.appendChild(txt);
+                b.onclick = () => setRatio(r.w ? r.w / r.h : null, b);
+                grid.appendChild(b);
+            });
+            grid.firstChild.classList.add('active');
+        })();
+
+        function setRatio(ratio, btn) {
+            activeRatio = ratio;
+            [...$('ratioGrid').children].forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            else {
+                const target = [...$('ratioGrid').children].find(b => {
+                    const r = RATIOS[b.dataset.ratio];
+                    if (!ratio) return !r.w;
+                    return r.w && Math.abs(r.w / r.h - ratio) < 0.005;
+                });
+                if (target) target.classList.add('active');
+            }
+            if (!originalImg) return;
+            applyFrameForRatio(ratio);
+            $('lockRatio').checked = true;
+        }
+
+        // Dimensions du cadre pour un ratio donné, sans jamais déformer :
+        // - Contenir : plus petit cadre du format demandé qui contient TOUTE l'image
+        //   à sa résolution native (aucun détail coupé, aucune perte de finesse).
+        // - Remplir  : cadre de surface équivalente à l'original (les bords sont recadrés).
+        function applyFrameForRatio(ratio) {
+            if (!originalImg) return;
+            const iw = originalImg.naturalWidth, ih = originalImg.naturalHeight;
+            if (!ratio) { setSize(iw, ih); return; }
+            let w, h;
+            if (fitMode === 'contain') {
+                if (iw / ih > ratio) { w = iw; h = iw / ratio; }   // image plus large que le cadre
+                else { h = ih; w = ih * ratio; }                    // image plus haute que le cadre
+                const over = Math.max(w, h) / 10000;
+                if (over > 1) { w /= over; h /= over; }
+            } else {
+                w = Math.min(6000, Math.round(Math.sqrt(iw * ih * ratio)));
+                h = w / ratio;
+            }
+            setSize(Math.round(w), Math.round(h));
+        }
+
+        function setFit(mode) {
+            fitMode = mode;
+            $('btnCover').classList.toggle('active', mode === 'cover');
+            $('btnContain').classList.toggle('active', mode === 'contain');
+            $('padWrap').style.display = mode === 'contain' ? 'block' : 'none';
+            if (!isCropMode) canvas.style.cursor = mode === 'cover' ? 'grab' : 'default';
+            if (activeRatio) applyFrameForRatio(activeRatio);
+            else processImage();
+        }
+        $('padColor').addEventListener('change', processImage);
+
+        /* ---------------- TAILLE (jamais de déformation) ---------------- */
+        function currentRatio() {
+            if (activeRatio) return activeRatio;
+            if (originalImg) return originalImg.naturalWidth / originalImg.naturalHeight;
+            return 1;
+        }
+
+        function setSize(w, h) {
+            w = clamp(Math.round(w) || 1, 1, 10000);
+            h = clamp(Math.round(h) || 1, 1, 10000);
+            $('rangeW').max = Math.max(4000, w * 2);
+            $('rangeH').max = Math.max(4000, h * 2);
+            $('rangeW').value = w; $('rangeH').value = h;
+            $('numW').value = w;   $('numH').value = h;
+            updateLabels(); processImage();
+        }
+
+        function onWidthChange() {
+            const w = clamp(parseInt($('rangeW').value, 10) || 1, 1, 10000);
+            let h = parseInt($('rangeH').value, 10);
+            if ($('lockRatio').checked) h = Math.round(w / currentRatio());
+            setSize(w, h);
+        }
+        function onHeightChange() {
+            const h = clamp(parseInt($('rangeH').value, 10) || 1, 1, 10000);
+            let w = parseInt($('rangeW').value, 10);
+            if ($('lockRatio').checked) w = Math.round(h * currentRatio());
+            setSize(w, h);
+        }
+        $('rangeW').addEventListener('input', onWidthChange);
+        $('rangeH').addEventListener('input', onHeightChange);
+        $('numW').addEventListener('change', () => { $('rangeW').value = $('numW').value; onWidthChange(); });
+        $('numH').addEventListener('change', () => { $('rangeH').value = $('numH').value; onHeightChange(); });
+
+        /* ---------------- COLLER (CTRL+V) ---------------- */
+        window.addEventListener('paste', e => {
+            const items = e.clipboardData.items;
+            for (let i = 0; i < items.length; i++) {
+                if (items[i].type.indexOf('image') !== -1) {
+                    const blob = items[i].getAsFile();
+                    const reader = new FileReader();
+                    reader.onload = event => {
+                        const img = new Image();
+                        img.onload = () => {
+                            imagesList.push(img);
+                            loadImg(img, imagesList.length - 1);
+                            showToast("Image collée !");
+                            $('dropMsg').style.display = 'none';
+                        };
+                        img.src = event.target.result;
+                    };
+                    reader.readAsDataURL(blob);
+                }
+            }
+        });
+
+        /* ---------------- GLISSER-DÉPOSER ---------------- */
+        ['dragover', 'drop'].forEach(ev => container.addEventListener(ev, e => e.preventDefault()));
+        container.addEventListener('drop', e => {
+            if (e.dataTransfer.files && e.dataTransfer.files.length) {
+                handleFiles({ target: { files: e.dataTransfer.files } });
+            }
+        });
+
+        /* ---------------- URL ---------------- */
+        async function importViaURL() {
+            const url = $('urlInput').value.trim();
+            const loader = $('urlLoader');
+            if(!url) return;
+            loader.style.display = 'block';
+            try {
+                if (url.match(/\.(jpeg|jpg|gif|png|webp)/i)) {
+                    loadExternalImage(url);
+                    return;
+                }
+                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
+                const res = await fetch(proxyUrl);
+                const data = await res.json();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(data.contents, 'text/html');
+                const metaImg = doc.querySelector('meta[property="og:image"], meta[name="twitter:image"]');
+                if(metaImg) loadExternalImage(metaImg.content);
+                else alert("Impossible d'extraire l'image. Utilisez 'Copier l'image' puis Ctrl+V");
+            } catch (e) {
+                alert("Erreur de lien. Astuce : Faites clic-droit sur la photo -> 'Copier l'image' puis Ctrl+V ici.");
+            } finally { loader.style.display = 'none'; }
+        }
+
+        function loadExternalImage(src) {
+            const img = new Image();
+            img.crossOrigin = "anonymous";
+            img.onload = () => {
+                imagesList.push(img);
+                loadImg(img, imagesList.length - 1);
+                $('dropMsg').style.display = 'none';
+            };
+            img.onerror = () => alert("Image inaccessible (CORS). Faites 'Copier l'image' puis Ctrl+V ici.");
+            img.src = src;
+        }
+
+        /* ---------------- IMPORT FICHIERS ---------------- */
+        $('fileInput').addEventListener('change', handleFiles);
+        ['rangeSharp', 'rangeBright', 'rangeContrast', 'rangeSaturation', 'watermarkText', 'watermarkOpacity']
+            .forEach(id => $(id).addEventListener('input', () => { updateLabels(); processImage(); }));
+        $('rangeQual').addEventListener('input', () => { updateLabels(); estimateWeight(); });
+        $('exportFormat').addEventListener('change', estimateWeight);
+
+        function updateLabels() {
+            $('valW').textContent = $('rangeW').value + 'px';
+            $('valH').textContent = $('rangeH').value + 'px';
+            $('valSharp').textContent = $('rangeSharp').value;
+            $('valBright').textContent = $('rangeBright').value + '%';
+            $('valContrast').textContent = $('rangeContrast').value + '%';
+            $('valSatur').textContent = $('rangeSaturation').value + '%';
+            $('valQual').textContent = $('rangeQual').value + '%';
+        }
+
+        function handleFiles(e) {
+            const files = Array.from(e.target.files);
+            files.forEach(file => {
+                if (!file.type.startsWith('image/')) return;
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        imagesList.push(img);
+                        if(imagesList.length === 1) loadImg(img, 0);
+                        else updateBatchBar();
+                    };
+                    img.src = event.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+            $('dropMsg').style.display = 'none';
+        }
+
+        function loadImg(img, idx) {
+            originalImg = img;
+            if (typeof idx === 'number') activeIndex = idx;
+            cancelCrop();
+            focal = { x: 0.5, y: 0.5 };
+            resetGeometry();
+            updateBatchBar();
+            saveHistory();
+            $('currentStatus').textContent = img.naturalWidth + '×' + img.naturalHeight;
+        }
+
+        /* ---------------- RENDU : proportions toujours conservées ---------------- */
+        function computeDraw(w, h) {
+            const iw = originalImg.naturalWidth || originalImg.width;
+            const ih = originalImg.naturalHeight || originalImg.height;
+            const targetR = w / h, imgR = iw / ih;
+            if (fitMode === 'cover') {
+                // On découpe dans la source ce qui correspond exactement au format demandé
+                let sw, sh;
+                if (imgR > targetR) { sh = ih; sw = ih * targetR; }
+                else { sw = iw; sh = iw / targetR; }
+                return { sx: (iw - sw) * focal.x, sy: (ih - sh) * focal.y, sw, sh, dx: 0, dy: 0, dw: w, dh: h, iw, ih };
+            }
+            // On contient l'image entière dans le cadre, marges autour
+            const scale = Math.min(w / iw, h / ih);
+            const dw = iw * scale, dh = ih * scale;
+            // marges arrondies au pixel : évite un rééchantillonnage inutile quand l'image tient à l'échelle 1:1
+            return { sx: 0, sy: 0, sw: iw, sh: ih, dx: Math.round((w - dw) / 2), dy: Math.round((h - dh) / 2), dw, dh, iw, ih };
+        }
+
+        function coverSource(w, h, iw, ih) {
+            const targetR = w / h, imgR = iw / ih;
+            let sw, sh;
+            if (imgR > targetR) { sh = ih; sw = ih * targetR; } else { sw = iw; sh = iw / targetR; }
+            return { sx: (iw - sw) / 2, sy: (ih - sh) / 2, sw, sh };
+        }
+
+        function processImage() {
+            if(!originalImg) return;
+            const w = clamp(parseInt($('rangeW').value, 10) || 1, 1, 10000);
+            const h = clamp(parseInt($('rangeH').value, 10) || 1, 1, 10000);
+            canvas.width = w; canvas.height = h;
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+            ctx.clearRect(0, 0, w, h);
+            ctx.imageSmoothingEnabled = true;
+            ctx.imageSmoothingQuality = 'high';
+
+            const d = computeDraw(w, h);
+            lastDraw = d;
+
+            if (fitMode === 'contain') {
+                const pad = $('padColor').value;
+                ctx.filter = 'none';
+                if (pad === 'blur') {
+                    ctx.save();
+                    ctx.filter = 'blur(' + Math.max(8, w / 40) + 'px) brightness(70%)';
+                    const c = coverSource(w, h, d.iw, d.ih);
+                    ctx.drawImage(originalImg, c.sx, c.sy, c.sw, c.sh, 0, 0, w, h);
+                    ctx.restore();
+                } else if (pad !== 'transparent') {
+                    ctx.fillStyle = pad;
+                    ctx.fillRect(0, 0, w, h);
+                }
+            }
+
+            const b = $('rangeBright').value, c = $('rangeContrast').value, s = $('rangeSaturation').value;
+            ctx.filter = `brightness(${b}%) contrast(${c}%) saturate(${s}%)` + (isBw ? ' grayscale(100%)' : '');
+            ctx.drawImage(originalImg, d.sx, d.sy, d.sw, d.sh, d.dx, d.dy, d.dw, d.dh);
+            ctx.filter = 'none';
+
+            const sharp = parseInt($('rangeSharp').value, 10);
+            if(sharp > 0) applySharpen(sharp / 100);
+
+            const opa = $('watermarkOpacity').value / 100;
+            const wm = $('watermarkText').value;
+            if(wm) {
+                ctx.fillStyle = `rgba(212, 175, 55, ${opa})`;
+                ctx.font = `bold ${Math.max(12, w/25)}px Inter, sans-serif`;
+                ctx.textBaseline = 'alphabetic';
+                ctx.fillText(wm, 30, h - 30);
+            }
+            if (showBadge) drawBadge(w, h, opa);
+
+            positionCropOverlay();
+            estimateWeight();
+        }
+
+        function drawBadge(w, h, opa) {
+            const pad = Math.max(10, w * 0.02);
+            const fs = Math.max(11, w / 38);
+            ctx.font = `bold ${fs}px Inter, sans-serif`;
+            const label = 'ALGERIA TECH';
+            const bw = ctx.measureText(label).width + fs * 1.6, bh = fs * 1.9;
+            const x = w - bw - pad, y = h - bh - pad;
+            ctx.globalAlpha = Math.max(0.15, opa);
+            ctx.fillStyle = '#120c08';
+            ctx.fillRect(x, y, bw, bh);
+            ctx.strokeStyle = '#d4af37'; ctx.lineWidth = Math.max(1, fs / 12);
+            ctx.strokeRect(x, y, bw, bh);
+            ctx.fillStyle = '#d4af37';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(label, x + fs * 0.8, y + bh / 2);
+            ctx.globalAlpha = 1;
+            ctx.textBaseline = 'alphabetic';
+        }
+
+        function setPreset(w, h) {
+            setRatio(w / h);
+            setSize(w, h);
+            showToast(`Format ${w}×${h} appliqué`);
+        }
+
+        /* ---------------- ROTATION / MIROIR (sur la source) ---------------- */
+        function rotateImage() {
+            if (!originalImg) return;
+            const iw = originalImg.naturalWidth, ih = originalImg.naturalHeight;
+            const t = document.createElement('canvas');
+            t.width = ih; t.height = iw;
+            const tc = t.getContext('2d');
+            tc.translate(t.width/2, t.height/2);
+            tc.rotate(Math.PI/2);
+            tc.drawImage(originalImg, -iw/2, -ih/2);
+            replaceSource(t, 'Rotation 90°');
+        }
+
+        function flipImage() {
+            if (!originalImg) return;
+            const iw = originalImg.naturalWidth, ih = originalImg.naturalHeight;
+            const t = document.createElement('canvas');
+            t.width = iw; t.height = ih;
+            const tc = t.getContext('2d');
+            tc.translate(iw, 0); tc.scale(-1, 1);
+            tc.drawImage(originalImg, 0, 0);
+            replaceSource(t, 'Miroir appliqué', true);
+        }
+
+        function replaceSource(tCanvas, msg, keepFrame) {
+            const nImg = new Image();
+            nImg.onload = () => {
+                originalImg = nImg;
+                if (activeIndex > -1) imagesList[activeIndex] = nImg;
+                focal = { x: 0.5, y: 0.5 };
+                if (keepFrame) processImage();
+                else resetGeometry();
+                updateBatchBar();
+                saveHistory();
+                $('currentStatus').textContent = nImg.naturalWidth + '×' + nImg.naturalHeight;
+                if (msg) showToast(msg);
+            };
+            nImg.src = tCanvas.toDataURL('image/png');
+        }
+
+        /* ================= ROGNAGE STYLE PAINT ================= */
+        let cropRect = null;   // {x, y, w, h} en pixels d'affichage, relatifs au canvas
+        let drag = null;
+
+        function toggleCropMode() {
+            isCropMode = !isCropMode;
+            document.body.classList.toggle('cropping', isCropMode);
+            $('btnCrop').classList.toggle('active', isCropMode);
+            canvas.style.cursor = isCropMode ? 'crosshair' : (fitMode === 'cover' ? 'grab' : 'default');
+            if (!isCropMode) cancelCrop();
+            else showToast('Tracez une zone — poignées pour ajuster, Entrée pour valider');
+        }
+
+        function cancelCrop() {
+            cropRect = null; drag = null;
+            cropOverlay.style.display = 'none';
+        }
+
+        function canvasBox() {
+            const c = canvas.getBoundingClientRect();
+            const k = container.getBoundingClientRect();
+            return { left: c.left, top: c.top, w: c.width, h: c.height, ox: c.left - k.left, oy: c.top - k.top };
+        }
+
+        function positionCropOverlay() {
+            if (!cropRect) { cropOverlay.style.display = 'none'; return; }
+            const b = canvasBox();
+            cropOverlay.style.display = 'block';
+            cropOverlay.style.left = (b.ox + cropRect.x) + 'px';
+            cropOverlay.style.top = (b.oy + cropRect.y) + 'px';
+            cropOverlay.style.width = cropRect.w + 'px';
+            cropOverlay.style.height = cropRect.h + 'px';
+            $('cropSize').textContent = Math.round(cropRect.w * (canvas.width / b.w)) + ' × ' +
+                                        Math.round(cropRect.h * (canvas.height / b.h)) + ' px';
+        }
+
+        container.addEventListener('pointerdown', e => {
+            if (!originalImg) return;
+            const b = canvasBox();
+            const x = e.clientX - b.left, y = e.clientY - b.top;
+
+            if (isCropMode) {
+                const handle = e.target.dataset ? e.target.dataset.handle : null;
+                if (handle && cropRect) {
+                    drag = { mode: 'resize', handle, sx: x, sy: y, orig: { ...cropRect } };
+                } else if (cropRect && e.target === cropOverlay) {
+                    drag = { mode: 'move', sx: x, sy: y, orig: { ...cropRect } };
+                } else {
+                    if (x < 0 || y < 0 || x > b.w || y > b.h) return;
+                    cropRect = { x, y, w: 0, h: 0 };
+                    drag = { mode: 'new', sx: x, sy: y };
+                    cropOverlay.style.display = 'block';
+                }
+                container.setPointerCapture(e.pointerId);
+                e.preventDefault();
+                return;
+            }
+
+            // Choix du cadrage (mode Remplir) : on fait glisser l'image dans le cadre, sans la déformer
+            if (fitMode === 'cover' && lastDraw && (lastDraw.sw < lastDraw.iw - 1 || lastDraw.sh < lastDraw.ih - 1)) {
+                drag = { mode: 'pan', sx: x, sy: y, orig: { ...focal } };
+                canvas.style.cursor = 'grabbing';
+                container.setPointerCapture(e.pointerId);
+                e.preventDefault();
+            }
+        });
+
+        container.addEventListener('pointermove', e => {
+            if (!drag) return;
+            const b = canvasBox();
+            const x = clamp(e.clientX - b.left, 0, b.w);
+            const y = clamp(e.clientY - b.top, 0, b.h);
+
+            if (drag.mode === 'pan') {
+                const rangeX = lastDraw.iw - lastDraw.sw, rangeY = lastDraw.ih - lastDraw.sh;
+                const kx = rangeX ? (lastDraw.sw / rangeX) : 0;
+                const ky = rangeY ? (lastDraw.sh / rangeY) : 0;
+                focal.x = clamp(drag.orig.x - ((x - drag.sx) / b.w) * kx, 0, 1);
+                focal.y = clamp(drag.orig.y - ((y - drag.sy) / b.h) * ky, 0, 1);
+                processImage();
+                return;
+            }
+
+            if (drag.mode === 'new') {
+                let w = x - drag.sx, h = y - drag.sy;
+                const r = cropRatioValue();
+                if (r) {
+                    const sgnX = w < 0 ? -1 : 1, sgnY = h < 0 ? -1 : 1;
+                    if (Math.abs(w) / r > Math.abs(h)) h = sgnY * Math.abs(w) / r;
+                    else w = sgnX * Math.abs(h) * r;
+                }
+                cropRect = {
+                    x: Math.min(drag.sx, drag.sx + w),
+                    y: Math.min(drag.sy, drag.sy + h),
+                    w: Math.abs(w), h: Math.abs(h)
+                };
+                clampCrop(b);
+            } else if (drag.mode === 'move') {
+                cropRect = {
+                    x: clamp(drag.orig.x + (x - drag.sx), 0, b.w - drag.orig.w),
+                    y: clamp(drag.orig.y + (y - drag.sy), 0, b.h - drag.orig.h),
+                    w: drag.orig.w, h: drag.orig.h
+                };
+            } else if (drag.mode === 'resize') {
+                const o = drag.orig, hd = drag.handle;
+                let left = o.x, top = o.y, right = o.x + o.w, bottom = o.y + o.h;
+                if (hd.includes('w')) left = Math.min(x, right - 12);
+                if (hd.includes('e')) right = Math.max(x, left + 12);
+                if (hd.includes('n')) top = Math.min(y, bottom - 12);
+                if (hd.includes('s')) bottom = Math.max(y, top + 12);
+                const r = cropRatioValue();
+                if (r) {
+                    let w = right - left, h = bottom - top;
+                    if (hd === 'n' || hd === 's') { w = h * r; right = left + w; }
+                    else if (hd === 'e' || hd === 'w') { h = w / r; bottom = top + h; }
+                    else {
+                        if (w / r > h) h = w / r; else w = h * r;
+                        if (hd.includes('n')) top = bottom - h; else bottom = top + h;
+                        if (hd.includes('w')) left = right - w; else right = left + w;
+                    }
+                }
+                cropRect = { x: left, y: top, w: right - left, h: bottom - top };
+                clampCrop(b);
+            }
+            positionCropOverlay();
+        });
+
+        container.addEventListener('pointerup', e => {
+            if (drag && drag.mode === 'pan') canvas.style.cursor = 'grab';
+            if (drag && cropRect && (cropRect.w < 6 || cropRect.h < 6)) cancelCrop();
+            drag = null;
+            try { container.releasePointerCapture(e.pointerId); } catch (err) {}
+        });
+
+        function clampCrop(b) {
+            cropRect.w = Math.min(cropRect.w, b.w);
+            cropRect.h = Math.min(cropRect.h, b.h);
+            cropRect.x = clamp(cropRect.x, 0, b.w - cropRect.w);
+            cropRect.y = clamp(cropRect.y, 0, b.h - cropRect.h);
+        }
+
+        // Le rognage suit le format sélectionné (pratique pour préparer un 16:9, une story, etc.)
+        function cropRatioValue() { return activeRatio || null; }
+
+        window.addEventListener('keydown', e => {
+            const tag = e.target.tagName;
+            if (tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA') return;
+            if (e.key === 'Escape' && isCropMode) toggleCropMode();
+            else if (e.key === 'Enter' && isCropMode) applyCrop();
+            else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z') { e.preventDefault(); undo(); }
+            else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'y') { e.preventDefault(); redo(); }
+        });
+        window.addEventListener('resize', positionCropOverlay);
+
+        function applyCrop() {
+            if (!originalImg || !cropRect || cropRect.w < 5 || cropRect.h < 5) {
+                showToast("Tracez d'abord une zone à rogner");
+                return;
+            }
+            const b = canvasBox();
+            const kx = canvas.width / b.w, ky = canvas.height / b.h;
+            const cx1 = cropRect.x * kx, cy1 = cropRect.y * ky;
+            const cx2 = (cropRect.x + cropRect.w) * kx, cy2 = (cropRect.y + cropRect.h) * ky;
+            // canvas -> pixels de la source : on rogne dans l'original, en pleine résolution
+            const d = lastDraw;
+            const toSrcX = v => clamp(d.sx + (v - d.dx) * (d.sw / d.dw), 0, d.iw);
+            const toSrcY = v => clamp(d.sy + (v - d.dy) * (d.sh / d.dh), 0, d.ih);
+            const sx = toSrcX(cx1), sy = toSrcY(cy1);
+            const sw = Math.max(1, toSrcX(cx2) - sx), sh = Math.max(1, toSrcY(cy2) - sy);
+
+            const t = document.createElement('canvas');
+            t.width = Math.round(sw); t.height = Math.round(sh);
+            t.getContext('2d').drawImage(originalImg, sx, sy, sw, sh, 0, 0, t.width, t.height);
+
+            cancelCrop();
+            isCropMode = false;
+            document.body.classList.remove('cropping');
+            $('btnCrop').classList.remove('active');
+            canvas.style.cursor = fitMode === 'cover' ? 'grab' : 'default';
+            replaceSource(t, 'Rognage appliqué');
+        }
+
+        /* ---------------- FILTRES ---------------- */
+        function resetFilters() {
+            $('rangeSharp').value = 0;
+            $('rangeBright').value = 100;
+            $('rangeContrast').value = 100;
+            $('rangeSaturation').value = 100;
+            isBw = false; $('btnBw').classList.remove('active');
+            updateLabels(); processImage();
+        }
+
+        function resetWatermark() {
+            $('watermarkText').value = '';
+            $('watermarkOpacity').value = 30;
+            showBadge = false; $('btnBadge').classList.remove('active');
+            processImage();
+        }
+
+        function resetGeometry() {
+            if(!originalImg) return;
+            focal = { x: 0.5, y: 0.5 };
+            applyFrameForRatio(activeRatio);
+        }
+
+        function applySharpen(mix) {
+            const w = canvas.width, h = canvas.height;
+            if (w * h > 30e6) return;
+            const src = ctx.getImageData(0, 0, w, h);
+            const out = ctx.createImageData(w, h);
+            const s = src.data, o = out.data;
+            const k = [0, -1, 0, -1, 5, -1, 0, -1, 0];
+            for (let y = 0; y < h; y++) {
+                for (let x = 0; x < w; x++) {
+                    const i = (y * w + x) * 4;
+                    if (x === 0 || y === 0 || x === w - 1 || y === h - 1) {
+                        o[i] = s[i]; o[i+1] = s[i+1]; o[i+2] = s[i+2]; o[i+3] = s[i+3];
+                        continue;
+                    }
+                    for (let c = 0; c < 3; c++) {
+                        let sum = 0, ki = 0;
+                        for (let dy = -1; dy <= 1; dy++)
+                            for (let dx = -1; dx <= 1; dx++)
+                                sum += s[((y + dy) * w + (x + dx)) * 4 + c] * k[ki++];
+                        o[i + c] = clamp(s[i + c] * (1 - mix) + sum * mix, 0, 255);
+                    }
+                    o[i + 3] = s[i + 3];
+                }
+            }
+            ctx.putImageData(out, 0, 0);
+        }
+
+        function toggleBw() {
+            isBw = !isBw;
+            $('btnBw').classList.toggle('active', isBw);
+            processImage();
+        }
+
+        function addLogoBadge() {
+            showBadge = !showBadge;
+            $('btnBadge').classList.toggle('active', showBadge);
+            processImage();
+            showToast(showBadge ? 'Badge ajouté' : 'Badge retiré');
+        }
+
+        // Suppression de fond : propagation depuis les bords sur les couleurs proches
+        function removeBg() {
+            if (!originalImg) return;
+            const iw = originalImg.naturalWidth, ih = originalImg.naturalHeight;
+            if (iw * ih > 16e6) { showToast('Image trop lourde pour la suppression de fond'); return; }
+            const t = document.createElement('canvas');
+            t.width = iw; t.height = ih;
+            const tc = t.getContext('2d', { willReadFrequently: true });
+            tc.drawImage(originalImg, 0, 0);
+            let data;
+            try { data = tc.getImageData(0, 0, iw, ih); }
+            catch (err) { showToast('Image externe protégée (CORS)'); return; }
+            const d = data.data;
+            const tol = 42 * 3;
+            const visited = new Uint8Array(iw * ih);
+            const stack = [];
+            const push = (x, y) => { if (x >= 0 && y >= 0 && x < iw && y < ih && !visited[y * iw + x]) stack.push(x, y); };
+            for (let x = 0; x < iw; x++) { push(x, 0); push(x, ih - 1); }
+            for (let y = 0; y < ih; y++) { push(0, y); push(iw - 1, y); }
+            const ref = [d[0], d[1], d[2]];
+            while (stack.length) {
+                const y = stack.pop(), x = stack.pop();
+                const p = y * iw + x;
+                if (visited[p]) continue;
+                visited[p] = 1;
+                const i = p * 4;
+                if (Math.abs(d[i] - ref[0]) + Math.abs(d[i+1] - ref[1]) + Math.abs(d[i+2] - ref[2]) > tol) continue;
+                d[i + 3] = 0;
+                push(x + 1, y); push(x - 1, y); push(x, y + 1); push(x, y - 1);
+            }
+            tc.putImageData(data, 0, 0);
+            $('exportFormat').value = 'image/png';
+            replaceSource(t, 'Fond supprimé (export PNG)', true);
+        }
+
+        function applyMagicEnhance() {
+            $('rangeBright').value = 105;
+            $('rangeContrast').value = 110;
+            $('rangeSaturation').value = 125;
+            $('rangeSharp').value = 20;
+            updateLabels(); processImage();
+            showToast("✨ Algeria Glow Activé");
+        }
+
+        /* ---------------- BATCH ---------------- */
+        function updateBatchBar() {
+            const bar = $('batchBar');
+            bar.innerHTML = "";
+            imagesList.forEach((img, idx) => {
+                const box = document.createElement('div');
+                box.className = "thumb-box" + (idx === activeIndex ? " active" : "");
+                box.onclick = () => loadImg(img, idx);
+                const thumb = new Image(); thumb.src = img.src;
+                box.appendChild(thumb); bar.appendChild(box);
+            });
+        }
+
+        function applyToAll() {
+            if (!imagesList.length) { showToast('Aucune image'); return; }
+            if (!confirm(`Exporter les ${imagesList.length} image(s) avec les réglages actuels ?`)) return;
+            const format = $('exportFormat').value;
+            const q = $('rangeQual').value / 100;
+            const savedImg = originalImg, savedIdx = activeIndex, savedFocal = { ...focal };
+            imagesList.forEach((img, i) => {
+                originalImg = img;
+                focal = { x: 0.5, y: 0.5 };
+                processImage();
+                const link = document.createElement('a');
+                link.download = `algeria-tech-${i + 1}-${Date.now()}.${format.split('/')[1]}`;
+                link.href = canvas.toDataURL(format, q);
+                link.click();
+            });
+            originalImg = savedImg; activeIndex = savedIdx; focal = savedFocal;
+            processImage();
+            showToast(`${imagesList.length} image(s) exportée(s)`);
+        }
+
+        /* ---------------- TOAST / HISTORIQUE ---------------- */
+        function showToast(m) {
+            const t = $('toast');
+            t.textContent = m; t.classList.add('show');
+            clearTimeout(t._tm);
+            t._tm = setTimeout(() => t.classList.remove('show'), 3000);
+        }
+
+        function snapshot() {
+            return {
+                src: originalImg ? originalImg.src : null,
+                w: $('rangeW').value, h: $('rangeH').value,
+                ratio: activeRatio, fit: fitMode, focal: { ...focal },
+                sharp: $('rangeSharp').value, bright: $('rangeBright').value,
+                contrast: $('rangeContrast').value, satur: $('rangeSaturation').value,
+                bw: isBw, badge: showBadge, wm: $('watermarkText').value,
+                wmO: $('watermarkOpacity').value, idx: activeIndex
+            };
+        }
+
+        function saveHistory() {
+            history = history.slice(0, historyStep + 1);
+            history.push(snapshot());
+            if (history.length > 25) history.shift();
+            historyStep = history.length - 1;
+        }
+
+        function undo() { if(historyStep > 0) { historyStep--; restoreH(); } else showToast('Rien à annuler'); }
+        function redo() { if(historyStep < history.length - 1) { historyStep++; restoreH(); } else showToast('Rien à rétablir'); }
+
+        function restoreH() {
+            const s = history[historyStep];
+            if (!s || !s.src) return;
+            const img = new Image();
+            img.onload = () => {
+                originalImg = img;
+                activeIndex = s.idx;
+                if (s.idx > -1 && imagesList[s.idx]) imagesList[s.idx] = img;
+                setRatio(s.ratio);
+                setFit(s.fit);
+                focal = { ...s.focal };
+                $('rangeSharp').value = s.sharp; $('rangeBright').value = s.bright;
+                $('rangeContrast').value = s.contrast; $('rangeSaturation').value = s.satur;
+                isBw = s.bw; $('btnBw').classList.toggle('active', isBw);
+                showBadge = s.badge; $('btnBadge').classList.toggle('active', showBadge);
+                $('watermarkText').value = s.wm; $('watermarkOpacity').value = s.wmO;
+                setSize(parseInt(s.w, 10), parseInt(s.h, 10));
+                updateBatchBar();
+            };
+            img.src = s.src;
+        }
+
+        /* ---------------- EXPORT ---------------- */
+        function estimateWeight() {
+            if (!originalImg) { $('weightHint').textContent = ''; return; }
+            try {
+                const url = canvas.toDataURL($('exportFormat').value, $('rangeQual').value / 100);
+                const bytes = Math.round((url.length - url.indexOf(',') - 1) * 0.75);
+                $('weightHint').textContent = `${canvas.width}×${canvas.height} — ~` +
+                    (bytes > 1048576 ? (bytes/1048576).toFixed(2)+' Mo' : Math.round(bytes/1024)+' Ko');
+            } catch (e) { $('weightHint').textContent = ''; }
+        }
+
+        function downloadImage() {
+            if (!originalImg) { showToast('Importez une image'); return; }
+            const format = $('exportFormat').value;
+            const link = document.createElement('a');
+            link.download = `algeria-tech-${Date.now()}.${format.split('/')[1]}`;
+            link.href = canvas.toDataURL(format, $('rangeQual').value / 100);
+            link.click();
+            showToast("Export terminé !");
+        }
+
+        /* ================= RECOMPOSITION DE MISE EN PAGE (NOUVEAU) =================
+           L'image n'est ni recadrée ni étirée : on isole les blocs graphiques, on
+           reconstruit le fond au nouveau format, puis on replace chaque bloc.        */
+        const Smart = {
+            ANALYSE: 820,
+
+            /* --- 1. Analyse : fond, masque de contenu, blocs --- */
+            analyse(img) {
+                const iw = img.naturalWidth, ih = img.naturalHeight;
+                const k = Math.min(1, this.ANALYSE / Math.max(iw, ih));
+                const w = Math.max(16, Math.round(iw * k)), h = Math.max(16, Math.round(ih * k));
+
+                const a = document.createElement('canvas'); a.width = w; a.height = h;
+                const ac = a.getContext('2d', { willReadFrequently: true });
+                ac.drawImage(img, 0, 0, w, h);
+                const src = ac.getImageData(0, 0, w, h).data;
+
+                // Plaque de fond = version très floue (gradients et aplats, sans les détails)
+                const plate = document.createElement('canvas'); plate.width = w; plate.height = h;
+                const plc = plate.getContext('2d', { willReadFrequently: true });
+                plc.filter = 'blur(' + Math.max(5, Math.round(Math.max(w, h) / 26)) + 'px)';
+                plc.drawImage(a, 0, 0);
+                plc.filter = 'none';
+                const bg = plc.getImageData(0, 0, w, h).data;
+
+                // Écart au fond = énergie du contenu
+                const diff = new Uint8ClampedArray(w * h);
+                for (let q = 0, i = 0; q < w * h; q++, i += 4) {
+                    diff[q] = (Math.abs(src[i] - bg[i]) + Math.abs(src[i+1] - bg[i+1]) + Math.abs(src[i+2] - bg[i+2])) / 3;
+                }
+                const mask = new Uint8Array(w * h);
+                for (let q = 0; q < w * h; q++) mask[q] = diff[q] > 16 ? 1 : 0;
+
+                // Fermeture morphologique : les lettres deviennent des lignes, les lignes des blocs
+                const dil = this.dilate(mask, w, h, Math.max(2, Math.round(w * 0.020)), Math.max(2, Math.round(h * 0.010)));
+                let bruts = this.components(dil, w, h, diff);
+                bruts = bruts.filter(b => b.w > w * 0.02 && b.h > h * 0.008 && b.px > 12);
+                bruts.forEach(b => { b.force = b.energy / Math.max(1, b.px); });
+                // Le décor en filigrane (traits fins, illustrations pâles) est isolé AVANT la fusion :
+                // sans cela il se collerait aux blocs de texte voisins.
+                // Un texte ou un logo contient toujours des pixels très contrastés ; une illustration
+                // en filigrane n'en a quasiment aucun. C'est ce qui les sépare de façon fiable.
+                const surfA = w * h;
+                bruts.forEach(b => { b.net = b.strong / Math.max(1, b.px); });
+                const faibles = bruts.filter(b => b.net < 0.04);
+                const forts = bruts.filter(b => faibles.indexOf(b) === -1);
+                const boxes = this.merge(forts, w * 0.030, h * 0.018)
+                    .concat(this.merge(faibles, w * 0.05, h * 0.05).map(b => (b.decor = true, b)));
+                boxes.forEach(b => { b.force = b.energy / Math.max(1, b.px); b.net = b.strong / Math.max(1, b.px); });
+
+                // Nature de l'image : une affiche a de vastes aplats et peu de teintes,
+                // une photo a de la texture partout et des milliers de teintes.
+                const hist = new Int32Array(32768);
+                let tot = 0;
+                for (let i = 0; i < src.length; i += 4) { hist[(src[i] >> 3 << 10) | (src[i+1] >> 3 << 5) | (src[i+2] >> 3)]++; tot++; }
+                const tri = Array.from(hist).filter(v => v).sort((a, b) => b - a);
+                const dominance = tri[0] / tot;                       // part de la teinte la plus fréquente
+                let cum = 0, teintes90 = 0;
+                for (const v of tri) { cum += v; teintes90++; if (cum >= tot * 0.9) break; }
+
+                // Couleur de fond dominante (bords de la plaque)
+                let r = 0, g = 0, bl = 0, n = 0;
+                for (let x = 0; x < w; x += 3) { for (const y of [0, h - 1]) { const i = (y * w + x) * 4; r += bg[i]; g += bg[i+1]; bl += bg[i+2]; n++; } }
+                for (let y = 0; y < h; y += 3) { for (const x of [0, w - 1]) { const i = (y * w + x) * 4; r += bg[i]; g += bg[i+1]; bl += bg[i+2]; n++; } }
+                const bgColor = `rgb(${Math.round(r/n)},${Math.round(g/n)},${Math.round(bl/n)})`;
+
+                // Retour aux coordonnées de l'image d'origine, avec une marge de sécurité
+                const pad = Math.round(Math.min(iw, ih) * 0.012);
+                boxes.forEach(b => {
+                    b.x = Math.max(0, Math.round(b.x / k) - pad);
+                    b.y = Math.max(0, Math.round(b.y / k) - pad);
+                    b.w = Math.min(iw - b.x, Math.round(b.w / k) + pad * 2);
+                    b.h = Math.min(ih - b.y, Math.round(b.h / k) + pad * 2);
+                });
+                return { boxes, plate, bgColor, iw, ih, dominance, teintes90, diff, aw: w, ah: h, k };
+            },
+
+            dilate(mask, w, h, rx, ry) {
+                const I = new Int32Array((w + 1) * (h + 1));
+                for (let y = 0; y < h; y++) { let rs = 0;
+                    for (let x = 0; x < w; x++) { rs += mask[y * w + x]; I[(y+1)*(w+1)+x+1] = I[y*(w+1)+x+1] + rs; } }
+                const out = new Uint8Array(w * h);
+                for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+                    const x0 = Math.max(0, x - rx), x1 = Math.min(w - 1, x + rx);
+                    const y0 = Math.max(0, y - ry), y1 = Math.min(h - 1, y + ry);
+                    const s = I[(y1+1)*(w+1)+x1+1] - I[y0*(w+1)+x1+1] - I[(y1+1)*(w+1)+x0] + I[y0*(w+1)+x0];
+                    out[y * w + x] = s > 0 ? 1 : 0;
+                }
+                return out;
+            },
+
+            components(m, w, h, diff) {
+                const seen = new Uint8Array(w * h), boxes = [], st = [];
+                for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+                    const p0 = y * w + x;
+                    if (!m[p0] || seen[p0]) continue;
+                    let x0 = x, x1 = x, y0 = y, y1 = y, energy = 0, px = 0, strong = 0;
+                    st.push(x, y); seen[p0] = 1;
+                    while (st.length) {
+                        const cy = st.pop(), cx = st.pop(), p = cy * w + cx;
+                        energy += diff[p]; px++;
+                        if (diff[p] > 70) strong++;
+                        if (cx < x0) x0 = cx; if (cx > x1) x1 = cx;
+                        if (cy < y0) y0 = cy; if (cy > y1) y1 = cy;
+                        for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) {
+                            const nx = cx + dx, ny = cy + dy;
+                            if (nx < 0 || ny < 0 || nx >= w || ny >= h) continue;
+                            const np = ny * w + nx;
+                            if (m[np] && !seen[np]) { seen[np] = 1; st.push(nx, ny); }
+                        }
+                    }
+                    boxes.push({ x: x0, y: y0, w: x1 - x0 + 1, h: y1 - y0 + 1, energy, px, strong });
+                }
+                return boxes;
+            },
+
+            merge(boxes, gx, gy) {
+                let again = true;
+                while (again) { again = false;
+                    for (let i = 0; i < boxes.length; i++) for (let j = i + 1; j < boxes.length; j++) {
+                        const A = boxes[i], B = boxes[j];
+                        if (A.x < B.x + B.w + gx && B.x < A.x + A.w + gx && A.y < B.y + B.h + gy && B.y < A.y + A.h + gy) {
+                            const x2 = Math.max(A.x + A.w, B.x + B.w), y2 = Math.max(A.y + A.h, B.y + B.h);
+                            A.x = Math.min(A.x, B.x); A.y = Math.min(A.y, B.y);
+                            A.w = x2 - A.x; A.h = y2 - A.y;
+                            A.energy += B.energy; A.px += B.px; A.strong += B.strong;
+                            boxes.splice(j, 1); j--; again = true;
+                        }
+                    }
+                }
+                return boxes;
+            },
+
+            /* --- 2. Rôles : en-tête, titre, décor, contenus --- */
+            roles(R) {
+                const { boxes, iw, ih } = R;
+                const surf = iw * ih;
+                const rest = [];
+                const head = [], decor = [];
+                boxes.forEach(b => {
+                    const aire = (b.w * b.h) / surf;
+                    if (b.decor) { decor.push(b); return; }                                   // trait fin, illustration en filigrane
+                    if (b.y + b.h < ih * 0.20 && aire < 0.10) { head.push(b); return; }       // logos en bandeau
+                    rest.push(b);
+                });
+                rest.sort((a, b) => a.y - b.y || a.x - b.x);
+                let title = null;
+                const fort = rest.filter(b => b.w > iw * 0.35);
+                if (fort.length) {
+                    title = fort.reduce((m, b) => (b.w * b.h * b.force > m.w * m.h * m.force ? b : m), fort[0]);
+                }
+                const items = rest.filter(b => b !== title);
+                head.sort((a, b) => a.x - b.x);
+                return { head, title, items, decor };
+            },
+
+
+
+            /* ---------- Renfort IA : outpainting serveur, avec repli local ----------
+               Le rendu local sert d'image de départ ; le masque blanc marque les zones
+               à inventer. Le centre d'origine est recollé net par-dessus : le modèle
+               ne peut jamais abîmer l'image de départ.                                */
+            async outpaint(base, img, ratio, endpoint) {
+                const W = base.W, H = base.H;
+                const iw = img.naturalWidth, ih = img.naturalHeight;
+                const kk = Math.min(W / iw, H / ih);
+                const dw = Math.round(iw * kk), dh = Math.round(ih * kk);
+                const x0 = Math.round((W - dw) / 2), y0 = Math.round((H - dh) / 2);
+                if (W - dw < 8 && H - dh < 8) throw new Error('rien à inventer');
+
+                // Dimensions acceptées par les modèles : multiples de 8, 1024 px maxi
+                const k2 = Math.min(1, 1024 / Math.max(W, H));
+                const rw = Math.max(64, Math.round(W * k2 / 8) * 8), rh = Math.max(64, Math.round(H * k2 / 8) * 8);
+                const petit = document.createElement('canvas'); petit.width = rw; petit.height = rh;
+                petit.getContext('2d').drawImage(base.out, 0, 0, rw, rh);
+
+                // Masque : blanc = à réinventer, noir = à conserver. Un recouvrement laisse
+                // au modèle de quoi raccorder proprement au bord de l'image d'origine.
+                const rec = Math.round(Math.min(rw, rh) * 0.02);
+                const mk = document.createElement('canvas'); mk.width = rw; mk.height = rh;
+                const mc = mk.getContext('2d');
+                mc.fillStyle = '#fff'; mc.fillRect(0, 0, rw, rh);
+                mc.fillStyle = '#000';
+                mc.fillRect(Math.round(x0 * rw / W) + rec, Math.round(y0 * rh / H) + rec,
+                            Math.round(dw * rw / W) - rec * 2, Math.round(dh * rh / H) - rec * 2);
+
+                const ctrl = new AbortController();
+                const minuteur = setTimeout(() => ctrl.abort(), 45000);
+                let data;
+                try {
+                    const res = await fetch(endpoint || '/api/outpaint', {
+                        method: 'POST', signal: ctrl.signal,
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            image: petit.toDataURL('image/png'),
+                            mask: mk.toDataURL('image/png'),
+                            width: rw, height: rh,
+                            prompt: 'seamless background extension, same style and colors, no text, no logo'
+                        })
+                    });
+                    data = await res.json();
+                    if (!res.ok || !data.image) throw new Error(data.error || 'réponse invalide');
+                } finally { clearTimeout(minuteur); }
+
+                const gen = await new Promise((ok, ko) => {
+                    const i = new Image(); i.onload = () => ok(i); i.onerror = ko; i.src = data.image;
+                });
+
+                // Décor inventé + image d'origine recollée en pleine résolution,
+                // avec un léger fondu de pourtour pour effacer la jointure.
+                const out = document.createElement('canvas'); out.width = W; out.height = H;
+                const o = out.getContext('2d');
+                o.imageSmoothingQuality = 'high';
+                o.drawImage(gen, 0, 0, gen.naturalWidth, gen.naturalHeight, 0, 0, W, H);
+                const f = Math.max(4, Math.round(Math.min(dw, dh) * 0.012));
+                const net = document.createElement('canvas'); net.width = dw; net.height = dh;
+                const nc = net.getContext('2d');
+                nc.drawImage(img, 0, 0, iw, ih, 0, 0, dw, dh);
+                const m2 = document.createElement('canvas'); m2.width = dw; m2.height = dh;
+                const m2c = m2.getContext('2d');
+                m2c.filter = `blur(${Math.round(f / 2)}px)`;
+                m2c.fillStyle = '#fff'; m2c.fillRect(f / 2, f / 2, dw - f, dh - f);
+                nc.globalCompositeOperation = 'destination-in';
+                nc.drawImage(m2, 0, 0);
+                o.drawImage(net, x0, y0);
+                return { out, W, H, blocs: base.blocs, moteur: data.moteur || 'ia' };
+            },
+
+            /* ---------- Nature de l'image et choix automatique de la stratégie ---------- */
+            nature(R) {
+                // Une création graphique repose sur un aplat dominant et une palette courte ;
+                // une photo étale ses pixels sur des centaines de teintes.
+                const affiche = R.dominance > 0.12 && R.teintes90 < 60;
+                return affiche ? 'affiche' : 'photo';
+            },
+
+            /* Confiance de la recomposition : au moindre doute on n'y touche pas.
+               Une affiche dense, un texte éclaté ou des blocs trop réduits = refus. */
+            confiance(R, ratio) {
+                const ro = this.roles(R);
+                const n = ro.items.length;
+                if (!ro.title || n === 0) return { ok: false, motif: 'structure illisible' };
+                if (n > 5) return { ok: false, motif: `${n} blocs : trop dense pour être réarrangé` };
+                const surf = R.iw * R.ih;
+                const couvert = R.boxes.filter(b => !b.decor).reduce((t, b) => t + b.w * b.h, 0) / surf;
+                if (couvert > 0.78) return { ok: false, motif: 'mise en page trop chargée' };
+                // échelle qu'obtiendraient les contenus une fois alignés
+                let W = Math.round(Math.sqrt(surf * ratio)), H = Math.round(W / ratio);
+                const M = Math.min(W, H) * 0.055, gap = W * 0.035;
+                const totW = ro.items.reduce((t, b) => t + b.w, 0);
+                const s = (W - 2 * M - gap * (n - 1)) / totW;
+                if (s < 0.5) return { ok: false, motif: 'blocs trop réduits' };
+                return { ok: true, roles: ro, echelle: s };
+            },
+
+            /* ---------- Fond d'origine débarrassé de son contenu ----------
+               Sert à prolonger le décor sans jamais recopier un morceau de texte. */
+            fondNu(img, R) {
+                const iw = img.naturalWidth, ih = img.naturalHeight;
+                const cap = 1800, k = Math.min(1, cap / Math.max(iw, ih));
+                const w = Math.round(iw * k), h = Math.round(ih * k);
+                const c = document.createElement('canvas'); c.width = w; c.height = h;
+                const cc = c.getContext('2d', { willReadFrequently: true });
+                cc.drawImage(img, 0, 0, w, h);
+                // chaque bloc de contenu est remplacé par la teinte de son pourtour
+                R.boxes.filter(b => !b.decor).forEach(b => {
+                    const x = b.x * k, y = b.y * k, bw = Math.max(1, b.w * k), bh = Math.max(1, b.h * k);
+                    const t = this.bordure(cc, w, h, { x, y, w: bw, h: bh });
+                    if (!t) return;
+                    cc.save();
+                    cc.filter = `blur(${Math.max(4, Math.round(Math.min(bw, bh) * 0.25))}px)`;
+                    cc.fillStyle = t;
+                    cc.fillRect(x - 2, y - 2, bw + 4, bh + 4);
+                    cc.restore();
+                });
+                return c;
+            },
+
+            /* ---------- Stratégie « étendre » ----------
+               L'image reste intacte, à sa place, à sa taille : on fabrique le décor manquant. */
+            etendre(img, ratio, R, genre) {
+                const iw = img.naturalWidth, ih = img.naturalHeight;
+                let W, H;
+                if (iw / ih < ratio) { H = ih; W = Math.round(ih * ratio); }
+                else { W = iw; H = Math.round(iw / ratio); }
+                const cap = 2600, mx = Math.max(W, H), kk = mx > cap ? cap / mx : 1;
+                W = Math.round(W * kk); H = Math.round(H * kk);
+                const dw = Math.round(iw * kk), dh = Math.round(ih * kk);
+                const x0 = Math.round((W - dw) / 2), y0 = Math.round((H - dh) / 2);
+
+                const out = document.createElement('canvas'); out.width = W; out.height = H;
+                const o = out.getContext('2d');
+                o.imageSmoothingEnabled = true; o.imageSmoothingQuality = 'high';
+                o.fillStyle = R.bgColor; o.fillRect(0, 0, W, H);
+
+                if (genre === 'photo') {
+                    // Photo : le décor est prolongé par symétrie (l'horizon, le relief et les
+                    // dégradés se poursuivent), avec un flou qui croît en s'éloignant, puis un
+                    // voile sombre qui garde le regard sur l'image d'origine.
+                    const fond = coverSource(W, H, iw, ih);
+                    o.save();
+                    o.filter = `blur(${Math.max(18, Math.round(W * 0.05))}px) brightness(0.9)`;
+                    o.drawImage(img, fond.sx, fond.sy, fond.sw, fond.sh, 0, 0, W, H);
+                    o.restore();
+                    // Prolongement par étirement de la lame de bordure : l'horizon, le relief et
+                    // les dégradés se poursuivent, et aucun objet (soleil, visage) ne peut être
+                    // dupliqué puisque seule la bande de bord est utilisée.
+                    ['gauche', 'droite', 'haut', 'bas'].forEach(c => this.lame(o, img, iw, ih, x0, y0, dw, dh, W, H, c));
+                    if (x0 > 1) {
+                        [[0, x0, 1], [x0 + dw, W - x0 - dw, -1]].forEach(([bx, bw, sens]) => {
+                            const g = o.createLinearGradient(sens > 0 ? bx : bx + bw, 0, sens > 0 ? bx + bw : bx, 0);
+                            g.addColorStop(0, 'rgba(0,0,0,0.42)'); g.addColorStop(1, 'rgba(0,0,0,0)');
+                            o.fillStyle = g; o.fillRect(bx, 0, bw, H);
+                        });
+                    }
+                    o.save();
+                    o.shadowColor = 'rgba(0,0,0,0.5)';
+                    o.shadowBlur = Math.round(W * 0.018);
+                    o.drawImage(img, 0, 0, iw, ih, x0, y0, dw, dh);
+                    o.restore();
+                } else {
+                    // Fond graphique : le décor d'origine, nettoyé, prolongé en miroir avec un flou progressif.
+                    const nu = this.fondNu(img, R);
+                    this.bande(o, nu, x0, y0, dw, dh, W, H, 'gauche');
+                    this.bande(o, nu, x0, y0, dw, dh, W, H, 'droite');
+                    this.bande(o, nu, x0, y0, dw, dh, W, H, 'haut');
+                    this.bande(o, nu, x0, y0, dw, dh, W, H, 'bas');
+                    o.drawImage(img, 0, 0, iw, ih, x0, y0, dw, dh);
+                }
+                return { out, W, H, blocs: 0 };
+            },
+
+            /* Prolonge un côté en étirant sa lame de bordure, avec un flou progressif */
+            lame(o, img, iw, ih, x0, y0, dw, dh, W, H, cote) {
+                const horiz = (cote === 'gauche' || cote === 'droite');
+                const taille = horiz ? (cote === 'gauche' ? x0 : W - (x0 + dw)) : (cote === 'haut' ? y0 : H - (y0 + dh));
+                if (taille <= 1) return;
+                const ep = horiz ? Math.max(2, Math.round(iw * 0.04)) : Math.max(2, Math.round(ih * 0.04));
+                const sx = cote === 'droite' ? iw - ep : 0, sy = cote === 'bas' ? ih - ep : 0;
+                const N = 8;
+                for (let i = 0; i < N; i++) {
+                    const a = taille * i / N, b = taille * (i + 1) / N;
+                    const flou = Math.max(2, Math.round((horiz ? W : H) * (0.006 + 0.045 * (i / N))));
+                    o.save();
+                    o.filter = `blur(${flou}px)`;
+                    if (cote === 'gauche') o.drawImage(img, sx, 0, ep, ih, x0 - b - flou, y0 - flou, (b - a) + flou * 2, dh + flou * 2);
+                    else if (cote === 'droite') o.drawImage(img, sx, 0, ep, ih, x0 + dw + a - flou, y0 - flou, (b - a) + flou * 2, dh + flou * 2);
+                    else if (cote === 'haut') o.drawImage(img, 0, sy, iw, ep, x0 - flou, y0 - b - flou, dw + flou * 2, (b - a) + flou * 2);
+                    else o.drawImage(img, 0, sy, iw, ep, x0 - flou, y0 + dh + a - flou, dw + flou * 2, (b - a) + flou * 2);
+                    o.restore();
+                }
+                // les coins restants reprennent la teinte voisine
+                if (horiz) return;
+            },
+
+            /* Prolonge un côté par symétrie, avec un flou qui croît en s'éloignant du raccord */
+            bande(o, plate, x0, y0, dw, dh, W, H, cote) {
+                const horiz = (cote === 'gauche' || cote === 'droite');
+                const taille = horiz ? (cote === 'gauche' ? x0 : W - (x0 + dw)) : (cote === 'haut' ? y0 : H - (y0 + dh));
+                if (taille <= 1) return;
+                const N = 7;
+                for (let i = 0; i < N; i++) {
+                    const a = taille * i / N, b = taille * (i + 1) / N;
+                    const flou = Math.max(1, Math.round((horiz ? W : H) * 0.004 + (horiz ? W : H) * 0.030 * (i / N)));
+                    o.save();
+                    o.beginPath();
+                    if (cote === 'gauche') o.rect(x0 - b, y0, b - a, dh);
+                    if (cote === 'droite') o.rect(x0 + dw + a, y0, b - a, dh);
+                    if (cote === 'haut') o.rect(0, y0 - b, W, b - a);
+                    if (cote === 'bas') o.rect(0, y0 + dh + a, W, b - a);
+                    o.clip();
+                    o.filter = `blur(${flou}px)`;
+                    o.translate(x0, y0);
+                    if (cote === 'gauche') { o.scale(-1, 1); o.drawImage(plate, -dw, 0, dw, dh); }
+                    else if (cote === 'droite') { o.translate(dw * 2, 0); o.scale(-1, 1); o.drawImage(plate, 0, 0, dw, dh); }
+                    else if (cote === 'haut') { o.scale(1, -1); o.drawImage(plate, -x0, -dh, W, dh); }
+                    else { o.translate(0, dh * 2); o.scale(1, -1); o.drawImage(plate, -x0, 0, W, dh); }
+                    o.restore();
+                }
+            },
+
+            /* --- 3. Composition dans le nouveau format --- */
+            compose(img, ratio, R) {
+                const { iw, ih } = R;
+                let W = Math.round(Math.sqrt(iw * ih * ratio)), H = Math.round(W / ratio);
+                const cap = 2600, mx = Math.max(W, H);
+                if (mx > cap) { W = Math.round(W * cap / mx); H = Math.round(H * cap / mx); }
+
+                const out = document.createElement('canvas'); out.width = W; out.height = H;
+                const o = out.getContext('2d');
+                o.imageSmoothingEnabled = true; o.imageSmoothingQuality = 'high';
+
+                // Fond reconstruit : couleur dominante + plaque floue d'origine étalée sans déformation
+                o.fillStyle = R.bgColor; o.fillRect(0, 0, W, H);
+                const pw = R.plate.width, ph = R.plate.height;
+                const c = coverSource(W, H, pw, ph);
+                o.globalAlpha = 0.92;
+                o.drawImage(R.plate, c.sx, c.sy, c.sw, c.sh, 0, 0, W, H);
+                o.globalAlpha = 1;
+
+                const { head, title, items, decor } = this.roles(R);
+                const M = Math.round(Math.min(W, H) * 0.055);
+                const paysage = ratio >= 1;
+
+                // Décor en filigrane : les fragments d'une même illustration sont réunis
+                // en un seul bloc pour garder leur géométrie, puis ancrés en bas à droite.
+                if (decor.length) {
+                    const d = decor.reduce((u, b) => {
+                        const x2 = Math.max(u.x + u.w, b.x + b.w), y2 = Math.max(u.y + u.h, b.y + b.h);
+                        const x = Math.min(u.x, b.x), y = Math.min(u.y, b.y);
+                        return { x, y, w: x2 - x, h: y2 - y };
+                    }, decor[0]);
+                    const s = Math.min((W * (paysage ? 0.46 : 0.72)) / d.w, (H * (paysage ? 0.62 : 0.34)) / d.h, 1.6);
+                    this.sprite(o, img, d, W - d.w * s, H - d.h * s, s, 0.9);
+                }
+
+                // En-têtes dans les coins hauts
+                let headBas = M;
+                head.forEach((b, i) => {
+                    const s = Math.min((H * 0.115) / b.h, (W * 0.24) / b.w);
+                    const x = (i === 0 || head.length === 1) ? M : W - M - b.w * s;
+                    this.sprite(o, img, b, x, M * 0.7, s);
+                    headBas = Math.max(headBas, M * 0.7 + b.h * s);
+                });
+
+                // Titre
+                let y = headBas + H * 0.05;
+                if (title) {
+                    const s = Math.min((W - 2 * M) * (paysage ? 0.96 : 0.96) / title.w, H * (paysage ? 0.36 : 0.24) / title.h);
+                    const x = paysage ? M : (W - title.w * s) / 2;
+                    this.sprite(o, img, title, x, y, s);
+                    y += title.h * s + H * 0.05;
+                }
+
+                // Contenus : en ligne(s) si paysage, en colonne si portrait
+                if (items.length) {
+                    const dispoH = H - M - y, dispoW = W - 2 * M;
+                    if (paysage) {
+                        const gap = W * 0.035;
+                        const totW = items.reduce((t, b) => t + b.w, 0);
+                        const maxH = Math.max(...items.map(b => b.h));
+                        const s = Math.min((dispoW - gap * (items.length - 1)) / totW, dispoH / maxH);
+                        // rangée justifiée sur les marges : alignée avec le titre, espacements réguliers
+                        const reste = dispoW - totW * s;
+                        const ecart = items.length > 1 ? reste / (items.length - 1) : 0;
+                        let x = M;
+                        const cy = y + dispoH / 2;
+                        items.forEach(b => { this.sprite(o, img, b, x, cy - b.h * s / 2, s); x += b.w * s + ecart; });
+                    } else {
+                        const gap = H * 0.030;
+                        const totH = items.reduce((t, b) => t + b.h, 0);
+                        const maxW = Math.max(...items.map(b => b.w));
+                        const s = Math.min(dispoW / maxW, (dispoH - gap * (items.length - 1)) / totH);
+                        let yy = y + (dispoH - (totH * s + gap * (items.length - 1))) / 2;
+                        items.forEach(b => { this.sprite(o, img, b, (W - b.w * s) / 2, yy, s); yy += b.h * s + gap; });
+                    }
+                }
+                return { out, W, H, blocs: head.length + items.length + decor.length + (title ? 1 : 0) };
+            },
+
+            /* Copie d'un bloc avec bords fondus : le raccord avec le fond reste invisible */
+            sprite(dst, img, b, x, y, s, alpha) {
+                const tw = Math.max(1, Math.round(b.w * s)), th = Math.max(1, Math.round(b.h * s));
+                const c = document.createElement('canvas'); c.width = tw; c.height = th;
+                const cc = c.getContext('2d', { willReadFrequently: true });
+                cc.imageSmoothingQuality = 'high';
+                cc.drawImage(img, b.x, b.y, b.w, b.h, 0, 0, tw, th);
+
+                // Coussin de raccord : la teinte du pourtour du bloc est étalée en dessous,
+                // pour que le fond reconstruit rejoigne exactement le fond d'origine du bloc.
+                const teinte = this.bordure(cc, tw, th);
+                if (teinte) {
+                    const pad = Math.max(6, Math.round(Math.min(tw, th) * 0.16));
+                    dst.save();
+                    dst.filter = `blur(${Math.round(pad * 0.8)}px)`;
+                    dst.globalAlpha = (alpha || 1) * 0.95;
+                    dst.fillStyle = teinte;
+                    dst.fillRect(Math.round(x) - pad / 2, Math.round(y) - pad / 2, tw + pad, th + pad);
+                    dst.restore();
+                }
+
+                const f = Math.max(2, Math.round(Math.min(tw, th) * 0.10));
+                const m = document.createElement('canvas'); m.width = tw; m.height = th;
+                const mc = m.getContext('2d');
+                mc.filter = `blur(${f / 2}px)`;
+                mc.fillStyle = '#fff';
+                mc.fillRect(f / 2, f / 2, tw - f, th - f);
+                cc.globalCompositeOperation = 'destination-in';
+                cc.drawImage(m, 0, 0);
+                dst.save();
+                if (alpha) dst.globalAlpha = alpha;
+                dst.drawImage(c, Math.round(x), Math.round(y));
+                dst.restore();
+            },
+
+            /* Couleur moyenne du pourtour : soit les bords du sprite, soit l'anneau
+               qui entoure un rectangle donné (utilisé pour effacer un bloc du fond). */
+            bordure(cc, tw, th, rect) {
+                try {
+                    let zones;
+                    if (rect) {
+                        const e = Math.max(2, Math.round(Math.min(rect.w, rect.h) * 0.12));
+                        const X = Math.max(0, rect.x - e), Y = Math.max(0, rect.y - e);
+                        const X2 = Math.min(tw, rect.x + rect.w + e), Y2 = Math.min(th, rect.y + rect.h + e);
+                        zones = [[X, Y, X2 - X, Math.min(e, Y2 - Y)],
+                                 [X, Math.max(Y, Y2 - e), X2 - X, Math.min(e, Y2 - Y)],
+                                 [X, Y, Math.min(e, X2 - X), Y2 - Y],
+                                 [Math.max(X, X2 - e), Y, Math.min(e, X2 - X), Y2 - Y]]
+                                .filter(z => z[2] >= 1 && z[3] >= 1);
+                    } else {
+                        const e = Math.max(1, Math.round(Math.min(tw, th) * 0.04));
+                        zones = [[0, 0, tw, e], [0, th - e, tw, e], [0, 0, e, th], [tw - e, 0, e, th]];
+                    }
+                    let r = 0, g = 0, b = 0, n = 0;
+                    zones.forEach(z => {
+                        const d = cc.getImageData(z[0], z[1], Math.max(1, z[2]), Math.max(1, z[3])).data;
+                        for (let i = 0; i < d.length; i += 4) { if (d[i+3] < 8) continue; r += d[i]; g += d[i+1]; b += d[i+2]; n++; }
+                    });
+                    if (!n) return null;
+                    return `rgb(${Math.round(r/n)},${Math.round(g/n)},${Math.round(b/n)})`;
+                } catch (e) { return null; }
+            }
+        };
+
+        function smartReformat(ratio) {
+            if (!originalImg) { showToast('Importez une image'); return; }
+            $('currentStatus').textContent = 'ANALYSE…';
+            setTimeout(() => {
+                let R;
+                try { R = Smart.analyse(originalImg); }
+                catch (e) { showToast('Image externe protégée (CORS)'); $('currentStatus').textContent = 'PRÊT'; return; }
+
+                const choix = $('smartMode') ? $('smartMode').value : 'auto';
+                const genre = Smart.nature(R);
+                const c = R.boxes.length ? Smart.confiance(R, ratio) : { ok: false, motif: 'aucun bloc détecté' };
+
+                // Décision automatique : on ne recompose que si la structure est nette et sûre.
+                // Photo, affiche dense, contenu illisible → l'image reste intacte et c'est le décor
+                // qui est prolongé pour atteindre le format.
+                let mode;
+                if (choix === 'layout') mode = 'layout';
+                else if (choix === 'extend') mode = 'extend';
+                else mode = (genre === 'affiche' && c.ok) ? 'layout' : 'extend';
+
+                let res, note;
+                if (mode === 'layout' && R.boxes.length) {
+                    res = Smart.compose(originalImg, ratio, R);
+                    note = `Recomposée · ${res.blocs} bloc(s)`;
+                } else {
+                    res = Smart.etendre(originalImg, ratio, R, genre);
+                    note = genre === 'photo' ? 'Photo intacte · décor étendu' : 'Image intacte · décor prolongé';
+                    if (choix === 'auto' && genre === 'affiche' && !c.ok) note += ` (${c.motif})`;
+                }
+                const finir = (r, texte, msg) => {
+                    setRatio(ratio);
+                    $('smartInfo').textContent = `${texte} — ${r.W}×${r.H}`;
+                    replaceSource(r.out, msg);
+                };
+                const msgFin = mode === 'layout' ? 'Mise en page recomposée' : 'Format étendu sans perte';
+
+                // Renfort IA optionnel : le rendu local part en image de départ. Au moindre
+                // échec (endpoint absent, quota, réseau, délai) ce rendu local est conservé.
+                if ($('smartIA') && $('smartIA').checked) {
+                    $('currentStatus').textContent = 'OUTPAINTING IA…';
+                    showToast('Renfort IA en cours…');
+                    Smart.outpaint(res, originalImg, ratio, $('smartEndpoint') ? $('smartEndpoint').value.trim() : '')
+                        .then(r => finir(r, `IA (${r.moteur}) · image d'origine intacte`, 'Décor étendu par IA'))
+                        .catch(() => {
+                            showToast('IA indisponible — rendu local conservé');
+                            finir(res, note + ' · repli local', msgFin);
+                        });
+                    return;
+                }
+                finir(res, note, msgFin);
+            }, 30);
+        }
+
+        if ($('smartIA')) $('smartIA').addEventListener('change', e => {
+            $('smartEndpoint').style.display = e.target.checked ? 'block' : 'none';
+        });
+
+        function smartPreviewBlocks() {
+            if (!originalImg) { showToast('Importez une image'); return; }
+            let R;
+            try { R = Smart.analyse(originalImg); }
+            catch (e) { showToast('Image externe protégée (CORS)'); return; }
+            const { head, title, items, decor } = Smart.roles(R);
+            processImage();
+            const d = lastDraw;
+            const box = b => ({ x: d.dx + (b.x - d.sx) * (d.dw / d.sw), y: d.dy + (b.y - d.sy) * (d.dh / d.sh),
+                                w: b.w * (d.dw / d.sw), h: b.h * (d.dh / d.sh) });
+            const trace = (list, color, label) => list.forEach(b => {
+                const r = box(b);
+                ctx.strokeStyle = color; ctx.lineWidth = Math.max(2, canvas.width / 350);
+                ctx.setLineDash([canvas.width / 90, canvas.width / 140]);
+                ctx.strokeRect(r.x, r.y, r.w, r.h);
+                ctx.setLineDash([]);
+                ctx.fillStyle = color; ctx.font = `bold ${Math.max(11, canvas.width / 55)}px Inter, sans-serif`;
+                ctx.fillText(label, r.x + 6, r.y + Math.max(14, canvas.width / 50));
+            });
+            trace(decor, '#8e8e8e', 'décor');
+            trace(head, '#1e88e5', 'en-tête');
+            if (title) trace([title], '#d4af37', 'titre');
+            trace(items, '#d81b60', 'contenu');
+            $('smartInfo').textContent = `${head.length} en-tête · ${title ? 1 : 0} titre · ${items.length} contenu · ${decor.length} décor`;
+            showToast('Blocs détectés (aperçu non destructif)');
+        }
+
+        updateLabels();
+    </script>
+</body>
+</html>
