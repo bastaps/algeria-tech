@@ -9,6 +9,9 @@
 let _debatHistory  = [];   // historique conversation [{role,content}]
 let _debatOpen     = false;
 let _debatLoading  = false;
+let _debatLen      = 'moyenne';   // courte | moyenne | longue
+
+try { _debatLen = localStorage.getItem('at_debat_len') || 'moyenne'; } catch (e) {}
 
 /* ── Ouvrir le panneau ──────────────────────────────────────── */
 window.openDebat = function () {
@@ -92,7 +95,8 @@ window.sendDebatMessage = function () {
       contenu:    texte.substring(0, 4200),
       historique: _debatHistory.slice(0, -1).slice(-8), /* 8 tours max */
       message:    msg.substring(0, 500),
-      langue:     langue
+      langue:     langue,
+      longueur:   _debatLen
     })
   })
   .then(function (r) { return r.json(); })
@@ -149,6 +153,14 @@ function _buildPanel() {
     /* ── Messages ─────────────────────────────────────────────── */
     '<div id="debatMessages" class="debat-messages"></div>' +
 
+    /* ── Longueur de réponse ──────────────────────────────────── */
+    '<div class="debat-len-row" id="debatLenRow" role="group" aria-label="Longueur de la réponse">' +
+      '<span class="debat-len-label"><i class="fas fa-sliders-h"></i> Réponse</span>' +
+      _lenBtn('courte',  'Courte')  +
+      _lenBtn('moyenne', 'Moyenne') +
+      _lenBtn('longue',  'Longue')  +
+    '</div>' +
+
     /* ── Suggestions rapides ──────────────────────────────────── */
     '<div class="debat-chips" id="debatChips">' +
       '<button class="debat-chip" onclick="_debatChip(this)">Quelles sont les implications ?</button>' +
@@ -170,6 +182,29 @@ function _buildPanel() {
 
   document.body.appendChild(panel);
 }
+
+/* Bouton de longueur (courte / moyenne / longue) */
+function _lenBtn(val, label) {
+  var on = (_debatLen === val);
+  return '<button type="button" class="debat-len-btn' + (on ? ' active' : '') + '" ' +
+         'data-len="' + val + '" aria-pressed="' + (on ? 'true' : 'false') + '" ' +
+         'title="Réponse ' + label.toLowerCase() + '" ' +
+         'onclick="window.setDebatLen(\'' + val + '\')">' + label + '</button>';
+}
+
+/* Choix de la longueur de réponse */
+window.setDebatLen = function (len) {
+  _debatLen = len;
+  try { localStorage.setItem('at_debat_len', len); } catch (e) {}
+
+  var row = document.getElementById('debatLenRow');
+  if (!row) return;
+  row.querySelectorAll('.debat-len-btn').forEach(function (b) {
+    var on = (b.getAttribute('data-len') === len);
+    b.classList.toggle('active', on);
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
+};
 
 /* Clic sur une suggestion rapide */
 window._debatChip = function (btn) {

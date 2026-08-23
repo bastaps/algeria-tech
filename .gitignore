@@ -67,3 +67,7 @@ subscribers.json
 # Journaux du Hub lance en arriere-plan
 _hub.log
 _hub_err.log
+
+# Veille comparateur (file d.attente locale, regeneree a chaque passage)
+comparateur_pending.json
+logs/captures/

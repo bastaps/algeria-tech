@@ -18,11 +18,19 @@ export async function onRequestPost({ request, env }) {
   if (!env.MISTRAL_API_KEY)
     return json({ error: "Service IA non configuré (clé API manquante)." }, 503);
 
-  const { titre, contenu, historique, message, langue } = body || {};
+  const { titre, contenu, historique, message, langue, longueur } = body || {};
   if (!message || !String(message).trim())
     return json({ error: 'Message vide.' }, 400);
   if (!contenu || contenu.length < 30)
     return json({ error: 'Contenu article trop court.' }, 400);
+
+  // Longueur de réponse demandée par le lecteur (boutons Courte / Moyenne / Longue)
+  const LONGUEURS = {
+    courte:  { consigne: "Réponds TRÈS BRIÈVEMENT : 2 à 3 phrases maximum, va droit à l'essentiel, aucune introduction ni conclusion.", tokens: 200 },
+    moyenne: { consigne: 'Réponds de façon MODÉRÉE : 1 à 2 paragraphes (environ 120 à 180 mots).', tokens: 500 },
+    longue:  { consigne: 'Réponds de façon DÉTAILLÉE : 4 à 6 paragraphes développés, avec nuances, chiffres, contexte et mise en perspective.', tokens: 1500 }
+  };
+  const fmt = LONGUEURS[String(longueur || '').toLowerCase()] || LONGUEURS.moyenne;
 
   const lang   = langue || 'français';
   const sysMsg =
@@ -30,7 +38,8 @@ export async function onRequestPost({ request, env }) {
 Tu as lu et analysé cet article en détail.
 Réponds aux questions du lecteur en te basant sur l'article ET tes connaissances complémentaires.
 Sois précis, factuel, nuancé. Développe les arguments avec rigueur.
-Réponds en ${lang}. Limite tes réponses à 3-4 paragraphes maximum sauf si la question demande plus de détail.
+Réponds en ${lang}. ${fmt.consigne}
+Respecte strictement cette longueur, même si le lecteur pose une question large.
 N'utilise pas de mise en forme markdown (pas de **, pas de #).
 
 === ARTICLE ===
@@ -56,7 +65,7 @@ ${String(contenu || '').substring(0, 4200)}
       body: JSON.stringify({
         model: 'mistral-small-latest',
         messages,
-        max_tokens: 700,
+        max_tokens: fmt.tokens,
         temperature: 0.5
       })
     });

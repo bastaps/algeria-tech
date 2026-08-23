@@ -1769,12 +1769,20 @@ app.get('/api/youtube', (req, res) => {
 
 // ── Débat IA — chat contextuel par article (Mistral) ────────────────────────
 app.post('/api/debat', express.json(), async (req, res) => {
-    const { titre, contenu, historique, message, langue } = req.body || {};
+    const { titre, contenu, historique, message, langue, longueur } = req.body || {};
 
     if (!message || !String(message).trim())
         return res.status(400).json({ error: 'Message vide.' });
     if (!contenu || contenu.length < 30)
         return res.status(400).json({ error: 'Contenu article trop court.' });
+
+    // Longueur de réponse demandée par le lecteur (boutons Courte / Moyenne / Longue)
+    const LONGUEURS = {
+        courte:  { consigne: "Réponds TRÈS BRIÈVEMENT : 2 à 3 phrases maximum, va droit à l'essentiel, aucune introduction ni conclusion.", tokens: 200 },
+        moyenne: { consigne: 'Réponds de façon MODÉRÉE : 1 à 2 paragraphes (environ 120 à 180 mots).', tokens: 500 },
+        longue:  { consigne: 'Réponds de façon DÉTAILLÉE : 4 à 6 paragraphes développés, avec nuances, chiffres, contexte et mise en perspective.', tokens: 1500 }
+    };
+    const fmt = LONGUEURS[String(longueur || '').toLowerCase()] || LONGUEURS.moyenne;
 
     const lang    = langue || 'français';
     const sysMsg  =
@@ -1782,7 +1790,8 @@ app.post('/api/debat', express.json(), async (req, res) => {
 Tu as lu et analysé cet article en détail.
 Réponds aux questions du lecteur en te basant sur l'article ET tes connaissances complémentaires.
 Sois précis, factuel, nuancé. Développe les arguments avec rigueur.
-Réponds en ${lang}. Limite tes réponses à 3-4 paragraphes maximum sauf si la question demande plus de détail.
+Réponds en ${lang}. ${fmt.consigne}
+Respecte strictement cette longueur, même si le lecteur pose une question large.
 N'utilise pas de mise en forme markdown (pas de **, pas de #).
 
 === ARTICLE ===
@@ -1801,7 +1810,7 @@ ${String(contenu || '').substring(0, 4200)}
     const payload = JSON.stringify({
         model:       'mistral-small-latest',
         messages,
-        max_tokens:  700,
+        max_tokens:  fmt.tokens,
         temperature: 0.5
     });
 
@@ -2314,84 +2323,170 @@ function _nextComparateurId(data, op) {
     return prefix + ((nums.length ? Math.max(...nums) : 0) + 1);
 }
 
-// Structuration IA du texte brut (communiqué/grille tarifaire) → champs offre comparateur
-async function structureOfferIA(rawText) {
-    const prompt = `Tu es assistant pour Algeria Tech. On te fournit le texte brut d'un communiqué ou d'une grille tarifaire d'un opérateur télécom algérien (Mobilis, Djezzy ou Ooredoo), décrivant UNE offre mobile ou internet.
+// Structuration IA du texte brut (communiqué/grille tarifaire) → offres comparateur
+// Retourne TOUJOURS un tableau : une grille tarifaire contient souvent plusieurs paliers.
+async function structureOffersIA(rawText) {
+    const prompt = `Tu es assistant pour Algeria Tech. On te fournit le texte brut d'un communiqué, d'une page web ou d'une grille tarifaire d'un opérateur télécom algérien (Mobilis, Djezzy ou Ooredoo).
 
-Analyse ce texte et retourne UNIQUEMENT du JSON pur avec cette structure exacte :
+Ce texte peut décrire UNE offre ou PLUSIEURS (paliers de recharge, gammes, forfaits). Extrais-les TOUTES.
+
+Retourne UNIQUEMENT du JSON pur avec cette structure exacte :
 {
-  "op": "mobilis" | "djezzy" | "ooredoo" | "",
-  "name": "nom commercial de l'offre",
-  "type": "prepaid" | "postpaid" | "internet",
-  "price": nombre (prix en DA),
-  "data": nombre (volume data en Go),
-  "validity": nombre (durée de validité en jours, 30 si non précisé),
-  "calls": "description des appels inclus",
-  "sms": "description des SMS inclus, ou chaîne vide",
-  "intl": booléen (true si l'offre inclut de l'international),
-  "extras": ["avantage 1", "avantage 2"],
-  "link": "URL officielle de l'offre si présente dans le texte, sinon chaîne vide"
+  "offers": [
+    {
+      "op": "mobilis" | "djezzy" | "ooredoo" | "",
+      "name": "nom commercial de l'offre",
+      "type": "prepaid" | "postpaid" | "internet",
+      "price": nombre (prix en DA),
+      "data": nombre (volume data en Go, 0 si l'offre n'inclut pas de data),
+      "validity": nombre (durée de validité en jours, 30 si non précisée),
+      "calls": "description des appels inclus",
+      "sms": "description des SMS inclus, ou chaîne vide",
+      "intl": booléen (true si l'offre inclut de l'international),
+      "extras": ["avantage 1", "avantage 2"],
+      "link": "URL officielle de l'offre si présente dans le texte, sinon chaîne vide"
+    }
+  ]
 }
 
 Règles :
+- Une ligne de grille tarifaire = une entrée du tableau "offers".
+- Si une même offre existe en plusieurs paliers de prix, crée une entrée par palier et suffixe le nom par le prix (ex : "STUDENT CAMPUCE 1 600 DA").
 - "op" doit être détecté depuis le texte (mentions explicites de Mobilis, Djezzy ou Ooredoo) ; si ambigu ou absent, laisse une chaîne vide.
-- Ne fabrique aucun prix, volume ou avantage absent du texte source.
-- "extras" : 2 à 5 éléments courts maximum.
+- Ne fabrique aucun prix, volume ou avantage absent du texte source. "data": 0 si le palier n'inclut pas d'internet.
+- "extras" : 2 à 5 éléments courts maximum par offre.
+- Ignore les menus de navigation, mentions légales et liens de bas de page.
 
 TEXTE SOURCE :
-${rawText.substring(0, 6000)}`;
+${rawText.substring(0, 12000)}`;
 
     const payload = JSON.stringify({
         model: 'mistral-small-latest',
         messages: [{ role: 'user', content: prompt }],
         response_format: { type: 'json_object' },
         temperature: 0.2,
-        max_tokens: 1200
+        max_tokens: 4000
     });
 
     const data = await callMistral(payload);
     const result = JSON.parse(data);
     if (result.error) throw new Error(result.error.message);
-    return JSON.parse(result.choices[0].message.content);
+    const parsed = JSON.parse(result.choices[0].message.content);
+    // Tolérance : l'IA peut renvoyer un objet seul, un tableau nu ou {offers:[...]}
+    const list = Array.isArray(parsed) ? parsed
+               : Array.isArray(parsed.offers) ? parsed.offers
+               : (parsed.name || parsed.price) ? [parsed] : [];
+    return list.filter(o => o && (o.name || o.price));
+}
+
+// Normalise + valide une offre issue du formulaire ou du scraper
+function normalizeComparateurOffer(b) {
+    if (!['mobilis', 'djezzy', 'ooredoo'].includes(b.op)) return { error: 'opérateur invalide' };
+    const name = String(b.name || '').trim();
+    const price = Number(b.price) || 0;
+    if (!name) return { error: 'nom manquant' };
+    if (!price) return { error: 'prix manquant' };
+    const type = ['prepaid', 'postpaid', 'internet'].includes(b.type) ? b.type : 'prepaid';
+    return {
+        offer: {
+            op: b.op,
+            name,
+            type,
+            // Onglet du comparateur : les offres 'internet' vivent dans la catégorie
+            // 'internet', tout le reste dans 'mobile' (défaut implicite côté client).
+            ...(type === 'internet' || b.cat === 'internet' ? { cat: 'internet' } : {}),
+            price,
+            data: Number(b.data) || 0,
+            validity: Number(b.validity) || 30,
+            dateAdded: new Date().toISOString().slice(0, 10),
+            calls: b.calls || '',
+            sms: b.sms || null,
+            intl: !!b.intl,
+            badge: b.badge || null,
+            extras: Array.isArray(b.extras) ? b.extras.filter(Boolean) : [],
+            link: b.link || ''
+        }
+    };
+}
+
+// Doublon = même opérateur + même nom (insensible casse/espaces), ou même op+prix+data
+function isDuplicateOffer(existing, o) {
+    const norm = s => String(s || '').toLowerCase().replace(/\s+/g, ' ').trim();
+    return existing.some(e => e.op === o.op && (
+        norm(e.name) === norm(o.name) ||
+        (e.price === o.price && e.data === o.data && norm(e.name).slice(0, 12) === norm(o.name).slice(0, 12))
+    ));
 }
 
 app.post('/api/comparateur/structure', express.json({ limit: '2mb' }), async (req, res) => {
     const rawText = (req.body && req.body.rawText || '').trim();
     if (!rawText) return res.status(400).json({ error: 'Texte requis' });
     try {
-        const structured = await structureOfferIA(rawText);
-        res.json(structured);
+        const offers = await structureOffersIA(rawText);
+        res.json({ offers });
     } catch (e) {
         console.error('[comparateur/structure]', e.code || '', e.message);
         res.status(500).json({ error: e.message || "Échec de l'analyse du texte" });
     }
 });
 
+// Ajout unitaire (compatibilité)
 app.post('/api/comparateur/offer', express.json({ limit: '1mb' }), (req, res) => {
-    const b = req.body || {};
-    if (!['mobilis', 'djezzy', 'ooredoo'].includes(b.op)) return res.status(400).json({ error: 'Opérateur invalide' });
-    if (!b.name || !b.price || !b.data) return res.status(400).json({ error: 'name, price et data requis' });
-
+    const { offer, error } = normalizeComparateurOffer(req.body || {});
+    if (error) return res.status(400).json({ error });
     const data = loadComparateurOffers();
-    const offer = {
-        id: _nextComparateurId(data, b.op),
-        op: b.op,
-        name: String(b.name).trim(),
-        type: ['prepaid', 'postpaid', 'internet'].includes(b.type) ? b.type : 'prepaid',
-        price: Number(b.price) || 0,
-        data: Number(b.data) || 0,
-        validity: Number(b.validity) || 30,
-        dateAdded: new Date().toISOString().slice(0, 10),
-        calls: b.calls || '',
-        sms: b.sms || null,
-        intl: !!b.intl,
-        badge: b.badge || null,
-        extras: Array.isArray(b.extras) ? b.extras.filter(Boolean) : [],
-        link: b.link || ''
-    };
+    offer.id = _nextComparateurId(data, offer.op);
     data.push(offer);
     saveComparateurOffers(data);
     res.json({ success: true, offer });
+});
+
+// Ajout par lot : { offers: [ {...}, {...} ] } → { added:[], skipped:[{name,reason}] }
+// Une seule écriture disque, doublons ignorés (rapport renvoyé au client).
+app.post('/api/comparateur/offers', express.json({ limit: '4mb' }), (req, res) => {
+    const list = (req.body && req.body.offers) || [];
+    if (!Array.isArray(list) || !list.length) return res.status(400).json({ error: 'Aucune offre reçue' });
+    if (list.length > 60) return res.status(400).json({ error: 'Trop d\'offres en une fois (max 60)' });
+
+    const data = loadComparateurOffers();
+    const added = [], skipped = [];
+
+    for (const raw of list) {
+        const { offer, error } = normalizeComparateurOffer(raw || {});
+        if (error) { skipped.push({ name: (raw && raw.name) || '(sans nom)', reason: error }); continue; }
+        if (isDuplicateOffer(data, offer)) { skipped.push({ name: offer.name, reason: 'déjà présente' }); continue; }
+        offer.id = _nextComparateurId(data, offer.op);
+        data.push(offer);
+        added.push(offer);
+    }
+
+    if (added.length) saveComparateurOffers(data);
+    res.json({ success: true, added, skipped });
+});
+
+// ── Veille automatique (scrape-offres.js) : file d'attente de nouveautés ─────
+const COMPARATEUR_PENDING_FILE = path.join(__dirname, 'comparateur_pending.json');
+
+app.get('/api/comparateur/pending', (req, res) => {
+    try {
+        if (!fsSync.existsSync(COMPARATEUR_PENDING_FILE)) return res.json({ detected: [], changed: [], sources: [] });
+        res.json(JSON.parse(fsSync.readFileSync(COMPARATEUR_PENDING_FILE, 'utf-8')));
+    } catch (e) {
+        res.status(500).json({ error: 'Fichier de veille illisible' });
+    }
+});
+
+// Retire de la file les offres traitées (publiées ou écartées). { names: [...] }
+app.post('/api/comparateur/pending/clear', express.json({ limit: '1mb' }), (req, res) => {
+    if (!fsSync.existsSync(COMPARATEUR_PENDING_FILE)) return res.json({ success: true, remaining: 0 });
+    const names = (req.body && req.body.names) || null;
+    const norm = s => String(s || '').toLowerCase().replace(/\s+/g, ' ').trim();
+    const data = JSON.parse(fsSync.readFileSync(COMPARATEUR_PENDING_FILE, 'utf-8'));
+    data.detected = names
+        ? (data.detected || []).filter(o => !names.map(norm).includes(norm(o.name)))
+        : [];
+    fsSync.writeFileSync(COMPARATEUR_PENDING_FILE, JSON.stringify(data, null, 2));
+    res.json({ success: true, remaining: data.detected.length });
 });
 
 // ── Cotation Officielle Banque d'Algérie — Scraper PDF ───────────────────────

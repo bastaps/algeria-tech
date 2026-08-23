@@ -3043,6 +3043,43 @@ body.at-immersive-open .reading-progress { display: none !important; }
   40%         { transform:scale(1.1);  opacity:1;   }
 }
 
+/* ── Longueur de réponse (courte / moyenne / longue) ─── */
+.debat-len-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px 6px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+.debat-len-label {
+  font-size: .72rem;
+  font-weight: 700;
+  color: #6200ea;
+  opacity: .75;
+  margin-right: 2px;
+  white-space: nowrap;
+}
+.debat-len-btn {
+  background: #fff;
+  color: #6200ea;
+  border: 1.5px solid #d1a3ff;
+  border-radius: 14px;
+  padding: 4px 12px;
+  font-size: .74rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .15s, color .15s, transform .1s, box-shadow .15s;
+  white-space: nowrap;
+}
+.debat-len-btn:hover { background: #f3e8ff; transform: scale(1.03); }
+.debat-len-btn.active {
+  background: linear-gradient(135deg, #6200ea, #7c4dff);
+  border-color: #6200ea;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(98,0,234,.25);
+}
+
 /* ── Suggestions rapides ─────────────────────────────── */
 .debat-chips {
   display: flex;

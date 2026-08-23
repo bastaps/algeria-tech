@@ -309,6 +309,26 @@
 .cv3-ad-check{display:flex;align-items:center;gap:7px;font-size:.78rem;color:rgba(255,255,255,.6);cursor:pointer}
 .cv3-ad-submitbtn{margin:4px 24px 22px;padding:11px;border-radius:9px;border:none;background:linear-gradient(90deg,#ffd700,#ff8c00);color:#000;font-weight:900;font-size:.85rem;cursor:pointer;width:calc(100% - 48px)}
 .cv3-ad-submitbtn:disabled{opacity:.5;cursor:wait}
+.cv3-ad-draft{margin:0 24px 12px;border:1px solid rgba(255,255,255,.1);border-radius:12px;background:rgba(255,255,255,.02);overflow:hidden}
+.cv3-ad-draft.off{opacity:.42}
+.cv3-ad-dsum{display:flex;align-items:center;gap:9px;padding:10px 13px;cursor:pointer;list-style:none;font-size:.8rem;color:#e2e8f0}
+.cv3-ad-dsum::-webkit-details-marker{display:none}
+.cv3-ad-dsum:hover{background:rgba(255,255,255,.04)}
+.cv3-ad-dnum{font-size:.66rem;font-weight:800;color:rgba(255,255,255,.35);letter-spacing:.05em}
+.cv3-ad-dttl{flex:1;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cv3-ad-dop{font-size:.64rem;font-weight:800;padding:2px 7px;border-radius:6px;background:rgba(var(--oc-rgb),.16);color:var(--oc)}
+.cv3-ad-ddel{border:none;background:none;color:rgba(255,255,255,.35);cursor:pointer;font-size:.9rem;padding:2px 4px}
+.cv3-ad-ddel:hover{color:#f87171}
+.cv3-ad-draft .cv3-ad-grid{margin:0 13px 13px}
+.cv3-ad-bar{display:flex;gap:8px;margin:0 24px 12px}
+.cv3-ad-minibtn{flex:1;padding:8px;border-radius:9px;border:1px dashed rgba(255,255,255,.18);background:rgba(255,255,255,.02);color:rgba(255,255,255,.55);font-size:.75rem;font-weight:700;cursor:pointer}
+.cv3-ad-minibtn:hover{border-color:#60a5fa;color:#60a5fa}
+.cv3-ad-report{margin:0 24px 12px;font-size:.72rem;line-height:1.55;color:rgba(255,255,255,.5)}
+.cv3-ad-report b{color:#4ade80}
+.cv3-ad-report .ko{color:#facc15}
+.cv3.cv3-day .cv3-ad-draft{background:rgba(255,255,255,.6);border-color:rgba(0,0,0,.1)}
+.cv3.cv3-day .cv3-ad-dsum{color:#1a1a2e}
+.cv3.cv3-day .cv3-ad-minibtn{color:rgba(0,0,0,.55)}
 .cv3.cv3-day .cv3-ad-tab,.cv3.cv3-day .cv3-ad-opbtn{background:rgba(255,255,255,.7);border-color:rgba(0,0,0,.12);color:rgba(0,0,0,.6)}
 .cv3.cv3-day .cv3-ad-src input,.cv3.cv3-day .cv3-ad-src textarea,.cv3.cv3-day .cv3-ad-grid input,.cv3.cv3-day .cv3-ad-grid select,.cv3.cv3-day .cv3-ad-grid textarea{background:#fff;border-color:rgba(0,0,0,.15);color:#1a1a2e}
 .cv3.cv3-day .cv3-ad-grid label,.cv3.cv3-day .cv3-ad-status,.cv3.cv3-day .cv3-ad-check{color:rgba(0,0,0,.5)}
@@ -386,8 +406,10 @@ function _score(o){
   return (o.data/n)*100 + o.extras.length*0.15 + (o.intl?0.5:0);
 }
 function _ppg(o){
+  if(!o.data) return Infinity;       // offres sans data (options, recharges) : pas de coût/Go
   return Math.round(o.price*(30/(o.validity||30))/o.data);
 }
+function _ppgTxt(o){ var v=_ppg(o); return isFinite(v) ? v+' DA/Go' : '—'; }
 function _isNew(o){
   if(!o.dateAdded) return false;
   var diff = (new Date() - new Date(o.dateAdded)) / 86400000;
@@ -411,7 +433,7 @@ function _sorted(list){
   return list.slice().sort(function(a,b){
     if(_C.sort==='price') return a.price-b.price;
     if(_C.sort==='data')  return b.data-a.data;
-    if(_C.sort==='ppg')   return _ppg(a)-_ppg(b);
+    if(_C.sort==='ppg'){ var pa=_ppg(a), pb=_ppg(b); return pa===pb ? 0 : pa-pb; }
     if(_C.sort==='new'){
       var da=a.dateAdded||'2000-01-01', db=b.dateAdded||'2000-01-01';
       return db.localeCompare(da);
@@ -429,7 +451,8 @@ function _card(o, isTop, maxScore, maxData, opInHeader){
   var dpct = maxData>0  ? Math.round((o.data/maxData)*100) : 0;
   var sel  = _C.duel.includes(o.id);
 
-  var ppgColor = ppgv<=25?'#4ade80':ppgv<=40?'#facc15':'#f87171';
+  var ppgColor = !isFinite(ppgv)?'rgba(255,255,255,.45)':ppgv<=25?'#4ade80':ppgv<=40?'#facc15':'#f87171';
+  var ppgTxt   = _ppgTxt(o);
 
   /* Badges */
   var isNewOffer=_isNew(o);
@@ -472,7 +495,7 @@ function _card(o, isTop, maxScore, maxData, opInHeader){
     /* PPG */
     +'<div class="cv3-ppg">'
       +'<span class="cv3-ppg-l">💡 Coût / Go</span>'
-      +'<span class="cv3-ppg-v" style="color:'+ppgColor+'">'+ppgv+' DA/Go</span>'
+      +'<span class="cv3-ppg-v" style="color:'+ppgColor+'">'+ppgTxt+'</span>'
     +'</div>'
     /* Data bar */
     +'<div class="cv3-dbwrap">'
@@ -565,7 +588,7 @@ function _soloView(k, items, maxScore, maxData){
       +'<div class="cv3-solo-name">'+op.name+'</div>'
       +'<div class="cv3-solo-sub">'+items.length+' offre'+(items.length>1?'s':'')+' disponible'+(items.length>1?'s':'')+' · Données officielles juin 2026</div>'
       +'<div class="cv3-solo-kpis">'
-        +'<div class="cv3-solo-kpi"><div class="cv3-solo-kpi-v">'+minPPG+'<span style="font-size:.8rem"> DA</span></div><div class="cv3-solo-kpi-l">Meilleur prix/Go</div></div>'
+        +'<div class="cv3-solo-kpi"><div class="cv3-solo-kpi-v">'+(isFinite(minPPG)?minPPG:'—')+'<span style="font-size:.8rem"> DA</span></div><div class="cv3-solo-kpi-l">Meilleur prix/Go</div></div>'
         +'<div class="cv3-solo-kpi"><div class="cv3-solo-kpi-v">'+maxGo+'<span style="font-size:.8rem"> Go</span></div><div class="cv3-solo-kpi-l">Plus de data</div></div>'
         +(newN?'<div class="cv3-solo-kpi" style="border-color:rgba(0,229,255,.3)"><div class="cv3-solo-kpi-v" style="color:#00E5FF">'+newN+'</div><div class="cv3-solo-kpi-l">Nouvelles offres</div></div>':'')
       +'</div>'
@@ -628,7 +651,7 @@ function _openDuel(){
   var table = heads
     +row('📶 Data (mensuel)',  datas.map(function(v){return v+' Go';}),                   best(datas,false))
     +row('💰 Prix / mois',    normPrices.map(function(v){return v+' DA';}),               best(normPrices,true))
-    +row('💡 Coût par Go',    ppgs.map(function(v){return v+' DA/Go';}),                  best(ppgs,true))
+    +row('💡 Coût par Go',    offers.map(_ppgTxt),                                        best(ppgs,true))
     +row('⭐ Score Q/P',      scores.map(function(v){return(Math.round(v*10)/10)+' pts';}),best(scores,false))
     +row('🎁 Avantages',      nextra.map(function(v){return v+' extra'+(v>1?'s':'');}),   best(nextra,false))
     +row('📞 Appels',         offers.map(function(o){return o.calls;}),                    offers.map(function(){return'';}))
@@ -691,10 +714,11 @@ function _render(){
   var ls=document.getElementById('cv3-lstats');
   if(ls&&filtered.length){
     var bestPPG=filtered.reduce(function(b,o){return _ppg(o)<_ppg(b)?o:b;});
+    var bestPPGTxt=_ppgTxt(bestPPG).replace(' DA/Go',' DA');
     var mostDt =filtered.reduce(function(b,o){return o.data>b.data?o:b;});
     var cheapst=filtered.reduce(function(b,o){return o.price<b.price?o:b;});
     ls.innerHTML=
-      '<div class="cv3-lsrow"><span>Meilleur prix/Go</span><span class="cv3-lsval">'+_ppg(bestPPG)+' DA</span></div>'
+      '<div class="cv3-lsrow"><span>Meilleur prix/Go</span><span class="cv3-lsval">'+bestPPGTxt+'</span></div>'
      +'<div class="cv3-lsrow"><span>Plus de data</span><span class="cv3-lsval">'+mostDt.data+' Go</span></div>'
      +'<div class="cv3-lsrow"><span>Moins cher</span><span class="cv3-lsval">'+cheapst.price.toLocaleString('fr-FR')+' DA</span></div>'
      +'<div class="cv3-lsrow"><span>Offres filtrées</span><span class="cv3-lsval">'+filtered.length+'/'+COMP_OFFERS.length+'</span></div>';
@@ -1059,16 +1083,82 @@ window._compSetFilter = function(key,val,btn){ window._cv3Filter(key,val,btn); }
    PDF/image → /api/extract-communique · URL → /api/fetch-url
    texte collé → direct · puis /api/comparateur/structure (IA)
    → formulaire éditable → /api/comparateur/offer (insertion). ══ */
-function _buildAddModal(){
-  var opBtns = ['mobilis','djezzy','ooredoo'].map(function(k){
-    var op = COMP_OPS[k];
-    return '<button type="button" class="cv3-ad-opbtn" data-op="'+k+'" style="--oc:'+op.color+';--oc-rgb:'+op.rgb+'" onclick="window._cv3AdPickOp(\''+k+'\',this)">'+op.name+'</button>';
-  }).join('');
+/* ══ ADMIN — Ajout d'offres (multi-offres) ═══════════════════
+ * Un « brouillon » = une offre en cours de saisie. L'analyse IA
+ * peut en produire plusieurs d'un coup (grille tarifaire, PDF
+ * multi-paliers) ; chacun reste éditable et décochable avant envoi.
+ * ═══════════════════════════════════════════════════════════ */
+var _cv3Drafts = [];
+var _cv3DraftSeq = 0;
 
+function _cv3BlankDraft(op){
+  return { _k:++_cv3DraftSeq, on:true, op:op||'', name:'', type:'prepaid',
+           price:'', data:'', validity:30, calls:'', sms:'', intl:false, extras:[], link:'' };
+}
+function _cv3Draft(k){
+  for(var i=0;i<_cv3Drafts.length;i++){ if(_cv3Drafts[i]._k===k) return _cv3Drafts[i]; }
+  return null;
+}
+function _esc(v){ return String(v==null?'':v).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+
+function _cv3DraftHTML(d, idx, open){
+  var op = COMP_OPS[d.op];
+  var opts = ['mobilis','djezzy','ooredoo'].map(function(k){
+    return '<option value="'+k+'"'+(d.op===k?' selected':'')+'>'+COMP_OPS[k].name+'</option>';
+  }).join('');
+  var st = op ? '--oc:'+op.color+';--oc-rgb:'+op.rgb : '--oc:#94a3b8;--oc-rgb:148,163,184';
+  var types = ['prepaid','postpaid','internet'];
+  var labels = ['Prépayé','Postpayé','Internet'];
+  return '<details class="cv3-ad-draft'+(d.on?'':' off')+'" data-k="'+d._k+'" style="'+st+'"'+(open?' open':'')+'>'
+    +'<summary class="cv3-ad-dsum">'
+      +'<input type="checkbox" '+(d.on?'checked':'')+' onclick="event.stopPropagation()" onchange="window._cv3AdToggle('+d._k+',this.checked)">'
+      +'<span class="cv3-ad-dnum">#'+(idx+1)+'</span>'
+      +'<span class="cv3-ad-dttl" id="cv3adT'+d._k+'">'+(_esc(d.name)||'Sans nom')+'</span>'
+      +'<span class="cv3-ad-dop" id="cv3adO'+d._k+'">'+(op?op.name:'?')+'</span>'
+      +'<span style="font-size:.7rem;opacity:.5" id="cv3adP'+d._k+'">'+(d.price?d.price+' DA':'')+'</span>'
+      +'<button type="button" class="cv3-ad-ddel" title="Supprimer" onclick="event.preventDefault();event.stopPropagation();window._cv3AdDel('+d._k+')">🗑</button>'
+    +'</summary>'
+    +'<div class="cv3-ad-grid">'
+      +'<div><label>Opérateur</label><select onchange="window._cv3AdSet('+d._k+',&quot;op&quot;,this.value)"><option value="">— choisir —</option>'+opts+'</select></div>'
+      +'<div><label>Type</label><select onchange="window._cv3AdSet('+d._k+',&quot;type&quot;,this.value)">'
+        +types.map(function(t,i){ return '<option value="'+t+'"'+(d.type===t?' selected':'')+'>'+labels[i]+'</option>'; }).join('')
+      +'</select></div>'
+      +'<div class="cv3-ad-full"><label>Nom de l\'offre</label><input type="text" value="'+_esc(d.name)+'" placeholder="Ex : Revolution 2000" oninput="window._cv3AdSet('+d._k+',&quot;name&quot;,this.value)"></div>'
+      +'<div><label>Prix (DA)</label><input type="number" min="0" value="'+_esc(d.price)+'" oninput="window._cv3AdSet('+d._k+',&quot;price&quot;,this.value)"></div>'
+      +'<div><label>Data (Go) — 0 si option sans data</label><input type="number" min="0" value="'+_esc(d.data)+'" oninput="window._cv3AdSet('+d._k+',&quot;data&quot;,this.value)"></div>'
+      +'<div><label>Validité (jours)</label><input type="number" min="1" value="'+_esc(d.validity)+'" oninput="window._cv3AdSet('+d._k+',&quot;validity&quot;,this.value)"></div>'
+      +'<div><label class="cv3-ad-check" style="margin-top:22px"><input type="checkbox" '+(d.intl?'checked':'')+' onchange="window._cv3AdSet('+d._k+',&quot;intl&quot;,this.checked)"> International inclus</label></div>'
+      +'<div class="cv3-ad-full"><label>Appels</label><input type="text" value="'+_esc(d.calls)+'" placeholder="Ex : Illimités vers Mobilis" oninput="window._cv3AdSet('+d._k+',&quot;calls&quot;,this.value)"></div>'
+      +'<div class="cv3-ad-full"><label>SMS</label><input type="text" value="'+_esc(d.sms)+'" placeholder="Ex : 50 SMS tous réseaux" oninput="window._cv3AdSet('+d._k+',&quot;sms&quot;,this.value)"></div>'
+      +'<div class="cv3-ad-full"><label>Avantages (un par ligne)</label><textarea style="min-height:60px" oninput="window._cv3AdSet('+d._k+',&quot;extras&quot;,this.value)">'+_esc((d.extras||[]).join('\n'))+'</textarea></div>'
+      +'<div class="cv3-ad-full"><label>Lien officiel</label><input type="url" value="'+_esc(d.link)+'" placeholder="https://..." oninput="window._cv3AdSet('+d._k+',&quot;link&quot;,this.value)"></div>'
+    +'</div>'
+  +'</details>';
+}
+
+function _cv3SubmitLabel(){
+  var n = _cv3Drafts.filter(function(d){return d.on;}).length;
+  var btn = document.getElementById('cv3adSubmitBtn');
+  if(!btn) return;
+  btn.disabled = !n;
+  btn.textContent = n>1 ? '✅ Ajouter les '+n+' offres au comparateur'
+     : n===1 ? '✅ Confirmer et ajouter au comparateur' : '✅ Aucune offre sélectionnée';
+}
+
+function _cv3RenderDrafts(){
+  var box = document.getElementById('cv3adDrafts');
+  if(!box) return;
+  var open = _cv3Drafts.length <= 3;
+  box.innerHTML = _cv3Drafts.map(function(d,i){ return _cv3DraftHTML(d,i,open); }).join('')
+    || '<div class="cv3-ad-report">Aucun brouillon. Analysez une source ou ajoutez une offre manuellement.</div>';
+  _cv3SubmitLabel();
+}
+
+function _buildAddModal(){
   return '<div class="cv3-overlay" id="cv3admodal" onclick="if(event.target===this)window._cv3AdClose()">'
     +'<div class="cv3-modal">'
       +'<div class="cv3-mhead">'
-        +'<span class="cv3-mtitle">➕ Ajouter une offre</span>'
+        +'<span class="cv3-mtitle">➕ Ajouter des offres</span>'
         +'<button class="cv3-mclose" onclick="window._cv3AdClose()">✕</button>'
       +'</div>'
       +'<div class="cv3-ad-tabs">'
@@ -1079,22 +1169,16 @@ function _buildAddModal(){
       +'<div class="cv3-ad-src">'
         +'<input type="file" id="cv3adFile" accept=".pdf,.jpg,.jpeg,.png">'
         +'<input type="url" id="cv3adUrl" placeholder="https://... communiqué ou grille tarifaire" style="display:none">'
-        +'<textarea id="cv3adText" placeholder="Coller ici le texte du communiqué ou de la grille tarifaire..." style="display:none"></textarea>'
+        +'<textarea id="cv3adText" placeholder="Coller ici le texte du communiqué ou de la grille tarifaire (une ou plusieurs offres)..." style="display:none"></textarea>'
         +'<button type="button" class="cv3-ad-analyzebtn" id="cv3adAnalyzeBtn" onclick="window._cv3AdAnalyze()">🔍 Analyser</button>'
-        +'<div class="cv3-ad-status" id="cv3adStatus"></div>'
+        +'<div class="cv3-ad-status" id="cv3adStatus">Une grille tarifaire complète est acceptée : toutes les offres détectées seront proposées.</div>'
       +'</div>'
-      +'<div class="cv3-ad-ops" id="cv3adOps">'+opBtns+'</div>'
-      +'<div class="cv3-ad-grid">'
-        +'<div><label>Nom de l\'offre</label><input type="text" id="cv3adName" placeholder="Ex : Revolution 2000"></div>'
-        +'<div><label>Type</label><select id="cv3adType"><option value="prepaid">Prépayé</option><option value="postpaid">Postpayé</option><option value="internet">Internet</option></select></div>'
-        +'<div><label>Prix (DA)</label><input type="number" id="cv3adPrice" min="0"></div>'
-        +'<div><label>Data (Go)</label><input type="number" id="cv3adData" min="0"></div>'
-        +'<div><label>Validité (jours)</label><input type="number" id="cv3adValidity" value="30" min="1"></div>'
-        +'<div><label class="cv3-ad-check" style="margin-top:22px"><input type="checkbox" id="cv3adIntl"> International inclus</label></div>'
-        +'<div class="cv3-ad-full"><label>Appels</label><input type="text" id="cv3adCalls" placeholder="Ex : Illimités vers Mobilis"></div>'
-        +'<div class="cv3-ad-full"><label>SMS</label><input type="text" id="cv3adSms" placeholder="Ex : 50 SMS tous réseaux"></div>'
-        +'<div class="cv3-ad-full"><label>Avantages (un par ligne)</label><textarea id="cv3adExtras" style="min-height:70px"></textarea></div>'
-        +'<div class="cv3-ad-full"><label>Lien officiel</label><input type="url" id="cv3adLink" placeholder="https://..."></div>'
+      +'<div id="cv3adDrafts"></div>'
+      +'<div class="cv3-ad-bar">'
+        +'<button type="button" class="cv3-ad-minibtn" id="cv3adVeilleBtn" onclick="window._cv3AdVeille()">🔔 Veille auto</button>'
+        +'<button type="button" class="cv3-ad-minibtn" onclick="window._cv3AdAdd()">➕ Offre vide</button>'
+        +'<button type="button" class="cv3-ad-minibtn" onclick="window._cv3AdAll(true)">☑ Tout cocher</button>'
+        +'<button type="button" class="cv3-ad-minibtn" onclick="window._cv3AdAll(false)">☐ Tout décocher</button>'
       +'</div>'
       +'<button type="button" class="cv3-ad-submitbtn" id="cv3adSubmitBtn" onclick="window._cv3AdSubmit()">✅ Confirmer et ajouter au comparateur</button>'
     +'</div></div>';
@@ -1103,9 +1187,25 @@ function _buildAddModal(){
 window._cv3OpenAdd = function(){
   var old=document.getElementById('cv3admodal');
   if(old) old.remove();
+  _cv3Drafts = [_cv3BlankDraft('')];
   document.body.insertAdjacentHTML('beforeend', _buildAddModal());
+  _cv3RenderDrafts();
+  _cv3PendingCount();
 };
-window._cv3AdClose = function(){ var m=document.getElementById('cv3admodal'); if(m) m.remove(); };
+
+// Nombre de nouveautés repérées par la veille (scrape-offres.js)
+async function _cv3PendingCount(){
+  try{
+    var r = await fetch('/api/comparateur/pending');
+    if(!r.ok) return;
+    var j = await r.json();
+    var n = (j.detected||[]).length, c = (j.changed||[]).length;
+    var b = document.getElementById('cv3adVeilleBtn');
+    if(b && (n||c)) b.innerHTML = '🔔 Veille auto ('+n+(c?' + '+c+' ⚠':'')+')';
+    if((n||c) && b) b.style.borderColor = '#ffd700', b.style.color = '#ffd700';
+  }catch(e){}
+}
+window._cv3AdClose = function(){ var m=document.getElementById('cv3admodal'); if(m) m.remove(); _cv3Drafts=[]; };
 
 window._cv3AdSrcTab = function(mode, btn){
   document.querySelectorAll('.cv3-ad-tab').forEach(function(b){b.classList.remove('on');});
@@ -1115,10 +1215,67 @@ window._cv3AdSrcTab = function(mode, btn){
   document.getElementById('cv3adText').style.display = mode==='text' ? 'block' : 'none';
 };
 
-window._cv3AdPickOp = function(op, btn){
-  document.querySelectorAll('.cv3-ad-opbtn').forEach(function(b){b.classList.remove('on');});
-  btn.classList.add('on');
-  document.getElementById('cv3adOps').dataset.op = op;
+window._cv3AdSet = function(k, field, val){
+  var d=_cv3Draft(k); if(!d) return;
+  if(field==='extras') d.extras = val.split('\n').map(function(s){return s.trim();}).filter(Boolean);
+  else d[field] = val;
+  if(field==='name'){ var t=document.getElementById('cv3adT'+k); if(t) t.textContent = val || 'Sans nom'; }
+  if(field==='price'){ var pz=document.getElementById('cv3adP'+k); if(pz) pz.textContent = val ? val+' DA' : ''; }
+  if(field==='op'){
+    var o=document.getElementById('cv3adO'+k), op=COMP_OPS[val];
+    if(o) o.textContent = op?op.name:'?';
+    var box=document.querySelector('.cv3-ad-draft[data-k="'+k+'"]');
+    if(box && op) box.style.cssText='--oc:'+op.color+';--oc-rgb:'+op.rgb;
+  }
+};
+window._cv3AdToggle = function(k, on){
+  var d=_cv3Draft(k); if(!d) return;
+  d.on = on;
+  var box=document.querySelector('.cv3-ad-draft[data-k="'+k+'"]');
+  if(box) box.classList.toggle('off', !on);
+  _cv3SubmitLabel();
+};
+window._cv3AdAll = function(on){ _cv3Drafts.forEach(function(d){d.on=on;}); _cv3RenderDrafts(); };
+window._cv3AdDel = function(k){ _cv3Drafts=_cv3Drafts.filter(function(d){return d._k!==k;}); _cv3RenderDrafts(); };
+window._cv3AdAdd = function(){
+  var last=_cv3Drafts[_cv3Drafts.length-1];
+  _cv3Drafts.push(_cv3BlankDraft(last?last.op:''));
+  _cv3RenderDrafts();
+};
+
+window._cv3AdVeille = async function(){
+  var statusEl = document.getElementById('cv3adStatus');
+  statusEl.textContent = '⏳ Lecture de la file de veille...';
+  try{
+    var r = await fetch('/api/comparateur/pending');
+    var j = await r.json();
+    if(!r.ok) throw new Error(j.error||'Veille indisponible');
+    var det = j.detected||[], chg = j.changed||[];
+    if(!det.length && !chg.length){
+      statusEl.textContent = 'ℹ️ Aucune nouveauté en attente. Dernier passage : '
+        + (j.generatedAt ? new Date(j.generatedAt).toLocaleString('fr-FR') : 'jamais')
+        + '. Lancer : node scrape-offres.js';
+      return;
+    }
+    _cv3Drafts = _cv3Drafts.filter(function(d){ return d.name || d.price; });
+    det.forEach(function(o){
+      var d = _cv3BlankDraft(o.op||'');
+      d.name=o.name||''; d.type=o.type||'prepaid'; d.price=o.price||''; d.data=(o.data===0||o.data)?o.data:'';
+      d.validity=o.validity||30; d.calls=o.calls||''; d.sms=o.sms||'';
+      d.intl=!!o.intl; d.extras=Array.isArray(o.extras)?o.extras:[]; d.link=o.link||'';
+      _cv3Drafts.push(d);
+    });
+    _cv3RenderDrafts();
+    var msg = '🔔 <b>'+det.length+'</b> nouveauté(s) détectée(s) automatiquement';
+    if(chg.length){
+      msg += ' · <span class="ko">'+chg.length+' tarif(s) modifié(s) : '
+        + chg.map(function(c){return _esc(c.name)+' '+c.was.price+'→'+c.now.price+' DA';}).join(', ')
+        + ' (à corriger à la main)</span>';
+    }
+    statusEl.innerHTML = msg + ' — vérifiez avant publication.';
+  }catch(e){
+    statusEl.textContent = '❌ '+e.message;
+  }
 };
 
 window._cv3AdAnalyze = async function(){
@@ -1152,25 +1309,27 @@ window._cv3AdAnalyze = async function(){
 
     statusEl.textContent = '🤖 Analyse IA en cours...';
     var r3 = await fetch('/api/comparateur/structure', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({rawText:text}) });
-    var offer = await r3.json();
-    if(!r3.ok) throw new Error(offer.error||'Analyse échouée');
+    var res = await r3.json();
+    if(!r3.ok) throw new Error(res.error||'Analyse échouée');
 
-    if(offer.op && COMP_OPS[offer.op]){
-      var opBtn = document.querySelector('.cv3-ad-opbtn[data-op="'+offer.op+'"]');
-      if(opBtn) window._cv3AdPickOp(offer.op, opBtn);
-    }
-    document.getElementById('cv3adName').value     = offer.name || '';
-    document.getElementById('cv3adType').value     = offer.type || 'prepaid';
-    document.getElementById('cv3adPrice').value    = offer.price || '';
-    document.getElementById('cv3adData').value     = offer.data || '';
-    document.getElementById('cv3adValidity').value = offer.validity || 30;
-    document.getElementById('cv3adCalls').value    = offer.calls || '';
-    document.getElementById('cv3adSms').value      = offer.sms || '';
-    document.getElementById('cv3adIntl').checked   = !!offer.intl;
-    document.getElementById('cv3adExtras').value   = Array.isArray(offer.extras) ? offer.extras.join('\n') : '';
-    document.getElementById('cv3adLink').value     = offer.link || '';
+    var found = Array.isArray(res.offers) ? res.offers : ((res.name || res.price) ? [res] : []);
+    if(!found.length) throw new Error('Aucune offre détectée dans cette source');
 
-    statusEl.textContent = '✅ Brouillon prêt — vérifiez et complétez les champs ci-dessous avant de confirmer.';
+    // Les brouillons vides sont remplacés, ceux déjà remplis sont conservés
+    _cv3Drafts = _cv3Drafts.filter(function(d){ return d.name || d.price; });
+    found.forEach(function(o){
+      var d = _cv3BlankDraft(o.op||'');
+      d.name = o.name||'';
+      d.type = ['prepaid','postpaid','internet'].indexOf(o.type)>=0 ? o.type : 'prepaid';
+      d.price = o.price||'';
+      d.data = (o.data===0||o.data) ? o.data : '';
+      d.validity = o.validity||30; d.calls = o.calls||''; d.sms = o.sms||'';
+      d.intl = !!o.intl; d.extras = Array.isArray(o.extras)?o.extras:[]; d.link = o.link||'';
+      _cv3Drafts.push(d);
+    });
+    _cv3RenderDrafts();
+    statusEl.innerHTML = '✅ <b>'+found.length+'</b> offre'+(found.length>1?'s':'')+' détectée'+(found.length>1?'s':'')
+      +' — vérifiez chaque bloc, décochez celles à écarter, puis confirmez.';
   }catch(e){
     statusEl.textContent = '❌ '+e.message;
   }finally{
@@ -1181,35 +1340,44 @@ window._cv3AdAnalyze = async function(){
 window._cv3AdSubmit = async function(){
   var btn = document.getElementById('cv3adSubmitBtn');
   var statusEl = document.getElementById('cv3adStatus');
-  var op = document.getElementById('cv3adOps').dataset.op;
-  var name = document.getElementById('cv3adName').value.trim();
-  var price = parseFloat(document.getElementById('cv3adPrice').value);
-  var dataVal = parseFloat(document.getElementById('cv3adData').value);
-  if(!op){ statusEl.textContent = '❌ Choisissez un opérateur.'; return; }
-  if(!name || !price || !dataVal){ statusEl.textContent = '❌ Nom, prix et data sont requis.'; return; }
+  var sel = _cv3Drafts.filter(function(d){return d.on;});
+  if(!sel.length){ statusEl.textContent = '❌ Aucune offre sélectionnée.'; return; }
 
-  var body = {
-    op: op, name: name,
-    type: document.getElementById('cv3adType').value,
-    price: price, data: dataVal,
-    validity: parseFloat(document.getElementById('cv3adValidity').value) || 30,
-    calls: document.getElementById('cv3adCalls').value.trim(),
-    sms: document.getElementById('cv3adSms').value.trim(),
-    intl: document.getElementById('cv3adIntl').checked,
-    extras: document.getElementById('cv3adExtras').value.split('\n').map(function(s){return s.trim();}).filter(Boolean),
-    link: document.getElementById('cv3adLink').value.trim()
-  };
+  var bad = sel.filter(function(d){ return !d.op || !String(d.name).trim() || !(parseFloat(d.price)>0); });
+  if(bad.length){
+    statusEl.textContent = '❌ '+bad.length+' offre(s) incomplète(s) : opérateur, nom et prix sont requis.';
+    return;
+  }
+
+  var payload = sel.map(function(d){
+    return { op:d.op, name:String(d.name).trim(), type:d.type,
+             price:parseFloat(d.price), data:parseFloat(d.data)||0,
+             validity:parseFloat(d.validity)||30, calls:d.calls, sms:d.sms,
+             intl:!!d.intl, extras:d.extras, link:d.link };
+  });
 
   btn.disabled = true;
-  statusEl.textContent = '⏳ Ajout en cours...';
+  statusEl.textContent = '⏳ Ajout de '+payload.length+' offre(s)...';
   try{
-    var r = await fetch('/api/comparateur/offer', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+    var r = await fetch('/api/comparateur/offers', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({offers:payload}) });
     var j = await r.json();
     if(!r.ok) throw new Error(j.error||"Échec de l'ajout");
-    COMP_OFFERS.push(j.offer);
-    window._cv3AdClose();
+    (j.added||[]).forEach(function(o){ COMP_OFFERS.push(o); });
     _render();
-    if(typeof showToast==='function') showToast('✅ Offre ajoutée : '+j.offer.name);
+    if((j.added||[]).length){
+      fetch('/api/comparateur/pending/clear', { method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({ names: j.added.map(function(o){return o.name;}) }) }).catch(function(){});
+    }
+    if((j.skipped||[]).length){
+      _cv3Drafts = [];
+      _cv3RenderDrafts();
+      statusEl.innerHTML = '<b>'+(j.added||[]).length+' ajoutée(s)</b> · <span class="ko">'
+        + j.skipped.map(function(s){return _esc(s.name)+' ('+_esc(s.reason)+')';}).join(', ')+'</span>';
+      btn.disabled = false;
+    } else {
+      window._cv3AdClose();
+      if(typeof showToast==='function') showToast('✅ '+(j.added||[]).length+' offre(s) ajoutée(s)');
+    }
   }catch(e){
     statusEl.textContent = '❌ '+e.message;
     btn.disabled = false;
