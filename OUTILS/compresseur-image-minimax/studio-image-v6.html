@@ -333,9 +333,9 @@
             <label style="color:var(--gold); cursor:pointer; font-size:0.7rem;">
                 <span><input type="checkbox" id="creatifPersonnages"> Autoriser des personnages (déconseillé)</span>
             </label>
-            <label>Débord autorisé sur l'image <span id="valDebord">8%</span></label>
-            <input type="range" id="creatifDebord" min="0" max="25" value="8">
-            <p class="hint" style="margin-top:0;">0 % = bords d'origine intacts. Plus haut, l'IA peut faire « sortir » des objets du cadre.</p>
+            <label>Débord autorisé sur l'image <span id="valDebord">0%</span></label>
+            <input type="range" id="creatifDebord" min="0" max="25" value="0">
+            <p class="hint" style="margin-top:0;">0 % (recommandé) = votre visuel est entièrement protégé. Au-delà, l'IA peut prolonger un objet hors du cadre, mais elle repeindra aussi les bords — attention aux logos placés dans les coins.</p>
             <button id="btnCreatif" class="magic" onclick="lancerCreatif(16/9)">✨ Générer en 16:9</button>
             <div id="propositions"></div>
             <div id="creatifInfo" class="hint" style="text-align:center;"></div>
