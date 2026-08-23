@@ -202,6 +202,25 @@
         @keyframes defile { 0% { margin-left: -35%; } 100% { margin-left: 100%; } }
         #progression .duree { color: #8a7a63; font-size: 0.65rem; }
 
+
+        /* --- Extension creative (NOUVEAU, bloc independant) --- */
+        #blocCreatif { background: rgba(120,40,160,0.06); border: 1px dashed #a06cd5; border-radius: 8px; padding: 12px; }
+        #blocCreatif h3 { color: #c9a2ee; }
+        #blocCreatif .hint { color: #8d7aa3; }
+        #blocCreatif textarea {
+            width: 100%; background: #000; border: 1px solid #444; color: #fff;
+            border-radius: 5px; padding: 8px; font-size: 0.75rem; margin-top: 6px;
+            resize: vertical; min-height: 54px; font-family: 'Inter', sans-serif;
+        }
+        #btnCreatif { background: linear-gradient(135deg,#7b2cbf 0%,#c77dff 50%,#7b2cbf 100%); color: #fff; border: none; font-weight: bold; width: 100%; padding: 12px; }
+        #btnDecrire { border-color: #a06cd5; color: #c9a2ee; }
+        #propositions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 10px; }
+        #propositions .prop { border: 2px solid #3a2a4a; border-radius: 6px; overflow: hidden; cursor: pointer; position: relative; }
+        #propositions .prop img { width: 100%; display: block; }
+        #propositions .prop:hover { border-color: #c77dff; }
+        #propositions .prop.choisie { border-color: var(--gold); }
+        #propositions .prop span { position: absolute; left: 3px; top: 2px; font-size: 0.6rem; color: #fff; background: rgba(0,0,0,.6); padding: 0 4px; border-radius: 3px; }
+
         .batch-bar {
             height: 90px; background: var(--glass); border-top: 1px solid var(--gold);
             display: flex; align-items: center; padding: 10px; gap: 10px; overflow-x: auto;
@@ -291,6 +310,32 @@
                 <option value="layout">Forcer la recomposition des blocs</option>
             </select>
             <div id="smartInfo" class="hint" style="text-align:center; margin-top:8px;"></div>
+        </div>
+
+
+        <!-- Extension creative (NOUVEAU) -->
+        <div class="section" id="blocCreatif">
+            <div class="section-header">
+                <h3>🔮 Extension créative (IA)</h3>
+                <button class="btn-reset" onclick="creatifAide()">À quoi ça sert ?</button>
+            </div>
+            <p class="hint">L'IA <b>invente</b> le décor manquant au lieu de le prolonger. Le sujet, le texte et les logos restent intacts.<br>
+            ⚠ Résultat aléatoire : plusieurs propositions sont générées, vous choisissez.</p>
+            <textarea id="creatifPrompt" placeholder="Décrivez la scène à inventer (en anglais de préférence)&#10;ex. futuristic city skyline, network patterns, blue sky"></textarea>
+            <div class="grid" style="margin-top:8px;">
+                <button id="btnDecrire" onclick="creatifDecrire()">👁 Décrire l'image</button>
+                <select id="creatifNb" title="Nombre de propositions">
+                    <option value="1">1 proposition</option>
+                    <option value="2">2 propositions</option>
+                    <option value="3" selected>3 propositions</option>
+                </select>
+            </div>
+            <label>Débord autorisé sur l'image <span id="valDebord">8%</span></label>
+            <input type="range" id="creatifDebord" min="0" max="25" value="8">
+            <p class="hint" style="margin-top:0;">0 % = bords d'origine intacts. Plus haut, l'IA peut faire « sortir » des objets du cadre.</p>
+            <button id="btnCreatif" class="magic" onclick="lancerCreatif(16/9)">✨ Générer en 16:9</button>
+            <div id="propositions"></div>
+            <div id="creatifInfo" class="hint" style="text-align:center;"></div>
         </div>
 
         <!-- Géométrie & Taille -->
@@ -2200,6 +2245,199 @@
             clearInterval(progTimer);
             const p = $('progression');
             if (p) p.classList.remove('actif');
+        }
+
+
+        /* ================= EXTENSION CREATIVE (NOUVEAU, independant) =================
+           Le moteur local fabrique d'abord un cadre au format voulu ; le modele SDXL
+           remplit ensuite les zones vides en inventant une scene coherente. Le sujet
+           d'origine est recolle net par-dessus : texte et logos ne risquent rien.   */
+
+        let propositions = [];
+
+        function creatifAide() {
+            alert("Extension cr\u00e9ative\n\n"
+                + "\u2022 Le renfort IA habituel PROLONGE le d\u00e9cor (discret, fid\u00e8le).\n"
+                + "\u2022 Ce mode-ci INVENTE une sc\u00e8ne autour de votre visuel.\n\n"
+                + "Le sujet, le texte et les logos sont recoll\u00e9s nets : le mod\u00e8le ne peut pas les abîmer.\n"
+                + "Le curseur de d\u00e9bord autorise l'IA \u00e0 mordre sur les bords pour prolonger un objet.\n\n"
+                + "R\u00e9sultat al\u00e9atoire : g\u00e9n\u00e9rez plusieurs propositions et gardez la meilleure.");
+        }
+
+        $('creatifDebord').addEventListener('input', e => { $('valDebord').textContent = e.target.value + '%'; });
+
+        async function creatifDecrire() {
+            if (!originalImg) { showToast('Importez une image'); return; }
+            const b = $('btnDecrire');
+            b.disabled = true; b.textContent = '\u2026';
+            try {
+                const c = document.createElement('canvas');
+                const k = Math.min(1, 512 / Math.max(originalImg.naturalWidth, originalImg.naturalHeight));
+                c.width = Math.round(originalImg.naturalWidth * k);
+                c.height = Math.round(originalImg.naturalHeight * k);
+                c.getContext('2d').drawImage(originalImg, 0, 0, c.width, c.height);
+                const rep = await fetch(($('smartEndpoint') ? $('smartEndpoint').value.trim() : '') || '/api/outpaint', {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'decrire', image: c.toDataURL('image/jpeg', 0.85) })
+                });
+                const d = await rep.json();
+                if (!rep.ok || !d.description) throw new Error(d.error || 'refus');
+                $('creatifPrompt').value = d.description;
+                showToast('Description obtenue');
+            } catch (e) {
+                showToast('Description indisponible \u2014 \u00e9crivez la sc\u00e8ne vous-m\u00eame');
+            } finally { b.disabled = false; b.textContent = '\ud83d\udc41 D\u00e9crire l\'image'; }
+        }
+
+        /* Cadre au format voulu : image d'origine centree, le reste a inventer */
+        function cadreCreatif(img, ratio) {
+            const iw = img.naturalWidth, ih = img.naturalHeight;
+            let W, H;
+            if (iw / ih < ratio) { H = ih; W = Math.round(ih * ratio); }
+            else { W = iw; H = Math.round(iw / ratio); }
+            const cap = 1024, mx = Math.max(W, H), k = mx > cap ? cap / mx : 1;
+            W = Math.max(64, Math.round(W * k / 8) * 8);
+            H = Math.max(64, Math.round(H * k / 8) * 8);
+            const dw = Math.round(iw * Math.min(W / iw, H / ih));
+            const dh = Math.round(ih * Math.min(W / iw, H / ih));
+            return { W, H, dw, dh, x0: Math.round((W - dw) / 2), y0: Math.round((H - dh) / 2) };
+        }
+
+        async function lancerCreatif(ratio) {
+            if (!originalImg) { showToast('Importez une image'); return; }
+            const source = originalImg;
+            const nb = parseInt($('creatifNb').value, 10) || 1;
+            const debord = parseInt($('creatifDebord').value, 10) / 100;
+            const consigne = $('creatifPrompt').value.trim();
+            const point = ($('smartEndpoint') ? $('smartEndpoint').value.trim() : '') || '/api/outpaint';
+            const c = cadreCreatif(source, ratio);
+
+            // image de depart : le rendu local (decor deja prolonge) donne au modele
+            // un contexte de couleurs, ce qui evite les raccords brutaux
+            let base;
+            try {
+                const R = Smart.analyse(source);
+                base = Smart.etendre(source, ratio, R, Smart.nature(R));
+            } catch (e) { base = null; }
+            const dep = document.createElement('canvas'); dep.width = c.W; dep.height = c.H;
+            const dc = dep.getContext('2d');
+            if (base) dc.drawImage(base.out, 0, 0, c.W, c.H);
+            else { dc.fillStyle = '#ffffff'; dc.fillRect(0, 0, c.W, c.H); dc.drawImage(source, c.x0, c.y0, c.dw, c.dh); }
+
+            // masque : blanc = a inventer. Le rectangle protege est reduit du debord.
+            const mx = Math.round(c.dw * debord), my = Math.round(c.dh * debord);
+            const mk = document.createElement('canvas'); mk.width = c.W; mk.height = c.H;
+            const mc = mk.getContext('2d');
+            mc.fillStyle = '#fff'; mc.fillRect(0, 0, c.W, c.H);
+            mc.fillStyle = '#000';
+            mc.fillRect(c.x0 + mx, c.y0 + my, Math.max(8, c.dw - mx * 2), Math.max(8, c.dh - my * 2));
+
+            propositions = [];
+            $('propositions').innerHTML = '';
+            $('creatifInfo').textContent = '';
+            progOuvrir('Extension cr\u00e9ative \u2014 proposition 1/' + nb);
+            $('currentStatus').textContent = 'CREATION IA\u2026';
+            $('btnCreatif').disabled = true;
+
+            let obtenues = 0, dernierMsg = '';
+            for (let i = 0; i < nb; i++) {
+                progEtape('Extension cr\u00e9ative \u2014 proposition ' + (i + 1) + '/' + nb);
+                try {
+                    const ctrl = new AbortController();
+                    const minuteur = setTimeout(() => ctrl.abort(), 90000);
+                    let d;
+                    try {
+                        const rep = await fetch(point, {
+                            method: 'POST', signal: ctrl.signal,
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                mode: 'creatif',
+                                image: dep.toDataURL('image/png'),
+                                mask: mk.toDataURL('image/png'),
+                                width: c.W, height: c.H,
+                                prompt: consigne,
+                                seed: Math.floor(Math.random() * 1e9)
+                            })
+                        });
+                        d = await rep.json();
+                        if (!rep.ok || !d.image) throw new Error(d.error || 'r\u00e9ponse invalide');
+                    } finally { clearTimeout(minuteur); }
+
+                    const gen = await new Promise((ok, ko) => {
+                        const im = new Image(); im.onload = () => ok(im); im.onerror = ko; im.src = d.image;
+                    });
+                    propositions.push(assembler(gen, source, c, debord));
+                    obtenues++;
+                    afficherPropositions();
+                } catch (e) {
+                    dernierMsg = String(e.message || e);
+                }
+            }
+            progFermer();
+            $('btnCreatif').disabled = false;
+            $('currentStatus').textContent = originalImg ? (originalImg.naturalWidth + '\u00d7' + originalImg.naturalHeight) : 'PR\u00caT';
+            if (!obtenues) {
+                $('creatifInfo').textContent = 'Aucune proposition \u2014 ' + (dernierMsg || 'service indisponible');
+                showToast('Extension cr\u00e9ative indisponible');
+                return;
+            }
+            $('creatifInfo').textContent = obtenues + ' proposition(s) \u2014 cliquez pour appliquer';
+            appliquerProposition(0);
+        }
+
+        /* Le rendu du modele + le sujet d'origine recolle net (hors zone de debord) */
+        function assembler(gen, source, c, debord) {
+            // Sortie en pleine resolution : le decor invente (1024 px cote modele) est
+            // agrandi, mais le sujet d'origine est recolle a sa taille native, donc net.
+            const out = document.createElement('canvas');
+            const plein = Math.min(2600, Math.max(gen.naturalWidth, Math.round(source.naturalWidth * (c.W / c.dw))));
+            out.width = Math.round(plein / 2) * 2;
+            out.height = Math.round((out.width * c.H / c.W) / 2) * 2;
+            const o = out.getContext('2d');
+            o.imageSmoothingQuality = 'high';
+            o.drawImage(gen, 0, 0, gen.naturalWidth, gen.naturalHeight, 0, 0, out.width, out.height);
+            const ech = out.width / c.W;
+            const mx = c.dw * debord, my = c.dh * debord;
+            const sw = source.naturalWidth, sh = source.naturalHeight;
+            // portion de l'original conservee (on laisse a l'IA la bande de debord)
+            const rx = (mx / c.dw) * sw, ry = (my / c.dh) * sh;
+            const dx = (c.x0 + mx) * ech, dy = (c.y0 + my) * ech;
+            const dw = (c.dw - mx * 2) * ech, dh = (c.dh - my * 2) * ech;
+            const net = document.createElement('canvas');
+            net.width = Math.max(8, Math.round(dw)); net.height = Math.max(8, Math.round(dh));
+            const nc = net.getContext('2d');
+            nc.drawImage(source, rx, ry, sw - rx * 2, sh - ry * 2, 0, 0, net.width, net.height);
+            const f = Math.max(4, Math.round(Math.min(net.width, net.height) * 0.03));
+            const m = document.createElement('canvas'); m.width = net.width; m.height = net.height;
+            const mc2 = m.getContext('2d');
+            mc2.filter = 'blur(' + Math.round(f / 2) + 'px)';
+            mc2.fillStyle = '#fff'; mc2.fillRect(f / 2, f / 2, net.width - f, net.height - f);
+            nc.globalCompositeOperation = 'destination-in';
+            nc.drawImage(m, 0, 0);
+            o.drawImage(net, Math.round(dx), Math.round(dy));
+            return out;
+        }
+
+        function afficherPropositions() {
+            const z = $('propositions');
+            z.innerHTML = '';
+            propositions.forEach((cv, i) => {
+                const d = document.createElement('div');
+                d.className = 'prop' + (i === 0 ? ' choisie' : '');
+                const im = new Image(); im.src = cv.toDataURL('image/jpeg', 0.6);
+                const t = document.createElement('span'); t.textContent = (i + 1);
+                d.appendChild(im); d.appendChild(t);
+                d.onclick = () => appliquerProposition(i);
+                z.appendChild(d);
+            });
+        }
+
+        function appliquerProposition(i) {
+            const cv = propositions[i];
+            if (!cv) return;
+            [...$('propositions').children].forEach((e, j) => e.classList.toggle('choisie', i === j));
+            setRatio(cv.width / cv.height);
+            replaceSource(cv, 'Proposition ' + (i + 1) + ' appliqu\u00e9e');
         }
 
         updateLabels();

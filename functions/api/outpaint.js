@@ -19,6 +19,19 @@ const json = (obj, status = 200) =>
   });
 
 const MODELE_WAI = '@cf/runwayml/stable-diffusion-v1-5-inpainting';
+// Mode créatif : SDXL accepte aussi un masque et compose des scènes bien plus riches.
+const MODELE_CREATIF = '@cf/stabilityai/stable-diffusion-xl-base-1.0';
+// Description de l'image, pour construire un prompt qui parle vraiment du visuel.
+const MODELE_VISION = '@cf/llava-hf/llava-1.5-7b-hf';
+
+// Le mode créatif a le droit d'inventer des objets : on ne lui interdit que ce qui
+// abîmerait la marque (texte, logos) ou trahirait la génération (visages ratés).
+const NEGATIF_CREATIF =
+  'text, letters, words, arabic script, typography, logo, watermark, signature, ' +
+  'deformed faces, extra limbs, distorted hands, low quality, blurry, jpeg artifacts';
+const STYLE_CREATIF =
+  'high quality advertising photography, coherent scene, consistent lighting and ' +
+  'perspective with the original, professional composition';
 
 const PROMPT_DEFAUT =
   'seamless background extension, same style, same colors, same lighting, ' +
@@ -50,7 +63,27 @@ export async function onRequestPost({ request, env }) {
   try { body = await request.json(); }
   catch { return json({ error: 'Requête invalide.' }, 400); }
 
-  const { image, mask, prompt, width, height } = body || {};
+  const { image, mask, prompt, width, height, mode, seed, action } = body || {};
+
+  // ── Action « décrire » : LLaVA raconte l'image, le client s'en sert de prompt ──
+  if (action === 'decrire') {
+    if (!image) return json({ error: 'image requise.' }, 400);
+    if (!env.AI) return json({ error: 'Description non configurée (binding AI absent).' }, 503);
+    try {
+      const r = await env.AI.run(MODELE_VISION, {
+        image: [...versOctets(image)],
+        prompt: "Describe this advertising visual in one short English sentence: the setting, " +
+                "the main subject, the colors and the mood. Do not mention any text or logo.",
+        max_tokens: 96
+      });
+      const texte = String((r && (r.description || r.response)) || '').trim().replace(/\s+/g, ' ');
+      if (!texte) return json({ error: 'Description vide.' }, 502);
+      return json({ description: texte.slice(0, 300), moteur: 'llava' });
+    } catch (e) {
+      return json({ error: 'Description indisponible.' }, 502);
+    }
+  }
+
   if (!image || !mask) return json({ error: 'image et mask requis.' }, 400);
 
   const w = Math.round(Number(width) || 0), h = Math.round(Number(height) || 0);
@@ -61,7 +94,39 @@ export async function onRequestPost({ request, env }) {
   try { octetsImage = versOctets(image); octetsMasque = versOctets(mask); }
   catch { return json({ error: 'Encodage base64 invalide.' }, 400); }
 
-  const consigne = String(prompt || '').slice(0, 400) || PROMPT_DEFAUT;
+  const creatif = mode === 'creatif';
+  const consigne = String(prompt || '').slice(0, 400) ||
+                   (creatif ? STYLE_CREATIF : PROMPT_DEFAUT);
+
+  // ── 0. Mode créatif : SDXL, autorisé à inventer la scène ────────────────────
+  if (creatif && env.AI) {
+    try {
+      const r = await env.AI.run(MODELE_CREATIF, {
+        prompt: consigne + ', ' + STYLE_CREATIF,
+        negative_prompt: NEGATIF_CREATIF,
+        image_b64: String(image).replace(/^data:[^,]+,/, ''),
+        mask: [...octetsMasque],
+        width: w,
+        height: h,
+        strength: 1,
+        guidance: 6.5,
+        num_steps: 20,
+        seed: Number.isFinite(Number(seed)) ? Number(seed) : Math.floor(Math.random() * 1e9)
+      });
+      const buf = r instanceof ReadableStream ? await new Response(r).arrayBuffer()
+                : r instanceof ArrayBuffer ? r
+                : r && r.image ? versOctets(r.image).buffer
+                : null;
+      if (buf) return json({
+        image: 'data:image/png;base64,' + versBase64(buf),
+        moteur: 'sdxl-creatif',
+        prompt: consigne
+      });
+      return json({ error: 'Le modèle créatif n\'a rien renvoyé.' }, 502);
+    } catch (e) {
+      return json({ error: 'Mode créatif indisponible : ' + String(e.message || e).slice(0, 160) }, 502);
+    }
+  }
 
   // ── 1. Workers AI ───────────────────────────────────────────────────────────
   if (env.AI) {
