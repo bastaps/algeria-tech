@@ -235,7 +235,7 @@
                 <button class="magic" onclick="smartReformat(9/16)">📱 Recomposer 9:16</button>
             </div>
             <label style="color:var(--gold); cursor:pointer; font-size:0.7rem; margin-top:6px;">
-                <span><input type="checkbox" id="smartIA"> Renfort IA serveur (outpainting)</span>
+                <span><input type="checkbox" id="smartIA"> Renfort IA serveur (photos uniquement)</span>
             </label>
             <input type="text" id="smartEndpoint" value="/api/outpaint" placeholder="/api/outpaint" title="Endpoint Cloudflare Function" style="display:none;">
             <select id="smartMode" title="Stratégie de mise au format">
@@ -1205,24 +1205,61 @@
                 for (let q = 0, i = 0; q < w * h; q++, i += 4) {
                     diff[q] = (Math.abs(src[i] - bg[i]) + Math.abs(src[i+1] - bg[i+1]) + Math.abs(src[i+2] - bg[i+2])) / 3;
                 }
-                const mask = new Uint8Array(w * h);
-                for (let q = 0; q < w * h; q++) mask[q] = diff[q] > 16 ? 1 : 0;
+                // Texte contre dessin au trait : un texte remplit densement son
+                // voisinage, une illustration en filigrane reste clairsemee. C'est ce
+                // qui permet de detacher le batiment colle au bloc d'informations.
+                const fort = new Uint8Array(w * h);
+                for (let q = 0; q < w * h; q++) fort[q] = diff[q] > 70 ? 1 : 0;
 
-                // Fermeture morphologique : les lettres deviennent des lignes, les lignes des blocs
-                const dil = this.dilate(mask, w, h, Math.max(2, Math.round(w * 0.020)), Math.max(2, Math.round(h * 0.010)));
-                let bruts = this.components(dil, w, h, diff);
-                bruts = bruts.filter(b => b.w > w * 0.02 && b.h > h * 0.008 && b.px > 12);
-                bruts.forEach(b => { b.force = b.energy / Math.max(1, b.px); });
-                // Le décor en filigrane (traits fins, illustrations pâles) est isolé AVANT la fusion :
-                // sans cela il se collerait aux blocs de texte voisins.
-                // Un texte ou un logo contient toujours des pixels très contrastés ; une illustration
-                // en filigrane n'en a quasiment aucun. C'est ce qui les sépare de façon fiable.
-                const surfA = w * h;
-                bruts.forEach(b => { b.net = b.strong / Math.max(1, b.px); });
-                const faibles = bruts.filter(b => b.net < 0.04);
-                const forts = bruts.filter(b => faibles.indexOf(b) === -1);
-                const boxes = this.merge(forts, w * 0.030, h * 0.018)
-                    .concat(this.merge(faibles, w * 0.05, h * 0.05).map(b => (b.decor = true, b)));
+                const I = new Int32Array((w + 1) * (h + 1));
+                for (let y = 0; y < h; y++) { let rs = 0;
+                    for (let x = 0; x < w; x++) { rs += fort[y * w + x]; I[(y+1)*(w+1)+x+1] = I[y*(w+1)+x+1] + rs; } }
+                const rd = Math.max(3, Math.round(w * 0.015));
+                const texte = new Uint8Array(w * h);
+                for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+                    if (!fort[y * w + x]) continue;
+                    const x0 = Math.max(0, x - rd), x1 = Math.min(w - 1, x + rd);
+                    const y0 = Math.max(0, y - rd), y1 = Math.min(h - 1, y + rd);
+                    const som = I[(y1+1)*(w+1)+x1+1] - I[y0*(w+1)+x1+1] - I[(y1+1)*(w+1)+x0] + I[y0*(w+1)+x0];
+                    if (som / ((x1 - x0 + 1) * (y1 - y0 + 1)) >= 0.10) texte[y * w + x] = 1;
+                }
+
+                const dilTexte = this.dilate(texte, w, h, Math.max(2, Math.round(w * 0.020)), Math.max(2, Math.round(h * 0.010)));
+                let forts = this.components(dilTexte, w, h, diff)
+                    .filter(b => b.w > w * 0.02 && b.h > h * 0.006 && b.px > 12);
+                forts = this.merge(forts, w * 0.030, h * 0.016);
+                // Resserrage : on rogne les bords de chaque bloc tant qu'ils ne portent
+                // pas de texte dense (sinon un trait de decor qui passe derriere elargit
+                // artificiellement la boite et fausse toute la mise en page).
+                forts = forts.map(b => this.resserrer(b, texte, w, h)).filter(Boolean);
+                // Un bloc peut encore reunir deux zones sans rapport (le texte et le dessin
+                // qui passe derriere). On le coupe sur les vallees verticales vides, puis
+                // les morceaux trop clairsemes rejoignent le decor.
+                const morceaux = [];
+                forts.forEach(b => this.couper(b, texte, w, h).forEach(m => morceaux.push(m)));
+                const clairs = [];
+                forts = morceaux.filter(b => {
+                    let n = 0;
+                    for (let y = b.y; y < b.y + b.h; y++) for (let x = b.x; x < b.x + b.w; x++)
+                        if (x >= 0 && y >= 0 && x < w && y < h && texte[y * w + x]) n++;
+                    if (n / Math.max(1, b.w * b.h) >= 0.06) return true;
+                    b.decor = true; clairs.push(b); return false;
+                });
+
+                // Tout le reste du graphisme (traits fins, aplats decoratifs) = decor
+                const faible = new Uint8Array(w * h);
+                for (let q = 0; q < w * h; q++) faible[q] = (diff[q] > 16 && !texte[q]) ? 1 : 0;
+                const marge = Math.max(2, Math.round(w * 0.010));
+                forts.forEach(b => {
+                    for (let y = Math.max(0, b.y - marge); y < Math.min(h, b.y + b.h + marge); y++)
+                        for (let x = Math.max(0, b.x - marge); x < Math.min(w, b.x + b.w + marge); x++) faible[y * w + x] = 0;
+                });
+                const dilFaible = this.dilate(faible, w, h, Math.max(3, Math.round(w * 0.030)), Math.max(3, Math.round(h * 0.020)));
+                let faibles = this.components(dilFaible, w, h, diff)
+                    .filter(b => (b.w * b.h) / (w * h) > 0.012);
+
+
+                const boxes = forts.concat(this.merge(faibles.concat(clairs), w * 0.06, h * 0.06).map(b => (b.decor = true, b)));
                 boxes.forEach(b => { b.force = b.energy / Math.max(1, b.px); b.net = b.strong / Math.max(1, b.px); });
 
                 // Nature de l'image : une affiche a de vastes aplats et peu de teintes,
@@ -1249,7 +1286,66 @@
                     b.w = Math.min(iw - b.x, Math.round(b.w / k) + pad * 2);
                     b.h = Math.min(ih - b.y, Math.round(b.h / k) + pad * 2);
                 });
-                return { boxes, plate, bgColor, iw, ih, dominance, teintes90, diff, aw: w, ah: h, k };
+                return { boxes, plate, bgColor, iw, ih, dominance, teintes90, diff, texte, aw: w, ah: h, k };
+            },
+
+            /* Coupe une boite sur ses vallees verticales vides (decoupe XY) */
+            couper(b, texte, w, h, prof) {
+                if ((prof || 0) > 2 || b.w < w * 0.12) return [b];
+                const col = new Int32Array(b.w);
+                for (let y = b.y; y < b.y + b.h; y++) for (let x = 0; x < b.w; x++) {
+                    const px = b.x + x;
+                    if (px >= 0 && y >= 0 && px < w && y < h && texte[y * w + px]) col[x]++;
+                }
+                const pic = Math.max(...col);
+                if (!pic) return [b];
+                const seuil = pic * 0.04, minVide = Math.max(4, Math.round(w * 0.035));
+                let debut = -1, meilleure = null;
+                for (let x = 0; x <= b.w; x++) {
+                    const vide = x < b.w && col[x] <= seuil;
+                    if (vide && debut < 0) debut = x;
+                    if (!vide && debut >= 0) {
+                        const lg = x - debut;
+                        // on ignore les vallees des bords : seules celles qui separent deux
+                        // zones de contenu nous interessent
+                        if (lg >= minVide && debut > w * 0.02 && x < b.w - w * 0.02 &&
+                            (!meilleure || lg > meilleure.lg)) meilleure = { debut, fin: x, lg };
+                        debut = -1;
+                    }
+                }
+                if (!meilleure) return [b];
+                const g = Object.assign({}, b, { w: meilleure.debut });
+                const d = Object.assign({}, b, { x: b.x + meilleure.fin, w: b.w - meilleure.fin });
+                return this.couper(g, texte, w, h, (prof || 0) + 1)
+                    .concat(this.couper(d, texte, w, h, (prof || 0) + 1));
+            },
+
+            /* Rogne une boite sur les lignes/colonnes reellement porteuses de texte */
+            resserrer(b, texte, w, h) {
+                const colX = new Int32Array(b.w), colY = new Int32Array(b.h);
+                for (let y = 0; y < b.h; y++) for (let x = 0; x < b.w; x++) {
+                    const px = b.x + x, py = b.y + y;
+                    if (px < 0 || py < 0 || px >= w || py >= h) continue;
+                    if (texte[py * w + px]) { colX[x]++; colY[y]++; }
+                }
+                const bord = (proj, taille) => {
+                    const pic = Math.max(...proj);
+                    if (!pic) return null;
+                    const seuil = pic * 0.06;
+                    let a = 0, z = taille - 1;
+                    while (a < z && proj[a] < seuil) a++;
+                    while (z > a && proj[z] < seuil) z--;
+                    return [a, z];
+                };
+                const bx = bord(colX, b.w), by = bord(colY, b.h);
+                if (!bx || !by) return null;
+                const marge = Math.max(2, Math.round(w * 0.008));
+                const nx = Math.max(0, b.x + bx[0] - marge), ny = Math.max(0, b.y + by[0] - marge);
+                return Object.assign({}, b, {
+                    x: nx, y: ny,
+                    w: Math.min(w - nx, bx[1] - bx[0] + 1 + marge * 2),
+                    h: Math.min(h - ny, by[1] - by[0] + 1 + marge * 2)
+                });
             },
 
             dilate(mask, w, h, rx, ry) {
@@ -1403,6 +1499,166 @@
                 return { out, W, H, blocs: base.blocs, moteur: data.moteur || 'ia' };
             },
 
+
+            /* ---------- Lecture en bandes ----------
+               Une affiche se lit de haut en bas : bandeau de logos, titre, rangees.
+               Reperer ces bandes est bien plus sur que d'isoler chaque bloc, car un
+               decor qui traverse la page ne peut plus souder deux zones entre elles. */
+            bandes(R) {
+                const t = R.texte, w = R.aw, h = R.ah, k = R.k;
+                const ligne = new Int32Array(h);
+                for (let y = 0; y < h; y++) { let n = 0;
+                    for (let x = 0; x < w; x++) if (t[y * w + x]) n++;
+                    ligne[y] = n; }
+                const pic = Math.max(...ligne);
+                if (!pic) return [];
+                const seuil = Math.max(1, pic * 0.02);
+                const videMax = Math.max(3, Math.round(h * 0.018));
+                const bruts = [];
+                let deb = -1, vide = 0;
+                for (let y = 0; y <= h; y++) {
+                    const plein = y < h && ligne[y] > seuil;
+                    if (plein) { if (deb < 0) deb = y; vide = 0; }
+                    else if (deb >= 0) { vide++; if (vide > videMax || y === h) { bruts.push([deb, y - vide]); deb = -1; vide = 0; } }
+                }
+                // etendue horizontale reelle de chaque bande, puis retour en coordonnees d'origine
+                return bruts.filter(([a, b]) => b - a > h * 0.008).map(([y0, y1]) => {
+                    const col = new Int32Array(w);
+                    for (let y = y0; y <= y1; y++) for (let x = 0; x < w; x++) if (t[y * w + x]) col[x]++;
+
+                    // Projection lissee : un texte forme un plateau large, un dessin au
+                    // trait ne laisse que des pointes isolees qui s'effacent au lissage.
+                    const f = Math.max(2, Math.round(w * 0.02));
+                    const lis = new Float32Array(w);
+                    for (let x = 0; x < w; x++) {
+                        let som = 0, n = 0;
+                        for (let i = Math.max(0, x - f); i <= Math.min(w - 1, x + f); i++) { som += col[i]; n++; }
+                        lis[x] = som / n;
+                    }
+                    const pic = Math.max(...lis);
+                    if (!pic) return null;
+
+                    let x0 = 0, x1 = w - 1;
+                    while (x0 < x1 && lis[x0] < pic * 0.16) x0++;
+                    while (x1 > x0 && lis[x1] < pic * 0.16) x1--;
+
+                    // vallee interieure franche : deux groupes eloignes (logos aux coins)
+                    let creux = null, deb2 = -1, large = 0;
+                    for (let x = x0; x <= x1 + 1; x++) {
+                        const bas = x <= x1 && lis[x] < pic * 0.08;
+                        if (bas && deb2 < 0) deb2 = x;
+                        if (!bas && deb2 >= 0) {
+                            const lg = x - deb2;
+                            if (lg > large && lg >= w * 0.12) { large = lg; creux = Math.round((deb2 + lg / 2) / k); }
+                            deb2 = -1;
+                        }
+                    }
+
+                    let total = 0;
+                    for (let x = x0; x <= x1; x++) total += col[x];
+                    const densite = total / Math.max(1, (x1 - x0 + 1) * (y1 - y0 + 1));
+
+                    const m = Math.max(2, Math.round(w * 0.012));
+                    const X = Math.max(0, x0 - m), Y = Math.max(0, y0 - m);
+                    const X2 = Math.min(w - 1, x1 + m), Y2 = Math.min(h - 1, y1 + m);
+                    return {
+                        x: Math.round(X / k), y: Math.round(Y / k),
+                        w: Math.round((X2 - X) / k), h: Math.round((Y2 - Y) / k),
+                        densite, creux
+                    };
+                }).filter(b => b && b.densite >= 0.07);
+            },
+
+            /* Position d'une eventuelle coupure verticale nette dans une bande
+               (ex. deux logos aux deux coins du bandeau superieur) */
+            creux(t, w, x0, x1, y0, y1, k) {
+                const col = new Int32Array(x1 - x0 + 1);
+                for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) if (t[y * w + x]) col[x - x0]++;
+                const large = Math.max(4, Math.round(w * 0.08));
+                let deb = -1, best = null;
+                for (let x = 0; x <= col.length; x++) {
+                    const v = x < col.length && col[x] === 0;
+                    if (v && deb < 0) deb = x;
+                    if (!v && deb >= 0) {
+                        const lg = x - deb;
+                        if (lg >= large && deb > 0 && x < col.length && (!best || lg > best.lg))
+                            best = { lg, milieu: Math.round((x0 + deb + lg / 2) / k) };
+                        deb = -1;
+                    }
+                }
+                return best ? best.milieu : null;
+            },
+
+            /* ---------- Mise au format d'une affiche, en paysage ----------
+               Fond d'origine ancre a droite (le decor reste a sa place), colonne de
+               contenu a gauche : logos en bandeau, puis les bandes empilees. */
+            composerAffiche(img, ratio, R) {
+                const iw = img.naturalWidth, ih = img.naturalHeight;
+                let W = Math.round(Math.sqrt(iw * ih * ratio)), H = Math.round(W / ratio);
+                const cap = 2600, mx = Math.max(W, H);
+                if (mx > cap) { W = Math.round(W * cap / mx); H = Math.round(H * cap / mx); }
+
+                const out = document.createElement('canvas'); out.width = W; out.height = H;
+                const o = out.getContext('2d');
+                o.imageSmoothingEnabled = true; o.imageSmoothingQuality = 'high';
+
+                const bandes = this.bandes(R);
+                if (!bandes.length) throw new Error('aucune bande');
+
+                // Fond : l'affiche debarrassee de ses textes, a hauteur pleine, calee a droite
+                // on efface un peu plus large que les bandes : aucun residu de texte
+                // ne doit rester dans le fond a cote du bloc replace
+                const zones = bandes.map(b => ({ x: b.x, y: b.y, w: Math.min(iw - b.x, b.w + iw * 0.06), h: b.h }));
+                const nu = this.fondNu(img, R, zones);
+                // le fond est agrandi et cale en bas a droite : l'illustration d'origine,
+                // qui occupe ce coin, vient ainsi meubler toute la moitie droite
+                const fh = Math.round(H * 1.75), fw = Math.round(fh * (iw / ih));
+                const fx = W - fw, fy = H - fh;
+                o.fillStyle = R.bgColor; o.fillRect(0, 0, W, H);
+                o.drawImage(nu, 0, 0, nu.width, nu.height, fx, fy, fw, fh);
+                // le reste de la largeur prolonge le bord gauche du fond
+                if (fx > 0) {
+                    const ep = Math.max(2, Math.round(nu.width * 0.06));
+                    const N = 8;
+                    for (let i = 0; i < N; i++) {
+                        const a = fx * i / N, b = fx * (i + 1) / N;
+                        const flou = Math.max(1, Math.round(W * (0.002 + 0.018 * (i / N))));
+                        o.save();
+                        o.filter = `blur(${flou}px)`;
+                        o.drawImage(nu, 0, 0, ep, nu.height, fx - b - flou, fy - flou, (b - a) + flou * 2, fh + flou * 2);
+                        o.restore();
+                    }
+                }
+
+                // Bandeau de logos = premiere bande si elle est haute dans la page
+                const M = Math.round(Math.min(W, H) * 0.055);
+                let logos = null, corps = bandes.slice();
+                if (corps.length && corps[0].y + corps[0].h < ih * 0.20) logos = corps.shift();
+                let hautCorps = M;
+                if (logos) {
+                    const sL = Math.min((H * 0.12) / logos.h, (W * 0.42) / logos.w);
+                    if (logos.creux) {
+                        const g = { x: logos.x, y: logos.y, w: logos.creux - logos.x, h: logos.h };
+                        const d = { x: logos.creux, y: logos.y, w: logos.x + logos.w - logos.creux, h: logos.h };
+                        this.sprite(o, img, g, M, M * 0.7, sL);
+                        this.sprite(o, img, d, W - M - d.w * sL, M * 0.7, sL);
+                    } else this.sprite(o, img, logos, M, M * 0.7, sL);
+                    hautCorps = M * 0.7 + logos.h * sL;
+                }
+
+                // Colonne de contenu a gauche, echelle unique pour toutes les bandes
+                const colW = W * 0.55 - M * 2;
+                const dispoH = H - M - (hautCorps + H * 0.05);
+                const gap = H * 0.035;
+                const totH = corps.reduce((t, b) => t + b.h, 0);
+                const maxW = Math.max(...corps.map(b => b.w));
+                const s = Math.min(colW / maxW, (dispoH - gap * (corps.length - 1)) / Math.max(1, totH));
+                let y = hautCorps + H * 0.05 + Math.max(0, (dispoH - (totH * s + gap * (corps.length - 1))) / 2);
+                corps.forEach(b => { this.sprite(o, img, b, M, y, s); y += b.h * s + gap; });
+
+                return { out, W, H, blocs: bandes.length };
+            },
+
             /* ---------- Nature de l'image et choix automatique de la stratégie ---------- */
             nature(R) {
                 // Une création graphique repose sur un aplat dominant et une palette courte ;
@@ -1432,7 +1688,7 @@
 
             /* ---------- Fond d'origine débarrassé de son contenu ----------
                Sert à prolonger le décor sans jamais recopier un morceau de texte. */
-            fondNu(img, R) {
+            fondNu(img, R, zones) {
                 const iw = img.naturalWidth, ih = img.naturalHeight;
                 const cap = 1800, k = Math.min(1, cap / Math.max(iw, ih));
                 const w = Math.round(iw * k), h = Math.round(ih * k);
@@ -1440,14 +1696,19 @@
                 const cc = c.getContext('2d', { willReadFrequently: true });
                 cc.drawImage(img, 0, 0, w, h);
                 // chaque bloc de contenu est remplacé par la teinte de son pourtour
-                R.boxes.filter(b => !b.decor).forEach(b => {
+                (zones || R.boxes.filter(b => !b.decor)).forEach(b => {
                     const x = b.x * k, y = b.y * k, bw = Math.max(1, b.w * k), bh = Math.max(1, b.h * k);
                     const t = this.bordure(cc, w, h, { x, y, w: bw, h: bh });
                     if (!t) return;
+                    // un flou trop large rendrait le rectangle translucide et laisserait
+                    // le texte en fantome : on peint franchement, puis on adoucit le bord
+                    const fl = Math.max(5, Math.min(22, Math.round(Math.min(bw, bh) * 0.12)));
                     cc.save();
-                    cc.filter = `blur(${Math.max(4, Math.round(Math.min(bw, bh) * 0.25))}px)`;
                     cc.fillStyle = t;
-                    cc.fillRect(x - 2, y - 2, bw + 4, bh + 4);
+                    cc.fillRect(x - 1, y - 1, bw + 2, bh + 2);
+                    cc.filter = `blur(${fl}px)`;
+                    cc.fillRect(x - fl, y - fl, bw + fl * 2, bh + fl * 2);
+                    cc.fillRect(x - fl, y - fl, bw + fl * 2, bh + fl * 2);
                     cc.restore();
                 });
                 return c;
@@ -1721,7 +1982,10 @@
 
                 let res, note;
                 if (mode === 'layout' && R.boxes.length) {
-                    res = Smart.compose(originalImg, ratio, R);
+                    try {
+                        res = ratio >= 1 ? Smart.composerAffiche(originalImg, ratio, R)
+                                         : Smart.compose(originalImg, ratio, R);
+                    } catch (e) { res = Smart.compose(originalImg, ratio, R); }
                     note = `Recomposée · ${res.blocs} bloc(s)`;
                 } else {
                     res = Smart.etendre(originalImg, ratio, R, genre);
@@ -1737,6 +2001,12 @@
 
                 // Renfort IA optionnel : le rendu local part en image de départ. Au moindre
                 // échec (endpoint absent, quota, réseau, délai) ce rendu local est conservé.
+                // Sur une creation graphique, un modele generatif fabrique du faux texte
+                // et des personnages dans les zones a inventer : on ne l'utilise pas.
+                if ($('smartIA') && $('smartIA').checked && genre === 'affiche') {
+                    finir(res, note + ' · IA ecartee (texte invente sur une affiche)', msgFin);
+                    return;
+                }
                 if ($('smartIA') && $('smartIA').checked) {
                     $('currentStatus').textContent = 'OUTPAINTING IA…';
                     showToast('Renfort IA en cours…');
