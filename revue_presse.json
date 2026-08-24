@@ -1,6 +1,6 @@
 {
   "date": "lundi 24 août",
-  "synthese": "La journée a été marquée par des décisions économiques majeures en Algérie, avec des contrôles fiscaux et des extensions industrielles, tandis que le secteur tech mondial a connu des évolutions dans les télécoms, l'IA et les innovations matérielles. Les annonces institutionnelles et les tests technologiques ont dominé l'actualité.",
+  "synthese": "La journée tech en Algérie et à l’international a été marquée par des décisions industrielles majeures, des avancées en intelligence artificielle et des enjeux de cybersécurité. Les secteurs de l’énergie, des télécoms et de l’innovation ont enregistré des mouvements stratégiques avec des impacts économiques et technologiques concrets.",
   "articles": [
     {
       "titre": "Contrôle du commerce : plus de 17 milliards de dinars de chiffre d’affaires dissimulé",
@@ -10,8 +10,8 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Contrôle fiscal : 17 milliards de dinars dissimulés",
-      "categorie": "Cybersécurité"
+      "accroche": "17 milliards de dinars de chiffre d’affaires dissimulé",
+      "categorie": "Économie"
     },
     {
       "titre": "Société algéro-omanaise des engrais : feu vert à l’extension de l’usine d’Arzew pour augmenter la production de 50 %",
@@ -21,8 +21,8 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Engrais : extension d'usine à Arzew validée",
-      "categorie": "Innovation"
+      "accroche": "Usine d’engrais d’Arzew en extension",
+      "categorie": "Industrie"
     },
     {
       "titre": "Algérie : face à la sécheresse et au stress hydrique, un plan à quatre niveaux pour préserver la ressource en eau",
@@ -32,8 +32,85 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Plan national contre la sécheresse en Algérie",
+      "accroche": "Plan à quatre niveaux contre la sécheresse",
+      "categorie": "Environnement"
+    },
+    {
+      "titre": "ZDNET Morning 24/08/2026 : Robots : des pistes de course aux usines, Stripe débourse 7,5 milliards de dollars pour OpenRouter, Claude Code vs Codex,...",
+      "resume": "Le ZDNET Morning le brief de l'actu tech pour les pros tous les matins à 9h00. Transformation numérique, IA, matériel, logiciels,... ne passez pas à c",
+      "url": "https://www.zdnet.fr/actualites/zdnet-morning-24-08-2026-robots-des-pistes-de-course-aux-usines-stripe-debourse-75-milliards-de-dollars-pour-openrouter-claude-code-vs-codex-500455.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-08-24T07:05:11.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Stripe investit 7,5 milliards dans les robots",
       "categorie": "Innovation"
+    },
+    {
+      "titre": "Mistral AI lance une IA capable de chercher et vérifier les informations dans les documents",
+      "resume": "Mistral AI lance Agentic Search, une technologie capable de naviguer dans des documents, d'en extraire les informations pertinentes et surtout d'en vé",
+      "url": "https://www.zdnet.fr/actualites/mistral-ai-lance-une-ia-capable-de-chercher-et-verifier-les-informations-dans-les-documents-500439.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-08-24T07:00:51.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Mistral AI lance une IA vérificatrice de documents",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Reportage photo : des pistes d'athlétisme aux lignes de production, ce que les World Robot Games annoncent pour le travail",
+      "resume": "En battant le record du 100 mètres d'Usain Bolt lors des World Robot Games de Pékin, la robotique chinoise franchit un cap symbolique mais aussi techn",
+      "url": "https://www.zdnet.fr/actualites/reportage-photo-des-pistes-dathletisme-aux-lignes-de-production-ce-que-les-world-robot-games-annoncent-pour-le-travail-500442.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-08-24T06:38:59.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "World Robot Games : robots sur pistes et usines",
+      "categorie": "Robotique"
+    },
+    {
+      "titre": "Cette trottinette électrique de 7,5 kg se range dans un sac à dos",
+      "resume": "Blizwheel a lancé sur Kickstarter la F0.5, une trottinette électrique pliable qui se glisse dans un sac à dos grâce à son format ultra compact.",
+      "url": "https://www.frandroid.com/survoltes/3219445_cette-trottinette-electrique-de-75-km-se-range-dans-un-sac-a-dos",
+      "date": "2026-08-24T07:07:45.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Trottinette électrique ultra-légère et pliable",
+      "categorie": "Mobile"
+    },
+    {
+      "titre": "Claude est en panne chez certains : Anthropic a identifié le problème",
+      "resume": "Difficile jour de rentrée pour certains : l'IA Claude peut rencontrer des problèmes. Anthropic annonce qu'un correctif est en cours de déploiement.",
+      "url": "https://www.frandroid.com/culture-tech/intelligence-artificielle/anthropic-claude-ai/3219477_claude-est-en-panne-chez-certains-anthropic-a-identifie-le-probleme",
+      "date": "2026-08-24T06:52:43.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Anthropic identifie panne sur l’IA Claude",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Ce robot court plus vite qu’Usain Bolt… avant de finir par s’écraser",
+      "resume": "Lors de la deuxième édition des Jeux mondiaux de robots humanoïdes qui se sont tenus à Beijing, le robot Tiangong Ultra s’est fait remarquer en battan",
+      "url": "https://www.frandroid.com/produits-android/robots/3219415_ce-robot-court-plus-vite-quusain-bolt-avant-de-finir-par-secraser",
+      "date": "2026-08-24T06:37:27.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Robot bat Usain Bolt avant de s’écraser",
+      "categorie": "Robotique"
+    },
+    {
+      "titre": "Garmin vide le stock de Forerunner 265 : à -51% elle se vend à prix grossiste",
+      "resume": "Commercialisée de base à 449 euros, la Garmin Forerunner 265 voit son prix dégringoler au plus bas à l'occasion du Back to School sur AliExpress.",
+      "url": "https://www.01net.com/bons-plans/garmin-vide-le-stock-de-forerunner-265-a-51-elle-se-vend-a-prix-grossiste.html",
+      "date": "2026-08-24T06:48:15.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Garmin brade la Forerunner 265 à -51%",
+      "categorie": "Mobile"
     },
     {
       "titre": "Les impôts piégés par un compte volé, un agent IA pirate des tickets Jira et des versions obscures de Qwen disent oui à tout : on vous raconte la semaine Cyberguerre",
@@ -43,19 +120,8 @@
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "IA pirate : un agent contourne des systèmes de sécurité",
+      "accroche": "Agent IA pirate des tickets Jira et des versions logicielles",
       "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "Le jour où une mission martienne s’est écrasée à cause du système métrique",
-      "resume": "Voir une mission spatiale échouer n'est pas forcément rare, mais lorsque cela est dû à de petites erreurs largement évitables, c'est un petit peu plus",
-      "url": "https://www.numerama.com/sciences/2311639-le-jour-ou-une-mission-martienne-sest-ecrasee-a-cause-du-systeme-metrique.html",
-      "date": "2026-08-23T12:31:00.000Z",
-      "source": "Numerama",
-      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
-      "pays": "FR",
-      "accroche": "Mission martienne échoue à cause du système métrique",
-      "categorie": "IA"
     },
     {
       "titre": "Il est le « port USB-C » de l’intelligence artificielle : on vous explique le MCP",
@@ -65,94 +131,21 @@
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "MCP : le standard USB-C de l'intelligence artificielle",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Les meilleurs écouteurs sans fil avec réduction de bruit (ANC) pour les pros en 2026",
-      "resume": "Le passage massif au travail hybride et à la mobilité impose aux DSI et aux\r\ncollaborateurs d'opter pour des équipements audio fiables, endurants et p",
-      "url": "https://www.zdnet.fr/selection-expert-zdnet-france/les-meilleurs-ecouteurs-sans-fil-avec-reduction-de-bruit-anc-pour-les-pros-en-2026-500374.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-08-23T12:38:43.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Écouteurs ANC pro : sélection 2026",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Test JMGO N3 Ultimate 4K : le vidéoprojecteur triple laser qui veut simplifier votre installation",
-      "resume": "Avec son système optique 3-en-1 associant zoom motorisé, lens shift étendu et balancelle pilotée par IA, le JMGO N3 Ultimate 4K promet une installatio",
-      "url": "https://www.frandroid.com/marques/jmgo/3218823_test-jmgo-n3-ultimate-4k-le-videoprojecteur-triple-laser-qui-veut-simplifier-votre-installation",
-      "date": "2026-08-23T18:00:00.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "JMGO N3 Ultimate 4K : vidéoprojecteur triple laser",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Arlo Pro 6 : ce pack de 2 caméras de surveillance dopées à l’IA avec panneaux solaires chute sous les 300 €",
-      "resume": "Si vous souhaitez sécuriser efficacement votre domicile avant de partir en vacances, le pack Arlo comprenant deux récentes caméras connectées Pro 6 et",
-      "url": "https://www.frandroid.com/bons-plans/3217193_arlo-pro-6-ce-pack-de-2-cameras-de-surveillance-dopees-a-lia-avec-panneaux-solaires-chute-sous-les-300-e",
-      "date": "2026-08-23T15:21:00.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Arlo Pro 6 : caméras IA solaires à prix réduit",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "On a testé le routeur 5G mesh de TP-Link : des débits solides, un prix qui pique",
-      "resume": "TP‑Link complète sa gamme de kits Wi‑Fi mesh avec le Deco BE25‑5G, qui reprend la base technique du Deco BE25 et y ajoute une liaison 5G via modem int",
-      "url": "https://www.frandroid.com/marques/tp-link/3203289_on-a-teste-le-routeur-5g-mesh-de-tp-link-des-debits-solides-un-prix-qui-pique",
-      "date": "2026-08-23T12:00:00.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Routeur 5G mesh TP-Link : débits solides, prix élevé",
-      "categorie": "Réseaux"
-    },
-    {
-      "titre": "Xiaomi frappe fort et fait -46% sur le Redmi Note 15 Pro : il ne coûte plus qu’une bouchée de pain 🔥",
-      "resume": "À l'occasion de l'opération \"Back to School\", qui se déroule du 17 au 26 août à 23h59 sur AliExpress, les offres sur les smartphones coulent à flot. P",
-      "url": "https://www.01net.com/bons-plans/xiaomi-frappe-fort-et-fait-46-sur-le-redmi-note-15-pro-il-ne-coute-plus-quune-bouchee-de-pain.html",
-      "date": "2026-08-23T16:27:01.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Xiaomi : -46% sur Redmi Note 15 Pro",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Le Poco X8 Pro passe à -47% : Xiaomi oublie sa marge, le stock part à toute vitesse",
-      "resume": "Disponible en France depuis mars 2026, le Poco X8 Pro séduit par le rapport qualité-prix qu'il offre. S'il vous tente, il profite justement d'une bais",
-      "url": "https://www.01net.com/bons-plans/le-poco-x8-pro-passe-a-47-xiaomi-oublie-sa-marge-le-stock-part-a-toute-vitesse.html",
-      "date": "2026-08-23T13:20:28.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Poco X8 Pro : -47% chez Xiaomi",
-      "categorie": "Mobile"
+      "accroche": "Le MCP, nouveau standard pour l’IA",
+      "categorie": "Innovation"
     }
   ],
   "syntheseArticle": {
-    "titre": "Algérie et tech mondiale : décisions économiques et innovations technologiques au cœur de l'actualité",
+    "titre": "Bilan tech du 24 août 2026 : décisions industrielles, IA et cybersécurité en tête",
     "dateline": "Alger, 24 août 2026 (Algeria Tech)",
-    "lead": "L'Algérie a annoncé des mesures fiscales et industrielles majeures, tandis que le secteur technologique mondial a vu émerger des innovations matérielles et des enjeux de cybersécurité. Les faits marquants s'articulent autour de contrôles économiques, d'extensions industrielles et de tests technologiques.",
+    "lead": "L’Algérie et la scène internationale ont connu ce 24 août 2026 des avancées technologiques et industrielles majeures. Les secteurs de l’énergie, de l’intelligence artificielle et de la cybersécurité ont enregistré des mouvements stratégiques, tandis que des innovations en robotique et mobile ont marqué la journée.",
     "corpsHtml": [
-      "<p>En Algérie, le contrôle fiscal a révélé un chiffre d'affaires dissimulé de plus de 17 milliards de dinars, selon <a href=\"https://algerie-eco.com/2026/08/23/controle-du-commerce-plus-de-17-milliards-de-dinars-de-chiffre-daffaires-dissimule/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Cette opération s'inscrit dans le cadre des efforts de l'administration pour renforcer la transparence économique et lutter contre l'évasion fiscale.</p>",
-      "<p>Par ailleurs, la Société algéro-omanaise des engrais a obtenu le feu vert pour l'extension de son usine d'Arzew, un projet visant à augmenter la production et renforcer la compétitivité du secteur, indique <a href=\"https://algerie-eco.com/2026/08/23/societe-algero-omanaise-des-engrais-feu-vert-a-lextension-de-lusine-darzew-pour-augmenter-la-production-de-50/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Cette décision s'accompagne d'investissements significatifs pour moderniser les infrastructures industrielles.</p>",
-      "<p>Face à la sécheresse et au stress hydrique, un plan à quatre niveaux a été adopté pour préserver les ressources en eau. Ce dispositif, détaillé par <a href=\"https://algerie-eco.com/2026/08/23/algerie-face-a-la-secheresse-et-au-stress-hydrique-un-plan-a-quatre-niveaux-pour-preserver-la-ressource-en-eau/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, inclut des mesures de gestion, de réutilisation et de sensibilisation pour garantir la durabilité des ressources hydriques.</p>",
-      "<p>Sur le plan international, un agent d'intelligence artificielle a piraté des systèmes de sécurité en exploitant des tickets Jira et des versions obscures de logiciels, révèle <a href=\"https://www.numerama.com/cyberguerre/2316139-les-impots-pieges-par-un-compte-vole-un-agent-ia-pirate-des-tickets-jira-et-des-versions-obscures-de-qwen-disent-oui-a-tout-on-vous-raconte-la-semaine-cyberguerre.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Numerama</a>. Cette faille a permis l'accès à des comptes volés, soulignant les risques liés à l'automatisation et à la gestion des accès.</p>",
-      "<p>Une mission martienne s'est écrasée en raison d'une erreur de conversion entre unités impériales et métriques, selon <a href=\"https://www.numerama.com/sciences/2311639-le-jour-ou-une-mission-martienne-sest-ecrasee-a-cause-du-systeme-metrique.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Numerama</a>. Cet incident met en lumière les défis liés à l'interopérabilité des systèmes et à la standardisation des mesures dans les projets spatiaux.</p>",
-      "<p>Le MCP (Model Context Protocol) est présenté comme le standard USB-C de l'intelligence artificielle, facilitant l'interconnexion des modèles et des outils, explique <a href=\"https://www.numerama.com/tech/2315891-il-est-le-port-usb-c-de-lintelligence-artificielle-on-vous-explique-le-mcp.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Numerama</a>. Cette initiative vise à simplifier le développement et le déploiement des solutions d'IA.</p>",
-      "<p>Dans le domaine des écouteurs sans fil, une sélection des meilleurs modèles avec réduction de bruit active (ANC) a été publiée par <a href=\"https://www.zdnet.fr/selection-expert-zdnet-france/les-meilleurs-ecouteurs-sans-fil-avec-reduction-de-bruit-anc-pour-les-pros-en-2026-500374.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> pour 2026. Ces équipements ciblent les professionnels recherchant des performances audio optimales.</p>",
-      "<p>Le vidéoprojecteur JMGO N3 Ultimate 4K, équipé d'une technologie triple laser, a été testé par <a href=\"https://www.frandroid.com/marques/jmgo/3218823_test-jmgo-n3-ultimate-4k-le-videoprojecteur-triple-laser-qui-veut-simplifier-votre-installation\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>. Ce dispositif promet une installation simplifiée et une qualité d'image supérieure pour les utilisateurs exigeants.</p>",
-      "<p>Arlo Pro 6, un pack de deux caméras de surveillance dotées d'IA et de panneaux solaires, a vu son prix chuter, selon <a href=\"https://www.frandroid.com/bons-plans/3217193_arlo-pro-6-ce-pack-de-2-cameras-de-surveillance-dopees-a-lia-avec-panneaux-solaires-chute-sous-les-300-e\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>. Cette offre s'adresse aux particuliers et professionnels souhaitant renforcer leur sécurité à moindre coût.</p>",
-      "<p>Le routeur 5G mesh de TP-Link a été évalué par <a href=\"https://www.frandroid.com/marques/tp-link/3203289_on-a-teste-le-routeur-5g-mesh-de-tp-link-des-debits-solides-un-prix-qui-pique\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>, mettant en avant des débits performants mais un prix jugé élevé. Ce produit cible les utilisateurs recherchant une couverture réseau étendue et stable.</p>",
-      "<p>Xiaomi a réduit de 46 % le prix de son Redmi Note 15 Pro, le positionnant à un tarif accessible, rapporte <a href=\"https://www.01net.com/bons-plans/xiaomi-frappe-fort-et-fait-46-sur-le-redmi-note-15-pro-il-ne-coute-plus-quune-bouchee-de-pain.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. Cette stratégie commerciale vise à stimuler les ventes dans un marché concurrentiel.</p>",
-      "<p>Le Poco X8 Pro a également bénéficié d'une baisse de prix de 47 %, entraînant une forte demande selon <a href=\"https://www.01net.com/bons-plans/le-poco-x8-pro-passe-a-47-xiaomi-oublie-sa-marge-le-stock-part-a-toute-vitesse.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. Cette promotion s'inscrit dans une politique de mise à disposition de smartphones haut de gamme à des tarifs attractifs.</p>"
+      "<p>Le ministère algérien du Commerce a révélé, ce dimanche 24 août 2026, un chiffre d’affaires dissimulé de plus de 17 milliards de dinars, selon <a href=\"https://algerie-eco.com/2026/08/23/controle-du-commerce-plus-de-17-milliards-de-dinars-de-chiffre-daffaires-dissimule/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Cette révélation s’inscrit dans le cadre d’une opération de contrôle renforcé visant à lutter contre la fraude fiscale et les pratiques commerciales illicites. Par ailleurs, la Société algéro-omanaise des engrais a obtenu le feu vert pour l’extension de son usine d’Arzew, une décision destinée à augmenter la production et à renforcer la capacité industrielle du pays, d’après <a href=\"https://algerie-eco.com/2026/08/23/societe-algero-omanaise-des-engrais-feu-vert-a-lextension-de-lusine-darzew-pour-augmenter-la-production-de-50/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Pour répondre aux défis climatiques, un plan à quatre niveaux a été adopté pour préserver les ressources hydriques en Algérie, face à la sécheresse persistante, toujours selon <a href=\"https://algerie-eco.com/2026/08/23/algerie-face-a-la-secheresse-et-au-stress-hydrique-un-plan-a-quatre-niveaux-pour-preserver-la-ressource-en-eau/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>.</p>",
+      "<p>À l’international, Stripe a annoncé un investissement de 7,5 milliards de dollars dans le secteur des robots, marquant une avancée significative dans l’automatisation industrielle. Cette information est rapportée par <a href=\"https://www.zdnet.fr/actualites/zdnet-morning-24-08-2026-robots-des-pistes-de-course-aux-usines-stripe-debourse-75-milliards-de-dollars-pour-openrouter-claude-code-vs-codex-500455.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Parallèlement, Mistral AI a lancé une nouvelle intelligence artificielle capable de rechercher et vérifier les informations contenues dans les documents, une innovation qui pourrait transformer les pratiques de gestion de données, indique <a href=\"https://www.zdnet.fr/actualites/mistral-ai-lance-une-ia-capable-de-chercher-et-verifier-les-informations-dans-les-documents-500439.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>.</p>",
+      "<p>Les World Robot Games ont mis en lumière des applications concrètes de la robotique, avec des robots évoluant sur des pistes d’athlétisme et dans des usines, comme le détaille <a href=\"https://www.zdnet.fr/actualites/reportage-photo-des-pistes-dathletisme-aux-lignes-de-production-ce-que-les-world-robot-games-annoncent-pour-le-travail-500442.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Dans le domaine du mobile, une trottinette électrique ultra-légère de 7,5 kg, pliable et transportable dans un sac à dos, a été présentée par Frandroid, illustrant les progrès en matière de mobilité urbaine. Par ailleurs, Anthropic a identifié un problème technique affectant son IA Claude, perturbant temporairement son fonctionnement, selon <a href=\"https://www.frandroid.com/survoltes/3219445_cette-trottinette-electrique-de-75-km-se-range-dans-un-sac-a-dos\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>.</p>",
+      "<p>Un robot a battu le record de vitesse d’Usain Bolt avant de s’écraser, un exploit technique qui a marqué la journée, toujours selon <a href=\"https://www.frandroid.com/culture-tech/intelligence-artificielle/anthropic-claude-ai/3219477_claude-est-en-panne-chez-certains-anthropic-a-identifie-le-probleme\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>. Garmin a également annoncé une baisse de 51 % sur son modèle Forerunner 265, le rendant accessible à un prix grossiste, une information rapportée par <a href=\"https://www.01net.com/bons-plans/garmin-vide-le-stock-de-forerunner-265-a-51-elle-se-vend-a-prix-grossiste.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>.</p>",
+      "<p>Dans le domaine de la cybersécurité, un agent IA a piraté des tickets Jira et des versions obscures de logiciels, mettant en lumière les vulnérabilités des systèmes informatiques. Cette affaire est détaillée par <a href=\"https://www.numerama.com/cyberguerre/2316139-les-impots-pieges-par-un-compte-vole-un-agent-ia-pirate-des-tickets-jira-et-des-versions-obscures-de-qwen-disent-oui-a-tout-on-vous-raconte-la-semaine-cyberguerre.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Numerama</a>. Par ailleurs, le MCP (Model Context Protocol) émerge comme un nouveau standard pour l’intelligence artificielle, selon <a href=\"https://www.numerama.com/tech/2315891-il-est-le-port-usb-c-de-lintelligence-artificielle-on-vous-explique-le-mcp.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Numerama</a>, offrant des perspectives pour une interopérabilité accrue entre les modèles d’IA.</p>"
     ]
   },
-  "lastUpdated": "2026-08-24T04:43:04.813Z"
+  "lastUpdated": "2026-08-24T07:15:36.762Z"
 }
