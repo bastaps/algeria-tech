@@ -361,6 +361,24 @@
       "source_type": "rss"
     },
     {
+      "id": "b40f0cca65686ebb",
+      "source_name": "Djezzy",
+      "source_short": "DJ",
+      "source_color": "#FF6B00",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQVGxRRG5ENGxQX05sS0xhaVJFUHA2bk1wVmoxZTR6d3RkdER5OTJMb0VhTUEwMjZmbFk4Rm5XWjRQMUVWNXlIeWR2YnpNdThNSHl5dnhrc0w2ejh3aFdKX1ZkTTdySW1jM1NUNE1UcUNkQ1hLWnRiczM0Q2xOQnpXMklBQ2VYQ2tRaDE2RTRha3VrV3R3akdyMUdBbllObzU0X2h2Znh6NXJFdUtaRkdOUG9pRWQ5VWltU21mT19ldnRoYUdhWWQyY0xoMnNWVmswNDdaWmtwMC0tOFRhbDk1Sg?oc=5",
+      "image": "",
+      "date": "Mon, 24 Aug 2026 21:22:59 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Développement du cloud souverain en Algérie : Partenariat entre Djezzy et Armonika sous l'égide de Algeria Venture - Algerie Eco — Développement du cloud souverain en Algérie : Partenariat entre Djezzy et Armonika sous l'égide de Algeria Venture Algerie Eco",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "55313536795d7334",
       "source_name": "Mobilis",
       "source_short": "MB",
@@ -698,24 +716,6 @@
       "text": {
         "ar": "استمتع بالصيف مع Blacknut",
         "fr": "",
-        "en": ""
-      },
-      "source_type": "youtube"
-    },
-    {
-      "id": "8643f9f3938e1cae",
-      "source_name": "Ooredoo Algérie",
-      "source_short": "OR",
-      "source_color": "#E30613",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://www.youtube.com/shorts/N0HyYQkSrvE",
-      "image": "",
-      "date": "2026-08-13T11:00:39+00:00",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Enjoy summer with Blacknut",
-        "ar": "",
         "en": ""
       },
       "source_type": "youtube"
@@ -1437,6 +1437,258 @@
         "fr": "Rezig reçoit le PDG de Huawei Algérie : le renforcement de la coopération examiné - El Moudjahid — Rezig reçoit le PDG de Huawei Algérie : le renforcement de la coopération examiné El Moudjahid",
         "ar": "",
         "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c65654c6d32f7ed8",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/zdnet-morning-25-08-2026-des-virus-viables-concus-grace-a-lia-generative-datacenter-ia-3-000-milliards-de-dette-amende-de-825-me-pour-uber-500523.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 25 Aug 2026 07:29:27 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "ZDNET Morning 25/08/2026 : Des virus viables conçus grâce à l'IA générative, Datacenter IA : 3 000 milliards de dette, Amende de 825 M€ pour Uber,... — Le ZDNET Morning le brief de l'actu tech pour les pros tous les matins à 9h00. Transformation numérique, IA, matériel, logiciels,... ne passez pas à côté de ce qui fait la Une du secteur.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "00460b4c8977c968",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/batteries-de-vehicules-electriques-une-nouvelle-methode-permettrait-de-les-regenerer-en-30-minutes-500514.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 25 Aug 2026 07:00:46 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Batteries de véhicules électriques : une nouvelle méthode permettrait de les régénérer en 30 minutes — Une équipe de l’Institut coréen de recherche sur l’énergie a mis au point un procédé de recyclage direct capable de séparer les collecteurs de courant des matériaux de cathode usagés.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "cf7f20a6a426ba8d",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/inference-ia-nvidia-commercialise-la-puce-groq-3-lpx-500520.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 25 Aug 2026 06:58:17 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Inférence IA : Nvidia commercialise la puce Groq 3 LPX — L'accélérateur d'inférence Nvidia Groq 3 LPX entre en production. Intégré à la plateforme Vera Rubin, ce composant promet de résoudre la latence de décodage pour déployer des agents IA d'entreprise.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "307f84bf2353f6ff",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/cloud-ia-nscale-prepare-une-mega-ipo-de-3-milliards-de-dollars-500513.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 25 Aug 2026 06:37:45 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Cloud IA : Nscale prépare une méga-IPO de 3 milliards de dollars — Spécialiste des infrastructures cloud dédiées à l'intelligence artificielle, Nscale ambitionne de lever cette somme lors de son entrée en Bourse prévue en septembre. Une opération qui illustre la course effrénée à la puissance de calcul et consolide l'émergence des neoclouds face aux géants historiq",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c741555a21d9a249",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/intel-prepare-le-terrain-pour-lia-agentique-avec-trois-nouvelles-architectures-processeur-500507.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 25 Aug 2026 06:02:39 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Intel prépare le terrain pour l’IA agentique avec trois nouvelles architectures processeur — Le fondeur mise sur une approche hétérogène, du cloud à la périphérie du réseau, pour répondre à des charges de travail agentiques qu’il juge intrinsèquement diverses en matière de puissance, de coûts et de contraintes de déploiement.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "19bcdfe5e2ad104f",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/24/indias-airbound-bags-37m-to-take-on-trucks-with-rocket-like-drones/",
+      "image": "",
+      "date": "Tue, 25 Aug 2026 03:30:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "India’s Airbound bags $37M to take on trucks with rocket-like drones — Airbound's ultra-lightweight approach to drone delivery has attracted backing from Greenoaks, DoorDash, and Silicon Valley investor Lachy Groom.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "32cda19d8db8e210",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/24/situational-awareness-star-ai-hedge-fund-that-nearly-imploded-now-being-probed-by-the-sec/",
+      "image": "",
+      "date": "Tue, 25 Aug 2026 00:23:12 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Situational Awareness, star AI hedge fund that nearly imploded, now being probed by the SEC — The AI hedge fund went from \"the talk of Wall Street\" to \"subject of federal subpoenas\" faster than you can say \"diversify your portfolio.\"",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "8a00d80b611dcf5a",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/24/developpement-du-cloud-souverain-en-algerie-partenariat-entre-djezzy-et-armonika-sous-legide-de-algeria-venture/",
+      "image": "",
+      "date": "Mon, 24 Aug 2026 21:22:59 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Développement du cloud souverain en Algérie : Partenariat entre Djezzy et Armonika sous l’égide de Algeria Venture — Dans le cadre de son engagement en faveur du développement de l’écosystème numérique national et de la promotion de l’Open Innovation, Djezzy a signé, sous l’égide de Algeria-Venture, un contrat de partenariat avec la startup technologique Armonika. « Cette collaboration entend favoriser l’accélérat",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "62168c42dee21a38",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/24/prix-du-president-de-la-republique-de-la-meilleure-start-up-les-recompenses-financieres-revues-a-la-hausse/",
+      "image": "",
+      "date": "Mon, 24 Aug 2026 21:01:16 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Prix du président de la République de la meilleure start-up : les récompenses financières revues à la hausse — Les récompenses financières du prix du président de la République de la meilleure start-up, instauré en janvier 2026, ont été revues à la hausse en vertu d’un décret présidentiel publié lundi au Journal officiel n° 60. Il s’agit du décret présidentiel n 26-277 du 23 aout 2026, modifiant et complétan",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "d14fdbf4a30e9974",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/24/showcase-your-startup-at-techcrunch-disrupt-2026-and-book-an-exhibit-table-while-theres-still-space/",
+      "image": "",
+      "date": "Mon, 24 Aug 2026 20:16:34 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Showcase your startup at TechCrunch Disrupt 2026 and book an exhibit table while there’s still space — Make the most of Disrupt's crowds of potential investors and partners by exhibiting your startup from October 13-15.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "86efb41a86acd52c",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/24/alabama-launches-investigation-into-openais-hack-of-hugging-face/",
+      "image": "",
+      "date": "Mon, 24 Aug 2026 19:58:17 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Alabama launches investigation into OpenAI’s hack of Hugging Face — Weeks after OpenAI disclosed that one of its cybersecurity models had gone rogue and hacked AI dataset company Hugging Face, Alabama’s attorney general announced an investigation into the incident.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "7e3bc60a8a1a8cb9",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/24/amjad-masad-ceo-and-co-founder-of-replit-joins-the-disrupt-stage-at-techcrunch-disrupt-2026/",
+      "image": "",
+      "date": "Mon, 24 Aug 2026 19:54:19 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Amjad Masad, CEO and co-founder of Replit, joins the Disrupt Stage at TechCrunch Disrupt 2026 — At TechCrunch Disrupt 2026, Replit CEO Amjad Masad will share his perspective on the future of programming and Replit's role in developing it.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "15445304e9384c9c",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/24/algerie-mali-ce-qua-dit-le-premier-ministre-abdoulya-maiga/",
+      "image": "",
+      "date": "Mon, 24 Aug 2026 19:48:30 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Algérie-Mali : Ce qu’a dit le Premier ministre Abdoulya Maïga — Le Premier ministre, chef du Gouvernement de la République du Mali, M. Abdoulaye Maïga, a souligné, lundi à Alger, que l’Algérie et le Mali partageaient une histoire commune qui constitue un point de départ pour s’inscrire dans la marche de la modernité et du progrès, à la faveur de la conviction de",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "923d416533b48d90",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/24/apply-now-to-host-a-side-event-at-techcrunch-disrupt-2026/",
+      "image": "",
+      "date": "Mon, 24 Aug 2026 19:44:13 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Apply now to host a Side Event at TechCrunch Disrupt 2026 — Apply before September 4 to be a part of the TechCrunch Disrupt community by hosting your own Side Event.",
+        "ar": "",
+        "fr": ""
       },
       "source_type": "rss"
     },
@@ -5147,268 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "00f87f54bb09a876",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/08/18/daniel-eks-body-scanning-startup-neko-health-opens-first-us-office-in-new-york/",
-      "image": "",
-      "date": "Tue, 18 Aug 2026 13:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Daniel Ek’s body-scanning startup Neko Health opens first US office, in New York — The scanning and bloodwork health startup founded by Spotify's founder will officially launch in New York in about a month.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "473349d696e0bbe7",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/18/algerie-23-milliards-de-dinars-pour-renforcer-le-service-public-de-leau/",
-      "image": "",
-      "date": "Tue, 18 Aug 2026 12:35:01 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Algérie : 23 milliards de dinars pour renforcer le service public de l’eau — Les pouvoirs publics ont consacré une enveloppe financière de 23 milliards de dinars dans le cadre d’un nouveau programme d’urgence visant à renforcer et à améliorer le service public de l’eau à travers les différentes wilayas du pays, indique lundi un communiqué du ministère de l’Hydraulique. Ce pr",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "94da82a9a88ed431",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/selection-expert-zdnet-france/quelles-sont-les-meilleures-cameras-de-telesurveillance-exterieure-sans-fil-en-2026-500135.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 18 Aug 2026 12:24:09 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Quelles sont les meilleures caméras de télésurveillance extérieure sans fil en 2026 ? — L'équipement de vidéoprotection professionnelle en extérieur exige un arbitrage entre couverture optique, souveraineté des données et facilité de déploiement réseau. Voici notre sélection.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "ed5744b8b8c235fd",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/18/bna-un-financement-jusqua-90-pour-renouveler-les-bus-de-plus-de-25-ans/",
-      "image": "",
-      "date": "Tue, 18 Aug 2026 12:20:55 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "BNA : Un financement jusqu’à 90 % pour renouveler les bus de plus de 25 ans — La Banque nationale d’Algérie (BNA) a annoncé, mardi 18 août, un dispositif de financement destiné à l’acquisition de bus, avec une prise en charge pouvant atteindre 90 % de la valeur du véhicule. Présenté dans une publication de la banque, ce programme s’adresse notamment aux transporteurs souhaita",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "9b962a7d921affab",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/data-ia-1372/netapp-acquiert-jetstream-software-228733",
-      "image": "",
-      "date": "Tue, 18 Aug 2026 12:05:55 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "NetApp acquiert JetStream Software — NetApp renforce son offre de cyber-résilience avec l’acquisition de JetStream Software, spécialiste de la reprise après sinistre des environnements VMware. The post NetApp acquiert JetStream Software appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "afad7a1721477d7f",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/18/pdg-de-sinotruk-lusine-tirsam-deviendra-lune-des-plus-grandes-du-groupe-hors-de-chine/",
-      "image": "",
-      "date": "Tue, 18 Aug 2026 11:47:38 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "PDG de Sinotruk : « l’usine Tirsam deviendra l’une des plus grandes du groupe hors de Chine » — Le groupe Tirsam a accueilli, dans son usine de camions à Batna, une délégation de son partenaire industriel chinois Sinotruk, selon un communiqué publié lundi 17 août par le groupe algérien. Conduite par le PDG de Sinotruk, Liu Zhengtao, cette visite a coïncidé avec la sortie d’usine du 3 000e cami",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "1a64ba53f95f1686",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/08/18/innovation-technologique-et-souverainete-numerique-br-a-jijel-lia-et-la-5g-redessinent-le-futur-de-lalgerie/",
-      "image": "",
-      "date": "Tue, 18 Aug 2026 11:39:30 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Innovation technologique et souveraineté numérique <BR À Jijel, l’IA et la 5G redessinent le futur de l’Algérie — Deux étudiantes et leurs encadrants à l’université Mohamed Seddik Ben Yahia développent des outils numériques made in Algeria qui pourraient bien changer la donne pour …",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "2df7b307ee745ea5",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/cybersecurite-1371/ce-que-claude-mythos-revele-de-nos-strategies-de-cybersecurite-228730",
-      "image": "",
-      "date": "Tue, 18 Aug 2026 11:33:52 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Ce que Claude Mythos révèle de nos stratégies de cybersécurité — Mythos n'impose pas un nouveau paradigme de sécurité, il oblige à mettre en œuvre les principes existants avec une rapidité et une précision que la plupart des organisations n'ont pas encore atteint. The post Ce que Claude Mythos révèle de nos stratégies de cybersécurité appeared first on Silicon.fr",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e85a87fd9389b55f",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/cybersecurite-1371/piratage-de-la-dgfip-ce-que-lon-sait-vraiment-228727",
-      "image": "",
-      "date": "Tue, 18 Aug 2026 11:15:17 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Piratage de la DGFiP : ce que l’on sait vraiment — Deux intrusions revendiquées par un groupe appelé \"ZeroBytes\" ont permis l'extraction de données fiscales de près de 678 000 particuliers et professionnels. The post Piratage de la DGFiP : ce que l’on sait vraiment appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "49cbcb60cf8246d7",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/pratique/google-workspace-autorise-gemini-a-acceder-aux-donnees-de-votre-entreprise-par-defaut-comment-desactiver-cette-fonctionnalite-500111.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 18 Aug 2026 11:00:59 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Google Workspace autorise Gemini à accéder aux données de votre entreprise par défaut : comment désactiver cette fonctionnalité ? — Dans Google Workspace, Gemini a accès par défaut à Gmail, Docs, Agenda, Chat et bien d'autres services. Voici pourquoi cela est important et comment les administrateurs peuvent désactiver cette fonctionnalité dès aujourd'hui.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e90ca461b27dc48f",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/08/18/reach-capital-raises-265m-fund-v-to-back-ai-founders-building-to-expand-human-potential/",
-      "image": "",
-      "date": "Tue, 18 Aug 2026 11:00:00 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Reach Capital raises $265M Fund V to back AI founders building to ‘expand human potential’ — Reach Capital announced Tuesday an oversubscribed $265 million Fund V.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e7b99d02f4449632",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/ovhcloud-augmente-ses-prix-pour-la-deuxieme-fois-en-2026-500084.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 18 Aug 2026 10:30:22 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "OvhCloud augmente ses prix pour la deuxième fois en 2026 — OvhCloud a publié hier le détail de ses nouveaux tarifs au second semestre 2026. Comme l'avait annoncé Octave Klaba, la hausse des prix des composants et de la RAM se répercute sur les fournisseurs de services cloud.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "d038cedbd280b5b5",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/qui-sont-les-neoclouds-quapportent-ils-aux-professionnels-500104.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 18 Aug 2026 10:00:00 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Qui sont les neocloud ? Qu’apportent-ils aux professionnels ? — Ces nouveaux providers se sont spécialisés dans l’IA et le calcul haute performance. Plus agiles que les hyperscalers, ils accélèrent le déploiement d’infrastructures dédiées tout en affichant des tarifs particulièrement compétitifs.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "492cc09ef45faed8",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/smartphone/arretez-de-payer-pour-du-stockage-sur-votre-smartphone-dont-vous-navez-pas-besoin-voici-la-solution-500102.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 18 Aug 2026 09:46:52 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Arrêtez de payer pour du stockage sur votre smartphone dont vous n'avez pas besoin : voici la solution — Comment ne plus dilapider d'argent en stockage mobile : pensez en euros, pas en gigaoctets.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-08-24T19:28:18.041586+00:00",
+  "lastUpdated": "2026-08-25T07:42:18.267321+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Tech International": 156,
-    "Médias TIC": 64
+    "Tech International": 157,
+    "Médias TIC": 63
   },
   "total": 300
 }
