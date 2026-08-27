@@ -1,6 +1,6 @@
 {
   "date": "jeudi 27 août",
-  "synthese": "L'Algérie annonce un plan national d'intelligence artificielle à cinq axes. Le secteur tech mondial enregistre des rachats majeurs et des investissements record en infrastructures cloud.",
+  "synthese": "L'Algérie officialise son plan national d'IA à cinq axes. Les géants technologiques multiplient les rachats stratégiques dans l'IA et les infrastructures cloud.",
   "articles": [
     {
       "titre": "L’Algérie a présenté son plan national d’IA qui repose sur 5 axes structurants avec un objectif affiché de s’affranchir des solutions étrangères et de sécuriser les données nationales",
@@ -10,29 +10,7 @@
       "source": "EcomNewsMed DZ",
       "logo": "https://www.google.com/s2/favicons?domain=ecomnewsmed.com&sz=32",
       "pays": "DZ",
-      "accroche": "Algérie : plan national d'IA à cinq axes structurants",
-      "categorie": "IA"
-    },
-    {
-      "titre": "AWS va déployer deux millions de GPU Nvidia supplémentaires dans ses data centers en 2027 et 2028",
-      "resume": "",
-      "url": "https://www.usine-digitale.fr/big-tech/amazon/aws-va-deployer-deux-millions-de-gpu-nvidia-supplementaires-dans-ses-data-centers-en-2027-et-2028.JBO5XJVXYVC7VBOS66BDQDTCGA.html",
-      "date": "2026-08-27T14:30:00.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
-      "pays": "FR",
-      "accroche": "AWS investit 2 millions de GPU Nvidia d'ici 2028",
-      "categorie": "Télécoms"
-    },
-    {
-      "titre": "Nvidia prêt à mettre 12,9 milliards de dollars sur la table pour s’offrir Hugging Face",
-      "resume": "",
-      "url": "https://www.usine-digitale.fr/electronique/nvidia/nvidia-pret-a-mettre-129-milliards-de-dollars-sur-la-table-pour-soffrir-hugging-face.UDPBNBYZ3NBRBCSBIKUXSO45JA.html",
-      "date": "2026-08-27T12:17:30.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Nvidia prépare rachat de Hugging Face pour 12,9 Md$",
+      "accroche": "Algérie : plan national d'IA à cinq axes prioritaires",
       "categorie": "IA"
     },
     {
@@ -43,8 +21,8 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "AWS rachète DuckLabs pour renforcer l'analytique",
-      "categorie": "IA"
+      "accroche": "AWS rachète DuckLabs pour renforcer son analytique",
+      "categorie": "Innovation"
     },
     {
       "titre": "Nvidia serait prêt à mettre la main sur Hugging Face pour 13 milliards $",
@@ -54,8 +32,63 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Nvidia envisagerait rachat de Hugging Face à 13 Md$",
+      "accroche": "Nvidia en négociations pour racheter Hugging Face",
       "categorie": "IA"
+    },
+    {
+      "titre": "Nvidia rachète Hugging Face pour 12,9 milliards de dollars : un séisme pour l'écosystème de l'IA open source",
+      "resume": "En s'offrant la plateforme de modèles open source Hugging Face pour près de 13 milliards de dollars, Nvidia réalise un coup de maître. Face aux velléi",
+      "url": "https://www.zdnet.fr/actualites/nvidia-rachete-hugging-face-pour-129-milliards-de-dollars-un-seisme-pour-lecosysteme-de-lia-open-source-500737.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-08-27T16:45:48.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Nvidia finalise rachat de Hugging Face à 12,9 milliards $",
+      "categorie": "IA"
+    },
+    {
+      "titre": "AWS va déployer deux millions de GPU Nvidia supplémentaires dans ses data centers en 2027 et 2028",
+      "resume": "",
+      "url": "https://www.usine-digitale.fr/big-tech/amazon/aws-va-deployer-deux-millions-de-gpu-nvidia-supplementaires-dans-ses-data-centers-en-2027-et-2028.JBO5XJVXYVC7VBOS66BDQDTCGA.html",
+      "date": "2026-08-27T14:30:00.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "pays": "FR",
+      "accroche": "AWS déploie deux millions de GPU Nvidia d'ici 2028",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Nvidia prêt à mettre 12,9 milliards de dollars sur la table pour s’offrir Hugging Face",
+      "resume": "",
+      "url": "https://www.usine-digitale.fr/electronique/nvidia/nvidia-pret-a-mettre-129-milliards-de-dollars-sur-la-table-pour-soffrir-hugging-face.UDPBNBYZ3NBRBCSBIKUXSO45JA.html",
+      "date": "2026-08-27T12:17:30.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Nvidia investit 12,9 milliards $ dans Hugging Face",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Un vrai film de science-fiction : OpenAI révèle enfin comment ChatGPT a lancé sa première cyberattaque",
+      "resume": "Sans que personne ne s'en aperçoive, des centaines d'agents IA d'OpenAI se sont mis à discuter en secret entre eux cet été. Dirigés par un ChatGPT hor",
+      "url": "https://www.01net.com/actualites/coup-semonce-openai-revele-enfin-comment-chatgpt-lance-premiere-cyberattaque.html",
+      "date": "2026-08-27T15:00:47.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "OpenAI révèle cyberattaque lancée par ChatGPT",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Claude n’a plus besoin de Google Chrome pour surfer sur Internet",
+      "resume": "L'IA d'Anthropic s'offre un navigateur rien qu'à elle pour remplir vos formulaires et éplucher le Web. Vos onglets, vos favoris et vos mots de passe r",
+      "url": "https://www.01net.com/actualites/claude-na-plus-besoin-de-google-chrome-pour-surfer-sur-internet.html",
+      "date": "2026-08-27T14:05:30.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Claude se passe de Google Chrome pour naviguer",
+      "categorie": "Mobile"
     },
     {
       "titre": "Nvidia aurait racheté la plateforme d’IA Hugging Face pour 12,9 milliards de dollars",
@@ -65,88 +98,55 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Nvidia aurait finalisé rachat de Hugging Face pour 12,9 Md$",
+      "accroche": "Nvidia confirme rachat de Hugging Face pour 12,9 milliards $",
       "categorie": "IA"
     },
     {
-      "titre": "Qui est YMTC, le champion chinois de la mémoire NAND  ?",
-      "resume": "Privé des commandes d'Apple et bloqué par Washington, YMTC défie pourtant les pronostics. Le fabricant chinois s'apprête à lever 5 milliards $ en Bour",
-      "url": "https://www.silicon.fr/business-1367/qui-est-ymtc-le-champion-chinois-de-la-memoire-nand-228831",
-      "date": "2026-08-27T11:39:25.000Z",
-      "source": "Silicon.fr",
-      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
+      "titre": "Hugging Face lance un mini robot-canard à entraîner soi-même",
+      "resume": "Le 27 août 2026, Hugging Face et sa filiale française Pollen Robotics ont dévoilé Microduck, un petit robot-canard open source à 399 dollars, capable",
+      "url": "https://www.numerama.com/tech/2319771-hugging-face-lance-un-mini-robot-canard-a-entrainer-soi-meme.html",
+      "date": "2026-08-27T14:31:41.000Z",
+      "source": "Numerama",
+      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "YMTC, champion chinois de la mémoire NAND, en expansion",
-      "categorie": "Mobile"
+      "accroche": "Hugging Face lance un robot-canard à entraîner soi-même",
+      "categorie": "IA"
     },
     {
-      "titre": "LG fait entrer les chefs-d’œuvre du met dans votre salon avec le service LG Gallery+",
-      "resume": "feed\n\nLG Electronics collabore avec The Metropolitan Museum of Art de New York (The Met) afin de transformer votre téléviseur en une véritable toile v",
-      "url": "https://www.ntic-dz.com/lg-fait-entrer-les-chefs-doeuvre-du-met-dans-votre-salon-avec-le-service-lg-gallery/?utm_source=rss&utm_medium=rss&utm_campaign=lg-fait-entrer-les-chefs-doeuvre-du-met-dans-votre-salon-avec-le-service-lg-gallery",
-      "date": "2026-08-27T14:33:34.000Z",
-      "source": "NTIC.dz",
-      "logo": "https://www.google.com/s2/favicons?domain=ntic-dz.com&sz=32",
+      "titre": "Importations : l’Abef apporte des précisions sur la validité des programmes prévisionnels du premier semestre 2026",
+      "resume": "L’Association professionnelle des banques et des établissements financiers (ABEF) a apporté des précisions sur la validité des programmes prévisionnel",
+      "url": "https://algerie-eco.com/2026/08/27/importations-labef-apporte-des-precisions-sur-la-validite-des-programmes-previsionnels-du-premier-semestre-2026/",
+      "date": "2026-08-27T14:24:08.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "LG Gallery+ : service de streaming pour chefs-d’œuvre du met",
-      "categorie": "Mobile"
+      "accroche": "Abef clarifie validité des programmes d'importation",
+      "categorie": "Économie"
     },
     {
-      "titre": "SFR perd 250 000 abonnés, voici pourquoi Free et ses concurrents n'en profitent pas encore vraiment",
-      "resume": "Ne profitant pas encore pleinement de la vente annoncée de SFR, la maison mère de Free connaît une croissance de 1,5 % sur son marché domestique. Elle",
-      "url": "https://www.zdnet.fr/actualites/resultats-iliad-croissance-moderee-et-nombre-dabonnes-stable-en-france-500714.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-08-27T12:20:48.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "SFR perd 250 000 abonnés, croissance limitée pour concurrents",
-      "categorie": "Télécoms"
-    },
-    {
-      "titre": "Voici ce que prépare Covéa face au casse-tête du numérique responsable et de l'IA générative",
-      "resume": "Le groupe d’assurance dresse son bilan de durabilité et annonce préparer à la DSI de nouvelles mesures afin d’améliorer son empreinte environnementale",
-      "url": "https://www.zdnet.fr/actualites/covea-prevoit-de-nouvelles-actions-sur-la-sobriete-numerique-500695.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-08-27T09:00:21.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Covéa prépare stratégie numérique responsable et IA générative",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "L’un aura Kourou comme base de lancement : trois minilanceurs européens boostés par l’Agence spatiale européenne",
-      "resume": "",
-      "url": "https://www.usinenouvelle.com/aero-spatial/lun-aura-kourou-comme-base-de-lancement-trois-minilanceurs-europeens-boostes-par-lagence-spatiale-europeenne.ZQSCJVVGWFEDJCVG27EXUPJQGE.html",
-      "date": "2026-08-27T13:00:00.000Z",
-      "source": "L'Usine Nouvelle",
-      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
-      "pays": "FR",
-      "accroche": "Trois minilanceurs européens boostés par l'ESA à Kourou",
-      "categorie": "Réseaux"
-    },
-    {
-      "titre": "TotalEnergies se désengage totalement du projet de gaz russe Arctic LNG 2",
-      "resume": "",
-      "url": "https://www.usinenouvelle.com/energie/totalenergies-ex-total/totalenergies-se-desengage-totalement-du-projet-de-gaz-russe-arctic-lng-2.E2D3ECOO2RBZHFRKHCZWB72A6E.html",
-      "date": "2026-08-27T14:00:00.000Z",
-      "source": "L'Usine Nouvelle",
-      "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
-      "pays": "FR",
-      "accroche": "TotalEnergies se retire du projet gazier russe Arctic LNG 2",
-      "categorie": "Innovation"
+      "titre": "Algérie : trois jours de deuil national après les incendies meurtriers",
+      "resume": "Le président de la République, Abdelmadjid Tebboune, a décrété un deuil national de trois jours à partir de jeudi 27 août, après le décès de plusieurs",
+      "url": "https://algerie-eco.com/2026/08/27/algerie-trois-jours-de-deuil-national-apres-les-incendies-meurtriers/",
+      "date": "2026-08-27T12:32:17.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Algerie décrète trois jours de deuil national",
+      "categorie": "Société"
     }
   ],
   "syntheseArticle": {
-    "titre": "Algérie et tech mondiale : plan IA national et rachats records en 24h",
+    "titre": "Algérie : plan IA, rachats record et infrastructures cloud au cœur de l'actualité tech",
     "dateline": "Alger, 27 août 2026 (Algeria Tech)",
-    "lead": "L'Algérie a dévoilé un plan national d'intelligence artificielle à cinq axes, tandis que le secteur tech mondial enregistre des mouvements stratégiques majeurs avec des investissements cloud et des rachats d'envergure dépassant 12 milliards de dollars. Ces décisions interviennent dans un contexte de renforcement des infrastructures et d'innovation technologique globale.",
+    "lead": "L'Algérie a présenté son plan national d'intelligence artificielle, tandis que les géants technologiques ont annoncé des rachats stratégiques majeurs dans l'IA et les infrastructures cloud. Les décisions officielles et les mouvements industriels marquent l'actualité technologique des dernières 24 heures.",
     "corpsHtml": [
-      "<p>Dans le domaine de l'intelligence artificielle, <a href=\"https://www.ecomnewsmed.com/2026/08/27/lalgerie-a-presente-son-plan-national-dia-qui-repose-sur-5-axes-structurants-avec-un-objectif-affiche-de-saffranchir-des-solutions-etrangeres-et-de-securiser-les-donnees-nat/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">EcomNewsMed DZ</a> révèle que l'Algérie a présenté un plan national structuré autour de cinq axes majeurs, fixant des objectifs précis pour le développement du secteur. Ce cadre vise à positionner le pays comme acteur clé dans l'écosystème IA continental. Par ailleurs, <a href=\"https://www.silicon.fr/data-ia-1372/aws-rachete-ducklabs-ce-que-le-deal-change-pour-lanalytique-et-lopen-source-228834\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a> et <a href=\"https://www.usine-digitale.fr/big-tech/amazon/aws-va-deployer-deux-millions-de-gpu-nvidia-supplementaires-dans-ses-data-centers-en-2027-et-2028.JBO5XJVXYVC7VBOS66BDQDTCGA.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> rapportent que Nvidia prépare le rachat de la plateforme Hugging Face pour un montant estimé à 12,9 milliards de dollars, une opération qui pourrait redéfinir le paysage de l'open source et de l'analytique. <a href=\"https://www.silicon.fr/business-1367/nvidia-serait-pret-a-mettre-la-main-sur-hugging-face-pour-13-milliards-228829\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a> précise que cette acquisition s'inscrit dans une stratégie d'expansion des capacités cloud, tandis que <a href=\"https://www.usine-digitale.fr/electronique/nvidia/nvidia-pret-a-mettre-129-milliards-de-dollars-sur-la-table-pour-soffrir-hugging-face.UDPBNBYZ3NBRBCSBIKUXSO45JA.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> confirme la finalisation du deal pour un montant similaire. <a href=\"https://www.silicon.fr/business-1367/qui-est-ymtc-le-champion-chinois-de-la-memoire-nand-228831\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a> souligne également l'acquisition par AWS de DuckLabs, renforçant ainsi ses capacités en analytique et en solutions open source.</p>",
-      "<p>Côté infrastructures cloud, Usine Digitale indique qu'AWS prévoit de déployer deux millions de GPU Nvidia supplémentaires dans ses data centers d'ici 2027 et 2028, marquant un investissement record pour répondre à la demande croissante en calcul haute performance. Dans le secteur des télécoms, <a href=\"https://www.zdnet.fr/actualites/resultats-iliad-croissance-moderee-et-nombre-dabonnes-stable-en-france-500714.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> relève une perte de 250 000 abonnés pour SFR, sans que les concurrents ne parviennent à en tirer profit immédiatement, reflétant les défis du marché français.</p>",
-      "<p>En Algérie, Algérie Éco indique que les autorités ont annoncé trois jours de deuil national en hommage aux victimes des incendies ayant touché plusieurs régions du pays, où 88 feux ont été recensés, dont 43 toujours actifs. Parallèlement, Algérie Éco apporte des précisions sur les programmes prévisionnels d'importation, confirmant la validité des listes soumises par l'Abef pour le premier semestre.</p>",
-      "<p>Sur le plan technologique, <a href=\"https://www.ntic-dz.com/lg-fait-entrer-les-chefs-doeuvre-du-met-dans-votre-salon-avec-le-service-lg-gallery/?utm_source=rss&utm_medium=rss&utm_campaign=lg-fait-entrer-les-chefs-doeuvre-du-met-dans-votre-salon-avec-le-service-lg-gallery\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">NTIC.dz</a> annonce l'arrivée du service LG Gallery+, une plateforme de streaming dédiée aux chefs-d'œuvre du met, accessible directement depuis les téléviseurs LG. Ce service s'ajoute aux innovations présentées par le géant sud-coréen pour enrichir l'expérience utilisateur. Dans le domaine des semi-conducteurs, Silicon.fr présente YMTC, champion chinois de la mémoire NAND, dont l'expansion pourrait influencer les chaînes d'approvisionnement mondiales.</p>",
-      "<p>Côté innovation industrielle, <a href=\"https://www.usinenouvelle.com/aero-spatial/lun-aura-kourou-comme-base-de-lancement-trois-minilanceurs-europeens-boostes-par-lagence-spatiale-europeenne.ZQSCJVVGWFEDJCVG27EXUPJQGE.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a> révèle que TotalEnergies a annoncé son désengagement total du projet gazier russe Arctic LNG 2, une décision stratégique dans un contexte géopolitique complexe. Par ailleurs, <a href=\"https://www.usinenouvelle.com/energie/totalenergies-ex-total/totalenergies-se-desengage-totalement-du-projet-de-gaz-russe-arctic-lng-2.E2D3ECOO2RBZHFRKHCZWB72A6E.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a> rapporte que trois minilanceurs européens, dont deux opérant depuis Kourou, bénéficient d'un soutien renforcé de l'Agence spatiale européenne (ESA) pour booster leurs capacités de lancement.</p>",
-      "<p>Enfin, dans le secteur de l'innovation responsable, <a href=\"https://www.zdnet.fr/actualites/covea-prevoit-de-nouvelles-actions-sur-la-sobriete-numerique-500695.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> indique que Covéa prépare une stratégie dédiée au numérique responsable et à l'IA générative, reflétant une prise de conscience accrue des enjeux environnementaux et éthiques dans le déploiement technologique.</p>"
+      "<p>Le ministère algérien de l'Économie des connaissances et des Start-up a dévoilé, ce jour, son plan national d'intelligence artificielle reposant sur cinq axes structurants, selon <a href=\"https://www.ecomnewsmed.com/2026/08/27/lalgerie-a-presente-son-plan-national-dia-qui-repose-sur-5-axes-structurants-avec-un-objectif-affiche-de-saffranchir-des-solutions-etrangeres-et-de-securiser-les-donnees-nat/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">EcomNewsMed DZ</a>. Ce cadre vise à positionner l'Algérie dans le paysage technologique mondial en s'appuyant sur des partenariats publics-privés et des investissements ciblés.</p>",
+      "<p>Dans le domaine des infrastructures cloud, AWS a annoncé l'acquisition de la startup française DuckLabs, spécialisée dans l'analytique et l'open source, pour renforcer ses capacités en traitement des données, d'après <a href=\"https://www.silicon.fr/data-ia-1372/aws-rachete-ducklabs-ce-que-le-deal-change-pour-lanalytique-et-lopen-source-228834\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. Par ailleurs, le géant américain a confirmé le déploiement de deux millions de GPU Nvidia dans ses data centers d'ici 2027 et 2028, une initiative visant à répondre à la demande croissante en calcul haute performance, selon <a href=\"https://www.usine-digitale.fr/big-tech/amazon/aws-va-deployer-deux-millions-de-gpu-nvidia-supplementaires-dans-ses-data-centers-en-2027-et-2028.JBO5XJVXYVC7VBOS66BDQDTCGA.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>.</p>",
+      "<p>Le secteur de l'IA a été marqué par des opérations de rachat d'envergure. Nvidia a finalisé l'acquisition de la plateforme Hugging Face pour un montant de 12,9 milliards de dollars, confirmant ainsi son ambition de dominer le marché des outils d'IA générative, d'après <a href=\"https://www.zdnet.fr/actualites/nvidia-rachete-hugging-face-pour-129-milliards-de-dollars-un-seisme-pour-lecosysteme-de-lia-open-source-500737.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>, <a href=\"https://www.usine-digitale.fr/electronique/nvidia/nvidia-pret-a-mettre-129-milliards-de-dollars-sur-la-table-pour-soffrir-hugging-face.UDPBNBYZ3NBRBCSBIKUXSO45JA.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> et <a href=\"https://www.01net.com/actualites/coup-semonce-openai-revele-enfin-comment-chatgpt-lance-premiere-cyberattaque.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. Cette opération s'inscrit dans une stratégie globale visant à intégrer des solutions d'IA open source au sein de son écosystème, comme l'a souligné <a href=\"https://www.silicon.fr/business-1367/nvidia-serait-pret-a-mettre-la-main-sur-hugging-face-pour-13-milliards-228829\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a> dans une analyse détaillée.</p>",
+      "<p>Hugging Face, acteur majeur de l'IA open source, a également lancé un mini robot-canard conçu pour être entraîné par les utilisateurs, une initiative visant à démocratiser l'accès à l'apprentissage automatique, selon <a href=\"https://www.numerama.com/tech/2319771-hugging-face-lance-un-mini-robot-canard-a-entrainer-soi-meme.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Numerama</a>. Parallèlement, OpenAI a révélé avoir subi une cyberattaque lancée par son propre modèle ChatGPT, mettant en lumière les défis de sécurité liés à l'IA, comme rapporté par <a href=\"https://www.01net.com/actualites/claude-na-plus-besoin-de-google-chrome-pour-surfer-sur-internet.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>.</p>",
+      "<p>Côté cybersécurité, <a href=\"https://www.01net.com/actualites/nvidia-aurait-rachete-la-plateforme-dia-hugging-face-pour-129-milliards-de-dollars.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> a également rapporté que le navigateur Claude peut désormais fonctionner sans dépendre de Google Chrome, une avancée technique permettant une utilisation plus autonome des outils d'IA. Dans le domaine des télécommunications, NTIC.dz a annoncé le lancement par LG du service LG Gallery+, offrant aux utilisateurs un accès à des œuvres d'art via leurs téléviseurs connectés.</p>",
+      "<p>En Algérie, les autorités ont apporté des précisions sur la validité des programmes prévisionnels d'importation, selon <a href=\"https://algerie-eco.com/2026/08/27/importations-labef-apporte-des-precisions-sur-la-validite-des-programmes-previsionnels-du-premier-semestre-2026/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, tandis qu'un deuil national de trois jours a été décrété suite aux incendies meurtriers ayant frappé le pays. Ces décisions illustrent l'importance accordée à la gestion des crises et à la planification économique dans le contexte actuel.</p>"
     ]
   },
-  "lastUpdated": "2026-08-27T15:00:45.890Z"
+  "lastUpdated": "2026-08-27T17:37:29.806Z"
 }
