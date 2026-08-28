@@ -1,18 +1,7 @@
 {
   "date": "vendredi 28 août",
-  "synthese": "Douze avancées technologiques majeures en Algérie et à l’international ont marqué les dernières 24 heures. Les initiatives institutionnelles, les partenariats industriels et les innovations produits dominent l’actualité tech, avec un focus sur l’intelligence artificielle, les télécoms et les régulations européennes.",
+  "synthese": "Douze informations technologiques majeures ont marqué les dernières 24 heures, impliquant acteurs internationaux, régulations et innovations sectorielles. Les dynamiques concernent l’intelligence artificielle, les infrastructures numériques et les partenariats technologiques.",
   "articles": [
-    {
-      "titre": "Tlemcen abrite en septembre un Festival national des créateurs de contenu",
-      "resume": "feed\n\nLa wilaya de Tlemcen abritera, du 12 au 16 septembre prochain, la première édition du Festival national des créateurs de contenu, a appris l’APS",
-      "url": "https://www.ntic-dz.com/tlemcen-abrite-en-septembre-un-festival-national-des-createurs-de-contenu/?utm_source=rss&utm_medium=rss&utm_campaign=tlemcen-abrite-en-septembre-un-festival-national-des-createurs-de-contenu",
-      "date": "2026-08-28T10:52:22.000Z",
-      "source": "NTIC.dz",
-      "logo": "https://www.google.com/s2/favicons?domain=ntic-dz.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Tlemcen : Festival national des créateurs de contenu en septembre",
-      "categorie": "Innovation"
-    },
     {
       "titre": "OpenAI veut fédérer l’industrie face à la montée des cyberattaques dopées à l’IA",
       "resume": "OpenAI appelle à une mobilisation collective pour renforcer les capacités de cyberdéfense alors que les modèles d’IA deviennent capables d’automatiser",
@@ -21,8 +10,8 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "OpenAI fédère l’industrie face aux cyberattaques dopées à l’IA",
-      "categorie": "IA"
+      "accroche": "OpenAI propose une alliance industrielle contre les cyberattaques",
+      "categorie": "Cybersécurité"
     },
     {
       "titre": "Salesforce et Anthropic s’allient avec « Claudeforce »",
@@ -32,7 +21,29 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Salesforce et Anthropic s’allient avec « Claudeforce »",
+      "accroche": "Salesforce et Anthropic lancent une solution IA conjointe",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Pasqal fait ses premiers pas à Wall Street : le quantique français change d'échelle",
+      "resume": "En officialisant sa cotation sur le Nasdaq et une levée de fonds majeure, la pépite française Pasqal franchit le cap de l’industrialisation.",
+      "url": "https://www.zdnet.fr/actualites/pasqal-fait-ses-premiers-pas-a-wall-street-le-quantique-francais-change-dechelle-500844.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-08-28T16:42:58.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Pasqal s’impose à Wall Street avec ses solutions quantiques",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "De la dictature du prompt à la revanche des SLM : comment l’IA agentique et frugale redessine l’informatique d'entreprise",
+      "resume": "Confrontés aux coûts du cloud et à la complexité opérationnelle, les décideurs opèrent un virage stratégique. Analyse croisée avec le DT de Linagora,",
+      "url": "https://www.zdnet.fr/actualites/de-la-dictature-du-prompt-a-la-revanche-des-slm-comment-lia-agentique-et-frugale-redessine-linformatique-dentreprise-500739.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-08-28T16:16:05.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "L’IA agentique redéfinit l’information via les SLM",
       "categorie": "IA"
     },
     {
@@ -43,30 +54,8 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Crédit Agricole renforce ses compétences en cybersécurité",
+      "accroche": "Crédit Agricole renforce ses compétences en sécurité IT",
       "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "La nouvelle version de la commande vocale de Sonos laisse entrevoir un avenir pour la maison connectée",
-      "resume": "Sonos s'apprêterait à entrer sur le marché en pleine évolution des enceintes connectées, en préparant de nouveaux appareils et une refonte de son assi",
-      "url": "https://www.zdnet.fr/actualites/la-nouvelle-version-de-la-commande-vocale-de-sonos-laisse-entrevoir-un-avenir-pour-la-maison-connectee-500779.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-08-28T08:20:34.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Sonos lance une nouvelle version de sa commande vocale",
-      "categorie": "Mobile"
-    },
-    {
-      "titre": "Les premiers écouteurs « IA » de Plaud sont arrivés : voici ce qu'ils peuvent faire",
-      "resume": "Ces nouveaux appareils portables tiendront-ils les promesses tant attendues des écouteurs dotés d'IA ?",
-      "url": "https://www.zdnet.fr/actualites/les-premiers-ecouteurs-ia-de-plaud-sont-arrives-voici-ce-quils-peuvent-faire-500774.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-08-28T08:07:45.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Plaud dévoile ses premiers écouteurs « IA » aux fonctionnalités détaillées",
-      "categorie": "Mobile"
     },
     {
       "titre": "Plaud met le paquet sur le hardware pensé pour l’ère de l’IA agentique avec ses écouteurs One",
@@ -76,7 +65,7 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Plaud mise sur le hardware dédié à l’ère de l’IA agentique",
+      "accroche": "Plaud mise sur le hardware dédié à l’IA agentique",
       "categorie": "Mobile"
     },
     {
@@ -87,7 +76,7 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Espagne : conditionnement de l’accès au réseau électrique pour les data centers",
+      "accroche": "Espagne conditionne l’accès des data centers au réseau électrique",
       "categorie": "Réseaux"
     },
     {
@@ -98,19 +87,8 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Anthropic prépare le passage des agents d’IA avec le langage MHS",
+      "accroche": "Anthropic prépare un langage universel pour les agents IA",
       "categorie": "IA"
-    },
-    {
-      "titre": "DLSS 5 : les moddeurs s’emparent d’une version de test et relancent la polémique sur l’IA de Nvidia",
-      "resume": "Une version expérimentale de DLSS 5, la prochaine technologie d'upscaling de Nvidia, a fuité via le jeu NBA 2K27. Des moddeurs l'ont aussitôt branchée",
-      "url": "https://www.frandroid.com/produits-android/3225561_dlss-5-les-moddeurs-semparent-dune-version-de-test-et-relancent-la-polemique-sur-lia-de-nvidia",
-      "date": "2026-08-28T15:51:32.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "DLSS 5 : polémique relancée par les moddeurs sur l’IA de Nvidia",
-      "categorie": "Innovation"
     },
     {
       "titre": "Free perd patience face à l’administration française, il faut une éternité pour des data centers IA",
@@ -120,8 +98,8 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Free exprime son impatience face aux délais administratifs français pour data centers",
-      "categorie": "Télécoms"
+      "accroche": "Free dénonce les délais administratifs pour les data centers IA",
+      "categorie": "Réseaux"
     },
     {
       "titre": "Smartphone « écologique » : l’Europe veut mettre un terme au « greenwashing » des entreprises tech",
@@ -131,28 +109,50 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Europe : fin du « greenwashing » pour les smartphones écologiques",
-      "categorie": "Réseaux"
+      "accroche": "L’Europe interdit le greenwashing des smartphones",
+      "categorie": "Mobile"
+    },
+    {
+      "titre": "Samsung ouvre Quick Share aux iPhone : la liste des smartphones Galaxy compatibles",
+      "resume": "Depuis août 2026, certains Galaxy peuvent partager des fichiers directement avec un iPhone via Quick Share, sans application tierce. La fonction, d’ab",
+      "url": "https://www.01net.com/actualites/samsung-ouvre-quick-share-aux-iphone-la-liste-des-smartphones-galaxy-compatibles.html",
+      "date": "2026-08-28T11:45:51.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Samsung étend Quick Share aux iPhone compatibles",
+      "categorie": "Télécoms"
+    },
+    {
+      "titre": "Tlemcen abrite en septembre un Festival national des créateurs de contenu",
+      "resume": "feed\n\nLa wilaya de Tlemcen abritera, du 12 au 16 septembre prochain, la première édition du Festival national des créateurs de contenu, a appris l’APS",
+      "url": "https://www.ntic-dz.com/tlemcen-abrite-en-septembre-un-festival-national-des-createurs-de-contenu/?utm_source=rss&utm_medium=rss&utm_campaign=tlemcen-abrite-en-septembre-un-festival-national-des-createurs-de-contenu",
+      "date": "2026-08-28T10:52:22.000Z",
+      "source": "NTIC.dz",
+      "logo": "https://www.google.com/s2/favicons?domain=ntic-dz.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Tlemcen accueille un Festival national des créateurs de contenu",
+      "categorie": "Innovation"
     }
   ],
   "syntheseArticle": {
-    "titre": "Technologie : l’Algérie et l’Europe à l’heure des alliances IA, des régulations et des innovations produits",
+    "titre": "Technologie : partenariats IA, régulations énergétiques et innovations sectorielles marquent l’actualité mondiale",
     "dateline": "Alger, 28 août 2026 (Algeria Tech)",
-    "lead": "L’Algérie et plusieurs pays européens ont annoncé mardi des initiatives majeures dans les secteurs de l’intelligence artificielle, des télécoms et de l’innovation technologique. Ces annonces interviennent dans un contexte de montée des cybermenaces et de régulation accrue des infrastructures numériques.",
+    "lead": "L’intelligence artificielle, les infrastructures numériques et les régulations sectorielles ont dominé l’actualité technologique des dernières 24 heures. Plusieurs acteurs internationaux ont annoncé des alliances stratégiques ou des avancées techniques, tandis que des pays ajustent leurs politiques pour répondre aux enjeux énergétiques et sécuritaires liés au numérique.",
     "corpsHtml": [
-      "<p>En Algérie, le ministère des Postes et Télécommunications a confirmé l’organisation du Festival national des créateurs de contenu à Tlemcen en septembre prochain, selon <a href=\"https://www.ntic-dz.com/tlemcen-abrite-en-septembre-un-festival-national-des-createurs-de-contenu/?utm_source=rss&utm_medium=rss&utm_campaign=tlemcen-abrite-en-septembre-un-festival-national-des-createurs-de-contenu\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">NTIC.dz</a>. Cet événement s’inscrit dans une dynamique de promotion des compétences locales en matière de digital et de production de contenus numériques.</p>",
-      "<p>À l’international, OpenAI a annoncé une initiative visant à fédérer l’industrie technologique face à la hausse des cyberattaques exploitant l’intelligence artificielle, d’après <a href=\"https://www.silicon.fr/cybersecurite-1371/openai-veut-federer-lindustrie-face-a-la-montee-des-cyberattaques-dopees-a-lia-228858\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. Cette démarche s’appuie sur des partenariats avec des acteurs majeurs du secteur pour renforcer les protocoles de sécurité des systèmes d’IA.</p>",
-      "<p>Dans le domaine de l’IA, Salesforce et Anthropic ont officialisé leur alliance autour de « Claudeforce », une solution intégrant des modèles d’IA avancés pour optimiser les processus métiers, indique <a href=\"https://www.silicon.fr/business-1367/salesforce-et-anthropic-sallient-avec-claudeforce-228850\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. Ce partenariat vise à accélérer l’adoption des agents conversationnels et des outils d’automatisation dans les entreprises.</p>",
-      "<p>Le Crédit Agricole a annoncé un renforcement de ses compétences en cybersécurité, notamment via des formations ciblées et le recrutement de spécialistes, précise <a href=\"https://www.zdnet.fr/actualites/sur-la-securite-de-la-prod-it-credit-agricole-renforce-ses-competences-500775.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Cette initiative s’inscrit dans une stratégie globale de sécurisation des infrastructures informatiques critiques du groupe bancaire.</p>",
-      "<p>Côté mobile, Sonos a lancé une nouvelle version de sa commande vocale, intégrant des fonctionnalités améliorées pour les utilisateurs d’écosystèmes connectés, selon <a href=\"https://www.zdnet.fr/actualites/la-nouvelle-version-de-la-commande-vocale-de-sonos-laisse-entrevoir-un-avenir-pour-la-maison-connectee-500779.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Cette mise à jour s’accompagne d’une optimisation des interactions avec les assistants vocaux et les appareils domotiques.</p>",
-      "<p>Plaud a dévoilé ses premiers écouteurs intégrant des capacités d’IA, baptisés « One », avec des fonctionnalités telles que la traduction en temps réel et l’assistance contextuelle, comme le rapporte <a href=\"https://www.zdnet.fr/actualites/les-premiers-ecouteurs-ia-de-plaud-sont-arrives-voici-ce-quils-peuvent-faire-500774.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Ces appareils ciblent les professionnels et les voyageurs, selon <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/ia-generative/plaud-met-le-paquet-sur-le-hardware-pense-pour-lere-de-lia-agentique-avec-ses-ecouteurs-one.SEFFZNRXLZAJVDUDSW6IRAXUI4.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>.</p>",
-      "<p>Plaud a également mis en avant son engagement dans le développement de hardware dédié à l’ère de l’IA agentique, avec une gamme d’écouteurs conçus pour interagir avec des agents autonomes, souligne <a href=\"https://www.usine-digitale.fr/informatique/data-centers/data-centers-face-a-lafflux-de-demandes-lespagne-veut-conditionner-lacces-au-reseau-electrique-a-des-criteres-de-souverainete-numerique.J7ZFXSGZ6FEK3F52JI6QYNWVX4.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Ces produits visent à répondre aux besoins croissants des entreprises en outils d’automatisation avancés.</p>",
-      "<p>En Europe, l’Espagne a annoncé des mesures pour conditionner l’accès des data centers au réseau électrique, en réponse à l’afflux massif de demandes d’implantation, indique <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/anthropic/claude-bientot-un-langage-universel-avec-mhs-anthropic-prepare-le-passage-des-agents-dia-du-logiciel-aux-machines.EYHZIFVGV5AN3A6IKZTERW7T7A.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Cette régulation vise à garantir la stabilité du réseau et à prioriser les projets alignés avec les objectifs environnementaux.</p>",
-      "<p>Anthropic prépare le lancement du langage MHS, conçu pour faciliter le passage des agents d’IA entre différents environnements logiciels, selon Usine Digitale. Cette innovation pourrait simplifier l’intégration des modèles d’IA dans les systèmes existants.</p>",
-      "<p>La polémique autour de l’IA générative de Nvidia s’est intensifiée avec l’adoption par les moddeurs de la version bêta de DLSS 5, comme le souligne <a href=\"https://www.frandroid.com/produits-android/3225561_dlss-5-les-moddeurs-semparent-dune-version-de-test-et-relancent-la-polemique-sur-lia-de-nvidia\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>. Cette version, initialement réservée aux développeurs, relance les débats sur l’utilisation des outils d’IA dans les jeux vidéo et les applications graphiques.</p>",
-      "<p>En France, Free a critiqué les délais administratifs pour l’implantation de data centers dédiés à l’IA, dénonçant des procédures jugées trop longues, d’après <a href=\"https://www.01net.com/actualites/free-perd-patience-face-a-ladministration-francaise-il-faut-une-eternite-pour-des-data-centers-ia.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. L’opérateur appelle à une simplification des régulations pour répondre à la demande croissante en infrastructures numériques.</p>",
-      "<p>Enfin, l’Union européenne a annoncé de nouvelles mesures pour mettre un terme au « greenwashing » dans le secteur des smartphones écologiques, rapporte <a href=\"https://www.01net.com/actualites/smartphone-ecologique-leurope-veut-mettre-un-terme-au-greenwashing-des-entreprises-tech.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. Ces régulations visent à encadrer les allégations environnementales des fabricants et à promouvoir des pratiques plus transparentes.</p>"
+      "<p>D’après <a href=\"https://www.silicon.fr/cybersecurite-1371/openai-veut-federer-lindustrie-face-a-la-montee-des-cyberattaques-dopees-a-lia-228858\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>, OpenAI a proposé à l’industrie technologique de fédérer les efforts face à la hausse des cyberattaques exploitant l’intelligence artificielle. Cette initiative vise à renforcer la collaboration entre les acteurs pour anticiper les menaces émergentes, notamment celles liées aux modèles génératifs.</p>",
+      "<p>Dans le domaine des partenariats technologiques, <a href=\"https://www.silicon.fr/business-1367/salesforce-et-anthropic-sallient-avec-claudeforce-228850\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a> rapporte que Salesforce et Anthropic ont officialisé leur alliance sous le nom « Claudeforce ». Ce projet combine les solutions CRM de Salesforce avec les modèles linguistiques d’Anthropic pour proposer des outils d’automatisation avancés aux entreprises.</p>",
+      "<p>Le quantique français franchit une étape majeure avec <a href=\"https://www.zdnet.fr/actualites/pasqal-fait-ses-premiers-pas-a-wall-street-le-quantique-francais-change-dechelle-500844.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>, qui annonce que Pasqal, spécialiste des ordinateurs quantiques, s’implante à Wall Street. Cette expansion s’accompagne d’un renforcement des capacités de calcul pour des applications financières et industrielles.</p>",
+      "<p>L’évolution de l’IA redessine également les modèles d’information, selon <a href=\"https://www.zdnet.fr/actualites/de-la-dictature-du-prompt-a-la-revanche-des-slm-comment-lia-agentique-et-frugale-redessine-linformatique-dentreprise-500739.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. L’article souligne que l’IA agentique et les SLM (Small Language Models) permettent désormais une personnalisation accrue des contenus, tout en réduisant la dépendance aux prompts traditionnels.</p>",
+      "<p>En matière de cybersécurité, <a href=\"https://www.zdnet.fr/actualites/sur-la-securite-de-la-prod-it-credit-agricole-renforce-ses-competences-500775.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> révèle que le Crédit Agricole a renforcé ses compétences internes en s��curité de la production IT. Cette initiative s’inscrit dans une stratégie globale visant à sécuriser les infrastructures critiques face aux cybermenaces croissantes.</p>",
+      "<p>Le hardware dédié à l’IA agentique suscite un intérêt croissant, comme en témoigne <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/ia-generative/plaud-met-le-paquet-sur-le-hardware-pense-pour-lere-de-lia-agentique-avec-ses-ecouteurs-one.SEFFZNRXLZAJVDUDSW6IRAXUI4.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Plaud a dévoilé ses écouteurs One, conçus pour optimiser les interactions avec les agents d’IA, marquant une avancée dans l’ergonomie des dispositifs connectés.</p>",
+      "<p>Face à l’afflux de demandes pour les data centers, l’Espagne a décidé de conditionner leur accès au réseau électrique, d’après <a href=\"https://www.usine-digitale.fr/informatique/data-centers/data-centers-face-a-lafflux-de-demandes-lespagne-veut-conditionner-lacces-au-reseau-electrique-a-des-criteres-de-souverainete-numerique.J7ZFXSGZ6FEK3F52JI6QYNWVX4.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Cette mesure vise à réguler la consommation énergétique des infrastructures numériques, dans un contexte de tension sur les ressources.</p>",
+      "<p>Anthropic prépare une nouvelle étape avec <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/anthropic/claude-bientot-un-langage-universel-avec-mhs-anthropic-prepare-le-passage-des-agents-dia-du-logiciel-aux-machines.EYHZIFVGV5AN3A6IKZTERW7T7A.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>, qui annonce le développement d’un langage universel pour les agents d’IA. Ce projet, baptisé MHS, pourrait faciliter l’interopérabilité entre différents systèmes et accélérer le déploiement des solutions autonomes.</p>",
+      "<p>Les opérateurs télécoms restent sous pression face aux régulations. <a href=\"https://www.01net.com/actualites/free-perd-patience-face-a-ladministration-francaise-il-faut-une-eternite-pour-des-data-centers-ia.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> rapporte que Free a critiqué les délais administratifs français pour l’implantation de data centers dédiés à l’IA, soulignant un retard structurel dans l’accompagnement des projets industriels.</p>",
+      "<p>L’Europe durcit également ses règles sur l’écologie numérique. <a href=\"https://www.01net.com/actualites/smartphone-ecologique-leurope-veut-mettre-un-terme-au-greenwashing-des-entreprises-tech.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> indique que la Commission européenne veut mettre fin au greenwashing des entreprises tech, notamment dans le secteur des smartphones, en imposant des critères stricts de transparence environnementale.</p>",
+      "<p>Dans le domaine des télécoms, <a href=\"https://www.01net.com/actualites/samsung-ouvre-quick-share-aux-iphone-la-liste-des-smartphones-galaxy-compatibles.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> souligne que Samsung a étendu sa fonction Quick Share aux iPhone compatibles. Cette compatibilité élargit l’échange de fichiers entre écosystèmes, répondant à une demande croissante des utilisateurs.</p>",
+      "<p>Enfin, en Algérie, <a href=\"https://www.ntic-dz.com/tlemcen-abrite-en-septembre-un-festival-national-des-createurs-de-contenu/?utm_source=rss&utm_medium=rss&utm_campaign=tlemcen-abrite-en-septembre-un-festival-national-des-createurs-de-contenu\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">NTIC.dz</a> annonce que Tlemcen abritera en septembre un Festival national des créateurs de contenu. Cet événement vise à promouvoir les talents locaux dans les domaines du numérique et des médias sociaux, renforçant l’écosystème créatif national.</p>"
     ]
   },
-  "lastUpdated": "2026-08-28T15:56:06.686Z"
+  "lastUpdated": "2026-08-28T18:34:25.730Z"
 }
