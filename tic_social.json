@@ -1,6 +1,24 @@
 {
   "posts": [
     {
+      "id": "dbfdf0ec21fa714c",
+      "source_name": "APS — Algérie Presse Service",
+      "source_short": "APS",
+      "source_color": "#006233",
+      "category": "Ministère",
+      "category_icon": "📡",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOamtlRjRBUDRIRDFBd182U3RqSGtLUEI1bGZfQWFna0o3U3VSb0tEam5YQ0VZSUxMWlloSXRmUkJYVjVQcTF6ZlFoTEZMZUlXQnlGT2RvRmV4Znh5aTRYQlVLMVhUUjZWczBsS2xBbE5Na09kcWtjN0x6OXRQaGw0b1ZmdlVxLXJLWEl4eWVyYjJNR2t1aE8tNS0xYTJfNVgtU1dGRmJR?oc=5",
+      "image": "",
+      "date": "Sat, 29 Aug 2026 17:13:43 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Affaire Aïssiou : l’APS dénonce une nouvelle offensive médiatique française - L'Algérie Aujourd'hui — Affaire Aïssiou : l’APS dénonce une nouvelle offensive médiatique française L'Algérie Aujourd'hui",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "c4b04dec957df60c",
       "source_name": "Ministère de la Poste et des TIC",
       "source_short": "MPT",
@@ -325,36 +343,54 @@
       "source_type": "rss"
     },
     {
-      "id": "d5f8101eb2722b08",
-      "source_name": "Ministère de l'Économie de la Connaissance & Startups",
-      "source_short": "MKESME",
-      "source_color": "#0D47A1",
+      "id": "a444ab04842e27f0",
+      "source_name": "Ministère de l'Enseignement Supérieur et de la Recherche",
+      "source_short": "MESRS",
+      "source_color": "#1B5E20",
       "category": "Ministère",
-      "category_icon": "🚀",
-      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNbFNHUlRjWExWd0lLak1raUJHRW5KQVkwczZ3WjNNSTFHdWNWQmlfbjNMTmRVNzI2Q1RsMk9aQ1UxazRUeEkwSE1lcFlOM0pjSzFSNkpYTlJwZGRNWjQ5c2ZRQ2FCd1JNc3pPU0xOamx6ZEtKRDZRS0ppaFd6NmEtZ1cyZmRSSV9QaEpUOFNUNFAxVm9BODhIc0dEcXpfWXJRcm04Mi1ZRjRPY3dmTWVmSmVESUwzWi1aUDFVRnBCRkpsZFRHbFE?oc=5",
+      "category_icon": "🎓",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1tVEdYcUV2OXN2bFJNVWFEZ1RvdFQ2N0cwd05SZW93TmxtZDRkVlRmcjVNcmlYSlh1MlNMcEhBbjVRVG9LRnpscHVaNV9jcTJOaFNzeHNjdnZud0VFUENhMnhvUlhMbVN5bFNfbXNQd19CSG9ZMXYyVQ?oc=5",
       "image": "",
-      "date": "Tue, 04 Aug 2026 08:04:31 GMT",
+      "date": "Wed, 05 Aug 2026 07:00:00 GMT",
       "lang_source": "fr",
       "text": {
-        "fr": "Air Algérie Catering : les startups et l'intelligence artificielle pour améliorer l'expérience des passagers - Voyagerdz — Air Algérie Catering : les startups et l'intelligence artificielle pour améliorer l'expérience des passagers Voyagerdz",
+        "fr": "Inscriptions universitaires 2026 : procédure 100% en ligne via PROGRES - Just-InfoDZ — Inscriptions universitaires 2026 : procédure 100% en ligne via PROGRES Just-InfoDZ",
         "ar": "",
         "en": ""
       },
       "source_type": "rss"
     },
     {
-      "id": "d55b044c289474cd",
-      "source_name": "Ministère de l'Enseignement Supérieur et de la Recherche",
-      "source_short": "MESRS",
-      "source_color": "#1B5E20",
-      "category": "Ministère",
-      "category_icon": "🎓",
-      "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPMDZnalZpNXV0R3dGcWRSQVNuLUtEbkVMZHhRTm9obEZrM1VWcV9lVFYwM2duU082dW5BalNOb2ZjLUhNTTZ4OW5wcmFYazlrVldtY0VKOVBzdHFUSlFuVXFHUmdiZzJFQWw1Njh4NXRRSm10dXhZR3o3bGNaNFktZExScmRBbTh4cXV1SWNqQUJzRmZDZFp5eElKTmlzQmhCQ2dBdnBkcUFpU3drOG9XVHNJQVgwcWRRYjBqRmNBMXRfZVZWNU0yWkNIdHNad1BaMkQ1bGtwakxZaUhfdFBDdjZKQXNVZTROR0k4?oc=5",
+      "id": "7043a0c908fdc1a4",
+      "source_name": "Djezzy",
+      "source_short": "DJ",
+      "source_color": "#FF6B00",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxPMWlSRE5GaWpwWXZTeUI1SlVUU2ExSjFrUUE3YXg5bkQtRGFaY3V0RkpyLTJ4akZ6NFE2Q0VnZ05RYjJTLWx5blFIZ3hXN2l0QkhxWEVDNk90LXBOTDZ6WXVzVUFrSktKdVdsLVFuY0JXcW5qWHB6WENfWjVNeUNNSFhSY1gwcW1URE5VbVNmRC1WU29lZHlEQmNsWVh2U3NnNXF6THVhZlc1UXZUUUROTmpmc0lSR2xuendtUTgwaG12YnB2RFR5RkFRWV8tZWVreXlONFc0TEsxMllRbWw0bnUyLXJUYTNlMzNyWXZnQjFXS0tvdUhDdVhB?oc=5",
       "image": "",
-      "date": "Sun, 02 Aug 2026 18:31:57 GMT",
+      "date": "Sat, 29 Aug 2026 17:42:00 GMT",
       "lang_source": "fr",
       "text": {
-        "fr": "Annonce lundi des résultats de l'épreuve écrite du concours national d'accès à la formation | Algérie Presse Service - aps.dz — Annonce lundi des résultats de l'épreuve écrite du concours national d'accès à la formation | Algérie Presse Service aps.dz",
+        "fr": "Djezzy lance une initiative de solidarité au profit des habitants des zones touchées par les incendies - aps.dz — Djezzy lance une initiative de solidarité au profit des habitants des zones touchées par les incendies aps.dz",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "60c35b17e433527f",
+      "source_name": "Mobilis",
+      "source_short": "MB",
+      "source_color": "#00A651",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxOZGRyY3NrQ3JYRVluSkpmSEt0NlVXZFc0a1RVSnIwVnhpTm43SS1EM0o2N2hRcHVQZ091alRTRTltdWxDSnI1amI0ellwNHRoM2NpczFPRF9sc3JlazNucDZFT1dzTURwLXRWR2hJQlpaZUhkUVVjT3BkNFJ1TUQ3ZlNtSFlFYkdTOXFtVFF4alMtTS1ZaHB4U0pZUjJXMmJzRmtVVDNXX3FVbmhmRXdVU2REWUhFazRQLWI3U2lqUU1aaGhfY2s3NUVIVXdjMnFxUXZhUG9RVm1sSkJJekN3OWNkN2pBMVVMRVhGR2JUTF8?oc=5",
+      "image": "",
+      "date": "Sat, 29 Aug 2026 15:46:00 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Mobilis offre des services gratuits pendant une semaine à ses abonnés dans les zones sinistrées - aps.dz — Mobilis offre des services gratuits pendant une semaine à ses abonnés dans les zones sinistrées aps.dz",
         "ar": "",
         "en": ""
       },
@@ -685,36 +721,36 @@
       "source_type": "youtube"
     },
     {
-      "id": "6ad66a4ed08d6492",
-      "source_name": "Mobilis",
-      "source_short": "MB",
-      "source_color": "#00A651",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://www.youtube.com/shorts/PyfJAWr-2_c",
+      "id": "c70f7e778bc8f403",
+      "source_name": "Algérie Télécom",
+      "source_short": "AT",
+      "source_color": "#0055A4",
+      "category": "Infrastructure",
+      "category_icon": "📡",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNVlRpSTBZZU15aVlDS2NmRkpFMm1WcjJjbUFYbVhtQ3doSzd1WGhDR1N3WVg1bkszTkRXRjIyTnVmVnQ2b05fMExyRTl0UVhaTDFXN3c3UXV6aTdxS2YwS3Z3ZEZRbUk3SnZtaUxUMGkzVGZ6TEhLRmNFMVpmY05fdldoTnFMcHg4b21uenlfV3cyU2VrUF9jUUMwakpLY182TWhNM0VRbU9TbXhuN1FXTWQ3SW5DektmSWYyWFhwTFFXVlBSZ3F0ZlBjUVAxYmQ5YURtTE5R?oc=5",
       "image": "",
-      "date": "2026-08-21T16:52:14+00:00",
+      "date": "Sat, 29 Aug 2026 16:48:30 GMT",
       "lang_source": "fr",
       "text": {
-        "fr": "21 août 2026",
+        "fr": "Algérie Télécom : Internet et téléphone fixe gratuits pendant une semaine dans les zones sinistrées - الخبر — Algérie Télécom : Internet et téléphone fixe gratuits pendant une semaine dans les zones sinistrées الخبر",
         "ar": "",
         "en": ""
       },
-      "source_type": "youtube"
+      "source_type": "rss"
     },
     {
-      "id": "b9889efe3389bbc5",
-      "source_name": "Mobilis",
-      "source_short": "MB",
-      "source_color": "#00A651",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQbnE4NTFrUGlqVzV5dExraW1pTmlqd3gyQ3lJQmFSM0JNNFQ2WVlWQ2NZZllYVWY5OVhTTm9jU2I4RGh6cVE3NWNOS3pXR2w2dGVnYVo3b2g3N1hzUWRVMV85RjlLd3RoOE9kZnJ5b0xuSkxlWHJrWE1jTXJTb1h5ZkExZlVUMnFweHBWTzhhRTJYRzJfWHZoMUdaVmI2bVZibkE?oc=5",
+      "id": "753affbd5a6d10ad",
+      "source_name": "Algérie Télécom",
+      "source_short": "AT",
+      "source_color": "#0055A4",
+      "category": "Infrastructure",
+      "category_icon": "📡",
+      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOVzBMbG9wQWtHOVZzdVVnOFY1Z3lMMUpsTzV2TFJKZUV6OWw5dmNPcWo5aXFlWl91Vm5MM1BHMEZRTVpKcFVrLWx6dmhtUW5LeEQwUkMzQ19WVHBkMTEtRHlsUWFzTnZvNDlQS2FBMlBRME5OZjczUmQ0TnhweHREU25nN194UWpLOXJWZWdiSEM3OERQcW5oU0tOV1RPM280WEEwczBhdkF2d3NwVTYydWlrc3J5VVB2emM0VVhlSVhnNUZoV210ZFhjV3NLZ3Nka2V3SjJtaWRMRTZyeUhR?oc=5",
       "image": "",
-      "date": "Fri, 21 Aug 2026 06:34:35 GMT",
+      "date": "Sat, 29 Aug 2026 12:57:00 GMT",
       "lang_source": "fr",
       "text": {
-        "fr": "Ligue 1-Mobilis : Saison 2026/2027, coup d’envoi le 20 août - El Moudjahid — Ligue 1-Mobilis : Saison 2026/2027, coup d’envoi le 20 août El Moudjahid",
+        "fr": "Internet et téléphonie fixe gratuits pendant une semaine dans les zones sinistrées - aps.dz — Internet et téléphonie fixe gratuits pendant une semaine dans les zones sinistrées aps.dz",
         "ar": "",
         "en": ""
       },
@@ -1045,36 +1081,18 @@
       "source_type": "youtube"
     },
     {
-      "id": "f0e31e069005f004",
-      "source_name": "Algérie Poste",
-      "source_short": "AP",
-      "source_color": "#F9A825",
-      "category": "Infrastructure",
-      "category_icon": "✉️",
-      "url": "https://www.facebook.com/algerieposteofficiel/posts/pfbid0BczuzugZNhNAmgGQALEopsX5dEP1CMS5zEJWBsGMH8iFiGNNrRvc6zo9h1Wi8C69l",
-      "image": "https://www.facebook.com/photo/?fbid=1489217436573310&set=a.620796556748740",
-      "date": "2026-08-11T10:00:21.000Z",
-      "lang_source": "ar",
-      "text": {
-        "ar": "في إطار عصرنة الشبكة البريدية وتحسين ظروف استقبال مواطنينا وزبائننا الكرام،📢 نعلمكم بأنه تم تدشين مكتب بريد \"دريسي حبيب\" ببلدية تن… — في إطار عصرنة الشبكة البريدية وتحسين ظروف استقبال مواطنينا وزبائننا الكرام،📢 نعلمكم بأنه تم تدشين مكتب بريد \"دريسي حبيب\" ببلدية تنيرة، ولاية سيدي بلعباس.\n✅نؤكد التزامنا المتواصل بالعمل على تلبية حاجياتكم وتقريب الخدمة منكم، مع الحرص الدائم على تحسين جودة الأداء وظروف الاستقبال.\n#بريد_الجزائر\n#البريد",
-        "fr": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "8312c9c76f632099",
-      "source_name": "Algérie Télécom",
-      "source_short": "AT",
-      "source_color": "#0055A4",
-      "category": "Infrastructure",
-      "category_icon": "📡",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQS2dsalJ0YXA5WDRnY2JUZGpxaE5EXzdKdmY3Nnp5TEdNLW9EWkxkTlJRZFRfa3pxR1Qya0tlc0ZNS1F3UWF2dXMzTlFUNU4zNDl6UFp3bVRYMzl6cWVhaUt1TURZd0QxMkdvVS1SSk55UHZOdGNUS285Z2ZXWEN4X21iQjdpWlRIZkxQMTZmNlRKbmtJdkowOHgxR1dvRXl6dlhDRlpiOWU4Z1dMdW1rNDVjVTZvT3hV?oc=5",
+      "id": "954cc41c3ee390ed",
+      "source_name": "Huawei Mobile DZ",
+      "source_short": "HMD",
+      "source_color": "#CF0A2C",
+      "category": "Équipementiers",
+      "category_icon": "📲",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQTklQTm5BRXNIam16TnViZ293OUJIUHNmMHo2YWNIbThlTkNYNTJJMzFxS09sNzdJYkFvQkdGUEQwTnAtOW5HZjNLalZlbUFELWFWcHZld3hSNVY2cWw2Z2E0aGR6RWZOUi0wc1BrelFkN2NJV052bER0UmNXcG1vaGZWdEZxWkdEMkZzRGVmbENHWC01ZmhlSg?oc=5",
       "image": "",
-      "date": "Tue, 11 Aug 2026 01:36:43 GMT",
+      "date": "Fri, 28 Aug 2026 21:18:18 GMT",
       "lang_source": "fr",
       "text": {
-        "fr": "Forum du SMSI : Algérie Télécom décroche un prix international à Genève - elmoudjahid.com — Forum du SMSI : Algérie Télécom décroche un prix international à Genève elmoudjahid.com",
+        "fr": "Export hors-hydrocarbures : CNAN El Djazair met le cap sur l’Afrique de l’Ouest - Algeria Invest — Export hors-hydrocarbures : CNAN El Djazair met le cap sur l’Afrique de l’Ouest Algeria Invest",
         "ar": "",
         "en": ""
       },
@@ -1423,20 +1441,272 @@
       "source_type": "rss"
     },
     {
-      "id": "c4d3d0113d88ad17",
-      "source_name": "Huawei Mobile DZ",
-      "source_short": "HMD",
-      "source_color": "#CF0A2C",
-      "category": "Équipementiers",
-      "category_icon": "📲",
-      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOcWt2OGVkMWRCejVGQU5HR3ZydXNKQXZIQ2ljbzkyMFRvZFpxZ25UOExPemYtb2FXUzZuZWVYejBCU011T0t5T0pneUl0dHdoTGF4WmJHRExfYndNRUFPVkNnTlJqVnFMOGVhQ2dKeUQxLUtpdml1LW1zSWR5M3ZuZ2NoQjlBcU55MzU5T1VNOThXdGxsdjk1SkhJci1DMkpILS04UjNSOHJMUVVFN05Icnl0QTAtM3YydDA0Q0NVQTJwVmxsSEE?oc=5",
+      "id": "e5a9a4473e62bf95",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/29/incendies-en-algerie-le-president-tebboune-annonce-une-reunion-pour-dimanche/",
       "image": "",
-      "date": "Sat, 11 Jul 2026 00:42:18 GMT",
+      "date": "Sat, 29 Aug 2026 21:02:21 +0000",
       "lang_source": "fr",
       "text": {
-        "fr": "Rezig reçoit le PDG de Huawei Algérie : le renforcement de la coopération examiné - El Moudjahid — Rezig reçoit le PDG de Huawei Algérie : le renforcement de la coopération examiné El Moudjahid",
+        "fr": "Incendies en Algérie : le président Tebboune annonce une réunion pour dimanche — Le président de la République, Abdelmadjid Tebboune, s’est rendu ce samedi à l’hôpital des grands brûlés de Zéralda à Alger, où il s’est enquit de l’état de santé des blessés des incendies qui ont endeuillé, en cette fin du mois d’août 2026, plusieurs wilayas d’Algérie. Dans une déclaration, à l’iss",
         "ar": "",
         "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "0d18d5472b0375ae",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/29/sony-music-warner-sue-anthropic-alleging-a-brazen-campaign-of-intellectual-property-theft/",
+      "image": "",
+      "date": "Sat, 29 Aug 2026 18:41:59 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Sony Music, Warner sue Anthropic, alleging a “brazen campaign” of intellectual property theft — This latest lawsuit is particularly broad and homes in on accusations of illegal piracy.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "1ccfa1672f0a735c",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/29/incendies-en-algerie-le-president-tebboune-evoque-la-piste-criminelle/",
+      "image": "",
+      "date": "Sat, 29 Aug 2026 17:57:42 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Incendies en Algérie : le président Tebboune évoque la piste criminelle — L’Algérie fait face depuis mercredi 26 août à une nouvelle vague d’incendies ayant touché plusieurs wilayas, notamment Jijel, Béjaïa et Tizi-Ouzou, où plusieurs décès ont été enregistrés, tandis que des personnes blessées sont toujours prises en charge dans les établissements hospitaliers. Le présid",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "698656d72c29beda",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/29/at-techbbq-europes-ai-conversations-kept-coming-back-to-whos-actually-in-control/",
+      "image": "",
+      "date": "Sat, 29 Aug 2026 17:51:10 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "At TechBBQ, Europe’s AI conversations kept coming back to: Who’s actually in control? — Investors, founders, and operators from across Europe arrived for the annual Nordic TechBBQ conference to talk about how humans can have agency over AI.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "619cf37e65ee5679",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/29/were-not-doing-30-bets-a-year-vijay-pande-on-betting-small-after-running-4-billion-at-a16z/",
+      "image": "",
+      "date": "Sat, 29 Aug 2026 17:36:47 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "“We’re not doing 30 bets a year”: Vijay Pande on betting small after running $4 billion at a16z — Vijay Pande — who left a16z's roughly $4 billion biotech practice last year to start the much smaller, AI-native VZVC — talks about why biology is finally shifting from a \"discovery\" science to an \"engineering\" one, why clinical trials are still brutally expensive, and why he thinks open, shared dat",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "27a4e5c2a23fcbe7",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/29/hollywood-celebs-are-getting-into-microdrama-apps/",
+      "image": "",
+      "date": "Sat, 29 Aug 2026 16:10:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Hollywood celebs are getting into microdrama apps — Several Hollywood celebs are ditching the massive eight-figure checks and exotic movie sets for a rising format: microdramas.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "50f336a5a484c487",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/29/commerce-exterieur-lunion-europeenne-absorbe-68-des-exportations-algeriennes-en-2025-litalie-premier-client/",
+      "image": "",
+      "date": "Sat, 29 Aug 2026 15:41:27 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Commerce extérieur : l’Union européenne absorbe 68 % des exportations algériennes en 2025, l’Italie premier clientèle — L’Union européenne (UE) reste le principal débouché des exportations algériennes. En 2025, les pays de l’UE à 27 ont représenté 68 % des ventes extérieures de l’Algérie, selon les données de l’International Trade Centre (ITC), reprises dans la fiche-pays 2026 de l’ICEX España Exportación e Inversion",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e935709039538b3f",
+      "source_name": "NTIC-DZ",
+      "source_short": "NTC",
+      "source_color": "#01579B",
+      "category": "Médias TIC",
+      "category_icon": "🌐",
+      "url": "https://www.ntic-dz.com/incendies-internet-et-telephonie-fixe-gratuits-dans-les-zones-touchees/?utm_source=rss&utm_medium=rss&utm_campaign=incendies-internet-et-telephonie-fixe-gratuits-dans-les-zones-touchees",
+      "image": "",
+      "date": "Sat, 29 Aug 2026 15:18:24 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Incendies : internet et téléphonie fixe gratuits dans les zones touchées — feed L’entreprise « Algérie Télécom » a annoncé, ce samedi dans un communiqué, la gratuité, pendant une semaine, des services Internet et de téléphonie fixe dans les zones touchées par les incendies déclarés dans plusieurs wilayas du centre et de l’est du pays. « Suite aux incendies ayant touché cer",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "802e6cdaec4a6124",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/29/des-pluies-orageuses-prevues-sur-plusieurs-wilayas-de-lest/",
+      "image": "",
+      "date": "Sat, 29 Aug 2026 14:30:01 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Des pluies orageuses prévues sur plusieurs wilayas de l’Est — Des pluies orageuses, pouvant atteindre ou dépasser 15 mm, sont prévues, samedi après-midi, sur plusieurs wilayas de l’Est du pays, indique un Bulletin météorologique spécial (BMS) émis par l’Office national de météorologie. Le BMS concerne les wilayas de Jijel, Bejaia, Skikda, Annaba, El Tarf, Séti",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "b69ce9e9fce5d8af",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/29/lalgerie-exprime-sa-pleine-solidarite-avec-le-niger-suite-aux-evenements-ayant-eu-lieu-a-niamey/",
+      "image": "",
+      "date": "Sat, 29 Aug 2026 14:26:00 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "L’Algérie exprime sa « pleine solidarité » avec le Niger suite aux événements ayant eu lieu à Niamey — L’Algérie a exprimé, samedi, sa « pleine solidarité » avec le Niger suite aux événements qui se sont produits à Niamey, la capitale de ce pays « frère », indique un communiqué du ministère des Affaires étrangères. « L’Algérie a suivi avec une extrême attention les événements, hautement regrettables",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "56e2ed128b585f4e",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/pratique/les-6-distributions-linux-sans-ia-que-je-recommande-le-plus-et-pourquoi-elles-devraient-le-rester-500814.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sat, 29 Aug 2026 14:19:44 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Les 6 distributions Linux sans IA que je recommande le plus – et pourquoi elles devraient le rester — Si l'IA n'est pas votre tasse de thé et que vous recherchez un système d'exploitation qui ne vous l'impose pas (et ne vous l'imposera pas), ne cherchez pas plus loin : ces distributions Linux sont faites pour vous.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "ddfe512dedc92624",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/29/the-theragun-sense-makes-everyday-recovery-surprisingly-easy/",
+      "image": "",
+      "date": "Sat, 29 Aug 2026 14:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "The Theragun Sense makes everyday recovery surprisingly easy — As my 20s are set to come to an end later this year, I’ve officially reached the age where sleeping in the wrong position or stretching just a little too far can cause aches and pains. I’ve always been somewhat skeptical of massage guns, mostly because I’ve tried a few off-brand ones and just assume",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "2af7c62dfad21fbc",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/29/cereales-105-million-de-quintaux-collectes-a-relizane/",
+      "image": "",
+      "date": "Sat, 29 Aug 2026 13:35:51 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Céréales : 1,05 million de quintaux collectés à Relizane — La campagne de moisson-battage 2025-2026 s’est achevée à Relizane avec une collecte d’environ 1,05 million de quintaux de céréales, selon les données communiquées samedi par la Direction des services agricoles (DSA). Le volume enregistré marque une forte hausse par rapport à la campagne précédente,",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "5927ce1000c0f05e",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/29/internet-et-telephonie-des-stations-mobiles-deployees-dans-les-zones-sinistrees-par-les-incendies-en-algerie/",
+      "image": "",
+      "date": "Sat, 29 Aug 2026 13:16:52 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Internet et téléphonie : Des stations mobiles déployées dans les zones sinistrées par les incendies en Algérie — Le ministère de la Poste et des Télécommunications a indiqué, samedi dans un communiqué, que la mise en place de stations mobiles de télécommunications dans les zones touchées par les incendies, dans l’est et le centre du pays, avait été entamée afin de garantir la continuité des services de télépho",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e277e4a4618df516",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/08/29/nvidias-ai-advantage-is-moving-beyond-the-gpu/",
+      "image": "",
+      "date": "Sat, 29 Aug 2026 13:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Nvidia’s AI advantage is moving beyond the GPU — The new generation of data center systems is increasing efficiency with smarter traffic control instead of just more processor cycles.",
+        "ar": "",
+        "fr": ""
       },
       "source_type": "rss"
     },
@@ -5129,286 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "1fa80e5cf06c4922",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/zdnet-morning-24-08-2026-robots-des-pistes-de-course-aux-usines-stripe-debourse-75-milliards-de-dollars-pour-openrouter-claude-code-vs-codex-500455.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 24 Aug 2026 07:05:11 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "ZDNET Morning 24/08/2026 : Robots : des pistes de course aux usines, Stripe débourse 7,5 milliards de dollars pour OpenRouter, Claude Code vs Codex,... — Le ZDNET Morning le brief de l'actu tech pour les pros tous les matins à 9h00. Transformation numérique, IA, matériel, logiciels,... ne passez pas à côté de ce qui fait la Une du secteur.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "fd33f83ca35d9623",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/mistral-ai-lance-une-ia-capable-de-chercher-et-verifier-les-informations-dans-les-documents-500439.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 24 Aug 2026 07:00:51 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Mistral AI lance une IA capable de chercher et vérifier les informations dans les documents — Mistral AI lance Agentic Search, une technologie capable de naviguer dans des documents, d'en extraire les informations pertinentes et surtout d'en vérifier les sources. Une approche qui entend corriger certaines faiblesses du RAG traditionnel et affiche des gains spectaculaires sur plusieurs benchm",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "f49bf023644329a0",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/reportage-photo-des-pistes-dathletisme-aux-lignes-de-production-ce-que-les-world-robot-games-annoncent-pour-le-travail-500442.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 24 Aug 2026 06:38:59 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Reportage photo : des pistes d'athlétisme aux lignes de production, ce que les World Robot Games annoncent pour le travail — En battant le record du 100 mètres d'Usain Bolt lors des World Robot Games de Pékin, la robotique chinoise franchit un cap symbolique mais aussi technique. Au-delà de la performance sportive, cet événement démontre la maturité d'une industrie de l'IA incarnée prête à transformer l'entreprise.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c7920c479b92521d",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/stripe-rachete-openrouter-pour-75-milliards-de-dollars-et-muscle-son-infrastructure-ia-500433.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 24 Aug 2026 06:02:38 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Stripe rachète OpenRouter pour 7,5 milliards de dollars et muscle son infrastructure IA — L’opération marque une bascule stratégique pour l’entreprise de paiement, qui entend désormais piloter à la fois les revenus et les coûts de ses clients à l’ère de l’intelligence artificielle.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "abdd31da3f31ef90",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/23/controle-du-commerce-plus-de-17-milliards-de-dinars-de-chiffre-daffaires-dissimule/",
-      "image": "",
-      "date": "Sun, 23 Aug 2026 22:42:32 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Contrôle du commerce : plus de 17 milliards de dinars de chiffre d’affaires dissimulé — Les services de contrôle relevant du ministère du Commerce intérieur et de la Régulation du marché national ont découvert un chiffre d’affaires dissimulé de plus de 17 milliards de dinars (DA) et procédé à la saisie de marchandises d’une valeur de plus d’un milliard de dinars à la suite de près de d",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "357af2bc94089fd9",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/23/societe-algero-omanaise-des-engrais-feu-vert-a-lextension-de-lusine-darzew-pour-augmenter-la-production-de-50/",
-      "image": "",
-      "date": "Sun, 23 Aug 2026 21:42:02 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Société algéro-omanaise des engrais : feu vert à l’extension de l’usine d’Arzew pour augmenter la production de 50 % — Le ministre d’État, ministre des Hydrocarbures, Mohamed Arkab, a reçu dimanche 23 août à Alger le président du conseil d’administration du groupe omanais Suhail Bahwan Holding, Sheikh Saad Ben Suhail Bahwan, en présence notamment de l’ambassadeur d’Oman en Algérie, Saif Ben Nasser Ben Rached Al-Bada",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "dac4d31ceb19eace",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/23/algerie-face-a-la-secheresse-et-au-stress-hydrique-un-plan-a-quatre-niveaux-pour-preserver-la-ressource-en-eau/",
-      "image": "",
-      "date": "Sun, 23 Aug 2026 21:02:54 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Algérie : face à la sécheresse et au stress hydrique, un plan à quatre niveaux pour préserver la ressource en eau — Le ministère de l’Hydraulique et l’Agence nationale de sécurité sanitaire (ANSS) ont appelé, dimanche dans un communiqué conjoint, les citoyens et l’ensemble des acteurs concernés à ancrer durablement les pratiques de rationalisation de l’eau et à les adopter de manière pérenne afin de contribuer à",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "ca0fdb7a487f204e",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/08/23/intelligence-artificielle-et-apprentissage-br-en-inde-des-travailleurs-filment-leurs-gestes-pour-entrainer-les-robots-de-demain/",
-      "image": "",
-      "date": "Sun, 23 Aug 2026 20:28:00 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Intelligence artificielle et apprentissage <BR En Inde, des travailleurs filment leurs gestes pour entraîner les robots de demain — Vous savez ce qui m’a fait réfléchir l’autre jour ? J’ai lu un truc sur l’Inde. Et depuis, j’arrive pas à m’en sortir de la …",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "db4fc942158b4d48",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/23/etats-unis-les-algeriens-peuvent-de-nouveau-demander-des-visas-dimmigration/",
-      "image": "",
-      "date": "Sun, 23 Aug 2026 20:18:43 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "États-Unis : les Algériens peuvent de nouveau demander des visas d’immigration — Une juge fédérale américaine a invalidé le gel de la délivrance des visas d’immigration imposé depuis janvier 2026 par l’administration de Donald Trump aux ressortissants de 75 pays, dont l’Algérie. La mesure avait été décidée par le Département d’État américain le 21 janvier 2026 dans le cadre du d",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "be28f1428bf35df8",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/08/23/whos-behind-the-new-stealth-model-ox-alpha/",
-      "image": "",
-      "date": "Sun, 23 Aug 2026 20:01:36 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Who’s behind the new ‘stealth model’ Ox Alpha? — A mysterious new AI model called Ox Alpha has driven certain corners of the internet into a frenzy of speculation.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "a21035adcb424266",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/08/23/numerisation-des-services-publics-et-formation-professionnelle-br-82-383-inscrits-en-deux-semaines-sur-la-plateforme-takwin/",
-      "image": "",
-      "date": "Sun, 23 Aug 2026 19:34:00 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Numérisation des services publics et Formation professionnelle BR< 82 383 inscrits en deux semaines sur la plateforme «Takwin» — Pour la première fois en Algérie, les inscriptions en formation professionnelle se font exclusivement en ligne. Lancée le 8 août, la plateforme « Takwin » …",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "38092a5bb1686c12",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/08/23/uber-faces-fine-of-nearly-1b-over-automated-driver-suspensions/",
-      "image": "",
-      "date": "Sun, 23 Aug 2026 19:30:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Uber faces fine of nearly $1B over automated driver suspensions — The Dutch Data Protection Authority is fining Uber €825 million in the second largest penalty issued under Europe’s GDPR.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "fc3e349b3942bd1b",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/08/23/linkdazes-smart-calendar-is-built-to-run-a-household-not-just-track-a-schedule/",
-      "image": "",
-      "date": "Sun, 23 Aug 2026 19:14:08 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Linkdaze’s smart calendar is built to run a household, not just track a schedule — Linkdaze's smart digital calendar stands out for not putting its features behind a paywall, including an AI meal planner tool.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "34fbd76f72df07a4",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/08/23/edito-aout-2026-reseaux-sociaux-br-lheure-de-verite-pour-meta/",
-      "image": "",
-      "date": "Sun, 23 Aug 2026 16:52:17 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Edito août 2026: Réseaux sociaux <BR L’heure de vérité pour Meta — À Alger, à Tlemcen ou à Oran, la scène est la même. Un adolescent, un téléphone, des heures qui défilent. Et cette question que tous …",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "caeae8aba47951ef",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/08/23/techcrunch-mobility-the-custom-chip-driving-waymos-robotaxi-ambitions/",
-      "image": "",
-      "date": "Sun, 23 Aug 2026 16:03:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "TechCrunch Mobility: The custom chip driving Waymo’s robotaxi ambitions — Welcome back to TechCrunch Mobility — your central hub for news and insights on the future of transportation.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-08-29T12:58:19.608055+00:00",
+  "lastUpdated": "2026-08-29T21:30:47.936254+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Médias TIC": 61,
-    "Tech International": 159
+    "Médias TIC": 62,
+    "Tech International": 158
   },
   "total": 300
 }
