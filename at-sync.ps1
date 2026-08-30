@@ -61,14 +61,68 @@ public static class CtrlCGuard {
         }
     }
 
-    function Reset-AutoFiles {
-        # Retire skip-worktree ET remet à HEAD pour débloquer le merge
-        # tic_social.json est EXCLU : il doit garder les données fraîches du Task Scheduler
-        $allDataFiles = $AUTO_FILES + @("articles.json")
-        foreach ($f in $allDataFiles) {
-            git update-index --no-skip-worktree $f 2>$null
-            if (Test-Path $f) { git checkout HEAD -- $f 2>$null }
+    # ── Protection des fichiers auto-generes pendant un pull/merge ──────────
+    # PROBLEME RESOLU : l'ancienne fonction Reset-AutoFiles faisait
+    # "git checkout HEAD -- $f", qui ECRASE le fichier local avec la derniere
+    # version committee -> perte silencieuse de toute regeneration locale
+    # (ex: revue de presse du jour remplacee par celle du dernier commit).
+    # Ces fichiers ne doivent JAMAIS etre synchronises, ni GitHub -> localhost,
+    # ni localhost -> GitHub : ils restent strictement locaux, dans les deux sens.
+    #
+    # Nouvelle approche : le contenu local est MIS DE COTE (stash), jamais
+    # detruit, le temps que git pull puisse s'executer sans erreur "local
+    # changes would be overwritten", puis RESTAURE tel quel juste apres.
+    function Protect-AutoFiles {
+        foreach ($f in $AUTO_FILES) {
+            if (Test-Path $f) { git update-index --no-skip-worktree $f 2>$null }
         }
+        $existing = $AUTO_FILES | Where-Object { Test-Path $_ }
+        if (-not $existing) { return $false }
+        $dirty = git status --porcelain -- $existing
+        if (-not $dirty) {
+            # Rien a proteger, mais on repasse quand meme en skip-worktree plus bas
+            foreach ($f in $existing) { git update-index --skip-worktree $f 2>$null }
+            return $false
+        }
+        git stash push -q -m "autofiles_temp" -- $existing 2>&1 | Out-Null
+        return $true
+    }
+
+    function Restore-AutoFiles {
+        param([bool]$WasStashed)
+        if ($WasStashed) {
+            # git prefixe toujours le message avec "On <branche>: ", donc on teste
+            # une correspondance partielle plutot qu'une egalite stricte.
+            $top = git stash list --format="%gs" -n 1
+            if ($top -like "*autofiles_temp") {
+                git stash pop -q 2>&1 | Out-Null
+                $unmerged = git diff --name-only --diff-filter=U
+                foreach ($f in $AUTO_FILES) {
+                    if ($unmerged -contains $f) {
+                        # Conflit avec la version qui vient d'arriver par le pull :
+                        # on garde TOUJOURS la version locale (stashee = "theirs" ici).
+                        git checkout --theirs -- $f 2>$null
+                    }
+                }
+                $stillThere = git stash list --format="%gs" -n 1
+                if ($stillThere -like "*autofiles_temp") { git stash drop -q 2>$null }
+            }
+        }
+        # Dans tous les cas : le fichier garde son contenu local sur le disque,
+        # mais ne doit JAMAIS rester "a committer" ni repartir vers GitHub.
+        foreach ($f in $AUTO_FILES) {
+            if (Test-Path $f) {
+                git reset -q -- $f 2>$null
+                git update-index --skip-worktree $f 2>$null
+            }
+        }
+    }
+
+    # Filet de securite : si une session precedente a ete interrompue (Ctrl+C,
+    # fermeture de fenetre) avant de reappliquer skip-worktree, on le refait ici
+    # a chaque lancement du tableau de bord.
+    foreach ($f in $AUTO_FILES) {
+        if (Test-Path $f) { git update-index --skip-worktree $f 2>$null }
     }
 
     function Invoke-RegenerateArticles {
@@ -129,7 +183,11 @@ public static class CtrlCGuard {
             "1" {
                 Write-Host "`n--- Synchronisation GitHub → Localhost ---" -ForegroundColor Yellow
 
-                # Verifier s'il y a des modifications locales non committees
+                # Fichiers auto (revue de presse, veille...) : jamais synchronises,
+                # ni dans ce sens ni dans l'autre. Mis de cote AVANT toute autre chose.
+                $autoStashed = Protect-AutoFiles
+
+                # Verifier s'il y a des modifications locales non committees (hors fichiers auto)
                 $localChanges = git status --porcelain
                 if ($localChanges) {
                     Write-Host "`nModifications locales detectees :" -ForegroundColor Cyan
@@ -138,10 +196,10 @@ public static class CtrlCGuard {
                     $choice = Read-Host "Mettre en attente (stash) pour continuer ? (O/n)"
                     if ($choice -eq "n" -or $choice -eq "N") {
                         Write-Host "Annule." -ForegroundColor Yellow
+                        Restore-AutoFiles $autoStashed
                         Read-Host "`nAppuyez sur Entree pour continuer..."
                         break
                     }
-                    Reset-AutoFiles
                     git stash push -m "sync_temp" 2>&1 | Out-Null
                     Write-Host "Changements locaux mis en attente." -ForegroundColor Gray
                 }
@@ -155,6 +213,7 @@ public static class CtrlCGuard {
                     Write-Host "ERREUR lors du pull." -ForegroundColor Red
                     git merge --abort 2>&1 | Out-Null
                     git stash pop 2>&1 | Out-Null
+                    Restore-AutoFiles $autoStashed
                     Read-Host "`nAppuyez sur Entree pour continuer..."
                     break
                 }
@@ -162,8 +221,8 @@ public static class CtrlCGuard {
                 # Regenerer articles.json depuis tous les .md (y compris ceux crees sur Cloudflare)
                 Invoke-RegenerateArticles
 
-                # Reappliquer skip-worktree
-                Set-SkipWorktree -Enable
+                # Restaurer le contenu local des fichiers auto (jamais celui de GitHub)
+                Restore-AutoFiles $autoStashed
 
                 Write-Host "`nOK Localhost est a jour avec GitHub." -ForegroundColor Green
                 Write-Host "(Articles crees sur Cloudflare cette semaine sont maintenant disponibles en local)" -ForegroundColor DarkGray
@@ -181,13 +240,11 @@ public static class CtrlCGuard {
                 $msg = Read-Host "`nMessage du commit (ex: MAJ CSS logo)"
                 if (-not $msg) { $msg = "Mise a jour" }
 
-                # 1. Enlever skip-worktree pour voir l'etat reel
-                Set-SkipWorktree -Enable:$false
+                # 1. Fichiers auto (revue de presse, veille...) : mis de cote, jamais ecrases
+                #    ni committes -- ni depuis GitHub, ni vers GitHub.
+                $autoStashed = Protect-AutoFiles
 
-                # 2. Remettre les fichiers auto a HEAD (evite conflits rebase)
-                Reset-AutoFiles
-
-                # 3. Stasher les changements non commites
+                # 2. Stasher les autres changements non commites
                 $stashCreated = $false
                 $statusBefore = git status --porcelain
                 if ($statusBefore) {
@@ -196,7 +253,7 @@ public static class CtrlCGuard {
                     Write-Host "Changements locaux mis en attente (stash)." -ForegroundColor Gray
                 }
 
-                # 4. Pull + merge depuis GitHub (-X ours = nos fichiers prioritaires en cas de conflit)
+                # 3. Pull + merge depuis GitHub (-X ours = nos fichiers prioritaires en cas de conflit)
                 Write-Host "Synchronisation avec GitHub..." -ForegroundColor Cyan
                 $rebaseResult = git pull --no-rebase -X ours origin main 2>&1
                 Write-Host $rebaseResult
@@ -205,12 +262,12 @@ public static class CtrlCGuard {
                     Write-Host "ERREUR lors du merge. Abandon..." -ForegroundColor Red
                     git merge --abort 2>&1 | Out-Null
                     if ($stashCreated) { git stash pop 2>&1 | Out-Null }
-                    Set-SkipWorktree -Enable
+                    Restore-AutoFiles $autoStashed
                     Read-Host "Appuyez sur Entree pour continuer..."
                     break
                 }
 
-                # 5. Restaurer les changements locaux
+                # 4. Restaurer les changements locaux
                 if ($stashCreated) {
                     git stash pop 2>&1 | Out-Null
                     # Si le stash pop laisse des conflits, NE PAS laisser de marqueurs
@@ -228,13 +285,13 @@ public static class CtrlCGuard {
                     Write-Host "Changements locaux restaures." -ForegroundColor Gray
                 }
 
+                # 5. Restaurer le contenu local des fichiers auto (jamais celui de GitHub)
+                Restore-AutoFiles $autoStashed
+
                 # 6. Regenerer articles.json depuis les .md (inclut les nouveaux articles GitHub Actions)
                 Invoke-RegenerateArticles
 
-                # 7. Remettre skip-worktree sur les fichiers auto
-                Set-SkipWorktree -Enable
-
-                # 8. Stager les fichiers modifies ET les nouveaux articles/images/documents
+                # 7. Stager les fichiers modifies ET les nouveaux articles/images/documents
                 git add -u                                    # fichiers tracked modifies
                 git add articles/ 2>$null | Out-Null          # nouveaux .md (untracked)
                 git add images/ 2>$null | Out-Null            # nouvelles images articles
@@ -347,7 +404,6 @@ public static class CtrlCGuard {
             "7" {
                 Write-Host "`n--- PUSH INTELLIGENT : que voulez-vous pousser ? ---" -ForegroundColor Cyan
                 Write-Host "  A. Article de presse  (articles/ + images/ + documents/)"
-                Write-Host "  B. Revue de presse    (revue_presse.json uniquement)"
                 Write-Host "  C. Modification site  (index.html / style.css / script.js)"
                 Write-Host "  D. Infographie        (infographies/<dossier>/)"
                 Write-Host "  E. Fichier(s) precis  (vous tapez le chemin)"
@@ -368,13 +424,6 @@ public static class CtrlCGuard {
                         git status --short | Where-Object { $_ -match "articles/|images/|documents/" }
                         $filesToStage = @("articles/", "images/", "documents/")
                         $commitPrefix = "DEPLOY Article"
-                    }
-
-                    "b" {
-                        Write-Host "`nRevue de presse :" -ForegroundColor Cyan
-                        git status --short | Where-Object { $_ -match "revue_presse|articles.json" }
-                        $filesToStage = @("revue_presse.json", "articles.json")
-                        $commitPrefix = "MAJ Revue de presse"
                     }
 
                     "c" {
@@ -421,21 +470,23 @@ public static class CtrlCGuard {
                 $msg = Read-Host "`nDescription du commit"
                 if (-not $msg) { $msg = "mise a jour" }
 
-                # Stage uniquement les fichiers selectionnes
-                Set-SkipWorktree -Enable:$false
-                Reset-AutoFiles
+                # Fichiers auto (revue de presse, veille...) : mis de cote, jamais ecrases
+                # ni committes -- meme si ce PUSH ne les concerne pas, le pull qui suit
+                # echouerait sinon s'ils sont dirty localement.
+                $autoStashed = Protect-AutoFiles
 
+                # Stage uniquement les fichiers selectionnes
                 foreach ($f in $filesToStage) {
                     git add $f 2>$null
                 }
-                # Toujours exclure les fichiers auto
+                # Toujours exclure les fichiers auto (deja hors-jeu via skip-worktree, filet de securite)
                 foreach ($f in $AUTO_FILES) { git restore --staged $f 2>$null }
                 git restore --staged articles.json 2>$null
 
                 $staged = git diff --cached --name-only
                 if (-not $staged) {
                     Write-Host "`nAucun changement a pousser pour cette selection." -ForegroundColor Yellow
-                    Set-SkipWorktree -Enable
+                    Restore-AutoFiles $autoStashed
                     Read-Host "`nAppuyez sur Entree pour continuer..."
                     break
                 }
@@ -446,7 +497,7 @@ public static class CtrlCGuard {
                 $confirm = Read-Host "`nConfirmer le push ? (O/n)"
                 if ($confirm -eq "n" -or $confirm -eq "N") {
                     git restore --staged . 2>$null
-                    Set-SkipWorktree -Enable
+                    Restore-AutoFiles $autoStashed
                     Write-Host "Annule." -ForegroundColor Yellow
                     Read-Host "`nAppuyez sur Entree pour continuer..."
                     break
@@ -461,7 +512,7 @@ public static class CtrlCGuard {
                 if ($LASTEXITCODE -ne 0) {
                     Write-Host "ERREUR merge. Abandon..." -ForegroundColor Red
                     git merge --abort 2>&1 | Out-Null
-                    Set-SkipWorktree -Enable
+                    Restore-AutoFiles $autoStashed
                     Read-Host "Appuyez sur Entree pour continuer..."
                     break
                 }
@@ -473,7 +524,7 @@ public static class CtrlCGuard {
                 $pushResult = git push origin main 2>&1
                 Write-Host $pushResult
 
-                Set-SkipWorktree -Enable
+                Restore-AutoFiles $autoStashed
 
                 if ($LASTEXITCODE -eq 0) {
                     Write-Host "`nOK Push reussi sur GitHub et Cloudflare !" -ForegroundColor Green
