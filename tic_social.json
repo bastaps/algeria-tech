@@ -1,6 +1,24 @@
 {
   "posts": [
     {
+      "id": "ebaf3b60e183e9a7",
+      "source_name": "APS — Algérie Presse Service",
+      "source_short": "APS",
+      "source_color": "#006233",
+      "category": "Ministère",
+      "category_icon": "📡",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxONjRYS2M2TlA1YkZ2NTlCU1JNaTFDblVCbmw2SEZkczE5ODVLN2lJRFBiWDNMQ2pvYXFmVmh1MVZvWHFSalZyZXVqc1B4bWZ2OU90TmNlNnI0ZFNOVXBXejJHWGxvN082UlI5NXpDRlN2WU9YWFRzQVUtcXV6bFdaWWtkc2tfeTRUZXNiRzFIOFg2eE03T0c2cmpB?oc=5",
+      "image": "",
+      "date": "Sat, 29 Aug 2026 20:03:52 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "APS : une nouvelle campagne française visant l’Algérie - الخبر — APS : une nouvelle campagne française visant l’Algérie الخبر",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "dbfdf0ec21fa714c",
       "source_name": "APS — Algérie Presse Service",
       "source_short": "APS",
@@ -343,24 +361,6 @@
       "source_type": "rss"
     },
     {
-      "id": "a444ab04842e27f0",
-      "source_name": "Ministère de l'Enseignement Supérieur et de la Recherche",
-      "source_short": "MESRS",
-      "source_color": "#1B5E20",
-      "category": "Ministère",
-      "category_icon": "🎓",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1tVEdYcUV2OXN2bFJNVWFEZ1RvdFQ2N0cwd05SZW93TmxtZDRkVlRmcjVNcmlYSlh1MlNMcEhBbjVRVG9LRnpscHVaNV9jcTJOaFNzeHNjdnZud0VFUENhMnhvUlhMbVN5bFNfbXNQd19CSG9ZMXYyVQ?oc=5",
-      "image": "",
-      "date": "Wed, 05 Aug 2026 07:00:00 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Inscriptions universitaires 2026 : procédure 100% en ligne via PROGRES - Just-InfoDZ — Inscriptions universitaires 2026 : procédure 100% en ligne via PROGRES Just-InfoDZ",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
       "id": "7043a0c908fdc1a4",
       "source_name": "Djezzy",
       "source_short": "DJ",
@@ -517,6 +517,24 @@
       "lang_source": "fr",
       "text": {
         "fr": "Mercato JSK : Yazid Mansouri égratigne Mobilis - Just-InfoDZ — Mercato JSK : Yazid Mansouri égratigne Mobilis Just-InfoDZ",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "809695915e10d8c7",
+      "source_name": "Mobilis",
+      "source_short": "MB",
+      "source_color": "#00A651",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPbVBXbWFZMV9aUV9fV2NnY1FOMk1UMnUyVi1pSDhRb3VaajBqSm44MGZhVmdmZjY2bGxGSDQ3eVlzaWdBSWpwdU9LMFVBQlRzOHJIZmFFVXdGZmJOb2NfYVBQRzMwcGN0REc2TmRsLVN1WEFNMmF1Vmk4NElCZ2RsMloyY1hoa20zVjVFTVhYMlY2M1FLSUpvY1E4ZnR0ZHpzeW16RzR4Q0FWT3lVS2xrMw?oc=5",
+      "image": "",
+      "date": "Thu, 27 Aug 2026 13:26:46 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Urgent : la première journée de Ligue 1 Mobilis reportée après le deuil national - DzBallon — Urgent : la première journée de Ligue 1 Mobilis reportée après le deuil national DzBallon",
         "ar": "",
         "en": ""
       },
@@ -698,24 +716,6 @@
       "text": {
         "fr": "22 août 2026",
         "ar": "",
-        "en": ""
-      },
-      "source_type": "youtube"
-    },
-    {
-      "id": "81b14f8938b08571",
-      "source_name": "Mobilis",
-      "source_short": "MB",
-      "source_color": "#00A651",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://www.youtube.com/watch?v=MInqH0lCjf0",
-      "image": "",
-      "date": "2026-08-22T17:00:30+00:00",
-      "lang_source": "ar",
-      "text": {
-        "ar": "شبكة واحدة تجمعنا اليوم.. #موبيليس يربط كل الجزائر ويرافق مشاريع استراتيجية كبرى  🚀💚",
-        "fr": "",
         "en": ""
       },
       "source_type": "youtube"
@@ -1435,6 +1435,96 @@
       "lang_source": "fr",
       "text": {
         "fr": "Canicule en Europe : Condor, la piste algerienne des climatiseurs - INFO.FR — Canicule en Europe : Condor, la piste algerienne des climatiseurs INFO.FR",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "caf2dfb6270d5f01",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/30/elections-locales-le-corps-electoral-convoque-pour-le-28-novembre/",
+      "image": "",
+      "date": "Sun, 30 Aug 2026 11:44:14 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Élections locales : le corps électoral convoqué pour le 28 novembre — Le Président de la République, Abdelmadjid Tebboune, a signé, ce dimanche, un décret présidentiel convoquant le corps électoral pour l’élection des membres des Assemblées populaires communales (APC) et de wilayas (APW), qui se tiendra le samedi 28 novembre 2026. « En application des dispositions des",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "be64296af5cf5ba0",
+      "source_name": "NTIC-DZ",
+      "source_short": "NTC",
+      "source_color": "#01579B",
+      "category": "Médias TIC",
+      "category_icon": "🌐",
+      "url": "https://www.ntic-dz.com/ooredoo-algerie-se-mobilise-aux-cotes-despopulations-touchees-par-les-incendies/?utm_source=rss&utm_medium=rss&utm_campaign=ooredoo-algerie-se-mobilise-aux-cotes-despopulations-touchees-par-les-incendies",
+      "image": "",
+      "date": "Sun, 30 Aug 2026 11:34:31 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Ooredoo Algérie se mobilise aux côtés despopulations touchées par les incendies — feed Face aux incendies qui ont touché plusieurs wilayas du pays, Ooredoo Algérie exprime sa profonde solidarité avec les populations affectées et adresse ses sincères condoléances aux familles des victimes. Dans ces circonstances particulièrement éprouvantes, Ooredoo Algérie se mobilise aux côtés d",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "75405302e1270408",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/08/30/minimax-double-sa-mise-sur-le-cloud-br-un-investissement-record-de-12-milliard-de-dollars-pour-faire-grandir-lia/",
+      "image": "",
+      "date": "Sun, 30 Aug 2026 08:05:32 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "MiniMax double sa mise sur le cloud <BR Un investissement record de 1,2 milliard de dollars pour faire grandir l’IA — Derrière les chiffres, il y a des histoires. Celle de MiniMax, start-up chinoise de l’IA générative, qui vient de multiplier par plus de trois son …",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "6e5a9726da0336a6",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/le-fairphone-6-prouve-quun-smartphone-durable-peut-aussi-etre-performant-500815.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sun, 30 Aug 2026 07:01:03 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Le Fairphone 6+ prouve qu'un smartphone durable peut aussi être performant — Le Fairphone 6+ à 649 euros propose 11 pièces remplaçables, et une batterie de rechange ne coûte que 40 euros.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "6bebf232c48d67d6",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/08/29/apres-kafra-sonatrach-va-revoir-letude-de-faisabilite-dun-autre-bloc-petrolier-au-niger/",
+      "image": "",
+      "date": "Sat, 29 Aug 2026 21:59:25 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Après Kafra, Sonatrach va revoir l’étude de faisabilité d’un autre bloc pétrolier au Niger — Le ministre d’Etat, ministre des Hydrocarbures, Mohamed Arkab, a reçu, samedi à Alger, le directeur général de la Société nigérienne de pétrole (Sonidep), M. Ali Seibou Hassane, avec lequel il a examiné les moyens de renforcer le partenariat stratégique et les investissements, notamment le développe",
         "ar": "",
         "en": ""
       },
@@ -5309,106 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "ae191cc7beab65bd",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/cybersecurite-1371/une-procedure-de-crise-sapprend-vite-une-organisation-resiliente-se-construit-lentement-228787",
-      "image": "",
-      "date": "Mon, 24 Aug 2026 10:03:38 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Une procédure de crise s’apprend vite, une organisation résiliente se construit lentement — L'ANSSI publie un troisième kit sectoriel d'exercice de crise cyber, pour l'agroalimentaire. Mais anticiper un scénario écrit ne garantit pas nécessairement de s’en sortir face à un imprévu. The post Une procédure de crise s’apprend vite, une organisation résiliente se construit lentement appeared f",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "5dd15346c250a75d",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/selection-expert-zdnet-france/quels-sont-les-meilleurs-systemes-wi-fi-mesh-en-2026-500486.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 24 Aug 2026 10:02:26 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Quels sont les meilleurs systèmes Wi-Fi Mesh en 2026 ? — Pour garantir une couverture homogène sans perte de débit, l'adoption du Wi-Fi 7 et du Wi-Fi 6E associés à des architectures maillées (Mesh) est devenue incontournable. Voici notre sélection des 5 meilleurs systèmes Wi-Fi Mesh du marché.\ncollaborateurs d'opter pour des équipements audio fiables, end",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "79e97b240a88469f",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/data-ia-1372/ai-gateway-la-prochaine-bataille-des-infrastructures-ia-228784",
-      "image": "",
-      "date": "Mon, 24 Aug 2026 08:43:38 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "AI Gateway : la prochaine bataille des infrastructures IA — Face à la multiplication des modèles et des agents IA, une nouvelle couche d'infrastructure émerge : l'AI Gateway. Reste à savoir si elle tient ses promesses de gouvernance. The post AI Gateway : la prochaine bataille des infrastructures IA appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e89f5f1bbaf55afc",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/piratage-des-telephones-encrochat-la-piste-de-la-faille-bad-binder-500427.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 24 Aug 2026 08:15:49 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Piratage des téléphones EncroChat : la piste de la faille « Bad Binder » — Selon un rapport d’une société de cybersécurité, les français se seraient appuyés sur la faille « Bad Binder » pour pirater les téléphones EncroChat.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c245b9e8b3a8a294",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/apple-sappreterait-a-devoiler-un-imac-m6-aux-couleurs-renouvelees-500436.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 24 Aug 2026 08:02:31 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Apple s’apprêterait à dévoiler un iMac M6 aux couleurs renouvelées — Cette mise à jour interviendrait après près de deux ans sans renouvellement pour l’iMac.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-08-29T21:30:47.936254+00:00",
+  "lastUpdated": "2026-08-30T12:37:03.205389+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Médias TIC": 62,
-    "Tech International": 158
+    "Médias TIC": 66,
+    "Tech International": 154
   },
   "total": 300
 }
