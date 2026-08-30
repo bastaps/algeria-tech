@@ -1151,12 +1151,80 @@ ${chunk}`;
     }
 });
 
+// ── Articles complémentaires réels du jour (pour le mode "Pro") ─────────────
+// Cherche, dans revue_presse.json + veille_data.json déjà collectés, des articles
+// publiés récemment dont le titre recoupe le texte source — jamais d'invention,
+// uniquement des vrais articles avec URL vérifiable.
+const STOPWORDS_FR = new Set(['dans','pour','avec','sans','plus','cette','cette','leur','leurs','elle','elles','ils','nous','vous','votre','notre','entre','vers','chez','mais','donc','aussi','comme','être','avoir','fait','faits','tout','tous','toute','toutes','selon','apres','après','avant','depuis','lors','ainsi','alors','encore','très','deja','déjà','algerie','algérie',
+    // mots trop génériques pour servir de signal de pertinence (faux positifs fréquents)
+    'nouveau','nouvelle','nouveaux','nouvelles','annonce','annoncé','annoncée','plan','plusieurs','important','importante','importants','nombreux','nombreuses','projet','projets','pays','monde','société','entreprise','entreprises','service','services','million','millions','milliard','milliards','permettra','permet','cette semaine','lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche']);
+
+// Un token purement numérique (année, montant) n'est jamais un signal fiable à lui seul
+function isNumericToken(w) { return /^\d+$/.test(w); }
+
+function extractKeywords(text, max = 25) {
+    return [...new Set(
+        (text || '').toLowerCase()
+            .normalize('NFD').replace(/[̀-ͯ]/g, '')
+            .replace(/[^a-z0-9\s]/g, ' ')
+            .split(/\s+/)
+            .filter(w => w.length >= 5 && !STOPWORDS_FR.has(w) && !isNumericToken(w))
+    )].slice(0, max);
+}
+
+function getArticlesComplementairesDuJour(sourceText, maxResults = 5) {
+    const keywords = extractKeywords(sourceText.substring(0, 1500));
+    if (keywords.length === 0) return [];
+
+    const cutoff = Date.now() - 72 * 60 * 60 * 1000;
+    const candidats = [];
+
+    try {
+        const revue = JSON.parse(fsSync.readFileSync(path.join(__dirname, 'revue_presse.json'), 'utf-8'));
+        (revue.articles || []).forEach(a => candidats.push({
+            titre: a.titre, resume: a.resume || a.accroche || '', url: a.url, source: a.source, date: a.date_iso || a.date
+        }));
+    } catch (e) { /* pas de revue disponible — ignorer */ }
+
+    try {
+        const veille = JSON.parse(fsSync.readFileSync(path.join(__dirname, 'veille_data.json'), 'utf-8'));
+        (veille.feed || []).forEach(i => candidats.push({
+            titre: i.title, resume: '', url: i.url, source: i.source, date: i.date
+        }));
+    } catch (e) { /* pas de veille disponible — ignorer */ }
+
+    const scored = candidats
+        .filter(a => a.titre && a.url)
+        .map(a => {
+            const ts = new Date(a.date).getTime();
+            const texteRef = (a.titre + ' ' + a.resume).toLowerCase()
+                .normalize('NFD').replace(/[̀-ͯ]/g, '');
+            const refWords = new Set(texteRef.split(/[^a-z0-9]+/));
+            const score = keywords.reduce((n, k) => n + (refWords.has(k) ? 1 : 0), 0);
+            return { ...a, score, ts };
+        })
+        // ≥3 mots-clés distinctifs partagés (mots entiers, pas sous-chaînes) — seuil volontairement
+        // strict car un faux "article complémentaire" finit cité comme rappel factuel dans l'article.
+        .filter(a => a.score >= 3 && (isNaN(a.ts) || a.ts >= cutoff))
+        .sort((a, b) => b.score - a.score)
+        .slice(0, maxResults);
+
+    return scored;
+}
+
 // ── SMART GENERATE — Rédaction IA journalistique ─────────
 app.post('/api/smart-generate', express.json(), async (req, res) => {
     const { text, style, breve } = req.body || {};
     if (!text) return res.status(400).json({ error: 'Texte source requis' });
 
     const effectiveStyle = style || (breve ? 'breve' : 'aps');
+
+    const todayFR = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+
+    const articlesComplementaires = effectiveStyle === 'pro' ? getArticlesComplementairesDuJour(text) : [];
+    const complementBlock = articlesComplementaires.length
+        ? articlesComplementaires.map((a, i) => `${i + 1}. [${a.source}] ${a.titre}${a.resume ? ' — ' + a.resume : ''} (${a.url})`).join('\n')
+        : null;
 
     const PROMPT_BREVE = `Tu es un rédacteur senior de l'Algérie Presse Service (APS), spécialiste du secteur TIC algérien, avec 20 ans d'expérience.
 
@@ -1165,13 +1233,23 @@ Tu rédiges ici pour l'espace "Brèves" du site : une DÉPÊCHE COURTE, PAS un a
 ══════════════════════════════════════════════
 ÉTAPE 0 — LA SOURCE PARLE-T-ELLE DE L'ALGÉRIE ?
 ══════════════════════════════════════════════
-CAS A — La source concerne l'Algérie (wilaya, opérateur algérien, institution algérienne, etc.) : lead commence par "ALGER, [date] (APS) — " ou la ville algérienne concernée.
+CAS A — La source concerne l'Algérie (wilaya, opérateur algérien, institution algérienne, etc.) : lead commence par "ALGER, ${todayFR} (APS) — " (utilise EXACTEMENT cette date, n'en invente aucune autre) ou la ville algérienne concernée.
 CAS B — La source ne concerne pas l'Algérie : lead commence directement par le fait principal, sans ville algérienne ni mention "(APS)" forcée, n'invente aucun lien avec l'Algérie.
+
+══════════════════════════════════════════════
+RÈGLE ABSOLUE — AUCUN NOM INVENTÉ
+══════════════════════════════════════════════
+N'invente JAMAIS le nom, le titre ou la fonction d'une personne, d'une entreprise ou d'un chiffre qui ne figure pas mot pour mot dans la source. Si la source dit "le ministre" sans le nommer, écris "le ministre" — ne complète surtout pas avec un nom réel ou inventé.
 
 ══════════════════════════════════════════════
 RÉÉCRITURE — INTERDICTION DE PARAPHRASE PARESSEUSE
 ══════════════════════════════════════════════
 Ne recopie AUCUNE phrase entière de la source (sauf citations directes attribuées). Reformule avec un vocabulaire et une structure différents, en conservant exactement les faits, chiffres, noms propres et citations de la source.
+
+══════════════════════════════════════════════
+RÈGLE ABSOLUE — UTILISE UNIQUEMENT LES DONNÉES DE LA SOURCE
+══════════════════════════════════════════════
+N'invente et n'ajoute aucune donnée, statistique, chiffre ou contexte absent du texte source. Aucune information extérieure. Si la source est pauvre en détails, écris une brève plus courte plutôt que d'inventer.
 
 ══════════════════════════════════════════════
 VOCABULAIRE ADMINISTRATIF ALGÉRIEN — OBLIGATOIRE (uniquement si CAS A)
@@ -1218,67 +1296,55 @@ RÉPONDS EXCLUSIVEMENT EN JSON PUR :
 SOURCE :
 ${text.substring(0, 4000)}`;
 
-    const PROMPT_PRO = `Tu es un journaliste tech senior, spécialiste du numérique en Afrique du Nord, avec un style éditorial riche et engageant. Tu écris des articles de fond pour un magazine en ligne premium.
+    const PROMPT_PRO = `Tu es un rédacteur d'agence de presse, spécialiste du secteur TIC, avec 20 ans d'expérience. Tu écris une dépêche factuelle, un peu plus développée qu'une brève, mais avec la même rigueur : chaque phrase doit pouvoir être vérifiée dans le texte source. Ce n'est PAS un article de magazine — pas d'analyse spéculative, pas de mise en scène narrative, pas de comparaisons internationales inventées.
 
 ══════════════════════════════════════════════
-ÉTAPE 0 — LA SOURCE PARLE-T-ELLE DE L'ALGÉRIE ?
+RÈGLE ABSOLUE — NE JAMAIS ÉCRIRE "(APS)" DANS L'ARTICLE
 ══════════════════════════════════════════════
-CAS A — La source concerne l'Algérie : intègre le vocabulaire algérien (wilaya, daïra, ARPCE, etc.), lead "ALGER, [date] —" ou ville algérienne.
-CAS B — La source ne concerne PAS l'Algérie : n'invente aucun lien, commence par le fait principal avec son lieu réel.
+N'écris JAMAIS la mention "(APS)" dans le lead ni ailleurs. Pas de "ALGER, [date] (APS) —". Commence simplement par "ALGER — " ou la ville concernée suivie de " — ". Si tu écris une date, ce doit être exactement "${todayFR}" — jamais une autre date.
+
+══════════════════════════════════════════════
+RÈGLE ABSOLUE — UTILISE UNIQUEMENT LES DONNÉES DE LA SOURCE
+══════════════════════════════════════════════
+N'INVENTE et n'AJOUTE AUCUNE donnée, statistique, chiffre, conversion de devise, comparaison avec un autre pays, citation, sigle d'organisme/programme ou nom de personne qui ne figure pas mot pour mot dans le texte source. Si la source dit "le ministre" sans le nommer, écris "le ministre" — jamais un nom inventé, même plausible. Si la source ne fournit pas de données tabulaires, n'insère AUCUN tableau. Le contenu de l'article doit être 100% issu du texte source fourni — seule la longueur des phrases et la richesse du vocabulaire peuvent être développées, jamais les faits.
+N'invente aucune action, démarche, coordination ou processus non explicitement mentionné dans la source (ex: n'ajoute pas "en coordination avec les autorités locales" ou "dans le cadre d'un plan plus large" si la source ne le dit pas).
+Avant de répondre, vérifie chaque phrase : si un fait, un chiffre, un nom ou une citation ne provient pas explicitement du texte SOURCE ci-dessous, supprime-le.
 
 ══════════════════════════════════════════════
 RÉÉCRITURE — INTERDICTION DE PARAPHRASE PARESSEUSE
 ══════════════════════════════════════════════
-Reformule intégralement. Réorganise, enrichis, contextualise. Ne recopie aucune phrase de la source. Conserve faits, chiffres, noms et citations exacts.
+- Ne recopie AUCUNE phrase entière de la source (sauf citations directes entre guillemets attribuées).
+- Réorganise l'ordre des informations, développe le style avec un vocabulaire plus riche et des transitions plus fluides qu'une brève, sans jamais changer ou ajouter aux faits.
+- Conserve EXACTEMENT les faits, chiffres, noms propres et citations de la source.
 
 ══════════════════════════════════════════════
-STYLE ÉDITORIAL — FORMAT PRO ÉTOFFÉ
+VOCABULAIRE ADMINISTRATIF ALGÉRIEN (si sujet algérien)
 ══════════════════════════════════════════════
-- Article de 600 à 900 mots, style magazine/éditorial : phrases articulées, transitions fluides
-- Vocabulaire riche et précis, registre soutenu mais accessible
-- Accroche narrative percutante (anecdote, question rhétorique, mise en contexte immersive)
-- Analyse approfondie : implications économiques, technologiques, géopolitiques
-- Mise en perspective : données de marché, comparaisons internationales, tendances sectorielles
-- Ton engageant : le lecteur doit comprendre POURQUOI c'est important, pas seulement CE QUI s'est passé
+wilaya (jamais "département"/"préfecture"), daïra (jamais "arrondissement"), commune, wali (jamais "préfet"), APW, APC, ANPT, ARPCE, Algérie Télécom, Mobilis, Djezzy, Ooredoo — noms officiels exacts, uniquement s'ils figurent dans la source.
 
 ══════════════════════════════════════════════
-DONNÉES STRUCTURÉES — TABLEAUX MARKDOWN
+STRUCTURE DE L'ARTICLE (Markdown) — 250 à 450 mots
 ══════════════════════════════════════════════
-Si la source contient des données chiffrées, horaires, tarifs, statistiques, comparaisons ou toute information tabulaire (même présentée sous forme de liste dans la source) : INSÈRE un ou plusieurs tableaux Markdown dans le contenu aux endroits pertinents. Syntaxe :
-| Colonne 1 | Colonne 2 | Colonne 3 |
-|---|---|---|
-| donnée | donnée | donnée |
-Les tableaux rendent l'article plus lisible et professionnel. Ne les évite pas.
-
-══════════════════════════════════════════════
-STRUCTURE OBLIGATOIRE DU CONTENU (Markdown)
-══════════════════════════════════════════════
-
-## [Accroche + développement du fait]
-[3-4 paragraphes — le cœur de l'info, développé avec profondeur. Inclure un tableau si des données comparatives ou chiffrées sont disponibles]
-
-## Analyse et enjeux
-[2-3 paragraphes — impacts stratégiques, lecture sectorielle]
-
-## Contexte et perspectives
-[2 paragraphes — données de marché, que faut-il surveiller ensuite]
+## [Titre de section — développement du fait principal]
+[Paragraphes développant les faits, chiffres et citations de la source, avec un ton plus étoffé qu'une brève. La longueur suit la matière réelle de la source : ne l'étire jamais artificiellement.]
 
 ## À retenir
-[4-6 points clés en liste à puces, chiffrés si possible]
+[3 à 5 points clés en liste à puces — uniquement des faits présents dans la source]
+
+Ne rédige AUCUNE section "Pour rappel", "Contexte", "Analyse et enjeux" ou "Perspectives" toi-même : un système séparé s'en charge à partir de vraies sources déjà vérifiées. Produis UNIQUEMENT les deux sections ci-dessus.
 
 ══════════════════════════════════════════════
-RÈGLES ABSOLUES
+RÈGLES DE STYLE
 ══════════════════════════════════════════════
-- Titres officiels complets pour toute personne citée
+- Titres officiels complets pour toute personne citée, uniquement s'ils figurent dans la source
 - Chiffres en lettres pour unités (deux millions, cinquante milliards) sauf % et dates
-- JAMAIS : "il convient de noter" / "dans un contexte de" / "force est de constater" / "révolutionnaire" / "impressionnant"
-- Conserver EXACTEMENT les noms propres, chiffres et citations de la source
+- JAMAIS : "il convient de noter" / "dans un contexte de" / "en conclusion" / "force est de constater" / "révolutionnaire" / "impressionnant"
 
 RÉPONDS EXCLUSIVEMENT EN JSON PUR :
 {
-  "titre": "Titre accrocheur mais factuel (peut contenir un verbe, style magazine)",
-  "lead": "Accroche percutante en 2-3 phrases — donne envie de lire la suite",
-  "contenu": "...markdown complet avec sections ## (600-900 mots)...",
+  "titre": "Titre factuel, peut être un peu plus accrocheur qu'une brève mais sans invention",
+  "lead": "VILLE — fait principal en 2-3 phrases (JAMAIS de mention APS, jamais de date autre que ${todayFR})",
+  "contenu": "...markdown avec section ## principale + ## À retenir...",
   "tags": ["tag1", "tag2", "tag3", "tag4", "tag5", "tag6"],
   "categorie": "Algérie|Télécoms|Mobile|Startups|IA|Fintech|Innovation|Monde|Entreprises",
   "video": ""
@@ -1298,6 +1364,10 @@ N'écris JAMAIS la mention "(APS)" dans le lead ni ailleurs dans l'article. Pas 
 RÈGLE ABSOLUE — UTILISE UNIQUEMENT LES DONNÉES DE LA SOURCE
 ══════════════════════════════════════════════
 N'INVENTE et n'AJOUTE AUCUNE donnée, statistique, chiffre ou contexte qui ne figure PAS dans le texte source. Ne complète pas avec des informations extérieures. Si la source ne mentionne pas de chiffres de marché, ne les ajoute pas. Le contenu de l'article doit être 100% issu du texte source fourni.
+Si la source est courte ou pauvre en détails, PRODUIS UN ARTICLE COURT plutôt que d'inventer des faits, des citations ou des chiffres pour « remplir » les sections ou atteindre le nombre de points demandé. Un « À retenir » de 3 points réels vaut mieux que 7 points dont certains sont inventés.
+N'invente JAMAIS le nom, le titre ou la fonction d'une personne, d'une entreprise ou d'un chiffre absent de la source. Si la source dit "le ministre" sans le nommer, écris "le ministre" — ne complète pas avec un nom réel ou inventé, même plausible.
+N'invente aucune action, démarche, coordination ou processus non explicitement mentionné dans la source (ex: n'ajoute pas "en coordination avec les autorités locales" ou "dans le cadre d'un plan plus large" si la source ne le dit pas).
+Avant de répondre, vérifie chaque phrase : si un fait, un chiffre ou une affirmation ne provient pas explicitement du texte SOURCE ci-dessous, supprime-le.
 
 ══════════════════════════════════════════════
 RÉÉCRITURE — INTERDICTION DE PARAPHRASE PARESSEUSE
@@ -1361,7 +1431,7 @@ ${text.substring(0, 4000)}`;
         model: "mistral-small-latest",
         messages: [{ role: "user", content: prompt }],
         response_format: { type: "json_object" },
-        temperature: effectiveStyle === 'pro' ? 0.65 : 0.55,
+        temperature: effectiveStyle === 'pro' ? 0.3 : 0.35,
         max_tokens: effectiveStyle === 'pro' ? 4500 : 3500
     });
 
@@ -1383,7 +1453,18 @@ ${text.substring(0, 4000)}`;
             try {
                 const result = JSON.parse(data);
                 if (result.error) throw new Error(result.error.message);
-                res.json(JSON.parse(result.choices[0].message.content));
+                const article = JSON.parse(result.choices[0].message.content);
+
+                // Section "Pour rappel" construite par code à partir de vrais articles du jour —
+                // jamais par le LLM, pour garantir zéro invention (voir getArticlesComplementairesDuJour).
+                if (effectiveStyle === 'pro' && articlesComplementaires.length && article.contenu) {
+                    const rappels = articlesComplementaires
+                        .map(a => `Pour rappel, **${a.source}** rapportait : « ${a.titre} »${a.resume ? ' — ' + a.resume : ''}. ([lire](${a.url}))`)
+                        .join('\n\n');
+                    article.contenu += `\n\n## Pour rappel\n\n${rappels}`;
+                }
+
+                res.json(article);
             } catch (e) { res.status(500).json({ error: "Erreur IA: " + e.message }); }
         });
     });

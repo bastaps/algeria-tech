@@ -42,6 +42,7 @@ const FEEDS = [
   { url: 'https://www.ntic-dz.com/feed/',                                 label: 'NTIC DZ',               skipFilter: true },
   { url: 'https://www.lesoirdalgerie.com/feed',                           label: 'Le Soir DZ',            skipFilter: true },
   { url: 'https://www.elmoudjahid.dz/fr/feed',                            label: 'El Moudjahid',          skipFilter: true },
+  { url: 'https://www.aps.dz/fr/algerie/education-et-technologie?format=feed&type=rss', label: 'APS',    skipFilter: true },
   // Algérie — presse générale (filtre strict activé)
   { url: 'https://www.tsa-algerie.dz/feed/',                              label: 'TSA' },
   { url: 'https://algerie-eco.com/feed/',                                 label: 'Algérie Eco' },
