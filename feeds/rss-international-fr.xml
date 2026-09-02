@@ -7,27 +7,139 @@
     <link>https://algeria-tech.pages.dev</link>
     <description>Veille TIC en français, sources internationales hors Algérie : FrenchWeb, Le Monde Informatique, Usine Digitale, Journal du Net, RFI…</description>
     <language>fr</language>
-    <lastBuildDate>Wed, 02 Sep 2026 08:17:01 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2026 15:36:35 GMT</lastBuildDate>
     <generator>AlgeriaTech RSS Generator v2.0</generator>
     <atom:link href="https://algeria-tech.pages.dev/feeds/rss-international-fr.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>Use it or lose it : quand les quotas d&apos;IA rendent le gaspillage rationnel</title>
-      <link>https://www.journaldunet.com/intelligence-artificielle/1554259-use-it-or-lose-it-quand-les-quotas-d-ia-rendent-le-gaspillage-rationnel/</link>
-      <description>Les quotas d&apos;IA qui expirent poussent à surconsommer le modèle le plus lourd pour ne rien perdre. Cette &quot;taxe de continuité&quot; rend le gaspillage rationnel et sape la sobriété.</description>
-      <pubDate>Wed, 02 Sep 2026 07:52:46 GMT</pubDate>
-      <category>Innovation &amp; Recherche</category>
-      <source url="https://www.journaldunet.com">Journal du Net</source>
-      <guid isPermaLink="true">https://www.journaldunet.com/intelligence-artificielle/1554259-use-it-or-lose-it-quand-les-quotas-d-ia-rendent-le-gaspillage-rationnel/</guid>
-    </item>
-    <item>
-      <title>Cyberattaques : les données de qualité, nouveau carburant de l&apos;IA offensive</title>
-      <link>https://www.journaldunet.com/cybersecurite/1554215-cyberattaques-les-donnees-de-qualite-nouveau-carburant-de-l-ia-offensive/</link>
-      <description>Les récentes cyberattaques visant des organisations publiques et privées rappellent une évidence : la donnée est l&apos;un des actifs les plus convoités par les attaquants.</description>
-      <pubDate>Wed, 02 Sep 2026 07:40:43 GMT</pubDate>
+      <title>Astra n’est pas encore sorti… mais OpenAI affirme avoir franchi un seuil critique en cybersécurité sans pouvoir éliminer tous les risques</title>
+      <link>https://www.usine-digitale.fr/intelligence-artificielle/openai/astra-nest-pas-encore-sorti-mais-openai-affirme-avoir-franchi-un-seuil-critique-en-cybersecurite-sans-pouvoir-eliminer-tous-les-risques.R2AT524TYNBO5BIGHA7STVS7LY.html</link>
+      <description>GPT‑5.4 en mars, GPT‑5.5 en avril, GPT‑5.6 en juillet, puis Astra annoncé pour début septembre : les sorties de modèles s’accélèrent chez OpenAI. En parallèle, la start-up de Sam Altman décline désormais presque chaque génération en une version cyber plus permissive et plus étroitement contrôlée.</description>
+      <pubDate>Wed, 02 Sep 2026 14:00:00 GMT</pubDate>
       <category>Opérateurs &amp; Mobile</category>
       <category>Data &amp; Cybersécurité</category>
+      <category>Innovation &amp; Recherche</category>
+      <source url="https://www.usine-digitale.fr">Usine Digitale</source>
+      <guid isPermaLink="true">https://www.usine-digitale.fr/intelligence-artificielle/openai/astra-nest-pas-encore-sorti-mais-openai-affirme-avoir-franchi-un-seuil-critique-en-cybersecurite-sans-pouvoir-eliminer-tous-les-risques.R2AT524TYNBO5BIGHA7STVS7LY.html</guid>
+    </item>
+    <item>
+      <title>AI Overviews : Google ressuscite le spectre de la désinformation en santé</title>
+      <link>https://www.journaldunet.com/intelligence-artificielle/1554261-ai-overviews-google-ressuscite-le-spectre-de-la-desinforma-on-en-sante/</link>
+      <description>En faisant la part belle aux marques et aux réseaux sociaux dans ses citations, Google réintroduit un risque majeur de désinformation en santé que les grands médias avaient invisibilisé jusque là.</description>
+      <pubDate>Wed, 02 Sep 2026 13:25:01 GMT</pubDate>
+      <category>Opérateurs &amp; Mobile</category>
+      <category>Data &amp; Cybersécurité</category>
+      <category>Innovation &amp; Recherche</category>
       <source url="https://www.journaldunet.com">Journal du Net</source>
-      <guid isPermaLink="true">https://www.journaldunet.com/cybersecurite/1554215-cyberattaques-les-donnees-de-qualite-nouveau-carburant-de-l-ia-offensive/</guid>
+      <guid isPermaLink="true">https://www.journaldunet.com/intelligence-artificielle/1554261-ai-overviews-google-ressuscite-le-spectre-de-la-desinforma-on-en-sante/</guid>
+    </item>
+    <item>
+      <title>L&apos;IA générative en marketing : quand le CMO devient le grand architecte et l&apos;IA le bras armé</title>
+      <link>https://www.journaldunet.com/intelligence-artificielle/1554273-l-ia-generative-en-marketing-quand-le-cmo-devient-le-grand-architecte-et-l-ia-le-bras-arme/</link>
+      <description>Le paradigme a fondamentalement basculé : l&apos;IA propose, le CMO tranche, juge de la stratégie, corrige et l&apos;IA exécute.</description>
+      <pubDate>Wed, 02 Sep 2026 13:23:42 GMT</pubDate>
+      <category>Opérateurs &amp; Mobile</category>
+      <category>Innovation &amp; Recherche</category>
+      <source url="https://www.journaldunet.com">Journal du Net</source>
+      <guid isPermaLink="true">https://www.journaldunet.com/intelligence-artificielle/1554273-l-ia-generative-en-marketing-quand-le-cmo-devient-le-grand-architecte-et-l-ia-le-bras-arme/</guid>
+    </item>
+    <item>
+      <title>FinOps IA : comment piloter ses dépenses de tokens sur un compte Anthropic enterprise en pay-as-you-go</title>
+      <link>https://www.journaldunet.com/intelligence-artificielle/1554275-finops-ia-comment-piloter-ses-depenses-de-tokens-sur-un-compte-anthropic-enterprise-en-pay-as-you-go/</link>
+      <description>La dépense IA arrive sur une facture unique sans responsable ; 26 % serait gaspillée. L&apos;enjeu : distinguer bons et mauvais usages, attribuer les coûts par équipe et désigner un responsable clair.</description>
+      <pubDate>Wed, 02 Sep 2026 13:23:14 GMT</pubDate>
+      <category>Infrastructures &amp; Réseaux</category>
+      <category>Innovation &amp; Recherche</category>
+      <source url="https://www.journaldunet.com">Journal du Net</source>
+      <guid isPermaLink="true">https://www.journaldunet.com/intelligence-artificielle/1554275-finops-ia-comment-piloter-ses-depenses-de-tokens-sur-un-compte-anthropic-enterprise-en-pay-as-you-go/</guid>
+    </item>
+    <item>
+      <title>IA et juniors : l&apos;angle mort de la productivité</title>
+      <link>https://www.journaldunet.com/intelligence-artificielle/1554277-ia-et-juniors-l-angle-mort-de-la-productivite/</link>
+      <description>L&apos;IA accélère le travail mais risque aussi d&apos;effacer les situations qui permettent aux juniors d&apos;apprendre à juger, décider et devenir les experts de demain.</description>
+      <pubDate>Wed, 02 Sep 2026 13:22:53 GMT</pubDate>
+      <category>Innovation &amp; Recherche</category>
+      <source url="https://www.journaldunet.com">Journal du Net</source>
+      <guid isPermaLink="true">https://www.journaldunet.com/intelligence-artificielle/1554277-ia-et-juniors-l-angle-mort-de-la-productivite/</guid>
+    </item>
+    <item>
+      <title>Osez l&apos;IA : un an après, l&apos;objectif 2030 est-il toujours tenable ?</title>
+      <link>https://www.journaldunet.com/intelligence-artificielle/1554281-osez-l-ia-un-an-apres-l-objectif-2030-est-il-toujours-tenable/</link>
+      <description>Un an après le lancement du réseau, l&apos;État publie la liste de ses 615 ambassadeurs IA : 16 départements n&apos;en ont aucun, et Paris en concentre 1 sur 6.</description>
+      <pubDate>Wed, 02 Sep 2026 13:22:42 GMT</pubDate>
+      <category>Innovation &amp; Recherche</category>
+      <source url="https://www.journaldunet.com">Journal du Net</source>
+      <guid isPermaLink="true">https://www.journaldunet.com/intelligence-artificielle/1554281-osez-l-ia-un-an-apres-l-objectif-2030-est-il-toujours-tenable/</guid>
+    </item>
+    <item>
+      <title>Piratage de Dropbox : des hackers accèdent à 5000 comptes sans voler le moindre mot de passe</title>
+      <link>https://www.usine-digitale.fr/cybersecurite/piratage-de-dropbox-des-hackers-accedent-a-5000-comptes-sans-voler-le-moindre-mot-de-passe.OXQM77GEMFEKZJCYJMXHCN5IKE.html</link>
+      <description>Dropbox a reconnu qu&apos;environ 5 000 comptes ont été compromis entre le 4 et le 21 août, certains fichiers ayant été consultés ou téléchargés par les attaquants. En cause : une vulnérabilité dans l&apos;intégration de connexion unique avec Lenovo ID.</description>
+      <pubDate>Wed, 02 Sep 2026 13:00:00 GMT</pubDate>
+      <category>Data &amp; Cybersécurité</category>
+      <source url="https://www.usine-digitale.fr">Usine Digitale</source>
+      <guid isPermaLink="true">https://www.usine-digitale.fr/cybersecurite/piratage-de-dropbox-des-hackers-accedent-a-5000-comptes-sans-voler-le-moindre-mot-de-passe.OXQM77GEMFEKZJCYJMXHCN5IKE.html</guid>
+    </item>
+    <item>
+      <title>Avec K Pro, Owkin veut faire des agents IA de véritables outils de travail pour les chercheurs du groupe pharmaceutique Boehringer Ingelheim</title>
+      <link>https://www.usine-digitale.fr/intelligence-artificielle/avec-k-pro-owkin-veut-faire-des-agents-ia-de-veritables-outils-de-travail-pour-les-chercheurs-du-groupe-pharmaceutique-boehringer-ingelheim.E7KMLHBXE5BBFINGLXCPVVNZ2Q.html</link>
+      <description>La start-up Owkin, spécialisée dans l’application de l’intelligence artificielle à la recherche pharmaceutique, ajoute un grand nom de la pharmacie à la liste des utilisateurs de K Pro, une plateforme agentique qui orchestre des modèles d’IA et des données pour répondre aux requêtes des chercheurs. Après AstraZeneca et Sanofi , la biotech annonce ce 2 septembre avoir conclu un accord de licence av</description>
+      <pubDate>Wed, 02 Sep 2026 12:05:15 GMT</pubDate>
+      <category>Infrastructures &amp; Réseaux</category>
+      <category>Opérateurs &amp; Mobile</category>
+      <category>Internet &amp; Web</category>
+      <category>Data &amp; Cybersécurité</category>
+      <category>Innovation &amp; Recherche</category>
+      <source url="https://www.usine-digitale.fr">Usine Digitale</source>
+      <guid isPermaLink="true">https://www.usine-digitale.fr/intelligence-artificielle/avec-k-pro-owkin-veut-faire-des-agents-ia-de-veritables-outils-de-travail-pour-les-chercheurs-du-groupe-pharmaceutique-boehringer-ingelheim.E7KMLHBXE5BBFINGLXCPVVNZ2Q.html</guid>
+    </item>
+    <item>
+      <title>Empêcher les agents IA de faire confiance aux mauvaises ressources : le pari à 50 millions de dollars de la start-up AIR</title>
+      <link>https://www.usine-digitale.fr/cybersecurite/empecher-les-agents-ia-de-faire-confiance-aux-mauvaises-ressources-le-pari-a-50-millions-de-dollars-de-la-start-up-air.RTDEXIDMFRDEFGG7BRPJEEQE4Q.html</link>
+      <description>AIR attire déjà 50 millions de dollars auprès de Sequoia et Greenoaks. Un financement spectaculaire pour une entreprise créée en 2026, mais qui entend démontrer que la sécurité des agents IA ne peut plus se limiter à scanner leur code : il faut surveiller, en continu, tout ce qu’ils consomment et exécutent.</description>
+      <pubDate>Wed, 02 Sep 2026 09:30:00 GMT</pubDate>
+      <category>Opérateurs &amp; Mobile</category>
+      <source url="https://www.usine-digitale.fr">Usine Digitale</source>
+      <guid isPermaLink="true">https://www.usine-digitale.fr/cybersecurite/empecher-les-agents-ia-de-faire-confiance-aux-mauvaises-ressources-le-pari-a-50-millions-de-dollars-de-la-start-up-air.RTDEXIDMFRDEFGG7BRPJEEQE4Q.html</guid>
+    </item>
+    <item>
+      <title>IA au travail : les salariés français passent à la vitesse supérieure, les entreprises cherchent encore leur cadre</title>
+      <link>https://www.usine-digitale.fr/intelligence-artificielle/ia-generative/ia-au-travail-les-salaries-francais-passent-a-la-vitesse-superieure-les-entreprises-cherchent-encore-leur-cadre.BVE4BG2MYJH2BNY7VAIG2JPF6U.html</link>
+      <description>L’intelligence artificielle gagne rapidement les bureaux français, sans pour autant devenir un outil parfaitement intégré aux pratiques des entreprises. C’est le principal enseignement de l’étude « Le moment de vérité de l’IA en entreprise », réalisée par OpinionWay pour l’éditeur de logiciels de gestion Cegid auprès de 2004 salariés de bureau basés en France, en Espagne, au Portugal et en Allemag</description>
+      <pubDate>Wed, 02 Sep 2026 09:25:26 GMT</pubDate>
+      <category>Opérateurs &amp; Mobile</category>
+      <category>Innovation &amp; Recherche</category>
+      <source url="https://www.usine-digitale.fr">Usine Digitale</source>
+      <guid isPermaLink="true">https://www.usine-digitale.fr/intelligence-artificielle/ia-generative/ia-au-travail-les-salaries-francais-passent-a-la-vitesse-superieure-les-entreprises-cherchent-encore-leur-cadre.BVE4BG2MYJH2BNY7VAIG2JPF6U.html</guid>
+    </item>
+    <item>
+      <title>Piratages en série : le gouvernement donne 15 jours aux ministères pour accélérer la sécurisation des systèmes de l’Etat</title>
+      <link>https://www.usine-digitale.fr/cybersecurite/piratages-en-serie-le-gouvernement-donne-15-jours-aux-ministeres-pour-accelerer-la-securisation-des-systemes-de-letat.VI7262DXIZCULEBHRXDG624ZJY.html</link>
+      <description>La rentrée débute avec un ultimatum pour les ministères. Réunis le 31 août 2026 à l’occasion du séminaire gouvernemental de rentrée, les membres du gouvernement ont été appelés par Sébastien Lecornu à un « sursaut sur le volet cyber », rapportent nos confrères de Franceinfo . Le Premier ministre leur donne désormais deux semaines pour s’assurer de la mise en œuvre du plan de sécurisation demandé a</description>
+      <pubDate>Wed, 02 Sep 2026 09:09:45 GMT</pubDate>
+      <category>Opérateurs &amp; Mobile</category>
+      <category>Internet &amp; Web</category>
+      <category>Data &amp; Cybersécurité</category>
+      <source url="https://www.usine-digitale.fr">Usine Digitale</source>
+      <guid isPermaLink="true">https://www.usine-digitale.fr/cybersecurite/piratages-en-serie-le-gouvernement-donne-15-jours-aux-ministeres-pour-accelerer-la-securisation-des-systemes-de-letat.VI7262DXIZCULEBHRXDG624ZJY.html</guid>
+    </item>
+    <item>
+      <title>IA agentique : faut-il migrer vers Kimi-K3 ?</title>
+      <link>https://www.journaldunet.com/intelligence-artificielle/1553219-ia-agentique-faut-il-migrer-vers-kimi-k3/</link>
+      <description>Kimi-K3 promet les performances de Claude et GPT pour une fraction de leur prix. Sur le papier, le modèle chinois coche toutes les cases. Mais migrer implique encore de nombreux compromis.</description>
+      <pubDate>Wed, 02 Sep 2026 08:28:19 GMT</pubDate>
+      <category>Innovation &amp; Recherche</category>
+      <source url="https://www.journaldunet.com">Journal du Net</source>
+      <guid isPermaLink="true">https://www.journaldunet.com/intelligence-artificielle/1553219-ia-agentique-faut-il-migrer-vers-kimi-k3/</guid>
+    </item>
+    <item>
+      <title>INLEAP PHOTONICS porte son financement à 20 millions d’euros pour passer du laser industriel à la défense anti-drones</title>
+      <link>https://www.frenchweb.fr/inleap-photonics-porte-son-financement-a-20-millions-deuros-pour-passer-du-laser-industriel-a-la-defense-anti-drones/463189</link>
+      <description>La startup allemande INLEAP PHOTONICS vient de boucler un tour de seed mené par UVC PARTNERS qui porte à environ 20 millions d’euros son financement cumulé. La spin-off du LASER ZENTRUM HANNOVER veut désormais industrialiser une technologie de pilotage de faisceau initialement conçue pour la fabrication additive et le traitement des matériaux afin d’en faire … L’article INLEAP PHOTONICS porte son </description>
+      <pubDate>Wed, 02 Sep 2026 08:22:33 GMT</pubDate>
+      <category>Opérateurs &amp; Mobile</category>
+      <category>Innovation &amp; Recherche</category>
+      <source url="https://www.frenchweb.fr">FrenchWeb</source>
+      <guid isPermaLink="true">https://www.frenchweb.fr/inleap-photonics-porte-son-financement-a-20-millions-deuros-pour-passer-du-laser-industriel-a-la-defense-anti-drones/463189</guid>
     </item>
     <item>
       <title>Logiciel « Scribe » : Comment les défaillances de pilotage d’un projet informatique de la police ont causé 30 millions d’euros de préjudice à l’Etat</title>
@@ -49,16 +161,6 @@
       <guid isPermaLink="true">https://www.usine-digitale.fr/intelligence-artificielle/openai/openai-proposerait-a-certains-grands-clients-de-ne-payer-que-lorsque-son-ia-reussit-sa-tache.Y4JQ455CX5E33AD62C52Z3WKHU.html</guid>
     </item>
     <item>
-      <title>&quot;Nous voulons que Gamma soit la couche visuelle qui permet de donner forme à vos idées&quot;</title>
-      <link>https://www.journaldunet.com/intelligence-artificielle/1554213-nous-voulons-que-gamma-devienne-la-couche-visuelle-qui-permet-de-donner-forme-a-vos-idees/</link>
-      <description>Spécialiste de la présentation générée par IA, Gamma revendique plus de 100 millions d&apos;utilisateurs. Son cofondateur et CEO Grant Lee détaille au JDN ses ambitions pour faire de Gamma un nouveau standard de la communication visuelle.</description>
-      <pubDate>Tue, 01 Sep 2026 15:48:47 GMT</pubDate>
-      <category>Opérateurs &amp; Mobile</category>
-      <category>Innovation &amp; Recherche</category>
-      <source url="https://www.journaldunet.com">Journal du Net</source>
-      <guid isPermaLink="true">https://www.journaldunet.com/intelligence-artificielle/1554213-nous-voulons-que-gamma-devienne-la-couche-visuelle-qui-permet-de-donner-forme-a-vos-idees/</guid>
-    </item>
-    <item>
       <title>FW DAILIES: SPACE CARGO &amp;amp; Thomas Pesquet, PHOTOROOM, FTC vs AMAZON…</title>
       <link>https://www.frenchweb.fr/fw-dailies-space-cargo-thomas-pesquet-photoroom-ftc-vs-amazon/463179</link>
       <description>SPACE CARGO entre au capital de NOVESPACE pour relier vols paraboliques et usines orbitales SPACE CARGO réalise un investissement stratégique, dont le montant n’est pas communiqué, dans NOVESPACE, filiale du CNES dirigée par Thomas Pesquet ; son CEO Nicolas Gaume rejoint le conseil d’administration. Les vols paraboliques de NOVESPACE offrent des séquences d’environ 22 secondes … L’article FW DAILI</description>
@@ -66,15 +168,6 @@
       <category>Tech</category>
       <source url="https://www.frenchweb.fr">FrenchWeb</source>
       <guid isPermaLink="true">https://www.frenchweb.fr/fw-dailies-space-cargo-thomas-pesquet-photoroom-ftc-vs-amazon/463179</guid>
-    </item>
-    <item>
-      <title>Comment Atinary réinvente la recherche grâce à l&apos;IA et aux robots</title>
-      <link>https://www.journaldunet.com/intelligence-artificielle/1554211-comment-atinary-veut-reinventer-la-recherche-grace-a-l-ia/</link>
-      <description>Atinary développe des Self-Driving Labs, des laboratoires autonomes où l&apos;intelligence artificielle et la robotique enchaînent des centaines d&apos;expériences sans intervention humaine. Une approche qui promet d&apos;accélérer les découvertes scientifiques.</description>
-      <pubDate>Tue, 01 Sep 2026 15:06:22 GMT</pubDate>
-      <category>Innovation &amp; Recherche</category>
-      <source url="https://www.journaldunet.com">Journal du Net</source>
-      <guid isPermaLink="true">https://www.journaldunet.com/intelligence-artificielle/1554211-comment-atinary-veut-reinventer-la-recherche-grace-a-l-ia/</guid>
     </item>
     <item>
       <title>Avec 488 millions d’euros de financement, PLD Space doit maintenant passer de la fusée à l’industrie</title>
@@ -106,44 +199,6 @@
       <guid isPermaLink="true">https://www.usine-digitale.fr/informatique/cloud/cloud-de-confiance-le-marche-des-offres-qualifiees-secnumcloud-selargit-pousse-par-les-contraintes-reglementaires.INOZUVHVONEL7IHPME6JHEGA6A.html</guid>
     </item>
     <item>
-      <title>Agents IA, robotique, matériaux avancés : les trois paris de l’Europe pour renforcer sa souveraineté technologique</title>
-      <link>https://www.usine-digitale.fr/intelligence-artificielle/robotique/agents-ia-robotique-materiaux-avances-les-trois-paris-de-leurope-pour-renforcer-sa-souverainete-technologique.I3HG4M7AMZD3FMHZHVJKLVWNJU.html</link>
-      <description>Avec l’appel HORIZON-CL4-2026-05, l’Union européenne cherche à transformer les capacités européennes de recherche en technologies industrielles et tenter de réduire la dépendance du continent dans les secteurs numériques critiques.</description>
-      <pubDate>Tue, 01 Sep 2026 12:45:00 GMT</pubDate>
-      <category>Opérateurs &amp; Mobile</category>
-      <source url="https://www.usine-digitale.fr">Usine Digitale</source>
-      <guid isPermaLink="true">https://www.usine-digitale.fr/intelligence-artificielle/robotique/agents-ia-robotique-materiaux-avances-les-trois-paris-de-leurope-pour-renforcer-sa-souverainete-technologique.I3HG4M7AMZD3FMHZHVJKLVWNJU.html</guid>
-    </item>
-    <item>
-      <title>Nvidia mise 3,5 milliards sur MediaTek pour ne pas perdre la main sur les puces maison de ses clients</title>
-      <link>https://www.usine-digitale.fr/electronique/nvidia/nvidia-mise-35-milliards-sur-mediatek-pour-ne-pas-perdre-la-main-sur-les-puces-maison-de-ses-clients.37HABP5TTBAXDEHK5XVC36DEFY.html</link>
-      <description>Alors que Google, Amazon, Meta ou OpenAI accélèrent sur leurs propres puces d&apos;IA pour s&apos;affranchir de Nvidia, le géant de Santa Clara investit 3,5 milliards de dollars dans MediaTek et ouvre sa technologie NVLink aux accélérateurs conçus sur mesure pour faire de la concurrence un nouveau relais de croissance, du datacenter à la voiture.</description>
-      <pubDate>Tue, 01 Sep 2026 11:30:00 GMT</pubDate>
-      <category>Infrastructures &amp; Réseaux</category>
-      <category>Opérateurs &amp; Mobile</category>
-      <source url="https://www.usine-digitale.fr">Usine Digitale</source>
-      <guid isPermaLink="true">https://www.usine-digitale.fr/electronique/nvidia/nvidia-mise-35-milliards-sur-mediatek-pour-ne-pas-perdre-la-main-sur-les-puces-maison-de-ses-clients.37HABP5TTBAXDEHK5XVC36DEFY.html</guid>
-    </item>
-    <item>
-      <title>Gemini, GPT, Grok : Le Pentagone étoffe sa plateforme d’accès aux modèles d’IA générative et limite la dépendance à un fournisseur unique</title>
-      <link>https://www.usine-digitale.fr/secteur-public/gouvernement/gemini-gpt-grok-le-pentagone-etoffe-sa-plateforme-dacces-aux-modeles-dia-generative-et-limite-la-dependance-a-un-fournisseur-unique.FZI2BHYHSNGPDAGF5WMZEL76ME.html</link>
-      <description>Le ministère américain de la Guerre voit les choses en grand et n’a pas peur de se lancer. Le 31 août, il a annoncé l’ajout de « Grok for Government », version sécurisée du modèle de xAI commercialisée par la branche gouvernementale Starshield AI de SpaceX, et de ChatGPT Mil d’OpenAI, à sa plateforme GenAI.mil, élargissant ainsi l’éventail des capacités d’intelligence artificielle proposées sur sa</description>
-      <pubDate>Tue, 01 Sep 2026 09:30:00 GMT</pubDate>
-      <category>Opérateurs &amp; Mobile</category>
-      <category>Innovation &amp; Recherche</category>
-      <source url="https://www.usine-digitale.fr">Usine Digitale</source>
-      <guid isPermaLink="true">https://www.usine-digitale.fr/secteur-public/gouvernement/gemini-gpt-grok-le-pentagone-etoffe-sa-plateforme-dacces-aux-modeles-dia-generative-et-limite-la-dependance-a-un-fournisseur-unique.FZI2BHYHSNGPDAGF5WMZEL76ME.html</guid>
-    </item>
-    <item>
-      <title>AI Act : Bruxelles passe à l’offensive et commence à contrôler les fournisseurs de modèles</title>
-      <link>https://www.usine-digitale.fr/intelligence-artificielle/ai-act-bruxelles-passe-a-loffensive-et-commence-a-controler-les-fournisseurs-de-modeles.BZTTV2J53BBXJASEE32Z3BAO7Q.html</link>
-      <description>« Les modèles d’IA deviennent de plus en plus performants et ont donné lieu à un certain nombre d’incidents au cours de l’été ». C’est par ce constat que la Commission européenne justifie le nouveau tour de vis à l’égard des fournisseurs d’IA.</description>
-      <pubDate>Tue, 01 Sep 2026 08:39:10 GMT</pubDate>
-      <category>Tech</category>
-      <source url="https://www.usine-digitale.fr">Usine Digitale</source>
-      <guid isPermaLink="true">https://www.usine-digitale.fr/intelligence-artificielle/ai-act-bruxelles-passe-a-loffensive-et-commence-a-controler-les-fournisseurs-de-modeles.BZTTV2J53BBXJASEE32Z3BAO7Q.html</guid>
-    </item>
-    <item>
       <title>Startups : Berlin veut passer des licornes aux champions industriels</title>
       <link>https://www.frenchweb.fr/startups-berlin-veut-passer-des-licornes-aux-champions-industriels/463004</link>
       <description>Comme de nombreux pays européens dont la France, l’Allemagne ne manque plus de vocations entrepreneuriales, son problème commence après la naissance : financer une usine, décrocher une première commande publique, recruter à l’international, empêcher qu’une levée décisive ne déplace le centre de gravité de l’entreprise. À travers 152 mesures, Berlin veut désormais faire de l’État … L’article Startu</description>
@@ -152,26 +207,6 @@
       <category>Innovation &amp; Recherche</category>
       <source url="https://www.frenchweb.fr">FrenchWeb</source>
       <guid isPermaLink="true">https://www.frenchweb.fr/startups-berlin-veut-passer-des-licornes-aux-champions-industriels/463004</guid>
-    </item>
-    <item>
-      <title>Un milliard de dollars en moins de 200 jours : comment OpenAI installe la publicité au cœur de son modèle</title>
-      <link>https://www.usine-digitale.fr/intelligence-artificielle/openai/un-milliard-de-dollars-en-moins-de-200-jours-comment-openai-installe-la-publicite-au-coeur-de-son-modele.RRBOKAJUG5DAXF2IKCISOTVKEQ.html</link>
-      <description>Moins de 200 jours après son lancement, ChatGPT Ads a déjà franchi le cap du milliard de dollars de revenus récurrents annualisés (ARR), annonce OpenAI. L’activité rassemble désormais plusieurs dizaines de milliers d’annonceurs et est disponible dans plus de 40 pays.</description>
-      <pubDate>Tue, 01 Sep 2026 06:45:00 GMT</pubDate>
-      <category>Infrastructures &amp; Réseaux</category>
-      <category>Opérateurs &amp; Mobile</category>
-      <category>Innovation &amp; Recherche</category>
-      <source url="https://www.usine-digitale.fr">Usine Digitale</source>
-      <guid isPermaLink="true">https://www.usine-digitale.fr/intelligence-artificielle/openai/un-milliard-de-dollars-en-moins-de-200-jours-comment-openai-installe-la-publicite-au-coeur-de-son-modele.RRBOKAJUG5DAXF2IKCISOTVKEQ.html</guid>
-    </item>
-    <item>
-      <title>“Le coût du token, c’est le problème le plus intéressant dans le secteur de l’IA à l’heure actuelle”, Peter DeSantis, Amazon</title>
-      <link>https://www.usine-digitale.fr/intelligence-artificielle/le-cout-du-token-cest-le-probleme-le-plus-interessant-dans-le-secteur-de-lia-a-lheure-actuelle-peter-desantis-amazon.4Y7HFY3VUZDHFGE2DMOBELWIAI.html</link>
-      <description>L’Usine Digitale : Vous avez pris la direction de l’équipe en charge des modèles d’IA en fin d’année dernière. Quel a été votre parcours auparavant ?</description>
-      <pubDate>Tue, 01 Sep 2026 04:45:34 GMT</pubDate>
-      <category>Tech &amp; Numérique</category>
-      <source url="https://www.usine-digitale.fr">Usine Digitale</source>
-      <guid isPermaLink="true">https://www.usine-digitale.fr/intelligence-artificielle/le-cout-du-token-cest-le-probleme-le-plus-interessant-dans-le-secteur-de-lia-a-lheure-actuelle-peter-desantis-amazon.4Y7HFY3VUZDHFGE2DMOBELWIAI.html</guid>
     </item>
     <item>
       <title>FW DAILIES: GOOGLE MAPS, OPENAI, NEXPERIA, ELEKTA</title>
@@ -230,15 +265,6 @@
       <category>Tech</category>
       <source url="https://www.frenchweb.fr">FrenchWeb</source>
       <guid isPermaLink="true">https://www.frenchweb.fr/ia-leurope-na-plus-un-probleme-de-diagnostic-mais-elle-a-un-probleme-dexecution/463085</guid>
-    </item>
-    <item>
-      <title>Pourquoi dotAI + dotJS est le seul événement tech incontournable de la rentrée</title>
-      <link>https://www.frenchweb.fr/pourquoi-dotai-dotjs-est-le-seul-evenement-tech-incontournable-de-la-rentree/463091</link>
-      <description>Les 17 et 18 septembre, les Folies Bergère accueilleront deux communautés de builders : les ingénieurs et chercheurs qui développent l’IA en production, puis ceux qui façonnent les architectures Web et JavaScript de demain. Le seul rendez-vous tech où les slides laissent place aux vraies conversations. Là où tout se passe : les meilleurs builders … L’article Pourquoi dotAI + dotJS est le seul évén</description>
-      <pubDate>Fri, 28 Aug 2026 08:44:33 GMT</pubDate>
-      <category>Tech &amp; Numérique</category>
-      <source url="https://www.frenchweb.fr">FrenchWeb</source>
-      <guid isPermaLink="true">https://www.frenchweb.fr/pourquoi-dotai-dotjs-est-le-seul-evenement-tech-incontournable-de-la-rentree/463091</guid>
     </item>
   </channel>
 </rss>
