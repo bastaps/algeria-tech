@@ -1,6 +1,6 @@
 {
   "date": "mercredi 2 septembre",
-  "synthese": "Douze avancées technologiques majeures ont marqué les dernières 24 heures, avec des annonces en matière de souveraineté numérique, d’intelligence artificielle et d’infrastructures. Les partenariats énergétiques, les innovations matérielles et les régulations internationales ont dominé l’actualité tech mondiale.",
+  "synthese": "Les dernières 24 heures ont vu des annonces majeures en souveraineté numérique, cybersécurité et innovation technologique. L'Algérie mise sur son partenariat gazier avec l'Allemagne pour renforcer sa position énergétique, tandis que le marché des télécoms et de l'IA en France enregistre des avancées et des défis structurels.",
   "articles": [
     {
       "titre": "Gaz : l’Allemagne se tourne vers l’Algérie pour remplir ses stocks avant l’hiver",
@@ -10,8 +10,19 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Allemagne : achats de gaz algérien pour stocks hivernaux",
+      "accroche": "Allemagne : partenariat gazier renforcé avec l'Algérie",
       "categorie": "Énergie"
+    },
+    {
+      "titre": "Open source et secteur public : pourquoi ce n’est pas si facile",
+      "resume": "Les auditions de la commission parlementaire sur les dépendances numériques ont témoigné des défis que pose, dans la sphère publique, le déploiement d",
+      "url": "https://www.silicon.fr/open-source-1375/open-source-secteur-public-228917",
+      "date": "2026-09-02T10:21:25.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Open source et secteur public : obstacles identifiés",
+      "categorie": "Innovation"
     },
     {
       "titre": "ITSM : entre cœur fonctionnel et briques IA, le marché trouve un équilibre",
@@ -21,8 +32,8 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "ITSM : marché en équilibre entre fonctionnel et IA",
-      "categorie": "Innovation"
+      "accroche": "ITSM : équilibre entre fonctionnel et IA en 2026",
+      "categorie": "IA"
     },
     {
       "titre": "Souveraineté numérique : le diagnostic fait consensus, pas le remède",
@@ -32,52 +43,63 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Souveraineté numérique : consensus sur diagnostic, pas sur solutions",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "ChatGPT soumis au DSA : où en sont les autres enquêtes ?",
-      "resume": "ChatGPT rejoint la liste des services numériques soumis au DSA. Ils sont désormais 28, dont 8 sous enquête et 3 déjà sanctionnés.\nThe post ChatGPT sou",
-      "url": "https://www.silicon.fr/business-1367/chatgpt-dsa-enquetes-228890",
-      "date": "2026-09-01T13:51:49.000Z",
-      "source": "Silicon.fr",
-      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
-      "pays": "FR",
-      "accroche": "ChatGPT sous enquête DSA : état des lieux des autres",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "L’IA fait flamber le prix du cuivre : les vieux câbles téléphoniques valent désormais des milliards",
-      "resume": "La flambée du prix du cuivre, portée notamment par les besoins croissants des infrastructures d’IA, donne une nouvelle valeur aux anciens réseaux télé",
-      "url": "https://www.zdnet.fr/actualites/lia-fait-flamber-le-prix-du-cuivre-les-vieux-cables-telephoniques-valent-desormais-des-milliards-501025.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-09-02T07:00:11.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Prix du cuivre en hausse : vieux câbles téléphoniques valent milliards",
+      "accroche": "Souveraineté numérique : diagnostic partagé, solutions divisées",
       "categorie": "Innovation"
     },
     {
-      "titre": "Qualcomm dévoile deux processeurs Dragonwing pour l’IoT commercial et industriel",
-      "resume": "Qualcomm entend ainsi abaisser les barrières technologiques et économiques qui freinaient jusqu’ici l’intégration de l’intelligence artificielle en pé",
-      "url": "https://www.zdnet.fr/actualites/qualcomm-devoile-deux-processeurs-dragonwing-pour-liot-commercial-et-industriel-501023.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-09-02T06:00:39.000Z",
+      "titre": "John Ternus prend les rênes d'Apple : virage produit et défi IA pour le successeur de Tim Cook",
+      "resume": "En prenant officiellement ses fonctions de directeur général d'Apple cette semaine, l'ingénieur John Ternus hérite d'un géant valorisé 4 000 milliards",
+      "url": "https://www.zdnet.fr/actualites/john-ternus-prend-les-renes-dapple-virage-produit-et-defi-ia-pour-le-successeur-de-tim-cook-501045.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-09-02T10:15:43.000Z",
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Qualcomm lance deux processeurs Dragonwing pour IoT industriel",
+      "accroche": "Apple : John Ternus nommé PDG, défi IA en ligne de mire",
       "categorie": "Mobile"
     },
     {
-      "titre": "ZD Tech : Ce piratage d'un cours de Pilates par un agent d'IA illustre le nouveau danger qui pèse sur vos applications",
-      "resume": "Un agent autonome basé sur Claude a manipulé la liste d’attente d’une salle de sport pour privilégier son utilisateur. Derrière cette anecdote en appa",
-      "url": "https://www.zdnet.fr/actualites/zd-tech-ce-piratage-dun-cours-de-pilates-par-un-agent-dia-illustre-le-nouveau-danger-qui-pese-sur-vos-applications-500397.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-09-02T05:30:21.000Z",
+      "titre": "Secnumcloud : pour la rentrée, la qualification de l'Anssi s'impose comme une évidence",
+      "resume": "OvhCloud a annoncé hier avoir obtenu sa qualification SecnumCloud pour SNC Cloud Platform, son offre de cloud public. La qualification s'impose comme",
+      "url": "https://www.zdnet.fr/actualites/secnumcloud-pour-la-rentree-la-qualification-de-lanssi-simpose-comme-une-evidence-501003.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-09-02T10:15:11.000Z",
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Piratage d’un cours de Pilates par un agent d’IA : nouveau danger",
+      "accroche": "Secnumcloud : qualification Anssi incontournable pour la rentrée",
       "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "ZDNET Morning 02/09/2026 : Retard de l'IA en entreprise, L'Eldorado du cuivre, Nouvelles puces IoT Qualcomm,...",
+      "resume": "Le ZDNET Morning le brief de l'actu tech pour les pros tous les matins à 9h00. Transformation numérique, IA, matériel, logiciels,... ne passez pas à c",
+      "url": "https://www.zdnet.fr/actualites/zdnet-morning-02-09-2026-retard-de-lia-en-entreprise-leldorado-du-cuivre-nouvelles-puces-iot-qualcomm-501039.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-09-02T08:29:58.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "IA en entreprise : retard confirmé, opportunités cuivre et IoT",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Empêcher les agents IA de faire confiance aux mauvaises ressources : le pari à 50 millions de dollars de la start-up AIR",
+      "resume": "AIR attire déjà 50 millions de dollars auprès de Sequoia et Greenoaks. Un financement spectaculaire pour une entreprise créée en 2026, mais qui entend",
+      "url": "https://www.usine-digitale.fr/cybersecurite/empecher-les-agents-ia-de-faire-confiance-aux-mauvaises-ressources-le-pari-a-50-millions-de-dollars-de-la-start-up-air.RTDEXIDMFRDEFGG7BRPJEEQE4Q.html",
+      "date": "2026-09-02T09:30:00.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "pays": "FR",
+      "accroche": "50 millions de dollars pour fiabiliser les agents IA",
+      "categorie": "IA"
+    },
+    {
+      "titre": "IA au travail : les salariés français passent à la vitesse supérieure, les entreprises cherchent encore leur cadre",
+      "resume": "",
+      "url": "https://www.usine-digitale.fr/intelligence-artificielle/ia-generative/ia-au-travail-les-salaries-francais-passent-a-la-vitesse-superieure-les-entreprises-cherchent-encore-leur-cadre.BVE4BG2MYJH2BNY7VAIG2JPF6U.html",
+      "date": "2026-09-02T09:25:26.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Salariés français adoptent l'IA, entreprises en quête d'encadrement",
+      "categorie": "IA"
     },
     {
       "titre": "OpenAI proposerait à certains grands clients de ne payer que lorsque son IA réussit sa tâche",
@@ -87,75 +109,50 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "OpenAI propose un paiement à la réussite pour ses clients IA",
+      "accroche": "OpenAI propose un modèle de paiement à la performance pour l'IA",
       "categorie": "IA"
     },
     {
-      "titre": "Cerebras exécute son plan d’expansion en Europe : un data center de 165 MW doit voir le jour en Finlande",
-      "resume": "",
-      "url": "https://www.usine-digitale.fr/intelligence-artificielle/ia-generative/cerebras-execute-son-plan-dexpansion-en-europe-un-data-center-de-165-mw-doit-voir-le-jour-en-finlande.ZJ5ED4ADENFU5FW2KSSTV4FEEY.html",
-      "date": "2026-09-01T14:30:00.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Cerebras construit un data center de 165 MW en Finlande",
-      "categorie": "Réseaux"
-    },
-    {
-      "titre": "Cloud de confiance : le marché des offres qualifiées SecNumCloud s’élargit, poussé par les contraintes réglementaires",
-      "resume": "",
-      "url": "https://www.usine-digitale.fr/informatique/cloud/cloud-de-confiance-le-marche-des-offres-qualifiees-secnumcloud-selargit-pousse-par-les-contraintes-reglementaires.INOZUVHVONEL7IHPME6JHEGA6A.html",
-      "date": "2026-09-01T13:30:00.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Marché SecNumCloud s’élargit sous contraintes réglementaires",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "ProArt P14 : ASUS détaille pour la première fois la config d’un PC RTX Spark",
-      "resume": "Annoncé au Computex, le ProArt P14 compte parmi les premières machines équipées d'une puce Nvidia RTX Spark. Trois mois après une présentation relativ",
-      "url": "https://www.frandroid.com/marques/asus/3229775_proart-p14-asus-detaille-pour-la-premiere-fois-la-config-dun-pc-rtx-spark",
-      "date": "2026-09-02T08:23:24.000Z",
+      "titre": "Voici l’iPhone 18 Pro, une semaine avant la keynote Apple",
+      "resume": "Comme chaque année, les nouveaux iPhone font le tour des réseaux sociaux, avant même la présentation officielle par Apple. Il s'agit de produits facti",
+      "url": "https://www.frandroid.com/marques/apple/3230311_voici-liphone-18-pro-une-semaine-avant-la-keynote-apple",
+      "date": "2026-09-02T10:52:02.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "ASUS dévoile config PC RTX Spark pour gamers",
+      "accroche": "iPhone 18 Pro : fuites avant la keynote Apple",
       "categorie": "Mobile"
     },
     {
-      "titre": "10 000 bornes 1 500 kW en 5 mois : BYD déploie son réseau de recharge ultra rapide à un rythme infernal",
-      "resume": "BYD travaille d’arrache-pied pour développer son réseau de recharge ultra rapide. Capables de délivrer jusqu’à 1 500 kW, les Flash Chargers poussent d",
-      "url": "https://www.01net.com/actualites/10-000-bornes-1-500-kw-5-mois-byd-deploie-reseau-recharge-ultra-rapide-rythme-infernal.html",
-      "date": "2026-09-02T07:23:31.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "titre": "Ce forfait 10 Go habituellement à 7,99 euros passe à 3,99… à saisir vite",
+      "resume": "NRJ Mobile casse le prix de son forfait 10 Go. Habituellement à 7,99 euros, il passe sous les 4 euros, de quoi téléphoner tranquille sans se ruiner.",
+      "url": "https://www.frandroid.com/bons-plans/3230089_ce-forfait-10-go-habituellement-a-799-euros-passe-a-399-a-saisir-vite",
+      "date": "2026-09-02T10:25:00.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "BYD déploie 10 000 bornes de recharge ultra-rapide en 5 mois",
-      "categorie": "Télécoms"
+      "accroche": "Forfait mobile 10 Go à 3,99 € : offre limitée en cours",
+      "categorie": "Mobile"
     }
   ],
   "syntheseArticle": {
-    "titre": "Synthèse tech des dernières 24h : partenariats énergétiques, innovations IA et déploiements infrastructurels",
+    "titre": "Technologie et innovation : les dynamiques du jour en Algérie et à l'international",
     "dateline": "Alger, 2 septembre 2026 (Algeria Tech)",
-    "lead": "Entre le 10 et le 11 octobre 2024, le secteur technologique a enregistré des avancées majeures en matière de souveraineté numérique, d’intelligence artificielle et d’infrastructures énergétiques. Ces évolutions touchent l’Algérie, l’Europe et les États-Unis, avec des impacts sur les marchés locaux et internationaux.",
+    "lead": "L'Algérie renforce sa position énergétique avec l'Allemagne, tandis que le secteur technologique international enregistre des avancées majeures en cybersécurité, IA et mobilité. Les décisions institutionnelles et les partenariats stratégiques dominent l'actualité des dernières 24 heures.",
     "corpsHtml": [
-      "<p>L’Algérie renforce son rôle géostratégique dans l’approvisionnement énergétique européen. Selon <a href=\"https://algerie-eco.com/2026/09/01/gaz-lallemagne-se-tourne-vers-lalgerie-pour-remplir-ses-stocks-avant-lhiver/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, l’Allemagne a officialisé des discussions avec l’Algérie pour sécuriser ses stocks de gaz avant la période hivernale, confirmant la dépendance mutuelle des deux pays dans le domaine énergétique. Cette initiative s’inscrit dans un contexte de tensions géopolitiques et de transition énergétique mondiale.</p>",
-      "<p></p>",
-      "<p>En Europe, la question de la souveraineté numérique reste au cœur des débats. D’après <a href=\"https://www.silicon.fr/business-1367/itsm-magic-quadrant-2026-228913\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>, un consensus a été trouvé sur le diagnostic des faiblesses structurelles des systèmes numériques, mais les solutions proposées divergent entre États membres et institutions européennes. Parallèlement, <a href=\"https://www.silicon.fr/workspace-1376/souverainete-numerique-le-diagnostic-fait-consensus-pas-le-remede-228911\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a> souligne que l’enquête sur ChatGPT au titre du Digital Services Act (DSA) a progressé, avec une attention particulière portée sur les pratiques algorithmiques des autres géants du secteur.</p>",
-      "<p></p>",
-      "<p>L’intelligence artificielle continue de transformer les marchés industriels. <a href=\"https://www.zdnet.fr/actualites/lia-fait-flamber-le-prix-du-cuivre-les-vieux-cables-telephoniques-valent-desormais-des-milliards-501025.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> rapporte une hausse spectaculaire du prix du cuivre, liée à la demande croissante pour les infrastructures IA, rendant les vieux câbles téléphoniques obsolètes économiquement viables. Qualcomm, de son côté, a présenté deux nouveaux processeurs Dragonwing dédiés à l’Internet des Objets industriel, selon <a href=\"https://www.zdnet.fr/actualites/qualcomm-devoile-deux-processeurs-dragonwing-pour-liot-commercial-et-industriel-501023.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Ces innovations visent à répondre aux besoins des usines connectées et des villes intelligentes.</p>",
-      "<p></p>",
-      "<p>Les risques cybernétiques liés à l’IA se multiplient. <a href=\"https://www.zdnet.fr/actualites/zd-tech-ce-piratage-dun-cours-de-pilates-par-un-agent-dia-illustre-le-nouveau-danger-qui-pese-sur-vos-applications-500397.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> alerte sur un piratage d’un cours de Pilates par un agent d’IA, illustrant les nouvelles vulnérabilités des systèmes automatisés. OpenAI, acteur majeur du secteur, propose désormais à ses grands clients un modèle de tarification à la réussite, où le paiement n’intervient qu’en cas de succès de la tâche réalisée par l’IA, d’après <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/openai/openai-proposerait-a-certains-grands-clients-de-ne-payer-que-lorsque-son-ia-reussit-sa-tache.Y4JQ455CX5E33AD62C52Z3WKHU.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Cette approche pourrait redéfinir les modèles économiques du secteur.</p>",
-      "<p></p>",
-      "<p>Les infrastructures numériques européennes connaissent une expansion sans précédent. Cerebras, spécialiste des supercalculateurs, a annoncé la construction d’un data center de 165 MW en Finlande, selon <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/ia-generative/cerebras-execute-son-plan-dexpansion-en-europe-un-data-center-de-165-mw-doit-voir-le-jour-en-finlande.ZJ5ED4ADENFU5FW2KSSTV4FEEY.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Ce projet s’ajoute à l’élargissement du marché des offres qualifiées SecNumCloud, poussé par les contraintes réglementaires européennes, comme le précise <a href=\"https://www.usine-digitale.fr/informatique/cloud/cloud-de-confiance-le-marche-des-offres-qualifiees-secnumcloud-selargit-pousse-par-les-contraintes-reglementaires.INOZUVHVONEL7IHPME6JHEGA6A.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Ces initiatives visent à renforcer la résilience et la sécurité des écosystèmes cloud locaux.</p>",
-      "<p></p>",
-      "<p>Côté matériel, ASUS a détaillé pour la première fois la configuration du PC ProArt P14 équipé d’un GPU RTX Spark, selon <a href=\"https://www.frandroid.com/marques/asus/3229775_proart-p14-asus-detaille-pour-la-premiere-fois-la-config-dun-pc-rtx-spark\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>, ciblant les professionnels de la création. Apple pourrait également bouleverser le marché des smartphones avec des rumeurs persistantes sur un futur iPhone Ultra doté d’une recharge ultra-rapide, toujours d’après Frandroid. Par ailleurs, Dell a dévoilé le Dell 14S, un PC étudiant affichant 21 heures d’autonomie dans un châssis premium, visant à s’imposer sur le segment éducatif.</p>",
-      "<p></p>",
-      "<p>Les infrastructures de recharge pour véhicules électriques connaissent un essor fulgurant. BYD a annoncé le déploiement de 10 000 bornes de recharge ultra-rapide (1 500 kW) en seulement cinq mois, selon <a href=\"https://www.01net.com/actualites/10-000-bornes-1-500-kw-5-mois-byd-deploie-reseau-recharge-ultra-rapide-rythme-infernal.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>, marquant une accélération significative du marché. Google, de son côté, a lancé Google Pics, un outil IA concurrent de Canva, toujours selon 01net, tandis que Dacia prépare une Sandero électrique alliant 430 km d’autonomie et un prix de 23 000 €, d’après 01net.</p>",
-      "<p></p>",
-      "<p>Enfin, des innovations sectorielles émergent dans d’autres domaines. IKEA a lancé des têtes thermostatiques Matter à 15 €, selon Numerama, tandis que la France mise sur des technologies souveraines avec Atron Metrology, qui utilise un accélérateur quantique pour des applications industrielles dans la Manche, comme le rapporte L'Usine Nouvelle. Aux États-Unis, CF Industries, JERA et Mitsui ont entamé les travaux d’une usine de production d’ammoniac vert en Louisiane, selon L'Usine Nouvelle, et la France évalue ses atouts pour attirer les data centers, comme le souligne L'Usine Nouvelle.</p>"
+      "<p>En matière de partenariats énergétiques, l'Algérie et l'Allemagne ont confirmé leur collaboration pour sécuriser les approvisionnements gaziers avant l'hiver, selon <a href=\"https://algerie-eco.com/2026/09/01/gaz-lallemagne-se-tourne-vers-lalgerie-pour-remplir-ses-stocks-avant-lhiver/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Cette initiative s'inscrit dans une stratégie de diversification des sources pour Berlin, alors que les tensions géopolitiques persistent sur le marché européen.</p>",
+      "<p>Côté innovation, le secteur public français peine à intégrer l'open source, malgré ses avantages économiques et techniques, d'après <a href=\"https://www.silicon.fr/open-source-1375/open-source-secteur-public-228917\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. Les obstacles incluent des contraintes réglementaires et des résistances culturelles au sein des administrations.</p>",
+      "<p>Le marché de l'ITSM (Information Technology Service Management) en France trouve un équilibre entre solutions fonctionnelles et intégration de l'IA, précise <a href=\"https://www.silicon.fr/business-1367/itsm-magic-quadrant-2026-228913\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. Les éditeurs misent sur des briques modulaires pour répondre aux besoins croissants des entreprises.</p>",
+      "<p>La souveraineté numérique en France fait consensus sur son diagnostic, mais les solutions restent divisées entre acteurs publics et privés, indique <a href=\"https://www.silicon.fr/workspace-1376/souverainete-numerique-le-diagnostic-fait-consensus-pas-le-remede-228911\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. Les débats portent sur les infrastructures locales et les partenariats internationaux.</p>",
+      "<p>Dans le secteur mobile, Apple a nommé John Ternus comme nouveau PDG, succédant à Tim Cook, avec pour mission de recentrer la stratégie sur les produits et l'intelligence artificielle, rapporte <a href=\"https://www.zdnet.fr/actualites/john-ternus-prend-les-renes-dapple-virage-produit-et-defi-ia-pour-le-successeur-de-tim-cook-501045.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Cette transition intervient dans un contexte de concurrence accrue avec les acteurs asiatiques.</p>",
+      "<p>La cybersécurité en France voit la qualification Secnumcloud s'imposer comme une priorité pour la rentrée, selon <a href=\"https://www.zdnet.fr/actualites/secnumcloud-pour-la-rentree-la-qualification-de-lanssi-simpose-comme-une-evidence-501003.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. L'Anssi (Agence nationale de la sécurité des systèmes d'information) renforce ses critères pour les solutions souveraines.</p>",
+      "<p>Le retard de l'IA dans les entreprises françaises est confirmé par <a href=\"https://www.zdnet.fr/actualites/zdnet-morning-02-09-2026-retard-de-lia-en-entreprise-leldorado-du-cuivre-nouvelles-puces-iot-qualcomm-501039.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>, qui souligne aussi les opportunités liées au cuivre et aux nouvelles puces IoT. Les acteurs industriels cherchent à combler le fossé technologique avec les leaders mondiaux.</p>",
+      "<p>Un investissement de 50 millions de dollars est annoncé pour développer des agents IA fiables, capable d'éviter les erreurs de ressources, selon <a href=\"https://www.usine-digitale.fr/cybersecurite/empecher-les-agents-ia-de-faire-confiance-aux-mauvaises-ressources-le-pari-a-50-millions-de-dollars-de-la-start-up-air.RTDEXIDMFRDEFGG7BRPJEEQE4Q.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Ce projet vise à renforcer la confiance dans les outils d'IA générative.</p>",
+      "<p>Les salariés français accélèrent l'adoption de l'IA au travail, mais les entreprises peinent à encadrer ces usages, note <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/ia-generative/ia-au-travail-les-salaries-francais-passent-a-la-vitesse-superieure-les-entreprises-cherchent-encore-leur-cadre.BVE4BG2MYJH2BNY7VAIG2JPF6U.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Les risques de désinformation et de perte de productivité sont au cœur des préoccupations.</p>",
+      "<p>OpenAI propose à ses grands clients un modèle de paiement à la performance pour son IA, révèle <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/openai/openai-proposerait-a-certains-grands-clients-de-ne-payer-que-lorsque-son-ia-reussit-sa-tache.Y4JQ455CX5E33AD62C52Z3WKHU.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Cette offre vise à réduire les coûts pour les entreprises tout en garantissant des résultats concrets.</p>",
+      "<p>Les fuites sur l'iPhone 18 Pro se multiplient à une semaine de la keynote Apple, selon <a href=\"https://www.frandroid.com/marques/apple/3230311_voici-liphone-18-pro-une-semaine-avant-la-keynote-apple\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>. Les rumeurs évoquent des améliorations majeures en caméra et en connectivité.</p>",
+      "<p>Les opérateurs mobiles français lancent des offres promotionnelles, comme un forfait 10 Go à 3,99 € au lieu de 7,99 €, indique <a href=\"https://www.frandroid.com/bons-plans/3230089_ce-forfait-10-go-habituellement-a-799-euros-passe-a-399-a-saisir-vite\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>. Cette réduction s'inscrit dans une guerre tarifaire pour capter les clients.</p>"
     ]
   },
-  "lastUpdated": "2026-09-02T08:25:01.064Z"
+  "lastUpdated": "2026-09-02T11:09:04.471Z"
 }
