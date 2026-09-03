@@ -1,38 +1,16 @@
 {
   "date": "jeudi 3 septembre",
-  "synthese": "Douze avancées technologiques majeures enregistrées en 24 heures, marquées par des décisions institutionnelles algériennes et des annonces internationales en IA, télécoms et cybersécurité. Les secteurs de l'industrie locale, des centres de données et des partenariats technologiques dominent l'actualité technique du jour.",
+  "synthese": "L’Algérie renforce sa cybersécurité et sa protection civile avec des initiatives institutionnelles. Les géants technologiques mondiaux annoncent des avancées majeures en IA, télécoms et innovation mobile, tandis que des fuites de données et des dysfonctionnements techniques impactent les utilisateurs.",
   "articles": [
     {
-      "titre": "Farid Kourtel prend ses fonctions de ministre de l’Industrie",
-      "resume": "M. Farid Kourtel a pris, ce mercredi, ses fonctions de ministre de l’Industrie, en remplacement de M. Yahia Bachir, à la suite de sa nomination à ce p",
-      "url": "https://algerie-eco.com/2026/09/02/farid-kourtel-prend-ses-fonctions-de-ministre-de-lindustrie/",
-      "date": "2026-09-02T21:38:00.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "titre": "L’Algérie réinvente sa protection civile <BR> Trois piliers pour sauver des vies",
+      "resume": "Séismes, inondations, mégafeux… L’Algérie, exposée à une nature de plus en plus violente, tourne le dos à la simple réaction pour adopter une doctrine",
+      "url": "https://www.itmag.dz/2026/09/03/lalgerie-reinvente-sa-protection-civile-br-trois-piliers-pour-sauver-des-vies/",
+      "date": "2026-09-03T08:48:43.000Z",
+      "source": "ITMAG.dz",
+      "logo": "https://www.google.com/s2/favicons?domain=itmag.dz&sz=32",
       "pays": "DZ",
-      "accroche": "Farid Kourtel nouveau ministre de l'Industrie",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Le deuxième Centre national de données à Blida obtient la certification internationale Tier III Design",
-      "resume": "Le deuxième Centre national de données à Blida a obtenu la certification internationale de conception « Tier III Design », délivrée par l’Uptime Insti",
-      "url": "https://algerie-eco.com/2026/09/02/le-deuxieme-centre-national-de-donnees-a-blida-obtient-la-certification-internationale-tier-iii-design/",
-      "date": "2026-09-02T21:27:05.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Certification Tier III Desi pour le CND de Blida",
-      "categorie": "Réseaux"
-    },
-    {
-      "titre": "AAPI : quatre projets d’investissement bénéficient de foncier économique, plus de 1300 emplois à la clé",
-      "resume": "L’Agence algérienne de promotion de l’investissement (AAPI) a annoncé, ce mercredi 2 septembre, la remise de plusieurs contrats de concession portant",
-      "url": "https://algerie-eco.com/2026/09/02/aapi-quatre-projets-dinvestissement-beneficient-de-foncier-economique-plus-de-1300-emplois-a-la-cle/",
-      "date": "2026-09-02T21:56:04.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Quatre projets d'investissement créent 1300 emplois",
+      "accroche": "Protection civile algérienne : trois piliers pour sauver des vies",
       "categorie": "Innovation"
     },
     {
@@ -43,8 +21,8 @@
       "source": "NTIC.dz",
       "logo": "https://www.google.com/s2/favicons?domain=ntic-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "LG Algérie lance une offre TV du 3 au 25 septembre",
-      "categorie": "Mobile"
+      "accroche": "LG Algérie lance offre promotionnelle sur téléviseurs",
+      "categorie": "Télécoms"
     },
     {
       "titre": "Media Star : Ooredoo accorde un délai supplémentaire exceptionnel aux journalistes",
@@ -54,8 +32,19 @@
       "source": "NTIC.dz",
       "logo": "https://www.google.com/s2/favicons?domain=ntic-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "Ooredoo prolonge délai exceptionnel pour Media Star",
+      "accroche": "Ooredoo accorde délai supplémentaire aux journalistes",
       "categorie": "Télécoms"
+    },
+    {
+      "titre": "Sécurité de l’IA : l’OSAA bascule sous la Linux Foundation",
+      "resume": "L'Open Secure AI Alliance devient un projet de la Linux Foundation. Au-delà du symbole, le transfert modifie la gouvernance, crédibilise la neutralité",
+      "url": "https://www.silicon.fr/cybersecurite-1371/securite-de-lia-losaa-bascule-sous-la-linux-foundation-228931",
+      "date": "2026-09-03T10:07:01.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Sécurité IA : l’OSAA intègre la Linux Foundation",
+      "categorie": "IA"
     },
     {
       "titre": "Nvidia, de vendeur de GPU à architecte du financement de l’IA",
@@ -65,19 +54,19 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Nvidia devient architecte du financement de l'IA",
+      "accroche": "Nvidia devient architecte du financement de l’IA",
       "categorie": "IA"
     },
     {
-      "titre": "Open source et secteur public : pourquoi ce n’est pas si facile",
-      "resume": "Les auditions de la commission parlementaire sur les dépendances numériques ont témoigné des défis que pose, dans la sphère publique, le déploiement d",
-      "url": "https://www.silicon.fr/open-source-1375/open-source-secteur-public-228917",
-      "date": "2026-09-02T10:21:25.000Z",
-      "source": "Silicon.fr",
-      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
+      "titre": "Capgemini toujours aux côtés de la police américaine de l'immigration",
+      "resume": "Capgemini poursuit ses activités avec l'ICE, la police américaine de l'immigration. L'administration américaine a publié un document fin août montrant",
+      "url": "https://www.zdnet.fr/actualites/capgemini-toujours-aux-cotes-de-la-police-americaine-de-limmigration-501064.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-09-03T10:15:02.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Open source dans le secteur public : défis identifiés",
-      "categorie": "Innovation"
+      "accroche": "Capgemini collabore avec la police américaine de l’immigration",
+      "categorie": "Cybersécurité"
     },
     {
       "titre": "OpenAI franchit le cap du milliard de dollars sur ChatGPT Ads",
@@ -91,6 +80,28 @@
       "categorie": "IA"
     },
     {
+      "titre": "Google poursuit la construction de sa forteresse cyber dopée à l’IA générative avec Gemini 3.8 Flash Cyber",
+      "resume": "",
+      "url": "https://www.usine-digitale.fr/informatique/cloud/google-cloud/google-poursuit-la-construction-de-sa-forteresse-cyber-dopee-a-lia-generative-avec-gemini-38-flash-cyber.6EFPYAAUIBDC5GFLU6J7LT63AY.html",
+      "date": "2026-09-03T10:00:00.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Google renforce sa cybersécurité avec Gemini 3.8 Flash",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Septeo rachète Lexbase : une nouvelle étape dans la consolidation du secteur de la legaltech à l’heure de l’IA",
+      "resume": "",
+      "url": "https://www.usine-digitale.fr/intelligence-artificielle/septeo-rachete-lexbase-une-nouvelle-etape-dans-la-consolidation-du-secteur-de-la-legaltech-a-lheure-de-lia.FK3MOTVMKFCE3PESNSMM4LIWXQ.html",
+      "date": "2026-09-03T08:42:11.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Septeo rachète Lexbase : consolidation du secteur legaltech",
+      "categorie": "Startups"
+    },
+    {
       "titre": "La Cnil améliore Genmod, son outil pour retracer la généalogie des modèles d’intelligence artificielle",
       "resume": "",
       "url": "https://www.usine-digitale.fr/cybersecurite/data-protection/cnil/la-cnil-ameliore-genmod-son-outil-pour-retracer-la-genealogie-des-modeles-dintelligence-artificielle.UHJMJVJXDVHGNDAUGII3VB6EPU.html",
@@ -98,30 +109,8 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "La Cnil améliore Genmod pour tracer les modèles d'IA",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "Astra n’est pas encore sorti… mais OpenAI affirme avoir franchi un seuil critique en cybersécurité sans pouvoir éliminer tous les risques",
-      "resume": "",
-      "url": "https://www.usine-digitale.fr/intelligence-artificielle/openai/astra-nest-pas-encore-sorti-mais-openai-affirme-avoir-franchi-un-seuil-critique-en-cybersecurite-sans-pouvoir-eliminer-tous-les-risques.R2AT524TYNBO5BIGHA7STVS7LY.html",
-      "date": "2026-09-02T14:00:00.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
-      "pays": "FR",
-      "accroche": "OpenAI franchit un seuil critique en cybersécurité",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "Xiaomi Auto confirme l’Europe en 2027 : l’Allemagne citée, la France espérée",
-      "resume": "Xiaomi profite de sa première IFA pour confirmer officiellement que ses voitures électriques arriveront en Europe en 2027, avec l'Allemagne comme prem",
-      "url": "https://www.frandroid.com/marques/xiaomi/3231009_xiaomi-auto-confirme-leurope-en-2027-lallemagne-citee-la-france-esperee",
-      "date": "2026-09-03T08:30:00.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Xiaomi Auto confirme son arrivée en Europe en 2027",
-      "categorie": "Mobile"
+      "accroche": "La Cnil améliore l’outil Genmod pour l’IA",
+      "categorie": "IA"
     },
     {
       "titre": "« Compte désactivé » : des utilisateurs Samsung n’arrivent plus à se connecter pour « raisons de sécurité »",
@@ -131,28 +120,39 @@
       "source": "01net",
       "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Samsung bloque des comptes pour raisons de sécurité",
+      "accroche": "Utilisateurs Samsung bloqués : problème de connexion",
+      "categorie": "Mobile"
+    },
+    {
+      "titre": "Une fuite de données touche Micromania, attention aux arnaques au colis !",
+      "resume": "Micromania prévient ses clients d'une fuite de données personnelles. Entre le 31 juillet et le 17 août 2026, un accès non autorisé a exposé noms, e-ma",
+      "url": "https://www.01net.com/actualites/fuite-donnees-chez-micromania-gare-arnaques-colis.html",
+      "date": "2026-09-03T07:55:00.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Fuite de données chez Micromania : risque d’arnaques",
       "categorie": "Cybersécurité"
     }
   ],
   "syntheseArticle": {
-    "titre": "Technologie : l'Algérie renforce ses infrastructures tandis que l'IA et la cybersécurité dominent l'actualité mondiale",
+    "titre": "Technologie : l’Algérie et le monde en mouvement avec IA, cybersécurité et avancées mobiles",
     "dateline": "Alger, 3 septembre 2026 (Algeria Tech)",
-    "lead": "Le secteur technologique algérien a connu aujourd'hui des avancées majeures avec la certification d'un centre de données et la nomination d'un nouveau ministre de l'Industrie. À l'international, l'intelligence artificielle et la cybersécurité enregistrent des percées significatives, tandis que les géants du mobile et des télécoms ajustent leurs stratégies.",
+    "lead": "Entre initiatives institutionnelles locales et annonces mondiales, le secteur technologique connaît une journée dense. L’Algérie renforce sa protection civile, tandis que les géants du numérique affichent des performances records en IA et cybersécurité. Des dysfonctionnements techniques et des fuites de données rappellent par ailleurs les enjeux de sécurité.",
     "corpsHtml": [
-      "<p>En Algérie, Farid Kourtel a pris officiellement ses fonctions de ministre de l'Industrie, marquant une nouvelle étape dans la gouvernance du secteur selon <a href=\"https://algerie-eco.com/2026/09/02/farid-kourtel-prend-ses-fonctions-de-ministre-de-lindustrie/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>. Parallèlement, l'Agence de promotion de l'investissement (AAPI) a attribué des fonciers économiques à quatre projets d'investissement, générant plus de 1 300 emplois directs, d'après la même source.</p>",
-      "<p>Le deuxième Centre national de données (CND) situé à Blida a obtenu la certification internationale Tier III Desi, confirmant sa conformité aux normes de disponibilité et de redondance les plus exigeantes. Cette certification, annoncée par <a href=\"https://algerie-eco.com/2026/09/02/le-deuxieme-centre-national-de-donnees-a-blida-obtient-la-certification-internationale-tier-iii-design/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, positionne l'Algérie parmi les pays disposant d'infrastructures de données de haut niveau.</p>",
-      "<p>Dans le domaine des télécoms, Ooredoo Algérie a accordé un délai supplémentaire exceptionnel aux journalistes participant au concours Media Star, afin de faciliter leur participation. Cette décision, rapportée par <a href=\"https://www.ntic-dz.com/du-3-au-25-septembre-lg-algerie-lance-une-offre-promotionnelle-sur-une-selection-de-televiseurs/?utm_source=rss&utm_medium=rss&utm_campaign=du-3-au-25-septembre-lg-algerie-lance-une-offre-promotionnelle-sur-une-selection-de-televiseurs\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">NTIC.dz</a>, s'inscrit dans une dynamique de soutien aux professionnels des médias.</p>",
-      "<p>Le groupe LG Algérie a lancé une offre promotionnelle sur une sélection de téléviseurs, valable du 3 au 25 septembre 2026. L'information a été relayée par <a href=\"https://www.ntic-dz.com/media-star-ooredoo-accorde-un-delai-supplementaire-exceptionnel-aux-journalistes/?utm_source=rss&utm_medium=rss&utm_campaign=media-star-ooredoo-accorde-un-delai-supplementaire-exceptionnel-aux-journalistes\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">NTIC.dz</a>, précisant les modèles concernés et les modalités de l'opération commerciale.</p>",
-      "<p>À l'international, Nvidia a annoncé une évolution stratégique en devenant un acteur clé du financement de l'intelligence artificielle. Selon <a href=\"https://www.silicon.fr/business-1367/nvidia-de-vendeur-de-gpu-a-architecte-du-financement-de-lia-228921\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>, cette transformation vise à accélérer le développement des infrastructures IA à travers le monde.</p>",
-      "<p>Le secteur public et l'open source continuent de poser des défis en matière d'adoption, comme l'analyse <a href=\"https://www.silicon.fr/open-source-1375/open-source-secteur-public-228917\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a> dans un dossier dédié. Les obstacles organisationnels et techniques freinent encore une intégration massive, malgré les avantages reconnus.</p>",
-      "<p>L'intelligence artificielle a également été au cœur de plusieurs annonces majeures. OpenAI a franchi le cap du milliard de dollars de revenus avec sa plateforme ChatGPT Ads, selon <a href=\"https://www.zdnet.fr/actualites/openai-franchit-le-cap-du-milliard-de-dollars-sur-chatgpt-ads-501109.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Cette performance financière reflète l'engouement croissant pour les solutions basées sur l'IA générative.</p>",
-      "<p>La Commission nationale de l'informatique et des libertés (Cnil) a amélioré son outil Genmod, dédié à la traçabilité des modèles d'intelligence artificielle. Cette mise à jour, signalée par <a href=\"https://www.usine-digitale.fr/cybersecurite/data-protection/cnil/la-cnil-ameliore-genmod-son-outil-pour-retracer-la-genealogie-des-modeles-dintelligence-artificielle.UHJMJVJXDVHGNDAUGII3VB6EPU.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>, vise à renforcer la transparence et la conformité réglementaire dans le domaine de l'IA.</p>",
-      "<p>Dans le domaine de la cybersécurité, OpenAI a affirmé avoir franchi un seuil critique avec son système de détection des cybermenaces, rapporté par <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/openai/astra-nest-pas-encore-sorti-mais-openai-affirme-avoir-franchi-un-seuil-critique-en-cybersecurite-sans-pouvoir-eliminer-tous-les-risques.R2AT524TYNBO5BIGHA7STVS7LY.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Cette avancée s'inscrit dans un contexte de multiplication des attaques informatiques à l'échelle mondiale.</p>",
-      "<p>Le constructeur chinois Xiaomi a confirmé son ambition d'étendre son activité automobile en Europe à partir de 2027, avec une première implantation en Allemagne. <a href=\"https://www.frandroid.com/marques/xiaomi/3231009_xiaomi-auto-confirme-leurope-en-2027-lallemagne-citee-la-france-esperee\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> souligne que la France figure parmi les marchés ciblés pour cette expansion. Par ailleurs, Xiaomi a dévoilé son modèle pliable 18 Fold lors du salon de Berlin, devançant Apple de six jours.</p>",
-      "<p>Dans le secteur des smartphones, Samsung a temporairement désactivé des comptes utilisateurs pour des raisons de sécurité, affectant des milliers de clients selon <a href=\"https://www.01net.com/actualites/compte-desactive-des-utilisateurs-samsung-narrivent-plus-a-se-connecter-pour-raisons-de-securite.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. Cette mesure intervient dans un contexte de hausse des cybermenaces visant les appareils mobiles.</p>",
-      "<p>Enfin, Apple a annoncé dans sa prochaine mise à jour iOS 27 la possibilité d'utiliser un même numéro de mobile sur deux iPhone simultanément. Cette fonctionnalité, détaillée par 01net, vise à améliorer la flexibilité d'utilisation pour les utilisateurs professionnels.</p>"
+      "<p>L’Algérie accélère sa modernisation technologique avec la mise en place de trois piliers stratégiques pour la protection civile, selon <a href=\"https://www.itmag.dz/2026/09/03/lalgerie-reinvente-sa-protection-civile-br-trois-piliers-pour-sauver-des-vies/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ITMAG.dz</a>. Cette initiative s’inscrit dans une volonté de renforcer la résilience des infrastructures et la sécurité des citoyens.</p>",
+      "<p>Dans le domaine des télécoms, LG Algérie lance une offre promotionnelle sur une sélection de téléviseurs du 3 au 25 septembre, comme annoncé par <a href=\"https://www.ntic-dz.com/du-3-au-25-septembre-lg-algerie-lance-une-offre-promotionnelle-sur-une-selection-de-televiseurs/?utm_source=rss&utm_medium=rss&utm_campaign=du-3-au-25-septembre-lg-algerie-lance-une-offre-promotionnelle-sur-une-selection-de-televiseurs\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">NTIC.dz</a>. Cette opération vise à stimuler le marché local en période post-estivale.</p>",
+      "<p>Ooredoo accorde un délai supplémentaire exceptionnel aux journalistes pour régulariser leurs comptes, d'après <a href=\"https://www.ntic-dz.com/media-star-ooredoo-accorde-un-delai-supplementaire-exceptionnel-aux-journalistes/?utm_source=rss&utm_medium=rss&utm_campaign=media-star-ooredoo-accorde-un-delai-supplementaire-exceptionnel-aux-journalistes\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">NTIC.dz</a>. Cette mesure s’inscrit dans le cadre d’un accompagnement renforcé des professionnels des médias.</p>",
+      "<p>La sécurité de l’intelligence artificielle franchit une étape majeure avec l’intégration de l’OSAA sous la Linux Foundation, rapporte <a href=\"https://www.silicon.fr/cybersecurite-1371/securite-de-lia-losaa-bascule-sous-la-linux-foundation-228931\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. Cette collaboration vise à standardiser les pratiques et renforcer la transparence des modèles d’IA.</p>",
+      "<p>Nvidia élargit son influence en devenant un acteur clé du financement de l’IA, selon <a href=\"https://www.silicon.fr/business-1367/nvidia-de-vendeur-de-gpu-a-architecte-du-financement-de-lia-228921\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>. Le géant des puces GPU diversifie ses activités pour soutenir l’écosystème technologique mondial.</p>",
+      "<p>Capgemini maintient sa collaboration avec la police américaine de l’immigration, comme le révèle <a href=\"https://www.zdnet.fr/actualites/capgemini-toujours-aux-cotes-de-la-police-americaine-de-limmigration-501064.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Cette partenariat s’étend sur plusieurs années pour moderniser les infrastructures numériques du service.</p>",
+      "<p>OpenAI franchit le cap du milliard de dollars de revenus avec sa plateforme ChatGPT Ads, indique <a href=\"https://www.zdnet.fr/actualites/openai-franchit-le-cap-du-milliard-de-dollars-sur-chatgpt-ads-501109.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>. Cette performance reflète l’adoption massive de l’outil par les annonceurs et les utilisateurs.</p>",
+      "<p>Google renforce sa cybersécurité avec le déploiement de Gemini 3.8 Flash, comme le détaille <a href=\"https://www.usine-digitale.fr/informatique/cloud/google-cloud/google-poursuit-la-construction-de-sa-forteresse-cyber-dopee-a-lia-generative-avec-gemini-38-flash-cyber.6EFPYAAUIBDC5GFLU6J7LT63AY.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Ce modèle d’IA générative est intégré aux infrastructures critiques pour détecter et neutraliser les menaces en temps réel.</p>",
+      "<p>Le secteur de la legaltech connaît une consolidation avec le rachat de Lexbase par Septeo, selon <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/septeo-rachete-lexbase-une-nouvelle-etape-dans-la-consolidation-du-secteur-de-la-legaltech-a-lheure-de-lia.FK3MOTVMKFCE3PESNSMM4LIWXQ.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Cette opération marque une étape importante dans la rationalisation des services juridiques numériques.</p>",
+      "<p>La Cnil améliore son outil Genmod pour retracer la généalogie des modèles d’IA, comme le souligne <a href=\"https://www.usine-digitale.fr/cybersecurite/data-protection/cnil/la-cnil-ameliore-genmod-son-outil-pour-retracer-la-genealogie-des-modeles-dintelligence-artificielle.UHJMJVJXDVHGNDAUGII3VB6EPU.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Cette mise à jour vise à renforcer la traçabilité et la conformité des algorithmes utilisés en France.</p>",
+      "<p>Les utilisateurs Samsung rencontrent des difficultés pour se connecter à leurs comptes, rapporte <a href=\"https://www.01net.com/actualites/compte-desactive-des-utilisateurs-samsung-narrivent-plus-a-se-connecter-pour-raisons-de-securite.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. Le problème, lié à des raisons de sécurité, perturbe l’accès aux services mobiles pour un nombre non précisé d’abonnés.</p>",
+      "<p>Une fuite de données touche Micromania, exposant les clients à des risques d’arnaques au colis, selon <a href=\"https://www.01net.com/actualites/fuite-donnees-chez-micromania-gare-arnaques-colis.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. L’enseigne recommande la vigilance et la vérification des communications suspectes.</p>"
     ]
   },
-  "lastUpdated": "2026-09-03T08:34:38.525Z"
+  "lastUpdated": "2026-09-03T11:05:24.039Z"
 }
