@@ -7,13 +7,19 @@ const parser = new Parser({
     timeout: 15000,
 });
 
-// CHANGEMENT : On utilise MISTRAL_API_KEY
-const MISTRAL_API_KEY = process.env.MISTRAL_API_KEY;
-const GEMINI_API_KEY  = process.env.GEMINI_API_KEY;
+// Chaîne IA à 5 fournisseurs : dès qu'un expire/quota dépassé, le suivant prend le
+// relais automatiquement (voir generateRevue). Ordre : gratuits d'abord (Mistral,
+// Gemini), payants ensuite (OpenRouter, OpenAI, DeepSeek) pour éviter les coûts
+// inutiles quand un moteur gratuit répond.
+const MISTRAL_API_KEY    = process.env.MISTRAL_API_KEY;
+const GEMINI_API_KEY     = process.env.GEMINI_API_KEY;
+const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
+const OPENAI_API_KEY     = process.env.OPENAI_API_KEY;
+const DEEPSEEK_API_KEY   = process.env.DEEPSEEK_API_KEY;
 const OUTPUT_FILE = path.join(__dirname, 'revue_presse.json');
 
-if (!MISTRAL_API_KEY && !GEMINI_API_KEY) {
-    console.error("❌ Ni MISTRAL_API_KEY ni GEMINI_API_KEY définies. Tapez : $env:MISTRAL_API_KEY='VOTRE_CLE'");
+if (!MISTRAL_API_KEY && !GEMINI_API_KEY && !OPENROUTER_API_KEY && !OPENAI_API_KEY && !DEEPSEEK_API_KEY) {
+    console.error("❌ Aucune clé IA définie (MISTRAL/GEMINI/OPENROUTER/OPENAI/DEEPSEEK_API_KEY).");
     process.exit(1);
 }
 
@@ -188,6 +194,98 @@ async function callGemini(prompt) {
     throw lastErr;
 }
 
+// ── Appel générique pour les fournisseurs compatibles API OpenAI (chat/completions) :
+// OpenRouter, OpenAI, DeepSeek. Mistral garde son propre appel ci-dessus (déjà en place
+// et testé), mais partage la même forme de réponse (choices[0].message.content).
+function extractJsonFromText(text) {
+    const m = /\{[\s\S]*\}/.exec(text || '');
+    return JSON.parse(m ? m[0] : text);
+}
+
+async function callOpenAICompatibleOnce(prompt, { baseUrl, apiKey, model, jsonMode, extraHeaders }) {
+    const https = require('https');
+    const url = new URL(baseUrl);
+    const body = { model, messages: [{ role: 'user', content: prompt }], temperature: 0.5 };
+    if (jsonMode) body.response_format = { type: 'json_object' };
+    const payload = JSON.stringify(body);
+
+    return new Promise((resolve, reject) => {
+        const req = https.request({
+            hostname: url.hostname,
+            path: url.pathname,
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${apiKey}`,
+                ...(extraHeaders || {})
+            }
+        }, res => {
+            let data = '';
+            res.on('data', c => data += c);
+            res.on('end', () => {
+                if (res.statusCode !== 200) {
+                    const err = new Error(`${model} Error ${res.statusCode}: ${data.slice(0, 300)}`);
+                    err.statusCode = res.statusCode;
+                    return reject(err);
+                }
+                try { resolve(JSON.parse(data)); }
+                catch (e) { reject(new Error(`${model} JSON invalide: ${e.message}`)); }
+            });
+        });
+        req.setTimeout(60000, () => { req.destroy(); reject(Object.assign(new Error(`${model} Timeout 60s`), { statusCode: 0 })); });
+        req.on('error', reject);
+        req.write(payload);
+        req.end();
+    });
+}
+
+async function callOpenAICompatible(prompt, opts, retries = 2) {
+    let lastErr;
+    for (let attempt = 1; attempt <= retries; attempt++) {
+        try { return await callOpenAICompatibleOnce(prompt, opts); }
+        catch (e) {
+            lastErr = e;
+            const retryable = RETRYABLE_STATUS.has(e.statusCode) || /Timeout|ECONNRESET|ENOTFOUND|EAI_AGAIN/.test(e.message);
+            if (!retryable || attempt === retries) throw e;
+            const delay = 3000 * attempt;
+            console.warn(`  ⚠️  ${opts.model} (${e.message.slice(0, 90)}) — nouvelle tentative dans ${delay / 1000}s (${attempt}/${retries})`);
+            await sleep(delay);
+        }
+    }
+    throw lastErr;
+}
+
+async function callOpenRouter(prompt) {
+    const r = await callOpenAICompatible(prompt, {
+        baseUrl: 'https://openrouter.ai/api/v1/chat/completions',
+        apiKey: OPENROUTER_API_KEY,
+        model: 'meta-llama/llama-3.3-70b-instruct',
+        jsonMode: false, // support JSON mode variable selon le modèle routé — on extrait nous-mêmes
+        extraHeaders: { 'HTTP-Referer': 'https://algeria-tech.pages.dev', 'X-Title': 'Algeria Tech - Revue de presse' }
+    });
+    return extractJsonFromText(r.choices[0].message.content);
+}
+
+async function callOpenAI(prompt) {
+    const r = await callOpenAICompatible(prompt, {
+        baseUrl: 'https://api.openai.com/v1/chat/completions',
+        apiKey: OPENAI_API_KEY,
+        model: 'gpt-4o-mini',
+        jsonMode: true
+    });
+    return JSON.parse(r.choices[0].message.content);
+}
+
+async function callDeepSeek(prompt) {
+    const r = await callOpenAICompatible(prompt, {
+        baseUrl: 'https://api.deepseek.com/chat/completions',
+        apiKey: DEEPSEEK_API_KEY,
+        model: 'deepseek-chat',
+        jsonMode: true
+    });
+    return JSON.parse(r.choices[0].message.content);
+}
+
 function buildPrompt(rawArticles) {
     const input = rawArticles.map((a, i) => ({ i, t: a.titre.substring(0, 100), s: a.source }));
     return `Tu es rédacteur en chef de l'Algérie Presse Service (APS). Analyse ces articles tech des dernières 24h.
@@ -265,29 +363,30 @@ function buildRuleBasedRevue(rawArticles) {
     };
 }
 
-// Orchestre Mistral (avec retries) → repli Gemini (avec retries par modèle) → repli sans IA.
-// Ne lève jamais : la revue est TOUJOURS publiée, dégradée si besoin, jamais absente.
+// Chaîne à 5 fournisseurs, gratuits d'abord : Mistral → Gemini → OpenRouter → OpenAI →
+// DeepSeek → repli sans IA. Chacun a ses propres retries ; dès qu'un expire ou dépasse
+// son quota, le suivant prend le relais automatiquement. Ne lève jamais : la revue est
+// TOUJOURS publiée, dégradée si besoin, jamais absente.
+const AI_PROVIDERS = [
+    { name: 'Mistral',    key: () => MISTRAL_API_KEY,    run: async (prompt) => JSON.parse((await callMistral(prompt)).choices[0].message.content) },
+    { name: 'Gemini',     key: () => GEMINI_API_KEY,     run: callGemini },
+    { name: 'OpenRouter', key: () => OPENROUTER_API_KEY, run: callOpenRouter },
+    { name: 'OpenAI',     key: () => OPENAI_API_KEY,     run: callOpenAI },
+    { name: 'DeepSeek',   key: () => DEEPSEEK_API_KEY,   run: callDeepSeek },
+];
+
 async function generateRevue(rawArticles) {
     const prompt = buildPrompt(rawArticles);
 
-    if (MISTRAL_API_KEY) {
+    for (const provider of AI_PROVIDERS) {
+        if (!provider.key()) continue;
         try {
-            console.log(`\n🤖 IA MISTRAL SUR ${rawArticles.length} ARTICLES...`);
-            const response = await callMistral(prompt);
-            const result = packAiResult(JSON.parse(response.choices[0].message.content), rawArticles);
-            return { ...result, engine: 'Mistral' };
-        } catch (e) {
-            console.warn(`\n⚠️  Mistral indisponible après tentatives (${e.message.slice(0, 150)}) — repli Gemini.`);
-        }
-    }
-    if (GEMINI_API_KEY) {
-        try {
-            console.log(`\n🤖 IA GEMINI (repli) SUR ${rawArticles.length} ARTICLES...`);
-            const aiResult = await callGemini(prompt);
+            console.log(`\n🤖 IA ${provider.name.toUpperCase()} SUR ${rawArticles.length} ARTICLES...`);
+            const aiResult = await provider.run(prompt);
             const result = packAiResult(aiResult, rawArticles);
-            return { ...result, engine: 'Gemini' };
+            return { ...result, engine: provider.name };
         } catch (e) {
-            console.warn(`\n⚠️  Gemini indisponible (${e.message.slice(0, 150)}) — repli sans IA.`);
+            console.warn(`\n⚠️  ${provider.name} indisponible (${e.message.slice(0, 150)}) — moteur suivant.`);
         }
     }
     console.warn('\n⚠️  Aucun moteur IA disponible — édition générée sans réécriture (titres bruts).');
