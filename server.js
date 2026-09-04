@@ -184,16 +184,6 @@ async function callMistral(payload, { timeout = 25000, retries = 2, retryDelay =
     const { messages, response_format, temperature, max_tokens } = req;
     const jsonMode = !!(response_format && response_format.type === 'json_object');
 
-    if (MISTRAL_API_KEY) {
-        try {
-            const raw = await callMistralRaw(payload, { timeout, retries, retryDelay });
-            const parsed = JSON.parse(raw);
-            if (!(parsed.error || parsed.object === 'error' || !parsed.choices)) return raw;
-            console.warn(`[ai-chain] Mistral indisponible (${(parsed.error && parsed.error.message) || parsed.message}) — moteur suivant.`);
-        } catch (e) {
-            console.warn(`[ai-chain] Mistral erreur réseau (${e.message}) — moteur suivant.`);
-        }
-    }
     if (GEMINI_API_KEY) {
         try {
             const text = await callGeminiChain(messages, { jsonMode, temperature, maxTokens: max_tokens });
@@ -226,9 +216,21 @@ async function callMistral(payload, { timeout = 25000, retries = 2, retryDelay =
                 model: 'deepseek-chat', jsonMode, temperature, maxTokens: max_tokens
             });
             return JSON.stringify({ choices: [{ message: { content: text } }] });
-        } catch (e) { console.warn(`[ai-chain] DeepSeek indisponible (${e.message.slice(0, 150)}).`); }
+        } catch (e) { console.warn(`[ai-chain] DeepSeek indisponible (${e.message.slice(0, 150)}) — moteur suivant.`); }
     }
-    return JSON.stringify({ object: 'error', message: 'Tous les moteurs IA sont indisponibles (Mistral/Gemini/OpenRouter/OpenAI/DeepSeek).' });
+    // Mistral en dernier : son workspace reste rate-limité en continu (429 systématique),
+    // autant ne pas perdre de temps dessus avant d'avoir essayé les autres.
+    if (MISTRAL_API_KEY) {
+        try {
+            const raw = await callMistralRaw(payload, { timeout, retries, retryDelay });
+            const parsed = JSON.parse(raw);
+            if (!(parsed.error || parsed.object === 'error' || !parsed.choices)) return raw;
+            console.warn(`[ai-chain] Mistral indisponible (${(parsed.error && parsed.error.message) || parsed.message}).`);
+        } catch (e) {
+            console.warn(`[ai-chain] Mistral erreur réseau (${e.message}).`);
+        }
+    }
+    return JSON.stringify({ object: 'error', message: 'Tous les moteurs IA sont indisponibles (Gemini/OpenRouter/OpenAI/DeepSeek/Mistral).' });
 }
 
 app.use(cors({

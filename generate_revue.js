@@ -367,12 +367,14 @@ function buildRuleBasedRevue(rawArticles) {
 // DeepSeek → repli sans IA. Chacun a ses propres retries ; dès qu'un expire ou dépasse
 // son quota, le suivant prend le relais automatiquement. Ne lève jamais : la revue est
 // TOUJOURS publiée, dégradée si besoin, jamais absente.
+// Mistral en dernier : son workspace reste rate-limité en continu (429 systématique),
+// autant ne pas perdre de temps dessus avant d'avoir essayé les autres.
 const AI_PROVIDERS = [
-    { name: 'Mistral',    key: () => MISTRAL_API_KEY,    run: async (prompt) => JSON.parse((await callMistral(prompt)).choices[0].message.content) },
     { name: 'Gemini',     key: () => GEMINI_API_KEY,     run: callGemini },
     { name: 'OpenRouter', key: () => OPENROUTER_API_KEY, run: callOpenRouter },
     { name: 'OpenAI',     key: () => OPENAI_API_KEY,     run: callOpenAI },
     { name: 'DeepSeek',   key: () => DEEPSEEK_API_KEY,   run: callDeepSeek },
+    { name: 'Mistral',    key: () => MISTRAL_API_KEY,    run: async (prompt) => JSON.parse((await callMistral(prompt)).choices[0].message.content) },
 ];
 
 async function generateRevue(rawArticles) {
