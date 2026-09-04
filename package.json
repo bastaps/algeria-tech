@@ -1,7 +1,7 @@
 {
   "name": "algeria-tech-api",
   "version": "2.0.0",
-  "description": "Backend Algeria Tech + Générateur d'Infographies",
+  "description": "Backend Algeria Tech + G\u00e9n\u00e9rateur d'Infographies",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@octokit/rest": "^19.0.5",
-    "@ooples/token-optimizer-mcp": "^5.0.1",
+    "@ooples/token-optimizer-mcp": "^5.6.1",
     "adm-zip": "^0.5.17",
     "compression": "^1.8.1",
     "cors": "^2.8.5",
