@@ -82,7 +82,12 @@ app.use(cors({
         // article-interactif (Flask, e:\algeria-tech\article-interactif) — permet à sa
         // page de récupérer un lien /article/:id de smart-ingest en fetch() direct.
         'http://localhost:5000',
-        'http://127.0.0.1:5000'
+        'http://127.0.0.1:5000',
+        // Studio Conversion (OUTILS/convertisseur) — serveur statique dédié sur un
+        // autre port pour les headers COOP/COEP requis par ffmpeg.wasm ; son import
+        // par URL appelle l'API du serveur principal en cross-origin.
+        'http://localhost:8080',
+        'http://127.0.0.1:8080'
     ],
     credentials: true
 }));
@@ -339,6 +344,64 @@ app.get('/smart-ingest.html', (req, res) => res.sendFile(path.join(__dirname, 's
 app.get('/video-downloader', (req, res) => res.sendFile(path.join(__dirname, 'video-downloader.html')));
 app.get('/video-transcription', (req, res) => res.sendFile(path.join(__dirname, 'video-transcription.html')));
 app.get('/multimedia-studio', (req, res) => res.sendFile(path.join(__dirname, 'algeria-tech-multimedia-studio.html')));
+
+// === ROUTE JO INTERACTIF (lecteur JO + passerelle JORADP) ===
+// Intégré au hub port 3000 : les fichiers statiques (index.html, app.js, styles.css…)
+// sont déjà servis via le express.static(__dirname) plus bas, /jo-interactif/ résout
+// donc automatiquement vers jo-interactif/index.html. Seules ses 2 routes API — propres
+// à cet outil (E:\algeria-tech\jo-interactif\server.py, ex-serveur Python séparé port 8765)
+// et sans rapport avec les /api/joradp et /api/veille du site principal (veille TIC),
+// d'où le préfixe /jo-interactif/api/… pour éviter toute collision — doivent être portées ici.
+app.get('/jo-interactif/api/veille', (req, res) => res.json(loadJoradpData()));
+
+const JORADP_PDF_URL = {
+    fr: (year, number) => `https://www.joradp.dz/FTP/JO-FRANCAIS/${year}/F${year}${String(number).padStart(3, '0')}.pdf`,
+    ar: (year, number) => `https://www.joradp.dz/FTP/JO-ARABE/${year}/A${year}${String(number).padStart(3, '0')}.pdf`,
+};
+app.get('/jo-interactif/api/pdf', (req, res) => {
+    const year   = parseInt(req.query.year, 10);
+    const number = parseInt(req.query.number, 10);
+    const lang   = String(req.query.lang || 'fr').toLowerCase();
+    if (!JORADP_PDF_URL[lang]) return res.status(400).type('text/plain').send('Langue inconnue : utilisez fr ou ar.');
+    if (!Number.isInteger(year) || year < 1962 || year > 2100 || !Number.isInteger(number) || number < 1 || number > 999)
+        return res.status(400).type('text/plain').send('Année ou numéro hors limites.');
+
+    const target = new URL(JORADP_PDF_URL[lang](year, number));
+    // JORADP répartit son trafic sur plusieurs serveurs ; l'un d'eux ne supporte que
+    // l'ancienne renégociation TLS, qu'OpenSSL refuse par défaut sans cette option.
+    const upstream = https.request({
+        hostname: target.hostname,
+        path: target.pathname,
+        headers: { 'User-Agent': 'JO-Interactif-local/1.1 (+http://localhost:3000)' },
+        secureOptions: require('constants').SSL_OP_LEGACY_SERVER_CONNECT,
+    }, apiRes => {
+        const chunks = [];
+        apiRes.on('data', c => chunks.push(c));
+        apiRes.on('end', () => {
+            const buffer = Buffer.concat(chunks);
+            if (apiRes.statusCode !== 200) {
+                const edition = lang === 'ar' ? 'arabe' : 'française';
+                return res.status(apiRes.statusCode === 404 ? 404 : 502).type('text/plain').send(
+                    apiRes.statusCode === 404
+                        ? `L'édition ${edition} du JO n° ${number} de ${year} n'est pas disponible sur JORADP.`
+                        : `JORADP a répondu avec l'erreur ${apiRes.statusCode}.`
+                );
+            }
+            if (buffer.slice(0, 4).toString('latin1') !== '%PDF') {
+                return res.status(502).type('text/plain').send("JORADP n'a pas retourné un document PDF exploitable.");
+            }
+            res.set({
+                'Content-Type': 'application/pdf',
+                'Content-Disposition': `inline; filename="joradp_${lang}_n${String(number).padStart(3, '0')}_${year}.pdf"`,
+                'Cache-Control': 'no-store',
+            });
+            res.send(buffer);
+        });
+    });
+    upstream.setTimeout(45000, () => upstream.destroy(new Error('timeout')));
+    upstream.on('error', () => res.status(502).type('text/plain').send('JORADP est momentanément inaccessible. Vérifiez votre connexion.'));
+    upstream.end();
+});
 
 // === ROUTE ARTICLES (SPA — hard refresh support) ===
 app.get('/article/:id', (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
@@ -1010,6 +1073,79 @@ function ocrImageMistral(buffer, mimetype) {
     });
 }
 
+// Description d'une image via le modèle vision de Mistral (Pixtral) — sert de
+// repli local à /api/outpaint (action "decrire"), qui en production tourne sur
+// Cloudflare Pages Functions (Workers AI / LLaVA, indisponible ici en local).
+function decrireImageMistral(dataUrl) {
+    return new Promise((resolve, reject) => {
+        const m = /^data:([^;]+);base64,(.+)$/s.exec(String(dataUrl || ''));
+        if (!m) return reject(new Error('image invalide'));
+        const payload = JSON.stringify({
+            model: 'pixtral-12b-2409',
+            messages: [{
+                role: 'user',
+                content: [
+                    {
+                        type: 'text',
+                        text: "Describe ONLY the background environment of this image in one short " +
+                              "English sentence: the setting, the architecture or landscape, the colors " +
+                              "and the lighting. Do not describe people, text, logos or the main subject."
+                    },
+                    { type: 'image_url', image_url: dataUrl }
+                ]
+            }],
+            temperature: 0.2,
+            max_tokens: 96
+        });
+
+        const options = {
+            hostname: 'api.mistral.ai',
+            path: '/v1/chat/completions',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${MISTRAL_API_KEY}`,
+                'Content-Length': Buffer.byteLength(payload)
+            }
+        };
+
+        const request = https.request(options, (apiRes) => {
+            let data = '';
+            apiRes.on('data', c => data += c);
+            apiRes.on('end', () => {
+                try {
+                    const result = JSON.parse(data);
+                    if (result.error) return reject(new Error(result.error.message));
+                    resolve((result.choices[0].message.content || '').trim());
+                } catch (e) { reject(e); }
+            });
+        });
+        request.on('error', reject);
+        request.write(payload);
+        request.end();
+    });
+}
+
+// Station d'Image (studio-image-v6) : en local, seule l'action "decrire" est
+// honorée (via Mistral Pixtral) ; le vrai outpainting reste réservé à la
+// version déployée (Workers AI). On répond en JSON dans tous les cas pour
+// éviter le piège « Unexpected token < » (404 HTML) côté client.
+app.post('/api/outpaint', express.json({ limit: '15mb' }), async (req, res) => {
+    const { action, image } = req.body || {};
+    if (action === 'decrire') {
+        if (!image) return res.status(400).json({ error: 'image requise' });
+        if (!MISTRAL_API_KEY) return res.status(503).json({ error: 'Description non configurée (MISTRAL_API_KEY absente)' });
+        try {
+            const texte = await decrireImageMistral(image);
+            if (!texte) return res.status(502).json({ error: 'Description vide' });
+            return res.json({ description: texte.slice(0, 300), moteur: 'pixtral' });
+        } catch (e) {
+            return res.status(502).json({ error: e.message || 'Description indisponible' });
+        }
+    }
+    return res.status(503).json({ error: "Outpainting non disponible en local (réservé à la version déployée)." });
+});
+
 // Structuration IA du texte brut → champs du formulaire Communiqué
 function structureCommuniqueIA(rawText) {
     return new Promise((resolve, reject) => {
@@ -1135,7 +1271,7 @@ ${chunk}`;
 
             const data = await callMistral(payload, { timeout: 45000 });
             const result = JSON.parse(data);
-            if (result.error) throw new Error(result.error.message);
+            if (result.error || result.object === 'error' || !result.choices) throw new Error((result.error && result.error.message) || result.message || 'Réponse Mistral invalide');
             const translated = result.choices?.[0]?.message?.content;
             if (!translated || !translated.trim()) throw new Error('Traduction vide');
             return translated.trim();
@@ -1452,7 +1588,7 @@ ${text.substring(0, 4000)}`;
         apiRes.on('end', () => {
             try {
                 const result = JSON.parse(data);
-                if (result.error) throw new Error(result.error.message);
+                if (result.error || result.object === 'error' || !result.choices) throw new Error((result.error && result.error.message) || result.message || 'Réponse Mistral invalide');
                 const article = JSON.parse(result.choices[0].message.content);
 
                 // Section "Pour rappel" construite par code à partir de vrais articles du jour —
@@ -1501,7 +1637,7 @@ ARTICLE : ${contenu.substring(0, 3500)}`;
     try {
         const data   = await callMistral(payload);
         const result = JSON.parse(data);
-        if (result.error) throw new Error(result.error.message);
+        if (result.error || result.object === 'error' || !result.choices) throw new Error((result.error && result.error.message) || result.message || 'Réponse Mistral invalide');
         const parsed = JSON.parse(result.choices[0].message.content);
         if (!Array.isArray(parsed.points) || parsed.points.length === 0)
             throw new Error('Format inattendu');
@@ -1898,7 +2034,7 @@ ${String(contenu || '').substring(0, 4200)}
     try {
         const data   = await callMistral(payload);
         const result = JSON.parse(data);
-        if (result.error) throw new Error(result.error.message);
+        if (result.error || result.object === 'error' || !result.choices) throw new Error((result.error && result.error.message) || result.message || 'Réponse Mistral invalide');
         const reponse = result.choices?.[0]?.message?.content;
         if (!reponse) throw new Error('Réponse Mistral vide');
         res.json({ reponse });
@@ -2451,7 +2587,7 @@ ${rawText.substring(0, 12000)}`;
 
     const data = await callMistral(payload);
     const result = JSON.parse(data);
-    if (result.error) throw new Error(result.error.message);
+    if (result.error || result.object === 'error' || !result.choices) throw new Error((result.error && result.error.message) || result.message || 'Réponse Mistral invalide');
     const parsed = JSON.parse(result.choices[0].message.content);
     // Tolérance : l'IA peut renvoyer un objet seul, un tableau nu ou {offers:[...]}
     const list = Array.isArray(parsed) ? parsed
@@ -3127,7 +3263,9 @@ const { spawn } = require('child_process');
 const os = require('os');
 
 const YTDLP = 'C:\\Users\\Aps\\AppData\\Local\\Python\\pythoncore-3.14-64\\Scripts\\yt-dlp.exe';
-const FFMPEG_PATH = 'C:\\Users\\Aps\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1-full_build\\bin\\ffmpeg.exe';
+// Lien stable maintenu par WinGet (survit aux mises à jour de version, contrairement
+// à un chemin figé sur un dossier "ffmpeg-X.Y-full_build" qui change à chaque upgrade).
+const FFMPEG_PATH = process.env.FFMPEG_PATH || 'C:\\Users\\Aps\\AppData\\Local\\Microsoft\\WinGet\\Links\\ffmpeg.exe';
 function ytdlpExtra() {
     return ['--socket-timeout', '30', '--retries', '3', '--js-runtimes', 'node'];
 }
@@ -3523,7 +3661,7 @@ ${rawDiarized.substring(0, 12000)}`;
     try {
         const data = await callMistral(payload, { timeout: 45000 });
         const result = JSON.parse(data);
-        if (result.error) throw new Error(result.error.message);
+        if (result.error || result.object === 'error' || !result.choices) throw new Error((result.error && result.error.message) || result.message || 'Réponse Mistral invalide');
         const formatted = result.choices?.[0]?.message?.content;
         return (formatted && formatted.trim()) ? formatted.trim() : rawDiarized;
     } catch (e) {

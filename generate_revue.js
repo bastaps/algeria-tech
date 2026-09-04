@@ -9,12 +9,15 @@ const parser = new Parser({
 
 // CHANGEMENT : On utilise MISTRAL_API_KEY
 const MISTRAL_API_KEY = process.env.MISTRAL_API_KEY;
+const GEMINI_API_KEY  = process.env.GEMINI_API_KEY;
 const OUTPUT_FILE = path.join(__dirname, 'revue_presse.json');
 
-if (!MISTRAL_API_KEY) {
-    console.error("❌ MISTRAL_API_KEY non définie. Tapez : $env:MISTRAL_API_KEY='VOTRE_CLE'");
+if (!MISTRAL_API_KEY && !GEMINI_API_KEY) {
+    console.error("❌ Ni MISTRAL_API_KEY ni GEMINI_API_KEY définies. Tapez : $env:MISTRAL_API_KEY='VOTRE_CLE'");
     process.exit(1);
 }
+
+const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 
 const SOURCES = [
     { url: 'https://itmag.dz/feed/',                       name: 'ITMAG.dz',         pays: 'DZ' },
@@ -81,11 +84,11 @@ async function fetchRSS(source) {
     }
 }
 
-// ── APPEL API MISTRAL (Plus stable que Gemini) ──────────────────────────────
-async function callMistral(prompt) {
+// ── APPEL API MISTRAL, avec retry sur erreurs transitoires (429/5xx/réseau/timeout) ──
+async function callMistralOnce(prompt) {
     const https = require('https');
     const endpoint = 'https://api.mistral.ai/v1/chat/completions';
-    
+
     const payload = JSON.stringify({
         model: "mistral-small-latest",
         messages: [{ role: "user", content: prompt }],
@@ -96,7 +99,7 @@ async function callMistral(prompt) {
     return new Promise((resolve, reject) => {
         const req = https.request(endpoint, {
             method: 'POST',
-            headers: { 
+            headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${MISTRAL_API_KEY}`
             }
@@ -104,10 +107,13 @@ async function callMistral(prompt) {
             let data = '';
             res.on('data', chunk => data += chunk);
             res.on('end', () => {
-                try {
-                    if (res.statusCode !== 200) reject(new Error(`Mistral Error ${res.statusCode}: ${data}`));
-                    else resolve(JSON.parse(data));
-                } catch(e) { reject(new Error("Erreur JSON Mistral")); }
+                if (res.statusCode !== 200) {
+                    const err = new Error(`Mistral Error ${res.statusCode}: ${data}`);
+                    err.statusCode = res.statusCode;
+                    return reject(err);
+                }
+                try { resolve(JSON.parse(data)); }
+                catch(e) { reject(new Error("Erreur JSON Mistral")); }
             });
         });
 
@@ -123,9 +129,68 @@ async function callMistral(prompt) {
     });
 }
 
-async function processWithMistral(rawArticles) {
+const RETRYABLE_STATUS = new Set([429, 500, 502, 503, 504]);
+async function callMistral(prompt, retries = 3) {
+    let lastErr;
+    for (let attempt = 1; attempt <= retries; attempt++) {
+        try {
+            return await callMistralOnce(prompt);
+        } catch (e) {
+            lastErr = e;
+            const retryable = RETRYABLE_STATUS.has(e.statusCode) || /Timeout|ECONNRESET|ENOTFOUND|EAI_AGAIN/.test(e.message);
+            if (!retryable || attempt === retries) throw e;
+            const delay = 4000 * attempt;
+            console.warn(`  ⚠️  Mistral (${e.message.slice(0, 90)}) — nouvelle tentative dans ${delay / 1000}s (${attempt}/${retries})`);
+            await sleep(delay);
+        }
+    }
+    throw lastErr;
+}
+
+// ── APPEL API GEMINI — repli si Mistral reste indisponible après ses tentatives ──
+const GEMINI_MODELS = ['gemini-3.5-flash', 'gemini-flash-latest', 'gemini-3.5-flash-lite'];
+async function callGeminiOnce(prompt, model) {
+    const https = require('https');
+    const payload = JSON.stringify({
+        contents: [{ role: 'user', parts: [{ text: prompt }] }],
+        generationConfig: { temperature: 0.5, responseMimeType: 'application/json' }
+    });
+    return new Promise((resolve, reject) => {
+        const req = https.request(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_API_KEY}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        }, res => {
+            let data = '';
+            res.on('data', chunk => data += chunk);
+            res.on('end', () => {
+                if (res.statusCode !== 200) return reject(new Error(`Gemini(${model}) Error ${res.statusCode}: ${data.slice(0, 200)}`));
+                try {
+                    const j = JSON.parse(data);
+                    const parts = (j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts) || [];
+                    const text = parts.map(p => p.text || '').join('');
+                    if (!text) return reject(new Error(`Gemini(${model}) réponse vide`));
+                    resolve(JSON.parse(text));
+                } catch (e) { reject(new Error(`Gemini(${model}) JSON invalide: ${e.message}`)); }
+            });
+        });
+        req.setTimeout(60000, () => { req.destroy(); reject(new Error(`Gemini(${model}) Timeout 60s`)); });
+        req.on('error', reject);
+        req.write(payload);
+        req.end();
+    });
+}
+async function callGemini(prompt) {
+    let lastErr;
+    for (const model of GEMINI_MODELS) {
+        try { return await callGeminiOnce(prompt, model); }
+        catch (e) { lastErr = e; console.warn(`  ⚠️  ${e.message}`); }
+    }
+    throw lastErr;
+}
+
+function buildPrompt(rawArticles) {
     const input = rawArticles.map((a, i) => ({ i, t: a.titre.substring(0, 100), s: a.source }));
-    const prompt = `Tu es rédacteur en chef de l'Algérie Presse Service (APS). Analyse ces articles tech des dernières 24h.
+    return `Tu es rédacteur en chef de l'Algérie Presse Service (APS). Analyse ces articles tech des dernières 24h.
 
 STYLE APS OBLIGATOIRE :
 - Accroches courtes, nominales, sans verbe d'opinion (max 18 mots)
@@ -144,10 +209,10 @@ STYLE APS OBLIGATOIRE :
 
 Data:${JSON.stringify(input)}
 Réponds EXCLUSIVEMENT en JSON pur: {"synthese":"...", "selected":[{"i":0, "accroche":"...", "categorie":"..."}], "article":{"titre":"...", "lead":"...", "corps":["...", "..."]}}`;
+}
 
-    const response = await callMistral(prompt);
-    const aiResult = JSON.parse(response.choices[0].message.content);
-
+// Post-traitement commun (Mistral et Gemini renvoient la même forme de JSON)
+function packAiResult(aiResult, rawArticles) {
     const finalArticles = aiResult.selected.map(sel => {
         const orig = rawArticles[sel.i];
         return orig ? { ...orig, accroche: sel.accroche, categorie: sel.categorie } : null;
@@ -180,6 +245,53 @@ Réponds EXCLUSIVEMENT en JSON pur: {"synthese":"...", "selected":[{"i":0, "accr
         syntheseArticle,
         lastUpdated: new Date().toISOString()
     };
+}
+
+// Filet de sécurité final : aucune IA disponible → édition quand même publiée (titres
+// bruts, sans accroche réécrite) plutôt que de laisser le site figé sur la veille.
+function buildRuleBasedRevue(rawArticles) {
+    const finalArticles = rawArticles.slice(0, 12).map(a => ({
+        ...a,
+        accroche: a.titre.length > 140 ? a.titre.slice(0, 137) + '…' : a.titre,
+        categorie: 'Actualité'
+    }));
+    return {
+        date: new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' }),
+        synthese: `${finalArticles.length} articles tech retenus ce jour, issus de ${new Set(finalArticles.map(a => a.source)).size} sources — édition générée sans réécriture IA (moteurs indisponibles).`,
+        articles: finalArticles,
+        syntheseArticle: null,
+        lastUpdated: new Date().toISOString(),
+        engine: 'Règles (sans IA)'
+    };
+}
+
+// Orchestre Mistral (avec retries) → repli Gemini (avec retries par modèle) → repli sans IA.
+// Ne lève jamais : la revue est TOUJOURS publiée, dégradée si besoin, jamais absente.
+async function generateRevue(rawArticles) {
+    const prompt = buildPrompt(rawArticles);
+
+    if (MISTRAL_API_KEY) {
+        try {
+            console.log(`\n🤖 IA MISTRAL SUR ${rawArticles.length} ARTICLES...`);
+            const response = await callMistral(prompt);
+            const result = packAiResult(JSON.parse(response.choices[0].message.content), rawArticles);
+            return { ...result, engine: 'Mistral' };
+        } catch (e) {
+            console.warn(`\n⚠️  Mistral indisponible après tentatives (${e.message.slice(0, 150)}) — repli Gemini.`);
+        }
+    }
+    if (GEMINI_API_KEY) {
+        try {
+            console.log(`\n🤖 IA GEMINI (repli) SUR ${rawArticles.length} ARTICLES...`);
+            const aiResult = await callGemini(prompt);
+            const result = packAiResult(aiResult, rawArticles);
+            return { ...result, engine: 'Gemini' };
+        } catch (e) {
+            console.warn(`\n⚠️  Gemini indisponible (${e.message.slice(0, 150)}) — repli sans IA.`);
+        }
+    }
+    console.warn('\n⚠️  Aucun moteur IA disponible — édition générée sans réécriture (titres bruts).');
+    return buildRuleBasedRevue(rawArticles);
 }
 
 // Applique une fenêtre temporelle + cap de 3 articles/source sur la récolte 48h
@@ -216,10 +328,9 @@ async function main() {
         process.exit(1); // Échec visible dans GitHub Actions → notification
     }
 
-    console.log(`\n🤖 IA MISTRAL SUR ${rawArticles.length} ARTICLES...`);
-    const result = await processWithMistral(rawArticles);
+    const result = await generateRevue(rawArticles);
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify(result, null, 2));
-    console.log(`\n✅ SUCCÈS : revue_presse.json généré (${result.articles.length} articles retenus).`);
+    console.log(`\n✅ SUCCÈS (${result.engine}) : revue_presse.json généré (${result.articles.length} articles retenus).`);
     process.exit(0); // sortie explicite : des sockets RSS restés ouverts empêchent node de se terminer seul
 }
 
