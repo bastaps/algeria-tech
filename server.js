@@ -1335,7 +1335,7 @@ TEXTE SOURCE :
 ${rawText.substring(0, 6000)}`;
 
         const payload = JSON.stringify({
-            model: 'mistral-small-latest',
+            model: 'ministral-8b-latest',
             messages: [{ role: 'user', content: prompt }],
             response_format: { type: 'json_object' },
             temperature: 0.2,
@@ -1425,7 +1425,7 @@ TEXTE À TRADUIRE :
 ${chunk}`;
 
             const payload = JSON.stringify({
-                model: 'mistral-small-latest',
+                model: 'ministral-8b-latest',
                 messages: [{ role: 'user', content: prompt }],
                 temperature: 0.3,
                 max_tokens: 8000
@@ -1726,7 +1726,7 @@ ${text.substring(0, 4000)}`;
     const prompt = prompts[effectiveStyle] || PROMPT_APS;
 
     const payload = JSON.stringify({
-        model: "mistral-small-latest",
+        model: "ministral-8b-latest",
         messages: [{ role: "user", content: prompt }],
         response_format: { type: "json_object" },
         temperature: effectiveStyle === 'pro' ? 0.3 : 0.35,
@@ -1769,7 +1769,7 @@ TITRE : ${(titre || '').substring(0, 120)}
 ARTICLE : ${contenu.substring(0, 3500)}`;
 
     const payload = JSON.stringify({
-        model: 'mistral-small-latest',
+        model: 'ministral-8b-latest',
         messages: [{ role: 'user', content: prompt }],
         response_format: { type: 'json_object' },
         temperature: 0.15,
@@ -2167,7 +2167,7 @@ ${String(contenu || '').substring(0, 4200)}
     ];
 
     const payload = JSON.stringify({
-        model:       'mistral-small-latest',
+        model:       'ministral-8b-latest',
         messages,
         max_tokens:  fmt.tokens,
         temperature: 0.5
@@ -2720,7 +2720,7 @@ TEXTE SOURCE :
 ${rawText.substring(0, 12000)}`;
 
     const payload = JSON.stringify({
-        model: 'mistral-small-latest',
+        model: 'ministral-8b-latest',
         messages: [{ role: 'user', content: prompt }],
         response_format: { type: 'json_object' },
         temperature: 0.2,
@@ -3794,7 +3794,7 @@ TRANSCRIPTION BRUTE :
 ${rawDiarized.substring(0, 12000)}`;
 
     const payload = JSON.stringify({
-        model: 'mistral-small-latest',
+        model: 'ministral-8b-latest',
         messages: [{ role: 'user', content: prompt }],
         temperature: 0.2,
         max_tokens: 8000
@@ -4187,7 +4187,7 @@ TEXTE SOURCE FACEBOOK (traduis si arabe/darija, puis rédige l'article) :
 ${sourceText.substring(0, 3500) || '(Pas de description — génère un article complet à partir du titre : ' + (title || 'Vidéo Algeria Tech') + ')'}`;
 
     const payload = JSON.stringify({
-        model:           'mistral-small-latest',
+        model:           'ministral-8b-latest',
         messages:        [{ role: 'user', content: prompt }],
         response_format: { type: 'json_object' },
         temperature:     0.6,

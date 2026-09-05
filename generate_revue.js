@@ -96,7 +96,7 @@ async function callMistralOnce(prompt) {
     const endpoint = 'https://api.mistral.ai/v1/chat/completions';
 
     const payload = JSON.stringify({
-        model: "mistral-small-latest",
+        model: "ministral-8b-latest",
         messages: [{ role: "user", content: prompt }],
         response_format: { type: "json_object" },
         temperature: 0.5
