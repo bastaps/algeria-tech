@@ -17,7 +17,7 @@ function parseFrontmatter(text, fileName) {
     const content = parts.slice(2).join('---').trim();
 
     const get = (k) => {
-        const m = fm.match(new RegExp(`${k}:\\s*(.*)`));
+        const m = fm.match(new RegExp(`${k}:[ \\t]*(.*)`));
         return m ? m[1].trim().replace(/^["']|["']$/g, '') : '';
     };
 
@@ -47,7 +47,9 @@ function parseFrontmatter(text, fileName) {
         rawContent: content,   // Markdown brut — parsé côté client à la demande
         tags,
         type:      get('type'),      // 'breve' = espace Brèves, 'communique_officiel' = Hub Opérateurs
-        position:  get('position')   // '1'/'2' = épinglé en Une, sinon tri chronologique
+        position:  get('position'),  // '1'/'2' = épinglé en Une, sinon tri chronologique
+        interactif: get('interactif'),
+        aretenir:   get('aretenir')
     };
 }
 

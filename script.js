@@ -361,7 +361,7 @@ function parseMarkdownFile(text) {
     const fm = parts[1];
     const content = parts.slice(2).join('---');
     const get = (k) => {
-        const m = fm.match(new RegExp(`${k}:\\s*(.*)`));
+        const m = fm.match(new RegExp(`${k}:[ \\t]*(.*)`));
         return m ? m[1].trim().replace(/^["']|["']$/g, '') : '';
     };
     const tagsMatch = fm.match(/tags:\s*\[(.*)\]/);

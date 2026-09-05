@@ -914,7 +914,7 @@ async function regenerateArticlesJson() {
                 if (parts.length < 3) continue;
                 const fm = parts[1];
                 const content = parts.slice(2).join('---').trim();
-                const get = (k) => { const m = fm.match(new RegExp(`${k}:\\s*(.*)`)); return m ? m[1].trim().replace(/^["']|["']$/g, '') : ''; };
+                const get = (k) => { const m = fm.match(new RegExp(`${k}:[ \\t]*(.*)`)); return m ? m[1].trim().replace(/^["']|["']$/g, '') : ''; };
                 const tagsMatch = fm.match(/tags:\s*\[(.*)\]/);
                 const tags = tagsMatch ? tagsMatch[1].split(',').map(t => t.trim().replace(/^["']|["']$/g, '')) : [];
                 const titre = get('titre');
