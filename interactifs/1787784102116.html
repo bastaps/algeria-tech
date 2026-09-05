@@ -1,0 +1,3662 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>À la Une – 🚀 Djezzy, A-Venture &amp; Armonika : L’alliance algérienne pour un Cloud souverain</title>
+    <meta name="description" content="Un partenariat historique entre Djezzy, Algeria Venture et la startup Armonika marque un tournant pour le développement de solutions technologiques souveraines en Algérie. Signé à " />
+    <!-- Open Graph : partage social réel -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="🚀 Djezzy, A-Venture &amp; Armonika : L’alliance algérienne pour un Cloud souverain" />
+    <meta property="og:description" content="Un partenariat historique entre Djezzy, Algeria Venture et la startup Armonika marque un tournant pour le développement de solutions technologiques souveraines en Algérie. Signé à " />
+    <meta property="og:image" content="https://lesenjeuxeco.dz/media/2026/08/702277773_1221323404389219_5095724556574089765_n-500x375.jpg" />
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        :root {
+            --primary-color: #0a2a5e;
+            --primary-light: #0d367a;
+            --accent-color: #ffb347;
+            --primary-soft: #b1bbcb;
+
+            --bg-color: #f4f7fc;
+            --card-bg: #ffffff;
+            --text-color: #1e2f3f;
+            --muted-color: #556a80;
+            --surface: #f0f6ff;
+            --surface-2: #f8faff;
+            --border-color: rgba(0, 80, 200, 0.08);
+            --line-color: #e6edf6;
+            --head-color: var(--primary-color);
+            --chip-bg: #eef3fa;
+            --shadow-card: 0 20px 40px -12px rgba(0, 20, 40, 0.15);
+        }
+
+        /* ---------- Mode sombre (auto + bascule manuelle) ---------- */
+        html[data-mode="dark"] {
+            --bg-color: #070c16;
+            --card-bg: #101a2b;
+            --text-color: #dfe8f5;
+            --muted-color: #93a6bd;
+            --surface: #16243a;
+            --surface-2: #141f31;
+            --border-color: rgba(255, 255, 255, 0.09);
+            --line-color: rgba(255, 255, 255, 0.09);
+            --head-color: var(--primary-soft);
+            --chip-bg: #1a2740;
+            --shadow-card: 0 20px 50px -12px rgba(0, 0, 0, 0.6);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+            transition: background 0.25s ease, color 0.25s ease;
+        }
+
+        /* ---------- Barre de progression de lecture ---------- */
+        #readingProgress {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: transparent;
+            z-index: 900;
+            pointer-events: none;
+        }
+        #readingProgress .bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary-light), var(--accent-color));
+            border-radius: 0 4px 4px 0;
+            transition: width 0.08s linear;
+        }
+
+        /* ---------- Carte principale ---------- */
+        .une-card {
+            max-width: 900px;
+            width: 100%;
+            background: var(--card-bg);
+            border-radius: 32px;
+            box-shadow: var(--shadow-card);
+            transition: transform 0.2s ease, background 0.25s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .une-card:hover { transform: translateY(-4px); }
+
+        /* ---------- Apparition au défilement ---------- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.55s cubic-bezier(.2,.7,.3,1), transform 0.55s cubic-bezier(.2,.7,.3,1);
+            will-change: opacity, transform;
+        }
+        .reveal.in { opacity: 1; transform: none; }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+            html { scroll-behavior: auto; }
+        }
+
+        /* ---------- En-tête ---------- */
+        .header-une {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            padding: 20px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-bottom: 4px solid var(--accent-color);
+            border-radius: 32px 32px 0 0;
+        }
+
+        .header-une .brand {
+            display: flex; align-items: center; gap: 12px;
+            color: white; font-weight: 600; font-size: 1.2rem; letter-spacing: 0.3px;
+        }
+        .header-une .brand i { font-size: 1.8rem; color: var(--accent-color); }
+
+        .header-tools { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+        .header-une .badge-date {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+            padding: 8px 18px;
+            border-radius: 40px;
+            color: #fff;
+            font-size: 0.85rem;
+            display: flex; align-items: center; gap: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .header-une .badge-date i { color: var(--accent-color); }
+
+        /* Badge fraîcheur */
+        .badge-fresh {
+            display: inline-flex; align-items: center; gap: 7px;
+            background: rgba(255, 255, 255, 0.16);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #fff; font-size: 0.78rem; font-weight: 700;
+            padding: 7px 14px; border-radius: 40px;
+        }
+        .badge-fresh .dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: #4ade80; box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7);
+            animation: pulseDot 2s infinite;
+        }
+        .badge-fresh.is-old .dot { background: #cbd5e1; animation: none; box-shadow: none; }
+        @keyframes pulseDot {
+            0%   { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.65); }
+            70%  { box-shadow: 0 0 0 8px rgba(74, 222, 128, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+        }
+
+        .icon-btn {
+            width: 38px; height: 38px; border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            background: rgba(255, 255, 255, 0.14);
+            color: #fff; cursor: pointer; font-size: 0.95rem;
+            display: inline-flex; align-items: center; justify-content: center;
+            transition: 0.2s;
+        }
+        .icon-btn:hover { background: var(--accent-color); color: var(--primary-color); border-color: var(--accent-color); }
+        .icon-btn.on { background: var(--accent-color); color: var(--primary-color); }
+
+        /* ---------- Corps ---------- */
+        .article-body { padding: 28px 30px 20px; }
+
+        .article-body h1 {
+            font-size: 1.9rem; font-weight: 700; color: var(--head-color);
+            margin-bottom: 6px; line-height: 1.2;
+        }
+
+        .chapeau-wrap { display: flex; align-items: flex-start; gap: 12px; margin: 12px 0 22px 0; }
+
+        .article-body .chapeau {
+            flex: 1;
+            color: var(--primary-light);
+            font-size: 1rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 16px;
+            background: var(--surface);
+            border-radius: 0 12px 12px 0;
+            line-height: 1.5;
+            font-weight: 400;
+            padding: 12px 16px;
+        }
+        html[data-mode="dark"] .article-body .chapeau { color: var(--primary-soft); }
+
+        /* Bouton d'écoute vocale (TTS) */
+        .tts-btn {
+            flex-shrink: 0;
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--surface); border: 1px solid var(--border-color);
+            color: var(--primary-light); font-weight: 700; font-size: 0.8rem;
+            padding: 10px 14px; border-radius: 30px; cursor: pointer; transition: 0.2s;
+        }
+        .tts-btn:hover { background: var(--primary-color); color: #fff; border-color: var(--accent-color); }
+        .tts-btn.playing { background: var(--primary-color); color: #fff; }
+        .tts-btn.playing i { color: var(--accent-color); }
+        .tts-btn .eq { display: inline-flex; gap: 2px; align-items: flex-end; height: 12px; }
+        .tts-btn .eq span {
+            width: 3px; background: var(--accent-color); border-radius: 2px;
+            animation: eqBar 0.9s ease-in-out infinite;
+        }
+        .tts-btn .eq span:nth-child(2) { animation-delay: 0.15s; }
+        .tts-btn .eq span:nth-child(3) { animation-delay: 0.3s; }
+        @keyframes eqBar { 0%,100% { height: 4px; } 50% { height: 12px; } }
+
+        /* ---------- Grand écran ---------- */
+        /* La carte respire : plus large, moins de marges, coins droits. */
+        :fullscreen body, :-webkit-full-screen body { padding: 0; }
+        html.at-fs body { padding: 0; }
+        html.at-fs .une-card {
+            max-width: 1180px;
+            border-radius: 0;
+            min-height: 100vh;
+            border-left: none; border-right: none;
+        }
+        html.at-fs .une-card:hover { transform: none; }
+        html.at-fs .header-une { border-radius: 0; }
+        html.at-fs .footer-une { border-radius: 0; }
+        html.at-fs .article-body { padding: 34px 46px 26px; }
+        html.at-fs .tabs-header-sticky {
+            margin-left: -46px; margin-right: -46px;
+            padding-left: 46px; padding-right: 46px;
+        }
+        @media (max-width: 700px) {
+            html.at-fs .article-body { padding: 22px 18px 16px; }
+            html.at-fs .tabs-header-sticky {
+                margin-left: -18px; margin-right: -18px;
+                padding-left: 18px; padding-right: 18px;
+            }
+        }
+
+        /* Bouton de sortie, visible seulement en grand écran */
+        #btnExitFs {
+            position: fixed; top: 16px; right: 18px; z-index: 960;
+            width: 46px; height: 46px; border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg); color: var(--head-color);
+            font-size: 1.1rem; cursor: pointer; display: none;
+            align-items: center; justify-content: center;
+            box-shadow: 0 10px 26px rgba(0, 15, 35, 0.28);
+            transition: 0.2s;
+        }
+        html.at-fs #btnExitFs { display: inline-flex; }
+        #btnExitFs:hover { background: var(--accent-color); color: var(--primary-color); transform: rotate(90deg); }
+        #btnExitFs:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 3px; }
+
+        /* ---------- Curseur de densité de lecture ---------- */
+        .density-bar {
+            display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+            margin: 18px 0 6px 0; padding: 14px 18px;
+            background: var(--surface-2); border: 1px solid var(--border-color);
+            border-radius: 20px;
+        }
+        .density-bar .db-label {
+            font-size: 0.72rem; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 0.6px; color: var(--muted-color);
+            display: flex; align-items: center; gap: 8px; white-space: nowrap;
+        }
+        .density-bar .db-label i { color: var(--accent-color); }
+        .density-slider { flex: 1 1 200px; min-width: 170px; }
+        .density-slider input[type="range"] {
+            width: 100%; -webkit-appearance: none; appearance: none;
+            background: transparent; cursor: pointer; margin: 0;
+        }
+        .density-slider input[type="range"]::-webkit-slider-runnable-track {
+            height: 6px; border-radius: 6px;
+            background: linear-gradient(90deg, var(--primary-light), var(--accent-color));
+        }
+        .density-slider input[type="range"]::-moz-range-track {
+            height: 6px; border-radius: 6px;
+            background: linear-gradient(90deg, var(--primary-light), var(--accent-color));
+        }
+        .density-slider input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none; appearance: none;
+            width: 20px; height: 20px; margin-top: -7px; border-radius: 50%;
+            background: var(--card-bg); border: 3px solid var(--primary-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.22); transition: transform 0.15s;
+        }
+        .density-slider input[type="range"]::-moz-range-thumb {
+            width: 20px; height: 20px; border-radius: 50%;
+            background: var(--card-bg); border: 3px solid var(--primary-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.22);
+        }
+        .density-slider input[type="range"]:active::-webkit-slider-thumb { transform: scale(1.15); }
+        .density-slider input[type="range"]:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 6px; border-radius: 8px; }
+        .density-ticks { display: flex; justify-content: space-between; margin-top: 7px; }
+        .density-ticks span {
+            font-size: 0.72rem; font-weight: 700; color: var(--muted-color);
+            cursor: pointer; transition: color 0.2s; user-select: none;
+        }
+        .density-ticks span.on { color: var(--head-color); }
+        .density-note {
+            font-size: 0.74rem; color: var(--muted-color);
+            display: flex; align-items: center; gap: 7px; white-space: nowrap;
+        }
+        .density-note b { color: var(--head-color); font-variant-numeric: tabular-nums; }
+
+        .dens { display: none; }
+        .dens.on { display: block; animation: fadeSlide 0.28s ease; }
+        .chapeau .dens.on { display: inline; }
+
+        /* ---------- Chiffres clés (jauges + compteurs animés) ---------- */
+        .key-figures-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 14px; margin: 24px 0 16px 0;
+        }
+        .figure-card {
+            background: var(--surface-2);
+            border: 1px solid var(--border-color);
+            padding: 16px; border-radius: 20px; text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%; font-family: inherit; position: relative;
+        }
+        .figure-card:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(0,0,0,0.06); }
+        button.figure-card { cursor: pointer; }
+        button.figure-card:hover { border-color: var(--accent-color); }
+        button.figure-card:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 3px; }
+        .fig-src-hint {
+            position: absolute; top: 9px; right: 10px;
+            font-size: 0.62rem; font-weight: 800; letter-spacing: 0.4px;
+            color: var(--primary-light); opacity: 0.55;
+            display: inline-flex; align-items: center; gap: 4px;
+        }
+        button.figure-card:hover .fig-src-hint { opacity: 1; color: var(--accent-color); }
+
+        /* Passage source mis en évidence dans le texte */
+        mark.src-hl {
+            background: var(--accent-color); color: #10243f;
+            padding: 1px 5px; border-radius: 5px; font-weight: 800;
+            box-shadow: 0 0 0 4px rgba(255, 179, 71, 0.28);
+            animation: srcPop 1.1s ease;
+        }
+        @keyframes srcPop {
+            0%   { box-shadow: 0 0 0 0 rgba(255, 179, 71, 0.7); }
+            60%  { box-shadow: 0 0 0 12px rgba(255, 179, 71, 0); }
+            100% { box-shadow: 0 0 0 4px rgba(255, 179, 71, 0.28); }
+        }
+        .src-sentence {
+            background: rgba(255, 179, 71, 0.14);
+            border-radius: 6px; box-shadow: 0 0 0 3px rgba(255, 179, 71, 0.14);
+        }
+
+        /* Encart de provenance */
+        #srcPanel {
+            position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%) translateY(16px);
+            max-width: min(560px, calc(100vw - 32px)); z-index: 950;
+            background: var(--card-bg); border: 1px solid var(--accent-color);
+            border-radius: 20px; padding: 16px 20px; opacity: 0; pointer-events: none;
+            box-shadow: 0 22px 48px rgba(0, 15, 35, 0.34);
+            transition: opacity 0.25s, transform 0.25s;
+        }
+        #srcPanel.show { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+        #srcPanel .sp-head {
+            font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.7px;
+            color: var(--muted-color); display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+        }
+        #srcPanel .sp-head i { color: var(--accent-color); }
+        #srcPanel .sp-quote {
+            font-size: 0.9rem; line-height: 1.6; color: var(--text-color); font-style: italic;
+        }
+        #srcPanel .sp-quote b { font-style: normal; color: var(--head-color); background: rgba(255,179,71,0.28); padding: 0 4px; border-radius: 4px; }
+        #srcPanel .sp-foot {
+            margin-top: 10px; display: flex; align-items: center; justify-content: space-between;
+            gap: 12px; font-size: 0.74rem; color: var(--muted-color); flex-wrap: wrap;
+        }
+        #srcPanel .sp-foot a { color: var(--primary-light); font-weight: 700; text-decoration: none; }
+        #srcPanel .sp-foot a:hover { text-decoration: underline; }
+        #srcPanel .sp-close {
+            position: absolute; top: 10px; right: 12px; width: 26px; height: 26px;
+            border: none; border-radius: 50%; background: var(--chip-bg);
+            color: var(--muted-color); cursor: pointer; font-size: 0.75rem;
+        }
+        #srcPanel .sp-close:hover { background: var(--accent-color); color: var(--primary-color); }
+
+        /* ---------- Questions à l'article ---------- */
+        .at-qa {
+            margin: 26px 0 10px 0; padding: 22px; border-radius: 24px;
+            background: var(--surface); border: 1px solid var(--border-color);
+        }
+        .qa-head {
+            font-size: 1rem; font-weight: 800; color: var(--head-color);
+            display: flex; align-items: center; gap: 10px; margin-bottom: 4px;
+        }
+        .qa-head i { color: var(--accent-color); }
+        .qa-sub { font-size: 0.78rem; color: var(--muted-color); margin-bottom: 14px; }
+        .qa-form { display: flex; gap: 9px; flex-wrap: wrap; }
+        .qa-form input {
+            flex: 1 1 220px; min-width: 0; font-family: inherit; font-size: 0.9rem;
+            padding: 12px 16px; border-radius: 40px; color: var(--text-color);
+            background: var(--card-bg); border: 1px solid var(--border-color);
+        }
+        .qa-form input:focus { outline: none; border-color: var(--accent-color); }
+        .qa-form button {
+            border: none; cursor: pointer; font-family: inherit; font-weight: 700; font-size: 0.86rem;
+            padding: 12px 22px; border-radius: 40px;
+            background: var(--primary-color); color: #fff;
+            display: inline-flex; align-items: center; gap: 9px; transition: 0.2s;
+        }
+        .qa-form button:hover { background: var(--accent-color); color: var(--primary-color); }
+        .qa-form button:disabled { opacity: 0.6; cursor: default; }
+        .qa-form button:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 2px; }
+        .qa-suggest { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+        .qa-suggest button {
+            border: 1px dashed var(--border-color); background: transparent; cursor: pointer;
+            font-family: inherit; font-size: 0.76rem; font-weight: 600; color: var(--primary-light);
+            padding: 7px 14px; border-radius: 30px; transition: 0.18s;
+        }
+        .qa-suggest button:hover { border-style: solid; border-color: var(--accent-color); background: var(--card-bg); }
+        .qa-answer { display: none; margin-top: 16px; }
+        .qa-answer.show { display: block; animation: fadeSlide 0.3s ease; }
+        .qa-bubble {
+            background: var(--card-bg); border: 1px solid var(--border-color);
+            border-left: 5px solid var(--accent-color);
+            border-radius: 0 18px 18px 0; padding: 16px 20px;
+            font-size: 0.95rem; line-height: 1.65; color: var(--text-color);
+        }
+        .qa-bubble.empty { border-left-color: var(--muted-color); color: var(--muted-color); }
+        .qa-sources { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
+        .qa-src {
+            display: flex; gap: 10px; align-items: flex-start; width: 100%; text-align: left;
+            background: var(--surface-2); border: 1px solid var(--border-color);
+            border-radius: 14px; padding: 11px 14px; cursor: pointer; transition: 0.18s;
+            font-family: inherit; font-size: 0.83rem; line-height: 1.55; color: var(--muted-color);
+        }
+        .qa-src:hover { border-color: var(--accent-color); transform: translateX(3px); color: var(--text-color); }
+        .qa-src:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 2px; }
+        .qa-src i { color: var(--accent-color); margin-top: 3px; }
+        .qa-src .qa-sec { font-weight: 800; color: var(--primary-light); display: block; margin-bottom: 2px; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.4px; }
+        .qa-meta { margin-top: 10px; font-size: 0.71rem; color: var(--muted-color); display: flex; align-items: center; gap: 7px; }
+
+        /* Éclairage extérieur : nettement séparé de ce que dit l'article */
+        .qa-beyond {
+            margin-top: 18px; padding-top: 16px;
+            border-top: 2px dashed var(--line-color);
+        }
+        .qa-beyond-title {
+            font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px;
+            color: var(--muted-color); display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
+        }
+        .qa-beyond-title i { color: var(--primary-light); }
+        .qa-beyond-title span.tag {
+            font-size: 0.62rem; font-weight: 800; letter-spacing: 0.3px;
+            background: var(--chip-bg); color: var(--muted-color);
+            padding: 3px 9px; border-radius: 20px; text-transform: none;
+        }
+        .qa-context {
+            font-size: 0.9rem; line-height: 1.65; color: var(--text-color);
+            background: var(--card-bg); border: 1px dashed var(--border-color);
+            border-radius: 16px; padding: 14px 18px;
+        }
+        .qa-links { margin-top: 12px; display: flex; flex-direction: column; gap: 7px; }
+        .qa-link {
+            display: flex; gap: 10px; align-items: baseline; text-decoration: none;
+            font-size: 0.84rem; line-height: 1.5; color: var(--text-color);
+            padding: 9px 13px; border-radius: 12px;
+            background: var(--surface-2); border: 1px solid var(--border-color);
+            transition: 0.18s;
+        }
+        .qa-link:hover { border-color: var(--accent-color); transform: translateX(3px); }
+        .qa-link i { color: var(--accent-color); font-size: 0.75rem; }
+        .qa-link .src { font-size: 0.7rem; font-weight: 800; color: var(--primary-light); white-space: nowrap; }
+        .qa-spin { display: inline-block; width: 13px; height: 13px; border: 2px solid currentColor; border-top-color: transparent; border-radius: 50%; animation: qaSpin 0.7s linear infinite; }
+        @keyframes qaSpin { to { transform: rotate(360deg); } }
+
+        .figure-card .fig-icon {
+            background: var(--chip-bg); width: 36px; height: 36px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 10px auto; color: var(--primary-light);
+        }
+        .figure-card .fig-value {
+            font-size: 1.5rem; font-weight: 800; color: var(--head-color);
+            line-height: 1.2; margin-bottom: 4px;
+            font-variant-numeric: tabular-nums;
+        }
+        .figure-card .fig-label {
+            font-size: 0.75rem; font-weight: 600; color: var(--muted-color);
+            text-transform: uppercase; letter-spacing: 0.3px;
+        }
+        .figure-card .fig-gauge {
+            margin-top: 10px; height: 6px; border-radius: 6px;
+            background: var(--chip-bg); overflow: hidden;
+        }
+        .figure-card .fig-gauge > i {
+            display: block; height: 100%; width: 0%;
+            background: linear-gradient(90deg, var(--primary-light), var(--accent-color));
+            border-radius: 6px; transition: width 1.1s cubic-bezier(.2,.8,.3,1);
+        }
+        .fig-trend {
+            display: inline-flex; align-items: center; gap: 5px; margin-top: 8px;
+            font-size: 0.72rem; font-weight: 800; padding: 3px 10px; border-radius: 20px;
+        }
+        .fig-trend.up { background: rgba(22, 163, 74, 0.12); color: #16a34a; }
+        .fig-trend.down { background: rgba(220, 38, 38, 0.12); color: #dc2626; }
+        .fig-trend.flat { background: var(--chip-bg); color: var(--muted-color); }
+
+        /* ---------- Tableau ---------- */
+        .table-container {
+            width: 100%; overflow-x: auto; margin: 20px 0;
+            border-radius: 12px; border: 1px solid var(--line-color);
+            -webkit-overflow-scrolling: touch;
+        }
+        .custom-table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; }
+        .custom-table th { background: var(--primary-color); color: white; padding: 12px 16px; font-weight: 600; }
+        .custom-table td { padding: 12px 16px; border-bottom: 1px solid var(--line-color); color: var(--text-color); }
+        .custom-table tr:nth-child(even) { background-color: var(--surface-2); }
+
+        /* ---------- Graphiques (SVG natif) ---------- */
+        .at-chart {
+            margin: 22px 0; padding: 18px 20px 14px;
+            background: var(--surface-2); border: 1px solid var(--border-color);
+            border-radius: 22px;
+        }
+        .at-chart .chart-title {
+            font-size: 0.9rem; font-weight: 800; color: var(--head-color);
+            display: flex; align-items: center; gap: 9px; margin-bottom: 4px;
+        }
+        .at-chart .chart-title i { color: var(--accent-color); }
+        .at-chart .chart-sub { font-size: 0.75rem; color: var(--muted-color); margin-bottom: 12px; }
+        .at-chart svg { width: 100%; height: auto; display: block; overflow: visible; }
+        .at-chart .c-axis { stroke: var(--line-color); stroke-width: 1; }
+        .at-chart .c-grid { stroke: var(--line-color); stroke-width: 1; stroke-dasharray: 3 4; }
+        .at-chart .c-label { font-size: 11px; fill: var(--muted-color); font-weight: 600; }
+        .at-chart .c-value { font-size: 11px; fill: var(--head-color); font-weight: 800; }
+        .at-chart .c-bar { transition: opacity 0.2s; cursor: default; }
+        .at-chart .c-bar:hover { opacity: 0.82; }
+        .chart-legend { display: flex; flex-wrap: wrap; gap: 10px 16px; margin-top: 12px; }
+        .chart-legend span {
+            display: inline-flex; align-items: center; gap: 7px;
+            font-size: 0.76rem; font-weight: 600; color: var(--muted-color);
+        }
+        .chart-legend i { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+
+        /* ---------- Galerie / carrousel ---------- */
+        .at-gallery { margin: 22px 0; }
+        .gal-stage {
+            position: relative; border-radius: 24px; overflow: hidden;
+            border: 1px solid var(--border-color); background: #000;
+        }
+        .gal-track { display: flex; transition: transform 0.45s cubic-bezier(.2,.8,.3,1); }
+        .gal-slide { min-width: 100%; position: relative; }
+        .gal-slide img {
+            width: 100%; height: 100%; max-height: 460px; object-fit: cover; display: block; cursor: zoom-in;
+        }
+        .gal-cap {
+            position: absolute; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.78), rgba(0,0,0,0));
+            color: #fff; padding: 26px 18px 14px; font-size: 0.83rem; font-style: italic;
+        }
+        .gal-nav {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 42px; height: 42px; border-radius: 50%; border: none;
+            background: rgba(0,0,0,0.45); color: #fff; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1rem; transition: 0.2s; backdrop-filter: blur(3px);
+        }
+        .gal-nav:hover { background: var(--accent-color); color: var(--primary-color); }
+        .gal-nav.prev { left: 12px; }
+        .gal-nav.next { right: 12px; }
+        .gal-count {
+            position: absolute; top: 12px; right: 12px;
+            background: rgba(0,0,0,0.5); color: #fff; font-size: 0.72rem; font-weight: 700;
+            padding: 5px 12px; border-radius: 20px; backdrop-filter: blur(3px);
+        }
+        .gal-thumbs { display: flex; gap: 8px; margin-top: 10px; overflow-x: auto; padding-bottom: 4px; }
+        .gal-thumbs button {
+            flex-shrink: 0; width: 68px; height: 46px; border-radius: 10px; overflow: hidden;
+            border: 2px solid transparent; padding: 0; cursor: pointer; background: none; opacity: 0.55;
+            transition: 0.2s;
+        }
+        .gal-thumbs button img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .gal-thumbs button.active { border-color: var(--accent-color); opacity: 1; }
+
+        /* ---------- Médias ---------- */
+        .video-container {
+            margin: 20px 0; border-radius: 20px; overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .video-responsive { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+        .video-responsive iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+        .media-caption {
+            background: var(--surface-2); padding: 12px 18px; font-size: 0.85rem;
+            color: var(--muted-color); border-top: 1px solid var(--line-color);
+            font-style: italic; margin: 0;
+        }
+
+        /* Effet Ken Burns sur la photo de une */
+        .kenburns { overflow: hidden; }
+        .kenburns img { animation: kenburns 22s ease-in-out infinite alternate; transform-origin: 50% 55%; }
+        @keyframes kenburns {
+            0%   { transform: scale(1) translate3d(0,0,0); }
+            100% { transform: scale(1.09) translate3d(-1.2%, -1.6%, 0); }
+        }
+        @media (prefers-reduced-motion: reduce) { .kenburns img { animation: none; } }
+
+        /* Médias insérés dans le corps d'une section */
+        .inline-media { margin: 16px 0; }
+        .inline-media .im-frame {
+            border-radius: 20px; overflow: hidden; border: 1px solid var(--border-color);
+            background: var(--surface-2);
+        }
+        .inline-media img { width: 100%; display: block; cursor: zoom-in; }
+        .inline-media video { width: 100%; display: block; background: #000; }
+        .inline-media.size-half { max-width: 52%; }
+        .inline-media.size-third { max-width: 36%; }
+        .inline-media.align-left { float: left; margin: 6px 20px 12px 0; }
+        .inline-media.align-right { float: right; margin: 6px 0 12px 20px; }
+        .inline-media.align-center { margin-left: auto; margin-right: auto; }
+        .inline-media .im-cap { padding: 9px 14px; font-size: 0.78rem; color: var(--muted-color); font-style: italic; }
+        @media (max-width: 640px) {
+            .inline-media.size-half, .inline-media.size-third { max-width: 100%; float: none; margin: 16px 0; }
+        }
+
+        /* ---------- Onglets ---------- */
+        /* Le sommaire d'onglets reste visible pendant toute la lecture.
+           Deux conditions à ne jamais casser :
+           1. aucun ancêtre (.une-card, .article-body) ne doit porter un
+              overflow autre que « visible » — cela ferait de cette barre un
+              bloc ordinaire qui remonte avec le texte ;
+           2. elle déborde du padding du corps (marges négatives compensées
+              par un padding égal), sinon le texte défile dans ses marges. */
+        .tabs-header-sticky {
+            position: sticky; top: 0; background: var(--card-bg); z-index: 100;
+            display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+            margin: 24px -30px 16px; border-bottom: 2px solid var(--line-color);
+            padding: 10px 30px 12px;
+            transition: box-shadow .22s ease, border-color .22s ease;
+        }
+        /* Collée : un liseré d'accent et une ombre portée détachent la barre
+           du texte qui coule dessous. */
+        .tabs-header-sticky.collee {
+            border-bottom-color: var(--accent-color);
+            box-shadow: 0 14px 26px -20px rgba(0, 0, 0, 0.55);
+        }
+
+        .tab-btn {
+            background: transparent; border: none; padding: 10px 18px;
+            font-weight: 600; font-size: 0.9rem; color: var(--muted-color);
+            border-radius: 40px; cursor: pointer; transition: all 0.2s;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .tab-btn i { font-size: 1rem; color: var(--primary-light); }
+        .tab-btn:hover { background: var(--chip-bg); color: var(--head-color); }
+        .tab-btn:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 2px; }
+        .tab-btn.active { background: var(--primary-color); color: white; box-shadow: 0 4px 10px rgba(10, 42, 94, 0.2); }
+        .tab-btn.active i { color: var(--accent-color); }
+
+        .mode-switch { margin-left: auto; display: flex; gap: 6px; flex-wrap: wrap; }
+        .btn-mode-toggle {
+            background: var(--surface); border: 1px solid var(--border-color);
+            padding: 8px 16px; font-weight: 700; font-size: 0.85rem;
+            color: var(--primary-light); border-radius: 30px; cursor: pointer;
+            transition: all 0.2s; display: flex; align-items: center; gap: 8px;
+        }
+        .btn-mode-toggle:hover, .btn-mode-toggle.active {
+            background: var(--primary-color); color: white; border-color: var(--accent-color);
+        }
+        .btn-mode-toggle:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 2px; }
+
+        .tab-content { display: none; padding: 12px 0 8px 0; animation: fadeSlide 0.3s ease; }
+        .tab-content.active { display: block; }
+        .tab-content::after { content: ""; display: table; clear: both; }
+
+        .continuous-reading-container { display: none; animation: fadeSlide 0.3s ease; }
+        .continuous-paragraph {
+            font-size: 1rem; line-height: 1.7; color: var(--text-color);
+            margin-bottom: 22px; padding-bottom: 12px; border-bottom: 1px dashed var(--line-color);
+        }
+        .continuous-paragraph::after { content: ""; display: table; clear: both; }
+        .continuous-paragraph:last-child { border-bottom: none; margin-bottom: 10px; }
+
+        @keyframes fadeSlide {
+            0% { opacity: 0; transform: translateY(6px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-content p { font-size: 1rem; line-height: 1.7; color: var(--text-color); margin-bottom: 14px; }
+
+        .tab-content .citation, .continuous-paragraph .citation {
+            background: var(--surface); padding: 16px 22px; border-radius: 20px;
+            border-left: 6px solid var(--accent-color); font-style: italic;
+            color: var(--head-color); margin: 16px 0; font-weight: 500;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .tag-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+        .tag-list span {
+            background: var(--chip-bg); padding: 6px 16px; border-radius: 30px;
+            font-size: 0.8rem; font-weight: 500; color: var(--primary-light);
+            display: flex; align-items: center; gap: 8px; transition: 0.15s; cursor: default;
+        }
+        .tag-list span i { color: var(--accent-color); font-size: 0.8rem; }
+        .tag-list span:hover { transform: scale(1.03); }
+
+        /* ---------- Frise chronologique ---------- */
+        .at-timeline { margin: 24px 0; position: relative; padding-left: 6px; }
+        .at-timeline .tl-title {
+            font-size: 0.9rem; font-weight: 800; color: var(--head-color);
+            display: flex; align-items: center; gap: 9px; margin-bottom: 16px;
+        }
+        .at-timeline .tl-title i { color: var(--accent-color); }
+        .tl-list { position: relative; margin-left: 10px; padding-left: 26px; }
+        .tl-list::before {
+            content: ""; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 2px;
+            background: linear-gradient(to bottom, var(--primary-light), var(--accent-color));
+            border-radius: 2px; opacity: 0.45;
+        }
+        .tl-item { position: relative; padding-bottom: 20px; }
+        .tl-item:last-child { padding-bottom: 0; }
+        .tl-item::before {
+            content: ""; position: absolute; left: -25px; top: 4px;
+            width: 12px; height: 12px; border-radius: 50%;
+            background: var(--card-bg); border: 3px solid var(--accent-color);
+            box-shadow: 0 0 0 3px var(--surface);
+        }
+        .tl-date {
+            display: inline-block; font-size: 0.72rem; font-weight: 800;
+            color: var(--primary-light); background: var(--surface);
+            padding: 3px 12px; border-radius: 20px; margin-bottom: 6px;
+        }
+        .tl-head { font-size: 0.98rem; font-weight: 700; color: var(--head-color); margin-bottom: 4px; }
+        .tl-text { font-size: 0.9rem; line-height: 1.6; color: var(--muted-color); }
+
+        /* ---------- Comparateur ---------- */
+        .at-compare { margin: 24px 0; border: 1px solid var(--border-color); border-radius: 24px; overflow: hidden; }
+        .cmp-head {
+            display: grid; grid-template-columns: 1.25fr 1fr 1fr;
+            background: var(--primary-color); color: #fff;
+        }
+        .cmp-head > div { padding: 14px 16px; font-weight: 700; font-size: 0.86rem; display: flex; align-items: center; gap: 8px; }
+        .cmp-head > div + div { border-left: 1px solid rgba(255,255,255,0.14); justify-content: center; }
+        .cmp-head i { color: var(--accent-color); }
+        .cmp-row {
+            display: grid; grid-template-columns: 1.25fr 1fr 1fr;
+            border-top: 1px solid var(--line-color); background: var(--card-bg);
+        }
+        .cmp-row:nth-child(even) { background: var(--surface-2); }
+        .cmp-row > div { padding: 13px 16px; font-size: 0.88rem; color: var(--text-color); }
+        .cmp-row > div + div { border-left: 1px solid var(--line-color); text-align: center; font-weight: 700; }
+        .cmp-row .lab { color: var(--muted-color); font-weight: 600; }
+        .cmp-win { position: relative; color: var(--head-color); }
+        .cmp-win::after {
+            content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900;
+            color: #16a34a; margin-left: 8px; font-size: 0.75rem;
+        }
+        @media (max-width: 560px) {
+            .cmp-head, .cmp-row { grid-template-columns: 1fr 0.8fr 0.8fr; }
+            .cmp-head > div, .cmp-row > div { padding: 10px; font-size: 0.78rem; }
+        }
+
+        /* ---------- Mini-carte Algérie ---------- */
+        .at-map {
+            margin: 24px 0; padding: 18px 20px; background: var(--surface-2);
+            border: 1px solid var(--border-color); border-radius: 24px;
+            display: flex; gap: 20px; align-items: center; flex-wrap: wrap;
+        }
+        .at-map .map-svg { flex: 1 1 300px; min-width: 240px; }
+        .at-map svg { width: 100%; height: auto; display: block; }
+        .at-map svg .wil { fill: var(--chip-bg); stroke: var(--card-bg); stroke-width: 1; transition: fill 0.2s; }
+        .at-map svg .wil:hover { fill: var(--primary-soft); }
+        .at-map svg .wil.hl { fill: var(--accent-color); stroke: var(--primary-color); stroke-width: 1.4; }
+        .at-map svg .pin { fill: var(--primary-color); }
+        .at-map svg .pin-halo { fill: var(--accent-color); opacity: 0.35; animation: haloPulse 2.4s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+        @keyframes haloPulse { 0% { transform: scale(0.6); opacity: 0.55; } 100% { transform: scale(2.4); opacity: 0; } }
+        .at-map .map-info { flex: 1 1 200px; }
+        .at-map .map-kicker {
+            font-size: 0.72rem; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 0.6px; color: var(--muted-color); margin-bottom: 6px;
+        }
+        .at-map .map-name {
+            font-size: 1.35rem; font-weight: 800; color: var(--head-color);
+            display: flex; align-items: center; gap: 10px; margin-bottom: 6px;
+        }
+        .at-map .map-name i { color: var(--accent-color); }
+        .at-map .map-note { font-size: 0.88rem; line-height: 1.6; color: var(--muted-color); }
+
+        /* ---------- Visuel interactif (zones cliquables) ---------- */
+        .at-visual { margin: 26px 0; }
+        .at-visual .av-head {
+            display: flex; align-items: baseline; gap: 12px;
+            flex-wrap: wrap; margin-bottom: 10px;
+        }
+        .at-visual .av-kicker {
+            font-size: 0.72rem; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 0.7px; color: var(--muted-color);
+            display: inline-flex; align-items: center; gap: 7px;
+        }
+        .at-visual .av-kicker i { color: var(--accent-color); }
+        .at-visual .av-count {
+            font-size: 0.72rem; font-weight: 700; color: var(--primary-light);
+            background: var(--chip-bg); border-radius: 999px; padding: 3px 10px;
+        }
+        .at-visual .av-stage {
+            position: relative; width: 100%; border-radius: 26px; overflow: hidden;
+            box-shadow: var(--shadow-card);
+        }
+        .at-visual .av-stage > svg { width: 100%; height: auto; display: block; }
+        /* L'image remplit le cadre, dont le rapport vient déjà de ses dimensions
+           réelles : les zones ne dépendent donc jamais du moment où elle se décode. */
+        .at-visual .av-photo {
+            position: absolute; inset: 0; display: block;
+            width: 100%; height: 100%; object-fit: cover;
+        }
+
+        /* Zones posées sur la photo de l'article : elles doivent se voir sans
+           masquer l'image, d'où le liseré clair discret et l'appui au survol. */
+        .at-visual .av-on-photo .av-spot {
+            border-color: rgba(255, 255, 255, 0.55);
+            border-style: dashed;
+            border-radius: 10px;
+            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35), inset 0 0 0 1px rgba(0, 0, 0, 0.28);
+            /* Sur une photo, une ligne de titre ne fait que 2 % de hauteur : un
+               plancher de 44 px déborderait largement de l'élément visé. Le cadre
+               épouse donc la zone réelle… */
+            min-width: 0;
+            min-height: 0;
+        }
+        /* …et c'est cette surface invisible, débordant de 9 px, qui reste
+           confortable à viser au doigt comme à la souris. */
+        .at-visual .av-on-photo .av-spot::after {
+            content: ""; position: absolute; inset: -9px; border-radius: 16px;
+        }
+        .at-visual .av-on-photo .av-spot:hover,
+        .at-visual .av-on-photo .av-spot:focus-visible,
+        .at-visual .av-on-photo .av-spot.on {
+            border-color: var(--accent-color);
+            border-style: solid;
+            background: rgba(255, 255, 255, 0.18);
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.28), 0 6px 18px rgba(0, 0, 0, 0.32);
+        }
+        .at-visual .av-on-photo .av-dot { top: -10px; left: -10px; right: auto; }
+        .at-visual .av-stage svg .wil { fill: rgba(255,255,255,0.16); stroke: rgba(255,255,255,0.30); stroke-width: 0.8; }
+        .at-visual .av-stage svg .wil.hl { fill: var(--accent-color); stroke: #fff; stroke-width: 1.2; }
+        .at-visual .av-stage svg .pin { fill: #fff; }
+        .at-visual .av-stage svg .pin-halo { fill: var(--accent-color); opacity: 0.4; animation: haloPulse 2.4s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+
+        .at-visual .av-spot {
+            position: absolute; margin: 0; padding: 0; cursor: pointer; box-sizing: border-box;
+            background: transparent; border: 2px solid transparent; border-radius: 20px;
+            transition: border-color 0.18s, background 0.18s, box-shadow 0.18s;
+            display: block; min-width: 44px; min-height: 44px;
+        }
+        .at-visual .av-spot:hover, .at-visual .av-spot:focus-visible {
+            border-color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.10);
+            outline: none;
+        }
+        .at-visual .av-spot.on {
+            border-color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.14);
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.14);
+        }
+        .at-visual .av-dot {
+            position: absolute; top: -11px; right: -11px; width: 26px; height: 26px;
+            border-radius: 50%; background: var(--accent-color); color: #1a1a1a;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.66rem; font-weight: 800; border: 2px solid rgba(255,255,255,0.85);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.28);
+        }
+        .at-visual .av-tip {
+            position: absolute; left: 50%; bottom: calc(100% + 12px); transform: translateX(-50%);
+            background: #12181f; color: #fff; font-size: 0.74rem; font-weight: 600;
+            padding: 6px 11px; border-radius: 9px; white-space: nowrap; max-width: 220px;
+            overflow: hidden; text-overflow: ellipsis; pointer-events: none;
+            opacity: 0; transition: opacity 0.16s; z-index: 3;
+        }
+        .at-visual .av-spot:hover .av-tip,
+        .at-visual .av-spot:focus-visible .av-tip,
+        .at-visual .av-spot.on .av-tip { opacity: 1; }
+        .at-visual .av-note {
+            font-size: 0.82rem; color: var(--muted-color); margin: 10px 2px 0;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .at-visual .av-note i { color: var(--accent-color); }
+        .at-visual .av-legend {
+            list-style: none; padding: 0; margin: 12px 0 0;
+            display: flex; flex-wrap: wrap; gap: 8px;
+        }
+        .at-visual .av-legend button {
+            font-family: inherit; font-size: 0.78rem; font-weight: 700; cursor: pointer;
+            background: var(--chip-bg); color: var(--head-color); border: 1px solid var(--border-color);
+            border-radius: 999px; padding: 6px 13px; display: inline-flex; align-items: center; gap: 7px;
+            transition: 0.16s;
+        }
+        .at-visual .av-legend button:hover { background: var(--primary-soft); }
+        .at-visual .av-legend button.on { background: var(--accent-color); color: #1a1a1a; border-color: transparent; }
+        .at-visual .av-legend b {
+            width: 19px; height: 19px; border-radius: 50%; background: var(--primary-color);
+            color: #fff; font-size: 0.62rem; display: flex; align-items: center; justify-content: center;
+        }
+        .at-visual .av-legend button.on b { background: rgba(0,0,0,0.35); }
+        @media (max-width: 560px) {
+            .at-visual .av-tip { display: none; }
+            .at-visual .av-dot { width: 22px; height: 22px; top: -8px; right: -8px; font-size: 0.6rem; }
+        }
+        @media print { .at-visual .av-spot { display: none; } }
+
+        /* ---------- Sondage ---------- */
+        .at-poll {
+            margin: 24px 0; padding: 20px 22px; border-radius: 24px;
+            background: var(--surface); border: 1px solid var(--border-color);
+        }
+        .poll-q {
+            font-size: 1rem; font-weight: 800; color: var(--head-color);
+            display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px;
+        }
+        .poll-q i { color: var(--accent-color); margin-top: 2px; }
+        .poll-opts { display: flex; flex-direction: column; gap: 9px; }
+        .poll-opt {
+            position: relative; width: 100%; text-align: left; cursor: pointer;
+            border: 1px solid var(--border-color); background: var(--card-bg);
+            border-radius: 14px; padding: 12px 16px; font-size: 0.9rem; font-weight: 600;
+            color: var(--text-color); overflow: hidden; transition: 0.18s;
+            display: flex; justify-content: space-between; align-items: center; gap: 12px;
+        }
+        .poll-opt:hover:not(.done) { border-color: var(--accent-color); transform: translateX(3px); }
+        .poll-opt:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 2px; }
+        .poll-opt .fill {
+            position: absolute; left: 0; top: 0; bottom: 0; width: 0%;
+            background: linear-gradient(90deg, rgba(10, 42, 94, 0.22), rgba(255, 179, 71, 0.3));
+            transition: width 0.8s cubic-bezier(.2,.8,.3,1); z-index: 0;
+        }
+        .poll-opt .lbl, .poll-opt .pct { position: relative; z-index: 1; }
+        .poll-opt .pct { font-weight: 800; color: var(--head-color); opacity: 0; transition: opacity 0.3s; font-variant-numeric: tabular-nums; }
+        .poll-opt.done { cursor: default; }
+        .poll-opt.done .pct { opacity: 1; }
+        .poll-opt.mine { border-color: var(--accent-color); }
+        .poll-opt.mine .lbl::after {
+            content: "\f058"; font-family: "Font Awesome 6 Free"; font-weight: 900;
+            margin-left: 8px; color: var(--accent-color); font-size: 0.8rem;
+        }
+        .poll-foot { margin-top: 12px; font-size: 0.74rem; color: var(--muted-color); display: flex; align-items: center; gap: 7px; }
+
+        /* ---------- Bloc engagement / clôture ---------- */
+        .info-card-container {
+            margin: 22px 0 12px 0; background: var(--surface); padding: 18px 22px;
+            border-radius: 20px; border: 1px solid var(--border-color);
+        }
+        .info-card-content { display: flex; gap: 14px; align-items: flex-start; margin: 0; }
+        .info-card-content i { color: var(--accent-color); font-size: 1.5rem; margin-top: 4px; }
+        .info-card-text { font-size: 0.98rem; line-height: 1.6; color: var(--text-color); }
+
+        .closing-container {
+            font-size: 0.98rem; line-height: 1.7; color: var(--text-color);
+            margin-top: 16px; display: flex; align-items: center; gap: 12px;
+        }
+        .closing-container i { color: var(--primary-light); font-size: 1.1rem; }
+
+        /* ---------- Barre d'actions ---------- */
+        .action-bar {
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 14px; margin: 22px 0 12px 0;
+            padding-top: 18px; border-top: 2px dashed var(--line-color);
+        }
+
+        .like-btn {
+            background: var(--surface); border: 1px solid transparent;
+            padding: 10px 24px; border-radius: 60px; font-weight: 600;
+            color: var(--head-color); display: flex; align-items: center; gap: 14px;
+            cursor: pointer; transition: all 0.2s; font-size: 0.95rem;
+        }
+        .like-btn i { font-size: 1.3rem; color: var(--accent-color); transition: 0.2s; }
+        .like-btn:hover { background: var(--primary-color); color: white; border-color: var(--accent-color); }
+        .like-btn:hover i { transform: scale(1.2); }
+        .like-btn.liked { background: var(--primary-color); color: white; }
+        .like-btn.liked i { color: var(--accent-color); }
+        .like-btn:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 2px; }
+        .like-btn.bump i { animation: bump 0.45s ease; }
+        @keyframes bump { 0%,100% { transform: scale(1); } 35% { transform: scale(1.45) rotate(-12deg); } }
+
+        .share-icons { display: flex; gap: 10px; flex-wrap: wrap; }
+        .share-icons a, .share-icons button {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 40px; height: 40px; border-radius: 50%;
+            background: var(--chip-bg); color: var(--primary-light);
+            font-size: 1.05rem; transition: 0.2s; text-decoration: none;
+            border: none; cursor: pointer;
+        }
+        .share-icons a:hover, .share-icons button:hover {
+            background: var(--primary-color); color: white; transform: translateY(-3px);
+        }
+        .share-icons a:focus-visible, .share-icons button:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 2px; }
+        .share-icons .ok { background: #16a34a !important; color: #fff !important; }
+
+        /* ---------- À lire aussi ---------- */
+        .at-related { margin: 26px 0 6px 0; }
+        .rel-title {
+            font-size: 0.86rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.6px;
+            color: var(--muted-color); display: flex; align-items: center; gap: 9px; margin-bottom: 14px;
+        }
+        .rel-title i { color: var(--accent-color); }
+        .rel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+        .rel-card {
+            display: flex; flex-direction: column; gap: 8px; text-decoration: none;
+            background: var(--surface-2); border: 1px solid var(--border-color);
+            border-radius: 18px; padding: 14px 16px; transition: 0.2s;
+        }
+        .rel-card:hover { transform: translateY(-4px); border-color: var(--accent-color); box-shadow: 0 12px 24px rgba(0,0,0,0.07); }
+        .rel-cat {
+            font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;
+            color: var(--primary-light);
+        }
+        .rel-head { font-size: 0.9rem; font-weight: 700; color: var(--head-color); line-height: 1.4; }
+        .rel-date { font-size: 0.72rem; color: var(--muted-color); margin-top: auto; display: flex; align-items: center; gap: 6px; }
+
+        /* ---------- Pied de carte ---------- */
+        .footer-une {
+            background: var(--surface-2); padding: 16px 30px 20px;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; border-top: 1px solid var(--line-color); gap: 12px;
+            border-radius: 0 0 32px 32px;
+        }
+        .footer-une .meta {
+            display: flex; align-items: center; gap: 20px;
+            font-size: 0.85rem; color: var(--muted-color); flex-wrap: wrap;
+        }
+        .footer-une .meta i { margin-right: 6px; color: var(--accent-color); }
+
+        .btn-voir-plus {
+            background: var(--primary-color); color: white;
+            padding: 10px 28px; border-radius: 60px; font-weight: 600; font-size: 0.9rem;
+            display: flex; align-items: center; gap: 12px; cursor: pointer;
+            transition: 0.2s; border: 1px solid var(--accent-color); text-decoration: none;
+        }
+        .btn-voir-plus i { color: var(--accent-color); }
+        .btn-voir-plus:hover { background: var(--accent-color); color: var(--primary-color); border-color: var(--primary-color); }
+        .btn-voir-plus:hover i { color: var(--primary-color); }
+
+        /* ---------- Visionneuse plein écran (lightbox) ---------- */
+        #lightbox {
+            position: fixed; inset: 0; background: rgba(3, 8, 18, 0.94);
+            z-index: 1000; display: none; align-items: center; justify-content: center;
+            flex-direction: column; padding: 30px; backdrop-filter: blur(6px);
+        }
+        #lightbox.open { display: flex; animation: fadeSlide 0.22s ease; }
+        #lightbox img { max-width: 94vw; max-height: 82vh; border-radius: 14px; box-shadow: 0 30px 60px rgba(0,0,0,0.6); }
+        #lightbox .lb-cap { color: #dfe8f5; font-size: 0.86rem; margin-top: 16px; font-style: italic; text-align: center; max-width: 700px; }
+        #lightbox .lb-close {
+            position: absolute; top: 20px; right: 24px; width: 46px; height: 46px;
+            border-radius: 50%; border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.12);
+            color: #fff; font-size: 1.2rem; cursor: pointer;
+        }
+        #lightbox .lb-close:hover { background: var(--accent-color); color: #111; }
+        #lightbox .lb-nav {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 50px; height: 50px; border-radius: 50%; border: none;
+            background: rgba(255,255,255,0.12); color: #fff; font-size: 1.15rem; cursor: pointer;
+        }
+        #lightbox .lb-nav:hover { background: var(--accent-color); color: #111; }
+        #lightbox .lb-nav.prev { left: 22px; }
+        #lightbox .lb-nav.next { right: 22px; }
+
+        /* ---------- Mode Story (plein écran) ---------- */
+        #storyMode {
+            position: fixed; inset: 0; z-index: 1100; display: none;
+            background: linear-gradient(160deg, var(--primary-color), #05080f 85%);
+            color: #fff; flex-direction: column; padding: 0;
+        }
+        #storyMode.open { display: flex; animation: fadeSlide 0.25s ease; }
+        .story-bars { display: flex; gap: 5px; padding: 16px 18px 6px; }
+        .story-bars i {
+            flex: 1; height: 3px; background: rgba(255,255,255,0.25); border-radius: 3px; overflow: hidden;
+        }
+        .story-bars i b { display: block; height: 100%; width: 0%; background: var(--accent-color); border-radius: 3px; transition: width 0.3s linear; }
+        .story-top {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 6px 20px 10px; font-size: 0.82rem; opacity: 0.9;
+        }
+        .story-top .st-brand { display: flex; align-items: center; gap: 9px; font-weight: 700; }
+        .story-top .st-brand i { color: var(--accent-color); }
+        .story-close {
+            background: rgba(255,255,255,0.14); border: none; color: #fff; cursor: pointer;
+            width: 36px; height: 36px; border-radius: 50%; font-size: 1rem;
+        }
+        .story-close:hover { background: var(--accent-color); color: #111; }
+        .story-body {
+            flex: 1; overflow-y: auto; padding: 18px 26px 26px;
+            display: flex; flex-direction: column; justify-content: center;
+            max-width: 820px; margin: 0 auto; width: 100%;
+        }
+        .story-slide { display: none; animation: storyIn 0.4s cubic-bezier(.2,.8,.3,1); }
+        .story-slide.active { display: block; }
+        @keyframes storyIn { 0% { opacity: 0; transform: translateY(24px) scale(0.98); } 100% { opacity: 1; transform: none; } }
+        .story-kicker {
+            display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem;
+            font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+            color: var(--accent-color); margin-bottom: 12px;
+        }
+        .story-h { font-size: clamp(1.4rem, 4.6vw, 2.2rem); font-weight: 800; line-height: 1.2; margin-bottom: 14px; }
+        .story-p { font-size: clamp(0.95rem, 2.6vw, 1.1rem); line-height: 1.75; opacity: 0.94; }
+        .story-p strong { color: var(--accent-color); }
+        .story-quote {
+            margin-top: 18px; padding: 14px 18px; border-left: 4px solid var(--accent-color);
+            background: rgba(255,255,255,0.07); border-radius: 0 14px 14px 0;
+            font-style: italic; font-size: 0.98rem;
+        }
+        .story-media { margin-top: 18px; border-radius: 18px; overflow: hidden; max-height: 38vh; }
+        .story-media img { width: 100%; max-height: 38vh; object-fit: cover; display: block; }
+        .story-nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 12px 22px 22px; gap: 12px;
+        }
+        .story-nav button {
+            background: rgba(255,255,255,0.14); border: none; color: #fff; cursor: pointer;
+            padding: 11px 22px; border-radius: 40px; font-weight: 700; font-size: 0.86rem;
+            display: inline-flex; align-items: center; gap: 9px; transition: 0.2s;
+        }
+        .story-nav button:hover:not(:disabled) { background: var(--accent-color); color: #111; }
+        .story-nav button:disabled { opacity: 0.35; cursor: default; }
+        .story-hint { font-size: 0.72rem; opacity: 0.6; }
+
+        /* ---------- Notification interne ---------- */
+        #toast {
+            position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(20px);
+            background: var(--primary-color); color: #fff; padding: 12px 22px; border-radius: 40px;
+            font-size: 0.85rem; font-weight: 600; z-index: 1200; opacity: 0;
+            transition: opacity 0.25s, transform 0.25s; pointer-events: none;
+            border: 1px solid var(--accent-color); display: flex; align-items: center; gap: 10px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+        }
+        #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+        #toast i { color: var(--accent-color); }
+
+        .sr-only {
+            position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+            overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+        }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            .une-card { border-radius: 24px; }
+            .header-une { flex-direction: column; align-items: start; border-radius: 24px 24px 0 0; }
+            .article-body { padding: 22px 18px 16px; }
+            .article-body h1 { font-size: 1.5rem; }
+            .chapeau-wrap { flex-direction: column; }
+            .tts-btn { width: 100%; justify-content: center; }
+            .tab-btn { font-size: 0.8rem; padding: 8px 12px; }
+            .tabs-header-sticky {
+                margin-left: -18px; margin-right: -18px;
+                padding-left: 18px; padding-right: 18px;
+            }
+            .action-bar { flex-direction: column; align-items: start; }
+            .footer-une { flex-direction: column; align-items: start; border-radius: 0 0 24px 24px; }
+            .mode-switch { margin-left: 0; margin-top: 6px; width: 100%; }
+            .btn-mode-toggle { flex: 1; justify-content: center; }
+            .at-map { flex-direction: column; }
+        }
+
+        /* ─────────── Modes d'affichage : mobile · tablette · PC ───────────
+           Le lecteur choisit sa largeur de lecture ; « Auto » suit l'écran.
+           Ce bloc vient APRÈS les media queries : le choix explicite doit
+           l'emporter sur la taille réelle de la fenêtre, sinon une vue « PC »
+           demandée depuis un téléphone resterait écrasée par le @media. */
+        .vue-switch {
+            display: inline-flex; gap: 3px; padding: 3px;
+            background: rgba(255, 255, 255, 0.14); border-radius: 12px;
+        }
+        .vue-btn {
+            background: transparent; border: none; color: #fff; opacity: 0.66;
+            width: 32px; height: 30px; border-radius: 9px; cursor: pointer;
+            font-size: 0.85rem; display: inline-flex; align-items: center;
+            justify-content: center; transition: 0.18s;
+        }
+        .vue-btn:hover { opacity: 1; background: rgba(255, 255, 255, 0.18); }
+        .vue-btn[aria-pressed="true"] {
+            opacity: 1; background: var(--accent-color); color: #16202e;
+        }
+        .vue-btn:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 2px; }
+
+        html[data-vue="mobile"] body { padding: 8px; }
+        html[data-vue="mobile"] .une-card { max-width: 430px; border-radius: 22px; }
+        html[data-vue="mobile"] .header-une { flex-direction: column; align-items: start; border-radius: 22px 22px 0 0; }
+        html[data-vue="mobile"] .article-body { padding: 20px 16px 14px; }
+        html[data-vue="mobile"] .article-body h1 { font-size: 1.5rem; }
+        html[data-vue="mobile"] .chapeau { font-size: 1rem; }
+        html[data-vue="mobile"] .tabs-header-sticky {
+            margin-left: -16px; margin-right: -16px;
+            padding-left: 16px; padding-right: 16px;
+        }
+        html[data-vue="mobile"] .tab-btn { font-size: 0.8rem; padding: 8px 12px; min-height: 44px; }
+        html[data-vue="mobile"] .key-figures-grid,
+        html[data-vue="mobile"] .rel-grid { grid-template-columns: 1fr; }
+        html[data-vue="mobile"] .chapeau-wrap,
+        html[data-vue="mobile"] .at-map,
+        html[data-vue="mobile"] .action-bar,
+        html[data-vue="mobile"] .footer-une { flex-direction: column; align-items: start; }
+        html[data-vue="mobile"] .mode-switch { margin-left: 0; margin-top: 6px; width: 100%; }
+        html[data-vue="mobile"] .btn-mode-toggle { flex: 1; justify-content: center; }
+        html[data-vue="mobile"] .tts-btn { width: 100%; justify-content: center; }
+        html[data-vue="mobile"] .inline-media.size-half,
+        html[data-vue="mobile"] .inline-media.size-third { max-width: 100%; float: none; margin: 16px 0; }
+
+        html[data-vue="tablette"] .une-card { max-width: 760px; }
+        html[data-vue="tablette"] .article-body { padding: 26px 24px 18px; }
+        html[data-vue="tablette"] .tabs-header-sticky {
+            margin-left: -24px; margin-right: -24px;
+            padding-left: 24px; padding-right: 24px;
+        }
+        html[data-vue="tablette"] .key-figures-grid,
+        html[data-vue="tablette"] .rel-grid { grid-template-columns: repeat(2, 1fr); }
+
+        html[data-vue="pc"] .une-card { max-width: 1180px; }
+        html[data-vue="pc"] .article-body { padding: 34px 44px 24px; }
+        html[data-vue="pc"] .tabs-header-sticky {
+            margin-left: -44px; margin-right: -44px;
+            padding-left: 44px; padding-right: 44px;
+        }
+        html[data-vue="pc"] .tab-content p { max-width: 84ch; }
+
+        /* Une vue plus large que l'écran réel doit rester lisible plutôt que
+           de déborder : on plafonne à la place disponible. */
+        @media (max-width: 480px) {
+            html[data-vue="pc"] .une-card,
+            html[data-vue="tablette"] .une-card { max-width: 100%; }
+            html[data-vue="pc"] .article-body { padding: 22px 18px 16px; }
+            html[data-vue="pc"] .tabs-header-sticky {
+                margin-left: -18px; margin-right: -18px;
+                padding-left: 18px; padding-right: 18px;
+            }
+        }
+
+        /* ---------- Impression ---------- */
+        @media print {
+            body { background: #fff; padding: 0; }
+            .une-card { box-shadow: none; border: none; max-width: none; }
+            .une-card:hover { transform: none; }
+            #readingProgress, .tabs-header-sticky, .action-bar, .at-poll,
+            .tts-btn, .icon-btn, .vue-switch, #storyMode, #lightbox, #toast, .gal-nav, .gal-thumbs { display: none !important; }
+            #interactive-tabs-container { display: none !important; }
+            .continuous-reading-container { display: block !important; }
+            .reveal { opacity: 1 !important; transform: none !important; }
+        }
+    </style>
+    <!-- Sans JavaScript, rien ne doit rester masqué -->
+    <noscript>
+        <style>
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .tab-content { display: block !important; }
+            .tabs-header-sticky, .tts-btn, .at-poll, #btnStory { display: none !important; }
+        </style>
+    </noscript>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+<!-- Barre de progression de lecture -->
+<div id="readingProgress" aria-hidden="true"><div class="bar"></div></div>
+
+<!-- Sortie du grand écran -->
+<button type="button" id="btnExitFs" title="Quitter le grand écran (Échap)" aria-label="Quitter le grand écran">
+    <i class="fas fa-xmark"></i>
+</button>
+
+<div class="une-card" id="uneCard">
+
+    <!-- En-tête -->
+    <div class="header-une">
+        <div class="brand">
+            <i class="fas fa-cloud"></i>
+            <span>TIC • Innovation • Startups</span>
+        </div>
+        <div class="header-tools">
+            
+            <span class="badge-fresh" id="freshBadge" data-published="2026-08-26T22:42:04+00:00">
+                <span class="dot"></span><span class="txt">À l’instant</span>
+            </span>
+            
+            <div class="badge-date">
+                <i class="fas fa-calendar-check"></i> 25/08/2026
+                <i class="fas fa-circle" style="font-size: 6px; color: var(--accent-color);"></i>
+                <i class="fas fa-clock"></i> À la une
+            </div>
+            <div class="vue-switch" id="vueSwitch" role="group" aria-label="Mode d’affichage">
+                <button type="button" class="vue-btn" data-vue="auto" title="Affichage automatique" aria-label="Affichage automatique" aria-pressed="true"><i class="fas fa-wand-magic-sparkles"></i></button>
+                <button type="button" class="vue-btn" data-vue="mobile" title="Vue mobile" aria-label="Vue mobile" aria-pressed="false"><i class="fas fa-mobile-screen-button"></i></button>
+                <button type="button" class="vue-btn" data-vue="tablette" title="Vue tablette" aria-label="Vue tablette" aria-pressed="false"><i class="fas fa-tablet-screen-button"></i></button>
+                <button type="button" class="vue-btn" data-vue="pc" title="Vue ordinateur" aria-label="Vue ordinateur" aria-pressed="false"><i class="fas fa-display"></i></button>
+            </div>
+            <button type="button" class="icon-btn" id="btnFullscreen" title="Afficher en grand écran" aria-label="Afficher en grand écran" aria-pressed="false">
+                <i class="fas fa-up-right-and-down-left-from-center"></i>
+            </button>
+            <button type="button" class="icon-btn" id="btnStory" title="Mode Story plein écran" aria-label="Ouvrir le mode Story">
+                <i class="fas fa-bolt"></i>
+            </button>
+            <button type="button" class="icon-btn" id="btnDark" title="Basculer le mode sombre" aria-label="Basculer le mode sombre" aria-pressed="false">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Corps -->
+    <div class="article-body">
+
+        <h1 id="articleTitle">🚀 Djezzy, A-Venture &amp; Armonika : L’alliance algérienne pour un Cloud souverain</h1>
+
+        <div class="chapeau-wrap">
+            <div class="chapeau" id="chapeauText">
+                <i class="fas fa-bullhorn" style="margin-right: 12px; color: var(--accent-color);"></i>
+                
+                <span class="dens dens-short">Djezzy, A-Venture et Armonika unissent leurs forces pour créer un Cloud souverain algérien, renforçant ainsi l’autonomie technologique du pays.</span>
+                <span class="dens dens-medium">Un partenariat historique entre <strong>Djezzy</strong>, <em>Algeria Venture</em> et la startup <strong>Armonika</strong> marque un tournant pour le développement de solutions technologiques <strong>souveraines</strong> en Algérie. Signé à Alger, cet accord vise à accélérer la virtualisation des infrastructures et le déploiement d’un Cloud 100 % local.</span>
+                <span class="dens dens-full on">Un partenariat historique entre <strong>Djezzy</strong>, <em>Algeria Venture</em> et la startup <strong>Armonika</strong> marque un tournant pour le développement de solutions technologiques <strong>souveraines</strong> en Algérie. Signé à Alger, cet accord vise à accélérer la virtualisation des infrastructures et le déploiement d’un Cloud 100 % local.</span>
+                
+            </div>
+            <button type="button" class="tts-btn" id="btnTts" aria-label="Écouter l'article">
+                <i class="fas fa-volume-high"></i> <span class="lbl">Écouter</span>
+            </button>
+        </div>
+
+
+        <!-- Photo de une (effet Ken Burns + zoom) -->
+        
+        <div class="video-container kenburns reveal">
+            <img src="https://lesenjeuxeco.dz/media/2026/08/702277773_1221323404389219_5095724556574089765_n-500x375.jpg" alt="Photo extraite de la source"
+                 style="width:100%; display:block; max-height:430px; object-fit:cover;"
+                 data-zoom="1" data-caption="Photo extraite de la source">
+            <p class="media-caption"><i class="fas fa-camera"></i> Photo extraite de la source</p>
+        </div>
+        
+
+        <!-- ZONE CHIFFRES-CLÉS (jauges + compteurs animés) -->
+        
+
+        <!-- Galerie photo / carrousel -->
+        
+
+        <!-- Graphique principal -->
+        
+    
+
+
+        <!-- Tableau de données -->
+        
+
+        <!-- Comparateur -->
+        
+
+        <!-- Visuel interactif : image générée + zones cliquables vers le texte -->
+        
+
+        <!-- Mini-carte Algérie -->
+        
+
+        <!-- Frise chronologique globale -->
+        
+    
+
+
+        <!-- HEADER STICKY : ONGLETS -->
+        <div class="tabs-header-sticky" id="tabsHeaderSticky">
+            <div role="tablist" aria-label="Sections de l’article" style="display:flex; flex-wrap:wrap; gap:6px;">
+                
+                <button class="tab-btn active" data-tab="tab1"
+                        role="tab" id="btn-tab1" aria-controls="tab1"
+                        aria-selected="true"
+                        tabindex="0">
+                    <i class="fas fa-handshake"></i> Partenariat
+                </button>
+                
+                <button class="tab-btn " data-tab="tab2"
+                        role="tab" id="btn-tab2" aria-controls="tab2"
+                        aria-selected="false"
+                        tabindex="-1">
+                    <i class="fas fa-server"></i> Solutions
+                </button>
+                
+                <button class="tab-btn " data-tab="tab3"
+                        role="tab" id="btn-tab3" aria-controls="tab3"
+                        aria-selected="false"
+                        tabindex="-1">
+                    <i class="fas fa-rocket"></i> Engagement
+                </button>
+                
+
+                
+                <button class="tab-btn" data-tab="tab-media-image" role="tab" id="btn-tab-media-image"
+                        aria-controls="tab-media-image" aria-selected="false" tabindex="-1">
+                    <i class="fas fa-camera"></i> Image
+                </button>
+                
+                
+                
+            </div>
+
+            <div class="mode-switch">
+                <button type="button" class="btn-mode-toggle" id="btnModeToggle" aria-pressed="false">
+                    <i class="fas fa-book-open"></i> <span class="lbl">Lecture Continue</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Curseur de densité : placé juste au-dessus du texte qu'il commande,
+             sinon on déplace le curseur sans voir ce qui change. -->
+        
+        <div class="density-bar" id="densityBar">
+            <span class="db-label"><i class="fas fa-gauge-high"></i> Longueur du texte</span>
+            <div class="density-slider">
+                <input type="range" min="0" max="2" step="1" value="2" id="densityRange"
+                       aria-label="Longueur du texte" aria-valuetext="Intégral">
+                <div class="density-ticks">
+                    <span data-dens="0">30 s</span>
+                    <span data-dens="1">3 min</span>
+                    <span class="on" data-dens="2">Intégral</span>
+                </div>
+            </div>
+            <span class="density-note"><i class="fas fa-hourglass-half"></i> environ <b id="densityTime">—</b></span>
+        </div>
+        
+
+        <!-- ONGLETS -->
+        <div id="interactive-tabs-container">
+            
+            <div id="tab1" class="tab-content active"
+                 role="tabpanel" aria-labelledby="btn-tab1" tabindex="0">
+
+                
+
+                
+                <p class="dens dens-short">
+                    <i class="fas fa-lightbulb" style="color: var(--primary-light); margin-right:10px;"></i>
+                    Un partenariat entre Djezzy, A-Venture et Armonika vise à développer des solutions de Cloud souverain en Algérie, signé le 25 août 2026 à Alger.
+                </p>
+                <p class="dens dens-medium">
+                    <i class="fas fa-lightbulb" style="color: var(--primary-light); margin-right:10px;"></i>
+                    Un partenariat inédit entre <strong>Djezzy</strong>, <em>A-Venture</em> et <strong>Armonika</strong> a été scellé à Alger le 25 août 2026. Cet accord, signé au siège de Djezzy, s’inscrit dans une logique d’<strong>Open Innovation</strong> pour accélérer le déploiement de solutions technologiques souveraines. Les trois entités accompagneront Armonika dans la création de plateformes dédiées au <strong>Cloud</strong>, à la virtualisation et à l’orchestration des données, avec une expertise <strong>100 % algérienne</strong>.
+                </p>
+                <p class="dens dens-full on">
+                    <i class="fas fa-lightbulb" style="color: var(--primary-light); margin-right:10px;"></i>
+                    <strong>Lundi 25 août 2026</strong>, un accord stratégique a été signé au siège de <em>Djezzy</em>, à <strong>Dar El Beida (Alger)</strong>, entre l’opérateur <strong>Djezzy</strong>, le fonds d’investissement <em>Algeria Venture (A-Venture)</em> et la startup <strong>Armonika</strong>. Cet accord s’inscrit dans une démarche d’<strong>Open Innovation</strong>, visant à renforcer les synergies entre les acteurs économiques algériens et à stimuler l’émergence de solutions technologiques <strong>développées localement</strong>. Le but ? Accompagner Armonika dans le développement de plateformes innovantes pour le <strong>Cloud</strong>, la <strong>virtualisation</strong> et l’<strong>orchestration des infrastructures</strong>.
+                </p>
+                
+
+                
+
+                
+    
+
+                
+    
+
+
+                
+                <div class="citation">
+                    <i class="fas fa-quote-right" style="color: var(--accent-color); margin-right:10px;"></i>
+                    « « Cet accord réaffirme notre engagement en faveur de l’innovation et du développement de l’écosystème numérique national. » »
+                    
+                    <div style="text-align: right; font-size: 0.85rem; font-weight: bold; margin-top: 6px; color: var(--primary-light);">
+                        - Représentant de Djezzy
+                    </div>
+                    
+                </div>
+                
+
+                
+                <div class="tag-list">
+                    
+                    <span><i class="fas fa-lightbulb"></i> Open Innovation</span>
+                    
+                    <span><i class="fas fa-calendar-day"></i> 25/08/2026</span>
+                    
+                    <span><i class="fas fa-map-marked-alt"></i> Dar El Beida</span>
+                    
+                </div>
+                
+            </div>
+            
+            <div id="tab2" class="tab-content "
+                 role="tabpanel" aria-labelledby="btn-tab2" tabindex="0">
+
+                
+
+                
+                <p class="dens dens-short">
+                    <i class="fas fa-cogs" style="color: var(--primary-light); margin-right:10px;"></i>
+                    Armonika développe une plateforme souveraine intégrant Cloud, cybersécurité et SaaS, avec le soutien de Djezzy et A-Venture pour sécuriser les infrastructures algériennes.
+                </p>
+                <p class="dens dens-medium">
+                    <i class="fas fa-cogs" style="color: var(--primary-light); margin-right:10px;"></i>
+                    Armonika propose une plateforme technologique complète intégrant <strong>Cloud</strong>, virtualisation, orchestration, cybersécurité et SaaS. Son approche priorise la sécurité des données et s’inscrit dans la dynamique de la transformation numérique algérienne. Djezzy et A-Venture soutiendront son développement pour renforcer l’autonomie technologique du pays.
+                </p>
+                <p class="dens dens-full on">
+                    <i class="fas fa-cogs" style="color: var(--primary-light); margin-right:10px;"></i>
+                    Armonika, startup technologique algérienne, mise sur une plateforme intégrant plusieurs <strong>briques technologiques clés</strong> : <strong>Cloud</strong>, virtualisation, orchestration, <strong>cybersécurité</strong>, automatisation et solutions <strong>SaaS</strong>. Ces innovations reposent sur une approche axée sur la <strong>sécurité des infrastructures</strong> et la <strong>protection des données</strong>, en réponse à l’accélération de la <strong>transformation numérique</strong> en Algérie. <strong>Djezzy</strong> et <em>A-Venture</em> joueront un rôle clé dans le financement et l’accompagnement technique de ces projets, tout en valorisant les compétences locales.
+                </p>
+                
+
+                
+
+                
+    
+
+                
+    
+
+
+                
+
+                
+                <div class="tag-list">
+                    
+                    <span><i class="fas fa-cloud"></i> Cloud souverain</span>
+                    
+                    <span><i class="fas fa-shield-alt"></i> Cybersécurité</span>
+                    
+                    <span><i class="fas fa-box-open"></i> SaaS</span>
+                    
+                </div>
+                
+            </div>
+            
+            <div id="tab3" class="tab-content "
+                 role="tabpanel" aria-labelledby="btn-tab3" tabindex="0">
+
+                
+
+                
+                <p class="dens dens-short">
+                    <i class="fas fa-star" style="color: var(--primary-light); margin-right:10px;"></i>
+                    Djezzy renforce son engagement pour l’innovation et la souveraineté numérique algérienne grâce à ce partenariat historique.
+                </p>
+                <p class="dens dens-medium">
+                    <i class="fas fa-star" style="color: var(--primary-light); margin-right:10px;"></i>
+                    Ce partenariat marque l’engagement de Djezzy à soutenir l’innovation locale et la souveraineté numérique en Algérie. Une démarche cruciale pour réduire la dépendance aux technologies étrangères et stimuler l’économie nationale.
+                </p>
+                <p class="dens dens-full on">
+                    <i class="fas fa-star" style="color: var(--primary-light); margin-right:10px;"></i>
+                    <strong>Djezzy</strong> réitère ainsi son engagement en faveur de l’<strong>innovation</strong> et du renforcement de l’écosystème numérique national. Ce partenariat illustre la volonté des acteurs algériens de <strong>maîtriser leurs infrastructures technologiques stratégiques</strong>, réduisant ainsi leur dépendance aux solutions étrangères. L’initiative s’inscrit dans une vision plus large de <strong>souveraineté numérique</strong>, essentielle pour accompagner la croissance économique et sociale du pays.
+                </p>
+                
+
+                
+
+                
+    
+
+                
+    
+
+
+                
+
+                
+                <div class="tag-list">
+                    
+                    <span><i class="fas fa-globe-americas"></i> Souveraineté numérique</span>
+                    
+                    <span><i class="fas fa-flask"></i> Innovation locale</span>
+                    
+                    <span><i class="fas fa-chart-line"></i> Économie nationale</span>
+                    
+                </div>
+                
+            </div>
+            
+
+            
+            <div id="tab-media-image" class="tab-content" role="tabpanel" aria-labelledby="btn-tab-media-image" tabindex="0">
+                <div class="video-container">
+                    <img src="https://lesenjeuxeco.dz/media/2026/08/702277773_1221323404389219_5095724556574089765_n-500x375.jpg" alt="Photo extraite de la source"
+                         style="width:100%; display:block; max-height:450px; object-fit:cover;"
+                         data-zoom="1" data-caption="Photo extraite de la source">
+                    <p class="media-caption"><i class="fas fa-camera"></i> Photo extraite de la source</p>
+                </div>
+            </div>
+            
+
+            
+
+            
+        </div>
+
+        <!-- LECTURE CONTINUE -->
+        <div id="continuous-reading-container" class="continuous-reading-container">
+            
+            <div class="continuous-paragraph">
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--head-color); margin-bottom: 8px; display:flex; align-items:center; gap:8px;">
+                    <i class="fas fa-handshake" style="color: var(--accent-color);"></i>
+                    Partenariat
+                </h3>
+                
+                <p class="dens dens-short" style="margin-bottom: 12px; line-height: 1.7;">Un partenariat entre Djezzy, A-Venture et Armonika vise à développer des solutions de Cloud souverain en Algérie, signé le 25 août 2026 à Alger.</p>
+                <p class="dens dens-medium" style="margin-bottom: 12px; line-height: 1.7;">Un partenariat inédit entre <strong>Djezzy</strong>, <em>A-Venture</em> et <strong>Armonika</strong> a été scellé à Alger le 25 août 2026. Cet accord, signé au siège de Djezzy, s’inscrit dans une logique d’<strong>Open Innovation</strong> pour accélérer le déploiement de solutions technologiques souveraines. Les trois entités accompagneront Armonika dans la création de plateformes dédiées au <strong>Cloud</strong>, à la virtualisation et à l’orchestration des données, avec une expertise <strong>100 % algérienne</strong>.</p>
+                <p class="dens dens-full on" style="margin-bottom: 12px; line-height: 1.7;"><strong>Lundi 25 août 2026</strong>, un accord stratégique a été signé au siège de <em>Djezzy</em>, à <strong>Dar El Beida (Alger)</strong>, entre l’opérateur <strong>Djezzy</strong>, le fonds d’investissement <em>Algeria Venture (A-Venture)</em> et la startup <strong>Armonika</strong>. Cet accord s’inscrit dans une démarche d’<strong>Open Innovation</strong>, visant à renforcer les synergies entre les acteurs économiques algériens et à stimuler l’émergence de solutions technologiques <strong>développées localement</strong>. Le but ? Accompagner Armonika dans le développement de plateformes innovantes pour le <strong>Cloud</strong>, la <strong>virtualisation</strong> et l’<strong>orchestration des infrastructures</strong>.</p>
+                
+                
+    
+
+                
+    
+
+                
+    
+
+                
+                <div class="citation">
+                    <i class="fas fa-quote-right" style="color: var(--accent-color); margin-right:10px;"></i>
+                    « « Cet accord réaffirme notre engagement en faveur de l’innovation et du développement de l’écosystème numérique national. » »
+                </div>
+                
+            </div>
+            
+            <div class="continuous-paragraph">
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--head-color); margin-bottom: 8px; display:flex; align-items:center; gap:8px;">
+                    <i class="fas fa-server" style="color: var(--accent-color);"></i>
+                    Solutions
+                </h3>
+                
+                <p class="dens dens-short" style="margin-bottom: 12px; line-height: 1.7;">Armonika développe une plateforme souveraine intégrant Cloud, cybersécurité et SaaS, avec le soutien de Djezzy et A-Venture pour sécuriser les infrastructures algériennes.</p>
+                <p class="dens dens-medium" style="margin-bottom: 12px; line-height: 1.7;">Armonika propose une plateforme technologique complète intégrant <strong>Cloud</strong>, virtualisation, orchestration, cybersécurité et SaaS. Son approche priorise la sécurité des données et s’inscrit dans la dynamique de la transformation numérique algérienne. Djezzy et A-Venture soutiendront son développement pour renforcer l’autonomie technologique du pays.</p>
+                <p class="dens dens-full on" style="margin-bottom: 12px; line-height: 1.7;">Armonika, startup technologique algérienne, mise sur une plateforme intégrant plusieurs <strong>briques technologiques clés</strong> : <strong>Cloud</strong>, virtualisation, orchestration, <strong>cybersécurité</strong>, automatisation et solutions <strong>SaaS</strong>. Ces innovations reposent sur une approche axée sur la <strong>sécurité des infrastructures</strong> et la <strong>protection des données</strong>, en réponse à l’accélération de la <strong>transformation numérique</strong> en Algérie. <strong>Djezzy</strong> et <em>A-Venture</em> joueront un rôle clé dans le financement et l’accompagnement technique de ces projets, tout en valorisant les compétences locales.</p>
+                
+                
+    
+
+                
+    
+
+                
+    
+
+                
+            </div>
+            
+            <div class="continuous-paragraph">
+                <h3 style="font-size: 1.1rem; font-weight: 700; color: var(--head-color); margin-bottom: 8px; display:flex; align-items:center; gap:8px;">
+                    <i class="fas fa-rocket" style="color: var(--accent-color);"></i>
+                    Engagement
+                </h3>
+                
+                <p class="dens dens-short" style="margin-bottom: 12px; line-height: 1.7;">Djezzy renforce son engagement pour l’innovation et la souveraineté numérique algérienne grâce à ce partenariat historique.</p>
+                <p class="dens dens-medium" style="margin-bottom: 12px; line-height: 1.7;">Ce partenariat marque l’engagement de Djezzy à soutenir l’innovation locale et la souveraineté numérique en Algérie. Une démarche cruciale pour réduire la dépendance aux technologies étrangères et stimuler l’économie nationale.</p>
+                <p class="dens dens-full on" style="margin-bottom: 12px; line-height: 1.7;"><strong>Djezzy</strong> réitère ainsi son engagement en faveur de l’<strong>innovation</strong> et du renforcement de l’écosystème numérique national. Ce partenariat illustre la volonté des acteurs algériens de <strong>maîtriser leurs infrastructures technologiques stratégiques</strong>, réduisant ainsi leur dépendance aux solutions étrangères. L’initiative s’inscrit dans une vision plus large de <strong>souveraineté numérique</strong>, essentielle pour accompagner la croissance économique et sociale du pays.</p>
+                
+                
+    
+
+                
+    
+
+                
+    
+
+                
+            </div>
+            
+
+            
+            <div class="video-container">
+                <img src="https://lesenjeuxeco.dz/media/2026/08/702277773_1221323404389219_5095724556574089765_n-500x375.jpg" alt="Photo extraite de la source"
+                     style="width:100%; max-height:400px; object-fit:cover; display:block;"
+                     data-zoom="1" data-caption="Photo extraite de la source">
+                <p class="media-caption"><i class="fas fa-camera"></i> Photo extraite de la source</p>
+            </div>
+            
+
+            
+
+            
+        </div>
+
+        <!-- Bloc d'engagement -->
+        
+        <div class="info-card-container reveal">
+            <div class="info-card-content">
+                <i class="fas fa-bullhorn"></i>
+                <span class="info-card-text"><strong>Djezzy</strong> réaffirme son rôle de moteur de l’innovation en Algérie en s’appuyant sur les startups locales comme <strong>Armonika</strong>. Cette alliance illustre la capacité des acteurs algériens à innover et à répondre aux défis de la <strong>transformation numérique</strong>, tout en créant des emplois qualifiés et en dynamisant l’écosystème tech national.</span>
+            </div>
+        </div>
+        
+
+        <!-- Conclusion -->
+        
+        <div class="closing-container reveal">
+            <i class="fas fa-handshake-simple"></i>
+            <span>La signature de cet accord à Alger symbolise une nouvelle ère de collaboration entre les géants économiques et les startups algériennes, ouvrant la voie à des solutions technologiques <strong>100 % made in Algeria</strong>.</span>
+        </div>
+        
+
+        <!-- Poser une question à l'article -->
+        
+        <div class="at-qa reveal" id="atQa" data-endpoint="/api/ask">
+            <div class="qa-head"><i class="fas fa-comments"></i> Posez une question à cet article</div>
+            <div class="qa-sub">La réponse est cherchée <strong>uniquement</strong> dans le contenu ci-dessus, et le passage d’origine vous est montré.</div>
+            <form class="qa-form" id="qaForm" autocomplete="off">
+                <input type="text" id="qaInput" placeholder="Ex. : quel est le calendrier annoncé ?"
+                       aria-label="Votre question sur l’article" maxlength="300">
+                <button type="submit" id="qaSubmit"><i class="fas fa-paper-plane"></i> Demander</button>
+            </form>
+            
+            <div class="qa-suggest">
+                
+                <button type="button" class="qa-chip">Quel est le calendrier annoncé ?</button>
+                
+                <button type="button" class="qa-chip">Combien cela coûte-t-il ?</button>
+                
+                <button type="button" class="qa-chip">Qui est concerné et où ?</button>
+                
+            </div>
+            
+            <div class="qa-answer" id="qaAnswer" aria-live="polite"></div>
+        </div>
+        
+
+        <!-- Sondage -->
+        
+        <div class="at-poll reveal" id="atPoll" data-poll-id="poll-tic">
+            <div class="poll-q"><i class="fas fa-square-poll-vertical"></i> Ce chantier va-t-il améliorer concrètement le service au quotidien ?</div>
+            <div class="poll-opts">
+                
+                <button type="button" class="poll-opt" data-opt="o0" data-seed="0">
+                    <span class="fill"></span>
+                    <span class="lbl">Oui, nettement</span>
+                    <span class="pct">0 %</span>
+                </button>
+                
+                <button type="button" class="poll-opt" data-opt="o1" data-seed="0">
+                    <span class="fill"></span>
+                    <span class="lbl">Un peu seulement</span>
+                    <span class="pct">0 %</span>
+                </button>
+                
+                <button type="button" class="poll-opt" data-opt="o2" data-seed="0">
+                    <span class="fill"></span>
+                    <span class="lbl">Pas vraiment</span>
+                    <span class="pct">0 %</span>
+                </button>
+                
+                <button type="button" class="poll-opt" data-opt="o3" data-seed="0">
+                    <span class="fill"></span>
+                    <span class="lbl">Il faut voir à l’usage</span>
+                    <span class="pct">0 %</span>
+                </button>
+                
+            </div>
+            <div class="poll-foot"><i class="fas fa-circle-info"></i> <span id="pollFoot">Votre vote reste sur cet appareil.</span></div>
+        </div>
+        
+
+        <!-- Visualisations reservees au fichier .html -->
+        
+
+        <!-- Barre d'actions -->
+        <div class="action-bar">
+            <button class="like-btn" id="likeButton" aria-pressed="false">
+                <i class="fas fa-thumbs-up"></i> <span class="lbl">J'aime</span> <span id="likeCount">12</span>
+            </button>
+            <div class="share-icons" id="shareIcons">
+                <button type="button" id="btnNativeShare" title="Partager" aria-label="Partager l'article" style="display:none;">
+                    <i class="fas fa-share-nodes"></i>
+                </button>
+                <a href="#" data-share="linkedin" target="_blank" rel="noopener" title="Partager sur LinkedIn" aria-label="Partager sur LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" data-share="x" target="_blank" rel="noopener" title="Partager sur X" aria-label="Partager sur X"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" data-share="facebook" target="_blank" rel="noopener" title="Partager sur Facebook" aria-label="Partager sur Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" data-share="whatsapp" target="_blank" rel="noopener" title="Partager sur WhatsApp" aria-label="Partager sur WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" data-share="email" title="Partager par email" aria-label="Partager par email"><i class="fas fa-envelope"></i></a>
+                <button type="button" id="btnCopyLink" title="Copier le lien" aria-label="Copier le lien"><i class="fas fa-link"></i></button>
+                <button type="button" id="btnPrint" title="Imprimer / PDF" aria-label="Imprimer l'article"><i class="fas fa-print"></i></button>
+            </div>
+        </div>
+
+        <!-- À lire aussi -->
+        
+        <div class="at-related reveal">
+            <div class="rel-title"><i class="fas fa-layer-group"></i> À lire aussi</div>
+            <div class="rel-grid">
+                
+                <a class="rel-card" href="https://algeria-tech.pages.dev/article/1787420972370" target="_blank" rel="noopener">
+                    <span class="rel-cat">Startups</span>
+                    <span class="rel-head">Partenariat entre EYCONET et AfriLabs pour accélérer l’internationalisation des start-ups algériennes</span>
+                    <span class="rel-date"><i class="fas fa-clock"></i> 22/08/2026</span>
+                </a>
+                
+                <a class="rel-card" href="https://algeria-tech.pages.dev/article/1786128456717" target="_blank" rel="noopener">
+                    <span class="rel-cat">IA</span>
+                    <span class="rel-head">Étudiants de Jijel développent des plateformes numériques basées sur l&#39;IA et la 5G pour booster les entreprise</span>
+                    <span class="rel-date"><i class="fas fa-clock"></i> 07/08/2026</span>
+                </a>
+                
+                <a class="rel-card" href="https://algeria-tech.pages.dev/article/1783086457156" target="_blank" rel="noopener">
+                    <span class="rel-cat">Algérie</span>
+                    <span class="rel-head">Signature d’un accord de double diplôme entre l’Algérie et l’Allemagne</span>
+                    <span class="rel-date"><i class="fas fa-clock"></i> 03/07/2026</span>
+                </a>
+                
+            </div>
+        </div>
+        
+
+    </div>
+
+    <!-- Pied de carte -->
+    <div class="footer-une">
+        <div class="meta">
+            
+                <span><i class="fas fa-hashtag"></i> CloudSouverain</span><span><i class="fas fa-hashtag"></i> InnovationAlgerienne</span><span><i class="fas fa-hashtag"></i> TIC</span>
+            
+            
+                <span><i class="fas fa-newspaper"></i> ACTUTIC</span>
+            
+            <span id="readTime"><i class="fas fa-hourglass-half"></i> <b>—</b> min de lecture</span>
+        </div>
+        <a class="btn-voir-plus" id="voirPlusBtn" href="https://lesenjeuxeco.dz/cloud-souverain-en-algerie-djezzy-sassocie-a-algeria-venture-et-armonika/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=cloud-souverain-en-algerie-djezzy-sassocie-a-algeria-venture-et-armonika" target="_blank" rel="noopener">
+            <i class="fas fa-arrow-right"></i> Lire l'intégralité
+        </a>
+    </div>
+
+</div>
+
+<!-- Visionneuse plein écran -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Photo en plein écran">
+    <button type="button" class="lb-close" aria-label="Fermer"><i class="fas fa-xmark"></i></button>
+    <button type="button" class="lb-nav prev" aria-label="Photo précédente"><i class="fas fa-chevron-left"></i></button>
+    <img src="" alt="">
+    <div class="lb-cap"></div>
+    <button type="button" class="lb-nav next" aria-label="Photo suivante"><i class="fas fa-chevron-right"></i></button>
+</div>
+
+<!-- Mode Story -->
+<div id="storyMode" role="dialog" aria-modal="true" aria-label="Lecture en mode Story">
+    <div class="story-bars" id="storyBars"></div>
+    <div class="story-top">
+        <span class="st-brand"><i class="fas fa-cloud"></i> TIC • Innovation • Startups</span>
+        <button type="button" class="story-close" id="storyClose" aria-label="Quitter le mode Story"><i class="fas fa-xmark"></i></button>
+    </div>
+    <div class="story-body" id="storyBody"></div>
+    <div class="story-nav">
+        <button type="button" id="storyPrev"><i class="fas fa-chevron-left"></i> Précédent</button>
+        <span class="story-hint">← → ou balayer</span>
+        <button type="button" id="storyNext">Suivant <i class="fas fa-chevron-right"></i></button>
+    </div>
+</div>
+
+<!-- Provenance d'un chiffre -->
+<div id="srcPanel" role="dialog" aria-live="polite" aria-label="Provenance du chiffre">
+    <button type="button" class="sp-close" aria-label="Fermer"><i class="fas fa-xmark"></i></button>
+    <div class="sp-head"><i class="fas fa-quote-left"></i> <span class="sp-title">D’où vient ce chiffre</span></div>
+    <div class="sp-quote"></div>
+    <div class="sp-foot">
+        <span class="sp-origin"></span>
+        <span class="sp-hint">Le passage est surligné dans l’article.</span>
+    </div>
+</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function () {
+    'use strict';
+
+    var $  = function (s, r) { return (r || document).querySelector(s); };
+    var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Identifiant stable de l'article (persistance locale)
+    var ARTICLE_KEY = 'at-article-' + (function (s) {
+        var h = 5381; for (var i = 0; i < s.length; i++) { h = ((h << 5) + h + s.charCodeAt(i)) | 0; }
+        return Math.abs(h).toString(36);
+    })(($('#articleTitle') || {}).textContent || 'article');
+
+    function store(key, val) {
+        try {
+            if (val === undefined) { return localStorage.getItem(ARTICLE_KEY + ':' + key); }
+            localStorage.setItem(ARTICLE_KEY + ':' + key, val);
+        } catch (e) { return null; }
+    }
+
+    var toastEl = $('#toast'), toastTimer = null;
+    function toast(msg, icon) {
+        if (!toastEl) return;
+        toastEl.innerHTML = '<i class="fas ' + (icon || 'fa-circle-check') + '"></i> ' + msg;
+        toastEl.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { toastEl.classList.remove('show'); }, 2600);
+    }
+
+    /* ============ 1. MODE SOMBRE ============ */
+    (function () {
+        var btn = $('#btnDark'), html = document.documentElement;
+        var saved = store('mode');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var mode = saved || (false ? 'dark' : (prefersDark ? 'dark' : 'light'));
+        apply(mode);
+
+        function apply(m) {
+            html.setAttribute('data-mode', m);
+            if (!btn) return;
+            btn.classList.toggle('on', m === 'dark');
+            btn.setAttribute('aria-pressed', m === 'dark' ? 'true' : 'false');
+            btn.innerHTML = m === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        }
+        if (btn) {
+            btn.addEventListener('click', function () {
+                mode = html.getAttribute('data-mode') === 'dark' ? 'light' : 'dark';
+                apply(mode); store('mode', mode);
+            });
+        }
+    })();
+
+    /* ============ 1b. GRAND ÉCRAN ============ */
+    (function () {
+        var btn = $('#btnFullscreen'), exit = $('#btnExitFs');
+        if (!btn) return;
+        var root = document.documentElement;
+
+        function isNative() {
+            return !!(document.fullscreenElement || document.webkitFullscreenElement);
+        }
+
+        function paint(on) {
+            root.classList.toggle('at-fs', on);
+            btn.classList.toggle('on', on);
+            btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+            btn.title = on ? 'Quitter le grand écran' : 'Afficher en grand écran';
+            btn.innerHTML = on
+                ? '<i class="fas fa-down-left-and-up-right-to-center"></i>'
+                : '<i class="fas fa-up-right-and-down-left-from-center"></i>';
+        }
+
+        // Une iframe sans autorisation « fullscreen » refuse la demande — et
+        // certains navigateurs lèvent alors une exception SYNCHRONE au lieu de
+        // rejeter la promesse. On couvre les deux cas et on élargit la carte
+        // dans l'espace disponible plutôt que de ne rien faire.
+        function fallback() {
+            paint(true);
+            toast('Affichage élargi.', 'fa-expand');
+        }
+
+        function enter() {
+            var req = root.requestFullscreen || root.webkitRequestFullscreen;
+            if (!req) { fallback(); return; }
+            var out;
+            try {
+                out = req.call(root);
+            } catch (e) {
+                fallback();
+                return;
+            }
+            if (out && out.catch) out.catch(fallback);
+            else paint(true);
+        }
+
+        function leave() {
+            if (isNative()) {
+                try {
+                    (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+                    return;
+                } catch (e) { /* on retombe sur l'affichage élargi */ }
+            }
+            paint(false);
+        }
+
+        btn.addEventListener('click', function () {
+            if (root.classList.contains('at-fs')) leave(); else enter();
+        });
+
+        if (exit) {
+            exit.addEventListener('click', function () {
+                if (root.classList.contains('at-fs')) { leave(); return; }
+                // Hors grand écran, la croix referme la carte chez la page hôte
+                if (window.parent !== window) {
+                    try { window.parent.postMessage({ type: 'at-close-interactif' }, '*'); } catch (e) {}
+                }
+            });
+        }
+
+        ['fullscreenchange', 'webkitfullscreenchange'].forEach(function (ev) {
+            document.addEventListener(ev, function () { paint(isNative()); });
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key !== 'Escape') return;
+            if (isNative()) return;                     // le navigateur s'en charge
+            if ($('#lightbox').classList.contains('open')) return;
+            if ($('#storyMode').classList.contains('open')) return;
+            if (root.classList.contains('at-fs')) paint(false);
+        });
+    })();
+
+    /* ============ 2. BARRE DE PROGRESSION + TEMPS DE LECTURE ============ */
+    (function () {
+        var bar = $('#readingProgress .bar');
+        var card = $('#uneCard');
+        function update() {
+            if (!bar || !card) return;
+            var docH = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) - window.innerHeight;
+            var pct = docH > 0 ? (window.scrollY / docH) * 100 : 0;
+            bar.style.width = Math.min(100, Math.max(0, pct)).toFixed(1) + '%';
+        }
+        window.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update);
+        update();
+
+        var rt = $('#readTime b');
+        if (rt) {
+            var txt = ($('.article-body') || {}).innerText || '';
+            var words = txt.trim().split(/\s+/).length;
+            rt.textContent = Math.max(1, Math.round(words / 200));
+        }
+    })();
+
+    /* ============ 3. APPARITION AU DÉFILEMENT ============ */
+    (function () {
+        var items = $$('.reveal');
+        if (!items.length) return;
+        if (reduceMotion || !('IntersectionObserver' in window)) {
+            items.forEach(function (el) { el.classList.add('in'); });
+            return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+            });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+        items.forEach(function (el) { io.observe(el); });
+
+        // Filet de sécurité : une page chargée en arrière-plan ne reçoit aucune
+        // notification d'intersection. Rien ne doit rester invisible pour autant.
+        function rescue() {
+            items.forEach(function (el) {
+                var r = el.getBoundingClientRect();
+                if (r.top < window.innerHeight * 1.2) { el.classList.add('in'); io.unobserve(el); }
+            });
+        }
+        document.addEventListener('visibilitychange', function () {
+            if (document.visibilityState === 'visible') setTimeout(rescue, 100);
+        });
+        setTimeout(rescue, 2500);
+    })();
+
+    /* ============ 4. ONGLETS ACCESSIBLES (ARIA + clavier) ============ */
+    var tabsApi = (function () {
+        var btns = $$('.tab-btn');
+        var panels = $$('.tab-content');
+        if (!btns.length) return { activate: function () {}, list: [] };
+
+        function activate(btn, focus) {
+            if (!btn) return;
+            if (isContinuous()) setContinuous(false);
+            btns.forEach(function (b) {
+                var on = b === btn;
+                b.classList.toggle('active', on);
+                b.setAttribute('aria-selected', on ? 'true' : 'false');
+                b.tabIndex = on ? 0 : -1;
+            });
+            panels.forEach(function (p) { p.classList.remove('active'); });
+            var target = document.getElementById(btn.dataset.tab);
+            if (target) {
+                target.classList.add('active');
+                $$('.reveal', target).forEach(function (el) { el.classList.add('in'); });
+                renderChartsIn(target);
+            }
+            if (focus) btn.focus();
+        }
+
+        btns.forEach(function (btn, i) {
+            btn.addEventListener('click', function () { activate(btn, false); });
+            btn.addEventListener('keydown', function (e) {
+                var k = e.key, next = null;
+                if (k === 'ArrowRight' || k === 'ArrowDown') next = btns[(i + 1) % btns.length];
+                else if (k === 'ArrowLeft' || k === 'ArrowUp') next = btns[(i - 1 + btns.length) % btns.length];
+                else if (k === 'Home') next = btns[0];
+                else if (k === 'End') next = btns[btns.length - 1];
+                if (next) { e.preventDefault(); activate(next, true); }
+            });
+        });
+
+        return { activate: activate, list: btns };
+    })();
+
+    /* ============ 5. LECTURE CONTINUE ============ */
+    var tabsBox = $('#interactive-tabs-container');
+    var contBox = $('#continuous-reading-container');
+    var toggleBtn = $('#btnModeToggle');
+
+    function isContinuous() { return contBox && contBox.style.display === 'block'; }
+
+    function setContinuous(on) {
+        if (!tabsBox || !contBox || !toggleBtn) return;
+        tabsBox.style.display = on ? 'none' : 'block';
+        contBox.style.display = on ? 'block' : 'none';
+        toggleBtn.classList.toggle('active', on);
+        toggleBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        toggleBtn.innerHTML = on
+            ? '<i class="fas fa-window-restore"></i> <span class="lbl">Mode Onglets</span>'
+            : '<i class="fas fa-book-open"></i> <span class="lbl">Lecture Continue</span>';
+        if (on) {
+            $$('.reveal', contBox).forEach(function (el) { el.classList.add('in'); });
+            renderChartsIn(contBox);
+        }
+    }
+
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', function () { setContinuous(!isContinuous()); });
+    }
+
+    /* ============ 6. COMPTEURS ANIMÉS + JAUGES ============ */
+    (function () {
+        function animateValue(el) {
+            var raw = el.getAttribute('data-countup') || el.textContent;
+            var m = raw.match(/-?[\d  ]+(?:[.,]\d+)?/);
+            if (!m || reduceMotion) return;
+            var numStr = m[0].replace(/[  ]/g, '').replace(',', '.');
+            var target = parseFloat(numStr);
+            if (isNaN(target)) return;
+            var decimals = (numStr.split('.')[1] || '').length;
+            var prefix = raw.slice(0, m.index), suffix = raw.slice(m.index + m[0].length);
+            var dur = 1100, start = null;
+            function frame(ts) {
+                if (!start) start = ts;
+                var p = Math.min(1, (ts - start) / dur);
+                var eased = 1 - Math.pow(1 - p, 3);
+                var val = (target * eased).toFixed(decimals);
+                el.textContent = prefix + Number(val).toLocaleString('fr-FR', {
+                    minimumFractionDigits: decimals, maximumFractionDigits: decimals
+                }) + suffix;
+                if (p < 1) requestAnimationFrame(frame);
+            }
+            requestAnimationFrame(frame);
+        }
+
+        var cards = $$('.figure-card');
+        if (!cards.length) return;
+        function run(card) {
+            var v = $('.fig-value', card); if (v) animateValue(v);
+            var g = $('.fig-gauge > i', card);
+            if (g) setTimeout(function () { g.style.width = Math.min(100, Math.max(0, parseFloat(g.dataset.gauge) || 0)) + '%'; }, 120);
+        }
+        if (!('IntersectionObserver' in window)) { cards.forEach(run); return; }
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } });
+        }, { threshold: 0.35 });
+        cards.forEach(function (c) { io.observe(c); });
+    })();
+
+    /* ============ 7. GRAPHIQUES SVG ============ */
+    var PALETTE = ['var(--primary-color)', 'var(--accent-color)', 'var(--primary-light)', '#3aa0d1', '#8a6fd1', '#16a34a', '#e05252'];
+    var SVGNS = 'http://www.w3.org/2000/svg';
+
+    function svgEl(name, attrs) {
+        var e = document.createElementNS(SVGNS, name);
+        for (var k in attrs) { if (attrs.hasOwnProperty(k)) e.setAttribute(k, attrs[k]); }
+        return e;
+    }
+    function fmtNum(n) {
+        return Number(n).toLocaleString('fr-FR', { maximumFractionDigits: 2 });
+    }
+
+    function drawBar(cfg, host) {
+        var s = cfg.series, W = 620, H = 260, padL = 44, padR = 12, padB = 42, padT = 12;
+        var max = Math.max.apply(null, s.map(function (d) { return +d.value || 0; })) || 1;
+        var svg = svgEl('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img' });
+        var innerW = W - padL - padR, innerH = H - padT - padB;
+        var horizontal = !!cfg.horizontal || s.length > 6;
+
+        for (var g = 0; g <= 4; g++) {
+            var y = padT + innerH - (innerH * g / 4);
+            svg.appendChild(svgEl('line', { x1: padL, y1: y, x2: W - padR, y2: y, class: 'c-grid' }));
+            var lab = svgEl('text', { x: padL - 8, y: y + 4, class: 'c-label', 'text-anchor': 'end' });
+            lab.textContent = fmtNum(max * g / 4);
+            svg.appendChild(lab);
+        }
+
+        var slot = innerW / s.length, bw = Math.min(64, slot * 0.62);
+        s.forEach(function (d, i) {
+            var v = +d.value || 0;
+            var h = (v / max) * innerH;
+            var x = padL + slot * i + (slot - bw) / 2;
+            var y = padT + innerH - h;
+            var rect = svgEl('rect', {
+                x: x, y: padT + innerH, width: bw, height: 0, rx: 7,
+                fill: d.color || PALETTE[i % PALETTE.length], class: 'c-bar'
+            });
+            var t = svgEl('title'); t.textContent = d.label + ' : ' + fmtNum(v) + (cfg.unit ? ' ' + cfg.unit : '');
+            rect.appendChild(t);
+            svg.appendChild(rect);
+            if (reduceMotion) { rect.setAttribute('y', y); rect.setAttribute('height', Math.max(2, h)); }
+            else {
+                setTimeout(function () {
+                    rect.style.transition = 'y .9s cubic-bezier(.2,.8,.3,1), height .9s cubic-bezier(.2,.8,.3,1)';
+                    rect.setAttribute('y', y); rect.setAttribute('height', Math.max(2, h));
+                }, 60 + i * 80);
+            }
+            var val = svgEl('text', { x: x + bw / 2, y: y - 7, class: 'c-value', 'text-anchor': 'middle' });
+            val.textContent = fmtNum(v) + (cfg.unit || '');
+            svg.appendChild(val);
+            var lb = svgEl('text', { x: x + bw / 2, y: H - padB + 20, class: 'c-label', 'text-anchor': 'middle' });
+            lb.textContent = String(d.label).length > 12 ? String(d.label).slice(0, 11) + '…' : d.label;
+            var lt = svgEl('title'); lt.textContent = d.label; lb.appendChild(lt);
+            svg.appendChild(lb);
+        });
+        svg.appendChild(svgEl('line', { x1: padL, y1: padT + innerH, x2: W - padR, y2: padT + innerH, class: 'c-axis' }));
+        host.appendChild(svg);
+    }
+
+    function drawLine(cfg, host) {
+        var s = cfg.series, W = 620, H = 250, padL = 46, padR = 14, padB = 40, padT = 14;
+        var vals = s.map(function (d) { return +d.value || 0; });
+        var max = Math.max.apply(null, vals) || 1, min = Math.min.apply(null, vals);
+        if (min > 0) min = 0;
+        var innerW = W - padL - padR, innerH = H - padT - padB;
+        var svg = svgEl('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img' });
+
+        for (var g = 0; g <= 4; g++) {
+            var y = padT + innerH - (innerH * g / 4);
+            svg.appendChild(svgEl('line', { x1: padL, y1: y, x2: W - padR, y2: y, class: 'c-grid' }));
+            var lab = svgEl('text', { x: padL - 8, y: y + 4, class: 'c-label', 'text-anchor': 'end' });
+            lab.textContent = fmtNum(min + (max - min) * g / 4);
+            svg.appendChild(lab);
+        }
+
+        var step = s.length > 1 ? innerW / (s.length - 1) : 0;
+        var pts = s.map(function (d, i) {
+            var v = +d.value || 0;
+            return [padL + step * i, padT + innerH - ((v - min) / (max - min || 1)) * innerH];
+        });
+
+        var dAttr = pts.map(function (p, i) { return (i ? 'L' : 'M') + p[0].toFixed(1) + ',' + p[1].toFixed(1); }).join(' ');
+        var area = svgEl('path', {
+            d: dAttr + ' L' + pts[pts.length - 1][0] + ',' + (padT + innerH) + ' L' + pts[0][0] + ',' + (padT + innerH) + ' Z',
+            fill: 'var(--primary-color)', opacity: 0.12
+        });
+        svg.appendChild(area);
+
+        var path = svgEl('path', { d: dAttr, fill: 'none', stroke: cfg.color || 'var(--primary-light)', 'stroke-width': 3, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' });
+        svg.appendChild(path);
+        try {
+            var len = path.getTotalLength();
+            if (len && !reduceMotion) {
+                path.style.strokeDasharray = len; path.style.strokeDashoffset = len;
+                setTimeout(function () { path.style.transition = 'stroke-dashoffset 1.2s ease'; path.style.strokeDashoffset = 0; }, 80);
+            }
+        } catch (e) {}
+
+        pts.forEach(function (p, i) {
+            var c = svgEl('circle', { cx: p[0], cy: p[1], r: 4.5, fill: 'var(--card-bg)', stroke: 'var(--accent-color)', 'stroke-width': 3 });
+            var t = svgEl('title'); t.textContent = s[i].label + ' : ' + fmtNum(s[i].value) + (cfg.unit ? ' ' + cfg.unit : '');
+            c.appendChild(t); svg.appendChild(c);
+            var lb = svgEl('text', { x: p[0], y: H - padB + 20, class: 'c-label', 'text-anchor': 'middle' });
+            lb.textContent = s[i].label; svg.appendChild(lb);
+        });
+        svg.appendChild(svgEl('line', { x1: padL, y1: padT + innerH, x2: W - padR, y2: padT + innerH, class: 'c-axis' }));
+        host.appendChild(svg);
+    }
+
+    function drawDonut(cfg, host) {
+        var s = cfg.series, W = 620, H = 250, cx = 150, cy = 125, r = 92, thick = 32;
+        var total = s.reduce(function (a, d) { return a + (+d.value || 0); }, 0) || 1;
+        var svg = svgEl('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img' });
+        var acc = -Math.PI / 2;
+
+        s.forEach(function (d, i) {
+            var frac = (+d.value || 0) / total;
+            var ang = frac * Math.PI * 2;
+            var x1 = cx + r * Math.cos(acc), y1 = cy + r * Math.sin(acc);
+            var x2 = cx + r * Math.cos(acc + ang), y2 = cy + r * Math.sin(acc + ang);
+            var large = ang > Math.PI ? 1 : 0;
+            var arc = svgEl('path', {
+                d: 'M' + x1 + ',' + y1 + ' A' + r + ',' + r + ' 0 ' + large + ' 1 ' + x2 + ',' + y2,
+                fill: 'none', stroke: d.color || PALETTE[i % PALETTE.length],
+                'stroke-width': thick, 'stroke-linecap': 'butt', class: 'c-bar'
+            });
+            var t = svgEl('title');
+            t.textContent = d.label + ' : ' + fmtNum(d.value) + (cfg.unit ? ' ' + cfg.unit : '') + ' (' + Math.round(frac * 100) + ' %)';
+            arc.appendChild(t);
+            svg.appendChild(arc);
+            acc += ang;
+
+            var ly = 40 + i * 30;
+            svg.appendChild(svgEl('rect', { x: 300, y: ly - 10, width: 12, height: 12, rx: 3, fill: d.color || PALETTE[i % PALETTE.length] }));
+            var lab = svgEl('text', { x: 322, y: ly, class: 'c-label' });
+            lab.textContent = d.label; svg.appendChild(lab);
+            var val = svgEl('text', { x: W - 20, y: ly, class: 'c-value', 'text-anchor': 'end' });
+            val.textContent = fmtNum(d.value) + (cfg.unit || '') + '  (' + Math.round(frac * 100) + ' %)';
+            svg.appendChild(val);
+        });
+
+        var big = svgEl('text', { x: cx, y: cy - 2, class: 'c-value', 'text-anchor': 'middle', style: 'font-size:26px;' });
+        big.textContent = fmtNum(total) + (cfg.unit || '');
+        svg.appendChild(big);
+        var sub = svgEl('text', { x: cx, y: cy + 20, class: 'c-label', 'text-anchor': 'middle' });
+        sub.textContent = cfg.total_label || 'Total';
+        svg.appendChild(sub);
+        host.appendChild(svg);
+    }
+
+    function renderChartsIn(root) {
+        $$('.at-chart', root || document).forEach(function (box) {
+            if (box.dataset.rendered === '1') return;
+            if (!box.offsetParent && box.closest('.tab-content:not(.active)')) return;
+            var cfg;
+            try { cfg = JSON.parse(box.getAttribute('data-chart')); } catch (e) { return; }
+            if (!cfg || !cfg.series || !cfg.series.length) return;
+            var host = $('.chart-canvas', box);
+            if (!host) return;
+            host.innerHTML = '';
+            var type = (cfg.type || 'bar').toLowerCase();
+            if (type === 'line' || type === 'area') drawLine(cfg, host);
+            else if (type === 'donut' || type === 'pie') drawDonut(cfg, host);
+            else drawBar(cfg, host);
+            box.dataset.rendered = '1';
+        });
+    }
+    renderChartsIn(document);
+
+    /* ============ 8. GALERIE / CARROUSEL ============ */
+    (function () {
+        var gal = $('#atGallery'); if (!gal) return;
+        var track = $('.gal-track', gal);
+        var slides = $$('.gal-slide', gal);
+        var thumbs = $$('.gal-thumbs button', gal);
+        var counter = $('.gal-count b', gal);
+        var idx = 0;
+
+        function go(i) {
+            idx = (i + slides.length) % slides.length;
+            track.style.transform = 'translateX(' + (-idx * 100) + '%)';
+            thumbs.forEach(function (t, n) { t.classList.toggle('active', n === idx); });
+            if (counter) counter.textContent = idx + 1;
+        }
+        var prev = $('.gal-nav.prev', gal), next = $('.gal-nav.next', gal);
+        if (prev) prev.addEventListener('click', function () { go(idx - 1); });
+        if (next) next.addEventListener('click', function () { go(idx + 1); });
+        thumbs.forEach(function (t, n) { t.addEventListener('click', function () { go(n); }); });
+
+        gal.setAttribute('tabindex', '0');
+        gal.addEventListener('keydown', function (e) {
+            if (e.key === 'ArrowLeft') { e.preventDefault(); go(idx - 1); }
+            if (e.key === 'ArrowRight') { e.preventDefault(); go(idx + 1); }
+        });
+
+        var sx = null;
+        gal.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+        gal.addEventListener('touchend', function (e) {
+            if (sx === null) return;
+            var dx = e.changedTouches[0].clientX - sx;
+            if (Math.abs(dx) > 45) go(dx < 0 ? idx + 1 : idx - 1);
+            sx = null;
+        }, { passive: true });
+    })();
+
+    /* ============ 9. VISIONNEUSE PLEIN ÉCRAN ============ */
+    (function () {
+        var lb = $('#lightbox'); if (!lb) return;
+        var img = $('img', lb), cap = $('.lb-cap', lb);
+        var pool = [], cur = 0, lastFocus = null;
+
+        function collect() { pool = $$('img[data-zoom="1"]').filter(function (i) { return i.offsetParent !== null || i.closest('.gal-slide'); }); }
+
+        function show(i) {
+            cur = (i + pool.length) % pool.length;
+            var el = pool[cur];
+            img.src = el.currentSrc || el.src;
+            img.alt = el.alt || '';
+            cap.textContent = el.getAttribute('data-caption') || el.alt || '';
+            $$('.lb-nav', lb).forEach(function (b) { b.style.display = pool.length > 1 ? 'flex' : 'none'; });
+        }
+        function open(el) {
+            collect();
+            var i = pool.indexOf(el); if (i < 0) { pool = [el]; i = 0; }
+            lastFocus = document.activeElement;
+            show(i); lb.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            $('.lb-close', lb).focus();
+        }
+        function close() {
+            lb.classList.remove('open'); img.src = '';
+            document.body.style.overflow = '';
+            if (lastFocus && lastFocus.focus) lastFocus.focus();
+        }
+
+        document.addEventListener('click', function (e) {
+            var t = e.target.closest ? e.target.closest('img[data-zoom="1"]') : null;
+            if (t) { e.preventDefault(); open(t); }
+        });
+        $('.lb-close', lb).addEventListener('click', close);
+        $('.lb-nav.prev', lb).addEventListener('click', function () { show(cur - 1); });
+        $('.lb-nav.next', lb).addEventListener('click', function () { show(cur + 1); });
+        lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+        document.addEventListener('keydown', function (e) {
+            if (!lb.classList.contains('open')) return;
+            if (e.key === 'Escape') close();
+            if (e.key === 'ArrowLeft') show(cur - 1);
+            if (e.key === 'ArrowRight') show(cur + 1);
+        });
+    })();
+
+    /* ============ 10. SYNTHÈSE VOCALE (TTS) ============ */
+    (function () {
+        var btn = $('#btnTts'); if (!btn) return;
+        if (!('speechSynthesis' in window)) { btn.style.display = 'none'; return; }
+
+        var playing = false;
+
+        // Ne lit que la version affichée : sans ce filtre, les trois densités
+        // coexistant dans le DOM seraient lues à la suite.
+        function visibleText(root) {
+            var out = [];
+            $$('p', root).forEach(function (p) {
+                if (p.classList.contains('dens') && !p.classList.contains('on')) return;
+                out.push(p.textContent.trim());
+            });
+            return out;
+        }
+
+        function textToRead() {
+            var parts = [];
+            var t = $('#articleTitle'); if (t) parts.push(t.textContent.trim());
+            var c = $('#chapeauText');
+            if (c) parts.push((($('.dens.on', c) || c).textContent || '').trim());
+            var active = $('.tab-content.active');
+            if (isContinuous()) { parts = parts.concat(visibleText(contBox)); }
+            else if (active) { parts = parts.concat(visibleText(active)); }
+            return parts.join('. ').replace(/\s+/g, ' ');
+        }
+
+        function setUI(on) {
+            playing = on;
+            btn.classList.toggle('playing', on);
+            btn.innerHTML = on
+                ? '<span class="eq"><span></span><span></span><span></span></span> <span class="lbl">Arrêter</span>'
+                : '<i class="fas fa-volume-high"></i> <span class="lbl">Écouter</span>';
+        }
+
+        btn.addEventListener('click', function () {
+            if (playing) { window.speechSynthesis.cancel(); setUI(false); return; }
+            var u = new SpeechSynthesisUtterance(textToRead());
+            u.lang = 'fr-FR'; u.rate = 1.0; u.pitch = 1.0;
+            var voices = window.speechSynthesis.getVoices() || [];
+            var fr = voices.filter(function (v) { return /^fr/i.test(v.lang); })[0];
+            if (fr) u.voice = fr;
+            u.onend = function () { setUI(false); };
+            u.onerror = function () { setUI(false); };
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(u);
+            setUI(true);
+        });
+        window.addEventListener('beforeunload', function () { try { window.speechSynthesis.cancel(); } catch (e) {} });
+    })();
+
+    /* ============ 11. J'AIME PERSISTANT ============ */
+    (function () {
+        var btn = $('#likeButton'), span = $('#likeCount'); if (!btn || !span) return;
+        var base = parseInt(span.textContent, 10) || 0;
+        var liked = store('liked') === '1';
+
+        function paint() {
+            span.textContent = base + (liked ? 1 : 0);
+            btn.classList.toggle('liked', liked);
+            btn.setAttribute('aria-pressed', liked ? 'true' : 'false');
+            $('.lbl', btn).textContent = liked ? 'Aimé' : "J'aime";
+        }
+        paint();
+
+        btn.addEventListener('click', function () {
+            liked = !liked; store('liked', liked ? '1' : '0'); paint();
+            if (liked) { btn.classList.add('bump'); setTimeout(function () { btn.classList.remove('bump'); }, 480); }
+        });
+    })();
+
+    /* ============ 12. PARTAGE RÉEL ============ */
+    (function () {
+        var title = ($('#articleTitle') || {}).textContent || document.title;
+        var url = (window.location.href && window.location.href.indexOf('about:') !== 0)
+            ? window.location.href : ("https://lesenjeuxeco.dz/cloud-souverain-en-algerie-djezzy-sassocie-a-algeria-venture-et-armonika/?utm_source=rss\u0026utm_medium=rss\u0026utm_campaign=cloud-souverain-en-algerie-djezzy-sassocie-a-algeria-venture-et-armonika" || '');
+        var shareUrl = "https://lesenjeuxeco.dz/cloud-souverain-en-algerie-djezzy-sassocie-a-algeria-venture-et-armonika/?utm_source=rss\u0026utm_medium=rss\u0026utm_campaign=cloud-souverain-en-algerie-djezzy-sassocie-a-algeria-venture-et-armonika" || url;
+        var tags = ["CloudSouverain", "InnovationAlgerienne", "TIC"];
+        var hash = (tags || []).map(function (t) { return String(t).replace(/^#/, ''); }).join(',');
+        var txt = title;
+
+        var map = {
+            linkedin: 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(shareUrl),
+            x: 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(txt) + '&url=' + encodeURIComponent(shareUrl) + (hash ? '&hashtags=' + encodeURIComponent(hash) : ''),
+            facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl),
+            whatsapp: 'https://api.whatsapp.com/send?text=' + encodeURIComponent(txt + ' ' + shareUrl),
+            email: 'mailto:?subject=' + encodeURIComponent(title) + '&body=' + encodeURIComponent(txt + '\n\n' + shareUrl)
+        };
+
+        $$('#shareIcons a[data-share]').forEach(function (a) {
+            var k = a.getAttribute('data-share');
+            if (map[k]) a.href = map[k];
+            if (!shareUrl) {
+                a.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    toast('Aucun lien public défini pour cet article.', 'fa-circle-info');
+                });
+            }
+        });
+
+        var nativeBtn = $('#btnNativeShare');
+        if (nativeBtn && navigator.share) {
+            nativeBtn.style.display = 'inline-flex';
+            nativeBtn.addEventListener('click', function () {
+                navigator.share({ title: title, text: txt, url: shareUrl || location.href }).catch(function () {});
+            });
+        }
+
+        var copyBtn = $('#btnCopyLink');
+        if (copyBtn) {
+            copyBtn.addEventListener('click', function () {
+                var v = shareUrl || location.href;
+                var done = function () {
+                    copyBtn.classList.add('ok');
+                    copyBtn.innerHTML = '<i class="fas fa-check"></i>';
+                    toast('Lien copié dans le presse-papiers.', 'fa-link');
+                    setTimeout(function () { copyBtn.classList.remove('ok'); copyBtn.innerHTML = '<i class="fas fa-link"></i>'; }, 2200);
+                };
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(v).then(done, function () { toast('Copie impossible.', 'fa-triangle-exclamation'); });
+                } else {
+                    var ta = document.createElement('textarea');
+                    ta.value = v; document.body.appendChild(ta); ta.select();
+                    try { document.execCommand('copy'); done(); } catch (e) { toast('Copie impossible.', 'fa-triangle-exclamation'); }
+                    ta.remove();
+                }
+            });
+        }
+
+        var printBtn = $('#btnPrint');
+        if (printBtn) printBtn.addEventListener('click', function () { setContinuous(true); setTimeout(function () { window.print(); }, 200); });
+
+        var more = $('#voirPlusBtn');
+        if (more && (!more.getAttribute('href') || more.getAttribute('href') === '#')) {
+            more.addEventListener('click', function (e) {
+                e.preventDefault();
+                setContinuous(true);
+                contBox.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+                toast('Article affiché en intégralité.', 'fa-book-open');
+            });
+        }
+    })();
+
+    /* ============ 13. BADGE FRAÎCHEUR (temps relatif vivant) ============ */
+    (function () {
+        var badge = $('#freshBadge'); if (!badge) return;
+        var iso = badge.getAttribute('data-published');
+        var d = new Date(iso);
+        if (isNaN(d.getTime())) return;
+        var txt = $('.txt', badge);
+
+        function rel() {
+            var s = Math.floor((Date.now() - d.getTime()) / 1000);
+            if (s < 60) return 'à l’instant';
+            var m = Math.floor(s / 60); if (m < 60) return 'il y a ' + m + ' min';
+            var h = Math.floor(m / 60); if (h < 24) return 'il y a ' + h + ' h';
+            var j = Math.floor(h / 24); if (j < 7) return 'il y a ' + j + ' j';
+            return d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' });
+        }
+        function paint() {
+            txt.textContent = rel();
+            badge.classList.toggle('is-old', (Date.now() - d.getTime()) > 86400000);
+        }
+        paint();
+        setInterval(paint, 60000);
+    })();
+
+    /* ============ 14. SONDAGE ============ */
+    (function () {
+        var poll = $('#atPoll'); if (!poll) return;
+        var opts = $$('.poll-opt', poll);
+        var key = 'poll:' + (poll.dataset.pollId || '1');
+        var voted = store(key);
+
+        function counts(myId) {
+            var base = opts.map(function (o) { return Math.max(3, parseInt(o.dataset.seed, 10) || (12 + (o.dataset.opt.length * 7) % 30)); });
+            opts.forEach(function (o, i) { if (o.dataset.opt === myId) base[i] += 1; });
+            var total = base.reduce(function (a, b) { return a + b; }, 0) || 1;
+            return { base: base, total: total };
+        }
+
+        function reveal(myId) {
+            var c = counts(myId);
+            opts.forEach(function (o, i) {
+                var pct = Math.round((c.base[i] / c.total) * 100);
+                o.classList.add('done');
+                o.classList.toggle('mine', o.dataset.opt === myId);
+                $('.pct', o).textContent = pct + ' %';
+                setTimeout(function () { $('.fill', o).style.width = pct + '%'; }, 60);
+            });
+            var foot = $('#pollFoot');
+            if (foot) foot.textContent = c.total + ' participations · votre vote reste sur cet appareil.';
+        }
+
+        if (voted) reveal(voted);
+        opts.forEach(function (o) {
+            o.addEventListener('click', function () {
+                if (store(key)) return;
+                store(key, o.dataset.opt);
+                reveal(o.dataset.opt);
+                toast('Merci pour votre vote !', 'fa-square-poll-vertical');
+            });
+        });
+    })();
+
+    /* ============ 15. MODE STORY ============ */
+    (function () {
+        var openBtn = $('#btnStory'), modal = $('#storyMode');
+        if (!openBtn || !modal) return;
+        var body = $('#storyBody'), bars = $('#storyBars');
+        var prevBtn = $('#storyPrev'), nextBtn = $('#storyNext'), closeBtn = $('#storyClose');
+        var slides = [], idx = 0, built = false, lastFocus = null;
+
+        function build() {
+            if (built) return;
+            var data = [];
+            var ch = $('#chapeauText');
+            var chActive = ch ? ($('.dens.on', ch) || ch) : null;
+            data.push({
+                kicker: 'À la une',
+                head: ($('#articleTitle') || {}).textContent || '',
+                html: chActive ? chActive.innerHTML.replace(/<i class="fas fa-bullhorn"[^>]*><\/i>/, '') : '',
+                img: (function () { var i = $('.kenburns img') || $('#tab-media-image img') || $('.gal-slide img'); return i ? i.src : null; })()
+            });
+
+            $$('#interactive-tabs-container > .tab-content').forEach(function (panel) {
+                if (/^tab-media-/.test(panel.id)) return;
+                var btn = document.getElementById('btn-' + panel.id);
+                var p = $('.dens.on', panel) || $('p', panel);
+                var q = $('.citation', panel);
+                var im = $('img', panel);
+                data.push({
+                    kicker: btn ? btn.textContent.trim() : 'Section',
+                    head: btn ? btn.textContent.trim() : '',
+                    html: p ? p.innerHTML : '',
+                    quote: q ? q.textContent.trim() : null,
+                    img: im ? im.src : null
+                });
+            });
+
+            var cl = $('.closing-container span');
+            if (cl) data.push({ kicker: 'Pour conclure', head: 'En résumé', html: cl.innerHTML });
+
+            body.innerHTML = '';
+            bars.innerHTML = '';
+            data.forEach(function (d, i) {
+                var s = document.createElement('div');
+                s.className = 'story-slide' + (i === 0 ? ' active' : '');
+                s.innerHTML =
+                    '<div class="story-kicker"><i class="fas fa-bolt"></i> ' + d.kicker + '</div>' +
+                    (d.head ? '<div class="story-h">' + d.head + '</div>' : '') +
+                    (d.img ? '<div class="story-media"><img src="' + d.img + '" alt=""></div>' : '') +
+                    (d.html ? '<div class="story-p">' + d.html + '</div>' : '') +
+                    (d.quote ? '<div class="story-quote">' + d.quote + '</div>' : '');
+                body.appendChild(s);
+                var b = document.createElement('i'); b.innerHTML = '<b></b>'; bars.appendChild(b);
+            });
+            slides = $$('.story-slide', body);
+            built = true;
+        }
+
+        function go(i) {
+            if (i < 0 || i >= slides.length) return;
+            idx = i;
+            slides.forEach(function (s, n) { s.classList.toggle('active', n === idx); });
+            $$('#storyBars b').forEach(function (b, n) { b.style.width = n <= idx ? '100%' : '0%'; });
+            prevBtn.disabled = idx === 0;
+            nextBtn.disabled = idx === slides.length - 1;
+            body.scrollTop = 0;
+        }
+
+        function open() {
+            build(); lastFocus = document.activeElement;
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            go(0); closeBtn.focus();
+        }
+        function close() {
+            modal.classList.remove('open');
+            document.body.style.overflow = '';
+            if (lastFocus && lastFocus.focus) lastFocus.focus();
+        }
+
+        openBtn.addEventListener('click', open);
+        closeBtn.addEventListener('click', close);
+        prevBtn.addEventListener('click', function () { go(idx - 1); });
+        nextBtn.addEventListener('click', function () { go(idx + 1); });
+
+        document.addEventListener('keydown', function (e) {
+            if (!modal.classList.contains('open')) return;
+            if (e.key === 'Escape') close();
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(idx + 1); }
+            if (e.key === 'ArrowLeft') { e.preventDefault(); go(idx - 1); }
+        });
+
+        var sx = null;
+        modal.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+        modal.addEventListener('touchend', function (e) {
+            if (sx === null) return;
+            var dx = e.changedTouches[0].clientX - sx;
+            if (Math.abs(dx) > 50) go(dx < 0 ? idx + 1 : idx - 1);
+            sx = null;
+        }, { passive: true });
+    })();
+
+    /* ============ 16. CURSEUR DE DENSITÉ DE LECTURE ============ */
+    var densityApi = (function () {
+        var bar = $('#densityBar');
+        var LEVELS = ['short', 'medium', 'full'];
+        var NAMES = ['30 secondes', '3 minutes', 'Intégral'];
+        if (!bar) return { current: function () { return 'full'; } };
+
+        var range = $('#densityRange'), ticks = $$('.density-ticks span', bar), note = $('#densityTime');
+        var level = 2;
+
+        function count(el) {
+            if (!el) return 0;
+            var t = (el.textContent || '').trim();
+            return t ? t.split(/\s+/).length : 0;
+        }
+
+        // Le temps annoncé couvre tout l'article, pas seulement la section affichée.
+        function totalWords() {
+            var words = 0;
+            var ch = $('#chapeauText');
+            words += count(ch ? ($('.dens.on', ch) || ch) : null);
+            $$('#interactive-tabs-container > .tab-content').forEach(function (panel) {
+                if (/^tab-media-/.test(panel.id)) return;
+                words += count($('.dens.on', panel) || $('p', panel));
+            });
+            return words;
+        }
+
+        function estimate() { return Math.max(1, Math.round(totalWords() / 200)); }
+
+        // En dessous de deux minutes, les secondes parlent bien plus au lecteur.
+        function estimateLabel() {
+            var seconds = Math.round(totalWords() / 200 * 60);
+            var rounded = Math.max(10, Math.round(seconds / 5) * 5);
+            if (rounded < 60) return rounded + ' s';
+            return Math.round(seconds / 60) + ' min';
+        }
+
+        function apply(i, announce) {
+            level = Math.max(0, Math.min(2, i));
+            var name = LEVELS[level];
+            $$('.dens').forEach(function (el) {
+                el.classList.toggle('on', el.classList.contains('dens-' + name));
+            });
+            ticks.forEach(function (t, n) { t.classList.toggle('on', n === level); });
+            if (range) {
+                range.value = level;
+                range.setAttribute('aria-valuetext', NAMES[level]);
+            }
+            if (note) note.textContent = estimateLabel();
+            var rt = $('#readTime b');
+            if (rt) rt.textContent = estimate();
+            store('density', String(level));
+            if (announce) toast('Lecture réglée sur « ' + NAMES[level] + ' ».', 'fa-gauge-high');
+        }
+
+        if (range) {
+            range.addEventListener('input', function () { apply(parseInt(range.value, 10), false); });
+            range.addEventListener('change', function () { apply(parseInt(range.value, 10), true); });
+        }
+        ticks.forEach(function (t) {
+            t.addEventListener('click', function () { apply(parseInt(t.dataset.dens, 10), true); });
+        });
+
+        var saved = store('density');
+        apply(saved === null || saved === undefined ? 2 : parseInt(saved, 10), false);
+
+        return {
+            current: function () { return LEVELS[level]; },
+            refresh: function () { if (note) note.textContent = estimateLabel(); }
+        };
+    })();
+
+    /* ============ 17. TRAÇABILITÉ DES CHIFFRES ============ */
+    var sourceApi = (function () {
+        var panel = $('#srcPanel');
+        var cards = $$('button.figure-card[data-src-probe]');
+        var noop = function () {};
+        if (!panel) return { clearMarks: noop, markIn: noop, openSource: noop };
+
+        function clearMarks() {
+            $$('mark.src-hl').forEach(function (m) {
+                var parent = m.parentNode;
+                parent.replaceChild(document.createTextNode(m.textContent), m);
+                parent.normalize();
+            });
+            $$('.src-sentence').forEach(function (e) { e.classList.remove('src-sentence'); });
+        }
+
+        // Comparaison indifférente à la casse et aux accents : un repère lu sur
+        // une image s'écrit « ANCIEN » là où l'article écrit « ancien ».
+        function flatten(s) {
+            var out = String(s == null ? '' : s);
+            if (out.normalize) out = out.normalize('NFD').replace(/[̀-ͯ]/g, '');
+            return out.toLowerCase();
+        }
+
+        // Entoure la première occurrence du texte cherché, sans casser le HTML existant
+        function markIn(root, needle) {
+            if (!root || !needle) return null;
+            var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+            var node, loose = flatten(needle);
+            while ((node = walker.nextNode())) {
+                var idx = node.nodeValue.indexOf(needle);
+                if (idx < 0) {
+                    var flat = flatten(node.nodeValue);
+                    // Le repli ne vaut que si l'aplatissement n'a pas décalé les
+                    // positions, sinon on découperait au mauvais endroit.
+                    if (flat.length === node.nodeValue.length) idx = flat.indexOf(loose);
+                }
+                if (idx < 0) continue;
+                var after = node.splitText(idx);
+                after.splitText(needle.length);
+                var mark = document.createElement('mark');
+                mark.className = 'src-hl';
+                mark.textContent = after.nodeValue;
+                after.parentNode.replaceChild(mark, after);
+                return mark;
+            }
+            return null;
+        }
+
+        // Ouvre un passage de l'article : chiffre clé, ou zone du visuel interactif.
+        function openSource(spec) {
+            var probe = spec.probe || '';
+            var tabId = spec.tab || '';
+            var sentence = spec.sentence || '';
+
+            clearMarks();
+
+            // Le passage complet vit dans la version intégrale
+            if (densityApi.current() !== 'full') {
+                var range = $('#densityRange');
+                if (range) { range.value = 2; range.dispatchEvent(new Event('input')); }
+            }
+
+            var host = null;
+            if (tabId) {
+                var btn = document.getElementById('btn-' + tabId);
+                if (btn && !isContinuous()) tabsApi.activate(btn, false);
+                host = document.getElementById(tabId);
+            }
+            if (isContinuous()) host = contBox;
+            if (!host) host = $('.article-body');
+
+            // Le repère exact d'abord ; à défaut la phrase entière, puis son début
+            // (une phrase peut être coupée par du balisage en ligne).
+            function locate(needle) {
+                if (!needle) return null;
+                return markIn(host, needle) || markIn($('.article-body'), needle);
+            }
+            var mark = locate(probe) || locate(sentence) || locate(sentence.slice(0, 60).trim());
+            if (mark) {
+                var block = mark.closest('p, .citation, .chapeau');
+                if (block) block.classList.add('src-sentence');
+                mark.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+            } else if (host && host !== $('.article-body')) {
+                host.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+            }
+
+            function escText(s) {
+                return String(s == null ? '' : s)
+                    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            }
+            var titleEl = $('.sp-title', panel);
+            if (titleEl) titleEl.textContent = spec.title || 'D’où vient ce chiffre';
+            $('.sp-quote', panel).innerHTML = sentence
+                ? '« ' + (probe
+                    ? escText(sentence).replace(escText(probe), '<b>' + escText(probe) + '</b>')
+                    : escText(sentence)) + ' »'
+                : 'Ce passage provient du corps de l’article, surligné ci-dessus.';
+            var origin = "ACTUTIC";
+            var url = "https://lesenjeuxeco.dz/cloud-souverain-en-algerie-djezzy-sassocie-a-algeria-venture-et-armonika/?utm_source=rss\u0026utm_medium=rss\u0026utm_campaign=cloud-souverain-en-algerie-djezzy-sassocie-a-algeria-venture-et-armonika";
+            $('.sp-origin', panel).innerHTML = origin
+                ? (url ? 'Source : <a href="' + url + '" target="_blank" rel="noopener">' + origin + '</a>'
+                       : 'Source : ' + origin)
+                : (url ? '<a href="' + url + '" target="_blank" rel="noopener">Voir l’article d’origine</a>' : '');
+            panel.classList.add('show');
+        }
+
+        cards.forEach(function (c) {
+            c.addEventListener('click', function () {
+                openSource({
+                    probe: c.dataset.srcProbe || '',
+                    tab: c.dataset.srcTab || '',
+                    sentence: c.dataset.srcSentence || ''
+                });
+            });
+        });
+        function close() { panel.classList.remove('show'); clearMarks(); }
+        $('.sp-close', panel).addEventListener('click', function () {
+            close();
+            document.dispatchEvent(new CustomEvent('at:source-closed'));
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && panel.classList.contains('show')) {
+                close();
+                document.dispatchEvent(new CustomEvent('at:source-closed'));
+            }
+        });
+
+        return { clearMarks: clearMarks, markIn: markIn, openSource: openSource };
+    })();
+
+    /* ============ 17 bis. VISUEL INTERACTIF (zones cliquables) ============ */
+    (function () {
+        var box = $('#atVisual'); if (!box) return;
+        var spots = $$('.av-spot', box);
+        var chips = $$('.av-legend button', box);
+        if (!spots.length) return;
+
+        function select(spot, announce) {
+            spots.forEach(function (s) {
+                var on = s === spot;
+                s.classList.toggle('on', on);
+                s.setAttribute('aria-pressed', on ? 'true' : 'false');
+            });
+            chips.forEach(function (c) {
+                c.classList.toggle('on', c.dataset.spot === spot.id);
+            });
+            sourceApi.openSource({
+                probe: spot.dataset.probe || '',
+                tab: spot.dataset.tab || '',
+                sentence: spot.dataset.sentence || '',
+                title: spot.dataset.label || 'Ce que dit l’article'
+            });
+            if (announce && typeof toast === 'function') {
+                toast('Passage ouvert : ' + (spot.dataset.label || ''), 'fa-hand-pointer');
+            }
+        }
+
+        function clearSelection() {
+            spots.forEach(function (s) { s.classList.remove('on'); s.setAttribute('aria-pressed', 'false'); });
+            chips.forEach(function (c) { c.classList.remove('on'); });
+        }
+
+        spots.forEach(function (spot) {
+            spot.addEventListener('click', function () { select(spot, false); });
+        });
+        chips.forEach(function (chip) {
+            chip.addEventListener('click', function () {
+                var spot = document.getElementById(chip.dataset.spot);
+                if (spot) {
+                    select(spot, false);
+                    spot.focus({ preventScroll: true });
+                }
+            });
+        });
+        document.addEventListener('at:source-closed', clearSelection);
+
+        // Lien profond : ...#av-z2 ouvre directement la zone visée
+        function fromHash() {
+            var id = (location.hash || '').replace('#', '');
+            if (!id) return;
+            var spot = document.getElementById(id);
+            if (spot && spot.classList.contains('av-spot')) select(spot, false);
+        }
+        window.addEventListener('hashchange', fromHash);
+        fromHash();
+    })();
+
+    /* ============ 18. POSER UNE QUESTION À L'ARTICLE ============ */
+    (function () {
+        var box = $('#atQa'); if (!box) return;
+        var form = $('#qaForm'), input = $('#qaInput'), submit = $('#qaSubmit'), out = $('#qaAnswer');
+        var endpoint = box.dataset.endpoint || '';
+
+        // Corpus local : toutes les phrases de l'article, avec leur section
+        var corpus = (function () {
+            var items = [];
+            function push(el, tabId, section) {
+                if (!el) return;
+                var txt = (el.textContent || '').replace(/\s+/g, ' ').trim();
+                // Découpage en phrases sans lookbehind (compatibilité navigateurs anciens)
+                (txt.match(/[^.!?]+[.!?]*/g) || []).forEach(function (s) {
+                    s = s.trim();
+                    if (s.length > 25) items.push({ text: s, tab: tabId, section: section });
+                });
+            }
+            push($('#chapeauText'), null, 'Chapeau');
+            $$('#interactive-tabs-container > .tab-content').forEach(function (panel) {
+                if (/^tab-media-/.test(panel.id)) return;
+                var btn = document.getElementById('btn-' + panel.id);
+                var label = btn ? btn.textContent.trim() : 'Section';
+                push($('.dens-full', panel) || $('p', panel), panel.id, label);
+                push($('.citation', panel), panel.id, label + ' · citation');
+            });
+            push($('.info-card-text'), null, 'Mise en avant');
+            push($('.closing-container span'), null, 'Conclusion');
+            return items;
+        })();
+
+        var STOP = ('le la les un une des du de et ou que qui quoi est sont a ont pour dans sur par ' +
+                    'avec sans au aux ce cet cette ces son sa ses leur leurs il elle ils elles on nous vous ' +
+                    'quel quelle quels quelles combien comment pourquoi quand est-ce ne pas plus moins tout ' +
+                    'cet article').split(' ');
+
+        function norm(s) {
+            return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+        }
+        function terms(s) {
+            return norm(s).split(/[^a-z0-9]+/).filter(function (w) {
+                return w.length > 2 && STOP.indexOf(w) < 0;
+            });
+        }
+
+        // Recherche locale (fonctionne hors ligne, sans aucun service tiers)
+        function localSearch(question) {
+            var qt = terms(question);
+            if (!qt.length) return [];
+            var wantsNumber = /combien|cout|coût|prix|montant|budget|tarif|chiffre|nombre|pourcentage|%/i.test(question);
+            var wantsDate = /quand|calendrier|date|delai|délai|echeance|échéance|annee|année/i.test(question);
+            var wantsWho = /qui|acteur|responsable|ministre|directeur|entreprise|operateur|opérateur/i.test(question);
+
+            var scored = corpus.map(function (c) {
+                var ct = terms(c.text), score = 0;
+                qt.forEach(function (w) {
+                    for (var i = 0; i < ct.length; i++) {
+                        if (ct[i] === w) { score += 3; return; }
+                    }
+                    if (norm(c.text).indexOf(w) >= 0) score += 1.2;
+                });
+                if (wantsNumber && /\d/.test(c.text)) score += 2.5;
+                if (wantsDate && /(20\d{2}|janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre|trimestre|semestre)/i.test(c.text)) score += 2.5;
+                if (wantsWho && /[A-ZÀ-Ý][a-zà-ÿ]{2,}/.test(c.text.slice(1))) score += 1.2;
+                return { item: c, score: score };
+            }).filter(function (s) { return s.score >= 3; });
+
+            scored.sort(function (a, b) { return b.score - a.score; });
+            return scored.slice(0, 3).map(function (s) { return s.item; });
+        }
+
+        function esc(s) {
+            return String(s == null ? '' : s)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        }
+
+        function renderSources(list) {
+            if (!list.length) return '';
+            return '<div class="qa-sources">' + list.map(function (s, i) {
+                return '<button type="button" class="qa-src" data-i="' + i + '">' +
+                       '<i class="fas fa-quote-left"></i><span><span class="qa-sec">' +
+                       esc(s.section || 'Article') + '</span>' + esc(s.text) + '</span></button>';
+            }).join('') + '</div>';
+        }
+
+        function bindSources(list) {
+            $$('.qa-src', out).forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    var s = list[+btn.dataset.i];
+                    if (!s) return;
+                    sourceApi.clearMarks();
+                    var range = $('#densityRange');
+                    if (range && range.value !== '2') { range.value = 2; range.dispatchEvent(new Event('input')); }
+                    if (s.tab && !isContinuous()) {
+                        var tb = document.getElementById('btn-' + s.tab);
+                        if (tb) tabsApi.activate(tb, false);
+                    }
+                    var host = (s.tab && document.getElementById(s.tab)) || $('.article-body');
+                    if (isContinuous()) host = contBox;
+                    var probe = s.text.slice(0, 60);
+                    var mark = sourceApi.markIn(host, probe) || sourceApi.markIn($('.article-body'), probe);
+                    if (mark) {
+                        var block = mark.closest('p, .citation, .chapeau');
+                        if (block) block.classList.add('src-sentence');
+                        mark.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+                    } else {
+                        toast('Passage visible en mode Intégral.', 'fa-circle-info');
+                    }
+                });
+            });
+        }
+
+        function show(html) { out.innerHTML = html; out.classList.add('show'); }
+
+        // Bloc « pour aller plus loin » : explication générale + lectures réelles.
+        // Toujours présenté à part, pour qu'on ne le confonde pas avec l'article.
+        function renderBeyond(context, links) {
+            links = links || [];
+            if (!context && !links.length) return '';
+            var block = '<div class="qa-beyond"><div class="qa-beyond-title">' +
+                '<i class="fas fa-book-open-reader"></i> Pour aller plus loin ' +
+                '<span class="tag">hors article</span></div>';
+            if (context) block += '<div class="qa-context">' + context + '</div>';
+            if (links.length) {
+                block += '<div class="qa-links">' + links.map(function (l) {
+                    return '<a class="qa-link" href="' + esc(l.url) + '" target="_blank" rel="noopener">' +
+                           '<i class="fas fa-arrow-up-right-from-square"></i>' +
+                           '<span>' + esc(l.title) + '</span>' +
+                           (l.source ? '<span class="src">' + esc(l.source) + '</span>' : '') +
+                           '</a>';
+                }).join('') + '</div>';
+            }
+            return block + '</div>';
+        }
+
+        function answerLocally(question, context, links) {
+            var hits = localSearch(question);
+            var beyond = renderBeyond(context, links);
+            if (!hits.length) {
+                show('<div class="qa-bubble empty"><i class="fas fa-circle-info"></i> ' +
+                     'Cet article ne contient pas de quoi répondre à cette question.</div>' + beyond);
+                return;
+            }
+            show('<div class="qa-bubble">' + esc(hits[0].text) + '</div>' + renderSources(hits) +
+                 '<div class="qa-meta"><i class="fas fa-shield-halved"></i> Passages extraits de l’article, mot pour mot.</div>' +
+                 beyond);
+            bindSources(hits);
+        }
+
+        function ask(question) {
+            if (!question) return;
+            submit.disabled = true;
+            show('<div class="qa-bubble"><span class="qa-spin"></span> Recherche dans l’article…</div>');
+
+            var article = {"chapeau": "Un partenariat historique entre \u003cstrong\u003eDjezzy\u003c/strong\u003e, \u003cem\u003eAlgeria Venture\u003c/em\u003e et la startup \u003cstrong\u003eArmonika\u003c/strong\u003e marque un tournant pour le d\u00e9veloppement de solutions technologiques \u003cstrong\u003esouveraines\u003c/strong\u003e en Alg\u00e9rie. Sign\u00e9 \u00e0 Alger, cet accord vise \u00e0 acc\u00e9l\u00e9rer la virtualisation des infrastructures et le d\u00e9ploiement d\u2019un Cloud 100 % local.", "closing": {"icon": "fas fa-handshake-simple", "text": "La signature de cet accord \u00e0 Alger symbolise une nouvelle \u00e8re de collaboration entre les g\u00e9ants \u00e9conomiques et les startups alg\u00e9riennes, ouvrant la voie \u00e0 des solutions technologiques \u003cstrong\u003e100 % made in Algeria\u003c/strong\u003e."}, "interactive_block": {"content": "\u003cstrong\u003eDjezzy\u003c/strong\u003e r\u00e9affirme son r\u00f4le de moteur de l\u2019innovation en Alg\u00e9rie en s\u2019appuyant sur les startups locales comme \u003cstrong\u003eArmonika\u003c/strong\u003e. Cette alliance illustre la capacit\u00e9 des acteurs alg\u00e9riens \u00e0 innover et \u00e0 r\u00e9pondre aux d\u00e9fis de la \u003cstrong\u003etransformation num\u00e9rique\u003c/strong\u003e, tout en cr\u00e9ant des emplois qualifi\u00e9s et en dynamisant l\u2019\u00e9cosyst\u00e8me tech national.", "icon": "fas fa-bullhorn"}, "source_url": "https://lesenjeuxeco.dz/cloud-souverain-en-algerie-djezzy-sassocie-a-algeria-venture-et-armonika/?utm_source=rss\u0026utm_medium=rss\u0026utm_campaign=cloud-souverain-en-algerie-djezzy-sassocie-a-algeria-venture-et-armonika", "tabs": [{"content": "\u003cstrong\u003eLundi 25 ao\u00fbt 2026\u003c/strong\u003e, un accord strat\u00e9gique a \u00e9t\u00e9 sign\u00e9 au si\u00e8ge de \u003cem\u003eDjezzy\u003c/em\u003e, \u00e0 \u003cstrong\u003eDar El Beida (Alger)\u003c/strong\u003e, entre l\u2019op\u00e9rateur \u003cstrong\u003eDjezzy\u003c/strong\u003e, le fonds d\u2019investissement \u003cem\u003eAlgeria Venture (A-Venture)\u003c/em\u003e et la startup \u003cstrong\u003eArmonika\u003c/strong\u003e. Cet accord s\u2019inscrit dans une d\u00e9marche d\u2019\u003cstrong\u003eOpen Innovation\u003c/strong\u003e, visant \u00e0 renforcer les synergies entre les acteurs \u00e9conomiques alg\u00e9riens et \u00e0 stimuler l\u2019\u00e9mergence de solutions technologiques \u003cstrong\u003ed\u00e9velopp\u00e9es localement\u003c/strong\u003e. Le but ? Accompagner Armonika dans le d\u00e9veloppement de plateformes innovantes pour le \u003cstrong\u003eCloud\u003c/strong\u003e, la \u003cstrong\u003evirtualisation\u003c/strong\u003e et l\u2019\u003cstrong\u003eorchestration des infrastructures\u003c/strong\u003e.", "id": "tab1", "quote": {"author": "Repr\u00e9sentant de Djezzy", "text": "\u00ab Cet accord r\u00e9affirme notre engagement en faveur de l\u2019innovation et du d\u00e9veloppement de l\u2019\u00e9cosyst\u00e8me num\u00e9rique national. \u00bb"}, "title": "Partenariat"}, {"content": "Armonika, startup technologique alg\u00e9rienne, mise sur une plateforme int\u00e9grant plusieurs \u003cstrong\u003ebriques technologiques cl\u00e9s\u003c/strong\u003e : \u003cstrong\u003eCloud\u003c/strong\u003e, virtualisation, orchestration, \u003cstrong\u003ecybers\u00e9curit\u00e9\u003c/strong\u003e, automatisation et solutions \u003cstrong\u003eSaaS\u003c/strong\u003e. Ces innovations reposent sur une approche ax\u00e9e sur la \u003cstrong\u003es\u00e9curit\u00e9 des infrastructures\u003c/strong\u003e et la \u003cstrong\u003eprotection des donn\u00e9es\u003c/strong\u003e, en r\u00e9ponse \u00e0 l\u2019acc\u00e9l\u00e9ration de la \u003cstrong\u003etransformation num\u00e9rique\u003c/strong\u003e en Alg\u00e9rie. \u003cstrong\u003eDjezzy\u003c/strong\u003e et \u003cem\u003eA-Venture\u003c/em\u003e joueront un r\u00f4le cl\u00e9 dans le financement et l\u2019accompagnement technique de ces projets, tout en valorisant les comp\u00e9tences locales.", "id": "tab2", "quote": null, "title": "Solutions"}, {"content": "\u003cstrong\u003eDjezzy\u003c/strong\u003e r\u00e9it\u00e8re ainsi son engagement en faveur de l\u2019\u003cstrong\u003einnovation\u003c/strong\u003e et du renforcement de l\u2019\u00e9cosyst\u00e8me num\u00e9rique national. Ce partenariat illustre la volont\u00e9 des acteurs alg\u00e9riens de \u003cstrong\u003ema\u00eetriser leurs infrastructures technologiques strat\u00e9giques\u003c/strong\u003e, r\u00e9duisant ainsi leur d\u00e9pendance aux solutions \u00e9trang\u00e8res. L\u2019initiative s\u2019inscrit dans une vision plus large de \u003cstrong\u003esouverainet\u00e9 num\u00e9rique\u003c/strong\u003e, essentielle pour accompagner la croissance \u00e9conomique et sociale du pays.", "id": "tab3", "quote": null, "title": "Engagement"}], "title": "\ud83d\ude80 Djezzy, A-Venture \u0026 Armonika : L\u2019alliance alg\u00e9rienne pour un Cloud souverain"};
+
+            if (!endpoint) { answerLocally(question); submit.disabled = false; return; }
+
+            var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+            var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 22000);
+
+            fetch(endpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ question: question, article: article }),
+                signal: ctrl ? ctrl.signal : undefined
+            }).then(function (r) {
+                if (!r.ok) throw new Error('indisponible');
+                return r.json();
+            }).then(function (r) {
+                clearTimeout(timer);
+                if (r.error) throw new Error(r.error);
+                var sources = (r.sources || []).map(function (s) {
+                    return { text: s.text, tab: s.tab, section: s.section };
+                });
+                var beyond = renderBeyond(r.context, r.links);
+                if (r.found === false || !r.answer) {
+                    show('<div class="qa-bubble empty"><i class="fas fa-circle-info"></i> ' +
+                         (r.answer || 'Cet article ne contient pas la réponse à cette question.') + '</div>' +
+                         beyond);
+                } else {
+                    show('<div class="qa-bubble">' + r.answer + '</div>' + renderSources(sources) +
+                         '<div class="qa-meta"><i class="fas fa-shield-halved"></i> Réponse tirée de l’article' +
+                         (r.provider ? ' · ' + r.provider : '') + '.</div>' +
+                         beyond);
+                    bindSources(sources);
+                }
+            }).catch(function () {
+                clearTimeout(timer);
+                answerLocally(question);   // repli hors ligne
+            }).then(function () {
+                submit.disabled = false;
+            });
+        }
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            ask(input.value.trim());
+        });
+        $$('.qa-chip', box).forEach(function (chip) {
+            chip.addEventListener('click', function () {
+                input.value = chip.textContent.trim();
+                ask(input.value);
+            });
+        });
+    })();
+
+    /* ============ 19. CARTE : infobulle wilaya ============ */
+    (function () {
+        var svg = $('.at-map svg'); if (!svg) return;
+        $$('path.wil', svg).forEach(function (p) {
+            var name = p.getAttribute('data-name');
+            if (name && !p.querySelector('title')) {
+                var t = document.createElementNS(SVGNS, 'title');
+                t.textContent = name; p.appendChild(t);
+            }
+        });
+    })();
+
+})();
+</script>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     MÉGA-TURBO — enrichissements du rendu interactif
+     Sommaire flottant · tableaux triables · mode Focus · frise interactive
+     Tout est ajouté après coup, sur le document déjà rendu : aucun bloc
+     existant n'est réécrit, rien ne casse si un bloc est absent.
+     ═══════════════════════════════════════════════════════════════════════ -->
+<style>
+    /* ─── Respiration du texte : un onglet n'est plus un pavé ─────────────
+       Le moteur insère un séparateur vide entre les groupes de phrases. Il
+       n'enveloppe rien : le <p> unique dont dépend la densité de lecture
+       (.dens.on) reste intact. */
+    .mt-para-sep { display: block; height: 0; margin-top: 16px; }
+
+    /* ─── Visualisations venues du studio (graphiques, frises, infographies)
+       Elles sont dessinées à largeur fixe : sur un écran de 390 px elles
+       poussaient la page entière vers la droite. Elles défilent désormais
+       dans leur propre cadre, jamais le document. */
+    .at-extra-visuals { margin: 26px 0; }
+    .at-extra-visuals .at-visuels > h2 { color: var(--head-color); }
+    .at-data { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .at-data table { min-width: 100%; }
+
+    /* ─────────────────────── Sommaire dynamique flottant ──────────────── */
+    .mt-toc {
+        position: fixed; top: 50%; right: 18px; transform: translateY(-50%);
+        z-index: 120; max-width: 250px;
+        background: var(--card-bg); color: var(--text-color);
+        border: 1px solid var(--border-color); border-radius: 16px;
+        box-shadow: var(--shadow-card);
+        padding: 12px 10px; font-size: 0.82rem;
+        transition: opacity .25s ease, transform .25s ease;
+    }
+    .mt-toc[hidden] { display: none; }
+    .mt-toc-title {
+        display: flex; align-items: center; gap: 8px;
+        font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.09em;
+        color: var(--muted-color); padding: 2px 8px 9px; font-weight: 700;
+    }
+    .mt-toc-title i { color: var(--accent-color); }
+    .mt-toc-close {
+        margin-left: auto; background: none; border: 0; cursor: pointer;
+        color: var(--muted-color); font-size: 0.9rem; line-height: 1; padding: 2px 4px;
+        border-radius: 6px;
+    }
+    .mt-toc-close:hover { background: var(--chip-bg); color: var(--head-color); }
+    .mt-toc ol { list-style: none; margin: 0; padding: 0; max-height: 52vh; overflow-y: auto; }
+    .mt-toc li { margin: 0; }
+    .mt-toc a {
+        display: flex; align-items: center; gap: 9px;
+        padding: 7px 9px; border-radius: 10px; text-decoration: none;
+        color: var(--muted-color); line-height: 1.35;
+        border-left: 3px solid transparent;
+        transition: background .18s ease, color .18s ease, border-color .18s ease;
+    }
+    .mt-toc a:hover { background: var(--chip-bg); color: var(--head-color); }
+    .mt-toc a .mt-dot {
+        width: 7px; height: 7px; border-radius: 50%; flex: none;
+        background: var(--line-color); transition: background .18s ease, transform .18s ease;
+    }
+    .mt-toc a.on {
+        color: var(--head-color); font-weight: 700;
+        background: var(--surface); border-left-color: var(--accent-color);
+    }
+    .mt-toc a.on .mt-dot { background: var(--accent-color); transform: scale(1.35); }
+    .mt-toc-lbl { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    /* Bouton de rappel quand le sommaire est refermé */
+    .mt-toc-open {
+        position: fixed; top: 50%; right: 14px; transform: translateY(-50%);
+        z-index: 120; width: 42px; height: 42px; border-radius: 50%;
+        display: grid; place-items: center; cursor: pointer;
+        background: var(--card-bg); color: var(--head-color);
+        border: 1px solid var(--border-color); box-shadow: var(--shadow-card);
+    }
+    .mt-toc-open[hidden] { display: none; }
+
+    @media (max-width: 1180px) {
+        .mt-toc { max-width: none; right: 10px; left: 10px; bottom: 10px; top: auto; transform: none; }
+        .mt-toc ol { display: flex; gap: 6px; overflow-x: auto; max-height: none; }
+        .mt-toc a { white-space: nowrap; border-left: 0; border-bottom: 3px solid transparent; }
+        .mt-toc a.on { border-left: 0; border-bottom-color: var(--accent-color); }
+        .mt-toc-open { top: auto; bottom: 14px; transform: none; }
+    }
+
+    /* ─────────────────────────── Tableaux triables ────────────────────── */
+    .mt-sortable th {
+        cursor: pointer; user-select: none; position: relative; padding-right: 26px !important;
+        white-space: nowrap;
+    }
+    .mt-sortable th::after {
+        content: "\f0dc"; font-family: "Font Awesome 6 Free"; font-weight: 900;
+        position: absolute; right: 9px; top: 50%; transform: translateY(-50%);
+        opacity: .38; font-size: .72rem;
+    }
+    .mt-sortable th.mt-asc::after { content: "\f0de"; opacity: 1; color: var(--accent-color); }
+    .mt-sortable th.mt-desc::after { content: "\f0dd"; opacity: 1; color: var(--accent-color); }
+    .mt-sortable th:focus-visible { outline: 3px solid var(--accent-color); outline-offset: -3px; }
+    .mt-table-hint {
+        font-size: .72rem; color: var(--muted-color); margin: 6px 2px 0;
+        display: flex; align-items: center; gap: 6px;
+    }
+
+    /* ──────────────────────────── Mode Focus ──────────────────────────── */
+    .mt-focus-btn {
+        position: absolute; top: 10px; right: 10px; z-index: 4;
+        width: 34px; height: 34px; border-radius: 10px; cursor: pointer;
+        display: grid; place-items: center;
+        background: var(--card-bg); color: var(--head-color);
+        border: 1px solid var(--border-color); box-shadow: 0 4px 12px rgba(0,0,0,.12);
+        opacity: 0; transition: opacity .2s ease, background .2s ease;
+        font-size: .82rem;
+    }
+    .mt-focusable { position: relative; }
+    .mt-focusable:hover .mt-focus-btn,
+    .mt-focus-btn:focus-visible { opacity: 1; }
+    .mt-focus-btn:hover { background: var(--accent-color); color: #16202e; }
+    @media (hover: none) { .mt-focus-btn { opacity: .9; } }
+
+    .mt-focus-overlay {
+        position: fixed; inset: 0; z-index: 900; display: none;
+        background: rgba(6, 11, 20, .93);
+        padding: 4vh 3vw; overflow: auto;
+        backdrop-filter: blur(4px);
+    }
+    .mt-focus-overlay.on { display: block; }
+    .mt-focus-stage {
+        background: var(--card-bg); color: var(--text-color);
+        border-radius: 20px; padding: 30px 28px; max-width: 1180px; margin: 0 auto;
+        box-shadow: 0 30px 90px rgba(0,0,0,.55);
+    }
+    .mt-focus-stage .mt-focus-btn { display: none; }
+    .mt-focus-bar {
+        display: flex; align-items: center; gap: 12px;
+        max-width: 1180px; margin: 0 auto 14px; color: #eaf1fb;
+    }
+    .mt-focus-bar b { font-size: .95rem; font-weight: 600; }
+    .mt-focus-bar button {
+        margin-left: auto; cursor: pointer; border-radius: 10px;
+        background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.22);
+        padding: 8px 14px; font-size: .82rem; font-family: inherit;
+    }
+    .mt-focus-bar button:hover { background: rgba(255,255,255,.22); }
+
+    /* ────────────────────────── Frise interactive ─────────────────────── */
+    .at-timeline .tl-item.mt-tl { cursor: pointer; }
+    .at-timeline .tl-item.mt-tl:focus-visible { outline: 3px solid var(--accent-color); outline-offset: 3px; }
+    .at-timeline .tl-item.mt-on { background: var(--surface); border-radius: 12px; }
+
+    @media print {
+        .mt-toc, .mt-toc-open, .mt-focus-btn, .mt-focus-overlay, .mt-table-hint { display: none !important; }
+    }
+</style>
+
+<div class="mt-focus-overlay" id="mtFocus" role="dialog" aria-modal="true" aria-label="Bloc en plein écran">
+    <div class="mt-focus-bar">
+        <b id="mtFocusTitle">Mode Focus</b>
+        <button type="button" id="mtFocusClose"><i class="fas fa-xmark"></i> Fermer (Échap)</button>
+    </div>
+    <div class="mt-focus-stage" id="mtFocusStage"></div>
+</div>
+
+<script>
+(function () {
+    'use strict';
+    var $ = function (s, c) { return (c || document).querySelector(s); };
+    var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+
+    /* ═════════ 0. SOMMAIRE COLLANT ET MODES D'AFFICHAGE ═════════ */
+    (function () {
+        var barre = $('.tabs-header-sticky');
+        if (barre) {
+            // Une sentinelle de hauteur nulle placée juste avant la barre dit
+            // quand celle-ci se colle : plus fiable et moins coûteux qu'un
+            // calcul de position à chaque défilement.
+            var sentinelle = document.createElement('div');
+            sentinelle.setAttribute('aria-hidden', 'true');
+            sentinelle.style.cssText = 'height:0;margin:0;padding:0';
+            barre.parentNode.insertBefore(sentinelle, barre);
+            if ('IntersectionObserver' in window) {
+                new IntersectionObserver(function (entrees) {
+                    barre.classList.toggle('collee', !entrees[0].isIntersecting);
+                }, { threshold: 0 }).observe(sentinelle);
+            } else {
+                window.addEventListener('scroll', function () {
+                    barre.classList.toggle('collee', barre.getBoundingClientRect().top <= 0);
+                }, { passive: true });
+            }
+        }
+
+        var groupe = $('#vueSwitch');
+        if (!groupe) return;
+
+        function appliquer(vue) {
+            if (vue === 'auto') document.documentElement.removeAttribute('data-vue');
+            else document.documentElement.setAttribute('data-vue', vue);
+            $$('.vue-btn', groupe).forEach(function (b) {
+                b.setAttribute('aria-pressed', String(b.dataset.vue === vue));
+            });
+        }
+
+        var choix = 'auto';
+        try { choix = localStorage.getItem('at-vue') || 'auto'; } catch (e) { }
+        appliquer(choix);
+
+        groupe.addEventListener('click', function (ev) {
+            var b = ev.target.closest ? ev.target.closest('.vue-btn') : null;
+            if (!b) return;
+            appliquer(b.dataset.vue);
+            try { localStorage.setItem('at-vue', b.dataset.vue); } catch (e) { }
+        });
+    })();
+
+    /* ═════════ 1. SOMMAIRE DYNAMIQUE FLOTTANT ═════════
+       Il suit la lecture : onglets d'abord (ce sont les vraies sections de
+       l'article), puis les grands blocs visuels. Un clic saute au bloc et,
+       s'il vit dans un onglet, ouvre l'onglet au passage. */
+    (function () {
+        var entrees = [];
+
+        $$('.tab-btn').forEach(function (b) {
+            var cible = document.getElementById(b.dataset.tab);
+            if (!cible) return;
+            entrees.push({
+                label: (b.textContent || '').trim().slice(0, 34),
+                cible: cible, onglet: b
+            });
+        });
+
+        // Sans onglets (texte continu), on prend les titres du corps.
+        if (entrees.length < 2) {
+            entrees = [];
+            $$('.article-body h2, .continuous-paragraph h2, .tab-content h2').forEach(function (h) {
+                if (!h.id) h.id = 'mt-s' + entrees.length;
+                entrees.push({ label: (h.textContent || '').trim().slice(0, 34), cible: h, onglet: null });
+            });
+        }
+        if (entrees.length < 2) return;
+
+        var toc = document.createElement('nav');
+        toc.className = 'mt-toc';
+        toc.setAttribute('aria-label', 'Sommaire de l’article');
+        toc.innerHTML = '<div class="mt-toc-title"><i class="fas fa-list-ul"></i> Sommaire'
+            + '<button type="button" class="mt-toc-close" aria-label="Masquer le sommaire">'
+            + '<i class="fas fa-xmark"></i></button></div><ol></ol>';
+        var liste = toc.querySelector('ol');
+
+        var rappel = document.createElement('button');
+        rappel.type = 'button';
+        rappel.className = 'mt-toc-open';
+        rappel.hidden = true;
+        rappel.setAttribute('aria-label', 'Afficher le sommaire');
+        rappel.innerHTML = '<i class="fas fa-list-ul"></i>';
+
+        var liens = entrees.map(function (e, i) {
+            var li = document.createElement('li');
+            var a = document.createElement('a');
+            a.href = '#';
+            a.innerHTML = '<span class="mt-dot"></span><span class="mt-toc-lbl"></span>';
+            a.querySelector('.mt-toc-lbl').textContent = e.label;
+            a.addEventListener('click', function (ev) {
+                ev.preventDefault();
+                if (e.onglet) e.onglet.click();
+                var haut = e.cible.getBoundingClientRect().top + window.pageYOffset - 90;
+                window.scrollTo({ top: haut, behavior: 'smooth' });
+                marquer(i);
+            });
+            li.appendChild(a); liste.appendChild(li);
+            return a;
+        });
+
+        function marquer(i) {
+            liens.forEach(function (a, k) { a.classList.toggle('on', k === i); });
+        }
+        marquer(0);
+
+        toc.querySelector('.mt-toc-close').addEventListener('click', function () {
+            toc.hidden = true; rappel.hidden = false;
+        });
+        rappel.addEventListener('click', function () {
+            toc.hidden = false; rappel.hidden = true;
+        });
+
+        document.body.appendChild(toc);
+        document.body.appendChild(rappel);
+
+        // Onglets : le sommaire suit le clic de l'utilisateur.
+        $$('.tab-btn').forEach(function (b) {
+            b.addEventListener('click', function () {
+                var k = entrees.findIndex(function (e) { return e.onglet === b; });
+                if (k >= 0) marquer(k);
+            });
+        });
+
+        // Défilement : on éclaire l'entrée dont le bloc est visible.
+        var enCours = false;
+        window.addEventListener('scroll', function () {
+            if (enCours) return;
+            enCours = true;
+            window.requestAnimationFrame(function () {
+                enCours = false;
+                var repere = window.innerHeight * 0.32, meilleur = -1, ecart = 1e9;
+                entrees.forEach(function (e, i) {
+                    if (!e.cible.offsetParent && e.onglet) return;   // onglet fermé
+                    var d = Math.abs(e.cible.getBoundingClientRect().top - repere);
+                    if (d < ecart) { ecart = d; meilleur = i; }
+                });
+                if (meilleur >= 0) marquer(meilleur);
+            });
+        }, { passive: true });
+    })();
+
+    /* ═════════ 2. TABLEAUX TRIABLES ═════════
+       Tout tableau de données devient triable au clic sur l'en-tête. Les
+       nombres français (« 1 234,5 », « 42 % », « 3,2 Md ») sont compris comme
+       des nombres, pas comme du texte. */
+    function versNombre(txt) {
+        var t = String(txt).replace(/ | /g, ' ').trim().toLowerCase();
+        var m = t.match(/-?\d[\d  .]*(?:,\d+)?/);
+        if (!m) return null;
+        var n = parseFloat(m[0].replace(/[  .]/g, '').replace(',', '.'));
+        if (isNaN(n)) return null;
+        if (/\bmd\b|milliard/.test(t)) n *= 1e9;
+        else if (/\bm\b|million/.test(t)) n *= 1e6;
+        else if (/\bk\b|millier/.test(t)) n *= 1e3;
+        return n;
+    }
+
+    $$('table').forEach(function (tbl) {
+        var corps = tbl.tBodies[0];
+        var thead = tbl.tHead;
+        if (!corps || !thead || corps.rows.length < 3) return;
+
+        tbl.classList.add('mt-sortable');
+        var entetes = $$('th', thead);
+        var etat = { col: -1, sens: 1 };
+
+        entetes.forEach(function (th, col) {
+            th.tabIndex = 0;
+            th.setAttribute('role', 'button');
+            th.title = 'Trier sur « ' + (th.textContent || '').trim() + ' »';
+
+            function trier() {
+                etat.sens = (etat.col === col) ? -etat.sens : 1;
+                etat.col = col;
+                var lignes = Array.prototype.slice.call(corps.rows);
+                lignes.sort(function (a, b) {
+                    var ta = (a.cells[col] || {}).textContent || '';
+                    var tb = (b.cells[col] || {}).textContent || '';
+                    var na = versNombre(ta), nb = versNombre(tb);
+                    if (na !== null && nb !== null) return (na - nb) * etat.sens;
+                    return ta.trim().localeCompare(tb.trim(), 'fr', { numeric: true }) * etat.sens;
+                });
+                lignes.forEach(function (l) { corps.appendChild(l); });
+                entetes.forEach(function (h) { h.classList.remove('mt-asc', 'mt-desc'); });
+                th.classList.add(etat.sens > 0 ? 'mt-asc' : 'mt-desc');
+            }
+
+            th.addEventListener('click', trier);
+            th.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); trier(); }
+            });
+        });
+
+        var aide = document.createElement('p');
+        aide.className = 'mt-table-hint';
+        aide.innerHTML = '<i class="fas fa-arrow-down-short-wide"></i> Tableau triable : cliquez sur une colonne.';
+        (tbl.parentNode.classList.contains('table-container') ? tbl.parentNode : tbl)
+            .insertAdjacentElement('afterend', aide);
+    });
+
+    /* ═════════ 3. MODE FOCUS ═════════
+       Chaque bloc visuel gagne un bouton d'agrandissement : le bloc est
+       recopié dans une scène plein écran, l'original reste en place. */
+    (function () {
+        var overlay = $('#mtFocus');
+        var scene = $('#mtFocusStage');
+        var titre = $('#mtFocusTitle');
+        if (!overlay) return;
+
+        var CIBLES = [
+            ['.chart-container', 'Graphique'],
+            ['.table-container', 'Tableau de données'],
+            ['.at-compare', 'Comparatif'],
+            ['.at-timeline', 'Chronologie'],
+            ['.key-figures-grid', 'Chiffres clés'],
+            ['.at-map', 'Carte'],
+            ['.at-visual', 'Visuel interactif'],
+            ['.at-gauges', 'Jauges']
+        ];
+
+        function ouvrir(bloc, nom) {
+            scene.innerHTML = '';
+            scene.appendChild(bloc.cloneNode(true));
+            // Les animations « au défilement » ne se déclencheront pas ici :
+            // on force l'état visible du clone.
+            $$('.reveal', scene).forEach(function (n) { n.classList.add('visible', 'is-visible'); });
+            scene.querySelectorAll('[style*="opacity"]').forEach(function (n) { n.style.opacity = 1; });
+            titre.textContent = nom;
+            overlay.classList.add('on');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function fermer() {
+            overlay.classList.remove('on');
+            scene.innerHTML = '';
+            document.body.style.overflow = '';
+        }
+
+        $('#mtFocusClose').addEventListener('click', fermer);
+        overlay.addEventListener('click', function (e) { if (e.target === overlay) fermer(); });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && overlay.classList.contains('on')) fermer();
+        });
+
+        CIBLES.forEach(function (paire) {
+            $$(paire[0]).forEach(function (bloc) {
+                if (bloc.closest('.mt-focus-stage')) return;
+                bloc.classList.add('mt-focusable');
+                var b = document.createElement('button');
+                b.type = 'button';
+                b.className = 'mt-focus-btn';
+                b.title = 'Afficher en plein écran (mode Focus)';
+                b.setAttribute('aria-label', 'Mode Focus : ' + paire[1]);
+                b.innerHTML = '<i class="fas fa-expand"></i>';
+                b.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    ouvrir(bloc, paire[1]);
+                });
+                bloc.appendChild(b);
+            });
+        });
+    })();
+
+    /* ═════════ 4. FRISE INTERACTIVE ═════════
+       Les jalons se parcourent au clavier et se mettent en avant au clic. */
+    $$('.at-timeline').forEach(function (frise) {
+        var jalons = $$('.tl-item, li, .tl-step', frise).filter(function (n) {
+            return n.textContent.trim().length > 0;
+        });
+        if (jalons.length < 2) return;
+        jalons.forEach(function (j, i) {
+            j.classList.add('mt-tl');
+            j.tabIndex = 0;
+            j.setAttribute('role', 'button');
+            function activer() {
+                jalons.forEach(function (x) { x.classList.remove('mt-on'); });
+                j.classList.add('mt-on');
+            }
+            j.addEventListener('click', activer);
+            j.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activer(); }
+                if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+                    e.preventDefault(); (jalons[i + 1] || jalons[0]).focus();
+                }
+                if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+                    e.preventDefault(); (jalons[i - 1] || jalons[jalons.length - 1]).focus();
+                }
+            });
+        });
+    });
+})();
+</script>
+
+</body>
+</html>
