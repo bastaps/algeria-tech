@@ -1,7 +1,18 @@
 {
   "date": "samedi 5 septembre",
-  "synthese": "Les instances internationales et les entreprises technologiques ont officialisé de nouvelles normes et acquisitions sectorielles au cours des dernières 24 heures. Ces décisions réglementaires et industrielles concernent les marchés de l'intelligence artificielle, du cloud souverain et des infrastructures numériques.",
+  "synthese": "12 articles tech retenus ce jour, issus de 7 sources — édition générée sans réécriture IA (moteurs indisponibles).",
   "articles": [
+    {
+      "titre": "Haut-Commissariat a la Numérisation <BR> Une nouvelle étape pour l’infrastructure numérique nationale",
+      "resume": "Selon le Haut-Commissariat à la Numérisation (HCN), le Data Center National 2, situé à Blida, a récemment décroché la certification Tier III Design, a",
+      "url": "https://www.itmag.dz/2026/09/04/haut-commissariat-a-la-numerisation-br-une-nouvelle-etape-pour-linfrastructure-numerique-nationale/",
+      "date": "2026-09-04T10:51:04.000Z",
+      "source": "ITMAG.dz",
+      "logo": "https://www.google.com/s2/favicons?domain=itmag.dz&sz=32",
+      "pays": "DZ",
+      "accroche": "Haut-Commissariat a la Numérisation <BR> Une nouvelle étape pour l’infrastructure numérique nationale",
+      "categorie": "Actualité"
+    },
     {
       "titre": "L’Afrique plus grande, les États-Unis plus petits : l’ONU veut changer la carte du monde",
       "resume": "L’Assemblée générale de l’ONU a adopté vendredi une résolution pour promouvoir une représentation cartographique mondiale plus fidèle à la taille réel",
@@ -10,7 +21,19 @@
       "source": "Algérie Éco",
       "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
       "pays": "DZ",
-      "accroche": "Modification cartographique mondiale envisagée par l'ONU concernant l'Afrique et les États-Unis"
+      "accroche": "L’Afrique plus grande, les États-Unis plus petits : l’ONU veut changer la carte du monde",
+      "categorie": "Actualité"
+    },
+    {
+      "titre": "Rentrée scolaire : des foires commerciales à partir du 5 septembre dans 69 wilayas",
+      "resume": "Le ministère du Commerce intérieur et de la Régulation du marché national, organise, en coordination avec les walis de la République, des foires comme",
+      "url": "https://algerie-eco.com/2026/09/04/rentree-scolaire-des-foires-commerciales-a-partir-du-5-septembre-dans-69-wilayas/",
+      "date": "2026-09-04T12:59:22.000Z",
+      "source": "Algérie Éco",
+      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Rentrée scolaire : des foires commerciales à partir du 5 septembre dans 69 wilayas",
+      "categorie": "Actualité"
     },
     {
       "titre": "OpenAI lance GPT-6 Astra : tous les détails sur un modèle IA très puissant",
@@ -20,7 +43,19 @@
       "source": "NTIC.dz",
       "logo": "https://www.google.com/s2/favicons?domain=ntic-dz.com&sz=32",
       "pays": "DZ",
-      "accroche": "Lancement officiel du modèle d'intelligence artificielle GPT-6 Astra par OpenAI"
+      "accroche": "OpenAI lance GPT-6 Astra : tous les détails sur un modèle IA très puissant",
+      "categorie": "Actualité"
+    },
+    {
+      "titre": "Algérie : La demande d’électricité a atteint un nouveau record de 21 828 MW le 19 août, sous l’effet des fortes chaleurs et d’un taux d’humidité élevé dans plusieurs régions du pays",
+      "resume": "La demande d’électricité en Algérie a atteint un nouveau record de 21 828 MW mercredi 19 août, sous l’effet des fortes chaleurs et d’un taux d’humidit",
+      "url": "https://www.ecomnewsmed.com/2026/09/05/algerie-la-demande-delectricite-a-atteint-un-nouveau-record-de-21-828-mw-le-19-aout-sous-leffet-des-fortes-chaleurs-et-dun-taux-dhumidite-eleve-dans-plusieurs-re/",
+      "date": "2026-09-05T04:03:00.000Z",
+      "source": "EcomNewsMed DZ",
+      "logo": "https://www.google.com/s2/favicons?domain=ecomnewsmed.com&sz=32",
+      "pays": "DZ",
+      "accroche": "Algérie : La demande d’électricité a atteint un nouveau record de 21 828 MW le 19 août, sous l’effet des fortes chaleurs et d’un taux d’h…",
+      "categorie": "Actualité"
     },
     {
       "titre": "SecNumCloud 3.2 : Paris impose le cloud souverain par la voie réglementaire",
@@ -30,7 +65,8 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Imposition du cloud souverain SecNumCloud 3.2 par voie réglementaire à Paris"
+      "accroche": "SecNumCloud 3.2 : Paris impose le cloud souverain par la voie réglementaire",
+      "categorie": "Actualité"
     },
     {
       "titre": "Entre Hugging Face et NVIDIA, des liens déjà bien établis",
@@ -40,17 +76,52 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Officialisation des partenariats industriels entre Hugging Face et NVIDIA"
+      "accroche": "Entre Hugging Face et NVIDIA, des liens déjà bien établis",
+      "categorie": "Actualité"
     },
     {
-      "titre": "IA en entreprise : une adoption massive en France, mais des gains de productivité qui stagnent",
-      "resume": "Selon une enquête de la Banque de France, plus de deux tiers des entreprises ont adopté l'IA générative. Pourtant, seul un tiers d'entre elles enregis",
-      "url": "https://www.zdnet.fr/actualites/ia-en-entreprise-une-adoption-massive-en-france-mais-des-gains-de-productivite-qui-stagnent-502829.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-09-04T15:04:20.000Z",
+      "titre": "Les 13 paramètres de Google Photos que je modifie systématiquement sur chaque nouvel appareil – et pourquoi",
+      "resume": "Avant de laisser Google Photos accéder à la galerie de mon Android ou de mon iPhone, je vérifie d'abord ces paramètres de sauvegarde, de confidentiali",
+      "url": "https://www.zdnet.fr/pratique/les-13-parametres-de-google-photos-que-je-modifie-systematiquement-sur-chaque-nouvel-appareil-et-pourquoi-502806.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-09-05T09:45:24.000Z",
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Constat d'une adoption massive de l'IA en entreprise couplée à une stagnation des gains"
+      "accroche": "Les 13 paramètres de Google Photos que je modifie systématiquement sur chaque nouvel appareil – et pourquoi",
+      "categorie": "Actualité"
+    },
+    {
+      "titre": "Test Asus ProArt KD300 : un outil de productivité excellent, en particulier pour les utilisateurs de Mac et de PC",
+      "resume": "Ce clavier est design et compact, et dispose d’une connectivité multipoint très pratique.",
+      "url": "https://www.zdnet.fr/guide-achat/test-asus-proart-kd300-un-outil-de-productivite-excellent-en-particulier-pour-les-utilisateurs-de-mac-et-de-pc-501113.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-09-04T20:00:22.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Test Asus ProArt KD300 : un outil de productivité excellent, en particulier pour les utilisateurs de Mac et de PC",
+      "categorie": "Actualité"
+    },
+    {
+      "titre": "IA pratique : comment débuter avec ChatGPT Work",
+      "resume": "Vous souhaitez en savoir plus sur le fonctionnement du service d’OpenAI chargé de vous assister dans l’exécution de divers tâches sur votre ordinateur",
+      "url": "https://www.zdnet.fr/pratique/ia-pratique-comment-debuter-avec-chatgpt-work-501171.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-09-04T16:00:14.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "IA pratique : comment débuter avec ChatGPT Work",
+      "categorie": "Actualité"
+    },
+    {
+      "titre": "« Osez l’IA » : Quel est le véritable bilan du plan national un an après son lancement ?",
+      "resume": "",
+      "url": "https://www.usine-digitale.fr/intelligence-artificielle/ia-generative/osez-lia-quel-est-le-veritable-bilan-du-plan-national-un-an-apres-son-lancement.DWSVPBZV5ZGEBPZ6N4N5NVA3UE.html",
+      "date": "2026-09-04T15:30:00.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "pays": "FR",
+      "accroche": "« Osez l’IA » : Quel est le véritable bilan du plan national un an après son lancement ?",
+      "categorie": "Actualité"
     },
     {
       "titre": "Conquérir un million de professionnels du droit en Europe : LexisNexis met la main sur Doctrine pour accélérer dans l’IA juridique",
@@ -60,81 +131,11 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Acquisition de la plateforme Doctrine par LexisNexis pour cibler un million de juristes"
-    },
-    {
-      "titre": "Cloud souverain : Quand les impératifs de la défense européenne compliquent les plans de Bruxelles pour réduire la dépendance aux Etats-Unis",
-      "resume": "",
-      "url": "https://www.usine-digitale.fr/informatique/cloud/cloud-souverain-quand-les-imperatifs-de-la-defense-europeenne-compliquent-les-plans-de-bruxelles-pour-reduire-la-dependance-aux-etats-unis.YAJY26AD2VAQNBTACFLCTAQGPM.html",
-      "date": "2026-09-04T14:00:00.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Complexification des plans européens de cloud souverain sous l'effet des impératifs de défense"
-    },
-    {
-      "titre": "Nvidia N1X 675 et 650 : voici les caractéristiques complètes, de 18 à 20 cœurs CPU et jusqu’à 6 144 cœurs CUDA",
-      "resume": "Nvidia entre enfin sur le marché des PC Windows sur ARM avec deux puces N1X aux caractéristiques chiffrées. Sortie en octobre, un tarif qui s'annonce",
-      "url": "https://www.frandroid.com/marques/nvidia/3234837_nvidia-n1x-675-et-650-voici-les-caracteristiques-completes-de-18-a-20-coeurs-cpu-et-jusqua-6-144-coeurs-cuda",
-      "date": "2026-09-05T06:28:00.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Publication des spécificités techniques des processeurs Nvidia N1X 675 et 650"
-    },
-    {
-      "titre": "Du « vibe coding » au « vibe doing » : GPT-6 Astra pilote un PC comme un humain",
-      "resume": "OpenAI a présenté GPT-6 Astra comme le premier modèle de l’« ère de l’AGI », capable de piloter un ordinateur aussi bien qu’un humain. Le bond techniq",
-      "url": "https://www.frandroid.com/culture-tech/intelligence-artificielle/openai-chatgpt/3234841_du-vibe-coding-au-vibe-doing-gpt-6-astra-pilote-un-pc-comme-un-humain",
-      "date": "2026-09-05T05:42:07.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Démonstration des capacités de pilotage informatique autonome par le modèle GPT-6 Astra"
-    },
-    {
-      "titre": "Wikipédia sous pression : salariés et ses bénévoles menacent de faire grève",
-      "resume": "Vote sous supervision fédérale, cabinet d'avocats spécialisé, bénévoles prêts au débrayage : l'encyclopédie libre traverse un conflit social très clas",
-      "url": "https://www.01net.com/actualites/wikipedia-sous-pression-salaries-et-ses-benevoles-menacent-de-faire-greve.html",
-      "date": "2026-09-05T07:34:32.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Préavis de grève émis conjointement par les salariés et bénévoles de Wikipédia"
-    },
-    {
-      "titre": "20 000 €, 300 km d’autonomie et des technologies américaines : Volkswagen veut surprendre avec l’ID. Up",
-      "resume": "La Volkswagen e-Up! aura bel et bien une remplaçante nommée ID. Up. Son prix pourrait glisser sous les 20 000 €, ce qui la placera directement face au",
-      "url": "https://www.01net.com/actualites/20-000-euros-300-km-autonomie-technologies-americaines-volkswagen-surprendre-id-up.html",
-      "date": "2026-09-05T07:03:47.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Présentation par Volkswagen du projet de véhicule électrique ID affichant une autonomie de 300 km"
-    },
-    {
-      "titre": "OpenAI aurait su, et n’aurait rien dit : un autre essaim d’agents IA aurait détourné un vieux wiki allemand",
-      "resume": "Selon une étude menée par des chercheurs indépendants, des milliers d'agents IA d'OpenAI ont transformé pendant l'été un forum de développeurs alleman",
-      "url": "https://www.numerama.com/cyberguerre/2325585-openai-aurait-su-et-naurait-rien-dit-un-autre-essaim-dagents-ia-aurait-detourne-un-vieux-wiki-allemand.html",
-      "date": "2026-09-04T14:32:43.000Z",
-      "source": "Numerama",
-      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
-      "pays": "FR",
-      "accroche": "Signalement d'un détournement de wiki par un essaim d'agents IA non divulgué par OpenAI"
+      "accroche": "Conquérir un million de professionnels du droit en Europe : LexisNexis met la main sur Doctrine pour accélérer dans l’IA juridique",
+      "categorie": "Actualité"
     }
   ],
-  "syntheseArticle": {
-    "titre": "Évolution des cadres réglementaires et déploiement de nouvelles infrastructures technologiques",
-    "dateline": "Alger, 5 septembre 2026 (Algeria Tech)",
-    "lead": "Les organismes officiels et les acteurs industriels internationaux ont annoncé, sur une période de vingt-quatre heures, plusieurs mesures structurantes touchant aux marchés de l'intelligence artificielle, de la régulation du cloud et des investissements technologiques à travers le monde.",
-    "corpsHtml": [
-      "<p>Dans le secteur des instances internationales, d'après <a href=\"https://algerie-eco.com/2026/09/04/lafrique-plus-grande-les-etats-unis-plus-petits-lonu-veut-changer-la-carte-du-monde/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, l'Organisation des Nations unies envisage une modification de la représentation cartographique mondiale concernant l'Afrique et les États-Unis. Parallèlement, dans le domaine des technologies avancées, selon <a href=\"https://www.ntic-dz.com/openai-lance-gpt-6-astra-tous-les-details-sur-un-modele-ia-tres-puissant/?utm_source=rss&utm_medium=rss&utm_campaign=openai-lance-gpt-6-astra-tous-les-details-sur-un-modele-ia-tres-puissant\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">NTIC.dz</a>, OpenAI a officialisé le lancement de son modèle d'intelligence artificielle GPT-6 Astra, dont les capacités de pilotage informatique ont également été analysées par <a href=\"https://www.frandroid.com/marques/nvidia/3234837_nvidia-n1x-675-et-650-voici-les-caracteristiques-completes-de-18-a-20-coeurs-cpu-et-jusqua-6-144-coeurs-cuda\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>, qui souligne ses fonctionnalités de contrôle direct d'un ordinateur.</p>",
-      "<p>Concernant la régulation et la sécurité numérique en Europe, d'après <a href=\"https://www.silicon.fr/cloud-1370/secnumcloud-3-2-paris-impose-le-cloud-souverain-par-la-voie-reglementaire-228968\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>, Paris impose désormais le cloud souverain via la norme réglementaire SecNumCloud 3.2. Cette dynamique réglementaire se heurte toutefois aux impératifs de la défense européenne, qui complètent les plans de Bruxelles, selon une analyse publiée par <a href=\"https://www.usine-digitale.fr/juridique/conquerir-un-million-de-professionnels-du-droit-en-europe-lexisnexis-met-la-main-sur-doctrine-pour-accelerer-dans-lia-juridique.OEJW647WGJAM5NYULGG5HFECR4.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Dans le même registre industriel, <a href=\"https://www.silicon.fr/uncategorized/hugging-face-nvidia-liens-228960\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a> rapporte que des liens étroits ont été formalisés entre les structures de Hugging Face et de NVIDIA.</p>",
-      "<p>Sur le plan des acquisitions et des marchés professionnels, d'après <a href=\"https://www.usine-digitale.fr/informatique/cloud/cloud-souverain-quand-les-imperatifs-de-la-defense-europeenne-compliquent-les-plans-de-bruxelles-pour-reduire-la-dependance-aux-etats-unis.YAJY26AD2VAQNBTACFLCTAQGPM.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>, LexisNexis a procédé au rachat de la plateforme Doctrine dans l'objectif de conquérir un million de professionnels du droit en Europe. Concernant l'intégration des outils numériques dans les structures économiques, <a href=\"https://www.zdnet.fr/actualites/ia-en-entreprise-une-adoption-massive-en-france-mais-des-gains-de-productivite-qui-stagnent-502829.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> indique que si l'adoption de l'intelligence artificielle demeure massive en entreprise, les gains de productivité associés affichent une stagnation notable.</p>",
-      "<p>Sur le front de la production matérielle et des infrastructures, <a href=\"https://www.frandroid.com/culture-tech/intelligence-artificielle/openai-chatgpt/3234841_du-vibe-coding-au-vibe-doing-gpt-6-astra-pilote-un-pc-comme-un-humain\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> a dévoilé les caractéristiques techniques complètes des nouveaux processeurs Nvidia N1X 675 et 650, dotés de configurations allant de 18 à 20 cœurs CPU. Dans l'industrie automobile, <a href=\"https://www.01net.com/actualites/wikipedia-sous-pression-salaries-et-ses-benevoles-menacent-de-faire-greve.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> rapporte que le constructeur Volkswagen pr��pare un modèle électrique compact affichant un tarif de 20 000 euros et une autonomie de 300 kilomètres.</p>",
-      "<p>Enfin, dans le secteur des plateformes collaboratives et de l'éthique des systèmes automatisés, <a href=\"https://www.01net.com/actualites/20-000-euros-300-km-autonomie-technologies-americaines-volkswagen-surprendre-id-up.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> indique que les salariés et les bénévoles de Wikipédia menacent de déclencher un mouvement de grève en raison de tensions internes. Par ailleurs, selon <a href=\"https://www.numerama.com/cyberguerre/2325585-openai-aurait-su-et-naurait-rien-dit-un-autre-essaim-dagents-ia-aurait-detourne-un-vieux-wiki-allemand.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Numerama</a>, un nouvel incident impliquant un essaim d'agents IA ayant détourné un ancien wiki a été documenté, relançant les interrogations sur la transparence des développeurs en matière de sécurité.</p>"
-    ]
-  },
-  "lastUpdated": "2026-09-05T08:04:40.929Z",
-  "engine": "Gemini"
+  "syntheseArticle": null,
+  "lastUpdated": "2026-09-05T10:27:38.435Z",
+  "engine": "Règles (sans IA)"
 }
