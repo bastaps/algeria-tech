@@ -361,6 +361,24 @@
       "source_type": "web"
     },
     {
+      "id": "268625b8ff2f8ed5",
+      "source_name": "Djezzy",
+      "source_short": "DJ",
+      "source_color": "#FF6B00",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQa3RCYnR6V2VvcnMyZGZaNmxEMFpjVnFHczFmbnBBdDk4cDYwOHBwQWZyU3JqS3NFU3B3dTV6WHhsaTJzdEE0TTNkOV9sUkk1U2NtbUwtR0plRkVKblFjbzItWHJtNlFseF9JSWx2V3pwSy13RUY4NFNrYW9qbWo3QXYwUzlYZXd5OFZFbDRLV1E1UE41UzVXOTRicDVKX05qaFlLaEJPRldrWm5xOGc?oc=5",
+      "image": "",
+      "date": "Sat, 05 Sep 2026 09:00:00 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Brèves : Djezzy offre les appels, SMS et internet dans les zones touchées - Mobiles - Le soir d'Algérie — Brèves : Djezzy offre les appels, SMS et internet dans les zones touchées - Mobiles Le soir d'Algérie",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "8f4056f5ef6cffc3",
       "source_name": "Mobilis",
       "source_short": "MB",
@@ -703,18 +721,18 @@
       "source_type": "rss"
     },
     {
-      "id": "45f1d1593278f83b",
-      "source_name": "Mobilis",
-      "source_short": "MB",
-      "source_color": "#00A651",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOQ3Rya21rQlBvU200VTd3VXBWWlc1MEVCMVpFenVzZHpIc2pxZDlfV1JQdlhjXzJ6MkpYdDBUbUJYNk1JUlVaMzJLSXdDQzlLM2ZmV3B2a29yTzk2aFZ2TC0wNkxfVllZbXZVUzhaSVhhYkFUV1VLUk96SXdoRTdpeDdXNEdkb0UzYTlVN2l2b0laM0ljc0JzNGszMll3YVcydVd1V1UtQjZvdkhxaTVOQ3lHZTBRYktiaHBDdHhRY1VaNnE1MGhPdlVjV0FnZw?oc=5",
+      "id": "9c0be3cd9e212657",
+      "source_name": "Algérie Poste",
+      "source_short": "AP",
+      "source_color": "#F9A825",
+      "category": "Infrastructure",
+      "category_icon": "✉️",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPM20xR0J3aktXcGYteFVuTmxBd1lfMENIclZnZ2tST1JXajJ3WTQ3ZjVFV2s0UmNxTW1jUDBaYkxZVFU2Zld3X0VwOWFMb1BCR3JhcjJvRy1Zck5vXzd0VDJpeV9KeExGUUx6Zmp0QURjSDREU3lXNTlEZXlMbDk0cWlBaHFvLVdtdThQa2MtdC10Snp3TFBYeFFSdzA4M3lrbHZnQnFwSE5yaFJsRmpKWFB5MDUtSU9VQ1pvclZZSDc0WHVHNkdzZ2FGU1dodw?oc=5",
       "image": "",
-      "date": "Wed, 26 Aug 2026 23:09:00 GMT",
+      "date": "Sat, 05 Sep 2026 14:11:30 GMT",
       "lang_source": "fr",
       "text": {
-        "fr": "Coup d’envoi ce soir du championnat de Ligue 1 Mobilis 2026-2027 : Le MC Alger remet sa couronne en jeu - Le Courrier d'Algérie — Coup d’envoi ce soir du championnat de Ligue 1 Mobilis 2026-2027 : Le MC Alger remet sa couronne en jeu Le Courrier d'Algérie",
+        "fr": "Foot : L’Algérie annonce la nomination de Brahim Hemdani au poste de sélectionneur - Le Figaro — Foot : L’Algérie annonce la nomination de Brahim Hemdani au poste de sélectionneur Le Figaro",
         "ar": "",
         "en": ""
       },
@@ -1057,24 +1075,6 @@
       "lang_source": "fr",
       "text": {
         "fr": "70e anniversaire du Congrès de la Soummam: Algérie Poste émet un timbre-poste commémoratif - horizons.dz — 70e anniversaire du Congrès de la Soummam: Algérie Poste émet un timbre-poste commémoratif horizons.dz",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "8734c1aae7869835",
-      "source_name": "Algérie Poste",
-      "source_short": "AP",
-      "source_color": "#F9A825",
-      "category": "Infrastructure",
-      "category_icon": "✉️",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOanVRZTNYN3VjZ2UzVEV5NVpNTGZFOU9ObGdIcEp4RmFrR24wRWxpSUR3QWQ0REJ5blBtRWtRZGdQT3lNOTlERHBlYkl2RFdxOTRJNTJndVJQdzJtUmJQSEZvb0pQWTdyQzNGUWxWdzdRU3hiemtwWjZIUk1uTWs0UkNPbWkxbE1NTzd0SndCRjlvbGZEbm11NWxQTGp3MlIyeUd1b1hEbHhXODctUkpkMEctcEd1cHdFUU5xVDRTaw?oc=5",
-      "image": "",
-      "date": "Wed, 19 Aug 2026 08:48:00 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Emission d'un timbre-poste commémorant cet événement historique - aps.dz — Emission d'un timbre-poste commémorant cet événement historique aps.dz",
         "ar": "",
         "en": ""
       },
@@ -1435,6 +1435,78 @@
       "lang_source": "fr",
       "text": {
         "fr": "Mohamed Salah Daâs, DG adjoint du Groupe Condor : «Condor porte haut les couleurs du made in Algeria» - El Moudjahid — Mohamed Salah Daâs, DG adjoint du Groupe Condor : «Condor porte haut les couleurs du made in Algeria» El Moudjahid",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f774e48a95a86006",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/09/05/hikers-rescued-after-using-google-gemini-for-planning/",
+      "image": "",
+      "date": "Sat, 05 Sep 2026 19:35:24 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Hikers rescued after using Google Gemini for planning — The sheriff’s office said the hikers “were advised by Gemini to bring far less food and water than their group required.\"",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "669fdcb55695ab82",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/09/05/openai-confirms-wiki-incident-says-its-working-on-a-framework-for-more-disclosure/",
+      "image": "",
+      "date": "Sat, 05 Sep 2026 18:05:27 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "OpenAI confirms ‘wiki incident,’ says it’s ‘working on a framework’ for more disclosure — OpenAI acknowledged its role in a recently reported incident where AI agents took over a German wiki forum.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "8a5b351b1e773b17",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/pratique/jai-reussi-a-donner-a-linux-lapparence-de-windows-11-gratuitement-grace-a-quelques-modifications-simples-apportees-a-zorin-os-502809.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sat, 05 Sep 2026 13:01:25 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "J'ai réussi à donner à Linux l'apparence de Windows 11 gratuitement, grâce à quelques modifications simples apportées à Zorin OS — Si l'interface de Windows 11 vous plaît, mais que vous préférez utiliser Linux, vous avez de la chance.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "47bba31afed54529",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/pratique/ameliorez-la-precision-des-couleurs-de-votre-tele-grace-a-ces-quelques-reglages-simples-501160.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sat, 05 Sep 2026 12:01:33 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Améliorez la précision des couleurs de votre télé grâce à ces quelques réglages simples — Température de couleur, saturation, étalonnage avancé : notre guide détaille, marque par marque, les réglages simples et gratuits pour améliorer la précision des couleurs de votre télé.",
         "ar": "",
         "en": ""
       },
@@ -5327,88 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "2a35487181fcd59b",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/30/lalgerie-va-retablir-lexecution-de-la-peine-de-mort-contre-les-auteurs-dincendies-volontaires/",
-      "image": "",
-      "date": "Sun, 30 Aug 2026 21:08:31 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "L’Algérie va rétablir l’exécution de la peine de mort contre les auteurs d’incendies volontaires — L’Algérie va rétablir l’exécution de la peine de mort contre les auteurs d’incendies volontaires. La décision a été prise ce dimanche 30 août lors d’une réunion tenue sous la présidence du président de la République, Abdelmadjid Tebboune, en présence de hauts responsables militaires et civils. La ré",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "ff3dac7f0419c8d9",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/30/lalgerie-envoie-deux-patrouilles-davions-de-chasse-en-mission-de-soutien-a-larmee-nigerienne/",
-      "image": "",
-      "date": "Sun, 30 Aug 2026 20:59:55 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "L’Algérie envoie deux patrouilles d’avions de chasse en mission de soutien à l’armée nigérienne — En réponse à la demande des autorités nigériennes, l’Algérie a envoyé deux patrouilles d’avions de chasse en mission de soutien à l’armée nigérienne pour faire face à la tentative de déstabilisation du pays frère du Niger, indique dimanche un communiqué du ministère de la Défense nationale (MDN). «",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "9b8fc6714b151b84",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/08/30/le-pari-fou-du-roi-des-puces-br-nvidia-veut-avaler-hugging-face-pour-13-milliards/",
-      "image": "",
-      "date": "Sun, 30 Aug 2026 19:52:00 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Le pari fou du roi des puces <BR Nvidia veut avaler Hugging Face pour 13 milliards — En pourparlers avancés pour racheter la plateforme collaborative phare de l’intelligence artificielle, le géant californien multiplie les investissements records. Pourtant, en s’emparant du sanctuaire de …",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "bf7a810f7ae49daa",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/30/le-president-tebboune-preside-une-reunion-consacree-a-la-prise-en-charge-des-consequences-et-des-effets-des-incendies/",
-      "image": "",
-      "date": "Sun, 30 Aug 2026 19:51:23 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Le président Tebboune préside une réunion consacrée à la prise en charge des conséquences et des effets des incendies — Le président de la République, Chef suprême des Forces armées, ministre de la Défense nationale, M. Abdelmadjid Tebboune, a présidé, dimanche au siège de la Présidence de la République, une réunion consacrée à la prise des mesures nécessaires à la prise en charge des conséquences et des effets des r",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-09-05T11:08:26.755202+00:00",
+  "lastUpdated": "2026-09-05T20:57:12.242034+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Tech International": 169,
-    "Médias TIC": 51
+    "Tech International": 173,
+    "Médias TIC": 47
   },
   "total": 300
 }
