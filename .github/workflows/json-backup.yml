@@ -33,10 +33,13 @@ jobs:
         run: |
           npm install
           node generate_rss_themes.js
-          node generate_revue.js
           node generate_barometre.js
           node build.js
         continue-on-error: true  # Continue même si un script échoue
+        # generate_revue.js retiré d'ici (2026-09-05) : ce job ne reçoit AUCUNE clé API
+        # et se redéclenche à chaque push sur main — il écrasait systématiquement toute
+        # bonne édition avec le repli "moteurs indisponibles". revue-presse.yml (04:00 UTC,
+        # 5 fournisseurs) reste la seule source de la revue de presse.
 
       # Fichiers JSON à tracker
       - name: Track critical JSON files

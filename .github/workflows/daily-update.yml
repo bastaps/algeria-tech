@@ -27,10 +27,11 @@ jobs:
       - name: Run Veille Update
         run: node update_veille.js
 
-      - name: Generate Press Review (Mistral IA)
-        run: node generate_revue.js
-        env:
-          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+      # Revue de presse retirée d'ici (2026-09-05) : revue-presse.yml s'en charge déjà
+      # à 04:00 UTC avec les 5 fournisseurs IA (Mistral/Gemini/OpenRouter/OpenAI/DeepSeek).
+      # Ce job ne recevait que MISTRAL_API_KEY et écrasait la bonne édition de
+      # revue-presse.yml par un repli "moteurs indisponibles" dès que Mistral était
+      # rate-limité (fréquent) — cause du blocage constaté sur algeria-tech.pages.dev.
 
       - name: Sync Articles Database
         run: node build.js
