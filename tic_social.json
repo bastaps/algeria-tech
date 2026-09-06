@@ -361,6 +361,24 @@
       "source_type": "web"
     },
     {
+      "id": "6be11376068e0c0d",
+      "source_name": "Mobilis",
+      "source_short": "MB",
+      "source_color": "#00A651",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxNSTV0R3ZudFk1QVhacjAzXzJNUURpejNFVUVlZGNjRzFsWlctYWdQblY1YnpGMVVuNzZlZHdSQ1d6bGttV1FUMkhxS2dKblFKSUdUSk1vWkhlb1BHM0VYTHpIbnJGa25HSVhOSklRM09NZ2c1clZDZzVoTXc1MF9iZjVPNW9BRGNtSm9YTlNsekx4OFNwTk9JRWN3UmpWX2lDTHVZaG5UYmhjakhiZ2lUbE52QUNxSU8tX1Q1NGNnSWotZFdYdjd5SmRWV2Q3QUlhbk93UnpQcWNtb3FwMy1KQWtQaExtNEdicGRPZkJzNVFIVGpWMG5FVW1mS05WcVBBc1czUzVB?oc=5",
+      "image": "",
+      "date": "Sat, 05 Sep 2026 21:47:00 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Mobilis annonce la finalisation de la réhabilitation et de la remise en service de l'ensemble des sites touchés - aps.dz — Mobilis annonce la finalisation de la réhabilitation et de la remise en service de l'ensemble des sites touchés aps.dz",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "268625b8ff2f8ed5",
       "source_name": "Djezzy",
       "source_short": "DJ",
@@ -697,24 +715,6 @@
       "lang_source": "fr",
       "text": {
         "fr": "Ligue 1-Mobilis : le coup d’envoi reporté - L'Algérie Aujourd'hui — Ligue 1-Mobilis : le coup d’envoi reporté L'Algérie Aujourd'hui",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "5adb9b76acf6f865",
-      "source_name": "Mobilis",
-      "source_short": "MB",
-      "source_color": "#00A651",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPcnE2RkdBeWZQTlVDNDVabHExT2pJSlRiaFlLTVdTVzhSdi1sWU5MVVBORXJLVXVIcGRmWEd1Nzk2OG9DRmFUV0dyTnZzVlRJYWs4OVBIVFBfZVNzdE5vUzROQjRQOU5CWHZWUVZaNGZPUktEcnBhOWw1SE0wZFR3X190REh2VWZaczRVeGE5dTVOYkhRYWpub194QXFyY1BtMlRHMHZR?oc=5",
-      "image": "",
-      "date": "Thu, 27 Aug 2026 12:21:00 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Ligue 1 Mobilis : l’Algérie en deuil, la 1re journée du championnat reportée - La Gazette du Fennec — Ligue 1 Mobilis : l’Algérie en deuil, la 1re journée du championnat reportée La Gazette du Fennec",
         "ar": "",
         "en": ""
       },
@@ -1437,6 +1437,60 @@
         "fr": "Mohamed Salah Daâs, DG adjoint du Groupe Condor : «Condor porte haut les couleurs du made in Algeria» - El Moudjahid — Mohamed Salah Daâs, DG adjoint du Groupe Condor : «Condor porte haut les couleurs du made in Algeria» El Moudjahid",
         "ar": "",
         "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "af29df0c63ac0a21",
+      "source_name": "NTIC-DZ",
+      "source_short": "NTC",
+      "source_color": "#01579B",
+      "category": "Médias TIC",
+      "category_icon": "🌐",
+      "url": "https://www.ntic-dz.com/7-applications-gratuites-pour-regarder-youtube-sans-publicite-sur-iphone-et-android/?utm_source=rss&utm_medium=rss&utm_campaign=7-applications-gratuites-pour-regarder-youtube-sans-publicite-sur-iphone-et-android",
+      "image": "",
+      "date": "Sun, 06 Sep 2026 11:12:53 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "7 applications gratuites pour regarder YouTube sans publicité sur iPhone et Android — feed Les publicités qui s’enchaînent sur YouTube peuvent rapidement gâcher l’expérience de visionnage. Pour les utilisateurs qui ne souhaitent pas souscrire à YouTube Premium, plusieurs solutions alternatives permettent de regarder des vidéos avec moins de interruptions, tout en profitant de fonctio",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "367371437a8affb6",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/dell-xps-13-le-pc-windows-abordable-qui-tient-tete-au-macbook-neo-502762.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sun, 06 Sep 2026 07:01:06 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Dell XPS 13 : le PC Windows abordable qui tient tête au MacBook Neo — Le Dell XPS 13 affiche une qualité de fabrication rarement vue à ce niveau de prix, mais n’évite pas quelques compromis.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "8a7e0f31a98365d1",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/09/05/seattle-times-and-newsday-are-the-latest-publications-to-sue-openai-and-microsoft/",
+      "image": "",
+      "date": "Sat, 05 Sep 2026 22:49:55 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Seattle Times and Newsday are the latest publications to sue OpenAI and Microsoft — Two more news organizations are suing OpenAI and Microsoft over the supposed use of their journalism to train AI.",
+        "ar": "",
+        "fr": ""
       },
       "source_type": "rss"
     },
@@ -5345,70 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "5e9fce5dde5a3b86",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/08/30/grindr-wants-to-be-the-everything-app-for-gay-men-investors-are-still-deciding-whether-it-can-pull-it-off/",
-      "image": "",
-      "date": "Mon, 31 Aug 2026 02:18:57 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Grindr wants to be the everything app for gay men; investors are still deciding whether it can pull it off — George Arison is done letting Wall Street's \"Grindr discount\" go unchallenged — in a wide-ranging Q&A, the CEO walks us through how AI, a controversial $350-plus EDGE tier, and a bet on healthcare and long-distance matchmaking are turning Grindr into the \"gayborhood in your pocket\" he's been promisi",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "3946e27c98724ace",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/30/south2-corridor-reunion-preparatoire-de-la-prochaine-rencontre-des-ministres-de-lenergie-des-pays-concernes-par-le-projet/",
-      "image": "",
-      "date": "Sun, 30 Aug 2026 22:59:41 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "SoutH2 Corridor : Réunion préparatoire de la prochaine rencontre des ministres de l’Energie des pays concernés par le projet — Le ministre de l’Energie et des Energies renouvelables, Mourad Adjal, a présidé, dimanche à Alger, une réunion consacrée aux travaux préparatoires de l’événement mondial prévu en Algérie autour du projet du Corridor Sud H2 (SoutH2 Corridor), a indiqué un communiqué du ministère. Considérée comme l’u",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "2a75332b73ed3d1b",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/08/30/protection-civile-tous-les-feux-de-foret-ont-ete-circonscrits-et-totalement-maitrises/",
-      "image": "",
-      "date": "Sun, 30 Aug 2026 21:55:25 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Protection civile : Tous les feux de forêt ont été circonscrits et totalement maîtrisés — Tous les feux de forêt qui se sont déclarés dans plusieurs wilayas du pays, entre les 26 et 30 août, ont été circonscrits et totalement maîtrisés, a indiqué dimanche soir le chargé de l’information et de la communication à la Direction générale de la Protection civile, le lieutenant Karim Benfahci.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-09-05T20:57:12.242034+00:00",
+  "lastUpdated": "2026-09-06T11:31:47.417016+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Tech International": 173,
-    "Médias TIC": 47
+    "Médias TIC": 46,
+    "Tech International": 174
   },
   "total": 300
 }
