@@ -24,6 +24,10 @@
           '<button class="fw-btn" data-act="close" title="Fermer">✕</button>' +
         '</div>' +
         '<video src="' + entry.mp4Url + '" muted autoplay loop playsinline></video>' +
+        '<div class="fw-vol">' +
+          '<button class="fw-btn" data-act="mute" title="Activer le son">🔇</button>' +
+          '<input type="range" min="0" max="100" value="100" data-act="volume" title="Volume">' +
+        '</div>' +
       '</div>' +
       '<div class="fw-title">' + (entry.titre || 'Flash Info Algeria Tech') + '</div>';
     document.body.appendChild(root);
@@ -32,6 +36,20 @@
     var pipBtn  = root.querySelector('[data-act="pip"]');
     var expBtn  = root.querySelector('[data-act="expand"]');
     var closeBtn = root.querySelector('[data-act="close"]');
+    var muteBtn = root.querySelector('[data-act="mute"]');
+    var volSlider = root.querySelector('[data-act="volume"]');
+
+    muteBtn.addEventListener('click', function () {
+      video.muted = !video.muted;
+      muteBtn.textContent = video.muted ? '🔇' : '🔊';
+      muteBtn.title = video.muted ? 'Activer le son' : 'Couper le son';
+      if (!video.muted && video.volume === 0) video.volume = 1;
+    });
+    volSlider.addEventListener('input', function () {
+      video.volume = Number(volSlider.value) / 100;
+      video.muted = video.volume === 0;
+      muteBtn.textContent = video.muted ? '🔇' : '🔊';
+    });
 
     if (document.pictureInPictureEnabled && video.requestPictureInPicture) {
       pipBtn.hidden = false;
