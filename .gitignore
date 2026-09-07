@@ -23,6 +23,9 @@ Ancien_Outil_Backup/
 *.mp4
 *.zip
 *.exe
+# Exception : clips courts (<90s, quelques Mo) du module Flash Info persistant —
+# bien en dessous de la limite Cloudflare 25MB, volontairement auto-hébergés.
+!videos/flash-widget/*.mp4
 
 --- Empêcher le blocage par le flux RSS dynamique ---
 rss.xml

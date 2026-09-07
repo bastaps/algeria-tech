@@ -919,7 +919,7 @@ async function regenerateArticlesJson() {
                 const tags = tagsMatch ? tagsMatch[1].split(',').map(t => t.trim().replace(/^["']|["']$/g, '')) : [];
                 const titre = get('titre');
                 if (!titre) continue;
-                articles.push({ id: file.replace('.md', ''), titre, date: get('date'), heure: get('heure'), categorie: get('categorie'), image: get('image'), video: get('video'), pdf: get('pdf'), extrait: get('extrait'), rawContent: content, tags, type: get('type'), position: get('position'), interactif: get('interactif'), aretenir: get('aretenir') });
+                articles.push({ id: file.replace('.md', ''), titre, date: get('date'), heure: get('heure'), categorie: get('categorie'), image: get('image'), video: get('video'), pdf: get('pdf'), extrait: get('extrait'), rawContent: content, tags, type: get('type'), position: get('position'), interactif: get('interactif'), aretenir: get('aretenir'), mediaPriority: get('mediaPriority') || 'video' });
             } catch (e) { console.warn(`Skipping ${file}:`, e.message); }
         }
         articles.sort((a, b) => new Date(`${b.date}T${b.heure || '00:00'}`) - new Date(`${a.date}T${a.heure || '00:00'}`));
@@ -2220,7 +2220,7 @@ async function clearPositionConflicts(position, excludeFileName) {
 
 app.post('/api/create-article', upload, async (req, res) => {
     try {
-        const { id, titre, categorie, date, heure, extrait, tags, contenu, video, type, source, position } = req.body;
+        const { id, titre, categorie, date, heure, extrait, tags, contenu, video, type, source, position, mediaPriority } = req.body;
         let fileName = (id && id !== "null") ? `${id}.md` : `${Date.now()}.md`;
         let tagsFormatted = "";
         if (tags) tagsFormatted = tags.split(',').map(t => t.trim().replace(/"/g, '')).filter(t => t).map(t => `"${t}"`).join(', ');
@@ -2248,7 +2248,7 @@ extrait: "${extrait.replace(/"/g, '\\"')}"
 tags: [${tagsFormatted}]
 type: ${type || ''}
 position: ${position || ''}
-interactif: "${req.body.interactif || ''}"\naretenir: "${(req.body.aretenir || '').replace(/"/g, '\\"')}"
+interactif: "${req.body.interactif || ''}"\naretenir: "${(req.body.aretenir || '').replace(/"/g, '\\"')}"\nmediaPriority: ${mediaPriority || 'video'}
 ---
 
 ${contenu}
@@ -4000,6 +4000,45 @@ app.post('/api/youtube-publish', express.json(), async (req, res) => {
     }
 });
 
+// POST /api/youtube-publish-local
+// Body : { filePath, title?, description?, tags?, privacy?, categoryId? }
+// Uploade directement un fichier MP4 déjà présent sur le disque (pas de téléchargement
+// préalable) — utilisé par 01-flash-infos pour pousser ses rendus vers YouTube.
+const YOUTUBE_LOCAL_ALLOWED_DIRS = [
+    path.resolve('E:\\01-flash-infos\\output'),
+];
+app.post('/api/youtube-publish-local', express.json(), async (req, res) => {
+    const { filePath, title, description, tags, privacy, categoryId } = req.body || {};
+    if (!filePath) return res.status(400).json({ error: 'filePath manquant' });
+    if (!youtubeUploader) return res.status(500).json({ error: 'Module YouTube non disponible' });
+
+    if (!process.env.YOUTUBE_CLIENT_ID || !process.env.YOUTUBE_REFRESH_TOKEN) {
+        return res.status(503).json({
+            error: 'YouTube non configuré',
+            hint: 'Créez un fichier .env avec YOUTUBE_CLIENT_ID, YOUTUBE_CLIENT_SECRET, YOUTUBE_REFRESH_TOKEN.'
+        });
+    }
+
+    const resolved = path.resolve(filePath);
+    const allowed = YOUTUBE_LOCAL_ALLOWED_DIRS.some(dir => resolved === dir || resolved.startsWith(dir + path.sep));
+    if (!allowed) return res.status(403).json({ error: 'Chemin non autorisé : ' + resolved });
+    if (!fsSync.existsSync(resolved)) return res.status(404).json({ error: 'Fichier introuvable : ' + resolved });
+
+    try {
+        const result = await youtubeUploader.uploadToYoutube(resolved, {
+            title, description,
+            tags:       tags || ['Algeria Tech', 'Algérie', 'Flash Info'],
+            privacy:    privacy || 'private',
+            license:    'creativeCommon',
+            categoryId: categoryId || '25', // 25 = News & Politics
+        });
+        res.json({ success: true, videoId: result.videoId, youtubeUrl: result.url });
+    } catch (e) {
+        console.error('[YouTube Publish Local]', e.message);
+        res.status(500).json({ error: e.message });
+    }
+});
+
 // POST /api/create-video-article
 // Body : { videoId, titre, description, tags?, categorie?, date?, heure?, source?, uploader?, duration? }
 // Crée un article .md avec iframe YouTube intégré, immédiatement visible sur le site local.
@@ -4063,7 +4102,7 @@ titre: "${titreEsc}"
 categorie: ${artCat}
 date: ${artDate}
 heure: ${artHeure}
-image: ""
+image: "https://i.ytimg.com/vi/${videoId}/hqdefault.jpg"
 pdf: ""
 video: "https://www.youtube.com/watch?v=${videoId}"
 source: "${artSource.replace(/"/g, '\\"')}"
@@ -4092,6 +4131,61 @@ ${body}
     }
 });
 // ── FIN YOUTUBE PUBLISHER ─────────────────────────────────────────────────────
+
+// ── FLASH WIDGET PERSISTANT (bandeau BFM-style, MP4 auto-hébergé) ──────────────
+// POST /api/publish-flash-widget
+// Body : { filePath, title, duration? }
+// Copie le MP4 local dans videos/flash-widget/, met à jour data/flash-latest.json
+// (max 3 entrées, purge auto > 7 jours) consommé par flash-widget.js.
+const FLASH_WIDGET_DIR   = path.join(__dirname, 'videos', 'flash-widget');
+const FLASH_MANIFEST     = path.join(__dirname, 'data', 'flash-latest.json');
+const FLASH_MAX_ENTRIES  = 3;
+const FLASH_MAX_AGE_MS   = 7 * 24 * 60 * 60 * 1000;
+
+async function readFlashManifest() {
+    try {
+        const raw = await fs.readFile(FLASH_MANIFEST, 'utf-8');
+        return JSON.parse(raw);
+    } catch (e) {
+        return [];
+    }
+}
+
+app.post('/api/publish-flash-widget', express.json(), async (req, res) => {
+    const { filePath, title, duration } = req.body || {};
+    if (!filePath) return res.status(400).json({ error: 'filePath requis' });
+    if (!fsSync.existsSync(filePath)) return res.status(400).json({ error: 'Fichier introuvable : ' + filePath });
+
+    try {
+        await fs.mkdir(FLASH_WIDGET_DIR, { recursive: true });
+        await fs.mkdir(path.dirname(FLASH_MANIFEST), { recursive: true });
+
+        const id       = String(Date.now());
+        const destName = `${id}.mp4`;
+        await fs.copyFile(filePath, path.join(FLASH_WIDGET_DIR, destName));
+
+        const now   = Date.now();
+        const entry = {
+            id,
+            titre: title || 'Flash Info Algeria Tech',
+            mp4Url: `/videos/flash-widget/${destName}`,
+            duration: duration || 0,
+            publishedAt: new Date(now).toISOString(),
+        };
+
+        let manifest = await readFlashManifest();
+        manifest = manifest.filter(e => (now - new Date(e.publishedAt).getTime()) < FLASH_MAX_AGE_MS);
+        manifest.unshift(entry);
+        manifest = manifest.slice(0, FLASH_MAX_ENTRIES);
+
+        await fs.writeFile(FLASH_MANIFEST, JSON.stringify(manifest, null, 2));
+        res.json({ success: true, id, mp4Url: entry.mp4Url });
+    } catch (e) {
+        console.error('[Publish Flash Widget]', e.message);
+        res.status(500).json({ error: e.message });
+    }
+});
+// ── FIN FLASH WIDGET ────────────────────────────────────────────────────────────
 
 // ── SMART INGEST VIDÉO ────────────────────────────────────────────────────────
 // POST /api/smart-ingest-video
