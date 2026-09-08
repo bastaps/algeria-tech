@@ -44,6 +44,19 @@
 #flash-widget-root .fw-title{
   padding:9px 12px; font-size:12.5px; color:#E9F0FA; font-weight:600;
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  cursor:move; user-select:none;
+}
+
+/* Pendant un glisser/redimensionner : coupe les transitions (sinon la boîte
+   traîne derrière le curseur au lieu de le suivre au pixel près). */
+#flash-widget-root.fw-dragging{ transition:none; }
+
+#flash-widget-root .fw-resize{
+  position:absolute; right:0; bottom:0; width:16px; height:16px; z-index:3;
+  cursor:nwse-resize; touch-action:none;
+  background:
+    linear-gradient(135deg, transparent 0 40%, rgba(255,255,255,.35) 40% 46%, transparent 46% 60%,
+                     rgba(255,255,255,.35) 60% 66%, transparent 66%);
 }
 
 /* ── Languette de réouverture ──────────────────────────────────────────────── */

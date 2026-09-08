@@ -6,6 +6,99 @@
   var MANIFEST_URL = '/data/flash-latest.json';
   var MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000;
   var DISMISS_KEY = 'flashDismissedId';
+  var RECT_KEY = 'flashWidgetRect'; // position/taille choisies par ce visiteur (par navigateur)
+  var MIN_WIDTH = 180;
+
+  function saveRect(root) {
+    try {
+      var r = root.getBoundingClientRect();
+      // Garde-fou : un viewport à 0 (onglet en arrière-plan, etc.) produirait
+      // des valeurs de clamp aberrantes — ne jamais persister un rect dégénéré.
+      if (r.width < MIN_WIDTH || window.innerWidth < 100 || window.innerHeight < 100) return;
+      localStorage.setItem(RECT_KEY, JSON.stringify({ left: r.left, top: r.top, width: r.width }));
+    } catch (e) {}
+  }
+
+  function loadRect() {
+    try {
+      var raw = localStorage.getItem(RECT_KEY);
+      if (!raw) return null;
+      var rect = JSON.parse(raw);
+      if (!rect || !(rect.width >= MIN_WIDTH)) return null;
+      return rect;
+    } catch (e) { return null; }
+  }
+
+  // Bascule la boîte sur un positionnement libre (left/top/width en pixels),
+  // en partant de sa position actuelle — plus de dépendance au coin CSS par
+  // défaut ni au mode "agrandi" une fois qu'on a glissé/redimensionné à la main.
+  function pinToCurrentRect(root) {
+    var r = root.getBoundingClientRect();
+    root.classList.remove('fw-expanded');
+    root.style.right = 'auto';
+    root.style.bottom = 'auto';
+    root.style.transform = 'none';
+    root.style.left = r.left + 'px';
+    root.style.top = r.top + 'px';
+    root.style.width = r.width + 'px';
+  }
+
+  // Écoute move/up sur `document` (pas sur la poignée) : le geste continue de
+  // fonctionner même si le curseur sort de la petite zone de la poignée pendant
+  // le mouvement. setPointerCapture est tenté en best-effort (améliore le suivi
+  // tactile) mais ne doit jamais bloquer l'attache des écouteurs s'il échoue.
+  function makeDraggable(root, handle) {
+    handle.addEventListener('pointerdown', function (ev) {
+      if (ev.button !== undefined && ev.button !== 0) return;
+      pinToCurrentRect(root);
+      root.classList.add('fw-dragging');
+      var startX = ev.clientX, startY = ev.clientY;
+      var startLeft = parseFloat(root.style.left), startTop = parseFloat(root.style.top);
+      try { handle.setPointerCapture(ev.pointerId); } catch (e) {}
+
+      function onMove(e) {
+        var dx = e.clientX - startX, dy = e.clientY - startY;
+        var w = root.offsetWidth, h = root.offsetHeight;
+        var left = Math.min(Math.max(0, startLeft + dx), window.innerWidth - w);
+        var top  = Math.min(Math.max(0, startTop + dy), window.innerHeight - h);
+        root.style.left = left + 'px';
+        root.style.top = top + 'px';
+      }
+      function onUp() {
+        document.removeEventListener('pointermove', onMove);
+        document.removeEventListener('pointerup', onUp);
+        root.classList.remove('fw-dragging');
+        saveRect(root);
+      }
+      document.addEventListener('pointermove', onMove);
+      document.addEventListener('pointerup', onUp);
+    });
+  }
+
+  function makeResizable(root, handle) {
+    handle.addEventListener('pointerdown', function (ev) {
+      pinToCurrentRect(root);
+      root.classList.add('fw-dragging');
+      var startX = ev.clientX;
+      var startWidth = root.getBoundingClientRect().width;
+      try { handle.setPointerCapture(ev.pointerId); } catch (e) {}
+
+      function onMove(e) {
+        var dx = e.clientX - startX;
+        var maxWidth = window.innerWidth - parseFloat(root.style.left || 0) - 4;
+        var w = Math.min(Math.max(MIN_WIDTH, startWidth + dx), maxWidth);
+        root.style.width = w + 'px';
+      }
+      function onUp() {
+        document.removeEventListener('pointermove', onMove);
+        document.removeEventListener('pointerup', onUp);
+        root.classList.remove('fw-dragging');
+        saveRect(root);
+      }
+      document.addEventListener('pointermove', onMove);
+      document.addEventListener('pointerup', onUp);
+    });
+  }
 
   function isFresh(entry) {
     var t = new Date(entry.publishedAt).getTime();
@@ -28,9 +121,22 @@
           '<button class="fw-btn" data-act="mute" title="Activer le son">🔇</button>' +
           '<input type="range" min="0" max="100" value="100" data-act="volume" title="Volume">' +
         '</div>' +
+        '<div class="fw-resize" title="Redimensionner"></div>' +
       '</div>' +
       '<div class="fw-title">' + (entry.titre || 'Flash Info Algeria Tech') + '</div>';
     document.body.appendChild(root);
+
+    var savedRect = loadRect();
+    if (savedRect && savedRect.width >= MIN_WIDTH) {
+      root.style.left = Math.min(Math.max(0, savedRect.left), window.innerWidth - savedRect.width) + 'px';
+      root.style.top = Math.min(Math.max(0, savedRect.top), window.innerHeight - 40) + 'px';
+      root.style.right = 'auto';
+      root.style.bottom = 'auto';
+      root.style.width = savedRect.width + 'px';
+    }
+
+    makeDraggable(root, root.querySelector('.fw-title'));
+    makeResizable(root, root.querySelector('.fw-resize'));
 
     var video   = root.querySelector('video');
     var pipBtn  = root.querySelector('[data-act="pip"]');
@@ -63,7 +169,23 @@
     }
 
     expBtn.addEventListener('click', function () {
-      var expanded = root.classList.toggle('fw-expanded');
+      // Une position/taille glissée à la main est posée en style inline, qui l'emporterait
+      // sur les règles CSS .fw-expanded — on l'efface pour laisser agir le preset centré,
+      // puis on la réapplique (ou le coin par défaut) en sortant du mode agrandi.
+      var expanded = !root.classList.contains('fw-expanded');
+      if (expanded) {
+        root.style.left = root.style.top = root.style.width = root.style.right = root.style.bottom = '';
+        root.classList.add('fw-expanded');
+      } else {
+        root.classList.remove('fw-expanded');
+        var saved = loadRect();
+        if (saved && saved.width >= MIN_WIDTH) {
+          root.style.right = 'auto'; root.style.bottom = 'auto';
+          root.style.left = Math.min(Math.max(0, saved.left), window.innerWidth - saved.width) + 'px';
+          root.style.top = Math.min(Math.max(0, saved.top), window.innerHeight - 40) + 'px';
+          root.style.width = saved.width + 'px';
+        }
+      }
       expBtn.textContent = expanded ? '⤡' : '⤢';
       expBtn.title = expanded ? 'Réduire' : 'Agrandir';
     });
