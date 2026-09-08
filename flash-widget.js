@@ -123,6 +123,7 @@
         '</div>' +
         '<video src="' + entry.mp4Url + '" muted autoplay loop playsinline></video>' +
         '<div class="fw-vol">' +
+          '<button class="fw-btn" data-act="playpause" title="Pause">⏸</button>' +
           '<button class="fw-btn" data-act="mute" title="Activer le son">🔇</button>' +
           '<input type="range" min="0" max="100" value="100" data-act="volume" title="Volume">' +
         '</div>' +
@@ -149,6 +150,20 @@
     var closeBtn = root.querySelector('[data-act="close"]');
     var muteBtn = root.querySelector('[data-act="mute"]');
     var volSlider = root.querySelector('[data-act="volume"]');
+    var playBtn = root.querySelector('[data-act="playpause"]');
+
+    playBtn.addEventListener('click', function () {
+      if (video.paused) video.play().catch(function () {});
+      else video.pause();
+    });
+    video.addEventListener('play', function () {
+      playBtn.textContent = '⏸';
+      playBtn.title = 'Pause';
+    });
+    video.addEventListener('pause', function () {
+      playBtn.textContent = '▶';
+      playBtn.title = 'Lecture';
+    });
 
     muteBtn.addEventListener('click', function () {
       video.muted = !video.muted;
