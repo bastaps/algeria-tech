@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-08T01:41:21.830Z",
+  "generated": "2026-09-08T10:04:13.756Z",
   "mode": "monthly",
   "period": "2026-09",
   "period_label": "Septembre 2026",
@@ -8,16 +8,16 @@
     "veille_articles": 150,
     "social_posts": 300,
     "presse_articles": 12,
-    "sources_count": 34
+    "sources_count": 33
   },
   "top_topics": [
     {
       "key": "Intelligence Artificielle",
       "emoji": "🤖",
-      "count": 91,
+      "count": 96,
       "prev_count": 91,
-      "trend": 0,
-      "trend_pct": 0
+      "trend": 5,
+      "trend_pct": 5
     },
     {
       "key": "Operateurs & Telecom",
@@ -38,10 +38,10 @@
     {
       "key": "Formation & Emploi TIC",
       "emoji": "🎓",
-      "count": 21,
+      "count": 20,
       "prev_count": 21,
-      "trend": 0,
-      "trend_pct": 0
+      "trend": -1,
+      "trend_pct": -5
     },
     {
       "key": "Cloud & Data Center",
@@ -52,20 +52,20 @@
       "trend_pct": 0
     },
     {
-      "key": "Startups & Innovation",
-      "emoji": "🚀",
-      "count": 11,
-      "prev_count": 11,
-      "trend": 0,
-      "trend_pct": 0
-    },
-    {
       "key": "5G & Reseaux Mobiles",
       "emoji": "📡",
       "count": 9,
       "prev_count": 9,
       "trend": 0,
       "trend_pct": 0
+    },
+    {
+      "key": "Startups & Innovation",
+      "emoji": "🚀",
+      "count": 8,
+      "prev_count": 11,
+      "trend": -3,
+      "trend_pct": -27
     },
     {
       "key": "E-commerce & Paiement",
@@ -93,12 +93,12 @@
     }
   ],
   "sentiment": {
-    "positive": 100,
+    "positive": 94,
     "negative": 34,
-    "neutral": 328,
-    "positive_pct": 22,
+    "neutral": 334,
+    "positive_pct": 20,
     "negative_pct": 7,
-    "neutral_pct": 71
+    "neutral_pct": 72
   },
   "top_sources": [
     {
@@ -110,21 +110,22 @@
       "count": 68
     },
     {
-      "source": "Wired",
-      "count": 50
+      "source": "ZDNet FR",
+      "count": 52
     },
     {
       "source": "Algérie Éco",
-      "count": 47
+      "count": 45
     },
     {
-      "source": "ZDNet FR",
-      "count": 45
+      "source": "Wired",
+      "count": 42
     }
   ],
   "highlights": [
-    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 91 occurrences dans les publications.",
-    "Sentiment equilibre ce mois : 22% positif, 7% negatif sur 462 publications."
+    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 96 occurrences dans les publications.",
+    "\"Startups & Innovation\" en recul : -27% par rapport a le mois precedent.",
+    "Sentiment equilibre ce mois : 20% positif, 7% negatif sur 462 publications."
   ],
   "previous_period": {
     "period": "2026-09",
