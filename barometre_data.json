@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-08T10:04:13.756Z",
+  "generated": "2026-09-08T11:55:58.328Z",
   "mode": "monthly",
   "period": "2026-09",
   "period_label": "Septembre 2026",
@@ -14,10 +14,10 @@
     {
       "key": "Intelligence Artificielle",
       "emoji": "🤖",
-      "count": 96,
-      "prev_count": 91,
-      "trend": 5,
-      "trend_pct": 5
+      "count": 95,
+      "prev_count": 96,
+      "trend": -1,
+      "trend_pct": -1
     },
     {
       "key": "Operateurs & Telecom",
@@ -39,17 +39,17 @@
       "key": "Formation & Emploi TIC",
       "emoji": "🎓",
       "count": 20,
-      "prev_count": 21,
-      "trend": -1,
-      "trend_pct": -5
+      "prev_count": 20,
+      "trend": 0,
+      "trend_pct": 0
     },
     {
       "key": "Cloud & Data Center",
       "emoji": "☁️",
-      "count": 19,
+      "count": 18,
       "prev_count": 19,
-      "trend": 0,
-      "trend_pct": 0
+      "trend": -1,
+      "trend_pct": -5
     },
     {
       "key": "5G & Reseaux Mobiles",
@@ -63,9 +63,9 @@
       "key": "Startups & Innovation",
       "emoji": "🚀",
       "count": 8,
-      "prev_count": 11,
-      "trend": -3,
-      "trend_pct": -27
+      "prev_count": 8,
+      "trend": 0,
+      "trend_pct": 0
     },
     {
       "key": "E-commerce & Paiement",
@@ -93,10 +93,10 @@
     }
   ],
   "sentiment": {
-    "positive": 94,
+    "positive": 95,
     "negative": 34,
-    "neutral": 334,
-    "positive_pct": 20,
+    "neutral": 333,
+    "positive_pct": 21,
     "negative_pct": 7,
     "neutral_pct": 72
   },
@@ -111,7 +111,7 @@
     },
     {
       "source": "ZDNet FR",
-      "count": 52
+      "count": 50
     },
     {
       "source": "Algérie Éco",
@@ -119,13 +119,12 @@
     },
     {
       "source": "Wired",
-      "count": 42
+      "count": 39
     }
   ],
   "highlights": [
-    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 96 occurrences dans les publications.",
-    "\"Startups & Innovation\" en recul : -27% par rapport a le mois precedent.",
-    "Sentiment equilibre ce mois : 20% positif, 7% negatif sur 462 publications."
+    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 95 occurrences dans les publications.",
+    "Sentiment equilibre ce mois : 21% positif, 7% negatif sur 462 publications."
   ],
   "previous_period": {
     "period": "2026-09",
