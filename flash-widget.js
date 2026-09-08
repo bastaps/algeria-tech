@@ -83,9 +83,14 @@
       var startWidth = root.getBoundingClientRect().width;
       try { handle.setPointerCapture(ev.pointerId); } catch (e) {}
 
+      var titleH = root.querySelector('.fw-title').offsetHeight || 34;
       function onMove(e) {
         var dx = e.clientX - startX;
-        var maxWidth = window.innerWidth - parseFloat(root.style.left || 0) - 4;
+        // Deux plafonds : ne pas déborder à droite (largeur) ni en bas (la hauteur
+        // suit le ratio 16:9 de la vidéo + le bandeau titre).
+        var maxWidthH = window.innerWidth - parseFloat(root.style.left || 0) - 4;
+        var maxWidthV = (window.innerHeight - parseFloat(root.style.top || 0) - titleH - 4) / 0.5625;
+        var maxWidth = Math.max(MIN_WIDTH, Math.min(maxWidthH, maxWidthV));
         var w = Math.min(Math.max(MIN_WIDTH, startWidth + dx), maxWidth);
         root.style.width = w + 'px';
       }
@@ -169,22 +174,15 @@
     }
 
     expBtn.addEventListener('click', function () {
-      // Une position/taille glissée à la main est posée en style inline, qui l'emporterait
-      // sur les règles CSS .fw-expanded — on l'efface pour laisser agir le preset centré,
-      // puis on la réapplique (ou le coin par défaut) en sortant du mode agrandi.
+      // Le bouton bascule toujours entre deux presets fixes — centré-agrandi, ou
+      // coin par défaut — et ignore/efface tout glisser-déposer manuel en cours,
+      // peu importe où la boîte se trouvait avant le clic.
       var expanded = !root.classList.contains('fw-expanded');
-      if (expanded) {
-        root.style.left = root.style.top = root.style.width = root.style.right = root.style.bottom = '';
-        root.classList.add('fw-expanded');
-      } else {
-        root.classList.remove('fw-expanded');
-        var saved = loadRect();
-        if (saved && saved.width >= MIN_WIDTH) {
-          root.style.right = 'auto'; root.style.bottom = 'auto';
-          root.style.left = Math.min(Math.max(0, saved.left), window.innerWidth - saved.width) + 'px';
-          root.style.top = Math.min(Math.max(0, saved.top), window.innerHeight - 40) + 'px';
-          root.style.width = saved.width + 'px';
-        }
+      root.classList.toggle('fw-expanded', expanded);
+      root.style.left = root.style.top = root.style.width =
+        root.style.right = root.style.bottom = root.style.transform = '';
+      if (!expanded) {
+        try { localStorage.removeItem(RECT_KEY); } catch (e) {}
       }
       expBtn.textContent = expanded ? '⤡' : '⤢';
       expBtn.title = expanded ? 'Réduire' : 'Agrandir';
