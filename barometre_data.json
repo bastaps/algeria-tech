@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-07T23:51:14.759Z",
+  "generated": "2026-09-08T00:51:29.166Z",
   "mode": "monthly",
   "period": "2026-09",
   "period_label": "Septembre 2026",
@@ -15,33 +15,33 @@
       "key": "Intelligence Artificielle",
       "emoji": "🤖",
       "count": 91,
-      "prev_count": 90,
-      "trend": 1,
-      "trend_pct": 1
+      "prev_count": 91,
+      "trend": 0,
+      "trend_pct": 0
     },
     {
       "key": "Operateurs & Telecom",
       "emoji": "📶",
       "count": 44,
-      "prev_count": 42,
-      "trend": 2,
-      "trend_pct": 5
+      "prev_count": 44,
+      "trend": 0,
+      "trend_pct": 0
     },
     {
       "key": "Cybersecurite",
       "emoji": "🔒",
       "count": 25,
-      "prev_count": 23,
-      "trend": 2,
-      "trend_pct": 9
+      "prev_count": 25,
+      "trend": 0,
+      "trend_pct": 0
     },
     {
       "key": "Formation & Emploi TIC",
       "emoji": "🎓",
       "count": 21,
-      "prev_count": 22,
-      "trend": -1,
-      "trend_pct": -5
+      "prev_count": 21,
+      "trend": 0,
+      "trend_pct": 0
     },
     {
       "key": "Cloud & Data Center",
@@ -63,17 +63,17 @@
       "key": "5G & Reseaux Mobiles",
       "emoji": "📡",
       "count": 9,
-      "prev_count": 8,
-      "trend": 1,
-      "trend_pct": 13
+      "prev_count": 9,
+      "trend": 0,
+      "trend_pct": 0
     },
     {
       "key": "E-commerce & Paiement",
       "emoji": "🛒",
       "count": 3,
-      "prev_count": 5,
-      "trend": -2,
-      "trend_pct": -40
+      "prev_count": 3,
+      "trend": 0,
+      "trend_pct": 0
     },
     {
       "key": "Satellite & Spatial",
@@ -87,9 +87,9 @@
       "key": "Regulation & Politique",
       "emoji": "⚖️",
       "count": 2,
-      "prev_count": 1,
-      "trend": 1,
-      "trend_pct": 100
+      "prev_count": 2,
+      "trend": 0,
+      "trend_pct": 0
     }
   ],
   "sentiment": {
@@ -124,8 +124,6 @@
   ],
   "highlights": [
     "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 91 occurrences dans les publications.",
-    "\"Regulation & Politique\" en forte hausse : +100% par rapport a le mois precedent.",
-    "\"E-commerce & Paiement\" en recul : -40% par rapport a le mois precedent.",
     "Sentiment equilibre ce mois : 22% positif, 7% negatif sur 462 publications."
   ],
   "previous_period": {
