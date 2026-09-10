@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-09T12:05:35.175Z",
+  "generated": "2026-09-10T12:00:25.779Z",
   "mode": "monthly",
   "period": "2026-09",
   "period_label": "Septembre 2026",
@@ -14,118 +14,119 @@
     {
       "key": "Intelligence Artificielle",
       "emoji": "🤖",
-      "count": 93,
-      "prev_count": 95,
-      "trend": -2,
-      "trend_pct": -2
+      "count": 81,
+      "prev_count": 93,
+      "trend": -12,
+      "trend_pct": -13
     },
     {
       "key": "Operateurs & Telecom",
       "emoji": "📶",
-      "count": 43,
-      "prev_count": 44,
-      "trend": -1,
-      "trend_pct": -2
-    },
-    {
-      "key": "Cybersecurite",
-      "emoji": "🔒",
-      "count": 28,
-      "prev_count": 25,
-      "trend": 3,
-      "trend_pct": 12
-    },
-    {
-      "key": "Formation & Emploi TIC",
-      "emoji": "🎓",
-      "count": 27,
-      "prev_count": 20,
-      "trend": 7,
-      "trend_pct": 35
+      "count": 44,
+      "prev_count": 43,
+      "trend": 1,
+      "trend_pct": 2
     },
     {
       "key": "Cloud & Data Center",
       "emoji": "☁️",
+      "count": 21,
+      "prev_count": 20,
+      "trend": 1,
+      "trend_pct": 5
+    },
+    {
+      "key": "Cybersecurite",
+      "emoji": "🔒",
       "count": 20,
-      "prev_count": 18,
-      "trend": 2,
-      "trend_pct": 11
+      "prev_count": 28,
+      "trend": -8,
+      "trend_pct": -29
     },
     {
       "key": "Startups & Innovation",
       "emoji": "🚀",
-      "count": 12,
-      "prev_count": 8,
-      "trend": 4,
-      "trend_pct": 50
+      "count": 20,
+      "prev_count": 12,
+      "trend": 8,
+      "trend_pct": 67
+    },
+    {
+      "key": "Formation & Emploi TIC",
+      "emoji": "🎓",
+      "count": 17,
+      "prev_count": 27,
+      "trend": -10,
+      "trend_pct": -37
     },
     {
       "key": "5G & Reseaux Mobiles",
       "emoji": "📡",
-      "count": 11,
-      "prev_count": 9,
-      "trend": 2,
-      "trend_pct": 22
+      "count": 12,
+      "prev_count": 11,
+      "trend": 1,
+      "trend_pct": 9
     },
     {
       "key": "Satellite & Spatial",
       "emoji": "🛰️",
+      "count": 6,
+      "prev_count": 5,
+      "trend": 1,
+      "trend_pct": 20
+    },
+    {
+      "key": "E-commerce & Paiement",
+      "emoji": "🛒",
       "count": 5,
       "prev_count": 3,
       "trend": 2,
       "trend_pct": 67
     },
     {
-      "key": "E-commerce & Paiement",
-      "emoji": "🛒",
-      "count": 3,
-      "prev_count": 3,
-      "trend": 0,
-      "trend_pct": 0
-    },
-    {
       "key": "Regulation & Politique",
       "emoji": "⚖️",
-      "count": 3,
-      "prev_count": 2,
+      "count": 4,
+      "prev_count": 3,
       "trend": 1,
-      "trend_pct": 50
+      "trend_pct": 33
     }
   ],
   "sentiment": {
-    "positive": 99,
-    "negative": 40,
-    "neutral": 323,
-    "positive_pct": 21,
+    "positive": 116,
+    "negative": 41,
+    "neutral": 305,
+    "positive_pct": 25,
     "negative_pct": 9,
-    "neutral_pct": 70
+    "neutral_pct": 66
   },
   "top_sources": [
     {
       "source": "ZDNet France",
-      "count": 80
+      "count": 75
     },
     {
       "source": "TechCrunch",
-      "count": 61
+      "count": 71
     },
     {
       "source": "ZDNet FR",
-      "count": 54
-    },
-    {
-      "source": "Algérie Éco",
-      "count": 46
+      "count": 51
     },
     {
       "source": "Wired",
-      "count": 41
+      "count": 48
+    },
+    {
+      "source": "Algérie Éco",
+      "count": 47
     }
   ],
   "highlights": [
-    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 93 occurrences dans les publications.",
-    "\"Formation & Emploi TIC\" en forte hausse : +35% par rapport a le mois precedent.",
-    "Sentiment equilibre ce mois : 21% positif, 9% negatif sur 462 publications."
+    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 81 occurrences dans les publications.",
+    "\"Startups & Innovation\" en forte hausse : +67% par rapport a le mois precedent.",
+    "\"Cybersecurite\" en recul : -29% par rapport a le mois precedent.",
+    "Sentiment equilibre ce mois : 25% positif, 9% negatif sur 462 publications."
   ],
   "previous_period": {
     "period": "2026-09",
