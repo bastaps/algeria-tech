@@ -4003,9 +4003,11 @@ app.post('/api/youtube-publish', express.json(), async (req, res) => {
 // POST /api/youtube-publish-local
 // Body : { filePath, title?, description?, tags?, privacy?, categoryId? }
 // Uploade directement un fichier MP4 déjà présent sur le disque (pas de téléchargement
-// préalable) — utilisé par 01-flash-infos pour pousser ses rendus vers YouTube.
+// préalable) — utilisé par 01-flash-infos, et depuis le 2026-09-16 par Agnes
+// (web/routes/publish_bridge_routes.py) pour pousser leurs rendus vers YouTube.
 const YOUTUBE_LOCAL_ALLOWED_DIRS = [
     path.resolve('E:\\01-flash-infos\\output'),
+    path.resolve('E:\\agnes-video-generator-master\\.working_dir'),
 ];
 app.post('/api/youtube-publish-local', express.json(), async (req, res) => {
     const { filePath, title, description, tags, privacy, categoryId } = req.body || {};
