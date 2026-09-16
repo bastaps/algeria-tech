@@ -1,152 +1,151 @@
 {
-  "date": "mardi 15 septembre",
-  "synthese": "Les acteurs technologiques et industriels internationaux ont annoncé de nouvelles mesures stratégiques et financières durant les dernières 24 heures. Ces décisions concernent l'intelligence artificielle, les infrastructures de transport autonome, la robotique industrielle et le marché des équipements mobiles.",
+  "date": "mercredi 16 septembre",
+  "synthese": "Les acteurs mondiaux des technologies et les institutions publiques multiplient les initiatives de restructuration industrielle et de régulation sécuritaire de l'intelligence artificielle. Les opérateurs de télécommunications et les constructeurs de composants ajustent simultanément leurs offres commerciales et leurs architectures matérielles face aux évolutions du marché.",
   "articles": [
     {
-      "titre": "Enseignement supérieur : lancement du challenge national AgriTech « NAWAT »",
-      "resume": "Le Comité national de coordination pour le suivi de l’innovation et de l’entrepreneuriat universitaire relevant du ministère de l’Enseignement supérie",
-      "url": "https://algerie-eco.com/2026/09/14/enseignement-superieur-lancement-du-challenge-national-agritech-nawat/",
-      "date": "2026-09-14T19:48:40.000Z",
-      "source": "Algérie Éco",
-      "logo": "https://www.google.com/s2/favicons?domain=algerie-eco.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Lancement du challenge national AgriTech « NAWAT » par le ministère de l'Enseignement supérieur",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Microsoft dégaine (aussi) son « Code de conduite » pour l’IA",
-      "resume": "Microsoft publie son \"Code de conduite\" pour l'IA après l'appel d'Anthropic à ralentir la course aux capacités. Une consultation publique est ouverte",
-      "url": "https://www.silicon.fr/data-ia-1372/microsoft-degaine-son-code-de-conduite-pour-ia-229139",
-      "date": "2026-09-14T14:58:08.000Z",
-      "source": "Silicon.fr",
-      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Publication par Microsoft de son nouveau code de conduite encadrant l'intelligence artificielle",
-      "categorie": "IA"
-    },
-    {
-      "titre": "« Les robots réparent les robots » : le Japon invente l’ambulance pour humanoïdes",
-      "resume": "Et si les robots avaient, eux aussi, droit à un service d’urgence ? Au Japon, GMO AI & Robotics Corporation a dévoilé un véhicule spécialement conçu p",
-      "url": "https://www.zdnet.fr/actualites/les-robots-reparent-les-robots-le-japon-invente-lambulance-pour-humanoides-503493.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-09-15T07:00:10.000Z",
+      "titre": "iOS 27 est enfin disponible, avec la nouvelle version bêta de l'IA Siri et 120 correctifs de sécurité",
+      "resume": "Même si vous n'êtes pas encore prêt pour iOS 27, une nouvelle mise à jour importante vous attend également. Voici les nouveautés.",
+      "url": "https://www.zdnet.fr/actualites/ios-27-est-enfin-disponible-avec-la-nouvelle-version-beta-de-lia-siri-et-120-correctifs-de-securite-503610.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-09-16T08:53:26.000Z",
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Développement au Japon d'un système robotisé destiné à la maintenance des robots humanoïdes",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Stockage de données : les entreprises pas prêtes pour la vague IA, selon Seagate",
-      "resume": "Selon une étude diligentée par Seagate, 99 % des décideurs technologiques s’attendent à une hausse de leurs besoins de stockage liée à l’IA au cours d",
-      "url": "https://www.zdnet.fr/actualites/stockage-de-donnees-les-entreprises-pas-pretes-pour-la-vague-ia-selon-seagate-503490.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "date": "2026-09-15T06:01:15.000Z",
-      "source": "ZDNet France",
-      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Publication par Seagate d'une étude sur l'impréparation des entreprises face au stockage pour l'IA",
-      "categorie": "IA"
-    },
-    {
-      "titre": "Stellantis esquisse ses ambitions pour la livraison autonome avec BOW, un prototype conçu avec le chinois UQI Robotics",
-      "resume": "",
-      "url": "https://www.usine-digitale.fr/intelligence-artificielle/vehicule-autonome/stellantis-esquisse-ses-ambitions-pour-la-livraison-autonome-avec-bow-un-prototype-concu-avec-le-chinois-uqi-robotics.CDAJG2BD4JGRTOCP3GQW3BDXVY.html",
-      "date": "2026-09-14T17:35:40.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Présentation par Stellantis d'un prototype de livraison autonome développé avec BOW",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Palettisation, manutention, assemblage… Maven Robotics lève 100 millions de dollars pour ses robots bi-bras polyvalents",
-      "resume": "",
-      "url": "https://www.usine-digitale.fr/intelligence-artificielle/robotique/palettisation-manutention-assemblage-maven-robotics-leve-100-millions-de-dollars-pour-ses-robots-bi-bras-polyvalents.FGQCJFPYXFDGBB7BHXTGGLLK3M.html",
-      "date": "2026-09-14T11:20:57.000Z",
-      "source": "Usine Digitale",
-      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
-      "pays": "FR",
-      "accroche": "Levée de fonds de 100 millions de dollars réalisée par Maven Robotics pour ses solutions industrielles",
-      "categorie": "Startups"
-    },
-    {
-      "titre": "« C’est un canular » : Trump appelle le patron deNvidia en pleine conférence pour balayer les craintes sur l’IA",
-      "resume": "Nvidia peut compter sur un soutien politique de taille. En pleine intervention lors du dernier All-In Summit, Jensen Huang, dirigeant du groupe, a reç",
-      "url": "https://www.frandroid.com/marques/nvidia/3247561_cest-un-canular-trump-appelle-le-patron-nvidia-en-pleine-conference-pour-balayer-les-craintes-sur-lia",
-      "date": "2026-09-15T09:05:05.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Appel téléphonique de Donald Trump au dirigeant de Nvidia pour commenter la situation de l'entreprise",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "Rachat de SFR : les syndicats assignent la direction d’Altice France en justice",
-      "resume": "Le CSE central d'Altice France annonce avoir assigné la direction du groupe en justice. Alors que la vente de SFR prend des allures de casse sociale,",
-      "url": "https://www.frandroid.com/marques/sfr/3247771_rachat-de-sfr-les-syndicats-assignent-la-direction-daltice-france-en-justice",
-      "date": "2026-09-15T09:04:54.000Z",
-      "source": "Frandroid",
-      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
-      "pays": "FR",
-      "accroche": "Assignation en justice de la direction d'Altice France par les syndicats concernant le rachat de SFR",
-      "categorie": "Télécoms"
-    },
-    {
-      "titre": "Samsung Galaxy A18 4G : le prix en France se dévoile, et ça pique",
-      "resume": "Le futur Samsung Galaxy A18 4G dévoile de nouveaux secrets, avec un prix en hausse et quelques surprises sous le capot.",
-      "url": "https://www.01net.com/actualites/samsung-galaxy-a18-4g-prix-date-de-sortie-fiche-technique.html",
-      "date": "2026-09-15T08:29:24.000Z",
-      "source": "01net",
-      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
-      "pays": "FR",
-      "accroche": "Révélation des tarifs officiels du smartphone Samsung Galaxy A18 4G sur le marché français",
+      "accroche": "Publication par Apple d'iOS 27 incluant la version bêta de Siri et 120 correctifs de sécurité.",
       "categorie": "Mobile"
     },
     {
-      "titre": "États-Unis : des armes en orbite, première étape concrète du Golden Dome de Trump",
-      "resume": "Depuis maintenant des années, Donald Trump évoque la construction d'un « Golden Dome », un ensemble de systèmes de protection anti-missiles avec un vo",
-      "url": "https://www.numerama.com/tech/2333177-etats-unis-des-armes-en-orbite-premiere-etape-concrete-du-golden-dome-de-trump.html",
-      "date": "2026-09-15T08:40:42.000Z",
+      "titre": "ZDNET Morning 16/09/2026 : Nvidia et Palantir tournent le dos aux modèles d'IA tiers, AWS perd des données, GitHub : autopsie d'un crash,...",
+      "resume": "Le ZDNET Morning le brief de l'actu tech pour les pros tous les matins à 9h00. Transformation numérique, IA, matériel, logiciels,... ne passez pas à c",
+      "url": "https://www.zdnet.fr/actualites/zdnet-morning-16-09-2026-nvidia-et-palantir-tournent-le-dos-aux-modeles-dia-tiers-aws-perd-des-donnees-github-autopsie-dun-crash-503601.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-09-16T07:40:10.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Abandon des modèles d'IA tiers par Nvidia et Palantir et perte de contrats pour AWS.",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Pour Salesforce, les agents IA vont remplacer l’interface utilisateur des CRM",
+      "resume": "",
+      "url": "https://www.usine-digitale.fr/logiciels-applications/salesforce/pour-salesforce-les-agents-ia-vont-remplacer-linterface-utilisateur-des-crm.SZJL3FZRAZAZZGF7MZGRZE22OA.html",
+      "date": "2026-09-16T06:35:58.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Remplacement programmé des interfaces utilisateurs de CRM par des agents d'intelligence artificielle chez Salesforce.",
+      "categorie": "IA"
+    },
+    {
+      "titre": "Taxis autonomes à Tokyo : Face aux velléités d’Uber, Waymo précise ses projets et veut lancer un service commercial dès 2027",
+      "resume": "",
+      "url": "https://www.usine-digitale.fr/intelligence-artificielle/vehicule-autonome/taxis-autonomes-a-tokyo-face-aux-velleites-duber-waymo-precise-ses-projets-et-veut-lancer-un-service-commercial-des-2027.PEPUKYHG3FAMBBZ4ZNZAZHZVNY.html",
+      "date": "2026-09-15T11:20:51.000Z",
+      "source": "Usine Digitale",
+      "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Précision par Waymo de son projet de lancement de taxis autonomes à Tokyo face à Uber.",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "RED by SFR met fin à son forfait ADSL avant même SFR, Free et Orange",
+      "resume": "C'est une disparition qui n'a pas fait grand bruit. Ce 15 septembre, RED by SFR a cessé la commercialisation de ses offres ADSL alors que le réseau cu",
+      "url": "https://www.frandroid.com/services/fai/3249099_red-by-sfr-met-fin-a-son-forfait-adsl-avant-meme-sfr-free-et-orange",
+      "date": "2026-09-16T08:55:50.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Arrêt anticipé du forfait ADSL par l'opérateur RED by SFR avant ses concurrents nationaux.",
+      "categorie": "Réseaux"
+    },
+    {
+      "titre": "Ces deux gros forfaits 5G emmènent de la data dans 160 pays pour moins de 14 €/mois",
+      "resume": "Auchan Télécom et NRJ Mobile proposent la même Série spéciale Voyage à 13,99 euros par mois. Au programme, 200 Go en 5G en France et 35 Go utilisables",
+      "url": "https://www.frandroid.com/bons-plans/3249173_ces-deux-gros-forfaits-5g-emmenent-de-la-data-dans-160-pays-pour-moins-de-14-e-mois",
+      "date": "2026-09-16T08:45:47.000Z",
+      "source": "Frandroid",
+      "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
+      "pays": "FR",
+      "accroche": "Lancement de deux forfaits 5G couvrant 160 pays pour un tarif inférieur à 14 euros mensuels.",
+      "categorie": "Télécoms"
+    },
+    {
+      "titre": "Meta dévoile de nouveaux abonnements payants pour Instagram, WhatsApp et Facebook",
+      "resume": "Meta enrichit ses abonnements payants Instagram Plus, WhatsApp Plus et Facebook Plus avec de nouvelles fonctionnalités. L’entreprise lance également d",
+      "url": "https://www.01net.com/actualites/meta-devoile-de-nouveaux-abonnements-payants-pour-instagram-whatsapp-et-facebook.html",
+      "date": "2026-09-16T09:00:13.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Présentation par Meta de nouveaux abonnements payants pour Instagram, WhatsApp et Facebook.",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "MediaTek dévoile la puce la plus fine jamais produite, juste avant Qualcomm",
+      "resume": "MediaTek dégaine la première puce pour smartphone gravée en 2 nanomètres, une semaine avant le grand raout de Qualcomm. Au programme : de l'autonomie",
+      "url": "https://www.01net.com/actualites/mediatek-devoile-la-puce-la-plus-fine-jamais-produite-juste-avant-qualcomm.html",
+      "date": "2026-09-16T06:52:50.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Dévoilement par MediaTek d'une puce ultra-fine avant le lancement concurrent de Qualcomm.",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Pub, cloud facturé à l’heure : le Xbox Game Pass préparerait sa refonte la plus brutale",
+      "resume": "Une fuite décrit un Game Pass version 2027 vendu à la découpe, publicité comprise. Microsoft jure n'avoir rien finalisé, sans démentir grand-chose. Le",
+      "url": "https://www.01net.com/actualites/pub-cloud-facture-a-lheure-le-xbox-game-pass-preparerait-sa-refonte-la-plus-brutale.html",
+      "date": "2026-09-16T06:41:04.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
+      "pays": "FR",
+      "accroche": "Préparation d'une restructuration tarifaire du Xbox Game Pass intégrant de la publicité et de la facturation horaire.",
+      "categorie": "Innovation"
+    },
+    {
+      "titre": "Le co-créateur de ChatGPT lance « Jev », un modèle qui ne rédige rien et c’est là toute la solution",
+      "resume": "Diogo Almeida, chercheur passé par OpenAI, lance un modèle d'IA qui refuse de générer du texte. En quelques heures, l'annonce a suscité un engouement",
+      "url": "https://www.numerama.com/tech/2333731-le-co-createur-de-chatgpt-lance-jev-un-modele-qui-ne-redige-rien-et-cest-la-toute-la-solution.html",
+      "date": "2026-09-16T08:38:53.000Z",
       "source": "Numerama",
       "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
       "pays": "FR",
-      "accroche": "Annonce de projets d'armement en orbite dans le cadre du programme américain Golden Dome",
-      "categorie": "Innovation"
+      "accroche": "Lancement par le co-créateur de ChatGPT du modèle d'IA non rédactionnel dénommé Jev.",
+      "categorie": "IA"
     },
     {
-      "titre": "Jusqu’à un millier de drones par mois dès 2027 : le droniste bordelais Aerix Systems en route vers l’industrialisation avec KNDS",
+      "titre": "Face à la crainte d’une l’IA capable de «tuer tous les humains», entreprises et gouvernement appellent à la régulation",
       "resume": "",
-      "url": "https://www.usinenouvelle.com/aero-spatial/aeronautique/drones/jusqua-un-millier-de-drones-par-mois-des-2027-le-droniste-bordelais-aerix-systems-en-route-vers-lindustrialisation-avec-knds.57CUWGFP6NGXLIGH6KZNAYQVII.html",
-      "date": "2026-09-15T08:22:02.000Z",
+      "url": "https://www.usinenouvelle.com/technos-et-innovations/ia/ia-generative/face-a-la-crainte-dune-lia-capable-de-tuer-tous-les-humains-entreprises-et-gouvernement-appellent-a-la-regulation.MVOLJR57CZAY7NYVDGWPZK2T7E.html",
+      "date": "2026-09-16T09:01:52.000Z",
       "source": "L'Usine Nouvelle",
       "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
       "pays": "FR",
-      "accroche": "Objectif de production fixé à un millier de drones par mois d'ici 2027 par Aerix Systems",
-      "categorie": "Startups"
+      "accroche": "Appel conjoint d'entreprises et de gouvernements pour réguler les risques existentiels liés à l'intelligence artificielle.",
+      "categorie": "IA"
     },
     {
-      "titre": "Ils vont remplacer le diesel : Alstom place ses trains à batteries sur les rails britanniques avec une commande à 1,2 milliard d’euro",
+      "titre": "Fibre Excellence : Un sursis de trois mois accordé par le tribunal de commerce à l’usine de Saint-Gaudens",
       "resume": "",
-      "url": "https://www.usinenouvelle.com/transports-et-logistique/ils-vont-remplacer-le-diesel-alstom-place-ses-trains-a-batteries-sur-les-rails-britanniques-avec-une-commande-a-12-milliard-deuro.O2SSM3OHXZFGBH3HNJJUTGFPTM.html",
-      "date": "2026-09-15T07:49:44.000Z",
+      "url": "https://www.usinenouvelle.com/papier-carton/fibre-excellence-letat-et-la-region-occitanie-saccordent-pour-demander-un-sursis-de-trois-mois-a-lusine-de-saint-gaudens.I4WFQOAZU5CINDR2JMS4L2XR6M.html",
+      "date": "2026-09-16T08:31:49.000Z",
       "source": "L'Usine Nouvelle",
       "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
       "pays": "FR",
-      "accroche": "Déploiement de trains à batteries Alstom sur le réseau ferroviaire britannique",
-      "categorie": "Innovation"
+      "accroche": "Octroi d'un sursis de trois mois par le tribunal de commerce à l'usine Fibre Excellence de Saint-Gaudens.",
+      "categorie": "Réseaux"
     }
   ],
   "syntheseArticle": {
-    "titre": "Actualité technologique internationale : investissements industriels, régulation de l'IA et évolutions du marché mobile",
-    "dateline": "Alger, 15 septembre 2026 (Algeria Tech)",
-    "lead": "Les développements récents du secteur technologique mondial, enregistrés ces dernières 24 heures, sont marqués par d'importantes levées de fonds, de nouvelles orientations réglementaires pour l'intelligence artificielle et des restructurations industrielles.",
+    "titre": "Restructurations technologiques globales : les géants du secteur ajustent leurs infrastructures et leurs modèles économiques",
+    "dateline": "Alger, 16 septembre 2026 (Algeria Tech)",
+    "lead": "ALGER - Les multinationales des technologies de l'information et les instances de régulation ont engagé, au cours des dernières vingt-quatre heures, une série de réformes structurelles touchant la sécurité des systèmes d'exploitation, le déploiement de l'intelligence artificielle et la connectivité réseau afin de stabiliser un marché en pleine mutation.",
     "corpsHtml": [
-      "<p>Dans le domaine de l'intelligence artificielle et des infrastructures, la firme <a href=\"https://www.silicon.fr/data-ia-1372/microsoft-degaine-son-code-de-conduite-pour-ia-229139\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a> rapporte que Microsoft a publié un nouveau code de conduite destiné à encadrer le développement et l'utilisation de l'IA. Dans le même secteur, d'après <a href=\"https://www.zdnet.fr/actualites/les-robots-reparent-les-robots-le-japon-invente-lambulance-pour-humanoides-503493.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>, l'entreprise Seagate a publié une étude soulignant l'impréparation des entreprises face aux besoins croissants de stockage de données induits par la généralisation de l'intelligence artificielle. Par ailleurs, selon <a href=\"https://www.frandroid.com/marques/nvidia/3247561_cest-un-canular-trump-appelle-le-patron-nvidia-en-pleine-conference-pour-balayer-les-craintes-sur-lia\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>, Donald Trump est intervenu directement auprès du dirigeant de Nvidia lors d'une conférence publique pour aborder la situation de l'entreprise.</p>",
-      "<p>Sur le plan industriel et des mobilités, la publication <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/vehicule-autonome/stellantis-esquisse-ses-ambitions-pour-la-livraison-autonome-avec-bow-un-prototype-concu-avec-le-chinois-uqi-robotics.CDAJG2BD4JGRTOCP3GQW3BDXVY.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> indique que Stellantis a présenté un prototype de véhicule de livraison autonome baptisé BOW, conçu en partenariat, tandis que Maven Robotics a annoncé une levée de fonds de 100 millions de dollars pour financer ses solutions robotiques destinées à la palettisation et à l'assemblage. Dans le secteur ferroviaire et aéronautique, <a href=\"https://www.usinenouvelle.com/aero-spatial/aeronautique/drones/jusqua-un-millier-de-drones-par-mois-des-2027-le-droniste-bordelais-aerix-systems-en-route-vers-lindustrialisation-avec-knds.57CUWGFP6NGXLIGH6KZNAYQVII.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a> souligne que le constructeur Alstom a déployé ses nouveaux trains à batteries sur le réseau britannique, et que l'entreprise Aerix Systems vise une production de mille drones par mois à l'horizon 2027.</p>",
-      "<p>Concernant les innovations robotiques et spatiales, le site <a href=\"https://www.zdnet.fr/actualites/stockage-de-donnees-les-entreprises-pas-pretes-pour-la-vague-ia-selon-seagate-503490.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> met en lumière un nouveau dispositif japonais automatisé pour la réparation des robots humanoïdes. De son côté, <a href=\"https://www.numerama.com/tech/2333177-etats-unis-des-armes-en-orbite-premiere-etape-concrete-du-golden-dome-de-trump.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Numerama</a> rapporte le lancement de projets liés à des armements en orbite dans le cadre du programme américain Golden Dome, illustrant l'intensification des activités technologiques dans l'espace.</p>",
-      "<p>En Algérie, le secteur de l'enseignement supérieur et de l'innovation enregistre de nouvelles initiatives, avec notamment le lancement du challenge national AgriTech « NAWAT », tel que relayé par <a href=\"https://algerie-eco.com/2026/09/14/enseignement-superieur-lancement-du-challenge-national-agritech-nawat/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Algérie Éco</a>, visant à encourager les solutions technologiques agricoles.</p>",
-      "<p>Enfin, sur le marché des télécommunications et des équipements grand public, <a href=\"https://www.frandroid.com/marques/sfr/3247771_rachat-de-sfr-les-syndicats-assignent-la-direction-daltice-france-en-justice\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> signale une action en justice initiée par les syndicats contre la direction d'Altice France concernant le projet de rachat de SFR. Sur le segment de la téléphonie mobile, le site <a href=\"https://www.01net.com/actualites/samsung-galaxy-a18-4g-prix-date-de-sortie-fiche-technique.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a> dévoile la grille tarifaire officielle du nouveau smartphone Samsung Galaxy A18 4G sur le marché français.</p>"
+      "<p>La sécurité des systèmes d'exploitation et la régulation de l'intelligence artificielle (IA) concentrent l'activité des régulateurs et des industriels. Selon <a href=\"https://www.zdnet.fr/actualites/ios-27-est-enfin-disponible-avec-la-nouvelle-version-beta-de-lia-siri-et-120-correctifs-de-securite-503610.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>, le groupe technologique Apple a procédé au déploiement d'iOS 27, une mise à jour intégrant la version bêta de l'assistant Siri et appliquant 120 correctifs de sécurité. Parallèlement, d'après <a href=\"https://www.usinenouvelle.com/technos-et-innovations/ia/ia-generative/face-a-la-crainte-dune-lia-capable-de-tuer-tous-les-humains-entreprises-et-gouvernement-appellent-a-la-regulation.MVOLJR57CZAY7NYVDGWPZK2T7E.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a>, un collectif d'entreprises et de gouvernements a formellement appelé à l'encadrement des technologies d'IA pour prévenir les risques majeurs de sécurité globale. C'est dans ce contexte de transition que le co-créateur de ChatGPT a lancé « Jev », un modèle alternatif qui exclut la rédaction de contenus, comme le rapporte <a href=\"https://www.numerama.com/tech/2333731-le-co-createur-de-chatgpt-lance-jev-un-modele-qui-ne-redige-rien-et-cest-la-toute-la-solution.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Numerama</a>.</p>",
+      "<p>Les orientations stratégiques des leaders du secteur de l'IA se détachent désormais des solutions tierces. D'après <a href=\"https://www.zdnet.fr/actualites/zdnet-morning-16-09-2026-nvidia-et-palantir-tournent-le-dos-aux-modeles-dia-tiers-aws-perd-des-donnees-github-autopsie-dun-crash-503601.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>, Nvidia et Palantir ont officialisé l'abandon des modèles d'IA tiers, tandis qu'Amazon Web Services (AWS) enregistre des pertes de contrats d'hébergement. Sur le segment des logiciels professionnels, <a href=\"https://www.usine-digitale.fr/logiciels-applications/salesforce/pour-salesforce-les-agents-ia-vont-remplacer-linterface-utilisateur-des-crm.SZJL3FZRAZAZZGF7MZGRZE22OA.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> indique que Salesforce prévoit de substituer des agents autonomes d'IA aux interfaces utilisateurs traditionnelles de ses outils de gestion de la relation client (CRM). En matière de mobilité autonome, le constructeur Waymo a précisé ses plans pour déployer un service de taxis autonomes à Tokyo afin de concurrencer directement l'opérateur Uber, selon des informations publiées par <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/vehicule-autonome/taxis-autonomes-a-tokyo-face-aux-velleites-duber-waymo-precise-ses-projets-et-veut-lancer-un-service-commercial-des-2027.PEPUKYHG3FAMBBZ4ZNZAZHZVNY.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>.</p>",
+      "<p>Le secteur des télécommunications et des réseaux enregistre également des mutations tarifaires et structurelles significatives. Selon <a href=\"https://www.frandroid.com/services/fai/3249099_red-by-sfr-met-fin-a-son-forfait-adsl-avant-meme-sfr-free-et-orange\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>, l'opérateur RED by SFR a acté la fin précoce de son forfait ADSL, devançant ainsi les calendriers d'extinction de SFR, Free et Orange. En contrepartie, deux nouvelles offres de forfaits 5G incluant une enveloppe de données mobiles utilisable dans 160 pays pour un tarif inférieur à 14 euros par mois ont été introduites sur le marché, d'après <a href=\"https://www.frandroid.com/bons-plans/3249173_ces-deux-gros-forfaits-5g-emmenent-de-la-data-dans-160-pays-pour-moins-de-14-e-mois\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>. De son côté, la multinationale Meta a dévoilé de nouvelles formules d'abonnements payants pour ses plateformes Instagram, WhatsApp et Facebook, d'après <a href=\"https://www.01net.com/actualites/meta-devoile-de-nouveaux-abonnements-payants-pour-instagram-whatsapp-et-facebook.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>.</p>",
+      "<p>Enfin, l'innovation matérielle et les restructurations industrielles se précisent à travers plusieurs annonces clés. Selon <a href=\"https://www.01net.com/actualites/mediatek-devoile-la-puce-la-plus-fine-jamais-produite-juste-avant-qualcomm.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>, le concepteur de puces MediaTek a présenté son nouveau microprocesseur, désigné comme le plus fin jamais produit à ce jour, devançant ainsi son concurrent direct Qualcomm. Sur le marché du divertissement numérique, Microsoft prépare une refonte structurelle de son service Xbox Game Pass en y intégrant de la publicité et une facturation du cloud à l'heure, d'après <a href=\"https://www.01net.com/actualites/pub-cloud-facture-a-lheure-le-xbox-game-pass-preparerait-sa-refonte-la-plus-brutale.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>. Sur le plan industriel et des infrastructures, le tribunal de commerce a accordé un sursis d'activité de trois mois à l'usine de pâte à papier Fibre Excellence située à Saint-Gaudens, conclut <a href=\"https://www.usinenouvelle.com/papier-carton/fibre-excellence-letat-et-la-region-occitanie-saccordent-pour-demander-un-sursis-de-trois-mois-a-lusine-de-saint-gaudens.I4WFQOAZU5CINDR2JMS4L2XR6M.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a>.</p>"
     ]
   },
-  "lastUpdated": "2026-09-15T09:14:04.341Z",
+  "lastUpdated": "2026-09-16T09:06:02.488Z",
   "engine": "Gemini"
 }
