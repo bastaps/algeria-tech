@@ -4138,10 +4138,13 @@ ${body}
 // POST /api/publish-flash-widget
 // Body : { filePath, title, duration? }
 // Copie le MP4 local dans videos/flash-widget/, met à jour data/flash-latest.json
-// (max 3 entrées, purge auto > 7 jours) consommé par flash-widget.js.
+// (max 6 entrées, purge auto > 7 jours) consommé par flash-widget.js.
 const FLASH_WIDGET_DIR   = path.join(__dirname, 'videos', 'flash-widget');
 const FLASH_MANIFEST     = path.join(__dirname, 'data', 'flash-latest.json');
-const FLASH_MAX_ENTRIES  = 3;
+// 2026-09-17 : 3 -> 6 pour garder un peu d'historique dans CHAQUE langue (fr
+// + ar) maintenant que le widget filtre par langue (voir entry.lang) au lieu
+// de toujours prendre la toute dernière publication toutes langues confondues.
+const FLASH_MAX_ENTRIES  = 6;
 const FLASH_MAX_AGE_MS   = 7 * 24 * 60 * 60 * 1000;
 
 async function readFlashManifest() {
@@ -4154,7 +4157,7 @@ async function readFlashManifest() {
 }
 
 app.post('/api/publish-flash-widget', express.json(), async (req, res) => {
-    const { filePath, title, duration } = req.body || {};
+    const { filePath, title, duration, lang } = req.body || {};
     if (!filePath) return res.status(400).json({ error: 'filePath requis' });
     if (!fsSync.existsSync(filePath)) return res.status(400).json({ error: 'Fichier introuvable : ' + filePath });
 
@@ -4173,6 +4176,12 @@ app.post('/api/publish-flash-widget', express.json(), async (req, res) => {
             mp4Url: `/videos/flash-widget/${destName}`,
             duration: duration || 0,
             publishedAt: new Date(now).toISOString(),
+            // 2026-09-17, additif : langue de la vidéo ("fr" par défaut pour
+            // compat avec les entrées existantes sans ce champ). Permet au
+            // widget de choisir la bonne vidéo selon la langue active du site
+            // (voir flash-widget.js) au lieu d'afficher toujours la dernière
+            // publiée toutes langues confondues.
+            lang: lang || 'fr',
         };
 
         let manifest = await readFlashManifest();

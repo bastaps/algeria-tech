@@ -8,6 +8,14 @@
   var DISMISS_KEY = 'flashDismissedId';
   var RECT_KEY = 'flashWidgetRect'; // position/taille choisies par ce visiteur (par navigateur)
   var MIN_WIDTH = 180;
+  // 2026-09-17 : cache pour la bascule de langue en direct (voir écouteur
+  // 'at:lang' en bas de fichier) — le site redémarre toujours en français à
+  // chaque chargement de page (i18n.js), donc un choix de langue figé au
+  // chargement du widget ne suffit pas pour suivre un changement de langue
+  // fait par l'utilisateur en cours de session.
+  var freshCache = [];
+  var currentEntry = null;
+  var currentRoot = null;
 
   function saveRect(root) {
     try {
@@ -131,6 +139,8 @@
       '</div>' +
       '<div class="fw-title">' + (entry.titre || 'Flash Info Algeria Tech') + '</div>';
     document.body.appendChild(root);
+    currentRoot = root;
+    currentEntry = entry;
 
     var savedRect = loadRect();
     if (savedRect && savedRect.width >= MIN_WIDTH) {
@@ -230,6 +240,28 @@
     };
   }
 
+  // 2026-09-17, additif : choisit la vidéo dans la langue active du site
+  // (bandeau FR/AR/EN, voir i18n.js — html[data-lang]) au lieu de toujours
+  // prendre la toute dernière publication toutes langues confondues. Repli
+  // sur "fr" si rien n'est publié dans la langue active, puis sur la plus
+  // récente disponible quelle que soit sa langue (mieux que rien plutôt que
+  // masquer le widget). i18n.js redémarre TOUJOURS en français à chaque
+  // chargement de page (jamais persisté) — la bascule en cours de session se
+  // fait donc via l'écouteur 'at:lang' tout en bas de ce fichier, pas ici.
+  function currentSiteLang() {
+    try {
+      return document.documentElement.getAttribute('data-lang') || 'fr';
+    } catch (e) { return 'fr'; }
+  }
+
+  function pickForLang(fresh, lang) {
+    var inLang = fresh.filter(function (e) { return (e.lang || 'fr') === lang; });
+    if (inLang.length) return inLang[0];
+    var inFr = fresh.filter(function (e) { return (e.lang || 'fr') === 'fr'; });
+    if (inFr.length) return inFr[0];
+    return fresh[0];
+  }
+
   function init() {
     fetch(MANIFEST_URL, { cache: 'no-store' })
       .then(function (r) { return r.ok ? r.json() : []; })
@@ -237,7 +269,8 @@
         if (!Array.isArray(list) || !list.length) return;
         var fresh = list.filter(isFresh);
         if (!fresh.length) return;
-        var latest = fresh[0];
+        freshCache = fresh;
+        var latest = pickForLang(fresh, currentSiteLang());
 
         var dismissed = null;
         try { dismissed = sessionStorage.getItem(DISMISS_KEY); } catch (e) {}
@@ -250,6 +283,27 @@
       })
       .catch(function () {});
   }
+
+  // 2026-09-17, additif : i18n.js émet ('at:lang', {detail:{lang}}) à chaque
+  // changement de langue via le sélecteur du site (voir applyLang). Sur cet
+  // événement, si un flash existe dans la nouvelle langue et diffère de celui
+  // affiché, on bascule la source vidéo EN DIRECT (pas de rebuild complet du
+  // widget — juste la source vidéo + le titre — pour ne pas perdre la
+  // position/taille que le visiteur a éventuellement réglées).
+  window.addEventListener('at:lang', function (ev) {
+    if (!currentRoot || !freshCache.length) return;
+    var lang = (ev && ev.detail && ev.detail.lang) || 'fr';
+    var target = pickForLang(freshCache, lang);
+    if (!target || !currentEntry || target.id === currentEntry.id) return;
+    var video = currentRoot.querySelector('video');
+    var titleEl = currentRoot.querySelector('.fw-title');
+    if (video) {
+      video.src = target.mp4Url;
+      video.play().catch(function () {});
+    }
+    if (titleEl) titleEl.textContent = target.titre || 'Flash Info Algeria Tech';
+    currentEntry = target;
+  });
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
