@@ -1,6 +1,24 @@
 {
   "posts": [
     {
+      "id": "88ef88cf889a24e2",
+      "source_name": "Ministère de la Poste et des TIC",
+      "source_short": "MPT",
+      "source_color": "#006233",
+      "category": "Ministère",
+      "category_icon": "🏛️",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQb2k3a2lQOE9tSlBFU2VhRFA5OU9jcFVKY3BnNGFIWWRsTXdyRlVIQ3R3bTYzT3hjY2R2MUJTZUVHaUdZTFgxcmI3aVNBNkVUZ2hlNkJPX3dFTEVQWnlEdVlYNjh0SHBIZjNpMmdybFZDeEJLY0lFUDhHY3pmMXYtV3p3?oc=5",
+      "image": "",
+      "date": "Fri, 18 Sep 2026 22:22:21 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Messeguem Medjadi,L’inspecteur général du ministère de l’Education - radioalgerie.dz — Messeguem Medjadi,L’inspecteur général du ministère de l’Education radioalgerie.dz",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "dba84a910af49f0f",
       "source_name": "APS — Algérie Presse Service",
       "source_short": "APS",
@@ -343,19 +361,19 @@
       "source_type": "rss"
     },
     {
-      "id": "1a48faf9feaaccde",
-      "source_name": "Ministère de la Poste et des TIC",
-      "source_short": "MPT",
-      "source_color": "#006233",
-      "category": "Ministère",
-      "category_icon": "🏛️",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQSGotdFpGZE9hVHBSdTdEUG8yMHBwZW5SUll2OE5jb3l5OVJ5UDBqb2k2OC1UeTlIdFBLT1FaNUpzUGZiVl9zOVJuUzJEbXFianlIU0twYi10VjBwMlk2UWhEWEc5d3lndVJZZnBKMDByOGduUkxxN1pfMXlGZFRSdVVWdw?oc=5",
+      "id": "b1e74fd04b7b8462",
+      "source_name": "Mobilis",
+      "source_short": "MB",
+      "source_color": "#00A651",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOYWpQZVd4RkxaeGxMb1RKRE5zS3VBb1BqWGtRR083emtqR3c5VHlPNG1wVm5Md0NXUnJQTmlNQXBYV1QxdlpzeC0zRi0taGZYNHA5ZTljM3RQMjVYU1JQS1lLTUhsRjl5NmplZENoQm92Z0xEQmJ6SW5aVGRQVVNzMFVMRU9tUjhJVFJqeWVibDFPWldDeGdlNktITzNUVEhVYXMybEhLb1BrLVlOajE1UHVaUDZxZmxmMHo2RjNtNHlBaUd6bFBULVZR?oc=5",
       "image": "",
-      "date": "Sun, 23 Aug 2026 21:59:26 GMT",
-      "lang_source": "ar",
+      "date": "Sun, 20 Sep 2026 00:10:49 GMT",
+      "lang_source": "fr",
       "text": {
-        "ar": "Houda Imane Faraoun ministre de la Poste et des TIC - الإذاعة الجزائرية | — Houda Imane Faraoun ministre de la Poste et des TIC الإذاعة الجزائرية |",
-        "fr": "",
+        "fr": "Ligue 1 Mobilis (3e journée) : Entrée réussie pour le MC Alger, des succès historiques pour les promus - Le Courrier d'Algérie — Ligue 1 Mobilis (3e journée) : Entrée réussie pour le MC Alger, des succès historiques pour les promus Le Courrier d'Algérie",
+        "ar": "",
         "en": ""
       },
       "source_type": "rss"
@@ -698,24 +716,6 @@
       "text": {
         "fr": "Ooredoo Algérie se mobilise aux côtés des populations touchées par les incendies - dia-algerie.com — Ooredoo Algérie se mobilise aux côtés des populations touchées par les incendies dia-algerie.com",
         "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "396785b54b8518af",
-      "source_name": "Djezzy",
-      "source_short": "DJ",
-      "source_color": "#FF6B00",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBKdXowVWdZaEVJelZiRmRzdEtmM3Y5Y2xGRVBjNjhSS29jTHRYc3RsT1NNUnpEZHNId2dMMmxURkZUSmtyME5SenNva3pDemgtT3hR?oc=5",
-      "image": "",
-      "date": "Sun, 30 Aug 2026 09:44:52 GMT",
-      "lang_source": "ar",
-      "text": {
-        "ar": "Incendies : Djezzy lance une initiative de solidarité au profit des habitants - الإذاعة الجزائرية | — Incendies : Djezzy lance une initiative de solidarité au profit des habitants الإذاعة الجزائرية |",
-        "fr": "",
         "en": ""
       },
       "source_type": "rss"
@@ -1435,6 +1435,78 @@
       "lang_source": "fr",
       "text": {
         "fr": "Algérie : l’allemand Maincor s’associe à Condor pour fabriquer des tuyaux pour le bâtiment et l’industrie - AGENCE ECOFIN — Algérie : l’allemand Maincor s’associe à Condor pour fabriquer des tuyaux pour le bâtiment et l’industrie AGENCE ECOFIN",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "efa851839b44094e",
+      "source_name": "NTIC-DZ",
+      "source_short": "NTC",
+      "source_color": "#01579B",
+      "category": "Médias TIC",
+      "category_icon": "🌐",
+      "url": "https://www.ntic-dz.com/smartphones-haut-de-gamme-innovations-2026-copier-le-slug/?utm_source=rss&utm_medium=rss&utm_campaign=smartphones-haut-de-gamme-innovations-2026-copier-le-slug",
+      "image": "",
+      "date": "Sun, 20 Sep 2026 11:28:30 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Smartphones haut de gamme : les fabricants multiplient les innovations — feed Processeurs, intelligence artificielle, photographie et technologies d’écran : les constructeurs de smartphones haut de gamme poursuivent leurs efforts pour différencier leurs appareils. Les annonces de septembre 2026 illustrent l’évolution d’un marché où la puissance doit désormais s’accompagn",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "b309a502b9672726",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/quatre-raisons-dacheter-des-maintenant-lapple-watch-ultra-4-503800.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sun, 20 Sep 2026 11:11:36 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Quatre raisons d'acheter dès maintenant l'Apple Watch Ultra 4 — L'Apple Watch Ultra de quatrième génération est désormais disponible. Faut-il l'acheter ?",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "31bc506822c75e33",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/jai-teste-les-ecouteurs-haut-de-gamme-de-sony-et-de-sennheiser-le-choix-est-difficile-mais-lun-des-deux-lemporte-503805.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sun, 20 Sep 2026 08:22:49 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "J'ai testé les écouteurs haut de gamme de Sony et de Sennheiser : le choix est difficile, mais l'un des deux l'emporte — Les derniers écouteurs haut de gamme de Sony et Sennheiser offrent un son exceptionnel, une réduction active du bruit et des fonctionnalités spéciales, mais pour moi, tout se résume à une seule chose.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "3a880ca4240c824e",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/iphone-18-pro-max-vs-pixel-11-pro-xl-les-differences-qui-pourraient-bien-tester-votre-fidelite-503771.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sun, 20 Sep 2026 07:05:32 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "iPhone 18 Pro Max vs Pixel 11 Pro XL : les différences qui pourraient bien tester votre fidélité — Assistant IA, retouche photo, connectivité Bluetooth : nous passons en revue les véritables différences entre l'iPhone 18 Pro Max et le Pixel 11 Pro XL, au-delà du simple choix d'écosystème.",
         "ar": "",
         "en": ""
       },
@@ -5327,88 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "4dd932ed2d93b38f",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/14/openai-buys-smartphone-camera-maker-glass-imaging-for-300-million-report-says/",
-      "image": "",
-      "date": "Mon, 14 Sep 2026 20:44:14 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "OpenAI buys smartphone camera maker Glass Imaging for $300 million, report says — Glass Imaging was founded by a pair of former Apple engineers who previously led the team that developed Apple's Portrait Mode.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "dbf09df0faf8afe3",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/14/ai-infrastructure-company-cornelis-raises-205m-to-chip-away-at-nvidias-dominance/",
-      "image": "",
-      "date": "Mon, 14 Sep 2026 20:07:37 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "AI infrastructure company Cornelis raises $205M to chip away at Nvidia’s dominance — The company also announced a product called Active Compute Fabric, a network technology that targets the fact that much GPU time is wasted waiting for data to arrive.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "5a146b44aa58b623",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/pratique/web-pratique-remplacez-firefox-par-brave-comme-navigateur-par-defaut-sur-votre-mobile-android-503454.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 14 Sep 2026 20:00:20 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Web pratique : remplacez Firefox par Brave comme navigateur par défaut sur votre mobile Android — Ouvrez les paramètres de l’appli et regardez les nombreux réglages possibles pour renforcer la sécurité et la confidentialité de votre navigation en ligne. Juste pour cela, la bascule se justifie.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "74bbe923a2c83e14",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/09/14/enseignement-superieur-lancement-du-challenge-national-agritech-nawat/",
-      "image": "",
-      "date": "Mon, 14 Sep 2026 19:48:40 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Enseignement supérieur : lancement du challenge national AgriTech « NAWAT » — Le Comité national de coordination pour le suivi de l’innovation et de l’entrepreneuriat universitaire relevant du ministère de l’Enseignement supérieur et de la Recherche scientifique a lancé, lundi à Alger, le challenge national « NAWAT » dans le domaine des technologies agricoles. Cette initiativ",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-09-19T21:18:50.380164+00:00",
+  "lastUpdated": "2026-09-20T12:02:17.932447+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Tech International": 160,
-    "Médias TIC": 60
+    "Médias TIC": 60,
+    "Tech International": 160
   },
   "total": 300
 }
