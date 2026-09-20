@@ -1,6 +1,24 @@
 {
   "posts": [
     {
+      "id": "0aa6d6f84f31a5bc",
+      "source_name": "Ministère de la Poste et des TIC",
+      "source_short": "MPT",
+      "source_color": "#006233",
+      "category": "Ministère",
+      "category_icon": "🏛️",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPby1fdEtCU3plNUZmUXI4TUtORC1RbXRyaHFoTXp2N0l4OE9oV2Y4djE2ZVhGOUNQbnJGdzN1N0txb3NSZ3BPNWFqczItZXlLa2VvVXJDVjR1Z0dQZEpoc0RHU1E5XzExQml3b1FiYkdaTXBaX2Y0aWdRRkhFOEtfcFhiM05MU21TT21CQmdYTml3cmpW?oc=5",
+      "image": "",
+      "date": "Sun, 20 Sep 2026 10:24:14 GMT",
+      "lang_source": "ar",
+      "text": {
+        "ar": "Abdelkader Ouali Ministre des ressources en eau et de l'environnement - الإذاعة الجزائرية | — Abdelkader Ouali Ministre des ressources en eau et de l'environnement الإذاعة الجزائرية |",
+        "fr": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "88ef88cf889a24e2",
       "source_name": "Ministère de la Poste et des TIC",
       "source_short": "MPT",
@@ -338,24 +356,6 @@
       "text": {
         "ar": "Houda Imane Faraoun ministre de la Poste et des TIC - الإذاعة الجزائرية | — Houda Imane Faraoun ministre de la Poste et des TIC الإذاعة الجزائرية |",
         "fr": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "b40f0cca65686ebb",
-      "source_name": "Ministère de l'Économie de la Connaissance & Startups",
-      "source_short": "MKESME",
-      "source_color": "#0D47A1",
-      "category": "Ministère",
-      "category_icon": "🚀",
-      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQVGxRRG5ENGxQX05sS0xhaVJFUHA2bk1wVmoxZTR6d3RkdER5OTJMb0VhTUEwMjZmbFk4Rm5XWjRQMUVWNXlIeWR2YnpNdThNSHl5dnhrc0w2ejh3aFdKX1ZkTTdySW1jM1NUNE1UcUNkQ1hLWnRiczM0Q2xOQnpXMklBQ2VYQ2tRaDE2RTRha3VrV3R3akdyMUdBbllObzU0X2h2Znh6NXJFdUtaRkdOUG9pRWQ5VWltU21mT19ldnRoYUdhWWQyY0xoMnNWVmswNDdaWmtwMC0tOFRhbDk1Sg?oc=5",
-      "image": "",
-      "date": "Mon, 24 Aug 2026 07:00:00 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Développement du cloud souverain en Algérie : Partenariat entre Djezzy et Armonika sous l'égide de Algeria Venture - Algerie Eco — Développement du cloud souverain en Algérie : Partenariat entre Djezzy et Armonika sous l'égide de Algeria Venture Algerie Eco",
-        "ar": "",
         "en": ""
       },
       "source_type": "rss"
@@ -1441,6 +1441,312 @@
       "source_type": "rss"
     },
     {
+      "id": "00a04aa01406a084",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/09/20/la-banque-dalgerie-fixe-les-conditions-dexercice-de-lactivite-daffacturage/",
+      "image": "",
+      "date": "Sun, 20 Sep 2026 20:50:52 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "La Banque d’Algérie fixe les conditions d’exercice de l’activité d’affacturage — La Banque d’Algérie a fixé les conditions d’exercice de l’activité d’affacturage par les banques et les établissements financiers, à travers le règlement n° 26-03 du 13 août 2026, publié au Journal officiel n° 67. « Le présent règlement a pour objet de définir les conditions d’exercice de l’activité",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "81aee4494ecf603a",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/09/20/world-model-companies-are-keeping-a-lot-of-secrets/",
+      "image": "",
+      "date": "Sun, 20 Sep 2026 20:29:07 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "World model companies are keeping a lot of secrets — Everyone in the world-models space is sitting on a pile of cash and a ton of buzz, but good luck getting anyone — from the founders to their own data suppliers — to tell you what they're actually building.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "94762941af782228",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/09/20/industrie-sante-tourisme-laapi-remet-19-contrats-de-concession-pour-des-projets-dinvestissement-dans-quatre-wilayas/",
+      "image": "",
+      "date": "Sun, 20 Sep 2026 19:45:47 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Industrie, santé, tourisme : L’AAPI remet 19 contrats de concession pour des projets d’investissement dans quatre wilayas — L’Agence algérienne de promotion de l’investissement (AAPI) a annoncé ce dimanche la remise de 19 contrats de concession portant sur du foncier économique destiné à la réalisation de différents projets d’investissement dans quatre wilayas. Selon l’AAPI, ces opérations ont été effectuées par ses guic",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "79998cb22fb2ecf9",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/09/20/elon-musks-latest-boring-company-pitch-involves-a-hyperloop-between-austin-and-san-antonio/",
+      "image": "",
+      "date": "Sun, 20 Sep 2026 19:38:48 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Elon Musk’s latest Boring Company pitch involves a Hyperloop between Austin and San Antonio — Many of The Boring Company's announced project have not materialized.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "262fdb19d1b403d1",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/09/20/is-the-ai-industry-really-ready-to-slow-down/",
+      "image": "",
+      "date": "Sun, 20 Sep 2026 18:56:04 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Is the AI industry really ready to slow down? — On Equity, we debated whether Ai executives are serious about wanting to slow down.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "99e2891387490973",
+      "source_name": "NTIC-DZ",
+      "source_short": "NTC",
+      "source_color": "#01579B",
+      "category": "Médias TIC",
+      "category_icon": "🌐",
+      "url": "https://www.ntic-dz.com/ifa-2026-lg-presente-sa-gamme-rgb-premium-complete-certifiee-pour-sa-haute-purete-des-couleurs/?utm_source=rss&utm_medium=rss&utm_campaign=ifa-2026-lg-presente-sa-gamme-rgb-premium-complete-certifiee-pour-sa-haute-purete-des-couleurs",
+      "image": "",
+      "date": "Sun, 20 Sep 2026 18:52:26 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "IFA 2026 : LG présente sa gamme RGB premium complète, certifiée pour sa haute pureté des couleurs — feed L’article IFA 2026 : LG présente sa gamme RGB premium complète, certifiée pour sa haute pureté des couleurs est apparu en premier sur Ntic-dz .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "8e19f4707dbf1752",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/09/20/scrolled-wants-to-turn-textbooks-into-tiktok/",
+      "image": "",
+      "date": "Sun, 20 Sep 2026 18:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "ScrollEd wants to turn textbooks into TikTok — ScrollEd turns textbooks into a scrollable, Instagram-like feed with video, audio, and quizzes. The Palo Alto startup, founded by student co-founders (and spouses) Utsav Gupta and Rebecca Neff, pitches at TechCrunch Disrupt.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "28ff226332c2e96b",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/09/20/new-california-law-will-penalize-influencers-dont-disclose-political-ads/",
+      "image": "",
+      "date": "Sun, 20 Sep 2026 16:30:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "New California law will penalize influencers who don’t disclose political ads — The new legislation adds teeth to disclosure requirements for online influencers who are paid to post about politics.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "fea7b84b3dbd83e4",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/09/20/adjal-preside-une-reunion-sur-la-rationalisation-de-la-consommation-de-gaz-et-la-cooperation-africaine/",
+      "image": "",
+      "date": "Sun, 20 Sep 2026 16:21:50 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Adjal préside une réunion sur la rationalisation de la consommation de gaz et la coopération africaine — Le ministre de l’Energie et des Energies renouvelables, Mourad Adjal, a présidé, dimanche à Alger, une réunion de travail restreinte sur la rationalisation de la consommation de gaz et la coopération africaine dans le secteur, indique un communiqué du ministère. Cette réunion a permis de passer en r",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e5a3481650ad64c1",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/09/20/pommes-production-de-plus-de-12-000-quintaux-a-aflou-et-laghouat/",
+      "image": "",
+      "date": "Sun, 20 Sep 2026 16:19:05 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Pommes : production de plus de 12.000 quintaux à Aflou et Laghouat — La production de pommes, cueillies à ce jour dans les wilayas d’Aflou et Laghouat, au titre de la saison agricole 2025-2026, a atteint 12.286 quintaux, a indiqué ce dimanche Belhadj Fatma-Zohra, la cheffe de service des inspections vétérinaires et phytosanitaires à la direction des services agricole",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "5e49193975d5c96e",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/09/20/techcrunch-mobility-how-do-we-know-when-an-av-is-safe-enough/",
+      "image": "",
+      "date": "Sun, 20 Sep 2026 16:02:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "TechCrunch Mobility: How do we know when an AV is safe enough? — Welcome back to TechCrunch Mobility, your hub for the future of transportation and now, more than ever, the role AI is playing in it. To get this in your inbox, sign up here for free — just click TechCrunch Mobility!",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "69ba015b67f6dcf6",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/09/20/rentree-scolaire-pres-de-12-millions-deleves-rejoignent-lundi-les-bancs-de-lecole/",
+      "image": "",
+      "date": "Sun, 20 Sep 2026 15:45:03 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Rentrée scolaire : près de 12 millions d’élèves rejoignent lundi les bancs de l’école — Près de 12 millions d’élèves des trois cycles d’enseignement (primaire, moyen et secondaire), rejoindront, demain lundi, les bancs de l’école, au titre de l’année scolaire 2026-2027. En prévision de la rentrée scolaire, le président de la République, M. Abdelmadjid Tebboune a formulé des orientation",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "1e2a750f10d12370",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/09/20/a-small-but-growing-number-of-founders-are-betting-that-bringing-people-together-is-its-own-industry/",
+      "image": "",
+      "date": "Sun, 20 Sep 2026 15:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "A small but growing number of founders are betting on bringing people together offline — Brynn Putnam and Tristan Walker have already done something that most founders only dream about: created companies so compelling that bigger outfits bought them. Putnam, a trained ballerina with a small chain of boutique studios, built the connected-fitness company Mirror and sold it to Lululemon fo",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "4089170a7c3eef7b",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/09/20/ali-boulaaras-pdg-de-serport-faire-de-lalgerie-un-hub-logistique-incontournable-entre-la-mediterranee-et-lafrique/",
+      "image": "",
+      "date": "Sun, 20 Sep 2026 14:00:56 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Ali Boulaaras, PDG de Serport : « Faire de l’Algérie un hub logistique incontournable entre la Méditerranée et l’Afrique » — Le nouveau PDG du groupe des services portuaires (Serport), Ali Boulaaras, a présenté dimanche les principaux axes de travail du groupe lors de son intervention sur la chaîne 3 de la Radio algérienne. Sa feuille de route « repose sur la mise en œuvre de la politique publique avec la modernisation, l",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "a5761cc7a39454be",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/09/20/6-days-left-to-get-ahead-at-techcrunch-disrupt-2026/",
+      "image": "",
+      "date": "Sun, 20 Sep 2026 14:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "6 days left to get ahead at TechCrunch Disrupt 2026 — Current ticket pricing ends in 6 days on Sept. 25 at 11:59 p.m. PT. Join 10,000+ founders, investors and tech leaders at Disrupt and save up to $200 on your ticket until then.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f70fab363c75d2fd",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/09/20/le-president-tebboune-preside-une-reunion-du-conseil-des-ministres-42/",
+      "image": "",
+      "date": "Sun, 20 Sep 2026 13:15:24 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Le président Tebboune préside une réunion du Conseil des ministres — Le président de la République, Abdelmadjid Tebboune, préside, ce dimanche 20 septembre, une réunion du Conseil des ministres, indique un communiqué de la présidence de la République. La réunion est consacrée « à la révision du statut particulier et du régime indemnitaire des personnels de la Protect",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "03f49eba4a7a1d37",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/09/20/des-pluies-a-partir-de-dimanche-sur-plusieurs-wilayas/",
+      "image": "",
+      "date": "Sun, 20 Sep 2026 12:56:18 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Des pluies à partir de dimanche sur plusieurs wilayas — Des pluies affecteront, à partir de dimanche, plusieurs wilayas du pays, indique un Bulletin météorologique spécial (BMS) émis par l’Office national de météorologie. De niveau de vigilance « Orange », le BMS concerne les wilayas de Skikda, Annaba et El Tarf, avec des quantités estimées entre 20 et 3",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "efa851839b44094e",
       "source_name": "NTIC-DZ",
       "source_short": "NTC",
@@ -1921,6 +2227,24 @@
       "lang_source": "fr",
       "text": {
         "fr": "J'ai testé les deux modèles d'iPhone 18 Pro : voici ce qui les différencie vraiment — Vous hésitez entre l'iPhone 18 Pro et l'iPhone 18 Pro Max ? Le fait qu'ils offrent exactement les mêmes fonctionnalités me facilite un peu le choix cette année.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "7c36004b8fd054a0",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/09/19/hackathon-panafricain-nocode-hack-2%e1%b5%89-edition-br-le-compte-a-rebours-est-lance-pour-la-jeunesse-innovante-du-continent/",
+      "image": "",
+      "date": "Sat, 19 Sep 2026 07:53:51 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Hackathon panafricain « Nocode Hack » – 2ᵉ édition <BR Le compte à rebours est lancé pour la jeunesse innovante du continent — Prévue du 30 septembre au 3 octobre 2026 à Annaba, la deuxième édition du hackathon panafricain « Nocode Hack » vient d’entrer dans sa phase …",
         "ar": "",
         "en": ""
       },
@@ -5075,340 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "e006f531e97e2c7c",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/09/15/tamanrasset-lancement-de-la-realisation-dune-centrale-electrique-de-136-megawatts/",
-      "image": "",
-      "date": "Tue, 15 Sep 2026 13:59:31 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Tamanrasset : Lancement de la réalisation d’une centrale électrique de 136 mégawatts — La réalisation d’une nouvelle centrale électrique d’une capacité de 136 mégawatts (MW) a été lancée dans la région de Tit (wilaya de Tamanrasset), ont indiqué les services de la wilaya, cités ce mardi par l’agence APS. L’opération est intervenue à l’occasion d’une visite de travail effectuée lundi 1",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "295b29df25a1e4ba",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/gouvernance-et-ethique-pourquoi-capgemini-cede-une-de-ses-filiales-americaines-503543.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 15 Sep 2026 13:04:20 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Gouvernance et éthique : pourquoi Capgemini cède une de ses filiales américaines — Face à l'impossibilité de contrôler des contrats fédéraux américains sensibles et à la gronde de ses collaborateurs, Capgemini cède sa filiale Government Solutions.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "8e1b5a0295d50286",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/la-derniere-mise-a-jour-de-windows-11-peut-perturber-le-son-de-votre-appareil-voici-une-solution-de-contournement-503540.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 15 Sep 2026 12:48:11 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "La dernière mise à jour de Windows 11 peut perturber le son de votre appareil – voici une solution de contournement — La mise à jour du « Patch Tuesday » de septembre provoque des problèmes audio avec certains périphériques USB, mais vous devriez pouvoir y remédier vous-même.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e72570e1a4014539",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/15/new-italian-unicorn-exein-rides-the-physical-ai-wave/",
-      "image": "",
-      "date": "Tue, 15 Sep 2026 12:19:38 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "New Italian unicorn Exein rides the physical AI wave — Italian startup Exein has raised a $270 million round of funding led by Headline at a $1.7 billion valuation.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "0596898bd1bfc799",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/les-violations-de-donnees-personnelles-nouvel-axe-deffort-du-cybermois-de-lannee-2026-503526.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 15 Sep 2026 12:06:59 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Les violations de données personnelles, nouvel axe d’effort du « Cybermois » de l’année 2026 — Selon un sondage du groupement d’intérêt public, près de 45% des français ont été informé d’une fuite de leurs données personnelles en 2026.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "221b10e9623a92a5",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/15/salesforce-and-nvidias-new-reasoning-model-is-everything-the-ai-labs-should-fear/",
-      "image": "",
-      "date": "Tue, 15 Sep 2026 12:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Salesforce and Nvidia’s new reasoning model is everything the AI labs should fear — Salesforce Koa is built on Nvidia's open-weight Nemotron model and is trained to do sales, marketing and customer-support tasks.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "ed22398aafa3dd0a",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/pratique/vous-en-avez-assez-des-resultats-bidons-generes-par-lia-comment-jai-force-google-a-me-fournir-a-nouveau-des-resultats-fiables-503537.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 15 Sep 2026 11:51:56 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Vous en avez assez des résultats bidons générés par l’IA ? Comment j’ai forcé Google à me fournir à nouveau des résultats fiables — orsque vous recherchez des réponses fiables, la dernière chose dont vous avez besoin, c’est d’une multitude de résultats de mauvaise qualité dans vos résultats de recherche. Voici comment y remédier.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "872a0573a98a8798",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/business-1367/totalenergies-et-mistral-ai-scellent-un-partenariat-de-100-millions-e-pour-lexploration-petroliere-et-gaziere-229150",
-      "image": "",
-      "date": "Tue, 15 Sep 2026 11:40:28 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "TotalEnergies et Mistral AI signent un contrat de 100 millions € pour l’exploration pétrolière et gazière — TotalEnergies et Mistral AI annoncent la signature d'un nouveau contrat de 100 millions € consacrés au développement de modèles de frontière pour l'exploration, la caractérisation et le développement des réservoirs de pétrole et de gaz. The post TotalEnergies et Mistral AI signent un contrat de 100",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "4529be88293cb025",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/une-etude-revele-que-votre-ami-qui-na-rien-a-cacher-est-le-plus-susceptible-de-vous-espionner-503534.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 15 Sep 2026 11:28:59 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Une étude révèle que votre ami qui n’a « rien à cacher » est le plus susceptible de vous espionner — Une nouvelle étude explore les tendances comportementales qui se cachent derrière cette expression « rien à cacher ». À découvrir également : 6 façons d’améliorer la confidentialité de votre téléphone.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "116ba0c04d6c17ce",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/guide-achat/3840-e-pour-un-iphone-duo-de-2-to-comparons-le-aux-modeles-pliables-de-samsung-et-de-google-503525.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 15 Sep 2026 11:16:24 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "3840 € pour un iPhone Duo de 2 To ? Comparons-le aux modèles pliables de Samsung et de Google — L’iPhone Duo pliable d’Apple coûte 3840 € avec 2 To de stockage, mais s’agit-il d’un ordinateur de poche futuriste ou d’un pari de première génération à un prix exorbitant ?",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "bc9434ef880f1249",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/sfr-appel-a-la-greve-action-en-justice-un-climat-social-explosif-503514.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 15 Sep 2026 09:42:34 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "SFR : appel à la grève, action en justice… un climat social explosif — L’intersyndicale du deuxième opérateur français appelle à un débrayage le 24 septembre. Principal motif d’inquiétude : le sort réservé aux salariés qui ne seront pas repris par le trio de repreneurs.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "cf1d5a054c97706b",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/les-robots-reparent-les-robots-le-japon-invente-lambulance-pour-humanoides-503493.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 15 Sep 2026 07:00:10 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "« Les robots réparent les robots » : le Japon invente l’ambulance pour humanoïdes — Et si les robots avaient, eux aussi, droit à un service d’urgence ? Au Japon, GMO AI & Robotics Corporation a dévoilé un véhicule spécialement conçu pour intervenir sur les pannes de robots humanoïdes.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "d2e794b3efd0ea5a",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/zdnet-morning-14-09-2026-ia-et-stockage-le-manifeste-de-microsoft-pour-une-ia-ethique-pourquoi-abandonner-firefox-au-profit-de-brave-503504.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 15 Sep 2026 06:49:05 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "ZDNET Morning 15/09/2026 : IA et stockage, Le manifeste de Microsoft pour une IA éthique, Pourquoi abandonner Firefox au profit de Brave,... — Le ZDNET Morning le brief de l'actu tech pour les pros tous les matins à 9h00. Transformation numérique, IA, matériel, logiciels,... ne passez pas à côté de ce qui fait la Une du secteur.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "a7853fbb287b0f23",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/stockage-de-donnees-les-entreprises-pas-pretes-pour-la-vague-ia-selon-seagate-503490.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 15 Sep 2026 06:01:15 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Stockage de données : les entreprises pas prêtes pour la vague IA, selon Seagate — Selon une étude diligentée par Seagate, 99 % des décideurs technologiques s’attendent à une hausse de leurs besoins de stockage liée à l’IA au cours des trois prochaines années, mais seuls 38 % d’entre eux estiment que leur entreprise y est pleinement préparée.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "7e3f0f17e8980b43",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/zd-tech-developpes-en-seulement-6-mois-les-robots-humanoides-chinois-envahissent-deja-la-chaine-logistique-mondiale-500405.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 15 Sep 2026 05:30:34 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "ZD Tech : Développés en seulement 6 mois, les robots humanoïdes chinois envahissent déjà la chaîne logistique mondiale — Les constructeurs chinois passent à l'offensive en déployant leurs machines au cœur des sites de production de géants comme Huawei.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "71b2c4f295f24956",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/14/nvidia-ceo-jensen-huang-tells-trump-were-not-going-to-let-an-ai-slowdown-happen/",
-      "image": "",
-      "date": "Mon, 14 Sep 2026 21:51:02 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Nvidia CEO Jensen Huang tells Trump ‘we’re not going to let [an AI slowdown] happen’ — Though Elon Musk and Sam Altman have supported Dario Amodei's calls to slow the pace of AI development, Jensen Huang seems to feel differently.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "bff0f5ec63a491dd",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/09/14/rentree-scolaire-ouverture-de-la-foire-lemsid-a-alger/",
-      "image": "",
-      "date": "Mon, 14 Sep 2026 21:06:55 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Rentrée scolaire : Ouverture de la Foire « Lemsid » à Alger — La 4e édition de la Foire de la rentrée scolaire « Lemsid » a ouvert ses portes lundi au Palais des expositions des Pins maritimes (Alger), avec la participation d’opérateurs économiques et de nombreuses entreprises activant dans les domaines des fournitures et équipements scolaires et de bureau, au",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "3aa8501cec20c4c7",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/09/14/alger-djellaoui-inspecte-plusieurs-projets-routiers/",
-      "image": "",
-      "date": "Mon, 14 Sep 2026 21:00:46 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Alger : Djellaoui inspecte plusieurs projets routiers — Le ministre des Travaux publics et des Infrastructures de base, Abdelkader Djellaoui, a effectué lundi une visite de plusieurs projets routiers dans la wilaya d’Alger, en compagnie du ministre, wali d’Alger, Abdenour Rabehi. La visite a porté sur plusieurs projets destinés à renforcer les liaisons r",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-09-20T12:02:17.932447+00:00",
+  "lastUpdated": "2026-09-20T21:10:29.497477+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Médias TIC": 60,
-    "Tech International": 160
+    "Médias TIC": 67,
+    "Tech International": 153
   },
   "total": 300
 }
