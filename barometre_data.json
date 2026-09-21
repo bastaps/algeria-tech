@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-20T11:57:49.737Z",
+  "generated": "2026-09-21T13:31:37.707Z",
   "mode": "monthly",
   "period": "2026-09",
   "period_label": "Septembre 2026",
@@ -8,72 +8,64 @@
     "veille_articles": 150,
     "social_posts": 300,
     "presse_articles": 12,
-    "sources_count": 30
+    "sources_count": 32
   },
   "top_topics": [
     {
       "key": "Intelligence Artificielle",
       "emoji": "🤖",
-      "count": 104,
-      "prev_count": 102,
-      "trend": 2,
-      "trend_pct": 2
+      "count": 96,
+      "prev_count": 104,
+      "trend": -8,
+      "trend_pct": -8
     },
     {
       "key": "Operateurs & Telecom",
       "emoji": "📶",
-      "count": 38,
-      "prev_count": 39,
+      "count": 37,
+      "prev_count": 38,
       "trend": -1,
       "trend_pct": -3
     },
     {
       "key": "Cybersecurite",
       "emoji": "🔒",
-      "count": 18,
-      "prev_count": 14,
-      "trend": 4,
-      "trend_pct": 29
+      "count": 14,
+      "prev_count": 18,
+      "trend": -4,
+      "trend_pct": -22
     },
     {
       "key": "Cloud & Data Center",
       "emoji": "☁️",
-      "count": 18,
-      "prev_count": 19,
-      "trend": -1,
-      "trend_pct": -5
-    },
-    {
-      "key": "Startups & Innovation",
-      "emoji": "🚀",
-      "count": 15,
-      "prev_count": 15,
-      "trend": 0,
-      "trend_pct": 0
+      "count": 13,
+      "prev_count": 18,
+      "trend": -5,
+      "trend_pct": -28
     },
     {
       "key": "Formation & Emploi TIC",
       "emoji": "🎓",
-      "count": 15,
-      "prev_count": 12,
-      "trend": 3,
-      "trend_pct": 25
+      "count": 13,
+      "prev_count": 15,
+      "trend": -2,
+      "trend_pct": -13
     },
     {
       "key": "5G & Reseaux Mobiles",
       "emoji": "📡",
       "count": 12,
-      "prev_count": 10,
-      "trend": 2,
-      "trend_pct": 20
-    },
-    {
-      "key": "Regulation & Politique",
-      "emoji": "⚖️",
-      "count": 6,
-      "prev_count": 6,
+      "prev_count": 12,
       "trend": 0,
       "trend_pct": 0
+    },
+    {
+      "key": "Startups & Innovation",
+      "emoji": "🚀",
+      "count": 12,
+      "prev_count": 15,
+      "trend": -3,
+      "trend_pct": -20
     },
     {
       "key": "E-commerce & Paiement",
@@ -82,6 +74,14 @@
       "prev_count": 5,
       "trend": 0,
       "trend_pct": 0
+    },
+    {
+      "key": "Regulation & Politique",
+      "emoji": "⚖️",
+      "count": 5,
+      "prev_count": 6,
+      "trend": -1,
+      "trend_pct": -17
     },
     {
       "key": "Fibre Optique",
@@ -93,39 +93,39 @@
     }
   ],
   "sentiment": {
-    "positive": 95,
-    "negative": 33,
-    "neutral": 334,
-    "positive_pct": 21,
+    "positive": 88,
+    "negative": 34,
+    "neutral": 340,
+    "positive_pct": 19,
     "negative_pct": 7,
-    "neutral_pct": 72
+    "neutral_pct": 74
   },
   "top_sources": [
     {
       "source": "TechCrunch",
-      "count": 103
-    },
-    {
-      "source": "ZDNet France",
-      "count": 65
+      "count": 101
     },
     {
       "source": "Wired",
-      "count": 59
+      "count": 60
+    },
+    {
+      "source": "ZDNet France",
+      "count": 58
     },
     {
       "source": "Algérie Éco",
-      "count": 43
+      "count": 45
     },
     {
       "source": "ZDNet FR",
-      "count": 28
+      "count": 31
     }
   ],
   "highlights": [
-    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 104 occurrences dans les publications.",
-    "\"Cybersecurite\" en forte hausse : +29% par rapport a le mois precedent.",
-    "Sentiment equilibre ce mois : 21% positif, 7% negatif sur 462 publications."
+    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 96 occurrences dans les publications.",
+    "\"Cybersecurite\" en recul : -22% par rapport a le mois precedent.",
+    "Sentiment equilibre ce mois : 19% positif, 7% negatif sur 462 publications."
   ],
   "previous_period": {
     "period": "2026-09",
