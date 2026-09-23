@@ -271,6 +271,24 @@
       "source_type": "rss"
     },
     {
+      "id": "4ed825d3dba026a0",
+      "source_name": "APS — Algérie Presse Service",
+      "source_short": "APS",
+      "source_color": "#006233",
+      "category": "Ministère",
+      "category_icon": "📡",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5FbEVQM05DNGswOFppS29Fb0dtdTZXckpSMk9ncDN5ZmpGS0pEWVVkOVlyc2U4S24zbHZnWXZZUDB2MXg1cWZIUm41c3NJLUtLaHNz?oc=5",
+      "image": "",
+      "date": "Fri, 28 Aug 2026 07:00:00 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Algérie : extinction de 110 incendies sur 174 en 24 heures - سانا — Algérie : extinction de 110 incendies sur 174 en 24 heures سانا",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "c4b04dec957df60c",
       "source_name": "Ministère de la Poste et des TIC",
       "source_short": "MPT",
@@ -343,19 +361,55 @@
       "source_type": "rss"
     },
     {
-      "id": "87d70a8d19ed8340",
-      "source_name": "Ministère de la Poste et des TIC",
-      "source_short": "MPT",
-      "source_color": "#006233",
-      "category": "Ministère",
-      "category_icon": "🏛️",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQNXdMOHpGNFFDc0F5aE1OOVVvTVZHUlZHclFJaTdub29OcjZJMEl0S3NFZlpXM1JWYUNySDh0UTFveW0xT1B5WThIcHhhaG5hMG02M2g1QlNiVHNtUENEcHBmdy1KeEc1X3EtTGo4MlkxQ3pZMUY4LU02NnlaSGU3Z2ZoVQ?oc=5",
+      "id": "b86e242949847e04",
+      "source_name": "Djezzy",
+      "source_short": "DJ",
+      "source_color": "#FF6B00",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFAxdkpnTHpGd1JsUmxhWENhYzVVOGppY0FWLVBmZHpWbEEzQTJDb2NLT09lbmpyXzRQX1RJMHBwYjZMU3FFMWc5QzVNb2RWQm81d0dXUFBwT3Z4T2l2bG9zaklHcWR2NHl3NzFFU2VwY016SURQdzFJNXln?oc=5",
       "image": "",
-      "date": "Mon, 24 Aug 2026 07:06:26 GMT",
-      "lang_source": "ar",
+      "date": "Wed, 23 Sep 2026 11:48:23 GMT",
+      "lang_source": "fr",
       "text": {
-        "ar": "Houda Imane Faraoun ministre de la Poste et des TIC - الإذاعة الجزائرية | — Houda Imane Faraoun ministre de la Poste et des TIC الإذاعة الجزائرية |",
-        "fr": "",
+        "fr": "Paiement mobile en Algérie : feu vert pour Djezzy - Just-InfoDZ — Paiement mobile en Algérie : feu vert pour Djezzy Just-InfoDZ",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f3ad5eac0bc83962",
+      "source_name": "Djezzy",
+      "source_short": "DJ",
+      "source_color": "#FF6B00",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNS1J3eU5WbGFwUENMWHZBYTZpb01WZzdrY0tLa25FNHh6d0Z5Z1hoa1h0TWw3Q2RvMGgyUmt2TkVaeXV4c0pxdWszQ2ZhX1o2eW84cW90X09iekZQVUJhZlJ6LS1ldnpTbTMzLWY2UlQ2UUtvSnMyVTRrXzZjWk15cEZGUDR1bkRUc3dUSnppU0U0ZGxHdDJCYnVPVFNUTEpEWUs5UWNvSkFnYlFJ?oc=5",
+      "image": "",
+      "date": "Wed, 23 Sep 2026 11:41:10 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Banque d’Algérie : Djezzy Payment Services autorisée à se constituer en PSP - Algerie Eco — Banque d’Algérie : Djezzy Payment Services autorisée à se constituer en PSP Algerie Eco",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "30c458663552caa9",
+      "source_name": "Djezzy",
+      "source_short": "DJ",
+      "source_color": "#FF6B00",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNOF83VkhEbjBnZ2lBNTFaWUM3YjEzcGJzM1NyMTdEY3RoXzlScFRCRUppb3JGRUdla1J6Z1paVjlCUDM0aF91TEt4N1RlVjBmb1dyVVR2X0l6RkVMSUFvX045WF9LQklsdE1HSklvOGpqVVgyX3ZObmxwc1pUNHRHRm1obWE1TXlacVU3a0taOGdVUTZiU25mTHdUeVB6ZUlVVFlZVk0yRTNUa1BnbzMtakJTSE9LZkhHVmxOVHRsbmNOdnFJN3lreExiZ1daWUFVR2dmamt6T29JckRLS2ZaWg?oc=5",
+      "image": "",
+      "date": "Wed, 23 Sep 2026 11:12:00 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Djezzy Payment Services autorisé à se constituer en prestataire de services de paiement - aps.dz — Djezzy Payment Services autorisé à se constituer en prestataire de services de paiement aps.dz",
+        "ar": "",
         "en": ""
       },
       "source_type": "rss"
@@ -665,60 +719,6 @@
         "en": ""
       },
       "source_type": "youtube"
-    },
-    {
-      "id": "b09e021430a05163",
-      "source_name": "Ooredoo Algérie",
-      "source_short": "OR",
-      "source_color": "#E30613",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9pcUhlYjZmekEtVDZUX3U4OGJ2R1ZsQ0FhZkZ1TGhGZUk5eThsZnpnYlM3dlhCWTg0RGxIRks3VHJOUmJZTldiMFJPTXRaakgwTVNn?oc=5",
-      "image": "",
-      "date": "Tue, 15 Sep 2026 21:31:27 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Rentrée scolaire 2026-2027 : lancement d'une caravane nationale de solidarité pour la distribution de cartables - الإذاعة الجزائرية | — Rentrée scolaire 2026-2027 : lancement d'une caravane nationale de solidarité pour la distribution de cartables الإذاعة الجزائرية |",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e5c3e2279780df6f",
-      "source_name": "Ooredoo Algérie",
-      "source_short": "OR",
-      "source_color": "#E30613",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNVWx0ZElYSlM2OUJvSFlPYTg0NVlyNW1TblZmWi1iX21uMnA1b3ZuVjNBZk15Ni15WjZtbWVhY2NaVmtrcFhOdzlfcEN4RUJnb1BubktacUV6a1B2aVctM0l5U0pCSndSOWVTSU1rNWJad0hKUnM4RHBreWhoWW1Pdll1WTVld2pfMzd0WU1EQlozQVo2NkkzaFNab1NHNXRZalNQLWlqT0YxT05LMk40Z3RGdV8tdjRQRnpHeHBn?oc=5",
-      "image": "",
-      "date": "Mon, 14 Sep 2026 20:25:20 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Ooredoo Algérie renouvelle son soutien au programme éducatif de l’Association ‘’El Baraka’’ - La Nouvelle République Algérie — Ooredoo Algérie renouvelle son soutien au programme éducatif de l’Association ‘’El Baraka’’ La Nouvelle République Algérie",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "4e2622bf961a83d7",
-      "source_name": "Mobilis",
-      "source_short": "MB",
-      "source_color": "#00A651",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNM09aVDRhVzRobHJxZVBkT0tIMGZZSmJGWHRTanJmSzhLWE1oTUljdUtqdlhUMkVXNXptejFNZ3VHOFotZG5kSUpjbS1tOVdUQkgtbXVKLW1WS2g3Zi12b1hNSjNIbWsxVWVxSjZCcUNFRmtzVEtwVW9IV3E2MTFjNmtZU3lLMEox0gGQAUFVX3lxTE1pejJvdWg0YkZ1NWdmR3plckN6QVhjamprbkxwVk5ONHNUR3FXWkZKYld4N1pCQ3VPdFpwMFUtRUM5ZFRNczVQUkVKcFZ4dmNiemY2cnRjYTRSa1ZkOFNoVVVFS2d2S28yVmpLODNfQkk0aVp2WnpDMTRvZnh0SG9jTERuVUdGamIzZUZ3d2dMTw?oc=5",
-      "image": "",
-      "date": "Sun, 13 Sep 2026 10:38:28 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Ligue 1 Mobilis : les résultats partiels et classement - Le Matin d'Algérie — Ligue 1 Mobilis : les résultats partiels et classement Le Matin d'Algérie",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     },
     {
       "id": "3860728b1753f7e2",
@@ -1081,6 +1081,42 @@
       "source_type": "rss"
     },
     {
+      "id": "7c963525fbe5498a",
+      "source_name": "Huawei Mobile DZ",
+      "source_short": "HMD",
+      "source_color": "#CF0A2C",
+      "category": "Équipementiers",
+      "category_icon": "📲",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOOF9jWWRaZVVRMHBXcldBeDh3a1dKNFpmczFUV2RNQUxmNDQ0OHRyZXprMnd5ZkkwMmJnRU9NMHh1TS1uLTRMVjRVOUxldGEyU3ZxNk5mUDh0QjlFU2xBR3g1MEZ3QTFGdF9EZEN6Z1YteWJvc0ZhazFybEZZLTN2N0JfUjVFVXN0QUJnME9lTHBENUJ3ZDliNGFpT3FUMmpnbmRoWWVRTy1sQ2RsMjVfaldaYWNGRTZ3NUtUS0NoQ1ZDLVQtQWhibTBNQlY?oc=5",
+      "image": "",
+      "date": "Wed, 23 Sep 2026 04:11:12 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Seeds for the Future 2026 : Huawei et l’Algérie investissent dans les talents de demain - El Moudjahid — Seeds for the Future 2026 : Huawei et l’Algérie investissent dans les talents de demain El Moudjahid",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "fa886081c778eb9d",
+      "source_name": "Huawei Mobile DZ",
+      "source_short": "HMD",
+      "source_color": "#CF0A2C",
+      "category": "Équipementiers",
+      "category_icon": "📲",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQdVJIazZiR2dKY3BjMWtKR21TbnRzeU9lQ05xNlNZQnE4ekRWUF9MVXF1UjUxVTlWQzlaOXZfang5a2NaTFlxT3NoaFpJRlVTSTIyaWVxNmVYYU5OdUFTbk9MYWtxWEFmTGlVTlhSQnRqLUl3akRnWGRDbTJCZUlWU2k2YXVDaElGcE9kS1g1MHZDQzF1RUZGMjhXT1Flek5wMmNucjFIZ3pKcmFtWDVSU19hcTdBQllXdy1HV05RdU1zNHlxWVE?oc=5",
+      "image": "",
+      "date": "Tue, 22 Sep 2026 06:59:32 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "HUAWEI ALGÉRIE LANCE LE PROGRAMME « SEEDS FOR THE FUTURE » : Nos étudiants en force à la 12e édition - Le Courrier d'Algérie — HUAWEI ALGÉRIE LANCE LE PROGRAMME « SEEDS FOR THE FUTURE » : Nos étudiants en force à la 12e édition Le Courrier d'Algérie",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "29327d978b70d19f",
       "source_name": "Huawei Mobile DZ",
       "source_short": "HMD",
@@ -1405,38 +1441,200 @@
       "source_type": "rss"
     },
     {
-      "id": "e9e490ec9916ab2c",
-      "source_name": "Condor Electronics",
-      "source_short": "CD",
-      "source_color": "#E65100",
-      "category": "Équipementiers",
-      "category_icon": "📺",
-      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPT1l1UWRPZnR0LWhlb0t4dkR4eVJlLV9tekl4aEJyWU8wWnJ6UF9pc3NuT3NfMkw3V01YMWZvYTZacEtDR0ZFVmZBRmJJaDVmQThHcTlJd2tmUEM5NEhmRFhMdHZaS1VnNEd0V0FxNjVYbWVEX2tLanZjS3VhTDNUT2NtYTNuM0c4RjlxLUVEdVpNTDdkMEZmSndRLUtTemZ5WGdUYnAxYkJVWUhrOWs2SXA3Nmo?oc=5",
+      "id": "dc57ebd5e4f907ea",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/09/23/commas-hands-off-driving-tech-under-investigation-after-2-fatal-crashes/",
       "image": "",
-      "date": "Sun, 26 Jul 2026 10:23:17 GMT",
+      "date": "Wed, 23 Sep 2026 12:12:39 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Comma’s hands-off driving tech under investigation after 2 fatal crashes — The investigation involves at least some crashes where it appears drivers were using \"forked\" versions of Comma's software.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "ca7a2de7d13c02aa",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/09/23/ema-raises-77m-as-ai-starts-eating-into-enterprise-software-and-services/",
+      "image": "",
+      "date": "Wed, 23 Sep 2026 12:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Ema raises $77M as AI starts eating into enterprise software and services — Ema has raised $140 million to date and has more than 50 enterprise customers, including Google and Microsoft.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "d5c338ed017202a7",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/09/23/banque-dalgerie-djezzy-payment-services-autorisee-a-se-constituer-en-psp/",
+      "image": "",
+      "date": "Wed, 23 Sep 2026 11:41:10 +0000",
       "lang_source": "fr",
       "text": {
-        "fr": "Condor s’allie avec l’allemand Maincor pour fabriquer des tuyaux industriels en Algérie - tsa-algerie.com — Condor s’allie avec l’allemand Maincor pour fabriquer des tuyaux industriels en Algérie tsa-algerie.com",
+        "fr": "Banque d’Algérie : Djezzy Payment Services autorisée à se constituer en PSP — Le Conseil monétaire et bancaire de la Banque d’Algérie (BA), réuni en session ordinaire, sous la présidence du Gouverneur de la BA Mohand Bouraï, a décidé d’autoriser « Djezzy Payment Services », filiale d’Optimum Telecom Algérie, à se constituer en Prestataire de services de paiement (PSP), indiqu",
         "ar": "",
         "en": ""
       },
       "source_type": "rss"
     },
     {
-      "id": "0f0d055227e220f2",
-      "source_name": "Condor Electronics",
-      "source_short": "CD",
-      "source_color": "#E65100",
-      "category": "Équipementiers",
-      "category_icon": "📺",
-      "url": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxPaXQ0R1ZiRC1sWG5qMmNvVlRnN3JsZ1Y0UDBLTk1sbWRrUzZtRFNRN2hWSUZMMTlQdG1LVFgyNFJ3cnctRG0ta2FpVVN3WWtNNDRBN0ZadmJOUTRQekx2LXZfMUFWUEx4TlZoNHZJeE0tZGpRZ3Q2dDdhTkFPdzlJRGJqX09JdWQ5Y0hHenF4eC0tOXFrNzZTUjRKSzJkamJZUUtYUHJSMWMweG9HNmxxVkU1R1RtSTI4VjZ5SWl6TzVhb3psTWNraG9yc0hvOHROZExDeThfNGxxLTZQVlFUUzllRlhmTFpVbVBNTUIyWW1OY2NRR3BmT29R?oc=5",
+      "id": "6bb73f9cc521a3e7",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/data-ia-1372/nutanix-rachete-la-start-up-francaise-ryax-technologies-229303",
       "image": "",
-      "date": "Mon, 20 Jul 2026 10:17:00 GMT",
+      "date": "Wed, 23 Sep 2026 11:39:47 +0000",
       "lang_source": "fr",
       "text": {
-        "fr": "Algérie : l’allemand Maincor s’associe à Condor pour fabriquer des tuyaux pour le bâtiment et l’industrie - AGENCE ECOFIN — Algérie : l’allemand Maincor s’associe à Condor pour fabriquer des tuyaux pour le bâtiment et l’industrie AGENCE ECOFIN",
+        "fr": "Nutanix rachète la start-up française Ryax Technologies — Nutanix rachète la start-up française Ryax Technologies pour intégrer ses technologies d'optimisation GPU et de planification intelligente à ses plateformes dédiées à l'IA agentique. The post Nutanix rachète la start-up française Ryax Technologies appeared first on Silicon.fr .",
         "ar": "",
         "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "6ef4c566b465fe60",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/09/23/des-pluies-mercredi-sur-plusieurs-wilayas-du-sud/",
+      "image": "",
+      "date": "Wed, 23 Sep 2026 11:12:19 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Des pluies mercredi sur plusieurs wilayas du sud — Des pluies affecteront plusieurs wilayas du sud du pays, mercredi, indique un Bulletin météorologique spécial (BMS) émis par l’Office national de Météorologie (ONM). De niveau de vigilance «Orange», le BMS concerne les wilayas de Tamanrasset, Djanet et Illizi où les quantités de pluies attendues son",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "5a720bf72b217d88",
+      "source_name": "Algérie 360",
+      "source_short": "A360",
+      "source_color": "#1565C0",
+      "category": "Médias TIC",
+      "category_icon": "📰",
+      "url": "https://www.algerie360.com/huawei-algerie-lance-la-12e-edition-de-seeds-for-the-future-voici-ce-qui-change/",
+      "image": "",
+      "date": "Wed, 23 Sep 2026 10:32:59 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Huawei Algérie lance la 12e édition de Seeds for the Future : voici ce qui change — Huawei Algérie officialise le lancement de la 12ᵉ édition de son programme phare de développement des talents numériques, « Seeds for the Future ». L’initiative […] L’article Huawei Algérie lance la 12e édition de Seeds for the Future : voici ce qui change est apparu en premier sur .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "2d43451d56e8fb18",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/data-ia-1372/vast-data-informatique-confidentielle-229295",
+      "image": "",
+      "date": "Wed, 23 Sep 2026 10:08:44 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "VAST Data s’approprie le calcul confidentiel sur GPU NVIDIA — Sous la marque DataEnclave, VAST Data met en œuvre, au sein de sa plate-forme, les capacités de calcul confidentiel des GPU NVIDIA. The post VAST Data s’approprie le calcul confidentiel sur GPU NVIDIA appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f47b4ba2b456c68b",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/09/22/were-already-fighting-yesterdays-battle-greeces-prime-minister-gets-candid-about-ai/",
+      "image": "",
+      "date": "Wed, 23 Sep 2026 04:59:08 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "‘We’re already fighting yesterday’s battle’: Greece’s prime minister gets candid about AI — Most leaders on a trade mission stick to the pitch, but when I interviewed Greek Prime Minister Kyriakos Mitsotakis this week, he also admitted that no government is ready for what AI is about to do.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "5f66f04bf85fcc3d",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/09/22/techcrunch-founder-summits-agenda-revealed-unlock-fundraising-hiring-and-ai-insights-in-boston-on-november-4/",
+      "image": "",
+      "date": "Tue, 22 Sep 2026 23:21:49 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "TechCrunch Founder Summit’s agenda revealed: Unlock fundraising, hiring, and AI insights in Boston on November 4 — Founders shouldn't have to learn the hardest lessons the hardest way. TechCrunch Founder Summit is designed to make the challenges of starting a company easier and the highs that much greater.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "ed26553b1935b420",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/09/22/kamel-zerari-nouveau-directeur-general-de-la-pharmacie-centrale-des-hopitaux/",
+      "image": "",
+      "date": "Tue, 22 Sep 2026 21:59:33 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Kamel Zerari, nouveau directeur général de la Pharmacie centrale des hôpitaux — Le ministre de la Santé, Mohamed Seddik Ait Messaoudene, a procédé, mardi, à l’installation du nouveau Directeur général (DG) de la Pharmacie centrale des hôpitaux (PCH), Kamel Zerari, en présence de cadres du secteur et de la PCH, a indiqué un communiqué du ministère. A cette occasion, le ministre",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "84a303211cd26a2a",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/09/22/snorkel-ai-triples-valuation-to-3-5b-as-demand-for-ai-training-data-booms/",
+      "image": "",
+      "date": "Tue, 22 Sep 2026 21:56:43 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Snorkel AI triples valuation to $3.5B as demand for AI training data booms — The seven-year-old startup has raised a $350 million Series E to fuel its data-as-a-service approach.",
+        "ar": "",
+        "fr": ""
       },
       "source_type": "rss"
     },
@@ -5201,214 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "2060f6ddccc151ac",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/data-ia-1372/bpce-benchmark-ia-229169",
-      "image": "",
-      "date": "Thu, 17 Sep 2026 14:42:59 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "BPCE construit son benchmark IA : « Un coût choisi contre des coûts subis » — BPCE a développé son propre cadre d'évaluation des IA. Au salon Big Data & AI, il en a exposé les motivations, la réalisation... et quelques observations. The post BPCE construit son benchmark IA : « Un coût choisi contre des coûts subis » appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "2398a79cd5df44c8",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/tribune/patrick-jabelin-directeur-developpement-offres-klee-group-au-dela-de-linefficacite-les-risques-caches-du-silotage-des-donnees-503477.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Thu, 17 Sep 2026 14:30:31 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Patrick Jabelin, Directeur développement Klee Group : « Au-delà de l'inefficacité : les risques cachés du silotage des données » — Cloisonner les données pour mieux les protéger ? L'intuition serait fausse selon Patrick Jabelin, Directeur du Développement des Offres chez Klee Group : le silotage multiplie les copies, brouille la traçabilité RGPD et fragilise jusqu'à la souveraineté des données de l'entreprise.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "5f85767bfdf5bd40",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/09/17/alger-19-marches-de-proximite-dedies-a-la-vente-des-articles-et-fournitures-scolaires/",
-      "image": "",
-      "date": "Thu, 17 Sep 2026 14:24:46 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Alger : 19 marchés de proximité dédiés à la vente des articles et fournitures scolaires — Les services de la wilaya d’Alger ont réservé 19 marchés de proximité, répartis à travers les 14 circonscriptions administratives, à la vente de différents articles et fournitures scolaires, à des prix compétitifs, à l’occasion de la rentrée scolaire, indique un communiqué des mêmes services. Les se",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "5d18789efa0799b7",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/17/huawei-plans-q1-2027-launch-of-new-ai-chip-as-it-takes-on-nvidia/",
-      "image": "",
-      "date": "Thu, 17 Sep 2026 14:06:14 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Huawei plans Q1 2027 launch of new AI chip as it takes on Nvidia — Huawei is accelerating the launch of its next-generation Ascend 960DT AI chip as it pushes to compete with Nvidia and close China’s AI computing gap with the U.S.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "4e41391abaae3c99",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/data-ia-1372/cohere-aleph-alpha-229168",
-      "image": "",
-      "date": "Thu, 17 Sep 2026 13:57:42 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Son ancrage renforcé en Europe, Cohere absorbe pour de bon Aleph Alpha — Cohere a signé un accord définitif pour acquérir Aleph Alpha. Depuis l'annonce initiale, l'entreprise canadienne a renforcé son ancrage en Europe. The post Son ancrage renforcé en Europe, Cohere absorbe pour de bon Aleph Alpha appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "2acebb765f8035ea",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/voici-comment-google-accelere-la-strategie-de-patch-de-chrome-pour-bloquer-les-attaques-par-ia-sur-votre-navigateur-503718.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Thu, 17 Sep 2026 13:09:37 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Voici comment Google accélère la stratégie de patch de Chrome pour bloquer les attaques par IA sur votre navigateur — Alors que des mises à jour plus fréquentes et plus dynamiques des navigateurs sont en cours de préparation, Google dévoile en exclusivité à ZDNET ses plans de défense.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "ce19de12adcdb7ba",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/business-1367/delos-leve-10-millions-e-pour-deployer-ses-employes-ia-autonomes-229173",
-      "image": "",
-      "date": "Thu, 17 Sep 2026 11:25:44 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Delos lève 10 millions € pour déployer ses « employés IA » autonomes — Delos lève 10 millions € pour généraliser ses Workers, des agents IA autonomes que la scale-up parisienne présente comme de véritables collègues plutôt que de simples outils. The post Delos lève 10 millions € pour déployer ses « employés IA » autonomes appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "3177aa668ffd8f97",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/17/comp-ai-sets-eyes-on-a-continiously-agentic-future-for-security-and-complaince/",
-      "image": "",
-      "date": "Thu, 17 Sep 2026 11:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Comp AI sets eyes on a continuously agentic future for security and compliance — Comp AI, a cybersecurity and compliance startup, announced a $34 million Series A round led by Roo Capital and Grand Ventures.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "19465a60da294275",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/cybersecurite-1371/les-rssi-sommes-darbitrer-entre-ia-conformite-et-dependances-fournisseurs-229170",
-      "image": "",
-      "date": "Thu, 17 Sep 2026 10:59:17 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Les RSSI sommés d’arbitrer entre IA, conformité et dépendances fournisseurs — Selon le CESIN, les RSSI naviguent entre une gouvernance de l'IA encore inexistante, la conformité réglementaire écrasante et des dépendances aux fournisseurs de plus en plus risquées. The post Les RSSI sommés d’arbitrer entre IA, conformité et dépendances fournisseurs appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "69c856c826317f85",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/lia-factory-la-formule-francaise-pour-rivaliser-avec-les-hyperscalers-503696.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Thu, 17 Sep 2026 10:54:40 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "L’IA Factory, la formule française pour rivaliser avec les hyperscalers — Par le déploiement du supercalculateur exascale Alice Recoque et le lancement de l'AI Factory France, le GENCI sécurise un accès souverain à la puissance de calcul pour la recherche et l'industrie. L’organisme compte aussi sur des services pour aider l’écosystème.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "dceb06cc82b61ba9",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/reseaux-critiques-ericsson-joue-la-carte-de-la-souverainete-503699.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Thu, 17 Sep 2026 10:05:48 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Réseaux critiques : Ericsson joue la carte de la souveraineté — Avec NetCloud Private, l’équipementier suédois propose une solution auto-hébergée de gestion des réseaux mobiles à destination des acteurs publics, des opérateurs d’infrastructures critiques ou des services d’urgence.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-09-22T21:47:08.407071+00:00",
+  "lastUpdated": "2026-09-23T12:34:38.552520+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Tech International": 151,
-    "Médias TIC": 69
+    "Tech International": 148,
+    "Médias TIC": 72
   },
   "total": 300
 }
