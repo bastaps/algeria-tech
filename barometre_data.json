@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24T12:27:45.052Z",
+  "generated": "2026-09-25T12:28:31.055Z",
   "mode": "monthly",
   "period": "2026-09",
   "period_label": "Septembre 2026",
@@ -8,32 +8,48 @@
     "veille_articles": 150,
     "social_posts": 300,
     "presse_articles": 12,
-    "sources_count": 33
+    "sources_count": 31
   },
   "top_topics": [
     {
       "key": "Intelligence Artificielle",
       "emoji": "🤖",
-      "count": 89,
+      "count": 93,
       "prev_count": 89,
-      "trend": 0,
-      "trend_pct": 0
+      "trend": 4,
+      "trend_pct": 4
     },
     {
       "key": "Operateurs & Telecom",
       "emoji": "📶",
-      "count": 42,
-      "prev_count": 33,
-      "trend": 9,
-      "trend_pct": 27
+      "count": 46,
+      "prev_count": 42,
+      "trend": 4,
+      "trend_pct": 10
     },
     {
       "key": "Cybersecurite",
       "emoji": "🔒",
       "count": 22,
-      "prev_count": 18,
-      "trend": 4,
-      "trend_pct": 22
+      "prev_count": 22,
+      "trend": 0,
+      "trend_pct": 0
+    },
+    {
+      "key": "5G & Reseaux Mobiles",
+      "emoji": "📡",
+      "count": 15,
+      "prev_count": 12,
+      "trend": 3,
+      "trend_pct": 25
+    },
+    {
+      "key": "E-commerce & Paiement",
+      "emoji": "🛒",
+      "count": 14,
+      "prev_count": 11,
+      "trend": 3,
+      "trend_pct": 27
     },
     {
       "key": "Startups & Innovation",
@@ -44,36 +60,20 @@
       "trend_pct": 0
     },
     {
-      "key": "5G & Reseaux Mobiles",
-      "emoji": "📡",
-      "count": 12,
-      "prev_count": 13,
-      "trend": -1,
-      "trend_pct": -8
-    },
-    {
-      "key": "E-commerce & Paiement",
-      "emoji": "🛒",
-      "count": 11,
-      "prev_count": 4,
-      "trend": 7,
-      "trend_pct": 175
-    },
-    {
       "key": "Cloud & Data Center",
       "emoji": "☁️",
-      "count": 11,
-      "prev_count": 16,
-      "trend": -5,
-      "trend_pct": -31
+      "count": 13,
+      "prev_count": 11,
+      "trend": 2,
+      "trend_pct": 18
     },
     {
       "key": "Formation & Emploi TIC",
       "emoji": "🎓",
-      "count": 9,
+      "count": 12,
       "prev_count": 9,
-      "trend": 0,
-      "trend_pct": 0
+      "trend": 3,
+      "trend_pct": 33
     },
     {
       "key": "Fibre Optique",
@@ -84,49 +84,48 @@
       "trend_pct": 0
     },
     {
-      "key": "Regulation & Politique",
-      "emoji": "⚖️",
+      "key": "Satellite & Spatial",
+      "emoji": "🛰️",
       "count": 2,
-      "prev_count": 2,
-      "trend": 0,
-      "trend_pct": 0
+      "prev_count": null,
+      "trend": null,
+      "trend_pct": null
     }
   ],
   "sentiment": {
-    "positive": 88,
-    "negative": 29,
-    "neutral": 345,
-    "positive_pct": 19,
-    "negative_pct": 6,
+    "positive": 80,
+    "negative": 35,
+    "neutral": 347,
+    "positive_pct": 17,
+    "negative_pct": 8,
     "neutral_pct": 75
   },
   "top_sources": [
     {
       "source": "TechCrunch",
-      "count": 95
+      "count": 89
     },
     {
       "source": "Wired",
-      "count": 57
-    },
-    {
-      "source": "Algérie Éco",
-      "count": 51
+      "count": 58
     },
     {
       "source": "ZDNet France",
-      "count": 51
+      "count": 54
     },
     {
-      "source": "ZDNet FR",
-      "count": 32
+      "source": "Algérie Éco",
+      "count": 53
+    },
+    {
+      "source": "Silicon.fr",
+      "count": 37
     }
   ],
   "highlights": [
-    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 89 occurrences dans les publications.",
-    "\"Operateurs & Telecom\" en forte hausse : +27% par rapport a le mois precedent.",
-    "\"Cloud & Data Center\" en recul : -31% par rapport a le mois precedent.",
-    "Sentiment equilibre ce mois : 19% positif, 6% negatif sur 462 publications."
+    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 93 occurrences dans les publications.",
+    "\"5G & Reseaux Mobiles\" en forte hausse : +25% par rapport a le mois precedent.",
+    "Sentiment equilibre ce mois : 17% positif, 8% negatif sur 462 publications."
   ],
   "previous_period": {
     "period": "2026-09",
