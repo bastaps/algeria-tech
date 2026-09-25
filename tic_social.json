@@ -1,6 +1,24 @@
 {
   "posts": [
     {
+      "id": "f3278fd5adc966f9",
+      "source_name": "Ministère de la Poste et des TIC",
+      "source_short": "MPT",
+      "source_color": "#006233",
+      "category": "Ministère",
+      "category_icon": "🏛️",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPVXRrZlhKeUZwN2otVHdYYkIzNGFreUlFNHRnUU50YllfVkNQd2lJQzJIeGllTW9vOHFKZk5tc3liaEw5QUhzS1VISFhjRkJMaWhvdi1BZEc2NTRzR2pVM3JHbTFKck02ZUlUSXdIc2Mwa0NYVnp5TVFWZkF0UXh6aWRDV3FjdGxiMHptVnBVVTNmaGpUUGc?oc=5",
+      "image": "",
+      "date": "Thu, 24 Sep 2026 03:53:23 GMT",
+      "lang_source": "ar",
+      "text": {
+        "ar": "Abdelkader Ouali Ministre des ressources en eau et de l'environnement - الإذاعة الجزائرية | — Abdelkader Ouali Ministre des ressources en eau et de l'environnement الإذاعة الجزائرية |",
+        "fr": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "0aa6d6f84f31a5bc",
       "source_name": "Ministère de la Poste et des TIC",
       "source_short": "MPT",
@@ -338,24 +356,6 @@
       "text": {
         "ar": "Houda Imane Faraoun ministre de la Poste et des TIC - الإذاعة الجزائرية | — Houda Imane Faraoun ministre de la Poste et des TIC الإذاعة الجزائرية |",
         "fr": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "3c5fc2fed8a60b73",
-      "source_name": "Ministère de l'Économie de la Connaissance & Startups",
-      "source_short": "MKESME",
-      "source_color": "#0D47A1",
-      "category": "Ministère",
-      "category_icon": "🚀",
-      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQa3FCNEFEVW56ak1XNEtPV2M4WnZ6SzJQSnlsRHhhZlNGZmJSbGVnVDJNRGRUeEVoMmpWUXR4MTdnamVCdHZEUjlTa3QwZTFkMXVSc3FEblJFMjdSZVRFdl8yd2R4SlIzMnlmZXNza2ZtN2NwaU1lbFdhOGJ2Q1J0dTIteDNYaUgzdWF4cEtiRWpzY3pDVXI3MFliV0FTRzRMSGJlZThGbTVEcG1fU2JGYkI1ZEpVWjdDMXliVWVPOGVrbzZra19Ua2tVVWJkaUhoNTZDcDItbHVuNldM?oc=5",
-      "image": "",
-      "date": "Wed, 26 Aug 2026 21:24:24 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Export hors-hydrocarbures : CNAN El Djazair met le cap sur l’Afrique de l’Ouest - Algeria Invest — Export hors-hydrocarbures : CNAN El Djazair met le cap sur l’Afrique de l’Ouest Algeria Invest",
-        "ar": "",
         "en": ""
       },
       "source_type": "rss"
@@ -1441,6 +1441,384 @@
       "source_type": "rss"
     },
     {
+      "id": "6d27e0d3dd6bddc7",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/09/25/marche-financier-la-cosob-met-en-garde-contre-lexercice-dactivites-reglementees-sans-autorisation/",
+      "image": "",
+      "date": "Fri, 25 Sep 2026 11:36:23 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Marché financier : La Cosob met en garde contre l’exercice d’activités réglementées sans autorisation — La Commission d’organisation et de surveillance des opérations de bourse (Cosob) a mis en garde, jeudi dans un communiqué, contre l’exercice d’activités sur le marché financier sans l’obtention préalable des agréments et autorisations, appelant les entreprises ainsi que le public à faire preuve de v",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "229ad8b35db4fc20",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/data-ia-1372/credit-trading-recherche-bnp-paribas-mise-sur-gemini-pour-automatiser-ses-metiers-cib-229374",
+      "image": "",
+      "date": "Fri, 25 Sep 2026 10:57:57 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Crédit, trading, recherche : BNP Paribas mise sur Gemini pour automatiser ses métiers CIB — BNP Paribas choisit Google Cloud pour déployer des agents IA dans sa banque de financement et d'investissement. The post Crédit, trading, recherche : BNP Paribas mise sur Gemini pour automatiser ses métiers CIB appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "d136187a5197d38d",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/09/25/algerie-le-projet-de-phosphate-integre-entre-en-phase-de-realisation/",
+      "image": "",
+      "date": "Fri, 25 Sep 2026 10:53:55 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Algérie : Le projet de phosphate intégré entre en phase de réalisation — Le projet de phosphate intégré (PPI) a franchi plusieurs étapes cette semaine avec le lancement de travaux à Bled El Hadba, dans la wilaya de Tébessa, à Oued Kebrit, dans la wilaya de Souk Ahras, ainsi qu’au port d’Annaba. Ces opérations concernent l’extraction et l’enrichissement du phosphate, sa t",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "ffa025ef6d548696",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/data-ia-1372/state-of-tokenomics-229351",
+      "image": "",
+      "date": "Fri, 25 Sep 2026 10:36:13 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Tokenomics : les chiffres d’une discipline FinOps en construction — Le premier sondage communautaire de la Tokenomics Foundation met en chiffres quelques points de tension dans l'adaptation des pratiques FinOps à l'IA. The post Tokenomics : les chiffres d’une discipline FinOps en construction appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "9befb69e717801bc",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/cloud-1370/resilience-multicloud-tout-est-une-question-dorchestration-pas-du-nombre-de-clouds-229360",
+      "image": "",
+      "date": "Fri, 25 Sep 2026 09:52:21 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Résilience multicloud : tout est une question d’orchestration, pas du nombre de clouds — {Tribune Expert} - La résilience ne dépend pas du nombre de plateformes. Elle repose sur la capacité à les connecter, à les observer et à les orchestrer comme un environnement unique. The post Résilience multicloud : tout est une question d’orchestration, pas du nombre de clouds appeared first on Si",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "a607d4a8b0826be0",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/la-souris-surface-de-microsoft-fait-son-retour-desormais-dotee-dun-retour-haptique-et-jen-ai-vraiment-besoin-504516.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Fri, 25 Sep 2026 09:47:22 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "La souris Surface de Microsoft fait son retour, désormais dotée d'un retour haptique… et j'en ai vraiment besoin — Disponible à partir du 13 octobre, la souris Surface à 80 € offre une gamme impressionnante de fonctionnalités. J'en veux une.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "35882bc1e85e4250",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/un-kill-switch-pour-les-agents-ia-pourquoi-okta-et-dautres-y-croient-504512.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Fri, 25 Sep 2026 09:41:19 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Un « kill switch » pour les agents IA : pourquoi Okta et d'autres y croient — Face à la menace grandissante que représentent les agents d'IA malveillants et clandestins, voici comment la Blueprint Alliance, récemment créée, entend aider les entreprises à sécuriser leurs systèmes contre toute activité anormale liée à l'IA.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "1e6472122a646242",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/data-ia-1372/a-lonu-openai-et-anthropic-reclament-des-regles-communes-pour-lia-229356",
+      "image": "",
+      "date": "Fri, 25 Sep 2026 09:36:29 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "À l’ONU, OpenAI et Anthropic réclament des règles communes pour l’IA — Ils se disputent d’ordinaire les mêmes ingénieurs, les mêmes clients et les gros titres des médias pour imposer leur leadership à grands coups de nouveaux LLMs toujours plus performants. Mais ce 23 septembre, devant le Conseil de sécurité des Nations unies, Sam Altman et Dario Amodei, respectivement",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "21f772b1fe3cb3f0",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/comment-reparer-lhistorique-des-fichiers-windows-si-la-mise-a-jour-de-septembre-la-endommage-504508.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Fri, 25 Sep 2026 09:10:57 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Comment réparer l'historique des fichiers Windows si la mise à jour de septembre l'a endommagé — Un bug présent dans la mise à jour « Patch Tuesday » de septembre pour Windows pourrait empêcher le fonctionnement de l'historique des fichiers. Une nouvelle mise à jour facultative permet toutefois de corriger ce problème.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "abe7c681a5cd125d",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/mauvaise-passe-pour-brevo-victime-de-deux-incidents-de-securite-en-quelques-jours-504444.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Fri, 25 Sep 2026 09:02:55 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Mauvaise passe pour Brevo, victime de deux incidents de sécurité en quelques jours — Après une perte de contrôle de comptes utilisateurs, l’entreprise française spécialisée dans la relation client a ensuite propagé à son corps défendant un script malveillant.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c26e0d3df04a1a45",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/data-ia-1372/ia-sous-surveillance-helsinki-et-oslo-tentent-de-federer-la-communaute-internationale-229352",
+      "image": "",
+      "date": "Fri, 25 Sep 2026 08:47:26 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "IA sous surveillance : Helsinki et Oslo tentent de fédérer la communauté internationale — La Finlande et la Norvège veulent renforcer l’encadrement des modèles d’IA les plus avancés. En marge de la semaine de haut niveau de l’ONU, ils ont proposé une déclaration commune intitulée « A Call for Control of Frontier AI Models » destinée à peser sur les négociations à venir concernant la gouv",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "55e3263025cfbde9",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/zdnet-morning-25-09-2026-airbus-sempare-de-la-protection-des-donnees-militaires-snapdragon-8-elite-pourquoi-starbucks-abandonne-son-ia-504503.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Fri, 25 Sep 2026 07:49:58 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "ZDNET Morning 25/09/2026 : Airbus s'empare de la protection des données militaires, Snapdragon 8 Elite, pourquoi Starbucks abandonne son IA,... — Le ZDNET Morning le brief de l'actu tech pour les pros tous les matins à 9h00. Transformation numérique, IA, matériel, logiciels,... ne passez pas à côté de ce qui fait la Une du secteur.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "2a39641675a76410",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/open-source-1375/debian-inference-scaleway-229344",
+      "image": "",
+      "date": "Fri, 25 Sep 2026 07:41:46 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Après son vote en faveur de l’IA, Debian ouvre un portail d’inférence — Dans la foulée d'une résolution autorisant un « usage responsable de l'IA générative », Debian ouvre à sa communauté un portail d'inférence. The post Après son vote en faveur de l’IA, Debian ouvre un portail d’inférence appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "0ff8e3038d55deca",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/publicite/gomoworld-cette-esim-des-399-e-peut-sauver-vos-deplacements-a-letranger-504344.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Fri, 25 Sep 2026 07:30:32 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "GoMoWorld : cette eSIM dès 3,99 € peut sauver vos déplacements à l’étranger — Pour un déplacement professionnel à l’étranger, GoMoWorld permet de conserver une connexion de secours grâce à une eSIM data, avec des forfaits dès 3,99 €.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f26948cae403be11",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/500-videos-analysees-en-local-qualcomm-montre-jusquou-lia-peut-aller-sur-smartphone-504489.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Fri, 25 Sep 2026 07:00:36 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "500 vidéos analysées en local : Qualcomm montre jusqu’où l’IA peut aller sur smartphone — Qualcomm veut faire des smartphones de véritables stations de production photo et vidéo. Avec son Snapdragon 8 Elite de 6e génération, le fabricant mise sur un ISP 20 bits, l’IA générative et le traitement local pour analyser les images, améliorer les couleurs et automatiser une partie du montage.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "43a1b4a9a86b0c7f",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/ia-et-data-centers-le-plus-grand-pari-economique-de-lhistoire-des-etats-unis-504486.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Fri, 25 Sep 2026 06:01:55 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "IA et data centers : le plus grand pari économique de l’histoire des États-Unis — Selon une estimation de la Brookings Institution relayée par le Wall Street Journal, les investissements américains dans l’IA et les datacenters pourraient atteindre 10 300 milliards de dollars d’ici 2032, avec des retombées sur l’emploi mais aussi sur les prix et l’endettement.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "8dce1ee574249675",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/zd-tech-retour-en-arriere-brutal-de-starbucks-qui-debranche-son-ia-de-gestion-des-stocks-dans-11-000-cafes-502838.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Fri, 25 Sep 2026 05:30:44 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "ZD Tech : Retour en arrière brutal de Starbucks qui débranche son IA de gestion des stocks dans 11 000 cafés — Sur le papier, l'intelligence artificielle devait diviser par six le temps d'inventaire dans les cafés de la chaîne. Mais entre reflets trompeurs, réseau instable et informatique vieillissante, la technologie a rapidement viré au fiasco industriel. Retour sur un échec riche en leçons.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "d186b21c43166b64",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/softbank-bat-un-record-vieux-de-dix-ans-pour-boucler-son-investissement-dans-openai-504484.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Fri, 25 Sep 2026 05:01:50 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "SoftBank bat un record vieux de dix ans pour boucler son investissement dans OpenAI — SoftBank a levé 11,1 milliards de dollars via la plus importante émission obligataire à haut rendement jamais réalisée, avec des taux atteignant 9,75 %, afin de financer la prochaine tranche de son investissement dans OpenAI, désormais chiffré à 64,6 milliards de dollars.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "bb5c1e3c8a7d2183",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/09/24/lightspeed-targets-250m-for-new-india-fund-focusing-on-early-stage-ai/",
+      "image": "",
+      "date": "Fri, 25 Sep 2026 05:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Lightspeed targets $250M for new India fund, focusing on early-stage AI — The venture firm is aligning its India fundraising cycle with its global funds for the first time, as it shifts to a shorter investment period.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "06dbc1d0a57ca2cb",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/09/24/waymo-is-scaling-fast-heres-what-the-fleet-data-shows/",
+      "image": "",
+      "date": "Thu, 24 Sep 2026 23:24:33 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Waymo is scaling fast: Here’s what the fleet data shows — In the past month, Waymo has expanded its fleet in Texas by 49%. There are other hot spots as well.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c8955b089a168d6a",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/09/24/algerie-lancement-de-la-premiere-marque-hoteliere-nationale-alcazar-tlemcen/",
+      "image": "",
+      "date": "Thu, 24 Sep 2026 22:59:33 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Algérie : lancement de la première marque hôtelière nationale « Alcazar Tlemcen » — La ministre du Tourisme et de l’Artisanat, Houria Meddahi, a présidé, jeudi soir à Tlemcen, le lancement de la première marque hôtelière nationale, baptisée « Alcazar Tlemcen ». Lors de la cérémonie officielle organisée à l’hôtel « Alcazar Tlemcen », situé sur le plateau de Lalla-Setti et qui portai",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "a39715447b67dbf9",
       "source_name": "TechCrunch",
       "source_short": "TC",
@@ -2161,6 +2539,24 @@
       "source_type": "rss"
     },
     {
+      "id": "9ce1b98d172dcbf0",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/09/24/epaiement-br-djezzy-decroche-laccord-pour-devenir-psp/",
+      "image": "",
+      "date": "Thu, 24 Sep 2026 06:37:32 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "ePaiement <BR Djezzy décroche l’accord pour devenir PSP — La Banque d’Algérie a donné son feu vert officiel à Djezzy pour lancer ses services de paiement électronique. Bientôt, régler vos achats ou envoyer de …",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "be412eb4a73da4b7",
       "source_name": "Silicon.fr",
       "source_short": "SI",
@@ -2605,6 +3001,24 @@
       "lang_source": "fr",
       "text": {
         "fr": "« Changer ou mourir », le terrible avertissement de NVIDIA face à l'avancée fulgurante de la Chine sur l'IA — Rod Evans, VP chez NVIDIA, dresse un bilan sans concession : des usines chinoises sans le moindre humain aux datacenters qui chauffent des élevages de saumons, l'intelligence artificielle physique va tout changer.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "4d6633c0a2bba41a",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/09/23/sommet-trump-xi-a-washington-br-terres-rares-et-puces-electroniques-au-menu/",
+      "image": "",
+      "date": "Wed, 23 Sep 2026 15:51:50 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Sommet Trump-Xi à Washington <BR Terres rares et puces électroniques au menu — Ce 23 septembre, Xi Jinping s’envole pour Washington, fort de son emprise sur les minerais rares et convaincu du déclin américain. Mais au-delà des symboles, …",
         "ar": "",
         "en": ""
       },
@@ -3091,6 +3505,24 @@
       "lang_source": "fr",
       "text": {
         "fr": "Orange lance une place de marché de produits high-tech — Intégrée aux boutiques en ligne Orange et Sosh, la marketplace doit atteindre plus de 40 000 références d'ici la fin de l'année. Pour se démarquer de la concurrence, l’opérateur historique joue sur la relation de confiance tissée avec ses clients.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "93cd0719530389d3",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/09/23/maison-connectee-br-lacquisition-strategique-de-shelly-par-schneider-electric/",
+      "image": "",
+      "date": "Wed, 23 Sep 2026 08:44:11 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Maison connectée <BR L’acquisition stratégique de Shelly par Schneider Electric — Schneider Electric acquiert le fabricant bulgare d’appareils connectés Shelly Group pour environ 1,2 milliard d’euros. Oui, vous avez bien lu, 1.2 milliard d’euros. Cette opération …",
         "ar": "",
         "en": ""
       },
@@ -4967,448 +5399,16 @@
         "fr": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "69ba015b67f6dcf6",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/09/20/rentree-scolaire-pres-de-12-millions-deleves-rejoignent-lundi-les-bancs-de-lecole/",
-      "image": "",
-      "date": "Sun, 20 Sep 2026 15:45:03 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Rentrée scolaire : près de 12 millions d’élèves rejoignent lundi les bancs de l’école — Près de 12 millions d’élèves des trois cycles d’enseignement (primaire, moyen et secondaire), rejoindront, demain lundi, les bancs de l’école, au titre de l’année scolaire 2026-2027. En prévision de la rentrée scolaire, le président de la République, M. Abdelmadjid Tebboune a formulé des orientation",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "1e2a750f10d12370",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/20/a-small-but-growing-number-of-founders-are-betting-that-bringing-people-together-is-its-own-industry/",
-      "image": "",
-      "date": "Sun, 20 Sep 2026 15:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "A small but growing number of founders are betting on bringing people together offline — Brynn Putnam and Tristan Walker have already done something that most founders only dream about: created companies so compelling that bigger outfits bought them. Putnam, a trained ballerina with a small chain of boutique studios, built the connected-fitness company Mirror and sold it to Lululemon fo",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "4089170a7c3eef7b",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/09/20/ali-boulaaras-pdg-de-serport-faire-de-lalgerie-un-hub-logistique-incontournable-entre-la-mediterranee-et-lafrique/",
-      "image": "",
-      "date": "Sun, 20 Sep 2026 14:00:56 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Ali Boulaaras, PDG de Serport : « Faire de l’Algérie un hub logistique incontournable entre la Méditerranée et l’Afrique » — Le nouveau PDG du groupe des services portuaires (Serport), Ali Boulaaras, a présenté dimanche les principaux axes de travail du groupe lors de son intervention sur la chaîne 3 de la Radio algérienne. Sa feuille de route « repose sur la mise en œuvre de la politique publique avec la modernisation, l",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "a5761cc7a39454be",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/20/6-days-left-to-get-ahead-at-techcrunch-disrupt-2026/",
-      "image": "",
-      "date": "Sun, 20 Sep 2026 14:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "6 days left to get ahead at TechCrunch Disrupt 2026 — Current ticket pricing ends in 6 days on Sept. 25 at 11:59 p.m. PT. Join 10,000+ founders, investors and tech leaders at Disrupt and save up to $200 on your ticket until then.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "f70fab363c75d2fd",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/09/20/le-president-tebboune-preside-une-reunion-du-conseil-des-ministres-42/",
-      "image": "",
-      "date": "Sun, 20 Sep 2026 13:15:24 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Le président Tebboune préside une réunion du Conseil des ministres — Le président de la République, Abdelmadjid Tebboune, préside, ce dimanche 20 septembre, une réunion du Conseil des ministres, indique un communiqué de la présidence de la République. La réunion est consacrée « à la révision du statut particulier et du régime indemnitaire des personnels de la Protect",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "03f49eba4a7a1d37",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/09/20/des-pluies-a-partir-de-dimanche-sur-plusieurs-wilayas/",
-      "image": "",
-      "date": "Sun, 20 Sep 2026 12:56:18 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Des pluies à partir de dimanche sur plusieurs wilayas — Des pluies affecteront, à partir de dimanche, plusieurs wilayas du pays, indique un Bulletin météorologique spécial (BMS) émis par l’Office national de météorologie. De niveau de vigilance « Orange », le BMS concerne les wilayas de Skikda, Annaba et El Tarf, avec des quantités estimées entre 20 et 3",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "efa851839b44094e",
-      "source_name": "NTIC-DZ",
-      "source_short": "NTC",
-      "source_color": "#01579B",
-      "category": "Médias TIC",
-      "category_icon": "🌐",
-      "url": "https://www.ntic-dz.com/smartphones-haut-de-gamme-innovations-2026-copier-le-slug/?utm_source=rss&utm_medium=rss&utm_campaign=smartphones-haut-de-gamme-innovations-2026-copier-le-slug",
-      "image": "",
-      "date": "Sun, 20 Sep 2026 11:28:30 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Smartphones haut de gamme : les fabricants multiplient les innovations — feed Processeurs, intelligence artificielle, photographie et technologies d’écran : les constructeurs de smartphones haut de gamme poursuivent leurs efforts pour différencier leurs appareils. Les annonces de septembre 2026 illustrent l’évolution d’un marché où la puissance doit désormais s’accompagn",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "b309a502b9672726",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/guide-achat/quatre-raisons-dacheter-des-maintenant-lapple-watch-ultra-4-503800.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Sun, 20 Sep 2026 11:11:36 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Quatre raisons d'acheter dès maintenant l'Apple Watch Ultra 4 — L'Apple Watch Ultra de quatrième génération est désormais disponible. Faut-il l'acheter ?",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "31bc506822c75e33",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/guide-achat/jai-teste-les-ecouteurs-haut-de-gamme-de-sony-et-de-sennheiser-le-choix-est-difficile-mais-lun-des-deux-lemporte-503805.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Sun, 20 Sep 2026 08:22:49 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "J'ai testé les écouteurs haut de gamme de Sony et de Sennheiser : le choix est difficile, mais l'un des deux l'emporte — Les derniers écouteurs haut de gamme de Sony et Sennheiser offrent un son exceptionnel, une réduction active du bruit et des fonctionnalités spéciales, mais pour moi, tout se résume à une seule chose.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "3a880ca4240c824e",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/guide-achat/iphone-18-pro-max-vs-pixel-11-pro-xl-les-differences-qui-pourraient-bien-tester-votre-fidelite-503771.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Sun, 20 Sep 2026 07:05:32 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "iPhone 18 Pro Max vs Pixel 11 Pro XL : les différences qui pourraient bien tester votre fidélité — Assistant IA, retouche photo, connectivité Bluetooth : nous passons en revue les véritables différences entre l'iPhone 18 Pro Max et le Pixel 11 Pro XL, au-delà du simple choix d'écosystème.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "951d770a57de95ba",
-      "source_name": "Mobilis",
-      "source_short": "MB",
-      "source_color": "#00A651",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE1WcHZBcExjT0hWZkZDdXpvbXByTm5ud3JaQmhXdkdmdVZFVTZTa3B4VVlQU1pLSkl0bjduOFVGT1BvWGNKZUFVQTNCMnAxamRaVVZnWA?oc=5",
-      "image": "",
-      "date": "Sun, 20 Sep 2026 06:28:07 GMT",
-      "lang_source": "ar",
-      "text": {
-        "ar": "Ligue 1 Mobilis: résultats complets et classement - الإذاعة الجزائرية | — Ligue 1 Mobilis: résultats complets et classement الإذاعة الجزائرية |",
-        "fr": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "b1e74fd04b7b8462",
-      "source_name": "Mobilis",
-      "source_short": "MB",
-      "source_color": "#00A651",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOYWpQZVd4RkxaeGxMb1RKRE5zS3VBb1BqWGtRR083emtqR3c5VHlPNG1wVm5Md0NXUnJQTmlNQXBYV1QxdlpzeC0zRi0taGZYNHA5ZTljM3RQMjVYU1JQS1lLTUhsRjl5NmplZENoQm92Z0xEQmJ6SW5aVGRQVVNzMFVMRU9tUjhJVFJqeWVibDFPWldDeGdlNktITzNUVEhVYXMybEhLb1BrLVlOajE1UHVaUDZxZmxmMHo2RjNtNHlBaUd6bFBULVZR?oc=5",
-      "image": "",
-      "date": "Sun, 20 Sep 2026 00:10:49 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Ligue 1 Mobilis (3e journée) : Entrée réussie pour le MC Alger, des succès historiques pour les promus - Le Courrier d'Algérie — Ligue 1 Mobilis (3e journée) : Entrée réussie pour le MC Alger, des succès historiques pour les promus Le Courrier d'Algérie",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "194c7523c48fe384",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/19/flock-reportedly-tries-to-shrink-workforce-with-employee-buyouts/",
-      "image": "",
-      "date": "Sat, 19 Sep 2026 20:39:13 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Flock reportedly tries to shrink workforce with employee buyouts — Without buyouts, Flock would \"almost certainly\" need to lay off staff.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "2c2e72322dbc8e14",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/09/19/industrie-automobile-kourtel-preside-une-reunion-consacree-a-la-localisation-des-composants-plastiques/",
-      "image": "",
-      "date": "Sat, 19 Sep 2026 20:06:13 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Industrie automobile : Kourtel préside une réunion consacrée à la localisation des composants plastiques — Le ministre de l’Industrie, M. Farid Kourtel, a reçu, samedi à Alger, les représentants des entreprises algériennes agréées dans la fabrication automobile, lors d’une rencontre consacrée à l’examen des moyens de localiser la production des composants plastiques et de renforcer l’intégration national",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c0e5bbea1628d07f",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/19/trump-suggests-rebranding-ai-with-a-new-name-says-hes-also-creating-an-ai-force/",
-      "image": "",
-      "date": "Sat, 19 Sep 2026 19:57:47 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Trump suggests rebranding AI with a new name, says he’s also creating an AI Force — Trump claimed, without evidence, that the AI backlash is a Democratic hoax.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "a1bf36dc36607e15",
-      "source_name": "NTIC-DZ",
-      "source_short": "NTC",
-      "source_color": "#01579B",
-      "category": "Médias TIC",
-      "category_icon": "🌐",
-      "url": "https://www.ntic-dz.com/smartphone-et-vie-privee-quelles-informations-les-applications-peuvent-elles-collecter/?utm_source=rss&utm_medium=rss&utm_campaign=smartphone-et-vie-privee-quelles-informations-les-applications-peuvent-elles-collecter",
-      "image": "",
-      "date": "Sat, 19 Sep 2026 18:28:31 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Smartphone et vie privée : quelles informations les applications peuvent-elles collecter ? — feed Les smartphones contiennent de nombreuses informations personnelles : photos, contacts, localisation, documents, messages et données liées à l’utilisation des applications. Certaines applications ont besoin d’accéder à des fonctions précises du téléphone pour fonctionner correctement. Une appli",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "9598b9eb782d1b8b",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/blogs/l-esprit-libre/forge-des-communs-numeriques-educatifs-des-ressources-libres-produites-par-les-enseignants-503844.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Sat, 19 Sep 2026 17:51:04 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Forge des communs numériques éducatifs: des ressources libres produites par les enseignants — Moins de trois ans après sa création, la Forge des communs numériques éducatifs rassemble 10.000 projets. Une réussite qui s'appuie sur les contributeurs, mais aussi sur les utilisateurs.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c67b3655b36c1dea",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/19/googles-gemini-is-the-latest-ai-model-to-hack-other-companies/",
-      "image": "",
-      "date": "Sat, 19 Sep 2026 17:30:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Google’s Gemini is the latest AI model to hack other companies — Google said Gemini had \"acted appropriately\" by ending each hack immediately.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "1ce43afe9759577c",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/09/19/lalgerie-participe-a-shanghai-aux-olympiades-mondiales-des-metiers/",
-      "image": "",
-      "date": "Sat, 19 Sep 2026 17:19:24 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "L’Algérie participe à Shanghai aux Olympiades mondiales des métiers — L’Algérie participe, du 22 au 27 septembre courant à Shanghai (Chine), aux compétitions des Olympiades mondiales des métiers (WorldSkills International), dans les spécialités « Technologie automobile » et « Développement d’applications mobiles », indique samedi un communiqué du ministère de la Forma",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "f6e1bac204884215",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/09/19/rentree-scolaire-livraison-289-structures-educatives-pour-les-trois-cycles-denseignement/",
-      "image": "",
-      "date": "Sat, 19 Sep 2026 17:03:00 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Rentrée scolaire : livraison 289 structures éducatives pour les trois cycles d’enseignement — Le ministère de l’Habitat, de l’Urbanisme, de la Ville et de l’Aménagement du territoire a annoncé, samedi dans un communiqué, la livraison de 289 structures éducatives pour les trois cycles d’enseignement, à l’occasion de la rentrée scolaire 2026-2027, prévue lundi. Il s’agit de 151 écoles primaire",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "021b211a92224958",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/19/even-mid-sprint-to-a-secret-flight-the-navys-tech-chief-had-a-pitch-for-investors/",
-      "image": "",
-      "date": "Sat, 19 Sep 2026 17:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "The US Navy just told us what’s on its tech wish list for the next several years — Navy CTO Justin Fanelli talks co-investing alongside VCs instead of funding early research himself, recent buys like a $562 million autonomous refueling deal, and the Navy's updated wish list — from AI to quantum — for where founders should be building next.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "b8ac3b1452e42c47",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/09/19/un-festival-de-la-montgolfiere-prevu-du-28-octobre-au-2-novembre-a-timimoun/",
-      "image": "",
-      "date": "Sat, 19 Sep 2026 16:22:49 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Un Festival de la montgolfière prévu du 28 octobre au 2 novembre à Timimoun — Timimoun accueillera, du 28 octobre au 2 novembre, la première édition de son Festival de la montgolfière. La manifestation prévoit plusieurs activités liées aux montgolfières et aux cerfs-volants, ainsi que des sorties dans le désert. Le programme débutera le 28 octobre avec l’accueil des participa",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "031e78fea7f65b89",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/19/petlibros-new-ai-powered-feeder-is-a-game-changer-for-multi-cat-homes/",
-      "image": "",
-      "date": "Sat, 19 Sep 2026 15:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Petlibro’s new AI-powered feeder is a game changer for multi-cat homes — Petlibro's new Granary 2 smart feeders use a built-in scale and (on pricier models) an AI camera to track exactly how much your cat is eating and when — though the fanciest health-monitoring features will cost you an extra subscription.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "f48af8241edfb207",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/19/ai-safety-conversations-have-gotten-unbelievable/",
-      "image": "",
-      "date": "Sat, 19 Sep 2026 15:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "AI safety conversations have gotten unbelievable — This week two conversations about AI safety went viral that demonstrate just how hard it is to discern AI fact from fiction.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-09-24T21:58:45.653832+00:00",
+  "lastUpdated": "2026-09-25T12:35:19.338133+00:00",
   "stats": {
     "Ministère": 20,
-    "Opérateurs": 28,
+    "Opérateurs": 26,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Tech International": 148,
-    "Médias TIC": 64
+    "Médias TIC": 60,
+    "Tech International": 154
   },
   "total": 300
 }
