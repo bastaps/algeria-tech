@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-25T12:28:31.055Z",
+  "generated": "2026-09-26T12:00:02.780Z",
   "mode": "monthly",
   "period": "2026-09",
   "period_label": "Septembre 2026",
@@ -8,48 +8,56 @@
     "veille_articles": 150,
     "social_posts": 300,
     "presse_articles": 12,
-    "sources_count": 31
+    "sources_count": 30
   },
   "top_topics": [
     {
       "key": "Intelligence Artificielle",
       "emoji": "🤖",
-      "count": 93,
-      "prev_count": 89,
-      "trend": 4,
-      "trend_pct": 4
+      "count": 101,
+      "prev_count": 93,
+      "trend": 8,
+      "trend_pct": 9
     },
     {
       "key": "Operateurs & Telecom",
       "emoji": "📶",
-      "count": 46,
-      "prev_count": 42,
-      "trend": 4,
-      "trend_pct": 10
+      "count": 41,
+      "prev_count": 46,
+      "trend": -5,
+      "trend_pct": -11
     },
     {
       "key": "Cybersecurite",
       "emoji": "🔒",
-      "count": 22,
+      "count": 23,
       "prev_count": 22,
-      "trend": 0,
-      "trend_pct": 0
+      "trend": 1,
+      "trend_pct": 5
     },
     {
-      "key": "5G & Reseaux Mobiles",
-      "emoji": "📡",
-      "count": 15,
-      "prev_count": 12,
-      "trend": 3,
-      "trend_pct": 25
+      "key": "Cloud & Data Center",
+      "emoji": "☁️",
+      "count": 20,
+      "prev_count": 13,
+      "trend": 7,
+      "trend_pct": 54
     },
     {
       "key": "E-commerce & Paiement",
       "emoji": "🛒",
+      "count": 15,
+      "prev_count": 14,
+      "trend": 1,
+      "trend_pct": 7
+    },
+    {
+      "key": "5G & Reseaux Mobiles",
+      "emoji": "📡",
       "count": 14,
-      "prev_count": 11,
-      "trend": 3,
-      "trend_pct": 27
+      "prev_count": 15,
+      "trend": -1,
+      "trend_pct": -7
     },
     {
       "key": "Startups & Innovation",
@@ -60,20 +68,20 @@
       "trend_pct": 0
     },
     {
-      "key": "Cloud & Data Center",
-      "emoji": "☁️",
-      "count": 13,
-      "prev_count": 11,
-      "trend": 2,
-      "trend_pct": 18
-    },
-    {
       "key": "Formation & Emploi TIC",
       "emoji": "🎓",
-      "count": 12,
-      "prev_count": 9,
-      "trend": 3,
-      "trend_pct": 33
+      "count": 13,
+      "prev_count": 12,
+      "trend": 1,
+      "trend_pct": 8
+    },
+    {
+      "key": "Regulation & Politique",
+      "emoji": "⚖️",
+      "count": 3,
+      "prev_count": null,
+      "trend": null,
+      "trend_pct": null
     },
     {
       "key": "Fibre Optique",
@@ -82,50 +90,42 @@
       "prev_count": 2,
       "trend": 0,
       "trend_pct": 0
-    },
-    {
-      "key": "Satellite & Spatial",
-      "emoji": "🛰️",
-      "count": 2,
-      "prev_count": null,
-      "trend": null,
-      "trend_pct": null
     }
   ],
   "sentiment": {
-    "positive": 80,
-    "negative": 35,
-    "neutral": 347,
-    "positive_pct": 17,
+    "positive": 89,
+    "negative": 38,
+    "neutral": 335,
+    "positive_pct": 19,
     "negative_pct": 8,
-    "neutral_pct": 75
+    "neutral_pct": 73
   },
   "top_sources": [
     {
       "source": "TechCrunch",
-      "count": 89
-    },
-    {
-      "source": "Wired",
-      "count": 58
+      "count": 93
     },
     {
       "source": "ZDNet France",
-      "count": 54
+      "count": 58
+    },
+    {
+      "source": "Wired",
+      "count": 52
     },
     {
       "source": "Algérie Éco",
-      "count": 53
+      "count": 44
     },
     {
       "source": "Silicon.fr",
-      "count": 37
+      "count": 42
     }
   ],
   "highlights": [
-    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 93 occurrences dans les publications.",
-    "\"5G & Reseaux Mobiles\" en forte hausse : +25% par rapport a le mois precedent.",
-    "Sentiment equilibre ce mois : 17% positif, 8% negatif sur 462 publications."
+    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 101 occurrences dans les publications.",
+    "\"Cloud & Data Center\" en forte hausse : +54% par rapport a le mois precedent.",
+    "Sentiment equilibre ce mois : 19% positif, 8% negatif sur 462 publications."
   ],
   "previous_period": {
     "period": "2026-09",
