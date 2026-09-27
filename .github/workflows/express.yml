@@ -30,7 +30,7 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq ffmpeg fonts-dejavu-core > /dev/null
-          pip install -q edge-tts feedparser requests beautifulsoup4 pillow boto3
+          pip install -q edge-tts feedparser requests beautifulsoup4 pillow
 
       - name: Fabrication de la vidéo
         id: fab
@@ -45,20 +45,34 @@ jobs:
           [ $code -eq 0 ] && echo "publier=oui" >> "$GITHUB_OUTPUT"
           exit $code
 
+      - name: Copie du dépôt vidéos
+        if: steps.fab.outputs.publier == 'oui'
+        uses: actions/checkout@v4
+        with:
+          repository: bastaps/algeria-tech-videos
+          ssh-key: ${{ secrets.VIDEOS_DEPLOY_KEY }}
+          path: videos-repo
+          fetch-depth: 1
+
       - name: Publication sur le site
         if: steps.fab.outputs.publier == 'oui'
         env:
-          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
-          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          R2_BUCKET: ${{ secrets.R2_BUCKET }}
-          R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
+          VIDEOS_REPO_DIR: videos-repo
         run: |
           python scripts/express/publier.py express-out/*.json
+          # dépôt vidéos : un seul commit (les 30 dernières), sans historique qui s'accumule
+          cd videos-repo
+          git config user.name "actions-user"
+          git config user.email "actions@github.com"
+          git checkout -q --orphan tmp
+          git add -A
+          git commit -q -m "Vidéos express (30 dernières) [$(date -u +%Y-%m-%d %H:%M) UTC]"
+          git push -q -f origin tmp:main
+          cd ..
+          # dépôt du site : liste des vidéos + historique
           git config user.name "actions-user"
           git config user.email "actions@github.com"
           git add data/express-latest.json data/express-history.json
-          git add -f videos/express 2>/dev/null || true
           git commit -m "Auto: L'info en 30 s [$(date -u +%H:%M) UTC]" || exit 0
           for i in 1 2 3; do
             git pull --rebase -q origin main && git push -q origin HEAD:main && break

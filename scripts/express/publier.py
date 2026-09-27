@@ -1,12 +1,12 @@
 """Publie une vidéo express sur le site : vidéo + image d'aperçu, puis mise à
 jour de data/express-latest.json (le plus récent en premier, 30 au maximum).
 
-Stockage :
-- Cloudflare R2 si R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY,
-  R2_BUCKET et R2_PUBLIC_URL sont définis (vidéos hors du dépôt git) ;
-- sinon dans le dépôt, sous videos/express/ (comme le vrai flash).
+Stockage : dépôt dédié bastaps/algeria-tech-videos, servi par GitHub Pages.
+Le workflow en fait une copie locale (VIDEOS_REPO_DIR) ; ce script y dépose les
+fichiers et fait le ménage au-delà des 30 dernières vidéos ; le workflow pousse
+ensuite un commit unique (sans historique qui s'accumule).
 
-    python publier.py <meta.json> [<meta.json> ...]
+    VIDEOS_REPO_DIR=videos-repo python publier.py <meta.json> [<meta.json> ...]
 """
 import json
 import os
@@ -17,20 +17,8 @@ from pathlib import Path
 
 RACINE = Path(__file__).resolve().parents[2]
 MANIFESTE = RACINE / "data" / "express-latest.json"
-DOSSIER = RACINE / "videos" / "express"
+URL_PUBLIQUE = os.environ.get("VIDEOS_PUBLIC_URL", "https://bastaps.github.io/algeria-tech-videos").rstrip("/")
 GARDER = 30
-
-
-def r2():
-    noms = ("R2_ACCOUNT_ID", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY", "R2_BUCKET", "R2_PUBLIC_URL")
-    if not all(os.environ.get(n) for n in noms):
-        return None
-    import boto3
-    client = boto3.client(
-        "s3", endpoint_url=f"https://{os.environ['R2_ACCOUNT_ID']}.r2.cloudflarestorage.com",
-        aws_access_key_id=os.environ["R2_ACCESS_KEY_ID"],
-        aws_secret_access_key=os.environ["R2_SECRET_ACCESS_KEY"], region_name="auto")
-    return client, os.environ["R2_BUCKET"], os.environ["R2_PUBLIC_URL"].rstrip("/")
 
 
 def apercu(video: Path, sortie: Path):
@@ -39,47 +27,39 @@ def apercu(video: Path, sortie: Path):
                     "-frames:v", "1", "-vf", "scale=640:-1", "-q:v", "4", str(sortie)], check=True)
 
 
-def publier(meta_path: Path, stockage) -> dict:
+def publier(meta_path: Path, dossier: Path) -> dict:
     meta = json.loads(meta_path.read_text(encoding="utf-8"))
     video = meta_path.with_name(meta["video"])
     ident = video.stem.replace("express-", "")
     poster = video.with_suffix(".jpg")
     apercu(video, poster)
-    if stockage:
-        client, bucket, public = stockage
-        for f, type_ in ((video, "video/mp4"), (poster, "image/jpeg")):
-            client.upload_file(str(f), bucket, f"express/{ident}{f.suffix}",
-                               ExtraArgs={"ContentType": type_, "CacheControl": "public, max-age=31536000"})
-        base = f"{public}/express/{ident}"
-    else:
-        DOSSIER.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(video, DOSSIER / f"{ident}.mp4")
-        shutil.copy2(poster, DOSSIER / f"{ident}.jpg")
-        base = f"/videos/express/{ident}"
+    shutil.copy2(video, dossier / f"{ident}.mp4")
+    shutil.copy2(poster, dossier / f"{ident}.jpg")
+    base = f"{URL_PUBLIQUE}/express/{ident}"
     return {"id": ident, "titre": meta["titre"], "texte": meta["texte"], "source": meta["source"],
             "url": meta["url"], "pays": meta["pays"], "duree": meta["duree"],
             "mp4Url": base + ".mp4", "poster": base + ".jpg", "publishedAt": meta["date"]}
 
 
 def main():
-    stockage = r2()
+    depot = os.environ.get("VIDEOS_REPO_DIR")
+    if not depot:
+        sys.exit("VIDEOS_REPO_DIR manquant (copie locale de bastaps/algeria-tech-videos)")
+    dossier = Path(depot) / "express"
+    dossier.mkdir(parents=True, exist_ok=True)
     try:
         liste = json.loads(MANIFESTE.read_text(encoding="utf-8"))
     except (OSError, ValueError):
         liste = []
     for p in sys.argv[1:]:
-        entree = publier(Path(p), stockage)
+        entree = publier(Path(p), dossier)
         liste = [entree] + [x for x in liste if x.get("id") != entree["id"]]
         print(f"[publier] {entree['id']} -> {entree['mp4Url']}")
-    anciens, liste = liste[GARDER:], liste[:GARDER]
-    for x in anciens:  # ménage : fichiers locaux au-delà des 30 derniers
-        if x.get("mp4Url", "").startswith("/videos/express/"):
-            for suffixe in (".mp4", ".jpg"):
-                (DOSSIER / f"{x['id']}{suffixe}").unlink(missing_ok=True)
-        elif stockage:
-            client, bucket, _ = stockage
-            for suffixe in (".mp4", ".jpg"):
-                client.delete_object(Bucket=bucket, Key=f"express/{x['id']}{suffixe}")
+    liste = liste[:GARDER]
+    gardes = {x["id"] for x in liste}
+    for f in dossier.iterdir():  # ménage : tout ce qui n'est plus dans les 30 derniers
+        if f.suffix in (".mp4", ".jpg") and f.stem not in gardes:
+            f.unlink()
     MANIFESTE.parent.mkdir(parents=True, exist_ok=True)
     MANIFESTE.write_text(json.dumps(liste, ensure_ascii=False, indent=1), encoding="utf-8")
 
