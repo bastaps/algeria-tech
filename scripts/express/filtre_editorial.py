@@ -14,6 +14,7 @@ import re
 import time
 import unicodedata
 import urllib.error
+import urllib.parse
 import urllib.request
 
 # ── Sources ──────────────────────────────────────────────────────────────────
@@ -194,6 +195,16 @@ def _source(source: str):
     return None
 
 
+SOURCES_OFFICIELLES = {"APS", "Radio Algérie", "ARPCE"}  # toujours des sujets algériens
+
+
+def source_sure_dz(article: dict) -> bool:
+    """Règle de la rédaction : une info sur l'Algérie ne se reprend que d'une source
+    sûre — site en .dz (APS, Radio Algérie, ARPCE, El Moudjahid, Horizons…)."""
+    hote = urllib.parse.urlsplit(article.get("url") or "").hostname or ""
+    return hote.endswith(".dz")
+
+
 def nettoyer_titre(t: str) -> str:
     """ITMAG met « Rubrique <BR> Titre » : on garde « Rubrique — Titre »."""
     t = re.sub(r"\s*<br\s*/?>\s*", " — ", t or "", flags=re.I)
@@ -255,7 +266,10 @@ institution, marché ou décision algérienne) ou non ("pays": "INT"), quel que 
 le nom ou le domaine du site ne compte pas (un site algérien ou « AlgeriaTech.news » qui
 reprend une info américaine = "INT").
 Sujet algérien : garder s'il y a une vraie dimension numérique/TIC ; rejeter l'économie,
-la politique ou les faits divers sans dimension numérique.
+la politique ou les faits divers sans dimension numérique. Pour l'Algérie, uniquement des
+FAITS établis (annonce officielle, décision d'une institution, lancement par une entreprise,
+chiffre officiel) : rejeter les études ou avis de consultants et d'experts privés, les
+tribunes, analyses et opinions, les titres au conditionnel ou sensationnels.
 Sujet international : barre haute. Garder seulement une info tech
 de portée mondiale ou utile à un lecteur algérien du secteur (grands acteurs, régulation,
 gros contrats ou levées, incident de sécurité majeur, infrastructures télécom/cloud/IA,
@@ -327,7 +341,7 @@ def arbitrer_gemini(articles: list, deja: list = ()) -> dict:
     if not articles:
         return {}
     lignes = [
-        f'{i}. [site {a["filtre"]["origine"]}] [{a.get("source", "")}] {a.get("title", "")}'
+        f'{i}. {a.get("title", "")}'
         f' — {(a.get("summary") or a.get("resume") or "")[:200]}'
         for i, a in enumerate(articles)
     ]
@@ -369,7 +383,9 @@ def trier(articles: list, utiliser_gemini: bool = True, historique: list = ()):
         if k in verdicts:
             ok, raison, doublon, pays = verdicts[k]
             if pays in ("DZ", "INT"):
-                f["pays"] = pays
+                f["pays"] = pays  # Gemini juge sur le texte seul (le site ne lui est pas montré)
+            if a.get("source") in SOURCES_OFFICIELLES:
+                f["pays"] = "DZ"
             if doublon not in (None, k, "null", ""):
                 f.update(decision="rejeter", raison="doublon / déjà diffusé (Gemini)")
             else:
@@ -380,6 +396,8 @@ def trier(articles: list, utiliser_gemini: bool = True, historique: list = ()):
     gardes, rejetes, vus = [], [], list(historique)
     for a in lot:
         f = a["filtre"]
+        if f["decision"] == "garder" and f["pays"] == "DZ" and not source_sure_dz(a):
+            f.update(decision="rejeter", raison="info Algérie hors source sûre (.dz exigé)")
         if f["decision"] == "garder" and deja_diffuse(a, vus):
             f.update(decision="rejeter", raison="doublon / déjà diffusé")
         if f["decision"] == "garder":
