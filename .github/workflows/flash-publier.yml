@@ -1,0 +1,121 @@
+name: Vrai flash — validation puis publication
+
+# Déclenché par le PC (E:\01-flash-infos\flash_auto\flash_auto.py) une fois la
+# vidéo fabriquée par Agnes et déposée sur bastaps/algeria-tech-videos/flash/.
+# L'étape « Publier » attend l'approbation de bastaps (environnement
+# validation-flash) : GitHub prévient par e-mail et sur l'appli mobile.
+on:
+  workflow_dispatch:
+    inputs:
+      id:
+        description: "Identifiant de la vidéo (flash/<id>.mp4 sur le dépôt vidéos)"
+        required: true
+      titre:
+        description: "Titre affiché dans le widget"
+        required: true
+      duree:
+        description: "Durée en secondes"
+        required: true
+      texte:
+        description: "Texte lu (pour relecture)"
+        required: false
+        default: ""
+      lang:
+        description: "Langue (fr / ar)"
+        required: false
+        default: "fr"
+      cree:
+        description: "Date de fabrication (ISO, UTC)"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: flash-publier
+  cancel-in-progress: false
+
+jobs:
+  apercu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Aperçu à relire
+        env:
+          ID: ${{ inputs.id }}
+          TITRE: ${{ inputs.titre }}
+          TEXTE: ${{ inputs.texte }}
+          DUREE: ${{ inputs.duree }}
+        run: |
+          {
+            echo "## 🎬 Flash à valider : $TITRE"
+            echo
+            echo "**Regarder la vidéo :** https://bastaps.github.io/algeria-tech-videos/flash/$ID.mp4  (durée : ${DUREE} s)"
+            echo
+            echo "### Texte lu"
+            echo
+            echo "$TEXTE"
+            echo
+            echo "---"
+            echo "Pour publier : bouton **Review deployments** → cocher *validation-flash* → **Approve and deploy**."
+            echo "Pour refuser : **Reject**. Un flash de plus de 8 h n'est plus publié."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  publier:
+    needs: apercu
+    runs-on: ubuntu-latest
+    environment:
+      name: validation-flash
+      url: https://bastaps.github.io/algeria-tech-videos/flash/${{ inputs.id }}.mp4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Ajout au widget Flash Info
+        env:
+          ID: ${{ inputs.id }}
+          TITRE: ${{ inputs.titre }}
+          DUREE: ${{ inputs.duree }}
+          LANGUE: ${{ inputs.lang }}
+          CREE: ${{ inputs.cree }}
+        run: |
+          python3 - <<'EOF'
+          import json, os, sys
+          from datetime import datetime, timezone, timedelta
+          maintenant = datetime.now(timezone.utc)
+          cree = datetime.fromisoformat(os.environ["CREE"].replace("Z", "+00:00"))
+          if maintenant - cree > timedelta(hours=8):
+              print("Flash trop ancien (plus de 8 h) : non publié.")
+              sys.exit(0)
+          chemin = "data/flash-latest.json"
+          try:
+              liste = json.load(open(chemin, encoding="utf-8"))
+          except Exception:
+              liste = []
+          ident = os.environ["ID"]
+          entree = {
+              "id": ident,
+              "titre": os.environ["TITRE"][:80],
+              "mp4Url": f"https://bastaps.github.io/algeria-tech-videos/flash/{ident}.mp4",
+              "duration": float(os.environ["DUREE"] or 0),
+              "publishedAt": maintenant.strftime("%Y-%m-%dT%H:%M:%S.000Z"),
+              "lang": os.environ.get("LANGUE") or "fr",
+          }
+          limite = maintenant - timedelta(days=7)
+          def recent(e):
+              try:
+                  return datetime.fromisoformat(e["publishedAt"].replace("Z", "+00:00")) > limite
+              except Exception:
+                  return False
+          liste = [entree] + [e for e in liste if e.get("id") != ident and recent(e)]
+          json.dump(liste[:6], open(chemin, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+          print("Publié :", entree["titre"])
+          EOF
+          git config user.name "actions-user"
+          git config user.email "actions@github.com"
+          git add data/flash-latest.json
+          git commit -m "Auto: vrai flash validé [$(date -u +%H:%M) UTC]" || exit 0
+          for i in 1 2 3; do
+            git pull --rebase -q origin main && git push -q origin HEAD:main && break
+            sleep 5
+          done
