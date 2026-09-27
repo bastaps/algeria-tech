@@ -1,0 +1,18 @@
+/* L'info en 30 s — encart latéral (voir express-widget.js) */
+.express-widget { padding: 18px; }
+.express-widget .ew-cadre { position: relative; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; background: #0d3b24; }
+.express-widget .ew-video { width: 100%; height: 100%; display: block; object-fit: cover; background: #000; }
+.express-widget .ew-titre { margin: 10px 0 4px; font-weight: 700; font-size: 0.98rem; line-height: 1.35; }
+.express-widget .ew-meta { margin: 0 0 6px; font-size: 0.8rem; opacity: 0.7; }
+.express-widget .ew-lien { font-size: 0.82rem; font-weight: 600; color: #d21034; text-decoration: none; }
+.express-widget .ew-lien:hover { text-decoration: underline; }
+.express-widget .ew-vignettes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 12px; }
+.express-widget .ew-vignette {
+  position: relative; aspect-ratio: 16 / 9; border: 2px solid transparent; border-radius: 6px; padding: 0;
+  background: #1b1b1b center / cover no-repeat; cursor: pointer; overflow: hidden;
+}
+.express-widget .ew-vignette span {
+  position: absolute; left: 0; right: 0; bottom: 0; font-size: 0.62rem; color: #fff;
+  background: rgba(0, 0, 0, 0.6); padding: 1px 3px; text-align: left;
+}
+.express-widget .ew-vignette.ew-active { border-color: #ffd400; }

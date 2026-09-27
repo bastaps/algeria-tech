@@ -1,0 +1,80 @@
+name: Express « L'info en 30 s »
+
+# 6 h, 10 h et 15 h heure d'Algérie (UTC+1). Rien de neuf = aucune publication.
+on:
+  schedule:
+    - cron: "0 5,9,14 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: express
+  cancel-in-progress: false
+
+jobs:
+  express:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Outils (ffmpeg, polices)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fonts-dejavu-core > /dev/null
+          pip install -q edge-tts feedparser requests beautifulsoup4 pillow
+
+      - name: Fabrication de la vidéo
+        id: fab
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: |
+          set +e
+          python scripts/express/express.py --sortie express-out
+          code=$?
+          if [ $code -eq 2 ]; then echo "Rien de neuf : pas de publication."; echo "publier=non" >> "$GITHUB_OUTPUT"; exit 0; fi
+          [ $code -eq 0 ] && echo "publier=oui" >> "$GITHUB_OUTPUT"
+          exit $code
+
+      - name: Copie du dépôt vidéos
+        if: steps.fab.outputs.publier == 'oui'
+        uses: actions/checkout@v4
+        with:
+          repository: bastaps/algeria-tech-videos
+          ssh-key: ${{ secrets.VIDEOS_DEPLOY_KEY }}
+          path: videos-repo
+          fetch-depth: 1
+
+      - name: Publication sur le site
+        if: steps.fab.outputs.publier == 'oui'
+        env:
+          VIDEOS_REPO_DIR: videos-repo
+        run: |
+          python scripts/express/publier.py express-out/*.json
+          # dépôt vidéos : un seul commit (les 30 dernières), sans historique qui s'accumule
+          cd videos-repo
+          git config user.name "actions-user"
+          git config user.email "actions@github.com"
+          git checkout -q --orphan tmp
+          git add -A
+          git commit -q -m "Vidéos express (30 dernières) [$(date -u +%Y-%m-%d %H:%M) UTC]"
+          git push -q -f origin tmp:main
+          cd ..
+          # dépôt du site : liste des vidéos + historique
+          git config user.name "actions-user"
+          git config user.email "actions@github.com"
+          git add data/express-latest.json data/express-history.json
+          git commit -m "Auto: L'info en 30 s [$(date -u +%H:%M) UTC]" || exit 0
+          for i in 1 2 3; do
+            git pull --rebase -q origin main && git push -q origin HEAD:main && break
+            sleep 5
+          done
