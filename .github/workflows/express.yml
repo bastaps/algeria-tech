@@ -57,7 +57,8 @@ jobs:
           python scripts/express/publier.py express-out/*.json
           git config user.name "actions-user"
           git config user.email "actions@github.com"
-          git add data/express-latest.json data/express-history.json videos/express 2>/dev/null || true
+          git add data/express-latest.json data/express-history.json
+          git add -f videos/express 2>/dev/null || true
           git commit -m "Auto: L'info en 30 s [$(date -u +%H:%M) UTC]" || exit 0
           for i in 1 2 3; do
             git pull --rebase -q origin main && git push -q origin HEAD:main && break
