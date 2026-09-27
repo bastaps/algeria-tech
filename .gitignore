@@ -74,3 +74,6 @@ _hub_err.log
 # Veille comparateur (file d.attente locale, regeneree a chaque passage)
 comparateur_pending.json
 logs/captures/
+
+# express : sorties locales de test
+express-out/
