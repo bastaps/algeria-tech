@@ -1,9 +1,10 @@
-name: Vrai flash — validation puis publication
+name: Vrai flash — publication
 
 # Déclenché par le PC (E:\01-flash-infos\flash_auto\flash_auto.py) une fois la
 # vidéo fabriquée par Agnes et déposée sur bastaps/algeria-tech-videos/flash/.
-# L'étape « Publier » attend l'approbation de bastaps (environnement
-# validation-flash) : GitHub prévient par e-mail et sur l'appli mobile.
+# Publication directe, sans validation (décision du 29/09). Un flash raté n'est
+# jamais publié : le widget garde le précédent. Pour retirer un flash publié :
+# workflow « Vrai flash — retirer le dernier ».
 on:
   workflow_dispatch:
     inputs:
@@ -17,7 +18,7 @@ on:
         description: "Durée en secondes"
         required: true
       texte:
-        description: "Texte lu (pour relecture)"
+        description: "Texte lu"
         required: false
         default: ""
       lang:
@@ -36,36 +37,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  apercu:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Aperçu à relire
-        env:
-          ID: ${{ inputs.id }}
-          TITRE: ${{ inputs.titre }}
-          TEXTE: ${{ inputs.texte }}
-          DUREE: ${{ inputs.duree }}
-        run: |
-          {
-            echo "## 🎬 Flash à valider : $TITRE"
-            echo
-            echo "**Regarder la vidéo :** https://bastaps.github.io/algeria-tech-videos/flash/$ID.mp4  (durée : ${DUREE} s)"
-            echo
-            echo "### Texte lu"
-            echo
-            echo "$TEXTE"
-            echo
-            echo "---"
-            echo "Pour publier : bouton **Review deployments** → cocher *validation-flash* → **Approve and deploy**."
-            echo "Pour refuser : **Reject**. Un flash de plus de 8 h n'est plus publié."
-          } >> "$GITHUB_STEP_SUMMARY"
-
   publier:
-    needs: apercu
     runs-on: ubuntu-latest
-    environment:
-      name: validation-flash
-      url: https://bastaps.github.io/algeria-tech-videos/flash/${{ inputs.id }}.mp4
     steps:
       - uses: actions/checkout@v4
         with:
@@ -75,10 +48,21 @@ jobs:
         env:
           ID: ${{ inputs.id }}
           TITRE: ${{ inputs.titre }}
+          TEXTE: ${{ inputs.texte }}
           DUREE: ${{ inputs.duree }}
           LANGUE: ${{ inputs.lang }}
           CREE: ${{ inputs.cree }}
         run: |
+          # la vidéo doit être en ligne avant d'être annoncée dans le widget
+          url="https://bastaps.github.io/algeria-tech-videos/flash/$ID.mp4"
+          for i in $(seq 1 30); do
+            code=$(curl -s -o /dev/null -r 0-99 -w "%{http_code}" "$url")
+            [ "$code" = "206" ] || [ "$code" = "200" ] && break
+            sleep 10
+          done
+          if [ "$code" != "206" ] && [ "$code" != "200" ]; then
+            echo "Vidéo introuvable ($code) : flash non publié, le précédent reste en ligne."; exit 1
+          fi
           python3 - <<'EOF'
           import json, os, sys
           from datetime import datetime, timezone, timedelta
@@ -111,10 +95,19 @@ jobs:
           json.dump(liste[:6], open(chemin, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
           print("Publié :", entree["titre"])
           EOF
+          {
+            echo "## 🎬 Flash publié : $TITRE"
+            echo
+            echo "Vidéo : $url (${DUREE} s)"
+            echo
+            echo "$TEXTE"
+            echo
+            echo "Pour le retirer : Actions → « Vrai flash — retirer le dernier » → Run workflow."
+          } >> "$GITHUB_STEP_SUMMARY"
           git config user.name "actions-user"
           git config user.email "actions@github.com"
           git add data/flash-latest.json
-          git commit -m "Auto: vrai flash validé [$(date -u +%H:%M) UTC]" || exit 0
+          git commit -m "Auto: vrai flash publié [$(date -u +%H:%M) UTC]" || exit 0
           for i in 1 2 3; do
             git pull --rebase -q origin main && git push -q origin HEAD:main && break
             sleep 5

@@ -1,0 +1,41 @@
+name: Vrai flash — retirer le dernier
+
+# Un clic (depuis GitHub ou l'appli mobile GitHub) : retire le flash le plus
+# récent du widget ; le précédent redevient celui affiché sur le site.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: flash-publier
+  cancel-in-progress: false
+
+jobs:
+  retirer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Retrait du dernier flash
+        run: |
+          python3 - <<'EOF'
+          import json
+          chemin = "data/flash-latest.json"
+          liste = json.load(open(chemin, encoding="utf-8"))
+          if len(liste) < 2:
+              raise SystemExit("Un seul flash en ligne : rien à retirer (le widget serait vide).")
+          retire = liste.pop(0)
+          json.dump(liste, open(chemin, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+          print("Retiré :", retire.get("titre"), "| désormais affiché :", liste[0].get("titre"))
+          EOF
+          git config user.name "actions-user"
+          git config user.email "actions@github.com"
+          git add data/flash-latest.json
+          git commit -m "Retrait du dernier vrai flash [$(date -u +%H:%M) UTC]"
+          for i in 1 2 3; do
+            git pull --rebase -q origin main && git push -q origin HEAD:main && break
+            sleep 5
+          done
