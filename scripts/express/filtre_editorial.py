@@ -296,10 +296,55 @@ def _gemini_cle() -> str:
 _QUOTA_EPUISE = set()  # modèles dont le quota gratuit du jour est atteint
 
 
+def _json_du_texte(sortie: str):
+    """Extrait le JSON d'une réponse (tolère ```json … ``` et du texte autour)."""
+    s = sortie.strip()
+    s = re.sub(r"^```(?:json)?\s*|\s*```$", "", s)
+    try:
+        return json.loads(s)
+    except ValueError:
+        m = re.search(r"(\{.*\}|\[.*\])", s, re.S)
+        return json.loads(m.group(1)) if m else None
+
+
+def appeler_freellmapi(texte: str, json_mode: bool, temperature: float, images: list):
+    """Routeur FreeLLMAPI (compatible OpenAI) : il choisit le meilleur modèle
+    gratuit disponible et bascule tout seul quand un fournisseur est saturé."""
+    url, cle = os.environ.get("FREELLMAPI_URL"), os.environ.get("FREELLMAPI_KEY")
+    if not url or not cle:
+        return None
+    contenu = [{"type": "text", "text": texte}] + [
+        {"type": "image_url", "image_url": {"url": f"data:{m};base64,{d}"}} for m, d in images]
+    corps = {"model": "auto", "temperature": temperature,
+             "messages": [{"role": "user", "content": contenu if images else texte}]}
+    if json_mode:
+        corps["response_format"] = {"type": "json_object"}
+    for essai in range(3):
+        req = urllib.request.Request(f"{url.rstrip('/')}/chat/completions", data=json.dumps(corps).encode(),
+                                     headers={"Content-Type": "application/json",
+                                              "Authorization": f"Bearer {cle}"})
+        try:
+            with urllib.request.urlopen(req, timeout=180) as rep:
+                data = json.load(rep)
+            sortie = data["choices"][0]["message"]["content"] or ""
+            modele = data.get("model", "?")
+            print(f"[freellmapi] réponse de {modele}")
+            return _json_du_texte(sortie) if json_mode else sortie.strip()
+        except Exception as e:
+            print(f"[freellmapi] essai {essai + 1} en échec : {type(e).__name__} {str(e)[:120]}")
+            corps.pop("response_format", None)  # certains modèles refusent le mode JSON
+            time.sleep(5)
+    return None
+
+
 def appeler_gemini(texte: str, json_mode: bool = True, temperature: float = 0, images: list = ()):
-    """Un appel Gemini avec bascule de modèle et nouvelle tentative sur saturation.
+    """Appel IA : d'abord le routeur FreeLLMAPI s'il tourne (FREELLMAPI_URL),
+    sinon Gemini en direct avec bascule de modèle et nouvelle tentative.
     images = [(mime, base64)] pour une analyse visuelle.
     Retourne le JSON décodé (json_mode) ou le texte ; None si tout échoue."""
+    r = appeler_freellmapi(texte, json_mode, temperature, images)
+    if r is not None:
+        return r
     cle = _gemini_cle()
     if not cle:
         return None

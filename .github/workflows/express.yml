@@ -32,6 +32,16 @@ jobs:
           sudo apt-get install -y -qq ffmpeg fonts-dejavu-core > /dev/null
           pip install -q edge-tts feedparser requests beautifulsoup4 pillow
 
+      - name: Routeur IA gratuit (FreeLLMAPI)
+        continue-on-error: true  # en cas d'échec : appel direct à Gemini
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: bash scripts/llm/demarrer_freellmapi.sh
+
       - name: Fabrication de la vidéo
         id: fab
         env:
