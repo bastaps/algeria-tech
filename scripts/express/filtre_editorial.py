@@ -315,7 +315,9 @@ def appeler_freellmapi(texte: str, json_mode: bool, temperature: float, images: 
         return None
     contenu = [{"type": "text", "text": texte}] + [
         {"type": "image_url", "image_url": {"url": f"data:{m};base64,{d}"}} for m, d in images]
-    corps = {"model": "auto", "temperature": temperature,
+    # texte : le modèle le plus performant disponible ; image : un modèle de vision
+    corps = {"model": "auto" if images else os.environ.get("FREELLMAPI_MODELE", "auto:smartest"),
+             "temperature": temperature,
              "messages": [{"role": "user", "content": contenu if images else texte}]}
     if json_mode:
         corps["response_format"] = {"type": "json_object"}
