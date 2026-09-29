@@ -1,0 +1,52 @@
+name: Vrai flash — contrôle des créneaux
+
+# 8 h 45, 13 h 45, 17 h 45 (heure d'Algérie, UTC+1) : si aucun flash n'a été
+# publié depuis le début du créneau (7 h, 12 h, 16 h), prévient sur le téléphone
+# (le PC était sans doute éteint ou en veille, ou le flash est encore en cours).
+on:
+  schedule:
+    - cron: "45 7,12,16 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  controle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Flash publié pour ce créneau ?
+        env:
+          CANAL: ${{ secrets.NTFY_TOPIC }}
+        run: |
+          python3 - <<'EOF'
+          import json, os, urllib.request
+          from datetime import datetime, timezone, timedelta
+          maintenant = datetime.now(timezone.utc)
+          debut = maintenant - timedelta(hours=1, minutes=45)  # début du créneau (7 h / 12 h / 16 h)
+          creneau = (maintenant + timedelta(hours=1) - timedelta(hours=1, minutes=45)).hour
+          try:
+              liste = json.load(open("data/flash-latest.json", encoding="utf-8"))
+          except Exception:
+              liste = []
+          def date(e):
+              try:
+                  return datetime.fromisoformat(e["publishedAt"].replace("Z", "+00:00"))
+              except Exception:
+                  return datetime.min.replace(tzinfo=timezone.utc)
+          recents = [e for e in liste if date(e) >= debut]
+          if recents:
+              print("Flash publié :", recents[0].get("titre"))
+          else:
+              msg = (f"Aucun flash publié depuis {creneau} h. Si tu n'as reçu aucun autre message, "
+                     "le PC était éteint ou en veille (débranché ou capot fermé sur batterie). "
+                     "Sinon, un message « en retard » t'a déjà donné la raison.")
+              print(msg)
+              req = urllib.request.Request(f"https://ntfy.sh/{os.environ['CANAL']}", data=msg.encode("utf-8"),
+                                           headers={"Title": f"⚠️ Pas de flash de {creneau} h".encode("utf-8"),
+                                                    "Tags": "warning"})
+              urllib.request.urlopen(req, timeout=20)
+          EOF

@@ -52,7 +52,12 @@ jobs:
           DUREE: ${{ inputs.duree }}
           LANGUE: ${{ inputs.lang }}
           CREE: ${{ inputs.cree }}
+          CANAL: ${{ secrets.NTFY_TOPIC }}
         run: |
+          # notification sur le téléphone (appli ntfy) — Python pour un UTF-8 fiable
+          notifier() {
+            python3 -c 'import os,sys,urllib.request as u; h={"Title":sys.argv[1].encode(),"Tags":sys.argv[3]}; h.update({"Click":sys.argv[4]} if len(sys.argv)>4 and sys.argv[4] else {}); u.urlopen(u.Request("https://ntfy.sh/"+os.environ["CANAL"],data=sys.argv[2].encode(),headers=h),timeout=20)' "$@" || true
+          }
           # la vidéo doit être en ligne avant d'être annoncée dans le widget
           url="https://bastaps.github.io/algeria-tech-videos/flash/$ID.mp4"
           for i in $(seq 1 30); do
@@ -61,7 +66,9 @@ jobs:
             sleep 10
           done
           if [ "$code" != "206" ] && [ "$code" != "200" ]; then
-            echo "Vidéo introuvable ($code) : flash non publié, le précédent reste en ligne."; exit 1
+            echo "Vidéo introuvable ($code) : flash non publié, le précédent reste en ligne."
+            notifier "❌ Flash non publié" "La vidéo « $TITRE » n'est pas accessible en ligne. Le flash précédent reste sur le site." x
+            exit 1
           fi
           python3 - <<'EOF'
           import json, os, sys
@@ -108,7 +115,14 @@ jobs:
           git config user.email "actions@github.com"
           git add data/flash-latest.json
           git commit -m "Auto: vrai flash publié [$(date -u +%H:%M) UTC]" || exit 0
+          ok=non
           for i in 1 2 3; do
-            git pull --rebase -q origin main && git push -q origin HEAD:main && break
+            git pull --rebase -q origin main && git push -q origin HEAD:main && ok=oui && break
             sleep 5
           done
+          if [ "$ok" = oui ]; then
+            notifier "✅ Flash publié" "« $TITRE » (${DUREE} s) — en ligne sur algeria-tech.pages.dev d'ici 3 à 5 min. Touchez pour voir la vidéo." white_check_mark "$url"
+          else
+            notifier "❌ Flash non publié" "« $TITRE » : échec d'enregistrement sur GitHub. Le flash précédent reste en ligne." x
+            exit 1
+          fi
