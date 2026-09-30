@@ -67,7 +67,7 @@ def creneau(n: datetime = None) -> str:
     return "matin" if n.hour < 12 else ("apres-midi" if n.hour < 17 else "soir")
 
 
-BIBLIOTHEQUE = Path(os.environ.get("RACHID_BIBLIOTHEQUE") or (X.RACINE / "assets" / "rachid"))
+BIBLIOTHEQUE = Path(os.environ.get("RACHID_BIBLIOTHEQUE") or (X.RACINE / "assets" / "rachid")).resolve()
 
 
 def choisir_rachid(genre: str, n: datetime = None) -> Path:
