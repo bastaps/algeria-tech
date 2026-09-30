@@ -114,6 +114,18 @@ INFOS :
 {infos}"""
 
 
+MOTS_FR = {"le", "la", "les", "de", "des", "du", "un", "une", "et", "en", "pour", "est", "sont", "que", "qui", "dans",
+           "sur", "au", "aux", "par", "avec", "son", "sa", "ses", "ce", "cette", "a"}
+MOTS_EN = {"the", "of", "and", "to", "is", "are", "with", "for", "its", "that", "has", "have", "from", "this"}
+
+
+def est_francais(texte: str) -> bool:
+    """Garde-fou : certains modèles gratuits répondent dans la langue de l'article."""
+    mots = re.findall(r"[a-zà-ÿ']+", texte.lower())
+    fr, en = sum(m in MOTS_FR for m in mots), sum(m in MOTS_EN for m in mots)
+    return fr >= 3 and fr > 2 * en
+
+
 def rediger_sujets(sujets: list):
     blocs = [f"{i}. [{a['source']}] {a['title']}\n{(a.get('corps') or a.get('summary') or '')[:1200]}"
              for i, a in enumerate(sujets, 1)]
@@ -124,7 +136,8 @@ def rediger_sujets(sujets: list):
     out = []
     for s in liste[:len(sujets)]:
         texte = " ".join(str(s.get("texte", "")).split())
-        if len(texte.split()) < 8:
+        if len(texte.split()) < 8 or not est_francais(texte + " " + str(s.get("titre", ""))):
+            X.journal("texte refusé (trop court ou pas en français) : " + texte[:60])
             return None
         chiffre = s.get("chiffre") if isinstance(s.get("chiffre"), dict) else None
         if chiffre and str(chiffre.get("valeur", "")).strip() not in texte:
@@ -289,7 +302,7 @@ def produire(intro: Path, outro: Path, dossier: Path, n_max: int = 3, historique
     with tempfile.TemporaryDirectory() as t:
         tmp = Path(t)
         reds = None
-        for _ in range(2):
+        for _ in range(3):
             reds = rediger_sujets(sujets)
             if reds:
                 break
