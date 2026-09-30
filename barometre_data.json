@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-30T11:39:54.886Z",
+  "generated": "2026-09-30T12:13:11.828Z",
   "mode": "monthly",
   "period": "2026-09",
   "period_label": "Septembre 2026",
@@ -14,10 +14,10 @@
     {
       "key": "Intelligence Artificielle",
       "emoji": "🤖",
-      "count": 102,
+      "count": 105,
       "prev_count": 102,
-      "trend": 0,
-      "trend_pct": 0
+      "trend": 3,
+      "trend_pct": 3
     },
     {
       "key": "Operateurs & Telecom",
@@ -38,10 +38,10 @@
     {
       "key": "Cybersecurite",
       "emoji": "🔒",
-      "count": 18,
+      "count": 17,
       "prev_count": 18,
-      "trend": 0,
-      "trend_pct": 0
+      "trend": -1,
+      "trend_pct": -6
     },
     {
       "key": "Startups & Innovation",
@@ -54,10 +54,10 @@
     {
       "key": "Cloud & Data Center",
       "emoji": "☁️",
-      "count": 15,
+      "count": 14,
       "prev_count": 15,
-      "trend": 0,
-      "trend_pct": 0
+      "trend": -1,
+      "trend_pct": -7
     },
     {
       "key": "E-commerce & Paiement",
@@ -93,10 +93,10 @@
     }
   ],
   "sentiment": {
-    "positive": 91,
-    "negative": 32,
-    "neutral": 339,
-    "positive_pct": 20,
+    "positive": 90,
+    "negative": 34,
+    "neutral": 338,
+    "positive_pct": 19,
     "negative_pct": 7,
     "neutral_pct": 73
   },
@@ -114,17 +114,17 @@
       "count": 57
     },
     {
-      "source": "Wired",
-      "count": 47
+      "source": "ZDNet FR",
+      "count": 49
     },
     {
-      "source": "ZDNet FR",
-      "count": 46
+      "source": "Wired",
+      "count": 44
     }
   ],
   "highlights": [
-    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 102 occurrences dans les publications.",
-    "Sentiment equilibre ce mois : 20% positif, 7% negatif sur 462 publications."
+    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 105 occurrences dans les publications.",
+    "Sentiment equilibre ce mois : 19% positif, 7% negatif sur 462 publications."
   ],
   "previous_period": {
     "period": "2026-09",
