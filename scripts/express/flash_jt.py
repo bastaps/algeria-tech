@@ -119,6 +119,13 @@ MOTS_FR = {"le", "la", "les", "de", "des", "du", "un", "une", "et", "en", "pour"
 MOTS_EN = {"the", "of", "and", "to", "is", "are", "with", "for", "its", "that", "has", "have", "from", "this"}
 
 
+def couper_titre(t: str, n: int = 50) -> str:
+    """Titre court sans couper un mot."""
+    if len(t) <= n:
+        return t.strip()
+    return t[:n].rsplit(" ", 1)[0].strip(" ,;:-")
+
+
 def est_francais(texte: str) -> bool:
     """Garde-fou : certains modèles gratuits répondent dans la langue de l'article."""
     mots = re.findall(r"[a-zà-ÿ']+", texte.lower())
@@ -142,7 +149,7 @@ def rediger_sujets(sujets: list):
         chiffre = s.get("chiffre") if isinstance(s.get("chiffre"), dict) else None
         if chiffre and str(chiffre.get("valeur", "")).strip() not in texte:
             chiffre = None
-        out.append({"titre": " ".join(str(s.get("titre", "")).split()).rstrip(".")[:48], "texte": texte,
+        out.append({"titre": couper_titre(" ".join(str(s.get("titre", "")).split()).rstrip(".")), "texte": texte,
                     "videos": [str(q) for q in (s.get("videos") or []) if str(q).strip()][:4],
                     "chiffre": chiffre})
     return out
