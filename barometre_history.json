@@ -207,52 +207,52 @@
     {
       "period": "2026-10",
       "period_label": "Octobre 2026",
-      "generated": "2026-10-01T12:15:10.745Z",
+      "generated": "2026-10-01T14:18:44.953Z",
       "articles_total": 462,
       "topics": [
         {
           "key": "Intelligence Artificielle",
-          "count": 110
+          "count": 106
         },
         {
           "key": "Operateurs & Telecom",
-          "count": 45
+          "count": 46
         },
         {
           "key": "Cybersecurite",
-          "count": 21
+          "count": 20
         },
         {
           "key": "5G & Reseaux Mobiles",
           "count": 18
         },
         {
+          "key": "Startups & Innovation",
+          "count": 13
+        },
+        {
           "key": "Formation & Emploi TIC",
           "count": 13
         },
         {
-          "key": "Startups & Innovation",
-          "count": 12
-        },
-        {
           "key": "Cloud & Data Center",
-          "count": 10
+          "count": 8
         },
         {
           "key": "E-commerce & Paiement",
           "count": 6
         },
         {
-          "key": "Regulation & Politique",
+          "key": "Satellite & Spatial",
           "count": 6
         },
         {
-          "key": "Satellite & Spatial",
+          "key": "Regulation & Politique",
           "count": 5
         }
       ],
-      "sentiment_pos_pct": 20,
-      "sentiment_neg_pct": 8,
+      "sentiment_pos_pct": 19,
+      "sentiment_neg_pct": 7,
       "top_topic": "Intelligence Artificielle"
     }
   ]
