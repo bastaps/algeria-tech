@@ -1,40 +1,7 @@
 {
   "date": "samedi 3 octobre",
-  "synthese": "Les rédactions technologiques rapportent ce jour diverses évolutions concernant l'intelligence artificielle, les infrastructures de calcul et les équipements mobiles. Les autorités et industriels formalisent de nouveaux partenariats et mesures de sécurité à travers le monde.",
+  "synthese": "Les acteurs mondiaux de la technologie intensifient le déploiement d'infrastructures de calcul, d'outils d'intelligence artificielle et de solutions de mobilité électrique. Les régulateurs et les industriels renforcent parallèlement les protocoles de cybersécurité et de certification médicale pour encadrer ces innovations.",
   "articles": [
-    {
-      "titre": "Sécurité des PME/PMI face à l’IA <BR> Entre opportunités et nouveaux risques numériques",
-      "resume": "Une récente étude met en garde contre les dangers d’une intégration non encadrée de l’intelligence artificielle en entreprise, soulignant la vulnérabi",
-      "url": "https://www.itmag.dz/2026/10/02/securite-des-pme-pmi-face-a-lia-br-entre-opportunites-et-nouveaux-risques-numeriques/",
-      "date": "2026-10-02T17:21:00.000Z",
-      "source": "ITMAG.dz",
-      "logo": "https://www.google.com/s2/favicons?domain=itmag.dz&sz=32",
-      "pays": "DZ",
-      "accroche": "Sécurité des PME et PMI face aux nouveaux risques liés à l'IA",
-      "categorie": "Cybersécurité"
-    },
-    {
-      "titre": "L’axe Alger-MIT s’active pour valoriser les terres rares de l’Ahaggar <BR> Une alliance stratégique entre la diaspora et l’université locale",
-      "resume": "Fruit quasi immédiat de la mobilisation de la diaspora scientifique, cette réunion au sommet entre le ministère, l’USTHB et des chercheurs de renom qu",
-      "url": "https://www.itmag.dz/2026/10/02/laxe-alger-mit-sactive-pour-valoriser-les-terres-rares-de-lahaggar-br-une-alliance-strategique-entre-la-diaspora-et-luniversite-locale/",
-      "date": "2026-10-02T12:02:45.000Z",
-      "source": "ITMAG.dz",
-      "logo": "https://www.google.com/s2/favicons?domain=itmag.dz&sz=32",
-      "pays": "DZ",
-      "accroche": "Partenariat stratégique Alger-MIT pour la valorisation des terres rares de l’Ahaggar",
-      "categorie": "Innovation"
-    },
-    {
-      "titre": "L’intelligence artificielle devient le nouveau champ de bataille sur les smartphones",
-      "resume": "feed\n\nApple, Samsung, Google et Qualcomm développent désormais des fonctions d’intelligence artificielle capables de comprendre davantage le contexte",
-      "url": "https://www.ntic-dz.com/lintelligence-artificielle-devient-le-nouveau-champ-de-bataille-sur-les-smartphones/?utm_source=rss&utm_medium=rss&utm_campaign=lintelligence-artificielle-devient-le-nouveau-champ-de-bataille-sur-les-smartphones",
-      "date": "2026-10-02T09:47:20.000Z",
-      "source": "NTIC.dz",
-      "logo": "https://www.google.com/s2/favicons?domain=ntic-dz.com&sz=32",
-      "pays": "DZ",
-      "accroche": "Intégration de l'intelligence artificielle dans les nouveaux smartphones",
-      "categorie": "Mobile"
-    },
     {
       "titre": "Supercalculateurs : Bull double sa production à Angers",
       "resume": "Bull double sa capacité de production à Angers pour répondre à la demande en supercalculateurs et infrastructures IA.\nThe post Supercalculateurs : Bul",
@@ -43,8 +10,19 @@
       "source": "Silicon.fr",
       "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
       "pays": "FR",
-      "accroche": "Doublement de la production de supercalculateurs par Bull à Angers",
-      "categorie": "Innovation"
+      "accroche": "Doublon de la production de supercalculateurs par Bull à Angers pour répondre à la demande industrielle.",
+      "categorie": "Telecoms"
+    },
+    {
+      "titre": "Qu’est-ce que Jev, la nouvelle marotte des concepteurs de modèles d’IA ?",
+      "resume": "OpenAI et AWS, entre autres, viennent de répliquer au lancement de Jev, modèle à mi-chemin entre LLM et classifieur.\nThe post Qu’est-ce que Jev, la no",
+      "url": "https://www.silicon.fr/data-ia-1372/jev-labos-ia-229476",
+      "date": "2026-10-02T10:05:40.000Z",
+      "source": "Silicon.fr",
+      "logo": "https://www.google.com/s2/favicons?domain=silicon.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Émergence de la métrique Jev chez les concepteurs de modèles d'intelligence artificielle pour optimiser l'apprentissage.",
+      "categorie": "IA"
     },
     {
       "titre": "Android pratique : activez ces 4 paramètres pour protéger d'avantage Google Wallet",
@@ -54,8 +32,30 @@
       "source": "ZDNet France",
       "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
       "pays": "FR",
-      "accroche": "Quatre paramètres de sécurité à activer pour protéger Google Wallet sur Android",
-      "categorie": "Mobile"
+      "accroche": "Sécurisation de l'application Google Wallet sur Android via l'activation de quatre nouveaux paramètres de protection.",
+      "categorie": "Cybersécurité"
+    },
+    {
+      "titre": "Francis Lelong, cofondateur de Sarenza et CEO d'Alegria : « OpenAI annonce une IA égale à l’humain sans en apporter la preuve »",
+      "resume": "Contrat financier réécrit, scores à géométrie variable, tests conçus par le vendeur lui-même : Francis Lelong, cofondateur de Sarenza et CEO d'Alegria",
+      "url": "https://www.zdnet.fr/tribune/francis-lelong-cofondateur-de-sarenza-et-ceo-dalegria-openai-annonce-une-ia-egale-a-lhumain-sans-en-apporter-la-preuve-504978.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-10-02T14:30:48.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Annonce par OpenAI du développement imminent d'une intelligence artificielle équivalente aux capacités cognitives humaines.",
+      "categorie": "IA"
+    },
+    {
+      "titre": "L’IA au travail rime très souvent avec plus de travail",
+      "resume": "73% des salariés français utilisent l’IA dans leur activité professionnelle et 75% témoignent de gains de productivité. Toutefois, 71% précisent que l",
+      "url": "https://www.zdnet.fr/actualites/lia-au-travail-rime-tres-souvent-avec-plus-de-travail-505026.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "date": "2026-10-02T11:14:04.000Z",
+      "source": "ZDNet France",
+      "logo": "https://www.google.com/s2/favicons?domain=zdnet.fr&sz=32",
+      "pays": "FR",
+      "accroche": "Augmentation de la charge de travail des salariés suite à l'intégration des outils d'intelligence artificielle.",
+      "categorie": "IA"
     },
     {
       "titre": "Cybersécurité : Anthropic accuse le modèle chinois GLM-5.3 d’être dangereux pour protéger son business model et empêcher la compétition",
@@ -65,19 +65,19 @@
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Accusations d'Anthropic contre le modèle chinois GLM-5.3 en cybersécurité",
+      "accroche": "Accusation par l'entreprise Anthropic concernant la dangerosité du modèle d'intelligence artificielle chinois GLM-5.3.",
       "categorie": "Cybersécurité"
     },
     {
-      "titre": "« L’humain doit garder le contrôle » : Thales renforce son offre de cybersécurité face aux agents IA et aux attaques automatisées",
+      "titre": "Manipulation d’échantillons, utilisation d’instruments… Avec sa main robotique, Honda veut simplifier la recherche dans les stations spatiales commerciales",
       "resume": "",
-      "url": "https://www.usine-digitale.fr/cybersecurite/lhumain-doit-garder-le-controle-thales-renforce-son-offre-de-cybersecurite-face-aux-agents-ia-et-aux-attaques-automatisees.7XJMG47Z65AFVCLJGDG6J4VGYI.html",
-      "date": "2026-10-02T09:45:49.000Z",
+      "url": "https://www.usine-digitale.fr/intelligence-artificielle/robotique/manipulation-dechantillons-utilisation-dinstruments-avec-sa-main-robotique-honda-veut-simplifier-la-recherche-sur-la-station-spatiale-internationale.DLM3RPLMVNGG3FPZCVD4GI2WII.html",
+      "date": "2026-10-02T12:30:44.000Z",
       "source": "Usine Digitale",
       "logo": "https://www.google.com/s2/favicons?domain=usine-digitale.fr&sz=32",
       "pays": "FR",
-      "accroche": "Thales renforce son offre de cybersécurité face aux agents IA",
-      "categorie": "Cybersécurité"
+      "accroche": "Présentation par Honda d'une main robotique destinée à la manipulation d'échantillons et d'instruments de laboratoire.",
+      "categorie": "Innovation"
     },
     {
       "titre": "Deux fois moins cher qu’un Tesla Model Y : Volkswagen lance un SUV électrique à 17 200 € en Chine, l’ID. Aura T6",
@@ -87,29 +87,29 @@
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Lancement d'un SUV électrique par Volkswagen sur le marché chinois",
+      "accroche": "Lancement par Volkswagen d'un SUV électrique à 17 200 euros sur le marché automobile chinois.",
       "categorie": "Innovation"
     },
     {
-      "titre": "Accès complet au disque sur Mac : Apple ne veut plus d’agents IA qui lisent tout sans prévenir",
-      "resume": "Apple a annoncé ce vendredi 2 octobre de nouveaux contrôles sur l'accès complet au disque de macOS, en citant les agents IA comme principal danger. L'",
-      "url": "https://www.frandroid.com/os/macos/3271541_acces-complet-au-disque-sur-mac-apple-ne-veut-plus-dagents-ia-qui-lisent-tout-sans-prevenir",
-      "date": "2026-10-03T07:36:01.000Z",
+      "titre": "La Citroën 2CV électrique à 15 000 € arrive : voici les premières images du concept présenté à Paris",
+      "resume": "La Citroën 2CV revient sous la forme d'une voiture électrique à 15 000 € en 2028. Pour nous faire patienter, Citroën présentera un concept-car au Mond",
+      "url": "https://www.frandroid.com/marques/citroen/3271567_la-citroen-2cv-electrique-a-15-000-e-arrive-voici-les-premieres-images-du-concept-presente-a-paris",
+      "date": "2026-10-03T08:54:00.000Z",
       "source": "Frandroid",
       "logo": "https://www.google.com/s2/favicons?domain=frandroid.com&sz=32",
       "pays": "FR",
-      "accroche": "Nouvelles restrictions d'Apple sur l'accès complet au disque pour les agents IA sur Mac",
-      "categorie": "Sécurité"
+      "accroche": "Présentation à Paris du concept-car de la Citroën 2CV électrique commercialisée au tarif de 15 000 euros.",
+      "categorie": "Innovation"
     },
     {
-      "titre": "Abandon de l’EQE aux États-Unis ? Mercedes prépare juste l’arrivée de son successeur",
-      "resume": "Le retrait de la berline EQE du marché américain était un bon indice pour se pencher sur l’avenir de ce modèle. Alors que les ventes du modèle s’effon",
-      "url": "https://www.numerama.com/vroom/2346131-abandon-de-leqe-aux-etats-unis-mercedes-prepare-juste-larrivee-de-son-successeur.html",
-      "date": "2026-10-03T08:52:01.000Z",
-      "source": "Numerama",
-      "logo": "https://www.google.com/s2/favicons?domain=numerama.com&sz=32",
+      "titre": "Zendure SolarFlow 800 Plus : il récupère le surplus d’électricité solaire et il est en grosse promo",
+      "resume": "Le Zendure SolarFlow 800 Plus est un système de stockage solaire qui permet de conserver l’électricité produite par vos panneaux pour la réutiliser pl",
+      "url": "https://www.01net.com/bons-plans/zendure-solarflow-800-plus-il-recupere-le-surplus-delectricite-solaire-et-il-est-en-grosse-promo.html",
+      "date": "2026-10-03T08:50:48.000Z",
+      "source": "01net",
+      "logo": "https://www.google.com/s2/favicons?domain=01net.com&sz=32",
       "pays": "FR",
-      "accroche": "Préparation du successeur de la Mercedes EQE aux États-Unis",
+      "accroche": "Commercialisation du système de stockage d'énergie solaire Zendure SolarFlow 800 Plus avec réduction tarifaire.",
       "categorie": "Innovation"
     },
     {
@@ -120,7 +120,7 @@
       "source": "L'Usine Nouvelle",
       "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
       "pays": "FR",
-      "accroche": "Marquage CE obtenu par la biotech ALS pour son dispositif de réduction des lésions",
+      "accroche": "Obtention du marquage CE par la biotech ALS pour son dispositif de réduction des lésions silencieuses.",
       "categorie": "Innovation"
     },
     {
@@ -131,21 +131,21 @@
       "source": "L'Usine Nouvelle",
       "logo": "https://www.google.com/s2/favicons?domain=usinenouvelle.com&sz=32",
       "pays": "FR",
-      "accroche": "Présentation des capacités de forage du nouveau rover par Thales Alenia Space à Cannes",
+      "accroche": "Finalisation par Thales Alenia Space à Cannes du premier rover de forage pour l'exploration spatiale.",
       "categorie": "Innovation"
     }
   ],
   "syntheseArticle": {
-    "titre": "Actualités technologiques mondiales : avancées en IA, cybersécurité et équipements industriels",
+    "titre": "ACCÉLÉRATION DES INVESTISSEMENTS DANS L'INTELLIGENCE ARTIFICIELLE, LA ROBOTIQUE ET LA MOBILITÉ ÉLECTRIQUE",
     "dateline": "Alger, 3 octobre 2026 (Algeria Tech)",
-    "lead": "Les acteurs technologiques mondiaux et nationaux multiplient les initiatives en matière de cybersécurité, d'intelligence artificielle et de développement industriel, selon les dernières publications spécialisées.",
+    "lead": "Les multinationales de la technologie déploient de nouvelles infrastructures de calcul et des solutions de mobilité électrique sur les marchés mondiaux ce week-end afin de répondre à la demande industrielle croissante.",
     "corpsHtml": [
-      "<p>Dans le domaine de la sécurité numérique, <a href=\"https://www.itmag.dz/2026/10/02/securite-des-pme-pmi-face-a-lia-br-entre-opportunites-et-nouveaux-risques-numeriques/\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ITMAG.dz</a> indique que les PME et PMI doivent faire face à de nouveaux risques informatiques liés à l'intégration de l'intelligence artificielle. Dans le même temps, la même source rapporte qu'une alliance stratégique est en cours entre Alger et le MIT afin de valoriser les terres rares de l'Ahaggar.</p>",
-      "<p>Sur le plan des infrastructures et de la haute technologie, <a href=\"https://www.silicon.fr/business-1367/supercalculateurs-bull-double-sa-production-a-angers-229486\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a> annonce que l'industriel Bull double sa production de supercalculateurs sur son site d'Angers. Parallèlement, <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/cybersecurite-anthropic-accuse-le-modele-chinois-glm-53-detre-dangereux-pour-proteger-son-business-model-et-empecher-la-competition.L5CPMKLMZVGO5IPPDTOG2K32MI.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> relève que la société Thales renforce son offre de cybersécurité face aux nouveaux agents IA, tandis que la même source mentionne les accusations d'Anthropic visant le modèle chinois GLM-5.3.</p>",
-      "<p>Concernant les terminaux mobiles et les systèmes d'exploitation, <a href=\"https://www.ntic-dz.com/lintelligence-artificielle-devient-le-nouveau-champ-de-bataille-sur-les-smartphones/?utm_source=rss&utm_medium=rss&utm_campaign=lintelligence-artificielle-devient-le-nouveau-champ-de-bataille-sur-les-smartphones\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">NTIC.dz</a> souligne que l'intelligence artificielle s'impose comme le nouveau terrain de compétition sur les smartphones. De son côté, <a href=\"https://www.zdnet.fr/pratique/android-pratique-activez-ces-4-parametres-pour-proteger-davantage-google-wallet-504995.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> détaille quatre paramètres de sécurité indispensables pour protéger l'application Google Wallet sous Android, et <a href=\"https://www.frandroid.com/marques/volkswagen/3271531_deux-fois-moins-cher-quun-tesla-model-y-volkswagen-lance-un-suv-electrique-a-17-200-e-en-chine-lid-aura-t6\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> précise qu'Apple restreint l'accès complet au disque pour les agents IA sur les ordinateurs Mac.</p>",
-      "<p>Dans le secteur de l'automobile et de l'industrie, <a href=\"https://www.frandroid.com/os/macos/3271541_acces-complet-au-disque-sur-mac-apple-ne-veut-plus-dagents-ia-qui-lisent-tout-sans-prevenir\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a> fait état du lancement par Volkswagen d'un nouveau SUV électrique en Chine. <a href=\"https://www.numerama.com/vroom/2346131-abandon-de-leqe-aux-etats-unis-mercedes-prepare-juste-larrivee-de-son-successeur.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Numerama</a> précise de son côté que Mercedes prépare l'arrivée du successeur de l'EQE sur le marché américain. Enfin, <a href=\"https://www.usinenouvelle.com/sante-pharma/pharma/biotechs-pharma/il-doit-reduire-les-risques-de-lesions-silencieuses-la-biotech-als-obtient-le-marquage-ce-pour-son-liquide-de-greffe.64OBHLLVO5N4VNXFAWPUCU53MA.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a> annonce que la biotech ALS a obtenu le marquage CE pour son dispositif médical, et que Thales Alenia Space a présenté à Cannes les spécifications de son nouveau rover d'exploration planétaire.</p>"
+      "<p>Dans le domaine des infrastructures de calcul, l'entreprise Bull a doublé ses capacités de production de supercalculateurs sur son site d'Angers, selon <a href=\"https://www.silicon.fr/business-1367/supercalculateurs-bull-double-sa-production-a-angers-229486\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a>, afin de répondre aux besoins croissants des centres de données. Cette expansion industrielle coïncide avec l'émergence de la métrique Jev, signalée par <a href=\"https://www.silicon.fr/data-ia-1372/jev-labos-ia-229476\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Silicon.fr</a> comme le nouvel outil d'évaluation privilégié par les concepteurs de modèles d'intelligence artificielle. Par ailleurs, le débat sur l'évolution de ces technologies s'intensifie après l'annonce par OpenAI d'une prochaine génération d'IA équivalente aux capacités humaines, d'après les déclarations rapportées par <a href=\"https://www.zdnet.fr/pratique/android-pratique-activez-ces-4-parametres-pour-proteger-davantage-google-wallet-504995.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a>.</p>",
+      "<p>L'intégration de ces technologies transforme directement l'organisation du travail. Une étude publiée par <a href=\"https://www.zdnet.fr/tribune/francis-lelong-cofondateur-de-sarenza-et-ceo-dalegria-openai-annonce-une-ia-egale-a-lhumain-sans-en-apporter-la-preuve-504978.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> révèle que l'usage de l'intelligence artificielle en entreprise se traduit fréquemment par un accroissement de la charge de travail des salariés. Sur le plan de la sécurité, les tensions géopolitiques s'accentuent, <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/cybersecurite-anthropic-accuse-le-modele-chinois-glm-53-detre-dangereux-pour-proteger-son-business-model-et-empecher-la-competition.L5CPMKLMZVGO5IPPDTOG2K32MI.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a> rapportant qu'Anthropic accuse le modèle chinois GLM-5.3 de présenter des risques de sécurité majeurs. En matière de protection individuelle, <a href=\"https://www.zdnet.fr/actualites/lia-au-travail-rime-tres-souvent-avec-plus-de-travail-505026.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">ZDNet France</a> recommande l'activation de quatre paramètres spécifiques pour sécuriser l'application de paiement Google Wallet sur le système Android.</p>",
+      "<p>Les innovations physiques progressent également avec la présentation par Honda d'une main robotique polyvalente capable de manipuler des échantillons de laboratoire, d'après <a href=\"https://www.usine-digitale.fr/intelligence-artificielle/robotique/manipulation-dechantillons-utilisation-dinstruments-avec-sa-main-robotique-honda-veut-simplifier-la-recherche-sur-la-station-spatiale-internationale.DLM3RPLMVNGG3FPZCVD4GI2WII.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Usine Digitale</a>. Dans le secteur spatial, Thales Alenia Space finalise à Cannes la construction du premier rover équipé d'un système de forage pour l'exploration planétaire, selon <a href=\"https://www.usinenouvelle.com/sante-pharma/pharma/biotechs-pharma/il-doit-reduire-les-risques-de-lesions-silencieuses-la-biotech-als-obtient-le-marquage-ce-pour-son-liquide-de-greffe.64OBHLLVO5N4VNXFAWPUCU53MA.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a>. Parallèlement, le secteur médical enregistre une avancée réglementaire majeure avec l'obtention du marquage CE par la biotech ALS pour son dispositif de réduction des lésions silencieuses, comme le confirme <a href=\"https://www.usinenouvelle.com/aero-spatial/spatial/thales-alenia-space/le-rover-sera-le-premier-a-forer-la-planete-pour-en-extraire-des-echantillons-a-cannes-thales-alenia-space-prepare-lexploration-de-mars.QIKZUNUHO5LMJEHYQFAMSGXE64.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">L'Usine Nouvelle</a>.</p>",
+      "<p>Enfin, la transition énergétique et la mobilité électrique connaissent des développements tarifaires significatifs. Selon <a href=\"https://www.frandroid.com/marques/volkswagen/3271531_deux-fois-moins-cher-quun-tesla-model-y-volkswagen-lance-un-suv-electrique-a-17-200-e-en-chine-lid-aura-t6\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>, Volkswagen a lancé un SUV électrique proposé au prix de 17 200 euros sur le marché chinois, tandis que Citroën a dévoilé à Paris son concept de 2CV électrique à 15 000 euros, d'après <a href=\"https://www.frandroid.com/marques/citroen/3271567_la-citroen-2cv-electrique-a-15-000-e-arrive-voici-les-premieres-images-du-concept-presente-a-paris\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">Frandroid</a>. Pour optimiser la consommation énergétique domestique, le constructeur Zendure propose son système de récupération d'énergie solaire SolarFlow 800 Plus à tarif réduit, d'après les informations de <a href=\"https://www.01net.com/bons-plans/zendure-solarflow-800-plus-il-recupere-le-surplus-delectricite-solaire-et-il-est-en-grosse-promo.html\" target=\"_blank\" rel=\"noopener\" class=\"revue-article-source-link\">01net</a>.</p>"
     ]
   },
-  "lastUpdated": "2026-10-03T09:27:57.077Z",
+  "lastUpdated": "2026-10-03T09:50:19.675Z",
   "engine": "Gemini"
 }
