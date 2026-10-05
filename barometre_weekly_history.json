@@ -1,57 +1,6 @@
 {
   "months": [
     {
-      "period": "2026-W32",
-      "period_label": "Semaine du 3 au 9 Août 2026",
-      "generated": "2026-08-03T09:38:51.013Z",
-      "articles_total": 310,
-      "topics": [
-        {
-          "key": "Intelligence Artificielle",
-          "count": 57
-        },
-        {
-          "key": "Cybersecurite",
-          "count": 8
-        },
-        {
-          "key": "Operateurs & Telecom",
-          "count": 8
-        },
-        {
-          "key": "Cloud & Data Center",
-          "count": 8
-        },
-        {
-          "key": "Startups & Innovation",
-          "count": 7
-        },
-        {
-          "key": "5G & Reseaux Mobiles",
-          "count": 6
-        },
-        {
-          "key": "Regulation & Politique",
-          "count": 6
-        },
-        {
-          "key": "Formation & Emploi TIC",
-          "count": 6
-        },
-        {
-          "key": "Satellite & Spatial",
-          "count": 3
-        },
-        {
-          "key": "E-commerce & Paiement",
-          "count": 1
-        }
-      ],
-      "sentiment_pos_pct": 15,
-      "sentiment_neg_pct": 9,
-      "top_topic": "Intelligence Artificielle"
-    },
-    {
       "period": "2026-W34",
       "period_label": "Semaine du 17 au 23 Août 2026",
       "generated": "2026-08-17T06:48:50.876Z",
@@ -405,6 +354,57 @@
         }
       ],
       "sentiment_pos_pct": 21,
+      "sentiment_neg_pct": 7,
+      "top_topic": "Intelligence Artificielle"
+    },
+    {
+      "period": "2026-W41",
+      "period_label": "Semaine du 5 au 11 Octobre 2026",
+      "generated": "2026-10-05T14:17:14.271Z",
+      "articles_total": 436,
+      "topics": [
+        {
+          "key": "Intelligence Artificielle",
+          "count": 117
+        },
+        {
+          "key": "Operateurs & Telecom",
+          "count": 37
+        },
+        {
+          "key": "5G & Reseaux Mobiles",
+          "count": 28
+        },
+        {
+          "key": "Startups & Innovation",
+          "count": 25
+        },
+        {
+          "key": "Cybersecurite",
+          "count": 21
+        },
+        {
+          "key": "Cloud & Data Center",
+          "count": 14
+        },
+        {
+          "key": "Formation & Emploi TIC",
+          "count": 12
+        },
+        {
+          "key": "Satellite & Spatial",
+          "count": 6
+        },
+        {
+          "key": "E-commerce & Paiement",
+          "count": 3
+        },
+        {
+          "key": "Regulation & Politique",
+          "count": 3
+        }
+      ],
+      "sentiment_pos_pct": 22,
       "sentiment_neg_pct": 7,
       "top_topic": "Intelligence Artificielle"
     }
