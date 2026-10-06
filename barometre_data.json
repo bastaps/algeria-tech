@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-05T15:39:36.347Z",
+  "generated": "2026-10-06T14:00:42.631Z",
   "mode": "monthly",
   "period": "2026-10",
   "period_label": "Octobre 2026",
@@ -8,114 +8,114 @@
     "veille_articles": 150,
     "social_posts": 300,
     "presse_articles": 12,
-    "sources_count": 35
+    "sources_count": 36
   },
   "top_topics": [
     {
       "key": "Intelligence Artificielle",
       "emoji": "🤖",
-      "count": 123,
-      "prev_count": 107,
-      "trend": 16,
-      "trend_pct": 15
+      "count": 100,
+      "prev_count": 123,
+      "trend": -23,
+      "trend_pct": -19
     },
     {
       "key": "Operateurs & Telecom",
       "emoji": "📶",
-      "count": 45,
-      "prev_count": 47,
-      "trend": -2,
-      "trend_pct": -4
+      "count": 46,
+      "prev_count": 45,
+      "trend": 1,
+      "trend_pct": 2
     },
     {
       "key": "Startups & Innovation",
       "emoji": "🚀",
-      "count": 30,
-      "prev_count": 23,
-      "trend": 7,
-      "trend_pct": 30
+      "count": 23,
+      "prev_count": 30,
+      "trend": -7,
+      "trend_pct": -23
     },
     {
       "key": "5G & Reseaux Mobiles",
       "emoji": "📡",
-      "count": 26,
+      "count": 22,
       "prev_count": 26,
-      "trend": 0,
-      "trend_pct": 0
+      "trend": -4,
+      "trend_pct": -15
     },
     {
       "key": "Cybersecurite",
       "emoji": "🔒",
-      "count": 23,
+      "count": 18,
       "prev_count": 23,
-      "trend": 0,
-      "trend_pct": 0
+      "trend": -5,
+      "trend_pct": -22
     },
     {
       "key": "Cloud & Data Center",
       "emoji": "☁️",
-      "count": 16,
-      "prev_count": 12,
-      "trend": 4,
-      "trend_pct": 33
+      "count": 15,
+      "prev_count": 16,
+      "trend": -1,
+      "trend_pct": -6
     },
     {
       "key": "Formation & Emploi TIC",
       "emoji": "🎓",
-      "count": 12,
-      "prev_count": 13,
-      "trend": -1,
-      "trend_pct": -8
+      "count": 13,
+      "prev_count": 12,
+      "trend": 1,
+      "trend_pct": 8
     },
     {
       "key": "Satellite & Spatial",
       "emoji": "🛰️",
       "count": 5,
-      "prev_count": 8,
-      "trend": -3,
-      "trend_pct": -37
+      "prev_count": 5,
+      "trend": 0,
+      "trend_pct": 0
     },
     {
       "key": "E-commerce & Paiement",
       "emoji": "🛒",
       "count": 4,
-      "prev_count": 5,
-      "trend": -1,
-      "trend_pct": -20
+      "prev_count": 4,
+      "trend": 0,
+      "trend_pct": 0
     },
     {
       "key": "Regulation & Politique",
       "emoji": "⚖️",
       "count": 3,
-      "prev_count": 2,
-      "trend": 1,
-      "trend_pct": 50
+      "prev_count": 3,
+      "trend": 0,
+      "trend_pct": 0
     }
   ],
   "sentiment": {
-    "positive": 100,
-    "negative": 28,
-    "neutral": 334,
-    "positive_pct": 22,
+    "positive": 93,
+    "negative": 27,
+    "neutral": 342,
+    "positive_pct": 20,
     "negative_pct": 6,
-    "neutral_pct": 72
+    "neutral_pct": 74
   },
   "top_sources": [
     {
       "source": "TechCrunch",
-      "count": 92
+      "count": 89
+    },
+    {
+      "source": "Wired",
+      "count": 62
     },
     {
       "source": "ZDNet France",
       "count": 61
     },
     {
-      "source": "Wired",
-      "count": 52
-    },
-    {
       "source": "Algérie Éco",
-      "count": 50
+      "count": 49
     },
     {
       "source": "ZDNet FR",
@@ -123,10 +123,9 @@
     }
   ],
   "highlights": [
-    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 123 occurrences dans les publications.",
-    "\"Startups & Innovation\" en forte hausse : +30% par rapport a le mois precedent.",
-    "\"Satellite & Spatial\" en recul : -37% par rapport a le mois precedent.",
-    "Sentiment equilibre ce mois : 22% positif, 6% negatif sur 462 publications."
+    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 100 occurrences dans les publications.",
+    "\"Startups & Innovation\" en recul : -23% par rapport a le mois precedent.",
+    "Sentiment equilibre ce mois : 20% positif, 6% negatif sur 462 publications."
   ],
   "previous_period": {
     "period": "2026-10",
