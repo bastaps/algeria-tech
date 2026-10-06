@@ -1,6 +1,24 @@
 {
   "posts": [
     {
+      "id": "fb0f9ae8b9c0e2fb",
+      "source_name": "APS — Algérie Presse Service",
+      "source_short": "APS",
+      "source_color": "#006233",
+      "category": "Ministère",
+      "category_icon": "📡",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5MYnNCNU5UemU4NWJRTVpOdWxJU3g5ZDJWVjVLOUdxQlJhdHFfVXdsWWdlZ3p2b0stVzRIMTJNazM4QVc4eXdXU0RJM3JYQldiRzJV?oc=5",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 20:40:44 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "L'APS et Djezzy lancent le service «Daily Brief» via «SMS» et multi-canaux numériques - الإذاعة الجزائرية | — L'APS et Djezzy lancent le service «Daily Brief» via «SMS» et multi-canaux numériques الإذاعة الجزائرية |",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "c1259a4b27b16681",
       "source_name": "Ministère de l'Enseignement Supérieur et de la Recherche",
       "source_short": "MESRS",
@@ -343,18 +361,36 @@
       "source_type": "rss"
     },
     {
-      "id": "70a76d52d207b393",
-      "source_name": "APS — Algérie Presse Service",
-      "source_short": "APS",
-      "source_color": "#006233",
-      "category": "Ministère",
-      "category_icon": "📡",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNTEl4dlZNci1uUHhqNzhrSmpUZEg4TVhlTTlCZkVJQVNNbkVEZ19MMnp0S3RiWW9iamR6YkxUbTQ3UGVlOVh6RXh0bFBOQUNQN0g4QXpKc2g1WmxXVTA0U2JENDYtWGNmN04xQ28yaWZiTm1XcGJISG0yV0daMGd1cTU0UXpoemNTV01LaUVqU2Y3WGxXdVA2TDBLNUlCaTY0bVE?oc=5",
+      "id": "8c79a9686aaec058",
+      "source_name": "Mobilis",
+      "source_short": "MB",
+      "source_color": "#00A651",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNNDYyRWt4ZC1weEZhcGxZQzlhY200dk9wZU9Cb1JuRE8wSENrbS1SZ2JReW5EOTlyaW9vZTNJUy04dl9IWDlad1QzeDdFeS1EdEFScU5IU19sS2JCbzZuTm9MZlU4WVQwd0l4MkU1RU0yakNBZ0hocWFxQXRKcmZuZ1NTVzA5UEF1RzlUb280aWlkbElfcFZRbXd2VUFlRlpwTWdxMWRuM1JfbDVsajhwT3VB?oc=5",
       "image": "",
-      "date": "Sun, 30 Aug 2026 14:14:00 GMT",
+      "date": "Mon, 05 Oct 2026 17:37:35 GMT",
       "lang_source": "fr",
       "text": {
-        "fr": "Décès de l'ancien journaliste de l'APS Sadek Yedroudj - aps.dz — Décès de l'ancien journaliste de l'APS Sadek Yedroudj aps.dz",
+        "fr": "Mahrez à Al Shamal, Algérie – Niger : les 4 infos à ne pas manquer ce 5 octobre 2026 - DzBallon — Mahrez à Al Shamal, Algérie – Niger : les 4 infos à ne pas manquer ce 5 octobre 2026 DzBallon",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "301651e87b109a39",
+      "source_name": "Ooredoo Algérie",
+      "source_short": "OR",
+      "source_color": "#E30613",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOUU1TZ3k5RzJ6ZkNPM1Zid3NCVWlHZ0p0MC0wcnQ2MlpvQnA4VThSOHFnQlRMWW4tUlZXTm9fV2otSTVSQ2hvZVAwXzNOMFNlM1dMbWtFaHdPRDlFb0tQZ0ZZclRrYklXVjU4c2M2S3F2SHItNTFpZjVLYVphMnFPSkMyV2M2TGRla1lITkhWdlE?oc=5",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 15:43:00 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Communiqué : Ooredoo Algérie à l’écoute de ses clients - Mobiles - Le soir d'Algérie — Communiqué : Ooredoo Algérie à l’écoute de ses clients - Mobiles Le soir d'Algérie",
         "ar": "",
         "en": ""
       },
@@ -685,40 +721,22 @@
       "source_type": "youtube"
     },
     {
-      "id": "9c0a2c0c394617d9",
-      "source_name": "Mobilis",
-      "source_short": "MB",
-      "source_color": "#00A651",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://www.youtube.com/watch?v=WegrFGOlVAI",
+      "id": "779c141bd9c8997a",
+      "source_name": "Algérie Télécom",
+      "source_short": "AT",
+      "source_color": "#0055A4",
+      "category": "Infrastructure",
+      "category_icon": "📡",
+      "url": "https://www.youtube.com/shorts/8LM8p43vKGs",
       "image": "",
-      "date": "2026-09-24T18:00:07+00:00",
+      "date": "2026-10-05T18:10:46+00:00",
       "lang_source": "ar",
       "text": {
-        "ar": "من قسنطينة.. موبيليس والهلال الأحمر الجزائري يواصلان حملة التوعية في الوسط المدرسي",
+        "ar": "أنا كل يوم",
         "fr": "",
         "en": ""
       },
       "source_type": "youtube"
-    },
-    {
-      "id": "9cd90374c2308ecd",
-      "source_name": "Djezzy",
-      "source_short": "DJ",
-      "source_color": "#FF6B00",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOOUlzeTJVMWo2UFE1alRqM2gwNlpNa1RVLTIwNmUxeW1FMXIxekJpSVIzWHJ2cGtrSnR3MFdadkJZWjdDMWZ5M1VlSThWN0FuamhHU1lGQ2UwS09RbXdBTkZkTlRhVmp2RUtNV01yN2lmMUZzUmtDMDc0NWk1VVJ1MkJKa19GVnJYRDVhVU1RNmVqRjJtc2d4Q2dvczJzcFhHSW9iQW9VdVhWQWJzNV83LVNWM3JrcnIyVno1UHdDaFNwcnBRbHRUVUxKbnI?oc=5",
-      "image": "",
-      "date": "Thu, 24 Sep 2026 14:13:00 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Algérie : Djezzy se positionne sur le marché des paiements électroniques - AGENCE ECOFIN — Algérie : Djezzy se positionne sur le marché des paiements électroniques AGENCE ECOFIN",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     },
     {
       "id": "6f5dafd38476b3d7",
@@ -1057,24 +1075,6 @@
       "lang_source": "ar",
       "text": {
         "ar": "أداء مكرر الإشارة يبدأ من مكانه",
-        "fr": "",
-        "en": ""
-      },
-      "source_type": "youtube"
-    },
-    {
-      "id": "825bb95f601435bf",
-      "source_name": "Algérie Télécom",
-      "source_short": "AT",
-      "source_color": "#0055A4",
-      "category": "Infrastructure",
-      "category_icon": "📡",
-      "url": "https://www.youtube.com/shorts/zCCQiAuC1xc",
-      "image": "",
-      "date": "2026-09-24T09:16:00+00:00",
-      "lang_source": "ar",
-      "text": {
-        "ar": "علاش لازم يكون عندك فضاء الزبون ؟",
         "fr": "",
         "en": ""
       },
@@ -1435,6 +1435,384 @@
       "lang_source": "fr",
       "text": {
         "fr": "Seeds for the Future 2026 : Huawei et l’Algérie investissent dans les talents de demain - El Moudjahid — Seeds for the Future 2026 : Huawei et l’Algérie investissent dans les talents de demain El Moudjahid",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "aa15bb71295016ca",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/05/algerie-espagne-signature-de-deux-accords-de-cooperation-dans-la-filiere-des-viandes-rouges/",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 22:18:56 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Algérie-Espagne : signature de deux accords de coopération dans la filière des viandes rouges — Deux accords de coopération dans la filière des viandes rouges, ont été signés, lundi à Alger, entre des organismes algériens et espagnols, en marge d’une rencontre bilatérale sous le thème « Unir les marchés, renforcer le secteur ». Le premier accord a été signé entre l’Algérienne des viandes rouge",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "9bf04825278b34f3",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/05/espagne-en-pleine-crise-du-logement-pedro-sanchez-fait-le-pari-de-convoquer-des-elections-anticipees/",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 22:03:21 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Espagne : en pleine crise du logement, Pedro Sánchez fait le pari de convoquer des élections anticipées — Le Premier ministre espagnol Pedro Sánchez a convoqué lundi des élections anticipées pour le 29 novembre, un pari en vue de reprendre l’initiative politique et de se maintenir au pouvoir après le rejet par les députés des mesures destinées à mettre un terme à la crise du logement. « J’ai décidé de c",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "d296edf37297720a",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/05/education-le-calendrier-des-examens-et-vacances-scolaires-devoile/",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 21:15:37 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Education : le calendrier des examens et vacances scolaires annoncé — Le ministère de l’Education nationale a annoncé, lundi dans un communiqué, le calendrier des examens trimestriels des trois cycles d’enseignement ainsi que des vacances scolaires de l’année 2026-2027. Pour le cycle de l’enseignement primaire, les examens du premier trimestre se dérouleront du 6 au 1",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "50e77ec1ff96dd53",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/05/deces-du-directeur-de-cabinet-de-la-presidence-de-la-republique-boualem-boualem/",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 21:02:21 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Décès du directeur de Cabinet de la Présidence de la République, Boualem Boualem — La Présidence de la République a annoncé, lundi, le décès du directeur de Cabinet de la Présidence de la République, M. Boualem Boualem, dans un hôpital à Genève (Suisse), des suites d’une longue maladie. « Au nom d’Allah, Clément et Miséricordieux. « Et fais la bonne annonce aux endurants qui disen",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "212da1d35ed9326d",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/05/openai-will-start-watermarking-chatgpts-text-in-the-eu/",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 20:36:48 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "OpenAI will start watermarking ChatGPT’s text in the EU — OpenAI will watermark ChatGPT and Codex text in the EU to comply with the AI Act. Editing can make the invisible marks harder to detect, it says.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "30a6f90d1069d99d",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/05/napec-2026-lalgerie-promeut-laddition-energetique-pour-un-mix-diversifie-et-resilient/",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 20:36:36 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "NAPEC 2026 : l’Algérie promeut l' »addition énergétique » pour un mix diversifié et résilient — L’Algérie se positionne, de par sa situation géographique stratégique, ses ressources énergétiques et ses infrastructures, comme un trait d’union énergétique entre l’Afrique et l’Europe, dans le cadre de l’approche de « l’addition énergétique », fondée sur la complémentarité entre les différentes so",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "8649e164977a2636",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/05/etched-fields-funding-offers-at-40b-valuation-sources-say/",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 20:24:09 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Etched fields funding offers at $40B+ valuation, sources say — Just a couple of months after its last big raise, the AI chip startup is already being plied with investment offers at double or more its current value, sources tell TechCrunch.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "bd945f63c54a95dc",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/motorola-razr-70-ultra-vs-samsung-galaxy-z-flip8-le-vainqueur-en-qualite-photo-est-inattendu-505074.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 20:00:36 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Motorola Razr 70 Ultra vs. Samsung Galaxy Z Flip8 : le vainqueur en qualité photo est inattendu — Durant le test terrain de la prise d’images fixes, le plus performant des deux smartphones pliables de type clapet a vite pris le dessus !",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f3b6d339d7b6146c",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/05/lg-electronics-algerie-devoile-sa-nouvelle-generation-de-televiseurs-2026/",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 19:37:45 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "LG Electronics Algérie dévoile sa nouvelle génération de téléviseurs 2026 — Une nouvelle génération de téléviseurs pensée pour offrir une expérience visuelle plus immersive, du cinéma au gaming, en passant par le sport et les divertissements du quotidien des Algériens. Alger, 05 Octobre 2026 – Le téléviseur occupe aujourd’hui une place centrale dans les moments de divertiss",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "13557b75794fecc1",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/05/reflection-debuts-beam-a-open-weight-ai-model-to-rival-chinese-models-at-lower-compute-cost/",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 19:33:53 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Reflection debuts Beam, an open-weight AI model to rival Chinese models at lower compute cost — Reflection is aiming Beam and future models at enterprises and sovereign nations. The pitch is to build “AI factories,” a product that would let institutions build their own customized, local AI system by training Reflection’s AI models on their own proprietary data.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "a8ac03afa12de270",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/05/instinct-brings-its-ai-agent-to-group-chats-even-for-friends-without-an-account/",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 18:54:30 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Instinct brings its AI agent to group chats, even for friends without an account — Instinct is launching group chats that let friends use its AI agent together for tasks like planning trips, organizing carpools, and coordinating events. The company says personal accounts remain separate, with permission required before personal agents share information or take action.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "b32a5351bfdf8f02",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/05/recrutement-par-contrat-temporaire-dans-la-matiere-de-leps-au-niveau-de-certaines-directions-de-leducation/",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 18:41:25 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Recrutement par « contrat temporaire » dans la matière de l’EPS au niveau de certaines directions de l’éducation — Le ministère de l’Education nationale a annoncé, ce lundi 5 octobre, l’ouverture du recrutement par « contrat temporaire » dans la matière de l’éducation physique et sportive (EPS) aux trois cycles d’enseignement au niveau de certaines directions de l’éducation, a indiqué un communiqué du ministère.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "2e524eb46050ead1",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/blogs/l-esprit-libre/google-suspend-son-programme-de-chasse-aux-bugs-dans-des-logiciels-open-source-505156.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 18:33:12 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Google suspend son programme de chasse aux bugs dans des logiciels open source — Face à un afflux de contributions par IA de mauvaise qualité, Google gèle son programme OSS VRP.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "1278561c2128f73a",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/05/tiktok-rolls-out-an-ai-shopping-assistant-and-one-click-checkout/",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 18:29:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "TikTok rolls out an AI shopping assistant and one-click checkout — TikTok describes its new Shopping Assistant as a conversational AI agent designed to help users discover and purchase products.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c5aabd4affd8dc93",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/05/at-19-ghost-founder-raises-11-million-to-build-a-3499-computer-for-your-personal-ai/",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 18:07:07 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "At 19, founder raises $11M for Ghost, maker of a $3,499 computer for personal AI — Ghost's first product is Core, a personal computer designed specifically for AI agents that can take actions on a person's behalf.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "d8da8a13967e61ba",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/05/warren-murdock-lalgerie-une-destination-dimportance-strategique-pour-les-investisseurs-americains/",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 18:05:54 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Warren Murdock : l’Algérie une « destination d’importance stratégique pour les investisseurs américains » — Le président de la Chambre de commerce américaine en Algérie, Warren Murdock, a déclaré lundi à Oran que la conjoncture actuelle offre une opportunité stratégique pour renforcer le partenariat énergétique entre l’Algérie et les Etats-Unis, dans un contexte marqué par les transformations du marché mo",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "692bf69d71a549fa",
+      "source_name": "NTIC-DZ",
+      "source_short": "NTC",
+      "source_color": "#01579B",
+      "category": "Médias TIC",
+      "category_icon": "🌐",
+      "url": "https://www.ntic-dz.com/lg-electronics-algerie-devoile-sa-nouvelle-generation-de-televiseurs-2026/?utm_source=rss&utm_medium=rss&utm_campaign=lg-electronics-algerie-devoile-sa-nouvelle-generation-de-televiseurs-2026",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 17:40:37 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "LG Electronics Algerie dévoile sa nouvelle génération de téléviseurs 2026 — feed Le téléviseur occupe aujourd’hui une place centrale dans les moments de divertissement à la maison. Films et séries, grands rendez-vous sportifs, jeux vidéo ou programmes du quotidien : les usages se multiplient et les attentes en matière de qualité d’image évoluent avec eux. C’est dans cette d",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "d31c63ac3bf436dc",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/05/hot-girl-hotline-is-like-dear-abby-for-the-ai-era/",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 17:29:22 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Hot Girl Hotline is like ‘Dear Abby’ for the AI era — Founded by two sisters, Hot Girl Hotline uses AI to give young women personalized dating and relationship advice, with an emphasis on safety and avoiding emotional dependency.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "d074f4fae73056aa",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/05/5-startups-that-caught-vcs-attention-at-the-latest-pearx-demo-day/",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 17:26:44 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "5 startups that caught VCs’ attention at the latest PearX demo day — TechCrunch attended Pear’s latest demo day and discovered which startups generated the most buzz, from spatial models to chips for local AI.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "9b91fcda04f797f9",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/05/hackerranks-ai-interviewer-offers-a-glimpse-into-what-job-interviews-could-become/",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 16:43:35 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "HackerRank’s AI interviewer offers a glimpse into what job interviews could become — HackerRank’s AI interviewer has already conducted more than 500,000 interviews, with Snowflake, Snorkel, and Capgemini among its early testers.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "b1f6fe38017cadaa",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/smartphone/test-photo-apple-iphone-18-pro-la-meilleure-fonctionnalite-de-son-appareil-photo-nest-pas-louverture-variable-505059.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Mon, 05 Oct 2026 16:30:29 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Test photo Apple iPhone 18 Pro : la meilleure fonctionnalité de son appareil photo n'est pas l’ouverture variable — Le changement de diaphragme, c'est sympa, mais c'est bien la valeur f/1,48 qui constitue la véritable amélioration sur le smartphone haut de gamme de la marque.",
         "ar": "",
         "en": ""
       },
@@ -5021,394 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "79385f7e60a0c7dd",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/le-llmjacking-peut-faire-grimper-rapidement-la-facture-ia-de-votre-entreprise-comment-y-mettre-un-terme-504772.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 30 Sep 2026 09:31:51 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Le « LLMjacking » peut faire grimper rapidement la facture IA de votre entreprise : comment y mettre un terme — Les analystes de Google alertent sur le fait que des identifiants d'IA volés sont vendus sur le marché noir, et que ce sont les entreprises qui en font les frais.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "69e3caec80896b7e",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/chatgpt-est-il-votre-nouvelle-alternative-a-google-workspace-decouvrez-space-pages-et-slides-504757.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 30 Sep 2026 09:22:23 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "ChatGPT est-il votre nouvelle alternative à Google Workspace ? Découvrez Space, Pages et Slides — OpenAI permet désormais aux équipes de créer des documents, d'élaborer des présentations et de collaborer avec des agents IA au sein de ChatGPT",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "882d0206b11e2deb",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/09/30/algerie-les-importations-de-machines-agricoles-italiennes-ont-atteint-4945-millions-de-dollars-en-2025/",
-      "image": "",
-      "date": "Wed, 30 Sep 2026 08:57:37 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Algérie : les importations de machines agricoles italiennes ont atteint 49,45 millions de dollars en 2025 — Les importations algériennes de machines et d’équipements agricoles en provenance d’Italie ont enregistré une hausse en 2025. Elles sont passées de 34,43 millions de dollars en 2024 à 49,45 millions de dollars en 2025, selon les données présentées lundi 28 septembre à Alger lors d’une rencontre écon",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "53831138895609c2",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/piratages-a-la-dgfip-lanssi-denonce-lusage-des-pc-personnels-504725.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 30 Sep 2026 08:33:42 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Piratages à la DGFiP, l’Anssi dénonce l'usage des PC personnels — Suite au piratage ayant visé la DGFiP, l'agence nationale de sécurité informatique a rendu son verdict. Les logiciels espions s'infiltrent trop facilement via les équipements privés des agents. Une faille redoutable qui remet en question nos habitudes en télétravail.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c91d4895c865252c",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/29/the-internet-is-convinced-elon-musks-xai-trolled-openais-dots-launch/",
-      "image": "",
-      "date": "Tue, 29 Sep 2026 22:20:59 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "The internet is convinced Elon Musk’s xAI trolled OpenAI’s ‘Dots’ launch — Before OpenAI launched its new AI agent, Dots, on Tuesday, Elon Musk's xAI had already acquired the domain name \"dot.com,\" which now redirects to the Grok chatbot download page.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c8e384106c05c294",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/29/your-car-and-its-mobile-app-are-probably-handing-over-all-kinds-of-data-to-tech-companies/",
-      "image": "",
-      "date": "Tue, 29 Sep 2026 22:18:35 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Your car and its mobile app are probably handing over all kinds of data to tech companies — Researchers at Northeastern University found vehicles and their companion apps regularly shared detailed data with some of the largest tech companies.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "261d2920949d0968",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/29/a16z-backed-eliseai-raises-350m-doubles-valuation-to-4b/",
-      "image": "",
-      "date": "Tue, 29 Sep 2026 21:51:36 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "a16z-backed EliseAI raises $350M, doubles valuation to $4B — EliseAI raises $350M, doubles valuation in a year.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "13a5c8cfccba3c77",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/09/29/terres-rares-de-lahaggar-kamel-baddari-reunit-des-chercheurs-du-mit-et-de-lusthb/",
-      "image": "",
-      "date": "Tue, 29 Sep 2026 20:40:27 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Terres rares de l’Ahaggar : Kamel Baddari réunit des chercheurs du MIT et de l’USTHB — Le ministre de l’Enseignement supérieur et de la Recherche scientifique, Kamel Baddari, a reçu ce mardi le chercheur Smaine Zeroug, membre du Haut Conseil de la communauté scientifique nationale à l’étranger et du laboratoire de recherche du Massachussets Institute of Technology (MIT) aux Etats-Unis",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "6a33aca726c79507",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/29/openais-latest-features-take-direct-aim-at-the-app-store-model/",
-      "image": "",
-      "date": "Tue, 29 Sep 2026 20:15:47 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "OpenAI’s latest features take direct aim at the app store model — OpenAI is building out the pieces of an alternative to the traditional app store model, turning ChatGPT into a place where software can be discovered and used by people and AI agents alike.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "36f8e51ca4cadfc7",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/09/29/des-pluies-mercredi-et-jeudi-sur-des-wilayas-du-sud/",
-      "image": "",
-      "date": "Tue, 29 Sep 2026 20:12:17 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Des pluies mercredi et jeudi sur des wilayas du sud — Des pluies affecteront des wilayas du Sud du pays, mercredi et jeudi, indique un Bulletin météorologique spécial (BMS) émis mardi par l’Office national de météorologie (ONM). De niveau de vigilance « Orange », le BMS concerne les wilayas d’In Guezzam, Tamanrasset, Djanet, Illizi, In Salah et l’Est d",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "5688a7d2d192a938",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/09/29/extincteur-obligatoire-dans-les-vehicules-les-amendes-suspendues-en-attendant-un-meilleur-approvisionnement/",
-      "image": "",
-      "date": "Tue, 29 Sep 2026 20:02:40 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Extincteur obligatoire dans les véhicules : les amendes suspendues en attendant un meilleur approvisionnement — Les conducteurs qui ne disposent pas d’un extincteur à bord de leur véhicule ne devraient plus faire l’objet de contraventions dans l’immédiat. Les autorités compétentes ont décidé de suspendre l’application des amendes, en attendant que cet équipement soit suffisamment disponible sur le marché, sel",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "142ea770439890c1",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/pratique/android-pratique-google-wallet-senrichit-de-nombreuses-nouvelles-fonctionnalites-en-2026-504602.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 29 Sep 2026 20:00:54 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Android pratique : Google Wallet s'enrichit de nombreuses nouvelles fonctionnalités en 2026 — L'application vous permet de faire bien plus que simplement payer d'un simple geste ou regrouper des cartes de fidélité dans votre smartphone. Voici quelques usages possibles.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "9a16357905559c9a",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/29/openai-reportedly-in-talks-to-raise-30b-round-at-1-4t-valuation/",
-      "image": "",
-      "date": "Tue, 29 Sep 2026 19:52:37 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "OpenAI reportedly in talks to raise $30B round at $1.4T valuation — The new round is anticipated to be the company's last before its delayed 2027 public debut.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "f0d48337f0c9c48f",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/29/openai-repotedly-in-talks-to-raise-30b-round-at-1-4t-valuation/",
-      "image": "",
-      "date": "Tue, 29 Sep 2026 19:52:37 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "OpenAI repotedly in talks to raise $30B round at $1.4T valuation — The new round is anticipated to be the company's last before its delayed 2027 public debut.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "a722f22711bed02d",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/29/apple-pay-set-to-launch-in-india-with-axis-bank-today-sources-say/",
-      "image": "",
-      "date": "Tue, 29 Sep 2026 18:45:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Apple Pay set to launch in India with Axis Bank today, sources say — Some of India's largest banks are holding off on supporting Apple Pay initially.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "b7ee266b3afff5b4",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/29/heres-why-openai-is-absent-from-nvidias-industry-wide-effort-to-end-rogue-ai-agents/",
-      "image": "",
-      "date": "Tue, 29 Sep 2026 18:35:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Here’s why OpenAI is absent from Nvidia’s industry-wide effort to end rogue AI agents — OpenAI isn't a public supporter of Nvidia's Open Agent Safety Platform, but it is privately working with Nvidia, TechCrunch has learned.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "5a140bd71158075f",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/09/29/la-banque-dalgerie-inaugure-sa-60e-succursale/",
-      "image": "",
-      "date": "Tue, 29 Sep 2026 18:09:20 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "La Banque d’Algérie inaugure sa 60e succursale — La Banque d’Algérie a annoncé, ce mardi 29 septembre, la mise en service de sa succursale dans la wilaya de Ksar Chellala, portant ainsi à soixante (60) le nombre total de ses succursales. La cérémonie d’inauguration s’est déroulée en présence du vice-gouverneur de la Banque d’Algérie, du secrétaire",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "3a556bd4fc98feb5",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/29/openai-takes-on-microsoft-with-the-launch-of-what-feels-a-whole-lot-like-chatgpts-own-office-suite/",
-      "image": "",
-      "date": "Tue, 29 Sep 2026 17:45:51 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "OpenAI takes on Microsoft with the launch of what feels a whole lot like ChatGPT’s own office suite — OpenAI's newly announced suite of office features puts it into more direct competition with more traditional software companies.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "776c24834a66cfa5",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/29/dutch-police-arrest-shinyhunters-hacker-accused-of-planning-two-murders/",
-      "image": "",
-      "date": "Tue, 29 Sep 2026 17:27:09 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Dutch police arrest ShinyHunters hacker accused of planning two murders — Dutch police said the hacker, arrested for being part of the ShinyHunters cybercriminal gang, had plans to organize the murder of two people on his laptop.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e7ce24fdf0ff6f01",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/29/ai-powered-app-maker-wabi-pivots-to-a-messaging-experience/",
-      "image": "",
-      "date": "Tue, 29 Sep 2026 17:20:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "AI-powered app maker Wabi pivots to a messaging experience — Wabi is repositioning its prompt-based app builder as a personal AI agent that can create interfaces on demand, combining chat, apps and ongoing tasks.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "855aad9db334a208",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/09/29/openai-launches-dots-its-bubbly-agentic-avatar/",
-      "image": "",
-      "date": "Tue, 29 Sep 2026 17:17:15 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "OpenAI launches Dots, its bubbly agentic avatar — Dots are meant to operate independent of any specific hardware or interface, pursuing user-defined goals continuously in the background with minimal oversight.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-10-05T15:24:06.110466+00:00",
+  "lastUpdated": "2026-10-06T00:28:56.973160+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Médias TIC": 65,
-    "Tech International": 155
+    "Médias TIC": 69,
+    "Tech International": 151
   },
   "total": 300
 }
