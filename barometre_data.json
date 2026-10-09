@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-08T14:26:43.634Z",
+  "generated": "2026-10-09T14:12:44.974Z",
   "mode": "monthly",
   "period": "2026-10",
   "period_label": "Octobre 2026",
@@ -8,16 +8,16 @@
     "veille_articles": 150,
     "social_posts": 300,
     "presse_articles": 12,
-    "sources_count": 35
+    "sources_count": 34
   },
   "top_topics": [
     {
       "key": "Intelligence Artificielle",
       "emoji": "🤖",
-      "count": 84,
-      "prev_count": 87,
-      "trend": -3,
-      "trend_pct": -3
+      "count": 90,
+      "prev_count": 84,
+      "trend": 6,
+      "trend_pct": 7
     },
     {
       "key": "Operateurs & Telecom",
@@ -30,74 +30,74 @@
     {
       "key": "Startups & Innovation",
       "emoji": "🚀",
-      "count": 27,
-      "prev_count": 30,
-      "trend": -3,
-      "trend_pct": -10
+      "count": 25,
+      "prev_count": 27,
+      "trend": -2,
+      "trend_pct": -7
     },
     {
       "key": "5G & Reseaux Mobiles",
       "emoji": "📡",
-      "count": 26,
-      "prev_count": 22,
-      "trend": 4,
-      "trend_pct": 18
+      "count": 23,
+      "prev_count": 26,
+      "trend": -3,
+      "trend_pct": -12
     },
     {
       "key": "Cybersecurite",
       "emoji": "🔒",
       "count": 21,
-      "prev_count": 15,
-      "trend": 6,
-      "trend_pct": 40
+      "prev_count": 21,
+      "trend": 0,
+      "trend_pct": 0
     },
     {
       "key": "Formation & Emploi TIC",
       "emoji": "🎓",
-      "count": 12,
-      "prev_count": 10,
-      "trend": 2,
-      "trend_pct": 20
+      "count": 10,
+      "prev_count": 12,
+      "trend": -2,
+      "trend_pct": -17
     },
     {
       "key": "Cloud & Data Center",
       "emoji": "☁️",
-      "count": 10,
-      "prev_count": 15,
-      "trend": -5,
-      "trend_pct": -33
-    },
-    {
-      "key": "Fibre Optique",
-      "emoji": "🔌",
       "count": 8,
-      "prev_count": 5,
-      "trend": 3,
-      "trend_pct": 60
-    },
-    {
-      "key": "Satellite & Spatial",
-      "emoji": "🛰️",
-      "count": 7,
-      "prev_count": null,
-      "trend": null,
-      "trend_pct": null
+      "prev_count": 10,
+      "trend": -2,
+      "trend_pct": -20
     },
     {
       "key": "E-commerce & Paiement",
       "emoji": "🛒",
-      "count": 6,
-      "prev_count": 5,
+      "count": 7,
+      "prev_count": 6,
       "trend": 1,
-      "trend_pct": 20
+      "trend_pct": 17
+    },
+    {
+      "key": "Fibre Optique",
+      "emoji": "🔌",
+      "count": 6,
+      "prev_count": 8,
+      "trend": -2,
+      "trend_pct": -25
+    },
+    {
+      "key": "Satellite & Spatial",
+      "emoji": "🛰️",
+      "count": 4,
+      "prev_count": 7,
+      "trend": -3,
+      "trend_pct": -43
     }
   ],
   "sentiment": {
-    "positive": 112,
-    "negative": 23,
-    "neutral": 327,
-    "positive_pct": 24,
-    "negative_pct": 5,
+    "positive": 100,
+    "negative": 33,
+    "neutral": 329,
+    "positive_pct": 22,
+    "negative_pct": 7,
     "neutral_pct": 71
   },
   "top_sources": [
@@ -107,26 +107,25 @@
     },
     {
       "source": "Wired",
-      "count": 67
+      "count": 70
     },
     {
       "source": "ZDNet France",
-      "count": 60
+      "count": 64
     },
     {
       "source": "Algérie Éco",
-      "count": 51
+      "count": 50
     },
     {
       "source": "ZDNet FR",
-      "count": 38
+      "count": 34
     }
   ],
   "highlights": [
-    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 84 occurrences dans les publications.",
-    "\"Cybersecurite\" en forte hausse : +40% par rapport a le mois precedent.",
-    "\"Cloud & Data Center\" en recul : -33% par rapport a le mois precedent.",
-    "Sentiment equilibre ce mois : 24% positif, 5% negatif sur 462 publications."
+    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 90 occurrences dans les publications.",
+    "\"Cloud & Data Center\" en recul : -20% par rapport a le mois precedent.",
+    "Sentiment equilibre ce mois : 22% positif, 7% negatif sur 462 publications."
   ],
   "previous_period": {
     "period": "2026-10",
