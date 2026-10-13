@@ -894,22 +894,22 @@ app.get('/api/article-content/:file', async (req, res) => {
     } catch (e) { res.status(404).send("Article non trouvé"); }
 });
 
-async function generateArticlesList() {
+async function generateArticlesList(base = '.') {
     try {
-        const files = await fs.readdir('articles');
+        const files = await fs.readdir(path.join(base, 'articles'));
         const mdFiles = files.filter(f => f.endsWith('.md')).sort((a, b) => parseInt(b) - parseInt(a));
-        await fs.writeFile('articles/list.json', JSON.stringify(mdFiles, null, 2));
+        await fs.writeFile(path.join(base, 'articles', 'list.json'), JSON.stringify(mdFiles, null, 2));
         return mdFiles;
     } catch (e) { console.error("Erreur liste:", e); }
 }
 
-async function regenerateArticlesJson() {
+async function regenerateArticlesJson(base = '.') {
     try {
-        const files = await fs.readdir('articles');
+        const files = await fs.readdir(path.join(base, 'articles'));
         const articles = [];
         for (const file of files.filter(f => f.endsWith('.md'))) {
             try {
-                const text = await fs.readFile(path.join('articles', file), 'utf-8');
+                const text = await fs.readFile(path.join(base, 'articles', file), 'utf-8');
                 const parts = text.split('---');
                 if (parts.length < 3) continue;
                 const fm = parts[1];
@@ -932,10 +932,10 @@ async function regenerateArticlesJson() {
         const rest = articles.filter(a => a !== pinned1 && a !== pinned2);
         const ordered = [pinned1, pinned2, ...rest].filter(Boolean);
 
-        await fs.writeFile('articles.json', JSON.stringify(ordered));
+        await fs.writeFile(path.join(base, 'articles.json'), JSON.stringify(ordered));
         // Version légère (sans rawContent) pour la page d'accueil
         const articlesLight = ordered.map(({ rawContent, ...rest }) => rest);
-        await fs.writeFile('articles-list.json', JSON.stringify(articlesLight));
+        await fs.writeFile(path.join(base, 'articles-list.json'), JSON.stringify(articlesLight));
     } catch (e) { console.error("Erreur régénération articles.json:", e); }
 }
 
@@ -2379,6 +2379,83 @@ app.post('/api/upload-inline-video', (req, res) => {
             res.status(500).json({ message: msg });
         }
     });
+});
+
+
+// ── DÉPLOIEMENT GITHUB CIBLÉ (Smart Ingest PRO) ─────────────────────────────
+// Pousse UNIQUEMENT les fichiers d'un article (md, image, photos du corps, carte
+// interactive) + les 3 listes régénérées, via un worktree temporaire basé sur
+// origin/main : ni les JSON automatiques (veille, flash…), ni l'état local du
+// dépôt ne sont touchés. Le site pages.dev se met à jour au push.
+// cleanupLocal : après push, retire les copies locales (déploiement GitHub seul).
+const { execFile: _execFile } = require('child_process');
+const _gitRun = (args, cwd) => new Promise((resolve, reject) =>
+    _execFile('git', ['-c', 'core.autocrlf=false', '-c', 'core.safecrlf=false', ...args],
+        { cwd, maxBuffer: 64 * 1024 * 1024, timeout: 180000, windowsHide: true },
+        (err, stdout, stderr) => err ? reject(new Error((stderr || err.message).toString().trim().slice(0, 400))) : resolve(stdout)));
+let _deployGithubBusy = false;
+
+app.post('/api/deploy-github', express.json(), async (req, res) => {
+    if (isCloud) return res.status(403).json({ message: 'Indisponible en mode cloud.' });
+    const { id, cleanupLocal, dryRun } = req.body || {};
+    if (!id || !/^[A-Za-z0-9_-]+$/.test(String(id))) return res.status(400).json({ message: 'Identifiant invalide.' });
+    if (_deployGithubBusy) return res.status(409).json({ message: 'Un déploiement GitHub est déjà en cours.' });
+    _deployGithubBusy = true;
+    const repo = __dirname;
+    const tmp = path.join(os.tmpdir(), 'at-deploy-' + id + '-' + Date.now());
+    let worktreeOk = false;
+    try {
+        const mdRel = `articles/${id}.md`;
+        if (!fsSync.existsSync(path.join(repo, mdRel))) throw new Error('Article introuvable en local : ' + mdRel);
+        const md = fsSync.readFileSync(path.join(repo, mdRel), 'utf-8');
+
+        // Fichiers liés à l'article : image de tête, photos du corps, carte interactive.
+        const rels = new Set([mdRel]);
+        const fm = (k) => { const m = md.match(new RegExp(`^${k}:[ \t]*(.*)$`, 'm')); return m ? m[1].trim().replace(/^["']|["']$/g, '') : ''; };
+        for (const v of [fm('image'), fm('pdf'), fm('interactif')]) if (v && !/^https?:/i.test(v)) rels.add(v.replace(/^\/+/, ''));
+        for (const m of md.matchAll(/\/?(images\/[^\s)"'<>\]]+)/g)) rels.add(decodeURI(m[1]));
+        const carte = `interactifs/${id}.html`;
+        if (fsSync.existsSync(path.join(repo, carte))) rels.add(carte);
+        const files = [...rels].filter(r => !r.includes('..') && /\.(md|html|png|jpe?g|gif|webp|avif|svg|pdf)$/i.test(r) && fsSync.existsSync(path.join(repo, r)));
+
+        await _gitRun(['fetch', 'origin', 'main'], repo);
+        await _gitRun(['worktree', 'add', '--detach', tmp, 'origin/main'], repo);
+        worktreeOk = true;
+        for (const r of files) {
+            fsSync.mkdirSync(path.dirname(path.join(tmp, r)), { recursive: true });
+            fsSync.copyFileSync(path.join(repo, r), path.join(tmp, r));
+        }
+        await generateArticlesList(tmp);
+        await regenerateArticlesJson(tmp);
+        await _gitRun(['add', '-A', '--', ...files, 'articles.json', 'articles-list.json', 'articles/list.json'], tmp);
+        const titre = fm('titre') || id;
+        await _gitRun(['-c', 'user.name=Algeria Tech', '-c', 'user.email=noreply@algeria-tech.pages.dev',
+            'commit', '-m', `Smart Ingest PRO : ${titre}`], tmp);
+
+        if (dryRun) return res.json({ success: true, dryRun: true, fichiers: files.length, liste: files });
+        let pushed = false, lastErr = '';
+        for (let i = 0; i < 4 && !pushed; i++) {
+            try {
+                await _gitRun(['push', 'origin', 'HEAD:main'], tmp); pushed = true;
+            } catch (e) {
+                lastErr = e.message;
+                try { await _gitRun(['fetch', 'origin', 'main'], tmp); await _gitRun(['rebase', 'origin/main'], tmp); } catch (_) {}
+            }
+        }
+        if (!pushed) throw new Error('Push GitHub impossible (réseau ?) : ' + lastErr);
+
+        if (cleanupLocal) {
+            for (const r of files) { try { fsSync.unlinkSync(path.join(repo, r)); } catch (_) {} }
+            await generateArticlesList(); await regenerateArticlesJson();
+        }
+        res.json({ success: true, fichiers: files.length, nettoyageLocal: !!cleanupLocal });
+    } catch (e) {
+        console.error('Erreur /api/deploy-github:', e.message);
+        res.status(500).json({ message: e.message });
+    } finally {
+        if (worktreeOk) { try { await _gitRun(['worktree', 'remove', '--force', tmp], repo); } catch (_) {} try { await _gitRun(['worktree', 'prune'], repo); } catch (_) {} }
+        _deployGithubBusy = false;
+    }
 });
 
 app.delete('/api/delete-article/:id', async (req, res) => {

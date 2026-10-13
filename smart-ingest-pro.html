@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algeria Tech by Basta — Studio rédaction pro</title>
+    <!-- Font Awesome async — non-bloquant -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/smart-ingest-pro.css">
+</head>
+<body>
+
+<div class="si-app">
+    <header class="si-header">
+        <div class="si-header-left">
+            <div class="si-logo-icon"><i class="fas fa-brain"></i></div>
+            <div>
+                <h1 class="si-title">Algeria Tech <span class="si-by">by Basta</span></h1>
+                <p class="si-subtitle">Studio rédaction pro</p>
+            </div>
+        </div>
+        <div class="si-header-right">
+            <div class="si-status-dot online" id="hubDot" title="Liaison au Hub"></div>
+            <span id="hubLabel" style="font-size:.72rem;color:var(--muted)">Hub</span>
+            <a href="index.html" class="si-back-btn"><i class="fas fa-arrow-left"></i> Retour au site</a>
+        </div>
+    </header>
+
+    <div class="si-positions-bar">
+        <i class="fas fa-layer-group"></i> <span>Actuellement en Une :</span>
+        <div id="positionsSlots"></div>
+    </div>
+
+    <main class="si-stack">
+        <section class="si-bloc" id="blocIngest">
+            <div class="si-bloc-head">
+                <span class="si-bloc-num">1</span>
+                <div>
+                    <h2>Smart Ingest — moteur principal</h2>
+                    <p>La tour de contrôle : la source entre ici, l'article de presse en sort.</p>
+                </div>
+                <span class="si-bloc-tag"><i class="fas fa-newspaper"></i> Article de presse</span>
+            </div>
+
+            <!-- ══════════ MOTEUR DE RÉDACTION ══════════ -->
+            <div class="si-card">
+                <div class="si-card-head">
+                    <span class="si-card-icon"><i class="fas fa-microchip"></i></span>
+                    <div>
+                        <h2>Moteur de rédaction</h2>
+                        <p>Le cerveau du rendu — choisissez la qualité du code produit</p>
+                    </div>
+                </div>
+
+                <div class="si-style-options" id="engineSelector">
+                    <button type="button" class="si-style-btn active" data-engine="heuristic">
+                        <i class="fas fa-bolt"></i>
+                        <strong>Heuristique</strong>
+                        <small>Gratuit / rapide — hors ligne</small>
+                    </button>
+                    <button type="button" class="si-style-btn" data-engine="ia">
+                        <i class="fas fa-wand-magic-sparkles"></i>
+                        <strong>Générer avec IA</strong>
+                        <small>Précis / premium — par modèle</small>
+                    </button>
+                </div>
+            </div>
+
+            <div class="si-card">
+                <div class="si-card-head">
+                    <span class="si-card-icon"><i class="fas fa-inbox"></i></span>
+                    <div><h2>Dépôt Magique</h2><p>Collez vos communiqués bruts ou importez une URL</p></div>
+                </div>
+                <div class="si-url-row">
+                    <input type="url" id="urlInput" class="si-url-input" placeholder="https://www.01net.com/actualites/...">
+                    <button id="urlBtn" class="si-btn si-btn-web" onclick="fetchFromUrl()">
+                        <i class="fas fa-globe"></i> <span>Importer</span>
+                    </button>
+                </div>
+                <div id="sourceBadge" class="si-source-badge hidden"></div>
+                <div id="embedInlinePreview" class="si-embed-inline hidden"></div>
+                <textarea id="smartBox" class="si-smart-box" placeholder="Collez le texte source ici (Arabe, Anglais ou Français)..."></textarea>
+                <div class="si-char-count" id="charCount">0 caractères</div>
+
+                <div class="si-btn-3grid">
+                    <button id="pdfBtn" class="si-btn si-btn-primary" onclick="document.getElementById('pdfInput').click()">
+                        <i class="fas fa-file-pdf"></i> <span>PDF</span>
+                    </button>
+                    <input type="file" id="pdfInput" accept=".pdf" style="display:none" onchange="transcribePDF(this)">
+                    <button id="embedBtn" class="si-btn si-btn-primary" onclick="openEmbedModal()">
+                        <i class="fas fa-code"></i> <span>Embed</span>
+                    </button>
+                    <button id="translateBtn" class="si-btn si-btn-primary" onclick="translateContent()">
+                        <i class="fas fa-language"></i> <span>Traduire</span>
+                    </button>
+                    <button id="genBtn" class="si-btn si-btn-primary" onclick="generateProArticle()">
+                        <i class="fas fa-pen-nib"></i> <span>Générer</span>
+                    </button>
+                    <button id="fillHubBtn" class="si-btn si-btn-primary" onclick="fillHub()">
+                        <i class="fas fa-fill-drip"></i> <span>Remplir</span>
+                    </button>
+                </div>
+
+                <div class="si-style-selector" id="styleSelector">
+                    <label class="si-style-label"><i class="fas fa-feather-alt"></i> Style de rédaction :</label>
+                    <div class="si-style-options">
+                        <button type="button" class="si-style-btn active" data-style="aps">
+                            <i class="fas fa-landmark"></i>
+                            <strong>APS</strong>
+                            <small>Agence — formel, sections</small>
+                        </button>
+                        <button type="button" class="si-style-btn" data-style="pro">
+                            <i class="fas fa-feather-alt"></i>
+                            <strong>Pro</strong>
+                            <small>Étoffé — magazine, analyse</small>
+                        </button>
+                        <button type="button" class="si-style-btn" data-style="breve">
+                            <i class="fas fa-bolt"></i>
+                            <strong>Brève</strong>
+                            <small>3 paragraphes max</small>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="previewZone" class="si-preview-zone hidden">
+                    <div class="si-preview-head">
+                        <span><i class="fas fa-eye"></i> RÉDACTION IA (APERÇU)</span>
+                        <span class="si-preview-hint">Édition Markdown autorisée</span>
+                    </div>
+                    <textarea id="previewContent" class="si-preview-textarea"></textarea>
+                </div>
+            </div>
+                <!-- ══════════ DUEL DE RÉDACTION — LE CHOIX DU JOURNALISTE ══════════ -->
+                <div class="si-card si-duel">
+                    <div class="si-card-head">
+                        <span class="si-card-icon"><i class="fas fa-scale-balanced"></i></span>
+                        <div>
+                            <h2>Duel de rédaction</h2>
+                            <p>Deux écritures du même texte — vous tranchez</p>
+                        </div>
+                        <span class="si-badge" id="duelBadge">en attente</span>
+                        <label class="si-switch" title="Activer ou désactiver le duel de rédaction">
+                            <input type="checkbox" id="duelToggle" checked>
+                            <span class="si-switch-track"><span class="si-switch-thumb"></span></span>
+                            <span class="si-switch-txt" id="duelToggleTxt">Activé</span>
+                        </label>
+                    </div>
+
+                    <div id="duelBody">
+
+                    <div class="si-btn-3grid" style="grid-template-columns:1fr 1fr 1fr">
+                        <button type="button" class="si-btn si-btn-primary" id="duelPresseBtn"
+                                onclick="duelGenerer('presse')">
+                            <i class="fas fa-newspaper"></i> <span>Version presse</span>
+                        </button>
+                        <button type="button" class="si-btn si-btn-primary" id="duelEnrichiBtn"
+                                onclick="duelGenerer('enrichi')">
+                            <i class="fas fa-layer-group"></i> <span>Version enrichie</span>
+                        </button>
+                        <button type="button" class="si-btn si-btn-web" id="duelDeuxBtn"
+                                onclick="duelGenerer('les-deux')">
+                            <i class="fas fa-bolt"></i> <span>Les deux</span>
+                        </button>
+                    </div>
+
+                    <div class="si-duel-grid" id="duelGrid">
+                        <div class="si-duel-col" data-duel="presse">
+                            <div class="si-duel-head">
+                                <label class="si-check">
+                                    <input type="radio" name="duelChoix" value="presse" disabled>
+                                    <b><i class="fas fa-newspaper"></i> Version presse</b>
+                                </label>
+                                <span class="si-duel-stats" data-stats="presse">—</span>
+                            </div>
+                            <div class="si-duel-corps" data-corps="presse">
+                                <p class="si-media-empty">Article de presse classique : titre,
+                                chapeau, sections. Le style Smart-Ingest.</p>
+                            </div>
+                        </div>
+
+                        <div class="si-duel-col" data-duel="enrichi">
+                            <div class="si-duel-head">
+                                <label class="si-check">
+                                    <input type="radio" name="duelChoix" value="enrichi" disabled>
+                                    <b><i class="fas fa-layer-group"></i> Version enrichie</b>
+                                </label>
+                                <span class="si-duel-stats" data-stats="enrichi">—</span>
+                            </div>
+                            <div class="si-duel-corps" data-corps="enrichi">
+                                <p class="si-media-empty">Même matière, découpée plus fin et
+                                augmentée des visualisations de données choisies à gauche.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="si-btn si-btn-web" id="duelAdopterBtn"
+                            onclick="duelAdopter()" style="width:100%;margin-top:14px" disabled>
+                        <i class="fas fa-check-double"></i>
+                        <span>Adopter la version cochée &rarr; formulaire de déploiement</span>
+                    </button>
+                    <div id="duelNote"></div>
+                    </div><!-- /duelBody -->
+                </div>
+            <!-- ══════════ MEDIA HUB — MÉDIAS DE LA SOURCE ══════════ -->
+            <div class="si-card si-mediahub">
+                <div class="si-card-head">
+                    <span class="si-card-icon"><i class="fas fa-photo-film"></i></span>
+                    <div>
+                        <h2>Media Hub</h2>
+                        <p>Photos et vidéos extraites de la source — affectez-les d'un clic</p>
+                    </div>
+                    <span class="si-badge" id="mediaHubBadge">0</span>
+                </div>
+
+                <div class="si-btn-3grid" style="grid-template-columns:repeat(3,1fr)">
+                    <button type="button" class="si-btn si-btn-web" id="mediaHubScanBtn"
+                            onclick="scannerMediasSource()">
+                        <i class="fas fa-magnifying-glass"></i> <span>Extraire les médias</span>
+                    </button>
+                    <button type="button" class="si-btn si-btn-primary" id="mediaHubAllBtn"
+                            onclick="mediaHubToutGalerie()">
+                        <i class="fas fa-images"></i> <span>Tout en galerie</span>
+                    </button>
+                    <button type="button" class="si-btn si-btn-primary" id="mediaHubClearBtn"
+                            onclick="viderMediaHub()">
+                        <i class="fas fa-broom"></i> <span>Vider</span>
+                    </button>
+                </div>
+
+                <div id="mediaHubGrid" class="si-mh-grid"></div>
+                <p id="mediaHubEmpty" class="si-media-empty">
+                    Aucun média source pour l'instant. Importez une URL dans le Dépôt Magique :
+                    les photos et vidéos de la page s'affichent ici instantanément, prêtes à
+                    devenir la une, la vidéo principale ou la galerie de l'article.
+                </p>
+                <div id="mediaHubNote"></div>
+            </div>
+
+            <form id="smartIngestForm" onsubmit="deployArticle(event)">
+                <div class="si-card si-form-card">
+                    <div class="si-field">
+                        <label><i class="fas fa-heading"></i> Titre de l'article</label>
+                        <input type="text" id="siTitre" name="titre" required>
+                    </div>
+
+                    <div class="si-field-row">
+                        <div class="si-field">
+                            <label><i class="fas fa-tag"></i> Catégorie</label>
+                            <select id="siCategorie" name="categorie">
+                                <option value="Algérie">Algérie</option>
+                                <option value="Télécoms">Télécoms</option>
+                                <option value="Mobile">Mobile</option>
+                                <option value="Startups">Startups</option>
+                                <option value="IA">IA</option>
+                                <option value="Fintech">Fintech</option>
+                                <option value="Innovation">Innovation</option>
+                                <option value="Monde">Monde</option>
+                                <option value="Entreprises">Entreprises</option>
+                                <option value="Vidéo">Vidéo</option>
+                                <option value="Infographies">Infographies</option>
+                            </select>
+                        </div>
+                        <div class="si-field"><label>Date</label><input type="date" id="siDate" name="date" required></div>
+                        <div class="si-field"><label>Heure</label><input type="time" id="siHeure" name="heure" required></div>
+                    </div>
+
+                    <div class="si-field">
+                        <label><i class="fas fa-tags"></i> Tags (séparés par des virgules)</label>
+                        <input type="text" id="siTags" name="tags" placeholder="ex: 5G, Algérie Télécom, Cloud">
+                    </div>
+
+                    <div class="si-field-row">
+                        <div class="si-field">
+                            <label><i class="fas fa-thumbtack"></i> Position à la Une</label>
+                            <select id="siPosition" name="position">
+                                <option value="">Automatique (par date)</option>
+                                <option value="1">Position 1 — Une principale</option>
+                                <option value="2">Position 2 — Une secondaire</option>
+                            </select>
+                        </div>
+                        <div class="si-field" style="display:flex;align-items:center;gap:8px;padding-top:22px;">
+                            <label style="display:flex;align-items:center;gap:6px;font-weight:normal;cursor:pointer;text-transform:none;letter-spacing:0;">
+                                <input type="checkbox" id="siBreve" name="isBreve" style="width:auto;">
+                                <i class="fas fa-bolt"></i> Publier en Brèves (bandeau, pas en Une)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="si-field">
+                        <label>Résumé SEO / Extrait</label>
+                        <textarea id="siExtrait" name="extrait" rows="2" required></textarea>
+                    </div>
+
+                    <div class="si-field">
+                        <label><i class="fas fa-bookmark"></i> À retenir (un point par ligne)</label>
+                        <textarea id="siARetenir" name="aretenir" rows="3"
+                            placeholder="Trois points essentiels — alimentent l'encadré « À retenir » du site."></textarea>
+                    </div>
+
+                    <div class="si-field">
+                        <label>Contenu Final (Markdown)</label>
+                        <textarea id="siContenu" name="contenu" rows="10" required></textarea>
+                    </div>
+
+                    <div class="si-field-row" style="grid-template-columns: 1fr 1fr;">
+                        <div class="si-field">
+                            <label><i class="fas fa-image"></i> Illustration</label>
+                            <input type="file" id="siImage" name="image" accept="image/*" onchange="previewSIImage(event)">
+                            <input type="text" id="siImageUrl" class="si-mini-url" placeholder="ou URL d'image (tous formats) / Ctrl+V pour coller">
+                            <div id="siImagePreview" class="si-img-preview hidden"></div>
+                        </div>
+                        <div class="si-field">
+                            <label><i class="fab fa-youtube"></i> Vidéo / Réseaux Sociaux</label>
+                            <input type="url" id="siVideo" name="video" placeholder="Lien YouTube, TikTok, FB... ou Ctrl+V un fichier">
+                            <div id="siVideoPreview" class="si-video-preview hidden"></div>
+                        </div>
+                    </div>
+                    <div class="si-field" id="siMediaPriorityWrap" style="margin-top:-6px;">
+                        <label style="font-weight:normal;text-transform:none;letter-spacing:0;font-size:.8rem;color:var(--muted);">
+                            <i class="fas fa-arrow-up-wide-short"></i> Afficher en premier sur l'article
+                        </label>
+                        <div style="display:flex;gap:16px;margin-top:4px;">
+                            <label class="si-check">
+                                <input type="radio" name="mediaPriority" value="video" id="siPriorityVideo" checked>
+                                🎬 Vidéo (si présente)
+                            </label>
+                            <label class="si-check">
+                                <input type="radio" name="mediaPriority" value="image" id="siPriorityImage">
+                                🖼️ Image
+                            </label>
+                        </div>
+                    </div>
+                    <div class="si-field">
+                        <label><i class="fas fa-link"></i> Source originale</label>
+                        <input type="url" id="siSource" name="source" placeholder="https://...">
+                    </div>
+
+                    <div id="deployNote"></div>
+                </div>
+            </form>
+        </section>
+        <section class="si-bloc" id="blocInteractif">
+            <div class="si-bloc-head">
+                <span class="si-bloc-num">2</span>
+                <div>
+                    <h2>Article Interactif — rendu .html</h2>
+                    <p>Le même sujet, transformé en document interactif moderne : sections,
+                       sommaire flottant, tableaux triables, frise et mode focus.</p>
+                </div>
+                <span class="si-bloc-tag"><i class="fas fa-wand-magic-sparkles"></i> Fichier .html</span>
+            </div>
+
+            <!-- ══════════ IMPORTER UN ARTICLE (rendu .html) ══════════ -->
+            <div class="si-card">
+                <div class="si-card-head">
+                    <span class="si-card-icon"><i class="fas fa-file-import"></i></span>
+                    <div>
+                        <h2>Importer un Article</h2>
+                        <p>Le texte destiné au rendu .html interactif — synchronisé avec le Dépôt Magique</p>
+                    </div>
+                    <span class="si-badge" id="aiImportBadge">vide</span>
+                </div>
+
+                <label class="si-style-label"><i class="fas fa-cloud-arrow-up"></i> Téléverser</label>
+                <div id="aiDropZone" class="si-drop">
+                    <i class="fas fa-cloud-upload-alt" id="aiDropIcon"></i>
+                    <span id="aiDropLabel">Déposer ou cliquer pour importer
+                        (.pdf, .docx, .html, .txt, .md, .webp, .png, .jpg)</span>
+                    <input type="file" id="aiFileInput" hidden
+                           accept=".pdf,.docx,.doc,.html,.htm,.txt,.md,.webp,.png,.jpg,.jpeg,.gif,.svg,.bmp">
+                </div>
+
+                <label class="si-style-label" style="margin-top:16px">
+                    <i class="fas fa-link"></i> Récupérer depuis un Lien
+                </label>
+                <div class="si-url-row">
+                    <input type="url" id="aiUrlInput" class="si-url-input"
+                           placeholder="https://exemple-presse.com/article">
+                    <button type="button" id="aiUrlBtn" class="si-btn si-btn-web"
+                            onclick="importerPourInteractif()">
+                        <i class="fas fa-download"></i> <span>Importer</span>
+                    </button>
+                </div>
+                <p class="si-hint">
+                    Le lien collé dans le Dépôt Magique arrive ici automatiquement : le même
+                    article est alors préparé, structuré et amélioré pour le fichier .html interactif.
+                </p>
+
+                <label class="si-style-label" style="margin-top:14px">
+                    <i class="fas fa-align-left"></i> Texte source du rendu interactif
+                </label>
+                <textarea id="aiTexte" class="si-smart-box" style="min-height:150px"
+                    placeholder="Vide = le rendu .html reprend le titre, le chapeau et le contenu du formulaire ci-dessus."></textarea>
+                <div class="si-char-count" id="aiCharCount">0 caractère — reprise du formulaire</div>
+                <div id="aiImportNote"></div>
+            </div>
+
+            <!-- ══════════ 3.1 PHOTOS & VIDÉOS DE L'ARTICLE ══════════ -->
+            <details class="si-card si-acc">
+                <summary class="si-card-head">
+                    <span class="si-card-icon"><i class="fas fa-photo-film"></i></span>
+                    <div>
+                        <h2>Photos &amp; vidéos de l'article</h2>
+                        <p>Dans le corps des sections, ou en galerie défilante</p>
+                    </div>
+                    <span class="si-badge" id="bodyMediaBadge">0</span>
+                </summary>
+
+                <div class="si-style-options" style="grid-template-columns:repeat(3,1fr)">
+                    <button type="button" class="si-style-btn" id="btnAddPhoto">
+                        <i class="fas fa-camera"></i><strong>Photo</strong>
+                    </button>
+                    <button type="button" class="si-style-btn" id="btnAddVideo">
+                        <i class="fas fa-video"></i><strong>Vidéo</strong>
+                    </button>
+                    <button type="button" class="si-style-btn" id="btnAddLink">
+                        <i class="fas fa-link"></i><strong>Depuis un lien</strong>
+                    </button>
+                </div>
+                <input type="file" id="inputAddPhoto" accept="image/*" multiple hidden>
+                <input type="file" id="inputAddVideo" accept="video/*" multiple hidden>
+
+                <div id="bodyMediaList" class="si-media-list"></div>
+                <p id="bodyMediaEmpty" class="si-media-empty">
+                    Aucun média. Ajoutez des photos ou vidéos : elles s'insèrent directement
+                    dans le corps des sections, ou en galerie défilante.
+                </p>
+            </details>
+            <!-- ══════════ 3.2 MÉDIAS PRINCIPAUX ══════════ -->
+            <details class="si-card si-acc">
+                <summary class="si-card-head">
+                    <span class="si-card-icon"><i class="fas fa-star"></i></span>
+                    <div>
+                        <h2>Médias principaux</h2>
+                        <p>Une, vidéo, audio — ce qui ouvre l'article</p>
+                    </div>
+                    <span class="si-badge" id="mainMediaBadge">0</span>
+                </summary>
+
+                <div class="si-media-block">
+                    <div class="si-media-head">
+                        <span>🖼️ Image (Illustration)</span>
+                        <button type="button" class="si-mini-btn" id="btnUploadImage">
+                            <i class="fas fa-upload"></i> Téléverser
+                        </button>
+                        <input type="file" id="uploadImageInput" accept="image/*" hidden>
+                    </div>
+                    <input type="text" id="mediaImageUrl"
+                           placeholder="Lien, chemin local (C:\...), collez (Ctrl+V) ou téléversez…">
+                    <input type="text" id="mediaImageCaption" class="si-cap" placeholder="Légende de la photo">
+                    <div id="previewImage" class="si-media-preview hidden"></div>
+                    <label class="si-check">
+                        <input type="checkbox" id="mediaImageHero" checked>
+                        Afficher en grand dès le début (effet Ken Burns)
+                    </label>
+                </div>
+
+                <div class="si-media-block">
+                    <div class="si-media-head">
+                        <span>🎥 Vidéo (YouTube, Iframe, MP4)</span>
+                        <button type="button" class="si-mini-btn" id="btnUploadVideo">
+                            <i class="fas fa-upload"></i> Téléverser
+                        </button>
+                        <input type="file" id="uploadVideoInput" accept="video/*" hidden>
+                    </div>
+                    <textarea id="mediaVideoUrl" rows="2"
+                        placeholder="Lien, chemin local (MP4), collez (Ctrl+V) ou code d'intégration…"></textarea>
+                    <input type="text" id="mediaVideoCaption" class="si-cap" placeholder="Légende de la vidéo">
+                    <div id="previewVideo" class="si-media-preview hidden"></div>
+                </div>
+
+                <div class="si-media-block" style="border-bottom:none;padding-bottom:0">
+                    <div class="si-media-head">
+                        <span>🎙️ Audio (MP3, Podcast, Voix Off)</span>
+                        <button type="button" class="si-mini-btn" id="btnUploadAudio">
+                            <i class="fas fa-upload"></i> Téléverser
+                        </button>
+                        <input type="file" id="uploadAudioInput" accept="audio/*" hidden>
+                    </div>
+                    <input type="text" id="mediaAudioUrl"
+                           placeholder="Lien, chemin local (MP3), collez (Ctrl+V) ou téléversez…">
+                    <input type="text" id="mediaAudioCaption" class="si-cap" placeholder="Légende de l'audio">
+                    <div id="previewAudio" class="si-media-preview hidden"></div>
+                </div>
+            </details>
+            <!-- ══════════ BOUTONS D'ACTION — ARTICLE « PRIMEUR » ══════════ -->
+            <div class="si-card si-primeur">
+                <div class="si-card-head">
+                    <span class="si-card-icon"><i class="fas fa-crown"></i></span>
+                    <div>
+                        <h2>Boutons d'action</h2>
+                        <p>Article « Primeur » — le texte IA de haute qualité destiné au .html</p>
+                    </div>
+                    <span class="si-badge" id="primeurBadge">en attente</span>
+                </div>
+
+                <div class="si-btn-3grid" style="grid-template-columns:repeat(3,1fr)">
+                    <button type="button" class="si-btn si-btn-web" id="primeurBtn"
+                            onclick="genererPrimeur()">
+                        <i class="fas fa-crown"></i> <span>Générer l'article Primeur</span>
+                    </button>
+                    <button type="button" class="si-btn si-btn-primary" id="primeurStructBtn"
+                            onclick="structurerPrimeur()">
+                        <i class="fas fa-diagram-project"></i> <span>Découper en sections</span>
+                    </button>
+                    <button type="button" class="si-btn si-btn-primary" id="primeurPushBtn"
+                            onclick="primeurVersFormulaire()">
+                        <i class="fas fa-arrow-up"></i> <span>Envoyer au formulaire</span>
+                    </button>
+                </div>
+
+                <div id="primeurZone" class="si-preview-zone hidden">
+                    <div class="si-preview-head">
+                        <span id="primeurHead"><i class="fas fa-crown"></i> ARTICLE PRIMEUR (APERÇU)</span>
+                        <span class="si-preview-hint">Édition Markdown autorisée</span>
+                    </div>
+                    <textarea id="primeurTexte" class="si-preview-textarea"></textarea>
+                </div>
+                <div id="primeurNote"></div>
+            </div>
+
+                <details class="si-card si-acc">
+                    <summary class="si-card-head">
+                        <span class="si-card-icon"><i class="fas fa-palette"></i></span>
+                        <div>
+                            <h2>Thèmes &amp; design du rendu</h2>
+                            <p>Couleurs et ambiance du .html généré</p>
+                        </div>
+                        <span class="si-badge" id="themeBadge">Algérie Poste</span>
+                    </summary>
+
+                    <label class="si-style-label"><i class="fas fa-building-columns"></i> Palettes institutionnelles</label>
+                    <div class="si-palettes" id="palettes">
+                        <button type="button" class="si-pal" data-pal="gold" data-p="#2e2318" data-a="#d4af37">
+                            <span class="si-pal-dots"><i style="background:#2e2318"></i><i style="background:#d4af37"></i></span>
+                            Classic Gold
+                        </button>
+                        <button type="button" class="si-pal active" data-pal="poste" data-p="#0a2a5e" data-a="#ffb347">
+                            <span class="si-pal-dots"><i style="background:#0a2a5e"></i><i style="background:#ffb347"></i></span>
+                            Algérie Poste
+                        </button>
+                        <button type="button" class="si-pal" data-pal="mobilis" data-p="#008543" data-a="#7ec142">
+                            <span class="si-pal-dots"><i style="background:#008543"></i><i style="background:#7ec142"></i></span>
+                            Mobilis Green
+                        </button>
+                        <button type="button" class="si-pal" data-pal="djezzy" data-p="#e30613" data-a="#ffd100">
+                            <span class="si-pal-dots"><i style="background:#e30613"></i><i style="background:#ffd100"></i></span>
+                            Djezzy Red
+                        </button>
+                        <button type="button" class="si-pal" data-pal="ooredoo" data-p="#ed1c24" data-a="#ffffff">
+                            <span class="si-pal-dots"><i style="background:#ed1c24"></i><i style="background:#ffffff"></i></span>
+                            Ooredoo Red
+                        </button>
+                        <button type="button" class="si-pal" data-pal="sonelgaz" data-p="#004b87" data-a="#f48120">
+                            <span class="si-pal-dots"><i style="background:#004b87"></i><i style="background:#f48120"></i></span>
+                            Sonelgaz
+                        </button>
+                    </div>
+
+                    <label class="si-style-label" style="margin-top:16px"><i class="fas fa-droplet"></i> Teintes libres</label>
+                    <div class="si-palettes">
+                        <button type="button" class="si-pal" data-pal="doree" data-p="#3a2c15" data-a="#e5c76b">
+                            <span class="si-pal-dots"><i style="background:#3a2c15"></i><i style="background:#e5c76b"></i></span>Dorée
+                        </button>
+                        <button type="button" class="si-pal" data-pal="argentee" data-p="#2b3138" data-a="#c9d1d9">
+                            <span class="si-pal-dots"><i style="background:#2b3138"></i><i style="background:#c9d1d9"></i></span>Argentée
+                        </button>
+                        <button type="button" class="si-pal" data-pal="marron" data-p="#3b2a1c" data-a="#c8874a">
+                            <span class="si-pal-dots"><i style="background:#3b2a1c"></i><i style="background:#c8874a"></i></span>Marron
+                        </button>
+                        <button type="button" class="si-pal" data-pal="bleue" data-p="#0b1a3a" data-a="#2f6bff">
+                            <span class="si-pal-dots"><i style="background:#0b1a3a"></i><i style="background:#2f6bff"></i></span>Bleue
+                        </button>
+                        <button type="button" class="si-pal" data-pal="orange" data-p="#3a2109" data-a="#ff8a1f">
+                            <span class="si-pal-dots"><i style="background:#3a2109"></i><i style="background:#ff8a1f"></i></span>Orange
+                        </button>
+                        <button type="button" class="si-pal" data-pal="grenat" data-p="#3a0d18" data-a="#e0344f">
+                            <span class="si-pal-dots"><i style="background:#3a0d18"></i><i style="background:#e0344f"></i></span>Grenat profond
+                        </button>
+                        <button type="button" class="si-pal" data-pal="mauve" data-p="#231338" data-a="#b168ff">
+                            <span class="si-pal-dots"><i style="background:#231338"></i><i style="background:#b168ff"></i></span>Mauve électrique
+                        </button>
+                        <button type="button" class="si-pal" data-pal="cyan" data-p="#07242e" data-a="#31dfe8">
+                            <span class="si-pal-dots"><i style="background:#07242e"></i><i style="background:#31dfe8"></i></span>Cyan arctique
+                        </button>
+                        <button type="button" class="si-pal" data-pal="emeraude" data-p="#06281d" data-a="#2fe08a">
+                            <span class="si-pal-dots"><i style="background:#06281d"></i><i style="background:#2fe08a"></i></span>Émeraude scintillante
+                        </button>
+                    </div>
+
+                    <div class="si-field-row" style="grid-template-columns:1fr 1fr;margin-top:16px">
+                        <div class="si-field" style="margin-bottom:0">
+                            <label>Couleur principale</label>
+                            <input type="color" id="carteePrimaire" value="#0a2a5e" style="height:38px;padding:3px">
+                        </div>
+                        <div class="si-field" style="margin-bottom:0">
+                            <label>Couleur d'accent</label>
+                            <input type="color" id="carteAccent" value="#ffb347" style="height:38px;padding:3px">
+                        </div>
+                    </div>
+
+                    <label class="si-check" style="margin-top:12px">
+                        <input type="checkbox" id="carteSombre"> Ouvrir la carte en mode sombre par défaut
+                    </label>
+
+                    <label class="si-style-label" style="margin-top:18px">
+                        <i class="fas fa-wand-sparkles"></i> Ambiance visuelle —
+                        <span id="ambianceNom">Aucune</span>
+                    </label>
+                    <div class="si-chips" id="ambiances">
+                        <button type="button" class="si-chip on" data-amb="">Aucune</button>
+                        <button type="button" class="si-chip" data-amb="cleantech">Clean Tech</button>
+                        <button type="button" class="si-chip" data-amb="glass">Glassmorphism</button>
+                        <button type="button" class="si-chip" data-amb="tic">TIC</button>
+                        <button type="button" class="si-chip" data-amb="telecoms">Télécoms</button>
+                        <button type="button" class="si-chip" data-amb="mobile">Mobile</button>
+                        <button type="button" class="si-chip" data-amb="satellite">Satellite</button>
+                        <button type="button" class="si-chip" data-amb="futur">Futur</button>
+                        <button type="button" class="si-chip" data-amb="espace">Espace</button>
+                        <button type="button" class="si-chip" data-amb="innovation">Innovation</button>
+                        <button type="button" class="si-chip" data-amb="informatique">Informatique</button>
+                        <button type="button" class="si-chip" data-amb="sf">Science-fiction</button>
+                        <button type="button" class="si-chip" data-amb="data">Data</button>
+                        <button type="button" class="si-chip" data-amb="serveurs">Serveurs</button>
+                        <button type="button" class="si-chip" data-amb="design">Design</button>
+                        <button type="button" class="si-chip" data-amb="fintech">Fintech</button>
+                        <button type="button" class="si-chip" data-amb="cyber">Cybersécurité</button>
+                        <button type="button" class="si-chip" data-amb="ia">Intelligence artificielle</button>
+                    </div>
+
+                    <label class="si-style-label" style="margin-top:18px">
+                        <i class="fas fa-fire-flame-curved"></i> Effets dynamiques —
+                        <span id="effetNom">Aucun</span>
+                    </label>
+                    <div class="si-chips" id="effets">
+                        <button type="button" class="si-chip on" data-fx="">Aucun</button>
+                        <button type="button" class="si-chip" data-fx="aurore">Aurore</button>
+                        <button type="button" class="si-chip" data-fx="particules">Particules</button>
+                        <button type="button" class="si-chip" data-fx="etincelles">Étincelles</button>
+                        <button type="button" class="si-chip" data-fx="flammes">Flammes</button>
+                        <button type="button" class="si-chip" data-fx="feux">Feux d'artifice</button>
+                    </div>
+                    <p class="si-hint" style="margin:8px 0 0">
+                        <i class="fas fa-circle-info"></i> Le décor vit en fond ; une gerbe part
+                        aux gestes du lecteur (j'aime, partage, onglets). Coupé automatiquement
+                        si le système demande moins d'animations.
+                    </p>
+                </details>
+            <!-- ══════════ MODULE DONNÉES (remplace la carte des wilayas) ══════════ -->
+            <details class="si-card si-acc" open>
+                <summary class="si-card-head">
+                    <span class="si-card-icon"><i class="fas fa-chart-column"></i></span>
+                    <div><h2>Visualisation de données</h2><p>Tableaux, graphiques animés, chiffres clés, infographies</p></div>
+                </summary>
+
+                <p class="si-style-label" style="margin-bottom:10px">
+                    Sélection multiple — <span id="dataCount">1 bloc sélectionné</span>
+                </p>
+                <div class="si-style-options" style="grid-template-columns:repeat(2,1fr)">
+                    <button type="button" class="si-style-btn active" data-data="figures">
+                        <i class="fas fa-hashtag"></i><strong>Chiffres clés</strong>
+                        <small>Cartes animées</small>
+                    </button>
+                    <button type="button" class="si-style-btn" data-data="counter">
+                        <i class="fas fa-gauge-simple-high"></i><strong>Compteurs</strong>
+                        <small>Trois grands nombres</small>
+                    </button>
+                    <button type="button" class="si-style-btn" data-data="chart">
+                        <i class="fas fa-chart-simple"></i><strong>Graphique</strong>
+                        <small>Barres animées</small>
+                    </button>
+                    <button type="button" class="si-style-btn" data-data="gauge">
+                        <i class="fas fa-sliders"></i><strong>Jauges</strong>
+                        <small>Pourcentages</small>
+                    </button>
+                    <button type="button" class="si-style-btn" data-data="donut">
+                        <i class="fas fa-chart-pie"></i><strong>Anneau</strong>
+                        <small>Répartition</small>
+                    </button>
+                    <button type="button" class="si-style-btn" data-data="compare">
+                        <i class="fas fa-scale-balanced"></i><strong>Comparateur</strong>
+                        <small>Face à face</small>
+                    </button>
+                    <button type="button" class="si-style-btn" data-data="timeline">
+                        <i class="fas fa-timeline"></i><strong>Frise</strong>
+                        <small>Le fil des dates</small>
+                    </button>
+                    <button type="button" class="si-style-btn" data-data="table">
+                        <i class="fas fa-table"></i><strong>Tableau</strong>
+                        <small>Stylisé</small>
+                    </button>
+                    <button type="button" class="si-style-btn" data-data="quote">
+                        <i class="fas fa-quote-left"></i><strong>Citation</strong>
+                        <small>Mise en exergue</small>
+                    </button>
+                    <button type="button" class="si-style-btn" data-data="info">
+                        <i class="fas fa-layer-group"></i><strong>Infographie</strong>
+                        <small>Bloc composé</small>
+                    </button>
+                </div>
+
+                <div class="si-btn-3grid" style="grid-template-columns:1fr 1fr">
+                    <button class="si-btn si-btn-primary" id="dataScanBtn" onclick="scanDonnees()">
+                        <i class="fas fa-magnifying-glass-chart"></i> <span>Analyser le texte</span>
+                    </button>
+                    <button class="si-btn si-btn-web" id="dataInsertBtn" onclick="insererDonnees()">
+                        <i class="fas fa-plus"></i> <span>Insérer</span>
+                    </button>
+                </div>
+
+                <p class="si-hint" style="margin:0 0 10px">
+                    <i class="fas fa-circle-info"></i> Répartition automatique : seuls les
+                    <b>tableaux</b> entrent dans l'article publié sur le site. Slides,
+                    infographies, graphiques, frises et autres visuels sont réservés au
+                    fichier <b>.html interactif</b>.
+                </p>
+
+                <div id="visuelsInteractifsBox"></div>
+
+                <div id="dataOut" class="si-data-out">
+                    <div class="si-data-empty">
+                        Analysez le texte source : les nombres, pourcentages, dates et tableaux
+                        détectés seront proposés ici. Le tableau ira dans l'article ; les autres
+                        formats iront dans le rendu .html interactif.
+                    </div>
+                </div>
+            </details>
+                <!-- ══════════ HUB DE DÉPLOIEMENT + ARTICLE INTERACTIF ══════════ -->
+                <div class="si-card">
+                    <div class="si-card-head">
+                        <span class="si-card-icon"><i class="fas fa-diagram-project"></i></span>
+                        <div>
+                            <h2>Hub de déploiement</h2>
+                            <p>Choisissez ce qui part sur le site, avec ou sans carte interactive</p>
+                        </div>
+                        <span class="si-ai-dot" id="aiDot" title="Article Interactif"></span>
+                    </div>
+
+                    <div class="si-style-options" style="grid-template-columns:repeat(3,1fr)">
+                        <button type="button" class="si-style-btn active" data-mode="simple">
+                            <i class="fas fa-file-lines"></i><strong>Article seul</strong>
+                            <small>Sans carte — markdown pur</small>
+                        </button>
+                        <button type="button" class="si-style-btn" data-mode="carte">
+                            <i class="fas fa-wand-magic-sparkles"></i><strong>+ Carte interactive</strong>
+                            <small>Génère et attache le .html</small>
+                        </button>
+                        <button type="button" class="si-style-btn" data-mode="site">
+                            <i class="fas fa-globe"></i><strong>+ Site complet</strong>
+                            <small>Carte puis régénération</small>
+                        </button>
+                    </div>
+
+                    <div id="carteOptions" class="hidden" style="margin-top:16px">
+                        <p style="font-size:.74rem;color:var(--muted);line-height:1.6;margin:0 0 14px">
+                            La carte est produite avec l'ensemble de ses blocs : onglets, chiffres
+                            sourcés, frise, sondage, densité de lecture et questions à l'article.
+                            Ses couleurs suivent la palette choisie à gauche.
+                        </p>
+
+                        <div class="si-btn-3grid" style="grid-template-columns:1fr 1fr;margin-top:14px">
+                            <button type="button" class="si-btn si-btn-primary" id="cartePreviewBtn"
+                                    onclick="apercuCarte()">
+                                <i class="fas fa-eye"></i> <span>Aperçu de la carte</span>
+                            </button>
+                            <button type="button" class="si-btn si-btn-primary" id="carteDownloadBtn"
+                                    onclick="telechargerCarte()">
+                                <i class="fas fa-download"></i> <span>Télécharger .html</span>
+                            </button>
+                        </div>
+                        <div id="carteNote"></div>
+                    </div>
+                </div>
+                <div class="si-targets" id="deployTargets">
+                    <label class="si-target"><input type="checkbox" id="tgtLocal" checked>
+                        <span><i class="fas fa-laptop-code"></i> Localhost <small>localhost:3000</small></span></label>
+                    <label class="si-target"><input type="checkbox" id="tgtGithub">
+                        <span><i class="fab fa-github"></i> GitHub <small>algeria-tech.pages.dev</small></span></label>
+                </div>
+                <button type="submit" form="smartIngestForm" class="si-deploy-btn" id="deployBtn">
+                    <div class="si-deploy-inner"><i class="fas fa-rocket"></i> DÉPLOYER SUR ALGERIA TECH</div>
+                </button>
+        </section>
+    </main>
+</div>
+
+<!-- Modal Embed Social -->
+<div id="siEmbedModal" class="si-modal-overlay hidden">
+    <div class="si-modal-box" style="max-width:620px;text-align:left;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+            <h2 style="margin:0;font-size:1.2rem;"><i class="fas fa-code"></i> Intégrer un Embed</h2>
+            <button onclick="closeEmbedModal()" style="background:none;border:none;font-size:1.4rem;cursor:pointer;color:inherit;">&times;</button>
+        </div>
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:12px;">Collez un code embed (iframe Facebook, Instagram, X/Twitter, TikTok, YouTube...)</p>
+        <textarea id="embedCodeInput" class="si-smart-box" rows="5" style="min-height:120px" placeholder='<iframe src="https://www.facebook.com/plugins/post.php?href=..." ...></iframe>'></textarea>
+        <div id="embedPreviewBox" class="si-embed-preview hidden"></div>
+        <div class="si-embed-actions">
+            <button class="si-btn si-btn-primary" onclick="previewEmbed()" style="flex:1;">
+                <i class="fas fa-eye"></i> <span>Aperçu</span>
+            </button>
+            <button class="si-btn si-btn-web" onclick="applyEmbed()" style="flex:1;">
+                <i class="fas fa-check"></i> <span>Valider &amp; Intégrer</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Aperçu de la carte interactive -->
+<div id="siCarteModal" class="si-modal-overlay hidden">
+    <div class="si-modal-box" style="max-width:1100px;width:96%;text-align:left;padding:20px">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+            <h2 style="margin:0;font-size:1.1rem"><i class="fas fa-wand-magic-sparkles"></i> Carte interactive</h2>
+            <button onclick="fermerCarte()" style="background:none;border:none;font-size:1.4rem;cursor:pointer;color:inherit">&times;</button>
+        </div>
+        <!-- Formats d'affichage : le rendu .html se juge sur les trois écrans -->
+        <div class="si-devices" id="siDevices" role="group" aria-label="Format d'aperçu">
+            <button type="button" class="si-dev" data-dev="mobile" title="Aperçu mobile — 390 px">
+                <i class="fas fa-mobile-screen-button"></i> <span>Mobile</span>
+            </button>
+            <button type="button" class="si-dev" data-dev="tablette" title="Aperçu tablette — 834 px">
+                <i class="fas fa-tablet-screen-button"></i> <span>Tablette</span>
+            </button>
+            <button type="button" class="si-dev active" data-dev="pc" title="Aperçu ordinateur — pleine largeur">
+                <i class="fas fa-desktop"></i> <span>PC</span>
+            </button>
+            <span class="si-dev-size" id="siDevSize">pleine largeur</span>
+            <button type="button" class="si-dev si-dev-rot" id="siDevRotate"
+                    title="Pivoter l'écran (portrait / paysage)">
+                <i class="fas fa-rotate"></i> <span>Pivoter</span>
+            </button>
+        </div>
+
+        <div class="si-frame-stage" id="siFrameStage">
+            <iframe id="carteFrame" title="Aperçu du rendu .html"></iframe>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de succès -->
+<div id="siSuccessModal" class="si-modal-overlay hidden">
+    <div class="si-modal-box">
+        <div class="si-modal-rocket">🚀</div>
+        <h2>Article Propulsé !</h2>
+        <p style="color:var(--muted)">Votre dépêche est maintenant en ligne sur le portail.</p>
+        <button class="si-btn si-btn-web" onclick="location.reload()" style="margin-top:14px">Rédiger un autre article</button>
+    </div>
+</div>
+
+<script src="/smart-ingest-pro.js"></script>
+<!-- Rendu Markdown pour l'aperçu visuel des photos -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<!-- Insertion + aperçu visuel des photos dans le corps de l'article -->
+<script src="/at-inline-images.js?v=2"></script>
+<!-- Insertion de vidéos (upload/URL/extraction) dans le corps de l'article -->
+<script src="/at-inline-video.js?v=1"></script>
+</body>
+</html>
