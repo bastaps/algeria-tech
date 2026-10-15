@@ -16,3 +16,18 @@
   background: rgba(0, 0, 0, 0.6); padding: 1px 3px; text-align: left;
 }
 .express-widget .ew-vignette.ew-active { border-color: #ffd400; }
+
+/* Smartphone : la vidéo 16:9 reste intacte, centrée dans un cadre 9:16 aux couleurs du site. */
+@media (max-width: 640px) {
+  .express-widget .ew-cadre {
+    aspect-ratio: 9 / 16; width: min(100%, calc(78dvh * 9 / 16)); margin: 0 auto;
+    background: linear-gradient(180deg, #0d3b24 0%, #0B1729 48%, #3a0a12 100%);
+  }
+  .express-widget .ew-video { object-fit: contain; background: transparent; }
+  .express-widget .ew-cadre::before, .express-widget .ew-cadre::after {
+    position: absolute; left: 0; right: 0; text-align: center; color: #fff; font-weight: 800;
+    letter-spacing: .08em; pointer-events: none; z-index: 1;
+  }
+  .express-widget .ew-cadre::before { content: "L'INFO EN 30 S"; top: 15%; font-size: clamp(14px, 5vw, 24px); color: #ffd400; }
+  .express-widget .ew-cadre::after { content: "ALGERIA TECH"; bottom: 14%; font-size: clamp(12px, 4vw, 20px); opacity: .85; }
+}

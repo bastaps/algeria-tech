@@ -75,3 +75,22 @@
   #flash-widget-root{ width:min(220px,46vw); left:10px; bottom:10px; }
   #flash-widget-root.fw-expanded{ width:94vw; }
 }
+
+/* ── Smartphone : le flash s'affiche en 9:16 (la vidéo 16:9 reste intacte,
+   centrée dans un cadre vertical aux couleurs du site). PC : rien ne change. ── */
+@media (max-width:640px){
+  #flash-widget-root{ width:min(120px,30vw); }
+  #flash-widget-root.fw-expanded{ width:min(94vw, calc((100dvh - 110px) * 9 / 16)); }
+  #flash-widget-root .fw-videobox{
+    padding-bottom:177.78%;
+    background:linear-gradient(180deg,#0d3b24 0%,#0B1729 48%,#3a0a12 100%);
+  }
+  #flash-widget-root .fw-videobox video{ object-fit:contain; background:transparent; }
+  #flash-widget-root .fw-videobox::before,
+  #flash-widget-root .fw-videobox::after{
+    position:absolute; left:0; right:0; text-align:center; color:#fff; font-weight:800;
+    letter-spacing:.08em; z-index:1; pointer-events:none;
+  }
+  #flash-widget-root .fw-videobox::before{ content:"FLASH INFOS"; top:15%; font-size:clamp(9px,3.4vw,22px); color:#ffd400; }
+  #flash-widget-root .fw-videobox::after{ content:"ALGERIA TECH"; bottom:14%; font-size:clamp(8px,2.8vw,18px); opacity:.85; }
+}
