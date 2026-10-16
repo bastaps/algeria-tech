@@ -1,0 +1,96 @@
+name: Circuit articles — repli cloud (sans PC)
+
+# Si le PC n'a pas produit l'article d'un créneau (PC éteint, Flow indisponible…), ce workflow le fait,
+# environ 1 h après l'heure du créneau PC (matin 08:37, midi 13:07, soir 18:07, heure d'Alger) :
+# rédaction IA + image + vidéo Pexels (sinon image seule) → brouillon + notification ntfy à 3 boutons
+# (À la Une / 2e position / Brève). Publication : workflow « brouillons-publier » ou tâche Windows.
+# Registre des créneaux : data/circuit-slots.json (le PC y inscrit ses créneaux).
+#
+# GARDE-FOU : ne s'exécute automatiquement QUE si le dépôt est public (minutes illimitées). Dépôt privé =
+# quota gratuit de 2000 min/mois partagé avec l'express et les flash : la tâche est alors ignorée (0 minute).
+on:
+  schedule:
+    - cron: "45 8 * * *"    # 09:45 Alger → créneau matin
+    - cron: "15 13 * * *"   # 14:15 Alger → créneau midi
+    - cron: "15 18 * * *"   # 19:15 Alger → créneau soir
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: "Créneau à produire (matin / midi / soir)"
+        default: "midi"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: circuit-cloud
+  cancel-in-progress: false
+
+jobs:
+  repli:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.repository_visibility == 'public' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Outils (ffmpeg, polices, bibliothèques)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fonts-dejavu-core > /dev/null
+          pip install -q requests beautifulsoup4 feedparser pillow
+
+      - name: Routeur IA gratuit (FreeLLMAPI)
+        continue-on-error: true  # en cas d'échec : appel direct à Gemini
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: bash scripts/llm/demarrer_freellmapi.sh
+
+      - name: Brouillon du créneau
+        id: fab
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          SLOT_SAISI: ${{ inputs.slot }}
+        run: |
+          set +e
+          if [ -n "$SLOT_SAISI" ]; then SLOT="$SLOT_SAISI"; else
+            case "$(date -u +%H)" in 08|09) SLOT=matin;; 13|14) SLOT=midi;; *) SLOT=soir;; esac
+          fi
+          echo "Créneau : $SLOT"
+          python scripts/brouillons/circuit_cloud.py --slot "$SLOT"
+          code=$?
+          if [ $code -eq 2 ]; then echo "Rien à faire pour ce créneau."; echo "publier=non" >> "$GITHUB_OUTPUT"; exit 0; fi
+          [ $code -eq 0 ] && echo "publier=oui" >> "$GITHUB_OUTPUT"
+          exit $code
+
+      - name: Enregistrement du brouillon
+        if: steps.fab.outputs.publier == 'oui'
+        run: |
+          git config user.name "actions-user"
+          git config user.email "actions@github.com"
+          git add brouillons images data/circuit-slots.json
+          git add -f videos/articles 2>/dev/null || true
+          git commit -m "Auto: brouillon cloud à placer [$(date -u +%H:%M) UTC]" || exit 0
+          for i in 1 2 3; do
+            git pull --rebase -q origin main && git push -q origin HEAD:main && break
+            sleep 5
+          done
+
+      - name: Alerte en cas d'échec
+        if: failure()
+        env:
+          CANAL: ${{ secrets.NTFY_TOPIC }}
+        run: |
+          python3 -c 'import os,urllib.request as u; u.urlopen(u.Request("https://ntfy.sh/"+os.environ["CANAL"],data="Le repli cloud des articles a échoué.".encode(),headers={"Title":"Circuit articles : échec du repli cloud".encode(),"Tags":"warning"}),timeout=20)' || true

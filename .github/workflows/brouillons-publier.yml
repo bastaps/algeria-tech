@@ -1,13 +1,16 @@
 name: Brouillons du circuit — publication selon le choix ntfy
 
-# Les brouillons « article vidéo » (scripts/brouillons/circuit_flow.py, lancé sur le PC) arrivent
-# dans brouillons/ avec une notification ntfy à trois boutons (Une / 2e position / Brève).
-# Ce workflow lit le choix toutes les 10 min et publie ; sans choix sous 90 min : 2e position.
-# Un brouillon sans « circuit: true » n'est jamais touché. Aucun secret autre que NTFY_TOPIC.
-# PAS de programmation (cron) : le dépôt est privé, quota gratuit de 2000 min/mois partagé avec l'express
-# et les flash (panne d'août 2026). La publication est faite par le PC (tâche planifiée Windows,
-# `publier_choix.py --local`). Ce workflow reste disponible à la demande (Actions → Run workflow).
+# Les brouillons du circuit (PC ou repli cloud) arrivent dans brouillons/ avec une notification ntfy à
+# trois boutons (À la Une / 2e position / Brève). Ce workflow lit le choix toutes les 15 min et publie ;
+# sans choix sous 90 min : 2e position. Un brouillon sans « circuit: true » n'est jamais touché.
+# Aucun secret autre que NTFY_TOPIC. La tâche Windows « AlgeriaTech-Publier-Brouillons » fait la même chose
+# depuis le PC ; les deux peuvent coexister (le premier qui publie gagne).
+#
+# GARDE-FOU : le déclenchement automatique n'a lieu QUE si le dépôt est public (minutes illimitées).
+# Dépôt privé = quota gratuit de 2000 min/mois partagé avec l'express et les flash : tâche ignorée (0 minute).
 on:
+  schedule:
+    - cron: "*/15 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -19,6 +22,7 @@ concurrency:
 
 jobs:
   publier:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.repository_visibility == 'public' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:

@@ -170,7 +170,18 @@ def candidats_flux():
             continue
         if d < limite:
             continue
-        txt = re.sub(r"\s+", " ", str(p.get("text", "")))[:200]
+        brut = p.get("text", "")
+        if isinstance(brut, str) and brut.lstrip().startswith("{"):
+            try:
+                import ast
+                brut = ast.literal_eval(brut)
+            except (ValueError, SyntaxError):
+                pass
+        if isinstance(brut, dict):
+            brut = brut.get("fr") or brut.get("en") or brut.get("ar") or ""
+        txt = re.sub(r"\s+", " ", str(brut))[:200]
+        if len(txt) < 20:
+            continue
         out.append({"score": 70 + 25 * bool(SUIVI.search(txt)), "titre": txt, "url": p["url"],
                     "source": p.get("source_short", ""), "pays": "DZ", "origine": "social"})
     out.sort(key=lambda c: -c["score"])
@@ -372,7 +383,7 @@ choix_canal: "{canal_choix}"
     if sans_push:
         log("--sans-push : rien n'est déposé ni notifié")
         return 0
-    deposer(ident, sortie, g["titre"], avec_video)
+    deposer(ident, sortie, g["titre"], avec_video, job.get("slot"))
     notifier(f"À placer : {g['titre'][:60]}",
              f"{g['lead'][:230]}\n\nChoisissez la place. Sans choix sous {DELAI_DEFAUT_MIN} min : 2e position."
              f"\n{'Vidéo Flow + ' if avec_video else ''}version interactive prête.",
@@ -390,7 +401,21 @@ def git(*a, cwd):
     return r.stdout
 
 
-def deposer(ident, sortie, titre, avec_video):
+def maj_registre(tmp, slot):
+    """data/circuit-slots.json : le cloud ne refait pas un créneau déjà produit par le PC."""
+    if not slot:
+        return
+    chemin = tmp / "data" / "circuit-slots.json"
+    r = lire(chemin, {})
+    r.setdefault(aujourd_hui(), {})[slot] = "pc"
+    for j in sorted(r)[:-10]:
+        del r[j]
+    chemin.parent.mkdir(exist_ok=True)
+    chemin.write_text(json.dumps(r, ensure_ascii=False, indent=1), encoding="utf-8")
+    git("add", "data/circuit-slots.json", cwd=tmp)
+
+
+def deposer(ident, sortie, titre, avec_video, slot=None):
     """Dépôt via un dossier temporaire cloné depuis origin/main (le dépôt local a du retard)."""
     tmp = Path(r"E:\algeria-tech-push-circuit")
     git("fetch", "-q", "origin", cwd=RACINE)
@@ -406,6 +431,7 @@ def deposer(ident, sortie, titre, avec_video):
             cible.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy(sortie / rel, cible)
             git("add", "-f", rel, cwd=tmp)
+        maj_registre(tmp, slot)
         git("-c", "user.name=circuit-flow", "-c", "user.email=circuit-flow@local", "commit", "-q", "-m",
             f"Auto: brouillon à placer — {titre[:70]}", cwd=tmp)
         for essai in range(4):
