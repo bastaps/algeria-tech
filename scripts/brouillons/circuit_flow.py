@@ -1,15 +1,17 @@
-"""Circuit « article vidéo » en brouillon : revue de presse → rédaction IA → vidéo Google Flow
-→ carte interactive → brouillon à valider (notification ntfy).
+"""Circuit « article vidéo » : choix de l'info → rédaction IA → vidéo Google Flow → carte interactive
+→ brouillon + notification ntfy avec boutons (Une / 2e position / Brève).
 
 Tourne sur le PC (Hub Smart Ingest :3000 + Article Interactif :5000, lancés au besoin).
 L'étape Google Flow n'a pas d'API : elle est pilotée dans Chrome (voir RUNBOOK_FLOW.md).
 
-    python circuit_flow.py choisir                      # choisit l'info, prépare le job Flow
-    python circuit_flow.py finaliser <ident> <clip.mp4> # rédige, fabrique la carte, dépose le brouillon
-        [--sans-push]  (essai à blanc : rien n'est publié ni notifié)
+    python circuit_flow.py choisir --slot matin|midi|soir
+    python circuit_flow.py finaliser <ident> <clip.mp4|none> [--sans-push]
+    python circuit_flow.py alerte "<message>"
 
-Codes de sortie : 0 ok · 2 rien de neuf · 3 quota du jour déjà utilisé · 1 erreur.
-Rien n'est jamais publié : le brouillon attend la validation dans /admin-brouillons.html.
+Créneaux : matin = revue de presse ; midi et soir = flux RSS + réseaux sociaux (repli : revue de presse).
+Codes de sortie : 0 ok · 2 rien de neuf · 3 créneau déjà fait aujourd'hui · 1 erreur.
+Le choix des boutons ntfy est lu par le workflow GitHub « brouillons-publier » (publier_choix.py) ;
+sans choix au bout de DELAI_DEFAUT_MIN minutes, l'article part en 2e position.
 """
 import argparse
 import datetime
@@ -17,6 +19,7 @@ import io
 import json
 import os
 import re
+import secrets
 import shutil
 import subprocess
 import sys
@@ -33,10 +36,12 @@ HUB, AI = "http://localhost:3000", "http://localhost:5000"
 SITE = "https://algeria-tech.pages.dev"
 NTFY_FICHIER = Path(r"E:\01-flash-infos\flash_auto\ntfy_canal.txt")
 CATEGORIES = ["Algérie", "Télécoms", "Mobile", "Startups", "IA", "Fintech", "Innovation", "Monde", "Entreprises"]
+SLOTS = ("matin", "midi", "soir")
+DELAI_DEFAUT_MIN = 90
 
 # Liste de suivi (marques, opérateurs, institutions, événements TIC) : bonus de score
 SUIVI = re.compile(r"huawei|ericsson|samsung|\blg\b|nokia|zte|ooredoo|mobilis|djezzy|alg[ée]rie t[ée]l[ée]com|"
-                   r"alg[ée]rie poste|alg[ée]rie t[ée]l[ée]com|ministre de la poste|mptn|arpce|ministère de la poste|"
+                   r"alg[ée]rie poste|ministre de la poste|mptn|arpce|ministère de la poste|"
                    r"startup|salon|forum|conf[ée]rence|hackathon|\bcyber|5g|fibre|data ?center|intelligence artificielle", re.I)
 TECH = re.compile(r"t[ée]l[ée]com|mobile|internet|num[ée]rique|\bia\b|intelligence artificielle|cyber|r[ée]seau|"
                   r"fibre|5g|4g|satellite|startup|logiciel|application|plateforme|donn[ée]es|cloud|digital", re.I)
@@ -64,11 +69,15 @@ def historique():
 
 def sauver_historique(h):
     WORK.mkdir(parents=True, exist_ok=True)
-    HISTORIQUE.write_text(json.dumps(h[-200:], ensure_ascii=False, indent=1), encoding="utf-8")
+    HISTORIQUE.write_text(json.dumps(h[-300:], ensure_ascii=False, indent=1), encoding="utf-8")
+
+
+def maintenant_alger():
+    return datetime.datetime.utcnow() + datetime.timedelta(hours=1)
 
 
 def aujourd_hui():
-    return (datetime.datetime.utcnow() + datetime.timedelta(hours=1)).strftime("%Y-%m-%d")  # heure d'Alger
+    return maintenant_alger().strftime("%Y-%m-%d")
 
 
 # ── Serveurs locaux ─────────────────────────────────────────────────────────
@@ -119,8 +128,7 @@ def deja_vus():
     return vus
 
 
-def candidats():
-    """Revue de presse d'abord ; veille réseaux sociaux en complément (opérateurs, équipementiers, ministères)."""
+def candidats_revue():
     out = []
     for a in charger_revue().get("articles", []):
         titre = re.sub(r"<[^>]+>", " ", a.get("titre", "")).strip()
@@ -131,6 +139,25 @@ def candidats():
             s -= 60  # « que du tech » : sans lien avec le numérique, on ne retient pas
         out.append({"score": s, "titre": titre, "url": a.get("url"), "source": a.get("source", ""),
                     "pays": a.get("pays", ""), "origine": "revue"})
+    out.sort(key=lambda c: -c["score"])
+    return out
+
+
+def candidats_flux():
+    """Flux RSS (collecte de l'express, filtre éditorial sans IA, Algérie d'abord) + veille réseaux sociaux."""
+    out = []
+    try:
+        sys.path.insert(0, str(RACINE / "scripts" / "express"))
+        from filtre_editorial import trier
+        from sources import collecter
+        arts = collecter(max_age_h=20, journal=lambda m: None)
+        gardes, _ = trier(arts, utiliser_gemini=False, historique=[])
+        for i, a in enumerate(gardes[:25]):
+            pays = (a.get("filtre") or {}).get("pays", "")
+            out.append({"score": 80 - i + (10 if pays == "DZ" else 0), "titre": a.get("title", ""), "url": a.get("url"),
+                        "source": a.get("source", ""), "pays": pays, "origine": "rss"})
+    except Exception as e:
+        log(f"flux RSS indisponibles ({type(e).__name__}) : {e}")
     limite = datetime.datetime.utcnow() - datetime.timedelta(days=4)
     for p in lire(RACINE / "tic_social.json", {}).get("posts", []):
         if p.get("category") not in ("Opérateurs", "Équipementiers", "Ministère", "Infrastructure"):
@@ -144,16 +171,10 @@ def candidats():
         if d < limite:
             continue
         txt = re.sub(r"\s+", " ", str(p.get("text", "")))[:200]
-        out.append({"score": 35 + 25 * bool(SUIVI.search(txt)), "titre": txt, "url": p["url"],
+        out.append({"score": 70 + 25 * bool(SUIVI.search(txt)), "titre": txt, "url": p["url"],
                     "source": p.get("source_short", ""), "pays": "DZ", "origine": "social"})
     out.sort(key=lambda c: -c["score"])
     return out
-
-
-def weserv(url_image):
-    sans = re.sub(r"^https?://", "", url_image)
-    return ("https://images.weserv.nl/?url=" + requests.utils.quote(sans, safe="/:") +
-            "&w=1672&h=941&fit=cover&a=attention&output=jpg&q=90")
 
 
 def telecharger_image(url):
@@ -182,43 +203,52 @@ def telecharger_image(url):
     return buf.getvalue()
 
 
-def choisir():
+def weserv(url_image):
+    sans = re.sub(r"^https?://", "", url_image)
+    return ("https://images.weserv.nl/?url=" + requests.utils.quote(sans, safe="/:") +
+            "&w=1672&h=941&fit=cover&a=attention&output=jpg&q=90")
+
+
+def choisir(slot):
     h = historique()
-    if not os.environ.get("CIRCUIT_FORCE") and any(x.get("jour") == aujourd_hui() and x.get("etat") != "echec" for x in h):
-        log("quota du jour déjà utilisé (1 vidéo Flow par jour)")
+    if not os.environ.get("CIRCUIT_FORCE") and any(
+            x.get("jour") == aujourd_hui() and x.get("slot") == slot and x.get("etat") != "echec" for x in h):
+        log(f"créneau « {slot} » déjà fait aujourd'hui")
         return 3
     serveurs()
     vus = deja_vus()
-    for c in candidats()[:12]:
-        if not c["url"] or c["url"] in vus:
-            continue
-        try:
-            f = requests.post(f"{HUB}/api/fetch-url", json={"url": c["url"]}, timeout=60).json()
-        except Exception as e:
-            log(f"  lecture impossible ({type(e).__name__}) : {c['titre'][:60]}")
-            continue
-        texte, image = (f.get("text") or "").strip(), f.get("image") or ""
-        if len(texte) < 400 or not image.startswith("http"):
-            log(f"  ignoré (texte ou image manquant) : {c['titre'][:70]}")
-            continue
-        jpg = telecharger_image(image)
-        if not jpg:
-            log(f"  ignoré (image inexploitable) : {c['titre'][:70]}")
-            continue
-        ident = str(int(time.time() * 1000))
-        dossier = WORK / ident
-        dossier.mkdir(parents=True, exist_ok=True)
-        (dossier / "image.jpg").write_bytes(jpg)
-        job = {"ident": ident, "article": {k: c[k] for k in ("titre", "url", "source", "pays", "origine", "score")},
-               "titre_page": f.get("title", ""), "texte": texte, "image_source": image,
-               "image_weserv": weserv(image), "prompt_flow": PROMPT_FLOW,
-               "dossier": str(dossier), "clip_attendu": str(dossier / "clip.mp4")}
-        (dossier / "job.json").write_text(json.dumps(job, ensure_ascii=False, indent=1), encoding="utf-8")
-        h.append({"jour": aujourd_hui(), "ident": ident, "url": c["url"], "titre": c["titre"], "etat": "prepare"})
-        sauver_historique(h)
-        log(f"choisi (score {c['score']}) : {c['titre'][:90]}")
-        print(json.dumps({"ident": ident, "job": str(dossier / "job.json")}, ensure_ascii=False))
-        return 0
+    listes = (candidats_revue, candidats_flux) if slot == "matin" else (candidats_flux, candidats_revue)
+    for fabrique in listes:
+        for c in fabrique()[:14]:
+            if not c["url"] or c["url"] in vus:
+                continue
+            try:
+                f = requests.post(f"{HUB}/api/fetch-url", json={"url": c["url"]}, timeout=60).json()
+            except Exception as e:
+                log(f"  lecture impossible ({type(e).__name__}) : {c['titre'][:60]}")
+                continue
+            texte, image = (f.get("text") or "").strip(), f.get("image") or ""
+            if len(texte) < 400 or not image.startswith("http"):
+                log(f"  ignoré (texte ou image manquant) : {c['titre'][:70]}")
+                continue
+            jpg = telecharger_image(image)
+            if not jpg:
+                log(f"  ignoré (image inexploitable) : {c['titre'][:70]}")
+                continue
+            ident = str(int(time.time() * 1000))
+            dossier = WORK / ident
+            dossier.mkdir(parents=True, exist_ok=True)
+            (dossier / "image.jpg").write_bytes(jpg)
+            job = {"ident": ident, "slot": slot, "article": {k: c[k] for k in ("titre", "url", "source", "pays", "origine", "score")},
+                   "titre_page": f.get("title", ""), "texte": texte, "image_source": image,
+                   "image_weserv": weserv(image), "prompt_flow": PROMPT_FLOW,
+                   "dossier": str(dossier), "clip_attendu": str(dossier / "clip.mp4")}
+            (dossier / "job.json").write_text(json.dumps(job, ensure_ascii=False, indent=1), encoding="utf-8")
+            h.append({"jour": aujourd_hui(), "slot": slot, "ident": ident, "url": c["url"], "titre": c["titre"], "etat": "prepare"})
+            sauver_historique(h)
+            log(f"choisi [{slot}, {c['origine']}, score {c['score']}] : {c['titre'][:90]}")
+            print(json.dumps({"ident": ident, "job": str(dossier / "job.json")}, ensure_ascii=False))
+            return 0
     log("rien de neuf (aucune info avec texte et image exploitables)")
     return 2
 
@@ -231,16 +261,27 @@ def ntfy_canal():
         return os.environ.get("NTFY_TOPIC", "")
 
 
-def notifier(titre, message, tags="newspaper", clic=f"{SITE}/admin-brouillons.html"):
+def notifier(titre, message, tags="newspaper", clic=f"{SITE}/", actions=None, priorite=None):
     canal = ntfy_canal()
     if not canal:
         log("ntfy : canal introuvable")
         return
+    entetes = {"Title": titre.encode("utf-8"), "Tags": tags, "Click": clic}
+    if actions:
+        entetes["Actions"] = actions.encode("utf-8")
+    if priorite:
+        entetes["Priority"] = str(priorite)
     try:
-        requests.post(f"https://ntfy.sh/{canal}", data=message.encode("utf-8"), timeout=20,
-                      headers={"Title": titre.encode("utf-8"), "Tags": tags, "Click": clic})
+        requests.post(f"https://ntfy.sh/{canal}", data=message.encode("utf-8"), timeout=20, headers=entetes)
     except requests.RequestException as e:
         log(f"ntfy : {e}")
+
+
+def actions_choix(ident, canal_choix):
+    """Boutons ntfy : chaque bouton poste « <ident>:<choix> » sur le canal de réponse du brouillon."""
+    def b(libelle, choix):
+        return f"http, {libelle}, https://ntfy.sh/{canal_choix}, method=POST, body={ident}:{choix}, clear=true"
+    return "; ".join([b("À la Une", "une"), b("2e position", "seconde"), b("Brève", "breve")])
 
 
 def q(v):
@@ -250,8 +291,7 @@ def q(v):
 def points_essentiels(g):
     """« À retenir » : 2-3 phrases tirées de l'article rédigé (aucune invention)."""
     phrases = re.split(r"(?<=[.!?])\s+", re.sub(r"\s+", " ", f"{g['lead']} {g['contenu']}"))
-    pts = [p.strip() for p in phrases if 60 <= len(p) <= 230][:3]
-    return "\n".join(pts)
+    return "\n".join([p.strip() for p in phrases if 60 <= len(p) <= 230][:3])
 
 
 def finaliser(ident, clip, sans_push):
@@ -259,12 +299,14 @@ def finaliser(ident, clip, sans_push):
     job = lire(dossier / "job.json", None)
     if not job:
         raise RuntimeError(f"job introuvable : {dossier}")
-    clip = Path(clip)
-    sonde = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "stream=codec_type,width,height:format=duration",
-                            "-of", "json", str(clip)], capture_output=True, text=True)
-    info = json.loads(sonde.stdout or "{}")
-    if not any(s.get("codec_type") == "video" for s in info.get("streams", [])) or float(info.get("format", {}).get("duration", 0)) < 3:
-        raise RuntimeError("clip Flow invalide (pas de vidéo ou trop court)")
+    avec_video = bool(clip) and clip.lower() != "none"
+    if avec_video:
+        clip = Path(clip)
+        sonde = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "stream=codec_type:format=duration",
+                                "-of", "json", str(clip)], capture_output=True, text=True)
+        info = json.loads(sonde.stdout or "{}")
+        if not any(s.get("codec_type") == "video" for s in info.get("streams", [])) or float(info.get("format", {}).get("duration", 0)) < 3:
+            raise RuntimeError("clip Flow invalide (pas de vidéo ou trop court)")
     serveurs()
     # rédaction : moteur de Smart Ingest PRO, mode IA, style PRO étoffé
     corps_source = f"{job['titre_page']}\n\n{job['texte']}\n\nSource : {job['article']['source']} — {job['article']['url']}"
@@ -272,13 +314,13 @@ def finaliser(ident, clip, sans_push):
     if not (g.get("titre") and g.get("lead") and len(str(g.get("contenu", "")).split()) >= 150):
         raise RuntimeError("rédaction IA insuffisante")
     cat = g.get("categorie") if g.get("categorie") in CATEGORIES else ("Algérie" if job["article"]["pays"] == "DZ" else "Monde")
-    video_url, image_rel = f"/videos/articles/{ident}.mp4", f"images/{ident}.jpg"
+    video_url, image_rel = (f"/videos/articles/{ident}.mp4" if avec_video else ""), f"images/{ident}.jpg"
     # carte interactive : Article Interactif, mode IA
     corps = f"# {g['titre']}\n\n{g['lead']}\n\n{g['contenu']}"
+    medias = {"video": {"url": video_url, "caption": g["titre"][:120]}} if avec_video else {}
     gen = requests.post(f"{AI}/api/generate", timeout=300, json={
         "text": corps, "mode": "real", "primary_color": "#0d3b24", "accent_color": "#d21034", "dark_mode": False,
-        "source_url": job["article"]["url"], "gallery": [], "widgets": {},
-        "medias": {"video": {"url": video_url, "caption": g["titre"][:120]}}}).json()
+        "source_url": job["article"]["url"], "gallery": [], "widgets": {}, "medias": medias}).json()
     if gen.get("error"):
         raise RuntimeError("carte interactive : " + str(gen["error"]))
     rendu = requests.post(f"{AI}/api/render", json=gen, timeout=120).json()
@@ -288,10 +330,12 @@ def finaliser(ident, clip, sans_push):
     sortie = dossier / "out"
     for sous in ("brouillons", "videos/articles", "images", "interactifs"):
         (sortie / sous).mkdir(parents=True, exist_ok=True)
-    shutil.copy(clip, sortie / "videos" / "articles" / f"{ident}.mp4")
+    if avec_video:
+        shutil.copy(clip, sortie / "videos" / "articles" / f"{ident}.mp4")
     shutil.copy(dossier / "image.jpg", sortie / "images" / f"{ident}.jpg")
     (sortie / "interactifs" / f"{ident}.html").write_text(rendu["html"], encoding="utf-8")
-    now = datetime.datetime.utcnow() + datetime.timedelta(hours=1)
+    now = maintenant_alger()
+    canal_choix = "atchoix-" + secrets.token_hex(8)
     tags = ", ".join(f'"{q(t)}"' for t in (g.get("tags") or [])[:6] if str(t).strip())
     md = f"""---
 titre: "{q(g['titre'])[:110]}"
@@ -309,8 +353,11 @@ type:
 position:
 interactif: "/interactifs/{ident}.html"
 aretenir: "{q(points_essentiels(g))}"
-mediaPriority: video
+mediaPriority: {"video" if avec_video else "image"}
 brouillon: true
+circuit: true
+cree: "{datetime.datetime.utcnow():%Y-%m-%dT%H:%M:%SZ}"
+choix_canal: "{canal_choix}"
 ---
 
 {g['contenu'].strip()}
@@ -325,9 +372,14 @@ brouillon: true
     if sans_push:
         log("--sans-push : rien n'est déposé ni notifié")
         return 0
-    deposer(ident, sortie, g["titre"])
-    notifier("Brouillon vidéo à valider", f"« {g['titre']} » — vidéo Flow + version interactive prêtes.\n"
-             f"Relire puis publier dans l'admin.")
+    deposer(ident, sortie, g["titre"], avec_video)
+    notifier(f"À placer : {g['titre'][:60]}",
+             f"{g['lead'][:230]}\n\nChoisissez la place. Sans choix sous {DELAI_DEFAUT_MIN} min : 2e position."
+             f"\n{'Vidéo Flow + ' if avec_video else ''}version interactive prête.",
+             clic=f"{SITE}/interactifs/{ident}.html", actions=actions_choix(ident, canal_choix))
+    notifier("Rejeter ce brouillon ?", f"« {g['titre'][:80]} » — touchez le bouton pour l'annuler avant publication.",
+             tags="x", priorite=1, clic=f"{SITE}/",
+             actions=f"http, Rejeter, https://ntfy.sh/{canal_choix}, method=POST, body={ident}:rejeter, clear=true")
     return 0
 
 
@@ -338,7 +390,7 @@ def git(*a, cwd):
     return r.stdout
 
 
-def deposer(ident, sortie, titre):
+def deposer(ident, sortie, titre, avec_video):
     """Dépôt via un dossier temporaire cloné depuis origin/main (le dépôt local a du retard)."""
     tmp = Path(r"E:\algeria-tech-push-circuit")
     git("fetch", "-q", "origin", cwd=RACINE)
@@ -346,13 +398,16 @@ def deposer(ident, sortie, titre):
         subprocess.run(["git", "worktree", "remove", "--force", str(tmp)], cwd=RACINE, capture_output=True)
     git("worktree", "add", "-q", "--detach", str(tmp), "origin/main", cwd=RACINE)
     try:
-        for rel in (f"brouillons/{ident}.md", f"videos/articles/{ident}.mp4", f"images/{ident}.jpg", f"interactifs/{ident}.html"):
+        fichiers = [f"brouillons/{ident}.md", f"images/{ident}.jpg", f"interactifs/{ident}.html"]
+        if avec_video:
+            fichiers.append(f"videos/articles/{ident}.mp4")
+        for rel in fichiers:
             cible = tmp / rel
             cible.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy(sortie / rel, cible)
             git("add", "-f", rel, cwd=tmp)
         git("-c", "user.name=circuit-flow", "-c", "user.email=circuit-flow@local", "commit", "-q", "-m",
-            f"Auto: brouillon vidéo à valider — {titre[:70]}", cwd=tmp)
+            f"Auto: brouillon à placer — {titre[:70]}", cwd=tmp)
         for essai in range(4):
             try:
                 git("push", "-q", "origin", "HEAD:main", cwd=tmp)
@@ -371,12 +426,13 @@ def deposer(ident, sortie, titre):
 def main():
     ap = argparse.ArgumentParser()
     sp = ap.add_subparsers(dest="cmd", required=True)
-    sp.add_parser("choisir")
+    c = sp.add_parser("choisir")
+    c.add_argument("--slot", choices=SLOTS, default="matin")
     al = sp.add_parser("alerte")
     al.add_argument("message")
     f = sp.add_parser("finaliser")
     f.add_argument("ident")
-    f.add_argument("clip")
+    f.add_argument("clip", help="chemin du clip mp4, ou « none » (brouillon sans vidéo)")
     f.add_argument("--sans-push", action="store_true")
     a = ap.parse_args()
     try:
@@ -384,7 +440,7 @@ def main():
             notifier("Circuit vidéo : action requise", a.message, tags="warning", clic=SITE)
             return 0
         if a.cmd == "choisir":
-            return choisir()
+            return choisir(a.slot)
         return finaliser(a.ident, a.clip, a.sans_push)
     except Exception as e:
         log(f"ÉCHEC : {type(e).__name__} {e}")

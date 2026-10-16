@@ -1,0 +1,44 @@
+name: Brouillons du circuit — publication selon le choix ntfy
+
+# Les brouillons « article vidéo » (scripts/brouillons/circuit_flow.py, lancé sur le PC) arrivent
+# dans brouillons/ avec une notification ntfy à trois boutons (Une / 2e position / Brève).
+# Ce workflow lit le choix toutes les 10 min et publie ; sans choix sous 90 min : 2e position.
+# Un brouillon sans « circuit: true » n'est jamais touché. Aucun secret autre que NTFY_TOPIC.
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: brouillons-publier
+  cancel-in-progress: false
+
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Publication selon le choix
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          DELAI_MIN: "90"
+        run: python3 scripts/brouillons/publier_choix.py
+
+      - name: Enregistrement
+        run: |
+          git add -A articles brouillons
+          git diff --cached --quiet && { echo "Rien à publier."; exit 0; }
+          git config user.name "actions-user"
+          git config user.email "actions@github.com"
+          git commit -q -m "Auto: publication des brouillons selon le choix ntfy [$(date -u +%H:%M) UTC]"
+          for i in 1 2 3; do
+            git pull --rebase -q origin main && git push -q origin HEAD:main && break
+            sleep 5
+          done
