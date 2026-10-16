@@ -1,6 +1,8 @@
 """Publie les brouillons du circuit « article vidéo » selon le choix fait sur le téléphone (ntfy).
 
-Tourne dans GitHub Actions (toutes les 10 min), sans le PC. Pour chaque brouillon `brouillons/<id>.md`
+Mode normal : dans un dépôt déjà à jour (GitHub Actions, à la demande). Mode `--local` : sur le PC (tâche
+planifiée Windows toutes les 15 min, aucune minute GitHub consommée) — clone temporaire d'origin/main,
+publication, commit, push. Pour chaque brouillon `brouillons/<id>.md`
 marqué `circuit: true` :
   - lit sur le canal ntfy de réponse (`choix_canal`) le dernier message « <id>:<choix> » ;
   - choix : une (position 1) · seconde (position 2) · breve (espace Brèves) · rejeter (suppression) ;
@@ -12,6 +14,7 @@ import datetime
 import json
 import os
 import re
+import subprocess
 import sys
 import urllib.request
 from pathlib import Path
@@ -135,5 +138,52 @@ def main():
     return 0
 
 
+def git(*a, cwd):
+    r = subprocess.run(["git", *a], cwd=cwd, capture_output=True, text=True, encoding="utf-8", errors="replace")
+    if r.returncode:
+        raise RuntimeError(f"git {' '.join(a[:2])} : {(r.stderr or r.stdout).strip()[:300]}")
+    return r.stdout
+
+
+def local():
+    """Sur le PC : clone temporaire d'origin/main → publication → commit → push (les JSON locaux restent intouchés)."""
+    global RACINE
+    depot = Path(__file__).resolve().parents[2]
+    git("fetch", "-q", "origin", cwd=depot)
+    if not [x for x in git("ls-tree", "-r", "--name-only", "origin/main", "brouillons", cwd=depot).splitlines() if x.endswith(".md")]:
+        return 0  # aucun brouillon en attente : rien à faire
+    tmp = Path("E:/algeria-tech-push-publish")
+    if tmp.exists():
+        subprocess.run(["git", "worktree", "remove", "--force", str(tmp)], cwd=depot, capture_output=True)
+    git("worktree", "add", "-q", "--detach", str(tmp), "origin/main", cwd=depot)
+    try:
+        if not os.environ.get("NTFY_TOPIC"):
+            try:
+                os.environ["NTFY_TOPIC"] = Path("E:/01-flash-infos/flash_auto/ntfy_canal.txt").read_text(encoding="utf-8").strip()
+            except OSError:
+                pass
+        RACINE = tmp
+        main()
+        git("add", "-A", "articles", "brouillons", cwd=tmp)
+        if not git("diff", "--cached", "--name-only", cwd=tmp).strip():
+            return 0
+        git("-c", "user.name=circuit-flow", "-c", "user.email=circuit-flow@local", "commit", "-q", "-m",
+            "Auto: publication des brouillons selon le choix ntfy", cwd=tmp)
+        for essai in range(4):
+            try:
+                git("push", "-q", "origin", "HEAD:main", cwd=tmp)
+                log("publication poussée sur GitHub")
+                break
+            except RuntimeError:
+                if essai == 3:
+                    raise
+                git("fetch", "-q", "origin", cwd=tmp)
+                git("rebase", "-q", "origin/main", cwd=tmp)
+        return 0
+    finally:
+        subprocess.run(["git", "worktree", "remove", "--force", str(tmp)], cwd=depot, capture_output=True)
+        subprocess.run(["git", "worktree", "prune"], cwd=depot, capture_output=True)
+
+
 if __name__ == "__main__":
-    sys.exit(main())
+    sys.exit(local() if "--local" in sys.argv else main())
