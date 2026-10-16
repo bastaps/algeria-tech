@@ -4,9 +4,10 @@ name: Brouillons du circuit — publication selon le choix ntfy
 # dans brouillons/ avec une notification ntfy à trois boutons (Une / 2e position / Brève).
 # Ce workflow lit le choix toutes les 10 min et publie ; sans choix sous 90 min : 2e position.
 # Un brouillon sans « circuit: true » n'est jamais touché. Aucun secret autre que NTFY_TOPIC.
+# PAS de programmation (cron) : le dépôt est privé, quota gratuit de 2000 min/mois partagé avec l'express
+# et les flash (panne d'août 2026). La publication est faite par le PC (tâche planifiée Windows,
+# `publier_choix.py --local`). Ce workflow reste disponible à la demande (Actions → Run workflow).
 on:
-  schedule:
-    - cron: "*/10 * * * *"
   workflow_dispatch:
 
 permissions:
