@@ -1,3 +1,16 @@
+
+// ── Vignettes d'images (images/t/<nom>.webp, 640 px) : les cartes n'affichent plus l'image pleine taille.
+//    Repli automatique sur l'original si la vignette n'existe pas (atImgFb).
+function atThumb(src) {
+    if (!src || typeof src !== 'string') return src;
+    if (/^(https?:)?\/\//i.test(src) && src.indexOf(location.origin) !== 0) return src;
+    const m = src.match(/(?:^|\/)images\/([^\/?#]+)\.(?:jpe?g|png|webp)(?:[?#].*)?$/i);
+    return m ? '/images/t/' + m[1] + '.webp' : src;
+}
+function atImgFb(el) {
+    if (el.dataset && el.dataset.o && el.src.indexOf('/images/t/') > -1) { const o = el.dataset.o; el.dataset.o = ''; el.src = o; return; }
+    el.onerror = null; el.style.display = 'none';
+}
 // === ADMIN VISIBILITY CONTROL ===
 const ADMIN_CONFIG = {
     unlockKey: 'AT_Admin_2026',
@@ -435,9 +448,9 @@ function renderHero(arts) {
         const hasImg = art.image && art.image.trim() !== "" && !art.image.includes('%20%20') && !art.image.endsWith('/') && !art.image.endsWith('  ');
         if (hasImg) return art.image;
     };
-    let html = `<div class="hero-main" onclick="openArticle('${h.id}')"><img src="${getT(h)}" alt="${h.titre}" onerror="this.onerror=null;this.style.display='none'">${h.video ? '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(210,16,52,0.8);color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;z-index:2;pointer-events:none;"><i class="fas fa-play"></i></div>' : ''}<div class="hero-overlay"><div class="hero-meta-wrapper"><span class="category-tag ${cls(h.categorie)}">${h.categorie}</span><span class="hero-meta-tag"><i class="far fa-calendar-alt"></i> ${h.date}</span><span class="hero-meta-tag"><i class="far fa-clock"></i> ${h.heure}</span></div><h2>${h.titre}</h2><p>${h.extrait}</p></div></div><div class="hero-side-card">`;
+    let html = `<div class="hero-main" onclick="openArticle('${h.id}')"><img src="${getT(h)}" alt="${h.titre}" fetchpriority="high" decoding="async" onerror="this.onerror=null;this.style.display='none'">${h.video ? '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(210,16,52,0.8);color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;z-index:2;pointer-events:none;"><i class="fas fa-play"></i></div>' : ''}<div class="hero-overlay"><div class="hero-meta-wrapper"><span class="category-tag ${cls(h.categorie)}">${h.categorie}</span><span class="hero-meta-tag"><i class="far fa-calendar-alt"></i> ${h.date}</span><span class="hero-meta-tag"><i class="far fa-clock"></i> ${h.heure}</span></div><h2>${h.titre}</h2><p>${h.extrait}</p></div></div><div class="hero-side-card">`;
     s.forEach(a => {
-        html += `<div onclick="openArticle('${a.id}')" style="position:relative;"><img src="${getT(a)}" alt="${a.titre}" onerror="this.onerror=null;this.style.display='none'">${a.video ? '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(210,16,52,0.8);color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;z-index:2;pointer-events:none;"><i class="fas fa-play"></i></div>' : ''}<div class="hero-overlay"><div class="hero-meta-wrapper"><span class="category-tag ${cls(a.categorie)}">${a.categorie}</span><span class="hero-meta-tag"><i class="far fa-calendar-alt"></i> ${a.date}</span><span class="hero-meta-tag"><i class="far fa-clock"></i> ${a.heure}</span></div><h2>${a.titre}</h2></div></div>`;
+        html += `<div onclick="openArticle('${a.id}')" style="position:relative;"><img src="${atThumb(getT(a))}" data-o="${getT(a)}" alt="${a.titre}" loading="lazy" decoding="async" onerror="atImgFb(this)">${a.video ? '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(210,16,52,0.8);color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;z-index:2;pointer-events:none;"><i class="fas fa-play"></i></div>' : ''}<div class="hero-overlay"><div class="hero-meta-wrapper"><span class="category-tag ${cls(a.categorie)}">${a.categorie}</span><span class="hero-meta-tag"><i class="far fa-calendar-alt"></i> ${a.date}</span><span class="hero-meta-tag"><i class="far fa-clock"></i> ${a.heure}</span></div><h2>${a.titre}</h2></div></div>`;
     });
     html += '</div>';
     grid.innerHTML = html;
@@ -481,7 +494,7 @@ function renderGrid(arts) {
         if (hasImg) return art.image;
     };
     grid.innerHTML = arts.map((a, i) => `<div class="news-card" style="animation-delay:${i*0.1}s" onclick="openArticle('${a.id}')">
-<div class="news-card-img" style="position:relative;"><img src="${getT(a)}" alt="${a.titre}" onerror="this.onerror=null;this.style.display='none'">${a.video ? '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(210,16,52,0.8);color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;z-index:2;pointer-events:none;"><i class="fas fa-play"></i></div>' : ''}<span class="category-tag ${cls(a.categorie)}">${a.categorie}</span>${window.hasImmersive && window.hasImmersive(a) ? '<span class="at-badge-interactif" title="Cet article a une version interactive"><i class="fas fa-layer-group"></i> Interactif</span>' : ''}</div>
+<div class="news-card-img" style="position:relative;"><img src="${atThumb(getT(a))}" data-o="${getT(a)}" alt="${a.titre}" loading="lazy" decoding="async" onerror="atImgFb(this)">${a.video ? '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(210,16,52,0.8);color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;z-index:2;pointer-events:none;"><i class="fas fa-play"></i></div>' : ''}<span class="category-tag ${cls(a.categorie)}">${a.categorie}</span>${window.hasImmersive && window.hasImmersive(a) ? '<span class="at-badge-interactif" title="Cet article a une version interactive"><i class="fas fa-layer-group"></i> Interactif</span>' : ''}</div>
 <div class="news-card-body"><h3>${a.titre}</h3><p>${a.extrait}</p>
 <div class="card-meta"><span><i class="far fa-calendar"></i> ${a.date}</span><span><i class="far fa-clock"></i> ${a.heure}</span><span><i class="far fa-eye"></i> ${a.views}</span></div></div></div>`).join('');
 }
@@ -565,7 +578,7 @@ window.openArticle = async function(id) {
         relGrid.innerHTML = rel.map(a => {
             const vMatch = a.video ? a.video.match(/(?:youtu.be\/|youtube.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([^&?]{11})/) : null;
             const thumb = vMatch ? `https://img.youtube.com/vi/${vMatch[1]}/hqdefault.jpg` : (a.image || '');
-            return `<div class="related-card" onclick="openArticle('${a.id}')"><img src="${thumb}" onerror="this.onerror=null;this.style.display='none'"><h4>${a.titre}</h4></div>`;
+            return `<div class="related-card" onclick="openArticle('${a.id}')"><img src="${atThumb(thumb)}" data-o="${thumb}" loading="lazy" decoding="async" onerror="atImgFb(this)"><h4>${a.titre}</h4></div>`;
         }).join('');
     } else if (relBox) { relBox.style.display = 'none'; }
 };
@@ -3295,7 +3308,7 @@ function renderYouTubeGrid(videos) {
         const thumb = v.snippet.thumbnails.high.url;
         const date = new Date(v.snippet.publishedAt).toLocaleDateString('fr-FR');
         return `<div class="news-card" style="animation-delay:${i*0.1}s" onclick="playYouTubeVideo('${vId}')">
-<div class="news-card-img"><img src="${thumb}" alt="${title}"><span class="category-tag tag-video"><i class="fab fa-youtube"></i> VidÃ©o</span></div>
+<div class="news-card-img"><img src="${atThumb(thumb)}" data-o="${thumb}" alt="${title}" loading="lazy" decoding="async" onerror="atImgFb(this)"><span class="category-tag tag-video"><i class="fab fa-youtube"></i> VidÃ©o</span></div>
 <div class="news-card-body"><h3>${title}</h3><div class="card-meta"><span><i class="far fa-calendar"></i> ${date}</span><span style="color:var(--primary);margin-left:auto">Regarder <i class="fas fa-play-circle"></i></span></div></div></div>`;
     }).join('');
 }

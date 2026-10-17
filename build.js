@@ -7,6 +7,15 @@ const fs   = require('fs');
 const path = require('path');
 
 const ARTICLES_DIR = path.join(__dirname, 'articles');
+
+// Versions des assets : lues dans index.html pour que les pages article pré-rendues demandent EXACTEMENT les
+// mêmes URL (style.css?v=N / script.js?v=N) que l'accueil — sinon le navigateur télécharge deux fois le même CSS.
+let CSS_V = '1', JS_V = '1';
+try {
+    const _idx = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
+    CSS_V = (_idx.match(/style\.css\?v=(\d+)/) || [])[1] || CSS_V;
+    JS_V  = (_idx.match(/script\.js\?v=(\d+)/) || [])[1] || JS_V;
+} catch (e) { /* index.html illisible : valeurs par défaut */ }
 const OUTPUT       = path.join(__dirname, 'articles.json');
 
 function parseFrontmatter(text, fileName) {
@@ -265,7 +274,7 @@ function generateArticlePage(art) {
 <!-- Schema.org NewsArticle -->
 <script type="application/ld+json">${schema}</script>
 
-<link rel="stylesheet" href="/style.css?v=3">
+<link rel="stylesheet" href="/style.css?v=${CSS_V}">
 <style>
   .ssg-article { max-width:800px; margin:80px auto; padding:0 20px 60px; font-family:Inter,sans-serif; }
   .ssg-article img { width:100%; border-radius:8px; margin-bottom:24px; }
@@ -295,7 +304,7 @@ function generateArticlePage(art) {
 // Charge le SPA principal depuis la racine
 (function() {
   const s = document.createElement('script');
-  s.src = '/script.js?v=3';
+  s.src = '/script.js?v=${JS_V}';
   s.defer = true;
   document.head.appendChild(s);
 })();
@@ -336,3 +345,16 @@ ${sitemapUrls.join('\n')}
 
 fs.writeFileSync(path.join(__dirname, 'sitemap.xml'), sitemap, 'utf8');
 console.log(`✅ sitemap.xml généré : ${sitemapUrls.length} URLs`);
+
+// ── Nettoyage du déploiement (Cloudflare Pages uniquement : variable CF_PAGES=1) ─────────────────
+// Le site est publié depuis la racine du dépôt : sans ce nettoyage, server.js, les scripts Python, les
+// workflows et les documents internes étaient téléchargeables sur pages.dev. Ne touche JAMAIS au dépôt :
+// seule la copie de build (éphémère) est nettoyée. Rien n'est supprimé en local (CF_PAGES absent).
+if (process.env.CF_PAGES === '1') {
+    const rm = (p) => { try { fs.rmSync(path.join(__dirname, p), { recursive: true, force: true }); } catch (e) {} };
+    for (const f of fs.readdirSync(__dirname)) {
+        if (/\.(md|py|ps1|bat|lnk|docx|pptx)$/i.test(f) || (/\.txt$/i.test(f) && f !== 'robots.txt')) rm(f);
+    }
+    ['server.js', 'requirements.txt', 'diff_report.txt', 'apify_cache.json', 'scripts', 'tools', '.github'].forEach(rm);
+    console.log('🧹 fichiers internes retirés du déploiement');
+}
