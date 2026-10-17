@@ -102,10 +102,10 @@
                     </div>
                 </div>
                 <div class="top-bar-right">
-                    <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.youtube.com/@algeria-tech-by-basta" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.twitter.com/" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.youtube.com/@algeria-tech-by-basta" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
@@ -245,7 +245,7 @@
                     <h3 class="widget-title" data-i18n-ar="النشرة الإخبارية"><i class="fas fa-envelope-open-text"></i> Newsletter</h3>
                     <p data-i18n-ar="احصل على أهم أخبار التكنولوجيا كل صباح.">Recevez l'essentiel de l'actualité tech chaque matin.</p>
                     <form class="newsletter-form">
-                        <input type="email" placeholder="Votre adresse email" data-i18n-ar="بريدك الإلكتروني">
+                        <input type="email" aria-label="Votre adresse email" placeholder="Votre adresse email" data-i18n-ar="بريدك الإلكتروني">
                         <button type="submit" data-i18n-ar="اشترك">S'abonner</button>
                     </form>
                 </div>
@@ -381,15 +381,15 @@
                 <div class="footer-about">
                     <div class="logo" style="margin-bottom:15px;">
                         <img src="images/logo_v2-256.webp" alt="Algeria Tech" class="logo-img">
-                        <div class="logo-text"><h1 style="color:#fff;">Algeria <span style="color:var(--secondary);">Tech</span></h1></div>
+                        <div class="logo-text"><div class="logo-name" style="color:#fff;">Algeria <span style="color:var(--secondary);">Tech</span></div></div>
                     </div>
                     <p>Algeria Tech est votre source d'information de référence sur l'actualité tech en Algérie par Basta.</p>
                     <div class="footer-social">
-                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.youtube.com/@algeria-tech-by-basta" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.twitter.com/" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@algeria-tech-by-basta" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -421,12 +421,12 @@
         </div>
     </footer>
 
-    <button class="admin-btn" id="adminBtn" onclick="toggleAdminPanel()"><i class="fas fa-plus"></i></button>
-    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
+    <button class="admin-btn" id="adminBtn" aria-label="Ajouter un article" onclick="toggleAdminPanel()"><i class="fas fa-plus"></i></button>
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut" onclick="window.scrollTo({top:0, behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
 
     <div class="admin-modal" id="adminModal">
         <div class="modal-content">
-            <button class="modal-close" onclick="closeAdminPanel()"><i class="fas fa-times"></i></button>
+            <button class="modal-close" aria-label="Fermer" onclick="closeAdminPanel()"><i class="fas fa-times"></i></button>
             <h2><i class="fas fa-pen-nib"></i> Créer un nouvel article</h2>
 
             <!-- ── ZONE SMART IA ─────────────────────────────── -->
@@ -438,7 +438,7 @@
                 <div class="form-group" style="margin-bottom:8px;">
                     <label><i class="fas fa-link" style="color:#D21034"></i> URL source de l'article</label>
                     <div class="hub-url-row">
-                        <input type="url" id="sourceUrl" placeholder="https://site-source.com/article...">
+                        <input type="url" aria-label="URL de la source" id="sourceUrl" placeholder="https://site-source.com/article...">
                         <button type="button" class="hub-btn hub-btn-web" id="hubUrlBtn" onclick="hubFetchFromUrl()">
                             <i class="fas fa-globe"></i><span>Importer</span>
                         </button>
@@ -446,15 +446,15 @@
                     <div id="hubSourceBadge" class="hub-source-badge hidden"></div>
                 </div>
                 <div class="form-group" style="margin-bottom:6px;">
-                    <label><i class="fas fa-paste" style="color:#D21034"></i> Texte brut à traiter</label>
-                    <textarea id="hubSmartBox" rows="4" placeholder="Collez ici le texte source (arabe, anglais, français)…"></textarea>
+                    <label for="hubSmartBox"><i class="fas fa-paste" style="color:#D21034"></i> Texte brut à traiter</label>
+                    <textarea aria-label="Texte source" id="hubSmartBox" rows="4" placeholder="Collez ici le texte source (arabe, anglais, français)…"></textarea>
                     <small id="hubCharCount" style="color:#888;font-size:0.75rem;">0 caractères</small>
                 </div>
                 <div class="hub-smart-actions">
                     <button type="button" class="hub-btn" id="hubPdfBtn" onclick="document.getElementById('hub-pdf-input').click()">
                         <i class="fas fa-file-pdf"></i><span>PDF</span>
                     </button>
-                    <input type="file" id="hub-pdf-input" accept=".pdf" style="display:none" onchange="hubTranscribePDF(this)">
+                    <input type="file" aria-label="Fichier PDF" id="hub-pdf-input" accept=".pdf" style="display:none" onchange="hubTranscribePDF(this)">
                     <button type="button" class="hub-btn" id="hubTranslateBtn" onclick="hubTranslate()">
                         <i class="fas fa-language"></i><span>Traduire</span>
                     </button>
@@ -476,19 +476,19 @@
             <!-- ── FIN ZONE SMART IA ─────────────────────────── -->
 
             <form id="articleForm" onsubmit="submitArticle(event)">
-                <div class="form-group"><label>Titre <span class="required">*</span></label><input type="text" id="titre" required></div>
+                <div class="form-group"><label for="titre">Titre <span class="required">*</span></label><input type="text" id="titre" required></div>
                 <div class="form-row">
-                    <div class="form-group"><label>Catégorie <span class="required">*</span></label>
+                    <div class="form-group"><label for="categorie">Catégorie <span class="required">*</span></label>
                         <select id="categorie" required><option value="">-- Sélectionner --</option><option value="Algérie">Algérie</option><option value="Télécoms">Télécoms</option><option value="Mobile">Mobile</option><option value="Startups">Startups</option><option value="IA">IA</option><option value="Fintech">Fintech</option><option value="Innovation">Innovation</option><option value="Monde">Monde</option><option value="Vidéo">Vidéo</option><option value="Infographies">Infographies</option><option value="Entreprises">Entreprises</option></select>
                     </div>
-                    <div class="form-group"><label>Date <span class="required">*</span></label><input type="date" id="date" required></div>
-                    <div class="form-group"><label>Heure <span class="required">*</span></label><input type="time" id="heure" required></div>
+                    <div class="form-group"><label for="date">Date <span class="required">*</span></label><input type="date" id="date" required></div>
+                    <div class="form-group"><label for="heure">Heure <span class="required">*</span></label><input type="time" id="heure" required></div>
                 </div>
-                <div class="form-group"><label>Extrait <span class="required">*</span></label><textarea id="extrait" rows="2" required></textarea></div>
-                <div class="form-group"><label>Tags (séparés par des virgules)</label><input type="text" id="tags"></div>
+                <div class="form-group"><label for="extrait">Extrait <span class="required">*</span></label><textarea id="extrait" rows="2" required></textarea></div>
+                <div class="form-group"><label for="tags">Tags (séparés par des virgules)</label><input type="text" id="tags"></div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label><i class="fas fa-thumbtack"></i> Position à la Une</label>
+                        <label for="position"><i class="fas fa-thumbtack"></i> Position à la Une</label>
                         <select id="position">
                             <option value="">Automatique (par date)</option>
                             <option value="1">Position 1 — Une principale</option>
@@ -511,12 +511,12 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Vidéo YouTube (Lien)</label>
+                        <label for="video">Vidéo YouTube (Lien)</label>
                         <input type="url" id="video" placeholder="https://www.youtube.com/...">
                     </div>
                 </div>
                 <div class="image-preview" id="imagePreview"></div>
-                <div class="form-group"><label>Contenu <span class="required">*</span></label><textarea id="contenu" rows="8" required placeholder="Rédigez votre article ici (Markdown supporté)"></textarea></div>
+                <div class="form-group"><label for="contenu">Contenu <span class="required">*</span></label><textarea id="contenu" rows="8" required placeholder="Rédigez votre article ici (Markdown supporté)"></textarea></div>
                 <div class="form-actions">
                     <button type="button" class="btn-secondary" onclick="closeAdminPanel()"><i class="fas fa-times"></i> Annuler</button>
                     <button type="submit" class="btn-primary"><i class="fas fa-rocket"></i> Créer & Déployer</button>
@@ -527,13 +527,13 @@
 
     <div class="admin-modal" id="veilleModal">
         <div class="modal-content" style="max-width:500px;">
-            <button class="modal-close" onclick="closeVeilleModal()"><i class="fas fa-times"></i></button>
+            <button class="modal-close" aria-label="Fermer" onclick="closeVeilleModal()"><i class="fas fa-times"></i></button>
             <h2 id="veilleModalTitle"><i class="fas fa-plus"></i> Ajouter un article de veille</h2>
             <form id="veilleForm" onsubmit="handleVeilleSubmit(event)">
                 <input type="hidden" id="veilleEditId">
-                <div class="form-group"><label>Titre <span class="required">*</span></label><input type="text" id="veilleTitle" required></div>
-                <div class="form-group"><label>URL de l'article <span class="required">*</span></label><input type="url" id="veilleUrl" required></div>
-                <div class="form-group"><label>Tags (séparés par des virgules)</label><input type="text" id="veilleTags"></div>
+                <div class="form-group"><label for="veilleTitle">Titre <span class="required">*</span></label><input type="text" id="veilleTitle" required></div>
+                <div class="form-group"><label for="veilleUrl">URL de l'article <span class="required">*</span></label><input type="url" id="veilleUrl" required></div>
+                <div class="form-group"><label for="veilleTags">Tags (séparés par des virgules)</label><input type="text" id="veilleTags"></div>
                 <div class="form-actions">
                     <button type="button" class="btn-secondary" onclick="closeVeilleModal()">Annuler</button>
                     <button type="submit" class="btn-primary"><i class="fas fa-check"></i> Enregistrer</button>
@@ -544,7 +544,7 @@
 
     <div class="admin-modal" id="revueArticleModal">
         <div class="modal-content revue-article-modal-content">
-            <button class="modal-close" onclick="closeRevueArticle()"><i class="fas fa-times"></i></button>
+            <button class="modal-close" aria-label="Fermer" onclick="closeRevueArticle()"><i class="fas fa-times"></i></button>
             <div id="revueArticleBody"></div>
         </div>
     </div>
@@ -556,20 +556,20 @@
 
     <div class="admin-modal" id="revueAddModal">
         <div class="modal-content" style="max-width:500px;">
-            <button class="modal-close" onclick="closeRevueAddModal()"><i class="fas fa-times"></i></button>
+            <button class="modal-close" aria-label="Fermer" onclick="closeRevueAddModal()"><i class="fas fa-times"></i></button>
             <h2><i class="fas fa-plus"></i> Ajouter un article à la revue de presse</h2>
             <form id="revueAddForm" onsubmit="handleRevueAddSubmit(event)">
-                <div class="form-group"><label>Titre <span class="required">*</span></label><input type="text" id="revueAddTitre" required></div>
-                <div class="form-group"><label>URL de l'article <span class="required">*</span></label><input type="url" id="revueAddUrl" required></div>
-                <div class="form-group"><label>Source</label><input type="text" id="revueAddSource" placeholder="ex: Algérie Éco"></div>
-                <div class="form-group"><label>Catégorie</label>
+                <div class="form-group"><label for="revueAddTitre">Titre <span class="required">*</span></label><input type="text" id="revueAddTitre" required></div>
+                <div class="form-group"><label for="revueAddUrl">URL de l'article <span class="required">*</span></label><input type="url" id="revueAddUrl" required></div>
+                <div class="form-group"><label for="revueAddSource">Source</label><input type="text" id="revueAddSource" placeholder="ex: Algérie Éco"></div>
+                <div class="form-group"><label for="revueAddCategorie">Catégorie</label>
                     <select id="revueAddCategorie">
                         <option>IA</option><option>Télécoms</option><option>Startups</option>
                         <option selected>Innovation</option><option>Numérique</option>
                         <option>Cybersécurité</option><option>Réseaux</option>
                     </select>
                 </div>
-                <div class="form-group"><label>Pays</label>
+                <div class="form-group"><label for="revueAddPays">Pays</label>
                     <select id="revueAddPays"><option value="DZ" selected>🇩🇿 Algérie</option><option value="FR">🌐 International</option></select>
                 </div>
                 <div class="form-actions">
@@ -586,13 +586,13 @@
         <div class="mobile-menu-header">
             <div class="logo">
                 <img src="images/logo_v2-256.webp" alt="Algeria Tech" class="logo-img">
-                <div class="logo-text"><h1>Algeria <span>Tech</span></h1><p>By Basta</p></div>
+                <div class="logo-text"><div class="logo-name">Algeria <span>Tech</span></div><p>By Basta</p></div>
             </div>
-            <button class="mobile-menu-close" onclick="toggleMobileMenu()"><i class="fas fa-times"></i></button>
+            <button class="mobile-menu-close" aria-label="Fermer le menu" onclick="toggleMobileMenu()"><i class="fas fa-times"></i></button>
         </div>
         <div class="mobile-search">
             <i class="fas fa-search"></i>
-            <input type="text" placeholder="Rechercher un article..." oninput="document.getElementById('searchInput').value=this.value; document.getElementById('searchInput').dispatchEvent(new Event('input'))">
+            <input type="text" aria-label="Rechercher un article" placeholder="Rechercher un article..." oninput="document.getElementById('searchInput').value=this.value; document.getElementById('searchInput').dispatchEvent(new Event('input'))">
         </div>
         <ul class="mobile-nav-list">
             <li><a href="#" onclick="goHome(); toggleMobileMenu()" data-i18n-ar="الرئيسية"><i class="fas fa-home"></i> Accueil</a></li>
@@ -801,8 +801,8 @@
     <div class="premium-reading-progress" id="premiumReadingProgress"></div>
     <div class="premium-toast" id="premiumToast"></div>
     <div class="premium-floating-controls" id="premiumFloatingControls">
-        <button class="premium-float-btn" id="zenToggleFloat" onclick="premiumToggleZen()" title="Mode Zen (Z)"><i class="fas fa-moon"></i></button>
-        <button class="premium-float-btn" onclick="premiumChangeFontSize(1)" title="Agrandir"><i class="fas fa-plus"></i></button>
+        <button class="premium-float-btn" id="zenToggleFloat" onclick="premiumToggleZen()" title="Mode Zen (Z)" aria-label="Mode sombre"><i class="fas fa-moon"></i></button>
+        <button class="premium-float-btn" onclick="premiumChangeFontSize(1)" title="Agrandir" aria-label="Ajouter"><i class="fas fa-plus"></i></button>
         <button class="premium-float-btn" onclick="premiumChangeFontSize(-1)" title="Réduire"><i class="fas fa-minus"></i></button>
         <button class="premium-float-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Haut de page"><i class="fas fa-chevron-up"></i></button>
     </div>
@@ -824,8 +824,8 @@
             </div>
             <div class="premium-player-time" id="premiumPlayerTime">0:00 / 0:00</div>
             <button class="premium-player-btn" id="premiumExpandBtn" onclick="premiumToggleExpand()" title="Paramètres"><i class="fas fa-sliders-h"></i></button>
-            <button class="premium-player-btn" id="premiumZenBtn" onclick="premiumToggleZen()" title="Mode Zen (Z)"><i class="fas fa-moon"></i></button>
-            <button class="premium-player-btn" onclick="premiumClosePlayer()" title="Fermer"><i class="fas fa-times"></i></button>
+            <button class="premium-player-btn" id="premiumZenBtn" onclick="premiumToggleZen()" title="Mode Zen (Z)" aria-label="Mode sombre"><i class="fas fa-moon"></i></button>
+            <button class="premium-player-btn" onclick="premiumClosePlayer()" title="Fermer" aria-label="Fermer"><i class="fas fa-times"></i></button>
         </div>
         <div class="premium-player-expanded" id="premiumPlayerExpanded">
             <div class="premium-control-section">
@@ -841,15 +841,15 @@
             </div>
             <div class="premium-control-section">
                 <span class="premium-control-label">Voix</span>
-                <select class="premium-voice-select" id="premiumVoiceSelect" onchange="premiumChangeVoice()"><option>Chargement...</option></select>
+                <select class="premium-voice-select" id="premiumVoiceSelect" aria-label="Voix de lecture" onchange="premiumChangeVoice()"><option>Chargement...</option></select>
             </div>
             <div class="premium-control-section">
                 <span class="premium-control-label">Tonalité</span>
-                <div class="premium-slider-row"><input type="range" id="premiumPitchSlider" min="0.5" max="2" step="0.1" value="1" oninput="premiumChangePitch(this.value)"><span id="premiumPitchValue">1.0</span></div>
+                <div class="premium-slider-row"><input type="range" aria-label="Tonalité de la voix" id="premiumPitchSlider" min="0.5" max="2" step="0.1" value="1" oninput="premiumChangePitch(this.value)"><span id="premiumPitchValue">1.0</span></div>
             </div>
             <div class="premium-control-section">
                 <span class="premium-control-label">Volume</span>
-                <div class="premium-slider-row"><input type="range" id="premiumVolumeSlider" min="0" max="1" step="0.05" value="1" oninput="premiumChangeVolume(this.value)"><span id="premiumVolumeValue">100%</span></div>
+                <div class="premium-slider-row"><input type="range" aria-label="Volume de la voix" id="premiumVolumeSlider" min="0" max="1" step="0.05" value="1" oninput="premiumChangeVolume(this.value)"><span id="premiumVolumeValue">100%</span></div>
             </div>
             <div class="premium-control-section">
                 <span class="premium-control-label">Options</span>

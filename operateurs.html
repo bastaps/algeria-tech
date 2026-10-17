@@ -206,7 +206,7 @@
                         <i class="fas fa-file-import"></i>
                         <span id="commImportBtnLabel">Importer un fichier</span>
                     </button>
-                    <input type="file" id="commImportFile" accept=".jpg,.jpeg,.png,.pdf,.txt,.doc,.docx" style="display:none">
+                    <input type="file" aria-label="Importer un communiqué" id="commImportFile" accept=".jpg,.jpeg,.png,.pdf,.txt,.doc,.docx" style="display:none">
                     <button type="button" class="cf-translate-btn" id="commTranslateBtn" disabled>
                         <i class="fas fa-language"></i> Traduire en français
                     </button>
@@ -241,7 +241,7 @@
             <!-- Titre -->
             <div class="cf-group">
                 <label class="cf-label" for="commTitre">Titre <span class="req">*</span></label>
-                <input class="cf-input" type="text" id="commTitre" required placeholder="Titre du communiqué">
+                <input aria-label="Titre du communiqué" class="cf-input" type="text" id="commTitre" required placeholder="Titre du communiqué">
             </div>
 
             <!-- Date + Heure -->
@@ -282,7 +282,7 @@
             <!-- Tags supplémentaires -->
             <div class="cf-group">
                 <label class="cf-label" for="commTags">Tags supplémentaires</label>
-                <input class="cf-input" type="text" id="commTags" placeholder="ex: 5G, Innovation, Réseau">
+                <input aria-label="ex: 5G, Innovation, Réseau" class="cf-input" type="text" id="commTags" placeholder="ex: 5G, Innovation, Réseau">
                 <small class="cf-hint">Le tag de l'opérateur est ajouté automatiquement.</small>
             </div>
 

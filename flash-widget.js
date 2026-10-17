@@ -133,7 +133,7 @@
         '<div class="fw-vol">' +
           '<button class="fw-btn" data-act="playpause" title="Pause">⏸</button>' +
           '<button class="fw-btn" data-act="mute" title="Activer le son">🔇</button>' +
-          '<input type="range" min="0" max="100" value="100" data-act="volume" title="Volume">' +
+          '<input type="range" min="0" max="100" value="100" data-act="volume" title="Volume" aria-label="Volume">' +
         '</div>' +
         '<div class="fw-resize" title="Redimensionner"></div>' +
       '</div>' +

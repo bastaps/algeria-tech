@@ -2951,7 +2951,7 @@ async function updateWeather() {
                         '<div class="wc-right-hd"><i class="fas fa-map-marked-alt"></i>&nbsp;58 Wilayas</div>' +
                         '<div class="wc-search-wrap">' +
                             '<i class="fas fa-search wc-search-ico"></i>' +
-                            '<input class="wc-search" id="wcSearch" placeholder="Filtrer une wilaya..." oninput="_renderWilList(this.value)">' +
+                            '<input class="wc-search" id="wcSearch" aria-label="Filtrer une wilaya" placeholder="Filtrer une wilaya..." oninput="_renderWilList(this.value)">' +
                         '</div>' +
                         '<div class="wc-wil-list" id="wcWilList">' + _buildInitialWilHtml() + '</div>' +
                     '</div>' +
@@ -4007,7 +4007,7 @@ function injectWhatsAppWidget() {
           </a>
         </div>
       </div>
-      <button id="at-wa-fab"
+      <button id="at-wa-fab" aria-label="Ouvrir WhatsApp"
         style="width:54px;height:54px;background:#25D366;border:none;border-radius:50%;cursor:pointer;
                display:flex;align-items:center;justify-content:center;position:relative;
                box-shadow:0 4px 18px rgba(37,211,102,.5);transition:transform .2s"

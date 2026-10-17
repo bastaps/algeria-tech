@@ -636,10 +636,10 @@
           <span id="currentDate"></span>
         </div>
         <div class="top-bar-right">
-          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://www.youtube.com/@algeria-tech-by-basta" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.youtube.com/@algeria-tech-by-basta" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
     </div>
@@ -678,9 +678,9 @@
         <div class="header-actions">
           <div class="search-box">
             <i class="fas fa-search search-icon"></i>
-            <input type="text" id="searchInput" placeholder="Rechercher...">
+            <input aria-label="Rechercher..." type="text" id="searchInput" placeholder="Rechercher...">
           </div>
-          <button class="theme-toggle" onclick="toggleTheme()" title="Thème"><i class="fas fa-moon" id="themeIcon"></i></button>
+          <button class="theme-toggle" onclick="toggleTheme()" title="Thème" aria-label="Mode sombre"><i class="fas fa-moon" id="themeIcon"></i></button>
           <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleMobileMenu()" aria-label="Menu">
             <span></span><span></span><span></span>
           </button>
@@ -705,9 +705,9 @@
     <div class="mobile-menu-header">
       <div class="logo">
         <img src="/images/logo_v2-256.webp" alt="Algeria Tech" class="logo-img">
-        <div class="logo-text"><h1>Algeria <span>Tech</span></h1><p>By Basta</p></div>
+        <div class="logo-text"><div class="logo-name">Algeria <span>Tech</span></div><p>By Basta</p></div>
       </div>
-      <button class="mobile-menu-close" onclick="toggleMobileMenu()"><i class="fas fa-times"></i></button>
+      <button class="mobile-menu-close" onclick="toggleMobileMenu()" aria-label="Fermer"><i class="fas fa-times"></i></button>
     </div>
     <ul class="mobile-nav-list">
       <li><a href="/"><i class="fas fa-home"></i> Accueil</a></li>

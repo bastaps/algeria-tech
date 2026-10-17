@@ -325,7 +325,7 @@ body.dark-mode .wiki-modal-section.context { background: rgba(0,98,51,0.12); }
       <a href="/" class="wiki-back-btn" style="margin:0;"><i class="fas fa-arrow-left"></i> Accueil</a>
       <a href="/infographies/index.html" class="wiki-back-btn" style="margin:0;"><i class="fas fa-chart-bar"></i> Infographies</a>
       <a href="/barometre" class="wiki-back-btn" style="margin:0;"><i class="fas fa-chart-line"></i> Observatoire</a>
-      <button onclick="toggleTheme()" class="wiki-back-btn" style="border:none; cursor:pointer; margin:0;">
+      <button onclick="toggleTheme()" class="wiki-back-btn" style="border:none; cursor:pointer; margin:0;" aria-label="Mode sombre">
         <i class="fas fa-moon" id="themeIcon"></i>
       </button>
     </nav>
@@ -352,8 +352,8 @@ body.dark-mode .wiki-modal-section.context { background: rgba(0,98,51,0.12); }
     <div class="wiki-search-wrap">
       <div class="wiki-search">
         <i class="fas fa-search"></i>
-        <input type="text" id="wikiSearch" placeholder="Rechercher un terme... (ex: 5G, ARPCE, IA, fibre...)" oninput="filterWiki()">
-        <button onclick="clearSearch()" id="clearBtn" style="display:none; background:none; border:none; cursor:pointer; color:var(--wiki-muted); font-size:0.9rem;">
+        <input aria-label="Rechercher un terme... (ex: 5G, ARPCE, IA, fibre...)" type="text" id="wikiSearch" placeholder="Rechercher un terme... (ex: 5G, ARPCE, IA, fibre...)" oninput="filterWiki()">
+        <button onclick="clearSearch()" id="clearBtn" style="display:none; background:none; border:none; cursor:pointer; color:var(--wiki-muted); font-size:0.9rem;" aria-label="Fermer">
           <i class="fas fa-times"></i>
         </button>
       </div>
@@ -386,7 +386,7 @@ body.dark-mode .wiki-modal-section.context { background: rgba(0,98,51,0.12); }
 <!-- ── Modal ── -->
 <div class="wiki-modal-overlay" id="wikiModal" onclick="closeModal(event)">
   <div class="wiki-modal">
-    <button class="wiki-modal-close" onclick="closeModalDirect()"><i class="fas fa-times"></i></button>
+    <button class="wiki-modal-close" onclick="closeModalDirect()" aria-label="Fermer"><i class="fas fa-times"></i></button>
     <div class="wiki-modal-cat" id="modalCat"></div>
     <h2 id="modalTitle"></h2>
     <div class="wiki-modal-meta" id="modalMeta"></div>

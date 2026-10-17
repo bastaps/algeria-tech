@@ -191,11 +191,11 @@ function segRow(title, setting, opts) {
 }
 function toggleRow(title, setting) {
   return `<div class="at-prefs-row"><div class="label"><span class="title">${title}</span></div>
-    <label class="at-toggle"><input type="checkbox" data-setting="${setting}"><span class="slider"></span></label></div>`;
+    <label class="at-toggle"><input type="checkbox" aria-label="${title}" data-setting="${setting}"><span class="slider"></span></label></div>`;
 }
 function rangeRow(title, setting, min, max, step, valId) {
   return `<div class="at-prefs-row"><div class="label"><span class="title">${title}</span></div>
-    <div class="at-range"><input type="range" data-setting="${setting}" min="${min}" max="${max}" step="${step}"><span class="val" id="at-val-${valId}"></span></div></div>`;
+    <div class="at-range"><input type="range" aria-label="${title}" data-setting="${setting}" min="${min}" max="${max}" step="${step}"><span class="val" id="at-val-${valId}"></span></div></div>`;
 }
 
 function buildMarkup() {

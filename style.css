@@ -157,8 +157,8 @@ header { display: contents; }
 .logo-icon { width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 900; font-size: 1.4rem; }
 .logo-img { height: 78px; width: 78px; border-radius: 0; object-fit: cover; flex-shrink: 0; transition: transform 0.25s ease; transform-origin: left top; }
 .logo-img:hover { transform: scale(2); z-index: 1001; position: relative; }
-.logo-text h1 { font-size: 1.5rem; font-weight: 800; line-height: 1.1; }
-.logo-text h1 span { color: var(--secondary); }
+.logo-text h1, .logo-text .logo-name { font-size: 1.5rem; font-weight: 800; line-height: 1.1; }
+.logo-text h1 span, .logo-text .logo-name span { color: var(--secondary); }
 .logo-text p { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
 .main-nav > ul { display: flex; list-style: none; gap: 5px; }
 .main-nav a { padding: 8px 14px; border-radius: 6px; font-weight: 500; font-size: 0.85rem; transition: var(--transition); }
@@ -772,7 +772,7 @@ color: var(--text-dark); background: var(--bg-white); transition: var(--transiti
         padding: 10px 0;
         gap: 8px;
     }
-    .logo-text h1 { font-size: 1.2rem; }
+    .logo-text h1, .logo-text .logo-name { font-size: 1.2rem; }
     .logo-text p { display: none; }
     .logo-icon { width: 40px; height: 40px; font-size: 1.1rem; }
     .logo-img { height: 62px; width: 62px; }
@@ -4409,7 +4409,7 @@ body.dark-mode .header {
     transition: height .35s cubic-bezier(.4,0,.2,1), width .35s cubic-bezier(.4,0,.2,1), transform .25s ease;
 }
 .at-logo .logo-img:hover { transform: scale(2); }
-.at-logo .logo-text h1 { font-size: 1.32rem; }
+.at-logo .logo-text h1, .at-logo .logo-text .logo-name { font-size: 1.32rem; }
 
 /* ── 4. Pile de navigation (2 lignes empilées, centrées verticalement) ── */
 .at-nav-stack {
@@ -4741,7 +4741,7 @@ body.dark-mode .header.at-scrolled { background: color-mix(in srgb, var(--bg-whi
     .header-content.at-grid { padding: 8px 0; }
     .at-utils .theme-toggle { display: none; }
     .at-logo .logo-img { height: 50px; width: 50px; }
-    .at-logo .logo-text h1 { font-size: 1.15rem; }
+    .at-logo .logo-text h1, .at-logo .logo-text .logo-name { font-size: 1.15rem; }
 }
 
 /* ── « À retenir » : l'essentiel de l'article, avant le corps du texte ── */
@@ -4802,3 +4802,10 @@ body.dark-mode .header.at-scrolled { background: color-mix(in srgb, var(--bg-whi
    il défile dans son propre cadre. */
 .article-text .at-data { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .article-text .at-data table { min-width: 100%; }
+
+/* -- Lot 4 : accessibilite -- */
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media (pointer: coarse){
+  .mobile-menu-close,.premium-speed-btn,.tag-filter,.fw-btn,.footer-social a{min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+  .wc-wil-num,.wc-day-name,.cc-badge,.at-badge-interactif,.hero-meta-tag{font-size:max(.75rem,12px)}
+}
