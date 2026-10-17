@@ -5,8 +5,25 @@
 // Les brouillons non publiés ne sont donc pas lisibles publiquement non plus.
 import { readSession } from './_lib/admin.js';
 
+
+// Anti-abus des endpoints qui consomment des crédits IA/voix (Mistral, ElevenLabs, Workers AI, YouTube) :
+// seul le site lui-même (même origine) peut les appeler ; un curl/script externe est refusé.
+const COUT = /^\/api\/(debat|synthese|kateb|tts|voices|outpaint|youtube)\/?$/;
+function memeOrigine(request, url) {
+  const sfs = request.headers.get('Sec-Fetch-Site');
+  if (sfs) return sfs === 'same-origin';
+  for (const h of ['Origin', 'Referer']) {
+    const v = request.headers.get(h);
+    if (v) { try { return new URL(v).host === url.host; } catch { return false; } }
+  }
+  return false;
+}
+
 export async function onRequest({ request, env, next }) {
   const url = new URL(request.url);
+  if (COUT.test(url.pathname) && request.method !== 'OPTIONS' && !memeOrigine(request, url)) {
+    return new Response(JSON.stringify({ error: 'Accès refusé (appel externe).' }), { status: 403, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' } });
+  }
   if (url.pathname.startsWith('/smart-ingest-pro') || url.pathname.startsWith('/admin-brouillons') || url.pathname.startsWith('/brouillons/')) {
     const s = await readSession(request, env);
     if (!s) {
