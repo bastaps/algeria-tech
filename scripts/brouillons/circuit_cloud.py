@@ -172,7 +172,7 @@ def video_pexels(requetes, sortie: Path):
 
 # ── Brouillon ───────────────────────────────────────────────────────────────
 def produire(slot, notif=True):
-    if registre().get(C.aujourd_hui(), {}).get(slot):
+    if slot != "test" and registre().get(C.aujourd_hui(), {}).get(slot):
         log(f"créneau « {slot} » déjà fait aujourd'hui ({registre()[C.aujourd_hui()][slot]})")
         return 2
     vus = sources_deja_utilisees()
@@ -207,7 +207,8 @@ def produire(slot, notif=True):
             vids = [str(x) for x in (red.get("videos") or []) if str(x).strip()] or [" ".join((red.get("tags") or ["technology"])[:2])]
             avec_video = video_pexels(vids, RACINE / "videos" / "articles" / f"{ident}.mp4")
             ecrire_brouillon(ident, c, red, avec_video, slot, notif)
-            marquer(slot, "cloud")
+            if slot != "test":
+                marquer(slot, "cloud")
             return 0
     log("rien de neuf (aucune info avec texte et image exploitables)")
     return 2
@@ -263,7 +264,7 @@ choix_canal: "{canal_choix}"
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--slot", choices=C.SLOTS, required=True)
+    ap.add_argument("--slot", choices=C.SLOTS + ("test",), required=True)  # « test » : n'inscrit pas le créneau au registre
     ap.add_argument("--sans-notif", action="store_true")
     a = ap.parse_args()
     return produire(a.slot, notif=not a.sans_notif)

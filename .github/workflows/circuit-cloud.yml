@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
     inputs:
       slot:
-        description: "Créneau à produire (matin / midi / soir)"
+        description: "Créneau à produire (matin / midi / soir / test = sans inscription au registre)"
         default: "midi"
 
 permissions:
