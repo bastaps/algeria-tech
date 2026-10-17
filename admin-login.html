@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Connexion — Algeria Tech</title>
+<style>
+  :root { --bg:#f6f1e9; --card:#fff; --text:#2b1d12; --muted:#7a6a5a; --accent:#b8860b; --line:#e4d9c8; --bad:#c0392b; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#17120d; --card:#231b13; --text:#f1e8da; --muted:#a39580; --accent:#d4a73a; --line:#3a2e20; --bad:#ff7b6b; } }
+  * { box-sizing: border-box; }
+  body { margin:0; min-height:100vh; display:grid; place-items:center; background:var(--bg); color:var(--text); font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif; padding:16px; }
+  form { width:100%; max-width:380px; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:28px 24px; }
+  h1 { margin:0 0 4px; font-size:1.25rem; }
+  p.sub { margin:0 0 20px; color:var(--muted); font-size:.85rem; }
+  label { display:block; font-size:.8rem; color:var(--muted); margin:14px 0 5px; }
+  input { width:100%; padding:11px 12px; border:1px solid var(--line); border-radius:10px; background:transparent; color:var(--text); font:inherit; }
+  input:focus { outline:2px solid var(--accent); outline-offset:1px; }
+  button { margin-top:20px; width:100%; padding:12px; border:0; border-radius:10px; background:var(--accent); color:#fff; font:600 1rem system-ui; cursor:pointer; }
+  button:disabled { opacity:.6; cursor:wait; }
+  #err { margin-top:14px; color:var(--bad); font-size:.85rem; min-height:1.2em; }
+  a { color:var(--muted); font-size:.8rem; display:block; text-align:center; margin-top:16px; }
+</style>
+</head>
+<body>
+<form id="f" autocomplete="on">
+  <h1>Administration</h1>
+  <p class="sub">Algeria Tech — accès réservé</p>
+  <label for="u">Identifiant</label>
+  <input id="u" name="username" autocomplete="username" required>
+  <label for="p">Mot de passe</label>
+  <input id="p" name="password" type="password" autocomplete="current-password" required>
+  <button id="b" type="submit">Se connecter</button>
+  <div id="err" role="alert"></div>
+  <a href="/">← Retour au site</a>
+</form>
+<script>
+(function () {
+  var f = document.getElementById('f'), err = document.getElementById('err'), b = document.getElementById('b');
+  var next = new URLSearchParams(location.search).get('next') || '/';
+  if (next.charAt(0) !== '/' || next.indexOf('//') === 0) next = '/';   // jamais de redirection externe
+  f.addEventListener('submit', function (e) {
+    e.preventDefault(); err.textContent = ''; b.disabled = true;
+    fetch('/api/admin/login', {
+      method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ user: document.getElementById('u').value, password: document.getElementById('p').value })
+    }).then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+      .then(function (x) { if (x.ok) location.replace(next); else { err.textContent = x.d.error || 'Connexion refusée.'; b.disabled = false; document.getElementById('p').value = ''; } })
+      .catch(function () { err.textContent = 'Erreur réseau.'; b.disabled = false; });
+  });
+})();
+</script>
+</body>
+</html>

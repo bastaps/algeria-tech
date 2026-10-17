@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Brouillons — Algeria Tech</title>
+<style>
+  :root { --bg:#f6f1e9; --card:#fff; --text:#2b1d12; --muted:#7a6a5a; --accent:#b8860b; --line:#e4d9c8; --bad:#c0392b; --ok:#2e7d32; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#17120d; --card:#231b13; --text:#f1e8da; --muted:#a39580; --accent:#d4a73a; --line:#3a2e20; --bad:#ff7b6b; --ok:#7bd88f; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif; }
+  header { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; padding:14px 16px; border-bottom:1px solid var(--line); }
+  h1 { margin:0; font-size:1.15rem; }
+  header a, header button { color:var(--muted); font-size:.85rem; background:none; border:0; cursor:pointer; text-decoration:none; font-family:inherit; }
+  main { max-width:820px; margin:0 auto; padding:16px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin-bottom:14px; }
+  .meta { color:var(--muted); font-size:.78rem; display:flex; gap:10px; flex-wrap:wrap; }
+  .card h2 { margin:6px 0; font-size:1.05rem; }
+  .card p { margin:4px 0 12px; font-size:.9rem; color:var(--muted); }
+  .row { display:flex; gap:8px; flex-wrap:wrap; }
+  .btn { padding:9px 14px; border-radius:10px; border:1px solid var(--line); background:transparent; color:var(--text); font:600 .85rem system-ui; cursor:pointer; text-decoration:none; }
+  .btn.main { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .btn.bad { color:var(--bad); }
+  .btn:disabled { opacity:.5; cursor:wait; }
+  #etat { color:var(--muted); text-align:center; padding:30px 0; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Brouillons à valider</h1>
+  <div class="row"><a href="/smart-ingest-pro.html">+ Nouvel article</a><a href="/">Retour au site</a><button id="out" type="button">Déconnexion</button></div>
+</header>
+<main>
+  <div id="etat">Chargement…</div>
+  <div id="liste"></div>
+</main>
+<script>
+(function () {
+  var liste = document.getElementById('liste'), etat = document.getElementById('etat');
+  function esc(s) { return String(s || '').replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function api(url, opt) {
+    opt = opt || {}; opt.credentials = 'same-origin';
+    return fetch(url, opt).then(function (r) {
+      if (r.status === 401) { location.replace('/admin-login.html?next=/admin-brouillons.html'); throw new Error('401'); }
+      return r.json().then(function (d) { if (!r.ok) throw new Error(d.error || d.message || r.status); return d; });
+    });
+  }
+  function charger() {
+    api('/api/admin/drafts', { cache: 'no-store' }).then(function (d) {
+      var b = d.brouillons || [];
+      etat.textContent = b.length ? '' : 'Aucun brouillon en attente.';
+      liste.innerHTML = b.map(function (x) {
+        var host = ''; try { host = new URL(x.source).hostname.replace(/^www\./, ''); } catch (e) {}
+        return '<div class="card" data-id="' + x.id + '"><div class="meta"><span>' + esc(x.categorie) + '</span><span>' + x.mots + ' mots</span><span>' + esc(host) + '</span></div>' +
+          '<h2>' + esc(x.titre) + '</h2><p>' + esc(x.extrait) + '</p><div class="row">' +
+          '<a class="btn" href="/smart-ingest-pro.html?edit=' + x.id + '&draft=1" target="_blank" rel="noopener">Relire / modifier</a>' +
+          '<button class="btn main" data-a="pub">Publier tel quel</button>' +
+          '<button class="btn bad" data-a="rej">Rejeter</button>' +
+          (x.source ? '<a class="btn" href="' + esc(x.source) + '" target="_blank" rel="noopener noreferrer">Source</a>' : '') +
+          '</div></div>';
+      }).join('');
+    }).catch(function (e) { if (e.message !== '401') etat.textContent = 'Erreur : ' + e.message; });
+  }
+  liste.addEventListener('click', function (e) {
+    var btn = e.target.closest('button[data-a]'); if (!btn) return;
+    var card = btn.closest('.card'), id = card.dataset.id;
+    if (btn.dataset.a === 'pub' && !confirm('Publier cet article tel quel sur le site ?')) return;
+    if (btn.dataset.a === 'rej' && !confirm('Rejeter définitivement ce brouillon ?')) return;
+    card.querySelectorAll('button').forEach(function (x) { x.disabled = true; });
+    var p = btn.dataset.a === 'pub'
+      ? api('/api/admin/drafts', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: id }) })
+      : api('/api/admin/drafts?id=' + id, { method: 'DELETE' });
+    p.then(function () { card.remove(); if (!liste.children.length) etat.textContent = 'Aucun brouillon en attente.'; })
+     .catch(function (err) { alert('Échec : ' + err.message); card.querySelectorAll('button').forEach(function (x) { x.disabled = false; }); });
+  });
+  document.getElementById('out').addEventListener('click', function () {
+    fetch('/api/admin/logout', { method: 'POST', credentials: 'same-origin' }).then(function () { location.replace('/'); });
+  });
+  charger();
+})();
+</script>
+</body>
+</html>

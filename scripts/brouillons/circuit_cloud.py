@@ -254,9 +254,11 @@ choix_canal: "{canal_choix}"
                f"{red.get('extrait', '')[:230]}\n\nChoisissez la place. Sans choix sous {C.DELAI_DEFAUT_MIN} min : 2e position."
                f"\n(Brouillon automatique du cloud — {'vidéo Pexels' if avec_video else 'image seule'}, sans carte interactive.)",
                clic=media, actions=C.actions_choix(ident, canal_choix))
-    C.notifier("Rejeter ce brouillon ?", f"« {red['titre'][:80]} » — touchez le bouton pour l'annuler avant publication.",
-               tags="x", priorite=1, clic=C.SITE + "/",
-               actions=f"http, Rejeter, https://ntfy.sh/{canal_choix}, method=POST, body={ident}:rejeter, clear=true")
+    C.notifier("Corriger ou rejeter ce brouillon ?", f"« {red['titre'][:80]} » — Corriger ouvre l'éditeur en ligne (connexion admin) ; "
+               "Rejeter supprime le brouillon avant publication.",
+               tags="pencil2", priorite=1, clic=C.SITE + "/",
+               actions=f"view, Corriger, {C.SITE}/smart-ingest-pro.html?edit={ident}&draft=1; "
+                       f"http, Rejeter, https://ntfy.sh/{canal_choix}, method=POST, body={ident}:rejeter, clear=true")
 
 
 def main():

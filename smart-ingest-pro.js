@@ -10,7 +10,7 @@ const REMOTE_API = 'https://dz-tech-press-api.onrender.com';
 // l'erreur « Unexpected token < ». On vise donc le Hub explicitement.
 const HUB_PORT = '3000';
 const API_BASE = (function () {
-    if (!isLocal) return REMOTE_API;
+    if (!isLocal) return '';                                // en ligne : mêmes routes /api/* (Pages Functions, session admin)
     if (window.location.port === HUB_PORT) return '';       // deja servi par le Hub
     return window.location.protocol + '//' + window.location.hostname + ':' + HUB_PORT;
 })();
@@ -48,8 +48,68 @@ async function verifierHub() {
     }
 }
 
+
+/* ── Mode édition : ?edit=<id> recharge un article publié (le crayon du site) ── */
+let articleEnEdition = null;   // { id, interactif, pdf, image, mediaPriority, source }
+
+function lireFrontMatter(md) {
+    const m = md.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
+    if (!m) return null;
+    const get = (k) => {
+        const r = m[1].match(new RegExp('^' + k + ':[ \t]*(.*)$', 'm'));
+        return r ? r[1].trim().replace(/^["']|["']$/g, '').replace(/\\"/g, '"') : '';
+    };
+    const tagsM = m[1].match(/^tags:\s*\[(.*)\]/m);
+    const tags = tagsM ? tagsM[1].split(',').map(t => t.trim().replace(/^["']|["']$/g, '')).filter(Boolean) : [];
+    return { get, tags, contenu: m[2].replace(/^\s+/, '') };
+}
+
+async function chargerArticleAEditer() {
+    const params = new URLSearchParams(location.search);
+    const id = params.get('edit');
+    const brouillon = params.get('draft') === '1';
+    if (!id || !/^[A-Za-z0-9_-]+$/.test(id)) return;
+    const note = document.getElementById('deployNote');
+    try {
+        const r = await fetch(`${API_BASE}/${brouillon ? 'brouillons' : 'articles'}/${id}.md?t=${Date.now()}`, { cache: 'no-store' });
+        if (!r.ok) throw new Error('Article introuvable (HTTP ' + r.status + ')');
+        const fm = lireFrontMatter(await r.text());
+        if (!fm) throw new Error("Format d'article illisible");
+        const set = (i, v) => { const e = document.getElementById(i); if (e) e.value = v || ''; };
+        set('siTitre', fm.get('titre')); set('siCategorie', fm.get('categorie'));
+        set('siDate', fm.get('date')); set('siHeure', fm.get('heure'));
+        set('siTags', fm.tags.join(', ')); set('siPosition', fm.get('position'));
+        set('siExtrait', fm.get('extrait')); set('siARetenir', fm.get('aretenir'));
+        set('siContenu', fm.contenu); set('siVideo', fm.get('video')); set('siSource', fm.get('source'));
+        document.getElementById('siBreve').checked = fm.get('type') === 'breve';
+        const pr = fm.get('mediaPriority') === 'image' ? 'siPriorityImage' : 'siPriorityVideo';
+        const prEl = document.getElementById(pr); if (prEl) prEl.checked = true;
+        window._autoImage = fm.get('image') || (brouillon ? fm.get('image_suggeree') : '') || '';
+        articleEnEdition = { id, brouillon, interactif: fm.get('interactif'), pdf: fm.get('pdf'), image: fm.get('image') };
+        if (brouillon) { const iu = document.getElementById('siImageUrl'); if (iu && window._autoImage) iu.value = window._autoImage; }
+        const titre = document.querySelector('.si-deploy-inner');
+        if (titre) titre.innerHTML = '<i class="fas fa-floppy-disk"></i> ENREGISTRER LES MODIFICATIONS';
+        if (note) note.innerHTML = '<div class="si-note ok">' + (brouillon ? 'Brouillon <b>' + id + '</b> — relisez, corrigez, puis publiez (vérifiez surtout l’image et les faits).' : 'Modification de l’article <b>' + id + '</b> — l’image et la carte existantes sont conservées sauf si vous les remplacez.') + '</div>';
+        document.getElementById('siContenu').dispatchEvent(new Event('input', { bubbles: true }));
+    } catch (e) {
+        if (note) note.innerHTML = '<div class="si-note bad"><b>Chargement impossible.</b> ' + String(e.message || e).replace(/</g, '&lt;') + '</div>';
+    }
+}
+
+// Embarqué dans le site (fenêtre par-dessus) : prévient la page parente.
+function prevenirParent(type, extra) {
+    try { if (window.parent !== window) window.parent.postMessage(Object.assign({ source: 'smart-ingest-pro', type }, extra || {}), location.origin); } catch (_) {}
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Arrivée depuis le Téléchargeur Vidéo : ?url=… pré-remplit et lance l'import.
+    try {
+        const u = new URLSearchParams(location.search).get('url');
+        const champ = document.getElementById('urlInput');
+        if (u && /^https?:\/\//i.test(u) && champ) { champ.value = u; setTimeout(() => { try { fetchFromUrl(); } catch (_) {} }, 400); }
+    } catch (_) {}
     initDateTime();
+    chargerArticleAEditer();
     fetchCurrentPositions();
     setupStyleSelector();
     setupEngineSelector();
@@ -472,8 +532,12 @@ async function deployArticle(e) {
 
     // Un identifiant décidé ici : l'article et sa carte doivent porter le même,
     // sinon le site ne sait pas les associer. `create-article` accepte un `id`.
-    const idArticle = String(Date.now());
+    const idArticle = articleEnEdition ? articleEnEdition.id : String(Date.now());
     formData.set('id', idArticle);
+    if (articleEnEdition) {
+        if (articleEnEdition.interactif) formData.set('interactif', articleEnEdition.interactif);
+        if (articleEnEdition.pdf) formData.set('existingPdf', articleEnEdition.pdf);
+    }
 
     let cheminCarte = '';
     try {
@@ -532,6 +596,10 @@ async function deployArticle(e) {
                 navigator.serviceWorker.controller.postMessage('CLEAR_CACHE');
             }
             document.getElementById('siSuccessModal').classList.remove('hidden');
+            prevenirParent('publie', { id: idArticle });
+            if (articleEnEdition && articleEnEdition.brouillon) {
+                try { await fetch(`${API_BASE}/api/admin/drafts?id=${idArticle}`, { method: 'DELETE', credentials: 'same-origin' }); } catch (_) {}
+            }
         } else {
             throw new Error(data.message || data.error || ('HTTP ' + res.status));
         }

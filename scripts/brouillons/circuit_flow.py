@@ -222,8 +222,17 @@ def weserv(url_image):
 
 def choisir(slot):
     h = historique()
-    if not os.environ.get("CIRCUIT_FORCE") and any(
-            x.get("jour") == aujourd_hui() and x.get("slot") == slot and x.get("etat") != "echec" for x in h):
+    def fait(x):
+        """Créneau réellement produit (ou en cours depuis moins de 3 h). Les essais à blanc et échecs ne comptent pas."""
+        if x.get("jour") != aujourd_hui() or x.get("slot") != slot:
+            return False
+        if x.get("etat") == "brouillon":
+            return True
+        try:
+            return x.get("etat") == "prepare" and time.time() * 1000 - int(x.get("ident", 0)) < 3 * 3600 * 1000
+        except ValueError:
+            return False
+    if not os.environ.get("CIRCUIT_FORCE") and any(fait(x) for x in h):
         log(f"créneau « {slot} » déjà fait aujourd'hui")
         return 3
     serveurs()
@@ -388,9 +397,11 @@ choix_canal: "{canal_choix}"
              f"{g['lead'][:230]}\n\nChoisissez la place. Sans choix sous {DELAI_DEFAUT_MIN} min : 2e position."
              f"\n{'Vidéo Flow + ' if avec_video else ''}version interactive prête.",
              clic=f"{SITE}/interactifs/{ident}.html", actions=actions_choix(ident, canal_choix))
-    notifier("Rejeter ce brouillon ?", f"« {g['titre'][:80]} » — touchez le bouton pour l'annuler avant publication.",
-             tags="x", priorite=1, clic=f"{SITE}/",
-             actions=f"http, Rejeter, https://ntfy.sh/{canal_choix}, method=POST, body={ident}:rejeter, clear=true")
+    notifier("Corriger ou rejeter ce brouillon ?", f"« {g['titre'][:80]} » — Corriger ouvre l'éditeur en ligne (connexion admin) ; "
+             "Rejeter supprime le brouillon avant publication.",
+             tags="pencil2", priorite=1, clic=f"{SITE}/",
+             actions=f"view, Corriger, {SITE}/smart-ingest-pro.html?edit={ident}&draft=1; "
+                     f"http, Rejeter, https://ntfy.sh/{canal_choix}, method=POST, body={ident}:rejeter, clear=true")
     return 0
 
 
