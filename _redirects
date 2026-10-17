@@ -1,11 +1,15 @@
-﻿/infographies/observatoire-internet-algerie/* /infographies/observatoire-internet-algerie/index.html 200
+/infographies/observatoire-internet-algerie/* /infographies/observatoire-internet-algerie/index.html 200
 /infographies/observatoire-telephonie-mobile-algerie/* /infographies/observatoire-telephonie-mobile-algerie/index.html 200
 
-# â”€â”€ Routeur SPA algeria-tech â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-# Les pages standalone (.html existants) ont la prioritÃ© sur ces rÃ¨gles.
+# (commentaire)
+# (commentaire)
 # Ces rewrites servent index.html pour les routes virtuelles du SPA.
 /article/*    /index.html  200
-/veille       /index.html  200
-/revue        /index.html  200
-/comparateur     /index.html  200
-/reglementaire   /index.html  200
+/veille    /veille/index.html  200
+/revue    /revue/index.html  200
+/comparateur    /comparateur/index.html  200
+/reglementaire    /reglementaire/index.html  200
+
+# Flux RSS : raccourcis
+/feed  /rss.xml  301
+/rss   /rss.xml  301

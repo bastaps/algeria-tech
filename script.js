@@ -1217,7 +1217,8 @@ window.showVeille = function() {
     if (_rSecV) _rSecV.style.display = 'none';
     document.getElementById('veilleSection').style.display = 'block';
     document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
-    document.getElementById('nav-veille').classList.add('active');
+    const _navV = document.getElementById('nav-veille');   // l'entrée de menu « Veille » n'existe plus : ne pas planter
+    if (_navV) _navV.classList.add('active');
     loadVeille();
     window.scrollTo({top: 0, behavior: 'smooth'});
 };

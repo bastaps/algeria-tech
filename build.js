@@ -271,8 +271,19 @@ function generateArticlePage(art) {
 <meta name="twitter:description" content="${description}">
 <meta name="twitter:image"       content="${escapeHtml(image)}">
 
-<!-- Schema.org NewsArticle -->
+<link rel="alternate" type="application/rss+xml" title="Algeria Tech — Flux RSS" href="/rss.xml">
+
+<!-- Schema.org NewsArticle + fil d'Ariane -->
 <script type="application/ld+json">${schema}</script>
+<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Accueil', item: SITE_URL + '/' },
+        ...((art.categorie && art.categorie !== 'undefined') ? [{ '@type': 'ListItem', position: 2, name: art.categorie, item: SITE_URL + '/?cat=' + encodeURIComponent(art.categorie) }] : []),
+        { '@type': 'ListItem', position: (art.categorie && art.categorie !== 'undefined') ? 3 : 2, name: art.titre, item: url }
+    ]
+})}</script>
 
 <link rel="stylesheet" href="/style.css?v=${CSS_V}">
 <style>
@@ -328,10 +339,12 @@ console.log(`✅ SSG : ${generated} pages article/ générées`);
 // ── Sitemap XML ──────────────────────────────────────────────
 const sitemapUrls = [
     `<url><loc>${SITE_URL}/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>`,
-    `<url><loc>${SITE_URL}/veille</loc><changefreq>daily</changefreq><priority>0.7</priority></url>`,
-    `<url><loc>${SITE_URL}/revue</loc><changefreq>daily</changefreq><priority>0.7</priority></url>`,
-    `<url><loc>${SITE_URL}/comparateur</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`,
-    `<url><loc>${SITE_URL}/reglementaire</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>`,
+    `<url><loc>${SITE_URL}/veille/</loc><changefreq>daily</changefreq><priority>0.7</priority></url>`,
+    `<url><loc>${SITE_URL}/revue/</loc><changefreq>daily</changefreq><priority>0.7</priority></url>`,
+    `<url><loc>${SITE_URL}/comparateur/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`,
+    `<url><loc>${SITE_URL}/reglementaire/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>`,
+    ...['operateurs', 'actualites-tic', 'barometre', 'wiki', 'ae-tech', 'autoentrepreneur', 'simulateur-fiscal'].map(p =>
+        `<url><loc>${SITE_URL}/${p}</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`),
     ...allArticlesForSSG.map(art => {
         const lastmod = art.date ? `<lastmod>${art.date}</lastmod>` : '';
         return `<url><loc>${SITE_URL}/article/${art.id}</loc>${lastmod}<changefreq>monthly</changefreq><priority>0.8</priority></url>`;
@@ -345,6 +358,138 @@ ${sitemapUrls.join('\n')}
 
 fs.writeFileSync(path.join(__dirname, 'sitemap.xml'), sitemap, 'utf8');
 console.log(`✅ sitemap.xml généré : ${sitemapUrls.length} URLs`);
+
+// ============================================================================================
+//  LOT 2 — SEO : pages par route, pages publiques/internes, flux RSS, sitemap Google News
+//  Chaque bloc est isolé (try/catch) : un échec n'interrompt JAMAIS le build ni le déploiement.
+// ============================================================================================
+const _xml = (s = '') => String(s)
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '')
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const _abs = (u) => !u ? '' : (/^https?:\/\//i.test(u) ? u : SITE_URL + (u.startsWith('/') ? '' : '/') + encodeURI(decodeURI(u)));
+const _when = (a) => new Date(`${a.date || '1970-01-01'}T${a.heure || '00:00'}:00+01:00`);
+const _valid = (c) => (c && c !== 'undefined') ? c : '';
+const _byDate = [...allArticlesForSSG].sort((a, b) => _when(b) - _when(a));
+
+// 1) Une page statique par route de l'application (titre, description, canonical, Open Graph, Twitter propres).
+//    Le routeur JavaScript fonctionne à l'identique : la page est l'index.html avec un <head> adapté.
+const ROUTES_SEO = [
+    { path: 'veille', title: 'Veille TIC en Algérie — Algeria Tech',
+      desc: "Veille continue sur les télécoms et le numérique en Algérie : annonces des opérateurs, ministères, équipementiers et médias TIC." },
+    { path: 'revue', title: 'Revue de presse tech — Algeria Tech',
+      desc: "La revue de presse de l'actualité tech et numérique : les articles à retenir de la presse algérienne et internationale." },
+    { path: 'comparateur', title: "Comparateur d'offres mobiles en Algérie — Algeria Tech",
+      desc: "Comparez les offres mobiles des opérateurs algériens : forfaits, prix, volume de données et validité." },
+    { path: 'reglementaire', title: 'Veille réglementaire télécoms en Algérie — Algeria Tech',
+      desc: "Suivez la réglementation des télécommunications en Algérie : décisions de l'ARPCE et textes du Journal officiel." }
+];
+try {
+    const indexSrc = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
+    for (const r of ROUTES_SEO) {
+        const url = `${SITE_URL}/${r.path}/`;   // servie comme un dossier : canonical = URL réelle (avec « / » final)
+        let h = indexSrc
+            .replace(/<title>[\s\S]*?<\/title>/, () => `<title>${_xml(r.title)}</title>`)
+            .replace(/(<meta name="description" content=")[^"]*(")/, (m, a, b) => `${a}${_xml(r.desc)}${b}`)
+            .replace(/(<link rel="canonical" href=")[^"]*(")/, (m, a, b) => `${a}${url}${b}`)
+            .replace(/(<meta property="og:title"\s+content=")[^"]*(")/, (m, a, b) => `${a}${_xml(r.title)}${b}`)
+            .replace(/(<meta property="og:description"\s+content=")[^"]*(")/, (m, a, b) => `${a}${_xml(r.desc)}${b}`)
+            .replace(/(<meta property="og:url"\s+content=")[^"]*(")/, (m, a, b) => `${a}${url}${b}`)
+            .replace(/(<meta name="twitter:title"\s+content=")[^"]*(")/, (m, a, b) => `${a}${_xml(r.title)}${b}`)
+            .replace(/(<meta name="twitter:description"\s+content=")[^"]*(")/, (m, a, b) => `${a}${_xml(r.desc)}${b}`)
+            // chemins relatifs → absolus (la page peut être ouverte avec ou sans « / » final)
+            .replace(/(\s(?:src|href)=")(?!https?:|\/|#|mailto:|tel:|javascript:|data:)([^"]+)(")/g, '$1/$2$3');
+        fs.mkdirSync(path.join(__dirname, r.path), { recursive: true });
+        fs.writeFileSync(path.join(__dirname, r.path, 'index.html'), h, 'utf8');
+    }
+    console.log(`✅ SEO : ${ROUTES_SEO.length} pages de routes générées`);
+} catch (e) { console.warn('⚠️  SEO routes ignoré :', e.message); }
+
+// 2) Pages publiques : description / canonical / Open Graph / Twitter si absents ; pages internes : noindex.
+const PUBLIC_PAGES = {
+    'actualites-tic.html': "Actualités TIC en Algérie : opérateurs, ministères, équipementiers et médias suivis en continu.",
+    'ae-tech.html': "Guide de l'auto-entrepreneur en Algérie : statut, démarches et références pour lancer son activité.",
+    'autoentrepreneur.html': "Auto-entrepreneur en Algérie : le guide complet pour comprendre le statut, les démarches et la fiscalité.",
+    'barometre.html': "Observatoire du numérique en Algérie : indicateurs et évolution du marché de l'Internet et de la téléphonie.",
+    'operateurs.html': "Les opérateurs mobiles algériens : offres, promotions et communiqués officiels.",
+    'simulateur-fiscal.html': "Simulateur fiscal pour auto-entrepreneur en Algérie : estimez vos impôts et cotisations.",
+    'wiki.html': "Wiki TIC : glossaire des télécommunications et du numérique en Algérie.",
+    'cv-generator-premium.html': "Générateur de CV pour les métiers du numérique : créez un CV professionnel prêt à envoyer."
+};
+const INTERNAL_RE = /^(admin-|assistant-vocal|at-|prototype-|smart-ingest|studio-|test-|video-downloader|flash-vertical)/;
+try {
+    let nPub = 0, nInt = 0;
+    for (const f of fs.readdirSync(__dirname).filter(x => x.endsWith('.html'))) {
+        const p = path.join(__dirname, f);
+        let h = fs.readFileSync(p, 'utf8'), o = h;
+        if (INTERNAL_RE.test(f)) {
+            if (!/name=["']robots["']/i.test(h)) h = h.replace(/<head[^>]*>/i, m => `${m}\n<meta name="robots" content="noindex, nofollow">`);
+            if (h !== o) { fs.writeFileSync(p, h, 'utf8'); nInt++; }
+        } else if (PUBLIC_PAGES[f]) {
+            const desc = PUBLIC_PAGES[f];
+            const url = `${SITE_URL}/${f.replace(/\.html$/, '')}`;
+            const t = _xml(((h.match(/<title>([\s\S]*?)<\/title>/i) || [])[1] || 'Algeria Tech').replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim());
+            let add = '';
+            if (!/name=["']description["']/i.test(h)) add += `\n<meta name="description" content="${_xml(desc)}">`;
+            if (!/rel=["']canonical["']/i.test(h)) add += `\n<link rel="canonical" href="${url}">`;
+            if (!/property=["']og:title["']/i.test(h)) add += `\n<meta property="og:type" content="website">\n<meta property="og:site_name" content="Algeria Tech">\n<meta property="og:title" content="${t}">\n<meta property="og:description" content="${_xml(desc)}">\n<meta property="og:url" content="${url}">\n<meta property="og:image" content="${SITE_URL}/images/logo_v2.png">`;
+            if (!/name=["']twitter:card["']/i.test(h)) add += `\n<meta name="twitter:card" content="summary">\n<meta name="twitter:title" content="${t}">\n<meta name="twitter:description" content="${_xml(desc)}">\n<meta name="twitter:image" content="${SITE_URL}/images/logo_v2.png">`;
+            if (add) { h = h.replace(/<\/title>/i, () => '</title>' + add); fs.writeFileSync(p, h, 'utf8'); nPub++; }
+        }
+    }
+    console.log(`✅ SEO : ${nPub} pages publiques complétées, ${nInt} pages internes en noindex`);
+} catch (e) { console.warn('⚠️  SEO pages ignoré :', e.message); }
+
+// 3) Flux RSS (40 derniers articles)
+try {
+    const items = _byDate.filter(a => a.type !== 'communique_officiel').slice(0, 40).map(a => {
+        const cat = _valid(a.categorie);
+        const img = a.image ? _abs(a.image) : '';
+        return `    <item>
+      <title>${_xml(a.titre)}</title>
+      <link>${SITE_URL}/article/${a.id}</link>
+      <guid isPermaLink="true">${SITE_URL}/article/${a.id}</guid>
+      <pubDate>${_when(a).toUTCString()}</pubDate>${cat ? `\n      <category>${_xml(cat)}</category>` : ''}
+      <dc:creator>Basta</dc:creator>
+      <description>${_xml(a.extrait || a.titre)}</description>${img ? `\n      <media:content url="${_xml(img)}" medium="image"/>` : ''}
+    </item>`;
+    }).join('\n');
+    const rss = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Algeria Tech — L'actualité numérique en Algérie</title>
+    <link>${SITE_URL}/</link>
+    <description>Actualités, analyses et veille sur le numérique, les télécoms et la tech en Algérie.</description>
+    <language>fr</language>
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    <atom:link href="${SITE_URL}/rss.xml" rel="self" type="application/rss+xml"/>
+    <image><url>${SITE_URL}/images/logo_v2.png</url><title>Algeria Tech</title><link>${SITE_URL}/</link></image>
+${items}
+  </channel>
+</rss>
+`;
+    fs.writeFileSync(path.join(__dirname, 'rss.xml'), rss, 'utf8');
+    console.log(`✅ rss.xml généré : ${Math.min(40, _byDate.length)} articles`);
+} catch (e) { console.warn('⚠️  RSS ignoré :', e.message); }
+
+// 4) Sitemap Google News (articles des 48 dernières heures — consigne Google ; au moins le plus récent)
+try {
+    let recents = _byDate.filter(a => a.type !== 'communique_officiel' && Date.now() - _when(a).getTime() < 48 * 3600 * 1000);
+    if (!recents.length) recents = _byDate.slice(0, 1);
+    const urls = recents.slice(0, 1000).map(a => `  <url>
+    <loc>${SITE_URL}/article/${a.id}</loc>
+    <news:news>
+      <news:publication><news:name>Algeria Tech</news:name><news:language>fr</news:language></news:publication>
+      <news:publication_date>${a.date || '1970-01-01'}T${a.heure || '00:00'}:00+01:00</news:publication_date>
+      <news:title>${_xml(a.titre)}</news:title>
+    </news:news>
+  </url>`).join('\n');
+    fs.writeFileSync(path.join(__dirname, 'news-sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+${urls}
+</urlset>
+`, 'utf8');
+    console.log(`✅ news-sitemap.xml généré : ${recents.length} article(s) récents`);
+} catch (e) { console.warn('⚠️  Sitemap News ignoré :', e.message); }
 
 // ── Nettoyage du déploiement (Cloudflare Pages uniquement : variable CF_PAGES=1) ─────────────────
 // Le site est publié depuis la racine du dépôt : sans ce nettoyage, server.js, les scripts Python, les
