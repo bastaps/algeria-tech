@@ -845,6 +845,33 @@ app.get('/api/wiki/:slug', (req, res) => {
 });
 // === FIN WIKI TIC ===
 
+// === MANIFESTES VIDÉO (Flash Info + L'info en 30 s) ===
+// data/flash-latest.json et data/express-latest.json sont mis à jour par GitHub Actions ; le dépôt LOCAL a
+// du retard, et les widgets masquent tout flash de plus de 7 jours (30 s : 3 jours) → en localhost ils
+// disparaissaient. Hors production, on sert donc la version de production (cache 60 s), avec repli sur le
+// fichier local si le site est injoignable. En production (pages.dev) ce code n'existe pas : Cloudflare sert
+// directement les fichiers.
+const MANIFESTES_PROD = ['/data/flash-latest.json', '/data/express-latest.json'];
+const manifesteCache = {};
+app.get(MANIFESTES_PROD, async (req, res, next) => {
+    if (!/^(localhost|127\.|192\.168\.|10\.|\[::1\])/.test(req.hostname || '')) return next();
+    try {
+        const c = manifesteCache[req.path];
+        if (c && Date.now() - c.t < 60000) return res.set('Cache-Control', 'no-store').type('json').send(c.body);
+        const r = await fetch('https://algeria-tech.pages.dev' + req.path, {
+            headers: { 'User-Agent': 'Mozilla/5.0 (Algeria Tech Hub)' }, signal: AbortSignal.timeout(6000)
+        });
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        const body = await r.text();
+        if (!Array.isArray(JSON.parse(body))) throw new Error('format inattendu');
+        manifesteCache[req.path] = { t: Date.now(), body };
+        res.set('Cache-Control', 'no-store').type('json').send(body);
+    } catch (e) {
+        next(); // repli : fichier local (express.static ci-dessous)
+    }
+});
+// === FIN MANIFESTES VIDÉO ===
+
 // === SERVIR LES FICHIERS STATIQUES ===
 app.use(express.static(__dirname, {
     setHeaders: (res, filepath) => {
