@@ -235,6 +235,13 @@ def choisir(slot):
     if not os.environ.get("CIRCUIT_FORCE") and any(fait(x) for x in h):
         log(f"créneau « {slot} » déjà fait aujourd'hui")
         return 3
+    try:  # le repli cloud a-t-il déjà produit ce créneau ?
+        reg = requests.get(f"{SITE}/data/circuit-slots.json", timeout=15).json()
+        if reg.get(aujourd_hui(), {}).get(slot) and not os.environ.get("CIRCUIT_FORCE"):
+            log(f"créneau « {slot} » déjà produit aujourd'hui ({reg[aujourd_hui()][slot]})")
+            return 3
+    except Exception:
+        pass
     serveurs()
     vus = deja_vus()
     listes = (candidats_revue, candidats_flux) if slot == "matin" else (candidats_flux, candidats_revue)

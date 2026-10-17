@@ -164,7 +164,7 @@ def local():
                 pass
         RACINE = tmp
         main()
-        git("add", "-A", "articles", "brouillons", cwd=tmp)
+        git("add", "-A", cwd=tmp)
         if not git("diff", "--cached", "--name-only", cwd=tmp).strip():
             return 0
         git("-c", "user.name=circuit-flow", "-c", "user.email=circuit-flow@local", "commit", "-q", "-m",

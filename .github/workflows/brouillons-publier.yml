@@ -38,7 +38,7 @@ jobs:
 
       - name: Enregistrement
         run: |
-          git add -A articles brouillons
+          git add -A
           git diff --cached --quiet && { echo "Rien à publier."; exit 0; }
           git config user.name "actions-user"
           git config user.email "actions@github.com"
