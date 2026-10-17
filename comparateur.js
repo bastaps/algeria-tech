@@ -341,22 +341,22 @@ const COMP_OPS = {
   mobilis:{
     name:'Mobilis', color:'#2E7D32', rgb:'46,125,50',
     grad:'linear-gradient(135deg,#1B5E20 0%,#388E3C 100%)',
-    ballHTML:'<img src="images/logo-mobilis.png" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;">',
-    soloHTML:'<img src="images/logo-mobilis.png" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;">',
+    ballHTML:'<img src="/images/logo-mobilis.png" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;">',
+    soloHTML:'<img src="/images/logo-mobilis.png" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;">',
     site:'https://www.mobilis.dz'
   },
   djezzy:{
     name:'Djezzy', color:'#D32F2F', rgb:'211,47,47',
     grad:'linear-gradient(135deg,#B71C1C 0%,#E53935 100%)',
-    ballHTML:'<img src="images/logo-djezzy.png" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;">',
-    soloHTML:'<img src="images/logo-djezzy.png" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;">',
+    ballHTML:'<img src="/images/logo-djezzy.png" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;">',
+    soloHTML:'<img src="/images/logo-djezzy.png" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;">',
     site:'https://www.djezzy.dz'
   },
   ooredoo:{
     name:'Ooredoo', color:'#CC0000', rgb:'204,0,0',
     grad:'linear-gradient(135deg,#8B0000 0%,#CC0000 100%)',
-    ballHTML:'<img src="images/logo-ooredoo.png" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;">',
-    soloHTML:'<img src="images/logo-ooredoo.png" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;">',
+    ballHTML:'<img src="/images/logo-ooredoo.png" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;">',
+    soloHTML:'<img src="/images/logo-ooredoo.png" style="width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;">',
     site:'https://www.ooredoo.dz'
   },
 };

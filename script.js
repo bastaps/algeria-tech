@@ -1641,7 +1641,7 @@ async function loadRevue() {
     const dateEl = document.getElementById('revueLastUpdate');
     if(!container) return;
     try {
-        const res = await fetch('revue_presse.json?t=' + Date.now());
+        const res = await fetch('/revue_presse.json?t=' + Date.now());
         if(!res.ok) throw new Error('Revue non disponible');
         const data = await res.json();
         if(!data.articles || data.articles.length === 0) throw new Error('Données incomplètes');
@@ -2107,7 +2107,7 @@ window.loadRevueArchive = function() {
     var date = input.value; // format YYYY-MM-DD
     var container = document.getElementById('revueContent');
     if (container) container.innerHTML = '<div class="revue-loading"><i class="fas fa-spinner fa-spin"></i><p>Chargement de l\'édition du ' + date + '…</p></div>';
-    fetch('archives/' + date + '.json?t=' + Date.now())
+    fetch('/archives/' + date + '.json?t=' + Date.now())
         .then(function(r) {
             if (!r.ok) throw new Error('Archive non trouvée');
             return r.json();
@@ -3169,7 +3169,7 @@ async function loadVeille() {
     const loader = document.getElementById('veilleLoading');
     if(loader) loader.style.display = 'block';
     try {
-        const veilleUrl = isLocal ? '/api/veille' : ('veille_data.json?t=' + Date.now());
+        const veilleUrl = isLocal ? '/api/veille' : ('/veille_data.json?t=' + Date.now());
         const res = await fetch(veilleUrl);
         if(!res.ok) throw new Error('Erreur chargement veille');
         veilleData = await res.json();
