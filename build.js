@@ -321,7 +321,7 @@ function generateArticlePage(art) {
 })();
 </script>
 <!-- Cloudflare Web Analytics : mesure d'audience sans cookies -->
-<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b0b62e76bba94885ac225a63c5feb365"}'></script>
+<script>if(!/^(localhost|127\.|192\.168\.|10\.)/.test(location.hostname)){var _cf=document.createElement('script');_cf.type='module';_cf.src='https://static.cloudflareinsights.com/beacon.min.js';_cf.setAttribute('data-cf-beacon','{"token": "b0b62e76bba94885ac225a63c5feb365"}');document.body.appendChild(_cf);}</script>
 </body>
 </html>`;
 }

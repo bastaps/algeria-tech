@@ -1,4 +1,18 @@
 
+// ── Chargement à la demande de modules lourds (jargon.js, comparateur.js) ──
+const _atLoaded = {};
+function atLoadScript(src) {
+    if (_atLoaded[src]) return _atLoaded[src];
+    _atLoaded[src] = new Promise((resolve, reject) => {
+        const el = document.createElement('script');
+        el.src = src; el.async = true;
+        el.onload = () => resolve();
+        el.onerror = () => { delete _atLoaded[src]; reject(new Error('chargement impossible : ' + src)); };
+        document.head.appendChild(el);
+    });
+    return _atLoaded[src];
+}
+
 // ── Vignettes d'images (images/t/<nom>.webp, 640 px) : les cartes n'affichent plus l'image pleine taille.
 //    Repli automatique sur l'original si la vignette n'existe pas (atImgFb).
 function atThumb(src) {
@@ -568,7 +582,7 @@ window.openArticle = async function(id) {
     html += `<div class="share-buttons"><button class="share-btn facebook" onclick="share('facebook')"><i class="fab fa-facebook-f"></i> Facebook</button><button class="share-btn twitter" onclick="share('twitter')"><i class="fab fa-twitter"></i> Twitter</button><button class="share-btn whatsapp" onclick="share('whatsapp')"><i class="fab fa-whatsapp"></i> WhatsApp</button><button class="share-btn linkedin" onclick="share('linkedin')"><i class="fab fa-linkedin-in"></i> LinkedIn</button><button class="share-btn copy" onclick="copyLink()"><i class="fas fa-link"></i> Copier</button></div>`;
     document.getElementById('articleContent').innerHTML = html;
     if (articleVideoId) setupFloatingVideo();
-    if (typeof highlightJargon === 'function') highlightJargon();
+    atLoadScript('/jargon.js').then(() => { if (typeof highlightJargon === 'function') highlightJargon(); }).catch(() => {});
     initAudioReader(art.titre + ".  " + art.rawContent);
     const rel = allArticles.filter(a => a.id != id && a.categorie === art.categorie).slice(0, 3);
     const relBox = document.getElementById('relatedArticles');
@@ -1629,7 +1643,7 @@ window.showComparateur = function() {
     document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
     const navComp = document.getElementById('nav-comparateur');
     if (navComp) navComp.classList.add('active');
-    if (typeof window.initComparateur === 'function') window.initComparateur();
+    atLoadScript('/comparateur.js?v=2').then(() => { if (typeof window.initComparateur === 'function') window.initComparateur(); }).catch(() => {});
     window.scrollTo({top: 0, behavior: 'smooth'});
 };
 
