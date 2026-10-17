@@ -320,6 +320,8 @@ function generateArticlePage(art) {
   document.head.appendChild(s);
 })();
 </script>
+<!-- Cloudflare Web Analytics : mesure d'audience sans cookies -->
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "b0b62e76bba94885ac225a63c5feb365"}'></script>
 </body>
 </html>`;
 }
@@ -343,7 +345,7 @@ const sitemapUrls = [
     `<url><loc>${SITE_URL}/revue/</loc><changefreq>daily</changefreq><priority>0.7</priority></url>`,
     `<url><loc>${SITE_URL}/comparateur/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`,
     `<url><loc>${SITE_URL}/reglementaire/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>`,
-    ...['operateurs', 'actualites-tic', 'barometre', 'wiki', 'ae-tech', 'autoentrepreneur', 'simulateur-fiscal'].map(p =>
+    ...['operateurs', 'actualites-tic', 'barometre', 'wiki', 'ae-tech', 'autoentrepreneur', 'simulateur-fiscal', 'confidentialite'].map(p =>
         `<url><loc>${SITE_URL}/${p}</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`),
     ...allArticlesForSSG.map(art => {
         const lastmod = art.date ? `<lastmod>${art.date}</lastmod>` : '';
