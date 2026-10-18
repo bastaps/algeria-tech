@@ -5,12 +5,23 @@
   function el(tag, attrs, html) { var e = document.createElement(tag); for (var k in attrs || {}) e.setAttribute(k, attrs[k]); if (html) e.innerHTML = html; return e; }
   function call(fn) { try { if (typeof window[fn] === 'function') window[fn].apply(null, [].slice.call(arguments, 1)); } catch (e) {} }
 
+  // Flash Info : rien ne tourne en arrière-plan. Tant que le lecteur n'est pas ouvert, la vidéo est arrêtée et déchargée
+  // (pas d'autoplay, pas de données consommées) ; elle est rechargée à l'ouverture et déchargée à la fermeture.
+  function flashVideo() { var r = document.getElementById('flash-widget-root'); return r ? r.querySelector('video') : null; }
+  function stopFlashIfClosed() {
+    var r = document.getElementById('flash-widget-root'), v = flashVideo();
+    if (!r || !v || r.classList.contains('fw-expanded')) return;
+    if (v.src && !v.dataset.mlSrc) v.dataset.mlSrc = v.src;
+    v.pause(); v.removeAttribute('autoplay'); v.preload = 'none';
+    if (v.getAttribute('src')) { v.removeAttribute('src'); v.load(); }
+  }
   function openFlash() {
-    var root = document.getElementById('flash-widget-root');
-    if (!root) return;
+    var root = document.getElementById('flash-widget-root'), v = flashVideo();
+    if (!root || !v) return;
     root.classList.remove('fw-hidden');
+    if (!v.getAttribute('src') && v.dataset.mlSrc) { v.src = v.dataset.mlSrc; v.load(); }
     if (!root.classList.contains('fw-expanded')) { var b = root.querySelector('[data-act="expand"]'); if (b) b.click(); }
-    var v = root.querySelector('video'); if (v) { v.muted = false; v.play().catch(function () {}); }
+    v.muted = false; v.play().catch(function () {});
   }
 
   var overlay30 = null;
@@ -66,6 +77,10 @@
       };
       chips.appendChild(b);
     });
+    // surveille le widget Flash (créé en différé, rouvert/refermé par ses boutons) et le garde arrêté quand il est fermé
+    stopFlashIfClosed();
+    new MutationObserver(stopFlashIfClosed).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'src'] });
+    setInterval(stopFlashIfClosed, 2000);
     var header = document.getElementById('siteHeader') || document.querySelector('header');
     if (header && header.parentNode) header.parentNode.insertBefore(chips, header.nextSibling);
   }
