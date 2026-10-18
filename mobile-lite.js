@@ -51,6 +51,25 @@
 
   function setOn(i) { [].forEach.call(document.querySelectorAll('#ml-nav button'), function (b, k) { b.classList.toggle('on', k === i); }); }
 
+  // Marque les éléments à masquer / réordonner (le contenu est généré en différé par script.js, d'où le rappel périodique)
+  function organise() {
+    // menu hamburger : les rubriques sont déjà dans les puces -> on ne garde que le reste
+    var lab = document.querySelector('#mobileMenu .mobile-nav-section-label');
+    if (lab && !lab.dataset.ml) { lab.dataset.ml = 1; lab.classList.add('ml-hide'); }
+    [].forEach.call(document.querySelectorAll('#mobileMenu a[onclick*="filterByCategory"]'), function (a) { if (a.parentNode) a.parentNode.classList.add('ml-hide'); });
+    // doublons : les 3 premières cartes de la grille reprennent la une + 2e + 3e déjà affichées en haut
+    var hero = [].map.call(document.querySelectorAll('#heroGrid h2'), function (h) { return h.textContent.trim(); });
+    [].forEach.call(document.querySelectorAll('#newsGrid .news-card'), function (c) {
+      var h = c.querySelector('h3'); c.classList.toggle('ml-dup', !!h && hero.indexOf(h.textContent.trim()) !== -1);
+    });
+    // colonne latérale : ordre Brèves / Plus lus / Newsletter / Tags (l'info en 30 s reste en tête)
+    [].forEach.call(document.querySelectorAll('.sidebar > .sidebar-widget'), function (w) {
+      var t = (w.querySelector('.widget-title') || {}).textContent || '';
+      var o = /30/.test(t) ? 0 : /Brèves|Breves/i.test(t) ? 1 : /Plus Lus/i.test(t) ? 2 : /Newsletter/i.test(t) ? 3 : /Tags/i.test(t) ? 4 : 5;
+      w.style.order = o;
+    });
+  }
+
   function init() {
     document.body.classList.add('ml');
     var media = el('div', { id: 'ml-media' });
@@ -63,7 +82,8 @@
     [['fa-home', 'Accueil', function () { call('goHome'); window.scrollTo(0, 0); setOn(0); }],
      ['fa-newspaper', 'Actualités', function () { call('goHome'); var s = document.querySelector('.news-grid,#newsGrid'); if (s) s.scrollIntoView({ behavior: 'smooth' }); setOn(1); }],
      ['fa-satellite-dish', 'Veille', function () { call('showVeille'); setOn(2); }],
-     ['fa-ellipsis-h', 'Plus', function () { call('toggleMobileMenu'); }]
+     ['fa-file-alt', 'Revue', function () { call('showRevue'); setOn(3); }],
+     ['fa-ellipsis-h', 'Plus', function () { var f = document.querySelector('footer'); if (f) f.scrollIntoView({ behavior: 'smooth', block: 'end' }); }]
     ].forEach(function (d, i) {
       var b = el('button', { type: 'button' }, '<i class="fas ' + d[0] + '"></i>' + d[1]);
       b.onclick = d[2]; if (i === 0) b.className = 'on'; nav.appendChild(b);
@@ -86,6 +106,7 @@
     stopFlashIfClosed();
     new MutationObserver(stopFlashIfClosed).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'src'] });
     setInterval(stopFlashIfClosed, 2000);
+    organise(); setInterval(organise, 1500);
     var header = document.getElementById('siteHeader') || document.querySelector('header');
     if (header && header.parentNode) header.parentNode.insertBefore(chips, header.nextSibling);
   }

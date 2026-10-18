@@ -69,3 +69,19 @@
   .ml .hero-side-card .hero-meta-tag { background: none !important; color: #777 !important; font-size: 12px; padding: 0 6px 0 0; }
   .ml .hero-side-card .hero-meta-tag:nth-of-type(n+3) { display: none; }
 }
+
+/* Retours utilisateur 2026-10-18 : moins de redondances */
+@media (max-width: 640px) {
+  .ml .ml-hide, .ml .ml-dup { display: none !important; }
+  .ml .news-column > .section-header { display: none !important; }
+  .ml .sidebar { display: flex !important; flex-direction: column; }
+  /* pagination (archives) : une seule ligne défilante */
+  .ml .pagination { display: flex !important; flex-wrap: nowrap !important; overflow-x: auto; gap: 8px; padding: 6px 14px; justify-content: flex-start !important; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .ml .pagination::-webkit-scrollbar { display: none; }
+  .ml .pagination button { flex: none; min-width: 44px; min-height: 44px; }
+  /* tags : une ligne défilante */
+  .ml .tag-cloud { display: flex !important; flex-wrap: nowrap !important; overflow-x: auto; gap: 8px; padding-bottom: 6px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .ml .tag-cloud::-webkit-scrollbar { display: none; }
+  .ml .tag-cloud .tag-cloud-item { flex: none; white-space: nowrap; }
+  #ml-nav button { font-size: 10.5px; }
+}
