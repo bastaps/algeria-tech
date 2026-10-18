@@ -24,6 +24,11 @@ if (!MISTRAL_API_KEY && !GEMINI_API_KEY && !OPENROUTER_API_KEY && !OPENAI_API_KE
 }
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+// Date d'édition : le « jour » de la revue change à 06h00 heure d'Alger (UTC+1, sans changement d'heure) et non à minuit.
+// Avant 06h00 à Alger, on est encore sur l'édition de la veille. (UTC+1 - 6 h = décalage de -5 h, lu en UTC.)
+const dateEdition = () => new Date(Date.now() - 5 * 3600 * 1000);
+const fmtEdition = (opts) => dateEdition().toLocaleDateString('fr-FR', { ...opts, timeZone: 'UTC' });
+
 
 const SOURCES = [
     { url: 'https://itmag.dz/feed/',                       name: 'ITMAG.dz',         pays: 'DZ' },
@@ -331,13 +336,13 @@ function packAiResult(aiResult, rawArticles) {
     }
     const syntheseArticle = aiResult.article ? {
         titre: aiResult.article.titre,
-        dateline: `Alger, ${new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })} (Algeria Tech)`,
+        dateline: `Alger, ${fmtEdition({ day: 'numeric', month: 'long', year: 'numeric' })} (Algeria Tech)`,
         lead: linkifySources(aiResult.article.lead || ''),
         corpsHtml: (aiResult.article.corps || []).map(p => `<p>${linkifySources(p)}</p>`)
     } : null;
 
     return {
-        date: new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' }),
+        date: fmtEdition({ weekday: 'long', day: 'numeric', month: 'long' }),
         synthese: aiResult.synthese,
         articles: finalArticles,
         syntheseArticle,
@@ -354,7 +359,7 @@ function buildRuleBasedRevue(rawArticles) {
         categorie: 'Actualité'
     }));
     return {
-        date: new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' }),
+        date: fmtEdition({ weekday: 'long', day: 'numeric', month: 'long' }),
         synthese: `${finalArticles.length} articles tech retenus ce jour, issus de ${new Set(finalArticles.map(a => a.source)).size} sources — édition générée sans réécriture IA (moteurs indisponibles).`,
         articles: finalArticles,
         syntheseArticle: null,

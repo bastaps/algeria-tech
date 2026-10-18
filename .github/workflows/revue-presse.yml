@@ -2,8 +2,9 @@ name: Revue de Presse IA — Mise à jour automatique
 
 on:
   schedule:
-    # 04:00 UTC = 05:00 Alger (CET, UTC+1, pas de changement d'heure en Algérie)
-    - cron: '0 4 * * *'
+    # 05:07 UTC = 06:07 Alger (UTC+1, pas de changement d'heure en Algérie) : le jour de l'édition change à 06h00 Alger.
+    # (minute 07 : évite le pic de retards GitHub sur les heures pile)
+    - cron: '7 5 * * *'
   workflow_dispatch:
     # Permet de lancer manuellement depuis GitHub Actions
 
