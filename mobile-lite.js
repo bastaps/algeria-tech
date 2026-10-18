@@ -174,7 +174,22 @@
     });
   }
 
+  // Page article pré-rendue (lien direct / Google / partage) : pas d'application autour -> on ajoute l'en-tête et la barre du bas
+  function initSsg() {
+    var b = document.body; b.classList.add('ml', 'ml-ssg'); b.dataset.mlView = 'article';
+    var top = el('header', { id: 'ml-top' }, '<a href="/" class="lg">Algeria <b>Tech</b></a><a href="/" class="bk">← Accueil</a>');
+    b.insertBefore(top, b.firstChild);
+    var nav = el('nav', { id: 'ml-nav', 'aria-label': 'Navigation principale' });
+    [['fa-home', 'Accueil', '/'], ['fa-satellite-dish', 'Veille', '/veille'], ['fa-file-alt', 'Revue', '/revue'], ['fa-ellipsis-h', 'Plus', '/actualites-tic']].forEach(function (d) {
+      nav.appendChild(el('a', { href: d[2] }, '<i class="fas ' + d[0] + '"></i>' + d[1]));
+    });
+    b.appendChild(nav);
+    var m = document.querySelector('.ssg-article .meta');
+    if (m) m.querySelectorAll('span').forEach(function (s) { var t = s.textContent.trim(); if (/^\d{4}-\d{2}-\d{2}$/.test(t)) s.textContent = ago(t + 'T12:00:00+01:00'); });
+  }
+
   function init() {
+    if (document.querySelector('.ssg-article') && !document.getElementById('siteHeader')) return initSsg();
     document.body.classList.add('ml');
     var media = el('div', { id: 'ml-media' });
     var bF = el('button', { type: 'button' }, '<i class="ml-dot"></i> Flash Info');

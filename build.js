@@ -286,6 +286,8 @@ function generateArticlePage(art) {
 })}</script>
 
 <link rel="stylesheet" href="/style.css?v=${CSS_V}">
+<link rel="stylesheet" href="/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="/mobile-lite.css?v=8">
 <style>
   .ssg-article { max-width:800px; margin:80px auto; padding:0 20px 60px; font-family:Inter,sans-serif; }
   .ssg-article img { width:100%; border-radius:8px; margin-bottom:24px; }
@@ -310,6 +312,7 @@ function generateArticlePage(art) {
   </div>
 </article>
 
+<script src="/mobile-lite.js?v=8" defer></script>
 <!-- Chargement de l'application SPA (remplace le contenu ci-dessus pour les vrais utilisateurs) -->
 <script>
 // Charge le SPA principal depuis la racine

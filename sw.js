@@ -14,7 +14,7 @@
  * la rapidité des requêtes réseau sans contenu périmé.
  */
 
-const CACHE_VERSION = 'algeria-tech-v16';
+const CACHE_VERSION = 'algeria-tech-v17';
 const CACHE_IMAGES  = 'algeria-tech-images-v1';
 
 // ── Assets locaux pré-cachés (HTML et CDN exclus volontairement) ──────────────
@@ -90,6 +90,10 @@ self.addEventListener('fetch', event => {
   //    Or connect-src ne liste pas ces domaines → CSP bloque le fetch → 503.
   //    Le navigateur les charge directement avec la bonne directive CSP.
   if (url.origin !== self.location.origin) return;
+
+  // ── 0 bis. Navigations vers les routes (/veille, /revue, /article/…) → navigateur seul.
+  //    Le SW renvoyait l'accueil au lieu de la page demandée (redirection 308 vers /route/).
+  if (event.request.mode === 'navigate' && url.pathname !== '/' && !url.pathname.endsWith('.html')) return;
 
   // ── 1. API dynamiques → réseau seul (pas de cache) ────────────────────────
   if (url.pathname.startsWith('/api/')) return;
