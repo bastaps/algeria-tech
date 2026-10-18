@@ -721,6 +721,24 @@
       "source_type": "rss"
     },
     {
+      "id": "d576fcd8c9063cb5",
+      "source_name": "Algérie Télécom",
+      "source_short": "AT",
+      "source_color": "#0055A4",
+      "category": "Infrastructure",
+      "category_icon": "📡",
+      "url": "https://www.youtube.com/shorts/myVVk0g_uMw",
+      "image": "",
+      "date": "2026-10-18T09:09:55+00:00",
+      "lang_source": "ar",
+      "text": {
+        "ar": "💙 4 ملايين سبب يجمعنا… و4 ملايين حكاية متصلة",
+        "fr": "",
+        "en": ""
+      },
+      "source_type": "youtube"
+    },
+    {
       "id": "b2632027bb22b88f",
       "source_name": "Algérie Télécom",
       "source_short": "AT",
@@ -1057,24 +1075,6 @@
       "lang_source": "fr",
       "text": {
         "fr": "Souveraineté numérique : la fibre optique dépasse les 4 millions de raccordements - Algerie Patriotique — Souveraineté numérique : la fibre optique dépasse les 4 millions de raccordements Algerie Patriotique",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e953a4480fa10615",
-      "source_name": "Algérie Télécom",
-      "source_short": "AT",
-      "source_color": "#0055A4",
-      "category": "Infrastructure",
-      "category_icon": "📡",
-      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxORGZ3T3dlQVlNLWdTU2U3UXkxejl3bzhxTjlRS2xrV1NFYnFGRGZxbkNGYTJ1TElWd3NBbzRLNmtnSWVldC00clZDM3ZaUFF6Z1A2WnQwdl9lNm8zd3VIZnctMUxPVVhPWXUtaWpOejdoYUNwX25LMkhhSnBvOG5FOVBrUTdFY1VOc1hoRFFBLW1mcndtYVp3TG92ODFMUnZHWFRFT2hGekZ5QVZ4?oc=5",
-      "image": "",
-      "date": "Sun, 11 Oct 2026 14:49:24 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Internet : le cap historique des 4 millions de foyers raccordés à la fibre optique franchi - El Watan — Internet : le cap historique des 4 millions de foyers raccordés à la fibre optique franchi El Watan",
         "ar": "",
         "en": ""
       },
@@ -1437,6 +1437,78 @@
         "fr": "Huawei et China Telecom deploient 3 400 sites 5G-A a Shanghai - objetconnecte.com — Huawei et China Telecom deploient 3 400 sites 5G-A a Shanghai objetconnecte.com",
         "ar": "",
         "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e8f8b206a97fe2a4",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://www.facebook.com/AlgerieEco",
+      "image": "",
+      "date": "2026-10-18T11:42:46+00:00",
+      "lang_source": "fr",
+      "text": {
+        "fr": "L’Algérie a alloué une enveloppe de plus de 71 milliards de dollars pour le développement de l’activité des hydrocarbures à l’hori… — L’Algérie a alloué une enveloppe de plus de 71 milliards de dollars pour le développement de l’activité des hydrocarbures à l’horizon 2030",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "facebook"
+    },
+    {
+      "id": "72140d091036c467",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/pratique/chatgpt-voice-ma-aide-a-reparer-mon-pc-de-jeu-endommage-et-a-eviter-une-erreur-qui-maurait-coute-cher-506012.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sun, 18 Oct 2026 09:38:05 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "ChatGPT Voice m'a aidé à réparer mon PC de jeu endommagé, et à éviter une erreur qui m'aurait coûté cher — J'ai utilisé ChatGPT pour enquêter sur des pannes de mémoire vive, des paramètres du BIOS et des problèmes de corruption de Windows, et cela a bouleversé ma vision de l'assistance technique basée sur l'IA.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "70e7045d48c334f9",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/apple-watch-ultra-4-ou-garmin-fenix-9-pro-laquelle-choisir-pour-laventure-505930.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sun, 18 Oct 2026 07:01:36 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Apple Watch Ultra 4 ou Garmin Fenix 9 Pro : laquelle choisir pour l’aventure ? — Autonomie de plusieurs semaines et lampe torche d’un côté, applications tierces, santé simplifiée et IA de l’autre : notre auteur a testé l’Apple Watch Ultra 4 et la Garmin Fenix 9 Pro en pleine nature, et dit pour qui chacune est faite.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "24a6bb2519a404ce",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/17/meta-removes-language-that-raised-scraping-and-ai-training-concerns/",
+      "image": "",
+      "date": "Sat, 17 Oct 2026 21:31:32 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Meta removes language that raised scraping and AI training concerns — A Meta spokesperson insisted that the updated terms did not reflect a change in the way Meta crawls the web.",
+        "ar": "",
+        "fr": ""
       },
       "source_type": "rss"
     },
@@ -5327,88 +5399,16 @@
         "fr": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "7c6114aceb8f6703",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/10/12/aadl-3-200-000-logements-sont-en-cours-de-realisation/",
-      "image": "",
-      "date": "Mon, 12 Oct 2026 12:43:31 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "AADL 3 : 200.000 logements sont en cours de réalisation — Un total de 200.000 logements inscrits dans le cadre du programme de location-vente « AADL 3 » sont en cours de réalisation, a annoncé, ce lundi 12 octobre, le ministre de l’Habitat, de l’Urbanisme, de la Ville et de l’Aménagement du territoire, Mohamed Tarek Belaribi. Lord d’une visite dans la wila",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "00faf3579f079c08",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/cauchemar-en-grande-distribution-le-piratage-informatique-de-systemes-frigorifiques-aboutit-a-un-gigantesque-gaspillage-alimentaire-505585.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 12 Oct 2026 12:38:51 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Cauchemar en grande distribution : le piratage informatique de systèmes frigorifiques aboutit à un gigantesque gaspillage alimentaire — De nombreux magasins français, un nombre précis inconnu, viennent d’être touchés par cette attaque de grande ampleur.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "89a7e5de0b4fd597",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/4-raisons-pour-lesquelles-les-nouvelles-tablettes-alexa-damazon-surpassent-la-gamme-fire-a-commencer-par-le-google-play-505579.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 12 Oct 2026 10:39:09 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "4 raisons pour lesquelles les nouvelles tablettes Alexa d'Amazon surpassent la gamme Fire – à commencer par le Google Play — Amazon vient de passer à la vitesse supérieure avec de nouvelles tablettes Android destinées au divertissement et au travail.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "9d4dd3bd7ed75f70",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/jutilise-lia-pour-faire-ce-que-je-ne-sais-pas-bien-faire-assume-linus-torvalds-505575.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 12 Oct 2026 10:25:09 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "« J’utilise l’IA pour faire ce que je ne sais pas bien faire » assume Linus Torvalds — Le créateur de Linux qualifie le « vibe coding » de « merveilleuse façon de trouver du plaisir dans la programmation », mais pas pour mener à bien le développement de Linux. (La recherche de bogues, ça passe.)",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-10-17T21:09:02.183481+00:00",
+  "lastUpdated": "2026-10-18T11:53:08.650722+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Tech International": 172,
-    "Médias TIC": 48
+    "Médias TIC": 48,
+    "Tech International": 172
   },
   "total": 300
 }
