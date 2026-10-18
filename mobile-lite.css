@@ -85,3 +85,7 @@
   .ml .tag-cloud .tag-cloud-item { flex: none; white-space: nowrap; }
   #ml-nav button { font-size: 10.5px; }
 }
+@media (max-width: 640px) {
+  .ml .content-layout, .ml .news-column, .ml .sidebar, .ml .sidebar-widget { min-width: 0; max-width: 100%; }
+  .ml .pagination, .ml .tag-cloud { max-width: 100%; box-sizing: border-box; }
+}
