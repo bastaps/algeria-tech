@@ -348,7 +348,7 @@ const sitemapUrls = [
     `<url><loc>${SITE_URL}/revue/</loc><changefreq>daily</changefreq><priority>0.7</priority></url>`,
     `<url><loc>${SITE_URL}/comparateur/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`,
     `<url><loc>${SITE_URL}/reglementaire/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>`,
-    ...['operateurs', 'actualites-tic', 'barometre', 'wiki', 'ae-tech', 'autoentrepreneur', 'simulateur-fiscal', 'confidentialite'].map(p =>
+    ...['operateurs', 'actualites-tic', 'barometre', 'wiki', 'ae-tech', 'autoentrepreneur', 'simulateur-fiscal', 'confidentialite', 'mentions-legales'].map(p =>
         `<url><loc>${SITE_URL}/${p}</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`),
     ...allArticlesForSSG.map(art => {
         const lastmod = art.date ? `<lastmod>${art.date}</lastmod>` : '';
