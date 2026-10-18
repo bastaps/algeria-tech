@@ -1,0 +1,57 @@
+/* Smartphone allégé (essai réversible) : retirer les 2 lignes mobile-lite de index.html pour revenir en arrière.
+   Ne s'applique qu'en dessous de 641 px : le PC ne change pas. */
+@media (max-width: 640px) {
+  body.ml { padding-bottom: 118px; }
+  .ml .top-bar { display: none !important; }
+
+  /* Un seul bouton « + » à la place des boutons flottants */
+  .ml #atv-wrap, .ml #at-wa-widget, .ml #atTempFab, .ml .atv-status, .ml #adminUnlockHint, .ml #backToTop { display: none !important; }
+  .ml.ml-open #atv-wrap { display: block !important; right: 4px !important; bottom: 330px !important; transform: scale(.75); transform-origin: bottom right; }
+  .ml.ml-open #at-wa-widget { display: block !important; right: 14px !important; bottom: 262px !important; }
+  .ml.ml-open #atTempFab { display: flex !important; right: 14px !important; bottom: 198px !important; }
+  #ml-fab {
+    position: fixed; right: 14px; bottom: 132px; z-index: 9999; width: 52px; height: 52px; border-radius: 50%;
+    border: 0; background: #1a1a1a; color: #fff; font-size: 24px; line-height: 1; cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0,0,0,.3); transition: transform .2s;
+  }
+  .ml-open #ml-fab { transform: rotate(45deg); background: #c8294a; }
+
+  /* Flash Info : plus de vignette qui recouvre les articles ; ouverture seulement par la barre du bas */
+  .ml #flash-widget-reopen { display: none !important; }
+  .ml #flash-widget-root:not(.fw-expanded) { display: none !important; }
+
+  /* Barre média (Flash Info | L'info en 30 s) + navigation */
+  #ml-media { position: fixed; left: 0; right: 0; bottom: 56px; z-index: 9990; display: flex; background: #2c3442; }
+  #ml-media button { flex: 1; min-height: 44px; border: 0; background: transparent; color: #fff; font: 600 13px/1 Inter, system-ui, sans-serif; display: flex; align-items: center; justify-content: center; gap: 7px; cursor: pointer; }
+  #ml-media button + button { border-left: 1px solid rgba(255,255,255,.18); }
+  #ml-media i.ml-dot { width: 8px; height: 8px; border-radius: 50%; background: #E11D2E; animation: ml-blink 1s steps(1,end) infinite; }
+  @keyframes ml-blink { 50% { opacity: .25; } }
+  #ml-nav { position: fixed; left: 0; right: 0; bottom: 0; height: 56px; z-index: 9991; display: flex; background: #fff; border-top: 1px solid #e5e5e5; }
+  #ml-nav button { flex: 1; border: 0; background: transparent; color: #666; font: 500 11px/1.2 Inter, system-ui, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; cursor: pointer; }
+  #ml-nav button i { font-size: 19px; }
+  #ml-nav button.on { color: #c8294a; }
+
+  /* Puces de rubriques */
+  #ml-chips { display: flex; gap: 8px; overflow-x: auto; padding: 10px 14px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  #ml-chips::-webkit-scrollbar { display: none; }
+  #ml-chips button { flex: none; border: 0; border-radius: 16px; padding: 8px 14px; background: #f0f1f3; color: #222; font: 500 13px/1 Inter, system-ui, sans-serif; cursor: pointer; }
+  #ml-chips button.on { background: #1a1a1a; color: #fff; }
+
+  /* Cartes simplifiées : vignette à gauche, titre, date */
+  .ml .news-card { display: flex !important; flex-direction: row; align-items: stretch; gap: 12px; padding: 12px 14px; border-radius: 0; box-shadow: none; border-bottom: 1px solid #eee; background: transparent; }
+  .ml .news-card .news-card-img { width: 96px; min-width: 96px; height: 72px; border-radius: 8px; overflow: hidden; flex: none; }
+  .ml .news-card .news-card-img img { width: 100%; height: 100%; object-fit: cover; }
+  .ml .news-card .news-card-body { padding: 0; flex: 1; min-width: 0; }
+  .ml .news-card .news-card-body h3 { font-size: 15px; line-height: 1.35; margin: 0 0 4px; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .ml .news-card .news-card-body p { display: none; }
+  .ml .news-card .at-badge-interactif, .ml .news-card .category-tag, .ml .news-card .tags, .ml .news-card .card-tags { display: none !important; }
+  .ml .news-card .card-meta { font-size: 12px; }
+
+  /* Lecteur 30 s plein écran */
+  #ml-30 { position: fixed; inset: 0; z-index: 10001; background: rgba(0,0,0,.88); display: none; align-items: center; justify-content: center; flex-direction: column; }
+  #ml-30.on { display: flex; }
+  #ml-30 .cadre { width: min(92vw, calc((100dvh - 120px) * 9 / 16)); aspect-ratio: 9 / 16; position: relative; background: linear-gradient(180deg, #0d3b24 0%, #0B1729 48%, #3a0a12 100%); border-radius: 12px; overflow: hidden; }
+  #ml-30 video { width: 100%; height: 100%; object-fit: contain; display: block; }
+  #ml-30 .ttl { color: #fff; font: 600 14px/1.35 Inter, system-ui, sans-serif; margin-top: 10px; padding: 0 16px; text-align: center; max-width: 92vw; }
+  #ml-30 .x { position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; border: 0; border-radius: 50%; background: rgba(255,255,255,.2); color: #fff; font-size: 20px; cursor: pointer; }
+}
