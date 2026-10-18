@@ -104,7 +104,7 @@
 
   // « Date courte » : « il y a 2 h » au lieu de la date + l'heure
   function shortDates() {
-    [].forEach.call(document.querySelectorAll('.card-meta, .hero-meta-wrapper'), function (m) {
+    [].forEach.call(document.querySelectorAll('.card-meta, .hero-meta-wrapper, .article-meta'), function (m) {
       if (m.dataset.mlDate) return;
       var sp = m.querySelectorAll('span'), d = null, h = null;
       [].forEach.call(sp, function (s) {
@@ -139,6 +139,15 @@
     sel(0);
   }
 
+  function vue() {
+    function on(id) { var e = document.getElementById(id); return !!(e && e.offsetParent !== null); }
+    var v = on('articlePage') || /^\/article\//.test(location.pathname) ? 'article' : on('veilleSection') ? 'veille' : on('revueSection') ? 'revue' : 'home';
+    if (document.body.dataset.mlView !== v) {
+      document.body.dataset.mlView = v;
+      setOn(v === 'veille' ? 2 : v === 'revue' ? 3 : v === 'home' ? 0 : -1);
+      if (v !== 'home') window.scrollTo(0, 0);
+    }
+  }
   function setOn(i) { [].forEach.call(document.querySelectorAll('#ml-nav button'), function (b, k) { b.classList.toggle('on', k === i); }); }
 
   // Marque les éléments à masquer / réordonner (le contenu est généré en différé par script.js, d'où le rappel périodique)
@@ -155,7 +164,7 @@
     // bandeau URGENT : masqué tant qu'il ne fait que répéter la une
     var brk = document.getElementById('breakingNewsSection'), tk = document.querySelector('#breakingTicker .ticker-item');
     if (brk && tk && hero.length) brk.classList.toggle('ml-hide', tk.textContent.trim() === hero[0]);
-    buildFlashStrip(); compactExpress(); shortDates(); tabs();
+    vue(); buildFlashStrip(); compactExpress(); shortDates(); tabs();
     // colonne latérale : Flash Info / info en 30 s / onglets (Brèves, Plus lus) / Newsletter / Tags
     var tb = document.getElementById('ml-tabs'); if (tb) tb.style.order = 2;
     [].forEach.call(document.querySelectorAll('.sidebar > .sidebar-widget'), function (w) {
@@ -201,7 +210,7 @@
     stopFlashIfClosed();
     new MutationObserver(stopFlashIfClosed).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'src'] });
     setInterval(stopFlashIfClosed, 2000);
-    organise(); setInterval(organise, 1500);
+    organise(); setInterval(organise, 1500); window.addEventListener('popstate', vue);
     var header = document.getElementById('siteHeader') || document.querySelector('header');
     if (header && header.parentNode) header.parentNode.insertBefore(chips, header.nextSibling);
   }
