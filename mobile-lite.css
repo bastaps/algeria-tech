@@ -57,3 +57,15 @@
   #ml-30 .ttl { color: #fff; font: 600 14px/1.35 Inter, system-ui, sans-serif; margin-top: 10px; padding: 0 16px; text-align: center; max-width: 92vw; }
   #ml-30 .x { position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; border: 0; border-radius: 50%; background: rgba(255,255,255,.2); color: #fff; font-size: 20px; cursor: pointer; }
 }
+
+/* Petites cartes de la une (hero-side-card) : même présentation compacte que les cartes de liste */
+@media (max-width: 640px) {
+  .ml .hero-side-card { display: block !important; height: auto !important; }
+  .ml .hero-side-card > div { display: flex !important; flex-direction: row; align-items: center; gap: 12px; padding: 12px 14px; border-bottom: 1px solid #eee; height: auto !important; position: relative; }
+  .ml .hero-side-card > div > img { width: 96px !important; height: 72px !important; flex: none; object-fit: cover; border-radius: 8px; position: static !important; }
+  .ml .hero-side-card .hero-overlay { position: static !important; background: none !important; padding: 0 !important; flex: 1; min-width: 0; }
+  .ml .hero-side-card .hero-overlay h2 { font-size: 15px; line-height: 1.35; margin: 4px 0 0; color: #1a1a1a !important; text-shadow: none !important; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .ml .hero-side-card .category-tag { display: none !important; }
+  .ml .hero-side-card .hero-meta-tag { background: none !important; color: #777 !important; font-size: 12px; padding: 0 6px 0 0; }
+  .ml .hero-side-card .hero-meta-tag:nth-of-type(n+3) { display: none; }
+}

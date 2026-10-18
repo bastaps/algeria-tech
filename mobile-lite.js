@@ -10,7 +10,7 @@
   function flashVideo() { var r = document.getElementById('flash-widget-root'); return r ? r.querySelector('video') : null; }
   function stopFlashIfClosed() {
     var r = document.getElementById('flash-widget-root'), v = flashVideo();
-    if (!r || !v || r.classList.contains('fw-expanded')) return;
+    if (!r || !v || (r.classList.contains('fw-expanded') && !r.classList.contains('fw-hidden'))) return;
     if (v.src && !v.dataset.mlSrc) v.dataset.mlSrc = v.src;
     v.pause(); v.removeAttribute('autoplay'); v.preload = 'none';
     if (v.getAttribute('src')) { v.removeAttribute('src'); v.load(); }
