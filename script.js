@@ -4050,3 +4050,22 @@ function injectWhatsAppWidget() {
 }
 
 document.addEventListener('DOMContentLoaded', injectWhatsAppWidget);
+
+
+// ── Newsletter : envoi de l'adresse à /api/newsletter ──────────────────────────────────────
+document.addEventListener('submit', async function (e) {
+    const f = e.target.closest && e.target.closest('.newsletter-form');
+    if (!f) return;
+    e.preventDefault();
+    const inp = f.querySelector('input[type="email"]'), hp = f.querySelector('input[name="website"]'), btn = f.querySelector('button[type="submit"]');
+    const email = (inp && inp.value || '').trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { showToast('Adresse e-mail invalide.'); return; }
+    if (btn) btn.disabled = true;
+    try {
+        const r = await fetch('/api/newsletter', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, website: hp ? hp.value : '' }) });
+        const j = await r.json().catch(() => ({}));
+        if (r.ok && j.success) { showToast('Merci ! Vous êtes inscrit(e).'); if (inp) inp.value = ''; }
+        else showToast(j.message || 'Inscription impossible pour le moment.');
+    } catch (err) { showToast('Connexion impossible, réessayez.'); }
+    if (btn) btn.disabled = false;
+});

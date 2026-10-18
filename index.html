@@ -244,8 +244,9 @@
                 <div class="sidebar-widget newsletter-widget">
                     <h3 class="widget-title" data-i18n-ar="النشرة الإخبارية"><i class="fas fa-envelope-open-text"></i> Newsletter</h3>
                     <p data-i18n-ar="احصل على أهم أخبار التكنولوجيا كل صباح.">Recevez l'essentiel de l'actualité tech chaque matin.</p>
-                    <form class="newsletter-form">
-                        <input type="email" aria-label="Votre adresse email" placeholder="Votre adresse email" data-i18n-ar="بريدك الإلكتروني">
+                    <form class="newsletter-form" novalidate>
+                        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+                        <input type="email" required aria-label="Votre adresse email" placeholder="Votre adresse email" data-i18n-ar="بريدك الإلكتروني">
                         <button type="submit" data-i18n-ar="اشترك">S'abonner</button>
                     </form>
                 </div>
@@ -642,7 +643,7 @@
     <script src="/libs/marked/marked.min.js"></script>
     <!-- vanilla-tilt.js : effet d'inclinaison 3D sur les cartes de la Une (hero) -->
     <script src="/libs/vanilla-tilt/vanilla-tilt.min.js"></script>
-    <script src="/script.js?v=17"></script>
+    <script src="/script.js?v=18"></script>
     <!-- Insertion + aperçu visuel des photos dans le corps des articles (Hub éditeur) -->
     <!-- Moteur i18n FR ↔ AR (chargé après script.js pour accéder aux grilles) -->
     <script src="/i18n.js"></script>

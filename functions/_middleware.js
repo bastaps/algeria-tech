@@ -8,7 +8,7 @@ import { readSession } from './_lib/admin.js';
 
 // Anti-abus des endpoints qui consomment des crédits IA/voix (Mistral, ElevenLabs, Workers AI, YouTube) :
 // seul le site lui-même (même origine) peut les appeler ; un curl/script externe est refusé.
-const COUT = /^\/api\/(debat|synthese|kateb|tts|voices|outpaint|youtube)\/?$/;
+const COUT = /^\/api\/(debat|synthese|kateb|tts|voices|outpaint|youtube|newsletter)\/?$/;
 function memeOrigine(request, url) {
   const sfs = request.headers.get('Sec-Fetch-Site');
   if (sfs) return sfs === 'same-origin';
