@@ -15,9 +15,14 @@
     v.pause(); v.removeAttribute('autoplay'); v.preload = 'none';
     if (v.getAttribute('src')) { v.removeAttribute('src'); v.load(); }
   }
-  function openFlash() {
+  function openFlash(retried) {
     var root = document.getElementById('flash-widget-root'), v = flashVideo();
-    if (!root || !v) return;
+    if (!root || !v) {
+      // le visiteur l'avait fermé (mémorisé pour la session) : on passe par la languette de réouverture du widget
+      var t = document.getElementById('flash-widget-reopen');
+      if (t && retried !== true) { t.click(); setTimeout(function () { openFlash(true); }, 500); }
+      return;
+    }
     root.classList.remove('fw-hidden');
     if (!v.getAttribute('src') && v.dataset.mlSrc) { v.src = v.dataset.mlSrc; v.load(); }
     if (!root.classList.contains('fw-expanded')) { var b = root.querySelector('[data-act="expand"]'); if (b) b.click(); }
@@ -51,7 +56,7 @@
     var media = el('div', { id: 'ml-media' });
     var bF = el('button', { type: 'button' }, '<i class="ml-dot"></i> Flash Info');
     var b30 = el('button', { type: 'button' }, '<i class="fas fa-play-circle"></i> L\'info en 30 s');
-    bF.onclick = openFlash; b30.onclick = open30;
+    bF.onclick = function () { openFlash(); }; b30.onclick = open30;
     media.appendChild(bF); media.appendChild(b30);
 
     var nav = el('nav', { id: 'ml-nav', 'aria-label': 'Navigation principale' });
