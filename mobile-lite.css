@@ -38,7 +38,7 @@
   #ml-chips button.on { background: #1a1a1a; color: #fff; }
 
   /* Cartes simplifiées : vignette à gauche, titre, date */
-  .ml .news-card { display: flex !important; flex-direction: row; align-items: stretch; gap: 12px; padding: 12px 14px; border-radius: 0; box-shadow: none; border-bottom: 1px solid #eee; background: transparent; }
+  .ml .news-card { display: flex !important; flex-direction: row !important; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 0; box-shadow: none; border-bottom: 1px solid #eee; background: transparent; }
   .ml .news-card .news-card-img { width: 96px; min-width: 96px; height: 72px; border-radius: 8px; overflow: hidden; flex: none; }
   .ml .news-card .news-card-img img { width: 100%; height: 100%; object-fit: cover; }
   .ml .news-card .news-card-body { padding: 0; flex: 1; min-width: 0; }
@@ -46,9 +46,11 @@
   .ml .news-card .news-card-body p { display: none; }
   .ml .news-card .at-badge-interactif, .ml .news-card .category-tag, .ml .news-card .tags, .ml .news-card .card-tags { display: none !important; }
   .ml .news-card .card-meta { font-size: 12px; }
+  .ml .news-card .news-card-body .date-badge, .ml .news-card .news-card-body [class*=badge] { font-size: 11px; padding: 2px 6px; }
+  body:has(#flash-widget-root.fw-expanded) #ml-fab { display: none; }
 
   /* Lecteur 30 s plein écran */
-  #ml-30 { position: fixed; inset: 0; z-index: 10001; background: rgba(0,0,0,.88); display: none; align-items: center; justify-content: center; flex-direction: column; }
+  #ml-30 { position: fixed; inset: 0; z-index: 10001; background: rgba(0,0,0,.96); display: none; align-items: center; justify-content: center; flex-direction: column; }
   #ml-30.on { display: flex; }
   #ml-30 .cadre { width: min(92vw, calc((100dvh - 120px) * 9 / 16)); aspect-ratio: 9 / 16; position: relative; background: linear-gradient(180deg, #0d3b24 0%, #0B1729 48%, #3a0a12 100%); border-radius: 12px; overflow: hidden; }
   #ml-30 video { width: 100%; height: 100%; object-fit: contain; display: block; }
