@@ -285,5 +285,12 @@
   "titre": "Données d’élèves et de parents en vente : deux services éducatifs français visés par le même pirate",
   "empreinte": "deux donnees educatifs eleves francais meme parents pirate services vente vises",
   "texte": "Bonjour. Des millions de comptes d'une application de révision et des dossiers scolaires sont proposés à la vente par un pirate. Ces données incluent des informations concernant des enfants et leurs parents. Les entreprises visées n'ont pas encore confirmé cette fuite."
+ },
+ {
+  "date": "2026-10-18T17:13:48Z",
+  "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-siteguard-waf-flaw-to-run-commands-as-system-root/",
+  "titre": "Hackers exploit SiteGuard WAF flaw to run commands as admins",
+  "empreinte": "admins commands exploit flaw hackers siteguard",
+  "texte": "Bonjour. Des pirates exploitent une faille critique dans le pare-feu SiteGuard pour exécuter des commandes système avec les privilèges administrateur. Cette vulnérabilité activement ciblée affecte la fonction statistique d'un outil protégeant plus de 1,5 million de sites web. L'éditeur propose un correctif et conseille de sauvegarder les preuves avant la mise à jour."
  }
 ]

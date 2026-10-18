@@ -1,5 +1,17 @@
 [
  {
+  "id": "20261018-171137-e0ea47",
+  "titre": "Faille critique exploitée dans le pare-feu SiteGuard",
+  "texte": "Bonjour. Des pirates exploitent une faille critique dans le pare-feu SiteGuard pour exécuter des commandes système avec les privilèges administrateur. Cette vulnérabilité activement ciblée affecte la fonction statistique d'un outil protégeant plus de 1,5 million de sites web. L'éditeur propose un correctif et conseille de sauvegarder les preuves avant la mise à jour.",
+  "source": "BleepingComputer",
+  "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-siteguard-waf-flaw-to-run-commands-as-system-root/",
+  "pays": "INT",
+  "duree": 26.48,
+  "mp4Url": "https://bastaps.github.io/algeria-tech-videos/express/20261018-171137-e0ea47.mp4",
+  "poster": "https://bastaps.github.io/algeria-tech-videos/express/20261018-171137-e0ea47.jpg",
+  "publishedAt": "2026-10-18T17:13:48Z"
+ },
+ {
   "id": "20261018-092447-63ed48",
   "titre": "Pirates : données d'élèves et de parents en vente",
   "texte": "Bonjour. Des millions de comptes d'une application de révision et des dossiers scolaires sont proposés à la vente par un pirate. Ces données incluent des informations concernant des enfants et leurs parents. Les entreprises visées n'ont pas encore confirmé cette fuite.",
@@ -346,17 +358,5 @@
   "mp4Url": "https://bastaps.github.io/algeria-tech-videos/express/20261002-110618-3fdb74.mp4",
   "poster": "https://bastaps.github.io/algeria-tech-videos/express/20261002-110618-3fdb74.jpg",
   "publishedAt": "2026-10-02T11:07:36Z"
- },
- {
-  "id": "20261001-192537-f8c421",
-  "titre": "Séminaire à Alger sur la numérisation arabe",
-  "texte": "Bonjour. Les représentants des conseils économiques et sociaux arabes se sont réunis à Alger pour un séminaire sur la numérisation. Ils ont appelé à l'élaboration d'une charte arabe unifiée de l'économie numérique afin de renforcer l'intégration régionale. Cette initiative vise à surmonter la dispersion des législations et à transformer la connectivité en valeur économique commune.",
-  "source": "ITMAG",
-  "url": "https://www.itmag.dz/2026/10/01/seminaire-international-a-alger-sur-la-numerisation-br-les-conseils-economiques-et-sociaux-arabes-plaident-pour-une-charte-unifiee/",
-  "pays": "DZ",
-  "duree": 26.96,
-  "mp4Url": "https://bastaps.github.io/algeria-tech-videos/express/20261001-192537-f8c421.mp4",
-  "poster": "https://bastaps.github.io/algeria-tech-videos/express/20261001-192537-f8c421.jpg",
-  "publishedAt": "2026-10-01T19:27:03Z"
  }
 ]
