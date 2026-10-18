@@ -29,24 +29,114 @@
     v.muted = false; v.play().catch(function () {});
   }
 
+  // Lecteur plein écran 9:16 générique (L'info en 30 s et Flash Info en vignettes)
   var overlay30 = null;
-  function open30() {
+  function playItem(it, label) {
     if (!overlay30) {
-      overlay30 = el('div', { id: 'ml-30', role: 'dialog', 'aria-label': "L'info en 30 s" },
+      overlay30 = el('div', { id: 'ml-30', role: 'dialog', 'aria-label': label },
         '<div class="cadre"><video playsinline controls></video></div><p class="ttl"></p><button class="x" aria-label="Fermer">✕</button>');
       document.body.appendChild(overlay30);
-      overlay30.querySelector('.x').onclick = function () { var v = overlay30.querySelector('video'); v.pause(); overlay30.classList.remove('on'); };
+      overlay30.querySelector('.x').onclick = function () {
+        var v = overlay30.querySelector('video'); v.pause(); v.removeAttribute('src'); v.load(); overlay30.classList.remove('on');
+      };
     }
-    fetch('/data/express-latest.json?t=' + Math.floor(Date.now() / 300000), { cache: 'no-store' })
+    var v = overlay30.querySelector('video');
+    overlay30.setAttribute('aria-label', label);
+    if (!it) { overlay30.querySelector('.ttl').textContent = 'Rien de nouveau pour le moment.'; overlay30.classList.add('on'); return; }
+    v.src = it.mp4Url; v.poster = it.poster || '';
+    overlay30.querySelector('.ttl').textContent = it.titre || '';
+    overlay30.classList.add('on'); v.muted = false; v.play().catch(function () {});
+  }
+  var cache = {};
+  function getList(url, ttl) {
+    var c = cache[url];
+    if (c && Date.now() - c.t < 120000) return Promise.resolve(c.l);
+    return fetch(url + '?t=' + Math.floor(Date.now() / 300000), { cache: 'no-store' })
       .then(function (r) { return r.ok ? r.json() : []; })
       .then(function (l) {
-        l = (l || []).filter(function (x) { return x && x.mp4Url; });
-        var v = overlay30.querySelector('video');
-        if (!l.length) { overlay30.querySelector('.ttl').textContent = "Pas d'info en 30 s pour le moment."; overlay30.classList.add('on'); return; }
-        v.src = l[0].mp4Url; v.poster = l[0].poster || '';
-        overlay30.querySelector('.ttl').textContent = l[0].titre || '';
-        overlay30.classList.add('on'); v.play().catch(function () {});
-      }).catch(function () {});
+        var max = ttl || 7 * 864e5;
+        l = (l || []).filter(function (x) { return x && x.mp4Url && Date.now() - new Date(x.publishedAt).getTime() < max; })
+          .sort(function (x, y) { return new Date(y.publishedAt) - new Date(x.publishedAt); });
+        cache[url] = { t: Date.now(), l: l }; return l;
+      }).catch(function () { return []; });
+  }
+  function open30(i) { getList('/data/express-latest.json', 3 * 864e5).then(function (l) { playItem(l[i || 0], "L'info en 30 s"); }); }
+  function ago(iso) {
+    var m = Math.round((Date.now() - new Date(iso).getTime()) / 60000);
+    if (m < 60) return 'il y a ' + Math.max(m, 1) + ' min';
+    var h = Math.round(m / 60); if (h < 24) return 'il y a ' + h + ' h';
+    var j = Math.round(h / 24); return j === 1 ? 'hier' : 'il y a ' + j + ' j';
+  }
+
+  // Bloc « Flash Info » : les 4 derniers flashs en vignettes (sans poster : pas de téléchargement vidéo)
+  function buildFlashStrip() {
+    var side = document.querySelector('.sidebar');
+    if (!side || document.getElementById('ml-flash')) return;
+    getList('/data/flash-latest.json').then(function (l) {
+      l = l.slice(0, 4);
+      if (!l.length || document.getElementById('ml-flash')) return;
+      var w = el('div', { id: 'ml-flash', 'class': 'sidebar-widget' }, '<h3 class="widget-title"><i class="ml-dot"></i> Flash Info</h3><div class="ml-tiles"></div>');
+      var box = w.querySelector('.ml-tiles');
+      l.forEach(function (it, i) {
+        var t = (it.titre || '').replace(/^Flash Info\s*·\s*/i, '').split(' · ')[0];
+        var b = el('button', { type: 'button', 'class': 'ml-tile' }, '<i class="fas fa-play"></i><span class="ml-t">' + t.replace(/</g, '&lt;') + '</span><small>' + ago(it.publishedAt) + '</small>');
+        b.onclick = function () { playItem(it, 'Flash Info'); };
+        box.appendChild(b);
+      });
+      side.insertBefore(w, side.firstChild);
+    });
+  }
+
+  // L'info en 30 s : le gros lecteur devient une rangée de vignettes ; un appui ouvre le lecteur plein écran
+  function compactExpress() {
+    var r = document.getElementById('expressWidget');
+    if (!r || r.hidden) return;
+    r.classList.add('ml-compact');
+    var v = r.querySelector('video');
+    if (v) { v.pause(); v.preload = 'none'; v.removeAttribute('autoplay'); if (v.getAttribute('src')) { v.removeAttribute('src'); v.load(); } }
+  }
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('#expressWidget .ew-vignette');
+    if (!b || !document.body.classList.contains('ml')) return;
+    e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation();
+    open30(Number(b.dataset.i) || 0);
+  }, true);
+
+  // « Date courte » : « il y a 2 h » au lieu de la date + l'heure
+  function shortDates() {
+    [].forEach.call(document.querySelectorAll('.card-meta, .hero-meta-wrapper'), function (m) {
+      if (m.dataset.mlDate) return;
+      var sp = m.querySelectorAll('span'), d = null, h = null;
+      [].forEach.call(sp, function (s) {
+        var t = s.textContent.trim();
+        if (/^\d{4}-\d{2}-\d{2}$/.test(t) && !d) d = s; else if (/^\d{2}:\d{2}$/.test(t) && !h) h = s;
+      });
+      if (!d || !h) return;
+      var iso = d.textContent.trim() + 'T' + h.textContent.trim() + ':00+01:00';
+      if (isNaN(new Date(iso))) return;
+      var ic = d.querySelector('i'); d.textContent = ' ' + ago(iso); if (ic) d.insertBefore(ic, d.firstChild);
+      h.classList.add('ml-hide'); m.dataset.mlDate = 1;
+    });
+  }
+
+  // Brèves / Les plus lus : deux onglets, un seul bloc visible ; Brèves repliées sur 4 lignes
+  function tabs() {
+    var side = document.querySelector('.sidebar');
+    if (!side || document.getElementById('ml-tabs')) return;
+    var ws = [].slice.call(side.querySelectorAll(':scope > .sidebar-widget'));
+    var br = ws.filter(function (w) { return /Brèves|Breves/i.test((w.querySelector('.widget-title') || {}).textContent || ''); })[0];
+    var pl = ws.filter(function (w) { return /Plus Lus/i.test((w.querySelector('.widget-title') || {}).textContent || ''); })[0];
+    if (!br || !pl) return;
+    br.classList.add('ml-brv'); pl.classList.add('ml-plus');
+    var bar = el('div', { id: 'ml-tabs', role: 'tablist' }, '<button type="button" class="on">Brèves</button><button type="button">Les plus lus</button>');
+    var bs = bar.querySelectorAll('button');
+    function sel(k) { bs[0].classList.toggle('on', k === 0); bs[1].classList.toggle('on', k === 1); br.classList.toggle('ml-tab-off', k !== 0); pl.classList.toggle('ml-tab-off', k !== 1); }
+    bs[0].onclick = function () { sel(0); }; bs[1].onclick = function () { sel(1); };
+    var more = el('button', { type: 'button', id: 'ml-more' }, 'Voir plus de brèves');
+    more.onclick = function () { var o = br.classList.toggle('ml-open'); more.textContent = o ? 'Réduire' : 'Voir plus de brèves'; };
+    br.insertBefore(more, br.querySelector('.breves-pagination'));
+    side.insertBefore(bar, br);
+    sel(0);
   }
 
   function setOn(i) { [].forEach.call(document.querySelectorAll('#ml-nav button'), function (b, k) { b.classList.toggle('on', k === i); }); }
@@ -58,14 +148,19 @@
     if (lab && !lab.dataset.ml) { lab.dataset.ml = 1; lab.classList.add('ml-hide'); }
     [].forEach.call(document.querySelectorAll('#mobileMenu a[onclick*="filterByCategory"]'), function (a) { if (a.parentNode) a.parentNode.classList.add('ml-hide'); });
     // doublons : les 3 premières cartes de la grille reprennent la une + 2e + 3e déjà affichées en haut
-    var hero = [].map.call(document.querySelectorAll('#heroGrid h2'), function (h) { return h.textContent.trim(); });
+    var hero = [].map.call(document.querySelectorAll('#heroGrid .hero-main h2'), function (h) { return h.textContent.trim(); });
     [].forEach.call(document.querySelectorAll('#newsGrid .news-card'), function (c) {
       var h = c.querySelector('h3'); c.classList.toggle('ml-dup', !!h && hero.indexOf(h.textContent.trim()) !== -1);
     });
-    // colonne latérale : ordre Brèves / Plus lus / Newsletter / Tags (l'info en 30 s reste en tête)
+    // bandeau URGENT : masqué tant qu'il ne fait que répéter la une
+    var brk = document.getElementById('breakingNewsSection'), tk = document.querySelector('#breakingTicker .ticker-item');
+    if (brk && tk && hero.length) brk.classList.toggle('ml-hide', tk.textContent.trim() === hero[0]);
+    buildFlashStrip(); compactExpress(); shortDates(); tabs();
+    // colonne latérale : Flash Info / info en 30 s / onglets (Brèves, Plus lus) / Newsletter / Tags
+    var tb = document.getElementById('ml-tabs'); if (tb) tb.style.order = 2;
     [].forEach.call(document.querySelectorAll('.sidebar > .sidebar-widget'), function (w) {
       var t = (w.querySelector('.widget-title') || {}).textContent || '';
-      var o = /30/.test(t) ? 0 : /Brèves|Breves/i.test(t) ? 1 : /Plus Lus/i.test(t) ? 2 : /Newsletter/i.test(t) ? 3 : /Tags/i.test(t) ? 4 : 5;
+      var o = w.id === 'ml-flash' ? 0 : /30/.test(t) ? 1 : /Brèves|Breves|Plus Lus/i.test(t) ? 3 : /Newsletter/i.test(t) ? 4 : /Tags/i.test(t) ? 5 : 6;
       w.style.order = o;
     });
   }
@@ -75,12 +170,12 @@
     var media = el('div', { id: 'ml-media' });
     var bF = el('button', { type: 'button' }, '<i class="ml-dot"></i> Flash Info');
     var b30 = el('button', { type: 'button' }, '<i class="fas fa-play-circle"></i> L\'info en 30 s');
-    bF.onclick = function () { openFlash(); }; b30.onclick = open30;
+    bF.onclick = function () { openFlash(); }; b30.onclick = function () { open30(0); };
     media.appendChild(bF); media.appendChild(b30);
 
     var nav = el('nav', { id: 'ml-nav', 'aria-label': 'Navigation principale' });
     [['fa-home', 'Accueil', function () { call('goHome'); window.scrollTo(0, 0); setOn(0); }],
-     ['fa-newspaper', 'Actualités', function () { call('goHome'); var s = document.querySelector('.news-grid,#newsGrid'); if (s) s.scrollIntoView({ behavior: 'smooth' }); setOn(1); }],
+     ['fa-search', 'Recherche', function () { call('toggleMobileMenu'); setTimeout(function () { var i = document.querySelector('#mobileMenu .mobile-search input'); if (i) i.focus(); }, 350); }],
      ['fa-satellite-dish', 'Veille', function () { call('showVeille'); setOn(2); }],
      ['fa-file-alt', 'Revue', function () { call('showRevue'); setOn(3); }],
      ['fa-ellipsis-h', 'Plus', function () { var f = document.querySelector('footer'); if (f) f.scrollIntoView({ behavior: 'smooth', block: 'end' }); }]

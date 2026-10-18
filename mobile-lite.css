@@ -89,3 +89,42 @@
   .ml .content-layout, .ml .news-column, .ml .sidebar, .ml .sidebar-widget { min-width: 0; max-width: 100%; }
   .ml .pagination, .ml .tag-cloud { max-width: 100%; box-sizing: border-box; }
 }
+
+/* v6 : 2e/3e comme les cartes de liste, vignettes Flash / 30 s, onglets, newsletter fine */
+@media (max-width: 640px) {
+  .ml .hero-side-card { display: none !important; }
+  .ml .hero-main .category-tag { display: none !important; }
+  .ml .hero-main .hero-overlay p { display: none; }
+  .ml .news-card .card-meta .ml-hide, .ml .hero-meta-wrapper .ml-hide { display: none !important; }
+  .ml .news-card .news-card-body h3 { -webkit-line-clamp: 3; }
+
+  /* Flash Info en vignettes (2 x 2) */
+  #ml-flash .ml-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  #ml-flash .ml-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #E11D2E; margin-right: 6px; animation: ml-blink 1s steps(1,end) infinite; }
+  .ml-tile { position: relative; text-align: left; border: 0; border-radius: 10px; padding: 10px 10px 8px 30px; min-height: 76px; background: #0B1729; color: #fff; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; gap: 4px; }
+  .ml-tile i { position: absolute; left: 10px; top: 12px; font-size: 12px; color: #E11D2E; }
+  .ml-tile .ml-t { font: 600 12.5px/1.3 Inter, system-ui, sans-serif; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .ml-tile small { font: 500 11px/1 Inter, system-ui, sans-serif; opacity: .7; }
+
+  /* L'info en 30 s : seulement les vignettes (le lecteur s'ouvre en plein écran) */
+  .ml .express-widget.ml-compact .ew-cadre, .ml .express-widget.ml-compact .ew-titre, .ml .express-widget.ml-compact .ew-meta, .ml .express-widget.ml-compact .ew-lien { display: none; }
+  .ml .express-widget.ml-compact { padding: 14px; }
+  .ml .express-widget.ml-compact .ew-vignettes { margin-top: 8px; }
+
+  /* Onglets Brèves | Les plus lus */
+  #ml-tabs { display: flex; gap: 8px; padding: 0 2px; }
+  #ml-tabs button { flex: 1; min-height: 44px; border: 0; border-radius: 22px; background: #f0f1f3; color: #222; font: 600 14px/1 Inter, system-ui, sans-serif; cursor: pointer; }
+  #ml-tabs button.on { background: #1a1a1a; color: #fff; }
+  .ml .ml-tab-off { display: none !important; }
+  .ml .ml-brv .widget-title, .ml .ml-plus .widget-title { display: none; }
+  .ml .ml-brv:not(.ml-open) #brevesList > li:nth-child(n+5) { display: none; }
+  .ml .ml-brv:not(.ml-open) .breves-pagination { display: none; }
+  #ml-more { width: 100%; min-height: 44px; margin-top: 6px; border: 1px solid #ddd; border-radius: 10px; background: transparent; color: #c8294a; font: 600 14px/1 Inter, system-ui, sans-serif; cursor: pointer; }
+
+  /* Newsletter : une ligne fine */
+  .ml .newsletter-widget { padding: 12px 14px; }
+  .ml .newsletter-widget p { display: none; }
+  .ml .newsletter-widget .widget-title { font-size: 14px; margin-bottom: 8px; }
+  .ml .newsletter-widget .newsletter-form { display: flex; gap: 8px; }
+  .ml .newsletter-widget .newsletter-form input { flex: 1; min-width: 0; }
+}
