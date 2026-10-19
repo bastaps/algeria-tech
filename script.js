@@ -1655,7 +1655,7 @@ async function loadRevue() {
     const dateEl = document.getElementById('revueLastUpdate');
     if(!container) return;
     try {
-        const res = await fetch('/revue_presse.json?t=' + Date.now());
+        const res = await fetch('/revue_presse.json?t=' + Date.now(), { cache: 'no-store' });
         if(!res.ok) throw new Error('Revue non disponible');
         const data = await res.json();
         if(!data.articles || data.articles.length === 0) throw new Error('Données incomplètes');

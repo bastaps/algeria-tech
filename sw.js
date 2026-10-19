@@ -14,7 +14,7 @@
  * la rapidité des requêtes réseau sans contenu périmé.
  */
 
-const CACHE_VERSION = 'algeria-tech-v17';
+const CACHE_VERSION = 'algeria-tech-v18';
 const CACHE_IMAGES  = 'algeria-tech-images-v1';
 
 // ── Assets locaux pré-cachés (HTML et CDN exclus volontairement) ──────────────
@@ -102,6 +102,12 @@ self.addEventListener('fetch', event => {
   //    Toujours récupéré depuis le réseau pour refléter le dernier déploiement.
   //    Le cache ne sert que de fallback si le réseau est indisponible (offline).
   if (url.pathname === '/' || url.pathname.endsWith('.html')) {
+    event.respondWith(networkFirst(event.request));
+    return;
+  }
+
+  // ── 2 bis. La revue de presse change chaque matin : réseau d'abord, jamais de copie périmée.
+  if (url.pathname === '/revue_presse.json') {
     event.respondWith(networkFirst(event.request));
     return;
   }

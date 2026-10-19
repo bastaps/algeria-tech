@@ -27,6 +27,7 @@ const sleep = (ms) => new Promise(r => setTimeout(r, ms));
 // Date d'édition : le « jour » de la revue change à 06h00 heure d'Alger (UTC+1, sans changement d'heure) et non à minuit.
 // Avant 06h00 à Alger, on est encore sur l'édition de la veille. (UTC+1 - 6 h = décalage de -5 h, lu en UTC.)
 const dateEdition = () => new Date(Date.now() - 5 * 3600 * 1000);
+const editionId = () => dateEdition().toISOString().slice(0, 10);
 const fmtEdition = (opts) => dateEdition().toLocaleDateString('fr-FR', { ...opts, timeZone: 'UTC' });
 
 
@@ -342,6 +343,7 @@ function packAiResult(aiResult, rawArticles) {
     } : null;
 
     return {
+        edition: editionId(),
         date: fmtEdition({ weekday: 'long', day: 'numeric', month: 'long' }),
         synthese: aiResult.synthese,
         articles: finalArticles,
@@ -359,6 +361,7 @@ function buildRuleBasedRevue(rawArticles) {
         categorie: 'Actualité'
     }));
     return {
+        edition: editionId(),
         date: fmtEdition({ weekday: 'long', day: 'numeric', month: 'long' }),
         synthese: `${finalArticles.length} articles tech retenus ce jour, issus de ${new Set(finalArticles.map(a => a.source)).size} sources — édition générée sans réécriture IA (moteurs indisponibles).`,
         articles: finalArticles,
@@ -412,6 +415,13 @@ function selectWindow(allResults, hours) {
 const MIN_CANDIDATS = 8; // en dessous → fenêtre élargie à 48h (week-end, jours creux)
 
 async function main() {
+    // Plusieurs déclenchements planifiés (GitHub retarde les crons) : le premier publie l'édition du jour, les suivants s'arrêtent ici.
+    if (process.env.GITHUB_EVENT_NAME === 'schedule') {
+        try {
+            const cur = JSON.parse(fs.readFileSync(OUTPUT_FILE, 'utf8'));
+            if (cur.edition === editionId()) { console.log('Édition du ' + cur.edition + ' déjà publiée : rien à faire.'); process.exit(0); }
+        } catch (e) { /* pas d'édition lisible : on génère */ }
+    }
     console.log('📡 SCAN RSS — FILTRE 24H (filet 48h si récolte maigre)...');
     const cutoffDisplay = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
     console.log(`   Seuil : articles publiés après ${cutoffDisplay}`);
