@@ -198,8 +198,25 @@ function truncate(str = '', max = 160) {
 }
 
 // Simple Markdown → HTML (titres, gras, liens, paragraphes)
+function mdTablesToHtml(md = '') {
+    const lignes = md.split('\n'), sortie = [];
+    const cellules = l => l.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map(c => c.trim());
+    for (let i = 0; i < lignes.length; i++) {
+        if (/^\s*\|.*\|\s*$/.test(lignes[i]) && i + 1 < lignes.length && /^\s*\|?[\s:|-]+\|[\s:|-]*$/.test(lignes[i + 1]) && /-{3,}/.test(lignes[i + 1])) {
+            const tete = cellules(lignes[i]); i += 2;
+            const corps = [];
+            for (; i < lignes.length && /^\s*\|.*\|\s*$/.test(lignes[i]); i++) corps.push(cellules(lignes[i]));
+            i--;
+            sortie.push('\n\n<div class="table-wrap" style="overflow-x:auto"><table><thead><tr>' + tete.map(c => `<th>${c}</th>`).join('') +
+                '</tr></thead><tbody>' + corps.map(r => '<tr>' + r.map(c => `<td>${c}</td>`).join('') + '</tr>').join('') + '</tbody></table></div>\n\n');
+        } else sortie.push(lignes[i]);
+    }
+    return sortie.join('\n');
+}
+
+// Simple Markdown → HTML (titres, gras, liens, paragraphes, tableaux)
 function mdToHtml(md = '') {
-    return md
+    return mdTablesToHtml(md)
         .replace(/^### (.+)$/gm, '<h3>$1</h3>')
         .replace(/^## (.+)$/gm,  '<h2>$1</h2>')
         .replace(/^# (.+)$/gm,   '<h1>$1</h1>')
@@ -211,7 +228,7 @@ function mdToHtml(md = '') {
         .replace(/(<li>[\s\S]*?<\/li>)/g, '<ul>$1</ul>')
         .split(/\n{2,}/)
         .map(block => {
-            if (/^<(h[1-6]|ul|blockquote)/.test(block.trim())) return block.trim();
+            if (/^<(h[1-6]|ul|blockquote|div class="table-wrap")/.test(block.trim())) return block.trim();
             return block.trim() ? `<p>${block.trim()}</p>` : '';
         })
         .join('\n');
