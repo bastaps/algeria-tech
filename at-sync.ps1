@@ -148,7 +148,7 @@ public static class CtrlCGuard {
         Write-Host "  OUVRIR DANS LE NAVIGATEUR (serveur doit etre demarre):" -ForegroundColor DarkGray
         Write-Host "  A. [SITE]   http://localhost:3000  (Site principal)" -ForegroundColor White
         Write-Host "  V. [VIDEO]  http://localhost:3000/video-downloader" -ForegroundColor Magenta
-        Write-Host "  I. [INGEST] http://localhost:3000/smart-ingest" -ForegroundColor Magenta
+        Write-Host "  I. [INGEST] http://localhost:3000/smart-ingest-pro.html" -ForegroundColor Magenta
         Write-Host "  G. [GEN]    http://localhost:3000/generator" -ForegroundColor Magenta
         Write-Host "  F. [INTERACTIF] http://localhost:5000  (Article Interactif, lance automatiquement)" -ForegroundColor Magenta
         Write-Host "------------------------------------------"
@@ -366,7 +366,7 @@ public static class CtrlCGuard {
                 Write-Host "OK Serveur lance dans une nouvelle fenetre PowerShell !" -ForegroundColor Green
                 Write-Host "   Site principal      : http://localhost:3000" -ForegroundColor DarkGray
                 Write-Host "   Telechargeur Video  : http://localhost:3000/video-downloader" -ForegroundColor DarkGray
-                Write-Host "   Smart Ingest        : http://localhost:3000/smart-ingest" -ForegroundColor DarkGray
+                Write-Host "   Smart Ingest        : http://localhost:3000/smart-ingest-pro.html" -ForegroundColor DarkGray
                 Write-Host "   Generateur          : http://localhost:3000/generator" -ForegroundColor DarkGray
                 Read-Host "`nAppuyez sur Entree pour continuer..."
             }
@@ -595,8 +595,8 @@ public static class CtrlCGuard {
             }
             "i" {
                 Write-Host "`nOuverture Smart Ingest..." -ForegroundColor Magenta
-                Start-Process "http://localhost:3000/smart-ingest"
-                Write-Host "OK http://localhost:3000/smart-ingest" -ForegroundColor Green
+                Start-Process "http://localhost:3000/smart-ingest-pro.html"
+                Write-Host "OK http://localhost:3000/smart-ingest-pro.html" -ForegroundColor Green
                 Start-Sleep -Milliseconds 800
             }
             "g" {

@@ -501,8 +501,10 @@ app.get('/studio.html', (req, res) => res.sendFile(path.join(__dirname, 'studio.
 app.get('/plateforme', (req, res) => res.sendFile(path.join(__dirname, 'studio.html')));
 
 // === ROUTE SMART INGEST ===
-app.get('/smart-ingest', (req, res) => res.sendFile(path.join(__dirname, 'smart-ingest.html')));
-app.get('/smart-ingest.html', (req, res) => res.sendFile(path.join(__dirname, 'smart-ingest.html')));
+// L'ancien Smart Ingest n'est plus utilisé : tout passe par Smart Ingest PRO (« À retenir » unique, en bas d'article).
+const versPro = (req, res) => res.redirect(302, '/smart-ingest-pro.html' + (req.url.includes('?') ? req.url.slice(req.url.indexOf('?')) : ''));
+app.get('/smart-ingest', versPro);
+app.get('/smart-ingest.html', versPro);
 app.get('/video-downloader', (req, res) => res.sendFile(path.join(__dirname, 'video-downloader.html')));
 app.get('/video-transcription', (req, res) => res.sendFile(path.join(__dirname, 'video-transcription.html')));
 app.get('/multimedia-studio', (req, res) => res.sendFile(path.join(__dirname, 'algeria-tech-multimedia-studio.html')));
