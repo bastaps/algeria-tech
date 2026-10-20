@@ -339,7 +339,7 @@ async function generateProArticle() {
         const response = await fetch(ENGINE_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ text: source, style: selectedStyle })
+            body: JSON.stringify({ text: source, style: selectedStyle, source_url: ((document.getElementById('urlInput') || {}).value || (document.getElementById('siSource') || {}).value || '').trim() })
         });
 
         const data = await lireJSON(response, 'Moteur de redaction');
@@ -362,6 +362,8 @@ async function generateProArticle() {
         // l'article partait ainsi sur le site comme dans le .html. On bascule
         // donc sur le moteur heuristique, en le disant clairement.
         try {
+            // Mode IA obligatoire : le repli heuristique n'est autorisé que si l'API est expirée / sans crédit / clé refusée
+            if (!/(401|402|403|429|quota|cr[ée]dit|expir|unauthorized|billing|api key|cl[ée] )/i.test(String(e.message))) { throw e; }
             const secours = redactionHeuristique(source, selectedStyle);
             window._lastAI = secours;
             document.getElementById('previewContent').value =
@@ -1040,7 +1042,7 @@ function setupVideoInput() {
    Moteur heuristique · module Données · « À retenir » sans doublon
    ═══════════════════════════════════════════════════════════════════════ */
 
-let selectedEngine = 'heuristic';
+let selectedEngine = 'ia'; // mode IA par défaut ; l'heuristique ne sert qu'en secours quand l'API est expirée
 let selectedData = 'figures';
 
 function setupEngineSelector() {
@@ -3075,7 +3077,7 @@ async function duelGenerer(quoi) {
         if (selectedEngine === 'ia') {
             const r = await fetch(ENGINE_URL, {
                 method: 'POST', headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ text: source, style: selectedStyle })
+                body: JSON.stringify({ text: source, style: selectedStyle, source_url: ((document.getElementById('urlInput') || {}).value || (document.getElementById('siSource') || {}).value || '').trim() })
             });
             const data = await lireJSON(r, 'Moteur IA');
             if (!r.ok) throw new Error(data.error || 'Le moteur IA a refusé.');

@@ -2,10 +2,11 @@
 
 Si le PC n'a pas produit l'article d'un créneau (PC éteint, Flow indisponible…), ce script le fait :
   info choisie comme sur le PC (matin = revue de presse ; midi/soir = flux RSS + réseaux sociaux),
-  rédaction IA reformulée (source citée), image de l'article en 16:9, vidéo Pexels de 10 s si trouvée
-  (sinon image seule), brouillon `brouillons/<id>.md` (circuit: true) et notification ntfy à 3 boutons
+  rédaction IA au format Algeria Tech (redaction.py : tableau, « À retenir », source officielle vérifiée),
+  image de l'article en 16:9, brouillon `brouillons/<id>.md` (circuit: true) et notification ntfy à 3 boutons
   (À la Une / 2e position / Brève). La publication est faite par publier_choix.py (2e position après 90 min).
-Pas de carte interactive ni de vidéo Flow dans ce repli.
+Pas de vidéo dans ce repli (une vidéo générique n'apporte rien) ; pas de carte interactive non plus : elle est
+ajoutée plus tard par le PC (champ `interactif_a_faire`, voir publier_choix.py).
 
     python circuit_cloud.py --slot matin|midi|soir [--sans-notif]
 
@@ -32,35 +33,11 @@ RACINE = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(RACINE / "scripts" / "express"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import circuit_flow as C  # noqa: E402  (choix des infos, image, ntfy : même logique que sur le PC)
-from filtre_editorial import appeler_gemini  # noqa: E402
+import redaction as R  # noqa: E402  (format éditorial commun)
 from sources import UA  # noqa: E402
 
 REGISTRE = RACINE / "data" / "circuit-slots.json"
 PEXELS = "https://api.pexels.com/videos/search"
-
-CONSIGNE = """Tu es journaliste pour Algeria Tech, média algérien des technologies et du numérique.
-Rédige un article ORIGINAL en français, à partir de l'information ci-dessous. Tu REFORMULES : aucune phrase
-recopiée de la source, aucune citation longue. Style factuel d'agence de presse (APS), clair, sobre.
-
-RÈGLES ABSOLUES :
-- N'invente RIEN : pas de chiffre, de nom, de date ni de citation absents du texte fourni.
-- Si une information manque, ne la mentionne pas.
-- 220 à 380 mots, 3 à 5 paragraphes courts séparés par une ligne vide, sans titres internes ni listes.
-- Termine par la phrase : « Source : {source}. »
-
-Source : {source}
-Titre d'origine : {titre}
-Texte :
-{corps}
-
-Réponds UNIQUEMENT par un JSON :
-{{"titre": "titre accrocheur de 70 caractères maximum, sans point final",
-  "extrait": "résumé de 180 caractères maximum",
-  "categorie": "UNE valeur parmi : {categories}",
-  "tags": ["3 à 5 mots-clés courts"],
-  "videos": ["2 requêtes de recherche en ANGLAIS (2 à 4 mots) pour illustrer l'article avec des images d'archive génériques, sans personne identifiable ni logo"],
-  "contenu": "le corps de l'article"}}"""
-
 
 def log(m):
     print(f"[cloud] {m}", flush=True)
@@ -194,19 +171,15 @@ def produire(slot, notif=True):
                 log("rédaction IA indisponible : abandon")
                 return 2
             essais_ia += 1
-            red = appeler_gemini(CONSIGNE.format(source=c["source"], titre=c["titre"], corps=corps, categories=", ".join(C.CATEGORIES)),
-                                 temperature=0.4)
-            if not isinstance(red, dict) or not red.get("contenu") or not red.get("titre") or len(str(red["contenu"]).split()) < 120:
+            officiels = R.sources_officielles(c["titre"], corps, c["url"])
+            red = R.rediger(c["source"], c["titre"], corps, officiels)
+            if not red:
                 log("  rédaction IA insuffisante, article suivant")
                 continue
             ident = str(int(time.time() * 1000))
             (RACINE / "images").mkdir(exist_ok=True)
             (RACINE / "images" / f"{ident}.jpg").write_bytes(jpg)
-            avec_video = False
-            (RACINE / "videos" / "articles").mkdir(parents=True, exist_ok=True)
-            vids = [str(x) for x in (red.get("videos") or []) if str(x).strip()] or [" ".join((red.get("tags") or ["technology"])[:2])]
-            avec_video = video_pexels(vids, RACINE / "videos" / "articles" / f"{ident}.mp4")
-            ecrire_brouillon(ident, c, red, avec_video, slot, notif)
+            ecrire_brouillon(ident, c, red, officiels, slot, notif)
             if slot != "test":
                 marquer(slot, "cloud")
             return 0
@@ -214,12 +187,12 @@ def produire(slot, notif=True):
     return 2
 
 
-def ecrire_brouillon(ident, c, red, avec_video, slot, notif):
+def ecrire_brouillon(ident, c, red, officiels, slot, notif):
     cat = red.get("categorie") if red.get("categorie") in C.CATEGORIES else ("Algérie" if c["pays"] == "DZ" else "Monde")
     now = C.maintenant_alger()
     canal_choix = "atchoix-" + secrets.token_hex(8)
-    tags = ", ".join(f'"{C.q(t)}"' for t in (red.get("tags") or [])[:5] if str(t).strip())
-    g = {"lead": red.get("extrait", ""), "contenu": red["contenu"]}
+    tags = ", ".join(f'"{C.q(t)}"' for t in (red.get("tags") or [])[:6] if str(t).strip())
+    corps = R.assembler(red["contenu"], red["a_retenir"], c["source"], c["url"], officiels)
     texte = f"""---
 titre: "{C.q(red['titre'])[:110]}"
 categorie: {cat}
@@ -228,33 +201,32 @@ heure: {now:%H:%M}
 image: "images/{ident}.jpg"
 image_suggeree: "{C.SITE}/images/{ident}.jpg"
 pdf: ""
-video: "{f'/videos/articles/{ident}.mp4' if avec_video else ''}"
+video: ""
 source: "{C.q(c['url'])}"
 extrait: "{C.q(red.get('extrait'))[:220]}"
 tags: [{tags}]
 type:
 position:
 interactif: ""
-aretenir: "{C.q(C.points_essentiels(g))}"
-mediaPriority: {"video" if avec_video else "image"}
+interactif_a_faire: "true"
+aretenir: "{R.champ_aretenir(red['a_retenir'])}"
+mediaPriority: image
 brouillon: true
 circuit: true
 cree: "{datetime.datetime.utcnow():%Y-%m-%dT%H:%M:%SZ}"
 choix_canal: "{canal_choix}"
 ---
 
-{red['contenu'].strip()}
-"""
+{corps}"""
     (RACINE / "brouillons").mkdir(exist_ok=True)
     (RACINE / "brouillons" / f"{ident}.md").write_text(texte, encoding="utf-8")
     log(f"brouillon {ident} [{slot}] : {red['titre']}")
     if not notif:
         return
-    media = f"{C.SITE}/videos/articles/{ident}.mp4" if avec_video else f"{C.SITE}/images/{ident}.jpg"
     C.notifier(f"À placer : {red['titre'][:60]}",
                f"{red.get('extrait', '')[:230]}\n\nChoisissez la place. Sans choix sous {C.DELAI_DEFAUT_MIN} min : 2e position."
-               f"\n(Brouillon automatique du cloud — {'vidéo Pexels' if avec_video else 'image seule'}, sans carte interactive.)",
-               clic=media, actions=C.actions_choix(ident, canal_choix))
+               f"\n(Brouillon automatique du cloud — {'source officielle citée, ' if officiels else ''}carte interactive ajoutée plus tard par le PC.)",
+               clic=f"{C.SITE}/images/{ident}.jpg", actions=C.actions_choix(ident, canal_choix))
     C.notifier("Corriger ou rejeter ce brouillon ?", f"« {red['titre'][:80]} » — Corriger ouvre l'éditeur en ligne (connexion admin) ; "
                "Rejeter supprime le brouillon avant publication.",
                tags="pencil2", priorite=1, clic=C.SITE + "/",

@@ -29,6 +29,8 @@ from pathlib import Path
 import requests
 
 sys.stdout.reconfigure(encoding="utf-8")
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import redaction as R  # noqa: E402  (format éditorial commun : À retenir, tableau, sources officielles, vidéo pertinente)
 RACINE = Path(__file__).resolve().parents[2]
 WORK = Path(os.environ.get("CIRCUIT_FLOW_DIR", r"E:\MonStudioIA\circuit-flow"))
 HISTORIQUE = WORK / "historique.json"
@@ -266,9 +268,13 @@ def choisir(slot):
             dossier = WORK / ident
             dossier.mkdir(parents=True, exist_ok=True)
             (dossier / "image.jpg").write_bytes(jpg)
+            # une vidéo n'est utile que si l'image montre un élément concret du sujet (jamais un visuel générique)
+            video_ok, raison_video = R.video_pertinente(jpg, c["titre"])
+            log(f"  vidéo {'pertinente' if video_ok else 'non pertinente'} : {raison_video}")
             job = {"ident": ident, "slot": slot, "article": {k: c[k] for k in ("titre", "url", "source", "pays", "origine", "score")},
                    "titre_page": f.get("title", ""), "texte": texte, "image_source": image,
                    "image_weserv": weserv(image), "prompt_flow": PROMPT_FLOW,
+                   "video_pertinente": video_ok, "raison_video": raison_video,
                    "dossier": str(dossier), "clip_attendu": str(dossier / "clip.mp4")}
             (dossier / "job.json").write_text(json.dumps(job, ensure_ascii=False, indent=1), encoding="utf-8")
             h.append({"jour": aujourd_hui(), "slot": slot, "ident": ident, "url": c["url"], "titre": c["titre"], "etat": "prepare"})
@@ -316,9 +322,15 @@ def q(v):
 
 
 def points_essentiels(g):
-    """« À retenir » : 2-3 phrases tirées de l'article rédigé (aucune invention)."""
+    """« À retenir » (en-tête `aretenir`, points séparés par « | ») : les puces de la section « ## À retenir » de l'article ;
+    à défaut, 3 phrases tirées de l'article rédigé (aucune invention)."""
+    m = re.search(r"^#{1,3}\s*À retenir\s*$([\s\S]*?)(?=^#{1,3}\s|\Z)", g.get("contenu", ""), re.M | re.I)
+    if m:
+        puces = [re.sub(r"^[-*•]\s*", "", l).strip() for l in m.group(1).splitlines() if re.match(r"\s*[-*•]\s+\S", l)]
+        if len(puces) >= 3:
+            return R.champ_aretenir(puces[:5])
     phrases = re.split(r"(?<=[.!?])\s+", re.sub(r"\s+", " ", f"{g['lead']} {g['contenu']}"))
-    return "\n".join([p.strip() for p in phrases if 60 <= len(p) <= 230][:3])
+    return R.champ_aretenir([p.strip() for p in phrases if 60 <= len(p) <= 230][:3])
 
 
 def finaliser(ident, clip, sans_push):
@@ -327,6 +339,9 @@ def finaliser(ident, clip, sans_push):
     if not job:
         raise RuntimeError(f"job introuvable : {dossier}")
     avec_video = bool(clip) and clip.lower() != "none"
+    if avec_video and job.get("video_pertinente") is False:
+        log(f"clip ignoré : l'image ne montre pas d'élément concret du sujet ({job.get('raison_video', '')})")
+        avec_video = False
     if avec_video:
         clip = Path(clip)
         sonde = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "stream=codec_type:format=duration",
@@ -336,10 +351,19 @@ def finaliser(ident, clip, sans_push):
             raise RuntimeError("clip Flow invalide (pas de vidéo ou trop court)")
     serveurs()
     # rédaction : moteur de Smart Ingest PRO, mode IA, style PRO étoffé
-    corps_source = f"{job['titre_page']}\n\n{job['texte']}\n\nSource : {job['article']['source']} — {job['article']['url']}"
-    g = requests.post(f"{HUB}/api/smart-generate", json={"text": corps_source[:9000], "style": "pro"}, timeout=240).json()
+    # sourcing : site officiel de l'entité concernée (page réellement lue et vérifiée) avant le média relais
+    officiels = R.sources_officielles(job["titre_page"] or job["article"]["titre"], job["texte"], job["article"]["url"])
+    bloc_officiel = "".join(f"\n\nSOURCE OFFICIELLE — {o['nom']} ({o['url']}) :\n{o['extrait']}" for o in officiels)
+    corps_source = (f"{job['titre_page']}\n\n{job['texte']}{bloc_officiel}"
+                    f"\n\nSource : {job['article']['source']} — {job['article']['url']}")
+    g = requests.post(f"{HUB}/api/smart-generate", json={"text": corps_source[:9000], "style": "pro",
+                                                          "source_url": job["article"]["url"]}, timeout=240).json()
+    # mode IA uniquement : sans rédaction IA exploitable, le brouillon n'est PAS produit (jamais de repli heuristique)
     if not (g.get("titre") and g.get("lead") and len(str(g.get("contenu", "")).split()) >= 150):
         raise RuntimeError("rédaction IA insuffisante")
+    g["contenu"] = str(g["contenu"]).strip() + "\n\n## Sources\n\n" + "\n".join(
+        [f"- Source officielle : [{o['nom']}]({o['url']})" for o in officiels] +
+        [f"- Article relayé par : [{job['article']['source']}]({job['article']['url']})"]) + "\n"
     cat = g.get("categorie") if g.get("categorie") in CATEGORIES else ("Algérie" if job["article"]["pays"] == "DZ" else "Monde")
     video_url, image_rel = (f"/videos/articles/{ident}.mp4" if avec_video else ""), f"images/{ident}.jpg"
     # carte interactive : Article Interactif, mode IA
@@ -410,6 +434,39 @@ choix_canal: "{canal_choix}"
              actions=f"view, Corriger, {SITE}/smart-ingest-pro.html?edit={ident}&draft=1; "
                      f"http, Rejeter, https://ntfy.sh/{canal_choix}, method=POST, body={ident}:rejeter, clear=true")
     return 0
+
+
+def completer_carte(racine_clone, md_path):
+    """Ajoute la carte interactive à un article produit par le repli cloud (champ `interactif_a_faire`).
+    À lancer sur le PC (Article Interactif :5000). Écrit interactifs/<id>.html et met l'en-tête à jour.
+    Retourne True si la carte a été créée."""
+    md = md_path.read_text(encoding="utf-8")
+    m = re.match(r"---\n([\s\S]*?)\n---\n([\s\S]*)$", md.replace("\r\n", "\n"))
+    if not m:
+        return False
+    entete, corps = m.group(1), m.group(2).strip()
+    get = lambda k: (re.search(rf"^{k}:[ \t]*(.*)$", entete, re.M) or [None, ""])[1].strip().strip('"')  # noqa: E731
+    ident = md_path.stem
+    serveurs()
+    texte = f"# {get('titre')}\n\n{get('extrait')}\n\n{corps}"
+    gen = requests.post(f"{AI}/api/generate", timeout=300, json={
+        "text": texte, "mode": "real", "primary_color": "#0d3b24", "accent_color": "#d21034", "dark_mode": False,
+        "source_url": get("source"), "gallery": [], "widgets": {}, "medias": {}}).json()
+    if gen.get("error"):
+        log(f"carte interactive impossible ({ident}) : {gen['error']}")
+        return False
+    rendu = requests.post(f"{AI}/api/render", json=gen, timeout=120).json()
+    if rendu.get("error") or len(rendu.get("html", "")) < 5000:
+        log(f"rendu de la carte impossible ({ident})")
+        return False
+    sortie = racine_clone / "interactifs"
+    sortie.mkdir(exist_ok=True)
+    (sortie / f"{ident}.html").write_text(rendu["html"], encoding="utf-8")
+    entete = re.sub(r"^interactif:.*$", f'interactif: "/interactifs/{ident}.html"', entete, flags=re.M)
+    entete = re.sub(r"^interactif_a_faire:.*\n?", "", entete, flags=re.M).rstrip("\n")
+    md_path.write_text(f"---\n{entete}\n---\n\n{corps}\n", encoding="utf-8")
+    log(f"carte interactive ajoutée : {ident}")
+    return True
 
 
 def git(*a, cwd):

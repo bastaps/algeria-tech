@@ -19,6 +19,9 @@ après 90 min sans choix. **Ne rien publier toi-même.** Dossier : `E:\algeria-t
    (matin = revue de presse ; midi/soir = flux RSS + réseaux sociaux)
    - code 3 = créneau déjà fait aujourd'hui → fin (aucune alerte) ; code 2 = rien de neuf → fin ;
    - code 0 → la dernière ligne JSON donne `ident` et `job`. Lire `job` (image_weserv, image_source, prompt_flow, dossier).
+   - **La vidéo n'est PAS obligatoire.** Si `job.video_pertinente` vaut `false` (l'image est un visuel générique : robot, puce,
+     illustration IA, banque d'images…), **ne pas ouvrir Flow** : aller directement à l'étape 9 avec `none`
+     (`raison_video` explique pourquoi). Une vidéo qui n'illustre pas le sujet est pire que pas de vidéo.
 2. Chrome : `tabs_context_mcp`, `tabs_create_mcp`, aller sur `https://flow.google.com/u/1/`. Ouvrir le menu du compte (avatar en haut à droite) :
    l'e-mail doit être bastaps2024@gmail.com ; **lire le solde** (« N crédits Google Flow »). Si l'e-mail est autre : « Changer de compte » →
    choisir bastaps2024 dans la liste (déjà connecté), sans mot de passe.

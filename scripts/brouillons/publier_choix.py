@@ -150,8 +150,15 @@ def local():
     global RACINE
     depot = Path(__file__).resolve().parents[2]
     git("fetch", "-q", "origin", cwd=depot)
-    if not [x for x in git("ls-tree", "-r", "--name-only", "origin/main", "brouillons", cwd=depot).splitlines() if x.endswith(".md")]:
-        return 0  # aucun brouillon en attente : rien à faire
+    a_publier = [x for x in git("ls-tree", "-r", "--name-only", "origin/main", "brouillons", cwd=depot).splitlines() if x.endswith(".md")]
+    r = subprocess.run(["git", "grep", "-l", "^interactif_a_faire:", "origin/main", "--", "articles", "brouillons"],
+                       cwd=depot, capture_output=True, text=True, encoding="utf-8", errors="replace")
+    a_completer = [l.split(":", 1)[1] for l in r.stdout.splitlines() if ":" in l]  # « origin/main:articles/<id>.md »
+    import time as _t
+    a_completer = [x for x in a_completer
+                   if Path(x).stem.isdigit() and _t.time() * 1000 - int(Path(x).stem) < 4 * 86400 * 1000]  # 4 jours maximum
+    if not a_publier and not a_completer:
+        return 0  # aucun brouillon en attente ni carte interactive à ajouter : rien à faire
     tmp = Path("E:/algeria-tech-push-publish")
     if tmp.exists():
         subprocess.run(["git", "worktree", "remove", "--force", str(tmp)], cwd=depot, capture_output=True)
@@ -163,6 +170,14 @@ def local():
             except OSError:
                 pass
         RACINE = tmp
+        # cartes interactives manquantes (articles produits par le repli cloud) : une par passage, sur le PC seulement
+        for rel in a_completer[:1]:
+            try:
+                sys.path.insert(0, str(Path(__file__).resolve().parent))
+                import circuit_flow as CF  # noqa: PLC0415  (exige requests + Article Interactif local)
+                CF.completer_carte(tmp, tmp / rel)
+            except Exception as e:  # noqa: BLE001 — la publication des brouillons ne doit jamais en dépendre
+                log(f"  carte interactive non ajoutée ({type(e).__name__}) : {e}")
         main()
         git("add", "-A", cwd=tmp)
         if not git("diff", "--cached", "--name-only", cwd=tmp).strip():

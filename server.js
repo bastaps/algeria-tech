@@ -1497,9 +1497,22 @@ function extractKeywords(text, max = 25) {
     )].slice(0, max);
 }
 
-function getArticlesComplementairesDuJour(sourceText, maxResults = 5) {
+function getArticlesComplementairesDuJour(sourceText, maxResults = 5, source = {}) {
     const keywords = extractKeywords(sourceText.substring(0, 1500));
     if (keywords.length === 0) return [];
+    // Anti-boucle : jamais un « Pour rappel » qui cite l'article source lui-même, son média relais ou une reprise du même titre
+    // (ex. ITMAG cité en rappel de son propre article, lui-même repris d'un autre site).
+    const norm = s => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+    const hote = u => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return ''; } };
+    const urlSrc = String(source.url || '').split('#')[0].split('?')[0].replace(/\/$/, '');
+    const hoteSrc = hote(source.url);
+    const titreSrc = new Set(norm(sourceText.split('\n')[0]).split(' ').filter(w => w.length > 3));
+    const memeSujet = (titre) => {
+        const t = new Set(norm(titre).split(' ').filter(w => w.length > 3));
+        if (!t.size || !titreSrc.size) return false;
+        let commun = 0; t.forEach(w => { if (titreSrc.has(w)) commun++; });
+        return commun / Math.min(t.size, titreSrc.size) >= 0.6;
+    };
 
     const cutoff = Date.now() - 72 * 60 * 60 * 1000;
     const candidats = [];
@@ -1520,6 +1533,9 @@ function getArticlesComplementairesDuJour(sourceText, maxResults = 5) {
 
     const scored = candidats
         .filter(a => a.titre && a.url)
+        .filter(a => !(urlSrc && String(a.url).split('#')[0].split('?')[0].replace(/\/$/, '') === urlSrc))
+        .filter(a => !(hoteSrc && hote(a.url) === hoteSrc))
+        .filter(a => !memeSujet(a.titre))
         .map(a => {
             const ts = new Date(a.date).getTime();
             const texteRef = (a.titre + ' ' + a.resume).toLowerCase()
@@ -1539,14 +1555,14 @@ function getArticlesComplementairesDuJour(sourceText, maxResults = 5) {
 
 // ── SMART GENERATE — Rédaction IA journalistique ─────────
 app.post('/api/smart-generate', express.json(), async (req, res) => {
-    const { text, style, breve } = req.body || {};
+    const { text, style, breve, source_url } = req.body || {};
     if (!text) return res.status(400).json({ error: 'Texte source requis' });
 
     const effectiveStyle = style || (breve ? 'breve' : 'aps');
 
     const todayFR = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 
-    const articlesComplementaires = effectiveStyle === 'pro' ? getArticlesComplementairesDuJour(text) : [];
+    const articlesComplementaires = effectiveStyle === 'pro' ? getArticlesComplementairesDuJour(text, 5, { url: source_url }) : [];
     const complementBlock = articlesComplementaires.length
         ? articlesComplementaires.map((a, i) => `${i + 1}. [${a.source}] ${a.titre}${a.resume ? ' — ' + a.resume : ''} (${a.url})`).join('\n')
         : null;
@@ -1652,6 +1668,13 @@ STRUCTURE DE L'ARTICLE (Markdown) — 250 à 450 mots
 ══════════════════════════════════════════════
 ## [Titre de section — développement du fait principal]
 [Paragraphes développant les faits, chiffres et citations de la source, avec un ton plus étoffé qu'une brève. La longueur suit la matière réelle de la source : ne l'étire jamais artificiellement.]
+
+DONNÉES CHIFFRÉES : si la source contient des chiffres, tarifs, dates, statistiques, comparaisons ou listes structurées, INSÈRE au moins un tableau Markdown (données de la source uniquement) :
+| Colonne 1 | Colonne 2 |
+|---|---|
+| donnée | donnée |
+
+SOURCE OFFICIELLE : si le texte contient un bloc « SOURCE OFFICIELLE », ses faits priment sur ceux du média en cas de divergence. Ne cite pas toi-même de source : le système ajoute la section « Sources ».
 
 ## À retenir
 [3 à 5 points clés en liste à puces — uniquement des faits présents dans la source]
