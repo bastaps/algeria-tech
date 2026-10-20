@@ -64,10 +64,10 @@
     <link rel="dns-prefetch" href="https://rss.app">
 
     <!-- CSS critique chargé en priorité -->
-    <link rel="preload" href="/style.css?v=12" as="style">
+    <link rel="preload" href="/style.css?v=13" as="style">
     <!-- Données des cartes : téléchargement lancé dès le <head> (avant l'exécution de script.js) -->
     <link rel="preload" href="/articles-list.json" as="fetch" crossorigin="anonymous">
-    <link rel="stylesheet" href="/style.css?v=12">
+    <link rel="stylesheet" href="/style.css?v=13">
     <link rel="stylesheet" href="/at-personnalisation.css?v=1">
 
     <!-- Font Awesome : async (non-bloquant) — icônes apparaissent après le contenu, évite les 7s de blocage CDN -->
@@ -386,6 +386,7 @@
                     <div class="footer-social">
                         <a href="https://www.facebook.com/algeriatechbasta/" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.youtube.com/@algeria-tech-by-basta" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/?text=Algeria%20Tech%20%E2%80%94%20https%3A%2F%2Falgeria-tech.pages.dev" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -413,7 +414,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">© 2026 Algeria Tech — The Pulse of Algerian Innovation</div>
+            <div class="footer-bottom">© 2026 Algeria Tech — The Pulse of Algerian Innovation · <a href="/admin-login.html" id="atAdminLink" rel="nofollow" style="color:inherit;opacity:.7;text-decoration:none;white-space:nowrap"><i class="fas fa-lock"></i> Espace rédaction</a></div>
         </div>
     </footer>
 
@@ -638,7 +639,7 @@
     <script src="/libs/marked/marked.min.js"></script>
     <!-- vanilla-tilt.js : effet d'inclinaison 3D sur les cartes de la Une (hero) -->
     <script src="/libs/vanilla-tilt/vanilla-tilt.min.js"></script>
-    <script src="/script.js?v=20"></script>
+    <script src="/script.js?v=21"></script>
     <!-- Insertion + aperçu visuel des photos dans le corps des articles (Hub éditeur) -->
     <!-- Moteur i18n FR ↔ AR (chargé après script.js pour accéder aux grilles) -->
     <script src="/i18n.js"></script>
@@ -863,13 +864,13 @@
     <!-- Voice Mega Assistant v1.0 — Web Speech natif · ~130 commandes · wake-word · TTS feedback · visualizer -->
     <!-- (remplace voice-control.js — pour revenir en arrière : réactiver la ligne ci-dessous) -->
     <!-- <script src="/voice-control.js" defer></script> -->
-    <script src="/at-voice.js?v=1" defer></script>
+    <script src="/at-voice.js?v=2" defer></script>
 
     <!-- Panneau de personnalisation / accessibilité (FAB ⚙️) -->
     <script src="/at-personnalisation.js?v=1" defer></script>
 
     <!-- Flash Info persistant (style BFM TV) — MP4 auto-hébergé, PiP natif -->
-    <link rel="stylesheet" href="/mobile-lite.css?v=8">
+    <link rel="stylesheet" href="/mobile-lite.css?v=9">
     <script src="/mobile-lite.js?v=8" defer></script>
     <link rel="stylesheet" href="/flash-widget.css?v=4">
     <script src="/flash-widget.js?v=2" defer></script>

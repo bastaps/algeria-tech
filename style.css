@@ -4809,3 +4809,4 @@ body.dark-mode .header.at-scrolled { background: color-mix(in srgb, var(--bg-whi
   .mobile-menu-close,.premium-speed-btn,.tag-filter,.fw-btn,.footer-social a{min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center}
   .wc-wil-num,.wc-day-name,.cc-badge,.at-badge-interactif,.hero-meta-tag{font-size:max(.75rem,12px)}
 }
+#at-wa-widget{display:none!important}

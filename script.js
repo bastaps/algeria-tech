@@ -47,7 +47,11 @@ function atCheckOnlineSession() {
     if (ADMIN_CONFIG.isLocalhost) return;
     fetch('/api/admin/session', { credentials: 'same-origin', cache: 'no-store' })
         .then(r => r.ok ? r.json() : { admin: false })
-        .then(d => { ADMIN_CONFIG.online = !!(d && d.admin); updateAdminVisibility(); })
+        .then(d => {
+            ADMIN_CONFIG.online = !!(d && d.admin); updateAdminVisibility();
+            const a = document.getElementById('atAdminLink');
+            if (a) a.innerHTML = ADMIN_CONFIG.online ? '<i class="fas fa-lock-open"></i> Quitter la rédaction' : '<i class="fas fa-lock"></i> Espace rédaction';
+        })
         .catch(() => {});
 }
 
@@ -142,7 +146,7 @@ function updateAdminVisibility() {
 // Initialiser au chargement
 window.addEventListener('DOMContentLoaded', () => {
     // Créer le bouton de déverrouillage discret
-    if (!ADMIN_CONFIG.isLocalhost && !document.getElementById('adminUnlockHint')) {
+    if (false) { // ancien cadenas flottant (masqué par les autres boutons) : remplacé par le lien « Espace rédaction » du pied de page
         const unlockBtn = document.createElement('div');
         unlockBtn.id = 'adminUnlockHint';
         unlockBtn.className = 'admin-unlock-hint';
@@ -166,6 +170,15 @@ window.addEventListener('DOMContentLoaded', () => {
     // Mettre à jour la visibilité
     setTimeout(updateAdminVisibility, 100);
     atCheckOnlineSession();
+    const _adm = document.getElementById('atAdminLink');
+    if (_adm) {
+        if (ADMIN_CONFIG.isLocalhost) _adm.style.display = 'none';
+        _adm.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (isOnlineAdmin()) fetch('/api/admin/logout', { method: 'POST', credentials: 'same-origin' }).finally(() => location.reload());
+            else location.href = '/admin-login.html?next=' + encodeURIComponent(location.pathname + location.search);
+        });
+    }
     
     // Raccourci clavier : Ctrl+Shift+A pour déverrouiller
     document.addEventListener('keydown', (e) => {

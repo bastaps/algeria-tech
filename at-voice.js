@@ -349,14 +349,14 @@ function injectStyles(){
   var css = document.createElement('style');
   css.id='atv-styles';
   css.textContent = ''+
-  '#atv-wrap{position:fixed;bottom:158px;right:6px;z-index:9997;width:80px;height:80px;font-family:Inter,system-ui,sans-serif}'+
+  '#atv-wrap{display:none!important;position:fixed;bottom:158px;right:6px;z-index:9997;width:80px;height:80px;font-family:Inter,system-ui,sans-serif}'+
   '#atvViz{position:absolute;inset:0;width:80px;height:80px;pointer-events:none}'+
   '.atv-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;border:none;cursor:pointer;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.3rem;background:linear-gradient(135deg,#ef4444,#b91c1c);box-shadow:0 4px 18px rgba(239,68,68,.5);transition:transform .15s,background .3s}'+
   '.atv-btn:hover{transform:translate(-50%,-50%) scale(1.08)}'+
   '.atv-btn.listening{background:linear-gradient(135deg,#10b981,#059669);box-shadow:0 4px 22px rgba(16,185,129,.6);animation:atvPulse 1.4s infinite}'+
   '.atv-btn.wake{background:linear-gradient(135deg,#38bdf8,#0284c7)}'+
   '@keyframes atvPulse{0%,100%{box-shadow:0 4px 22px rgba(16,185,129,.6)}50%{box-shadow:0 4px 30px rgba(16,185,129,.95)}}'+
-  '.atv-status{position:fixed;bottom:242px;right:14px;z-index:9997;background:rgba(12,12,12,.85);color:#fff;font-size:12px;font-weight:600;padding:5px 12px;border-radius:20px;display:flex;align-items:center;gap:7px;backdrop-filter:blur(8px);box-shadow:0 4px 16px rgba(0,0,0,.3)}'+
+  '.atv-status{cursor:pointer;user-select:none;position:fixed;bottom:92px;right:20px;z-index:9997;background:rgba(12,12,12,.85);color:#fff;font-size:12px;font-weight:600;padding:5px 12px;border-radius:20px;display:flex;align-items:center;gap:7px;backdrop-filter:blur(8px);box-shadow:0 4px 16px rgba(0,0,0,.3)}'+
   '.atv-led{width:9px;height:9px;border-radius:50%;background:#6b7280}'+
   '.atv-led.on{background:#10b981;box-shadow:0 0 8px #10b981}'+
   '.atv-led.wake{background:#38bdf8;box-shadow:0 0 8px #38bdf8}'+
@@ -383,7 +383,7 @@ function injectStyles(){
   '.atv-tog.active{color:#e6e9ef;border-color:#10b981}'+
   '.atv-tog .box{width:16px;height:16px;border-radius:4px;border:2px solid #6b7280;display:grid;place-items:center;font-size:11px}'+
   '.atv-tog.active .box{background:#10b981;border-color:#10b981;color:#04120b}'+
-  '@media(max-width:480px){#atv-wrap{bottom:150px;right:2px}.atv-status{bottom:232px}.atv-toast{bottom:290px}}';
+  '@media(max-width:480px){.atv-status{bottom:92px;right:20px}.atv-toast{bottom:150px}}';
   document.head.appendChild(css);
 }
 
@@ -392,7 +392,7 @@ function injectMarkup(){
   wrap.innerHTML =
     '<div id="atv-wrap"><canvas id="atvViz" width="80" height="80"></canvas>'+
     '<button class="atv-btn" id="atvBtn" title="Assistant vocal (Ctrl+Espace)" aria-label="Assistant vocal"><i class="fas fa-microphone"></i></button></div>'+
-    '<div class="atv-status"><span class="atv-led" id="atvLed"></span><span id="atvStatus">Micro inactif</span></div>'+
+    '<div class="atv-status" id="atvPill" title="Toucher pour activer / désactiver le micro"><span class="atv-led" id="atvLed"></span><span id="atvStatus">Micro inactif</span></div>'+
     '<div class="atv-transcript" id="atvTranscript"><span class="atv-tr-text"></span></div>'+
     '<div class="atv-toast" id="atvToast"><div class="atv-toast-title"></div><div class="atv-toast-sub"></div></div>'+
     '<div class="atv-help" id="atvHelp"><div class="atv-help-card">'+
@@ -431,6 +431,7 @@ function init(){
   injectStyles();
   injectMarkup();
   $('atvBtn').addEventListener('click', toggleMic);
+  $('atvPill').addEventListener('click', toggleMic);
   $('atvHelpClose').addEventListener('click', closeHelp);
   $('atvHelp').addEventListener('click', function(e){ if(e.target===$('atvHelp')) closeHelp(); });
   $('atvMuteToggle').addEventListener('click', toggleMute);
