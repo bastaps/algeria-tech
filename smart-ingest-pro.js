@@ -975,7 +975,7 @@ function renderVideoPreview(url, opts = {}) {
     } else if (opts.local) {
         setVideoStatus(`<video controls src="${url}"></video><span class="si-embed-video-link si-video-warn"><i class="fas fa-exclamation-triangle"></i> Fichier local — non déployé sur le site (limite Cloudflare 25 Mo). Pour publier, utilisez l'outil Téléchargeur Vidéo (republication YouTube).</span>`);
     } else {
-        setVideoStatus(`<video controls src="${url}" onerror="this.outerHTML='<span class=si-embed-video-link>Aperçu indisponible — le lien est tout de même utilisé tel quel</span>'"></video>`);
+        setVideoStatus(`<video controls src="${url}" onerror="this.outerHTML='<span class=si-embed-video-link>Aperçu indisponible (une vidéo hébergée sur le site ne se lit qu après le déploiement, 2 à 4 min) — le lien est conservé</span>'"></video>`);
     }
 }
 
