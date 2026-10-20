@@ -38,6 +38,55 @@ function isAdminUnlocked() {
     return ADMIN_CONFIG.isLocalhost;
 }
 
+// Admin EN LIGNE : vrai seulement si le serveur confirme une session valide
+// (cookie HttpOnly, invisible au JS). Aucun secret côté navigateur.
+ADMIN_CONFIG.online = false;
+function isOnlineAdmin() { return !ADMIN_CONFIG.isLocalhost && ADMIN_CONFIG.online; }
+
+function atCheckOnlineSession() {
+    if (ADMIN_CONFIG.isLocalhost) return;
+    fetch('/api/admin/session', { credentials: 'same-origin', cache: 'no-store' })
+        .then(r => r.ok ? r.json() : { admin: false })
+        .then(d => { ADMIN_CONFIG.online = !!(d && d.admin); updateAdminVisibility(); })
+        .catch(() => {});
+}
+
+// Éditeur Smart Ingest PRO en fenêtre par-dessus le site (création : id vide ; modification : id de l'article).
+window.openSmartIngestPro = function(id) {
+    let ov = document.getElementById('atSipOverlay');
+    if (ov) ov.remove();
+    ov = document.createElement('div');
+    ov.id = 'atSipOverlay';
+    ov.style.cssText = 'position:fixed;inset:0;z-index:100000;background:rgba(0,0,0,.6);display:flex;flex-direction:column;';
+    const bar = document.createElement('div');
+    bar.style.cssText = 'display:flex;gap:8px;align-items:center;justify-content:flex-end;padding:8px 12px;background:#1b1b1b;';
+    const mk = (html, bg, fn) => { const b = document.createElement('button'); b.type = 'button'; b.innerHTML = html; b.style.cssText = 'border:0;border-radius:8px;padding:8px 14px;cursor:pointer;color:#fff;font-weight:600;background:' + bg; b.onclick = fn; return b; };
+    if (id) bar.appendChild(mk('<i class="fas fa-trash"></i> Supprimer', '#D21034', () => atDeleteOnline(id)));
+    bar.appendChild(mk('<i class="fas fa-xmark"></i> Fermer', '#555', () => ov.remove()));
+    const fr = document.createElement('iframe');
+    fr.src = '/smart-ingest-pro.html' + (id ? '?edit=' + encodeURIComponent(id) : '');
+    fr.style.cssText = 'flex:1;border:0;width:100%;background:#fff;';
+    ov.appendChild(bar); ov.appendChild(fr);
+    document.body.appendChild(ov);
+};
+
+async function atDeleteOnline(id) {
+    if (!confirm('Supprimer définitivement cet article ?')) return;
+    try {
+        const r = await fetch('/api/delete-article/' + encodeURIComponent(id), { method: 'DELETE', credentials: 'same-origin' });
+        if (r.ok) { showToast('✅ Supprimé (le site se met à jour dans 1-2 min)'); invalidateArticlesCache(); setTimeout(() => { location.href = '/'; }, 1500); }
+        else { const d = await r.json().catch(() => ({})); showToast('❌ ' + (d.message || d.error || ('Erreur ' + r.status))); }
+    } catch (e) { showToast('❌ Erreur réseau'); }
+}
+
+window.addEventListener('message', (e) => {
+    if (e.origin !== location.origin || !e.data || e.data.source !== 'smart-ingest-pro') return;
+    if (e.data.type === 'publie') {
+        invalidateArticlesCache();
+        setTimeout(() => { const ov = document.getElementById('atSipOverlay'); if (ov) ov.remove(); showToast('✅ Enregistré (visible dans 1-2 min)'); }, 2500);
+    }
+});
+
 // Plus de mot de passe : admin = localhost uniquement.
 function unlockAdmin() {
     if (ADMIN_CONFIG.isLocalhost) return true;
@@ -65,8 +114,8 @@ function updateAdminVisibility() {
         return;
     }
     
-    // Production : dépend du déverrouillage
-    const unlocked = isAdminUnlocked();
+    // Production : dépend de la session admin confirmée par le serveur
+    const unlocked = isOnlineAdmin();
     
     if (adminBtn) {
         if (unlocked) {
@@ -102,7 +151,11 @@ window.addEventListener('DOMContentLoaded', () => {
         const _toggleAdmin = (e) => {
             e.preventDefault();
             e.stopPropagation();
-            if (isAdminUnlocked()) { lockAdmin(); } else { unlockAdmin(); }
+            if (isOnlineAdmin()) {
+                fetch('/api/admin/logout', { method: 'POST', credentials: 'same-origin' }).finally(() => location.reload());
+            } else {
+                location.href = '/admin-login.html?next=' + encodeURIComponent(location.pathname + location.search);
+            }
         };
         unlockBtn.addEventListener('click', _toggleAdmin);
         // touchend requis dans les WebViews Android (onclick seul ne fire pas)
@@ -112,13 +165,14 @@ window.addEventListener('DOMContentLoaded', () => {
     
     // Mettre à jour la visibilité
     setTimeout(updateAdminVisibility, 100);
+    atCheckOnlineSession();
     
     // Raccourci clavier : Ctrl+Shift+A pour déverrouiller
     document.addEventListener('keydown', (e) => {
         if (e.ctrlKey && e.shiftKey && e.key === 'A') {
             e.preventDefault();
-            if (!isAdminUnlocked()) {
-                unlockAdmin();
+            if (!ADMIN_CONFIG.isLocalhost && !isOnlineAdmin()) {
+                location.href = '/admin-login.html?next=' + encodeURIComponent(location.pathname + location.search);
             }
         }
     });
@@ -2528,7 +2582,8 @@ window.hubFill = function() {
 
 // ===== GESTION ADMIN =====
 window.toggleAdminPanel = async function() {
-    // Vérifier si admin est déverrouillé (production uniquement)
+    // En ligne : éditeur Smart Ingest PRO (session admin serveur)
+    if (isOnlineAdmin()) return openSmartIngestPro(currentEditingId || '');
     if (!isAdminUnlocked()) {
         return showToast('🔒 Administration disponible uniquement en local');
     }
