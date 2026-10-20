@@ -1,0 +1,58 @@
+name: Carte interactive — génération à la demande (site en ligne)
+
+# Déclenché par le site en ligne (Smart Ingest PRO) : la fonction Cloudflare dépose interactifs/_demandes/<job>.json.
+# Ce workflow génère la carte avec le moteur Article Interactif (même code que le Hub local) et dépose le résultat dans
+# interactifs/_apercus/<job>.json, lu puis supprimé par le site. Dépôt public = minutes illimitées.
+on:
+  push:
+    paths:
+      - "interactifs/_demandes/*.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: interactif
+  cancel-in-progress: false
+
+jobs:
+  carte:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: article-interactif/requirements.txt
+
+      - name: Dépendances
+        run: pip install -q -r article-interactif/requirements.txt
+
+      - name: Générer les cartes demandées
+        env:
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          PYTHONUTF8: "1"
+        run: |
+          shopt -s nullglob
+          for f in interactifs/_demandes/*.json; do
+            echo "== $f"
+            python scripts/interactif_job.py "$f" || true
+          done
+
+      - name: Déposer les résultats
+        run: |
+          git config user.name "Algeria Tech Bot"
+          git config user.email "bot@algeria-tech.dz"
+          git add -A interactifs/_apercus interactifs/_demandes
+          if git diff --staged --quiet; then echo "rien à déposer"; exit 0; fi
+          git commit -q -m "Auto : carte interactive générée à la demande"
+          for i in 1 2 3 4; do git push && break || { git pull --rebase -q; }; done

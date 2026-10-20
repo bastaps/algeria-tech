@@ -34,6 +34,29 @@ function extractMainText(html) {
     .replace(/&[a-z]{2,8};/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
+// Photos et vidéos de l'article (pour le « Hub médias » de Smart Ingest PRO) : zone <article>/<main>, images assez grandes,
+// sans logos/icônes/pixels de suivi ; vidéos YouTube intégrées, balises <video>, og:video.
+function extraireMedias(html, base, ogImage, ogVideo) {
+  const zone = (html.match(/<article[\s\S]*?<\/article>/i) || html.match(/<main[\s\S]*?<\/main>/i) || [html])[0];
+  const abs = (u) => { try { const x = new URL(String(u).replace(/&amp;/g, '&'), base); return /^https?:$/.test(x.protocol) ? x.href : ''; } catch { return ''; } };
+  const images = [], videos = [];
+  const pushImg = (u) => { const a = abs(u); if (a && !images.includes(a)) images.push(a); };
+  if (ogImage) pushImg(ogImage);
+  for (const m of zone.matchAll(/<img\b[^>]*>/gi)) {
+    const tag = m[0];
+    const src = (tag.match(/\b(?:data-src|data-lazy-src|src)=["']([^"']+)["']/i) || [])[1];
+    if (!src || /^data:/i.test(src) || /\.(svg|gif)(\?|$)/i.test(src) || /(logo|icon|avatar|sprite|pixel|placeholder|banner-ad|emoji)/i.test(src)) continue;
+    const w = parseInt((tag.match(/\bwidth=["']?(\d+)/i) || [])[1] || '0', 10);
+    if (w && w < 200) continue;
+    pushImg(src);
+  }
+  const pushVid = (u) => { const a = abs(u); if (a && !videos.includes(a)) videos.push(a); };
+  for (const m of zone.matchAll(/(?:youtube(?:-nocookie)?\.com\/embed\/|youtu\.be\/|youtube\.com\/watch\?v=)([A-Za-z0-9_-]{11})/g)) pushVid('https://www.youtube.com/watch?v=' + m[1]);
+  for (const m of zone.matchAll(/<(?:video|source)\b[^>]*\bsrc=["']([^"']+\.(?:mp4|webm|mov)[^"']*)["']/gi)) pushVid(m[1]);
+  if (ogVideo && /\.(mp4|webm|mov)(\?|$)/i.test(ogVideo)) pushVid(ogVideo);
+  return { images: images.slice(0, 12), videos: videos.slice(0, 6) };
+}
+
 async function lireHtml(url) {
   const r = await fetch(url, {
     redirect: 'follow',
@@ -78,7 +101,9 @@ export async function onRequestPost({ request, env }) {
     const text = extractMainText(html);
     const streamed = /self\.__next_f\.push/.test(html);
     if (text.length >= MIN_LEN && !streamed) {
-      return json({ text: text.substring(0, 8000), title: titre, url, image: image || undefined, video: video || undefined });
+      const medias = extraireMedias(html, url, image, video);
+      return json({ text: text.substring(0, 8000), title: titre, url, image: image || undefined, video: video || undefined,
+        extracted_images: medias.images, extracted_videos: medias.videos });
     }
     erreur = new Error(streamed ? 'Page à contenu chargé côté client' : 'Contenu trop court (page rendue en JavaScript)');
   } catch (e) { erreur = e; }

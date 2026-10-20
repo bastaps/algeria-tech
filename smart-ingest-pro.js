@@ -1769,6 +1769,39 @@ function insererDonnees() {
 const AI_PORT = '5000';
 const AI_BASE = window.location.protocol + '//' + window.location.hostname + ':' + AI_PORT;
 
+// En ligne (pas de Hub, pas de port 5000) : la carte est générée par le moteur Article Interactif sur GitHub Actions.
+// La page dépose une demande (/api/interactif-demande) puis interroge /api/interactif-statut jusqu'au résultat (2 à 4 min).
+const AI_EN_LIGNE = !isLocal;
+let _carteEnLigne = null;
+async function fetchCarte(route, init) {
+    if (!AI_EN_LIGNE) return fetch(AI_BASE + route, init);
+    const reponse = (obj, ok = true) => new Response(JSON.stringify(obj), { status: ok ? 200 : 500, headers: { 'Content-Type': 'application/json' } });
+    if (route === '/api/render') {
+        return _carteEnLigne ? reponse({ html: _carteEnLigne.html }) : reponse({ error: 'Carte non générée.' }, false);
+    }
+    if (route !== '/api/generate') return fetch(API_BASE + route, init);   // fetch-url (en ligne), upload / wilayas (message « Hub local »)
+    const corps = JSON.parse(init.body);
+    const note = document.getElementById('carteNote');
+    const extra = (typeof blocVisuelsPourCarte === 'function' && blocVisuelsPourCarte()) || '';
+    const dem = await fetch(API_BASE + '/api/interactif-demande', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ generer: corps, extra_visuals: extra })
+    });
+    const d = await dem.json().catch(() => ({}));
+    if (!dem.ok || !d.job) return reponse({ error: d.message || 'Demande de carte refusée.' }, false);
+    const t0 = Date.now();
+    while (Date.now() - t0 < 12 * 60 * 1000) {
+        await new Promise(r => setTimeout(r, 7000));
+        if (note) note.innerHTML = '<div class="si-note"><i class="fas fa-spinner fa-spin"></i> Carte en cours de génération sur le serveur… '
+            + Math.round((Date.now() - t0) / 1000) + ' s (comptez 2 à 4 minutes)</div>';
+        const st = await fetch(API_BASE + '/api/interactif-statut?job=' + encodeURIComponent(d.job) + '&t=' + Date.now(), { cache: 'no-store' })
+            .then(r => r.json()).catch(() => ({ etat: 'en_cours' }));
+        if (st.etat === 'pret') { _carteEnLigne = st; return reponse(st.data); }
+        if (st.etat === 'echec') return reponse({ error: st.message || 'Échec de la génération de la carte.' }, false);
+    }
+    return reponse({ error: 'Délai dépassé (12 min) : réessayez.' }, false);
+}
+
 let modeDeploiement = 'simple';
 let derniereCarte = null;     // { data, html }
 
@@ -1813,6 +1846,11 @@ function blocsCarte() {
 async function verifierArticleInteractif() {
     const dot = document.getElementById('aiDot');
     if (!dot) return false;
+    if (AI_EN_LIGNE) {
+        dot.className = 'si-ai-dot online';
+        dot.title = 'Article Interactif en ligne (génération sur le serveur, 2 à 4 min)';
+        return true;
+    }
     try {
         const r = await fetch(AI_BASE + '/api/wilayas', { cache: 'no-store' });
         const ok = r.ok;
@@ -1847,6 +1885,7 @@ function texteArticleComplet() {
 
 async function construireCarte() {
     if (derniereCarte) return derniereCarte;
+    _carteEnLigne = null;
 
     const texte = texteArticleComplet();
     if (texte.length < 80) throw new Error('Remplissez d’abord le titre et le contenu.');
@@ -1879,7 +1918,7 @@ async function construireCarte() {
     const galerie = mediasCorps.filter(m => m.section === 'galerie' && m.genre === 'image')
         .map(m => ({ url: m.url, caption: m.nom }));
 
-    const gen = await fetch(AI_BASE + '/api/generate', {
+    const gen = await fetchCarte('/api/generate', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             text: texte,
@@ -1906,7 +1945,7 @@ async function construireCarte() {
     const visuels = blocVisuelsPourCarte();
     if (visuels) data.extra_visuals = visuels;
 
-    const rendu = await fetch(AI_BASE + '/api/render', {
+    const rendu = await fetchCarte('/api/render', {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
     });
@@ -3404,7 +3443,7 @@ async function scannerMediasSource(urlForcee) {
         note.innerHTML = '<div class="si-note"><i class="fas fa-spinner fa-spin"></i> Extraction des médias…</div>';
     }
     try {
-        const r = await fetch(AI_BASE + '/api/fetch-url', {
+        const r = await fetchCarte('/api/fetch-url', {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ url: url })
         });
@@ -3566,7 +3605,7 @@ async function importerDocumentInteractif(fichier) {
     try {
         const fd = new FormData();
         fd.append('file', fichier);
-        const r = await fetch(AI_BASE + '/api/upload', { method: 'POST', body: fd });
+        const r = await fetchCarte('/api/upload', { method: 'POST', body: fd });
         const d = await lireJSON(r, 'Import du document');
         if (d.error) throw new Error(d.error);
 
@@ -3603,7 +3642,7 @@ async function importerPourInteractif() {
     try {
         let texte = '', via = 'Article Interactif';
         try {
-            const r = await fetch(AI_BASE + '/api/fetch-url', {
+            const r = await fetchCarte('/api/fetch-url', {
                 method: 'POST', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ url: url })
             });
