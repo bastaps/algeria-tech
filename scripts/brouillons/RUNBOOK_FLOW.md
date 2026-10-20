@@ -19,9 +19,13 @@ après 90 min sans choix. **Ne rien publier toi-même.** Dossier : `E:\algeria-t
    (matin = revue de presse ; midi/soir = flux RSS + réseaux sociaux)
    - code 3 = créneau déjà fait aujourd'hui → fin (aucune alerte) ; code 2 = rien de neuf → fin ;
    - code 0 → la dernière ligne JSON donne `ident` et `job`. Lire `job` (image_weserv, image_source, prompt_flow, dossier).
-   - **La vidéo n'est PAS obligatoire.** Si `job.video_pertinente` vaut `false` (l'image est un visuel générique : robot, puce,
-     illustration IA, banque d'images…), **ne pas ouvrir Flow** : aller directement à l'étape 9 avec `none`
-     (`raison_video` explique pourquoi). Une vidéo qui n'illustre pas le sujet est pire que pas de vidéo.
+   - **La vidéo n'est PAS obligatoire, et on n'anime JAMAIS une image qui montre des personnes réelles** (ministre, président,
+     responsables : la photo EST l'information). Lire `job.video_mode` :
+     - `aucune` ou `source` → **ne pas ouvrir Flow** : aller directement à l'étape 9 avec `none` (`source` : la vidéo YouTube du média
+       qui accompagne l'article est reprise automatiquement ; `raison_video` explique le choix) ;
+     - `concept` (visuel générique, aucune personne) → vidéo « idée du titre » en **texte → vidéo, SANS image** : à l'étape 4 ne rien
+       importer ; à l'étape 5 ne pas ajouter d'ingrédient, taper directement `prompt_flow` (déjà sans personne, sans logo, sans texte).
+       Si Flow refuse ou échoue deux fois : `none` (ne jamais insister, jamais d'autre prompt avec des personnes).
 2. Chrome : `tabs_context_mcp`, `tabs_create_mcp`, aller sur `https://flow.google.com/u/1/`. Ouvrir le menu du compte (avatar en haut à droite) :
    l'e-mail doit être bastaps2024@gmail.com ; **lire le solde** (« N crédits Google Flow »). Si l'e-mail est autre : « Changer de compte » →
    choisir bastaps2024 dans la liste (déjà connecté), sans mot de passe.

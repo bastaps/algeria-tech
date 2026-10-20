@@ -81,11 +81,21 @@ Cette page rapporte-t-elle LE MÊME fait précis (même annonce, même événeme
 Réponds UNIQUEMENT par un JSON : {{"meme_fait": true|false}}"""
 
 PROMPT_IMAGE = """Cette image illustre un article de presse intitulé : « {titre} ».
-Réponds UNIQUEMENT par un JSON : {{"concret": true|false, "raison": "une phrase"}}
-concret = true SEULEMENT si l'image montre un élément réel et précis du sujet : personnes réelles, produit ou appareil,
-lieu, interface logicielle, tableau de données ou graphique, événement.
-concret = false si c'est un visuel générique ou décoratif : robot, cerveau, puce, hologramme, silhouette, fond abstrait,
-illustration générée par IA, image de banque d'images, logo seul."""
+Réponds UNIQUEMENT par un JSON : {{"personnes": true|false, "generique": true|false, "raison": "une phrase"}}
+personnes = true si l'image montre une ou plusieurs PERSONNES RÉELLES (visages, responsables, ministre, président, dirigeants,
+foule, conférence, cérémonie), même de dos ou en petit.
+generique = true SEULEMENT si c'est un visuel décoratif sans information propre : robot, cerveau, puce, hologramme, silhouette,
+fond abstrait, illustration générée par IA, banque d'images, logo seul. generique = false si l'image montre un élément réel
+du sujet (produit, appareil, lieu, interface, graphique, tableau de données, événement)."""
+
+PROMPT_CONCEPT = """Écris un prompt de génération vidéo (Veo, 8 secondes, 16:9) qui met en images l'IDÉE du titre ci-dessous,
+sous forme de plans cinématographiques abstraits ou symboliques (données qui circulent, réseau, écrans, villes la nuit,
+infrastructure, textures de matière, mouvement de caméra lent).
+INTERDIT : toute personne, visage, silhouette humaine, ministre, président, drapeau, logo, marque, texte à l'écran, armes,
+violence. Ton sobre et professionnel, pas de robot qui danse, pas de musique ni de paroles, léger bruit d'ambiance.
+Réponds UNIQUEMENT par un JSON : {{"prompt": "le prompt en français, 60 mots maximum"}}
+Titre : {titre}
+Résumé : {resume}"""
 
 
 def log(m):
@@ -150,7 +160,8 @@ def assembler(contenu, points, nom_media, url_media, officiels=()):
     """Corps final : article + « À retenir » en bas + « Sources » (officielle d'abord)."""
     out = [contenu.strip(), "## À retenir", "\n".join(f"- {p}" for p in points)]
     lignes = [f"- Source officielle : [{o['nom']}]({o['url']})" for o in officiels]
-    lignes.append(f"- Article relayé par : [{nom_media}]({url_media})")
+    # sans source officielle distincte, le média (ou l'institution) cité EST la source ; « relayé par » seulement s'il y en a une
+    lignes.append(f"- {'Article relayé par' if officiels else 'Source'} : [{nom_media}]({url_media})")
     out += ["## Sources", "\n".join(lignes)]
     return "\n\n".join(out) + "\n"
 
@@ -322,14 +333,43 @@ def _via_recherche(nom, titre, corps, url_source, jetons):
     return None
 
 
-# ── Vidéo : seulement si l'image montre un élément concret du sujet ───────
-def video_pertinente(jpg_bytes, titre):
-    """(bool, raison). Conservateur : sans réponse de l'IA, pas de vidéo."""
+# ── Vidéo : politique éditoriale ──────────────────────────────────────────
+# 1. JAMAIS d'animation d'une image qui montre des personnes réelles (ministre, président, responsables…) : la photo EST l'information.
+# 2. Une vidéo du média qui ACCOMPAGNE l'article (YouTube intégré) est reprise et publiée telle quelle.
+# 3. Sinon, vidéo « concept » (texte → vidéo, sans personne) UNIQUEMENT si l'image est un visuel générique ; si l'image est une
+#    information en soi (produit, interface, graphique, événement) : pas de vidéo.
+def video_source(html):
+    """Adresse YouTube d'une vidéo qui accompagne l'article (iframe intégrée ou lien), ou ''."""
+    for m in re.finditer(r"(?:youtube(?:-nocookie)?\.com/(?:embed/|watch\?v=)|youtu\.be/)([A-Za-z0-9_-]{11})", html or ""):
+        return f"https://www.youtube.com/watch?v={m.group(1)}"
+    return ""
+
+
+def politique_video(jpg_bytes, titre, resume, html_page=""):
+    """{'mode': 'aucune'|'source'|'concept', 'raison': str, 'video_url': str, 'prompt': str}. Sans réponse de l'IA : aucune."""
+    src = video_source(html_page)
+    if src:
+        return {"mode": "source", "raison": "vidéo du média intégrée à l'article", "video_url": src, "prompt": ""}
     try:
         rep = appeler_gemini(PROMPT_IMAGE.format(titre=titre), temperature=0,
                              images=[("image/jpeg", base64.b64encode(jpg_bytes).decode())])
     except Exception as e:  # noqa: BLE001
-        return False, f"analyse impossible ({type(e).__name__})"
+        return {"mode": "aucune", "raison": f"analyse impossible ({type(e).__name__})", "video_url": "", "prompt": ""}
     if not isinstance(rep, dict):
-        return False, "analyse d'image indisponible"
-    return bool(rep.get("concret")), str(rep.get("raison") or "")[:200]
+        return {"mode": "aucune", "raison": "analyse d'image indisponible", "video_url": "", "prompt": ""}
+    raison = str(rep.get("raison") or "")[:200]
+    if rep.get("personnes") is not False:  # personnes réelles (ou doute) : la photo est l'information, on n'anime jamais
+        return {"mode": "aucune", "raison": "personnes réelles sur l'image — jamais d'animation. " + raison, "video_url": "", "prompt": ""}
+    if rep.get("generique") is not True:
+        return {"mode": "aucune", "raison": "l'image est déjà une information (produit, interface, graphique…). " + raison, "video_url": "", "prompt": ""}
+    p = appeler_gemini(PROMPT_CONCEPT.format(titre=titre, resume=str(resume)[:500]), temperature=0.4)
+    prompt = str(p.get("prompt") or "").strip() if isinstance(p, dict) else ""
+    if not prompt:
+        return {"mode": "aucune", "raison": "prompt de vidéo concept indisponible", "video_url": "", "prompt": ""}
+    return {"mode": "concept", "raison": "visuel générique : vidéo concept sans personne. " + raison, "video_url": "", "prompt": prompt}
+
+
+def video_pertinente(jpg_bytes, titre):
+    """Compatibilité : (True, raison) seulement pour une vidéo concept."""
+    r = politique_video(jpg_bytes, titre, "")
+    return r["mode"] == "concept", r["raison"]

@@ -268,12 +268,19 @@ def choisir(slot):
             dossier = WORK / ident
             dossier.mkdir(parents=True, exist_ok=True)
             (dossier / "image.jpg").write_bytes(jpg)
-            # une vidéo n'est utile que si l'image montre un élément concret du sujet (jamais un visuel générique)
-            video_ok, raison_video = R.video_pertinente(jpg, c["titre"])
-            log(f"  vidéo {'pertinente' if video_ok else 'non pertinente'} : {raison_video}")
+            # politique vidéo : jamais d'animation de personnes réelles ; vidéo du média reprise telle quelle ; sinon
+            # vidéo « concept » (texte → vidéo, sans personne) seulement pour un visuel générique (voir redaction.py)
+            try:
+                html_page = requests.get(c["url"], timeout=25, headers=R.UA).text
+            except requests.RequestException:
+                html_page = ""
+            pol = R.politique_video(jpg, f.get("title") or c["titre"], texte[:500], html_page)
+            video_ok, raison_video = pol["mode"] == "concept", pol["raison"]
+            log(f"  vidéo « {pol['mode']} » : {raison_video}")
             job = {"ident": ident, "slot": slot, "article": {k: c[k] for k in ("titre", "url", "source", "pays", "origine", "score")},
                    "titre_page": f.get("title", ""), "texte": texte, "image_source": image,
-                   "image_weserv": weserv(image), "prompt_flow": PROMPT_FLOW,
+                   "image_weserv": weserv(image), "prompt_flow": pol["prompt"],
+                   "video_mode": pol["mode"], "video_url": pol["video_url"],
                    "video_pertinente": video_ok, "raison_video": raison_video,
                    "dossier": str(dossier), "clip_attendu": str(dossier / "clip.mp4")}
             (dossier / "job.json").write_text(json.dumps(job, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -339,8 +346,8 @@ def finaliser(ident, clip, sans_push):
     if not job:
         raise RuntimeError(f"job introuvable : {dossier}")
     avec_video = bool(clip) and clip.lower() != "none"
-    if avec_video and job.get("video_pertinente") is False:
-        log(f"clip ignoré : l'image ne montre pas d'élément concret du sujet ({job.get('raison_video', '')})")
+    if avec_video and job.get("video_mode", "aucune") != "concept":
+        log(f"clip ignoré : politique vidéo « {job.get('video_mode', 'aucune')} » ({job.get('raison_video', '')})")
         avec_video = False
     if avec_video:
         clip = Path(clip)
@@ -363,12 +370,15 @@ def finaliser(ident, clip, sans_push):
         raise RuntimeError("rédaction IA insuffisante")
     g["contenu"] = str(g["contenu"]).strip() + "\n\n## Sources\n\n" + "\n".join(
         [f"- Source officielle : [{o['nom']}]({o['url']})" for o in officiels] +
-        [f"- Article relayé par : [{job['article']['source']}]({job['article']['url']})"]) + "\n"
+        [f"- {'Article relayé par' if officiels else 'Source'} : [{job['article']['source']}]({job['article']['url']})"]) + "\n"
     cat = g.get("categorie") if g.get("categorie") in CATEGORIES else ("Algérie" if job["article"]["pays"] == "DZ" else "Monde")
-    video_url, image_rel = (f"/videos/articles/{ident}.mp4" if avec_video else ""), f"images/{ident}.jpg"
+    # vidéo : clip « concept » local, ou vidéo YouTube du média qui accompagne l'article (reprise telle quelle)
+    video_url = (f"/videos/articles/{ident}.mp4" if avec_video
+                 else (job.get("video_url", "") if job.get("video_mode") == "source" else ""))
+    image_rel = f"images/{ident}.jpg"
     # carte interactive : Article Interactif, mode IA
     corps = f"# {g['titre']}\n\n{g['lead']}\n\n{g['contenu']}"
-    medias = {"video": {"url": video_url, "caption": g["titre"][:120]}} if avec_video else {}
+    medias = {"video": {"url": video_url, "caption": g["titre"][:120]}} if video_url else {}
     gen = requests.post(f"{AI}/api/generate", timeout=300, json={
         "text": corps, "mode": "real", "primary_color": "#0d3b24", "accent_color": "#d21034", "dark_mode": False,
         "source_url": job["article"]["url"], "gallery": [], "widgets": {}, "medias": medias}).json()
@@ -404,7 +414,7 @@ type:
 position:
 interactif: "/interactifs/{ident}.html"
 aretenir: "{q(points_essentiels(g))}"
-mediaPriority: {"video" if avec_video else "image"}
+mediaPriority: {"video" if video_url else "image"}
 brouillon: true
 circuit: true
 cree: "{datetime.datetime.utcnow():%Y-%m-%dT%H:%M:%SZ}"

@@ -179,6 +179,11 @@ def produire(slot, notif=True):
             ident = str(int(time.time() * 1000))
             (RACINE / "images").mkdir(exist_ok=True)
             (RACINE / "images" / f"{ident}.jpg").write_bytes(jpg)
+            # seule une vidéo du média qui ACCOMPAGNE l'article est reprise (YouTube) ; jamais de vidéo générée dans le repli cloud
+            try:
+                c["video"] = R.video_source(requests.get(c["url"], headers=UA, timeout=25).text)
+            except requests.RequestException:
+                c["video"] = ""
             ecrire_brouillon(ident, c, red, officiels, slot, notif)
             if slot != "test":
                 marquer(slot, "cloud")
@@ -201,7 +206,7 @@ heure: {now:%H:%M}
 image: "images/{ident}.jpg"
 image_suggeree: "{C.SITE}/images/{ident}.jpg"
 pdf: ""
-video: ""
+video: "{c.get('video', '')}"
 source: "{C.q(c['url'])}"
 extrait: "{C.q(red.get('extrait'))[:220]}"
 tags: [{tags}]
@@ -210,7 +215,7 @@ position:
 interactif: ""
 interactif_a_faire: "true"
 aretenir: "{R.champ_aretenir(red['a_retenir'])}"
-mediaPriority: image
+mediaPriority: {"video" if c.get("video") else "image"}
 brouillon: true
 circuit: true
 cree: "{datetime.datetime.utcnow():%Y-%m-%dT%H:%M:%SZ}"
