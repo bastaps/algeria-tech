@@ -3,6 +3,8 @@
 @media (max-width: 640px) {
   body.ml { padding-bottom: 118px; }
   .ml .top-bar { display: none !important; }
+  /* Crayon / « + » admin : au-dessus de la barre Flash|30 s et de la nav du bas, à côté du bouton flottant */
+  .ml .admin-btn { bottom: 132px !important; right: 76px !important; width: 52px; height: 52px; z-index: 9999; }
 
   /* Un seul bouton « + » à la place des boutons flottants */
   .ml #atv-wrap, .ml #at-wa-widget, .ml #atTempFab, .ml #adminUnlockHint, .ml #backToTop { display: none !important; }
