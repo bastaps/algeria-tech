@@ -1010,8 +1010,16 @@ function setupVideoInput() {
                 videoIn.value = url;
                 renderVideoPreview(url);
             })
-            .catch(err => {
-                setVideoStatus(`<span class="si-embed-video-link si-video-error"><i class="fas fa-exclamation-triangle"></i> Envoi YouTube impossible : ${err.message}</span>`);
+            .catch(async err => {
+                // Repli : YouTube indisponible (en ligne, jeton expiré, non configuré…) → la vidéo est hébergée sur le site.
+                setVideoStatus(`<span class="si-embed-video-link"><i class="fas fa-spinner fa-spin"></i> YouTube indisponible (${err.message}) — hébergement de la vidéo sur le site…</span>`);
+                try {
+                    const h = await uploadVideoToServer(file);
+                    videoIn.value = h.url;
+                    renderVideoPreview(h.url, { local: h.local });
+                } catch (e2) {
+                    setVideoStatus(`<span class="si-embed-video-link si-video-error"><i class="fas fa-exclamation-triangle"></i> Vidéo non envoyée : ${e2.message}</span>`);
+                }
             });
     };
 

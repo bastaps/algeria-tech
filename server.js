@@ -4129,6 +4129,52 @@ app.post('/api/youtube-publish', express.json(), async (req, res) => {
     }
 });
 
+// POST /api/youtube-upload-file  (Smart Ingest PRO : vidéo collée / déposée dans « Vidéo / Réseaux sociaux »)
+// multipart : video (fichier), privacy? (unlisted par défaut), title?, description?
+// Envoie le fichier sur YouTube et renvoie { youtubeUrl, videoId } ; aucun article n'est créé.
+// Cette route manquait (le client l'appelait depuis le début : « Envoi YouTube impossible : Échec »).
+const youtubeFileUpload = multer({
+    storage: multer.diskStorage({
+        destination: (req, file, cb) => cb(null, require('os').tmpdir()),
+        filename: (req, file, cb) => cb(null, `at-yt-${Date.now()}-${Math.random().toString(36).slice(2, 8)}${path.extname(file.originalname || '.mp4') || '.mp4'}`)
+    }),
+    limits: { fileSize: 800 * 1024 * 1024 }
+}).single('video');
+app.post('/api/youtube-upload-file', (req, res) => {
+    youtubeFileUpload(req, res, async (err) => {
+        const tmp = req.file && req.file.path;
+        const nettoyer = () => { if (tmp) fs.unlink(tmp).catch(() => {}); };
+        try {
+            if (err) throw err;
+            if (!req.file) return res.status(400).json({ error: 'Aucune vidéo reçue.' });
+            if (!youtubeUploader) return res.status(500).json({ error: 'Module YouTube non disponible', hint: 'La vidéo peut être hébergée directement sur le site.' });
+            if (!process.env.YOUTUBE_CLIENT_ID || !process.env.YOUTUBE_REFRESH_TOKEN) {
+                return res.status(503).json({ error: 'YouTube non configuré', hint: 'Renseignez YOUTUBE_CLIENT_ID, YOUTUBE_CLIENT_SECRET et YOUTUBE_REFRESH_TOKEN (node get-youtube-token.js).' });
+            }
+            const privacy = ['public', 'unlisted', 'private'].includes(req.body && req.body.privacy) ? req.body.privacy : 'unlisted';
+            const result = await youtubeUploader.uploadToYoutube(tmp, {
+                title: (req.body && req.body.title) || 'Algeria Tech — vidéo',
+                description: (req.body && req.body.description) || 'Vidéo publiée avec Algeria Tech.',
+                tags: ['Algeria Tech', 'Algérie', 'TIC'],
+                privacy,
+                license: 'creativeCommon',
+                categoryId: '25',
+            });
+            nettoyer();
+            res.json({ success: true, videoId: result.videoId, youtubeUrl: result.url });
+        } catch (e) {
+            nettoyer();
+            console.error('[YouTube Upload File]', e.message);
+            const expire = /invalid_grant|expired|revoked|unauthorized_client/i.test(String(e.message));
+            const gros = e.code === 'LIMIT_FILE_SIZE';
+            res.status(expire ? 401 : 500).json({
+                error: gros ? 'Vidéo trop volumineuse (800 Mo max).' : (expire ? 'Autorisation YouTube expirée' : e.message),
+                hint: expire ? 'Relancez « node get-youtube-token.js » (le jeton d\'une application en mode test expire après 7 jours) ; en attendant, la vidéo est hébergée sur le site.' : undefined
+            });
+        }
+    });
+});
+
 // POST /api/youtube-publish-local
 // Body : { filePath, title?, description?, tags?, privacy?, categoryId? }
 // Uploade directement un fichier MP4 déjà présent sur le disque (pas de téléchargement
