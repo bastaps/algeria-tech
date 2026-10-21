@@ -304,13 +304,17 @@ function generateArticlePage(art) {
 
 <link rel="stylesheet" href="/style.css?v=${CSS_V}">
 <link rel="stylesheet" href="/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="/mobile-lite.css?v=8">
+<link rel="stylesheet" href="/mobile-lite.css?v=11">
 <style>
   .ssg-article { max-width:800px; margin:80px auto; padding:0 20px 60px; font-family:Inter,sans-serif; }
   .ssg-article img { width:100%; border-radius:8px; margin-bottom:24px; }
   .ssg-article h1 { font-size:1.8rem; line-height:1.3; margin-bottom:12px; }
   .ssg-article .meta { color:#666; font-size:.85rem; margin-bottom:24px; }
-  .ssg-article .body { line-height:1.8; color:#333; }
+  .ssg-article .body { line-height:1.5; color:#333; font-size:1rem; }
+  .ssg-article .body p { margin:0 0 8px; }
+  .ssg-article .body h2 { font-size:1.19rem; line-height:1.3; margin:16px 0 6px; }
+  .ssg-article .body ul { margin:0 0 8px; padding-left:1.3em; }
+  .ssg-article .body li { margin:0 0 3px; }
 </style>
 </head>
 <body>

@@ -4810,3 +4810,25 @@ body.dark-mode .header.at-scrolled { background: color-mix(in srgb, var(--bg-whi
   .wc-wil-num,.wc-day-name,.cc-badge,.at-badge-interactif,.hero-meta-tag{font-size:max(.75rem,12px)}
 }
 #at-wa-widget{display:none!important}
+
+
+/* ═══ Typographie des articles — « Compact » (choix de l'éditeur, 21/10/2026) ═══════════════════════════
+   PC : texte 16 px, interligne 1,5, 8 px entre paragraphes. Smartphone (≤ 640 px) : idem avec 10 px.
+   Avant : 17,6 px, interligne 1,8, 20 px entre paragraphes + lignes vides parasites (white-space: pre-wrap).
+   Le réglage « Interligne » du panneau de personnalisation (⚙️) reste prioritaire quand le lecteur l'active. */
+.article-text { white-space: normal; }
+.article-text pre { white-space: pre-wrap; }
+.article-body { padding: 28px 28px 24px; }
+.article-body p, .article-text p { font-size: 1rem; line-height: 1.5; margin: 0 0 8px; }
+.article-body h2 { font-size: 1.19rem; line-height: 1.3; margin: 16px 0 6px; }
+.article-body h3 { font-size: 1.05rem; line-height: 1.3; margin: 14px 0 5px; }
+.article-text ul, .article-text ol { margin: 0 0 8px; padding-left: 1.3em; }
+.article-text li { margin: 0 0 3px; line-height: 1.5; }
+.article-text table { margin: 10px 0; }
+.article-text th, .article-text td { padding: 7px 10px; }
+.article-text img { margin: 14px auto; }
+@media (max-width: 640px) {
+    .article-body { padding: 16px 12px 20px; }
+    .article-body p, .article-text p { margin-bottom: 10px; }
+    .article-text ul, .article-text ol { margin-bottom: 10px; }
+}

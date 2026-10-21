@@ -143,9 +143,9 @@
   .ml #articlePage .article-meta span:has(> .fa-clock) { display: none; }
   .ml #articlePage .article-meta .meta-audio-btn, .ml #articlePage .article-meta .meta-lite-btn { flex: 1 1 44%; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
   .ml #articlePage .back-btn { min-height: 44px; }
-  .ml #articlePage .article-body, .ml #articlePage .article-body p, .ml #articlePage .article-body li { font-size: 17px; line-height: 1.7; }
+  .ml #articlePage .article-body, .ml #articlePage .article-body p, .ml #articlePage .article-body li { font-size: 16px; line-height: 1.5; }
   .ml #articlePage .article-body h1 { font-size: 23px; line-height: 1.3; }
-  .ml #articlePage .article-body h2 { font-size: 20px; line-height: 1.35; margin: 22px 0 8px; }
+  .ml #articlePage .article-body h2 { font-size: 19px; line-height: 1.3; margin: 16px 0 6px; }
   .ml #articlePage .article-body h3 { font-size: 18px; line-height: 1.35; }
   .ml #articlePage img, .ml #articlePage video, .ml #articlePage table { max-width: 100%; }
 
@@ -171,8 +171,9 @@
   .ml-ssg .ssg-article img { border-radius: 12px; }
   .ml-ssg .ssg-article h1 { font-size: 23px; line-height: 1.3; }
   .ml-ssg .ssg-article .meta { font-size: 13px; }
-  .ml-ssg .ssg-article .body, .ml-ssg .ssg-article .body p, .ml-ssg .ssg-article .body li { font-size: 17px; line-height: 1.7; }
-  .ml-ssg .ssg-article .body h2 { font-size: 20px; line-height: 1.35; margin: 22px 0 8px; }
+  .ml-ssg .ssg-article .body, .ml-ssg .ssg-article .body p, .ml-ssg .ssg-article .body li { font-size: 16px; line-height: 1.5; }
+  .ml-ssg .ssg-article .body p { margin: 0 0 10px; }
+  .ml-ssg .ssg-article .body h2 { font-size: 19px; line-height: 1.3; margin: 16px 0 6px; }
   .ml-ssg .ssg-article .body h3 { font-size: 18px; }
   #ml-nav a { flex: 1; color: #666; font: 500 11px/1.2 Inter, system-ui, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; }
   #ml-nav a i { font-size: 19px; }
