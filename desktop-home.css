@@ -1,0 +1,93 @@
+/* ═══ Accueil PC « éditorial » (≥ 901 px) — essai réversible ═══════════════════════════════════════
+   Actif uniquement quand desktop-home.js pose html.dh. Pour revenir en arrière : retirer les 2 lignes
+   desktop-home.* d'index.html (et de build.js) — l'ancienne accueil reprend telle quelle. */
+html.dh body { zoom: .92; }
+html.dh #breakingNewsSection { display: none; }               /* barre rouge « URGENT » désactivée */
+
+/* ── En-tête : une seule barre (logo · navigation · Revue de presse · Explorer · recherche · langue) ── */
+html.dh .at-hub-track, html.dh .at-hub .at-hub-sep { display: none; }
+html.dh .at-hub { max-height: none; overflow: visible; margin: 0; }
+html.dh .at-nav-stack { gap: 0; }
+html.dh .main-nav .dh-explore-li { display: flex; align-items: center; }
+html.dh .main-nav .dh-explore-li #exploreBtn { margin: 0; }
+html.dh .top-bar-right a[aria-label="WhatsApp"]:hover { background: #25D366; }
+
+/* ── Une + 2 articles : image/vidéo à gauche, titre et chapo à droite ── */
+html.dh .hero-section { padding: 16px 0 6px; }
+html.dh .hero-grid { display: block; height: auto; overflow: visible; }
+.dh-hero { display: grid; grid-template-columns: 1.7fr 1fr; grid-template-rows: 410px; gap: 14px; }
+.dh-une { position: relative; display: block; border-radius: 14px; overflow: hidden; background: #111; color: #fff; text-decoration: none; }
+.dh-une > img, .dh-une > video, .dh-une > .dh-ph { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.dh-une:after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 35%, rgba(0,0,0,.82)); }
+.dh-une .dh-tx { position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 24px; z-index: 2; }
+.dh-une h1 { font-size: 1.75rem; line-height: 1.2; margin: 8px 0; color: #fff; }
+.dh-une p { margin: 0; opacity: .9; font-size: .88rem; }
+.dh-une .dh-meta { margin-top: 8px; font-size: .75rem; opacity: .8; }
+.dh-badge { display: inline-block; background: var(--secondary); color: #fff; font-size: .68rem; font-weight: 700; letter-spacing: .06em; padding: 3px 9px; border-radius: 4px; }
+.dh-side { display: grid; grid-template-rows: 1fr 1fr; gap: 14px; min-height: 0; }
+.dh-s { display: flex; gap: 12px; background: var(--bg-white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; min-height: 0; color: inherit; text-decoration: none; }
+.dh-s .dh-si { flex: 0 0 44%; position: relative; background: #ddd; }
+.dh-s .dh-si img, .dh-s .dh-si video, .dh-s .dh-si .dh-ph { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.dh-s .dh-tx { flex: 1; min-width: 0; padding: 12px 12px 12px 0; display: flex; flex-direction: column; overflow: hidden; }
+.dh-s h3 { font-size: .94rem; line-height: 1.27; margin: 7px 0 5px; color: var(--text-dark); display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.dh-s p { font-size: .8rem; line-height: 1.4; margin: 0 0 5px; color: var(--text-muted); display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.dh-s .dh-m { margin: auto 0 0; }
+.dh-cat { display: inline-block; align-self: flex-start; background: #0d3b24; color: #fff; font-size: .66rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: 3px 9px; border-radius: 4px; cursor: pointer; }
+.dh-cat:hover { background: var(--secondary); }
+.dh-m { font-size: .72rem; color: var(--text-muted); }
+.dh-play { position: absolute; right: 8px; bottom: 8px; background: rgba(0,0,0,.65); color: #fff; font-size: .68rem; padding: 3px 7px; border-radius: 12px; z-index: 3; }
+.dh-ph { display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #0d3b24, #1f5d42); }
+.dh-ph img { width: 42%; max-width: 120px; height: auto !important; position: static !important; object-fit: contain !important; opacity: .85; }
+
+/* ── Colonne principale : 6 cartes, suite de l'actualité, Archives ── */
+html.dh .content-layout { padding-top: 14px; }
+html.dh .news-grid.dh-home { display: block; }
+.dh-t { display: flex; align-items: center; gap: 10px; font-size: 1.2rem; margin: 6px 0 14px; color: var(--text-dark); }
+.dh-t:before { content: ""; width: 5px; height: 20px; background: var(--secondary); border-radius: 3px; }
+.dh-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 26px; }
+.dh-card { display: block; background: var(--bg-white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; color: inherit; text-decoration: none; transition: transform .2s, box-shadow .2s; }
+.dh-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.dh-im { position: relative; aspect-ratio: 16/9; background: #ddd; overflow: hidden; }
+.dh-im img, .dh-im video, .dh-im .dh-ph { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.dh-im .dh-cat { position: absolute; left: 8px; top: 8px; z-index: 3; background: rgba(255,255,255,.93); color: #111; }
+.dh-im .dh-cat:hover { background: var(--secondary); color: #fff; }
+.dh-inter { position: absolute; right: 8px; top: 8px; z-index: 3; background: var(--primary); color: #fff; font-size: .66rem; padding: 3px 8px; border-radius: 4px; }
+.dh-cb { padding: 11px 14px 13px; }
+.dh-cb h3 { font-size: .98rem; line-height: 1.3; margin: 0 0 5px; color: var(--text-dark); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.dh-suite { display: flex; flex-direction: column; gap: 14px; margin-bottom: 26px; }
+.dh-sb { background: var(--bg-white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.dh-sv { display: flex; gap: 14px; align-items: flex-start; padding: 12px 14px; color: inherit; text-decoration: none; }
+.dh-sv .dh-im { flex: 0 0 150px; aspect-ratio: 16/10; border-radius: 8px; }
+.dh-sv .dh-cb { flex: 1; min-width: 0; padding: 0; }
+.dh-sv h3 { font-size: 1rem; }
+.dh-ex { margin: 0 0 5px; font-size: .82rem; color: var(--text-muted); line-height: 1.45; }
+.dh-st { display: block; padding: 12px 14px; border-top: 1px solid var(--border); color: inherit; text-decoration: none; }
+.dh-st h4 { margin: 0 0 4px; font-size: .92rem; line-height: 1.3; color: var(--text-dark); }
+.dh-card:hover h3, .dh-st:hover h4, .dh-sv:hover h3, .dh-s:hover h3 { color: var(--primary); }
+html.dh .pagination.dh-pag { display: block; margin: 8px 0 30px; }
+.dh-arch { display: flex; align-items: center; gap: 8px; }
+.dh-arch-t { font-weight: 700; font-size: .95rem; margin-right: 4px; }
+.dh-arch .dh-ar { flex: none; width: 32px; height: 32px; padding: 0; border-radius: 50%; }
+.dh-strip { display: flex; gap: 6px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; min-width: 0; flex: 1; }
+.dh-strip::-webkit-scrollbar { display: none; }
+.dh-strip button { flex: none; min-width: 38px; padding: 8px 10px; }
+
+/* ── Colonne latérale : onglets Brèves | Les plus lus, tags sur une ligne ── */
+.dh-tabs { display: flex; gap: 6px; background: var(--bg-white); padding: 6px; border-radius: 999px; box-shadow: var(--shadow-sm); }
+.dh-tabs button { flex: 1; border: 0; background: transparent; padding: 8px 10px; border-radius: 999px; font-weight: 600; font-size: .85rem; cursor: pointer; color: var(--text-dark); }
+.dh-tabs button.on { background: var(--text-dark); color: #fff; }
+html.dh .sidebar-widget.dh-hide { display: none; }
+html.dh .sidebar-widget.dh-tabbed .widget-title { display: none; }
+html.dh .tag-cloud { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; padding-bottom: 6px; }
+html.dh .tag-cloud > * { flex: none; }
+@media (prefers-color-scheme: dark) { html.dh .dh-ph { background: linear-gradient(135deg, #0b2a1b, #14402e); } }
+
+/* ── En-tête compact : tout tient sur une ligne ── */
+html.dh .header-content.at-grid { column-gap: 14px; }
+html.dh .at-logo .logo-img { height: 42px; width: 42px; }
+html.dh .at-logo .logo-text h1, html.dh .at-logo .logo-text .logo-name { font-size: 1.15rem; }
+html.dh .at-mainnav > ul { gap: 0; }
+html.dh .at-mainnav ul li a, html.dh .at-mainnav a { padding: 8px 8px; font-size: .8rem; white-space: nowrap; }
+html.dh .main-nav .dh-explore-li #exploreBtn { padding: 6px 10px; font-size: .8rem; }
+html.dh .at-utils { gap: 8px; }
+html.dh .at-utils .lang-toggle .lt-opt { padding: 0 5px; font-size: .68rem; }
