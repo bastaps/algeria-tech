@@ -97,6 +97,7 @@
           '<h3>' + esc(a.titre) + '</h3><p>' + esc(chapo(a, 130)) + '</p><p class="dh-m">' + esc(dateLabel(a)) + '</p></div></a>';
       }).join('') + '</div></div>';
     vids(grid);
+    quandPret(uneAnimee);
   };
 
   // Les vidéos ne jouent que lorsqu'elles sont visibles (et jamais si l'utilisateur réduit les animations)
@@ -204,8 +205,95 @@
     show('b');
   }
 
+
+  // ── Une animée : si la Une n'a qu'une vidéo YouTube, on la joue muette en boucle (iframe légère, chargée APRÈS la page,
+  //    jamais sur connexion lente / économie de données / animations réduites) ; elle se met en pause hors écran.
+  function quandPret(fn) {
+    if (document.readyState === 'complete') setTimeout(fn, 1500);
+    else window.addEventListener('load', function () { setTimeout(fn, 1500); }, { once: true });
+  }
+  function uneAnimee() {
+    var h = allArticles && allArticles[0], box = document.querySelector('.dh-une');
+    if (!h || !box || box.querySelector('iframe, video')) return;
+    var m = String(h.video || '').match(YT); if (!m) return;
+    var c = navigator.connection || {};
+    if (c.saveData || /(^|-)2g$/.test(c.effectiveType || '') || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var f = document.createElement('iframe');
+    f.className = 'dh-une-yt';
+    f.src = 'https://www.youtube-nocookie.com/embed/' + m[1] + '?autoplay=1&mute=1&loop=1&playlist=' + m[1] +
+      '&controls=0&modestbranding=1&rel=0&playsinline=1&disablekb=1&iv_load_policy=3&enablejsapi=1';
+    f.allow = 'autoplay; encrypted-media'; f.tabIndex = -1; f.setAttribute('aria-hidden', 'true'); f.title = '';
+    // L'iframe n'est affichée que lorsque YouTube confirme que la lecture a démarré (sinon on garde l'image) ; abandon après 15 s
+    var lance = false;
+    function ecoute(e) {
+      if (e.source !== f.contentWindow) return;
+      var d = e.data; if (typeof d === 'string') { try { d = JSON.parse(d); } catch (x) { return; } }
+      var etat = d && d.info && (d.info.playerState != null ? d.info.playerState : null);
+      if (etat == null) return;
+      clearTimeout(f._t);
+      if (etat === 1) { lance = true; f._t = setTimeout(function () { f.classList.add('on'); }, 3500); }   // on laisse passer les commandes YouTube du début
+      else f.classList.remove('on');                                                                  // tampon / fin / pause : on revoit l'image, jamais d'écran noir
+    }
+    window.addEventListener('message', ecoute);
+    f.addEventListener('load', function () {
+      try { f.contentWindow.postMessage(JSON.stringify({ event: 'listening', id: 1, channel: 'widget' }), '*'); } catch (x) {}
+      setTimeout(function () { if (!lance) { window.removeEventListener('message', ecoute); f.remove(); } }, 15000);
+    });
+    box.insertBefore(f, box.firstChild.nextSibling || null);
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        try { f.contentWindow.postMessage(JSON.stringify({ event: 'command', func: e.isIntersecting ? 'playVideo' : 'pauseVideo', args: '' }), '*'); } catch (x) {}
+      });
+    }, { threshold: .3 }).observe(box);
+  }
+
+  // ── L'info en 30 s : vidéo en boucle comme les autres, en pause hors écran (aucun fichier de plus à télécharger) ──
+  function express() {
+    var root = document.getElementById('expressWidget'); if (!root) return;
+    function brancher() {
+      var v = root.querySelector('.ew-video'); if (!v) return false;
+      if (v.dataset.dh) return true; v.dataset.dh = '1'; v.loop = true; v.muted = true;
+      if ('IntersectionObserver' in window) new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else v.pause(); });
+      }, { threshold: .4 }).observe(v);
+      return true;
+    }
+    if (!brancher()) { var mo = new MutationObserver(function () { if (brancher()) mo.disconnect(); }); mo.observe(root, { childList: true, subtree: true }); }
+  }
+
+  // ── Flash Info : les 4 derniers flashs (titre + date) au-dessus de « L'info en 30 s ». Le lecteur flottant à gauche reste inchangé. ──
+  function flashTitre(x) {
+    var t = String(x.titre || '').replace(/^Flash Info\s*[·—–-]\s*/, '');
+    return t.split(/\s*[·—–]\s*/)[0] || t;
+  }
+  function flashInfos() {
+    var side = document.querySelector('.sidebar');
+    if (!side || document.getElementById('dhFlash')) return;
+    fetch('/data/flash-latest.json').then(function (r) { return r.ok ? r.json() : []; }).then(function (list) {
+      list = (list || []).filter(function (x) { return x && x.mp4Url; }).slice(0, 4);
+      if (!list.length || document.getElementById('dhFlash')) return;
+      var w = document.createElement('div'); w.className = 'sidebar-widget dh-flash'; w.id = 'dhFlash';
+      w.innerHTML = '<h3 class="widget-title"><i class="fas fa-bolt"></i> Flash Info</h3><ul class="dh-fl">' + list.map(function (x, i) {
+        var d = new Date(x.publishedAt), ok = isFinite(d);
+        var j = ok ? d.toLocaleDateString('en-CA', { timeZone: 'Africa/Algiers' }) : '';
+        var hm = ok ? d.toLocaleTimeString('fr-FR', { timeZone: 'Africa/Algiers', hour: '2-digit', minute: '2-digit' }) : '';
+        return '<li><button type="button" data-i="' + i + '" title="Voir ce flash"><i></i><b>' + esc(flashTitre(x)) + '</b><span>' + esc(ok ? dateLabel({ date: j, heure: hm }) : '') + '</span></button></li>';
+      }).join('') + '</ul>';
+      side.insertBefore(w, document.getElementById('expressWidget') || side.firstChild);
+      w.addEventListener('click', function (e) {
+        var b = e.target.closest('button[data-i]'); if (!b) return;
+        var x = list[Number(b.dataset.i)], r = document.getElementById('flash-widget-root'), v = r && r.querySelector('video');
+        if (v) {                       // on réutilise le lecteur flottant existant
+          v.src = x.mp4Url; var p = v.play(); if (p && p.catch) p.catch(function () {});
+          var t = r.querySelector('.fw-title'); if (t) t.textContent = x.titre;
+          r.classList.remove('fw-hidden');
+        } else window.open(x.mp4Url, '_blank', 'noopener');
+      });
+    }).catch(function () {});
+  }
+
   function init() {
-    entete(); onglets();
+    entete(); onglets(); flashInfos(); express();
     // Le premier rendu a pu avoir lieu avant ce script : on le refait à l'identique avec la nouvelle mise en page
     if (typeof allArticles !== 'undefined' && allArticles.length) {
       window.renderHero(allArticles);

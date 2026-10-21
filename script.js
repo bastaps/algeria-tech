@@ -804,14 +804,14 @@ window.openImmersiveMode = async function(id) {
     document.body.classList.add('at-immersive-open');
     document.body.style.overflow = 'hidden';
 
-    const closeBtn = '<button class="modal-close" onclick="closeImmersiveMode()" aria-label="Fermer"><i class="fas fa-times"></i></button>';
+    const closeBtn = '<div class="at-imm-bar"><button type="button" class="at-imm-back" onclick="closeImmersiveMode()"><i class="fas fa-arrow-left"></i> Retour à l’article</button><button type="button" class="at-imm-x" onclick="closeImmersiveMode()" aria-label="Fermer la version interactive"><i class="fas fa-times"></i> Fermer</button></div>';
     const url = `/interactifs/${id}.html`;
     try {
         const res = await fetch(url, { method: 'HEAD' });
         if (!res.ok) throw new Error('not found');
         body.innerHTML = closeBtn +
             `<iframe src="${url}" title="Version interactive de l'article" ` +
-            `style="width:100%;height:100vh;border:0;background:transparent;display:block;" ` +
+            `style="width:100%;height:calc(100vh - 48px);border:0;background:transparent;display:block;" ` +
             `allow="fullscreen; clipboard-write"></iframe>`;
     } catch (e) {
         body.innerHTML = closeBtn +

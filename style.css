@@ -2864,7 +2864,14 @@ body.at-immersive-open .reading-progress { display: none !important; }
   padding: 0; margin: 0; border-radius: 0; overflow: hidden;
   background: transparent; box-shadow: none;
 }
-.at-immersive-modal .modal-content > iframe { height: 100vh !important; border-radius: 0 !important; }
+.at-immersive-modal .modal-content > iframe { height: calc(100vh - 48px) !important; border-radius: 0 !important; }
+/* Barre fixe en haut : « Retour à l'article » à gauche, « Fermer » bien visible à droite (remplace la petite croix perdue dans le coin) */
+.at-imm-bar { position: sticky; top: 0; z-index: 5; height: 48px; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 0 14px; background: #0b1729; box-shadow: 0 2px 10px rgba(0,0,0,.35); }
+.at-imm-bar button { display: inline-flex; align-items: center; gap: 8px; border: 0; cursor: pointer; font: 600 .9rem/1 inherit; border-radius: 999px; padding: 9px 16px; }
+.at-imm-back { background: rgba(255,255,255,.12); color: #fff; }
+.at-imm-back:hover { background: rgba(255,255,255,.22); }
+.at-imm-x { background: var(--secondary, #d21034); color: #fff; }
+.at-imm-x:hover { background: #b00d2b; }
 .at-immersive-modal .modal-close {
   position: fixed; top: 14px; right: 16px; z-index: 5;
   width: 44px; height: 44px; border-radius: 50%;

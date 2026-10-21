@@ -91,3 +91,16 @@ html.dh .at-mainnav ul li a, html.dh .at-mainnav a { padding: 8px 8px; font-size
 html.dh .main-nav .dh-explore-li #exploreBtn { padding: 6px 10px; font-size: .8rem; }
 html.dh .at-utils { gap: 8px; }
 html.dh .at-utils .lang-toggle .lt-opt { padding: 0 5px; font-size: .68rem; }
+
+/* ── Flash Info (4 derniers) dans la colonne de droite ── */
+.dh-fl { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.dh-fl button { width: 100%; height: 100%; text-align: left; border: 0; cursor: pointer; background: #0b1729; color: #fff; border-radius: 10px; padding: 10px 10px 8px 24px; position: relative; font: inherit; font-size: .78rem; line-height: 1.3; min-height: 74px; }
+.dh-fl button:hover { background: #12233f; }
+.dh-fl button i { position: absolute; left: 10px; top: 14px; width: 8px; height: 8px; border-radius: 50%; background: #e11d2e; animation: dhPulse 1.6s ease-in-out infinite; }
+.dh-fl button b { display: block; font-weight: 600; }
+.dh-fl button span { display: block; opacity: .65; font-size: .68rem; margin-top: 4px; }
+@keyframes dhPulse { 0%, 100% { opacity: 1; } 50% { opacity: .4; } }
+html.dh .dh-flash { padding: 18px; }
+/* ── Une : vidéo YouTube muette en boucle par-dessus l'image (fondu une fois lancée) ── */
+.dh-une-yt { position: absolute; top: -15%; left: -15%; width: 130%; height: 130%; border: 0; pointer-events: none; opacity: 0; transition: opacity .8s ease; z-index: 0; }
+.dh-une-yt.on { opacity: 1; }
