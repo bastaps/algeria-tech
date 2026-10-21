@@ -39,7 +39,7 @@ SITE = "https://algeria-tech.pages.dev"
 NTFY_FICHIER = Path(r"E:\01-flash-infos\flash_auto\ntfy_canal.txt")
 CATEGORIES = ["Algérie", "Télécoms", "Mobile", "Startups", "IA", "Fintech", "Innovation", "Monde", "Entreprises"]
 SLOTS = ("matin", "midi", "soir")
-DELAI_DEFAUT_MIN = 90
+DELAI_DEFAUT_MIN = 0
 
 # Liste de suivi (marques, opérateurs, institutions, événements TIC) : bonus de score
 SUIVI = re.compile(r"huawei|ericsson|samsung|\blg\b|nokia|zte|ooredoo|mobilis|djezzy|alg[ée]rie t[ée]l[ée]com|"
@@ -435,7 +435,7 @@ choix_canal: "{canal_choix}"
         return 0
     deposer(ident, sortie, g["titre"], avec_video, job.get("slot"))
     notifier(f"À placer : {g['titre'][:60]}",
-             f"{g['lead'][:230]}\n\nChoisissez la place. Sans choix sous {DELAI_DEFAUT_MIN} min : 2e position."
+             f"{g['lead'][:230]}\n\nPublication automatique en 2e position (sauf choix de place ci-dessous). Vous pouvez modifier ou supprimer ensuite."
              f"\n{'Vidéo Flow + ' if avec_video else ''}version interactive prête.",
              clic=f"{SITE}/interactifs/{ident}.html", actions=actions_choix(ident, canal_choix))
     notifier("Corriger ou rejeter ce brouillon ?", f"« {g['titre'][:80]} » — Corriger ouvre l'éditeur en ligne (connexion admin) ; "

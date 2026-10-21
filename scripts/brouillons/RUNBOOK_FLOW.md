@@ -52,3 +52,8 @@ après 90 min sans choix. **Ne rien publier toi-même.** Dossier : `E:\algeria-t
 `PYTHONUTF8=1 python scripts/brouillons/circuit_flow.py alerte "<explication courte>"` puis fermer l'onglet et s'arrêter.
 Un problème de Flow seul (quota, refus, délai) n'est PAS un échec : on publie le brouillon sans vidéo (`none`).
 Ne pas recommencer plus d'une fois.
+
+## Consignes de l'utilisateur (2026-10-21, permanentes)
+- Autorisation permanente d'utiliser Google Flow pour générer la vidéo quand elle est requise.
+- Si l'image montre un haut responsable algérien (président, ministre, PDG) : garder l'image, PAS de vidéo (`none`), sauf si l'article/communiqué fournit déjà une vidéo.
+- Plus de demande de validation par ntfy : l'article est publié automatiquement (2e position par défaut, délai 0). La notification ntfy sert seulement à informer ; l'utilisateur modifie/supprime après coup si besoin.

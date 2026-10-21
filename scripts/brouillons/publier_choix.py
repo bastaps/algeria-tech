@@ -22,7 +22,7 @@ from pathlib import Path
 RACINE = Path(os.environ.get("PUBLIER_RACINE") or Path(__file__).resolve().parents[2])
 SITE = "https://algeria-tech.pages.dev"
 NTFY = os.environ.get("NTFY_BASE", "https://ntfy.sh")
-DELAI_MIN = int(os.environ.get("DELAI_MIN", "90"))
+DELAI_MIN = int(os.environ.get("DELAI_MIN", "0"))
 INTERNES = ("image_suggeree", "brouillon", "circuit", "cree", "choix_canal")
 CHOIX = ("une", "seconde", "breve", "rejeter")
 LIBELLE = {"une": "à la Une", "seconde": "en 2e position", "breve": "en brève"}

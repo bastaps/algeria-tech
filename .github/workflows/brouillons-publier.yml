@@ -33,7 +33,7 @@ jobs:
       - name: Publication selon le choix
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
-          DELAI_MIN: "90"
+          DELAI_MIN: "0"
         run: python3 scripts/brouillons/publier_choix.py
 
       - name: Enregistrement
