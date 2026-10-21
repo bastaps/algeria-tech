@@ -2,16 +2,27 @@ name: Revue de Presse IA — Mise à jour automatique
 
 on:
   schedule:
-    # 05:07 UTC = 06:07 Alger (UTC+1, pas de changement d'heure en Algérie) : le jour de l'édition change à 06h00 Alger.
-    # (minute 07 : évite le pic de retards GitHub sur les heures pile)
-    - cron: '7 5 * * *'
-    - cron: '37 5 * * *'
-    - cron: '7 6 * * *'
-    - cron: '37 6 * * *'
-    - cron: '7 7 * * *'
-    - cron: '7 8 * * *'
+    # GitHub retarde les exécutions planifiées de PLUSIEURS HEURES (constaté : 05:07 UTC → 09:57 UTC, 04:00 → ~09:20).
+    # On part donc la veille au soir / en pleine nuit : 7 créneaux de 21:07 à 03:07 UTC (22h07 → 04h07 heure d'Alger).
+    # Le premier qui s'exécute publie l'édition du jour ; les suivants s'arrêtent (voir generate_revue.js : champ `edition`).
+    # Objectif : revue à jour à 06h00 Alger. Filet de sécurité : le site dépose data/revue-demande.json si l'édition est
+    # périmée après 06h00 (functions/_middleware.js) → déclenchement immédiat par « push » ci-dessous.
+    - cron: '7 21 * * *'
+    - cron: '7 22 * * *'
+    - cron: '7 23 * * *'
+    - cron: '7 0 * * *'
+    - cron: '7 1 * * *'
+    - cron: '7 2 * * *'
+    - cron: '7 3 * * *'
+  push:
+    paths:
+      - 'data/revue-demande.json'
   workflow_dispatch:
     # Permet de lancer manuellement depuis GitHub Actions
+
+concurrency:
+  group: revue-presse
+  cancel-in-progress: false
 
 permissions:
   contents: write
@@ -83,6 +94,7 @@ jobs:
           git config user.email "bot@algeria-tech.dz"
 
           # Toujours stager archives/ (même si revue n'a pas changé)
+          git rm -q --ignore-unmatch data/revue-demande.json || true   # demande déposée par le site : consommée
           git add revue_presse.json articles.json
           git add archives/ 2>/dev/null || true
 

@@ -14,6 +14,7 @@ Règles de sécurité :
 Journal : tools/sync_code.log
 """
 import datetime
+import json
 import os
 import subprocess
 import sys
@@ -54,6 +55,36 @@ def git(*args, check=True):
     return r.stdout
 
 
+def rafraichir_revue(dry):
+    """La revue de presse (revue_presse.json + archives/) n'est produite que par l'automatisme GitHub : la copie locale
+    (localhost) restait figée sur une vieille édition. On l'aligne sur origin/main quand elle est PLUS ANCIENNE — jamais
+    l'inverse, aucun commit, rien d'autre n'est touché."""
+    try:
+        r = subprocess.run(["git", "show", "origin/main:revue_presse.json"], cwd=RACINE, capture_output=True)
+        if r.returncode:
+            return
+        distant = json.loads(r.stdout.decode("utf-8"))
+        chemin = RACINE / "revue_presse.json"
+        try:
+            local = json.loads(chemin.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            local = {}
+        if str(distant.get("lastUpdated", "")) > str(local.get("lastUpdated", "")):
+            if not dry:
+                chemin.write_bytes(r.stdout)
+            log(f"revue_presse.json actualisée pour localhost : {distant.get('date')} ({distant.get('lastUpdated')})")
+        for rel in git("ls-tree", "--name-only", "origin/main", "archives/").splitlines():
+            cible = RACINE / rel
+            if rel.endswith(".json") and not cible.exists():
+                a = subprocess.run(["git", "show", f"origin/main:{rel}"], cwd=RACINE, capture_output=True)
+                if a.returncode == 0 and not dry:
+                    cible.parent.mkdir(exist_ok=True)
+                    cible.write_bytes(a.stdout)
+                    log(f"archive récupérée : {rel}")
+    except Exception as e:  # noqa: BLE001 — ne doit jamais empêcher la synchronisation du code
+        log(f"revue locale non actualisée : {type(e).__name__} {e}")
+
+
 def main():
     dry = "--dry-run" in sys.argv
     if VERROU.exists() and time.time() - VERROU.stat().st_mtime < 900:
@@ -72,6 +103,7 @@ def main():
                 if essai == 3:
                     raise
                 time.sleep(4)
+        rafraichir_revue(dry)
         base = git("rev-parse", "HEAD").strip()
         cible = git("rev-parse", "origin/main").strip()
         if base == cible:

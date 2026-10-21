@@ -24,9 +24,11 @@ if (!MISTRAL_API_KEY && !GEMINI_API_KEY && !OPENROUTER_API_KEY && !OPENAI_API_KE
 }
 
 const sleep = (ms) => new Promise(r => setTimeout(r, ms));
-// Date d'édition : le « jour » de la revue change à 06h00 heure d'Alger (UTC+1, sans changement d'heure) et non à minuit.
-// Avant 06h00 à Alger, on est encore sur l'édition de la veille. (UTC+1 - 6 h = décalage de -5 h, lu en UTC.)
-const dateEdition = () => new Date(Date.now() - 5 * 3600 * 1000);
+// Date d'édition : la revue est PRÉPARÉE LA NUIT pour être prête à 06h00 heure d'Alger (GitHub retarde les exécutions
+// planifiées de plusieurs heures : on part donc tôt). L'édition porte la date du jour de lecture :
+// à partir de 20h00 à Alger la date est celle du lendemain (UTC+1 + 4 h = +5 h, lu en UTC).
+// Ex. exécution à 22h Alger le 21 → « mercredi 22 octobre » ; à 04h Alger le 22 → « mercredi 22 octobre » ; à 10h le 22 → idem.
+const dateEdition = () => new Date(Date.now() + 5 * 3600 * 1000);
 const editionId = () => dateEdition().toISOString().slice(0, 10);
 const fmtEdition = (opts) => dateEdition().toLocaleDateString('fr-FR', { ...opts, timeZone: 'UTC' });
 
@@ -416,7 +418,7 @@ const MIN_CANDIDATS = 8; // en dessous → fenêtre élargie à 48h (week-end, j
 
 async function main() {
     // Plusieurs déclenchements planifiés (GitHub retarde les crons) : le premier publie l'édition du jour, les suivants s'arrêtent ici.
-    if (process.env.GITHUB_EVENT_NAME === 'schedule') {
+    if (['schedule', 'push'].includes(process.env.GITHUB_EVENT_NAME)) {  // push = demande déposée par le site (édition périmée à 06h)
         try {
             const cur = JSON.parse(fs.readFileSync(OUTPUT_FILE, 'utf8'));
             if (cur.edition === editionId()) { console.log('Édition du ' + cur.edition + ' déjà publiée : rien à faire.'); process.exit(0); }

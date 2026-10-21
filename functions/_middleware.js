@@ -3,7 +3,27 @@
 // connexion — le code de l'éditeur n'est même pas envoyé au navigateur.
 // (_routes.json limite ce middleware à /smart-ingest-pro*, /admin-brouillons*, /brouillons/* et /api/*.)
 // Les brouillons non publiés ne sont donc pas lisibles publiquement non plus.
-import { readSession } from './_lib/admin.js';
+import { readSession, ghGet, ghPut } from './_lib/admin.js';
+
+// Filet de sécurité de la revue de presse : GitHub retarde les exécutions planifiées de plusieurs heures. Si, à partir de
+// 06h00 heure d'Alger, quelqu'un charge la revue et que l'édition du jour n'est pas là, le site dépose data/revue-demande.json
+// (un « push » déclenche aussitôt le workflow revue-presse.yml). Au plus une demande toutes les 30 minutes.
+let dernierEssaiRevue = 0;
+async function verifierRevue(res, env) {
+  const alger = new Date(Date.now() + 3600 * 1000);            // heure d'Alger = UTC+1 (pas de changement d'heure)
+  if (alger.getUTCHours() < 6 || !env.GITHUB_TOKEN) return;
+  const attendu = alger.toISOString().slice(0, 10);
+  const j = await res.json();
+  const date = j.edition || String(j.lastUpdated || '').slice(0, 10);
+  if (date >= attendu) return;                                  // à jour (une édition préparée la nuit porte déjà la date du jour)
+  if (Date.now() - dernierEssaiRevue < 15 * 60 * 1000) return;
+  dernierEssaiRevue = Date.now();
+  const deja = await ghGet(env, 'data/revue-demande.json').catch(() => null);
+  if (deja && deja.content) {
+    try { if (Date.now() - JSON.parse(atob(deja.content.replace(/\s/g, ''))).ts < 30 * 60 * 1000) return; } catch { /* demande illisible : on la remplace */ }
+  }
+  await ghPut(env, 'data/revue-demande.json', JSON.stringify({ ts: Date.now(), attendu }), 'Revue périmée : demande de mise à jour');
+}
 
 
 // Anti-abus des endpoints qui consomment des crédits IA/voix (Mistral, ElevenLabs, Workers AI, YouTube) :
@@ -19,8 +39,13 @@ function memeOrigine(request, url) {
   return false;
 }
 
-export async function onRequest({ request, env, next }) {
+export async function onRequest({ request, env, next, waitUntil }) {
   const url = new URL(request.url);
+  if (url.pathname === '/revue_presse.json') {
+    const res = await next();
+    if (request.method === 'GET' && res.ok) { try { waitUntil(verifierRevue(res.clone(), env).catch(() => {})); } catch { /* sans effet sur la réponse */ } }
+    return res;
+  }
   if (COUT.test(url.pathname) && request.method !== 'OPTIONS' && !memeOrigine(request, url)) {
     return new Response(JSON.stringify({ error: 'Accès refusé (appel externe).' }), { status: 403, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' } });
   }
