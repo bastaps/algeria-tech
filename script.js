@@ -1725,7 +1725,15 @@ async function loadRevue() {
     const dateEl = document.getElementById('revueLastUpdate');
     if(!container) return;
     try {
-        const res = await fetch('/revue_presse.json?t=' + Date.now(), { cache: 'no-store' });
+        // localhost : la revue vient du site en ligne (toujours à jour dès l'ouverture) ; la copie locale ne sert qu'hors connexion
+        let res = null;
+        if (isLocal) {
+            try {
+                res = await fetch('https://algeria-tech.pages.dev/revue_presse.json?t=' + Date.now(), { cache: 'no-store' });
+                if (!res.ok) res = null;
+            } catch (e) { res = null; }
+        }
+        if (!res) res = await fetch('/revue_presse.json?t=' + Date.now(), { cache: 'no-store' });
         if(!res.ok) throw new Error('Revue non disponible');
         const data = await res.json();
         if(!data.articles || data.articles.length === 0) throw new Error('Données incomplètes');
