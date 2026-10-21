@@ -54,11 +54,11 @@ html.dh .news-grid.dh-home { display: block; }
 .dh-inter { position: absolute; right: 8px; top: 8px; z-index: 3; background: var(--primary); color: #fff; font-size: .66rem; padding: 3px 8px; border-radius: 4px; }
 .dh-cb { padding: 11px 14px 13px; }
 .dh-cb h3 { font-size: .98rem; line-height: 1.3; margin: 0 0 5px; color: var(--text-dark); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-.dh-suite { display: flex; flex-direction: column; gap: 14px; margin-bottom: 26px; }
+.dh-suite { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-bottom: 26px; align-items: start; }
 .dh-sb { background: var(--bg-white); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
-.dh-sv { display: flex; gap: 14px; align-items: flex-start; padding: 12px 14px; color: inherit; text-decoration: none; }
-.dh-sv .dh-im { flex: 0 0 150px; aspect-ratio: 16/10; border-radius: 8px; }
-.dh-sv .dh-cb { flex: 1; min-width: 0; padding: 0; }
+.dh-sv { display: block; color: inherit; text-decoration: none; }
+.dh-sv .dh-im { aspect-ratio: 16/9; border-radius: 0; }
+.dh-sv .dh-cb { padding: 11px 14px 12px; }
 .dh-sv h3 { font-size: 1rem; }
 .dh-ex { margin: 0 0 5px; font-size: .82rem; color: var(--text-muted); line-height: 1.45; }
 .dh-st { display: block; padding: 12px 14px; border-top: 1px solid var(--border); color: inherit; text-decoration: none; }
@@ -93,14 +93,25 @@ html.dh .at-utils { gap: 8px; }
 html.dh .at-utils .lang-toggle .lt-opt { padding: 0 5px; font-size: .68rem; }
 
 /* ── Flash Info (4 derniers) dans la colonne de droite ── */
-.dh-fl { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.dh-fl button { width: 100%; height: 100%; text-align: left; border: 0; cursor: pointer; background: #0b1729; color: #fff; border-radius: 10px; padding: 10px 10px 8px 24px; position: relative; font: inherit; font-size: .78rem; line-height: 1.3; min-height: 74px; }
-.dh-fl button:hover { background: #12233f; }
-.dh-fl button i { position: absolute; left: 10px; top: 14px; width: 8px; height: 8px; border-radius: 50%; background: #e11d2e; animation: dhPulse 1.6s ease-in-out infinite; }
-.dh-fl button b { display: block; font-weight: 600; }
-.dh-fl button span { display: block; opacity: .65; font-size: .68rem; margin-top: 4px; }
+.dh-fl { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.dh-fl button { width: 100%; text-align: left; border: 0; cursor: pointer; background: transparent; color: var(--text-dark); padding: 0; font: inherit; }
+.dh-fv { position: relative; display: block; aspect-ratio: 16/9; border-radius: 8px; overflow: hidden; background: #0b1729; }
+.dh-fv video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.dh-fv i { position: absolute; left: 6px; top: 6px; width: 8px; height: 8px; border-radius: 50%; background: #e11d2e; animation: dhPulse 1.6s ease-in-out infinite; z-index: 2; box-shadow: 0 0 0 2px rgba(255,255,255,.7); }
+.dh-fl button b { display: block; margin-top: 6px; font-size: .78rem; line-height: 1.3; font-weight: 700; }
+.dh-fl button:hover b { color: var(--primary); }
+.dh-fl .dh-fd { display: block; font-size: .68rem; color: var(--text-muted); margin-top: 2px; }
 @keyframes dhPulse { 0%, 100% { opacity: 1; } 50% { opacity: .4; } }
 html.dh .dh-flash { padding: 18px; }
 /* ── Une : vidéo YouTube muette en boucle par-dessus l'image (fondu une fois lancée) ── */
 .dh-une-yt { position: absolute; top: -15%; left: -15%; width: 130%; height: 130%; border: 0; pointer-events: none; opacity: 0; transition: opacity .8s ease; z-index: 0; }
 .dh-une-yt.on { opacity: 1; }
+
+/* ── Brèves / Les plus lus : vignettes ── */
+html.dh .trending-item { display: flex; align-items: flex-start; gap: 10px; }
+html.dh .trending-item .trending-number { display: none; }
+.dh-mini { position: relative; flex: 0 0 74px; width: 74px; height: 54px; border-radius: 8px; overflow: hidden; background: #ddd; }
+.dh-mini img, .dh-mini video, .dh-mini .dh-ph { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.dh-mini .dh-ph img { width: 55%; height: auto; position: static; }
+.dh-mini .dh-play { display: none; }
+html.dh .trending-item .trending-content { flex: 1; min-width: 0; }

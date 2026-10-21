@@ -136,6 +136,26 @@
 
   ['filterByTag'].forEach(function (n) { var o = window[n]; window[n] = function () { dhTag = true; return o.apply(this, arguments); }; });
   ['filterByCategory', 'goHome'].forEach(function (n) { var o = window[n]; window[n] = function () { dhTag = false; return o.apply(this, arguments); }; });
+
+  // ── Brèves / Les plus lus : vignette (image, vidéo animée ou logo par défaut) devant chaque titre, dates au format du site ──
+  function miniatures(listId) {
+    var ul = document.getElementById(listId); if (!ul) return;
+    ul.querySelectorAll('li').forEach(function (li) {
+      if (li.querySelector('.dh-mini')) return;
+      var m = String(li.getAttribute('onclick') || '').match(/openArticle\('([^']+)'/); if (!m) return;
+      var a = findArticleById(m[1]); if (!a) return;
+      var box = document.createElement('div'); box.className = 'dh-mini'; box.innerHTML = media(a);
+      li.insertBefore(box, li.firstChild);
+      var sp = li.querySelector('.trending-content span');
+      if (sp) sp.textContent = dateLabel(a);
+    });
+    vids(ul);
+  }
+  ['renderBreves', 'renderTrending'].forEach(function (n) {
+    var o = window[n]; if (typeof o !== 'function') return;
+    window[n] = function () { var r = o.apply(this, arguments); miniatures(n === 'renderBreves' ? 'brevesList' : 'trendingList'); return r; };
+  });
+
   var origGrid = window.renderGrid, origPag = window.renderPagination;
   window.renderGrid = function (arts) {
     var grid = document.getElementById('newsGrid');
@@ -266,6 +286,23 @@
     var t = String(x.titre || '').replace(/^Flash Info\s*[·—–-]\s*/, '');
     return t.split(/\s*[·—–]\s*/)[0] || t;
   }
+  // Les 4 flashs bougent seulement quand ils sont visibles ; on ne boucle que sur les 7 premières secondes (≈ 3 Mo au lieu de 10 Mo par flash).
+  // Connexion très lente (2g) / économie de données : image fixe, lecture au survol uniquement.
+  function animerFlash(w) {
+    var c = navigator.connection || {}, lent = c.saveData || /(slow-)?2g/.test(c.effectiveType || ''), moyen = /3g/.test(c.effectiveType || '');
+    var calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    w.querySelectorAll('video[data-fl]').forEach(function (v) {
+      v.addEventListener('timeupdate', function () { if (v.currentTime > 7) v.currentTime = 0.1; });
+      var btn = v.closest('button');
+      btn.addEventListener('mouseenter', function () { if (lent || calme) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } });
+      btn.addEventListener('mouseleave', function () { if (lent || calme) v.pause(); });
+    });
+    if (lent || calme || !('IntersectionObserver' in window)) return;
+    var io2 = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { var v = e.target; if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else v.pause(); });
+    }, { threshold: .5 });
+    w.querySelectorAll('video[data-fl]').forEach(function (v, i) { if (!moyen || i === 0) io2.observe(v); });   // connexion moyenne (3g) : seul le premier flash bouge
+  }
   function flashInfos() {
     var side = document.querySelector('.sidebar');
     if (!side || document.getElementById('dhFlash')) return;
@@ -277,8 +314,10 @@
         var d = new Date(x.publishedAt), ok = isFinite(d);
         var j = ok ? d.toLocaleDateString('en-CA', { timeZone: 'Africa/Algiers' }) : '';
         var hm = ok ? d.toLocaleTimeString('fr-FR', { timeZone: 'Africa/Algiers', hour: '2-digit', minute: '2-digit' }) : '';
-        return '<li><button type="button" data-i="' + i + '" title="Voir ce flash"><i></i><b>' + esc(flashTitre(x)) + '</b><span>' + esc(ok ? dateLabel({ date: j, heure: hm }) : '') + '</span></button></li>';
+        return '<li><button type="button" data-i="' + i + '" title="Voir ce flash en entier"><span class="dh-fv"><video src="' + esc(x.mp4Url) + '#t=0.1" muted loop playsinline preload="metadata" data-fl></video><i></i></span>' +
+          '<b>' + esc(flashTitre(x)) + '</b><span class="dh-fd">' + esc(ok ? dateLabel({ date: j, heure: hm }) : '') + '</span></button></li>';
       }).join('') + '</ul>';
+      animerFlash(w);
       side.insertBefore(w, document.getElementById('expressWidget') || side.firstChild);
       w.addEventListener('click', function (e) {
         var b = e.target.closest('button[data-i]'); if (!b) return;
@@ -299,6 +338,8 @@
       window.renderHero(allArticles);
       window.renderGrid(allArticles.slice(0, 6));
       window.renderPagination(allArticles);
+      if (window.renderBreves) window.renderBreves();
+      if (window.renderTrending) window.renderTrending();
     }
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
