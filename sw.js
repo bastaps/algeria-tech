@@ -14,7 +14,7 @@
  * la rapidité des requêtes réseau sans contenu périmé.
  */
 
-const CACHE_VERSION = 'algeria-tech-v23';
+const CACHE_VERSION = 'algeria-tech-v24';
 const CACHE_IMAGES  = 'algeria-tech-images-v1';
 
 // ── Assets locaux pré-cachés (HTML et CDN exclus volontairement) ──────────────
@@ -108,6 +108,13 @@ self.addEventListener('fetch', event => {
 
   // ── 2 bis. La revue de presse change chaque matin : réseau d'abord, jamais de copie périmée.
   if (url.pathname === '/revue_presse.json') {
+    event.respondWith(networkFirst(event.request));
+    return;
+  }
+
+  // ── 2 ter. Listes d'articles : réseau d'abord (revalidé par le navigateur). Une copie périmée servie par le cache
+  //    montrait un article corrigé avec son ancienne forme jusqu'à plusieurs rechargements plus tard.
+  if (url.pathname === '/articles-list.json' || url.pathname === '/articles.json' || url.pathname.startsWith('/articles/')) {
     event.respondWith(networkFirst(event.request));
     return;
   }

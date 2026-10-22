@@ -334,7 +334,10 @@ setInterval(updateLiveClock, 1000);
 async function loadArticles() {
 
     // ── 1. Affichage instantané depuis le cache localStorage ──
-    let cachedIds = ''; // mémorise les IDs déjà affichés pour éviter un double-render
+    // Signature du contenu affiché (pas seulement les identifiants) : un article modifié (titre, image, vidéo, extrait, rubrique, rang…)
+    // doit être re-rendu même si la liste d'identifiants est identique.
+    const _sig = list => list.map(a => [a.id, a.titre, a.image, a.video, a.extrait, a.date, a.heure, a.categorie, a.position, a.interactif, a.mediaPriority].join('|')).join('\n');
+    let cachedIds = ''; // signature du contenu déjà affiché, pour éviter un double-render
     const cached = localStorage.getItem('at_articles_cache');
     if (cached) {
         try {
@@ -348,7 +351,7 @@ async function loadArticles() {
                 breveArticles = JSON.parse(localStorage.getItem('at_breves_cache') || '[]');
                 breveArticles.forEach(a => { a.views = articleViews[a.id] || Math.floor(Math.random() * 500) + 50; });
             } catch (e) { breveArticles = []; }
-            cachedIds = allArticles.map(a => a.id).join(',');
+            cachedIds = _sig(allArticles);
             _renderAll(allArticles);
         } catch (e) {
             localStorage.removeItem('at_articles_cache');
@@ -390,7 +393,7 @@ async function loadArticles() {
         // Évite le double-render quand le SW sert articles.json depuis son cache
         // instantanément : sans ce garde, les deux renders se chevauchent en ~0 ms
         // et l'animation CSS (fadeInUp) se rejoue → effet de vibration visible.
-        const newIds = allArticles.map(a => a.id).join(',');
+        const newIds = _sig(allArticles);
         if (newIds !== cachedIds) _renderAll(allArticles);
         else renderBreves(); // Brèves reste à resynchroniser avec le réseau même si le flux principal est inchangé
 
@@ -491,7 +494,7 @@ async function ensureRawContent(art) {
 
     // 1) Fichier Markdown statique
     try {
-        const r = await fetch(`/articles/${art.id}.md`, { cache: 'force-cache' });
+        const r = await fetch(`/articles/${art.id}.md`, { cache: 'no-cache' });   // revalide (ETag → 304 si inchangé) : un article corrigé s'affiche aussitôt, jamais la copie périmée du navigateur
         if (r.ok) {
             const parsed = parseMarkdownFile(await r.text());
             if (parsed.rawContent) {
