@@ -302,6 +302,18 @@ function generateArticlePage(art) {
     ]
 })}</script>
 
+<!-- Visiteurs humains : la page se recharge avec l'interface complète du site (en-tête, menus, mise en page) ; les robots gardent ce contenu pré-rendu. -->
+<script>
+(function(){
+  if (/bot|crawl|spider|slurp|facebookexternalhit|whatsapp|telegram|preview|lighthouse/i.test(navigator.userAgent)) return;
+  document.documentElement.className += ' hy';
+  setTimeout(function(){ document.documentElement.className = document.documentElement.className.replace(' hy',''); }, 6000);
+  fetch('/index.html', { credentials: 'same-origin' }).then(function(r){ if (!r.ok) throw 0; return r.text(); })
+    .then(function(h){ document.open(); document.write(h); document.close(); })
+    .catch(function(){ document.documentElement.className = document.documentElement.className.replace(' hy',''); });
+})();
+</script>
+<style>html.hy body{visibility:hidden}</style>
 <link rel="stylesheet" href="/style.css?v=${CSS_V}">
 <link rel="stylesheet" href="/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="/mobile-lite.css?v=11">
@@ -321,7 +333,7 @@ function generateArticlePage(art) {
 <!-- Contenu pré-rendu pour les crawlers (Google, Google News, Bing…) -->
 <article class="ssg-article" itemscope itemtype="https://schema.org/NewsArticle">
   <meta itemprop="headline" content="${title}">
-  ${art.image ? `<img src="${escapeHtml(art.image)}" alt="${title}" itemprop="image">` : ''}
+  ${art.image ? `<img src="${escapeHtml(/^(https?:)?\/\//.test(art.image) || art.image.startsWith('/') ? art.image : '/' + art.image)}" alt="${title}" itemprop="image">` : ''}
   <h1 itemprop="name">${title}</h1>
   <p class="meta">
     <span itemprop="datePublished" content="${dateISO}">${art.date || ''}</span>
@@ -338,6 +350,7 @@ function generateArticlePage(art) {
 <script>
 // Charge le SPA principal depuis la racine
 (function() {
+  if (document.documentElement.className.indexOf('hy') > -1) return;   // visiteur humain : la page va être remplacée par index.html
   const s = document.createElement('script');
   s.src = '/script.js?v=${JS_V}';
   s.defer = true;
