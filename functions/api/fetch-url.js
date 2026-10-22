@@ -57,6 +57,12 @@ function extraireMedias(html, base, ogImage, ogVideo) {
   return { images: images.slice(0, 12), videos: videos.slice(0, 6) };
 }
 
+// Les pages d'article d'Algeria Tech portent leur texte pré-rendu dans <noscript><article>…</article></noscript> (la page elle-même est
+// la coque du site). On le « déplie » avant extraction, sinon le texte serait retiré avec les autres <noscript>.
+function depliePrerendu(html) {
+    return String(html).replace(/<noscript>\s*(<article\b[\s\S]*?<\/article>)\s*<\/noscript>/gi, '$1');
+}
+
 async function lireHtml(url) {
   const r = await fetch(url, {
     redirect: 'follow',
@@ -69,7 +75,7 @@ async function lireHtml(url) {
   if (type && !/html|xml|text/i.test(type)) throw new Error('Ce lien ne renvoie pas une page web');
   const buf = await r.arrayBuffer();
   if (buf.byteLength > 3 * 1024 * 1024) throw new Error('Page trop volumineuse');
-  return new TextDecoder('utf-8').decode(buf);
+  return depliePrerendu(new TextDecoder('utf-8').decode(buf));
 }
 
 async function lireViaLecteur(url) {

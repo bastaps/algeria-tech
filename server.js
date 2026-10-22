@@ -1012,8 +1012,14 @@ function fetchWebPage(url, redirectsLeft = 4) {
     });
 }
 
+// Les pages d'article d'Algeria Tech portent leur texte pré-rendu dans <noscript><article>…</article></noscript> (la page elle-même est
+// la coque du site). On le « déplie » avant extraction, sinon le texte serait retiré avec les autres <noscript>.
+function depliePrerendu(html) {
+    return String(html).replace(/<noscript>\s*(<article\b[\s\S]*?<\/article>)\s*<\/noscript>/gi, '$1');
+}
+
 function extractMainText(html) {
-    let clean = html
+    let clean = depliePrerendu(html)
         .replace(/<!--[\s\S]*?-->/g, ' ')
         .replace(/<script[\s\S]*?<\/script>/gi, ' ')
         .replace(/<style[\s\S]*?<\/style>/gi, ' ')
