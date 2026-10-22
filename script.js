@@ -87,7 +87,11 @@ window.addEventListener('message', (e) => {
     if (e.origin !== location.origin || !e.data || e.data.source !== 'smart-ingest-pro') return;
     if (e.data.type === 'publie') {
         invalidateArticlesCache();
-        setTimeout(() => { const ov = document.getElementById('atSipOverlay'); if (ov) ov.remove(); showToast('✅ Enregistré (visible dans 1-2 min)'); }, 2500);
+        setTimeout(() => {
+            const ov = document.getElementById('atSipOverlay'); if (ov) ov.remove();
+            if (ADMIN_CONFIG.isLocalhost) { showToast('✅ Enregistré'); setTimeout(() => location.reload(), 600); }   // localhost : on recharge pour voir l'article corrigé
+            else showToast('✅ Enregistré (visible dans 1-2 min)');
+        }, 2500);
     }
 });
 
@@ -2609,8 +2613,8 @@ window.hubFill = function() {
 
 // ===== GESTION ADMIN =====
 window.toggleAdminPanel = async function() {
-    // En ligne : éditeur Smart Ingest PRO (session admin serveur)
-    if (isOnlineAdmin()) return openSmartIngestPro(currentEditingId || '');
+    // Crayon / « + » : toujours Smart Ingest PRO (en ligne : session admin serveur ; en localhost : Hub). L'ancien formulaire n'est plus ouvert.
+    if (isOnlineAdmin() || ADMIN_CONFIG.isLocalhost) return openSmartIngestPro(currentEditingId || '');
     if (!isAdminUnlocked()) {
         return showToast('🔒 Administration disponible uniquement en local');
     }
