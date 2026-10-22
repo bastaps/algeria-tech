@@ -757,6 +757,24 @@
       "source_type": "rss"
     },
     {
+      "id": "4ab68200e0801dff",
+      "source_name": "Algérie Poste",
+      "source_short": "AP",
+      "source_color": "#F9A825",
+      "category": "Infrastructure",
+      "category_icon": "✉️",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPSTEyUGZWV1loTmFyQWNaQ3J5VDJOcjBTbnhIcENOSUJlMjhCNHg2UTdESURQNkFKZGE3YzdQOURFc2c4b2hucWpJREROUmpuR25Md0Y2VUQ1MWtKVVhDNXJ0dTVpUDhraGh3aHlMT2EzZ1lfOEhYRlZzRnpSS0xVczRxcW1ydmhwdUxGU29Qcw?oc=5",
+      "image": "",
+      "date": "Wed, 21 Oct 2026 14:08:38 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Algérie Poste célèbre la journée mondiale de la poste - www.horizons.dz — Algérie Poste célèbre la journée mondiale de la poste www.horizons.dz",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "0aebf26323c340ae",
       "source_name": "Algérie Télécom",
       "source_short": "AT",
@@ -1061,24 +1079,6 @@
         "en": ""
       },
       "source_type": "youtube"
-    },
-    {
-      "id": "55012729aea55607",
-      "source_name": "Algérie Télécom",
-      "source_short": "AT",
-      "source_color": "#0055A4",
-      "category": "Infrastructure",
-      "category_icon": "📡",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQeVphOTRxUFVnUURUbDlaRXJEcE1PbldGQjBjMnFZSHZvRUQzbFBDd1RCMGc0dkdhLVZZdjYwdGFuYVFOWXBhWW5qZEUtNEgzUHNuS05iemVXUW1kcjYybzhXaktZd1BXQUExNWo4bGQ4MEV1ZnU1SXpnc2J0aFZWbVRjLXVQdjZhVmc?oc=5",
-      "image": "",
-      "date": "Mon, 12 Oct 2026 09:05:21 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Fibre optique : Algérie Télécom franchit les 4 millions d’abonnés - El Watan — Fibre optique : Algérie Télécom franchit les 4 millions d’abonnés El Watan",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     },
     {
       "id": "691b2ec836e53898",
@@ -1437,6 +1437,258 @@
         "fr": "Huawei et China Telecom deploient 3 400 sites 5G-A a Shanghai - objetconnecte.com — Huawei et China Telecom deploient 3 400 sites 5G-A a Shanghai objetconnecte.com",
         "ar": "",
         "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "4104db3150d40b18",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/apres-les-legumes-moches-place-aux-ordinateurs-cabosses-a-prix-casse-506303.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 22 Oct 2026 08:40:35 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Après les légumes moches, place aux ordinateurs cabossés à prix cassé — Un téléphone mobile ou un ordinateur portable peut rester pleinement fonctionnel tout en présentant des rayures ou des marques d’usure. Des défauts esthétiques qui justifient des prix particulièrement bas.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "7a462569ce23c2db",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/business-1367/salesforce-braze-229848",
+      "image": "",
+      "date": "Thu, 22 Oct 2026 08:20:59 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Salesforce engloutit son concurrent Braze pour près de 6 milliards $ — Salesforce compte s'emparer de Blaze, éditeur américain qui s'est imposé dans le paysage des plates-formes marketing. The post Salesforce engloutit son concurrent Braze pour près de 6 milliards $ appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "cbd5ed74362688ce",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/la-maif-veut-moderniser-son-si-mais-pas-a-nimporte-quel-prix-505990.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 22 Oct 2026 08:00:25 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "La Maif veut moderniser son SI, mais pas à n’importe quel prix — L’assureur Maif annonce l’accélération de la modernisation de son SI, mais selon une trajectoire qu’il souhaite souveraine tant sur l’intelligence artificielle que le cloud et la relation client. Mistral AI, Scaleway, Diabolocom intègrent son portefeuille applicatif.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "85ee698039da77e9",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/publicite/cybersecurity-awareness-month-gestion-des-identites-les-quatre-maillons-dune-meme-chaine-dattaque-505994.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 22 Oct 2026 07:00:47 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Cybersecurity Awareness Month - Gestion des identités : les quatre maillons d'une même chaîne d'attaque — Le mois de la cybersécurité, en octobre, se résume trop souvent à rappeler aux collaborateurs de se méfier des e-mails piégés. Utile, mais réducteur car les attaques visant les identités empruntent bien d’autres chemins, et surtout, elles les enchaînent. Mot de passe compromis, session détournée, su",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "002ecebfaa9e50ec",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/google-fournit-son-ia-au-pentagone-des-chercheurs-demissionnent-506281.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 22 Oct 2026 07:00:00 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Google fournit son IA au Pentagone : des chercheurs démissionnent — Plusieurs chercheurs de Google DeepMind ont quitté l’entreprise pour protester contre le renforcement de ses liens avec l’armée américaine. Ils s’inquiètent notamment de la capacité à garantir un contrôle humain effectif sur les systèmes d’IA utilisés dans des opérations militaires classifiées.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f54f6c259cc9084e",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/dell-et-nvidia-elargissent-leur-offre-dinfrastructures-pour-agents-dia-des-postes-de-travail-aux-datacenters-506269.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 22 Oct 2026 06:01:29 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Dell et NVIDIA élargissent leur offre d’infrastructures pour agents d’IA, des postes de travail aux datacenters — Dell enrichit son offre Dell AI Factory with NVIDIA : trois serveurs PowerEdge, un centre de données modulaire et des postes pour développer des agents d’IA.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "be394ec1ec1342eb",
+      "source_name": "Android DZ",
+      "source_short": "ADZ",
+      "source_color": "#33691E",
+      "category": "Médias TIC",
+      "category_icon": "🤖",
+      "url": "https://www.android-dz.com/localisation-iphone-bloquer-l-acces-des-apps-en-quelques-etapes/",
+      "image": "",
+      "date": "2026-10-22T05:42:00.071Z",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Localisation iPhone : bloquer l'accès des apps en quelques étapes — Vos applications savent souvent où vous êtes, même quand vous n'en avez pas besoin. Voici comment reprendre le contrôle de votre localisation sur iPhone, réglage par réglage.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "59d4f19b417dfa38",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/zd-tech-gpt-6-dopenai-casse-le-code-enigma-en-2-jours-la-rupture-des-agents-ia-506159.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 22 Oct 2026 05:30:41 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "ZD Tech : GPT-6 d'OpenAI casse le code Enigma en 2 jours : la rupture des agents IA — Le modèle GPT-6 Astra d'OpenAI a réussi à décrypter un message historique de la machine Enigma en toute autonomie. Une prouesse technique réalisée en deux jours seulement, qui préfigure l'arrivée d'agents autonomes capables de résoudre vos problèmes métier complexes.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "0ffdee6aed64efe5",
+      "source_name": "Android DZ",
+      "source_short": "ADZ",
+      "source_color": "#33691E",
+      "category": "Médias TIC",
+      "category_icon": "🤖",
+      "url": "https://www.android-dz.com/ecouteurs-usb-c-a-moins-de-1000-php-le-comparatif-des-5-meilleures-options/",
+      "image": "",
+      "date": "2026-10-22T05:25:00.079Z",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Écouteurs USB-C à moins de 1000 PHP : le comparatif des 5 meilleures options — Plus besoin de débourser une fortune pour s'équiper d'écouteurs filaires USB-C corrects. Voici cinq modèles accessibles, tous sous la barre des 1000 pesos philippins, avec micro intégré et commandes pratiques.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "a129ec6767b6d8de",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/ebay-supprime-environ-1-000-postes-deuxieme-vague-de-licenciements-de-lannee-506267.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 22 Oct 2026 05:00:52 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "eBay supprime environ 1 000 postes, deuxième vague de licenciements de l’année — eBay va supprimer près de 9 % de ses effectifs, selon un mémo interne. C’est la deuxième vague de licenciements de l’année, après 800 postes en février. L’entreprise dit vouloir recentrer ses ressources sur ses priorités stratégiques.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "05d30feac7801c7b",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/21/tesla-says-it-will-start-selling-cybercabs-by-end-of-year/",
+      "image": "",
+      "date": "Thu, 22 Oct 2026 00:17:54 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Tesla says it will start selling Cybercabs by end of year — Tesla said Wednesday it will start selling its Cybercab to customers by the end of the year, even as federal regulators investigate whether the vehicle meets vehicle safety standards. The gold-hued, autonomous two-seater lacks a steering wheel and other traditional controls. During the company’s thi",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c6715b01bd7e0768",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/21/blackstones-jas-khaira-says-fears-over-ai-buildout-debt-are-overblown/",
+      "image": "",
+      "date": "Wed, 21 Oct 2026 22:51:22 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Blackstone’s Jas Khaira says fears over AI-buildout debt are overblown — Blackstone’s AI head on why the PE giant isn't panicked by market jitters.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "82f29ce2fd1aee5b",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/21/meta-wants-to-pay-for-its-broad-ai-buildout-with-a-newly-created-class-of-stock/",
+      "image": "",
+      "date": "Wed, 21 Oct 2026 22:45:34 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Meta wants to pay for its broad AI buildout with a newly created class of stock — The social media giant is planning a new stock strategy to help power its broad investments in AI models and services.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "bc99a740a88d47ea",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/21/airbnb-limits-chores-for-guests-sparking-backlash-from-hosts/",
+      "image": "",
+      "date": "Wed, 21 Oct 2026 22:16:05 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Airbnb limits chores for guests, sparking backlash from hosts — Hosts are threatening to leave the platform after Airbnb says that they can no longer require guests to strip beds or do other time-consuming cleaning chores.",
+        "ar": "",
+        "fr": ""
       },
       "source_type": "rss"
     },
@@ -5147,268 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "bdc92eefb3243228",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/data-ia-1372/proofpoint-varonis-229705",
-      "image": "",
-      "date": "Fri, 16 Oct 2026 09:32:24 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Avec Varonis, Proofpoint élargit son rayon d’action sur la couche data — Pour 6,3 Md$, Proofpoint veut s'emparer de Varonis. Et compléter ainsi son socle DSPM avec de la gouvernance des accès aux données. The post Avec Varonis, Proofpoint élargit son rayon d’action sur la couche data appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "8e11385fa3e0d6bd",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/nvidia-lance-nemotron-3-5-super-vl-son-modele-ia-ouvert-ultra-rapide-505951.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Fri, 16 Oct 2026 07:46:36 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Nvidia lance Nemotron 3.5 Super VL, son modèle IA ouvert ultra-rapide — Nvidia sort le Nemotron 3.5 Super VL, un modèle IA ouvert affiché cinq fois plus rapide que ses rivaux. Conçu pour les entreprises, il promet des performances inédites sur les tâches automatisées et la gestion de données locales.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "d27671a4b01ae4bd",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/zdnet-morning-16-10-2026-orange-monetise-lacces-prioritaire-a-sa-5g-les-5-priorites-strategiques-ia-des-daf-mai-base-2-le-nouveau-geant-de-microsoft-505948.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Fri, 16 Oct 2026 07:23:36 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "ZDNET Morning 16/10/2026 : Orange monétise l'accès prioritaire à sa 5G, Les 5 priorités stratégiques IA des DAF, MAI-Base-2 : le nouveau géant de Microsoft,... — Le ZDNET Morning le brief de l'actu tech pour les pros tous les matins à 9h00. Transformation numérique, IA, matériel, logiciels,... ne passez pas à côté de ce qui fait la Une du secteur.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "f91cbafdc33b9940",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/microsoft-termine-le-pre-entrainement-de-mai-base-2-un-modele-geant-de-2-800-milliards-de-parametres-505921.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Fri, 16 Oct 2026 07:00:19 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Microsoft termine le pré-entraînement de MAI-Base-2, un modèle géant de 2 800 milliards de paramètres — Microsoft franchit une nouvelle étape dans le développement de ses propres intelligences artificielles. Son nouveau modèle, MAI-Base-2, promet de réduire fortement les besoins en calcul tout en conservant des performances élevées.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "64fb4edfb22dcb2f",
-      "source_name": "NTIC-DZ",
-      "source_short": "NTC",
-      "source_color": "#01579B",
-      "category": "Médias TIC",
-      "category_icon": "🌐",
-      "url": "https://www.ntic-dz.com/indrive-recompense-ses-chauffeurs-avec-une-voiture-neuve-des-motos-et-cinq-voyages-en-egypte/?utm_source=rss&utm_medium=rss&utm_campaign=indrive-recompense-ses-chauffeurs-avec-une-voiture-neuve-des-motos-et-cinq-voyages-en-egypte",
-      "image": "",
-      "date": "Fri, 16 Oct 2026 06:43:43 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "inDrive récompense ses chauffeurs avec une voiture neuve, des motos et cinq voyages en Égypte — feed inDrive a célébré les performances des meilleurs chauffeurs de sa communauté en Algérie à l’occasion d’un événement spécial marquant la clôture de sa compétition estivale annuelle dédiée aux chauffeurs Platinum à Alger, Oran et Annaba. L’événement a réuni les gagnants et les représentants d’inD",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "b0fce1e40c03e749",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/macbook-pro-oled-annonce-fin-octobre-sortie-debut-novembre-505927.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Fri, 16 Oct 2026 06:00:16 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "MacBook Pro OLED : annonce fin octobre, sortie début novembre ? — Apple dévoilerait ses MacBook Pro OLED à écran tactile les 27 ou 28 octobre, pour une sortie le 6 novembre. Bloomberg évoque une réorganisation des Apple Store prévue du 5 au 6 novembre, signe possible d’un lancement de Mac.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "51adcac69f4f274a",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/publicite/zd-tech-voici-pourquoi-le-design-du-dell-xps-13-va-booster-votre-creativite-505773.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Fri, 16 Oct 2026 05:30:43 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "ZD Tech : Voici pourquoi le design du Dell XPS 13 va booster votre créativité — Fini les interfaces surchargées qui brident l'imagination. Avec son design épuré, son clavier bord à bord et son superbe écran OLED, le dernier né de Dell se fait oublier pour laisser place à vos idées. Un véritable atout au quotidien.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "97d7dc6dd61620cc",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/15/even-benchmark-thinks-ai-is-eroding-the-venture-pact-against-backing-rivals/",
-      "image": "",
-      "date": "Fri, 16 Oct 2026 05:16:46 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Even Benchmark thinks AI is eroding the venture pact against backing rivals — Benchmark says the Valley’s rule against backing rivals is getting harder to keep.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "9ae0bbb21785736b",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/anthropic-ouvre-ses-portes-a-des-evaluateurs-externes-505920.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Fri, 16 Oct 2026 05:01:56 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Anthropic ouvre ses portes à des évaluateurs externes — Anthropic donne à six chercheurs de l’organisation METR un accès proche de celui de ses employés, pour évaluer ses risques et ses garde-fous. Ils peuvent publier leurs conclusions sans accord préalable, Anthropic ne pouvant demander que le retrait de données sensibles précises.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "3f579372e804f009",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/15/when-it-came-to-cal-ais-viral-success-a-small-army-of-influencers-paid-off/",
-      "image": "",
-      "date": "Thu, 15 Oct 2026 23:44:56 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "When it came to Cal AI’s viral success, a small army of influencers paid off — The company generated over $30 million in revenue in two years and was acquired by MyFitnessPal for an undisclosed amount of money in March.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "5b3c6bdf8c499f2f",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/15/and-the-winner-of-startup-battlefield-at-disrupt-2026-is-intero-biosystems/",
-      "image": "",
-      "date": "Thu, 15 Oct 2026 23:33:45 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "And the winner of Startup Battlefield at Disrupt 2026 is: Intero Biosystems — Intero Biosystems beat out 199 other Startup Battlefield companies to take home the $100,000 grand prize at TechCrunch Disrupt 2026.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "8cbf2529f4774962",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/15/amazon-devices-chief-panos-panay-on-the-importance-of-failure-and-bouncing-back-from-it/",
-      "image": "",
-      "date": "Thu, 15 Oct 2026 20:38:13 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Amazon devices chief Panos Panay on the importance of failure and bouncing back from it — Panay said that it's possible to recover and learn from all sorts of failures, even catastrophic ones, when building products.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "b79cf62ab2acf241",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/15/meta-launches-an-open-weight-model-that-runs-on-macs/",
-      "image": "",
-      "date": "Thu, 15 Oct 2026 20:04:53 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Meta launches an open-weight AI model that runs on Macs — Meta and Apple have teamed up for the launch of the social media giant's newest model, Muse Spark Open, which will run locally on Apple silicon.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "64142345dd71676c",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/pratique/ia-pratique-testez-lapprentissage-visuel-avec-chatgpt-505882.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Thu, 15 Oct 2026 20:00:21 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "IA pratique : testez l’apprentissage visuel avec ChatGPT — Le nouveau modèle d’intelligence artificielle GPT-6 du chat box permet de créer des images interactives pour vous aider à visualiser et à exploiter les informations dont vous avez besoin. Voici cinq façons d’utiliser cette fonctionnalité.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-10-21T22:03:07.449142+00:00",
+  "lastUpdated": "2026-10-22T12:37:47.307827+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Tech International": 162,
-    "Médias TIC": 58
+    "Tech International": 161,
+    "Médias TIC": 59
   },
   "total": 300
 }
