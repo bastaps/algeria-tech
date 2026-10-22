@@ -234,10 +234,13 @@ function mdToHtml(md = '') {
         .join('\n');
 }
 
+const INDEX_SRC = fs.readFileSync(path.join(__dirname, 'index.html'), 'utf8');
+
 function generateArticlePage(art) {
     const title       = escapeHtml(art.titre);
     const description = escapeHtml(truncate(art.extrait || art.titre, 160));
-    const image       = art.image || `${SITE_URL}/images/logo_v2.png`;
+    const _img        = art.image || '';
+    const image       = !_img ? `${SITE_URL}/images/logo_v2.png` : (/^https?:\/\//.test(_img) ? _img : `${SITE_URL}/${_img.replace(/^\//, '')}`);
     const url         = `${SITE_URL}/article/${art.id}`;
     const dateISO     = art.date ? `${art.date}T${art.heure || '00:00'}:00+01:00` : '';
     const bodyHtml    = mdToHtml(art.rawContent || '');
@@ -262,105 +265,53 @@ function generateArticlePage(art) {
         inLanguage: 'fr'
     });
 
-    return `<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${title} — Algeria Tech</title>
-<meta name="description" content="${description}">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="${url}">
-
-<!-- Open Graph -->
-<meta property="og:type"        content="article">
-<meta property="og:title"       content="${title}">
-<meta property="og:description" content="${description}">
-<meta property="og:image"       content="${escapeHtml(image)}">
-<meta property="og:url"         content="${url}">
-<meta property="og:site_name"   content="Algeria Tech">
+    // La page d'un article est l'index.html du site (même coque : en-tête, menus, routeur JavaScript) avec un <head> adapté à
+    // l'article — exactement comme les pages /veille, /revue… Le routeur ouvre l'article demandé par l'URL, donc F5 / lien
+    // partagé = interface complète. Le texte pré-rendu pour les robots est placé dans <noscript> (jamais affiché aux lecteurs).
+    const breadcrumb = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Accueil', item: SITE_URL + '/' },
+            ...((art.categorie && art.categorie !== 'undefined') ? [{ '@type': 'ListItem', position: 2, name: art.categorie, item: SITE_URL + '/?cat=' + encodeURIComponent(art.categorie) }] : []),
+            { '@type': 'ListItem', position: (art.categorie && art.categorie !== 'undefined') ? 3 : 2, name: art.titre, item: url }
+        ]
+    });
+    const headExtra = `
 <meta property="article:published_time" content="${dateISO}">
-<meta property="article:section"        content="${catLabel}">
-
-<!-- Twitter Card -->
-<meta name="twitter:card"        content="summary_large_image">
-<meta name="twitter:title"       content="${title}">
-<meta name="twitter:description" content="${description}">
-<meta name="twitter:image"       content="${escapeHtml(image)}">
-
+<meta property="article:section" content="${catLabel}">
 <link rel="alternate" type="application/rss+xml" title="Algeria Tech — Flux RSS" href="/rss.xml">
-
-<!-- Schema.org NewsArticle + fil d'Ariane -->
 <script type="application/ld+json">${schema}</script>
-<script type="application/ld+json">${JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Accueil', item: SITE_URL + '/' },
-        ...((art.categorie && art.categorie !== 'undefined') ? [{ '@type': 'ListItem', position: 2, name: art.categorie, item: SITE_URL + '/?cat=' + encodeURIComponent(art.categorie) }] : []),
-        { '@type': 'ListItem', position: (art.categorie && art.categorie !== 'undefined') ? 3 : 2, name: art.titre, item: url }
-    ]
-})}</script>
-
-<!-- Visiteurs humains : la page se recharge avec l'interface complète du site (en-tête, menus, mise en page) ; les robots gardent ce contenu pré-rendu. -->
-<script>
-(function(){
-  if (/bot|crawl|spider|slurp|facebookexternalhit|whatsapp|telegram|preview|lighthouse/i.test(navigator.userAgent)) return;
-  document.documentElement.className += ' hy';
-  setTimeout(function(){ document.documentElement.className = document.documentElement.className.replace(' hy',''); }, 6000);
-  fetch('/index.html', { credentials: 'same-origin' }).then(function(r){ if (!r.ok) throw 0; return r.text(); })
-    .then(function(h){ document.open(); document.write(h); document.close(); })
-    .catch(function(){ document.documentElement.className = document.documentElement.className.replace(' hy',''); });
-})();
-</script>
-<style>html.hy body{visibility:hidden}</style>
-<link rel="stylesheet" href="/style.css?v=${CSS_V}">
-<link rel="stylesheet" href="/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="/mobile-lite.css?v=11">
-<style>
-  .ssg-article { max-width:800px; margin:80px auto; padding:0 20px 60px; font-family:Inter,sans-serif; }
-  .ssg-article img { width:100%; border-radius:8px; margin-bottom:24px; }
-  .ssg-article h1 { font-size:1.8rem; line-height:1.3; margin-bottom:12px; }
-  .ssg-article .meta { color:#666; font-size:.85rem; margin-bottom:24px; }
-  .ssg-article .body { line-height:1.5; color:#333; font-size:1rem; }
-  .ssg-article .body p { margin:0 0 8px; }
-  .ssg-article .body h2 { font-size:1.19rem; line-height:1.3; margin:16px 0 6px; }
-  .ssg-article .body ul { margin:0 0 8px; padding-left:1.3em; }
-  .ssg-article .body li { margin:0 0 3px; }
-</style>
-</head>
-<body>
-<!-- Contenu pré-rendu pour les crawlers (Google, Google News, Bing…) -->
-<article class="ssg-article" itemscope itemtype="https://schema.org/NewsArticle">
+<script type="application/ld+json">${breadcrumb}</script>
+`;
+    const noscript = `<noscript><article class="ssg-article" itemscope itemtype="https://schema.org/NewsArticle">
   <meta itemprop="headline" content="${title}">
-  ${art.image ? `<img src="${escapeHtml(/^(https?:)?\/\//.test(art.image) || art.image.startsWith('/') ? art.image : '/' + art.image)}" alt="${title}" itemprop="image">` : ''}
+  ${art.image ? `<img src="${escapeHtml(image)}" alt="${title}" itemprop="image" style="max-width:100%">` : ''}
   <h1 itemprop="name">${title}</h1>
-  <p class="meta">
-    <span itemprop="datePublished" content="${dateISO}">${art.date || ''}</span>
-    ${art.categorie ? ` · <span itemprop="articleSection">${catLabel}</span>` : ''}
-    · <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">Basta</span></span>
-  </p>
+  <p class="meta"><span itemprop="datePublished" content="${dateISO}">${art.date || ''}</span>${art.categorie ? ` · <span itemprop="articleSection">${catLabel}</span>` : ''} · <span itemprop="author">Basta</span></p>
   <div class="body" itemprop="articleBody">
     ${bodyHtml || `<p>${escapeHtml(art.extrait || '')}</p>`}
   </div>
-</article>
-
-<script src="/mobile-lite.js?v=8" defer></script>
-<!-- Chargement de l'application SPA (remplace le contenu ci-dessus pour les vrais utilisateurs) -->
-<script>
-// Charge le SPA principal depuis la racine
-(function() {
-  if (document.documentElement.className.indexOf('hy') > -1) return;   // visiteur humain : la page va être remplacée par index.html
-  const s = document.createElement('script');
-  s.src = '/script.js?v=${JS_V}';
-  s.defer = true;
-  document.head.appendChild(s);
-})();
-</script>
-<!-- Cloudflare Web Analytics : mesure d'audience sans cookies -->
-<script>if(!/^(localhost|127\.|192\.168\.|10\.)/.test(location.hostname)){var _cf=document.createElement('script');_cf.type='module';_cf.src='https://static.cloudflareinsights.com/beacon.min.js';_cf.setAttribute('data-cf-beacon','{"token": "b0b62e76bba94885ac225a63c5feb365"}');document.body.appendChild(_cf);}</script>
-</body>
-</html>`;
+</article></noscript>`;
+    const setMeta = (h, attr, name, val) =>
+        h.replace(new RegExp('(<meta ' + attr + '="' + name + '"\\s+content=")[^"]*(")'), (m, x, y) => x + val + y);
+    let h = INDEX_SRC.replace(/<title>[\s\S]*?<\/title>/, () => `<title>${title} — Algeria Tech</title>`);
+    h = setMeta(h, 'name', 'description', description);
+    h = h.replace(/(<link rel="canonical" href=")[^"]*(")/, (m, x, y) => `${x}${url}${y}`);
+    h = setMeta(h, 'property', 'og:type', 'article');
+    h = setMeta(h, 'property', 'og:title', title);
+    h = setMeta(h, 'property', 'og:description', description);
+    h = setMeta(h, 'property', 'og:image', escapeHtml(image));
+    h = setMeta(h, 'property', 'og:url', url);
+    h = setMeta(h, 'name', 'twitter:card', 'summary_large_image');
+    h = setMeta(h, 'name', 'twitter:title', title);
+    h = setMeta(h, 'name', 'twitter:description', description);
+    h = setMeta(h, 'name', 'twitter:image', escapeHtml(image));
+    // chemins relatifs → absolus (la page vit sous /article/<id>/)
+    h = h.replace(/(\s(?:src|href)=")(?!https?:|\/|#|mailto:|tel:|javascript:|data:)([^"]+)(")/g, '$1/$2$3');
+    return h
+        .replace('</head>', () => headExtra + '</head>')
+        .replace(/<body[^>]*>/, (m) => m + '\n' + noscript);
 }
 
 // Crée le dossier article/ si nécessaire
