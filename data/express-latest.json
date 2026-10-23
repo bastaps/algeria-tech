@@ -1,5 +1,17 @@
 [
  {
+  "id": "20261023-181711-11261c",
+  "titre": "Des sites publics suspendus après une faille PHP",
+  "texte": "Bonjour. De nombreux sites gouvernementaux français ont été temporairement suspendus après la découverte de failles critiques dans le langage PHP. Ces vulnérabilités permettent de prendre le contrôle d'un serveur à distance afin d'y injecter un logiciel malveillant. Cette paralysie soudaine de services publics essentiels illustre le danger représenté par le retard des mises à jour.",
+  "source": "BFM Tech",
+  "url": "https://www.bfmtv.com/tech/cybersecurite/apres-la-faille-php-les-developpeurs-du-monde-entier-appeles-a-etre-plus-vigilants-et-pro-actifs-dans-les-mises-a-jour_AV-202610230780.html",
+  "pays": "INT",
+  "duree": 26.92,
+  "mp4Url": "https://bastaps.github.io/algeria-tech-videos/express/20261023-181711-11261c.mp4",
+  "poster": "https://bastaps.github.io/algeria-tech-videos/express/20261023-181711-11261c.jpg",
+  "publishedAt": "2026-10-23T18:19:04Z"
+ },
+ {
   "id": "20261023-095807-62eba7",
   "titre": "Retrait d'autorisation pour l'opérateur Datagix",
   "texte": "Bonjour. L'autorité de régulation annonce le retrait définitif de l'autorisation de l'opérateur Datagix. Cette décision concerne les services d'hébergement et de stockage de données en cloud computing. L'entreprise est invitée à se rapprocher sans délais des services compétents.",
@@ -346,17 +358,5 @@
   "mp4Url": "https://bastaps.github.io/algeria-tech-videos/express/20261006-192904-2bbff7.mp4",
   "poster": "https://bastaps.github.io/algeria-tech-videos/express/20261006-192904-2bbff7.jpg",
   "publishedAt": "2026-10-06T19:30:45Z"
- },
- {
-  "id": "20261006-120217-8fd20e",
-  "titre": "Cohere lance North 2 pour l'IA d'entreprise",
-  "texte": "Bonjour. Cohere a lancé North 2, ses agents d'IA conçus pour les entreprises. North 2 combine autonomie, mémoire et automatisation, avec validation humaine et quotas d'utilisation pour contrôler les coûts et les données. La plateforme peut s'exécuter dans le cloud, en privé, sur site ou en environnement isolé, répondant ainsi aux exigences de souveraineté des données des entreprises.",
-  "source": "Le Monde Informatique",
-  "url": "https://www.lemondeinformatique.fr/actualites/lire-cohere-lance-north-2-ses-agents-ia-a-l-assaut-des-entreprises-100835.html",
-  "pays": "INT",
-  "duree": 28.52,
-  "mp4Url": "https://bastaps.github.io/algeria-tech-videos/express/20261006-120217-8fd20e.mp4",
-  "poster": "https://bastaps.github.io/algeria-tech-videos/express/20261006-120217-8fd20e.jpg",
-  "publishedAt": "2026-10-06T12:04:00Z"
  }
 ]
