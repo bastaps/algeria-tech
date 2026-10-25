@@ -1,5 +1,17 @@
 [
  {
+  "id": "20261025-173122-3a3140",
+  "titre": "Fichier AGENTS.md pirate un agent de codage AI",
+  "texte": "Bonjour. Un fichier AGENTS.md malveillant dans le dossier Téléchargements a trompé un agent de codage AI en installant un paquet npm rogue. Les chercheurs ont reproduit l'attaque contre OpenAI Codex et ont démontré une technique similaire contre Claude Code pour voler des jetons OAuth et pirater le compte. Le dossier Téléchargements est spécial car le web peut y écrire sans interaction utilisateur.",
+  "source": "BleepingComputer",
+  "url": "https://www.bleepingcomputer.com/news/security/ai-coding-agents-hijacked-using-agentsmd-file-in-downloads-folder/",
+  "pays": "INT",
+  "duree": 27.8,
+  "mp4Url": "https://bastaps.github.io/algeria-tech-videos/express/20261025-173122-3a3140.mp4",
+  "poster": "https://bastaps.github.io/algeria-tech-videos/express/20261025-173122-3a3140.jpg",
+  "publishedAt": "2026-10-25T17:32:42Z"
+ },
+ {
   "id": "20261025-094541-ef15c4",
   "titre": "Panne géante et actualités tech de la semaine",
   "texte": "Bonjour. L'opérateur Orange a subi une panne géante cette semaine. Des failles de sécurité ont également été découvertes dans le langage PHP. Ces incidents techniques majeurs soulignent les vulnérabilités persistantes des infrastructures numériques actuelles.",
@@ -346,17 +358,5 @@
   "mp4Url": "https://bastaps.github.io/algeria-tech-videos/express/20261009-114759-f35bd2.mp4",
   "poster": "https://bastaps.github.io/algeria-tech-videos/express/20261009-114759-f35bd2.jpg",
   "publishedAt": "2026-10-09T11:49:15Z"
- },
- {
-  "id": "20261008-194728-3b9d95",
-  "titre": "Algérie à Genève: droits humains et IA",
-  "texte": "Bonjour. L'Algérie a porté deux résolutions à Genève sur les mines antipersonnel et l'IA. La première, coécrite par 70 pays, insiste sur l'assistance aux victimes. La seconde, sur l'impact de l'IA sur les droits humains, montre l'engagement algérien.",
-  "source": "Crésus",
-  "url": "https://cresus.dz/mines-antipersonnel-intelligence-artificielle-lalgerie-imprime-sa-marque-a-geneve/",
-  "pays": "DZ",
-  "duree": 22.76,
-  "mp4Url": "https://bastaps.github.io/algeria-tech-videos/express/20261008-194728-3b9d95.mp4",
-  "poster": "https://bastaps.github.io/algeria-tech-videos/express/20261008-194728-3b9d95.jpg",
-  "publishedAt": "2026-10-08T19:48:15Z"
  }
 ]

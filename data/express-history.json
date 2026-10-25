@@ -376,5 +376,12 @@
   "titre": "Panne géante chez Orange, failles PHP et test de l’iPhone Duo – le récap’ tech de la semaine",
   "empreinte": "chez failles geante iphone orange panne recap semaine tech test",
   "texte": "Bonjour. L'opérateur Orange a subi une panne géante cette semaine. Des failles de sécurité ont également été découvertes dans le langage PHP. Ces incidents techniques majeurs soulignent les vulnérabilités persistantes des infrastructures numériques actuelles."
+ },
+ {
+  "date": "2026-10-25T17:32:42Z",
+  "url": "https://www.bleepingcomputer.com/news/security/ai-coding-agents-hijacked-using-agentsmd-file-in-downloads-folder/",
+  "titre": "AI coding agents hijacked using AGENTS.md file in Downloads folder",
+  "empreinte": "agents coding downloads file folder hijacked using",
+  "texte": "Bonjour. Un fichier AGENTS.md malveillant dans le dossier Téléchargements a trompé un agent de codage AI en installant un paquet npm rogue. Les chercheurs ont reproduit l'attaque contre OpenAI Codex et ont démontré une technique similaire contre Claude Code pour voler des jetons OAuth et pirater le compte. Le dossier Téléchargements est spécial car le web peut y écrire sans interaction utilisateur."
  }
 ]
