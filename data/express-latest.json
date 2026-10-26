@@ -1,5 +1,17 @@
 [
  {
+  "id": "20261026-195405-becfe2",
+  "titre": "Renouvellement de la licence GSM d'Optimum Télécom",
+  "texte": "Bonjour. Le gouvernement a approuvé par décret le renouvellement de la licence d'un opérateur de téléphonie mobile. Cette décision concerne l'exploitation d'un réseau de communications électroniques ouvert au public et de norme GSM. Elle permet ainsi de poursuivre la fourniture des services de télécommunications afférents à la société.",
+  "source": "ARPCE",
+  "url": "https://www.arpce.dz/fr/pub/o2m5j6",
+  "pays": "DZ",
+  "duree": 25.2,
+  "mp4Url": "https://bastaps.github.io/algeria-tech-videos/express/20261026-195405-becfe2.mp4",
+  "poster": "https://bastaps.github.io/algeria-tech-videos/express/20261026-195405-becfe2.jpg",
+  "publishedAt": "2026-10-26T19:55:35Z"
+ },
+ {
   "id": "20261025-173122-3a3140",
   "titre": "Fichier AGENTS.md pirate un agent de codage AI",
   "texte": "Bonjour. Un fichier AGENTS.md malveillant dans le dossier Téléchargements a trompé un agent de codage AI en installant un paquet npm rogue. Les chercheurs ont reproduit l'attaque contre OpenAI Codex et ont démontré une technique similaire contre Claude Code pour voler des jetons OAuth et pirater le compte. Le dossier Téléchargements est spécial car le web peut y écrire sans interaction utilisateur.",
@@ -346,17 +358,5 @@
   "mp4Url": "https://bastaps.github.io/algeria-tech-videos/express/20261009-193228-acaf7a.mp4",
   "poster": "https://bastaps.github.io/algeria-tech-videos/express/20261009-193228-acaf7a.jpg",
   "publishedAt": "2026-10-09T19:33:37Z"
- },
- {
-  "id": "20261009-114759-f35bd2",
-  "titre": "Des images PNG utilisées pour pirater Windows",
-  "texte": "Bonjour. La campagne cybercriminelle MALFEX utilise des bibliothèques npm piégées pour infecter des ordinateurs sous Windows. Les pirates dissimulent des programmes malveillants directement dans de fausses ou de véritables images PNG. Ces attaques permettent de prendre le contrôle complet de la machine et de dérober des identifiants sensibles.",
-  "source": "Clubic",
-  "url": "https://www.clubic.com/actualite-633442-malfex-comment-des-pirates-ont-piege-des-milliers-de-telechargements-npm-avec-de-banales-images-png.html",
-  "pays": "INT",
-  "duree": 25.24,
-  "mp4Url": "https://bastaps.github.io/algeria-tech-videos/express/20261009-114759-f35bd2.mp4",
-  "poster": "https://bastaps.github.io/algeria-tech-videos/express/20261009-114759-f35bd2.jpg",
-  "publishedAt": "2026-10-09T11:49:15Z"
  }
 ]
