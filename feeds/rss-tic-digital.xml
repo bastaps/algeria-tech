@@ -4,12 +4,20 @@
   xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Algeria Tech — Flux TIC &amp; Digital</title>
-    <link>https://algeria-tech.pages.dev</link>
+    <link>https://algeriatechnews.com</link>
     <description>Télécoms, startups, innovations, internet, mobile, data, opérateurs, réseaux. Silicon.fr, ZDNet, TechCrunch, Wired, Le Monde Pixels…</description>
     <language>fr</language>
-    <lastBuildDate>Tue, 27 Oct 2026 09:28:42 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 27 Oct 2026 17:00:19 GMT</lastBuildDate>
     <generator>AlgeriaTech RSS Generator v2.0</generator>
-    <atom:link href="https://algeria-tech.pages.dev/feeds/rss-tic-digital.xml" rel="self" type="application/rss+xml"/>
-
+    <atom:link href="https://algeriatechnews.com/feeds/rss-tic-digital.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Apple unveils new 14-inch MacBook Pro with M6 chip</title>
+      <link>https://techcrunch.com/2026/10/27/apple-unveils-new-14-inch-macbook-pro-with-m6-chip/</link>
+      <description>The new MacBook Pro comes with 24 hours of battery life, and now features support for Wi-Fi 7 and Bluetooth 6 connectivity.</description>
+      <pubDate>Tue, 27 Oct 2026 14:25:11 GMT</pubDate>
+      <category>Internet &amp; Web</category>
+      <source url="https://techcrunch.com">TechCrunch</source>
+      <guid isPermaLink="true">https://techcrunch.com/2026/10/27/apple-unveils-new-14-inch-macbook-pro-with-m6-chip/</guid>
+    </item>
   </channel>
 </rss>
