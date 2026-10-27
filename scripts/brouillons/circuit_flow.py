@@ -31,6 +31,8 @@ import requests
 sys.stdout.reconfigure(encoding="utf-8")
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import redaction as R  # noqa: E402  (format éditorial commun : À retenir, tableau, sources officielles, vidéo pertinente)
+import dedup as D  # noqa: E402  (anti-doublons : même fait déjà publié, en brouillon, ou produit par l'autre circuit)
+import officiels as O  # noqa: E402  (communiqués publiés par les entreprises / institutions : source prioritaire)
 RACINE = Path(__file__).resolve().parents[2]
 WORK = Path(os.environ.get("CIRCUIT_FLOW_DIR", r"E:\MonStudioIA\circuit-flow"))
 HISTORIQUE = WORK / "historique.json"
@@ -128,6 +130,36 @@ def deja_vus():
         for a in lire(RACINE / "articles-list.json", [])[:400]:
             vus.add(a.get("source"))
     return vus
+
+
+def arbitre_ia(titre_a, extrait_a, titre_b, extrait_b):
+    """Avis de l'IA sur un cas limite : les deux textes rapportent-ils LE MÊME fait ? (None si l'IA ne répond pas)."""
+    rep = R.appeler_gemini(
+        f"Deux articles de presse.\nA : « {titre_a} » — {str(extrait_a)[:260]}\nB : « {titre_b} » — {str(extrait_b)[:260]}\n"
+        "Rapportent-ils LE MÊME fait précis (même annonce, même événement, même sujet), même avec des mots différents ? "
+        "Un simple lien (même entreprise, même thème général) ne suffit pas.\n"
+        'Réponds UNIQUEMENT par un JSON : {"meme_fait": true|false}', temperature=0)
+    return bool(rep.get("meme_fait")) if isinstance(rep, dict) and "meme_fait" in rep else None
+
+
+def contexte_dedup(h):
+    """Articles récents + brouillons en attente (lus sur GitHub, pas sur le dépôt local qui peut avoir du retard) + historique du PC."""
+    return D.contexte(RACINE, h)
+
+
+def registre_distant():
+    """Registre des créneaux lu directement sur GitHub (pages.dev n'est à jour qu'après le déploiement : le PC refaisait un
+    créneau que le cloud venait de produire)."""
+    try:
+        r = requests.get(f"https://api.github.com/repos/{D.DEPOT}/contents/data/circuit-slots.json", timeout=20,
+                         headers={"Accept": "application/vnd.github.raw", "User-Agent": "algeria-tech-circuit"})
+        r.raise_for_status()
+        return r.json()
+    except Exception:  # noqa: BLE001
+        try:
+            return requests.get(f"{SITE}/data/circuit-slots.json", timeout=15).json()
+        except Exception:  # noqa: BLE001
+            return {}
 
 
 def candidats_revue():
@@ -237,19 +269,22 @@ def choisir(slot):
     if not os.environ.get("CIRCUIT_FORCE") and any(fait(x) for x in h):
         log(f"créneau « {slot} » déjà fait aujourd'hui")
         return 3
-    try:  # le repli cloud a-t-il déjà produit ce créneau ?
-        reg = requests.get(f"{SITE}/data/circuit-slots.json", timeout=15).json()
-        if reg.get(aujourd_hui(), {}).get(slot) and not os.environ.get("CIRCUIT_FORCE"):
-            log(f"créneau « {slot} » déjà produit aujourd'hui ({reg[aujourd_hui()][slot]})")
-            return 3
-    except Exception:
-        pass
+    reg = registre_distant()  # le repli cloud a-t-il déjà produit ce créneau ? (lu sur GitHub : à jour dès son dépôt)
+    if reg.get(aujourd_hui(), {}).get(slot) and not os.environ.get("CIRCUIT_FORCE"):
+        log(f"créneau « {slot} » déjà produit aujourd'hui ({reg[aujourd_hui()][slot]})")
+        return 3
     serveurs()
-    vus = deja_vus()
-    listes = (candidats_revue, candidats_flux) if slot == "matin" else (candidats_flux, candidats_revue)
+    ctx = contexte_dedup(h)
+    # Règle éditoriale : d'abord les communiqués publiés par les entreprises / institutions elles-mêmes ; les médias ensuite.
+    listes = (O.candidats_officiels, candidats_revue, candidats_flux) if slot == "matin" \
+        else (O.candidats_officiels, candidats_flux, candidats_revue)
     for fabrique in listes:
         for c in fabrique()[:14]:
-            if not c["url"] or c["url"] in vus:
+            if not c["url"]:
+                continue
+            doublon, pourquoi, _ = D.trouver_doublon(c["titre"], c["url"], "", ctx, arbitre=arbitre_ia)
+            if doublon:
+                log(f"  doublon écarté : {c['titre'][:60]} — {pourquoi}")
                 continue
             try:
                 f = requests.post(f"{HUB}/api/fetch-url", json={"url": c["url"]}, timeout=60).json()
@@ -260,6 +295,10 @@ def choisir(slot):
             if len(texte) < 400 or not image.startswith("http"):
                 log(f"  ignoré (texte ou image manquant) : {c['titre'][:70]}")
                 continue
+            doublon, pourquoi, _ = D.trouver_doublon(f.get("title") or c["titre"], c["url"], texte[:400], ctx, arbitre=arbitre_ia)
+            if doublon:   # le titre du flux et celui de la page peuvent différer : on revérifie avec le texte réellement lu
+                log(f"  doublon écarté (après lecture) : {c['titre'][:60]} — {pourquoi}")
+                continue
             jpg = telecharger_image(image)
             if not jpg:
                 log(f"  ignoré (image inexploitable) : {c['titre'][:70]}")
@@ -268,14 +307,14 @@ def choisir(slot):
             dossier = WORK / ident
             dossier.mkdir(parents=True, exist_ok=True)
             (dossier / "image.jpg").write_bytes(jpg)
-            # politique vidéo : jamais d'animation de personnes réelles ; vidéo du média reprise telle quelle ; sinon
-            # vidéo « concept » (texte → vidéo, sans personne) seulement pour un visuel générique (voir redaction.py)
+            # politique vidéo : jamais d'animation de personnes réelles ; vidéo du média reprise telle quelle ; sinon image + texte
+            # (illustre le titre, texte affiché et lu à voix haute) ou animation seule si l'image contient déjà du texte (voir redaction.py)
             try:
                 html_page = requests.get(c["url"], timeout=25, headers=R.UA).text
             except requests.RequestException:
                 html_page = ""
             pol = R.politique_video(jpg, f.get("title") or c["titre"], texte[:500], html_page)
-            video_ok, raison_video = pol["mode"] == "concept", pol["raison"]
+            video_ok, raison_video = pol["mode"] in R.VIDEO_MODES, pol["raison"]
             log(f"  vidéo « {pol['mode']} » : {raison_video}")
             job = {"ident": ident, "slot": slot, "article": {k: c[k] for k in ("titre", "url", "source", "pays", "origine", "score")},
                    "titre_page": f.get("title", ""), "texte": texte, "image_source": image,
@@ -346,7 +385,7 @@ def finaliser(ident, clip, sans_push):
     if not job:
         raise RuntimeError(f"job introuvable : {dossier}")
     avec_video = bool(clip) and clip.lower() != "none"
-    if avec_video and job.get("video_mode", "aucune") != "concept":
+    if avec_video and job.get("video_mode", "aucune") not in R.VIDEO_MODES:
         log(f"clip ignoré : politique vidéo « {job.get('video_mode', 'aucune')} » ({job.get('raison_video', '')})")
         avec_video = False
     if avec_video:
@@ -356,10 +395,17 @@ def finaliser(ident, clip, sans_push):
         info = json.loads(sonde.stdout or "{}")
         if not any(s.get("codec_type") == "video" for s in info.get("streams", [])) or float(info.get("format", {}).get("duration", 0)) < 3:
             raise RuntimeError("clip Flow invalide (pas de vidéo ou trop court)")
+        if job.get("video_mode") == "image_texte" and not any(s.get("codec_type") == "audio" for s in info.get("streams", [])):
+            # la vidéo « image + texte » existe pour que le texte soit LU à voix haute : sans piste audio, elle est hors sujet
+            log("clip sans voix off : vidéo écartée (le brouillon est produit sans vidéo)")
+            avec_video = False
     serveurs()
     # rédaction : moteur de Smart Ingest PRO, mode IA, style PRO étoffé
     # sourcing : site officiel de l'entité concernée (page réellement lue et vérifiée) avant le média relais
-    officiels = R.sources_officielles(job["titre_page"] or job["article"]["titre"], job["texte"], job["article"]["url"])
+    if job["article"].get("origine") == "officiel":
+        officiels = []   # la source EST le communiqué de l'entreprise / institution : aucun média relais à chercher
+    else:
+        officiels = R.sources_officielles(job["titre_page"] or job["article"]["titre"], job["texte"], job["article"]["url"])
     bloc_officiel = "".join(f"\n\nSOURCE OFFICIELLE — {o['nom']} ({o['url']}) :\n{o['extrait']}" for o in officiels)
     corps_source = (f"{job['titre_page']}\n\n{job['texte']}{bloc_officiel}"
                     f"\n\nSource : {job['article']['source']} — {job['article']['url']}")
@@ -368,11 +414,17 @@ def finaliser(ident, clip, sans_push):
     # mode IA uniquement : sans rédaction IA exploitable, le brouillon n'est PAS produit (jamais de repli heuristique)
     if not (g.get("titre") and g.get("lead") and len(str(g.get("contenu", "")).split()) >= 150):
         raise RuntimeError("rédaction IA insuffisante")
+    # dernier contrôle anti-doublon sur l'article RÉDIGÉ (titre + extrait), avant tout dépôt : un autre média, l'autre circuit
+    # (cloud) ou une saisie manuelle ont pu publier le même fait pendant la génération de la vidéo
+    doublon, pourquoi, _ = D.trouver_doublon(g["titre"], job["article"]["url"], g["lead"], contexte_dedup(
+        [x for x in historique() if x.get("ident") != ident]), arbitre=arbitre_ia)
+    if doublon:
+        raise RuntimeError("doublon : " + pourquoi)
     g["contenu"] = str(g["contenu"]).strip() + "\n\n## Sources\n\n" + "\n".join(
         [f"- Source officielle : [{o['nom']}]({o['url']})" for o in officiels] +
         [f"- {'Article relayé par' if officiels else 'Source'} : [{job['article']['source']}]({job['article']['url']})"]) + "\n"
     cat = g.get("categorie") if g.get("categorie") in CATEGORIES else ("Algérie" if job["article"]["pays"] == "DZ" else "Monde")
-    # vidéo : clip « concept » local, ou vidéo YouTube du média qui accompagne l'article (reprise telle quelle)
+    # vidéo : clip Flow local (image + texte, ou image animée), ou vidéo YouTube du média qui accompagne l'article (reprise telle quelle)
     video_url = (f"/videos/articles/{ident}.mp4" if avec_video
                  else (job.get("video_url", "") if job.get("video_mode") == "source" else ""))
     image_rel = f"images/{ident}.jpg"
@@ -561,7 +613,10 @@ def main():
                 x["etat"] = "echec"
         sauver_historique(h)
         if a.cmd == "finaliser" and not getattr(a, "sans_push", False):
-            notifier("Circuit vidéo : échec", f"{type(e).__name__} : {str(e)[:200]}", tags="warning", clic=SITE)
+            if str(e).startswith("doublon"):
+                notifier("Circuit : doublon évité (rien publié)", str(e)[:230], tags="no_entry_sign", clic=SITE)
+            else:
+                notifier("Circuit vidéo : échec", f"{type(e).__name__} : {str(e)[:200]}", tags="warning", clic=SITE)
         return 1
 
 

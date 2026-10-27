@@ -19,13 +19,19 @@ après 90 min sans choix. **Ne rien publier toi-même.** Dossier : `E:\algeria-t
    (matin = revue de presse ; midi/soir = flux RSS + réseaux sociaux)
    - code 3 = créneau déjà fait aujourd'hui → fin (aucune alerte) ; code 2 = rien de neuf → fin ;
    - code 0 → la dernière ligne JSON donne `ident` et `job`. Lire `job` (image_weserv, image_source, prompt_flow, dossier).
-   - **La vidéo n'est PAS obligatoire, et on n'anime JAMAIS une image qui montre des personnes réelles** (ministre, président,
-     responsables : la photo EST l'information). Lire `job.video_mode` :
+   - `choisir` prend D'ABORD les communiqués publiés par les entreprises / institutions (Djezzy, Algérie Télécom, ministères…), puis
+     la presse ; il écarte tout fait déjà publié, en brouillon ou produit par l'autre circuit (anti-doublon). Rien à faire de plus.
+   - **On n'anime JAMAIS une image qui montre des personnes réelles** (ministre, président, responsables : la photo EST l'information).
+     Lire `job.video_mode` :
      - `aucune` ou `source` → **ne pas ouvrir Flow** : aller directement à l'étape 9 avec `none` (`source` : la vidéo YouTube du média
        qui accompagne l'article est reprise automatiquement ; `raison_video` explique le choix) ;
-     - `concept` (visuel générique, aucune personne) → vidéo « idée du titre » en **texte → vidéo, SANS image** : à l'étape 4 ne rien
-       importer ; à l'étape 5 ne pas ajouter d'ingrédient, taper directement `prompt_flow` (déjà sans personne, sans logo, sans texte).
-       Si Flow refuse ou échoue deux fois : `none` (ne jamais insister, jamais d'autre prompt avec des personnes).
+     - `image_texte` (image sans texte, sans personne) → vidéo « image + texte » : **importer l'image** (étapes 4-5) et taper `prompt_flow`
+       TEL QUEL. C'est la recette de l'éditeur : « Génère une vidéo en 16/9 illustrant le texte suivant : « <titre> » ». Le prompt exige que le
+       texte soit **affiché à l'écran ET lu à voix haute** par une voix off. Ne rien retirer ni raccourcir de ce prompt ;
+     - `image_anime` (l'image contient déjà du texte) → **importer l'image** et taper `prompt_flow` TEL QUEL (animation seule, texte de l'image
+       conservé, pas de voix off).
+     Après génération, **vérifier avec ffprobe qu'il y a bien une piste audio** pour `image_texte` (la voix off) ; si la vidéo est muette ou
+     sans le texte, relancer UNE fois (même prompt) si les crédits le permettent, sinon `none`. Jamais d'autre prompt avec des personnes.
 2. Chrome : `tabs_context_mcp`, `tabs_create_mcp`, aller sur `https://flow.google.com/u/1/`. Ouvrir le menu du compte (avatar en haut à droite) :
    l'e-mail doit être bastaps2024@gmail.com ; **lire le solde** (« N crédits Google Flow »). Si l'e-mail est autre : « Changer de compte » →
    choisir bastaps2024 dans la liste (déjà connecté), sans mot de passe.
@@ -36,7 +42,7 @@ après 90 min sans choix. **Ne rien publier toi-même.** Dossier : `E:\algeria-t
    sur l'élément au centre de la page (`dragenter`, `dragover`, `drop`). Si weserv échoue (403) : même chose avec `image_source`.
    Cliquer « J'accepte » dans le dialogue des droits.
 5. Panneau droit : bouton « Ajouter des ingrédients au champ du prompt » → choisir l'image → « Ajouter au prompt ».
-   Cliquer dans « Que voulez-vous créer ? », taper `prompt_flow`, envoyer. Flow demande « 1 vidéo, X crédits » :
+   Cliquer dans « Que voulez-vous créer ? », taper `prompt_flow` (texte entier, sans le modifier), envoyer. Flow demande « 1 vidéo, X crédits » :
    cliquer **Approuver** si X ≤ 10, sinon **Refuser** (→ étape 9 avec `none`).
 6. Attendre la fin (pourcentage → tuile avec ▶), contrôle toutes les ~20 s, 12 min maximum (sinon → étape 9 avec `none`).
 7. Ouvrir la vidéo (clic sur la tuile) → icône téléchargement (haut droite) → **720p** (le 1080p est payant : ne pas cliquer « Mettre à niveau »).

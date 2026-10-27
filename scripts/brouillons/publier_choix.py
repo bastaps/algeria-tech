@@ -19,6 +19,8 @@ import sys
 import urllib.request
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import dedup as D  # noqa: E402  (dernier garde-fou : jamais deux articles sur le même fait)
 RACINE = Path(os.environ.get("PUBLIER_RACINE") or Path(__file__).resolve().parents[2])
 SITE = "https://algeria-tech.pages.dev"
 NTFY = os.environ.get("NTFY_BASE", "https://ntfy.sh")
@@ -107,6 +109,12 @@ def main():
         return 0
     maintenant = datetime.datetime.now(datetime.timezone.utc)
     modifie = 0
+    arbitre = None
+    try:   # avis de l'IA pour les cas limites (disponible sur le PC et dans le cloud, pas dans un environnement minimal)
+        import circuit_flow as CF  # noqa: PLC0415
+        arbitre = CF.arbitre_ia
+    except Exception:  # noqa: BLE001
+        pass
     for f in sorted(dossier.glob("*.md")):
         md = f.read_text(encoding="utf-8")
         ident = f.stem
@@ -124,6 +132,17 @@ def main():
                 log(f"{ident} : en attente de choix ({age:.0f}/{DELAI_MIN} min)")
                 continue
             choix, origine = "seconde", f"aucun choix sous {DELAI_MIN} min"
+        # Garde-fou anti-doublon : un autre article publié depuis (autre circuit, saisie manuelle, brouillon plus ancien du même
+        # créneau) peut déjà couvrir ce fait. On compare aux articles PUBLIÉS (y compris ceux publiés plus haut dans cette boucle).
+        if choix != "rejeter":
+            publies = [x for x in D.contexte_local(RACINE, 7) if x["origine"] == "publié"]
+            doublon, pourquoi, ref = D.trouver_doublon(titre, champ(md, "source"), champ(md, "extrait"), publies, ignorer_id=ident, arbitre=arbitre)
+            if doublon:
+                f.unlink()
+                log(f"{ident} : DOUBLON écarté ({titre[:60]}) — {pourquoi}")
+                notifier("Doublon écarté (non publié)", f"« {titre[:90]} » : {pourquoi}", SITE)
+                modifie += 1
+                continue
         if choix == "rejeter":
             f.unlink()
             log(f"{ident} : rejeté ({titre[:60]})")

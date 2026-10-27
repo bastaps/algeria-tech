@@ -81,21 +81,38 @@ Cette page rapporte-t-elle LE MÊME fait précis (même annonce, même événeme
 Réponds UNIQUEMENT par un JSON : {{"meme_fait": true|false}}"""
 
 PROMPT_IMAGE = """Cette image illustre un article de presse intitulé : « {titre} ».
-Réponds UNIQUEMENT par un JSON : {{"personnes": true|false, "generique": true|false, "raison": "une phrase"}}
+Réponds UNIQUEMENT par un JSON : {{"personnes": true|false, "texte_visible": true|false, "raison": "une phrase"}}
 personnes = true si l'image montre une ou plusieurs PERSONNES RÉELLES (visages, responsables, ministre, président, dirigeants,
 foule, conférence, cérémonie), même de dos ou en petit.
-generique = true SEULEMENT si c'est un visuel décoratif sans information propre : robot, cerveau, puce, hologramme, silhouette,
-fond abstrait, illustration générée par IA, banque d'images, logo seul. generique = false si l'image montre un élément réel
-du sujet (produit, appareil, lieu, interface, graphique, tableau de données, événement)."""
+texte_visible = true si l'image contient DÉJÀ du texte lisible et important (titre, slogan, affiche, infographie, capture
+d'écran avec texte, bandeau, inscriptions). false si c'est une photo ou une illustration sans texte (ou seulement un petit logo)."""
 
-PROMPT_CONCEPT = """Écris un prompt de génération vidéo (Veo, 8 secondes, 16:9) qui met en images l'IDÉE du titre ci-dessous,
-sous forme de plans cinématographiques abstraits ou symboliques (données qui circulent, réseau, écrans, villes la nuit,
-infrastructure, textures de matière, mouvement de caméra lent).
-INTERDIT : toute personne, visage, silhouette humaine, ministre, président, drapeau, logo, marque, texte à l'écran, armes,
-violence. Ton sobre et professionnel, pas de robot qui danse, pas de musique ni de paroles, léger bruit d'ambiance.
-Réponds UNIQUEMENT par un JSON : {{"prompt": "le prompt en français, 60 mots maximum"}}
-Titre : {titre}
-Résumé : {resume}"""
+# Consigne Flow « image + texte » : la recette de l'éditeur — coller l'image puis demander une vidéo 16/9 « illustrant le texte
+# suivant : « … » » ; l'IA reste fidèle à l'image, affiche le texte et le lit à voix haute. Le prompt INSISTE sur le texte et la voix.
+PROMPT_FLOW_TEXTE = ("Génère une vidéo en 16/9 illustrant le texte suivant : « {phrase} ». Reste fidèle à l'image fournie "
+                     "(mêmes éléments, même décor). IMPORTANT : le texte « {phrase} » doit apparaître à l'écran, bien lisible, en "
+                     "sous-titre incrusté, ET être lu à voix haute en français par une voix off claire et posée, du début à la "
+                     "fin de la vidéo. Mouvements lents et discrets, aucune autre inscription, aucun logo ajouté.")
+# Image qui contient déjà du texte : on l'anime seulement (pas de texte ajouté, pas de voix off)
+PROMPT_FLOW_ANIMER = ("Anime cette image en une vidéo de 8 secondes au format 16:9. Mouvements naturels et discrets, léger travelling "
+                      "avant. Conserve exactement le texte déjà présent dans l'image, sans rien ajouter ni modifier. "
+                      "Ambiance sonore naturelle et discrète, sans voix off.")
+VIDEO_MODES = ("image_texte", "image_anime")   # modes qui exigent une génération Flow
+
+
+def phrase_video(titre):
+    """Texte lu et affiché dans la vidéo : le titre de l'article (8 s de voix ≈ 20 mots), coupé proprement, sans guillemets."""
+    t = re.sub(r"\s+", " ", str(titre or "")).strip().replace("«", "").replace("»", "").replace('"', "")
+    t = re.sub(r"\s[|–—]\s[^|–—]{2,40}$", "", t)   # suffixe « | Nom du site » des titres de page
+    t = re.sub(r"\s+", " ", t).strip()
+    if t.isupper():   # titres tout en majuscules des sites officiels : casse normale (noms propres en majuscule initiale)
+        petits = {"de", "du", "des", "la", "le", "les", "et", "en", "au", "aux", "pour", "par", "sur", "dans", "un", "une", "d", "l", "à"}
+        mots = t.lower().split(" ")
+        t = " ".join(m if (m in petits and i) else m[:1].upper() + m[1:] for i, m in enumerate(mots))
+    if len(t) > 115:
+        t = t[:115].rsplit(" ", 1)[0].rstrip(" ,;:-–—")
+    return t
+
 
 
 def log(m):
@@ -336,8 +353,8 @@ def _via_recherche(nom, titre, corps, url_source, jetons):
 # ── Vidéo : politique éditoriale ──────────────────────────────────────────
 # 1. JAMAIS d'animation d'une image qui montre des personnes réelles (ministre, président, responsables…) : la photo EST l'information.
 # 2. Une vidéo du média qui ACCOMPAGNE l'article (YouTube intégré) est reprise et publiée telle quelle.
-# 3. Sinon, vidéo « concept » (texte → vidéo, sans personne) UNIQUEMENT si l'image est un visuel générique ; si l'image est une
-#    information en soi (produit, interface, graphique, événement) : pas de vidéo.
+# 3. Sinon (aucune personne) : image + texte (illustre le titre, texte affiché ET lu à voix haute) ; si l'image contient déjà du texte,
+#    on l'anime seulement. (2026-10-27 : fin des vidéos « concept » sans texte ni voix, hors contexte.)
 def video_source(html):
     """Adresse YouTube d'une vidéo qui accompagne l'article (iframe intégrée ou lien), ou ''."""
     for m in re.finditer(r"(?:youtube(?:-nocookie)?\.com/(?:embed/|watch\?v=)|youtu\.be/)([A-Za-z0-9_-]{11})", html or ""):
@@ -346,7 +363,11 @@ def video_source(html):
 
 
 def politique_video(jpg_bytes, titre, resume, html_page=""):
-    """{'mode': 'aucune'|'source'|'concept', 'raison': str, 'video_url': str, 'prompt': str}. Sans réponse de l'IA : aucune."""
+    """{'mode': 'aucune'|'source'|'image_texte'|'image_anime', 'raison', 'video_url', 'prompt'}. Sans réponse de l'IA : aucune.
+    - source : vidéo YouTube du média déjà dans l'article, reprise telle quelle ;
+    - image_texte : image sans texte → Flow « illustrant le texte suivant : « titre » » (texte affiché + voix off) ;
+    - image_anime : image qui contient déjà du texte → Flow anime seulement l'image ;
+    - aucune : personnes réelles (haut responsable…) sur l'image, ou analyse impossible."""
     src = video_source(html_page)
     if src:
         return {"mode": "source", "raison": "vidéo du média intégrée à l'article", "video_url": src, "prompt": ""}
@@ -360,16 +381,14 @@ def politique_video(jpg_bytes, titre, resume, html_page=""):
     raison = str(rep.get("raison") or "")[:200]
     if rep.get("personnes") is not False:  # personnes réelles (ou doute) : la photo est l'information, on n'anime jamais
         return {"mode": "aucune", "raison": "personnes réelles sur l'image — jamais d'animation. " + raison, "video_url": "", "prompt": ""}
-    if rep.get("generique") is not True:
-        return {"mode": "aucune", "raison": "l'image est déjà une information (produit, interface, graphique…). " + raison, "video_url": "", "prompt": ""}
-    p = appeler_gemini(PROMPT_CONCEPT.format(titre=titre, resume=str(resume)[:500]), temperature=0.4)
-    prompt = str(p.get("prompt") or "").strip() if isinstance(p, dict) else ""
-    if not prompt:
-        return {"mode": "aucune", "raison": "prompt de vidéo concept indisponible", "video_url": "", "prompt": ""}
-    return {"mode": "concept", "raison": "visuel générique : vidéo concept sans personne. " + raison, "video_url": "", "prompt": prompt}
+    if rep.get("texte_visible") is True:
+        return {"mode": "image_anime", "raison": "l'image contient déjà du texte : animation seule. " + raison, "video_url": "",
+                "prompt": PROMPT_FLOW_ANIMER}
+    return {"mode": "image_texte", "raison": "image sans texte : vidéo qui illustre le titre (texte affiché + voix off). " + raison,
+            "video_url": "", "prompt": PROMPT_FLOW_TEXTE.format(phrase=phrase_video(titre))}
 
 
 def video_pertinente(jpg_bytes, titre):
-    """Compatibilité : (True, raison) seulement pour une vidéo concept."""
+    """Compatibilité : (True, raison) quand une génération Flow est prévue."""
     r = politique_video(jpg_bytes, titre, "")
-    return r["mode"] == "concept", r["raison"]
+    return r["mode"] in VIDEO_MODES, r["raison"]

@@ -153,15 +153,25 @@ def produire(slot, notif=True):
         log(f"créneau « {slot} » déjà fait aujourd'hui ({registre()[C.aujourd_hui()][slot]})")
         return 2
     vus = sources_deja_utilisees()
-    listes = (C.candidats_revue, C.candidats_flux) if slot == "matin" else (C.candidats_flux, C.candidats_revue)
+    ctx = C.D.contexte(RACINE, None, brouillons_locaux=True)   # publiés récents + brouillons en attente (dont ceux du PC, lus sur GitHub)
+    # Règle éditoriale : d'abord les communiqués officiels des entreprises / institutions ; les médias ensuite.
+    listes = (C.O.candidats_officiels, C.candidats_revue, C.candidats_flux) if slot == "matin"         else (C.O.candidats_officiels, C.candidats_flux, C.candidats_revue)
     essais_ia = 0
     for fabrique in listes:
         for c in fabrique()[:14]:
             if not c["url"] or c["url"] in vus:
                 continue
+            doublon, pourquoi, _ = C.D.trouver_doublon(c["titre"], c["url"], "", ctx, arbitre=C.arbitre_ia)
+            if doublon:
+                log(f"  doublon écarté : {c['titre'][:60]} — {pourquoi}")
+                continue
             corps, image = lire_page(c["url"])
             if len(corps) < 400 or not image.startswith("http"):
                 log(f"  ignoré (texte ou image manquant) : {c['titre'][:70]}")
+                continue
+            doublon, pourquoi, _ = C.D.trouver_doublon(c["titre"], c["url"], corps[:400], ctx, arbitre=C.arbitre_ia)
+            if doublon:
+                log(f"  doublon écarté (après lecture) : {c['titre'][:60]} — {pourquoi}")
                 continue
             jpg = C.telecharger_image(image)
             if not jpg:
@@ -171,10 +181,14 @@ def produire(slot, notif=True):
                 log("rédaction IA indisponible : abandon")
                 return 2
             essais_ia += 1
-            officiels = R.sources_officielles(c["titre"], corps, c["url"])
+            officiels = [] if c.get("origine") == "officiel" else R.sources_officielles(c["titre"], corps, c["url"])
             red = R.rediger(c["source"], c["titre"], corps, officiels)
             if not red:
                 log("  rédaction IA insuffisante, article suivant")
+                continue
+            doublon, pourquoi, _ = C.D.trouver_doublon(red["titre"], c["url"], red.get("extrait", ""), ctx, arbitre=C.arbitre_ia)
+            if doublon:   # contrôle final sur l'article rédigé : rien n'est déposé s'il double un fait déjà publié ou en attente
+                log(f"  doublon écarté (article rédigé) : {red['titre'][:60]} — {pourquoi}")
                 continue
             ident = str(int(time.time() * 1000))
             (RACINE / "images").mkdir(exist_ok=True)
