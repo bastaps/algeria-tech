@@ -1701,8 +1701,8 @@ window._cv3ToggleDay = function() {
       var sec=document.getElementById('comparateurSection');
       if(sec && !sec.querySelector('.cv4-back')){
         var b=document.createElement('button'); b.className='cv4-back'; b.textContent='✨ Essayer la nouvelle version simplifiée';
-        b.style.cssText='position:fixed;right:14px;bottom:14px;z-index:900;background:#fb923c;color:#111;border:0;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer';
-        b.onclick=window._cv4Back; sec.appendChild(b);
+        b.style.cssText='display:block;margin:10px auto;background:#fb923c;color:#111;border:0;border-radius:10px;padding:10px 16px;font-weight:700;cursor:pointer';
+        b.onclick=window._cv4Back; sec.insertBefore(b, sec.firstChild);
       }
       return;
     }
