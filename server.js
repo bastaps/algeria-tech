@@ -235,6 +235,8 @@ async function callMistral(payload, { timeout = 25000, retries = 2, retryDelay =
 
 app.use(cors({
     origin: [
+        'https://algeriatechnews.com',
+        'https://www.algeriatechnews.com',
         'https://algeria-tech.pages.dev',
         'https://algeria-tech.pages.dz',
         'http://localhost:3000',

@@ -12,7 +12,7 @@ const https = require('https');
 const path  = require('path');
 
 const FEEDS_DIR = path.join(__dirname, 'feeds');
-const SITE_URL  = 'https://algeria-tech.pages.dev';
+const SITE_URL  = 'https://algeriatechnews.com';
 
 // ─── Sources par thème ────────────────────────────────────────────────────────
 

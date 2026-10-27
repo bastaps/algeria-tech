@@ -177,7 +177,7 @@ console.log(`✅ wiki_data.json généré : ${wikiTerms.length} termes (${(fs.st
 //  Résout le problème CSR : Google voit du HTML réel
 // ============================================================
 
-const SITE_URL   = 'https://algeria-tech.pages.dev';
+const SITE_URL   = 'https://algeriatechnews.com';
 const ARTICLE_PUB_DIR = path.join(__dirname, 'article');
 
 // Recharge articles (déjà générés plus haut, mais OUTPUT peut avoir changé)
