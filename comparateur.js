@@ -1412,3 +1412,303 @@ window._cv3ToggleDay = function() {
   var btn = document.getElementById('cv3-daybtn');
   if (btn) btn.innerHTML = isDay ? '&#127769; Nuit' : '&#9728; Jour';
 };
+
+/* ════════════════════════════════════════════════════════════
+   COMPARATEUR v4 — parcours simplifié (Question → Podium → Liste)
+   L'ancienne interface reste disponible : bouton « Ancienne version »
+   (préférence localStorage 'cv-ui' = 'classic') ou comparateur-classic.js.
+═════════════════════════════════════════════════════════════ */
+(function(){
+  var classicInit = window.initComparateur;
+
+  var css = `
+.cv4{background:#0b0d17;color:#e5e7eb;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;min-height:100vh;padding:20px 16px 90px}
+.cv4 *{box-sizing:border-box}
+.cv4-wrap{max-width:980px;margin:0 auto}
+.cv4-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.cv4-h{font-size:1.35rem;font-weight:800;margin:0}
+.cv4-seg{display:inline-flex;background:#151827;border-radius:12px;padding:4px;gap:4px}
+.cv4-seg button{border:0;background:transparent;color:#9ca3af;font:600 .9rem inherit;padding:9px 16px;border-radius:9px;cursor:pointer}
+.cv4-seg button.on{background:#fb923c;color:#111}
+.cv4-q{background:#12151f;border:1px solid #1f2437;border-radius:14px;padding:16px;margin-bottom:18px}
+.cv4-ql{font-size:.78rem;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.06em;margin:0 0 8px}
+.cv4-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.cv4-chip{border:1px solid #2a3047;background:#171b2b;color:#d1d5db;font:600 .86rem inherit;padding:9px 14px;border-radius:999px;cursor:pointer}
+.cv4-chip.on{background:#fb923c;border-color:#fb923c;color:#111}
+.cv4-more{background:none;border:0;color:#fb923c;font:600 .85rem inherit;cursor:pointer;padding:0}
+.cv4-adv{display:none;margin-top:12px;padding-top:12px;border-top:1px solid #1f2437}
+.cv4-adv.open{display:block}
+.cv4-adv select{background:#171b2b;color:#e5e7eb;border:1px solid #2a3047;border-radius:8px;padding:8px;font:inherit}
+.cv4-pod{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:12px;margin-bottom:22px}
+.cv4-pc{background:#12151f;border:1px solid #1f2437;border-radius:14px;padding:14px;border-top:4px solid var(--oc,#888);display:flex;flex-direction:column;gap:6px}
+.cv4-pc.main{background:linear-gradient(160deg,#1c1710,#12151f);border-color:#fb923c;border-top-color:var(--oc,#fb923c)}
+.cv4-tag{font-size:.74rem;font-weight:800;color:#fb923c;text-transform:uppercase;letter-spacing:.05em}
+.cv4-pn{font-weight:700;font-size:.95rem}
+.cv4-pn small{display:block;color:#9ca3af;font-weight:500;font-size:.78rem}
+.cv4-pp{font-size:1.7rem;font-weight:800;line-height:1}
+.cv4-pp small{font-size:.8rem;font-weight:500;color:#9ca3af}
+.cv4-pd{font-size:.88rem;color:#d1d5db}
+.cv4-why{font-size:.84rem;color:#fdba74;background:rgba(251,146,60,.08);border-radius:8px;padding:8px 10px}
+.cv4-go{margin-top:auto;display:inline-block;text-align:center;background:#fb923c;color:#111;font-weight:700;font-size:.85rem;padding:9px;border-radius:9px;text-decoration:none}
+.cv4-pc:not(.main) .cv4-go{background:#1f2437;color:#e5e7eb}
+.cv4-lh{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 8px;gap:8px;flex-wrap:wrap}
+.cv4-lh h3{margin:0;font-size:1rem}
+.cv4-lh span{color:#9ca3af;font-size:.82rem}
+.cv4-row{display:grid;grid-template-columns:28px 1.6fr .8fr .7fr .8fr .8fr;gap:8px;align-items:center;background:#12151f;border:1px solid #1f2437;border-left:4px solid var(--oc,#888);border-radius:10px;padding:10px 12px;margin-bottom:6px;cursor:pointer;font-size:.88rem}
+.cv4-row:hover{background:#171b2b}
+.cv4-row.head{background:none;border:0;border-left:4px solid transparent;cursor:default;color:#6b7280;font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;padding-top:0;padding-bottom:0}
+.cv4-row.head:hover{background:none}
+.cv4-opn{color:#9ca3af;font-size:.76rem;display:block}
+.cv4-det{display:none;grid-column:1/-1;font-size:.84rem;color:#cbd5e1;border-top:1px dashed #2a3047;padding-top:8px;line-height:1.6}
+.cv4-row.open .cv4-det{display:block}
+.cv4-det a{color:#fb923c;font-weight:700}
+.cv4-all{width:100%;margin:6px 0;background:#171b2b;border:1px solid #2a3047;color:#e5e7eb;border-radius:10px;padding:11px;font:600 .88rem inherit;cursor:pointer}
+.cv4-empty{padding:30px;text-align:center;color:#9ca3af}
+.cv4-bar{position:fixed;left:0;right:0;bottom:0;background:#12151f;border-top:1px solid #fb923c;padding:12px 16px;display:none;align-items:center;justify-content:center;gap:12px;z-index:900;flex-wrap:wrap}
+.cv4-bar.on{display:flex}
+.cv4-bar button{border:0;border-radius:9px;padding:10px 16px;font:700 .88rem inherit;cursor:pointer}
+.cv4-bar .go{background:#fb923c;color:#111}
+.cv4-bar .clr{background:#1f2437;color:#e5e7eb}
+.cv4-foot{margin-top:22px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:.76rem;color:#6b7280}
+.cv4-foot button{background:none;border:1px solid #2a3047;color:#9ca3af;border-radius:8px;padding:6px 10px;font:inherit;cursor:pointer}
+.cv4-modal{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1000;display:flex;align-items:center;justify-content:center;padding:14px}
+.cv4-mb{background:#12151f;border:1px solid #2a3047;border-radius:16px;max-width:860px;width:100%;max-height:90vh;overflow:auto;padding:18px;color:#e5e7eb}
+.cv4-mh{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.cv4-mh h3{margin:0}
+.cv4-mh button{background:#1f2437;color:#e5e7eb;border:0;border-radius:8px;padding:6px 12px;cursor:pointer}
+.cv4-tb{width:100%;border-collapse:collapse;font-size:.88rem}
+.cv4-tb th,.cv4-tb td{padding:9px 8px;border-bottom:1px solid #1f2437;text-align:left;vertical-align:top}
+.cv4-tb th{border-top:4px solid var(--oc,#888)}
+.cv4-tb td:first-child{color:#9ca3af;white-space:nowrap}
+.cv4-tb td.best{background:rgba(74,222,128,.12);color:#86efac;font-weight:700}
+@media(max-width:720px){
+ .cv4-pod{grid-template-columns:1fr}
+ .cv4-row{grid-template-columns:26px 1fr auto}
+ .cv4-row.head{display:none}
+ .cv4-row .cv4-hide{display:none}
+}`;
+  var st = document.createElement('style'); st.id = 'cv4-css'; st.textContent = css;
+
+  var V = { cat:'mobile', budget:Infinity, prof:null, ops:new Set(['mobilis','djezzy','ooredoo']), dataMin:0, sort:'score', sel:[], all:false, fam:null };
+  var PROFS = [
+    { id:'light',  l:'💬 Peu de data',       dataMin:0,   sort:'price' },
+    { id:'social', l:'📱 Réseaux & vidéo',   dataMin:30,  sort:'score' },
+    { id:'heavy',  l:'🎮 Gros consommateur', dataMin:100, sort:'data'  }
+  ];
+  var BUDGETS = {
+    mobile:   [[1000,'≤ 1 000 DA'],[2000,'≤ 2 000 DA'],[3000,'≤ 3 000 DA'],[Infinity,'Peu importe']],
+    internet: [[2000,'≤ 2 000 DA'],[5000,'≤ 5 000 DA'],[10000,'≤ 10 000 DA'],[Infinity,'Peu importe']]
+  };
+  var fmt = function(n){ return n.toLocaleString('fr-FR'); };
+  var byId = function(id){ return COMP_OFFERS.find(function(o){ return o.id === id; }); };
+  var valid = function(o){ var v=o.validity||30; return v<30 ? v+' j' : v<=31 ? '30 j' : Math.round(v/30)+' mois'; };
+  var opOf = function(o){ return COMP_OPS[o.op] || {name:o.op,color:'#888'}; };
+  var FAMS = [
+    [/^Revolution Control/i,'Revolution Control'],[/^Revolution Postpaid/i,'Revolution Postpaid'],[/^Revolution/i,'Revolution'],
+    [/^Legend MAX/i,'Legend MAX'],[/^Legend/i,'Legend'],[/^Confort/i,'Confort Partage'],[/^STUDENT/i,'Student Campuce'],[/^ZID/i,'ZID'],[/^iZZY/i,'iZZY'],
+    [/^Dima/i,'Dima'],[/^Scholar/i,'Scholar'],[/^N.YOOZ/i,"N'YOOZ"],[/^Ooredoo \d/i,'Ooredoo Classique'],[/^Forfait (?!Internet)/i,'Forfaits Ooredoo'],
+    [/MobiNet/i,'MobiNet'],[/Navigui/i,'Navigui'],[/^Pass Internet/i,'Pass Internet'],[/^Forfait Internet/i,'Forfait Internet'],[/^DjezzyNet/i,'DjezzyNet'],[/3ayla/i,'Pack 3ayla'],[/^Ooredoo Internet/i,'Ooredoo Internet']
+  ];
+  var famOf = function(o){ for(var i=0;i<FAMS.length;i++) if(FAMS[i][0].test(o.name)) return FAMS[i][1]; return 'Autres'; };
+  var famKey = function(o){ return o.op+'|'+famOf(o); };
+
+  function pool(){
+    return COMP_OFFERS.filter(function(o){
+      return (o.cat||'mobile')===V.cat && (V.fam ? famKey(o)===V.fam : V.ops.has(o.op)) && o.price<=V.budget && o.data>=V.dataMin;
+    });
+  }
+  function ordered(list){
+    return list.slice().sort(function(a,b){
+      if(V.sort==='price') return a.price-b.price;
+      if(V.sort==='data')  return b.data-a.data || a.price-b.price;
+      if(V.sort==='ppg')   { var x=_ppg(a), y=_ppg(b); return x===y?0:x-y; }
+      return _score(b)-_score(a);
+    });
+  }
+
+  function famHTML(){
+    var out='';
+    ['mobilis','djezzy','ooredoo'].forEach(function(k){
+      var cnt={}, order=[];
+      COMP_OFFERS.forEach(function(o){ if((o.cat||'mobile')!==V.cat||o.op!==k) return; var f=famOf(o); if(!cnt[f]){cnt[f]=0;order.push(f);} cnt[f]++; });
+      if(!order.length) return;
+      out+='<div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:8px"><b style="min-width:70px;font-size:.82rem;color:'+COMP_OPS[k].color+'">'+COMP_OPS[k].name+'</b>'
+        +order.map(function(f){ var key=k+'|'+f; return '<button class="cv4-chip cv4-fchip'+(V.fam===key?' on':'')+'" style="padding:6px 11px;font-size:.8rem" data-f="'+_esc(key)+'">'+_esc(f)+' <small style="opacity:.7">'+cnt[f]+'</small></button>'; }).join('')+'</div>';
+    });
+    return '<div id="cv4-fam" style="margin-bottom:12px">'+out+'</div>';
+  }
+
+  function shell(){
+    var bud = BUDGETS[V.cat].map(function(b){
+      return '<button class="cv4-chip'+(V.budget===b[0]?' on':'')+'" data-b="'+b[0]+'">'+b[1]+'</button>';
+    }).join('');
+    var prof = PROFS.map(function(p){
+      return '<button class="cv4-chip'+(V.prof===p.id?' on':'')+'" data-p="'+p.id+'">'+p.l+'</button>';
+    }).join('');
+    var ops = ['mobilis','djezzy','ooredoo'].map(function(k){
+      return '<label style="margin-right:14px"><input type="checkbox" data-o="'+k+'"'+(V.ops.has(k)?' checked':'')+'> '+COMP_OPS[k].name+'</label>';
+    }).join('');
+    var admin = (typeof isAdminUnlocked==='function' && isAdminUnlocked()) ? '<button onclick="window._cv3OpenAdd()">➕ Ajouter une offre</button> ' : '';
+    return '<div class="cv4"><div class="cv4-wrap">'
+      +'<div class="cv4-top"><h2 class="cv4-h">Comparateur d\'offres</h2>'
+        +'<div class="cv4-seg"><button data-c="mobile"'+(V.cat==='mobile'?' class="on"':'')+'>📱 Mobile</button><button data-c="internet"'+(V.cat==='internet'?' class="on"':'')+'>🌐 Internet &amp; Box</button></div></div>'
+      +'<div class="cv4-q">'
+        +'<p class="cv4-ql">Votre budget</p><div class="cv4-chips" id="cv4-bud">'+bud+'</div>'
+        +'<p class="cv4-ql">Votre usage</p><div class="cv4-chips" id="cv4-prof">'+prof+'</div>'
+        +'<p class="cv4-ql">Ou choisissez une gamme</p>'+famHTML()
+        +'<button class="cv4-more" id="cv4-more">⚙ Affiner</button>'
+        +'<div class="cv4-adv" id="cv4-adv"><p class="cv4-ql">Opérateurs</p><div style="margin-bottom:10px">'+ops+'</div>'
+          +'<p class="cv4-ql">Trier par</p><select id="cv4-sort"><option value="score">Meilleur rapport qualité-prix</option><option value="price">Prix croissant</option><option value="data">Data décroissante</option><option value="ppg">Moins cher par Go</option></select></div>'
+      +'</div>'
+      +'<div id="cv4-pod"></div><div id="cv4-list"></div>'
+      +'<div class="cv4-foot"><span>Données officielles des opérateurs — vérifiez toujours sur leur site avant souscription.</span><span>'+admin+'<button id="cv4-classic">↩ Ancienne version</button></span></div>'
+    +'</div></div>'
+    +'<div class="cv4-bar" id="cv4-bar"><span id="cv4-barn"></span><button class="go" id="cv4-cmp">Comparer</button><button class="clr" id="cv4-clr">✕ Effacer</button></div>';
+  }
+
+  function podium(l){
+    var el = document.getElementById('cv4-pod');
+    var pr = l.filter(function(o){ return o.data>0; });
+    if(!pr.length){ el.innerHTML=''; return; }
+    var best = ordered(pr)[0], used=[best];
+    var cheap = pr.filter(function(o){return used.indexOf(o)<0;}).sort(function(a,b){return a.price-b.price;})[0]; if(cheap) used.push(cheap);
+    var more  = pr.filter(function(o){return used.indexOf(o)<0;}).sort(function(a,b){return b.data-a.data;})[0];
+    var ppgs = pr.map(_ppg).filter(isFinite).sort(function(a,b){return a-b;});
+    var med = ppgs[Math.floor(ppgs.length/2)];
+    var why = isFinite(_ppg(best)) && med>0 && _ppg(best)<med
+      ? best.data+' Go pour '+fmt(best.price)+' DA : '+Math.round((1-_ppg(best)/med)*100)+'% moins cher par Go que la médiane ('+_ppg(best)+' contre '+med+' DA/Go).'
+      : best.data+' Go pour '+fmt(best.price)+' DA ('+_ppgTxt(best)+').';
+    function card(o,tag,main,extra){
+      var op=opOf(o);
+      return '<div class="cv4-pc'+(main?' main':'')+'" style="--oc:'+op.color+'"><div class="cv4-tag">'+tag+'</div>'
+        +'<div class="cv4-pn">'+_esc(o.name)+'<small>'+op.name+'</small></div>'
+        +'<div class="cv4-pp">'+fmt(o.price)+' <small>DA / '+valid(o)+'</small></div>'
+        +'<div class="cv4-pd">'+o.data+' Go · '+_ppgTxt(o)+'</div>'+(extra?'<div class="cv4-why">'+extra+'</div>':'')
+        +(o.link?'<a class="cv4-go" href="'+_esc(o.link)+'" target="_blank" rel="noopener">Voir l\'offre ↗</a>':'')+'</div>';
+    }
+    el.innerHTML = '<div class="cv4-pod">'
+      +card(best,'⭐ Meilleur choix pour vous',true,why)
+      +(cheap?card(cheap,'💰 Le moins cher',false):'')
+      +(more?card(more,'📶 Le plus de data',false):'')+'</div>';
+  }
+
+  function rowHTML(o){
+    var op=opOf(o), on=V.sel.indexOf(o.id)>=0;
+    return '<div class="cv4-row" data-id="'+o.id+'" style="--oc:'+op.color+'">'
+      +'<input type="checkbox" class="cv4-chk" '+(on?'checked':'')+' aria-label="Comparer">'
+      +'<div><b>'+_esc(o.name)+'</b><span class="cv4-opn">'+op.name+' · '+_esc(famOf(o))+'<span class="cv4-m"> · '+(o.data? o.data+' Go':'sans data')+' · '+valid(o)+'</span></span></div>'
+      +'<div><b>'+fmt(o.price)+' DA</b></div>'
+      +'<div class="cv4-hide">'+(o.data? o.data+' Go':'—')+'</div>'
+      +'<div class="cv4-hide">'+valid(o)+'</div>'
+      +'<div class="cv4-hide">'+_ppgTxt(o)+'</div>'
+      +'<div class="cv4-det">📞 '+_esc(o.calls||'—')+(o.sms?' · 💬 '+_esc(o.sms):'')
+        +((o.extras&&o.extras.length)?'<br>'+o.extras.map(_esc).join(' · '):'')
+        +(o.link?'<br><a href="'+_esc(o.link)+'" target="_blank" rel="noopener">Voir sur le site officiel ↗</a>':'')+'</div></div>';
+  }
+
+  function list(l){
+    var el=document.getElementById('cv4-list');
+    if(!l.length){ el.innerHTML='<div class="cv4-empty">Aucune offre ne correspond. Élargissez le budget ou l\'usage.</div>'; return; }
+    var shown = V.all ? l : l.slice(0,12);
+    el.innerHTML='<div class="cv4-lh"><h3>Toutes les offres</h3><span>'+l.length+' offre'+(l.length>1?'s':'')+' · cochez 2 ou 3 pour comparer</span></div>'
+      +'<div class="cv4-row head"><span></span><span>Offre</span><span>Prix</span><span>Data</span><span>Validité</span><span>Coût / Go</span></div>'
+      +shown.map(rowHTML).join('')
+      +(!V.all&&l.length>12?'<button class="cv4-all" id="cv4-all">Voir les '+(l.length-12)+' autres offres</button>':'');
+  }
+
+  function bar(){
+    var b=document.getElementById('cv4-bar'); if(!b) return;
+    b.classList.toggle('on',V.sel.length>0);
+    document.getElementById('cv4-barn').textContent=V.sel.length+' offre'+(V.sel.length>1?'s':'')+' sélectionnée'+(V.sel.length>1?'s':'')+(V.sel.length<2?' — choisissez-en une autre':'');
+    var c=document.getElementById('cv4-cmp'); c.disabled=V.sel.length<2; c.style.opacity=V.sel.length<2?0.4:1;
+  }
+
+  function render(){ var l=ordered(pool()); podium(l); list(l); bar(); }
+
+  function modal(){
+    var os=V.sel.map(byId).filter(Boolean);
+    var minOf=function(f){ var v=os.map(f).filter(function(x){return isFinite(x)&&x>0;}); return v.length?Math.min.apply(null,v):null; };
+    var maxOf=function(f){ return Math.max.apply(null,os.map(f)); };
+    var rows=[
+      ['Prix',function(o){return fmt(o.price)+' DA';},function(o){return o.price===minOf(function(x){return x.price;});}],
+      ['Data',function(o){return o.data?o.data+' Go':'—';},function(o){return o.data>0&&o.data===maxOf(function(x){return x.data;});}],
+      ['Validité',function(o){return valid(o);},function(o){return (o.validity||30)===maxOf(function(x){return x.validity||30;});}],
+      ['Coût / Go',function(o){return _ppgTxt(o);},function(o){return isFinite(_ppg(o))&&_ppg(o)===minOf(_ppg);}],
+      ['Appels',function(o){return _esc(o.calls||'—');}],
+      ['SMS',function(o){return _esc(o.sms||'—');}],
+      ['Plus',function(o){return (o.extras||[]).map(_esc).join('<br>')||'—';}]
+    ];
+    var m=document.createElement('div'); m.className='cv4-modal'; m.id='cv4-modal';
+    m.innerHTML='<div class="cv4-mb"><div class="cv4-mh"><h3>Comparaison</h3><button id="cv4-mx">✕ Fermer</button></div>'
+      +'<table class="cv4-tb"><tr><th></th>'+os.map(function(o){return '<th style="--oc:'+opOf(o).color+'">'+_esc(o.name)+'<br><small style="color:#9ca3af;font-weight:500">'+opOf(o).name+'</small></th>';}).join('')+'</tr>'
+      +rows.map(function(r){ return '<tr><td>'+r[0]+'</td>'+os.map(function(o){ return '<td'+(r[2]&&r[2](o)?' class="best"':'')+'>'+r[1](o)+'</td>'; }).join('')+'</tr>'; }).join('')
+      +'<tr><td></td>'+os.map(function(o){return '<td>'+(o.link?'<a href="'+_esc(o.link)+'" target="_blank" rel="noopener" style="color:#fb923c;font-weight:700">Voir l\'offre ↗</a>':'')+'</td>';}).join('')+'</tr></table>'
+      +'<p style="font-size:.76rem;color:#6b7280;margin-top:10px">En vert : la meilleure valeur de chaque ligne.</p></div>';
+    document.body.appendChild(m);
+    m.addEventListener('click',function(e){ if(e.target===m||e.target.id==='cv4-mx') m.remove(); });
+  }
+
+  function bind(root){
+    root.addEventListener('click',function(e){
+      var t=e.target, c;
+      if((c=t.closest('[data-c]'))){ V.cat=c.dataset.c; V.budget=Infinity; V.fam=null; V.sel=[]; V.all=false; mount(); return; }
+      if((c=t.closest('[data-b]'))){ V.budget=+c.dataset.b; V.all=false; root.querySelectorAll('#cv4-bud .cv4-chip').forEach(function(b){b.classList.toggle('on',b===c);}); render(); return; }
+      if((c=t.closest('[data-p]'))){
+        var p=PROFS.find(function(x){return x.id===c.dataset.p;});
+        if(V.prof===p.id){ V.prof=null; V.dataMin=0; V.sort='score'; } else { V.prof=p.id; V.dataMin=p.dataMin; V.sort=p.sort; }
+        document.getElementById('cv4-sort').value=V.sort; V.all=false;
+        root.querySelectorAll('#cv4-prof .cv4-chip').forEach(function(b){b.classList.toggle('on',b.dataset.p===V.prof);}); render(); return;
+      }
+      if((c=t.closest('[data-f]'))){
+        V.fam = (V.fam===c.dataset.f) ? null : c.dataset.f; V.all=false;
+        root.querySelectorAll('.cv4-fchip').forEach(function(b){b.classList.toggle('on',b.dataset.f===V.fam);}); render(); return;
+      }
+      if(t.id==='cv4-more'){ document.getElementById('cv4-adv').classList.toggle('open'); return; }
+      if(t.id==='cv4-all'){ V.all=true; render(); return; }
+      if(t.id==='cv4-classic'){ try{localStorage.setItem('cv-ui','classic');}catch(x){} location.reload(); return; }
+      if((c=t.closest('.cv4-row[data-id]'))){
+        if(t.classList.contains('cv4-chk')){
+          var id=c.dataset.id, i=V.sel.indexOf(id);
+          if(i>=0) V.sel.splice(i,1); else if(V.sel.length<3) V.sel.push(id); else { t.checked=false; alert('3 offres maximum à comparer.'); }
+          bar(); return;
+        }
+        c.classList.toggle('open');
+      }
+    });
+    root.addEventListener('change',function(e){
+      var t=e.target;
+      if(t.dataset && t.dataset.o){ if(t.checked) V.ops.add(t.dataset.o); else V.ops.delete(t.dataset.o); if(!V.ops.size){ V.ops.add(t.dataset.o); t.checked=true; } render(); }
+      if(t.id==='cv4-sort'){ V.sort=t.value; render(); }
+    });
+  }
+
+  var bound = null;
+  function mount(){
+    var sec=document.getElementById('comparateurSection'); if(!sec) return;
+    sec.innerHTML=shell();
+    document.getElementById('cv4-sort').value=V.sort;
+    if(bound!==sec){ bind(sec); bound=sec; }
+    document.getElementById('cv4-cmp').onclick=function(){ if(V.sel.length>=2) modal(); };
+    document.getElementById('cv4-clr').onclick=function(){ V.sel=[]; render(); };
+    render();
+  }
+
+  window._cv4Back = function(){ try{localStorage.removeItem('cv-ui');}catch(x){} location.reload(); };
+  window.initComparateur = async function(){
+    var useClassic=false; try{ useClassic = localStorage.getItem('cv-ui')==='classic'; }catch(x){}
+    if(useClassic){
+      await classicInit();
+      var sec=document.getElementById('comparateurSection');
+      if(sec && !sec.querySelector('.cv4-back')){
+        var b=document.createElement('button'); b.className='cv4-back'; b.textContent='✨ Essayer la nouvelle version simplifiée';
+        b.style.cssText='position:fixed;right:14px;bottom:14px;z-index:900;background:#fb923c;color:#111;border:0;border-radius:10px;padding:10px 14px;font-weight:700;cursor:pointer';
+        b.onclick=window._cv4Back; sec.appendChild(b);
+      }
+      return;
+    }
+    if(!document.getElementById('cv4-css')) document.head.appendChild(st);
+    await _cv3LoadOffers();
+    V.sel=[]; V.all=false;
+    mount();
+  };
+})();

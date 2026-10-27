@@ -1720,7 +1720,7 @@ window.showComparateur = function() {
     document.querySelectorAll('.main-nav a').forEach(a => a.classList.remove('active'));
     const navComp = document.getElementById('nav-comparateur');
     if (navComp) navComp.classList.add('active');
-    atLoadScript('/comparateur.js?v=2').then(() => { if (typeof window.initComparateur === 'function') window.initComparateur(); }).catch(() => {});
+    atLoadScript('/comparateur.js?v=3').then(() => { if (typeof window.initComparateur === 'function') window.initComparateur(); }).catch(() => {});
     window.scrollTo({top: 0, behavior: 'smooth'});
 };
 
