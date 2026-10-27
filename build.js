@@ -492,4 +492,22 @@ if (process.env.CF_PAGES === '1') {
     }
     ['server.js', 'requirements.txt', 'diff_report.txt', 'apify_cache.json', 'scripts', 'tools', '.github'].forEach(rm);
     console.log('🧹 fichiers internes retirés du déploiement');
+
+    // Outils internes / brouillons / sauvegardes : jamais publics (restent disponibles en local, rien n'est supprimé du dépôt).
+    // CV Massar + CV Premium coupés « pour l'instant » (ils appellent Kateb/TTS payants) : retirer les 2 lignes ci-dessous pour les rouvrir.
+    const PRIVE = ['OUTILS', 'Journal-Officiel-interactif', 'Ancien_Outil_Backup', 'code secret youtube', 'lecteurs-audio-et-idees',
+        'backup_conflicts', 'output', 'generator', '.vscode', '.claude', 'cv-massar', 'cv-generator-premium.html',
+        'smart-ingest.html', 'smart-ingest-pro.html.bak', 'studio-tech.html', 'video-downloader.html', 'flash-vertical.html',
+        'at-voice.html', 'at-personnalisation-demo.html'];
+    PRIVE.forEach(rm);
+    for (const f of fs.readdirSync(__dirname)) {
+        if (/^(prototype-|test-|backup_local_)/i.test(f)) rm(f);
+    }
+    // Menu public : retirer les entrées du CV Massar (copie de build uniquement, index.html du dépôt intact).
+    try {
+        const ip = path.join(__dirname, 'index.html');
+        const h = fs.readFileSync(ip, 'utf8').split('\n').filter(l => !/href="\/cv-massar\//.test(l)).join('\n');
+        fs.writeFileSync(ip, h, 'utf8');
+    } catch (e) { console.warn('⚠️  Menu CV Massar non retiré :', e.message); }
+    console.log('🔒 outils internes + CV Massar/Premium retirés du déploiement');
 }
