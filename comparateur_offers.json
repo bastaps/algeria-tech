@@ -1,0 +1,2158 @@
+[
+  {
+    "id": "m1",
+    "op": "mobilis",
+    "name": "Revolution 1200",
+    "type": "prepaid",
+    "price": 1200,
+    "data": 35,
+    "validity": 30,
+    "dateAdded": "2026-01-15",
+    "calls": "Illimités vers Mobilis",
+    "sms": "Via Mobilis Units",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Facebook après épuisement MU",
+      "4G/5G inclus",
+      "MU cumulables (dès 1 000 DA)"
+    ],
+    "link": "https://www.mobilis.dz/revolution_prepaid"
+  },
+  {
+    "id": "m2",
+    "op": "mobilis",
+    "name": "Revolution 1500",
+    "type": "prepaid",
+    "price": 1500,
+    "data": 55,
+    "validity": 30,
+    "dateAdded": "2026-01-15",
+    "calls": "Illimités vers Mobilis",
+    "sms": "Via Mobilis Units",
+    "intl": false,
+    "badge": "Populaire",
+    "extras": [
+      "Facebook illimité",
+      "4G/5G inclus",
+      "MU cumulables",
+      "+200 MU si renouvellement avant J20"
+    ],
+    "link": "https://www.mobilis.dz/revolution_prepaid"
+  },
+  {
+    "id": "m3",
+    "op": "mobilis",
+    "name": "Revolution 1800",
+    "type": "prepaid",
+    "price": 1800,
+    "data": 80,
+    "validity": 30,
+    "dateAdded": "2026-02-01",
+    "calls": "Illimités vers Mobilis",
+    "sms": "Via Mobilis Units",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Facebook illimité",
+      "4G/5G inclus",
+      "MU cumulables",
+      "+200 MU renouvellement"
+    ],
+    "link": "https://www.mobilis.dz/revolution_prepaid"
+  },
+  {
+    "id": "m4",
+    "op": "mobilis",
+    "name": "Revolution 2000",
+    "type": "prepaid",
+    "price": 2000,
+    "data": 100,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers tous réseaux",
+    "sms": "Illimités Mobilis + 35 SMS autres",
+    "intl": false,
+    "badge": "Meilleur rapport",
+    "extras": [
+      "Facebook illimité",
+      "4G/5G inclus",
+      "MU cumulables",
+      "5000 MU"
+    ],
+    "link": "https://www.mobilis.dz/revolution_prepaid"
+  },
+  {
+    "id": "m5",
+    "op": "mobilis",
+    "name": "Revolution 2500",
+    "type": "prepaid",
+    "price": 2500,
+    "data": 130,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers tous réseaux",
+    "sms": "Illimités Mobilis + 50 SMS autres",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Facebook illimité",
+      "4G/5G inclus",
+      "MU cumulables",
+      "6500 MU"
+    ],
+    "link": "https://www.mobilis.dz/revolution_prepaid"
+  },
+  {
+    "id": "m6",
+    "op": "mobilis",
+    "name": "Revolution Control 1200",
+    "type": "prepaid",
+    "price": 1200,
+    "data": 45,
+    "validity": 30,
+    "dateAdded": "2026-06-29",
+    "calls": "Crédit MU flexible (appels/SMS/data)",
+    "sms": "Inclus dans le crédit MU",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Crédit unique 2250 MU (flexible)",
+      "1 Go=50 MU · 1 min=5 MU",
+      "MU cumulables",
+      "+250 MU au renouvellement",
+      "Facebook illimité après épuisement MU",
+      "Boost 200 DA=500 MU",
+      "4G/5G"
+    ],
+    "link": "https://www.mobilis.dz/revolution_control"
+  },
+  {
+    "id": "m7",
+    "op": "mobilis",
+    "name": "Revolution Control 1500",
+    "type": "prepaid",
+    "price": 1500,
+    "data": 70,
+    "validity": 30,
+    "dateAdded": "2026-06-29",
+    "calls": "Crédit MU flexible (appels/SMS/data)",
+    "sms": "Inclus dans le crédit MU",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Crédit unique 3500 MU (flexible)",
+      "1 Go=50 MU · 1 min=5 MU",
+      "MU cumulables",
+      "+250 MU au renouvellement",
+      "Facebook illimité",
+      "Boost 200 DA=500 MU",
+      "4G/5G"
+    ],
+    "link": "https://www.mobilis.dz/revolution_control"
+  },
+  {
+    "id": "m8",
+    "op": "mobilis",
+    "name": "Revolution Control 1800",
+    "type": "prepaid",
+    "price": 1800,
+    "data": 100,
+    "validity": 30,
+    "dateAdded": "2026-06-29",
+    "calls": "Crédit MU flexible (appels/SMS/data)",
+    "sms": "Inclus dans le crédit MU",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Crédit unique 5000 MU (flexible)",
+      "1 Go=50 MU · 1 min=5 MU",
+      "MU cumulables",
+      "+250 MU au renouvellement",
+      "Facebook illimité",
+      "Boost 200 DA=500 MU",
+      "4G/5G"
+    ],
+    "link": "https://www.mobilis.dz/revolution_control"
+  },
+  {
+    "id": "m9",
+    "op": "mobilis",
+    "name": "Revolution Control 2000",
+    "type": "prepaid",
+    "price": 2000,
+    "data": 118,
+    "validity": 30,
+    "dateAdded": "2026-06-29",
+    "calls": "Crédit MU flexible (appels/SMS/data)",
+    "sms": "Inclus dans le crédit MU",
+    "intl": false,
+    "badge": "Meilleur rapport",
+    "extras": [
+      "Crédit unique 5900 MU (flexible)",
+      "1 Go=50 MU · 1 min=5 MU",
+      "MU cumulables",
+      "+250 MU complet au renouvellement",
+      "Facebook illimité",
+      "Boost 200 DA=500 MU",
+      "4G/5G"
+    ],
+    "link": "https://www.mobilis.dz/revolution_control"
+  },
+  {
+    "id": "m10",
+    "op": "mobilis",
+    "name": "Revolution Control 2500",
+    "type": "prepaid",
+    "price": 2500,
+    "data": 150,
+    "validity": 30,
+    "dateAdded": "2026-06-29",
+    "calls": "Crédit MU flexible (appels/SMS/data)",
+    "sms": "Inclus dans le crédit MU",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Crédit unique 7500 MU (flexible)",
+      "1 Go=50 MU · 1 min=5 MU",
+      "MU cumulables",
+      "+250 MU complet au renouvellement",
+      "Facebook illimité",
+      "Boost 200 DA=500 MU",
+      "4G/5G"
+    ],
+    "link": "https://www.mobilis.dz/revolution_control"
+  },
+  {
+    "id": "m11",
+    "op": "mobilis",
+    "name": "Revolution Control 3000",
+    "type": "prepaid",
+    "price": 3000,
+    "data": 188,
+    "validity": 30,
+    "dateAdded": "2026-06-29",
+    "calls": "Crédit MU flexible (appels/SMS/data)",
+    "sms": "Inclus dans le crédit MU",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Crédit unique 9400 MU (flexible)",
+      "1 Go=50 MU · 1 min=5 MU",
+      "MU cumulables",
+      "+250 MU complet au renouvellement",
+      "Facebook illimité",
+      "Boost 200 DA=500 MU",
+      "4G/5G"
+    ],
+    "link": "https://www.mobilis.dz/revolution_control"
+  },
+  {
+    "id": "m12",
+    "op": "mobilis",
+    "name": "Revolution Postpaid 1500",
+    "type": "postpaid",
+    "price": 1500,
+    "data": 60,
+    "validity": 30,
+    "dateAdded": "2026-06-29",
+    "calls": "Crédit MU flexible (appels/SMS/data)",
+    "sms": "Inclus dans le crédit MU",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Crédit unique 3000 MU (flexible)",
+      "Facture mensuelle sans surprise",
+      "Extra Unit 1 DA=2 MU",
+      "Facebook illimité",
+      "4G/5G"
+    ],
+    "link": "https://www.mobilis.dz/revolution_postpaid"
+  },
+  {
+    "id": "d1",
+    "op": "djezzy",
+    "name": "Legend 1 000 DA",
+    "type": "prepaid",
+    "price": 1000,
+    "data": 15,
+    "validity": 30,
+    "dateAdded": "2026-02-15",
+    "calls": "Illimités vers Djezzy",
+    "sms": "Illimités vers Djezzy",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "2 000 DA de crédit offert",
+      "4G/5G inclus"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/djezzy-legend/"
+  },
+  {
+    "id": "d2",
+    "op": "djezzy",
+    "name": "Legend 1 500 DA",
+    "type": "prepaid",
+    "price": 1500,
+    "data": 45,
+    "validity": 30,
+    "dateAdded": "2026-02-15",
+    "calls": "Illimités vers Djezzy",
+    "sms": "Illimités vers Djezzy",
+    "intl": false,
+    "badge": "Populaire",
+    "extras": [
+      "3 000 DA de crédit offert",
+      "4G/5G inclus",
+      "Gigas cumulables"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/djezzy-legend/"
+  },
+  {
+    "id": "d3",
+    "op": "djezzy",
+    "name": "Legend 2 000 DA",
+    "type": "prepaid",
+    "price": 2000,
+    "data": 70,
+    "validity": 30,
+    "dateAdded": "2026-03-01",
+    "calls": "Illimités vers tous réseaux",
+    "sms": "Illimités Djezzy + 50 SMS autres",
+    "intl": false,
+    "badge": "Meilleur rapport",
+    "extras": [
+      "4G/5G inclus",
+      "Gigas cumulables"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/djezzy-legend/"
+  },
+  {
+    "id": "d4",
+    "op": "djezzy",
+    "name": "Legend 2 500 DA",
+    "type": "prepaid",
+    "price": 2500,
+    "data": 120,
+    "validity": 30,
+    "dateAdded": "2026-03-01",
+    "calls": "Illimités vers tous réseaux",
+    "sms": "Illimités Djezzy + 20 SMS autres",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "4G/5G inclus",
+      "Gigas cumulables"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/djezzy-legend/"
+  },
+  {
+    "id": "d5",
+    "op": "djezzy",
+    "name": "Legend 3 000 DA",
+    "type": "prepaid",
+    "price": 3000,
+    "data": 145,
+    "validity": 30,
+    "dateAdded": "2026-06-01",
+    "calls": "Illimités vers tous réseaux",
+    "sms": "Illimités Djezzy + 25 SMS autres",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "4G/5G inclus",
+      "Gigas cumulables"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/djezzy-legend/"
+  },
+  {
+    "id": "d6",
+    "op": "djezzy",
+    "name": "Legend 4 000 DA",
+    "type": "prepaid",
+    "price": 4000,
+    "data": 200,
+    "validity": 30,
+    "dateAdded": "2026-06-01",
+    "calls": "Illimités vers tous réseaux",
+    "sms": "Illimités Djezzy + 30 SMS autres",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "4G/5G inclus",
+      "Gigas cumulables"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/djezzy-legend/"
+  },
+  {
+    "id": "o1",
+    "op": "ooredoo",
+    "name": "Dima 500",
+    "type": "prepaid",
+    "price": 500,
+    "data": 3,
+    "validity": 15,
+    "dateAdded": "2026-03-15",
+    "calls": "Illimités Ooredoo + 100 min autres",
+    "sms": "50 SMS tous réseaux",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Facebook gratuit",
+      "4G/5G inclus"
+    ],
+    "link": "https://www.ooredoo.dz/fr/"
+  },
+  {
+    "id": "o2",
+    "op": "ooredoo",
+    "name": "Dima 750",
+    "type": "prepaid",
+    "price": 750,
+    "data": 10,
+    "validity": 14,
+    "dateAdded": "2026-03-15",
+    "calls": "Illimités Ooredoo + 100 min autres",
+    "sms": "50 SMS tous réseaux",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Facebook gratuit",
+      "4G/5G inclus"
+    ],
+    "link": "https://www.ooredoo.dz/fr/"
+  },
+  {
+    "id": "o3",
+    "op": "ooredoo",
+    "name": "Dima 1200",
+    "type": "prepaid",
+    "price": 1200,
+    "data": 8,
+    "validity": 30,
+    "dateAdded": "2026-04-01",
+    "calls": "Illimités Ooredoo + 100 min autres",
+    "sms": "120 SMS tous réseaux",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Facebook gratuit",
+      "ANAFLIX inclus",
+      "4G/5G inclus"
+    ],
+    "link": "https://www.ooredoo.dz/fr/"
+  },
+  {
+    "id": "o4",
+    "op": "ooredoo",
+    "name": "Dima 1500",
+    "type": "prepaid",
+    "price": 1500,
+    "data": 30,
+    "validity": 30,
+    "dateAdded": "2026-04-15",
+    "calls": "Illimités Ooredoo + 150 min autres",
+    "sms": "150 SMS tous réseaux",
+    "intl": false,
+    "badge": "Populaire",
+    "extras": [
+      "Facebook gratuit",
+      "ANAFLIX inclus",
+      "4G/5G inclus"
+    ],
+    "link": "https://www.ooredoo.dz/fr/"
+  },
+  {
+    "id": "o5",
+    "op": "ooredoo",
+    "name": "Dima 2000",
+    "type": "prepaid",
+    "price": 2000,
+    "data": 50,
+    "validity": 30,
+    "dateAdded": "2026-04-15",
+    "calls": "Illimités Ooredoo + 300 min autres",
+    "sms": "200 SMS tous réseaux",
+    "intl": false,
+    "badge": "Meilleur rapport",
+    "extras": [
+      "Facebook gratuit",
+      "ANAFLIX + ANAZIK inclus",
+      "4G/5G inclus"
+    ],
+    "link": "https://www.ooredoo.dz/fr/"
+  },
+  {
+    "id": "o6",
+    "op": "ooredoo",
+    "name": "Dima 2500",
+    "type": "prepaid",
+    "price": 2500,
+    "data": 100,
+    "validity": 30,
+    "dateAdded": "2026-05-20",
+    "calls": "Illimités vers tous réseaux",
+    "sms": "Illimités Ooredoo + 100 SMS autres",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Facebook gratuit",
+      "ANAFLIX + ANAZIK + GoPlay",
+      "4G/5G inclus"
+    ],
+    "link": "https://www.ooredoo.dz/fr/"
+  },
+  {
+    "id": "o7",
+    "op": "ooredoo",
+    "name": "Dima 4000",
+    "type": "prepaid",
+    "price": 4000,
+    "data": 200,
+    "validity": 30,
+    "dateAdded": "2026-05-20",
+    "calls": "Illimités vers tous réseaux",
+    "sms": "Illimités Ooredoo + 200 SMS autres",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "4G/5G inclus"
+    ],
+    "link": "https://www.ooredoo.dz/fr/"
+  },
+  {
+    "id": "o8",
+    "op": "ooredoo",
+    "name": "Ooredoo 500",
+    "type": "prepaid",
+    "price": 500,
+    "data": 5,
+    "validity": 28,
+    "dateAdded": "2026-06-29",
+    "calls": "Illimités vers Ooredoo + 500 DA crédit tous réseaux",
+    "sms": "Via crédit 500 DA",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "500 DA de crédit tous réseaux",
+      "Pass longue durée dispo",
+      "4G/5G inclus"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-500"
+  },
+  {
+    "id": "o9",
+    "op": "ooredoo",
+    "name": "N'YOOZ 500",
+    "type": "prepaid",
+    "price": 500,
+    "data": 5,
+    "validity": 30,
+    "dateAdded": "2026-06-29",
+    "calls": "50 min tous réseaux",
+    "sms": "50 SMS vers Ooredoo",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "+2 Go bonus (appli)",
+      "Snapchat 300 Mo/j",
+      "Numéro au choix",
+      "4G/5G inclus"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/offres-mobiles/n-yooz"
+  },
+  {
+    "id": "o10",
+    "op": "ooredoo",
+    "name": "N'YOOZ 1000",
+    "type": "prepaid",
+    "price": 1000,
+    "data": 15,
+    "validity": 30,
+    "dateAdded": "2026-06-29",
+    "calls": "Illimités Ooredoo + 100 min autres",
+    "sms": "—",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Snapchat 300 Mo/j",
+      "Numéro au choix",
+      "4G/5G inclus"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/offres-mobiles/n-yooz"
+  },
+  {
+    "id": "o11",
+    "op": "ooredoo",
+    "name": "N'YOOZ 1500",
+    "type": "prepaid",
+    "price": 1500,
+    "data": 30,
+    "validity": 30,
+    "dateAdded": "2026-06-29",
+    "calls": "Illimités Ooredoo + 150 min autres",
+    "sms": "—",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Facebook/Messenger illimité",
+      "Snapchat 300 Mo/j",
+      "4G/5G inclus"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/offres-mobiles/n-yooz"
+  },
+  {
+    "id": "o12",
+    "op": "ooredoo",
+    "name": "Scholar 500",
+    "type": "prepaid",
+    "price": 500,
+    "data": 7,
+    "validity": 28,
+    "dateAdded": "2026-06-29",
+    "calls": "Illimités vers Ooredoo + 500 DA crédit",
+    "sms": "Via crédit",
+    "intl": false,
+    "badge": "Étudiants",
+    "extras": [
+      "5 Go + 2 Go bonus (appli)",
+      "Offre étudiants",
+      "4G/5G inclus"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-scholar"
+  },
+  {
+    "id": "o13",
+    "op": "ooredoo",
+    "name": "Scholar 1000",
+    "type": "prepaid",
+    "price": 1000,
+    "data": 20,
+    "validity": 28,
+    "dateAdded": "2026-06-29",
+    "calls": "Illimités vers Ooredoo + 2000 DA crédit",
+    "sms": "Via crédit",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Bonus data (appli)",
+      "Offre étudiants",
+      "4G/5G inclus"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-scholar"
+  },
+  {
+    "id": "o14",
+    "op": "ooredoo",
+    "name": "Scholar 1500",
+    "type": "prepaid",
+    "price": 1500,
+    "data": 50,
+    "validity": 28,
+    "dateAdded": "2026-06-29",
+    "calls": "Illimités vers Ooredoo + 3000 DA crédit",
+    "sms": "Via crédit",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Bonus data (appli)",
+      "Offre étudiants",
+      "4G/5G inclus"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-scholar"
+  },
+  {
+    "id": "o15",
+    "op": "ooredoo",
+    "name": "Scholar 2000",
+    "type": "prepaid",
+    "price": 2000,
+    "data": 80,
+    "validity": 28,
+    "dateAdded": "2026-06-29",
+    "calls": "Illimités vers Ooredoo + 6000 DA crédit",
+    "sms": "Via crédit",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Bonus data (appli)",
+      "Offre étudiants",
+      "4G/5G inclus"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-scholar"
+  },
+  {
+    "id": "o16",
+    "op": "ooredoo",
+    "name": "Scholar 2500",
+    "type": "prepaid",
+    "price": 2500,
+    "data": 120,
+    "validity": 28,
+    "dateAdded": "2026-06-29",
+    "calls": "Illimités vers tous réseaux",
+    "sms": "Illimités Ooredoo + 100 SMS autres",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Offre étudiants",
+      "4G/5G inclus"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-scholar"
+  },
+  {
+    "id": "i1",
+    "op": "mobilis",
+    "cat": "internet",
+    "name": "Pack MobiNet",
+    "type": "internet",
+    "price": 9000,
+    "data": 200,
+    "validity": 270,
+    "dateAdded": "2026-06-29",
+    "calls": "Modem WiFi + SIM · jusqu’à 16 appareils",
+    "sms": null,
+    "intl": false,
+    "badge": "Pack modem",
+    "extras": [
+      "Bonus 200 Go inclus (9 mois)",
+      "Recharges : 1500 DA = 60 Go/30j",
+      "Boost 30 Go = 500 DA",
+      "YouTube illimité après quota",
+      "Sans engagement"
+    ],
+    "link": "https://mobilis.dz/mobinet"
+  },
+  {
+    "id": "i2",
+    "op": "mobilis",
+    "cat": "internet",
+    "name": "Pack MobiNet Plus",
+    "type": "internet",
+    "price": 16000,
+    "data": 300,
+    "validity": 365,
+    "dateAdded": "2026-06-29",
+    "calls": "Modem WiFi + SIM · jusqu’à 32 appareils",
+    "sms": null,
+    "intl": false,
+    "badge": "Pack modem",
+    "extras": [
+      "Bonus 300 Go inclus (12 mois)",
+      "Recharges : 1500/3500/6500 DA",
+      "Boost 30 Go = 500 DA",
+      "YouTube illimité après quota",
+      "Sans engagement"
+    ],
+    "link": "https://mobilis.dz/mobinet_plus"
+  },
+  {
+    "id": "i3",
+    "op": "mobilis",
+    "cat": "internet",
+    "name": "Recharge MobiNet 60 Go",
+    "type": "internet",
+    "price": 1500,
+    "data": 60,
+    "validity": 30,
+    "dateAdded": "2026-06-29",
+    "calls": "Recharge data (box MobiNet)",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "YouTube illimité après quota",
+      "Compatible Pack MobiNet / Plus"
+    ],
+    "link": "https://mobilis.dz/mobinet"
+  },
+  {
+    "id": "i4",
+    "op": "mobilis",
+    "cat": "internet",
+    "name": "Recharge MobiNet 200 Go",
+    "type": "internet",
+    "price": 3500,
+    "data": 200,
+    "validity": 90,
+    "dateAdded": "2026-06-29",
+    "calls": "Recharge data (box MobiNet)",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "YouTube illimité après quota",
+      "Validité 3 mois"
+    ],
+    "link": "https://mobilis.dz/mobinet"
+  },
+  {
+    "id": "i5",
+    "op": "mobilis",
+    "cat": "internet",
+    "name": "Recharge MobiNet 400 Go",
+    "type": "internet",
+    "price": 6500,
+    "data": 400,
+    "validity": 180,
+    "dateAdded": "2026-06-29",
+    "calls": "Recharge data (box MobiNet)",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "YouTube illimité après quota",
+      "Validité 6 mois"
+    ],
+    "link": "https://mobilis.dz/mobinet"
+  },
+  {
+    "id": "i6",
+    "op": "mobilis",
+    "cat": "internet",
+    "name": "Navigui 4G (SIM)",
+    "type": "internet",
+    "price": 300,
+    "data": 15,
+    "validity": 180,
+    "dateAdded": "2026-06-29",
+    "calls": "SIM data 3G/4G (sans modem)",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Bonus 3 Go + Facebook/WhatsApp (30j)",
+      "2 Go/mois pendant 6 mois",
+      "Data cumulable",
+      "Connexion maintenue après quota (débit réduit)"
+    ],
+    "link": "https://mobilis.dz/naviguiinternet"
+  },
+  {
+    "id": "i7",
+    "op": "mobilis",
+    "cat": "internet",
+    "name": "Pass Navigui 10 Go",
+    "type": "internet",
+    "price": 1000,
+    "data": 10,
+    "validity": 30,
+    "dateAdded": "2026-06-29",
+    "calls": "Pass optionnel Navigui",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Cumulable",
+      "Activation via *600#"
+    ],
+    "link": "https://mobilis.dz/naviguiinternet"
+  },
+  {
+    "id": "i8",
+    "op": "mobilis",
+    "cat": "internet",
+    "name": "Pass Navigui 25 Go",
+    "type": "internet",
+    "price": 2000,
+    "data": 25,
+    "validity": 30,
+    "dateAdded": "2026-06-29",
+    "calls": "Pass optionnel Navigui",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Cumulable",
+      "Activation via *600#"
+    ],
+    "link": "https://mobilis.dz/naviguiinternet"
+  },
+  {
+    "id": "i9",
+    "op": "mobilis",
+    "cat": "internet",
+    "name": "Pass Navigui 80 Go",
+    "type": "internet",
+    "price": 6000,
+    "data": 80,
+    "validity": 90,
+    "dateAdded": "2026-06-29",
+    "calls": "Pass optionnel Navigui",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Validité 3 mois",
+      "Activation via *600#"
+    ],
+    "link": "https://mobilis.dz/naviguiinternet"
+  },
+  {
+    "id": "i10",
+    "op": "mobilis",
+    "cat": "internet",
+    "name": "Pass Navigui 300 Go",
+    "type": "internet",
+    "price": 15000,
+    "data": 300,
+    "validity": 180,
+    "dateAdded": "2026-06-29",
+    "calls": "Pass optionnel Navigui",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Validité 6 mois",
+      "Activation via *600#"
+    ],
+    "link": "https://mobilis.dz/naviguiinternet"
+  },
+  {
+    "id": "d7",
+    "op": "djezzy",
+    "name": "STUDENT CAMPUCE 1 600 DA",
+    "type": "prepaid",
+    "price": 1600,
+    "data": 70,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités en national",
+    "sms": "Illimités vers Djezzy + 50 SMS autres réseaux",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Offre étudiants — carte d'étudiant requise",
+      "Remise de 20% + bonus de bienvenue 5 Go (7 j)",
+      "SIM gratuite, numéro en 0780"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/offre-djezzy-campuce/"
+  },
+  {
+    "id": "d8",
+    "op": "djezzy",
+    "name": "STUDENT CAMPUCE 1 200 DA",
+    "type": "prepaid",
+    "price": 1200,
+    "data": 40,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Djezzy",
+    "sms": "Illimités vers Djezzy",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "3 000 DA de crédit inclus",
+      "Offre étudiants — carte d'étudiant requise",
+      "Remise de 20% + bonus de bienvenue 5 Go (7 j)"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/offre-djezzy-campuce/"
+  },
+  {
+    "id": "d9",
+    "op": "djezzy",
+    "name": "STUDENT CAMPUCE 800 DA",
+    "type": "prepaid",
+    "price": 800,
+    "data": 15,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Djezzy",
+    "sms": "Illimités vers Djezzy",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "2 000 DA de crédit inclus",
+      "Offre étudiants — carte d'étudiant requise",
+      "Remise de 20% + bonus de bienvenue 5 Go (7 j)"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/offre-djezzy-campuce/"
+  },
+  {
+    "id": "d10",
+    "op": "djezzy",
+    "name": "STUDENT CAMPUCE 400 DA",
+    "type": "prepaid",
+    "price": 400,
+    "data": 5,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Djezzy",
+    "sms": "Illimités vers Djezzy",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "500 DA de crédit inclus",
+      "Offre étudiants — carte d'étudiant requise",
+      "Remise de 20% + bonus de bienvenue 5 Go (7 j)"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/offre-djezzy-campuce/"
+  },
+  {
+    "id": "d11",
+    "op": "djezzy",
+    "name": "STUDENT CAMPUCE 150 DA",
+    "type": "prepaid",
+    "price": 150,
+    "data": 0,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Djezzy",
+    "sms": "Illimités vers Djezzy",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "WhatsApp illimité",
+      "Facebook illimité",
+      "Offre étudiants — carte d'étudiant requise"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/offre-djezzy-campuce/"
+  },
+  {
+    "id": "d12",
+    "op": "djezzy",
+    "name": "STUDENT CAMPUCE 100 DA",
+    "type": "prepaid",
+    "price": 100,
+    "data": 1,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Djezzy",
+    "sms": "Illimités vers Djezzy",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "300 DA de crédit inclus",
+      "Offre étudiants — carte d'étudiant requise"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/offre-djezzy-campuce/"
+  },
+  {
+    "id": "d13",
+    "op": "djezzy",
+    "name": "STUDENT CAMPUCE 50 DA",
+    "type": "prepaid",
+    "price": 50,
+    "data": 0,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "1 numéro favori OU 60 min vers Djezzy + 10 min autres réseaux",
+    "sms": "Illimités vers Djezzy",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Recharge d'appoint",
+      "Offre étudiants — carte d'étudiant requise"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/offre-djezzy-campuce/"
+  },
+  {
+    "op": "djezzy",
+    "name": "Legend 2 000 DA — 90 Go",
+    "type": "prepaid",
+    "price": 2000,
+    "data": 90,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Djezzy + 350 min autres réseaux",
+    "sms": "Illimités vers Djezzy + 20 SMS autres réseaux",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "4G/5G inclus",
+      "Gigas cumulables (options 1500 DA et +)"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/djezzy-legend/",
+    "id": "d14"
+  },
+  {
+    "op": "djezzy",
+    "name": "Legend 100 DA (24 h)",
+    "type": "prepaid",
+    "price": 100,
+    "data": 1,
+    "validity": 1,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Djezzy",
+    "sms": "Illimités vers Djezzy",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "300 DA de crédit inclus",
+      "Validité 24 h"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/djezzy-legend/",
+    "id": "d15"
+  },
+  {
+    "op": "djezzy",
+    "name": "LEGEND MAX 70 Go",
+    "type": "postpaid",
+    "price": 2000,
+    "data": 70,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers tous les réseaux nationaux",
+    "sms": "Illimités vers Djezzy + 100 SMS autres réseaux",
+    "intl": true,
+    "badge": null,
+    "extras": [
+      "200 DA vers l’international",
+      "Numéro dédié 0770"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/legend-max/",
+    "id": "d16"
+  },
+  {
+    "op": "djezzy",
+    "name": "LEGEND MAX 100 Go",
+    "type": "postpaid",
+    "price": 2500,
+    "data": 100,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers tous les réseaux nationaux",
+    "sms": "Illimités vers Djezzy + 150 SMS autres réseaux",
+    "intl": true,
+    "badge": null,
+    "extras": [
+      "500 DA vers l’international",
+      "Numéro dédié 0770"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/legend-max/",
+    "id": "d17"
+  },
+  {
+    "op": "djezzy",
+    "name": "Confort Partage 50 Go",
+    "type": "postpaid",
+    "price": 1500,
+    "data": 50,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Djezzy",
+    "sms": "Illimités vers Djezzy",
+    "intl": true,
+    "badge": null,
+    "extras": [
+      "2 000 DA appels & SMS national et international",
+      "Numéro dédié 0770"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/djezzy-confort-2/",
+    "id": "d18"
+  },
+  {
+    "op": "djezzy",
+    "name": "Confort Partage 80 Go",
+    "type": "postpaid",
+    "price": 2000,
+    "data": 80,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Djezzy",
+    "sms": "Illimités vers Djezzy",
+    "intl": true,
+    "badge": null,
+    "extras": [
+      "4 000 DA appels & SMS national",
+      "15 min vers l’international (10 destinations)",
+      "Numéro dédié 0770"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/djezzy-confort-2/",
+    "id": "d19"
+  },
+  {
+    "op": "djezzy",
+    "name": "Confort Partage 150 Go",
+    "type": "postpaid",
+    "price": 3000,
+    "data": 150,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Djezzy",
+    "sms": "Illimités vers Djezzy",
+    "intl": true,
+    "badge": null,
+    "extras": [
+      "6 000 DA appels & SMS national",
+      "30 min vers l’international (10 destinations)",
+      "Numéro dédié 0770"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/djezzy-confort-2/",
+    "id": "d20"
+  },
+  {
+    "op": "djezzy",
+    "name": "ZID 1 500 DA",
+    "type": "prepaid",
+    "price": 1500,
+    "data": 40,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Djezzy",
+    "sms": "Illimités vers Djezzy",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "3 000 DA de crédit inclus"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/djezzy-zid/",
+    "id": "d21"
+  },
+  {
+    "op": "djezzy",
+    "name": "ZID 1 000 DA",
+    "type": "prepaid",
+    "price": 1000,
+    "data": 15,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Djezzy",
+    "sms": "Illimités vers Djezzy",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "2 000 DA de crédit inclus"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/djezzy-zid/",
+    "id": "d22"
+  },
+  {
+    "op": "djezzy",
+    "name": "ZID 500 DA",
+    "type": "prepaid",
+    "price": 500,
+    "data": 5,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Djezzy",
+    "sms": "Illimités vers Djezzy",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "500 DA de crédit inclus"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/djezzy-zid/",
+    "id": "d23"
+  },
+  {
+    "op": "djezzy",
+    "name": "ZID 400 DA (Extra)",
+    "type": "prepaid",
+    "price": 400,
+    "data": 7,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Djezzy",
+    "sms": "Illimités vers Djezzy",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "800 DA de crédit",
+      "Facebook & Instagram gratuits",
+      "YouTube gratuit"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/djezzy-zid/",
+    "id": "d24"
+  },
+  {
+    "op": "djezzy",
+    "name": "ZID 200 DA (7 jours)",
+    "type": "prepaid",
+    "price": 200,
+    "data": 2,
+    "validity": 7,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Djezzy",
+    "sms": "Illimités vers Djezzy",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "200 DA de crédit inclus"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/djezzy-zid/",
+    "id": "d25"
+  },
+  {
+    "op": "djezzy",
+    "name": "ZID 100 DA (24 h)",
+    "type": "prepaid",
+    "price": 100,
+    "data": 1,
+    "validity": 1,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Djezzy",
+    "sms": "Illimités vers Djezzy",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "150 DA de crédit inclus"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/djezzy-zid/",
+    "id": "d26"
+  },
+  {
+    "op": "djezzy",
+    "name": "ZID 50 DA (24 h)",
+    "type": "prepaid",
+    "price": 50,
+    "data": 0.5,
+    "validity": 1,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Djezzy",
+    "sms": "Illimités vers Djezzy",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "50 DA de crédit inclus",
+      "500 Mo d’internet"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/djezzy-zid/",
+    "id": "d27"
+  },
+  {
+    "op": "djezzy",
+    "name": "iZZY 1 200 DA",
+    "type": "prepaid",
+    "price": 1200,
+    "data": 10,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités",
+    "sms": "Illimités",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Crédit inclus",
+      "YouTube gratuit"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/izzy-game-changer/",
+    "id": "d28"
+  },
+  {
+    "op": "djezzy",
+    "name": "Forfait Internet 15 Go",
+    "type": "internet",
+    "cat": "internet",
+    "price": 1000,
+    "data": 15,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait SIM Internet",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "SIM Internet Djezzy"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/nouveaux-forfaits-internet-de-djezzy/",
+    "id": "d29"
+  },
+  {
+    "op": "djezzy",
+    "name": "Forfait Internet 50 Go",
+    "type": "internet",
+    "cat": "internet",
+    "price": 1500,
+    "data": 50,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait SIM Internet",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "SIM Internet Djezzy"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/nouveaux-forfaits-internet-de-djezzy/",
+    "id": "d30"
+  },
+  {
+    "op": "djezzy",
+    "name": "Forfait Internet 100 Go",
+    "type": "internet",
+    "cat": "internet",
+    "price": 2000,
+    "data": 100,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait SIM Internet",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "SIM Internet Djezzy"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/nouveaux-forfaits-internet-de-djezzy/",
+    "id": "d31"
+  },
+  {
+    "op": "djezzy",
+    "name": "Forfait Internet 220 Go",
+    "type": "internet",
+    "cat": "internet",
+    "price": 4000,
+    "data": 220,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait SIM Internet",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "SIM Internet Djezzy"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/nouveaux-forfaits-internet-de-djezzy/",
+    "id": "d32"
+  },
+  {
+    "op": "djezzy",
+    "name": "Forfait Internet 60 Go (3 mois)",
+    "type": "internet",
+    "cat": "internet",
+    "price": 2500,
+    "data": 60,
+    "validity": 90,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait SIM Internet",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Validité 3 mois"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/nouveaux-forfaits-internet-de-djezzy/",
+    "id": "d33"
+  },
+  {
+    "op": "djezzy",
+    "name": "Forfait Internet 150 Go (6 mois)",
+    "type": "internet",
+    "cat": "internet",
+    "price": 4000,
+    "data": 150,
+    "validity": 180,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait SIM Internet",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Validité 6 mois"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/nouveaux-forfaits-internet-de-djezzy/",
+    "id": "d34"
+  },
+  {
+    "op": "djezzy",
+    "name": "Forfait Internet 350 Go (12 mois)",
+    "type": "internet",
+    "cat": "internet",
+    "price": 7500,
+    "data": 350,
+    "validity": 365,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait SIM Internet",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Validité 12 mois"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/nouveaux-forfaits-internet-de-djezzy/",
+    "id": "d35"
+  },
+  {
+    "op": "djezzy",
+    "name": "DjezzyNet 5 Go",
+    "type": "internet",
+    "cat": "internet",
+    "price": 150,
+    "data": 5,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Offre 100% internet",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Remise 50% sur la 2e souscription",
+      "Bonus internet via l’app Djezzy"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/offres-internet/",
+    "id": "d36"
+  },
+  {
+    "op": "djezzy",
+    "name": "DjezzyNet 20 Go",
+    "type": "internet",
+    "cat": "internet",
+    "price": 500,
+    "data": 20,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Offre 100% internet",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Remise 50% sur la 2e souscription",
+      "Bonus internet via l’app Djezzy"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/offres-internet/",
+    "id": "d37"
+  },
+  {
+    "op": "djezzy",
+    "name": "Pack 3ayla 15 Go + Modem 4G",
+    "type": "internet",
+    "cat": "internet",
+    "price": 8500,
+    "data": 15,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Pack modem 4G + SIM internet",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Modem 4G inclus",
+      "SIM internet incluse"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/djezzy-3ayla/",
+    "id": "d38"
+  },
+  {
+    "op": "djezzy",
+    "name": "Pack 3ayla 60 Go + Modem 4G",
+    "type": "internet",
+    "cat": "internet",
+    "price": 9000,
+    "data": 60,
+    "validity": 90,
+    "dateAdded": "2026-08-23",
+    "calls": "Pack modem 4G + SIM internet",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Modem 4G inclus",
+      "Validité 3 mois"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/djezzy-3ayla/",
+    "id": "d39"
+  },
+  {
+    "op": "djezzy",
+    "name": "Pack 3ayla 150 Go + Modem 4G",
+    "type": "internet",
+    "cat": "internet",
+    "price": 9990,
+    "data": 150,
+    "validity": 180,
+    "dateAdded": "2026-08-23",
+    "calls": "Pack modem 4G + SIM internet",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Modem 4G inclus",
+      "Validité 6 mois"
+    ],
+    "link": "https://www.djezzy.dz/particuliers/offres/djezzy-3ayla/",
+    "id": "d40"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Ooredoo 500 X6",
+    "type": "prepaid",
+    "price": 2500,
+    "data": 5,
+    "validity": 168,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Ooredoo",
+    "sms": "500 DA de crédit tous réseaux",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Forfait Ooredoo 500 renouvelé 6 fois",
+      "Chaque 4 semaines"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-500",
+    "id": "o17"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Ooredoo 500 X9",
+    "type": "prepaid",
+    "price": 3500,
+    "data": 5,
+    "validity": 252,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Ooredoo",
+    "sms": "500 DA de crédit tous réseaux",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Forfait Ooredoo 500 renouvelé 9 fois",
+      "Chaque 4 semaines"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-500",
+    "id": "o18"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Ooredoo 500 X12",
+    "type": "prepaid",
+    "price": 4500,
+    "data": 5,
+    "validity": 336,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Ooredoo",
+    "sms": "500 DA de crédit tous réseaux",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Forfait Ooredoo 500 renouvelé 12 fois",
+      "Chaque 4 semaines"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-500",
+    "id": "o19"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Forfait 1500 DA",
+    "type": "prepaid",
+    "price": 1500,
+    "data": 40,
+    "validity": 28,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait data Ooredoo 500",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "YouTube gratuit"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-500",
+    "id": "o20"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Forfait 1000 DA",
+    "type": "prepaid",
+    "price": 1000,
+    "data": 15,
+    "validity": 28,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait data Ooredoo 500",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "5 Go YouTube"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-500",
+    "id": "o21"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Forfait 500 DA",
+    "type": "prepaid",
+    "price": 500,
+    "data": 6,
+    "validity": 28,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait data Ooredoo 500",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Coupons Fayda"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-500",
+    "id": "o22"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Forfait 300 DA (72 h)",
+    "type": "prepaid",
+    "price": 300,
+    "data": 3,
+    "validity": 3,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait data Ooredoo 500",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "YouTube gratuit"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-500",
+    "id": "o23"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Forfait 100 DA (72 h)",
+    "type": "prepaid",
+    "price": 100,
+    "data": 0.7,
+    "validity": 3,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait data Ooredoo 500",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "700 Mo",
+      "YouTube gratuit"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-500",
+    "id": "o24"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Forfait 50 DA (24 h)",
+    "type": "prepaid",
+    "price": 50,
+    "data": 0.05,
+    "validity": 1,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait data Ooredoo 500",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "50 Mo",
+      "Facebook gratuit"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-500",
+    "id": "o25"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Forfait journalier 200 DA",
+    "type": "prepaid",
+    "price": 200,
+    "data": 0,
+    "validity": 1,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Ooredoo",
+    "sms": "600 DA de crédit",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Internet 24 h",
+      "Validité 24 h"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-500",
+    "id": "o26"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Forfait journalier 100 DA",
+    "type": "prepaid",
+    "price": 100,
+    "data": 0.5,
+    "validity": 1,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Ooredoo",
+    "sms": "100 DA de crédit",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "500 Mo",
+      "Facebook gratuit"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-500",
+    "id": "o27"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Forfait journalier 50 DA",
+    "type": "prepaid",
+    "price": 50,
+    "data": 0,
+    "validity": 1,
+    "dateAdded": "2026-08-23",
+    "calls": "60 min vers Ooredoo",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Validité 24 h"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/offres-mobiles/ooredoo-500",
+    "id": "o28"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Ooredoo Internet 50 Go",
+    "type": "internet",
+    "cat": "internet",
+    "price": 1500,
+    "data": 50,
+    "validity": 28,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait internet",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Renouvelable chaque 4 semaines"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/internet/ooredoo-internet",
+    "id": "o29"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Ooredoo Internet 120 Go",
+    "type": "internet",
+    "cat": "internet",
+    "price": 2500,
+    "data": 120,
+    "validity": 28,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait internet",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Renouvelable chaque 4 semaines"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/internet/ooredoo-internet",
+    "id": "o30"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Ooredoo Internet 200 Go",
+    "type": "internet",
+    "cat": "internet",
+    "price": 4500,
+    "data": 200,
+    "validity": 28,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait internet",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Renouvelable chaque 4 semaines"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/internet/ooredoo-internet",
+    "id": "o31"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Ooredoo Internet 250 Go",
+    "type": "internet",
+    "cat": "internet",
+    "price": 5500,
+    "data": 250,
+    "validity": 28,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait internet",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Renouvelable chaque 4 semaines"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/internet/ooredoo-internet",
+    "id": "o32"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Ooredoo Internet 500 Go",
+    "type": "internet",
+    "cat": "internet",
+    "price": 10000,
+    "data": 500,
+    "validity": 28,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait internet",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Renouvelable chaque 4 semaines"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/internet/ooredoo-internet",
+    "id": "o33"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Ooredoo Internet 1 000 Go",
+    "type": "internet",
+    "cat": "internet",
+    "price": 19500,
+    "data": 1000,
+    "validity": 28,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait internet",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Renouvelable chaque 4 semaines"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/internet/ooredoo-internet",
+    "id": "o34"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Ooredoo Internet 600 Go (50 Go ×12)",
+    "type": "internet",
+    "cat": "internet",
+    "price": 15000,
+    "data": 600,
+    "validity": 336,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait internet annuel",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "50 Go × 12 cycles de 4 semaines"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/internet/ooredoo-internet",
+    "id": "o35"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Ooredoo Internet 1 440 Go (120 Go ×12)",
+    "type": "internet",
+    "cat": "internet",
+    "price": 25000,
+    "data": 1440,
+    "validity": 336,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait internet annuel",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "120 Go × 12 cycles de 4 semaines"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/internet/ooredoo-internet",
+    "id": "o36"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Ooredoo Internet 2 400 Go (200 Go ×12)",
+    "type": "internet",
+    "cat": "internet",
+    "price": 45000,
+    "data": 2400,
+    "validity": 336,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait internet annuel",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "200 Go × 12 cycles de 4 semaines"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/internet/ooredoo-internet",
+    "id": "o37"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Ooredoo Internet 3 000 Go (250 Go ×12)",
+    "type": "internet",
+    "cat": "internet",
+    "price": 55000,
+    "data": 3000,
+    "validity": 336,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait internet annuel",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "250 Go × 12 cycles de 4 semaines"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/internet/ooredoo-internet",
+    "id": "o38"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Ooredoo Internet 6 000 Go (500 Go ×12)",
+    "type": "internet",
+    "cat": "internet",
+    "price": 100000,
+    "data": 6000,
+    "validity": 336,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait internet annuel",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "500 Go × 12 cycles de 4 semaines"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/internet/ooredoo-internet",
+    "id": "o39"
+  },
+  {
+    "op": "ooredoo",
+    "name": "Ooredoo Internet 12 000 Go (1 000 Go ×12)",
+    "type": "internet",
+    "cat": "internet",
+    "price": 195000,
+    "data": 12000,
+    "validity": 336,
+    "dateAdded": "2026-08-23",
+    "calls": "Forfait internet annuel",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "1 000 Go × 12 cycles de 4 semaines"
+    ],
+    "link": "https://www.ooredoo.dz/fr/particuliers/internet/ooredoo-internet",
+    "id": "o40"
+  },
+  {
+    "op": "mobilis",
+    "name": "Revolution 1000",
+    "type": "prepaid",
+    "price": 1000,
+    "data": 25,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Mobilis + minutes autres réseaux (Mobilis Units)",
+    "sms": "Illimités vers Mobilis",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "1 250 MU",
+      "250 min ou 125 SMS autres réseaux",
+      "MU cumulables"
+    ],
+    "link": "https://mobilis.dz/revolution_prepaid",
+    "id": "m13"
+  },
+  {
+    "op": "mobilis",
+    "name": "Revolution 500",
+    "type": "prepaid",
+    "price": 500,
+    "data": 12,
+    "validity": 15,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Mobilis + minutes autres réseaux (Mobilis Units)",
+    "sms": "Illimités vers Mobilis",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "600 MU",
+      "120 min ou 60 SMS autres réseaux"
+    ],
+    "link": "https://mobilis.dz/revolution_prepaid",
+    "id": "m14"
+  },
+  {
+    "op": "mobilis",
+    "name": "Revolution 100",
+    "type": "prepaid",
+    "price": 100,
+    "data": 2,
+    "validity": 1,
+    "dateAdded": "2026-08-23",
+    "calls": "Illimités vers Mobilis + minutes autres réseaux (Mobilis Units)",
+    "sms": "Illimités vers Mobilis",
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "100 MU",
+      "20 min ou 10 SMS autres réseaux",
+      "Validité 24 h"
+    ],
+    "link": "https://mobilis.dz/revolution_prepaid",
+    "id": "m15"
+  },
+  {
+    "op": "mobilis",
+    "name": "Pass Internet 30 DA",
+    "type": "internet",
+    "cat": "internet",
+    "price": 30,
+    "data": 0.3,
+    "validity": 1,
+    "dateAdded": "2026-08-23",
+    "calls": "Pass data optionnel",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "300 Mo",
+      "Sama / Win Max / Beking / PixX",
+      "Validité 24 h"
+    ],
+    "link": "https://mobilis.dz/passinternet",
+    "id": "m16"
+  },
+  {
+    "op": "mobilis",
+    "name": "Pass Internet 100 DA",
+    "type": "internet",
+    "cat": "internet",
+    "price": 100,
+    "data": 1,
+    "validity": 1,
+    "dateAdded": "2026-08-23",
+    "calls": "Pass data optionnel",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "1 Go",
+      "Sama / Win Max / Beking / PixX",
+      "Validité 24 h"
+    ],
+    "link": "https://mobilis.dz/passinternet",
+    "id": "m17"
+  },
+  {
+    "op": "mobilis",
+    "name": "Pass Internet 500 DA",
+    "type": "internet",
+    "cat": "internet",
+    "price": 500,
+    "data": 4,
+    "validity": 7,
+    "dateAdded": "2026-08-23",
+    "calls": "Pass data optionnel",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "4 Go",
+      "Sama / Win Max / Beking / PixX",
+      "Validité 7 jours"
+    ],
+    "link": "https://mobilis.dz/passinternet",
+    "id": "m18"
+  },
+  {
+    "op": "mobilis",
+    "name": "Navigui 3G/4G (SIM)",
+    "type": "internet",
+    "cat": "internet",
+    "price": 300,
+    "data": 3,
+    "validity": 30,
+    "dateAdded": "2026-08-23",
+    "calls": "SIM internet prépayée",
+    "sms": null,
+    "intl": false,
+    "badge": null,
+    "extras": [
+      "Prix d’acquisition 300 DA TTC",
+      "Bonus de bienvenue 3 Go / 30 jours"
+    ],
+    "link": "https://mobilis.dz/naviguiinternet",
+    "id": "m19"
+  }
+]
