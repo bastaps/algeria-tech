@@ -14,7 +14,7 @@
  * la rapidité des requêtes réseau sans contenu périmé.
  */
 
-const CACHE_VERSION = 'algeria-tech-v24';
+const CACHE_VERSION = 'algeria-tech-v25';
 const CACHE_IMAGES  = 'algeria-tech-images-v1';
 
 // ── Assets locaux pré-cachés (HTML et CDN exclus volontairement) ──────────────
@@ -151,20 +151,27 @@ self.addEventListener('fetch', event => {
  */
 async function networkFirst(request) {
   const cache = await caches.open(CACHE_VERSION);
-  try {
-    const response = await fetch(request);
-    if (response && response.status === 200) {
-      cache.put(request, response.clone()); // stocké pour usage offline
+  // Connexion instable (coupures fréquentes) : un 2e essai avant de basculer sur le cache.
+  for (let essai = 0; essai < 2; essai++) {
+    try {
+      const response = await fetch(request);
+      if (response && response.status === 200) {
+        cache.put(request, response.clone()); // stocké pour usage offline
+      }
+      return response;
+    } catch {
+      if (essai === 0) await new Promise(r => setTimeout(r, 1500));
     }
-    return response;
-  } catch {
-    // Hors ligne : fallback sur le cache si disponible
-    const cached = await cache.match(request);
-    return cached || new Response('<h1>Algeria Tech — Hors ligne</h1><p>Vérifiez votre connexion.</p>', {
-      status: 503,
-      headers: { 'Content-Type': 'text/html; charset=utf-8' },
-    });
   }
+  // Hors ligne : fallback sur le cache si disponible (pour une navigation, à défaut l'accueil en cache)
+  const cached = await cache.match(request) ||
+                 (request.mode === 'navigate' ? await cache.match('/') : null);
+  return cached || new Response(
+    '<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="6">' +
+    '<h1>Algeria Tech — Hors ligne</h1><p>Vérifiez votre connexion. Nouvelle tentative automatique…</p>', {
+    status: 503,
+    headers: { 'Content-Type': 'text/html; charset=utf-8' },
+  });
 }
 
 /**
