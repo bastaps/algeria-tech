@@ -316,12 +316,21 @@ def sources_officielles(titre, corps, url_source, max_entites=3):
     return trouves
 
 
+_RECHERCHE = {"epuisee": False}   # quota « recherche Google » de Gemini atteint : on n'insiste plus pendant ce passage
+
+
+def _quota_recherche(r):
+    if r.status_code == 429:
+        _RECHERCHE["epuisee"] = True
+        log("quota de la recherche Google (Gemini) atteint : suite sans recherche pour ce passage")
+
+
 def _gemini_recherche(prompt):
     """Gemini avec Google Search ; renvoie les adresses des pages citées (redirections résolues)."""
     import json as _j
     from filtre_editorial import GEMINI_MODELES, GEMINI_URL, _gemini_cle
     cle = _gemini_cle()
-    if not cle:
+    if not cle or _RECHERCHE["epuisee"]:
         return []
     corps = _j.dumps({"contents": [{"role": "user", "parts": [{"text": prompt}]}],
                       "tools": [{"google_search": {}}], "generationConfig": {"temperature": 0}})
@@ -330,6 +339,9 @@ def _gemini_recherche(prompt):
             r = requests.post(GEMINI_URL.format(m=modele), data=corps, timeout=90,
                               headers={"Content-Type": "application/json", "x-goog-api-key": cle})
             if r.status_code != 200:
+                _quota_recherche(r)
+                if _RECHERCHE["epuisee"]:
+                    break
                 continue
             cand = (r.json().get("candidates") or [{}])[0]
             chunks = (cand.get("groundingMetadata") or {}).get("groundingChunks") or []
@@ -410,7 +422,7 @@ def _gemini_recherche_texte(prompt):
     import json as _j
     from filtre_editorial import GEMINI_MODELES, GEMINI_URL, _gemini_cle
     cle = _gemini_cle()
-    if not cle:
+    if not cle or _RECHERCHE["epuisee"]:
         return "", []
     corps = _j.dumps({"contents": [{"role": "user", "parts": [{"text": prompt}]}],
                       "tools": [{"google_search": {}}], "generationConfig": {"temperature": 0}})
@@ -419,6 +431,9 @@ def _gemini_recherche_texte(prompt):
             r = requests.post(GEMINI_URL.format(m=modele), data=corps, timeout=90,
                               headers={"Content-Type": "application/json", "x-goog-api-key": cle})
             if r.status_code != 200:
+                _quota_recherche(r)
+                if _RECHERCHE["epuisee"]:
+                    break
                 continue
             cand = (r.json().get("candidates") or [{}])[0]
             texte = "".join(p.get("text", "") for p in (cand.get("content") or {}).get("parts", []))
