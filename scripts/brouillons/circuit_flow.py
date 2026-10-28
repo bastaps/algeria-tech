@@ -165,7 +165,10 @@ def registre_distant():
 
 def candidats_scoops():
     """Informations de première main trouvées par l'IA ; les publications Facebook illisibles sont signalées par ntfy (une seule fois)."""
-    cands, pistes = S.candidats_scoops()
+    cands, pistes, nouveau, data = S.candidats_du_jour(None)   # une seule recherche par jour (PC + cloud) : résultats lus sur GitHub
+    if nouveau and data:   # recherche faite ici : copie locale, déposée sur GitHub avec le prochain brouillon (voir deposer)
+        WORK.mkdir(parents=True, exist_ok=True)
+        (WORK / "scoops-jour.json").write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
     deja = set(lire(WORK / "pistes.json", []))
     for p in pistes:
         if p["url"] in deja:
@@ -589,6 +592,12 @@ def deposer(ident, sortie, titre, avec_video, slot=None):
             shutil.copy(sortie / rel, cible)
             git("add", "-f", rel, cwd=tmp)
         maj_registre(tmp, slot)
+        # résultats de la recherche Google du jour : partagés avec le cloud et les autres créneaux (une seule recherche par jour)
+        cache = lire(WORK / "scoops-jour.json", None)
+        if cache and cache.get("date") == aujourd_hui() and not (tmp / S.CACHE_REL).is_file():
+            (tmp / "data").mkdir(exist_ok=True)
+            shutil.copy(WORK / "scoops-jour.json", tmp / S.CACHE_REL)
+            git("add", "-f", S.CACHE_REL, cwd=tmp)
         git("-c", "user.name=circuit-flow", "-c", "user.email=circuit-flow@local", "commit", "-q", "-m",
             f"Auto: brouillon à placer — {titre[:70]}", cwd=tmp)
         for essai in range(4):

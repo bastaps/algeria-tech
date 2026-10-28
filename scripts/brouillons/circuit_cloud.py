@@ -155,7 +155,8 @@ def produire(slot, notif=True):
     vus = sources_deja_utilisees()
     ctx = C.D.contexte(RACINE, None, brouillons_locaux=True)   # publiés récents + brouillons en attente (dont ceux du PC, lus sur GitHub)
     # Règle éditoriale : d'abord les communiqués officiels des entreprises / institutions ; les médias ensuite.
-    scoops = lambda: C.S.candidats_scoops()[0]   # noqa: E731  (les pistes Facebook illisibles sont signalées par le PC seulement)
+    # une seule recherche Google par jour (cache partagé data/scoops-jour.json, commité avec le brouillon) ; pistes Facebook : PC seulement
+    scoops = lambda: C.S.candidats_du_jour(RACINE / C.S.CACHE_REL)[0]   # noqa: E731
     listes = ((scoops, C.O.candidats_officiels, C.candidats_revue, C.candidats_flux) if slot == "matin"
               else (scoops, C.O.candidats_officiels, C.candidats_flux, C.candidats_revue))
     essais_ia = 0

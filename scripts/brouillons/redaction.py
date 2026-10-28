@@ -306,7 +306,7 @@ def sources_officielles(titre, corps, url_source, max_entites=3):
                 log(f"page officielle écartée (autre sujet) : {nom} — {meilleur[1]}")
     # 2e stratégie : recherche web (Gemini + Google Search) de la page officielle, puis lecture et vérification
     deja = {o["nom"] for o in trouves}
-    for e in entites[:max_entites]:
+    for e in entites[:1]:   # une seule recherche Google par article (l'acteur principal) : le quota de la recherche est limité
         nom = str(e.get("nom") or "").strip()
         if not nom or nom in deja:
             continue

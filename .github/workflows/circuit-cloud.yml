@@ -81,6 +81,7 @@ jobs:
           git config user.name "actions-user"
           git config user.email "actions@github.com"
           git add brouillons images data/circuit-slots.json
+          git add data/scoops-jour.json 2>/dev/null || true
           git add -f videos/articles 2>/dev/null || true
           git commit -m "Auto: brouillon cloud à placer [$(date -u +%H:%M) UTC]" || exit 0
           for i in 1 2 3; do

@@ -113,6 +113,44 @@ def candidats_scoops(max_total=6):
     return cands[:max_total], pistes[:max_total]
 
 
+CACHE_REL = "data/scoops-jour.json"
+
+
+def _aujourd_hui():
+    return (datetime.datetime.utcnow() + datetime.timedelta(hours=1)).date().isoformat()
+
+
+def lire_cache(chemin_local=None):
+    """Résultat de la recherche du jour, déjà fait par le PC ou par le cloud (partagé via data/scoops-jour.json sur GitHub)."""
+    try:
+        if chemin_local and Path(chemin_local).is_file():
+            data = json.loads(Path(chemin_local).read_text(encoding="utf-8"))
+        else:
+            r = requests.get(f"https://raw.githubusercontent.com/bastaps/algeria-tech/main/{CACHE_REL}", timeout=20)
+            r.raise_for_status()
+            data = r.json()
+        return data if data.get("date") == _aujourd_hui() else None
+    except (OSError, ValueError, requests.RequestException):
+        return None
+
+
+def candidats_du_jour(chemin_local=None):
+    """([candidats], [pistes], nouveau, données) — UNE seule recherche Google par jour pour tous les créneaux, PC et cloud confondus
+    (la recherche consomme un quota limité). `nouveau` = la recherche vient d'être faite (à partager) ; pas de cache si le quota est atteint."""
+    data = lire_cache(chemin_local)
+    if data:
+        log("recherche du jour déjà faite : résultats réutilisés")
+        return data.get("candidats", []), data.get("pistes", []), False, data
+    cands, pistes = candidats_scoops()
+    if R._RECHERCHE["epuisee"]:
+        return cands, pistes, False, None
+    data = {"date": _aujourd_hui(), "candidats": cands, "pistes": pistes}
+    if chemin_local:
+        Path(chemin_local).parent.mkdir(parents=True, exist_ok=True)
+        Path(chemin_local).write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
+    return cands, pistes, True, data
+
+
 if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8")
     c, p = candidats_scoops()
