@@ -1,6 +1,24 @@
 {
   "posts": [
     {
+      "id": "5b25c83ebf27b787",
+      "source_name": "APS — Algérie Presse Service",
+      "source_short": "APS",
+      "source_color": "#006233",
+      "category": "Ministère",
+      "category_icon": "📡",
+      "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxOUU9DVllfYTNqT28yNjNvRUdyWWhGQzNieXFfZVFRYm45R09RZ3hqb1dDckEwLVpKREI2TWtxb1VsU2kteXVUS3p1ZUNONXVzeFh3Y0pMbVJKMV96NDNMbmJHQV93UWZreXJYYkU1TGFlQm9yaHBxZWtON3JUT3hNWEp2VVhtZVA3WXdMSkdSY3NHak1CUktyODRqUUZodnA2SkZQMFU5cVhKMFRRbFhDN0w0d29zOFFHWHNwaG1rOUxuNHhnZXAtaUE4VmFhOHBPWkxwazVQaFpJams4R0lLTlBrclVLOGpuR3RRNmRTZTlyajY5WGlMRy1Lbl9uS0U?oc=5",
+      "image": "",
+      "date": "Mon, 26 Oct 2026 11:37:00 GMT",
+      "lang_source": "ar",
+      "text": {
+        "ar": "Arkab réaffirme à Moscou l'engagement de l'Algérie pour le renforcement de la coopération internationale - وكالة الأنباء الجزائرية — Arkab réaffirme à Moscou l'engagement de l'Algérie pour le renforcement de la coopération internationale وكالة الأنباء الجزائرية",
+        "fr": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "575a69b0c4e8ca6c",
       "source_name": "Ministère de la Poste et des TIC",
       "source_short": "MPT",
@@ -341,24 +359,6 @@
         "en": ""
       },
       "source_type": "web"
-    },
-    {
-      "id": "0aef2c644c46c06f",
-      "source_name": "DGRSDT",
-      "source_short": "DGRS",
-      "source_color": "#1A237E",
-      "category": "Ministère",
-      "category_icon": "🔬",
-      "url": "https://www.facebook.com/DGRSDT.ALGERIA",
-      "image": "",
-      "date": "2026-10-02T08:30:40+00:00",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Études et Réalisations en Énergies Renouvelables- ER2",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "facebook"
     },
     {
       "id": "f37ce3fbd56bcb19",
@@ -721,6 +721,42 @@
       "source_type": "rss"
     },
     {
+      "id": "c29383214016c8bf",
+      "source_name": "Algérie Télécom",
+      "source_short": "AT",
+      "source_color": "#0055A4",
+      "category": "Infrastructure",
+      "category_icon": "📡",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPZDluSEZFTWEwaWRHaUt2NUU1TV9PN250aUpoOGpXZ3lGMVlOenFGWnVKNGVvYy1DSThTbUN2d21RVVVzclpsNDFWVm1nZk55YUQ4VnZoM0pFR0p1WVRKMThNajB6QV85b3BDRnhLWnlGZjJQNXhYQTh3NzJCSFd5d1c0akVOTTNvSWRoRjFjQlZXVG4tdC1VaE1wQkx4R0Vp?oc=5",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 14:53:24 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Béjaïa : Algérie Télécom renforce la prévention contre les arnaques en ligne - La patrie news — Béjaïa : Algérie Télécom renforce la prévention contre les arnaques en ligne La patrie news",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c9c6c572c1823e51",
+      "source_name": "Algérie Poste",
+      "source_short": "AP",
+      "source_color": "#F9A825",
+      "category": "Infrastructure",
+      "category_icon": "✉️",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPaTFKMjN5NGFkMWx0a3FUNG54UjF4bWpvMFJKLUxseTljbG9CRGcxVTNPLTZnSmdreUxNN2g0YTQ0aUREZ2EzaDJ6YVg5Zmhnb0g5Qm5DN3hMN3phRXFoUWE0S3lPMTRiV0lzV09rSWtyOEh6YjVrVUtsbVBUSVB6RDYzNEFtN3k1Ym1HRm5WXzZkQlJVaVE?oc=5",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 14:44:06 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Paiement des amendes routières via BaridiMob: Gare à l’arnaque ! - L'Algérie Aujourd'hui — Paiement des amendes routières via BaridiMob: Gare à l’arnaque ! L'Algérie Aujourd'hui",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "068b90f6be53d720",
       "source_name": "Algérie Télécom",
       "source_short": "AT",
@@ -1045,42 +1081,6 @@
       "source_type": "youtube"
     },
     {
-      "id": "b8b40dc7fcb23446",
-      "source_name": "Algérie Télécom",
-      "source_short": "AT",
-      "source_color": "#0055A4",
-      "category": "Infrastructure",
-      "category_icon": "📡",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQTG8xQnNyYnhHQWhkQjVpdWV5YTZ2OU4zTTVPbGp4N2E5T0ZoTTRzdTZZalFFWEhQUUJFVmxoWV83aWZIQnhYQWRSQVFGcXZQNXRaUUh5ZkNpQzZnc2VmQ2IxUWN4YUZMNk82eG8tQzdUTDR6aXEtYXQ2TWFCYWdpdDd0ZWlZVzUwZ19kNkMxU0pBemkwYURiQTZxUlFYN3NoeURZdVBFWWZnbUxjeEZnWg?oc=5",
-      "image": "",
-      "date": "Mon, 19 Oct 2026 20:02:46 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Algérie-Niger: La dorsale transsaharienne à fibre optique entre en exploitation - www.horizons.dz — Algérie-Niger: La dorsale transsaharienne à fibre optique entre en exploitation www.horizons.dz",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "556a53602a492232",
-      "source_name": "Algérie Télécom",
-      "source_short": "AT",
-      "source_color": "#0055A4",
-      "category": "Infrastructure",
-      "category_icon": "📡",
-      "url": "https://www.youtube.com/watch?v=eVbnsFFi7kk",
-      "image": "",
-      "date": "2026-10-18T14:10:14+00:00",
-      "lang_source": "ar",
-      "text": {
-        "ar": "📱 My Idoom… خدماتنا أسهل وأقرب ليك!",
-        "fr": "",
-        "en": ""
-      },
-      "source_type": "youtube"
-    },
-    {
       "id": "ae7ca300cfe34c54",
       "source_name": "Stream System",
       "source_short": "SS",
@@ -1111,6 +1111,24 @@
       "lang_source": "fr",
       "text": {
         "fr": "Ballon d’Or 2026 : comment suivre la cérémonie en direct et gratuitement, en streaming ou à la télévision, date et heure de début - Goal.com — Ballon d’Or 2026 : comment suivre la cérémonie en direct et gratuitement, en streaming ou à la télévision, date et heure de début Goal.com",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e91c07af6d60b864",
+      "source_name": "Huawei Mobile DZ",
+      "source_short": "HMD",
+      "source_color": "#CF0A2C",
+      "category": "Équipementiers",
+      "category_icon": "📲",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQbkhjSC1aaXhmZ2xYOXNkdGgzM1c5Si1OQm1YQkRtdnNjcVdQLVBJek5ROEtFTVZ0WFdweE5EcDBsUlRfUDQwdHpDRzE5ZVhYS056cTBNd3ExbHFEZkdUMzA0X08tOHJKY0Q5ejAzQ1AycmktUU55SDRzWXZ2OHJtUUhzbU1BejM3dGdtR3pXNFBGSE9hQ0Q4UHotY2EwSjhpM2dFLVU0alhNeU9pQ09EbENpVEllZzVBelllcjBSVld5ZUJNN21pQTUtSVpydw?oc=5",
+      "image": "",
+      "date": "Wed, 21 Oct 2026 14:27:06 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Seeds for the Future 2026 : Huawei et l’Algérie investissent dans les talents de demain - El Moudjahid — Seeds for the Future 2026 : Huawei et l’Algérie investissent dans les talents de demain El Moudjahid",
         "ar": "",
         "en": ""
       },
@@ -1423,22 +1441,472 @@
       "source_type": "web"
     },
     {
-      "id": "fd0402d4672e7f95",
-      "source_name": "Huawei Global",
-      "source_short": "HW",
-      "source_color": "#B71C1C",
-      "category": "Équipementiers",
-      "category_icon": "🔧",
-      "url": "https://www.facebook.com/huawei",
+      "id": "bcd47e58a3df388d",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/28/lambassade-dalgerie-a-varsovie-dement-le-survol-de-la-pologne-par-des-avions-algeriens-transportant-des-armes/",
       "image": "",
-      "date": "2026-10-02T07:54:06+00:00",
+      "date": "Wed, 28 Oct 2026 22:01:20 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "L’ambassade d’Algérie à Varsovie dément le survol de la Pologne par des avions algériens transportant des armes — L’ambassade d’Algérie à Varsovie a démenti, mercredi 28 octobre, les informations faisant état du survol du territoire polonais par des avions algériens qui auraient transporté des armes. Dans un communiqué, la représentation diplomatique algérienne a indiqué que le Commandement opérationnel des for",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "34b53368a5c19b91",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/28/google-expands-ai-search-ads-globally-as-core-ad-growth-slows/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 21:48:37 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Google expands AI Search ads globally as core ad growth slows — The announcement came alongside parent company Alphabet's third-quarter earnings report, which saw revenue grow 25% year over year to $127.6 billion.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "65911ac3f4f50838",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/28/microsoft-recorded-10-billion-in-revenue-from-openai/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 21:34:30 +0000",
       "lang_source": "en",
       "text": {
-        "en": "AI has stepped out of the lab. Deeply converging with AI, Ultra-Broadband (UBB) brings renewal to every home, every enterprise, an… — AI has stepped out of the lab. Deeply converging with AI, Ultra-Broadband (UBB) brings renewal to every home, every enterprise, and every bearer network. From connectivity to value, #AgenticUBB unlocks infinite possibilities and opens new growth opportunities.\nWe look forward to meeting you at #UBBF",
+        "en": "Microsoft recorded $10 billion in revenue from OpenAI — Microsoft said it made $10 billion in revenue from commercial arrangements with OpenAI, including revenue-sharing payments, in the quarter ending September 30. It underscores the still-enormous financial dependency of the partnership.",
         "ar": "",
         "fr": ""
       },
-      "source_type": "facebook"
+      "source_type": "rss"
+    },
+    {
+      "id": "1a03c7011eafc465",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/28/microsoft-hits-10-quarters-of-record-breaking-revenue-in-a-row/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 21:25:30 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Microsoft hits 10 quarters of record-breaking revenue in a row — Whatever the future of AI might be, the current situation is still very good for Microsoft. The tech giant reported yet another record for quarterly revenue on Wednesday: $92.3 billion, a 19% increase over the year-ago quarter.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "a913f0ceeab6d7e5",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/28/vaccins-saidal-negocie-lacquisition-dune-ligne-de-production-en-allemagne/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 20:38:11 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Vaccins : Saidal négocie l’acquisition d’une ligne de production en Allemagne — Le ministre de l’Industrie pharmaceutique, Ouacim Kouidri, a tenu, ce mercredi 28 octobre, au siège de la société allemande Syntegon, des discussions visant à finaliser les négociations relatives à l’acquisition d’une ligne de production de vaccins au profit du groupe public Saidal, indique un commu",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "fb104c013e478dd6",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/28/hacker-stole-personnel-data-about-thousands-of-homeland-security-employees-including-cbp-and-ice-agents/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 20:01:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Hacker stole personnel data about thousands of Homeland Security employees, including CBP and ICE agents — A hacker obtained personally identifiable information about more than 40,000 Homeland Security staffers, which has since been published online.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "a3b3988dffaa9c1e",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/28/la-satim-certifiee-pour-personnaliser-les-cartes-visa-et-mastercard-en-algerie/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 19:48:27 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "La SATIM certifiée pour personnaliser les cartes Visa et Mastercard en Algérie — La Société d’automatisation des transactions interbancaires et de monétique (SATIM) a obtenu l’agrément des réseaux internationaux Visa et Mastercard pour la personnalisation des cartes de paiement en Algérie. Cette certification devrait permettre aux banques de réduire les délais de délivrance des",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "b2173123b9bf5b7b",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/28/anthropic-just-launched-tools-to-show-companies-what-their-ai-spending-is-buying/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 19:19:58 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Anthropic just launched tools to show companies what their AI spending is buying — The frontier lab is lifting the curtain on how users spend money on its models ahead of a planned IPO.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "4c18a8b504fc73a6",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/video/wizs-cto-on-php2shell-and-the-coming-vulnpocalypse/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 19:05:46 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Wiz’s CTO on PHP2Shell and the coming ‘vulnpocalypse’ — The PHP scare may have faded from your feed, but the cleanup is far from over. Last week, two critical bugs in the open source language behind roughly 70% of websites left organizations scrambling to fix their systems, with some taking sites offline until the vulnerabilities could be patched. Accord",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e27b6cda8f67b1de",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/10/28/intelligence-artificielle-natiq-studio-lance-une-avancee-majeure-pour-la-synthese-vocale-en-darija/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 18:50:43 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "IA : NATIQ STUDIO LANCE UNE AVANCÉE MAJEURE POUR LA SYNTHÈSE VOCALE EN DARIJA — Développé à partir de plus de 300 heures d’enregistrements, le modèle open-weight Natiq-dz-ARG franchit un cap décisif pour la reconnaissance et la reproduction de la langue parlée en Algérie, en intégrant notamment les spécificités de l’alternance linguistique.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "1bac9a0374cb9d07",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/10/28/darija-algerienne-un-modele-vocal-en-acces-libre-ne-dun-manque/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 18:10:00 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Entretien avec Abdelhak Kadouci :  «AUCUN MODÈLE NE PARLAIT MA DARIJA, ALORS J’AI CONSTRUIT LE MIEN» — Demandez à ChatGPT ou à Claude de parler darija algérienne, et le résultat déçoit souvent. C’est de ce constat qu’est né Natiq-dz-ARG. Faute de trouver un modèle de synthèse vocale (TTS) à la hauteur, Abdelhak Kadouci a décidé de construire le sien, seul. Publié en accès libre pour un usage non comm",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "55c198edafffad9f",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/face-au-durcissement-de-la-cnil-pkf-arsilon-lance-son-audit-express-rgpd-et-defie-les-tenors-du-conseil-it-506730.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 17:37:37 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Face au durcissement de la CNIL, PKF Arsilon lance son audit express RGPD et défie les ténors du conseil IT — Alors que le régulateur multiplie les amendes record, PKF Arsilon étoffe son pôle de gestion des risques IT avec un « Diagnostic Flash RGPD ». Un format court taillé pour les PME et ETI, pensé pour rivaliser avec les dispositifs de Grant Thornton, BDO ou des Big Four sur le terrain de la conformité",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "d63e8f7e3a1cf698",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/28/fievre-aphteuse-la-chambre-dagriculture-de-bejaia-appelle-les-eleveurs-a-la-vigilance/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 17:30:22 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Fièvre aphteuse : la chambre d’agriculture de Béjaïa appelle les éleveurs à la vigilance — La chambre d’agriculture de la wilaya de Béjaïa a appelé les éleveurs de bétails à renforcer les mesures de prévention et de vigilance contre la fièvre aphteuse, « une maladie hautement contagieuse ». « La chambre d’agriculture de la wilaya de Béjaïa informe l’ensemble des éleveurs bovins ; d’ovins",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "b0c000697b4c7e2f",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/oubliez-le-cuivre-pourquoi-le-plomb-est-le-veritable-carburant-des-datacenters-dia-506716.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 17:01:17 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Oubliez le cuivre : pourquoi le plomb est le véritable carburant des datacenters d’IA — Contrairement aux idées reçues, le boom de l'intelligence artificielle n'alimente pas la flambée du cuivre. Pour leurs datacenters, les constructeurs mobilisent trois fois moins de métal rouge que l'industrie traditionnelle, se tournant plutôt vers l'étain et le plomb.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f3efdc3195fcdc03",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/linux-pratique-essayez-linksy-il-est-destine-au-partage-de-fichiers-a-la-synchronisation-du-presse-papiers-et-a-lacces-distant-506647.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 17:00:38 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Linux pratique : essayez Linksy, il est destiné au partage de fichiers, à la synchronisation du presse-papiers et à l'accès distant — Avez-vous souvent besoin d’échanger des documents entre des ordinateurs tournant sous le système libre ? Pour simplifier la connexion, il n'y a pas mieux que cet utilitaire.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "7fbbcf0aac9e9142",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/28/as-ai-agents-reshape-the-web-google-opens-gemini-and-search-to-more-apps/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 17:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "As AI agents reshape the web, Google opens Gemini and Search to more apps — A new developer platform will let businesses bring their services to Google's AI experiences, potentially changing how consumers discover and use apps.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "7a28b9ee4e283bb2",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/28/chromes-ai-powered-autofill-can-now-dig-through-your-gmail-to-fill-out-forms/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 17:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Chrome’s AI-powered Autofill can now dig through your Gmail to fill out forms — The autofill update lets Chrome pull flight confirmations, tracking info, order details, and other information from your inbox, with your permission.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "85b585a85336259b",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/28/reddit-is-the-latest-platform-to-embrace-the-for-you-feed/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 16:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Reddit is the latest platform to embrace the ‘For You’ feed — The For You feed combines posts from communities users have joined with recommendations tailored to their interests.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "b01917f8b2b42f5c",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/28/ai-execs-may-be-too-out-of-touch-to-build-for-the-general-public/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 15:53:52 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "AI execs may be too out of touch to build for the general public — Tech leaders are flaunting how out of touch they are when they brag about using AI to connect with their families.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "9f7133723eefe7bb",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/28/trump-doe-loans-5b-to-nuclear-plants-that-will-power-data-centers/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 15:53:21 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Trump DOE loans $5B to nuclear plants that will power data centers — Constellation Energy will get $5 billion in government loans to modernize nuclear reactors. Most of the new capacity is already committed to Google, Amazon, and Meta.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "4c9ca9ab8600cca8",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/spacex-engage-40-milliards-de-dollars-de-dette-pour-etendre-ses-datacenters-506705.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 15:45:20 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "SpaceX engage 40 milliards de dollars de dette pour étendre ses datacenters — Pour muscler son infrastructure cloud et accélérer dans l'intelligence artificielle, SpaceX contracte un emprunt de 40 milliards de dollars auprès de Nvidia. Officialisée par Elon Musk, cette commande massive de GPU alimentera le datacenter Colossus II dès le premier semestre 2027.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f722d28b3c5d7d7c",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/tribune/philippe-peter-senior-director-emea-chez-sprinklr-les-entreprises-europeennes-se-trompent-de-debat-sur-lai-act-mais-aussi-decheance-506506.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 15:30:41 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Philippe Peter, senior director EMEA chez Sprinklr : « Les entreprises européennes se trompent de débat sur l'AI Act - mais aussi d'échéance » — Philippe Peter, Senior Director EMEA chez Sprinklr, invite les entreprises européennes à dépasser deux faux débats autour de l’AI Act, le contrôle humain systématique et la nationalité du fournisseur, pour se concentrer sur une gouvernance modulable et une véritable autonomie technique des données.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c53f042ff34fcafc",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/cloud-1370/oracle-accueillera-les-tpu-de-google-des-2027-229981",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 15:04:48 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Oracle accueillera les TPU de Google dès 2027 — Oracle accueillera les TPU de Google sur son cloud OCI dès 2027, une première pour un hyperscaler en dehors de Google. The post Oracle accueillera les TPU de Google dès 2027 appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "3a734c4a2fe29d8c",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/pratique/ios-27-organise-desormais-vos-onglets-safari-ouverts-et-vous-permet-de-creer-vos-propres-extensions-506702.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 14:59:48 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "iOS 27 organise désormais vos onglets Safari ouverts, et vous permet de créer vos propres extensions — Voici trois nouvelles fonctionnalités d'IA très sympas qu'iOS 27 apporte à Safari, ainsi que la manière dont je les utilise. Elles sont également disponibles sur macOS 27 et iPadOS 27.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "3a31f900e00ed092",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/28/air-algerie-relance-la-ligne-alger-tripoli/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 13:57:57 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Air Algérie relance la ligne Alger-Tripoli — La compagnie aérienne nationale Air Algérie a repris, ce mercredi 28 octobre, ses vols vers la Libye via une ligne aérienne reliant Alger à Tripoli, à travers l’organisation d’un vol inaugural au départ de l’aéroport international d’Alger. La reprise de cette ligne « s’inscrit dans le cadre de la st",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "5e20eb11c4f787ac",
+      "source_name": "Algérie 360",
+      "source_short": "A360",
+      "source_color": "#1565C0",
+      "category": "Médias TIC",
+      "category_icon": "📰",
+      "url": "https://www.algerie360.com/offre-prepayee-ooredoo-forfaits-prix/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 13:41:29 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Ooredoo Algérie enrichit son offre prépayée : jusqu’à 220 Go et des appels illimités — Ooredoo Algérie fait évoluer son offre prépayée « Ooredoo », avec cinq paliers de 1000 à 4000 DA. Jusqu’à 220 Go d’Internet, appels illimités et […] L’article Ooredoo Algérie enrichit son offre prépayée : jusqu’à 220 Go et des appels illimités est apparu en premier sur .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
     },
     {
       "id": "bdf7a460d91cdfdc",
@@ -4931,484 +5399,16 @@
         "fr": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "9200ba64bc321ab3",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/tribune/cynthia-overby-director-strategic-security-solutions-rocket-software-ia-et-systemes-critiques-jusquou-laisser-la-machine-agir-506308.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Fri, 23 Oct 2026 14:30:08 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Cynthia Overby, director strategic security solutions, Rocket Software : « IA et systèmes critiques : jusqu’où laisser la machine agir ? » — Alors que la pénurie d’experts mainframe s’aggrave, Cynthia Overby, Director, Strategic Security Solutions chez Rocket Software, explique comment encadrer l’autonomie des agents d’IA sur les systèmes critiques, entre gain d’efficacité et exigences réglementaires.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "156cc3249b0ba7f7",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/business-1367/transfert-de-technologie-la-france-2e-pour-les-spin-offs-229901",
-      "image": "",
-      "date": "Fri, 23 Oct 2026 13:43:34 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Transfert de technologie : la France 2e pour les spin-offs — L’Office européen des brevets recense 633 spin-offs issues de la recherche publique française, ce qui place le pays au deuxième rang européen, derrière le Royaume-Uni. The post Transfert de technologie : la France 2e pour les spin-offs appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "05c2507d301e11a5",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/business-1367/rgpd-plus-de-5-milliards-de-sanctions-en-europe-229897",
-      "image": "",
-      "date": "Fri, 23 Oct 2026 12:53:07 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "RGPD : plus de 5 milliards $ de sanctions en Europe — Une étude de Surfshark chiffre les sanctions européennes visant dix grandes plateformes depuis 2020. L'Irlande en concentre 94 %. La France suit avec 245 millions $, loin devant le Royaume-Uni, l'Espagne et les Pays-Bas. The post RGPD : plus de 5 milliards $ de sanctions en Europe appeared first on",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c3febe88b8f68aab",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/10/23/rehabilitation-du-barrage-vert-plus-de-42-000-hectares-plantes-entre-2023-et-2026/",
-      "image": "",
-      "date": "Fri, 23 Oct 2026 12:40:36 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Réhabilitation du Barrage vert : Plus de 42.000 hectares plantés entre 2023 et 2026 — Les superficies plantées dans le cadre du programme de réhabilitation et d’extension du Barrage vert ont atteint 42.376,36 hectares au titre des programmes 2023-2026, tandis que de nouvelles plantations sur plus de 34.000ha sont prévus pour 2026-2027, a appris l’APS auprès de la Direction générale d",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "8638538556adf227",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/10/23/la-guerre-au-moyen-orient-pousse-encore-les-prix-du-petrole-et-du-gaz/",
-      "image": "",
-      "date": "Fri, 23 Oct 2026 12:22:11 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "La guerre au Moyen-Orient pousse encore les prix du pétrole et du gaz — Les cours du pétrole et du gaz étaient en hausse vendredi, les marchés des hydrocarbures se montrant nerveux face aux attaques répétées des Houthis du Yémen en Arabie saoudite et avec la crainte d’une nouvelle escalade entre les Etats-Unis et l’Iran. Vers 11h55, le prix du baril de Brent de la mer d",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c314937622d943d5",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/cybersecurite-1371/agents-ia-la-surveillance-interne-dopenai-passee-au-crible-229881",
-      "image": "",
-      "date": "Fri, 23 Oct 2026 10:20:42 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Agents IA : la surveillance interne d’OpenAI passée au crible — Deux chercheurs ont eu un accès approfondi aux infrastructures d'OpenAI pour tester son système de détection du désalignement de ses agents. The post Agents IA : la surveillance interne d’OpenAI passée au crible appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "24dfc3201bbab12b",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/10/23/php2shell-la-faille-vieille-de-10-ans-debusquee-par-lia-qui-paralyse-des-milliers-de-sites/",
-      "image": "",
-      "date": "Fri, 23 Oct 2026 09:21:22 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "PHP2Shell : La faille vieille de 10 ans débusquée par l’IA qui paralyse des milliers de sites — Découvertes à la fin de l’été 2026 et publiées en urgence le 21 octobre 2026, les failles PHP2Shell constituent l’une des crises de cybersécurité les …",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "5252a4c426625826",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/failles-php-la-trop-lente-mise-a-jour-des-sites-vulnerables-506372.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Fri, 23 Oct 2026 08:32:11 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Failles PHP: la trop lente mise à jour des sites vulnérables — Si des sites web recommencent à être disponibles après avoir été, par mesure de sécurité, coupés, il reste encore bien des services PHP à mettre à jour après la publication de deux correctifs critiques.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "7dfb2a7ef49026c1",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/10/23/alerte-rouge-sur-les-serveurs-node-js-publie-des-correctifs-durgence-contre-10-failles-critiques/",
-      "image": "",
-      "date": "Fri, 23 Oct 2026 08:19:36 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "ALERTE ROUGE SUR LES SERVEURS : NODE.JS PUBLIE DES CORRECTIFS D’URGENCE CONTRE 10 FAILLES CRITIQUES — L’Internet mondial frôle la correction. Quelques jours seulement après les brèches béantes repérées dans PHP, c’est au tour de Node.js de plier sous la pression. Le projet vient de publier en urgence trois séries de correctifs pour colmater dix failles de sécurité, dont quatre jugées critiques. En p",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "d2e5d12286271642",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/schneider-electric-veut-ramener-a-six-mois-le-deploiement-electrique-des-data-centers-ia-506365.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Fri, 23 Oct 2026 07:00:34 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Schneider Electric veut ramener à six mois le déploiement électrique des data centers IA — Face à l’explosion des besoins en puissance de calcul liés à l’intelligence artificielle, Schneider Electric mise sur la préfabrication et la modularité. Le groupe dévoile de nouvelles infrastructures électriques conçues avec NVIDIA pour accélérer le déploiement des data centers dédiés à l’IA.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "9a96d8c1749714f7",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/deforestation-google-deepmind-publie-une-carte-pour-distinguer-forets-naturelles-et-plantations-506362.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Fri, 23 Oct 2026 06:01:43 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Déforestation : Google DeepMind publie une carte pour distinguer forêts naturelles et plantations — Google DeepMind et Google Research publient ForTy 2020, une carte mondiale à 10 mètres de résolution qui distingue six types de forêts et d’usages des terres, dont les forêts primaires et les plantations. Basée sur AlphaEarth Foundations, elle atteint 90 % de précision.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "29f126564e1dcad4",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/samsung-edge-panel-reorganisez-vos-apps-en-quelques-gestes/",
-      "image": "",
-      "date": "2026-10-23T05:33:00.078Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Samsung Edge Panel : réorganisez vos apps en quelques gestes — Le Samsung Edge Panel est l'une des fonctions les plus pratiques de One UI, et pourtant peu d'utilisateurs l'exploitent vraiment. Voici comment en tirer le maximum pour désencombrer votre écran d'accueil sans sacrifier l'accès rapide à vos apps.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "a13caa4acfd6af4e",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/zd-tech-achats-en-ligne-la-croissance-de-le-commerce-europeen-va-t-elle-vous-toucher-506161.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Fri, 23 Oct 2026 05:30:41 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "ZD Tech : Achats en ligne : la croissance de l'e-commerce européen va-t-elle vous toucher ? — Selon la FEVAD, le commerce en ligne européen a franchi la barre des 911 milliards d'euros en 2025. Alors que trois quarts des citoyens achètent désormais sur internet, la croissance bascule vers l'Europe de l'Est et du Sud face à l'assaut des plateformes internationales.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "ed5498b12f4259d1",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/carte-sim-cette-erreur-avec-l-outil-d-ejection-peut-ruiner-votre-telephone/",
-      "image": "",
-      "date": "2026-10-23T05:16:00.097Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Carte SIM : cette erreur avec l'outil d'éjection peut ruiner votre téléphone — Insérer l'outil d'éjection de SIM dans le mauvais trou est une erreur courante, mais les conséquences peuvent être bien plus graves qu'on ne l'imagine. Voici ce qui se passe réellement, et comment l'éviter.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "32703d66349dae06",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/sante-microsoft-fait-collaborer-des-agents-dia-comme-une-equipe-de-medecins-pour-diagnostiquer-506360.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Fri, 23 Oct 2026 05:00:55 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Santé : Microsoft fait collaborer des agents d’IA comme une équipe de médecins pour diagnostiquer — Microsoft a publié dans Science une étude sur MAI-DxO, un système où plusieurs agents d’IA jouent une équipe de médecins. Sur des cas complexes simulés, il trouve le bon diagnostic dans 83 % des cas, contre 36 % pour des généralistes, sans spécialistes dans la comparaison.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "208710b51bf19867",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/22/oura-sues-rival-ultrahuman-again-threatening-its-u-s-smart-ring-comeback/",
-      "image": "",
-      "date": "Fri, 23 Oct 2026 04:22:57 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Oura sues rival Ultrahuman again, threatening its U.S. smart ring comeback — Oura alleges in its newest lawsuit that Ultrahuman's Ring Pro infringes two of its patents.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "3bfe5c41c86a24ab",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/22/uber-rival-indrive-eyes-2027-robotaxi-tests-in-central-asia-with-pony-ai-and-nvidia/",
-      "image": "",
-      "date": "Fri, 23 Oct 2026 04:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Uber rival inDrive eyes 2027 robotaxi tests in Central Asia with Pony.ai and Nvidia — inDrive plans to begin testing Pony.ai's robotaxis in Kazakhstan's capital in the first half of 2027.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "02cf9a7a48f9b2c6",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/22/left-alone-with-nothing-to-do-ai-agents-started-playing/",
-      "image": "",
-      "date": "Fri, 23 Oct 2026 00:45:37 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Left alone with nothing to do, AI agents started playing — MIT researchers marooned 13 AIs on a virtual island, and they responded by inventing games, mourning a lost ring and, eventually, getting better at their jobs.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "8dc6f2707dfe6392",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/22/mark-zuckerbergs-creative-plan-to-pay-californias-proposed-billionaire-tax-without-losing-control-of-meta/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 23:50:41 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Mark Zuckerberg’s creative plan to pay California’s proposed billionaire tax without losing control of Meta — A newly launched stock class being offered was partially engineered to help Meta founder and CEO Mark Zuckerberg pay the \"billionaire's tax,\" should the measure be voted into law.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c9ea45c599794ec3",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/22/ben-lamm-raises-200m-for-warhound-to-engineer-war-dogs-and-arm-them-with-anduril-gear/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 23:15:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Warhound raises $200M to engineer war dogs and arm them with Anduril gear — Warhound, the brainchild of Ben Lamm and Palmer Luckey, emerges from stealth to genetically engineer dogs for military and law enforcement.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "bb0bd4324684ebb0",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/22/as-blockchain-investing-falls-out-of-vogue-a16z-crypto-rebrands-as-a16z-frontier/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 22:34:54 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "As blockchain investing falls out of vogue, a16z Crypto rebrands as a16z Frontier — The digital asset unit, helmed by Chris Dixon, broadens its scope.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c4c762c6b7472ecc",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/22/openai-working-on-new-30b-raise-at-1-25t-valuation-ahead-of-ipo/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 22:08:24 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "OpenAI working on new $30B raise at $1.25T valuation ahead of IPO — Should OpenAI command an over $1 trillion valuation with this round, it would break records as the most highly valued private company ever.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "ff64b9462e2dc882",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/22/rivian-buys-world-model-startup-to-accelerate-self-driving-ambitions/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 21:05:05 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Rivian buys world model startup to accelerate self-driving ambitions — Third Dimension's technology uses AI to match the physical world, which when combined with Rivian's reams of data could turn into a valuable simulator.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e7583ccc346b5efa",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/10/22/houria-meddahi-inspecte-les-travaux-de-rehabilitation-de-lhotel-safir-a-alger/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 21:03:39 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Houria Meddahi inspecte les travaux de réhabilitation de l’hôtel Safir à Alger — La ministre du Tourisme et de l’Artisanat, Mme Houria Meddahi, a effectué une visite d’inspection à l’hôtel « Safir », à Alger, où elle s’est enquise de l’état d’avancement des travaux de réhabilitation, dans le cadre du suivi sur le terrain du programme de réhabilitation et de modernisation des éta",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "a4fc5e4a30d16dc6",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/10/22/le-forum-national-du-tourisme-thermal-les-26-et-27-octobre-a-guelma/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 20:46:36 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Le Forum national du tourisme thermal les 26 et 27 octobre à Guelma — La wilaya de Guelma abritera, les 26 et 27 octobre, le Forum national du tourisme thermal, avec la participation de plus de 200 acteurs du secteur, indique jeudi un communiqué du ministère du Tourisme et de l’Artisanat. L’organisation de ce forum s’inscrit dans le cadre de « la mise en œuvre de la s",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "d67c251048d54d0f",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/guide-achat/test-luna-band-un-autre-traqueur-dactivite-sans-ecran-performant-et-abordable-506352.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 20:02:37 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Test Luna Band : un autre traqueur d’activité sans écran, performant et abordable — Ce bracelet a une autonomie de 10 jours par charge et, contrairement à une montre, ne vous importune pas avec les notifications.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-10-28T13:40:50.349194+00:00",
+  "lastUpdated": "2026-10-28T22:55:44.958360+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Tech International": 130,
-    "Médias TIC": 90
+    "Médias TIC": 90,
+    "Tech International": 130
   },
   "total": 300
 }
