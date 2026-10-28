@@ -291,17 +291,25 @@
   function animerFlash(w) {
     var c = navigator.connection || {}, lent = c.saveData || /(slow-)?2g/.test(c.effectiveType || ''), moyen = /3g/.test(c.effectiveType || '');
     var calme = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    w.querySelectorAll('video[data-fl]').forEach(function (v) {
+    // Un seul flash s'anime tout seul (le 1er, une fois la page chargée) ; les autres ne jouent qu'au survol.
+    // Avant : 4 flashs en boucle dès l'ouverture (~12 Mo) = ouverture très lente sur connexion faible.
+    var vids = w.querySelectorAll('video[data-fl]');
+    vids.forEach(function (v, i) {
       v.addEventListener('timeupdate', function () { if (v.currentTime > 7) v.currentTime = 0.1; });
-      var btn = v.closest('button');
-      btn.addEventListener('mouseenter', function () { if (lent || calme) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } });
-      btn.addEventListener('mouseleave', function () { if (lent || calme) v.pause(); });
+      var btn = v.closest('button'), auto = (i === 0 && !lent && !calme && 'IntersectionObserver' in window);
+      btn.addEventListener('mouseenter', function () { var p = v.play(); if (p && p.catch) p.catch(function () {}); });
+      if (!auto) btn.addEventListener('mouseleave', function () { v.pause(); });
     });
-    if (lent || calme || !('IntersectionObserver' in window)) return;
-    var io2 = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { var v = e.target; if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else v.pause(); });
-    }, { threshold: .5 });
-    w.querySelectorAll('video[data-fl]').forEach(function (v, i) { if (!moyen || i === 0) io2.observe(v); });   // connexion moyenne (3g) : seul le premier flash bouge
+    if (lent || calme || !('IntersectionObserver' in window) || !vids.length) return;
+    var demarrer = function () {
+      setTimeout(function () {
+        var io2 = new IntersectionObserver(function (es) {
+          es.forEach(function (e) { var v = e.target; if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else v.pause(); });
+        }, { threshold: .5 });
+        io2.observe(vids[0]);
+      }, 3500);
+    };
+    if (document.readyState === 'complete') demarrer(); else window.addEventListener('load', demarrer, { once: true });
   }
   function flashInfos() {
     var side = document.querySelector('.sidebar');

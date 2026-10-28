@@ -129,7 +129,7 @@
           '<button class="fw-btn" data-act="expand" title="Agrandir">⤢</button>' +
           '<button class="fw-btn" data-act="close" title="Fermer">✕</button>' +
         '</div>' +
-        '<video src="' + entry.mp4Url + '" muted autoplay loop playsinline></video>' +
+        '<video muted loop playsinline preload="none"' + (entry.poster ? ' poster="' + entry.poster + '"' : '') + '></video>' +
         '<div class="fw-vol">' +
           '<button class="fw-btn" data-act="playpause" title="Pause">⏸</button>' +
           '<button class="fw-btn" data-act="mute" title="Activer le son">🔇</button>' +
@@ -141,6 +141,15 @@
     document.body.appendChild(root);
     currentRoot = root;
     currentEntry = entry;
+
+    // La vidéo ne démarre qu'après l'ouverture complète du site (+3,5 s) : sur connexion lente elle ne doit pas la ralentir.
+    var _v = root.querySelector('video');
+    var _go = function () {
+      setTimeout(function () {
+        if (_v && !_v.getAttribute('src') && currentEntry) { _v.src = currentEntry.mp4Url; _v.play().catch(function () {}); }
+      }, 3500);
+    };
+    if (document.readyState === 'complete') _go(); else window.addEventListener('load', _go, { once: true });
 
     var savedRect = loadRect();
     if (savedRect && savedRect.width >= MIN_WIDTH) {

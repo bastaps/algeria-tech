@@ -23,14 +23,31 @@
     return e;
   }
 
-  function afficher(root, liste, index) {
-    var info = liste[index];
-    var video = root.querySelector('.ew-video');
+  // Connexion lente / instable : la vidéo ne doit pas concurrencer l'ouverture du site (page + scripts d'abord).
+  function apresChargement(fn) {
+    var go = function () { setTimeout(fn, 3500); };
+    if (document.readyState === 'complete') go(); else window.addEventListener('load', go, { once: true });
+  }
+
+  function chargerVideo(video, info) {
     video.src = info.mp4Url;
-    video.poster = info.poster || '';
     video.load();
     var p = video.play();
     if (p && p.catch) p.catch(function () {});
+  }
+
+  function afficher(root, liste, index, differe) {
+    var info = liste[index];
+    var video = root.querySelector('.ew-video');
+    video.poster = info.poster || '';
+    video.dataset.idx = index;
+    if (differe) {
+      apresChargement(function () {
+        if (video.dataset.idx === String(index) && !video.getAttribute('src')) chargerVideo(video, info);
+      });
+    } else {
+      chargerVideo(video, info);
+    }
     root.querySelector('.ew-titre').textContent = info.titre;
     root.querySelector('.ew-meta').textContent =
       (info.pays === 'DZ' ? 'Algérie' : 'Monde') + ' · ' + depuis(info.publishedAt) + ' · ' + info.source;
@@ -52,7 +69,7 @@
     video.muted = true;
     video.playsInline = true;
     video.controls = true;
-    video.preload = 'metadata';
+    video.preload = 'none';
     video.setAttribute('playsinline', '');
     cadre.appendChild(video);
     root.appendChild(cadre);
@@ -79,7 +96,7 @@
       root.appendChild(bande);
     }
     root.hidden = false;
-    afficher(root, liste, 0);
+    afficher(root, liste, 0, true);
   }
 
   function init() {
