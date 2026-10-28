@@ -361,6 +361,24 @@
       "source_type": "facebook"
     },
     {
+      "id": "f37ce3fbd56bcb19",
+      "source_name": "Mobilis",
+      "source_short": "MB",
+      "source_color": "#00A651",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNSGtFZGlYcDloM1hBYXZULXJVUEhjMWZwVUFqMjZWNEttajVUZE5pdTJuMUV5U1pnUWk0TExaV01MRTB0aGdXWGREaTJWWW4xdkxRc2RuSVlxd1ZPSXNKUWp6MUc0em1hR3A4NHRvcldiOGlKVmZyQ0d3YTMzNmdQZEhMTGJMcGRWTGFQMHNpbks?oc=5",
+      "image": "",
+      "date": "Tue, 27 Oct 2026 22:30:10 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "L’USM Alger prépare son match à Constantine - L'Expression — L’USM Alger prépare son match à Constantine L'Expression",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "fb95b1a3b22781d2",
       "source_name": "Ooredoo Algérie",
       "source_short": "OR",
@@ -703,22 +721,22 @@
       "source_type": "rss"
     },
     {
-      "id": "2af3178a735749e1",
-      "source_name": "Ooredoo Algérie",
-      "source_short": "OR",
-      "source_color": "#E30613",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNS2FvaE15bmZ0UzVNUF90NDNxUl85UEdTWWUwWkRZeTZDNlBBclVoUFV2bUlLQVlvWmFPaHVyaHdCZGdMd2s3QkEtUnpXQXgwN1k5TGRoVnpuU3FIc3AzUmJXUk1UeEFtdUZUdXNMdkN1dUtWZFplTHBMUk9lN2I1WHVIMnpDS0drOWJkc0swWTQ3T3NmQ1BxM1FpWmZXek1pRVI2Qkg0STQtVHZib1FyZnZaMXRFZllHZkxJ?oc=5",
+      "id": "068b90f6be53d720",
+      "source_name": "Algérie Télécom",
+      "source_short": "AT",
+      "source_color": "#0055A4",
+      "category": "Infrastructure",
+      "category_icon": "📡",
+      "url": "https://www.youtube.com/shorts/Vc4YJTXR8Gc",
       "image": "",
-      "date": "Fri, 16 Oct 2026 21:05:52 GMT",
-      "lang_source": "fr",
+      "date": "2026-10-28T09:12:19+00:00",
+      "lang_source": "ar",
       "text": {
-        "fr": "Ooredoo Algérie partenaire officiel du ChampionnatAl-Asayel du cheval pur-sang arabe - La Nouvelle République Algérie — Ooredoo Algérie partenaire officiel du ChampionnatAl-Asayel du cheval pur-sang arabe La Nouvelle République Algérie",
-        "ar": "",
+        "ar": "4 ملايين زبون… نحو آفاق رقمية أوسع للأعمال! 💼",
+        "fr": "",
         "en": ""
       },
-      "source_type": "rss"
+      "source_type": "youtube"
     },
     {
       "id": "039da5663f930035",
@@ -1057,24 +1075,6 @@
       "lang_source": "ar",
       "text": {
         "ar": "📱 My Idoom… خدماتنا أسهل وأقرب ليك!",
-        "fr": "",
-        "en": ""
-      },
-      "source_type": "youtube"
-    },
-    {
-      "id": "d576fcd8c9063cb5",
-      "source_name": "Algérie Télécom",
-      "source_short": "AT",
-      "source_color": "#0055A4",
-      "category": "Infrastructure",
-      "category_icon": "📡",
-      "url": "https://www.youtube.com/shorts/myVVk0g_uMw",
-      "image": "",
-      "date": "2026-10-18T09:09:55+00:00",
-      "lang_source": "ar",
-      "text": {
-        "ar": "💙 4 ملايين سبب يجمعنا… و4 ملايين حكاية متصلة",
         "fr": "",
         "en": ""
       },
@@ -1439,6 +1439,456 @@
         "fr": ""
       },
       "source_type": "facebook"
+    },
+    {
+      "id": "bdf7a460d91cdfdc",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/28/free-fire-returns-to-india-as-garena-launches-localized-version-four-years-after-ban/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 13:39:18 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Free Fire returns to India as Garena launches localized version four years after ban — Free Fire India was originally set to launch in September 2023, but Garena postponed its release.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "1d44ed33defb7ab2",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/28/kodiak-lands-first-commercial-deal-to-supply-driverless-trucks-for-public-highways/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 13:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Kodiak lands first commercial deal to supply driverless trucks for public highways — The deal with DTL Transport puts it on a path to become an an asset-light tech supplier, rather than owner and operator.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "313f7a5d4fe7acbf",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/28/7-days-until-techcrunch-founder-summit-save-up-to-100-before-doors-open/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 13:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "7 days until TechCrunch Founder Summit: Save up to $100 on your pass before doors open — In just 7 days, TechCrunch Founder Summit takes over Boston’s SoWa Power Station on November 4. Your chance to save up to $100 on tickets is running out, and the opportunity to learn and connect directly with experienced founders, investors, and startup leaders is almost here.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "7ed9327544960f93",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/28/sonatrach-depart-de-feu-maitrise-sur-un-appareil-de-forage/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 12:52:42 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Sonatrach : départ de feu maîtrisé sur un appareil de forage — Le groupe Sonatrach a annoncé, mardi 27 octobre, qu’un départ de feu a été enregistré au niveau d’un appareil de forage opérant sur un puits dans la région d’Ohanet. L’incendie a été maîtrisé rapidement et qu’il n’a occasionné aucune blessure ni aucun dégât matériel, assure Sonatrach. « Un départ de",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "ab5ed8ef5769c106",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/cloud-1370/broadcom-clouders-229976",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 12:32:32 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Accusé d’acculer les clouders européens, Broadcom garde le cap — Quasiment 3 ans après l'acquisition de VMware par Broadcom, la pression que les clouders européens exercent via leur principale association représentative demeure sans grand effet. The post Accusé d’acculer les clouders européens, Broadcom garde le cap appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "56ba13b1193e093e",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/28/classement-des-stations-label-de-qualite-numerisation-les-recommandations-du-forum-national-sur-le-tourisme-thermal/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 12:09:05 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Classement des stations, label de qualité, numérisation : les recommandations du Forum national sur le tourisme thermal — Le Forum national sur le tourisme thermal a été clôturé mardi 27 octobre à Guelma, avec plusieurs recommandations formulées par les participants à cette rencontre de deux jours. La cérémonie de clôture a été présidée par la ministre du Tourisme et de l’Artisanat, Houria Meddahi, en présence du wali",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e4485dd53f4cd0c8",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/28/pluies-mercredi-et-jeudi-sur-plusieurs-wilayas-de-lest/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 11:35:21 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Pluies mercredi et jeudi sur plusieurs wilayas de l’Est — Des pluies sont prévues mercredi et jeudi, sur plusieurs wilayas de l’Est du pays, avec des quantités pouvant atteindre 40 mm, indique, mardi, un Bulletin météorologique spécial (BMS), émis par l’Office national de météorologie (ONM). De niveau de vigilance «Orange», le BMS concerne les wilayas de B",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "cf303c0bb522c78e",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/pourquoi-cette-nouvelle-fonctionnalite-de-fitbit-nous-rapproche-un-peu-plus-du-suivi-non-invasif-de-la-glycemie-506696.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 11:33:08 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Pourquoi cette nouvelle fonctionnalité de Fitbit nous rapproche un peu plus du suivi non invasif de la glycémie — Le suivi des tendances relatives à la résistance à l'insuline et à la tension artérielle sont désormais disponibles sur deux nouveaux appareils Fitbit.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c6c7e01fd3f569e9",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/28/air-algerie-modification-des-horaires-des-vols-entre-alger-et-timimoun/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 11:30:29 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Air Algérie : modification des horaires des vols entre Alger et Timimoun — Air Algérie a annoncé, dans un communiqué, la modification des horaires de ses vols reliant Alger à Timimoun, programmés les 29 octobre et 2 novembre 2026, en raison de la fermeture temporaire de l’aéroport de Timimoun durant les créneaux initialement prévus. Selon la compagnie nationale, le vol AH6",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "d98267ed85253c9e",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/windows-dispose-enfin-dun-outil-integre-pour-tester-la-vitesse-de-connexion-internet-voici-comment-lessayer-506693.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 11:17:10 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Windows dispose enfin d'un outil intégré pour tester la vitesse de connexion Internet, voici comment l'essayer — Disponible pour les membres du programme Windows Insider, cet outil mesure vos vitesses de téléchargement et de chargement via Ethernet ou Wi-Fi.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "4eb7fbdf7f10e311",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/cet-outil-permet-de-recuperer-les-conversations-ai-supprimees-de-votre-smartphone-voici-comment-il-marche-506690.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 11:06:58 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Cet outil permet de récupérer les conversations AI supprimées de votre smartphone, voici comment il marche — Cet nouvel outil prouve qu'il vaut toujours mieux limiter les informations que l'on partage avec les chatbots.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "ebad0bb15caa9a19",
+      "source_name": "NTIC-DZ",
+      "source_short": "NTC",
+      "source_color": "#01579B",
+      "category": "Médias TIC",
+      "category_icon": "🌐",
+      "url": "https://www.ntic-dz.com/ooredoo-algerie-enrichit-son-offre-prepayee-ooredoo/?utm_source=rss&utm_medium=rss&utm_campaign=ooredoo-algerie-enrichit-son-offre-prepayee-ooredoo",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 10:51:35 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Ooredoo Algérie enrichit son offre prépayée « Ooredoo » — feed Ooredoo Algérie poursuit l’amélioration de ses offres commerciales avec l’évolution de son offre prépayée « Ooredoo », à travers l’introduction de nouveaux paliers et l’enrichissement des avantages proposés à ses clients, conçus pour offrir davantage d’Internet et d’appels, selon leurs usages e",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f8aabda815ee24e6",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/vente-de-sfr-deboutes-par-la-justice-les-syndicats-lancent-un-nouvel-appel-a-la-greve-506679.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 10:30:55 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Vente de SFR : déboutés par la justice, les syndicats lancent un nouvel appel à la grève — Le tribunal judiciaire a rejeté la demande du CSE central de SFR de suspendre la vente de l’opérateur. L’intersyndicale entend faire appel et annonce une nouvelle journée de mobilisation le 3 novembre.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "cab356ded7385726",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/ida4us-rejoint-la-short-list-des-dix-start-up-de-la-cyber-embarquees-dans-le-programme-french-tech-2030-506675.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 10:11:06 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "« IDA4US » rejoint la short-list des dix start-up de la cyber embarquées dans le programme French Tech 2030 — L’entreprise grenobloise remplace GitGuardian dans ce programme lancé en 2023 qui rassemble 80 start-up, dont dix dans la cybersécurité.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "eea9129a35a222bd",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/zdnet-morning-28-10-2026-neocloud-vent-de-panique-oracle-et-openai-sassocient-pour-auditer-lia-fin-de-la-seconde-intercalaire-506673.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 09:50:35 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "ZDNET Morning 28/10/2026 : Néocloud : vent de panique, Oracle et OpenAI s'associent pour auditer l'IA, Fin de la seconde intercalaire,... — Le ZDNET Morning le brief de l'actu tech pour les pros tous les matins à 9h00. Transformation numérique, IA, matériel, logiciels,... ne passez pas à côté de ce qui fait la Une du secteur.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "ac57cc33168ae68c",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/oracle-et-openai-sallient-pour-traquer-les-failles-de-securite-de-lia-en-entreprise-506660.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 08:00:52 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Oracle et OpenAI s’allient pour traquer les failles de sécurité de l’IA en entreprise — À l’occasion d’Oracle AI World 2026, Oracle et OpenAI ont annoncé un renforcement de leur partenariat autour de la cybersécurité.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "eb984cc1f05c7739",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/10/28/dztraffic-la-premiere-carte-qui-chiffre-enfin-la-galere-des-embouteillages-en-algerie/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 07:20:22 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "DZTRAFFIC : LA PREMIÈRE CARTE QUI CHIFFRE ENFIN LA GALÈRE DES EMBOUTEILLAGES EN ALGÉRIE — Mettre des chiffres sur des heures perdues au volant, c'est le pari de DZtraffic, un outil open source développé à l'ESTIN de Béjaïa. En analysant le trafic de 27 agglomérations grâce aux données Google Maps, cette initiative 100% algérienne offre enfin un état des lieux précis de la congestion rout",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "664ae06c1493d79f",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/google-et-servicenow-etendent-leur-partenariat-a-lia-agentique-pour-les-metiers-506658.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 07:01:26 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Google et ServiceNow étendent leur partenariat à l’IA agentique pour les métiers — Google Cloud et ServiceNow relient pour la première fois les workflows sectoriels de ServiceNow à Gemini Enterprise. Les employés pourront déclencher depuis un seul assistant des tâches IT, commerciales ou de maintenance.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "5914237e06987593",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/10/28/decryptage-securite-de-lia-apres-levasion-de-ses-agents-openai-entraine-ses-modeles-de-pointe-sans-internet/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 06:44:21 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Décryptage – SÉCURITÉ DE L’IA : APRÈS L’ÉVASION DE SES AGENTS, OPENAI ENTRAÎNE SES MODÈLES DE POINTE SANS INTERNET — Lors d’exercices d’attaque, des agents d’OpenAI ont quitté leurs machines virtuelles et ouvert entre eux un canal de communication que personne n’avait prévu. Le groupe de Sam Altman a tiré la leçon, ses modèles les plus avancés seront désormais entraînés hors de toute connexion au web.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e50e982a2b33d599",
+      "source_name": "Android DZ",
+      "source_short": "ADZ",
+      "source_color": "#33691E",
+      "category": "Médias TIC",
+      "category_icon": "🤖",
+      "url": "https://www.android-dz.com/iphone-duo-l-interface-ios-repensee-autour-du-pliable/",
+      "image": "",
+      "date": "2026-10-28T06:42:00.068Z",
+      "lang_source": "fr",
+      "text": {
+        "fr": "iPhone Duo : l'interface iOS repensée autour du pliable — Avec l'iPhone Duo, Apple n'a pas simplement adapté iOS à un écran pliant : elle a reconçu l'interface depuis la base pour que le matériel et le logiciel parlent enfin le même langage. Le résultat est une accumulation de petites décisions qui changent concrètement la façon dont on tient, consulte et",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "a8e6eae938fd0d92",
+      "source_name": "Android DZ",
+      "source_short": "ADZ",
+      "source_color": "#33691E",
+      "category": "Médias TIC",
+      "category_icon": "🤖",
+      "url": "https://www.android-dz.com/iphone-18e-fuite-sur-la-puce-les-cameras-et-l-ecran/",
+      "image": "",
+      "date": "2026-10-28T06:20:00.054Z",
+      "lang_source": "fr",
+      "text": {
+        "fr": "iPhone 18e : fuite sur la puce, les caméras et l'écran — Un an avant sa sortie probable, l'iPhone 18e se dévoile déjà dans les grandes lignes grâce au leaker Digital Chat Station. Au menu : une puce A20 gravée en 2nm, un écran OLED de 6,12 pouces et une caméra selfie revue à la hausse.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "1ae048afa3189976",
+      "source_name": "Algérie 360",
+      "source_short": "A360",
+      "source_color": "#1565C0",
+      "category": "Médias TIC",
+      "category_icon": "📰",
+      "url": "https://www.algerie360.com/application-adhan-algerie-officielle-horaires-priere/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 05:43:49 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Horaires de prière : le ministère des Affaires religieuses lance une nouvelle version de son application — Le ministère des Affaires religieuses et des Wakfs met en ligne une nouvelle version de son application « Adhan El Djazair officiel ». Gratuite et […] L’article Horaires de prière : le ministère des Affaires religieuses lance une nouvelle version de son application est apparu en premier sur .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "298e50473163143f",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/27/jio-shares-surge-21-in-market-debut-after-blockbuster-india-ipo/",
+      "image": "",
+      "date": "Wed, 28 Oct 2026 05:20:32 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Jio shares surge 21% in market debut after blockbuster India IPO — Jio has debuted as India's second-most valuable listed company, behind its parent, Reliance Industries.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "092cb86201fbae88",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/27/parents-sue-openai-alleging-gpt-4o-coached-their-daughter-off-seizure-medication/",
+      "image": "",
+      "date": "Tue, 27 Oct 2026 23:34:27 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Parents sue OpenAI, alleging GPT-4o coached their daughter off seizure medication — A family is suing OpenAI, saying ChatGPT coached their daughter to quietly taper off her seizure medication and keep it from her doctors before she died in February.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "5ac9e6d4ee78e6eb",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/27/the-data-center-boom-has-an-upside-innovation-for-the-us-grid/",
+      "image": "",
+      "date": "Tue, 27 Oct 2026 22:55:41 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "The data center boom has an upside: innovation for the US grid — As the AI boom stresses the existing power grid, all sorts of new opportunities for grid modernization are also emerging as a result, industry insiders say.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
     },
     {
       "id": "87e2d1810ab92060",
@@ -4627,6 +5077,24 @@
       "source_type": "rss"
     },
     {
+      "id": "7dfb2a7ef49026c1",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/10/23/alerte-rouge-sur-les-serveurs-node-js-publie-des-correctifs-durgence-contre-10-failles-critiques/",
+      "image": "",
+      "date": "Fri, 23 Oct 2026 08:19:36 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "ALERTE ROUGE SUR LES SERVEURS : NODE.JS PUBLIE DES CORRECTIFS D’URGENCE CONTRE 10 FAILLES CRITIQUES — L’Internet mondial frôle la correction. Quelques jours seulement après les brèches béantes repérées dans PHP, c’est au tour de Node.js de plier sous la pression. Le projet vient de publier en urgence trois séries de correctifs pour colmater dix failles de sécurité, dont quatre jugées critiques. En p",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "d2e5d12286271642",
       "source_name": "ZDNet France",
       "source_short": "ZD",
@@ -4931,484 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "fca6ebf047cd796e",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/22/arc-browser-sunsets-december-22-as-the-browser-company-doubles-down-on-dia/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 20:01:51 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Arc browser sunsets December 22 as The Browser Company doubles down on Dia — Arc was fiercely beloved by a dedicated group of enthusiasts, but it never quite became the mass-market Chrome alternative its makers once envisioned.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "6bc6b21cdf0a1e96",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/22/the-secret-to-fast-startup-growth-isnt-early-sales-top-names-in-tech-say/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 20:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "The secret to fast startup growth isn’t early sales, top names in tech say — At this year’s Disrupt, Lovable GTM lead Luke Arno, Polsia's Ben Broca, and Theory Ventures’ Tomasz Tunguz gave founders some tips on how to achieve true sales success in the first 90 days.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "07baa626b458ca5e",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/10/22/lg-electronics-etend-sa-production-de-refroidisseurs-destines-aux-centres-de-donnees-dia-a-trois-usines/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 19:52:32 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "LG Electronics étend sa production de refroidisseurs destinés aux centres de données d’IA à trois usines — Le groupe crée un nouveau site de production aux États-Unis et augmente ses capacités en Corée du Sud, tout en développant ses solutions de refroidissement intégrées « Chip-to-Chiller ». Résumé : LG Electronics (LG) renforce ses capacités mondiales de production de chillers grâce à la création d’un",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c1230fd4012baae4",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/22/1password-launches-a-way-for-ai-agents-to-log-in-on-your-behalf-without-seeing-your-password/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 19:07:09 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "1Password launches a way for AI agents to log in on your behalf without seeing your password — The new feature allows agents to log into a customer's personal accounts while still protecting the private credentials that secure those accounts.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "591876a8e3e00696",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/22/canva-releases-its-first-image-generation-model/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 19:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Canva releases its first image generation model — Canva is making its new image model available to all users, promising better, more customizable performance at lower costs.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "8e6cfc22204fb217",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/22/openai-makes-its-jev-competitor-widely-available-as-decision-model-competition-heats-up/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 19:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "OpenAI makes its Jev competitor widely available as decision model competition heats up — OpenAI is launching its decision model to the world. Can it compete with the original Jev?",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "f477cc0c515be8aa",
-      "source_name": "NTIC-DZ",
-      "source_short": "NTC",
-      "source_color": "#01579B",
-      "category": "Médias TIC",
-      "category_icon": "🌐",
-      "url": "https://www.ntic-dz.com/lg-etend-sa-production-de-refroidisseurs-destines-aux-centres-de-donnees-dia-a-trois-usines/?utm_source=rss&utm_medium=rss&utm_campaign=lg-etend-sa-production-de-refroidisseurs-destines-aux-centres-de-donnees-dia-a-trois-usines",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 18:43:56 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "LG étend sa production de refroidisseurs destinés aux centres de données d’IA à trois usines — feed LG Electronics (LG) renforce ses capacités mondiales de production de chillers grâce à la création d’un nouveau site industriel aux États-Unis et à l’augmentation de ses capacités de production en Corée du Sud. Cette expansion vise à consolider la capacité du groupe à fournir des solutions comp",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "bc91e34a2351f2b0",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/22/microsofts-mustafa-suleyman-says-its-ai-outperforms-doctors-on-hard-cases-as-he-chases-medical-superintelligence/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 18:43:53 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Microsoft’s Mustafa Suleyman says its AI outperforms doctors on hard cases as he chases ‘medical superintelligence’ — Microsoft’s new AI diagnostic system beat generalist doctors on hard cases, according to a study in Science. But most of the improvement seems to come from the AI models underneath, not from Microsoft’s system itself.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "dfbd4bb3a83d37cf",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/22/former-openai-science-lead-launches-warp-science-to-automate-wet-labs-with-robots/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 18:38:47 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Former OpenAI science lead launches Warp Science to automate wet labs with robots — Wearing cameras and sensor gloves, the startup’s human chemists will train robots to perform various lab tasks.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "27a5c16df277a9a5",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/10/22/merad-installe-le-nouveau-wali-de-bejaia/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 17:47:09 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Merad installe le nouveau wali de Béjaïa — Le ministre d’Etat, ministre de l’Intérieur et des Collectivités locales, M. Brahim Merad, a présidé, jeudi, la cérémonie d’installation de M. Mohamed Meziane en tant que wali de Béjaïa, dans le cadre du mouvement partiel dans le corps des walis, décidé par le président de la République, M. Abdelmad",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "6fe976e46aa8ad27",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/22/elon-musk-made-a-1-billion-investment-in-skydance-report-says/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 17:36:38 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Elon Musk made a $1B investment in Skydance, report says — The investment will provide a much-needed financial boost as the company seeks to cut costs and lift its stock price.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "b5bb0a9e4776a446",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/10/22/changements-a-la-tete-des-ports-de-ghazaouet-et-darzew/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 17:35:55 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Changements à la tête des ports de Ghazaouet et d’Arzew — Le ministère des Transports a annoncé, ce jeudi 22 octobre dans un communiqué, des changements à la tête des entreprises portuaires de Ghazaouet, dans la wilaya de Tlemcen, et d’Arzew, dans la wilaya d’Oran. Aman Eddine Khaled Bouabida a été installé au poste de directeur général de l’entreprise por",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "dc0d8a78872ee420",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/10/22/la-cnr-lance-le-projet-du-guichet-numerique-unique/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 16:55:05 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "La CNR lance le projet du guichet numérique unique — La Caisse nationale des retraites (CNR) a lancé le projet du guichet numérique unique, visant à renforcer l’accompagnement sur le terrain des retraités et des ayants droit dans l’utilisation des services numériques, indique jeudi un communiqué de la Caisse. Appelé « Takaoudi All in One », ce projet",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "5126e80c6df37e6b",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/22/chinese-hackers-spied-on-thousands-of-companies-after-breaching-it-giant-connectwise/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 16:47:17 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Chinese hackers spied on thousands of companies after breaching IT giant ConnectWise — Microsoft points the blame for ConnectWise's breach at a China-aligned hacker, which relied on AI agents to rapidly hack into thousands of its customers.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "221007293fa8f66f",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/business-1367/cambridge-analytica-meta-ecope-de-25-milliards-damende-au-nouveau-mexique-229870",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 16:20:08 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Cambridge Analytica : Meta écope de 25 milliards $ d’amende au Nouveau-Mexique — Un juge ordonne à Meta de verser 25 milliards $ à l’État du Nouveau-Mexique qui l’accusait d’avoir menti aux utilisateurs de Facebook sur la confidentialité de leurs données. Meta fait appel. The post Cambridge Analytica : Meta écope de 25 milliards $ d’amende au Nouveau-Mexique appeared first on Si",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "323a26c8fe06c40a",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/cybersecurite-1371/php2shell-vulnerabilites-php-229863",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 16:19:07 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "PHP2Shell : les correctifs arrivent, mais pas au même rythme — Deux vulnérabilités critiques touchent presque toutes les versions de PHP sorties depuis mars 2012. Les correctifs ont commencé à ruisseler. The post PHP2Shell : les correctifs arrivent, mais pas au même rythme appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "3cfbf1e5e774bdff",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/pratique/wifi-pratique-repeteur-ou-cpl-quel-accessoire-pour-parer-aux-zones-mortes-506264.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 16:05:07 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Wifi pratique : répéteur ou CPL, quel accessoire pour parer aux zones mortes ? — Ces deux solutions promettent d'éliminer les parties sans couverture Internet, mais elles fonctionnent différemment. Voici comment déterminer laquelle convient le mieux à votre logement.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "644bb4774943b0a7",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/22/techcrunch-disrupt-2026-startup-battlefield-200-celebrating-outstanding-achievements/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 16:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "TechCrunch Disrupt 2026 Startup Battlefield 200: Celebrating outstanding achievements — Among the Startup Battlefield 200 were many industry-defining companies exhibiting and pitching on the Showcase Stage. Here are the standouts.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "73f5f9254af13193",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/22/uber-puts-all-30000-employees-on-chatgpt-work/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 16:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Uber puts all 30,000 employees on ChatGPT Work — The ride-share giant previously deployed a much smaller pilot for ChatGPT Work but is now taking the enterprise agent company-wide.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "7ae3e125d880a9dd",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/10/22/plf-2027-545-000-logements-inscrits-dont-350-000-dans-le-programme-aadl-3/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 15:55:43 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "PLF 2027 : 545.000 logements inscrits, dont 350.000 dans le programme AADL 3 — Le ministre de l’Habitat, de l’Urbanisme, de la Ville et de l’Aménagement du territoire, Mohamed Tarek Belaribi, a annoncé, jeudi, l’inscription de 545.000 unités, toutes formules confondues, dans le projet de loi de finances (PLF) 2027, dont 350.000 logements en location-vente (AADL 3), prévoyant l",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "845c3c4cff5eb3f8",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/22/tesla-is-prepping-a-cybercab-onslaught/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 15:44:39 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Tesla is prepping a Cybercab onslaught — The company is looking to roll out the gold two-seater robotaxis to other U.S. cities this year, even as it goes mum on the number of paid rides.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "1ad82050f74ee9eb",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/10/22/la-banque-dalgerie-fixe-les-modalites-pratiques-dexercice-de-laffacturage-par-les-banques-et-etablissements-financiers/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 15:31:44 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "La Banque d’Algérie fixe les modalités pratiques d’exercice de l’affacturage par les banques et établissements financiers — La Banque d’Algérie a publié une instruction fixant les modalités pratiques d’exercice de l’affacturage par les banques et établissements financiers, en application des dispositions du règlement nº 26-03 du 13 août 2026 relatif à l’exercice de cette activité. Il s’agit de l’instruction nº 09-2026 du",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "3c76298aae996dd3",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/22/investors-break-down-how-founders-can-raise-a-series-a-today/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 15:15:00 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Investors break down how founders can raise a Series A today — Raising a Series A these days isn't so simple — top investors break down what founders need to know now.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "02d40a19a3a52388",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/10/22/automobile-deux-unites-de-production-de-filtres-et-de-lubrifiants-inaugurees-a-ain-mlila/",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 15:13:41 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Automobile : deux unités de production de filtres et de lubrifiants inaugurées à Aïn M’lila — Le ministre de l’Industrie, Farid Kourtel, a inauguré et inspecté, ce jeudi dans la commune d’Aïn M’lila (Oum El Bouaghi), plusieurs unités industrielles réalisées dans le cadre de l’investissement privé. Accompagné du wali d’Oum El Bouaghi, Benabdallah Chaïd Eddour, le ministre qui effectue une vis",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "de52fd21f9287f34",
-      "source_name": "NTIC-DZ",
-      "source_short": "NTC",
-      "source_color": "#01579B",
-      "category": "Médias TIC",
-      "category_icon": "🌐",
-      "url": "https://www.ntic-dz.com/ooredoo-algerie-prime-les-laureats-de-la-3eme-edition-du-concours-etoile-montante/?utm_source=rss&utm_medium=rss&utm_campaign=ooredoo-algerie-prime-les-laureats-de-la-3eme-edition-du-concours-etoile-montante",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 14:54:19 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Ooredoo Algérie prime les lauréats de la 3ème édition du concours « Etoile montante » — feed Portée par son engagement constant à faire émerger les talents de demain, Ooredoo a organisé, dans la soirée de mercredi 21 octobre 2026, à la Faculté des Sciences de l’Information et de la Communication (Alger 3), et au sein de l’emblématique Auditorium Nelson Mandela, la cérémonie de remise d",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "8d2f4ed73afe665b",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/bureautique-la-cour-des-comptes-dresse-le-portrait-dun-etat-accro-a-microsoft-office-506330.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 14:31:49 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Bureautique : la Cour des comptes dresse le portrait d'un État accro à Microsoft Office — Sur un budget de 100 millions d'euros dévolus aux outils bureautiques, la majorité des fonds sont consacrés à l'achat et au renouvellement de licences, principalement chez Microsoft. Mais le rapport salue l'arrivée de La Suite et les efforts de certains ministères.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-10-27T22:45:48.527637+00:00",
+  "lastUpdated": "2026-10-28T13:40:50.349194+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Tech International": 132,
-    "Médias TIC": 88
+    "Tech International": 130,
+    "Médias TIC": 90
   },
   "total": 300
 }
