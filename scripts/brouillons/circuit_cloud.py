@@ -4,7 +4,7 @@ Si le PC n'a pas produit l'article d'un créneau (PC éteint, Flow indisponible�
   info choisie comme sur le PC (matin = revue de presse ; midi/soir = flux RSS + réseaux sociaux),
   rédaction IA au format Algeria Tech (redaction.py : tableau, « À retenir », source officielle vérifiée),
   image de l'article en 16:9, brouillon `brouillons/<id>.md` (circuit: true) et notification ntfy à 3 boutons
-  (À la Une / 2e position / Brève). La publication est faite par publier_choix.py (2e position après 90 min).
+  (À la Une / 2e position / Brève). La publication est faite par publier_choix.py (à la Une, position 1).
 Pas de vidéo dans ce repli (une vidéo générique n'apporte rien) ; pas de carte interactive non plus : elle est
 ajoutée plus tard par le PC (champ `interactif_a_faire`, voir publier_choix.py).
 
@@ -155,7 +155,9 @@ def produire(slot, notif=True):
     vus = sources_deja_utilisees()
     ctx = C.D.contexte(RACINE, None, brouillons_locaux=True)   # publiés récents + brouillons en attente (dont ceux du PC, lus sur GitHub)
     # Règle éditoriale : d'abord les communiqués officiels des entreprises / institutions ; les médias ensuite.
-    listes = (C.O.candidats_officiels, C.candidats_revue, C.candidats_flux) if slot == "matin"         else (C.O.candidats_officiels, C.candidats_flux, C.candidats_revue)
+    scoops = lambda: C.S.candidats_scoops()[0]   # noqa: E731  (les pistes Facebook illisibles sont signalées par le PC seulement)
+    listes = ((scoops, C.O.candidats_officiels, C.candidats_revue, C.candidats_flux) if slot == "matin"
+              else (scoops, C.O.candidats_officiels, C.candidats_flux, C.candidats_revue))
     essais_ia = 0
     for fabrique in listes:
         for c in fabrique()[:14]:
@@ -169,6 +171,9 @@ def produire(slot, notif=True):
             if len(corps) < 400 or not image.startswith("http"):
                 log(f"  ignoré (texte ou image manquant) : {c['titre'][:70]}")
                 continue
+            if C.D.perime(corps, jours=5):
+                log(f"  source périmée écartée : {c['titre'][:70]}")
+                continue
             doublon, pourquoi, _ = C.D.trouver_doublon(c["titre"], c["url"], corps[:400], ctx, arbitre=C.arbitre_ia)
             if doublon:
                 log(f"  doublon écarté (après lecture) : {c['titre'][:60]} — {pourquoi}")
@@ -181,7 +186,9 @@ def produire(slot, notif=True):
                 log("rédaction IA indisponible : abandon")
                 return 2
             essais_ia += 1
-            officiels = [] if c.get("origine") == "officiel" else R.sources_officielles(c["titre"], corps, c["url"])
+            direct = c.get("origine") in ("officiel", "scoop")   # la page lue EST la publication de l'entreprise / institution
+            src = R.resoudre_sources(c["titre"], corps, c["url"], c["source"], origine_officielle=direct)
+            officiels = src["officiels"]
             red = R.rediger(c["source"], c["titre"], corps, officiels)
             if not red:
                 log("  rédaction IA insuffisante, article suivant")
@@ -198,7 +205,7 @@ def produire(slot, notif=True):
                 c["video"] = R.video_source(requests.get(c["url"], headers=UA, timeout=25).text)
             except requests.RequestException:
                 c["video"] = ""
-            ecrire_brouillon(ident, c, red, officiels, slot, notif)
+            ecrire_brouillon(ident, c, red, officiels, slot, notif, src, direct)
             if slot != "test":
                 marquer(slot, "cloud")
             return 0
@@ -206,12 +213,14 @@ def produire(slot, notif=True):
     return 2
 
 
-def ecrire_brouillon(ident, c, red, officiels, slot, notif):
+def ecrire_brouillon(ident, c, red, officiels, slot, notif, src=None, direct=False):
     cat = red.get("categorie") if red.get("categorie") in C.CATEGORIES else ("Algérie" if c["pays"] == "DZ" else "Monde")
     now = C.maintenant_alger()
     canal_choix = "atchoix-" + secrets.token_hex(8)
     tags = ", ".join(f'"{C.q(t)}"' for t in (red.get("tags") or [])[:6] if str(t).strip())
-    corps = R.assembler(red["contenu"], red["a_retenir"], c["source"], c["url"], officiels)
+    src = src or {"nom": c["source"], "url": c["url"], "admin": False}
+    corps = R.assembler(red["contenu"], red["a_retenir"], src["nom"], src["url"], officiels, lead=red.get("lead", ""),
+                        source_admin=src["admin"], direct=direct)
     texte = f"""---
 titre: "{C.q(red['titre'])[:110]}"
 categorie: {cat}
@@ -243,7 +252,7 @@ choix_canal: "{canal_choix}"
     if not notif:
         return
     C.notifier(f"À placer : {red['titre'][:60]}",
-               f"{red.get('extrait', '')[:230]}\n\nChoisissez la place. Sans choix sous {C.DELAI_DEFAUT_MIN} min : 2e position."
+               f"{red.get('extrait', '')[:230]}\n\nChoisissez la place. Sans choix sous {C.DELAI_DEFAUT_MIN} min : à la Une (position 1)."
                f"\n(Brouillon automatique du cloud — {'source officielle citée, ' if officiels else ''}carte interactive ajoutée plus tard par le PC.)",
                clic=f"{C.SITE}/images/{ident}.jpg", actions=C.actions_choix(ident, canal_choix))
     C.notifier("Corriger ou rejeter ce brouillon ?", f"« {red['titre'][:80]} » — Corriger ouvre l'éditeur en ligne (connexion admin) ; "

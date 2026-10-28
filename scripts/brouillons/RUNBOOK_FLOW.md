@@ -2,7 +2,7 @@
 
 Objectif : 1 brouillon d'article par créneau (matin, midi, soir) avec **vidéo Google Flow** (si possible) + **version
 interactive**. Le résultat est déposé sur GitHub ; le téléphone reçoit une notification ntfy à 3 boutons
-(À la Une / 2e position / Brève). Le workflow GitHub « brouillons-publier » publie selon le choix, ou en 2e position
+(À la Une / 2e position / Brève). Le workflow GitHub « brouillons-publier » publie selon le choix, ou À LA UNE (position 1)
 après 90 min sans choix. **Ne rien publier toi-même.** Dossier : `E:\algeria-tech`.
 
 ## Règles
@@ -62,4 +62,13 @@ Ne pas recommencer plus d'une fois.
 ## Consignes de l'utilisateur (2026-10-21, permanentes)
 - Autorisation permanente d'utiliser Google Flow pour générer la vidéo quand elle est requise.
 - Si l'image montre un haut responsable algérien (président, ministre, PDG) : garder l'image, PAS de vidéo (`none`), sauf si l'article/communiqué fournit déjà une vidéo.
-- Plus de demande de validation par ntfy : l'article est publié automatiquement (2e position par défaut, délai 0). La notification ntfy sert seulement à informer ; l'utilisateur modifie/supprime après coup si besoin.
+- Plus de demande de validation par ntfy : l'article est publié automatiquement À LA UNE, position 1 (décision du 2026-10-28), délai 0. La notification ntfy sert seulement à informer ; l'utilisateur modifie/supprime après coup si besoin.
+
+## Règles éditoriales ajoutées le 2026-10-28
+- Format = Smart Ingest PRO « Générer avec IA » : le corps commence par « Alger, <date> (Algeria Tech) — <chapô> », puis le développement, « À retenir », « Sources ». Position 1.
+- Sources : on cite d'abord la publication d'ORIGINE (site de l'entreprise / institution ou page Facebook officielle). Origine introuvable avec
+  plusieurs sites qui publient → « Source : Admin ». Un seul site a publié et les autres le reprennent → on cite ce site.
+- Fraîcheur : toute source dont les dates citées en tête sont de plus de 5 jours est écartée (communiqués anciens listés en tête d'un site).
+- Ordre des sources : (1) scoops trouvés par l'IA sur sites/pages officiels (scoops.py), (2) communiqués officiels connus (officiels.py), (3) presse.
+  Les publications Facebook illisibles sont signalées par ntfy comme « pistes » (elles ne sont jamais inventées).
+- Les liens externes d'un article (Sources…) s'ouvrent dans un nouvel onglet.

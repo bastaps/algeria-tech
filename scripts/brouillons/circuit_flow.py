@@ -11,7 +11,7 @@ L'étape Google Flow n'a pas d'API : elle est pilotée dans Chrome (voir RUNBOOK
 Créneaux : matin = revue de presse ; midi et soir = flux RSS + réseaux sociaux (repli : revue de presse).
 Codes de sortie : 0 ok · 2 rien de neuf · 3 créneau déjà fait aujourd'hui · 1 erreur.
 Le choix des boutons ntfy est lu par le workflow GitHub « brouillons-publier » (publier_choix.py) ;
-sans choix au bout de DELAI_DEFAUT_MIN minutes, l'article part en 2e position.
+sans choix au bout de DELAI_DEFAUT_MIN minutes, l'article part À LA UNE (position 1).
 """
 import argparse
 import datetime
@@ -33,6 +33,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import redaction as R  # noqa: E402  (format éditorial commun : À retenir, tableau, sources officielles, vidéo pertinente)
 import dedup as D  # noqa: E402  (anti-doublons : même fait déjà publié, en brouillon, ou produit par l'autre circuit)
 import officiels as O  # noqa: E402  (communiqués publiés par les entreprises / institutions : source prioritaire)
+import scoops as S  # noqa: E402  (recherche IA d'informations de première main : sites officiels, pages Facebook)
 RACINE = Path(__file__).resolve().parents[2]
 WORK = Path(os.environ.get("CIRCUIT_FLOW_DIR", r"E:\MonStudioIA\circuit-flow"))
 HISTORIQUE = WORK / "historique.json"
@@ -162,6 +163,22 @@ def registre_distant():
             return {}
 
 
+def candidats_scoops():
+    """Informations de première main trouvées par l'IA ; les publications Facebook illisibles sont signalées par ntfy (une seule fois)."""
+    cands, pistes = S.candidats_scoops()
+    deja = set(lire(WORK / "pistes.json", []))
+    for p in pistes:
+        if p["url"] in deja:
+            continue
+        deja.add(p["url"])
+        notifier(f"Piste Facebook à vérifier : {p['source']}",
+                 f"{p['titre']}\n{p['url']}\n(Publication officielle non lisible automatiquement : "
+                 "collez son texte dans Smart Ingest PRO pour en faire un article.)", tags="mag", clic=p["url"])
+    WORK.mkdir(parents=True, exist_ok=True)
+    (WORK / "pistes.json").write_text(json.dumps(sorted(deja)[-200:], ensure_ascii=False), encoding="utf-8")
+    return cands
+
+
 def candidats_revue():
     out = []
     for a in charger_revue().get("articles", []):
@@ -276,8 +293,9 @@ def choisir(slot):
     serveurs()
     ctx = contexte_dedup(h)
     # Règle éditoriale : d'abord les communiqués publiés par les entreprises / institutions elles-mêmes ; les médias ensuite.
-    listes = (O.candidats_officiels, candidats_revue, candidats_flux) if slot == "matin" \
-        else (O.candidats_officiels, candidats_flux, candidats_revue)
+    # (1) scoops trouvés par l'IA sur les sites / pages officiels, (2) communiqués officiels connus, (3) la presse
+    listes = (candidats_scoops, O.candidats_officiels, candidats_revue, candidats_flux) if slot == "matin" \
+        else (candidats_scoops, O.candidats_officiels, candidats_flux, candidats_revue)
     for fabrique in listes:
         for c in fabrique()[:14]:
             if not c["url"]:
@@ -294,6 +312,9 @@ def choisir(slot):
             texte, image = (f.get("text") or "").strip(), f.get("image") or ""
             if len(texte) < 400 or not image.startswith("http"):
                 log(f"  ignoré (texte ou image manquant) : {c['titre'][:70]}")
+                continue
+            if D.perime(texte, jours=5):   # le flux / la page liste une source ancienne comme si elle était du jour
+                log(f"  source périmée écartée : {c['titre'][:70]}")
                 continue
             doublon, pourquoi, _ = D.trouver_doublon(f.get("title") or c["titre"], c["url"], texte[:400], ctx, arbitre=arbitre_ia)
             if doublon:   # le titre du flux et celui de la page peuvent différer : on revérifie avec le texte réellement lu
@@ -402,10 +423,10 @@ def finaliser(ident, clip, sans_push):
     serveurs()
     # rédaction : moteur de Smart Ingest PRO, mode IA, style PRO étoffé
     # sourcing : site officiel de l'entité concernée (page réellement lue et vérifiée) avant le média relais
-    if job["article"].get("origine") == "officiel":
-        officiels = []   # la source EST le communiqué de l'entreprise / institution : aucun média relais à chercher
-    else:
-        officiels = R.sources_officielles(job["titre_page"] or job["article"]["titre"], job["texte"], job["article"]["url"])
+    direct = job["article"].get("origine") in ("officiel", "scoop")   # la page lue EST la publication de l'entreprise / institution
+    src = R.resoudre_sources(job["titre_page"] or job["article"]["titre"], job["texte"], job["article"]["url"],
+                             job["article"]["source"], origine_officielle=direct)
+    officiels = src["officiels"]
     bloc_officiel = "".join(f"\n\nSOURCE OFFICIELLE — {o['nom']} ({o['url']}) :\n{o['extrait']}" for o in officiels)
     corps_source = (f"{job['titre_page']}\n\n{job['texte']}{bloc_officiel}"
                     f"\n\nSource : {job['article']['source']} — {job['article']['url']}")
@@ -421,8 +442,7 @@ def finaliser(ident, clip, sans_push):
     if doublon:
         raise RuntimeError("doublon : " + pourquoi)
     g["contenu"] = str(g["contenu"]).strip() + "\n\n## Sources\n\n" + "\n".join(
-        [f"- Source officielle : [{o['nom']}]({o['url']})" for o in officiels] +
-        [f"- {'Article relayé par' if officiels else 'Source'} : [{job['article']['source']}]({job['article']['url']})"]) + "\n"
+        R.lignes_sources(officiels, src["nom"], src["url"], src["admin"], direct)) + "\n"
     cat = g.get("categorie") if g.get("categorie") in CATEGORIES else ("Algérie" if job["article"]["pays"] == "DZ" else "Monde")
     # vidéo : clip Flow local (image + texte, ou image animée), ou vidéo YouTube du média qui accompagne l'article (reprise telle quelle)
     video_url = (f"/videos/articles/{ident}.mp4" if avec_video
@@ -473,7 +493,7 @@ cree: "{datetime.datetime.utcnow():%Y-%m-%dT%H:%M:%SZ}"
 choix_canal: "{canal_choix}"
 ---
 
-{g['contenu'].strip()}
+{R.corps_pro(g['lead'], g['contenu'])}
 """
     (sortie / "brouillons" / f"{ident}.md").write_text(md, encoding="utf-8")
     log(f"brouillon prêt en local : {sortie}")
@@ -487,7 +507,7 @@ choix_canal: "{canal_choix}"
         return 0
     deposer(ident, sortie, g["titre"], avec_video, job.get("slot"))
     notifier(f"À placer : {g['titre'][:60]}",
-             f"{g['lead'][:230]}\n\nPublication automatique en 2e position (sauf choix de place ci-dessous). Vous pouvez modifier ou supprimer ensuite."
+             f"{g['lead'][:230]}\n\nPublication automatique À LA UNE, position 1 (sauf choix de place ci-dessous). Vous pouvez modifier ou supprimer ensuite."
              f"\n{'Vidéo Flow + ' if avec_video else ''}version interactive prête.",
              clic=f"{SITE}/interactifs/{ident}.html", actions=actions_choix(ident, canal_choix))
     notifier("Corriger ou rejeter ce brouillon ?", f"« {g['titre'][:80]} » — Corriger ouvre l'éditeur en ligne (connexion admin) ; "

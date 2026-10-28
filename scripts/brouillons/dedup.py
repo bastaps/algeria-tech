@@ -226,3 +226,39 @@ def trouver_doublon(titre, url="", extrait="", ctx=(), ignorer_id=None, arbitre=
             except Exception:  # noqa: BLE001 — l'avis est facultatif
                 break
     return False, "", None
+
+
+# ── Fraîcheur ────────────────────────────────────────────────────────────────
+# Les communiqués officiels listés sur un site ne sont pas toujours classés par date : le circuit avait repris des communiqués du
+# 29 août et du 13 octobre comme s'ils étaient du jour. Une source dont TOUTES les dates citées en tête sont anciennes est écartée.
+_MOIS = {"janvier": 1, "fevrier": 2, "mars": 3, "avril": 4, "mai": 5, "juin": 6, "juillet": 7, "aout": 8, "septembre": 9,
+         "octobre": 10, "novembre": 11, "decembre": 12}
+
+
+def dates_dans(texte):
+    """Dates complètes (« 29 août 2026 », « 2026-10-13 », « 13/10/2026 ») trouvées dans le texte."""
+    t = _sans_accents(texte or "").lower()
+    out = []
+    for j, m, a in re.findall(r"\b(\d{1,2})(?:er)?\s+(" + "|".join(_MOIS) + r")\s+(20\d\d)\b", t):
+        out.append((int(a), _MOIS[m], int(j)))
+    for a, m, j in re.findall(r"\b(20\d\d)-(\d{2})-(\d{2})\b", t):
+        out.append((int(a), int(m), int(j)))
+    for j, m, a in re.findall(r"\b(\d{1,2})/(\d{1,2})/(20\d\d)\b", t):
+        out.append((int(a), int(m), int(j)))
+    ok = []
+    for a, m, j in out:
+        try:
+            ok.append(datetime.date(a, m, j))
+        except ValueError:
+            pass
+    return ok
+
+
+def aujourd_hui():
+    return (datetime.datetime.utcnow() + datetime.timedelta(hours=1)).date()   # heure d'Alger
+
+
+def perime(texte, jours=5, zone=900):
+    """True si le début du texte ne cite que des dates plus anciennes que `jours` jours (aucune date : on ne conclut pas)."""
+    ds = dates_dans((texte or "")[:zone])
+    return bool(ds) and max(ds) < aujourd_hui() - datetime.timedelta(days=jours)

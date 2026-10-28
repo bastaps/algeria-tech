@@ -658,6 +658,13 @@ window.openArticle = async function(id) {
     }
     html += `<div class="share-buttons"><button class="share-btn facebook" onclick="share('facebook')"><i class="fab fa-facebook-f"></i> Facebook</button><button class="share-btn twitter" onclick="share('twitter')"><i class="fab fa-twitter"></i> Twitter</button><button class="share-btn whatsapp" onclick="share('whatsapp')"><i class="fab fa-whatsapp"></i> WhatsApp</button><button class="share-btn linkedin" onclick="share('linkedin')"><i class="fab fa-linkedin-in"></i> LinkedIn</button><button class="share-btn copy" onclick="copyLink()"><i class="fas fa-link"></i> Copier</button></div>`;
     document.getElementById('articleContent').innerHTML = html;
+    // Liens externes de l'article (Sources, citations…) : toujours dans un NOUVEL onglet, l'article reste ouvert
+    document.querySelectorAll('#articleContent .article-body a[href]').forEach(a => {
+        try {
+            const u = new URL(a.getAttribute('href'), location.href);
+            if (/^https?:$/.test(u.protocol) && u.host !== location.host) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+        } catch (e) { /* lien non analysable : laissé tel quel */ }
+    });
     if (articleVideoId) setupFloatingVideo();
     atLoadScript('/jargon.js').then(() => { if (typeof highlightJargon === 'function') highlightJargon(); }).catch(() => {});
     initAudioReader(art.titre + ".  " + art.rawContent);

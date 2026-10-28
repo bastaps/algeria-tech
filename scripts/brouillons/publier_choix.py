@@ -6,7 +6,7 @@ publication, commit, push. Pour chaque brouillon `brouillons/<id>.md`
 marqué `circuit: true` :
   - lit sur le canal ntfy de réponse (`choix_canal`) le dernier message « <id>:<choix> » ;
   - choix : une (position 1) · seconde (position 2) · breve (espace Brèves) · rejeter (suppression) ;
-  - sans choix au bout de DELAI_MIN minutes : 2e position (décision de l'administrateur).
+  - sans choix au bout de DELAI_MIN minutes : À LA UNE, position 1 (décision de l'administrateur du 2026-10-28).
 Publier = brouillons/<id>.md → articles/<id>.md (champs internes retirés), la place précédente est libérée.
 Stdlib uniquement. Variables : NTFY_TOPIC (notification de confirmation, facultatif), DELAI_MIN, PUBLIER_RACINE.
 """
@@ -131,7 +131,7 @@ def main():
             if age < DELAI_MIN:
                 log(f"{ident} : en attente de choix ({age:.0f}/{DELAI_MIN} min)")
                 continue
-            choix, origine = "seconde", f"aucun choix sous {DELAI_MIN} min"
+            choix, origine = "une", f"aucun choix sous {DELAI_MIN} min"
         # Garde-fou anti-doublon : un autre article publié depuis (autre circuit, saisie manuelle, brouillon plus ancien du même
         # créneau) peut déjà couvrir ce fait. On compare aux articles PUBLIÉS (y compris ceux publiés plus haut dans cette boucle).
         if choix != "rejeter":

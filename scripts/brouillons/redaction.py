@@ -59,6 +59,7 @@ Texte du média :
 
 Réponds UNIQUEMENT par un JSON :
 {{"titre": "titre factuel de 90 caractères maximum, sans point final",
+  "lead": "chapô de 2 phrases (35 à 60 mots) : qui, quoi, où, quand — sans dateline, sans « ALGER — », sans titre",
   "extrait": "résumé de 200 caractères maximum",
   "categorie": "UNE valeur parmi : {categories}",
   "tags": ["3 à 6 mots-clés courts"],
@@ -163,6 +164,7 @@ def rediger(source, titre, corps, officiel=None):
         log("« À retenir » insuffisant")
         return None
     red["a_retenir"] = pts[:5]
+    red["lead"] = re.sub(r"\s+", " ", str(red.get("lead") or red.get("extrait") or "")).strip()
     red["contenu"] = re.sub(r"\n#{1,3}\s*(À retenir|A retenir|Pour rappel|Contexte)\b[\s\S]*$", "", str(red["contenu"]),
                             flags=re.I).strip()
     return red
@@ -173,14 +175,47 @@ def champ_aretenir(points):
     return " | ".join(re.sub(r"\s+", " ", p).replace('"', "'").replace("|", "/").strip() for p in points)
 
 
-def assembler(contenu, points, nom_media, url_media, officiels=()):
-    """Corps final : article + « À retenir » en bas + « Sources » (officielle d'abord)."""
-    out = [contenu.strip(), "## À retenir", "\n".join(f"- {p}" for p in points)]
-    lignes = [f"- Source officielle : [{o['nom']}]({o['url']})" for o in officiels]
-    # sans source officielle distincte, le média (ou l'institution) cité EST la source ; « relayé par » seulement s'il y en a une
-    lignes.append(f"- {'Article relayé par' if officiels else 'Source'} : [{nom_media}]({url_media})")
-    out += ["## Sources", "\n".join(lignes)]
+MOIS_FR = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"]
+
+
+def dateline(d=None):
+    """« Alger, 28 octobre 2026 (Algeria Tech) — » : la signature ajoutée par Smart Ingest PRO en tête de chaque article."""
+    import datetime as _dt
+    d = d or (_dt.datetime.utcnow() + _dt.timedelta(hours=1))
+    return f"Alger, {d.day} {MOIS_FR[d.month - 1]} {d.year} (Algeria Tech) — "
+
+
+def retirer_dateline(texte):
+    """Retire une dateline déjà présente (« ALGER — », « ALGER, 7 août 2026 (APS) — »), comme le fait Smart Ingest PRO."""
+    return re.sub(r"^[A-ZÀ-Ÿ][A-ZÀ-Ÿ' -]{1,24}(?:,\s*[^()\n]{0,40})?(?:\s*\([^)\n]{1,30}\))?\s*[—–-]\s+", "", texte or "")
+
+
+def corps_pro(lead, contenu):
+    """Corps d'article au format Smart Ingest PRO « Générer avec IA » : dateline + chapô, puis le développement."""
+    lead = retirer_dateline(re.sub(r"\s+", " ", str(lead or "")).strip())
+    tete = (dateline() + lead) if lead else ""
+    return (tete + "\n\n" + str(contenu).strip()).strip()
+
+
+def assembler(contenu, points, nom_media, url_media, officiels=(), lead="", source_admin=False, direct=False):
+    """Corps final : dateline + chapô + article, « À retenir » en bas, « Sources » (officielle d'abord).
+    source_admin : aucune source d'origine identifiable parmi plusieurs sites → « Source : Admin » (pas de média cité)."""
+    out = [corps_pro(lead, contenu), "## À retenir", "\n".join(f"- {p}" for p in points)]
+    out += ["## Sources", "\n".join(lignes_sources(officiels, nom_media, url_media, source_admin, direct))]
     return "\n\n".join(out) + "\n"
+
+
+def lignes_sources(officiels, nom_media, url_media, admin=False, direct=False):
+    """Puces de la section « Sources » : origine officielle d'abord ; « Source : Admin » si l'origine est introuvable parmi plusieurs
+    sites ; direct=True quand la page lue EST la publication officielle (communiqué, scoop) ; sinon le média cité."""
+    if admin and not officiels:
+        return ["- Source : Admin"]
+    if direct:
+        return [f"- Source officielle : [{nom_media}]({url_media})"]
+    lignes = [f"- Source officielle : [{o['nom']}]({o['url']})" for o in officiels]
+    # sans source officielle distincte, le média cité EST la source ; « relayé par » seulement s'il y en a une
+    lignes.append(f"- {'Article relayé par' if officiels else 'Source'} : [{nom_media}]({url_media})")
+    return lignes
 
 
 # ── Sources officielles ───────────────────────────────────────────────────
@@ -348,6 +383,94 @@ def _via_recherche(nom, titre, corps, url_source, jetons):
             log(f"source officielle (recherche) : {nom} — {page[0]}")
             return {"nom": nom, "url": page[0], "extrait": extrait}
     return None
+
+
+# ── Source d'origine (2026-10-28) ─────────────────────────────────────────
+# Règle de l'éditeur : l'article cite d'abord la publication d'ORIGINE (site de l'entreprise / institution, ou sa page Facebook officielle).
+# Si l'origine est introuvable : « Source : Admin » — sauf si UN SEUL site a publié l'info et que les autres le reprennent (on cite ce site).
+PROMPT_ORIGINE = """Information : « {titre} »
+Résumé : {resume}
+Média lu : {media} ({url})
+
+Retrouve, avec la recherche web, la SOURCE D'ORIGINE de cette information : la publication de l'entreprise ou de l'institution
+concernée (communiqué sur son site, ou sa page Facebook officielle), sinon le premier média qui l'a publiée.
+Réponds UNIQUEMENT par un JSON, sans texte autour :
+{{"origine": "officielle" | "media_unique" | "plusieurs_sans_origine",
+  "nom": "nom de l'organisation ou du média d'origine",
+  "url": "adresse EXACTE de la publication d'origine (https://…), vide si inconnue",
+  "medias": ["domaines des médias qui ont publié l'information"],
+  "explication": "une phrase"}}
+officielle = l'organisation concernée a publié l'information elle-même (site officiel ou page Facebook officielle de l'organisation).
+media_unique = un seul site a publié l'information et tous les autres la reprennent de ce site.
+plusieurs_sans_origine = plusieurs sites indépendants la publient, sans source d'origine identifiable."""
+
+
+def _gemini_recherche_texte(prompt):
+    """Gemini + Google Search : (texte de la réponse, adresses des pages citées). ('', []) si indisponible."""
+    import json as _j
+    from filtre_editorial import GEMINI_MODELES, GEMINI_URL, _gemini_cle
+    cle = _gemini_cle()
+    if not cle:
+        return "", []
+    corps = _j.dumps({"contents": [{"role": "user", "parts": [{"text": prompt}]}],
+                      "tools": [{"google_search": {}}], "generationConfig": {"temperature": 0}})
+    for modele in GEMINI_MODELES[:3]:
+        try:
+            r = requests.post(GEMINI_URL.format(m=modele), data=corps, timeout=90,
+                              headers={"Content-Type": "application/json", "x-goog-api-key": cle})
+            if r.status_code != 200:
+                continue
+            cand = (r.json().get("candidates") or [{}])[0]
+            texte = "".join(p.get("text", "") for p in (cand.get("content") or {}).get("parts", []))
+            urls = []
+            for c in ((cand.get("groundingMetadata") or {}).get("groundingChunks") or [])[:10]:
+                u = (c.get("web") or {}).get("uri")
+                if u:
+                    try:
+                        u = requests.get(u, timeout=12, headers=UA, allow_redirects=True, stream=True).url
+                    except requests.RequestException:
+                        pass
+                    urls.append(u)
+            return texte, urls
+        except requests.RequestException:
+            continue
+    return "", []
+
+
+def resoudre_sources(titre, corps, url_media, nom_media, origine_officielle=False):
+    """{'officiels': [{nom, url, extrait}], 'admin': bool, 'nom': str, 'url': str}.
+    - officiels : publication d'origine de l'organisation concernée (site vérifié, ou page Facebook officielle trouvée par la recherche) ;
+    - admin=True : plusieurs sites, aucune origine identifiable → « Source : Admin » ;
+    - sinon nom/url = le média cité (seul site, ou recherche indisponible : on ne prétend rien de plus)."""
+    sortie = {"officiels": [], "admin": False, "nom": nom_media, "url": url_media}
+    if origine_officielle:                      # la source lue EST la page officielle (communiqué, scoop)
+        return sortie
+    sortie["officiels"] = sources_officielles(titre, corps, url_media)
+    if sortie["officiels"]:
+        return sortie
+    texte, urls = _gemini_recherche_texte(PROMPT_ORIGINE.format(
+        titre=titre, resume=re.sub(r"\s+", " ", corps[:700]), media=nom_media, url=url_media))
+    m = re.search(r"\{[\s\S]*\}", texte or "")
+    if not m:
+        log("origine de la source : recherche indisponible, média cité")
+        return sortie
+    try:
+        import json as _j
+        rep = _j.loads(m.group(0))
+    except ValueError:
+        return sortie
+    kind, nom, url = str(rep.get("origine") or ""), str(rep.get("nom") or "").strip(), str(rep.get("url") or "").strip()
+    log(f"origine de la source : {kind} — {nom} {url} — {str(rep.get('explication') or '')[:120]}")
+    cite = {re.sub(r"[?#].*$", "", u).rstrip("/") for u in urls}
+    if kind == "officielle" and url.startswith("http") and re.sub(r"[?#].*$", "", url).rstrip("/") in cite:
+        reseau = any(x in _hote(url) for x in ("facebook.", "fb.com", "x.com", "twitter.", "linkedin.", "instagram."))
+        if reseau or _get(url):                 # page réellement joignable (ou publication de réseau social trouvée par la recherche)
+            sortie["officiels"] = [{"nom": nom or _hote(url), "url": url, "extrait": ""}]
+    elif kind == "media_unique" and url.startswith("http") and _hote(url) != _hote(url_media):
+        sortie["nom"], sortie["url"] = nom or _hote(url), url
+    elif kind == "plusieurs_sans_origine":
+        sortie["admin"] = True
+    return sortie
 
 
 # ── Vidéo : politique éditoriale ──────────────────────────────────────────
