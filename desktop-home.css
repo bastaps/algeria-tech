@@ -115,3 +115,24 @@ html.dh .trending-item .trending-number { display: none; }
 .dh-mini .dh-ph img { width: 55%; height: auto; position: static; }
 .dh-mini .dh-play { display: none; }
 html.dh .trending-item .trending-content { flex: 1; min-width: 0; }
+
+/* ── Animations au survol (Une, 2, 3, cartes, suite) — CSS seul : ne touche ni la lecture ni le src des vidéos ── */
+.dh-une, .dh-s, .dh-card, .dh-sv, .dh-st { transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease, background-color .28s ease; }
+.dh-une > img, .dh-une > video, .dh-une-yt, .dh-si img, .dh-si video, .dh-im img, .dh-im video, .dh-mini img, .dh-mini video { transition: transform .6s cubic-bezier(.2,.7,.2,1); will-change: transform; }
+.dh-une:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(0,0,0,.28); }
+.dh-une:hover > img, .dh-une:hover > video, .dh-une:hover .dh-une-yt { transform: scale(1.06); }
+.dh-une h1 { transition: transform .3s ease; }
+.dh-une:hover h1 { transform: translateY(-3px); }
+.dh-s:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--secondary); }
+.dh-s:hover .dh-si img, .dh-s:hover .dh-si video { transform: scale(1.08); }
+.dh-card:hover { transform: translateY(-5px); box-shadow: 0 14px 28px rgba(0,0,0,.18); border-color: var(--secondary); }
+.dh-card:hover .dh-im img, .dh-card:hover .dh-im video, .dh-sv:hover .dh-im img, .dh-sv:hover .dh-im video { transform: scale(1.08); }
+.dh-sb { transition: box-shadow .28s ease, transform .28s ease; }
+.dh-sb:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.dh-st:hover { background: rgba(200,150,46,.08); box-shadow: inset 3px 0 0 var(--secondary); }
+.dh-card h3, .dh-s h3, .dh-sv h3 { transition: color .25s ease, transform .25s ease; }
+.dh-card:hover h3, .dh-s:hover h3, .dh-sv:hover h3 { transform: translateX(3px); }
+@media (prefers-reduced-motion: reduce) {
+  .dh-une, .dh-s, .dh-card, .dh-sv, .dh-st, .dh-sb, .dh-une > img, .dh-une > video, .dh-si img, .dh-si video, .dh-im img, .dh-im video { transition: none; }
+  .dh-une:hover, .dh-s:hover, .dh-card:hover, .dh-sb:hover, .dh-une:hover > img, .dh-card:hover .dh-im img { transform: none; }
+}

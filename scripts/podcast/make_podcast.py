@@ -23,6 +23,7 @@ SUJETS = re.compile(r'télécom|telecom|numériqu|numeriqu|digital|internet|fibr
 
 
 def env(k):
+    if os.environ.get(k): return os.environ[k]            # GitHub Actions : secrets en variables d'environnement
     for l in open(os.path.join(ROOT, '.env'), encoding='utf-8'):
         if l.startswith(k + '='): return l.split('=', 1)[1].strip().strip('"\'')
 
@@ -69,8 +70,14 @@ def mistral(p):
 
 
 def gemini(p):
-    return post('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=' + env('GEMINI_API_KEY'),
-                {'contents': [{'parts': [{'text': p}]}], 'generationConfig': {'responseMimeType': 'application/json'}}, {})['candidates'][0]['content']['parts'][0]['text']
+    err = None
+    for m in ('gemini-2.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-flash-lite-latest'):   # les modèles disparaissent / saturent : cascade
+        try:
+            return post('https://generativelanguage.googleapis.com/v1beta/models/%s:generateContent?key=%s' % (m, env('GEMINI_API_KEY')),
+                        {'contents': [{'parts': [{'text': p}]}], 'generationConfig': {'responseMimeType': 'application/json'}}, {})['candidates'][0]['content']['parts'][0]['text']
+        except Exception as e:
+            err = e
+    raise err
 
 
 def groq(p):
@@ -109,7 +116,7 @@ out = os.path.join(ROOT, 'podcast')
 os.makedirs(out, exist_ok=True)
 
 
-def dur(path): return round(os.path.getsize(path) / 4000, 1)     # edge-tts ≈ 32 kb/s
+def dur(path): return round(os.path.getsize(path) / 6000, 1)     # edge-tts mesuré ≈ 6 Ko/s
 
 
 try:
@@ -139,3 +146,57 @@ for lang in LANGS:
                   for n, x in enumerate(t['items'])]}
 json.dump(manifest, open(os.path.join(out, 'latest.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
 print('OK', len(retenus), 'infos x', len(LANGS), 'langues')
+
+
+# ── 4. Épisode complet (français) + flux RSS pour Spotify / Apple Podcasts / etc. ───────────────────────
+import subprocess
+from email.utils import formatdate
+from xml.sax.saxutils import escape
+SITE = 'https://algeriatechnews.com'
+N_FEED = 5                                   # infos dans l'épisode du flux
+if 'fr' in LANGS:
+    L = manifest['langs']['fr']
+    eid = '%s-%s' % (manifest['date'], CRENEAU)
+    epdir = os.path.join(out, 'episodes')
+    os.makedirs(epdir, exist_ok=True)
+    liste = os.path.join(epdir, eid + '.txt')
+    clips = [L['intro']['mp3']] + [x['mp3'] for x in L['items'][:N_FEED]] + [L['outro']['mp3']]
+    open(liste, 'w', encoding='utf-8').write(''.join("file '%s'" % os.path.join(ROOT, c.lstrip('/')).replace(os.sep, '/') + chr(10) for c in clips))
+    mp3 = os.path.join(epdir, eid + '.mp3')
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', liste, '-c', 'copy', mp3], check=True)
+    os.remove(liste)
+    meta_path = os.path.join(epdir, 'index.json')
+    try:
+        eps = json.load(open(meta_path, encoding='utf-8'))
+    except Exception:
+        eps = []
+    eps = [e for e in eps if e['id'] != eid]
+    eps.insert(0, {'id': eid, 'titre': 'Flash audio %s — %s' % (datetime.now().strftime('%d/%m/%Y'), CRENEAU),
+                   'date': datetime.now().astimezone().isoformat(timespec='seconds'), 'mp3': '/podcast/episodes/%s.mp3' % eid,
+                   'taille': os.path.getsize(mp3),
+                   'duree': int(sum(x['duree'] for x in L['items'][:N_FEED]) + L['intro']['duree'] + L['outro']['duree']),
+                   'resume': ' · '.join(x['titre'] for x in L['items'][:N_FEED])})
+    for e in eps[21:]:                         # 21 épisodes conservés (7 jours)
+        try:
+            os.remove(os.path.join(ROOT, e['mp3'].lstrip('/')))
+        except OSError:
+            pass
+    eps = eps[:21]
+    json.dump(eps, open(meta_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+
+    def hms(sec): return '%02d:%02d:%02d' % (sec // 3600, sec % 3600 // 60, sec % 60)
+    items_xml = ''.join(
+        '<item><title>%s</title><description>%s</description><pubDate>%s</pubDate><guid isPermaLink="false">%s</guid>'
+        '<enclosure url="%s%s" length="%d" type="audio/mpeg"/><itunes:duration>%s</itunes:duration><itunes:explicit>false</itunes:explicit></item>'
+        % (escape(e['titre']), escape(e['resume']), formatdate(datetime.fromisoformat(e['date']).timestamp()), escape(e['id']),
+           SITE, e['mp3'], e['taille'], hms(e['duree'])) for e in eps)
+    feed = ('<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" '
+            'xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Algeria Tech — Le flash audio</title><link>%s</link><language>fr</language>'
+            "<description>Le flash audio d'Algeria Tech : l'actualité télécoms, numérique, IA et startups en Algérie, trois fois par jour.</description>"
+            '<atom:link href="%s/podcast/feed.xml" rel="self" type="application/rss+xml"/><itunes:author>Algeria Tech</itunes:author>'
+            '<itunes:owner><itunes:name>Algeria Tech</itunes:name><itunes:email>algeriatech2026@gmail.com</itunes:email></itunes:owner>'
+            '<itunes:image href="%s/podcast/cover.jpg"/><itunes:category text="Technology"/>'
+            '<itunes:category text="News"><itunes:category text="Tech News"/></itunes:category><itunes:explicit>false</itunes:explicit>%s</channel></rss>'
+            ) % (SITE, SITE, SITE, items_xml)
+    open(os.path.join(out, 'feed.xml'), 'w', encoding='utf-8').write(feed)
+    print('RSS :', len(eps), 'épisodes ->', SITE + '/podcast/feed.xml')

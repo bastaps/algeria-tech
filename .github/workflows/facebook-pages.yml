@@ -1,0 +1,54 @@
+name: Pages Facebook officielles — articles (institutions + entreprises)
+
+# 100 % cloud : Apify (plan gratuit, 5 $/mois, garde-fou de budget dans le script) -> rédaction IA -> articles/<id>.md -> push.
+# Entreprises : smartphones / TV / box TV, 1 post par page et par jour, 3 pages au plus -> catégorie « Entreprises ».
+# Institutions : un jour sur deux. Opérateurs (Mobilis, Djezzy, Ooredoo) exclus : leurs communiqués arrivent par mail.
+# 08:30 Alger = 07:30 UTC. Secrets requis : APIFY_TOKEN, MISTRAL_API_KEY / GEMINI_API_KEY / GROQ_API_KEY.
+# GARDE-FOU : déclenchement automatique seulement si le dépôt est public.
+on:
+  push:
+    paths: ['.github/workflows/facebook-pages.yml']      # TEMPORAIRE : un essai à la mise en ligne
+  schedule:
+    - cron: "30 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: facebook-pages
+  cancel-in-progress: false
+
+jobs:
+  pages:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.repository_visibility == 'public' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      TZ: Africa/Algiers
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -q requests
+
+      - name: Collecte + rédaction
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: python scripts/apify/fb_pages.py --cloud
+
+      - name: Publication
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "Algeria Tech Bot"
+          git add articles images data/fb-posts.json
+          git commit -m "Auto: articles Facebook officiels [$(date +%d/%m %H:%M)]" || { echo "Rien à publier"; exit 0; }
+          for i in 1 2 3 4; do git pull --rebase -X theirs origin main && git push origin HEAD:main && break || sleep 6; done

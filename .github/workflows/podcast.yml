@@ -1,0 +1,68 @@
+name: Podcast — flash audio (matin / midi / soir)
+
+# 100 % cloud : aucun PC, aucun Hub. Génère les clips MP3 (FR/AR/EN le matin, FR midi et soir), l'épisode complet du flux RSS
+# (podcast/feed.xml -> Spotify, Apple Podcasts…) puis publie. Heures d'Alger = UTC+1.
+# GARDE-FOU : déclenchement automatique seulement si le dépôt est public (minutes illimitées).
+on:
+  push:
+    paths: ['.github/workflows/podcast.yml']      # TEMPORAIRE : un essai à la mise en ligne
+  schedule:
+    - cron: "10 6 * * *"    # 07:10 Alger → matin
+    - cron: "10 11 * * *"   # 12:10 Alger → midi
+    - cron: "10 15 * * *"   # 16:10 Alger → soir
+  workflow_dispatch:
+    inputs:
+      creneau:
+        description: "matin / midi / soir"
+        default: "matin"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: podcast
+  cancel-in-progress: false
+
+jobs:
+  podcast:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.repository_visibility == 'public' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      TZ: Africa/Algiers
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Outils
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg > /dev/null
+          pip install -q requests beautifulsoup4 feedparser edge-tts
+
+      - name: Créneau
+        id: c
+        run: |
+          if [ -n "${{ github.event.inputs.creneau }}" ]; then C="${{ github.event.inputs.creneau }}";
+          else H=$(date +%H); if [ "$H" -lt 11 ]; then C=matin; elif [ "$H" -lt 15 ]; then C=midi; else C=soir; fi; fi
+          echo "creneau=$C" >> "$GITHUB_OUTPUT"
+
+      - name: Génération
+        env:
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: python scripts/podcast/make_podcast.py "${{ steps.c.outputs.creneau }}"
+
+      - name: Publication
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "Algeria Tech Bot"
+          git add podcast
+          git commit -m "Auto: podcast ${{ steps.c.outputs.creneau }} [$(date +%d/%m %H:%M)]" || { echo "Rien à publier"; exit 0; }
+          for i in 1 2 3 4; do git pull --rebase -X theirs origin main && git push origin HEAD:main && break || sleep 6; done
