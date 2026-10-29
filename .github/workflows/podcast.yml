@@ -1,12 +1,9 @@
 name: Podcast — flash audio (matin / midi / soir)
-# (relance : feed.xml)
 
 # 100 % cloud : aucun PC, aucun Hub. Génère les clips MP3 (FR/AR/EN le matin, FR midi et soir), l'épisode complet du flux RSS
 # (podcast/feed.xml -> Spotify, Apple Podcasts…) puis publie. Heures d'Alger = UTC+1.
 # GARDE-FOU : déclenchement automatique seulement si le dépôt est public (minutes illimitées).
 on:
-  push:
-    paths: ['.github/workflows/podcast.yml']      # TEMPORAIRE : un essai à la mise en ligne
   schedule:
     - cron: "10 6 * * *"    # 07:10 Alger → matin
     - cron: "10 11 * * *"   # 12:10 Alger → midi
