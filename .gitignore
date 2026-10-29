@@ -80,3 +80,6 @@ logs/captures/
 # express : sorties locales de test
 express-out/
 __pycache__/
+
+# flux RSS du podcast (le motif feed.xml ci-dessus l'ignorait)
+!podcast/feed.xml
