@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-28T13:52:36.569Z",
+  "generated": "2026-10-29T14:01:35.619Z",
   "mode": "monthly",
   "period": "2026-10",
   "period_label": "Octobre 2026",
@@ -8,125 +8,125 @@
     "veille_articles": 150,
     "social_posts": 300,
     "presse_articles": 12,
-    "sources_count": 32
+    "sources_count": 34
   },
   "top_topics": [
     {
       "key": "Intelligence Artificielle",
       "emoji": "🤖",
-      "count": 85,
-      "prev_count": 74,
-      "trend": 11,
-      "trend_pct": 15
+      "count": 83,
+      "prev_count": 85,
+      "trend": -2,
+      "trend_pct": -2
     },
     {
       "key": "Operateurs & Telecom",
       "emoji": "📶",
-      "count": 49,
-      "prev_count": 43,
-      "trend": 6,
-      "trend_pct": 14
+      "count": 50,
+      "prev_count": 49,
+      "trend": 1,
+      "trend_pct": 2
     },
     {
-      "key": "Cybersecurite",
-      "emoji": "🔒",
-      "count": 21,
-      "prev_count": 18,
-      "trend": 3,
-      "trend_pct": 17
+      "key": "Cloud & Data Center",
+      "emoji": "☁️",
+      "count": 25,
+      "prev_count": 14,
+      "trend": 11,
+      "trend_pct": 79
     },
     {
       "key": "5G & Reseaux Mobiles",
       "emoji": "📡",
       "count": 19,
-      "prev_count": 15,
-      "trend": 4,
-      "trend_pct": 27
+      "prev_count": 19,
+      "trend": 0,
+      "trend_pct": 0
     },
     {
-      "key": "Cloud & Data Center",
-      "emoji": "☁️",
-      "count": 14,
-      "prev_count": 11,
-      "trend": 3,
-      "trend_pct": 27
+      "key": "Cybersecurite",
+      "emoji": "🔒",
+      "count": 16,
+      "prev_count": 21,
+      "trend": -5,
+      "trend_pct": -24
     },
     {
       "key": "Startups & Innovation",
       "emoji": "🚀",
       "count": 9,
-      "prev_count": 12,
-      "trend": -3,
-      "trend_pct": -25
+      "prev_count": 9,
+      "trend": 0,
+      "trend_pct": 0
     },
     {
       "key": "Formation & Emploi TIC",
       "emoji": "🎓",
-      "count": 8,
-      "prev_count": 7,
+      "count": 9,
+      "prev_count": 8,
       "trend": 1,
-      "trend_pct": 14
+      "trend_pct": 13
     },
     {
       "key": "Regulation & Politique",
       "emoji": "⚖️",
-      "count": 3,
-      "prev_count": null,
-      "trend": null,
-      "trend_pct": null
-    },
-    {
-      "key": "Fibre Optique",
-      "emoji": "🔌",
-      "count": 2,
-      "prev_count": 2,
-      "trend": 0,
-      "trend_pct": 0
+      "count": 5,
+      "prev_count": 3,
+      "trend": 2,
+      "trend_pct": 67
     },
     {
       "key": "E-commerce & Paiement",
       "emoji": "🛒",
-      "count": 1,
+      "count": 2,
       "prev_count": 1,
-      "trend": 0,
-      "trend_pct": 0
+      "trend": 1,
+      "trend_pct": 100
+    },
+    {
+      "key": "Fibre Optique",
+      "emoji": "🔌",
+      "count": 1,
+      "prev_count": 2,
+      "trend": -1,
+      "trend_pct": -50
     }
   ],
   "sentiment": {
-    "positive": 95,
-    "negative": 38,
-    "neutral": 329,
-    "positive_pct": 21,
+    "positive": 101,
+    "negative": 37,
+    "neutral": 324,
+    "positive_pct": 22,
     "negative_pct": 8,
-    "neutral_pct": 71
+    "neutral_pct": 70
   },
   "top_sources": [
     {
       "source": "TechCrunch",
-      "count": 72
-    },
-    {
-      "source": "ZDNet France",
-      "count": 53
+      "count": 69
     },
     {
       "source": "Wired",
-      "count": 47
+      "count": 61
+    },
+    {
+      "source": "ZDNet France",
+      "count": 61
     },
     {
       "source": "Algérie Éco",
-      "count": 46
+      "count": 48
     },
     {
       "source": "ZDNet FR",
-      "count": 45
+      "count": 42
     }
   ],
   "highlights": [
-    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 85 occurrences dans les publications.",
-    "\"5G & Reseaux Mobiles\" en forte hausse : +27% par rapport a le mois precedent.",
-    "\"Startups & Innovation\" en recul : -25% par rapport a le mois precedent.",
-    "Sentiment equilibre ce mois : 21% positif, 8% negatif sur 462 publications."
+    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 83 occurrences dans les publications.",
+    "\"Cloud & Data Center\" en forte hausse : +79% par rapport a le mois precedent.",
+    "\"Cybersecurite\" en recul : -24% par rapport a le mois precedent.",
+    "Sentiment equilibre ce mois : 22% positif, 8% negatif sur 462 publications."
   ],
   "previous_period": {
     "period": "2026-10",
