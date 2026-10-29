@@ -5,8 +5,6 @@ name: Cartes interactives — articles récents sans carte (sans PC)
 # Rien à faire s'il n'y a aucune carte en attente : le passage s'arrête avant d'installer quoi que ce soit.
 # GARDE-FOU : déclenchement automatique seulement si le dépôt est public (minutes illimitées).
 on:
-  push:
-    paths: ['.github/workflows/cartes-interactives.yml']      # TEMPORAIRE : un essai à la mise en ligne
   schedule:
     - cron: "*/20 * * * *"
   workflow_dispatch:
