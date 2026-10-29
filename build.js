@@ -333,7 +333,7 @@ const sitemapUrls = [
     `<url><loc>${SITE_URL}/revue/</loc><changefreq>daily</changefreq><priority>0.7</priority></url>`,
     `<url><loc>${SITE_URL}/comparateur/</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`,
     `<url><loc>${SITE_URL}/reglementaire/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>`,
-    ...['operateurs', 'actualites-tic', 'barometre', 'wiki', 'ae-tech', 'autoentrepreneur', 'simulateur-fiscal', 'confidentialite', 'mentions-legales'].map(p =>
+    ...['operateurs', 'entreprises', 'actualites-tic', 'barometre', 'wiki', 'ae-tech', 'autoentrepreneur', 'simulateur-fiscal', 'confidentialite', 'mentions-legales'].map(p =>
         `<url><loc>${SITE_URL}/${p}</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`),
     ...allArticlesForSSG.map(art => {
         const lastmod = art.date ? `<lastmod>${art.date}</lastmod>` : '';
@@ -401,6 +401,7 @@ const PUBLIC_PAGES = {
     'autoentrepreneur.html': "Auto-entrepreneur en Algérie : le guide complet pour comprendre le statut, les démarches et la fiscalité.",
     'barometre.html': "Observatoire du numérique en Algérie : indicateurs et évolution du marché de l'Internet et de la téléphonie.",
     'operateurs.html': "Les opérateurs mobiles algériens : offres, promotions et communiqués officiels.",
+    'entreprises.html': "Lancements, offres et annonces des entreprises et marques du numérique en Algérie.",
     'simulateur-fiscal.html': "Simulateur fiscal pour auto-entrepreneur en Algérie : estimez vos impôts et cotisations.",
     'wiki.html': "Wiki TIC : glossaire des télécommunications et du numérique en Algérie.",
     'cv-generator-premium.html': "Générateur de CV pour les métiers du numérique : créez un CV professionnel prêt à envoyer."
@@ -431,7 +432,7 @@ try {
 
 // 3) Flux RSS (40 derniers articles)
 try {
-    const items = _byDate.filter(a => a.type !== 'communique_officiel').slice(0, 40).map(a => {
+    const items = _byDate.filter(a => a.type !== 'communique_officiel' && a.type !== 'communique_entreprise').slice(0, 40).map(a => {
         const cat = _valid(a.categorie);
         const img = a.image ? _abs(a.image) : '';
         return `    <item>
@@ -463,7 +464,7 @@ ${items}
 
 // 4) Sitemap Google News (articles des 48 dernières heures — consigne Google ; au moins le plus récent)
 try {
-    let recents = _byDate.filter(a => a.type !== 'communique_officiel' && Date.now() - _when(a).getTime() < 48 * 3600 * 1000);
+    let recents = _byDate.filter(a => a.type !== 'communique_officiel' && a.type !== 'communique_entreprise' && Date.now() - _when(a).getTime() < 48 * 3600 * 1000);
     if (!recents.length) recents = _byDate.slice(0, 1);
     const urls = recents.slice(0, 1000).map(a => `  <url>
     <loc>${SITE_URL}/article/${a.id}</loc>

@@ -484,6 +484,7 @@ app.get('/api/generate-static-files', (req, res) => {
 
 // === ROUTE OPÉRATEURS MOBILES ===
 app.get('/operateurs', (req, res) => res.sendFile(path.join(__dirname, 'operateurs.html')));
+app.get('/entreprises', (req, res) => res.sendFile(path.join(__dirname, 'entreprises.html')));
 
 // === ROUTE BAROMÈTRE MENSUEL ===
 app.get('/barometre', (req, res) => res.sendFile(path.join(__dirname, 'barometre.html')));

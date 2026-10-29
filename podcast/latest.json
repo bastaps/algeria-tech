@@ -1,0 +1,292 @@
+{
+ "creneau": "matin",
+ "date": "2026-10-29",
+ "genere": "2026-10-29T00:47:29",
+ "langs": {
+  "fr": {
+   "voix": "fr-FR-RemyMultilingualNeural",
+   "intro": {
+    "mp3": "/podcast/fr/intro.mp3",
+    "duree": 12.2,
+    "texte": "Bonjour et bienvenue sur Algeria Tech ! Voici un condensé de l'actualité tech et télécoms, avec dix informations clés à découvrir."
+   },
+   "outro": {
+    "mp3": "/podcast/fr/outro.mp3",
+    "duree": 8.5,
+    "texte": "C'était l'essentiel de l'actu tech. Rendez-vous demain pour un nouveau briefing Algeria Tech."
+   },
+   "items": [
+    {
+     "titre": "Lois télécoms bientôt promulguées",
+     "texte": "Les textes d'application des lois encadrant le secteur des télécommunications seront prochainement publiés. Cette promulgation attendue vise à clarifier le cadre réglementaire pour les acteurs du domaine.",
+     "mp3": "/podcast/fr/01.mp3",
+     "duree": 16.3,
+     "pays": "DZ",
+     "source": "APS"
+    },
+    {
+     "titre": "OpenAI : les agents Dot parlent SMS",
+     "texte": "OpenAI ouvre désormais la possibilité d'envoyer des SMS à ses agents Dot. Cette fonctionnalité permet d'interagir avec l'intelligence artificielle via iMessage et la messagerie RCS pour donner des instructions.",
+     "mp3": "/podcast/fr/02.mp3",
+     "duree": 18.2,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Microsoft : 60 000 départs volontaires ?",
+     "texte": "Microsoft envisagerait de proposer des départs volontaires à environ 60 000 employés. Cette mesure viserait à réduire les coûts au sein de la multinationale technologique américaine.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 15.3,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "CarPlay s'améliore avec iOS 27.2",
+     "texte": "iOS 27.2 apporte deux nouveautés majeures à CarPlay. L'application Podcasts est repensée et l'intelligence artificielle de Siri est améliorée, impactant directement l'expérience utilisateur dans les véhicules connectés.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 18.8,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "SATIM certifiée pour les cartes bancaires",
+     "texte": "La SATIM obtient la certification de Visa et Mastercard pour personnaliser les cartes bancaires en Algérie. Cela devrait significativement réduire les délais de délivrance des cartes internationales.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 16.3,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "La FCC s'oppose aux routeurs Minions",
+     "texte": "La FCC interdit les routeurs Wi-Fi en forme de Minions, les soumettant à la même restriction que d'autres produits. Ces routeurs devenus viraux ne respectent pas certaines normes.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 14.3,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "NATIQ STUDIO et la synthèse vocale Darija",
+     "texte": "NATIQ STUDIO lance une avancée majeure pour la synthèse vocale en darija algérienne. Le modèle Natiq-dz-ARG intègre les spécificités de la langue parlée en Algérie.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 15.2,
+     "pays": "DZ",
+     "source": "ITMAG"
+    },
+    {
+     "titre": "Synthèse vocale Darija : le projet Natiq",
+     "texte": "Abdelhak Kadouci a développé un modèle de synthèse vocale pour le darija algérien, Natiq-dz-ARG, face à l'insuffisance des outils existants. Il gère le code-switching et le clonage vocal.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 16.8,
+     "pays": "DZ",
+     "source": "ITMAG"
+    },
+    {
+     "titre": "L'Algérie renforce son arsenal sécuritaire",
+     "texte": "L'Algérie a durci son arsenal sécuritaire au cours des quinze derniers mois. Plusieurs décisions législatives et stratégiques marquent une évolution dans la perception de la sécurité nationale.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 15.6,
+     "pays": "DZ",
+     "source": "Maghreb Emergent"
+    },
+    {
+     "titre": "Instagram mise sur la vidéo longue",
+     "texte": "Instagram expérimente à nouveau les vidéos longues, jusqu'à 90 minutes, sur télévision. L'objectif est d'encourager le visionnage de podcasts et autres contenus sur grand écran.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 15.6,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    }
+   ]
+  },
+  "ar": {
+   "voix": "ar-DZ-AminaNeural",
+   "intro": {
+    "mp3": "/podcast/ar/intro.mp3",
+    "duree": 15.3,
+    "texte": "صباح الخير من الجزائر تيك، إليكم آخر الأخبار التقنية والمجتمعية لهذا الصباح، مع 10 مستجدات مهمة."
+   },
+   "outro": {
+    "mp3": "/podcast/ar/outro.mp3",
+    "duree": 11.0,
+    "texte": "كانت هذه أهم الأخبار التقنية لليوم، نلقاكم غدا للمزيد من المستجدات."
+   },
+   "items": [
+    {
+     "titre": "تطبيق قوانين القطاع قريبا",
+     "texte": "سيتم قريبا إصدار النصوص التطبيقية للقوانين التي تنظم قطاع الاتصالات. هذه الخطوة ستساهم في تنظيم أكبر للمجال وفتح آفاق جديدة للشركات والمستثمرين في هذا القطاع الحيوي.",
+     "mp3": "/podcast/ar/01.mp3",
+     "duree": 24.8,
+     "pays": "DZ",
+     "source": "APS"
+    },
+    {
+     "titre": "أوبن إيه آي: تواصل عبر الرسائل النصية",
+     "texte": "أعلنت أوبن إيه آي عن ميزة جديدة تسمح للمستخدمين بإرسال الرسائل النصية القصيرة إلى مساعديهم الافتراضيين 'دوت إيجنت'. هذه الوظيفة متاحة الآن عبر آي مسيج والرسائل المتعددة الوسائط.",
+     "mp3": "/podcast/ar/02.mp3",
+     "duree": 26.9,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "مايكروسوفت تخطط لرحيل طوعي",
+     "texte": "تدرس مايكروسوفت خيار تقديم برامج المغادرة الطوعية لحوالي ستين ألف موظف لخفض التكاليف. يأتي هذا الإجراء ضمن استراتيجية الشركة لإعادة هيكلة قوتها العاملة عالميا.",
+     "mp3": "/podcast/ar/03.mp3",
+     "duree": 23.8,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "تحديثات آبل للكاربلاي",
+     "texte": "أطلقت آبل تحديثا جديدا لنظام التشغيل يضيف ميزتين جديدتين لتطبيق كاربلاي. يشمل التحديث تحسينات على تطبيق البودكاست وتعزيز قدرات المساعد الصوتي سيري.",
+     "mp3": "/podcast/ar/04.mp3",
+     "duree": 21.5,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "ساتيم تحصل على شهادة فيزا وماستركارد",
+     "texte": "تم اعتماد الشركة الجزائرية للاتصالات والمعالجة البينية ساتيم من قبل فيزا وماستركارد لتخصيص البطاقات في الجزائر. هذا الاعتماد سيقلل من مدة تسليم البطاقات الدولية.",
+     "mp3": "/podcast/ar/05.mp3",
+     "duree": 23.3,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "لماذا تكره الهيئة الأمريكية أجهزة الراوتر؟",
+     "texte": "تواجه أجهزة الراوتر الجديدة المصممة على شكل شخصيات 'المينيونز' حظرا من قبل هيئة الاتصالات الفيدرالية الأمريكية. يأتي هذا القرار كإجراء احترازي متعلق بالبث اللاسلكي.",
+     "mp3": "/podcast/ar/06.mp3",
+     "duree": 24.0,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "استوديو ناطق يطور توليف الكلام بالدارجة",
+     "texte": "أطلق استوديو ناطق نموذجًا جديدًا للذكاء الاصطناعي يمثل تقدما كبيرا في توليف الكلام بالدارجة الجزائرية. تم تطوير النموذج بناء على آلاف الساعات من التسجيلات الصوتية.",
+     "mp3": "/podcast/ar/07.mp3",
+     "duree": 23.3,
+     "pays": "DZ",
+     "source": "ITMAG"
+    },
+    {
+     "titre": "بناء نموذج خاص للدارجة الجزائرية",
+     "texte": "تم بناء نموذج توليف الكلام بالدارجة الجزائرية، ناطق-دي-ز-أرج، لأنه لم يكن هناك نموذج مناسب. الهدف هو تمثيل اللغة الجزائرية بدقة، مع إمكانية التبديل بين الدارجة والفرنسية.",
+     "mp3": "/podcast/ar/08.mp3",
+     "duree": 26.5,
+     "pays": "DZ",
+     "source": "ITMAG"
+    },
+    {
+     "titre": "الجزائر تعزز ترسانتها الأمنية",
+     "texte": "في ظرف 15 شهرا، عززت الجزائر من آلياتها الدفاعية والأمنية. شملت هذه الفترة سلسلة من القرارات التشريعية والاستراتيجية الهامة المتعلقة بالأمن الداخلي وحدودها.",
+     "mp3": "/podcast/ar/09.mp3",
+     "duree": 24.2,
+     "pays": "DZ",
+     "source": "Maghreb Emergent"
+    },
+    {
+     "titre": "إنستغرام تشجع على الفيديو الطويل",
+     "texte": "تختبر إنستغرام ميزة جديدة تسمح بمشاهدة مقاطع فيديو تصل مدتها إلى تسعين دقيقة. تهدف الشركة إلى تشجيع المستخدمين على استهلاك المحتوى الطويل، خاصة على شاشات التلفاز.",
+     "mp3": "/podcast/ar/10.mp3",
+     "duree": 25.2,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    }
+   ]
+  },
+  "en": {
+   "voix": "en-US-AndrewMultilingualNeural",
+   "intro": {
+    "mp3": "/podcast/en/intro.mp3",
+    "duree": 9.2,
+    "texte": "Hello and welcome to Algeria Tech! Here are your top 10 tech news updates for this morning."
+   },
+   "outro": {
+    "mp3": "/podcast/en/outro.mp3",
+    "duree": 8.5,
+    "texte": "That's all for today's tech briefing. Join us again tomorrow for more updates from Algeria Tech."
+   },
+   "items": [
+    {
+     "titre": "Algeria Telecom Laws Promulgated Soon",
+     "texte": "New laws governing the telecommunications sector in Algeria are set to be enacted soon. These legislative texts aim to structure and regulate the rapidly evolving digital landscape, bringing clarity and updated frameworks for industry players.",
+     "mp3": "/podcast/en/01.mp3",
+     "duree": 23.6,
+     "pays": "DZ",
+     "source": "APS"
+    },
+    {
+     "titre": "OpenAI Agents Now Textable",
+     "texte": "OpenAI has launched a new feature allowing users to send SMS messages to their Dot Agents. This functionality works with iMessage and RCS, enabling users to interact and give instructions to their AI agents through simple text messages.",
+     "mp3": "/podcast/en/02.mp3",
+     "duree": 23.9,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Microsoft Considers Voluntary Layoffs",
+     "texte": "Microsoft is reportedly exploring voluntary departure options for around 60,000 employees. This potential move is aimed at reducing operational costs and streamlining its global workforce, affecting a significant portion of its staff.",
+     "mp3": "/podcast/en/03.mp3",
+     "duree": 23.8,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "New CarPlay Features in iOS Update",
+     "texte": "iOS 27.2 introduces two significant new features for Apple CarPlay. Updates include a redesigned Podcasts app and enhancements to Siri's AI capabilities, improving the in-car entertainment and assistant experience.",
+     "mp3": "/podcast/en/04.mp3",
+     "duree": 23.7,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "SATIM Certified for Card Personalization",
+     "texte": "SATIM has received official certification from Visa and Mastercard to personalize payment cards within Algeria. This accreditation is expected to significantly speed up the issuance of international bank cards for customers.",
+     "mp3": "/podcast/en/05.mp3",
+     "duree": 21.5,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "FCC Limits Minion-Shaped Routers",
+     "texte": "The FCC is reportedly imposing restrictions on Minion-shaped Wi-Fi routers. This move mirrors previous bans on certain TP-Link devices, impacting the sale and distribution of these novelty tech gadgets.",
+     "mp3": "/podcast/en/06.mp3",
+     "duree": 21.1,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Natiq Studio Advances Darija AI",
+     "texte": "Natiq Studio has released a major breakthrough in Darija voice synthesis. The Natiq-dz-ARG model, trained on extensive data, significantly improves the recognition and reproduction of Algerian Arabic, including linguistic variations.",
+     "mp3": "/podcast/en/07.mp3",
+     "duree": 23.0,
+     "pays": "DZ",
+     "source": "ITMAG"
+    },
+    {
+     "titre": "Building Darija Voice Models",
+     "texte": "Abdelhak Kadouci developed his own Darija voice synthesis model because existing ones were inadequate. Natiq-dz-ARG is now publicly available for non-commercial use, offering improved natural language processing for Algerian Arabic.",
+     "mp3": "/podcast/en/08.mp3",
+     "duree": 23.9,
+     "pays": "DZ",
+     "source": "ITMAG"
+    },
+    {
+     "titre": "Algeria Enhances Security Arsenal",
+     "texte": "Algeria has significantly bolstered its security measures and legislation over the past 15 months. These strategic decisions reflect a renewed focus on national security and regional stability.",
+     "mp3": "/podcast/en/09.mp3",
+     "duree": 19.4,
+     "pays": "DZ",
+     "source": "Maghreb Emergent"
+    },
+    {
+     "titre": "Instagram Explores Longer Videos",
+     "texte": "Instagram is testing longer video formats, potentially up to 90 minutes. This initiative aims to encourage users to watch content like podcasts and other videos on their television screens.",
+     "mp3": "/podcast/en/10.mp3",
+     "duree": 18.7,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    }
+   ]
+  }
+ }
+}

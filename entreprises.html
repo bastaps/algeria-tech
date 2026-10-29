@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entreprises &amp; Marques | Algeria Tech</title>
+<meta name="description" content="Les annonces des entreprises et marques qui font le numérique en Algérie : Condor, Samsung, LG, Iris, Géant, Yassir, Xiaomi, Stream System et autres.">
+<link rel="canonical" href="https://algeriatechnews.com/entreprises">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Algeria Tech">
+<meta property="og:title" content="Entreprises &amp; Marques | Algeria Tech">
+<meta property="og:description" content="Lancements, offres et annonces des entreprises du numérique en Algérie.">
+<meta property="og:url" content="https://algeriatechnews.com/entreprises">
+<meta property="og:image" content="https://algeriatechnews.com/images/logo_v2.png">
+<style>
+:root{--bg:#f7f3ea;--card:#fff;--tx:#241d12;--mut:#7a6d58;--or:#c8962e;--bd:#e6dcc6}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#15130f;--card:#1f1b15;--tx:#f3e9d2;--mut:#a89a80;--bd:#33291a}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,sans-serif}
+header{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--bd)}
+header a{color:var(--tx);text-decoration:none}.brand{font-weight:700}.brand span{color:var(--or)}
+main{max-width:1100px;margin:0 auto;padding:18px 16px 60px}
+h1{margin:6px 0 4px;font-size:1.6rem}.sub{color:var(--mut);margin:0 0 16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.chips button{border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:999px;padding:6px 14px;cursor:pointer;font:inherit;font-size:.9rem}
+.chips button.on{background:var(--or);border-color:var(--or);color:#1d1a16;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--bd)}
+.card .b{padding:12px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card .tag{font-size:.75rem;color:var(--or);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.card h2{font-size:1.02rem;margin:0}.card p{margin:0;color:var(--mut);font-size:.9rem}.card time{font-size:.78rem;color:var(--mut);margin-top:auto}
+.vide{padding:40px 0;color:var(--mut);text-align:center}
+.pub{margin-top:36px;padding:18px;border:1px dashed var(--or);border-radius:14px}
+.pub h3{margin:0 0 6px}.pub a{color:var(--or);font-weight:600}
+</style>
+</head>
+<body>
+<header><a href="/" aria-label="Retour à l'accueil">←</a><a href="/" class="brand">Algeria<span>Tech</span></a></header>
+<main>
+  <h1>🏢 Entreprises &amp; Marques</h1>
+  <p class="sub">Lancements, offres et annonces des entreprises du numérique en Algérie.</p>
+  <div class="chips" id="chips"></div>
+  <div class="grid" id="grid"></div>
+  <div class="vide" id="vide" hidden>Aucune annonce pour le moment.</div>
+  <section class="pub">
+    <h3>Votre entreprise a une annonce à diffuser ?</h3>
+    <p>Algeria Tech relaie les lancements, offres et événements des entreprises du numérique. Contact : <a href="mailto:algeriatech2026@gmail.com?subject=Annonce%20entreprise">algeriatech2026@gmail.com</a></p>
+  </section>
+</main>
+<script>
+(function(){
+  var MOIS=['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  var all=[],sel='Tous';
+  function dt(a){var d=String(a.date||'').split('-');return d.length==3?(+d[2])+' '+MOIS[+d[1]-1]+' '+d[0]:''}
+  function secteurs(a){return String(a.tags||'').split(',').map(function(t){return t.trim()}).filter(Boolean)}
+  function draw(){
+    var l=all.filter(function(a){return sel==='Tous'||secteurs(a).indexOf(sel)>=0});
+    document.getElementById('vide').hidden=l.length>0;
+    document.getElementById('grid').innerHTML=l.map(function(a){
+      var img=a.image?'<img loading="lazy" src="/'+esc(a.image.replace(/^\//,''))+'" alt="">':'';
+      return '<a class="card" href="/article/'+esc(a.id)+'">'+img+'<div class="b"><span class="tag">'+esc(a.source||secteurs(a)[0]||'')+'</span><h2>'+esc(a.titre)+'</h2><p>'+esc((a.extrait||'').slice(0,140))+'</p><time>'+dt(a)+'</time></div></a>';
+    }).join('');
+  }
+  function chips(){
+    var n={};all.forEach(function(a){secteurs(a).forEach(function(t){n[t]=(n[t]||0)+1})});
+    var lst=['Tous'].concat(Object.keys(n).sort(function(a,b){return n[b]-n[a]}).slice(0,10));
+    var c=document.getElementById('chips');c.innerHTML='';
+    lst.forEach(function(t){var b=document.createElement('button');b.type='button';b.textContent=t;b.className=t===sel?'on':'';b.onclick=function(){sel=t;chips();draw()};c.appendChild(b)});
+  }
+  fetch('/articles-list.json',{cache:'no-cache'}).then(function(r){return r.json()}).then(function(d){
+    var l=Array.isArray(d)?d:d.articles;
+    all=l.filter(function(a){return a.type==='communique_entreprise'}).sort(function(a,b){return (b.date+(b.heure||'')).localeCompare(a.date+(a.heure||''))});
+    chips();draw();
+  }).catch(function(){document.getElementById('vide').hidden=false});
+})();
+</script>
+</body>
+</html>

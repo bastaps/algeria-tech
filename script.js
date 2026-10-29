@@ -382,7 +382,7 @@ async function loadArticles() {
         });
 
         allArticles = data
-            .filter(a => a.type !== 'communique_officiel' && a.type !== 'breve')  // réservés au Hub Opérateurs / à l'espace Brèves
+            .filter(a => a.type !== 'communique_officiel' && a.type !== 'communique_entreprise' && a.type !== 'breve')  // réservés au Hub Opérateurs / à l'espace Brèves
             .map(_mapArt);
 
         breveArticles = data
