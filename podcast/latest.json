@@ -1,102 +1,102 @@
 {
- "creneau": "matin",
+ "creneau": "soir",
  "date": "2026-10-29",
- "genere": "2026-10-29T10:32:02",
+ "genere": "2026-10-29T18:24:33",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
-   "creneau": "matin",
-   "genere": "2026-10-29T10:32:59",
+   "creneau": "soir",
+   "genere": "2026-10-29T18:25:30",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.4,
-    "texte": "Bonjour et bienvenue dans Algeria Tech, votre rendez-vous matinal. Voici les 10 infos tech du jour."
+    "duree": 6.6,
+    "texte": "Bonsoir à tous et bienvenue sur Algeria Tech. Voici les dix informations tech et économie de votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.8,
-    "texte": "C'était votre tour matinal de l'actualité tech avec Algeria Tech. À demain pour plus d'infos."
+    "duree": 5.1,
+    "texte": "C'est la fin de ce bulletin d'information. Retrouvez-nous demain pour un nouveau tour d'horizon."
    },
    "items": [
     {
-     "titre": "Textes d'application des lois bientôt promulgués",
-     "texte": "Les textes d'application des lois qui encadrent le secteur seront bientôt promulgués. Cette étape est essentielle pour la mise en œuvre concrète de la législation récemment adoptée dans le domaine technologique en Algérie.",
+     "titre": "Apple et son écran ProLED XDR",
+     "texte": "Apple lance un nouveau MacBook Pro avec un écran baptisé ProLED XDR. Si le nom marketing est discutable, les spécifications de cette nouvelle technologie d'affichage promettent une qualité d'image exceptionnelle pour les professionnels de la création.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 11.3,
+     "duree": 13.3,
      "pays": "DZ",
-     "source": "APS"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "HomeView d'Apple et les applications",
-     "texte": "Apple lance HomeView, son nouveau hub pour la maison intelligente. Bien que dépourvu d'App Store, il permettra d'utiliser des applications tierces, fonctionnant sur un système d'exploitation basé sur iOS, mais adapté à la domotique.",
+     "titre": "Volkswagen freine face à la Chine",
+     "texte": "Le constructeur automobile Volkswagen traverse une période difficile. Face à des pertes nettes importantes, notamment à cause de ses performances en Chine, la direction de l'entreprise appelle à accélérer les mesures d'économie.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 13.1,
+     "duree": 11.8,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "New York protège les enfants avec l'IA",
-     "texte": "La gouverneure de New York a signé une loi pour protéger les enfants des chatbots IA. Les entreprises devront vérifier l'âge des utilisateurs, sans dépendre uniquement de la pièce d'identité pour la vérification.",
+     "titre": "Gemini 4 Carbon : l'IA de Google",
+     "texte": "Google présente Gemini 4 Carbon, son nouveau modèle d'intelligence artificielle. Il surpasse déjà des concurrents comme Claude Opus 5.5 dans des tests clés, promettant des avancées significatives en IA, codage et cybersécurité.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 10.8,
+     "duree": 13.6,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Nouvel iPad mini avec écran OLED",
-     "texte": "Apple dévoile le nouvel iPad mini 2026. Il est équipé d'un écran OLED de 8,5 pouces et d'un processeur A20. Les clients pourront choisir une finition nano-texturée pour ce nouvel écran.",
+     "titre": "Gros coup de filet anti-blanchiment",
+     "texte": "Les forces de l'ordre ont démantelé un vaste réseau de contrefaçon et de blanchiment d'argent à Alger. Cette opération spectaculaire a permis de récupérer une somme importante et de neutraliser des activités criminelles.",
      "mp3": "/podcast/fr/04.mp3",
+     "duree": 11.4,
+     "pays": "DZ",
+     "source": "TSA Algérie"
+    },
+    {
+     "titre": "23 milliards récupérés, 25 interpellations",
+     "texte": "Dans le cadre d'une opération contre la criminalité organisée, 25 personnes ont été arrêtées. Les enquêteurs ont réussi à saisir 23 milliards de centimes, mettant fin aux agissements d'un réseau criminel influent.",
+     "mp3": "/podcast/fr/05.mp3",
      "duree": 11.6,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "Rumeurs sur l'iPhone 18e et puce A20",
-     "texte": "Des fuites suggèrent que le futur iPhone 18e pourrait intégrer une puce A20 gravée en 2 nanomètres. L'écran resterait à 60 Hz, mais la caméra frontale pourrait voir ses performances améliorées.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 11.0,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Apple annonce un MacBook Pro OLED",
-     "texte": "Apple a présenté un nouveau MacBook Pro doté d'un écran PROLED XDR Display. Cet ordinateur portable haut de gamme marque une évolution significative pour la gamme professionnelle d'Apple.",
+     "titre": "iPhones : diagnostics sans ouverture",
+     "texte": "Apple développe une technologie nommée Presto. Elle permettrait de réaliser des diagnostics et mises à jour sur les iPhones retournés sans même ouvrir l'emballage, accélérant ainsi les processus de contrôle.",
      "mp3": "/podcast/fr/06.mp3",
-     "duree": 10.2,
+     "duree": 10.6,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "OpenAI permet les SMS vers Dot Agent",
-     "texte": "OpenAI rend désormais possible l'envoi de SMS aux agents Dot. Cette nouvelle fonctionnalité, compatible avec iMessage et la messagerie RCS, permet aux utilisateurs de donner des instructions à leurs agents via de simples messages.",
+     "titre": "La mini-voiture électrique Livan arrive",
+     "texte": "Une nouvelle petite voiture électrique, la Livan, fait son entrée en Algérie. Son arrivée, aux alentours de 250 millions de centimes, suscite déjà de vives réactions et discussions sur les réseaux sociaux algériens.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 12.8,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Microsoft envisage des départs volontaires",
-     "texte": "Microsoft propose des départs volontaires à près de 60 000 employés. Ce programme, visant à réduire les coûts, concernerait plus d'un quart de sa main-d'œuvre mondiale, avec des conditions avantageuses.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.2,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "CarPlay s'enrichit avec iOS 27.2",
-     "texte": "La mise à jour iOS 27.2 apporte de nouvelles fonctionnalités à CarPlay. L'application Podcasts a été repensée et l'IA de Siri est améliorée, offrant une meilleure expérience utilisateur sur les véhicules connectés.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 12.5,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "La FCC s'oppose aux routeurs Minions",
-     "texte": "La FCC, l'autorité de régulation américaine, interdit les routeurs en forme de Minions. Ces appareils, devenus viraux, sont soumis à la même interdiction que d'autres produits similaires pour des raisons de conformité.",
-     "mp3": "/podcast/fr/10.mp3",
      "duree": 12.2,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Algérie360"
+    },
+    {
+     "titre": "23 milliards récupérés, évasion fiscale",
+     "texte": "Un réseau spécialisé dans l'évasion fiscale et le blanchiment d'argent a été démantelé. Les services de sécurité ont récupéré 23 milliards de centimes issus de ces activités frauduleuses, après une enquête minutieuse.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 11.8,
+     "pays": "DZ",
+     "source": "Crésus"
+    },
+    {
+     "titre": "Tunisie : nouvelles mobilisations",
+     "texte": "Après les manifestations du 17 octobre, un collectif tunisien annonce de nouvelles actions de protestation. L'objectif est de renforcer la mobilisation à travers le pays et d'élargir les revendications des citoyens.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 11.9,
+     "pays": "DZ",
+     "source": "Maghreb Emergent"
+    },
+    {
+     "titre": "Fraude massive : 400 registres fictifs",
+     "texte": "Une fraude aux proportions considérables, estimée à 92 milliards de dinars, est mise au jour en Algérie. Quatre cents registres fictifs étaient au cœur d'un système de blanchiment et d'évasion fiscale démantelé.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 11.6,
+     "pays": "DZ",
+     "source": "Maghreb Emergent"
     }
    ]
   },
