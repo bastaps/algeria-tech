@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-10-29",
- "genere": "2026-10-29T18:24:33",
+ "genere": "2026-10-29T21:16:16",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
    "creneau": "soir",
-   "genere": "2026-10-29T18:25:30",
+   "genere": "2026-10-29T21:17:37",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.6,
-    "texte": "Bonsoir à tous et bienvenue sur Algeria Tech. Voici les dix informations tech et économie de votre soirée."
+    "duree": 6.2,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les 10 informations tech et télécoms de votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.1,
-    "texte": "C'est la fin de ce bulletin d'information. Retrouvez-nous demain pour un nouveau tour d'horizon."
+    "duree": 5.0,
+    "texte": "C'était votre dose d'actualité tech. Retrouvez-nous demain pour un nouveau résumé."
    },
    "items": [
     {
-     "titre": "Apple et son écran ProLED XDR",
-     "texte": "Apple lance un nouveau MacBook Pro avec un écran baptisé ProLED XDR. Si le nom marketing est discutable, les spécifications de cette nouvelle technologie d'affichage promettent une qualité d'image exceptionnelle pour les professionnels de la création.",
+     "titre": "Saisie de prégabaline par la police",
+     "texte": "La Police nationale a annoncé le démantèlement d’un réseau criminel organisé. Plus de 2,4 millions de comprimés de prégabaline, une substance utilisée comme stupéfiant, ont été saisis. L'opération souligne les efforts continus de lutte contre le trafic de drogues.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 13.3,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Volkswagen freine face à la Chine",
-     "texte": "Le constructeur automobile Volkswagen traverse une période difficile. Face à des pertes nettes importantes, notamment à cause de ses performances en Chine, la direction de l'entreprise appelle à accélérer les mesures d'économie.",
-     "mp3": "/podcast/fr/02.mp3",
-     "duree": 11.8,
+     "duree": 15.5,
      "pays": "DZ",
      "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "Gemini 4 Carbon : l'IA de Google",
-     "texte": "Google présente Gemini 4 Carbon, son nouveau modèle d'intelligence artificielle. Il surpasse déjà des concurrents comme Claude Opus 5.5 dans des tests clés, promettant des avancées significatives en IA, codage et cybersécurité.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 13.6,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Gros coup de filet anti-blanchiment",
-     "texte": "Les forces de l'ordre ont démantelé un vaste réseau de contrefaçon et de blanchiment d'argent à Alger. Cette opération spectaculaire a permis de récupérer une somme importante et de neutraliser des activités criminelles.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 11.4,
+     "titre": "Algérie : méga-opération export hors hydrocarbures",
+     "texte": "L'Algérie prépare une opération d'exportation inédite pour ses produits hors hydrocarbures. Plusieurs entreprises de différentes wilayas participeront. L'initiative, coordonnée par le ministère de l'Intérieur, vise à dynamiser les exportations et à valoriser le potentiel économique national.",
+     "mp3": "/podcast/fr/02.mp3",
+     "duree": 16.5,
      "pays": "DZ",
      "source": "TSA Algérie"
     },
     {
-     "titre": "23 milliards récupérés, 25 interpellations",
-     "texte": "Dans le cadre d'une opération contre la criminalité organisée, 25 personnes ont été arrêtées. Les enquêteurs ont réussi à saisir 23 milliards de centimes, mettant fin aux agissements d'un réseau criminel influent.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 11.6,
-     "pays": "DZ",
-     "source": "Le Soir d'Algérie"
-    },
-    {
-     "titre": "iPhones : diagnostics sans ouverture",
-     "texte": "Apple développe une technologie nommée Presto. Elle permettrait de réaliser des diagnostics et mises à jour sur les iPhones retournés sans même ouvrir l'emballage, accélérant ainsi les processus de contrôle.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 10.6,
+     "titre": "Google Beam déployé dans 20 sites USO",
+     "texte": "La technologie de visioconférence 3D de Google, appelée Beam, est désormais déployée dans 20 sites de l'United Service Organizations à travers le monde. Cette innovation permettra une meilleure communication pour les membres des forces armées.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 12.6,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "La mini-voiture électrique Livan arrive",
-     "texte": "Une nouvelle petite voiture électrique, la Livan, fait son entrée en Algérie. Son arrivée, aux alentours de 250 millions de centimes, suscite déjà de vives réactions et discussions sur les réseaux sociaux algériens.",
+     "titre": "Bilan financier Ooredoo T3 2026",
+     "texte": "Le groupe de télécommunications Ooredoo a dévoilé ses résultats financiers pour les neuf premiers mois de l'année 2026. Ces chiffres donnent un aperçu de la performance de l'opérateur sur le marché durant cette période.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 11.4,
+     "pays": "DZ",
+     "source": "Le Soir d'Algérie"
+    },
+    {
+     "titre": "Écran PROLED XDR d'Apple",
+     "texte": "Apple lance un nouvel écran appelé PROLED XDR, une dénomination marketing pour sa technologie OLED. Malgré un nom qui peut surprendre, les spécifications de cet écran promettent des performances visuelles exceptionnelles sur les nouveaux MacBook Pro.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 13.5,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Volkswagen face à la crise chinoise",
+     "texte": "Le constructeur automobile Volkswagen est en difficulté, enregistrant une lourde perte nette au troisième trimestre. Les problèmes sur le marché chinois sont la cause principale, poussant la direction à accélérer les mesures d'économies.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 12.4,
+     "pays": "DZ",
+     "source": "Le Soir d'Algérie"
+    },
+    {
+     "titre": "Gemini 4 Carbon de Google : l'IA progresse",
+     "texte": "Google annonce Gemini 4 Carbon, son nouveau modèle d'intelligence artificielle. Il promet des avancées majeures en IA, codage et cybersécurité, surpassant même des concurrents comme Claude Opus 5.5 dans plusieurs tests de performance.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 12.2,
+     "duree": 13.8,
      "pays": "DZ",
-     "source": "Algérie360"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "23 milliards récupérés, évasion fiscale",
-     "texte": "Un réseau spécialisé dans l'évasion fiscale et le blanchiment d'argent a été démantelé. Les services de sécurité ont récupéré 23 milliards de centimes issus de ces activités frauduleuses, après une enquête minutieuse.",
+     "titre": "Blanchiment d'argent : 23 milliards récupérés",
+     "texte": "Un coup de filet spectaculaire a eu lieu à Alger dans la lutte contre le blanchiment d'argent. La police a démantelé un réseau spécialisé dans la contrefaçon et la fraude fiscale, récupérant 23 milliards de dinars.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.8,
+     "duree": 11.1,
      "pays": "DZ",
-     "source": "Crésus"
+     "source": "TSA Algérie"
     },
     {
-     "titre": "Tunisie : nouvelles mobilisations",
-     "texte": "Après les manifestations du 17 octobre, un collectif tunisien annonce de nouvelles actions de protestation. L'objectif est de renforcer la mobilisation à travers le pays et d'élargir les revendications des citoyens.",
+     "titre": "Reddit passe à l'expérience connectée",
+     "texte": "Face à l'évolution de la recherche en ligne par l'IA, Reddit annonce un changement majeur. La plateforme va privilégier une expérience utilisateur nécessitant une connexion, afin de mieux protéger son audience et son modèle économique.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.9,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
+     "duree": 12.5,
+     "pays": "INT",
+     "source": "TechCrunch"
     },
     {
-     "titre": "Fraude massive : 400 registres fictifs",
-     "texte": "Une fraude aux proportions considérables, estimée à 92 milliards de dinars, est mise au jour en Algérie. Quatre cents registres fictifs étaient au cœur d'un système de blanchiment et d'évasion fiscale démantelé.",
+     "titre": "Rivian et VW étendent leur partenariat IA",
+     "texte": "Rivian élargit sa coentreprise avec Volkswagen pour y intégrer un assistant basé sur l'intelligence artificielle. Cette expansion vise à renforcer la collaboration entre les deux constructeurs automobiles dans le domaine technologique.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 11.6,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
+     "duree": 12.5,
+     "pays": "INT",
+     "source": "TechCrunch"
     }
    ]
   },
