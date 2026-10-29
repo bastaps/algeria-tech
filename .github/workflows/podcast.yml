@@ -1,4 +1,5 @@
 name: Podcast — flash audio (matin / midi / soir)
+# (relance : feed.xml)
 
 # 100 % cloud : aucun PC, aucun Hub. Génère les clips MP3 (FR/AR/EN le matin, FR midi et soir), l'épisode complet du flux RSS
 # (podcast/feed.xml -> Spotify, Apple Podcasts…) puis publie. Heures d'Alger = UTC+1.

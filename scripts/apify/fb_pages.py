@@ -23,6 +23,7 @@ PLAFOND_RUN_USD = 0.30      # dépense max par run
 MAX_PAR_JOUR = {'entreprise': int(os.environ.get('FB_MAX_E', 3)), 'institution': int(os.environ.get('FB_MAX_I', 6))}
 FOCUS = re.compile(r'smartphone|téléphone|telephone|mobile|galaxy|redmi|poco|iphone|honor|reno|spark|hot \d|camon|\b5g\b|\btv\b|télé|tele|téléviseur|oled|qled|4k|android tv|google tv|\bbox\b|décodeur|decodeur|récepteur|receiver|iptv|هاتف|هواتف|تلفاز|تلفزيون|شاشة|جهاز استقبال|ديكودور|سمارتفون', re.I)
 HORS = re.compile(r'réfrigérateur|refrigerateur|congélateur|lave-linge|lave linge|lave-vaisselle|climatiseur|radiateur|cuisinière|four |micro-ondes|aspirateur|chauffe|ثلاج|مجمد|غسالة|مكيف|مدفأة|طباخ|فرن', re.I)
+INST_FOCUS = re.compile(r'télécom|telecom|numér|numer|digital|internet|fibre|5g|4g|wifi|débit|réseau|satellite|cyber|donnée|data|application|plateforme|paiement|carte|edahabia|startup|innovation|intelligence artificielle|ia|technolog|licence|spectre|couverture|abonn|offre|tarif|service client|colis|mobile|smartphone|ordinateur|numéris|اتصالات|رقمن|انترنت|إنترنت|ألياف|مؤسسة ناشئة|ذكاء اصطناعي|تطبيق|دفع', re.I)
 HUB = os.environ.get('INGEST_API_BASE', 'http://localhost:3000')
 
 
@@ -77,6 +78,7 @@ def eligible(p, meta, deja, posts, aujourdhui):
     if p.get('publie') or len(p['texte']) < 40 or not meta: return False
     t = meta['type']
     if t == 'entreprise' and (not FOCUS.search(p['texte']) or HORS.search(p['texte'])): return False   # smartphones / TV / box TV seulement
+    if t == 'institution' and not INST_FOCUS.search(p['texte']): return False   # pas d'Octobre Rose ni d'assurance du personnel
     if deja[t] >= MAX_PAR_JOUR[t]: return False
     if any(q.get('publie') == aujourdhui and q.get('page_id') == p['page_id'] for q in posts): return False   # 1 post max par page et par jour
     return True
@@ -132,7 +134,7 @@ def publier_cloud(posts, pages_par_id):
         t = meta['type']
         prompt = ("Tu es journaliste du média tech/télécoms Algeria Tech. Réécris en français, en article factuel, la publication Facebook officielle de « %s » ci-dessous "
                   "(elle peut être en arabe ou en français ; garde les faits, prix, dates ; n'invente rien ; ton neutre même si c'est promotionnel). "
-                  'Réponds UNIQUEMENT en JSON : {"titre":"titre informatif de 8 à 14 mots","lead":"chapo d\'une phrase","contenu":"corps en markdown, 90 à 180 mots","tags":["3 à 5 mots-clés"]}.'
+                  'Réponds UNIQUEMENT en JSON : {"titre":"titre informatif de 8 à 14 mots, sans préfixe « Algeria Tech »","lead":"chapo d\'une phrase","contenu":"corps en markdown, 90 à 180 mots","tags":["3 à 5 mots-clés"]}.'
                   "\n\nPublication :\n%s") % (meta['nom'], p['texte'][:2500])
         try:
             g = ia.appeler(prompt, lambda r: r.get('titre') and r.get('contenu'))
