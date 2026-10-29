@@ -1,100 +1,100 @@
 {
  "creneau": "matin",
  "date": "2026-10-29",
- "genere": "2026-10-29T10:17:39",
+ "genere": "2026-10-29T10:25:22",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
    "creneau": "matin",
-   "genere": "2026-10-29T10:19:19",
+   "genere": "2026-10-29T10:26:30",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 12.3,
-    "texte": "Bonjour à toutes et à tous, bienvenue sur Algeria Tech. Voici votre matinale avec dix informations essentielles pour bien démarrer la journée."
+    "duree": 7.2,
+    "texte": "Bonjour et bienvenue sur Algeria Tech, votre rendez-vous tech du matin. Voici les 10 infos à ne pas manquer aujourd'hui."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.4,
-    "texte": "C est tout pour aujourd'hui, merci de votre fidélité sur Algeria Tech."
+    "duree": 5.5,
+    "texte": "C'était votre flash actu tech. Retrouvez-nous demain pour d'autres nouvelles du monde numérique."
    },
    "items": [
     {
-     "titre": "Lois du secteur des télécoms",
-     "texte": "Les autorités algériennes confirment que les textes d application encadrant le secteur des télécoms seront promulgués très prochainement. Cette étape législative est attendue pour structurer et moderniser davantage le paysage numérique national, offrant ainsi un cadre juridique plus précis pour tous les opérateurs et les acteurs technologiques du pays.",
+     "titre": "Promulgation de lois sur le secteur",
+     "texte": "Le cadre réglementaire du secteur des télécoms s'enrichit bientôt. Les textes d'application des lois seront officiellement promulgués dans les prochaines semaines, marquant une étape importante pour le secteur.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 26.0,
+     "duree": 10.6,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Fonctionnement des applications sur HomeView",
-     "texte": "Apple a dévoilé HomeView, son nouveau hub multimédia pour la maison intelligente. Bien qu il ne dispose pas d un App Store dédié, le système permet d utiliser des applications tierces grâce à une architecture logicielle dérivée d iOS. Une solution pensée pour simplifier la gestion domotique au quotidien.",
+     "titre": "HomeView et applications tierces",
+     "texte": "Apple lance HomeView, son nouveau hub domotique. Bien qu'il ne possède pas d'App Store, il est possible d'y utiliser des applications tierces. La gestion de votre maison connectée s'annonce plus riche.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 25.1,
+     "duree": 11.3,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Sécurité des mineurs et IA",
-     "texte": "La gouverneure de New York a signé une loi cruciale pour protéger les enfants face aux chatbots d intelligence artificielle. Désormais, les entreprises du secteur devront mettre en place des systèmes stricts de vérification d âge, sans pour autant dépendre exclusivement de la collecte systématique de pièces d identité.",
+     "titre": "NY protège les enfants IA",
+     "texte": "Dans l'État de New York, une nouvelle loi vise à protéger les enfants face aux chatbots d'IA. Les entreprises devront désormais vérifier l'âge des utilisateurs et proposer des méthodes adaptées.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 23.9,
+     "duree": 10.1,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Le nouvel iPad mini 2026",
-     "texte": "Apple vient de lancer son nouvel iPad mini 2026. Cette tablette embarque un processeur A20 performant et un écran OLED de huit pouces et demi. Les utilisateurs pourront également opter pour un revêtement nano-texturé, marquant une montée en gamme significative pour ce modèle compact très prisé par les technophiles.",
+     "titre": "Nouvel iPad mini OLED",
+     "texte": "Apple a dévoilé l'iPad mini 2026. Il est équipé d'un processeur A20 et d'un nouvel écran OLED de 8,5 pouces. Une nette amélioration pour ce modèle compact.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 25.1,
+     "duree": 11.2,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Spécifications techniques de l iPhone 18e",
-     "texte": "Des fuites révèlent les premières caractéristiques de l iPhone 18e attendu au printemps prochain. Le futur modèle devrait intégrer la puce A20 gravée en deux nanomètres, tout en conservant un écran à soixante hertz. Des améliorations sur la caméra frontale sont également pressenties pour cette nouvelle génération de smartphones.",
+     "titre": "iPhone 18e et puce A20",
+     "texte": "Les premières rumeurs sur l'iPhone 18e font état d'une puce A20 gravée en 2 nanomètres. Son écran conserverait une fréquence de 60 Hz, mais la caméra frontale pourrait gagner en performance.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 26.3,
+     "duree": 10.7,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Nouveautés matérielles chez Apple",
-     "texte": "Apple a multiplié les annonces cette semaine avec l arrivée du nouveau MacBook Pro doté de l écran PROLED XDR. Cette machine puissante redéfinit les standards de la gamme portable. La marque confirme ainsi son engagement vers des technologies d affichage plus lumineuses et contrastées pour les professionnels de l image.",
+     "titre": "Apple présente ses nouveautés",
+     "texte": "Cette semaine a été riche en annonces pour Apple. La firme a dévoilé de nouveaux MacBook Pro avec écran PROLED XDR, ainsi que des avancées sur les écrans OLED.",
      "mp3": "/podcast/fr/06.mp3",
-     "duree": 25.3,
+     "duree": 9.2,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Messages vers Dot Agent",
-     "texte": "OpenAI simplifie l usage de ses agents Dot. Les utilisateurs peuvent désormais interagir directement par SMS avec leur assistant, que ce soit via iMessage ou le protocole RCS. Cette mise à jour, déployée un mois après le lancement initial, permet de transmettre des instructions textuelles plus simplement et plus rapidement.",
+     "titre": "OpenAI et les SMS agents",
+     "texte": "OpenAI franchit une nouvelle étape : vous pouvez désormais envoyer des SMS à vos agents Dot. Cette fonctionnalité, compatible avec iMessage et RCS, permet d'interagir plus facilement.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 27.6,
+     "duree": 11.2,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Restructuration chez Microsoft",
-     "texte": "Selon Bloomberg, Microsoft envisagerait un plan de départs volontaires concernant soixante mille employés. Ce programme viserait à réduire les coûts opérationnels de l entreprise. Les conditions de ces départs seraient harmonisées pour les différentes strates de l effectif, alors que la firme continue d adapter sa stratégie face aux défis économiques.",
+     "titre": "Microsoft et départs volontaires",
+     "texte": "Microsoft étudierait la possibilité de proposer des départs volontaires à environ 60 000 de ses employés. Ce programme viserait à optimiser les coûts de l'entreprise.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 27.4,
+     "duree": 9.4,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Mises à jour pour CarPlay",
-     "texte": "La récente mise à jour iOS 27.2 apporte des nouveautés majeures à CarPlay. Apple a notamment repensé l application Podcasts et optimisé l intelligence de Siri. Ces améliorations profitent directement aux utilisateurs connectés, offrant une interface plus intuitive et des commandes vocales bien plus réactives lors de vos déplacements en voiture.",
+     "titre": "CarPlay s'enrichit avec iOS 27.2",
+     "texte": "La dernière mise à jour iOS 27.2 apporte deux nouveautés à CarPlay. L'application Podcasts est repensée et l'intelligence artificielle de Siri est améliorée pour une meilleure expérience.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 28.4,
+     "duree": 11.0,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Interdiction des routeurs Minions",
-     "texte": "Les routeurs Wi-Fi en forme de Minions, commercialisés par la société coréenne Davolink, sont dans le viseur de la FCC. Ces appareils, devenus viraux sur les réseaux sociaux, font face à une interdiction similaire à celle appliquée aux produits TP-Link, pour des raisons de conformité aux normes de sécurité technique imposées.",
+     "titre": "La FCC contre les routeurs Minions",
+     "texte": "Les originaux routeurs Wi-Fi en forme de Minions, devenus viraux, font face à une interdiction. La FCC applique la même réglementation que pour d'autres appareils similaires.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 24.7,
+     "duree": 10.1,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     }
@@ -102,94 +102,96 @@
   },
   "ar": {
    "voix": "ar-DZ-AminaNeural",
+   "creneau": "matin",
+   "genere": "2026-10-29T10:27:09",
    "intro": {
     "mp3": "/podcast/ar/intro.mp3",
-    "duree": 15.3,
-    "texte": "صباح الخير من الجزائر تيك، إليكم آخر الأخبار التقنية والمجتمعية لهذا الصباح، مع 10 مستجدات مهمة."
+    "duree": 9.9,
+    "texte": "صباح الخير، هنا Algeria Tech. نقدم لكم عشرة أخبار متنوعة في عالم التكنولوجيا لهذا الصباح."
    },
    "outro": {
     "mp3": "/podcast/ar/outro.mp3",
-    "duree": 11.0,
-    "texte": "كانت هذه أهم الأخبار التقنية لليوم، نلقاكم غدا للمزيد من المستجدات."
+    "duree": 6.4,
+    "texte": "شكرًا لمتابعتكم، نلقاكم قريبًا مع أخبار أخرى من Algeria Tech."
    },
    "items": [
     {
-     "titre": "تطبيق قوانين القطاع قريبا",
-     "texte": "سيتم قريبا إصدار النصوص التطبيقية للقوانين التي تنظم قطاع الاتصالات. هذه الخطوة ستساهم في تنظيم أكبر للمجال وفتح آفاق جديدة للشركات والمستثمرين في هذا القطاع الحيوي.",
+     "titre": "قريبا: قوانين قطاع الاتصالات",
+     "texte": "تُنتظر قريبًا صدور النصوص التطبيقية للقوانين الجديدة التي تنظم قطاع الاتصالات في الجزائر. هذه الخطوة الهامة ستشكل إطارًا قانونيًا حديثًا ومفصلًا للقطاع، مما يعزز الاستثمار والابتكار.",
      "mp3": "/podcast/ar/01.mp3",
-     "duree": 24.8,
+     "duree": 17.7,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "أوبن إيه آي: تواصل عبر الرسائل النصية",
-     "texte": "أعلنت أوبن إيه آي عن ميزة جديدة تسمح للمستخدمين بإرسال الرسائل النصية القصيرة إلى مساعديهم الافتراضيين 'دوت إيجنت'. هذه الوظيفة متاحة الآن عبر آي مسيج والرسائل المتعددة الوسائط.",
+     "titre": "تطبيقات HomeView و CarPlay",
+     "texte": "هل تعلم أن HomeView من آبل لا يمتلك متجر تطبيقات خاص به، لكن يمكنك استخدام تطبيقات أخرى عليه؟ اكتشف كيف تعمل هذه التطبيقات وما علاقتها بـ CarPlay في نظام آبل الجديد.",
      "mp3": "/podcast/ar/02.mp3",
-     "duree": 26.9,
+     "duree": 16.0,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "مايكروسوفت تخطط لرحيل طوعي",
-     "texte": "تدرس مايكروسوفت خيار تقديم برامج المغادرة الطوعية لحوالي ستين ألف موظف لخفض التكاليف. يأتي هذا الإجراء ضمن استراتيجية الشركة لإعادة هيكلة قوتها العاملة عالميا.",
+     "titre": "حماية الأطفال من روبوتات الدردشة",
+     "texte": "في نيويورك، وقعت الحاكمة قانونًا جديدًا لحماية الأطفال من مخاطر روبوتات الدردشة المدعومة بالذكاء الاصطناعي. يلزم القانون شركات الذكاء الاصطناعي بالتحقق من عمر المستخدمين بطرق مبتكرة.",
      "mp3": "/podcast/ar/03.mp3",
-     "duree": 23.8,
+     "duree": 17.2,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "تحديثات آبل للكاربلاي",
-     "texte": "أطلقت آبل تحديثا جديدا لنظام التشغيل يضيف ميزتين جديدتين لتطبيق كاربلاي. يشمل التحديث تحسينات على تطبيق البودكاست وتعزيز قدرات المساعد الصوتي سيري.",
+     "titre": "آبل تحدث iPad Mini بشاشة OLED",
+     "texte": "أعلنت آبل عن تحديث جهاز iPad Mini الجديد، مزودًا بشاشة OLED مقاس 8.5 بوصة. يتميز هذا التحديث بتحسين ملحوظ في جودة العرض، مع خيارات تخصيص إضافية للعملاء.",
      "mp3": "/podcast/ar/04.mp3",
-     "duree": 21.5,
+     "duree": 17.1,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "ساتيم تحصل على شهادة فيزا وماستركارد",
-     "texte": "تم اعتماد الشركة الجزائرية للاتصالات والمعالجة البينية ساتيم من قبل فيزا وماستركارد لتخصيص البطاقات في الجزائر. هذا الاعتماد سيقلل من مدة تسليم البطاقات الدولية.",
+     "titre": "تسريبات: iPhone 18e ببطاقة A20",
+     "texte": "تشير تسريبات جديدة إلى أن هاتف iPhone 18e القادم سيحتوي على شريحة A20 بمعمارية 2 نانومتر وشاشة بمعدل تحديث 60 هرتز. قد تشهد الكاميرا الأمامية أيضًا تحسينات.",
      "mp3": "/podcast/ar/05.mp3",
-     "duree": 23.3,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "لماذا تكره الهيئة الأمريكية أجهزة الراوتر؟",
-     "texte": "تواجه أجهزة الراوتر الجديدة المصممة على شكل شخصيات 'المينيونز' حظرا من قبل هيئة الاتصالات الفيدرالية الأمريكية. يأتي هذا القرار كإجراء احترازي متعلق بالبث اللاسلكي.",
-     "mp3": "/podcast/ar/06.mp3",
-     "duree": 24.0,
+     "duree": 17.8,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "استوديو ناطق يطور توليف الكلام بالدارجة",
-     "texte": "أطلق استوديو ناطق نموذجًا جديدًا للذكاء الاصطناعي يمثل تقدما كبيرا في توليف الكلام بالدارجة الجزائرية. تم تطوير النموذج بناء على آلاف الساعات من التسجيلات الصوتية.",
+     "titre": "جديد آبل: شاشات OLED و MacBooks",
+     "texte": "كشفت آبل هذا الأسبوع عن تحديثات هامة، بما في ذلك جهاز MacBook Pro مزود بشاشة PROLED XDR. كما تم الإعلان عن أجهزة MacBook أخرى وشاشات بتقنية OLED.",
+     "mp3": "/podcast/ar/06.mp3",
+     "duree": 15.3,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "OpenAI تسمح بالرسائل النصية لوكلائها",
+     "texte": "أعلنت OpenAI عن تمكين المستخدمين من إرسال رسائل نصية إلى وكلائهم (Dot Agents) لإعطائهم الأوامر. هذه الميزة متاحة الآن عبر iMessage و RCS.",
      "mp3": "/podcast/ar/07.mp3",
-     "duree": 23.3,
+     "duree": 14.8,
      "pays": "DZ",
-     "source": "ITMAG"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "بناء نموذج خاص للدارجة الجزائرية",
-     "texte": "تم بناء نموذج توليف الكلام بالدارجة الجزائرية، ناطق-دي-ز-أرج، لأنه لم يكن هناك نموذج مناسب. الهدف هو تمثيل اللغة الجزائرية بدقة، مع إمكانية التبديل بين الدارجة والفرنسية.",
+     "titre": "مايكروسوفت تقدم مغادرة طوعية",
+     "texte": "تدرس مايكروسوفت تقديم برنامج مغادرة طوعية لحوالي 60 ألف موظف، أي أكثر من ربع القوى العاملة العالمية. يهدف هذا الإجراء إلى خفض التكاليف.",
      "mp3": "/podcast/ar/08.mp3",
-     "duree": 26.5,
+     "duree": 13.9,
      "pays": "DZ",
-     "source": "ITMAG"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "الجزائر تعزز ترسانتها الأمنية",
-     "texte": "في ظرف 15 شهرا، عززت الجزائر من آلياتها الدفاعية والأمنية. شملت هذه الفترة سلسلة من القرارات التشريعية والاستراتيجية الهامة المتعلقة بالأمن الداخلي وحدودها.",
+     "titre": "iOS 27.2 يضيف ميزات لـ CarPlay",
+     "texte": "أصدرت آبل تحديث iOS 27.2 الذي يضيف ميزتين جديدتين لتطبيق CarPlay. تشمل التحسينات إعادة تصميم تطبيق البودكاست وتعزيز قدرات Siri المدعومة بالذكاء الاصطناعي.",
      "mp3": "/podcast/ar/09.mp3",
-     "duree": 24.2,
+     "duree": 16.8,
      "pays": "DZ",
-     "source": "Maghreb Emergent"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "إنستغرام تشجع على الفيديو الطويل",
-     "texte": "تختبر إنستغرام ميزة جديدة تسمح بمشاهدة مقاطع فيديو تصل مدتها إلى تسعين دقيقة. تهدف الشركة إلى تشجيع المستخدمين على استهلاك المحتوى الطويل، خاصة على شاشات التلفاز.",
+     "titre": "لماذا تكره FCC أجهزة Minions؟",
+     "texte": "أصبحت أجهزة الراوتر على شكل شخصيات Minions الشهيرة، والتي انتشرت فيروسيًا، تخضع لنفس الحظر الذي يطال منتجات أخرى. يتعلق الأمر بالامتثال للمعايير التنظيمية.",
      "mp3": "/podcast/ar/10.mp3",
-     "duree": 25.2,
+     "duree": 15.3,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     }
@@ -197,94 +199,96 @@
   },
   "en": {
    "voix": "en-US-AndrewMultilingualNeural",
+   "creneau": "matin",
+   "genere": "2026-10-29T10:29:09",
    "intro": {
     "mp3": "/podcast/en/intro.mp3",
-    "duree": 9.2,
-    "texte": "Hello and welcome to Algeria Tech! Here are your top 10 tech news updates for this morning."
+    "duree": 6.4,
+    "texte": "Hello and welcome to Algeria Tech's morning tech briefing. Here are ten of the latest tech news updates for you."
    },
    "outro": {
     "mp3": "/podcast/en/outro.mp3",
-    "duree": 8.5,
-    "texte": "That's all for today's tech briefing. Join us again tomorrow for more updates from Algeria Tech."
+    "duree": 5.5,
+    "texte": "That's all for today's tech news. Join us again tomorrow for more updates from Algeria Tech."
    },
    "items": [
     {
-     "titre": "Algeria Telecom Laws Promulgated Soon",
-     "texte": "New laws governing the telecommunications sector in Algeria are set to be enacted soon. These legislative texts aim to structure and regulate the rapidly evolving digital landscape, bringing clarity and updated frameworks for industry players.",
+     "titre": "Algeria Telecom Law Implementation",
+     "texte": "New application texts for laws governing the telecom sector in Algeria are set to be enacted soon. This marks a significant step in regulating and advancing the country's telecommunications landscape.",
      "mp3": "/podcast/en/01.mp3",
-     "duree": 23.6,
+     "duree": 12.6,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "OpenAI Agents Now Textable",
-     "texte": "OpenAI has launched a new feature allowing users to send SMS messages to their Dot Agents. This functionality works with iMessage and RCS, enabling users to interact and give instructions to their AI agents through simple text messages.",
+     "titre": "Apple HomeView App Integration",
+     "texte": "Apple's new HomeView hub, despite lacking an App Store, allows third-party applications. Running on an iOS-based system, it offers a unique approach to smart home control and media management.",
      "mp3": "/podcast/en/02.mp3",
-     "duree": 23.9,
+     "duree": 12.2,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Microsoft Considers Voluntary Layoffs",
-     "texte": "Microsoft is reportedly exploring voluntary departure options for around 60,000 employees. This potential move is aimed at reducing operational costs and streamlining its global workforce, affecting a significant portion of its staff.",
+     "titre": "NY Governor Signs AI Chatbot Law",
+     "texte": "New York's Governor Kathy Hochul has signed a new law aimed at protecting children from AI chatbots. The legislation mandates age verification methods that do not solely rely on government IDs.",
      "mp3": "/podcast/en/03.mp3",
-     "duree": 23.8,
+     "duree": 13.0,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "New CarPlay Features in iOS Update",
-     "texte": "iOS 27.2 introduces two significant new features for Apple CarPlay. Updates include a redesigned Podcasts app and enhancements to Siri's AI capabilities, improving the in-car entertainment and assistant experience.",
+     "titre": "iPad Mini Gets OLED Upgrade",
+     "texte": "Apple has updated the iPad Mini with an 8.5-inch OLED display and an A20 processor. Customers can opt for a nano-texture finish, marking a substantial screen improvement.",
      "mp3": "/podcast/en/04.mp3",
-     "duree": 23.7,
+     "duree": 11.5,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "SATIM Certified for Card Personalization",
-     "texte": "SATIM has received official certification from Visa and Mastercard to personalize payment cards within Algeria. This accreditation is expected to significantly speed up the issuance of international bank cards for customers.",
+     "titre": "iPhone 18e Leaks Emerge",
+     "texte": "Early leaks suggest the upcoming iPhone 18e will feature a 2nm A20 chip and a 60 Hz display. Performance enhancements are also anticipated for the front-facing camera.",
      "mp3": "/podcast/en/05.mp3",
-     "duree": 21.5,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "FCC Limits Minion-Shaped Routers",
-     "texte": "The FCC is reportedly imposing restrictions on Minion-shaped Wi-Fi routers. This move mirrors previous bans on certain TP-Link devices, impacting the sale and distribution of these novelty tech gadgets.",
-     "mp3": "/podcast/en/06.mp3",
-     "duree": 21.1,
+     "duree": 13.2,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Natiq Studio Advances Darija AI",
-     "texte": "Natiq Studio has released a major breakthrough in Darija voice synthesis. The Natiq-dz-ARG model, trained on extensive data, significantly improves the recognition and reproduction of Algerian Arabic, including linguistic variations.",
+     "titre": "Apple Announces New MacBooks and OLED",
+     "texte": "Apple unveiled its latest MacBook Pro with a PROLED XDR Display this week. The company also introduced other hardware updates, showcasing advancements in their product line.",
+     "mp3": "/podcast/en/06.mp3",
+     "duree": 11.0,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "OpenAI SMS for Dot Agents",
+     "texte": "OpenAI is now enabling users to send SMS messages to their Dot Agents. This new feature works with both iMessage and RCS, allowing for text-based instructions.",
      "mp3": "/podcast/en/07.mp3",
-     "duree": 23.0,
+     "duree": 11.8,
      "pays": "DZ",
-     "source": "ITMAG"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Building Darija Voice Models",
-     "texte": "Abdelhak Kadouci developed his own Darija voice synthesis model because existing ones were inadequate. Natiq-dz-ARG is now publicly available for non-commercial use, offering improved natural language processing for Algerian Arabic.",
+     "titre": "Microsoft Considers Job Cuts",
+     "texte": "Microsoft is reportedly offering voluntary departure packages to around 60,000 employees. This move is intended as a cost-reduction measure, potentially affecting over a quarter of its global workforce.",
      "mp3": "/podcast/en/08.mp3",
-     "duree": 23.9,
+     "duree": 13.2,
      "pays": "DZ",
-     "source": "ITMAG"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Algeria Enhances Security Arsenal",
-     "texte": "Algeria has significantly bolstered its security measures and legislation over the past 15 months. These strategic decisions reflect a renewed focus on national security and regional stability.",
+     "titre": "iOS Update Enhances CarPlay",
+     "texte": "iOS 27.2 has been released, bringing two new features to Apple CarPlay. Updates include improvements to the Podcasts app and Siri's artificial intelligence capabilities.",
      "mp3": "/podcast/en/09.mp3",
-     "duree": 19.4,
+     "duree": 12.0,
      "pays": "DZ",
-     "source": "Maghreb Emergent"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Instagram Explores Longer Videos",
-     "texte": "Instagram is testing longer video formats, potentially up to 90 minutes. This initiative aims to encourage users to watch content like podcasts and other videos on their television screens.",
+     "titre": "FCC Issues Router Warning",
+     "texte": "The FCC is reportedly unhappy with Minion-shaped Wi-Fi routers. These viral routers are facing the same prohibitions as those from TP-Link, raising regulatory concerns.",
      "mp3": "/podcast/en/10.mp3",
-     "duree": 18.7,
+     "duree": 12.2,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     }
