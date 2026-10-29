@@ -118,28 +118,81 @@ def publier(posts, pages_par_id):
 
 
 # ── Publication cloud (GitHub Actions) : aucun Hub, aucun PC ─────────────────────────────────────────
-def publier_cloud(posts, pages_par_id):
-    """L'IA rédige l'article, on écrit articles/<id>.md ; Cloudflare régénère les listes au déploiement."""
+# Règles éditoriales (administrateur, 2026-10-29) :
+#  - un post répétitif / « évergreen » (horaires, rappels, sensibilisation, voeux…) n'est PAS une nouveauté : écarté ;
+#  - activité ministérielle, responsable du secteur, événement / salon / signature auquel participe l'entité : publié DIRECTEMENT à la Une ;
+#  - le reste : brouillon relu par l'administrateur (notification ntfy : À la Une / Brève / Rejeter) ; sans réponse sous DELAI_RELECTURE_MIN,
+#    publié en brève (institutions) ou dans « Entreprises & Marques » (entreprises). Dans tous les cas : carte interactive demandée.
+DELAI_RELECTURE_MIN = 180
+EVERGREEN = re.compile(r'tous les jours|7 ?j/7|horaires?|disponible (de|du|24)|nous vous rappelons|rappel|conseils?|sensibilis|octobre rose|bonne (fête|année)|'
+                       r'joyeux|félicit|voeux|vœux|مواعيد|نذكر|تذكير|نصائح|تهنئة|عيد', re.I)
+UNE_AUTO = re.compile(r'ministre|ministère|wali|directeur général|\bpdg\b|président|secrétaire général|visite|inaugur|cérémonie|signature|convention|accord|partenariat|'
+                      r'salon|foire|exposition|forum|conférence|séminaire|sommet|colloque|hackathon|participation|participe|lancement officiel|'
+                      r'وزير|وزارة|والي|مدير عام|زيارة|تدشين|توقيع|اتفاقية|شراكة|صالون|معرض|منتدى|ملتقى|مشاركة|ندوة', re.I)
+
+
+def _norm(t): return re.sub(r'\W+', ' ', t.lower())[:180]
+
+
+def repetitif(p, posts):
+    """Même page, texte quasi identique à un post déjà vu ces 45 derniers jours (publicité récurrente)."""
+    import difflib
+    a = _norm(p['texte'])
+    for q in posts:
+        if q is p or q.get('page_id') != p['page_id'] or q.get('url') == p['url']: continue
+        if difflib.SequenceMatcher(None, a, _norm(q['texte'])).ratio() > 0.6: return True
+    return False
+
+
+def liberer_une(sauf):
+    for f in (ROOT / 'articles').glob('*.md'):
+        if f.name == sauf: continue
+        t = f.read_text(encoding='utf-8')
+        if re.search(r'^position:[ \t]*1[ \t]*$', t, re.M):
+            f.write_text(re.sub(r'^position:[ \t]*1[ \t]*$', 'position: ', t, count=1, flags=re.M), encoding='utf-8')
+
+
+def ntfy(titre, message, clic, actions):
+    canal = os.environ.get('NTFY_TOPIC', '').strip()
+    if not canal: return
     import urllib.request
+    try:
+        req = urllib.request.Request('https://ntfy.sh/' + canal, data=message.encode('utf-8'),
+                                     headers={'Title': titre.encode('utf-8'), 'Tags': 'newspaper', 'Click': clic, 'Actions': actions})
+        urllib.request.urlopen(req, timeout=20)
+    except Exception as e:
+        print('  notification impossible :', e)
+
+
+def publier_cloud(posts, pages_par_id):
+    import urllib.request, secrets
     from zoneinfo import ZoneInfo
     sys.path.insert(0, str(Path(__file__).parent))
     import ia
     now = datetime.now(ZoneInfo('Africa/Algiers')); aujourdhui = now.strftime('%Y-%m-%d'); heure = now.strftime('%H:%M')
     mois = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'][now.month - 1]
     deja = {t: sum(1 for p in posts if p.get('publie') == aujourdhui and p.get('type') == t) for t in MAX_PAR_JOUR}
+    SITE = 'https://algeriatechnews.com'
     n = 0
     for p in posts:
         meta = pages_par_id.get(p['page_id'])
         if not eligible(p, meta, deja, posts, aujourdhui): continue
         t = meta['type']
+        if EVERGREEN.search(p['texte']) or repetitif(p, posts):
+            p['publie'] = 'ignoré'; print('  ignoré (pas une nouveauté) :', p['texte'][:60].replace('\n', ' ')); continue
         prompt = ("Tu es journaliste du média tech/télécoms Algeria Tech. Réécris en français, en article factuel, la publication Facebook officielle de « %s » ci-dessous "
                   "(elle peut être en arabe ou en français ; garde les faits, prix, dates ; n'invente rien ; ton neutre même si c'est promotionnel). "
-                  'Réponds UNIQUEMENT en JSON : {"titre":"titre informatif de 8 à 14 mots, sans préfixe « Algeria Tech »","lead":"chapo d\'une phrase","contenu":"corps en markdown, 90 à 180 mots","tags":["3 à 5 mots-clés"]}.'
+                  'Réponds UNIQUEMENT en JSON : {"titre":"titre informatif de 8 à 14 mots, sans préfixe « Algeria Tech »","lead":"chapo d\'une phrase","contenu":"corps en markdown, 90 à 180 mots",'
+                  '"tags":["3 à 5 mots-clés"],"nouveaute":true ou false (false si ce type de publication revient régulièrement sur la page : rappel, horaires, conseil, publicité récurrente, voeux),'
+                  '"important":true ou false (true seulement si : activité d\'un ministre ou d\'un responsable du secteur, OU événement / salon / signature / forum auquel participe l\'entité, OU annonce majeure)}.'
                   "\n\nPublication :\n%s") % (meta['nom'], p['texte'][:2500])
         try:
             g = ia.appeler(prompt, lambda r: r.get('titre') and r.get('contenu'))
         except Exception as e:
             print('  échec rédaction :', e); continue
+        if g.get('nouveaute') is False:
+            p['publie'] = 'ignoré'; print('  ignoré (pas une nouveauté, avis IA) :', g['titre'][:60]); continue
+        important = bool(g.get('important')) or bool(UNE_AUTO.search(p['texte']))
         n += 1
         aid = str(int(time.time() * 1000) + n)
         img = ''
@@ -151,16 +204,34 @@ def publier_cloud(posts, pages_par_id):
                     (ROOT / 'images').mkdir(exist_ok=True); (ROOT / 'images' / (aid + '.jpg')).write_bytes(data); img = 'images/%s.jpg' % aid
             except Exception: pass
         tags = list(dict.fromkeys([x.strip() for x in (g.get('tags') or []) if x.strip()] + [meta['nom']] + ([meta['secteur']] if meta.get('secteur') else [])))
-        cat, typ = ('Entreprises', 'communique_entreprise') if t == 'entreprise' else ('Télécoms', '')
+        cat = 'Entreprises' if t == 'entreprise' else 'Télécoms'
         q = lambda x: str(x).replace('"', "'").replace('\n', ' ')
+        titre = re.sub(r'^\s*Algeria Tech\s*[:\-–—]\s*', '', g['titre'])
         corps = 'Alger, %d %s %d (Algeria Tech) — %s\n\n%s\n\nSource : publication Facebook officielle de %s — %s\n' % (
             now.day, mois, now.year, g.get('lead', ''), g['contenu'].strip(), meta['nom'], p['url'])
-        md = ('---\ntitre: "%s"\ncategorie: %s\ndate: %s\nheure: %s\nimage: "%s"\npdf: ""\nvideo: ""\nsource: "%s"\nextrait: "%s"\ntags: [%s]\n'
-              'type: %s\nposition: \ninteractif: ""\naretenir: ""\nmediaPriority: image\n---\n\n%s'
-              % (q(g['titre']), cat, aujourdhui, heure, img, q(meta['nom']), q(g.get('lead', '')[:200]), ', '.join('"%s"' % q(x) for x in tags), typ, corps))
-        (ROOT / 'articles').mkdir(exist_ok=True); (ROOT / 'articles' / (aid + '.md')).write_text(md, encoding='utf-8')
-        p['publie'] = aujourdhui; p['type'] = t; deja[t] += 1
-        print('  publié (%s) : %s' % (t, g['titre'][:70]))
+        base = ('---\ntitre: "%s"\ncategorie: %s\ndate: %s\nheure: %s\nimage: "%s"\npdf: ""\nvideo: ""\nsource: "%s"\nextrait: "%s"\ntags: [%s]\n'
+                % (q(titre), cat, aujourdhui, heure, img, q(meta['nom']), q(g.get('lead', '')[:200]), ', '.join('"%s"' % q(x) for x in tags)))
+        fin = 'interactif: ""\ninteractif_a_faire: "true"\naretenir: ""\nmediaPriority: image\n'
+        p['publie'] = aujourdhui; p['type'] = t; p['page_id'] = p['page_id']; deja[t] += 1
+        if important:      # publié directement, à la Une
+            (ROOT / 'articles').mkdir(exist_ok=True)
+            liberer_une(aid + '.md')
+            (ROOT / 'articles' / (aid + '.md')).write_text(base + 'type: \nposition: 1\n' + fin + '---\n\n' + corps, encoding='utf-8')
+            print('  publié À LA UNE (%s) : %s' % (t, titre[:70]))
+            continue
+        canal = 'atchoix-' + secrets.token_hex(8)       # brouillon relu : défaut = brève (institutions) / Entreprises & Marques (entreprises)
+        defaut = 'entreprise' if t == 'entreprise' else 'breve'
+        cree = datetime.now(timezone.utc).isoformat(timespec='seconds').replace('+00:00', 'Z')
+        (ROOT / 'brouillons').mkdir(exist_ok=True)
+        (ROOT / 'brouillons' / (aid + '.md')).write_text(
+            base + 'type: \nposition: \n' + fin + 'brouillon: true\ncircuit: true\ncree: "%s"\nchoix_canal: "%s"\ndefaut: %s\ndelai_min: %d\n---\n\n%s'
+            % (cree, canal, defaut, DELAI_RELECTURE_MIN, corps), encoding='utf-8')
+        b = lambda lib, ch: 'http, %s, https://ntfy.sh/%s, method=POST, body=%s:%s, clear=true' % (lib, canal, aid, ch)
+        ntfy('Facebook officiel à relire : ' + meta['nom'],
+             '« %s » — sans réponse sous %d min : publié %s.' % (titre[:90], DELAI_RELECTURE_MIN, 'dans Entreprises & Marques' if t == 'entreprise' else 'en brève'),
+             SITE + '/', '; '.join([b('À la Une', 'une'), b('Brève', 'breve'), b('Rejeter', 'rejeter'),
+                                    'view, Corriger, %s/smart-ingest-pro.html?edit=%s&draft=1' % (SITE, aid)]))
+        print('  brouillon à relire (%s, défaut %s) : %s' % (t, defaut, titre[:70]))
 
 
 def main():
@@ -197,4 +268,5 @@ def main():
     print('OK — %d nouveaux ; budget restant %.2f $' % (len(posts) - len(connus), reste2))
 
 
-main()
+if __name__ == "__main__":
+    main()

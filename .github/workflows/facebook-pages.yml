@@ -1,6 +1,7 @@
 name: Pages Facebook officielles — articles (institutions + entreprises)
 
 # 100 % cloud : Apify (plan gratuit, 5 $/mois, garde-fou de budget dans le script) -> rédaction IA -> articles/<id>.md -> push.
+# Relecture : nouveautés seulement ; événements / activités ministérielles -> Une directe ; le reste -> brouillon + ntfy (défaut : brève).
 # Entreprises : smartphones / TV / box TV, 1 post par page et par jour, 3 pages au plus -> catégorie « Entreprises ».
 # Institutions : un jour sur deux. Opérateurs (Mobilis, Djezzy, Ooredoo) exclus : leurs communiqués arrivent par mail.
 # 08:30 Alger = 07:30 UTC. Secrets requis : APIFY_TOKEN, MISTRAL_API_KEY / GEMINI_API_KEY / GROQ_API_KEY.
@@ -41,12 +42,13 @@ jobs:
           MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: python scripts/apify/fb_pages.py --cloud
 
       - name: Publication
         run: |
           git config user.email "action@github.com"
           git config user.name "Algeria Tech Bot"
-          git add articles images data/fb-posts.json
+          git add articles images brouillons data/fb-posts.json
           git commit -m "Auto: articles Facebook officiels [$(date +%d/%m %H:%M)]" || { echo "Rien à publier"; exit 0; }
           for i in 1 2 3 4; do git pull --rebase -X theirs origin main && git push origin HEAD:main && break || sleep 6; done

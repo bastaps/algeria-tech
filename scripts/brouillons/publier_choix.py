@@ -7,6 +7,7 @@ marqué `circuit: true` :
   - lit sur le canal ntfy de réponse (`choix_canal`) le dernier message « <id>:<choix> » ;
   - choix : une (position 1) · seconde (position 2) · breve (espace Brèves) · rejeter (suppression) ;
   - sans choix au bout de DELAI_MIN minutes : À LA UNE, position 1 (décision de l'administrateur du 2026-10-28).
+  - brouillons Facebook : en-têtes `delai_min` (relecture) et `defaut` (breve | entreprise) prioritaires sur DELAI_MIN.
 Publier = brouillons/<id>.md → articles/<id>.md (champs internes retirés), la place précédente est libérée.
 Stdlib uniquement. Variables : NTFY_TOPIC (notification de confirmation, facultatif), DELAI_MIN, PUBLIER_RACINE.
 """
@@ -25,9 +26,9 @@ RACINE = Path(os.environ.get("PUBLIER_RACINE") or Path(__file__).resolve().paren
 SITE = "https://algeria-tech.pages.dev"
 NTFY = os.environ.get("NTFY_BASE", "https://ntfy.sh")
 DELAI_MIN = int(os.environ.get("DELAI_MIN", "0"))
-INTERNES = ("image_suggeree", "brouillon", "circuit", "cree", "choix_canal")
-CHOIX = ("une", "seconde", "breve", "rejeter")
-LIBELLE = {"une": "à la Une", "seconde": "en 2e position", "breve": "en brève"}
+INTERNES = ("image_suggeree", "brouillon", "circuit", "cree", "choix_canal", "defaut", "delai_min")
+CHOIX = ("une", "seconde", "breve", "entreprise", "rejeter")
+LIBELLE = {"une": "à la Une", "seconde": "en 2e position", "breve": "en brève", "entreprise": "dans Entreprises & Marques"}
 
 
 def log(m):
@@ -92,6 +93,8 @@ def publier(ident, action, md):
     md = re.sub(r"^type:.*$", "type: ", md, count=1, flags=re.M)
     if action == "breve":
         md = re.sub(r"^type:.*$", "type: breve", md, count=1, flags=re.M)
+    elif action == "entreprise":
+        md = re.sub(r"^type:.*$", "type: communique_entreprise", md, count=1, flags=re.M)
     else:
         p = "1" if action == "une" else "2"
         liberer_position(p, f"{ident}.md")
@@ -128,10 +131,13 @@ def main():
                 age = (maintenant - datetime.datetime.fromisoformat(champ(md, "cree").replace("Z", "+00:00"))).total_seconds() / 60
             except ValueError:
                 age = 0
-            if age < DELAI_MIN:
-                log(f"{ident} : en attente de choix ({age:.0f}/{DELAI_MIN} min)")
+            # Brouillons Facebook : délai de relecture et destination par défaut propres au brouillon (en-têtes delai_min / defaut)
+            delai = int(champ(md, "delai_min") or DELAI_MIN) if (champ(md, "delai_min") or "").isdigit() else DELAI_MIN
+            defaut = champ(md, "defaut") if champ(md, "defaut") in CHOIX else "une"
+            if age < delai:
+                log(f"{ident} : en attente de choix ({age:.0f}/{delai} min)")
                 continue
-            choix, origine = "une", f"aucun choix sous {DELAI_MIN} min"
+            choix, origine = defaut, f"aucun choix sous {delai} min"
         # Garde-fou anti-doublon : un autre article publié depuis (autre circuit, saisie manuelle, brouillon plus ancien du même
         # créneau) peut déjà couvrir ce fait. On compare aux articles PUBLIÉS (y compris ceux publiés plus haut dans cette boucle).
         if choix != "rejeter":

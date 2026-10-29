@@ -1,0 +1,67 @@
+name: Cartes interactives — articles récents sans carte (sans PC)
+
+# Les articles produits par le cloud (pages Facebook, repli du circuit) portent `interactif_a_faire: "true"`.
+# Ce workflow génère leur carte interactive avec le même moteur que le Hub (article-interactif) et met l'en-tête à jour.
+# Rien à faire s'il n'y a aucune carte en attente : le passage s'arrête avant d'installer quoi que ce soit.
+# GARDE-FOU : déclenchement automatique seulement si le dépôt est public (minutes illimitées).
+on:
+  push:
+    paths: ['.github/workflows/cartes-interactives.yml']      # TEMPORAIRE : un essai à la mise en ligne
+  schedule:
+    - cron: "*/20 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cartes-interactives
+  cancel-in-progress: false
+
+jobs:
+  cartes:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.repository_visibility == 'public' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Cartes en attente ?
+        id: q
+        run: |
+          N=$(git grep -l "^interactif_a_faire:" -- articles | wc -l)
+          echo "n=$N" >> "$GITHUB_OUTPUT"
+          echo "$N article(s) en attente"
+
+      - uses: actions/setup-python@v5
+        if: steps.q.outputs.n != '0'
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: article-interactif/requirements.txt
+
+      - name: Dépendances
+        if: steps.q.outputs.n != '0'
+        run: pip install -q -r article-interactif/requirements.txt
+
+      - name: Générer les cartes
+        if: steps.q.outputs.n != '0'
+        env:
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          PYTHONUTF8: "1"
+        run: python scripts/cartes_cloud.py
+
+      - name: Publier
+        if: steps.q.outputs.n != '0'
+        run: |
+          git config user.name "Algeria Tech Bot"
+          git config user.email "bot@algeria-tech.dz"
+          git add articles interactifs
+          if git diff --staged --quiet; then echo "rien à déposer"; exit 0; fi
+          git commit -q -m "Auto: cartes interactives ajoutées"
+          for i in 1 2 3 4; do git pull --rebase -q -X theirs origin main && git push -q origin HEAD:main && break || sleep 6; done
