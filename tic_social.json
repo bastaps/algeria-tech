@@ -1,6 +1,24 @@
 {
   "posts": [
     {
+      "id": "a3450e2cde684a9d",
+      "source_name": "Ministère de l'Enseignement Supérieur et de la Recherche",
+      "source_short": "MESRS",
+      "source_color": "#1B5E20",
+      "category": "Ministère",
+      "category_icon": "🎓",
+      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1iU09wUmU2eERsV3FHbzZ1QjJPUHBrdlM5QlU3NmRfOWFFWTVVSDNvT0wyc0x1bUJjSEFBS3o4TTZCLVNFd0dyVEhYX3FKZzNMNGRxYkZuNA?oc=5",
+      "image": "",
+      "date": "Thu, 29 Oct 2026 16:16:00 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Le MESRS propose des solutions de substitution pour les médecins exclus de la liste orientée vers l’Algérie pour la spécialisation - Cridem — Le MESRS propose des solutions de substitution pour les médecins exclus de la liste orientée vers l’Algérie pour la spécialisation Cridem",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "5b25c83ebf27b787",
       "source_name": "APS — Algérie Presse Service",
       "source_short": "APS",
@@ -337,24 +355,6 @@
       "lang_source": "fr",
       "text": {
         "fr": "Le ministre de l’Enseignement supérieur et de la Recherche scientifique inspecte les résidences universitaires « El Alia » et « Bouraoui Ammar » pour s’enquérir de leur préparation à la rentrée universitaire 2026-2027",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "web"
-    },
-    {
-      "id": "9058bad2d1eaf7d4",
-      "source_name": "Ministère de l'Enseignement Supérieur et de la Recherche",
-      "source_short": "MESRS",
-      "source_color": "#1B5E20",
-      "category": "Ministère",
-      "category_icon": "🎓",
-      "url": "https://www.mesrs.dz/fr/accueil/",
-      "image": "",
-      "date": "2026-10-02T13:20:32.284153+00:00",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Ministèrede l'enseignement supérieuret de la recherche scientifique",
         "ar": "",
         "en": ""
       },
@@ -703,19 +703,19 @@
       "source_type": "rss"
     },
     {
-      "id": "30c552b6f5dd3e66",
-      "source_name": "Mobilis",
-      "source_short": "MB",
-      "source_color": "#00A651",
+      "id": "a80642a32b03a5d7",
+      "source_name": "Ooredoo Algérie",
+      "source_short": "OR",
+      "source_color": "#E30613",
       "category": "Opérateurs",
       "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBzeGZVVVpoaFJIZjlGQ2FmRDJCZ3Q0UUd1RE1iWnBUUTl6eVRvWlN4ZjhnU3N5SHNEZ0FjbE1QRGwtQ09UWm1QcnFnUHBvajVwRDlj?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNMk9faWxEcDAxZS0zd3pYQlZGSGY1UVptVHk5NjM3aUo3NnBJT2Y1UEowa0ZSN2FaMjNvRnB5dmlwOHY0dG9vU0VKUm4xUm5BbTRsTVdZQmZQVlRDdUNZNWpQRUpJSHhqT0gtQTlxSnpDYUduNFBtVlNTMEtYS09DSDU1NFRQNWR0UGhzcUJCM2NORFh6WDBNV3I5dzYtTFhKdFpJdVhyMkVTMEhKYW9HVlRHVENjWTRaQTVDZjVn?oc=5",
       "image": "",
-      "date": "Sun, 18 Oct 2026 11:41:23 GMT",
-      "lang_source": "ar",
+      "date": "Tue, 20 Oct 2026 07:00:00 GMT",
+      "lang_source": "fr",
       "text": {
-        "ar": "Ligue 1 Mobilis - 6e journée : le MCO co-leader, la JSEB gagne à Constantine - الإذاعة الجزائرية | — Ligue 1 Mobilis - 6e journée : le MCO co-leader, la JSEB gagne à Constantine الإذاعة الجزائرية |",
-        "fr": "",
+        "fr": "Ooredoo Algérie renforce son engagement en faveur de la prévention du cancer du sein - La Nouvelle République Algérie — Ooredoo Algérie renforce son engagement en faveur de la prévention du cancer du sein La Nouvelle République Algérie",
+        "ar": "",
         "en": ""
       },
       "source_type": "rss"
@@ -755,6 +755,24 @@
         "en": ""
       },
       "source_type": "youtube"
+    },
+    {
+      "id": "4ab68200e0801dff",
+      "source_name": "Algérie Poste",
+      "source_short": "AP",
+      "source_color": "#F9A825",
+      "category": "Infrastructure",
+      "category_icon": "✉️",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPSTEyUGZWV1loTmFyQWNaQ3J5VDJOcjBTbnhIcENOSUJlMjhCNHg2UTdESURQNkFKZGE3YzdQOURFc2c4b2hucWpJREROUmpuR25Md0Y2VUQ1MWtKVVhDNXJ0dTVpUDhraGh3aHlMT2EzZ1lfOEhYRlZzRnpSS0xVczRxcW1ydmhwdUxGU29Qcw?oc=5",
+      "image": "",
+      "date": "Thu, 29 Oct 2026 05:38:04 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Algérie Poste célèbre la journée mondiale de la poste - www.horizons.dz — Algérie Poste célèbre la journée mondiale de la poste www.horizons.dz",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
     },
     {
       "id": "c29383214016c8bf",
@@ -1057,24 +1075,6 @@
       "lang_source": "fr",
       "text": {
         "fr": "Journée nationale de la presse : Algérie Télécom rend hommage aux journalistes - La patrie news — Journée nationale de la presse : Algérie Télécom rend hommage aux journalistes La patrie news",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "37f4d7897b812d64",
-      "source_name": "Algérie Poste",
-      "source_short": "AP",
-      "source_color": "#F9A825",
-      "category": "Infrastructure",
-      "category_icon": "✉️",
-      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQSXVaSVA3ZUpKSEpqTk94ZGZoSVVDNEljSW1rTXBlbHF3Z0lkVHhyLUtGUlpOS21jcElzUXFZd2lYcWtCNzlvaDBqZFdYMHQ0anJ0RjBQbUo3NEJDaEtRRzloSXl5SzQwdkR6VXp3U1dLVW0xakQ4R24zNF9FbDlhZ0t5WHJJc2NyQVlxUl9VX2FEN1gycV9oM0Y2WlNGdWxDcHQ1dVZiV2lvNjJXQ3Z4QnlYdGh6a3NmZlZoamgwWW1rZENqZEZB?oc=5",
-      "image": "",
-      "date": "Wed, 21 Oct 2026 18:41:17 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Algérie Poste-CACI: Des solutions numériques et financières au profit des opérateurs économiques - www.horizons.dz — Algérie Poste-CACI: Des solutions numériques et financières au profit des opérateurs économiques www.horizons.dz",
         "ar": "",
         "en": ""
       },
@@ -1439,6 +1439,384 @@
         "en": ""
       },
       "source_type": "web"
+    },
+    {
+      "id": "c6d867f631df11ab",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/30/intels-stock-crashes-knocking-12b-from-governments-stake/",
+      "image": "",
+      "date": "Fri, 30 Oct 2026 21:54:34 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Intel’s stock crashes, knocking $12B from government’s stake — Intel is being hurt by PC sales as the AI industry gobbles memory and other components causing PC prices to rise.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "d12607a6e4746ac3",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/30/anthropic-expected-to-receive-high-junk-rating-from-credit-agencies-following-ipo-report-says/",
+      "image": "",
+      "date": "Fri, 30 Oct 2026 21:52:03 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Anthropic expected to receive high ‘junk’ rating from credit agencies following IPO, FT report says — Blackstone's forecast is just a prediction, but naturally, a high junk rating would make it more difficult and costlier for Anthropic to raise the money to keep funding its massive spending that has undergirded its business.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "3f35d1d703064dbe",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/30/applebees-exposed-customers-personal-data-after-leaving-database-password-in-app/",
+      "image": "",
+      "date": "Fri, 30 Oct 2026 21:48:53 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Applebee’s exposed customers’ personal data after leaving database password in app — EXCLUSIVE: A security researcher discovered the hardcoded credential in Applebee's app, allowing unrestricted access to customers' personal data.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "a1e6d716e898b920",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/30/les-prix-du-petrole-augmentent-sur-fond-de-tensions-dans-le-detroit-dormuz/",
+      "image": "",
+      "date": "Fri, 30 Oct 2026 21:35:16 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Les prix du pétrole augmentent sur fond de tensions dans le détroit d’Ormuz — Les cours du pétrole ont clôturé en hausse vendredi, portés par le retour des craintes autour du détroit d’Ormuz et par l’annonce d’une reprise des frappes ukrainiennes contre les raffineries russes. Le prix du baril de Brent de la mer du Nord, pour livraison en décembre, dont c’est le dernier jour",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "62efadaf1b1ade2a",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/30/last-minute-halloween-costumes-for-tech-nerds/",
+      "image": "",
+      "date": "Fri, 30 Oct 2026 21:26:59 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Last-minute Halloween costumes for tech nerds — No Halloween costume? Just be a deceptively cute AI agent icon, a PHP vulnerability, or sleepy time Bryan Johnson.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e13d43bcb61a3e88",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/30/sahara-occidental-la-russie-oppose-son-veto-au-projet-de-resolution-americain/",
+      "image": "",
+      "date": "Fri, 30 Oct 2026 21:17:44 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Sahara occidental : la Russie oppose son veto au projet de résolution américain — La Russie a opposé, ce vendredi 30 octobre, son veto au projet de résolution présenté par les États-Unis au Conseil de sécurité de l’ONU sur le Sahara occidental. Le texte n’a ainsi pas été adopté, malgré le soutien de onze des quinze membres de l’instance. Lors du vote, onze pays se sont prononcés",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "d2ae3dfb1d7fd7f4",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/30/cracks-are-emerging-in-the-ai-spending-boom/",
+      "image": "",
+      "date": "Fri, 30 Oct 2026 21:17:40 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Cracks are emerging in the AI spending boom — Big Tech is pouring billions into AI infrastructure, but mounting debt, negative cash flow, and growing investor skepticism are raising questions about the sustainability of the AI spending boom.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "87c6ca35e705ec99",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/retour-dexperience-apple-watch-pourquoi-je-nutilise-pas-la-fonction-cellulaire-malgre-quatre-avantages-mis-en-avant-par-dautres-506879.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Fri, 30 Oct 2026 21:00:27 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Retour d’expérience Apple Watch : pourquoi je n'utilise pas la fonction cellulaire malgré quatre avantages mis en avant par d'autres — La connectivité supplémentaire de cette montre présente certes des intérêts, mais cela ne me convient toujours pas. Voici pourquoi.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "d50acd2d8b62594d",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/30/ai-law-firm-crosby-bids-on-disintegrating-famed-firm-weil-gotshal/",
+      "image": "",
+      "date": "Fri, 30 Oct 2026 19:55:13 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "AI law firm Crosby bids on disintegrating, famed firm Weil Gotshal — Like a real-life episode of \"Suits,\" the demise of famed white-shoe Wall Street law firm Weil, Gotshal & Manges has been the talk of the legal industry. And now an AI firm has entered the picture.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "a106b02a6b2e38e7",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/30/satlyt-takes-another-step-toward-turning-satellites-into-space-data-centers/",
+      "image": "",
+      "date": "Fri, 30 Oct 2026 18:01:24 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Satlyt takes another step toward turning satellites into space data centers — Satlyt ran a successful test this month bringing it closer to turning spacecraft, starting with satellites, into virtual data centers.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "43913285477fb757",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/30/gpl-sonatrach-releve-ses-prix-de-vente-pour-novembre/",
+      "image": "",
+      "date": "Fri, 30 Oct 2026 17:57:24 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "GPL : Sonatrach relève ses prix de vente pour novembre — Le groupe Sonatrach a augmenté ses prix de vente officiels (PVO) du gaz de pétrole liquéfié (GPL) destiné aux marchés internationaux pour le mois de novembre, avec une hausse de 155 dollars par tonne pour le propane et de 300 dollars pour le butane, selon des négociants cités ce vendredi par Reuters",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c9dcfb62ccca45b2",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/30/zests-new-ai-agent-finds-restaurants-and-books-reservations-over-text/",
+      "image": "",
+      "date": "Fri, 30 Oct 2026 17:47:12 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Zest’s new AI agent finds restaurants and books reservations over text — Can't agree on where to eat? Zest's AI concierge can combine everyone's tastes, put restaurant options to a vote, and make the reservation.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "1e923f178b85437a",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/test-apple-iphone-duo-une-oeuvre-dart-en-cours-de-construction-506876.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Fri, 30 Oct 2026 17:26:09 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Test Apple iPhone Duo : une œuvre d'art en cours de construction — Le premier smartphone pliable de la marque est loin d'être parfait, mais il constitue déjà l'option la plus haut de gamme du marché. Et ses meilleurs atouts sont souvent négligés.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "d4c3a958104abce5",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/30/googles-first-data-center-satellite-is-online-and-writing-poetry/",
+      "image": "",
+      "date": "Fri, 30 Oct 2026 17:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Google’s first data center satellite is online and writing poetry — The first TPU in space is running a Google DeepMind Gemma 4 model and writing cheesy poetry.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "9baf1e5f5cebdc8d",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/30/theranos-whistleblower-tyler-shultz-warns-that-the-ai-boom-is-a-great-opportunity-to-go-deceive-people/",
+      "image": "",
+      "date": "Fri, 30 Oct 2026 16:03:45 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Theranos whistleblower Tyler Shultz warns that the AI boom is ‘a great opportunity to go deceive people’ — The cautionary Theranos tale takes on a new significance in the AI era, when companies that have never turned a profit are raising capital at trillion-dollar valuations.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "ade224bf9e4e6075",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/tribune/bruno-buffenoir-directeur-general-kipmi-digital-trust-continuity-le-wallet-augmente-le-futur-du-kyc-506715.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Fri, 30 Oct 2026 15:30:54 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Bruno Buffenoir, KIPMI Digital Trust Continuity : Le « wallet augmenté » : le futur du KYC — Alors que l’AMLR va généraliser les obligations de KYC dès l’été 2027, la seule arrivée du portefeuille européen d’identité numérique ne suffira pas à simplifier des parcours encore largement déclaratifs. C’est la thèse que défend Bruno Buffenoir, Directeur Général de KIPMI Digital Trust Continuity,",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "cfcb5ff2f2b9b7ec",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/selection-expert-zdnet-france/quel-est-le-meilleur-smartphone-avec-prise-casque-mini-jack-35-mm-pour-les-pros-en-2026-507011.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Fri, 30 Oct 2026 15:17:06 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Quel est le meilleur smartphone avec prise casque mini-jack 3,5 mm pour les pros en 2026 ? — À l'ère du tout-sans-fil, le maintien de la connectique filaire mini-jack 3,5 mm demeure un prérequis pour de nombreux professionnels. Voici notre comparatif technique de 5 références 2026 passées au crible des exigences IT et audio.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "1da5b85100946e2f",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/traceurs-sur-applications-mobiles-la-cnil-inflige-7-millions-deuros-damende-a-fnac-darty-506924.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Fri, 30 Oct 2026 14:11:36 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Traceurs sur applications mobiles : la CNIL inflige 7 millions d'euros d'amende à Fnac Darty — Le régulateur français sanctionne le groupe de distribution pour le pistage des utilisateurs de son application mobile. Une API transmettait silencieusement l'historique de navigation des utilisateurs pour entraîner un algorithme de recommandation de produits, en se passant de leur consentement.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "969515ead7330f0c",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/30/skip-the-small-talk-make-game-changing-connections-at-techcrunch-founder-summit-with-braindate/",
+      "image": "",
+      "date": "Fri, 30 Oct 2026 14:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Skip the small talk: Make game-changing connections at TechCrunch Founder Summit with Braindate — At TechCrunch Founder Summit 2026, happening November 4 at SoWa Power Station in Boston, networking powered by Braindate is designed to make those conversations easier to find, whether they are in 1:1 or small-group on-site meetings. Register before the event starts to save up to $100 on your pass,",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "30b5f07a33cd2b6d",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/30/doordash-said-its-only-received-several-hundred-orders-from-ai-agents/",
+      "image": "",
+      "date": "Fri, 30 Oct 2026 13:54:25 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "DoorDash said it’s only received ‘several hundred’ orders from AI agents — DoorDash said that it is open to working with third-party agent makers.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "a4943279a0c440cc",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/lassurtech-alan-remporte-le-contrat-sante-de-la-securite-sociale-pour-3-milliards-deuros-506922.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Fri, 30 Oct 2026 13:53:16 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "L'assurtech Alan remporte le contrat santé de la Sécurité sociale pour 3 milliards d'euros — L'Etat impose l'assurtech Alan pour gérer la complémentaire santé des 360 000 agents et ayants droit de la Sécurité sociale. Ce contrat suscite l'opposition des syndicats, inquiets de l'hébergement des données de santé sur le cloud américain AWS.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
     },
     {
       "id": "27d7da06cd2f269d",
@@ -5021,394 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "1d15cdd667da3100",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/26/matiks-raises-10m-to-expand-its-math-and-puzzle-gaming-platform/",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 14:08:04 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Matiks raises $10M to expand its math and puzzle gaming platform — Matiks has introduced a new platform for users to create games using AI.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "ec6e38bdbc17745c",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/10/26/lalgerie-inaugure-sa-plus-grande-centrale-solaire-photovoltaique-dune-capacite-de-300-mwc/",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 13:54:59 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "L’Algérie inaugure sa plus grande centrale solaire photovoltaïque d’une capacité de 300 MWc — Le ministre de l’Énergie et des Énergies renouvelables, Mourad Adjal, a procédé ce lundi 26 octobre à l’inauguration de la centrale photovoltaïque de Foulia, située dans la commune de Guemar, dans la wilaya d’El Oued. Dotée d’une capacité de 300 mégawatts-crête (MWc), cette installation s’inscrit da",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "276c48bfed9a1171",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/10/26/banque-dalgerie-entree-en-service-dune-nouvelle-succursale-a-aflou/",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 13:28:57 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Banque d’Algérie : entrée en service d’une nouvelle succursale à Aflou — La Banque d’Algérie a annoncé, dimanche 25 octobre, l’entrée en service de sa succursale à Aflou, qui est la 61ème succursale au niveau national de la banque centrale. La cérémonie d’inauguration s’est déroulée en présence du vice-gouverneur de la Banque d’Algérie, du secrétaire général de la Banque",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "d53a98aa499d2d98",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/26/tesla-turns-to-turo-to-boost-adoption-of-full-self-driving-supervised/",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 12:58:40 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Tesla turns to Turo to boost adoption of Full Self-Driving (Supervised) — Eligible Turo hosts will also get a one-month free trial of Tesla's FSD software.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "ae0855a537e622af",
-      "source_name": "NTIC-DZ",
-      "source_short": "NTC",
-      "source_color": "#01579B",
-      "category": "Médias TIC",
-      "category_icon": "🌐",
-      "url": "https://www.ntic-dz.com/internet-en-algerie-des-perturbations-annoncees-dans-la-nuit-du-26-au-27-octobre/?utm_source=rss&utm_medium=rss&utm_campaign=internet-en-algerie-des-perturbations-annoncees-dans-la-nuit-du-26-au-27-octobre",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 12:57:14 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Internet en Algérie : des perturbations annoncées dans la nuit du 26 au 27 octobre — feed Le ministère de la Poste et des Télécommunications a annoncé des perturbations du service internet en Algérie dans la nuit du lundi 26 au mardi 27 octobre 2026, en raison de travaux de maintenance prévus sur le câble sous-marin reliant l’Algérie à l’Espagne. Dans un communiqué, le ministère pré",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "191442f81e52e56f",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/jai-suivi-les-cours-gratuits-sur-lia-proposes-par-openai-academy-et-le-certificat-est-un-petit-plus-appreciable-506500.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 12:23:25 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "J'ai suivi les cours gratuits sur l'IA proposés par OpenAI Academy, et le certificat est un petit plus appréciable — OpenAI Academy propose des formations utiles sur ChatGPT, des évaluations captivantes et des ressources pédagogiques gratuites qui méritent d'être découvertes.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "6508a982ba969ede",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/le-service-kindle-unlimited-damazon-sappelle-desormais-kindle-et-parmi-les-deux-grandes-nouveautes-on-trouve-les-livres-audio-generes-par-lia-506497.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 12:14:36 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Le service Kindle Unlimited d'Amazon s'appelle désormais Kindle+, et parmi les deux grandes nouveautés, on trouve les livres audio générés par l'IA — Contrairement aux livres audio lus par des narrateurs proposés par Audible et d'autres fournisseurs, les livres audio créés avec Virtual Voice dans Kindle+ seront quant à eux lus par une intelligence artificielle.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "eb3f16ad28ec0604",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/gridcraft-est-le-clone-open-source-dexcel-que-jattendais-depuis-longtemps-506494.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 12:08:43 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "GridCraft est le clone open source d'Excel que j'attendais depuis longtemps — Si vous aimez les tableurs, mais que Microsoft Office ne vous convient pas, vous pourriez avoir envie d'essayer GridCraft, son clone open source.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "437fb34f679ab078",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/pratique/google-maps-ne-vous-convainc-pas-faites-de-waze-votre-application-par-defaut-sur-votre-pixel-voici-comment-faire-506491.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 12:02:16 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Google Maps ne vous convainc pas ? Faites de Waze votre application par défaut sur votre Pixel — voici comment faire — Si vous en avez assez que Google Maps ne parvienne pas à vous guider jusqu'à votre destination, définissez Waze comme application par défaut sur votre Pixel. J'ai enfin trouvé comment faire.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "ffba50d3bb1d8691",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/gardez-bien-votre-ancien-homepod-une-mise-a-jour-est-prevue-506488.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 11:54:40 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Gardez bien votre ancien HomePod : une mise à jour est prévue — Une prochaine mise à jour apportera de nouvelles fonctionnalités aux HomePods existants. Voici ce qu'il faut savoir.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "f607369a16d93a6b",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/les-modeles-dia-les-plus-puissants-dopenai-ont-desactive-le-systeme-de-surveillance-de-securite-puis-ont-menti-a-ce-sujet-506486.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 11:47:15 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Les modèles d'IA les plus puissants d'OpenAI ont désactivé le système de surveillance de sécurité, puis ont menti à ce sujet — Les modèles Astra et Sol ont mal interprété les instructions lors d'une utilisation en interne, ce qui a de graves répercussions sur la surveillance de l'alignement.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "2ab67f9352a250ff",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/penurie-de-liphone-duo-evolution-des-delais-dattente-limites-dachat-506483.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 11:38:51 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Pénurie de l'iPhone Duo : évolution des délais d'attente, limites d'achat,... — Le premier smartphone pliable d'Apple a été lancé simultanément dans plus de 70 pays, mais cela ne s'est pas déroulé sans accrocs.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "b8058df4725bb9fa",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/chrome-vous-avertit-desormais-des-sites-web-suspects-comment-activer-la-nouvelle-protection-anti-arnaques-de-google-506480.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 11:29:38 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Chrome vous avertit désormais des sites web suspects, comment activer la nouvelle protection anti-arnaques de Google — Le navigateur de Google affichera deux types d'avertissements selon que le site est jugé dangereux ou simplement suspect.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "5f65b319e38948ca",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/les-tendances-technologiques-de-gartner-pour-2027-viennent-detre-devoilees-et-elles-vont-bien-au-dela-de-lia-506474.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 11:22:57 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Les tendances technologiques de Gartner pour 2027 viennent d'être dévoilées, et elles vont bien au-delà de l'IA — Comment pouvez-vous, avec votre entreprise, maîtriser les nouvelles limites du comportement des machines et du travail numérique ? Gartner présente les 10 principaux défis auxquels sont confrontés les dirigeants d'entreprise.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "7ca1bd7cb80cdb5b",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/10/26/le-premier-ministre-tcheque-en-visite-en-algerie/",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 11:11:09 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Le Premier ministre tchèque en visite en Algérie — Le Premier ministre tchèque, Andrej Babis, est arrivé ce lundi 26 octobre à Alger pour une visite officielle consacrée au renforcement des relations bilatérales et au développement des échanges économiques entre l’Algérie et la République tchèque. Il est accompagné d’une délégation ministérielle et",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "56334d8c4c39478f",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/business-1367/dns-justice-france-229919",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 10:44:52 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Cloudflare secoué, Quad9 dit stop : les DNS sous pression judiciaire en France — Enjoint de bloquer l'accès à des sites pirates en France, Quad9 préfère fermer son DNS récursif sur place, comme Cisco l'a fait en 2024. The post Cloudflare secoué, Quad9 dit stop : les DNS sous pression judiciaire en France appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "14ee49aab8b8d338",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/10/26/algerie-des-perturbations-dinternet-prevues-dans-la-nuit-de-lundi-a-mardi-en-raison-de-travaux-sur-un-cable-sous-marin/",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 10:11:02 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Algérie : des perturbations d’Internet prévues dans la nuit de lundi à mardi en raison de travaux sur un câble sous-marin — Le service Internet en Algérie va connaître des perturbations dans la nuit du lundi 26 au mardi 27 octobre, en raison d’une opération de maintenance sur le câble sous-marin reliant l’Algérie à l’Espagne, a annoncé le ministère de la Poste et des Télécommunications. Dans un communiqué publié ce lundi",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "b9986855af9743aa",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/cybersecurite-1371/dette-technique-et-cybersecurite-le-cout-croissant-de-linaction-229891",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 10:03:45 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Dette technique et cybersécurité : le coût croissant de l’inaction — { Tribune Expert } - La dette technique relie les faiblesses opérationnelles actuelles, les cybermenaces amplifiées par l’IA et l’exposition cryptographique future. The post Dette technique et cybersécurité : le coût croissant de l’inaction appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "843cb807d19937bc",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/10/26/air-algerie-lance-une-nouvelle-ligne-vers-shanghai-en-chine/",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 09:59:35 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Air Algérie lance une nouvelle ligne vers Shanghai en Chine — Le groupe Air Algérie a inauguré ce lundi 26 octobre, au départ de l’aéroport international d’Alger, une nouvelle ligne aérienne à destination de Shanghai, en Chine. Cette initiative vise à renforcer la liaison aérienne entre l’Algérie et la Chine et à élargir le réseau international de la compagnie",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "2e86b711f0ece28b",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/cybersecurite-1371/pgp2shell-ondrej-sury-le-mainteneur-qui-a-achemine-les-correctifs-vers-debian-et-ubuntu-229923",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 09:58:46 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "PGP2shell : Ondřej Surý, le mainteneur qui a acheminé les correctifs vers Debian et Ubuntu — Lors de la publication des correctifs PHP du 21 octobre, c'est un développeur bénévole, par ailleurs directeur de l'ingénierie DNS à l'ISC, qui les a rendus disponibles sur les serveurs Debian et Ubuntu, y compris sous d'anciennes versions du langage. The post PGP2shell : Ondřej Surý, le mainteneur",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "3aac5446c7dc12ee",
-      "source_name": "Algérie 360",
-      "source_short": "A360",
-      "source_color": "#1565C0",
-      "category": "Médias TIC",
-      "category_icon": "📰",
-      "url": "https://www.algerie360.com/cyberattaque-contre-des-supermarches-kaspersky-decrypte-le-piratage-des-systemes-frigorifiques/",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 09:38:16 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Cyberattaque contre des supermarchés : Kaspersky décrypte le piratage des systèmes frigorifiques — Une vague d’intrusions informatiques a mis à l’arrêt des centaines d’installations frigorifiques dans des supermarchés français, provoquant la rupture de la chaîne du froid et […] L’article Cyberattaque contre des supermarchés : Kaspersky décrypte le piratage des systèmes frigorifiques est apparu en",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-10-30T13:53:27.718043+00:00",
+  "lastUpdated": "2026-10-30T22:43:32.592522+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Médias TIC": 67,
-    "Tech International": 153
+    "Tech International": 157,
+    "Médias TIC": 63
   },
   "total": 300
 }
