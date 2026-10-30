@@ -1,102 +1,102 @@
 {
- "creneau": "soir",
- "date": "2026-10-29",
- "genere": "2026-10-29T21:16:16",
+ "creneau": "midi",
+ "date": "2026-10-30",
+ "genere": "2026-10-30T13:45:48",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
-   "creneau": "soir",
-   "genere": "2026-10-29T21:17:37",
+   "creneau": "midi",
+   "genere": "2026-10-30T13:46:40",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.2,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les 10 informations tech et télécoms de votre soirée."
+    "duree": 6.0,
+    "texte": "Bon après-midi et bienvenue sur Algeria Tech, voici les dix infos qui font l'actualité tech et économiques."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.0,
-    "texte": "C'était votre dose d'actualité tech. Retrouvez-nous demain pour un nouveau résumé."
+    "duree": 4.5,
+    "texte": "C'était l'essentiel de l'actu tech et économique, à bientôt sur Algeria Tech."
    },
    "items": [
     {
-     "titre": "Saisie de prégabaline par la police",
-     "texte": "La Police nationale a annoncé le démantèlement d’un réseau criminel organisé. Plus de 2,4 millions de comprimés de prégabaline, une substance utilisée comme stupéfiant, ont été saisis. L'opération souligne les efforts continus de lutte contre le trafic de drogues.",
+     "titre": "Volkswagen face à la crise",
+     "texte": "Le constructeur automobile Volkswagen est dans le rouge. La direction du géant allemand demande d'accélérer les économies face aux difficultés rencontrées sur le marché chinois, impactant lourdement ses résultats du troisième trimestre.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 15.5,
+     "duree": 12.0,
      "pays": "DZ",
      "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "Algérie : méga-opération export hors hydrocarbures",
-     "texte": "L'Algérie prépare une opération d'exportation inédite pour ses produits hors hydrocarbures. Plusieurs entreprises de différentes wilayas participeront. L'initiative, coordonnée par le ministère de l'Intérieur, vise à dynamiser les exportations et à valoriser le potentiel économique national.",
+     "titre": "Sommet Russie-Afrique : nouveau plan d'action",
+     "texte": "Le 3ème Sommet Russie-Afrique s'est achevé avec l'adoption d'un plan d'action 2027-2029. L'objectif est d'approfondir le partenariat dans dix-neuf domaines clés, incluant la sécurité, l'IA, l'agriculture et la santé.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 16.5,
+     "duree": 13.2,
      "pays": "DZ",
-     "source": "TSA Algérie"
+     "source": "Algérie Éco"
     },
     {
-     "titre": "Google Beam déployé dans 20 sites USO",
-     "texte": "La technologie de visioconférence 3D de Google, appelée Beam, est désormais déployée dans 20 sites de l'United Service Organizations à travers le monde. Cette innovation permettra une meilleure communication pour les membres des forces armées.",
+     "titre": "Mobilisation derrière les Verts",
+     "texte": "Le bureau fédéral de la Fédération Algérienne de Football appelle à une mobilisation générale de soutien derrière les Verts. L'équipe nationale a besoin de l'encouragement de tous pour ses prochaines échéances.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 12.6,
+     "duree": 10.9,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "Bilan financier Ooredoo T3 2026",
-     "texte": "Le groupe de télécommunications Ooredoo a dévoilé ses résultats financiers pour les neuf premiers mois de l'année 2026. Ces chiffres donnent un aperçu de la performance de l'opérateur sur le marché durant cette période.",
+     "titre": "Cancer en Algérie : chiffres alarmants",
+     "texte": "Le ministre de la Santé a révélé des chiffres alarmants concernant les nouveaux cas de cancer en Algérie. L'importance du réseau national des registres du cancer a été soulignée pour l'élaboration des stratégies.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 11.4,
+     "duree": 11.0,
      "pays": "DZ",
-     "source": "Le Soir d'Algérie"
+     "source": "Algérie360"
     },
     {
-     "titre": "Écran PROLED XDR d'Apple",
-     "texte": "Apple lance un nouvel écran appelé PROLED XDR, une dénomination marketing pour sa technologie OLED. Malgré un nom qui peut surprendre, les spécifications de cet écran promettent des performances visuelles exceptionnelles sur les nouveaux MacBook Pro.",
+     "titre": "Mission algérienne au Niger",
+     "texte": "Une mission d'experts algériens de l'ALNAFT achève ce vendredi une visite technique au Niger. Ils ont travaillé sur le diagnostic de la banque nationale de données pétrolières et gazières du pays.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 13.5,
+     "duree": 10.3,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Maghreb Emergent"
     },
     {
-     "titre": "Volkswagen face à la crise chinoise",
-     "texte": "Le constructeur automobile Volkswagen est en difficulté, enregistrant une lourde perte nette au troisième trimestre. Les problèmes sur le marché chinois sont la cause principale, poussant la direction à accélérer les mesures d'économies.",
+     "titre": "Algérienne vice-présidente à l'AMA",
+     "texte": "Docteur Lina Ferhat a été nommée vice-présidente du Comité technique des dispositifs médicaux à l'Agence africaine du médicament. Elle est responsable de l'évaluation des performances des dispositifs médicaux à l'ANPP.",
      "mp3": "/podcast/fr/06.mp3",
-     "duree": 12.4,
+     "duree": 12.1,
      "pays": "DZ",
-     "source": "Le Soir d'Algérie"
+     "source": "Crésus"
     },
     {
-     "titre": "Gemini 4 Carbon de Google : l'IA progresse",
-     "texte": "Google annonce Gemini 4 Carbon, son nouveau modèle d'intelligence artificielle. Il promet des avancées majeures en IA, codage et cybersécurité, surpassant même des concurrents comme Claude Opus 5.5 dans plusieurs tests de performance.",
+     "titre": "Bonus de bienvenue Vox Casino",
+     "texte": "Vox Casino propose un bonus de bienvenue attractif pour les nouveaux joueurs. L'offre comprend des avantages généreux et des conditions de mise équitables, ciblant les amateurs de jeux de casino en ligne.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 13.8,
+     "duree": 10.7,
+     "pays": "DZ",
+     "source": "Le Jeune Indépendant"
+    },
+    {
+     "titre": "Anciens appareils Nest : pas de poubelle",
+     "texte": "Google a supprimé le support de certains anciens thermostats Nest. Avant de les jeter, pensez à des alternatives. Ces appareils de première et deuxième génération ne sont plus supportés.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 10.9,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Blanchiment d'argent : 23 milliards récupérés",
-     "texte": "Un coup de filet spectaculaire a eu lieu à Alger dans la lutte contre le blanchiment d'argent. La police a démantelé un réseau spécialisé dans la contrefaçon et la fraude fiscale, récupérant 23 milliards de dinars.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.1,
-     "pays": "DZ",
-     "source": "TSA Algérie"
-    },
-    {
-     "titre": "Reddit passe à l'expérience connectée",
-     "texte": "Face à l'évolution de la recherche en ligne par l'IA, Reddit annonce un changement majeur. La plateforme va privilégier une expérience utilisateur nécessitant une connexion, afin de mieux protéger son audience et son modèle économique.",
+     "titre": "Fuite de données étudiantes en Californie",
+     "texte": "Une faille de sécurité a exposé les données de millions d'étudiants californiens. Un accès compromis à un site de transfert de fichiers sécurisé a permis la fuite entre mai et septembre 2026.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 12.5,
-     "pays": "INT",
-     "source": "TechCrunch"
+     "duree": 10.5,
+     "pays": "DZ",
+     "source": "AlgeriaTech.news"
     },
     {
-     "titre": "Rivian et VW étendent leur partenariat IA",
-     "texte": "Rivian élargit sa coentreprise avec Volkswagen pour y intégrer un assistant basé sur l'intelligence artificielle. Cette expansion vise à renforcer la collaboration entre les deux constructeurs automobiles dans le domaine technologique.",
+     "titre": "Eka Robotics lève 150 millions $",
+     "texte": "Eka Robotics a levé 150 millions de dollars à une valorisation de 1,45 milliard. L'entreprise développe un robot doté d'une vision et d'une force d'action, ainsi qu'une pince innovante.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 12.5,
-     "pays": "INT",
-     "source": "TechCrunch"
+     "duree": 11.2,
+     "pays": "DZ",
+     "source": "AlgeriaTech.news"
     }
    ]
   },
