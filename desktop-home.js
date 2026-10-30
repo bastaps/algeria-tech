@@ -63,7 +63,8 @@
     }
     var play = v ? '<span class="dh-play">▶</span>' : '';
     if (!src) return PH + play;
-    return '<img src="' + esc(src) + '" alt="" loading="lazy" decoding="async" onerror="dhFb(this)">' + play;
+    var ytid = v.match(YT);
+    return '<img src="' + esc(src) + '" alt=""' + (ytid ? ' data-yt="' + ytid[1] + '"' : '') + ' loading="lazy" decoding="async" onerror="dhFb(this)">' + play;
   }
   function open(a) { return 'href="/article/' + esc(a.id) + '" onclick="if(event.ctrlKey||event.metaKey||event.shiftKey)return;openArticle(\'' + esc(a.id) + '\');return false;"'; }
   function catTag(a, cls) {
@@ -97,6 +98,7 @@
           '<h3>' + esc(a.titre) + '</h3><p>' + esc(chapo(a, 130)) + '</p><p class="dh-m">' + esc(dateLabel(a)) + '</p></div></a>';
       }).join('') + '</div></div>';
     vids(grid);
+    ytCartes(grid);
     quandPret(uneAnimee);
   };
 
@@ -137,6 +139,7 @@
       (suite ? '<h2 class="dh-t">Suite de l\'actualité</h2><div class="dh-suite">' + suite + '</div>' : '');
     var sh = document.querySelector('.news-column .section-header'); if (sh) sh.style.display = 'none';
     vids(grid);
+    ytCartes(grid);
   }
 
   ['filterByTag'].forEach(function (n) { var o = window[n]; window[n] = function () { dhTag = true; return o.apply(this, arguments); }; });
@@ -237,18 +240,15 @@
     if (document.readyState === 'complete') setTimeout(fn, 1500);
     else window.addEventListener('load', function () { setTimeout(fn, 1500); }, { once: true });
   }
-  function uneAnimee() {
-    var h = allArticles && allArticles[0], box = document.querySelector('.dh-une');
-    if (!h || !box || box.querySelector('iframe, video')) return;
-    var m = String(h.video || '').match(YT); if (!m) return;
-    var c = navigator.connection || {};
-    if (c.saveData || /(^|-)2g$/.test(c.effectiveType || '') || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  // Lecteur YouTube muet en boucle DANS l'interface (Une, cartes, suite) : il ne s'arrête jamais (pas de pause hors écran) ; il n'apparaît que
+  // lorsque YouTube confirme la lecture (sinon l'image reste, jamais d'écran noir) ; abandon après 15 s. Jamais sur connexion lente.
+  function animerYT(box, id) {
+    if (!box || !id || box.querySelector('iframe, video')) return;
     var f = document.createElement('iframe');
     f.className = 'dh-une-yt';
-    f.src = 'https://www.youtube-nocookie.com/embed/' + m[1] + '?autoplay=1&mute=1&loop=1&playlist=' + m[1] +
+    f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&mute=1&loop=1&playlist=' + id +
       '&controls=0&modestbranding=1&rel=0&playsinline=1&disablekb=1&iv_load_policy=3&enablejsapi=1';
     f.allow = 'autoplay; encrypted-media'; f.tabIndex = -1; f.setAttribute('aria-hidden', 'true'); f.title = '';
-    // L'iframe n'est affichée que lorsque YouTube confirme que la lecture a démarré (sinon on garde l'image) ; abandon après 15 s
     var lance = false;
     function ecoute(e) {
       if (e.source !== f.contentWindow) return;
@@ -257,19 +257,28 @@
       if (etat == null) return;
       clearTimeout(f._t);
       if (etat === 1) { lance = true; f._t = setTimeout(function () { f.classList.add('on'); }, 3500); }   // on laisse passer les commandes YouTube du début
-      else f.classList.remove('on');                                                                  // tampon / fin / pause : on revoit l'image, jamais d'écran noir
+      else f.classList.remove('on');                                                                  // tampon / fin : on revoit l'image
     }
     window.addEventListener('message', ecoute);
     f.addEventListener('load', function () {
       try { f.contentWindow.postMessage(JSON.stringify({ event: 'listening', id: 1, channel: 'widget' }), '*'); } catch (x) {}
       setTimeout(function () { if (!lance) { window.removeEventListener('message', ecoute); f.remove(); } }, 15000);
     });
-    box.insertBefore(f, box.firstChild.nextSibling || null);
-    if ('IntersectionObserver' in window) new IntersectionObserver(function (es) {
-      es.forEach(function (e) {
-        try { f.contentWindow.postMessage(JSON.stringify({ event: 'command', func: e.isIntersecting ? 'playVideo' : 'pauseVideo', args: '' }), '*'); } catch (x) {}
-      });
-    }, { threshold: .3 }).observe(box);
+    box.insertBefore(f, box.firstChild ? box.firstChild.nextSibling : null);
+  }
+  function uneAnimee() {
+    var h = allArticles && allArticles[0], box = document.querySelector('.dh-une');
+    var m = h && String(h.video || '').match(YT);
+    if (m && vidsActives()) animerYT(box, m[1]);
+  }
+  // Cartes (grille, suite, 2 et 3) dont la vidéo vient de YouTube : au plus 4, lancées l'une après l'autre après le chargement
+  var MAX_YT = 4;
+  function ytCartes(scope) {
+    if (!vidsActives()) return;
+    var cibles = (scope || document).querySelectorAll('.dh-card img[data-yt], .dh-sv img[data-yt], .dh-s img[data-yt]');
+    Array.prototype.slice.call(cibles, 0, MAX_YT).forEach(function (img, i) {
+      quandPret(function () { setTimeout(function () { animerYT(img.parentNode, img.getAttribute('data-yt')); }, i * 1500); });
+    });
   }
 
   // ── L'info en 30 s : vidéo en boucle comme les autres, en pause hors écran (aucun fichier de plus à télécharger) ──
