@@ -492,9 +492,8 @@ async function deployArticle(e) {
     btn.disabled = true;
     btn.querySelector('.si-deploy-inner').innerHTML = '<i class="fas fa-spinner fa-spin"></i> DÉPLOIEMENT EN COURS...';
 
-    const versLocal = document.getElementById('tgtLocal').checked;
-    const versGithub = document.getElementById('tgtGithub').checked;
-    try { localStorage.setItem('si_cibles', JSON.stringify({ l: versLocal, g: versGithub })); } catch (_) {}
+    const versLocal = !isLocal || document.getElementById('tgtLocal').checked;       // en ligne : create-article écrit déjà sur GitHub
+    const versGithub = isLocal && document.getElementById('tgtGithub').checked;      // /api/deploy-github n'existe que sur le Hub
     if (!versLocal && !versGithub) {
         const nb = document.getElementById('deployNote');
         if (nb) nb.innerHTML = '<div class="si-note bad">Cochez au moins une destination : Localhost et/ou GitHub.</div>';
@@ -1806,10 +1805,11 @@ let modeDeploiement = 'simple';
 let derniereCarte = null;     // { data, html }
 
 function setupHubDeploiement() {
-    try {
-        const c = JSON.parse(localStorage.getItem('si_cibles') || 'null');
-        if (c) { document.getElementById('tgtLocal').checked = !!c.l; document.getElementById('tgtGithub').checked = !!c.g; }
-    } catch (_) {}
+    // Destinations : Localhost ET GitHub cochés par défaut à chaque ouverture (décision du 2026-10-30) ; plus de mémorisation de la dernière
+    // sélection. En ligne (pages.dev), il n'y a pas de localhost : l'enregistrement va directement sur GitHub, le bloc est masqué.
+    document.getElementById('tgtLocal').checked = true;
+    document.getElementById('tgtGithub').checked = true;
+    if (!isLocal) { const bloc = document.getElementById('deployTargets'); if (bloc) bloc.style.display = 'none'; }
     document.querySelectorAll('[data-mode]').forEach(b => {
         b.addEventListener('click', () => {
             document.querySelectorAll('[data-mode]').forEach(x => x.classList.remove('active'));
