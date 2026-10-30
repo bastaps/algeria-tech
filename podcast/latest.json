@@ -1,102 +1,102 @@
 {
- "creneau": "midi",
+ "creneau": "soir",
  "date": "2026-10-30",
- "genere": "2026-10-30T13:45:48",
+ "genere": "2026-10-30T18:00:40",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
-   "creneau": "midi",
-   "genere": "2026-10-30T13:46:40",
+   "creneau": "soir",
+   "genere": "2026-10-30T18:01:44",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.0,
-    "texte": "Bon après-midi et bienvenue sur Algeria Tech, voici les dix infos qui font l'actualité tech et économiques."
+    "duree": 6.1,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici 10 informations tech et télécoms pour ce soir."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 4.5,
-    "texte": "C'était l'essentiel de l'actu tech et économique, à bientôt sur Algeria Tech."
+    "duree": 4.9,
+    "texte": "C'était Algeria Tech. Retrouvez-nous demain pour un nouveau tour de l'actualité."
    },
    "items": [
     {
-     "titre": "Volkswagen face à la crise",
-     "texte": "Le constructeur automobile Volkswagen est dans le rouge. La direction du géant allemand demande d'accélérer les économies face aux difficultés rencontrées sur le marché chinois, impactant lourdement ses résultats du troisième trimestre.",
+     "titre": "Casino : optimiser les tours gratuits",
+     "texte": "Les tours gratuits sont un bonus très apprécié dans les casinos en ligne. Chez Spinanga Casino, ces offres peuvent être utilisées stratégiquement pour améliorer l'expérience de jeu et maximiser les chances de gains sans risque financier supplémentaire.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 12.0,
-     "pays": "DZ",
-     "source": "Le Soir d'Algérie"
-    },
-    {
-     "titre": "Sommet Russie-Afrique : nouveau plan d'action",
-     "texte": "Le 3ème Sommet Russie-Afrique s'est achevé avec l'adoption d'un plan d'action 2027-2029. L'objectif est d'approfondir le partenariat dans dix-neuf domaines clés, incluant la sécurité, l'IA, l'agriculture et la santé.",
-     "mp3": "/podcast/fr/02.mp3",
-     "duree": 13.2,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "Mobilisation derrière les Verts",
-     "texte": "Le bureau fédéral de la Fédération Algérienne de Football appelle à une mobilisation générale de soutien derrière les Verts. L'équipe nationale a besoin de l'encouragement de tous pour ses prochaines échéances.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 10.9,
-     "pays": "DZ",
-     "source": "Le Soir d'Algérie"
-    },
-    {
-     "titre": "Cancer en Algérie : chiffres alarmants",
-     "texte": "Le ministre de la Santé a révélé des chiffres alarmants concernant les nouveaux cas de cancer en Algérie. L'importance du réseau national des registres du cancer a été soulignée pour l'élaboration des stratégies.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 11.0,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Mission algérienne au Niger",
-     "texte": "Une mission d'experts algériens de l'ALNAFT achève ce vendredi une visite technique au Niger. Ils ont travaillé sur le diagnostic de la banque nationale de données pétrolières et gazières du pays.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 10.3,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
-    },
-    {
-     "titre": "Algérienne vice-présidente à l'AMA",
-     "texte": "Docteur Lina Ferhat a été nommée vice-présidente du Comité technique des dispositifs médicaux à l'Agence africaine du médicament. Elle est responsable de l'évaluation des performances des dispositifs médicaux à l'ANPP.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 12.1,
-     "pays": "DZ",
-     "source": "Crésus"
-    },
-    {
-     "titre": "Bonus de bienvenue Vox Casino",
-     "texte": "Vox Casino propose un bonus de bienvenue attractif pour les nouveaux joueurs. L'offre comprend des avantages généreux et des conditions de mise équitables, ciblant les amateurs de jeux de casino en ligne.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 10.7,
+     "duree": 12.6,
      "pays": "DZ",
      "source": "Le Jeune Indépendant"
     },
     {
-     "titre": "Anciens appareils Nest : pas de poubelle",
-     "texte": "Google a supprimé le support de certains anciens thermostats Nest. Avant de les jeter, pensez à des alternatives. Ces appareils de première et deuxième génération ne sont plus supportés.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 10.9,
+     "titre": "Volkswagen en difficulté face à la Chine",
+     "texte": "Le constructeur automobile Volkswagen traverse une période difficile. La direction a nhấn mạnh la nécessité d'accélérer les mesures d'économies suite à une lourde perte nette au troisième trimestre, largement due à ses problèmes sur le marché chinois.",
+     "mp3": "/podcast/fr/02.mp3",
+     "duree": 13.4,
+     "pays": "DZ",
+     "source": "Le Soir d'Algérie"
+    },
+    {
+     "titre": "CarPlay : l'énigme de l'icône de cloche",
+     "texte": "Une icône peu évidente sur CarPlay, celle de la cloche, mérite d'être expliquée. Contrairement à des symboles plus courants, celle-ci reste obscure pour beaucoup d'utilisateurs, alors que l'interface est volontairement simplifiée.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 12.1,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Fuite de données étudiantes en Californie",
-     "texte": "Une faille de sécurité a exposé les données de millions d'étudiants californiens. Un accès compromis à un site de transfert de fichiers sécurisé a permis la fuite entre mai et septembre 2026.",
-     "mp3": "/podcast/fr/09.mp3",
+     "titre": "Trafic de drogue : saisie massive à Tamanrasset",
+     "texte": "La BRI de Tamanrasset a démantelé un réseau criminel transfrontalier. Deux membres ont été arrêtés et surtout, 69 kilogrammes de cocaïne ont été saisis lors de cette opération.",
+     "mp3": "/podcast/fr/04.mp3",
      "duree": 10.5,
      "pays": "DZ",
-     "source": "AlgeriaTech.news"
+     "source": "Crésus"
     },
     {
-     "titre": "Eka Robotics lève 150 millions $",
-     "texte": "Eka Robotics a levé 150 millions de dollars à une valorisation de 1,45 milliard. L'entreprise développe un robot doté d'une vision et d'une force d'action, ainsi qu'une pince innovante.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 11.2,
+     "titre": "Attention à l'usurpation d'identité",
+     "texte": "Le ministère de la Poste et des Télécommunications alerte les citoyens. Il met en garde contre les risques d'usurpation d'identité et l'utilisation frauduleuse des documents personnels suite à leur partage.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 10.9,
      "pays": "DZ",
-     "source": "AlgeriaTech.news"
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Partenariat Russie-Afrique : plan d'action",
+     "texte": "Le 3ème Sommet Russie-Afrique s'est conclu par l'adoption d'un plan d'action 2027-2029. Ce mécanisme vise à approfondir le partenariat dans 19 domaines clés comme la sécurité et l'intelligence artificielle.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 12.3,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "Cancer en Algérie : chiffres alarmants",
+     "texte": "Le ministre de la Santé a souligné l'importance cruciale des registres nationaux. Ces derniers sont essentiels pour l'élaboration de stratégies efficaces face aux chiffres alarmants des nouveaux cas de cancer.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 10.8,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Algérie-Niger : mission hydrocarbures",
+     "texte": "Une mission d'experts algériens de l'ALNAFT achève ce vendredi une expertise au Niger. L'objectif était de diagnostiquer la banque nationale de données pétrolières et gazières du pays.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 10.2,
+     "pays": "DZ",
+     "source": "Maghreb Emergent"
+    },
+    {
+     "titre": "Lina Ferhat nommée à l'Agence Africaine",
+     "texte": "Le Dr Lina Ferhat a été nommée vice-présidente d'un comité technique à l'Agence africaine du médicament. Elle est sous-directrice à l'Agence nationale des produits pharmaceutiques.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 9.9,
+     "pays": "DZ",
+     "source": "Crésus"
+    },
+    {
+     "titre": "Casino : les avantages du bonus de bienvenue",
+     "texte": "Le bonus de bienvenue de Vox Casino offre une entrée attrayante dans le jeu en ligne. Il propose des conditions généreuses pour les amateurs de machines à sous et de jeux traditionnels.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 9.6,
+     "pays": "DZ",
+     "source": "Le Jeune Indépendant"
     }
    ]
   },
