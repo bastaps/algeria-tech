@@ -100,17 +100,22 @@
     quandPret(uneAnimee);
   };
 
-  // Les vidéos ne jouent que lorsqu'elles sont visibles (et jamais si l'utilisateur réduit les animations)
-  var io = null;
+  // Vidéos des articles : elles démarrent dès que la page est entièrement affichée (événement « load »), puis tournent en boucle SANS
+  // jamais s'arrêter (plus de pause hors écran). Exceptions : « réduire les animations » du système, économie de données, connexion 2g.
+  function vidsActives() {
+    var c = navigator.connection || {};
+    return !(window.matchMedia('(prefers-reduced-motion: reduce)').matches || c.saveData || /(slow-)?2g/.test(c.effectiveType || ''));
+  }
+  function lire(v) { v.loop = true; v.muted = true; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
   function vids(scope) {
     var list = (scope || document).querySelectorAll('video[data-dhv]');
-    if (!list.length) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
-    if (!io) io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { var v = e.target; if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else v.pause(); });
-    }, { threshold: .4 });
-    list.forEach(function (v) { io.observe(v); });
+    if (!list.length || !vidsActives()) return;
+    var go = function () { list.forEach(lire); };
+    if (document.readyState === 'complete') setTimeout(go, 300); else window.addEventListener('load', function () { setTimeout(go, 600); }, { once: true });
   }
+  document.addEventListener('visibilitychange', function () {   // onglet revenu au premier plan : on relance celles que le navigateur a suspendues
+    if (!document.hidden && document.readyState === 'complete' && vidsActives()) document.querySelectorAll('video[data-dhv]').forEach(function (v) { if (v.paused) lire(v); });
+  });
 
   function accueil() {
     return typeof currentFilter !== 'undefined' && currentFilter === 'all' && !dhTag &&
