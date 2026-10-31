@@ -361,6 +361,24 @@
       "source_type": "web"
     },
     {
+      "id": "23b16d86a72cc268",
+      "source_name": "Mobilis",
+      "source_short": "MB",
+      "source_color": "#00A651",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNZi1QWVNOaFNsR0x2NmgtU2JEZlItdENtY0NmamdoLU5DM2dVNVF3b083elc5ai1wWjk0Rkx5ay1jT3cwYnlwTVZIb2h2MlJsZ1hBOHFINFBPa04za3NqamFJX1NTWXREZlBzZV9hQlJTdVRBcE1pUlVHeHFuUVVwQWkzX1ZvWTVoNFdHSVNtMVpDRWtidWRKNDVMZklDRkxyRkpVYnRyVC1LdGxVTlM5UTNFMm1wcEFNamkyZ18wVm0xZEhpSVJhWHJFZE1veTFvYnVj?oc=5",
+      "image": "",
+      "date": "Sat, 31 Oct 2026 17:20:00 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Mobilis lance de nouveaux services numériques au profit des particuliers et des entreprises - Le soir d'Algérie — Mobilis lance de nouveaux services numériques au profit des particuliers et des entreprises Le soir d'Algérie",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "4b25e7daf9f7301f",
       "source_name": "Ooredoo Algérie",
       "source_short": "OR",
@@ -703,22 +721,40 @@
       "source_type": "rss"
     },
     {
-      "id": "a80642a32b03a5d7",
-      "source_name": "Ooredoo Algérie",
-      "source_short": "OR",
-      "source_color": "#E30613",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNMk9faWxEcDAxZS0zd3pYQlZGSGY1UVptVHk5NjM3aUo3NnBJT2Y1UEowa0ZSN2FaMjNvRnB5dmlwOHY0dG9vU0VKUm4xUm5BbTRsTVdZQmZQVlRDdUNZNWpQRUpJSHhqT0gtQTlxSnpDYUduNFBtVlNTMEtYS09DSDU1NFRQNWR0UGhzcUJCM2NORFh6WDBNV3I5dzYtTFhKdFpJdVhyMkVTMEhKYW9HVlRHVENjWTRaQTVDZjVn?oc=5",
+      "id": "37f4d7897b812d64",
+      "source_name": "Algérie Poste",
+      "source_short": "AP",
+      "source_color": "#F9A825",
+      "category": "Infrastructure",
+      "category_icon": "✉️",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQSXVaSVA3ZUpKSEpqTk94ZGZoSVVDNEljSW1rTXBlbHF3Z0lkVHhyLUtGUlpOS21jcElzUXFZd2lYcWtCNzlvaDBqZFdYMHQ0anJ0RjBQbUo3NEJDaEtRRzloSXl5SzQwdkR6VXp3U1dLVW0xakQ4R24zNF9FbDlhZ0t5WHJJc2NyQVlxUl9VX2FEN1gycV9oM0Y2WlNGdWxDcHQ1dVZiV2lvNjJXQ3Z4QnlYdGh6a3NmZlZoamgwWW1rZENqZEZB?oc=5",
       "image": "",
-      "date": "Tue, 20 Oct 2026 07:00:00 GMT",
+      "date": "Sat, 31 Oct 2026 21:13:34 GMT",
       "lang_source": "fr",
       "text": {
-        "fr": "Ooredoo Algérie renforce son engagement en faveur de la prévention du cancer du sein - La Nouvelle République Algérie — Ooredoo Algérie renforce son engagement en faveur de la prévention du cancer du sein La Nouvelle République Algérie",
+        "fr": "Algérie Poste-CACI: Des solutions numériques et financières au profit des opérateurs économiques - www.horizons.dz — Algérie Poste-CACI: Des solutions numériques et financières au profit des opérateurs économiques www.horizons.dz",
         "ar": "",
         "en": ""
       },
       "source_type": "rss"
+    },
+    {
+      "id": "26749b37063156df",
+      "source_name": "Algérie Télécom",
+      "source_short": "AT",
+      "source_color": "#0055A4",
+      "category": "Infrastructure",
+      "category_icon": "📡",
+      "url": "https://www.youtube.com/shorts/9mRy7oPEX2w",
+      "image": "",
+      "date": "2026-10-31T20:13:09+00:00",
+      "lang_source": "ar",
+      "text": {
+        "ar": "نوفمبر…ذاكرة وطن و مستقبل أمة 🇩🇿",
+        "fr": "",
+        "en": ""
+      },
+      "source_type": "youtube"
     },
     {
       "id": "b8b40dc7fcb23446",
@@ -1043,42 +1079,6 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "e74b3d539f4646d5",
-      "source_name": "Algérie Poste",
-      "source_short": "AP",
-      "source_color": "#F9A825",
-      "category": "Infrastructure",
-      "category_icon": "✉️",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNTFFMT2luemNfZ0FvTUlhSDZZOTBKWTZWUVpWeS1GV3BYM2ViNnVtaVNVR1pXU01KVGExcXQxNE1BcFhEdk1tc3JNSzl4Z0Z1ZGtFVnpYSWFLdXRzVTV0WWp6WDVDYWNwZTE3Q3hyZHFlYVJ5VkJkU2ZGRk5LYkloR094Wm14b2lQeVhHMWZBNA?oc=5",
-      "image": "",
-      "date": "Thu, 22 Oct 2026 19:04:59 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Algérie Poste et Air Algérie Cargo s’allient à cet effet - L'Algérie Aujourd'hui — Algérie Poste et Air Algérie Cargo s’allient à cet effet L'Algérie Aujourd'hui",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "4ad6de0fceeef7f4",
-      "source_name": "Algérie Télécom",
-      "source_short": "AT",
-      "source_color": "#0055A4",
-      "category": "Infrastructure",
-      "category_icon": "📡",
-      "url": "https://www.youtube.com/shorts/2nnVAdztCAQ",
-      "image": "",
-      "date": "2026-10-22T18:00:26+00:00",
-      "lang_source": "ar",
-      "text": {
-        "ar": "4 ملايين زبون، وملايين اللحظات من المتعة 🎮  !",
-        "fr": "",
-        "en": ""
-      },
-      "source_type": "youtube"
     },
     {
       "id": "ae7ca300cfe34c54",
@@ -1439,6 +1439,294 @@
         "en": ""
       },
       "source_type": "web"
+    },
+    {
+      "id": "8462b9fc7109b30b",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/31/apple-ceo-says-the-company-doesnt-want-to-ship-ai-for-ais-sake/",
+      "image": "",
+      "date": "Sat, 31 Oct 2026 21:41:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Apple CEO says the company doesn’t ‘want to ship AI for AI’s sake’ — Apple's new CEO defended the company's current position in the AI landscape.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "ec476f3f219d882d",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/31/4-days-left-how-techcrunch-founder-summit-helps-you-make-more-useful-connections-to-scale/",
+      "image": "",
+      "date": "Sat, 31 Oct 2026 21:36:07 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "4 days left: How TechCrunch Founder Summit helps you make more useful connections to scale — On November 4 at Boston’s SoWa Power Station, get ready for a full day packed with meaningful networking opportunities, actionable insights, and connections that could change the trajectory of your idea and startup. Register before all prices go up at the door.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "9a46afb49d1d4059",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/31/judge-allows-naacp-lawsuit-over-xai-data-center-pollution-to-move-forward/",
+      "image": "",
+      "date": "Sat, 31 Oct 2026 21:17:03 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Judge allows NAACP lawsuit over xAI data center pollution to move forward — An NAACP lawsuit accuses the SpaceX-owned AI company of violating the Clean Air Act.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f9008b2b7927fcf8",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/31/apn-examen-du-plf-2027-a-partir-de-lundi-prochain/",
+      "image": "",
+      "date": "Sat, 31 Oct 2026 19:28:12 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "APN : Examen du PLF 2027 à partir de lundi prochain — L’Assemblée populaire nationale (APN) reprendra ses travaux en séances plénières à partir du lundi 2 novembre prochain, pour examiner le projet de loi de finances (PLF) 2027, indique samedi un communiqué de l’Assemblée. Le représentant du Gouvernement présentera le projet de loi lors d’une séance pl",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e4af497888999df0",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/31/mobilis-lance-de-nouveaux-services-numeriques-au-profit-des-particuliers-et-des-entreprises/",
+      "image": "",
+      "date": "Sat, 31 Oct 2026 19:20:20 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Mobilis lance de nouveaux services numériques au profit des particuliers et des entreprises — L’opérateur de téléphonie mobile Mobilis a lancé, samedi, de nouvelles applications et solutions numériques destinées aux particuliers et aux entreprises, dans le cadre de ses efforts visant à améliorer ses services pour les abonnés. La cérémonie de lancement s’est déroulée à Alger, en présence du P",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "3d2fcb86f919ed35",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/blogs/greenit/le-cout-du-saas-explose-bon-alors-on-fait-quoi-507036.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sat, 31 Oct 2026 18:04:21 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Le coût du SaaS explose! Bon et alors, on fait quoi ? — Ce billet est le dernier volet de la série sur la grande recomposition de l'industrie du logiciel et le changement de modèle économique du SI. Dans un billet précédent, GreenSI avait estimé un loyer du SaaS qui augmente deux fois plus vite que les prix. C'était prudent. D'après une enquête publiée e",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "a4b135412201141d",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/31/le-president-tebboune-signe-un-decret-presidentiel-portant-grace-au-profit-de-5-539-detenus/",
+      "image": "",
+      "date": "Sat, 31 Oct 2026 16:46:21 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Le président Tebboune signe un décret présidentiel portant grâce au profit de 5.539 détenus — Le président de la République, M. Abdelmadjid Tebboune, a signé, samedi, un décret présidentiel portant grâce au profit de 5.539 détenus, à l’occasion du 72e anniversaire du déclenchement de la glorieuse Révolution du 1er Novembre, indique un communiqué de la Présidence de la République. « A l’occas",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e334ba1abadbc484",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/31/sahara-occidental-lalgerie-regrette-profondement-le-non-renouvellement-du-mandat-de-la-minurso/",
+      "image": "",
+      "date": "Sat, 31 Oct 2026 16:21:55 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Sahara occidental : l’Algérie regrette « profondément » le non-renouvellement du mandat de la MINURSO — Le gouvernement algérien a regretté profondément, samedi, le non-renouvellement du mandat de la Mission des Nations unies pour l’organisation d’un référendum au Sahara Occidental (MINURSO), réitérant son attachement à une solution politique juste, durable et mutuellement acceptable à même de garanti",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "149be8f7454bcbde",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/",
+      "image": "",
+      "date": "Sat, 31 Oct 2026 16:12:55 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "OpenAI reportedly lowers funding target for new round — OpenAI’s latest funding round doesn't seem to be living up to expectations.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "32e9c637c31d2c0a",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/31/travaux-publics-lancement-et-mise-en-service-de-95-projets-de-developpement-du-reseau-routier-a-travers-24-wilayas/",
+      "image": "",
+      "date": "Sat, 31 Oct 2026 15:59:41 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Travaux publics : Lancement et mise en service de 95 projets de développement du réseau routier à travers 24 wilayas — Quatre-vingt-quinze (95) projets de développement, de modernisation et d’entretien du réseau routier à travers 24 wilayas, sur une distance totale de 853,5 km, seront lancés et mis en service, à l’occasion de la célébration du 72e anniversaire du déclenchement de la glorieuse Révolution de libératio",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "5d341a2e3e3ecb8c",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/31/tiktoks-road-to-becoming-a-super-app/",
+      "image": "",
+      "date": "Sat, 31 Oct 2026 15:41:57 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "From restaurant guides to payments, here’s how TikTok is building a super app — TikTok may be working to become the app that people use for most of their digital activities.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c698bd7012b41c95",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/31/aadl-3-distribution-des-premiers-logements-dans-12-wilayas-a-partir-de-dimanche/",
+      "image": "",
+      "date": "Sat, 31 Oct 2026 15:34:06 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "AADL 3 : distribution des premiers logements dans 12 wilayas à partir de dimanche — La distribution des premiers logements du programme de location-vente « AADL 3 » débutera dimanche, à l’occasion de la commémoration du 72e anniversaire du déclenchement de la glorieuse Révolution de libération, dans 12 wilayas, a annoncé samedi le ministre de l’Habitat, de l’Urbanisme, de la Ville",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "21893f6e4f66c72b",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/10/31/port-de-skikda-traitement-record-de-200-000-conteneurs-standards-depuis-debut-2026/",
+      "image": "",
+      "date": "Sat, 31 Oct 2026 14:57:43 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Port de Skikda : Traitement record de 200.000 conteneurs standards depuis début 2026 — L’Entreprise portuaire de Skikda a réalisé, entre janvier et octobre 2026, un record en matière de traitement des conteneurs en ayant dépassé le seuil de 200.000 conteneurs EVP (équivalents vingt pieds, une unité de mesure utilisée dans le transport maritime pour exprimer la capacité des navires et",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "0531607faf438517",
+      "source_name": "NTIC-DZ",
+      "source_short": "NTC",
+      "source_color": "#01579B",
+      "category": "Médias TIC",
+      "category_icon": "🌐",
+      "url": "https://www.ntic-dz.com/internet-et-services-numeriques-mobilis-presente-plusieurs-nouveautes/?utm_source=rss&utm_medium=rss&utm_campaign=internet-et-services-numeriques-mobilis-presente-plusieurs-nouveautes",
+      "image": "",
+      "date": "Sat, 31 Oct 2026 14:45:41 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Internet et services numériques : Mobilis présente plusieurs nouveautés — feed À l’occasion du 72ᵉ anniversaire du déclenchement de la guerre de Libération nationale, le 1er novembre 1954, l’opérateur de téléphonie mobile Mobilis a organisé, ce samedi 31 octobre 2026, un événement spécial à l’hôtel El Aurassi, à Alger. Cette rencontre a été l’occasion de présenter plusieu",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "cd58b715261377fe",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/le-framework-12-est-le-pc-ideal-pour-les-passionnes-de-bricolage-et-un-vrai-bonheur-pour-les-utilisateurs-de-linux-507018.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sat, 31 Oct 2026 14:21:21 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Le Framework 12 est le PC idéal pour les passionnés de bricolage, et un vrai bonheur pour les utilisateurs de Linux — Je l'avoue : j'ai toujours été sceptique à l'égard des ordinateurs portables sous Linux, mais Framework m'a prouvé qu'on pouvait y arriver.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c7da4a815e8d55c7",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/10/31/resultats-du-3e-trimestre-pourquoi-le-miracle-ia-de-google-inquiete-tant-les-marches/",
+      "image": "",
+      "date": "Sat, 31 Oct 2026 13:24:43 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "RÉSULTATS DU 3è TRIMESTRE : POURQUOI LE MIRACLE IA DE GOOGLE INQUIÈTE TANT LES MARCHÉS — 500 milliards de dollars de capitalisation effacés en une journée. Malgré un chiffre d’affaires cloud en hausse de 103%, Alphabet paie au prix fort l’explosion …",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
     },
     {
       "id": "b2adb805cfd22cfc",
@@ -5111,304 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "f3f1be7f3c0d9ade",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/iphone-duo-apple-remplace-les-unites-avec-ecran-fissure/",
-      "image": "",
-      "date": "2026-10-27T06:07:00.026Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "iPhone Duo : Apple remplace les unités avec écran fissuré — Quelques jours seulement après son lancement, l'iPhone Duo se retrouve au coeur d'une polémique autour de fissures d'écran. Apple a confirmé qu'elle remplacerait les smartphones pliables présentant ces problèmes d'affichage.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "7f461449be29f643",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/face-a-lenvolee-des-couts-de-lia-microsoft-ouvre-un-plan-de-departs-volontaires-sans-precedent-506536.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 27 Oct 2026 06:01:13 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Face à l’envolée des coûts de l’IA, Microsoft ouvre un plan de départs volontaires sans précédent — Microsoft propose un départ volontaire à quelque 60 000 salariés aux États-Unis, au Canada, au Royaume-Uni et en Inde, soit environ 27 % de ses 223 000 employés.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "cb685d5b4cbcc16a",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/26/how-openai-turned-its-coding-tools-into-dots-an-always-on-personal-assistant/",
-      "image": "",
-      "date": "Tue, 27 Oct 2026 02:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "How OpenAI turned its coding tools into dots, an always-on personal assistant — Alexander Embiricos, the OpenAI executive responsible for dots, never wants to have a meeting with someone else's AI agent.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "8cbd8d09602ba622",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/26/cohere-says-alibabas-qwen-model-tried-to-send-a-file-to-beijing/",
-      "image": "",
-      "date": "Tue, 27 Oct 2026 01:12:21 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Cohere says Alibaba’s Qwen model tried to send a file to Beijing — An AI model said it wouldn’t use any tools, then tried to send something to a server in Beijing anyway, and while researchers say it’s probably a training quirk and not espionage, the whole thing has people asking how much to trust free Chinese AI.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "f1e02f6115275e8a",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/10/26/anthropic-prepare-son-entree-en-bourse-portee-par-le-succes-de-claude-entre-croissance-record-et-lourdes-pertes/",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 22:42:47 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Anthropic prépare son entrée en Bourse, portée par le succès de Claude : Entre croissance record et lourdes pertes — Anthropic veut faire son entrée à Wall Street. L’entreprise américaine, qui développe Claude, a déposé son dossier d’introduction en Bourse le 26 octobre 2026, avec …",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "906ba9a6c16ada86",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/26/databricks-co-founder-shares-his-secrets-for-winning-big-enterprises-customers/",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 22:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Databricks co-founder shares his secrets for winning big enterprises customers — Turns out selling to big companies isn’t about having the shiniest tech: it’s about hitching a ride on a giant’s sales team.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "2530538e5d756b56",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/26/watch-out-youtube-instagram-goes-from-short-form-to-90-minute-videos/",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 21:05:11 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Watch out, YouTube — Instagram goes from short-form to 90-minute videos — After years in which every social platform (even LinkedIn!) aggressively pursued short-form video, this is a notable shift in strategy for Instagram.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "fff28e006dd19674",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/10/26/le-premier-ministre-a-moscou-pour-participer-aux-sommets-du-gecf-et-russie-afrique/",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 20:59:23 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Le Premier ministre à Moscou pour participer aux sommets du GECF et Russie-Afrique — Représentant le président de la République, M. Abdelmadjid Tebboune, le Premier ministre, M. Sifi Ghrieb, est arrivé lundi soir à Moscou, pour prendre part aux travaux du 8e Sommet des chefs d’Etat et de gouvernement du Forum des pays exportateurs de gaz (GECF), prévu mardi, ainsi qu’au 3e Sommet Ru",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "2e05aa0951c46e16",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/guide-achat/test-snap-specs-des-lunettes-ar-a-reserver-aux-early-adopters-506384.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 20:58:46 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Test Snap Specs : des lunettes AR à réserver aux early adopters — C’est la réalité augmentée taille XL ! Elles permettent d’expérimenter des usages. Vu leur prix, les usagers ne seront pas nombreux.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "b4f9635c8b512a1d",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/26/uh-oh-it-sounds-like-the-iphone-duo-keeps-cracking-and-users-arent-happy-about-it/",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 19:22:40 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Uh-oh, it sounds like the iPhone Duo keeps cracking and users aren’t happy about it — A small number of early adopters of the much-hyped new foldable phone from Apple have complained of screens cracking.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "7e40279e72fc6a31",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/26/fusion-startups-are-giving-the-government-shares-in-exchange-for-awards-is-it-worth-it/",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 18:59:52 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Fusion startups are giving the government shares in exchange for awards. Is it worth it? — Fusion startups face a new challenge, one unrelated to plasma physics: Give the government shares in exchange for funding awards or go it alone?",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "0df3e0aca30d357d",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/10/26/algerie-republique-tcheque-les-echanges-commerciaux-ont-atteint-323-millions-de-dollars-en-2025/",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 18:35:46 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Algérie-République tchèque : les échanges commerciaux ont atteint 323 millions de dollars en 2025 — L’Algérie et la République tchèque entendent élargir leur coopération économique et renforcer leurs échanges commerciaux. Cette orientation a été mise en avant ce lundi 26 octobre à Alger par le Premier ministre, Sifi Ghrieb, lors du Forum d’affaires algéro-tchèque, coprésidé avec son homologue tchè",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "94e8bf07f775e774",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/10/26/this-startups-self-driving-excavators-help-dig-up-600m-in-new-funding/",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 17:45:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "This startup’s self-driving excavators help dig up $600M in new funding — Bedrock Robotics, which is now valued at $4.1 billion, is particularly focused on autonomous excavators, in part because of a growing shortage of skilled operators.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "cfec7908772c74b1",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/10/26/tourisme-thermal-en-algerie-les-stations-et-les-bains-traditionnels-ont-attire-plus-de-31-millions-de-curistes-et-de-visiteurs-en-2025/",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 17:21:36 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Tourisme thermal en Algérie : les stations et les bains traditionnels ont attiré plus de 3,1 millions de curistes et de visiteurs en 2025 — La ministre du Tourisme et de l’Artisanat, Houria Meddahi, a donné ce lundi 26 octobre à Guelma le coup d’envoi des travaux du Forum national sur le tourisme thermal, organisé sur deux jours. La rencontre porte notamment sur la modernisation des infrastructures, l’amélioration des prestations et les",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "59b2bd8f79fa92bb",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/pratique/retour-dexperience-jai-essaye-de-faire-exploser-un-traqueur-de-portefeuille-afin-de-tester-sa-securite-506413.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 17:13:19 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Retour d’expérience : j’ai essayé de faire exploser un traqueur de portefeuille afin de tester sa sécurité — Ces tags de localisation renferment une batterie au lithium à l'intérieur d'une fine couche de plastique qui se déforme à chaque fois que l'on s'assoit dessus. Est-ce que j’ai réussi à en faire prendre feu l’un d’eux?",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "131d82de33206f19",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/panne-orange-du-21-octobre-un-bug-nokia-a-paralyse-le-coeur-de-reseau-et-ses-secours-506524.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 26 Oct 2026 17:05:18 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Panne Orange du 21 octobre : un bug Nokia a paralysé le cœur de réseau et ses secours — Un bug logiciel sur un équipement Nokia du nouveau cœur de réseau a causé la panne nationale d'Orange le 21 octobre 2026. L'incident a aussi neutralisé les systèmes de secours.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-10-31T13:12:07.560257+00:00",
+  "lastUpdated": "2026-10-31T22:02:19.878537+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Tech International": 154,
-    "Médias TIC": 66
+    "Tech International": 150,
+    "Médias TIC": 70
   },
   "total": 300
 }
