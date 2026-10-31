@@ -1,102 +1,102 @@
 {
- "creneau": "soir",
- "date": "2026-10-30",
- "genere": "2026-10-30T20:56:08",
+ "creneau": "midi",
+ "date": "2026-10-31",
+ "genere": "2026-10-31T13:17:32",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
-   "creneau": "soir",
-   "genere": "2026-10-30T20:57:06",
+   "creneau": "midi",
+   "genere": "2026-10-31T13:18:21",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.5,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici 10 informations tech et télécoms à retenir ce soir."
+    "duree": 5.7,
+    "texte": "Bonjour et bon après-midi, bienvenue sur Algeria Tech pour votre bulletin d'information tech et télécoms."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.2,
-    "texte": "C'était l'essentiel de l'actualité tech. Retrouvez-nous bientôt pour un nouveau résumé."
+    "duree": 5.5,
+    "texte": "C'était votre flash info tech de l'après-midi. Restez connectés sur Algeria Tech."
    },
    "items": [
     {
-     "titre": "Votre iPhone, un mètre caché",
-     "texte": "Saviez-vous que votre iPhone possède une application de mesure intégrée ? Elle utilise l'appareil photo, et même le LiDAR sur les modèles Pro, pour mesurer des objets. Un outil pratique quand on n'a pas de mètre ruban sous la main.",
+     "titre": "IA : Google et OpenAI contrôlent le scraping",
+     "texte": "Google, OpenAI et Anthropic s'engagent à respecter une nouvelle directive robots.txt. Elle permettra aux éditeurs de mieux contrôler le scraping de leur contenu pour l'entraînement des intelligences artificielles génératives, une étape clé pour encadrer cette technologie.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 12.1,
+     "duree": 14.0,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Bonus Spinanga Casino : utiliser les tours gratuits",
-     "texte": "Les tours gratuits sont très populaires dans les casinos en ligne. Ils permettent de jouer sans risque financier. Chez Spinanga Casino, ces bonus peuvent être utilisés stratégiquement pour améliorer votre expérience et vos chances de gagner.",
+     "titre": "Assurance : l'automobile moteur de croissance",
+     "texte": "Le marché algérien des assurances a connu une progression de trois pour cent au premier semestre 2026. Cette croissance est principalement portée par le bon dynamisme du secteur de l'assurance automobile, confirmant son rôle moteur dans l'économie nationale.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 12.6,
-     "pays": "DZ",
-     "source": "Le Jeune Indépendant"
-    },
-    {
-     "titre": "Volkswagen en difficulté, crise chinoise",
-     "texte": "Le géant automobile Volkswagen traverse une période difficile. La direction demande d'accélérer les mesures d'économies suite à une lourde perte au troisième trimestre. Les difficultés sur le marché chinois expliquent en grande partie cette situation.",
-     "mp3": "/podcast/fr/03.mp3",
      "duree": 13.4,
      "pays": "DZ",
      "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "L'icône de cloche sur CarPlay expliquée",
-     "texte": "Une icône moins évidente sur CarPlay est celle de la cloche. Contrairement à d'autres symboles universels, son utilité peut prêter à confusion. Cet article démystifie cette fonction souvent méconnue dans l'interface simplifiée de CarPlay.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 13.2,
+     "titre": "CarPlay sans fil : l'adaptateur à choisir",
+     "texte": "Envie de profiter de CarPlay sans brancher votre iPhone? Il existe des adaptateurs pour transformer votre connexion filaire en sans fil. Voici les éléments essentiels à considérer pour choisir le bon appareil et profiter pleinement de votre système.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 13.6,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Firme d'IA s'intéresse à un cabinet d'avocats",
-     "texte": "Dans le monde juridique, la potentielle disparition d'un grand cabinet d'avocats fait parler. L'originalité cette fois : une firme spécialisée dans l'intelligence artificielle a montré son intérêt pour cette situation inattendue.",
+     "titre": "Investir en Afrique : la place de l'Algérie",
+     "texte": "Un nouveau rapport de la Rand Merchant Bank évalue les économies africaines pour l'investissement. Il analyse des indicateurs comme la performance économique et l'innovation. Découvrez où se positionne l'Algérie face à ses voisins, le Maroc, l'Égypte et la Tunisie.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 14.6,
+     "pays": "DZ",
+     "source": "Maghreb Emergent"
+    },
+    {
+     "titre": "Croissance mondiale soutenue par l'IA",
+     "texte": "Selon le FMI, la croissance mondiale atteindra 3,1% en 2026. L'investissement massif dans l'intelligence artificielle compense un choc énergétique qui fragmente l'économie mondiale, avec 32 pays concentrant l'essentiel de cette croissance.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 12.2,
-     "pays": "INT",
-     "source": "TechCrunch"
+     "duree": 14.4,
+     "pays": "DZ",
+     "source": "AlgeriaTech.news"
     },
     {
-     "titre": "L'IA fait chuter Alphabet en Bourse",
-     "texte": "Alphabet, la maison mère de Google, a connu une forte baisse en bourse. La capitalisation a chuté de près de 500 milliards de dollars. Les résultats trimestriels décevants, notamment dans la publicité, et les inquiétudes sur l'IA sont en cause.",
+     "titre": "Jais 3 : IA arabe ambitieuse",
+     "texte": "MBZUAI et Inception42 lancent Jais 3, une famille de modèles d'IA arabes. Jusqu'à 375 milliards de paramètres, ils supportent les dialectes nord-africains et le code-switching, une avancée significative pour l'IA dans la région.",
      "mp3": "/podcast/fr/06.mp3",
-     "duree": 14.3,
-     "pays": "INT",
-     "source": "Hespress FR"
+     "duree": 13.2,
+     "pays": "DZ",
+     "source": "AlgeriaTech.news"
     },
     {
-     "titre": "Intel plombé par la crise des PC",
-     "texte": "Le géant des semi-conducteurs Intel voit son action chuter à l'ouverture des marchés. La raison principale est la publication de ses résultats trimestriels décevants. La crise des ventes d'ordinateurs pèse lourdement sur son chiffre d'affaires.",
+     "titre": "États-Unis : essor des cursus IA",
+     "texte": "Plus de cent départements informatiques aux États-Unis proposent désormais des spécialisations en intelligence artificielle. Ce nombre a quasiment doublé en un an, reflétant l'importance croissante de l'IA dans l'enseignement supérieur américain.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 12.8,
-     "pays": "INT",
-     "source": "Le Figaro Tech"
+     "duree": 12.9,
+     "pays": "DZ",
+     "source": "AlgeriaTech.news"
     },
     {
-     "titre": "iPhone abordable avec code promo",
-     "texte": "Les prix des iPhones restent souvent élevés. Cependant, une offre actuelle chez Pixmania, profitant d'un code promo inédit, permet d'acquérir un modèle moins cher que d'habitude. Une bonne affaire à ne pas manquer.",
+     "titre": "Google investit dans l'énergie solaire",
+     "texte": "Google renforce son engagement énergétique avec un accord solaire et de batteries de 440 mégawatts. Ce projet vise à alimenter son centre de données à West Memphis, incluant des améliorations du réseau électrique.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.7,
-     "pays": "INT",
-     "source": "BFM Tech"
+     "duree": 12.2,
+     "pays": "DZ",
+     "source": "AlgeriaTech.news"
     },
     {
-     "titre": "Cyberattaque sophistiquée sur Binance",
-     "texte": "Un casse de près de six milliards de dollars a eu lieu sur la plateforme de cryptomonnaies Binance. Ce montant historique soulève des questions sur la sophistication croissante des cyberattaques. L'intelligence artificielle pourrait être impliquée.",
+     "titre": "Ligue 1 Mobilis : la JSK prend la tête",
+     "texte": "La JSK s'empare provisoirement de la première place du championnat de Ligue 1 Mobilis après sa victoire. Pendant ce temps, le MCO a été tenu en échec à domicile, manquant l'occasion de grimper au classement.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 12.8,
-     "pays": "INT",
-     "source": "Le Figaro Tech"
+     "duree": 11.4,
+     "pays": "DZ",
+     "source": "Crésus"
     },
     {
-     "titre": "Free lance un abonnement internet agressif",
-     "texte": "Free relance l'offensive avec un nouvel abonnement internet. Pensé pour ceux qui cherchent rapidité et fiabilité sans services superflus, il promet un prix attractif. Une offre qui inquiète la concurrence depuis ce samedi.",
+     "titre": "Panne Google Cloud à Londres",
+     "texte": "Un incident d'alimentation a perturbé Google Cloud à Londres pendant six heures le 20 octobre 2026. Plusieurs banques majeures ont été touchées, soulevant des questions sur la résilience des infrastructures critiques numériques.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 12.5,
-     "pays": "INT",
-     "source": "BFM Tech"
+     "duree": 12.2,
+     "pays": "DZ",
+     "source": "AlgeriaTech.news"
     }
    ]
   },
