@@ -33,6 +33,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import redaction as R  # noqa: E402  (format éditorial commun : À retenir, tableau, sources officielles, vidéo pertinente)
 import dedup as D  # noqa: E402  (anti-doublons : même fait déjà publié, en brouillon, ou produit par l'autre circuit)
 import officiels as O  # noqa: E402  (communiqués publiés par les entreprises / institutions : source prioritaire)
+import perimetre as P  # noqa: E402  (périmètre éditorial : offres des seuls opérateurs algériens ; étrangers seulement s'ils innovent)
 import scoops as S  # noqa: E402  (recherche IA d'informations de première main : sites officiels, pages Facebook)
 RACINE = Path(__file__).resolve().parents[2]
 WORK = Path(os.environ.get("CIRCUIT_FLOW_DIR", r"E:\MonStudioIA\circuit-flow"))
@@ -316,6 +317,15 @@ def choisir(slot):
             if len(texte) < 400 or not image.startswith("http"):
                 log(f"  ignoré (texte ou image manquant) : {c['titre'][:70]}")
                 continue
+            if c.get("origine") not in ("officiel", "scoop"):
+                hp, pourquoi = P.hors_perimetre(f.get("title") or c["titre"], texte, c["url"])
+                if not hp and P.douteux(c["titre"], texte):   # cas douteux (opérateur étranger cité) : avis de l'IA, sans avis on garde
+                    avis = P.avis_ia(f.get("title") or c["titre"], texte[:400], lambda q: R.appeler_gemini(q, temperature=0))
+                    if avis and not avis[0]:
+                        hp, pourquoi = True, "avis IA : " + avis[1]
+                if hp:
+                    log(f"  hors périmètre écarté : {c['titre'][:70]} — {pourquoi}")
+                    continue
             if D.perime(texte, jours=5):   # le flux / la page liste une source ancienne comme si elle était du jour
                 log(f"  source périmée écartée : {c['titre'][:70]}")
                 continue
@@ -444,6 +454,9 @@ def finaliser(ident, clip, sans_push):
         [x for x in historique() if x.get("ident") != ident]), arbitre=arbitre_ia)
     if doublon:
         raise RuntimeError("doublon : " + pourquoi)
+    hp, pourquoi = P.hors_perimetre(g["titre"], g["lead"], job["article"]["url"])
+    if hp and job["article"].get("origine") not in ("officiel", "scoop"):
+        raise RuntimeError("hors périmètre : " + pourquoi)
     g["contenu"] = str(g["contenu"]).strip() + "\n\n## Sources\n\n" + "\n".join(
         R.lignes_sources(officiels, src["nom"], src["url"], src["admin"], direct)) + "\n"
     cat = g.get("categorie") if g.get("categorie") in CATEGORIES else ("Algérie" if job["article"]["pays"] == "DZ" else "Monde")
@@ -642,8 +655,8 @@ def main():
                 x["etat"] = "echec"
         sauver_historique(h)
         if a.cmd == "finaliser" and not getattr(a, "sans_push", False):
-            if str(e).startswith("doublon"):
-                notifier("Circuit : doublon évité (rien publié)", str(e)[:230], tags="no_entry_sign", clic=SITE)
+            if str(e).startswith(("doublon", "hors périmètre")):
+                notifier("Circuit : article écarté (rien publié)", str(e)[:230], tags="no_entry_sign", clic=SITE)
             else:
                 notifier("Circuit vidéo : échec", f"{type(e).__name__} : {str(e)[:200]}", tags="warning", clic=SITE)
         return 1

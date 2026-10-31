@@ -22,6 +22,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import dedup as D  # noqa: E402  (dernier garde-fou : jamais deux articles sur le même fait)
+import perimetre as P  # noqa: E402  (périmètre éditorial)
 RACINE = Path(os.environ.get("PUBLIER_RACINE") or Path(__file__).resolve().parents[2])
 SITE = "https://algeria-tech.pages.dev"
 NTFY = os.environ.get("NTFY_BASE", "https://ntfy.sh")
@@ -149,6 +150,20 @@ def main():
                 notifier("Doublon écarté (non publié)", f"« {titre[:90]} » : {pourquoi}", SITE)
                 modifie += 1
                 continue
+        if choix != "rejeter":
+            hp, pourquoi = P.hors_perimetre(titre, champ(md, "extrait"), champ(md, "source"))
+            if hp:
+                f.unlink()
+                log(f"{ident} : HORS PÉRIMÈTRE écarté ({titre[:60]}) — {pourquoi}")
+                notifier("Hors périmètre (non publié)", f"« {titre[:90]} » : {pourquoi}", SITE)
+                modifie += 1
+                continue
+            # vidéo YouTube d'un autre média sans rapport avec l'article : on publie sans vidéo plutôt qu'avec une vidéo hors sujet
+            m = re.search(r"^video:[ 	]*\"https?://(?:www\.)?youtube\.com/watch\?v=([A-Za-z0-9_-]{11})\"", md, re.M)
+            if m and not D.video_yt_pertinente(m.group(1), titre, champ(md, "extrait"), si_illisible=True):
+                log(f"{ident} : vidéo YouTube {m.group(1)} sans rapport avec l'article : retirée")
+                md = re.sub(r'^video:.*$', 'video: ""', md, count=1, flags=re.M)
+                md = re.sub(r'^mediaPriority:.*$', 'mediaPriority: image', md, count=1, flags=re.M)
         if choix == "rejeter":
             f.unlink()
             log(f"{ident} : rejeté ({titre[:60]})")

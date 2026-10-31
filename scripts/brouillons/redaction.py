@@ -21,6 +21,7 @@ from bs4 import BeautifulSoup
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "express"))
 from filtre_editorial import appeler_gemini  # noqa: E402
 from sources import UA  # noqa: E402
+import dedup as _DD  # noqa: E402  (pertinence des vidéos YouTube reprises)
 
 CATEGORIES = ["Algérie", "Télécoms", "Mobile", "Startups", "IA", "Fintech", "Innovation", "Monde", "Entreprises"]
 
@@ -493,10 +494,19 @@ def resoudre_sources(titre, corps, url_media, nom_media, origine_officielle=Fals
 # 2. Une vidéo du média qui ACCOMPAGNE l'article (YouTube intégré) est reprise et publiée telle quelle.
 # 3. Sinon (aucune personne) : image + texte (illustre le titre, texte affiché ET lu à voix haute) ; si l'image contient déjà du texte,
 #    on l'anime seulement. (2026-10-27 : fin des vidéos « concept » sans texte ni voix, hors contexte.)
-def video_source(html):
-    """Adresse YouTube d'une vidéo qui accompagne l'article (iframe intégrée ou lien), ou ''."""
+def video_source(html, titre="", extrait=""):
+    """Adresse YouTube d'une vidéo qui accompagne VRAIMENT l'article, ou ''. Si un titre est fourni, chaque vidéo trouvée dans la page est
+    contrôlée (titre lu via oEmbed) : une vidéo sans rapport avec l'article (autre sujet du même média) est écartée."""
+    vus = []
     for m in re.finditer(r"(?:youtube(?:-nocookie)?\.com/(?:embed/|watch\?v=)|youtu\.be/)([A-Za-z0-9_-]{11})", html or ""):
-        return f"https://www.youtube.com/watch?v={m.group(1)}"
+        if m.group(1) not in vus:
+            vus.append(m.group(1))
+    for vid in vus[:4]:
+        if not titre:
+            return f"https://www.youtube.com/watch?v={vid}"
+        if _DD.video_yt_pertinente(vid, titre, extrait):
+            return f"https://www.youtube.com/watch?v={vid}"
+        log(f"vidéo YouTube {vid} écartée : sans rapport avec « {titre[:60]} »")
     return ""
 
 
@@ -506,7 +516,7 @@ def politique_video(jpg_bytes, titre, resume, html_page=""):
     - image_texte : image sans texte → Flow « illustrant le texte suivant : « titre » » (texte affiché + voix off) ;
     - image_anime : image qui contient déjà du texte → Flow anime seulement l'image ;
     - aucune : personnes réelles (haut responsable…) sur l'image, ou analyse impossible."""
-    src = video_source(html_page)
+    src = video_source(html_page, titre, resume)
     if src:
         return {"mode": "source", "raison": "vidéo du média intégrée à l'article", "video_url": src, "prompt": ""}
     try:

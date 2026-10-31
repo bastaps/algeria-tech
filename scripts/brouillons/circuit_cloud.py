@@ -172,6 +172,15 @@ def produire(slot, notif=True):
             if len(corps) < 400 or not image.startswith("http"):
                 log(f"  ignoré (texte ou image manquant) : {c['titre'][:70]}")
                 continue
+            if c.get("origine") not in ("officiel", "scoop"):
+                hp, pourquoi = C.P.hors_perimetre(c["titre"], corps, c["url"])
+                if not hp and C.P.douteux(c["titre"], corps):
+                    avis = C.P.avis_ia(c["titre"], corps[:400], lambda q: R.appeler_gemini(q, temperature=0))
+                    if avis and not avis[0]:
+                        hp, pourquoi = True, "avis IA : " + avis[1]
+                if hp:
+                    log(f"  hors périmètre écarté : {c['titre'][:70]} — {pourquoi}")
+                    continue
             if C.D.perime(corps, jours=5):
                 log(f"  source périmée écartée : {c['titre'][:70]}")
                 continue
@@ -198,12 +207,16 @@ def produire(slot, notif=True):
             if doublon:   # contrôle final sur l'article rédigé : rien n'est déposé s'il double un fait déjà publié ou en attente
                 log(f"  doublon écarté (article rédigé) : {red['titre'][:60]} — {pourquoi}")
                 continue
+            hp, pourquoi = C.P.hors_perimetre(red["titre"], red.get("extrait", ""), c["url"])
+            if hp and not direct:
+                log(f"  hors périmètre écarté (article rédigé) : {red['titre'][:60]} — {pourquoi}")
+                continue
             ident = str(int(time.time() * 1000))
             (RACINE / "images").mkdir(exist_ok=True)
             (RACINE / "images" / f"{ident}.jpg").write_bytes(jpg)
             # seule une vidéo du média qui ACCOMPAGNE l'article est reprise (YouTube) ; jamais de vidéo générée dans le repli cloud
             try:
-                c["video"] = R.video_source(requests.get(c["url"], headers=UA, timeout=25).text)
+                c["video"] = R.video_source(requests.get(c["url"], headers=UA, timeout=25).text, red["titre"], red.get("extrait", ""))
             except requests.RequestException:
                 c["video"] = ""
             ecrire_brouillon(ident, c, red, officiels, slot, notif, src, direct)

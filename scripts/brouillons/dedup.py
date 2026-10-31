@@ -262,3 +262,31 @@ def perime(texte, jours=5, zone=900):
     """True si le début du texte ne cite que des dates plus anciennes que `jours` jours (aucune date : on ne conclut pas)."""
     ds = dates_dans((texte or "")[:zone])
     return bool(ds) and max(ds) < aujourd_hui() - datetime.timedelta(days=jours)
+
+
+# ── Pertinence d'une vidéo YouTube reprise d'une page ────────────────────────
+# Une page de média contient souvent d'autres vidéos que celle de l'article (dernière vidéo de la chaîne, vidéo « à la une »…) :
+# l'article « Lebara 5G » avait reçu une vidéo Frandroid sur l'IA, sans rapport. Une vidéo n'est reprise que si son titre (lu via oEmbed)
+# a un lien réel avec l'article ; les vidéos de notre propre chaîne (Algeria Tech) sont toujours admises.
+def infos_video_youtube(video_id):
+    """(titre, chaîne) d'une vidéo YouTube via oEmbed ; ('', '') si illisible."""
+    import urllib.parse
+    import urllib.request
+    url = "https://www.youtube.com/oembed?format=json&url=" + urllib.parse.quote(f"https://www.youtube.com/watch?v={video_id}", safe="")
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"}), timeout=20) as r:
+            j = json.loads(r.read().decode("utf-8", "replace"))
+        return str(j.get("title") or ""), str(j.get("author_name") or "")
+    except Exception:  # noqa: BLE001
+        return "", ""
+
+
+def video_yt_pertinente(video_id, titre, extrait="", si_illisible=False):
+    """True si la vidéo YouTube a un rapport avec l'article (ou vient de notre chaîne). si_illisible : valeur quand oEmbed ne répond pas."""
+    t, auteur = infos_video_youtube(video_id)
+    if not t:
+        return si_illisible
+    if "algeria tech" in f"{t} {auteur}".lower():
+        return True
+    base = f"{titre}. {extrait}"
+    return ressemblance(base, t) >= 0.12 or len(entites(base) & entites(t)) >= 1
