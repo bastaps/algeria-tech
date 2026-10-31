@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-10-31",
- "genere": "2026-10-31T17:02:48",
+ "genere": "2026-10-31T20:16:55",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
    "creneau": "soir",
-   "genere": "2026-10-31T17:03:39",
+   "genere": "2026-10-31T20:17:53",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.6,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Retrouvez ici les 10 infos qui font l'actualité tech et télécoms."
+    "duree": 6.4,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici 10 informations tech et télécoms pour votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.8,
-    "texte": "C'est tout pour ce soir, merci de votre fidélité. Restez connectés à Algeria Tech."
+    "duree": 5.3,
+    "texte": "C'était l'essentiel de l'actu tech. Merci de nous avoir écoutés sur Algeria Tech."
    },
    "items": [
     {
-     "titre": "95 projets routiers lancés",
-     "texte": "À l'occasion de la Révolution, 95 projets de développement routier ont été lancés dans 24 wilayas. Ces initiatives visent la modernisation et l'entretien du réseau sur plus de 850 kilomètres.",
+     "titre": "Mobilis enrichit son offre",
+     "texte": "L'opérateur historique Mobilis annonce le lancement de nouveaux services numériques destinés aux particuliers et aux entreprises. Une initiative visant à moderniser son offre et à répondre aux besoins évolutifs de sa clientèle algérienne.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 11.7,
+     "duree": 12.5,
+     "pays": "DZ",
+     "source": "Le Soir d'Algérie"
+    },
+    {
+     "titre": "95 projets routiers lancés",
+     "texte": "Le secteur des Travaux Publics célèbre la Révolution en mettant en service 95 projets routiers. Ces aménagements portent sur 853 kilomètres dans 24 wilayas, améliorant ainsi le réseau national.",
+     "mp3": "/podcast/fr/02.mp3",
+     "duree": 11.8,
      "pays": "DZ",
      "source": "Algérie Éco"
     },
     {
      "titre": "Prolonger la vie des AirTags",
-     "texte": "Découvrez comment optimiser la durée de vie de la batterie de vos AirTags Apple. Certains réglages peuvent aider à éviter une décharge trop rapide de vos dispositifs de localisation.",
-     "mp3": "/podcast/fr/02.mp3",
-     "duree": 9.3,
+     "texte": "Découvrez comment optimiser la batterie de vos AirTags Apple. Cet accessoire de localisation peut se décharger rapidement, mais des astuces existent pour en prolonger significativement la durée de vie.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 10.7,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Mobilis innove pour l'Algérie",
-     "texte": "À l'occasion de l'anniversaire de la Révolution, Mobilis a dévoilé de nouvelles offres commerciales et des services numériques. L'opérateur renforce ainsi sa présence sur le marché algérien.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 10.5,
+     "titre": "Mobilis dévoile ses nouveautés",
+     "texte": "À l'occasion de la fête de la Révolution, Mobilis a présenté de nouvelles offres commerciales et services numériques. L'opérateur mobile renforce ainsi sa présence dans le paysage digital algérien.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 11.0,
      "pays": "DZ",
      "source": "NTIC.dz"
     },
     {
      "titre": "Le retour des CD pose problème",
-     "texte": "Les CD font un retour remarqué auprès des collectionneurs, mais leur utilisation moderne soulève des défis. Profiter de sa musique physique devient compliqué à l'ère du numérique.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 9.9,
+     "texte": "Alors que les CD connaissent un regain d'intérêt chez les collectionneurs, leur utilisation soulève des défis modernes. La praticité semble s'opposer au plaisir d'écoute de la musique physique.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 10.2,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "IA aide les banques algériennes",
-     "texte": "Une nouvelle intelligence artificielle, ABIX Data Explorer, assiste désormais les banques algériennes dans l'élaboration de leurs stratégies sur trois ans. L'outil combine IA et moteur de calcul.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 10.7,
+     "titre": "L'IA au service des banques",
+     "texte": "Une nouvelle solution d'intelligence artificielle aide les banques algériennes à définir leur stratégie sur trois ans. Ce module assiste la création de plans stratégiques, tout en s'appuyant sur des calculs précis.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 11.3,
      "pays": "DZ",
      "source": "Maghreb Emergent"
     },
     {
-     "titre": "Menaces contre Sabrina Sebaihi",
-     "texte": "La députée écologiste française Sabrina Sebaihi, d'origine algérienne, est victime de menaces. Son engagement contre le racisme et l'islamophobie lui vaut des attaques extrémistes.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 10.8,
+     "titre": "Menaces contre une députée",
+     "texte": "En France, la députée écologiste Sabrina Sebaihi, d'origine algérienne, fait l'objet de menaces. Elle est ciblée par des mouvements extrémistes en raison de son engagement contre le racisme.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 11.1,
      "pays": "DZ",
      "source": "TSA Algérie"
     },
     {
-     "titre": "Améliorer le son sur Android",
-     "texte": "Apprenez à améliorer la qualité audio sur Android, que vous utilisiez des casques Bluetooth ou filaires. Découvrez les solutions pour une meilleure expérience sonore.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 9.0,
+     "titre": "Améliorer l'audio sur Android",
+     "texte": "Explorez les méthodes pour améliorer la qualité audio sur Android, que vous utilisiez des casques Bluetooth ou filaires. Des solutions existent pour pallier les limitations traditionnelles du sans-fil.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 10.7,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
      "titre": "L'IA de Google inquiète",
-     "texte": "Malgré de bons résultats financiers pour son cloud, le marché s'inquiète de l'intelligence artificielle de Google. L'entreprise a vu sa capitalisation boursière chuter de 500 milliards de dollars.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 10.7,
+     "texte": "Malgré des résultats financiers solides, le marché s'inquiète de l'intelligence artificielle de Google. L'annonce de leur nouvelle IA a entraîné une chute significative de la capitalisation boursière d'Alphabet.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 11.2,
      "pays": "DZ",
      "source": "ITMAG"
     },
     {
-     "titre": "PC tout-en-un : pour et contre",
-     "texte": "Les ordinateurs tout-en-un offrent simplicité et gain de place en intégrant l'ordinateur dans le moniteur. Évaluez les avantages et les inconvénients avant de choisir ce type de machine.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 10.1,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Google contre le scraping IA",
-     "texte": "Google s'allie à OpenAI et d'autres pour limiter le scraping de contenu destiné à l'entraînement des IA. Une nouvelle directive robots.txt permettra de mieux contrôler l'utilisation des données.",
+     "titre": "L'origine des creepypastas",
+     "texte": "Plongez dans l'histoire méconnue de 'Ted the Caver', la première creepypasta du Web. Ce récit d'exploration cauchemardesque de 2001 continue de fasciner, son auteur cherchant aujourd'hui à en tirer profit.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 10.5,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "duree": 11.4,
+     "pays": "INT",
+     "source": "Le Monde Pixels"
     }
    ]
   },
