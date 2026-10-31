@@ -27,7 +27,7 @@ RACINE = Path(os.environ.get("PUBLIER_RACINE") or Path(__file__).resolve().paren
 SITE = "https://algeria-tech.pages.dev"
 NTFY = os.environ.get("NTFY_BASE", "https://ntfy.sh")
 DELAI_MIN = int(os.environ.get("DELAI_MIN", "0"))
-INTERNES = ("image_suggeree", "brouillon", "circuit", "cree", "choix_canal", "defaut", "delai_min")
+INTERNES = ("image_suggeree", "brouillon", "circuit", "cree", "choix_canal", "defaut", "delai_min", "promo")
 CHOIX = ("une", "seconde", "breve", "entreprise", "rejeter")
 LIBELLE = {"une": "à la Une", "seconde": "en 2e position", "breve": "en brève", "entreprise": "dans Entreprises & Marques"}
 
@@ -139,6 +139,8 @@ def main():
                 log(f"{ident} : en attente de choix ({age:.0f}/{delai} min)")
                 continue
             choix, origine = defaut, f"aucun choix sous {delai} min"
+        if champ(md, "promo") == "true" and choix in ("une", "seconde"):
+            choix, origine = "entreprise", "offre / promotion : jamais en Une, rubrique Entreprises & Marques"
         # Garde-fou anti-doublon : un autre article publié depuis (autre circuit, saisie manuelle, brouillon plus ancien du même
         # créneau) peut déjà couvrir ce fait. On compare aux articles PUBLIÉS (y compris ceux publiés plus haut dans cette boucle).
         if choix != "rejeter":

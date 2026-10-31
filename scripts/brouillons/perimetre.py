@@ -6,6 +6,10 @@ Algeria Tech parle du numérique, des télécoms et de la tech EN ALGÉRIE.
 - Un opérateur ou une entreprise étrangère (Lebara, Orange, SFR, Vodafone…) n'est cité QUE s'il innove (IA, cybersécurité, réseau, satellite,
   nouveauté technologique) — jamais pour une offre commerciale, un prix, une promotion, un « bon plan » ou une panne locale.
 - Le reste (institutions et entreprises algériennes, startups, numérique algérien, grandes nouvelles mondiales de la tech) reste admis.
+- Offres / services / promotions des entreprises algériennes des TIC, du mobile, des télécoms, de l'IA… : admis mais JAMAIS en Une → rubrique
+  « Offres & Promos » (catégorie « Promos », hors flux de l'accueil). Ce qui passe en Une : activités, accords inter-entreprises, innovation,
+  conférences, et les sujets habituels.
+- Électroménager interdit (congélateur, mixeur, lave-linge, climatiseur…), SAUF télévisions, smartphones, box TV et serveurs.
 
 Deux niveaux : un filtre déterministe (gratuit, sans IA) puis, pour les sujets douteux de presse, l'avis de l'IA si elle répond.
 Stdlib uniquement (utilisé aussi par publier_choix.py).
@@ -24,6 +28,14 @@ INNOVATION = re.compile(
     r"\bia\b|intelligence artificielle|\b6g\b|satellite|cyber|innov|brevet|record|open ran|quantique|cloud souverain|mistral|openai|"
     r"anthropic|robot|laboratoire|recherche|premi[èe]re mondiale|technologie|puce|mod[èe]le", re.I)
 CONTEXTE_DZ = re.compile(r"alg[ée]ri|\bdzd\b|dinars?\b|alger\b|oran\b|wilaya|arpce|\bdz\b", re.I)
+ELECTROMENAGER = re.compile(
+    r"cong[ée]lateur|r[ée]frig[ée]rateur|\bfrigo\b|mixeur|blender|lave-?linge|lave-?vaisselle|machine [àa] laver|s[èe]che-?linge|micro-?ondes|"
+    r"cuisini[èe]re|aspirateur|climatiseur|\bclim\b|friteuse|bouilloire|cafeti[èe]re|grille-?pain|robot (?:m[ée]nager|cuiseur|p[âa]tissier)|"
+    r"fer [àa] repasser|chauffe-?eau|cocotte|extracteur de jus|presse-?agrumes|plaque de cuisson|machine [àa] caf[ée]|[ée]lectrom[ée]nager", re.I)
+ELECTRO_ADMIS = re.compile(r"t[ée]l[ée]vis|\btv\b|smartphone|t[ée]l[ée]phone portable|box tv|\bbox\b|set-?top|serveurs?\b|android tv", re.I)
+PROMO_TITRE = re.compile(
+    r"\boffres?\b|forfaits?|promo(?:tion)?s?\b|tarifs?\b|abonnements?|remises?\b|r[ée]ductions?|cashback|bundle|\bpack\b|recharges?\b|"
+    r"bonus|\d[\d  .,]*\s*(?:da|dzd|dinars?)\b", re.I)
 URL_BONS_PLANS = re.compile(r"bons?-plans?|/promo|/deals?|soldes|black-friday|codes?-promo|comparateur-forfait", re.I)
 
 PROMPT_PERIMETRE = """Algeria Tech est un média algérien du numérique, des télécoms et de la tech.
@@ -43,6 +55,8 @@ def hors_perimetre(titre, texte="", url=""):
     debut = f"{t} {(texte or '')[:500]}"
     if URL_BONS_PLANS.search(url or ""):
         return True, "page « bons plans / promotions » d'un média grand public"
+    if ELECTROMENAGER.search(debut) and not ELECTRO_ADMIS.search(t):
+        return True, "électroménager (hors périmètre : seuls téléviseurs, smartphones, box TV et serveurs sont admis)"
     en_titre_etranger = OPERATEURS_ETRANGERS.search(t)
     if en_titre_etranger and not OPERATEURS_DZ.search(t) and COMMERCIAL.search(debut) and not INNOVATION.search(t):
         return True, f"offre ou service commercial d'un opérateur étranger ({en_titre_etranger.group(0)}), sans innovation"
@@ -62,3 +76,8 @@ def avis_ia(titre, extrait, appeler):
 def douteux(titre, texte=""):
     """Sujet à faire arbitrer par l'IA : un opérateur / une entreprise étrangère y est cité sans que le filtre ait tranché."""
     return bool(OPERATEURS_ETRANGERS.search(f"{titre or ''} {(texte or '')[:400]}")) and not OPERATEURS_DZ.search(titre or "")
+
+
+def est_promo(titre, extrait=""):
+    """True si l'article est une offre / un service / une promotion : il va dans la rubrique « Offres & Promos », jamais en Une."""
+    return bool(PROMO_TITRE.search(titre or ""))

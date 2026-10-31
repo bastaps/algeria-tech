@@ -460,6 +460,11 @@ def finaliser(ident, clip, sans_push):
     g["contenu"] = str(g["contenu"]).strip() + "\n\n## Sources\n\n" + "\n".join(
         R.lignes_sources(officiels, src["nom"], src["url"], src["admin"], direct)) + "\n"
     cat = g.get("categorie") if g.get("categorie") in CATEGORIES else ("Algérie" if job["article"]["pays"] == "DZ" else "Monde")
+    # offre / service / promotion : jamais en Une → « Entreprises & Marques » (type communique_entreprise, hors flux de l'accueil)
+    promo = P.est_promo(g["titre"], g["lead"])
+    extra_promo = "promo: true\ndefaut: entreprise\n" if promo else ""
+    if promo:
+        cat = "Entreprises"
     # vidéo : clip Flow local (image + texte, ou image animée), ou vidéo YouTube du média qui accompagne l'article (reprise telle quelle)
     video_url = (f"/videos/articles/{ident}.mp4" if avec_video
                  else (job.get("video_url", "") if job.get("video_mode") == "source" else ""))
@@ -503,7 +508,7 @@ position:
 interactif: "/interactifs/{ident}.html"
 aretenir: "{q(points_essentiels(g))}"
 mediaPriority: {"video" if video_url else "image"}
-brouillon: true
+{extra_promo}brouillon: true
 circuit: true
 cree: "{datetime.datetime.utcnow():%Y-%m-%dT%H:%M:%SZ}"
 choix_canal: "{canal_choix}"

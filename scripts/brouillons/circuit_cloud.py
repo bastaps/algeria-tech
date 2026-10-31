@@ -229,6 +229,10 @@ def produire(slot, notif=True):
 
 def ecrire_brouillon(ident, c, red, officiels, slot, notif, src=None, direct=False):
     cat = red.get("categorie") if red.get("categorie") in C.CATEGORIES else ("Algérie" if c["pays"] == "DZ" else "Monde")
+    promo = C.P.est_promo(red["titre"], red.get("extrait", ""))   # offre / service / promotion : « Entreprises & Marques », jamais en Une
+    extra_promo = "promo: true\ndefaut: entreprise\n" if promo else ""
+    if promo:
+        cat = "Entreprises"
     now = C.maintenant_alger()
     canal_choix = "atchoix-" + secrets.token_hex(8)
     tags = ", ".join(f'"{C.q(t)}"' for t in (red.get("tags") or [])[:6] if str(t).strip())
@@ -253,7 +257,7 @@ interactif: ""
 interactif_a_faire: "true"
 aretenir: "{R.champ_aretenir(red['a_retenir'])}"
 mediaPriority: {"video" if c.get("video") else "image"}
-brouillon: true
+{extra_promo}brouillon: true
 circuit: true
 cree: "{datetime.datetime.utcnow():%Y-%m-%dT%H:%M:%SZ}"
 choix_canal: "{canal_choix}"
