@@ -1,102 +1,102 @@
 {
- "creneau": "midi",
+ "creneau": "soir",
  "date": "2026-10-31",
- "genere": "2026-10-31T13:17:32",
+ "genere": "2026-10-31T17:02:48",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
-   "creneau": "midi",
-   "genere": "2026-10-31T13:18:21",
+   "creneau": "soir",
+   "genere": "2026-10-31T17:03:39",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 5.7,
-    "texte": "Bonjour et bon après-midi, bienvenue sur Algeria Tech pour votre bulletin d'information tech et télécoms."
+    "duree": 6.6,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Retrouvez ici les 10 infos qui font l'actualité tech et télécoms."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.5,
-    "texte": "C'était votre flash info tech de l'après-midi. Restez connectés sur Algeria Tech."
+    "duree": 5.8,
+    "texte": "C'est tout pour ce soir, merci de votre fidélité. Restez connectés à Algeria Tech."
    },
    "items": [
     {
-     "titre": "IA : Google et OpenAI contrôlent le scraping",
-     "texte": "Google, OpenAI et Anthropic s'engagent à respecter une nouvelle directive robots.txt. Elle permettra aux éditeurs de mieux contrôler le scraping de leur contenu pour l'entraînement des intelligences artificielles génératives, une étape clé pour encadrer cette technologie.",
+     "titre": "95 projets routiers lancés",
+     "texte": "À l'occasion de la Révolution, 95 projets de développement routier ont été lancés dans 24 wilayas. Ces initiatives visent la modernisation et l'entretien du réseau sur plus de 850 kilomètres.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 14.0,
+     "duree": 11.7,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Algérie Éco"
     },
     {
-     "titre": "Assurance : l'automobile moteur de croissance",
-     "texte": "Le marché algérien des assurances a connu une progression de trois pour cent au premier semestre 2026. Cette croissance est principalement portée par le bon dynamisme du secteur de l'assurance automobile, confirmant son rôle moteur dans l'économie nationale.",
+     "titre": "Prolonger la vie des AirTags",
+     "texte": "Découvrez comment optimiser la durée de vie de la batterie de vos AirTags Apple. Certains réglages peuvent aider à éviter une décharge trop rapide de vos dispositifs de localisation.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 13.4,
-     "pays": "DZ",
-     "source": "Le Soir d'Algérie"
-    },
-    {
-     "titre": "CarPlay sans fil : l'adaptateur à choisir",
-     "texte": "Envie de profiter de CarPlay sans brancher votre iPhone? Il existe des adaptateurs pour transformer votre connexion filaire en sans fil. Voici les éléments essentiels à considérer pour choisir le bon appareil et profiter pleinement de votre système.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 13.6,
+     "duree": 9.3,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Investir en Afrique : la place de l'Algérie",
-     "texte": "Un nouveau rapport de la Rand Merchant Bank évalue les économies africaines pour l'investissement. Il analyse des indicateurs comme la performance économique et l'innovation. Découvrez où se positionne l'Algérie face à ses voisins, le Maroc, l'Égypte et la Tunisie.",
+     "titre": "Mobilis innove pour l'Algérie",
+     "texte": "À l'occasion de l'anniversaire de la Révolution, Mobilis a dévoilé de nouvelles offres commerciales et des services numériques. L'opérateur renforce ainsi sa présence sur le marché algérien.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 10.5,
+     "pays": "DZ",
+     "source": "NTIC.dz"
+    },
+    {
+     "titre": "Le retour des CD pose problème",
+     "texte": "Les CD font un retour remarqué auprès des collectionneurs, mais leur utilisation moderne soulève des défis. Profiter de sa musique physique devient compliqué à l'ère du numérique.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 14.6,
+     "duree": 9.9,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "IA aide les banques algériennes",
+     "texte": "Une nouvelle intelligence artificielle, ABIX Data Explorer, assiste désormais les banques algériennes dans l'élaboration de leurs stratégies sur trois ans. L'outil combine IA et moteur de calcul.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 10.7,
      "pays": "DZ",
      "source": "Maghreb Emergent"
     },
     {
-     "titre": "Croissance mondiale soutenue par l'IA",
-     "texte": "Selon le FMI, la croissance mondiale atteindra 3,1% en 2026. L'investissement massif dans l'intelligence artificielle compense un choc énergétique qui fragmente l'économie mondiale, avec 32 pays concentrant l'essentiel de cette croissance.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 14.4,
-     "pays": "DZ",
-     "source": "AlgeriaTech.news"
-    },
-    {
-     "titre": "Jais 3 : IA arabe ambitieuse",
-     "texte": "MBZUAI et Inception42 lancent Jais 3, une famille de modèles d'IA arabes. Jusqu'à 375 milliards de paramètres, ils supportent les dialectes nord-africains et le code-switching, une avancée significative pour l'IA dans la région.",
+     "titre": "Menaces contre Sabrina Sebaihi",
+     "texte": "La députée écologiste française Sabrina Sebaihi, d'origine algérienne, est victime de menaces. Son engagement contre le racisme et l'islamophobie lui vaut des attaques extrémistes.",
      "mp3": "/podcast/fr/06.mp3",
-     "duree": 13.2,
+     "duree": 10.8,
      "pays": "DZ",
-     "source": "AlgeriaTech.news"
+     "source": "TSA Algérie"
     },
     {
-     "titre": "États-Unis : essor des cursus IA",
-     "texte": "Plus de cent départements informatiques aux États-Unis proposent désormais des spécialisations en intelligence artificielle. Ce nombre a quasiment doublé en un an, reflétant l'importance croissante de l'IA dans l'enseignement supérieur américain.",
+     "titre": "Améliorer le son sur Android",
+     "texte": "Apprenez à améliorer la qualité audio sur Android, que vous utilisiez des casques Bluetooth ou filaires. Découvrez les solutions pour une meilleure expérience sonore.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 12.9,
+     "duree": 9.0,
      "pays": "DZ",
-     "source": "AlgeriaTech.news"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Google investit dans l'énergie solaire",
-     "texte": "Google renforce son engagement énergétique avec un accord solaire et de batteries de 440 mégawatts. Ce projet vise à alimenter son centre de données à West Memphis, incluant des améliorations du réseau électrique.",
+     "titre": "L'IA de Google inquiète",
+     "texte": "Malgré de bons résultats financiers pour son cloud, le marché s'inquiète de l'intelligence artificielle de Google. L'entreprise a vu sa capitalisation boursière chuter de 500 milliards de dollars.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 12.2,
+     "duree": 10.7,
      "pays": "DZ",
-     "source": "AlgeriaTech.news"
+     "source": "ITMAG"
     },
     {
-     "titre": "Ligue 1 Mobilis : la JSK prend la tête",
-     "texte": "La JSK s'empare provisoirement de la première place du championnat de Ligue 1 Mobilis après sa victoire. Pendant ce temps, le MCO a été tenu en échec à domicile, manquant l'occasion de grimper au classement.",
+     "titre": "PC tout-en-un : pour et contre",
+     "texte": "Les ordinateurs tout-en-un offrent simplicité et gain de place en intégrant l'ordinateur dans le moniteur. Évaluez les avantages et les inconvénients avant de choisir ce type de machine.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.4,
+     "duree": 10.1,
      "pays": "DZ",
-     "source": "Crésus"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Panne Google Cloud à Londres",
-     "texte": "Un incident d'alimentation a perturbé Google Cloud à Londres pendant six heures le 20 octobre 2026. Plusieurs banques majeures ont été touchées, soulevant des questions sur la résilience des infrastructures critiques numériques.",
+     "titre": "Google contre le scraping IA",
+     "texte": "Google s'allie à OpenAI et d'autres pour limiter le scraping de contenu destiné à l'entraînement des IA. Une nouvelle directive robots.txt permettra de mieux contrôler l'utilisation des données.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 12.2,
+     "duree": 10.5,
      "pays": "DZ",
-     "source": "AlgeriaTech.news"
+     "source": "GeekyAlgeria"
     }
    ]
   },
