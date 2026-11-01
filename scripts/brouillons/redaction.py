@@ -453,12 +453,14 @@ def _gemini_recherche_texte(prompt):
     return "", []
 
 
-def resoudre_sources(titre, corps, url_media, nom_media, origine_officielle=False):
+def resoudre_sources(titre, corps, url_media, nom_media, origine_officielle=False, aps=None):
     """{'officiels': [{nom, url, extrait}], 'admin': bool, 'nom': str, 'url': str}.
     - officiels : publication d'origine de l'organisation concernée (site vérifié, ou page Facebook officielle trouvée par la recherche) ;
     - admin=True : plusieurs sites, aucune origine identifiable → « Source : Admin » ;
     - sinon nom/url = le média cité (seul site, ou recherche indisponible : on ne prétend rien de plus)."""
     sortie = {"officiels": [], "admin": False, "nom": nom_media, "url": url_media}
+    # Ordre de l'éditeur : publication d'origine (site officiel, puis page Facebook officielle) ; à défaut l'APS, source crédible ; sinon Admin
+    repli = aps if (aps and aps.get("url")) else None
     if origine_officielle:                      # la source lue EST la page officielle (communiqué, scoop)
         return sortie
     sortie["officiels"] = sources_officielles(titre, corps, url_media)
@@ -466,9 +468,16 @@ def resoudre_sources(titre, corps, url_media, nom_media, origine_officielle=Fals
         return sortie
     texte, urls = _gemini_recherche_texte(PROMPT_ORIGINE.format(
         titre=titre, resume=re.sub(r"\s+", " ", corps[:700]), media=nom_media, url=url_media))
+    if not repli and _hote(url_media) != "aps.dz":   # la recherche a peut-être trouvé l'article de l'APS sur le même fait
+        for u in urls:
+            if _hote(u) == "aps.dz":
+                repli = {"nom": "APS", "url": u}
+                break
     m = re.search(r"\{[\s\S]*\}", texte or "")
     if not m:
-        log("origine de la source : recherche indisponible, média cité")
+        log("origine de la source : recherche indisponible, " + ("APS citée" if repli else "média cité"))
+        if repli:
+            sortie["nom"], sortie["url"] = repli.get("nom", "APS"), repli["url"]
         return sortie
     try:
         import json as _j
@@ -485,7 +494,12 @@ def resoudre_sources(titre, corps, url_media, nom_media, origine_officielle=Fals
     elif kind == "media_unique" and url.startswith("http") and _hote(url) != _hote(url_media):
         sortie["nom"], sortie["url"] = nom or _hote(url), url
     elif kind == "plusieurs_sans_origine":
-        sortie["admin"] = True
+        if repli:   # ni site ni page Facebook : on se réfère à l'APS
+            sortie["nom"], sortie["url"] = repli.get("nom", "APS"), repli["url"]
+        else:
+            sortie["admin"] = True
+    if repli and not sortie["officiels"] and not sortie["admin"] and kind != "media_unique":
+        sortie["nom"], sortie["url"] = repli.get("nom", "APS"), repli["url"]
     return sortie
 
 

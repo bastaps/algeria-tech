@@ -213,6 +213,7 @@ function toggleMobileMenu() {
 
 // ===== CONFIGURATION GLOBALE =====
 let allArticles = [];
+let jeuxArticles = []; // rubrique « Jeux vidéo » : jamais en Une, absente du flux de l'accueil, visible dans sa propre rubrique
 let breveArticles = []; // articles publiés en "Brèves" (n'apparaissent pas en Une)
 const ITEMS_PER_PAGE = 6;
 const BREVES_PER_PAGE = 5;
@@ -223,7 +224,7 @@ let currentTag = null;
 let articleViews = JSON.parse(localStorage.getItem('articleViews') || '{}');
 let currentEditingId = null;
 // Un article peut vivre dans allArticles (flux principal) ou breveArticles (espace Brèves)
-function findArticleById(id) { return allArticles.find(a => a.id == id) || breveArticles.find(a => a.id == id); }
+function findArticleById(id) { return allArticles.find(a => a.id == id) || breveArticles.find(a => a.id == id) || jeuxArticles.find(a => a.id == id); }
 
 // Après publication/suppression : purge le cache local (localStorage) et le cache du
 // Service Worker (stale-while-revalidate sur articles-list.json) pour que le prochain
@@ -388,6 +389,10 @@ async function loadArticles() {
         breveArticles = data
             .filter(a => a.type === 'breve')
             .map(_mapArt);
+
+        // Jeux vidéo : retirés du flux principal (donc de la Une, des cartes et de la pagination de l'accueil)
+        jeuxArticles = allArticles.filter(a => String(a.categorie || '').split('|')[0].trim() === 'Jeux');
+        allArticles = allArticles.filter(a => !jeuxArticles.includes(a));
 
         // Mise en cache pour la prochaine visite
         localStorage.setItem('at_articles_cache', JSON.stringify(allArticles));
@@ -2280,7 +2285,7 @@ window.filterByCategory = function(cat, ev) {
     currentPage = 1;
     // On affiche le Hero (grandes images) uniquement sur l'Accueil, on le cache ailleurs
     document.getElementById('heroSection').classList.toggle('hidden', cat !== 'all');
-    const filtered = cat === 'all' ? allArticles : allArticles.filter(a => a.categorie === cat);
+    const filtered = cat === 'all' ? allArticles : (cat === 'Jeux' ? jeuxArticles : allArticles.filter(a => a.categorie === cat));
     renderGrid(filtered.slice(0, ITEMS_PER_PAGE));
     renderPagination(filtered);
 };

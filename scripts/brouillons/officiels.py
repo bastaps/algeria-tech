@@ -88,7 +88,7 @@ def candidats_officiels(par_source=3, max_total=10):
             if not D.dates_dans(texte_page[:8000]) and rang >= 2:   # page sans date : seuls les 2 premiers de la liste (plus récents) passent
                 log(f"  {nom} : communiqué sans date, rang {rang + 1} écarté — {titre[:60]}")
                 continue
-            out.append({"score": 200 - 8 * n - 2 * len(out), "titre": titre, "url": h, "source": nom, "pays": "DZ", "origine": "officiel"})
+            out.append({"score": 480 - 8 * n - 2 * len(out), "titre": titre, "url": h, "source": nom, "pays": "DZ", "origine": "officiel"})
             n += 1
             if n >= par_source:
                 break

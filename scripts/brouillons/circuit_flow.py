@@ -183,12 +183,34 @@ def candidats_scoops():
     return cands
 
 
+def candidats_tous(slot, scoops=None):
+    """Tous les candidats (scoops IA, communiqués officiels, revue de presse, flux, réseaux) triés du meilleur au moins bon."""
+    out = []
+    for nom, fab in (("scoops", scoops or candidats_scoops), ("officiels", O.candidats_officiels), ("revue", candidats_revue), ("flux", candidats_flux)):
+        try:
+            lot = fab()
+        except Exception as e:  # noqa: BLE001 — une source en panne ne bloque pas les autres
+            log(f"  {nom} indisponible ({type(e).__name__}) : {e}")
+            continue
+        out += lot[:25]
+    vus, uniques = set(), []
+    for c in sorted(out, key=lambda c: -c["score"]):
+        if c.get("origine") in ("rss", "revue", "social") and P.hors_perimetre(c["titre"], "", c.get("url") or "")[0]:
+            continue   # sport, électroménager, offres étrangères… : écartés avant même d'être classés
+        if c.get("url") and c["url"] not in vus:
+            vus.add(c["url"])
+            uniques.append(c)
+    log("candidats : " + " | ".join(f"{c['score']:.0f} {c['origine']} {c['titre'][:40]}" for c in uniques[:6]))
+    return uniques
+
+
 def candidats_revue():
     out = []
     for a in charger_revue().get("articles", []):
         titre = re.sub(r"<[^>]+>", " ", a.get("titre", "")).strip()
         texte = f"{titre} {a.get('resume', '')}"
-        s = (50 if a.get("pays") == "DZ" else 0) + 10 * min(3, len(TECH.findall(texte))) + 25 * bool(SUIVI.search(texte))
+        # Algérie d'abord, toujours : toute info algérienne (300+) passe avant toute info internationale (100+)
+        s = (300 if a.get("pays") == "DZ" else 100) + 10 * min(3, len(TECH.findall(texte))) + 25 * bool(SUIVI.search(texte))             + 60 * bool(NATIONAL.search(titre))
         s += 10 if str(a.get("date", ""))[:10] == aujourd_hui() else 0
         if not TECH.search(texte) and not SUIVI.search(texte):
             s -= 60  # « que du tech » : sans lien avec le numérique, on ne retient pas
@@ -198,19 +220,50 @@ def candidats_revue():
     return out
 
 
+NATIONAL = re.compile(r"mobilis|djezzy|ooredoo|alg[ée]rie t[ée]l[ée]com|alg[ée]rie poste|\bat satellite|arpce|\bmptn?\b|minist[èe]re de la poste|"
+                      r"\banpt\b|alg[ée]rie satellite|minist[èe]re de l.[ée]conomie de la connaissance", re.I)
+_APS_ITEMS = []   # articles APS vus dans la collecte : source crédible de repli quand l'origine d'une info est introuvable
+
+
+def aps_pour(titre, url=""):
+    """Article APS qui traite du même fait que `titre` ({nom, url}) ou None (l'APS est la source de repli, après le site et la page Facebook)."""
+    if "aps.dz" in (url or ""):
+        return None
+    meilleur = None
+    for x in _APS_ITEMS:
+        r = D.ressemblance(titre, x["titre"])
+        if r >= 0.25 and D.entites(titre) & D.entites(x["titre"]) and (not meilleur or r > meilleur[0]):
+            meilleur = (r, x)
+    return {"nom": "APS", "url": meilleur[1]["url"]} if meilleur else None
+
+
 def candidats_flux():
-    """Flux RSS (collecte de l'express, filtre éditorial sans IA, Algérie d'abord) + veille réseaux sociaux."""
+    """Flux RSS + veille réseaux sociaux. RÈGLE DE L'ÉDITEUR : l'Algérie d'abord, toujours ; l'international seulement s'il n'y a rien d'algérien.
+    (Avant 2026-11-01, le filtre de l'express exigeait un domaine .dz : les infos d'Algérie360, Algérie Éco, NTIC… étaient écartées et le circuit
+    se rabattait sur l'international, d'où un jeu mobile en Une un jour où l'APS publiait une info Mobilis.)
+    Barème : Algérie 300+ (opérateur / institution nationale : +60), international 100+."""
     out = []
     try:
         sys.path.insert(0, str(RACINE / "scripts" / "express"))
-        from filtre_editorial import trier
+        from filtre_editorial import analyser, nettoyer_titre
         from sources import collecter
-        arts = collecter(max_age_h=20, journal=lambda m: None)
-        gardes, _ = trier(arts, utiliser_gemini=False, historique=[])
-        for i, a in enumerate(gardes[:25]):
-            pays = (a.get("filtre") or {}).get("pays", "")
-            out.append({"score": 80 - i + (10 if pays == "DZ" else 0), "titre": a.get("title", ""), "url": a.get("url"),
-                        "source": a.get("source", ""), "pays": pays, "origine": "rss"})
+        arts = collecter(max_age_h=24, journal=lambda m: None)
+        _APS_ITEMS.clear()
+        maintenant = time.time()
+        for a in arts:
+            titre = nettoyer_titre(a.get("title", ""))
+            if "aps.dz" in (a.get("url") or ""):
+                _APS_ITEMS.append({"titre": titre, "url": a["url"]})
+            f = analyser({**a, "title": titre})
+            if f["decision"] == "rejeter" or not a.get("url"):
+                continue
+            dz = f["pays"] == "DZ"
+            if not dz and f["decision"] != "ambigu":
+                continue
+            heures = max(0.0, (maintenant - float(a.get("ts") or maintenant)) / 3600)
+            score = (300 if dz else 100) + 20 * (f["decision"] == "garder") + 60 * bool(NATIONAL.search(titre)) + max(0.0, 24 - heures)
+            out.append({"score": round(score, 1), "titre": titre, "url": a["url"], "source": a.get("source", ""),
+                        "pays": f["pays"], "origine": "rss"})
     except Exception as e:
         log(f"flux RSS indisponibles ({type(e).__name__}) : {e}")
     limite = datetime.datetime.utcnow() - datetime.timedelta(days=4)
@@ -237,7 +290,7 @@ def candidats_flux():
         txt = re.sub(r"\s+", " ", str(brut))[:200]
         if len(txt) < 20:
             continue
-        out.append({"score": 70 + 25 * bool(SUIVI.search(txt)), "titre": txt, "url": p["url"],
+        out.append({"score": 340 + 25 * bool(SUIVI.search(txt)), "titre": txt, "url": p["url"],
                     "source": p.get("source_short", ""), "pays": "DZ", "origine": "social"})
     out.sort(key=lambda c: -c["score"])
     return out
@@ -296,12 +349,11 @@ def choisir(slot):
         return 3
     serveurs()
     ctx = contexte_dedup(h)
-    # Règle éditoriale : d'abord les communiqués publiés par les entreprises / institutions elles-mêmes ; les médias ensuite.
-    # (1) scoops trouvés par l'IA sur les sites / pages officiels, (2) communiqués officiels connus, (3) la presse
-    listes = (candidats_scoops, O.candidats_officiels, candidats_revue, candidats_flux) if slot == "matin" \
-        else (candidats_scoops, O.candidats_officiels, candidats_flux, candidats_revue)
+    # Règle éditoriale (2026-11-01) : UNE seule liste, triée par score — toute info algérienne (scoop 520, communiqué officiel 480, presse /
+    # réseaux 300+) passe avant toute info internationale (150 maximum). L'international n'est choisi que s'il n'y a rien d'algérien de lisible.
+    listes = (lambda: candidats_tous(slot),)
     for fabrique in listes:
-        for c in fabrique()[:14]:
+        for c in fabrique()[:40]:
             if not c["url"]:
                 continue
             doublon, pourquoi, _ = D.trouver_doublon(c["titre"], c["url"], "", ctx, arbitre=arbitre_ia)
@@ -350,7 +402,8 @@ def choisir(slot):
             pol = R.politique_video(jpg, f.get("title") or c["titre"], texte[:500], html_page)
             video_ok, raison_video = pol["mode"] in R.VIDEO_MODES, pol["raison"]
             log(f"  vidéo « {pol['mode']} » : {raison_video}")
-            job = {"ident": ident, "slot": slot, "article": {k: c[k] for k in ("titre", "url", "source", "pays", "origine", "score")},
+            job = {"ident": ident, "slot": slot, "article": {**{k: c[k] for k in ("titre", "url", "source", "pays", "origine", "score")},
+                                                              "aps": aps_pour(c["titre"], c["url"])},
                    "titre_page": f.get("title", ""), "texte": texte, "image_source": image,
                    "image_weserv": weserv(image), "prompt_flow": pol["prompt"],
                    "video_mode": pol["mode"], "video_url": pol["video_url"],
@@ -438,7 +491,7 @@ def finaliser(ident, clip, sans_push):
     # sourcing : site officiel de l'entité concernée (page réellement lue et vérifiée) avant le média relais
     direct = job["article"].get("origine") in ("officiel", "scoop")   # la page lue EST la publication de l'entreprise / institution
     src = R.resoudre_sources(job["titre_page"] or job["article"]["titre"], job["texte"], job["article"]["url"],
-                             job["article"]["source"], origine_officielle=direct)
+                             job["article"]["source"], origine_officielle=direct, aps=job["article"].get("aps"))
     officiels = src["officiels"]
     bloc_officiel = "".join(f"\n\nSOURCE OFFICIELLE — {o['nom']} ({o['url']}) :\n{o['extrait']}" for o in officiels)
     corps_source = (f"{job['titre_page']}\n\n{job['texte']}{bloc_officiel}"
@@ -465,6 +518,9 @@ def finaliser(ident, clip, sans_push):
     extra_promo = "promo: true\ndefaut: entreprise\n" if promo else ""
     if promo:
         cat = "Entreprises"
+    if P.est_jeu(g["titre"], g["lead"]):   # jeux vidéo : rubrique spéciale « Jeux vidéo », hors flux de l'accueil, JAMAIS en Une
+        cat, promo = "Jeux", False
+        extra_promo = "hors_une: true\n"
     # vidéo : clip Flow local (image + texte, ou image animée), ou vidéo YouTube du média qui accompagne l'article (reprise telle quelle)
     video_url = (f"/videos/articles/{ident}.mp4" if avec_video
                  else (job.get("video_url", "") if job.get("video_mode") == "source" else ""))

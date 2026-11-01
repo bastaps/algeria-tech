@@ -27,9 +27,9 @@ RACINE = Path(os.environ.get("PUBLIER_RACINE") or Path(__file__).resolve().paren
 SITE = "https://algeria-tech.pages.dev"
 NTFY = os.environ.get("NTFY_BASE", "https://ntfy.sh")
 DELAI_MIN = int(os.environ.get("DELAI_MIN", "0"))
-INTERNES = ("image_suggeree", "brouillon", "circuit", "cree", "choix_canal", "defaut", "delai_min", "promo")
-CHOIX = ("une", "seconde", "breve", "entreprise", "rejeter")
-LIBELLE = {"une": "à la Une", "seconde": "en 2e position", "breve": "en brève", "entreprise": "dans Entreprises & Marques"}
+INTERNES = ("image_suggeree", "brouillon", "circuit", "cree", "choix_canal", "defaut", "delai_min", "promo", "hors_une")
+CHOIX = ("une", "seconde", "breve", "entreprise", "normal", "rejeter")
+LIBELLE = {"une": "à la Une", "seconde": "en 2e position", "breve": "en brève", "entreprise": "dans Entreprises & Marques", "normal": "en rubrique spéciale (hors Une)"}
 
 
 def log(m):
@@ -96,6 +96,8 @@ def publier(ident, action, md):
         md = re.sub(r"^type:.*$", "type: breve", md, count=1, flags=re.M)
     elif action == "entreprise":
         md = re.sub(r"^type:.*$", "type: communique_entreprise", md, count=1, flags=re.M)
+    elif action == "normal":   # rubrique spéciale (Jeux vidéo) : ni Une, ni 2e position, ni brève
+        pass
     else:
         p = "1" if action == "une" else "2"
         liberer_position(p, f"{ident}.md")
@@ -139,6 +141,8 @@ def main():
                 log(f"{ident} : en attente de choix ({age:.0f}/{delai} min)")
                 continue
             choix, origine = defaut, f"aucun choix sous {delai} min"
+        if champ(md, "hors_une") == "true" and choix in ("une", "seconde"):
+            choix, origine = "normal", "jeux vidéo : rubrique spéciale, jamais en Une"
         if champ(md, "promo") == "true" and choix in ("une", "seconde"):
             choix, origine = "entreprise", "offre / promotion : jamais en Une, rubrique Entreprises & Marques"
         # Garde-fou anti-doublon : un autre article publié depuis (autre circuit, saisie manuelle, brouillon plus ancien du même

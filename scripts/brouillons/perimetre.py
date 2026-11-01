@@ -36,6 +36,8 @@ ELECTRO_ADMIS = re.compile(r"t[ée]l[ée]vis|\btv\b|smartphone|t[ée]l[ée]phone
 PROMO_TITRE = re.compile(
     r"\boffres?\b|forfaits?|promo(?:tion)?s?\b|tarifs?\b|abonnements?|remises?\b|r[ée]ductions?|cashback|bundle|\bpack\b|recharges?\b|"
     r"bonus|\d[\d  .,]*\s*(?:da|dzd|dinars?)\b", re.I)
+SPORT = re.compile(r"ligue [12]\b|championnat|\bfootball\b|handball|basket|\bjournée\b.*\b(?:ligue|championnat)|coupe d.alg[ée]rie|"
+                   r"\busma\b|\bjsk\b|\bmco\b|\bcsc\b|\bmca\b|belouizdad|\bjs saoura\b|\bmbr\b|\bcrb\b|\bnaft\b|\bmatch\b", re.I)
 URL_BONS_PLANS = re.compile(r"bons?-plans?|/promo|/deals?|soldes|black-friday|codes?-promo|comparateur-forfait", re.I)
 
 PROMPT_PERIMETRE = """Algeria Tech est un média algérien du numérique, des télécoms et de la tech.
@@ -55,6 +57,8 @@ def hors_perimetre(titre, texte="", url=""):
     debut = f"{t} {(texte or '')[:500]}"
     if URL_BONS_PLANS.search(url or ""):
         return True, "page « bons plans / promotions » d'un média grand public"
+    if SPORT.search(t):
+        return True, "sport (le parrainage d'un championnat par un opérateur n'est pas une info télécom)"
     if ELECTROMENAGER.search(debut) and not ELECTRO_ADMIS.search(t):
         return True, "électroménager (hors périmètre : seuls téléviseurs, smartphones, box TV et serveurs sont admis)"
     en_titre_etranger = OPERATEURS_ETRANGERS.search(t)
@@ -79,5 +83,15 @@ def douteux(titre, texte=""):
 
 
 def est_promo(titre, extrait=""):
-    """True si l'article est une offre / un service / une promotion : il va dans la rubrique « Offres & Promos », jamais en Une."""
+    """True si l'article est une offre / un service / une promotion : il va dans « Entreprises & Marques », jamais en Une."""
     return bool(PROMO_TITRE.search(titre or ""))
+
+
+JEUX = re.compile(
+    r"jeux? vid[ée]o|jeux? mobiles?|gaming|gamers?\b|e-?sports?|playstation|\bps[45]\b|xbox|nintendo|\bsteam\b|fortnite|minecraft|roblox|"
+    r"call of duty|\bgames?\b|jeux? (?:sur|de) (?:console|pc|smartphone)", re.I)
+
+
+def est_jeu(titre, extrait=""):
+    """True si l'article parle de jeux vidéo : rubrique spéciale « Jeux vidéo » (catégorie Jeux), hors flux de l'accueil, JAMAIS en Une."""
+    return bool(JEUX.search(f"{titre or ''} {(extrait or '')[:160]}"))

@@ -157,11 +157,10 @@ def produire(slot, notif=True):
     # Règle éditoriale : d'abord les communiqués officiels des entreprises / institutions ; les médias ensuite.
     # une seule recherche Google par jour (cache partagé data/scoops-jour.json, commité avec le brouillon) ; pistes Facebook : PC seulement
     scoops = lambda: C.S.candidats_du_jour(RACINE / C.S.CACHE_REL)[0]   # noqa: E731
-    listes = ((scoops, C.O.candidats_officiels, C.candidats_revue, C.candidats_flux) if slot == "matin"
-              else (scoops, C.O.candidats_officiels, C.candidats_flux, C.candidats_revue))
+    listes = (lambda: C.candidats_tous(slot, scoops),)   # une seule liste triée : l'Algérie d'abord, toujours
     essais_ia = 0
     for fabrique in listes:
-        for c in fabrique()[:14]:
+        for c in fabrique()[:40]:
             if not c["url"] or c["url"] in vus:
                 continue
             doublon, pourquoi, _ = C.D.trouver_doublon(c["titre"], c["url"], "", ctx, arbitre=C.arbitre_ia)
@@ -197,7 +196,7 @@ def produire(slot, notif=True):
                 return 2
             essais_ia += 1
             direct = c.get("origine") in ("officiel", "scoop")   # la page lue EST la publication de l'entreprise / institution
-            src = R.resoudre_sources(c["titre"], corps, c["url"], c["source"], origine_officielle=direct)
+            src = R.resoudre_sources(c["titre"], corps, c["url"], c["source"], origine_officielle=direct, aps=C.aps_pour(c["titre"], c["url"]))
             officiels = src["officiels"]
             red = R.rediger(c["source"], c["titre"], corps, officiels)
             if not red:
@@ -233,6 +232,9 @@ def ecrire_brouillon(ident, c, red, officiels, slot, notif, src=None, direct=Fal
     extra_promo = "promo: true\ndefaut: entreprise\n" if promo else ""
     if promo:
         cat = "Entreprises"
+    if C.P.est_jeu(red["titre"], red.get("extrait", "")):   # jeux vidéo : rubrique « Jeux vidéo », hors flux de l'accueil, JAMAIS en Une
+        cat, promo = "Jeux", False
+        extra_promo = "hors_une: true\n"
     now = C.maintenant_alger()
     canal_choix = "atchoix-" + secrets.token_hex(8)
     tags = ", ".join(f'"{C.q(t)}"' for t in (red.get("tags") or [])[:6] if str(t).strip())

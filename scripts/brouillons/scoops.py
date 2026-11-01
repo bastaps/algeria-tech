@@ -106,7 +106,7 @@ def candidats_scoops(max_total=6):
                 log(f"  date absente ou ancienne, écartée : {titre[:60]}")
                 continue
             reseau = any(x in R._hote(url) for x in ("facebook.", "fb.com", "x.com", "twitter.", "linkedin.", "instagram."))
-            c = {"score": 240 - 4 * len(cands), "titre": titre, "url": url, "source": entite, "pays": "DZ" if groupe is ENTITES_DZ else "",
+            c = {"score": (520 if groupe is ENTITES_DZ else 150) - 4 * len(cands), "titre": titre, "url": url, "source": entite, "pays": "DZ" if groupe is ENTITES_DZ else "",
                  "origine": "scoop", "reseau": "facebook" if reseau else "site", "resume": str(i.get("resume") or "")}
             (pistes if reseau else cands).append(c)
     log(f"{len(cands)} scoop(s) lisible(s), {len(pistes)} piste(s) sur réseau social")
