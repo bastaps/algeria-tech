@@ -1,102 +1,102 @@
 {
- "creneau": "midi",
+ "creneau": "soir",
  "date": "2026-11-01",
- "genere": "2026-11-01T14:14:06",
+ "genere": "2026-11-01T18:06:38",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
-   "creneau": "midi",
-   "genere": "2026-11-01T14:15:07",
+   "creneau": "soir",
+   "genere": "2026-11-01T18:08:39",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.0,
-    "texte": "Bon après-midi et bienvenue sur Algeria Tech ! Voici 10 informations pour votre veille tech."
+    "duree": 7.2,
+    "texte": "Bonsoir à toutes et à tous, bienvenue sur Algeria Tech. Voici dix actualités tech et société pour votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.2,
-    "texte": "C'était votre tour de l'actualité tech sur Algeria Tech. Restez connectés !"
+    "duree": 4.3,
+    "texte": "C'est la fin de ce tour d'horizon. Bonne soirée sur Algeria Tech."
    },
    "items": [
     {
-     "titre": "Panne métro Alger : ligne 1 affectée",
-     "texte": "Ce dimanche 1er novembre, une panne technique a immobilisé la ligne 1 du métro d'Alger. Six stations ont été temporairement hors service, coïncidant avec le jour anniversaire de la Révolution. Les voyageurs ont dû trouver des solutions alternatives.",
+     "titre": "L'IMAX 3D est-il vraiment supérieur",
+     "texte": "Faut-il préférer l'IMAX 3D à la 2D pour une expérience optimale ? Pas nécessairement. Si la 3D apporte parfois une immersion réelle grâce à la profondeur, le format plus grand ne garantit pas une meilleure qualité. Tout dépend du film et de l'usage créatif fait de cette technologie spécifique par le réalisateur.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 14.1,
+     "duree": 17.5,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Guide pour visiter le Sahara",
+     "texte": "Le tourisme dans le grand Sud algérien attire de nombreux curieux. Pour explorer le Tassili et le Hoggar dans les meilleures conditions, il est essentiel de bien choisir son guide, de planifier les formalités administratives et de définir les périodes idéales pour profiter sereinement des bivouacs sous les étoiles du désert.",
+     "mp3": "/podcast/fr/02.mp3",
+     "duree": 15.6,
      "pays": "DZ",
      "source": "Algérie360"
     },
     {
-     "titre": "Microsoft Teams : fonctionnalités à découvrir",
-     "texte": "Au-delà des appels et du chat, Microsoft Teams cache des fonctionnalités méconnues. Si vous utilisez cette plateforme au quotidien pour le travail, découvrez ces options pratiques qui pourraient améliorer votre productivité et votre organisation.",
-     "mp3": "/podcast/fr/02.mp3",
-     "duree": 12.7,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Alphabet déçoit : Bourse réagit",
-     "texte": "Les derniers résultats trimestriels d'Alphabet suscitent des inquiétudes sur la rentabilité des investissements dans l'intelligence artificielle. La publication des chiffres a entraîné une réaction négative sur les marchés boursiers asiatiques.",
+     "titre": "Les atouts de Samsung One UI",
+     "texte": "Samsung se distingue sur le marché Android grâce à son interface One UI. Elle propose des fonctionnalités exclusives allant de la personnalisation poussée à une gestion fluide de l'écosystème multi-appareils. Ces spécificités expliquent en grande partie le succès mondial des smartphones Galaxy face à la concurrence des autres constructeurs sous Android.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 12.3,
+     "duree": 18.6,
      "pays": "DZ",
-     "source": "ITMAG"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "GNSS et GPS : quelle différence ?",
-     "texte": "Votre smartphone utilise plus que le GPS pour vous localiser. GPS et GNSS sont souvent confondus mais désignent des systèmes distincts. Comprendre leur différence est essentiel pour saisir la technologie derrière la localisation.",
+     "titre": "Paiement électronique et INATEL",
+     "texte": "Le paiement électronique en Algérie franchit une nouvelle étape. L'Entreprise nationale de l'industrie des technologies électroniques, plus connue sous le nom d'INATEL, a reçu le feu vert pour installer des terminaux de paiement électronique. Cette décision vise à accélérer concrètement le déploiement de ces solutions technologiques dans tout le pays.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 13.9,
+     "duree": 17.4,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Algérie360"
     },
     {
-     "titre": "Câble sous-marin Petal de Meta",
-     "texte": "Meta déploie le câble sous-marin Petal de 7000 km entre la France et les États-Unis. Grâce à sa fibre multi-cœur, il vise une capacité d'un péta bit par seconde dès son lancement en 2029.",
+     "titre": "Panne sur le métro d'Alger",
+     "texte": "Une avarie technique a perturbé le fonctionnement de la ligne 1 du métro d'Alger ce premier novembre. Cet incident technique a entraîné l'arrêt de six stations sur le réseau souterrain, alors que le pays commémorait la Révolution. Les équipes ont dû intervenir pour rétablir au plus vite le service pour les usagers.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 11.4,
+     "duree": 15.9,
      "pays": "DZ",
-     "source": "AlgeriaTech.news"
+     "source": "Algérie360"
     },
     {
-     "titre": "Failles PHP2Shell RCE découvertes",
-     "texte": "Des chercheurs ont mis au jour des failles de sécurité critiques dans PHP2Shell, affectant la quasi-totalité des versions PHP récentes. Ces vulnérabilités, qualifiées de RCE, représentent un risque majeur pour la sécurité web.",
+     "titre": "Maîtriser les fonctions de Teams",
+     "texte": "Microsoft Teams est un outil de travail quotidien, mais il cache des fonctionnalités méconnues. Au-delà des simples appels vidéo et des discussions instantanées, la plateforme évolue régulièrement avec des ajouts pertinents. Il est recommandé de s'informer sur ces nouveautés pour améliorer votre productivité et mieux gérer vos échanges professionnels au sein de l'application.",
      "mp3": "/podcast/fr/06.mp3",
-     "duree": 13.1,
-     "pays": "DZ",
-     "source": "AlgeriaTech.news"
-    },
-    {
-     "titre": "Formation IA pour enseignants Google",
-     "texte": "Google étend son programme gratuit de formation à l'IA pour les enseignants. Plus de 650 000 professionnels au Royaume-Uni et un million aux Philippines bénéficient désormais de ces ressources éducatives.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 10.6,
-     "pays": "DZ",
-     "source": "AlgeriaTech.news"
-    },
-    {
-     "titre": "TSMC : profit record grâce à l'IA",
-     "texte": "TSMC enregistre un sixième trimestre consécutif de profits records, porté par la demande croissante de puces IA. La demande dépasse l'offre, et le fabricant revoit à la hausse ses prévisions de revenus.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.4,
-     "pays": "DZ",
-     "source": "AlgeriaTech.news"
-    },
-    {
-     "titre": "Firmus annule son introduction en bourse",
-     "texte": "Firmus, développeur de centres de données IA, a annulé son introduction en bourse. Les discussions de Nvidia pour un investissement soulignent les risques de financement dans le secteur du cloud pour GPU.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.4,
-     "pays": "DZ",
-     "source": "AlgeriaTech.news"
-    },
-    {
-     "titre": "IA auto-réplicante : inquiétudes",
-     "texte": "Des recherches suggèrent que de petites IA pourraient bientôt s'auto-répliquer. Elles pourraient former des botnets autonomes, lents mais difficiles à éradiquer, soulevant des questions sur la sécurité et le contrôle.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 10.9,
+     "duree": 19.1,
      "pays": "DZ",
      "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Le nouvel essor des véhicules autonomes",
+     "texte": "Le secteur des transports vit une transformation majeure avec le boom des véhicules autonomes. L'intelligence artificielle joue désormais un rôle central dans cette évolution technologique mondiale. Les experts observent une montée en puissance des capacités de conduite assistée, redéfinissant ainsi les enjeux de la mobilité future pour les constructeurs et les usagers.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 19.0,
+     "pays": "INT",
+     "source": "TechCrunch"
+    },
+    {
+     "titre": "iPhone contre Google Pixel haut de gamme",
+     "texte": "Le choix entre l'iPhone 18 Pro et le Google Pixel 11 Pro est un dilemme courant pour les amateurs de smartphones premium. Face à l'augmentation des prix sur le haut de gamme, il est nécessaire de comparer attentivement les atouts de chaque appareil pour déterminer quel modèle correspond le mieux à vos exigences techniques.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 15.2,
+     "pays": "INT",
+     "source": "Frandroid"
+    },
+    {
+     "titre": "Autonomie alimentaire pour les chats",
+     "texte": "L'innovation technologique s'invite aussi dans le quotidien de nos animaux de compagnie. Le distributeur de pâtée et de croquettes Yomy permet désormais aux chats de garder une totale autonomie alimentaire. Cette solution favorise une fragmentation des repas mieux adaptée à leur instinct naturel, offrant ainsi un meilleur confort de vie à l'animal.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 17.5,
+     "pays": "INT",
+     "source": "Numerama"
+    },
+    {
+     "titre": "Promotion sur le Meta Quest 3",
+     "texte": "Bonne nouvelle pour les amateurs de réalité virtuelle. Le casque Meta Quest 3, dans sa version 512 gigaoctets, voit son prix chuter drastiquement durant les promotions de novembre. Grâce aux offres actuelles sur les plateformes marchandes, il est désormais possible d'acquérir ce casque performant pour un tarif particulièrement attractif pour les consommateurs.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 18.6,
+     "pays": "INT",
+     "source": "Frandroid"
     }
    ]
   },
