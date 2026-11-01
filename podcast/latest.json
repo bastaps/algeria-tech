@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-01",
- "genere": "2026-11-01T18:06:38",
+ "genere": "2026-11-01T20:37:22",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
    "creneau": "soir",
-   "genere": "2026-11-01T18:08:39",
+   "genere": "2026-11-01T20:38:34",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.2,
-    "texte": "Bonsoir à toutes et à tous, bienvenue sur Algeria Tech. Voici dix actualités tech et société pour votre soirée."
+    "duree": 6.2,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech, voici notre revue des dix actualités tech et télécoms qui ont marqué la soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 4.3,
-    "texte": "C'est la fin de ce tour d'horizon. Bonne soirée sur Algeria Tech."
+    "duree": 6.0,
+    "texte": "C'était votre dose d'actualités tech. Restez connectés sur Algeria Tech pour plus d'informations."
    },
    "items": [
     {
-     "titre": "L'IMAX 3D est-il vraiment supérieur",
-     "texte": "Faut-il préférer l'IMAX 3D à la 2D pour une expérience optimale ? Pas nécessairement. Si la 3D apporte parfois une immersion réelle grâce à la profondeur, le format plus grand ne garantit pas une meilleure qualité. Tout dépend du film et de l'usage créatif fait de cette technologie spécifique par le réalisateur.",
+     "titre": "OpenAI limite les questions des adolescents",
+     "texte": "OpenAI a décidé de renforcer les restrictions concernant les questions sur les armes à feu pour les utilisateurs adolescents sur ChatGPT. Ces nouvelles mesures s'appliquent même si les requêtes semblent anodines à première vue pour l'entreprise.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 17.5,
+     "duree": 12.1,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Guide pour visiter le Sahara",
-     "texte": "Le tourisme dans le grand Sud algérien attire de nombreux curieux. Pour explorer le Tassili et le Hoggar dans les meilleures conditions, il est essentiel de bien choisir son guide, de planifier les formalités administratives et de définir les périodes idéales pour profiter sereinement des bivouacs sous les étoiles du désert.",
+     "titre": "IMAX 3D vs 2D : quelle expérience choisir ?",
+     "texte": "L'expérience IMAX 3D est-elle vraiment supérieure à la 2D ? Tout dépend du film. Si la profondeur supplémentaire ajoute à l'immersion, le 3D n'est pas toujours une amélioration automatique par rapport à une bonne expérience 2D.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 15.6,
+     "duree": 12.8,
      "pays": "DZ",
-     "source": "Algérie360"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Les atouts de Samsung One UI",
-     "texte": "Samsung se distingue sur le marché Android grâce à son interface One UI. Elle propose des fonctionnalités exclusives allant de la personnalisation poussée à une gestion fluide de l'écosystème multi-appareils. Ces spécificités expliquent en grande partie le succès mondial des smartphones Galaxy face à la concurrence des autres constructeurs sous Android.",
+     "titre": "Visiter le Tassili et le Hoggar",
+     "texte": "Découvrez quand partir, comment organiser votre séjour et quelles formalités remplir pour visiter les merveilles du Tassili et du Hoggar. Profitez des peintures rupestres et des paysages exceptionnels du Sud algérien.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 18.6,
+     "duree": 11.6,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Algérie360"
     },
     {
-     "titre": "Paiement électronique et INATEL",
-     "texte": "Le paiement électronique en Algérie franchit une nouvelle étape. L'Entreprise nationale de l'industrie des technologies électroniques, plus connue sous le nom d'INATEL, a reçu le feu vert pour installer des terminaux de paiement électronique. Cette décision vise à accélérer concrètement le déploiement de ces solutions technologiques dans tout le pays.",
+     "titre": "Fonctionnalités exclusives Samsung One UI",
+     "texte": "Découvrez cinq fonctionnalités uniques de l'interface One UI de Samsung qui la distinguent des autres versions d'Android. De la personnalisation poussée à la gestion multi-appareils fluide, ces options enrichissent l'expérience utilisateur.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 17.4,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Panne sur le métro d'Alger",
-     "texte": "Une avarie technique a perturbé le fonctionnement de la ligne 1 du métro d'Alger ce premier novembre. Cet incident technique a entraîné l'arrêt de six stations sur le réseau souterrain, alors que le pays commémorait la Révolution. Les équipes ont dû intervenir pour rétablir au plus vite le service pour les usagers.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 15.9,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Maîtriser les fonctions de Teams",
-     "texte": "Microsoft Teams est un outil de travail quotidien, mais il cache des fonctionnalités méconnues. Au-delà des simples appels vidéo et des discussions instantanées, la plateforme évolue régulièrement avec des ajouts pertinents. Il est recommandé de s'informer sur ces nouveautés pour améliorer votre productivité et mieux gérer vos échanges professionnels au sein de l'application.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 19.1,
+     "duree": 12.6,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Le nouvel essor des véhicules autonomes",
-     "texte": "Le secteur des transports vit une transformation majeure avec le boom des véhicules autonomes. L'intelligence artificielle joue désormais un rôle central dans cette évolution technologique mondiale. Les experts observent une montée en puissance des capacités de conduite assistée, redéfinissant ainsi les enjeux de la mobilité future pour les constructeurs et les usagers.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 19.0,
+     "titre": "Tablette Lenovo deux fois moins chère",
+     "texte": "La tablette Lenovo Tab M11, vendue avec son stylet, s'impose comme une alternative très abordable à l'iPad. Son prix deux fois inférieur en fait un appareil attractif pour la prise de notes et le dessin.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 11.3,
      "pays": "INT",
-     "source": "TechCrunch"
+     "source": "BFM Tech"
     },
     {
-     "titre": "iPhone contre Google Pixel haut de gamme",
-     "texte": "Le choix entre l'iPhone 18 Pro et le Google Pixel 11 Pro est un dilemme courant pour les amateurs de smartphones premium. Face à l'augmentation des prix sur le haut de gamme, il est nécessaire de comparer attentivement les atouts de chaque appareil pour déterminer quel modèle correspond le mieux à vos exigences techniques.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 15.2,
-     "pays": "INT",
-     "source": "Frandroid"
-    },
-    {
-     "titre": "Autonomie alimentaire pour les chats",
-     "texte": "L'innovation technologique s'invite aussi dans le quotidien de nos animaux de compagnie. Le distributeur de pâtée et de croquettes Yomy permet désormais aux chats de garder une totale autonomie alimentaire. Cette solution favorise une fragmentation des repas mieux adaptée à leur instinct naturel, offrant ainsi un meilleur confort de vie à l'animal.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 17.5,
+     "titre": "Une IA hors ligne pour les urgences",
+     "texte": "Une nouvelle IA, Survival LLM, conçue pour fonctionner hors connexion, peut vous aider en cas d'urgence ou de panne de courant. Elle fournit des conseils de survie et de premiers secours à partir de sa base de données.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 11.4,
      "pays": "INT",
      "source": "Numerama"
     },
     {
-     "titre": "Promotion sur le Meta Quest 3",
-     "texte": "Bonne nouvelle pour les amateurs de réalité virtuelle. Le casque Meta Quest 3, dans sa version 512 gigaoctets, voit son prix chuter drastiquement durant les promotions de novembre. Grâce aux offres actuelles sur les plateformes marchandes, il est désormais possible d'acquérir ce casque performant pour un tarif particulièrement attractif pour les consommateurs.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 18.6,
+     "titre": "Centres de données spatiaux français",
+     "texte": "La start-up française Alatyr ambitionne de construire des centres de données géants dans l'espace. Avec une architecture modulaire, elle vise à concurrencer les acteurs majeurs et à assurer la souveraineté numérique dans l'orbite terrestre.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 12.1,
+     "pays": "INT",
+     "source": "BFM Tech"
+    },
+    {
+     "titre": "Offre internet Free qui surprend",
+     "texte": "Free se distingue avec une offre internet fibre particulièrement attractive. Son rapport qualité-prix semble effrayer la concurrence, répondant ainsi aux attentes de nombreux consommateurs à un tarif compétitif.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 11.4,
+     "pays": "INT",
+     "source": "BFM Tech"
+    },
+    {
+     "titre": "Choisir son Samsung Galaxy en 2026",
+     "texte": "Face à la vaste gamme de smartphones Samsung Galaxy, il peut être difficile de choisir. Découvrez nos recommandations personnalisées en fonction de votre budget pour trouver le modèle idéal en 2026.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 11.4,
      "pays": "INT",
      "source": "Frandroid"
+    },
+    {
+     "titre": "Jeu-concours pCloud pour le stockage",
+     "texte": "Pour le Black Friday, pCloud organise un jeu-concours offrant la possibilité de gagner jusqu'à 10 To de stockage à vie. Trois gagnants seront tirés au sort parmi les inscrits au service.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 10.5,
+     "pays": "INT",
+     "source": "Clubic"
     }
    ]
   },
