@@ -1,102 +1,102 @@
 {
- "creneau": "soir",
- "date": "2026-10-31",
- "genere": "2026-10-31T20:16:55",
+ "creneau": "midi",
+ "date": "2026-11-01",
+ "genere": "2026-11-01T14:14:06",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
-   "creneau": "soir",
-   "genere": "2026-10-31T20:17:53",
+   "creneau": "midi",
+   "genere": "2026-11-01T14:15:07",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.4,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici 10 informations tech et télécoms pour votre soirée."
+    "duree": 6.0,
+    "texte": "Bon après-midi et bienvenue sur Algeria Tech ! Voici 10 informations pour votre veille tech."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.3,
-    "texte": "C'était l'essentiel de l'actu tech. Merci de nous avoir écoutés sur Algeria Tech."
+    "duree": 5.2,
+    "texte": "C'était votre tour de l'actualité tech sur Algeria Tech. Restez connectés !"
    },
    "items": [
     {
-     "titre": "Mobilis enrichit son offre",
-     "texte": "L'opérateur historique Mobilis annonce le lancement de nouveaux services numériques destinés aux particuliers et aux entreprises. Une initiative visant à moderniser son offre et à répondre aux besoins évolutifs de sa clientèle algérienne.",
+     "titre": "Panne métro Alger : ligne 1 affectée",
+     "texte": "Ce dimanche 1er novembre, une panne technique a immobilisé la ligne 1 du métro d'Alger. Six stations ont été temporairement hors service, coïncidant avec le jour anniversaire de la Révolution. Les voyageurs ont dû trouver des solutions alternatives.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 12.5,
+     "duree": 14.1,
      "pays": "DZ",
-     "source": "Le Soir d'Algérie"
+     "source": "Algérie360"
     },
     {
-     "titre": "95 projets routiers lancés",
-     "texte": "Le secteur des Travaux Publics célèbre la Révolution en mettant en service 95 projets routiers. Ces aménagements portent sur 853 kilomètres dans 24 wilayas, améliorant ainsi le réseau national.",
+     "titre": "Microsoft Teams : fonctionnalités à découvrir",
+     "texte": "Au-delà des appels et du chat, Microsoft Teams cache des fonctionnalités méconnues. Si vous utilisez cette plateforme au quotidien pour le travail, découvrez ces options pratiques qui pourraient améliorer votre productivité et votre organisation.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 11.8,
+     "duree": 12.7,
      "pays": "DZ",
-     "source": "Algérie Éco"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Prolonger la vie des AirTags",
-     "texte": "Découvrez comment optimiser la batterie de vos AirTags Apple. Cet accessoire de localisation peut se décharger rapidement, mais des astuces existent pour en prolonger significativement la durée de vie.",
+     "titre": "Alphabet déçoit : Bourse réagit",
+     "texte": "Les derniers résultats trimestriels d'Alphabet suscitent des inquiétudes sur la rentabilité des investissements dans l'intelligence artificielle. La publication des chiffres a entraîné une réaction négative sur les marchés boursiers asiatiques.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 10.7,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Mobilis dévoile ses nouveautés",
-     "texte": "À l'occasion de la fête de la Révolution, Mobilis a présenté de nouvelles offres commerciales et services numériques. L'opérateur mobile renforce ainsi sa présence dans le paysage digital algérien.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 11.0,
-     "pays": "DZ",
-     "source": "NTIC.dz"
-    },
-    {
-     "titre": "Le retour des CD pose problème",
-     "texte": "Alors que les CD connaissent un regain d'intérêt chez les collectionneurs, leur utilisation soulève des défis modernes. La praticité semble s'opposer au plaisir d'écoute de la musique physique.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 10.2,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "L'IA au service des banques",
-     "texte": "Une nouvelle solution d'intelligence artificielle aide les banques algériennes à définir leur stratégie sur trois ans. Ce module assiste la création de plans stratégiques, tout en s'appuyant sur des calculs précis.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 11.3,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
-    },
-    {
-     "titre": "Menaces contre une députée",
-     "texte": "En France, la députée écologiste Sabrina Sebaihi, d'origine algérienne, fait l'objet de menaces. Elle est ciblée par des mouvements extrémistes en raison de son engagement contre le racisme.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 11.1,
-     "pays": "DZ",
-     "source": "TSA Algérie"
-    },
-    {
-     "titre": "Améliorer l'audio sur Android",
-     "texte": "Explorez les méthodes pour améliorer la qualité audio sur Android, que vous utilisiez des casques Bluetooth ou filaires. Des solutions existent pour pallier les limitations traditionnelles du sans-fil.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 10.7,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "L'IA de Google inquiète",
-     "texte": "Malgré des résultats financiers solides, le marché s'inquiète de l'intelligence artificielle de Google. L'annonce de leur nouvelle IA a entraîné une chute significative de la capitalisation boursière d'Alphabet.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.2,
+     "duree": 12.3,
      "pays": "DZ",
      "source": "ITMAG"
     },
     {
-     "titre": "L'origine des creepypastas",
-     "texte": "Plongez dans l'histoire méconnue de 'Ted the Caver', la première creepypasta du Web. Ce récit d'exploration cauchemardesque de 2001 continue de fasciner, son auteur cherchant aujourd'hui à en tirer profit.",
-     "mp3": "/podcast/fr/10.mp3",
+     "titre": "GNSS et GPS : quelle différence ?",
+     "texte": "Votre smartphone utilise plus que le GPS pour vous localiser. GPS et GNSS sont souvent confondus mais désignent des systèmes distincts. Comprendre leur différence est essentiel pour saisir la technologie derrière la localisation.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 13.9,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Câble sous-marin Petal de Meta",
+     "texte": "Meta déploie le câble sous-marin Petal de 7000 km entre la France et les États-Unis. Grâce à sa fibre multi-cœur, il vise une capacité d'un péta bit par seconde dès son lancement en 2029.",
+     "mp3": "/podcast/fr/05.mp3",
      "duree": 11.4,
-     "pays": "INT",
-     "source": "Le Monde Pixels"
+     "pays": "DZ",
+     "source": "AlgeriaTech.news"
+    },
+    {
+     "titre": "Failles PHP2Shell RCE découvertes",
+     "texte": "Des chercheurs ont mis au jour des failles de sécurité critiques dans PHP2Shell, affectant la quasi-totalité des versions PHP récentes. Ces vulnérabilités, qualifiées de RCE, représentent un risque majeur pour la sécurité web.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 13.1,
+     "pays": "DZ",
+     "source": "AlgeriaTech.news"
+    },
+    {
+     "titre": "Formation IA pour enseignants Google",
+     "texte": "Google étend son programme gratuit de formation à l'IA pour les enseignants. Plus de 650 000 professionnels au Royaume-Uni et un million aux Philippines bénéficient désormais de ces ressources éducatives.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 10.6,
+     "pays": "DZ",
+     "source": "AlgeriaTech.news"
+    },
+    {
+     "titre": "TSMC : profit record grâce à l'IA",
+     "texte": "TSMC enregistre un sixième trimestre consécutif de profits records, porté par la demande croissante de puces IA. La demande dépasse l'offre, et le fabricant revoit à la hausse ses prévisions de revenus.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 11.4,
+     "pays": "DZ",
+     "source": "AlgeriaTech.news"
+    },
+    {
+     "titre": "Firmus annule son introduction en bourse",
+     "texte": "Firmus, développeur de centres de données IA, a annulé son introduction en bourse. Les discussions de Nvidia pour un investissement soulignent les risques de financement dans le secteur du cloud pour GPU.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 11.4,
+     "pays": "DZ",
+     "source": "AlgeriaTech.news"
+    },
+    {
+     "titre": "IA auto-réplicante : inquiétudes",
+     "texte": "Des recherches suggèrent que de petites IA pourraient bientôt s'auto-répliquer. Elles pourraient former des botnets autonomes, lents mais difficiles à éradiquer, soulevant des questions sur la sécurité et le contrôle.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 10.9,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
     }
    ]
   },
