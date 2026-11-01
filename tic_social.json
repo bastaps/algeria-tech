@@ -361,6 +361,42 @@
       "source_type": "web"
     },
     {
+      "id": "6a6948690b4603f3",
+      "source_name": "Mobilis",
+      "source_short": "MB",
+      "source_color": "#00A651",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://www.youtube.com/watch?v=LlkKoy8XDjg",
+      "image": "",
+      "date": "2026-11-01T08:00:04+00:00",
+      "lang_source": "ar",
+      "text": {
+        "ar": "الذكرى الـ72 لاندلاع الثورة التحريرية المجيدة.. المجد والخلود لشهدائنا الأبرار. 🇩🇿",
+        "fr": "",
+        "en": ""
+      },
+      "source_type": "youtube"
+    },
+    {
+      "id": "e27ddb36dc8e7abf",
+      "source_name": "Mobilis",
+      "source_short": "MB",
+      "source_color": "#00A651",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://www.youtube.com/watch?v=tbKqPjXvstQ",
+      "image": "",
+      "date": "2026-10-31T23:53:18+00:00",
+      "lang_source": "ar",
+      "text": {
+        "ar": "المجد والخلود لشهدائنا الأبرار. 🇩🇿 تحيا الجزائر 🇩🇿🇩🇿",
+        "fr": "",
+        "en": ""
+      },
+      "source_type": "youtube"
+    },
+    {
       "id": "23b16d86a72cc268",
       "source_name": "Mobilis",
       "source_short": "MB",
@@ -373,6 +409,42 @@
       "lang_source": "fr",
       "text": {
         "fr": "Mobilis lance de nouveaux services numériques au profit des particuliers et des entreprises - Le soir d'Algérie — Mobilis lance de nouveaux services numériques au profit des particuliers et des entreprises Le soir d'Algérie",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "3d243642e8cdd7d8",
+      "source_name": "Mobilis",
+      "source_short": "MB",
+      "source_color": "#00A651",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPV2F4elNjdVAzUi13emphTTM2eDlQQkFXWEsyWUpzaHNDVU5TNzZyMFBSVTlOOXdZVHlMWXhEMWFPaGJhc1hiTmRoSmRadkpHNk9qelhNZ3hIbmRXRnVYNk4wR2ROSTZfQjZ4V0ZyMzFjbmRjeWpLMV9XZnJidnZ0UGszVUZyY3JBVWZsVEVaVENGSDhKeDd3bVJObHp1enBpZEhTNE9wN2ZsOTBkRHlQTnphdTZjSUNiQlAwbnN4OEp6QXd3dTZzRmJ3clgyZ1drRTV3X3U1ZEdpQ2JkamJVQ2RKS3BIQQ?oc=5",
+      "image": "",
+      "date": "Sat, 31 Oct 2026 16:38:00 GMT",
+      "lang_source": "ar",
+      "text": {
+        "ar": "Mobilis lance de nouveaux services numériques au profit des particuliers et des entreprises - وكالة الأنباء الجزائرية — Mobilis lance de nouveaux services numériques au profit des particuliers et des entreprises وكالة الأنباء الجزائرية",
+        "fr": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "562f3cb89e2dd312",
+      "source_name": "Ooredoo Algérie",
+      "source_short": "OR",
+      "source_color": "#E30613",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPTXhoTEF6SGQzZTBKUlFDdXhYZ2dfdHZpUmVVV3pjb0ZBcmtIbmRZbUxNM1pIb3BwaDZ5T0ZFNS1iblBuQS1VckdINEtva0ZCZ1paN1RHZnBheTR2eGtPc1Z5MEJDeXpEcmhZWm5MMmxFTlhadnRoQTZMS3N6ZGNidF9tVFdJSUdPa0VrM01fSWJiYlVHZDREWXhXRWxiRWRWTlZpbkZCZEtYdFB0UWJJZURpX09SSnlYNEpUYVBiYUJuMS1nZk84?oc=5",
+      "image": "",
+      "date": "Sat, 31 Oct 2026 10:00:00 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "L’INFO DE LA SEMAINE : Ooredoo Algérie enrichit son offre prépayée avec plus d'internet et de flexibilité - Mobiles - Le soir d'Algérie — L’INFO DE LA SEMAINE : Ooredoo Algérie enrichit son offre prépayée avec plus d'internet et de flexibilité - Mobiles Le soir d'Algérie",
         "ar": "",
         "en": ""
       },
@@ -649,78 +721,6 @@
       "source_type": "rss"
     },
     {
-      "id": "a38e962e61b007d4",
-      "source_name": "Ooredoo Algérie",
-      "source_short": "OR",
-      "source_color": "#E30613",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNcTNJUGFHUHFncjVrRlBoWml3M3VzZGpqeDVlMm5PRDFDeWhPRHA2eEhnWFlRcFdkbnVqY2Z2eHZ3WDY1V2NpQVhUaExIaldqR0NEdkU0QnpXRkc5NVpiNUlwVS1ka3BDR2J5TWVsRmp4eUxva2t1MDRSWjlUd0ktVkNXS3JobUFkaG9r?oc=5",
-      "image": "",
-      "date": "Wed, 21 Oct 2026 18:05:20 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Zerrouki reçoit le DG régional du groupe Ooredoo - www.horizons.dz — Zerrouki reçoit le DG régional du groupe Ooredoo www.horizons.dz",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "1a5632d61dca9a23",
-      "source_name": "Ooredoo Algérie",
-      "source_short": "OR",
-      "source_color": "#E30613",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOMkotY1Jsd3JQd0poWW0wQkdVeUlQR01RSVlha19xd3dycU85NkdSeDZRbG8wMVE0YjlfY2hDN2JXTWxpSDg3WVJMRjhKZHg5UGxjWUVzT0xPWEFBWm9BcEZzYUpJbVlwczg1WFdFOXQ4b0tOLW5MVFRDeEM5Mk82cmN6TWtKbHliTTlQQVgxUWJReWJHeDFuZ0ZvTQ?oc=5",
-      "image": "",
-      "date": "Wed, 21 Oct 2026 16:07:12 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Télécommunications : Zerrouki reçoit une forte délégation d’Ooredoo - L'Algérie Aujourd'hui — Télécommunications : Zerrouki reçoit une forte délégation d’Ooredoo L'Algérie Aujourd'hui",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "05d67cf52eb9d3d3",
-      "source_name": "Djezzy",
-      "source_short": "DJ",
-      "source_color": "#FF6B00",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPeVpJSEVwZVJOWkpjaVprNjFXRDdHUExreElXNTRMN3MySF9yX1gxWW1RanpJN2diOFMzanhBbV9oZTNKREphVFpoT2FzS2JGeXRHLU5YUmhtZkUxZkU0Z1pwbk1hNHNkcUdISmFJeDA5ZDZGVDRLZkFwLXZ4R0xIMXd6alI0SzdmbWJTM09lNWRBN2xQbHMzSTk3c1VaVGVVMWRvNXk2cGZ2MHZxQWVPNVR0US1iZXlzTHZLSjZ3NFBDZ182Y1c4eGs1ekxqNTlwX3ZQRlBrTkZ5RVR6OU9ZS3ZUR05BUQ?oc=5",
-      "image": "",
-      "date": "Tue, 20 Oct 2026 13:15:00 GMT",
-      "lang_source": "ar",
-      "text": {
-        "ar": "Djezzy lance une application de visioconférence développée avec une start-up algérienne - وكالة الأنباء الجزائرية — Djezzy lance une application de visioconférence développée avec une start-up algérienne وكالة الأنباء الجزائرية",
-        "fr": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "4363113941115ca8",
-      "source_name": "Djezzy",
-      "source_short": "DJ",
-      "source_color": "#FF6B00",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQWFlJb3ZvWDBoTEIwaDIycGlsMDRyTGdwRnFCUTVORm5QYWUxS2ZOeVlSc19scmxQSHRaclpyc0djZHcxeDFOV1ptd3pHWkk5U09GSEdhSXVkbk1QMVEwQi02ZjNEb1hHRlBsdXJJNnVtVkJyR1I4NGxBdkdwZmxPdWVOUUxUM3VWVEtNUzVfMkRudUItUUo3NUdkZFVLd1djblRmaU9QTjdyUElqWHZSRlpxRExPeFZ3RW51UEpCeVVTdlBReXBnSVBXTWplQQ?oc=5",
-      "image": "",
-      "date": "Tue, 20 Oct 2026 10:41:14 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Djezzy et BortoCall lancent Confy, une solution souveraine de visioconférence pour les entreprises - Algerie Eco — Djezzy et BortoCall lancent Confy, une solution souveraine de visioconférence pour les entreprises Algerie Eco",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
       "id": "37f4d7897b812d64",
       "source_name": "Algérie Poste",
       "source_short": "AP",
@@ -755,6 +755,24 @@
         "en": ""
       },
       "source_type": "youtube"
+    },
+    {
+      "id": "3756f930d1fd9f17",
+      "source_name": "Algérie Télécom",
+      "source_short": "AT",
+      "source_color": "#0055A4",
+      "category": "Infrastructure",
+      "category_icon": "📡",
+      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNT0FQNXdMUHFXaWZjN3V5RGszd205ZjdBQy0wZUVCMTVtbUFzald5V0xwVFdOT2pCZjFMUTF1YXBPZ0I4NTZ5SWJjUVdnQ1N2bEF1Ni1RVGNFWFlGeEZmN1p3LV85QkZWeVBrY01Ndm9PR3NWV0ROVTZiQjZZOVJyWWtwc3VJY1ZDd2xTczZXRE9NYTUtU0VBcGJ1d0hYaTZubnpld3RVcDRSeDQxSF9XVXg0Tjk0dVhBT1A5ZDNNVllJOTFDcWFUR3R5a3NJNWVqdmpzcmZfNlltOGp6MjJEeg?oc=5",
+      "image": "",
+      "date": "Sat, 31 Oct 2026 16:27:00 GMT",
+      "lang_source": "ar",
+      "text": {
+        "ar": "Algérie Télécom : les principales agences commerciales ouvertes dimanche de 10h00 à 15h00 - وكالة الأنباء الجزائرية — Algérie Télécom : les principales agences commerciales ouvertes dimanche de 10h00 à 15h00 وكالة الأنباء الجزائرية",
+        "fr": "",
+        "en": ""
+      },
+      "source_type": "rss"
     },
     {
       "id": "b8b40dc7fcb23446",
@@ -1057,24 +1075,6 @@
       "lang_source": "fr",
       "text": {
         "fr": "Algérie Poste noue un partenariat avec Air Algérie Cargo - Algerie Eco — Algérie Poste noue un partenariat avec Air Algérie Cargo Algerie Eco",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "bf146bc371f00624",
-      "source_name": "Algérie Poste",
-      "source_short": "AP",
-      "source_color": "#F9A825",
-      "category": "Infrastructure",
-      "category_icon": "✉️",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNMUh3VjJJdTl2Nm1JQmpZVkJqelR3NEl0Y2MwdlNPR2xqcTVISDN0SkZiWjJVY1hkSFlxcWpvMEJBeWxydmxwWlNGaHNrcE04OXZMTGotTW5yTEtDYUUtT0kzWDFZN0E0SDBoQkkwVGtIZVpMQWRhNEtKWERXRDFMajNLTlI5V3ZJWXBQc2FpcE1GVXh0SUdfX2d1Yy16RFRXRTU4X2JmYU03X3NXODZNZHlKSlA3WEVFa3AtRG5UMA?oc=5",
-      "image": "",
-      "date": "Sat, 24 Oct 2026 08:52:20 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Colis et paiements : Algérie Poste signe un accord stratégique dans 5 domaines avec Air Algérie Cargo - Voyager DZ — Colis et paiements : Algérie Poste signe un accord stratégique dans 5 domaines avec Air Algérie Cargo Voyager DZ",
         "ar": "",
         "en": ""
       },
@@ -1441,6 +1441,150 @@
       "source_type": "web"
     },
     {
+      "id": "1b02939d3aa3f993",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/les-nouveaux-galaxy-buds-on-de-samsung-de-type-clip-presentent-un-avantage-majeur-par-rapport-aux-modeles-de-sony-et-de-bose-506785.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sun, 01 Nov 2026 13:00:07 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Les nouveaux Galaxy Buds On de Samsung, de type « clip », présentent un avantage majeur par rapport aux modèles de Sony et de Bose — Les fonctionnalités audio avancées, c'est bien, mais l'intégration dans l'écosystème, c'est encore mieux. Voici comment les tout derniers Buds à clipser de Samsung se comparent à leurs concurrents.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "b543deafac6c4d60",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/pratique/9-applications-windows-gratuites-dont-je-ne-peux-plus-me-passer-au-quotidien-ni-au-travail-506761.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sun, 01 Nov 2026 08:01:56 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "9 applications Windows gratuites dont je ne peux plus me passer au quotidien ni au travail — Voici quelques-unes de mes applications préférées pour Windows. Elles permettent de gérer des tâches essentielles liées au réseau, à la sécurité et à la productivité, et elles sont entièrement gratuites.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "d9ddda0d9a0b9ff7",
+      "source_name": "Android DZ",
+      "source_short": "ADZ",
+      "source_color": "#33691E",
+      "category": "Médias TIC",
+      "category_icon": "🤖",
+      "url": "https://www.android-dz.com/apple-watch-ultra-4-99-a-seulement-699-99-sur-amazon/",
+      "image": "",
+      "date": "2026-11-01T06:36:00.038Z",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Apple Watch Ultra 4 : -99€, à seulement 699,99€ sur Amazon — Amazon propose l'Apple Watch Ultra 4 à 699,99 dollars, soit 99 dollars de moins que son prix officiel chez Apple. Un niveau qui égale son plus bas historique, d'abord atteint lors des Prime Big Deal Days d'octobre dernier.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "3f0d4676c087603a",
+      "source_name": "Algérie 360",
+      "source_short": "A360",
+      "source_color": "#1565C0",
+      "category": "Médias TIC",
+      "category_icon": "📰",
+      "url": "https://www.algerie360.com/neil-zeghidour-gradium-ia-vocale-nvidia/",
+      "image": "",
+      "date": "Sun, 01 Nov 2026 05:20:58 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Neil Zeghidour : le chercheur d’origine algérienne qui veut remplacer le clavier par la voix — À 35 ans, Neil Zeghidour dirige Gradium, une start-up parisienne d’intelligence artificielle vocale soutenue par Nvidia. De Paris-Dauphine à Google, ce chercheur d’origine algérienne a […] L’article Neil Zeghidour : le chercheur d’origine algérienne qui veut remplacer le clavier par la voix est appa",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "4873d777e09774d3",
+      "source_name": "Algérie 360",
+      "source_short": "A360",
+      "source_color": "#1565C0",
+      "category": "Médias TIC",
+      "category_icon": "📰",
+      "url": "https://www.algerie360.com/mobilis-care-mobitransfer-m-view-nouveaux-services/",
+      "image": "",
+      "date": "Sun, 01 Nov 2026 04:09:32 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Mobilis lance Mobilis Care, MobiTransfer et M-View : ce que changent ses nouveaux services — Mobilis a dévoilé samedi plusieurs services numériques pour ses abonnés et les entreprises. Application Mobilis Care, outil MobiTransfer, vidéos d’attente M-View, nouvelles fréquences et concours […] L’article Mobilis lance Mobilis Care, MobiTransfer et M-View : ce que changent ses nouveaux services",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "4876e27ef4f777e1",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/10/31/data-centers-are-now-a-midterm-issue-even-in-brooklyn/",
+      "image": "",
+      "date": "Sun, 01 Nov 2026 02:22:10 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Data centers are now a midterm issue, even in Brooklyn — At a Brooklyn midterm party five days before Election Day, every conversation, from a council member’s fireside chat to a debate about the Democratic Party, kept circling back to AI and data centers.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "add4d50079080ebe",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/01/la-banque-africaine-de-lenergie-officiellement-creee/",
+      "image": "",
+      "date": "Sun, 01 Nov 2026 00:07:05 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "La Banque Africaine de l’Énergie officiellement créée — La Banque Africaine d’Import-Export (Afreximbank) et l’Organisation des producteurs de pétrole africains (APPO) ont officiellement annoncé la création de la Banque Africaine de l’Énergie (African Energy Bank-AEB). L’annonce a été faite lors de l’assemblée générale inaugurale de l’AEB à Abuja, au Nig",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "98131acc03bb2c22",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/blogs/l-esprit-libre/libre-et-open-source-express-apocalypse-de-vulnerabilite-entreprises-europeennes-sortir-des-gafam-boycott-domarchy-507056.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sat, 31 Oct 2026 22:28:50 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Libre et open source express: apocalypse de vulnérabilité, entreprises européennes, sortir des Gafam, boycott d’Omarchy — En bref. L'open source a besoin de financements et d'entreprises qui participent, alertent l’EFF et la fondation Linux. Alternatives à la Big Tech. Une distribution Linux controversée.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "8462b9fc7109b30b",
       "source_name": "TechCrunch",
       "source_short": "TC",
@@ -1525,6 +1669,24 @@
       "lang_source": "fr",
       "text": {
         "fr": "Mobilis lance de nouveaux services numériques au profit des particuliers et des entreprises — L’opérateur de téléphonie mobile Mobilis a lancé, samedi, de nouvelles applications et solutions numériques destinées aux particuliers et aux entreprises, dans le cadre de ses efforts visant à améliorer ses services pour les abonnés. La cérémonie de lancement s’est déroulée à Alger, en présence du P",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "ee615562910ec427",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/blogs/green-si/le-cout-du-saas-explose-bon-alors-on-fait-quoi-507036.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sat, 31 Oct 2026 18:04:21 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Le coût du SaaS explose! Bon et alors, on fait quoi ? — D'après une enquête publiée en mai, conduite auprès de DSI français, le coût du SaaS augmente trois fois plus vite que l'inflation. De plus, c'est une hausse invisible, si on se contente de ne regarder que la ligne \"prix\"...",
         "ar": "",
         "en": ""
       },
@@ -5237,178 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "65e1224a20240116",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/iphone-duo-apple-reconnait-les-problemes-d-ecran-interne-sur-certains-modeles/",
-      "image": "",
-      "date": "2026-10-27T06:43:00.109Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "iPhone Duo : Apple reconnaît les problèmes d'écran interne sur certains modèles — À peine lancé, le premier iPhone pliable d'Apple se retrouve au coeur d'une polémique : des utilisateurs signalent des fissures sur l'écran interne, et la firme de Cupertino admet l'existence d'un problème sur un « petit nombre » d'appareils.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "78774bcd7e8072b6",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/firefox-relance-des-icones-du-web-pour-lutter-contre-le-tracking-et-l-ia/",
-      "image": "",
-      "date": "2026-10-27T06:42:00.054Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Firefox relance des icônes du web pour lutter contre le tracking et l'IA — Mozilla vient de lancer une campagne publicitaire baptisée « Come Back to Firefox », mettant en scène des personnalités emblématiques d'internet des années 2000-2010. L'objectif : rappeler aux internautes que Firefox reste une alternative sérieuse face aux navigateurs bardés d'IA et de pistage publi",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "1d5c1d29c7a7ae9a",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/cozysand-l-appli-reveil-qui-refuse-de-s-arreter-avant-vos-missions/",
-      "image": "",
-      "date": "2026-10-27T06:41:00.024Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Cozysand : l'appli réveil qui refuse de s'arrêter avant vos missions — Cozysand est une application réveil disponible sur Android et iOS qui oblige l'utilisateur à accomplir une mission avant d'éteindre l'alarme. Elle détecte même les retours au sommeil après le réveil.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "f2a42aeb9a3a5a0b",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/zd-tech-windows-11-desactivez-ces-5-services-microsoft-pour-accelerer-votre-pc-506162.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 27 Oct 2026 06:30:46 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "ZD Tech : Windows 11 : désactivez ces 5 services Microsoft pour accélérer votre PC — Des applications préinstallées comme Microsoft Copilot, Edge ou OneDrive consomment des ressources précieuses dès le démarrage. En désactivant cinq services inutiles sur Windows 11, vous pouvez libérer plusieurs centaines de mégaoctets de mémoire vive et redonner une seconde jeunesse à votre PC.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "8718f692b3cea8a2",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/toastie-ce-jeu-iphone-duo-transforme-votre-pliable-en-grille-pain/",
-      "image": "",
-      "date": "2026-10-27T06:25:00.118Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Toastie : ce jeu iPhone Duo transforme votre pliable en grille-pain — Toastie est peut-être le jeu le plus décalé sorti depuis le lancement de l'iPhone Duo : il transforme votre smartphone pliable à 2 000 dollars en grille-pain virtuel. Trois dollars, dix commandes, et une mécanique qui exploite la charnière de façon aussi absurde qu'ingénieuse.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "7c1c0f31359169f3",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/siri-ai-memorisation-contextuelle-et-coreen-debarquent-avec-ios-27-2/",
-      "image": "",
-      "date": "2026-10-27T06:24:00.105Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Siri AI : mémorisation contextuelle et coréen débarquent avec iOS 27.2 — Apple a déployé iOS 27.2 le 26 octobre, enrichissant Siri AI d'une mémoire conversationnelle et de cinq nouvelles langues dont le coréen. Voici ce que ça change concrètement pour vous.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "75f0abeaf66b8634",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/siri-ia-toujours-bloque-dans-l-ue-ce-qu-apple-en-dit/",
-      "image": "",
-      "date": "2026-10-27T06:22:00.058Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Siri IA toujours bloqué dans l'UE : ce qu'Apple en dit — Avec iOS 27.2, Apple a élargi Siri IA à de nouvelles langues, dont le français, mais les utilisateurs européens restent sur le carreau. Sur iPhone, iPad et Apple Watch, la nouvelle expérience Siri reste inaccessible en Union européenne, sans date de déploiement annoncée.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "a0d84c77f95fbd5e",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/huawei-matepad-air-2026-l-alternative-oled-a-l-ipad-air/",
-      "image": "",
-      "date": "2026-10-27T06:09:00.091Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Huawei MatePad Air 2026 : l'alternative OLED à l'iPad Air — Avec son écran OLED mat de 12 pouces, son stylet inclus et un châssis à 5,3 mm d'épaisseur, la Huawei MatePad Air 2026 s'impose comme une rivale sérieuse face à l'iPad Air. Reste à savoir si l'absence de Google Play et d'un mode bureau ne plombent pas l'expérience au quotidien.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "593b9239d22e3ae6",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/iphone-duo-des-fissures-d-ecran-apres-quelques-plis-seulement/",
-      "image": "",
-      "date": "2026-10-27T06:09:00.083Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "iPhone Duo : des fissures d'écran après quelques plis seulement — À peine lancé, l'iPhone Duo accumule les plaintes d'utilisateurs dont l'écran interne a craqué en quelques heures ou jours d'utilisation. Apple a reconnu le problème et oriente les acheteurs vers AppleCare pour un remplacement.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-10-31T22:02:19.878537+00:00",
+  "lastUpdated": "2026-11-01T13:55:23.146366+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Tech International": 150,
-    "Médias TIC": 70
+    "Tech International": 154,
+    "Médias TIC": 66
   },
   "total": 300
 }
