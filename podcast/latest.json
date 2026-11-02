@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
- "date": "2026-11-01",
- "genere": "2026-11-01T20:37:22",
+ "date": "2026-11-02",
+ "genere": "2026-11-02T21:44:46",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
    "creneau": "soir",
-   "genere": "2026-11-01T20:38:34",
+   "genere": "2026-11-02T21:46:45",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.2,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech, voici notre revue des dix actualités tech et télécoms qui ont marqué la soirée."
+    "duree": 5.7,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les 10 infos à retenir de votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.0,
-    "texte": "C'était votre dose d'actualités tech. Restez connectés sur Algeria Tech pour plus d'informations."
+    "duree": 5.1,
+    "texte": "C'était l'essentiel de l'actualité tech et économique. Merci de nous avoir suivis."
    },
    "items": [
     {
-     "titre": "OpenAI limite les questions des adolescents",
-     "texte": "OpenAI a décidé de renforcer les restrictions concernant les questions sur les armes à feu pour les utilisateurs adolescents sur ChatGPT. Ces nouvelles mesures s'appliquent même si les requêtes semblent anodines à première vue pour l'entreprise.",
+     "titre": "Archives locales et numérique",
+     "texte": "La gestion numérique des archives des collectivités locales était au cœur d'une rencontre régionale à Constantine. L'objectif est d'adapter ces documents cruciaux à l'ère de la transformation digitale pour une meilleure accessibilité et conservation.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 12.1,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "IMAX 3D vs 2D : quelle expérience choisir ?",
-     "texte": "L'expérience IMAX 3D est-elle vraiment supérieure à la 2D ? Tout dépend du film. Si la profondeur supplémentaire ajoute à l'immersion, le 3D n'est pas toujours une amélioration automatique par rapport à une bonne expérience 2D.",
-     "mp3": "/podcast/fr/02.mp3",
      "duree": 12.8,
      "pays": "DZ",
+     "source": "APS"
+    },
+    {
+     "titre": "Réseau aérien algérien étendu",
+     "texte": "L'Algérie confirme son ambition de développement en élargissant significativement son réseau aérien. Cette initiative vise à renforcer la présence du pays sur les continents africain et asiatique, ouvrant de nouvelles perspectives de connexion.",
+     "mp3": "/podcast/fr/02.mp3",
+     "duree": 12.7,
+     "pays": "DZ",
+     "source": "APS"
+    },
+    {
+     "titre": "InDrive en Algérie : publicité vs réalités",
+     "texte": "La société InDrive arbore fièrement son tramway aux couleurs de sa marque en Algérie. Pendant ce temps, les chauffeurs des applications de transport continuent de faire face à des contrôles fréquents et à des amendes sur la route.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 11.2,
+     "pays": "DZ",
+     "source": "Maghreb Emergent"
+    },
+    {
+     "titre": "Sécurité en 'vibe coding'",
+     "texte": "Le 'vibe coding', nouvelle méthode de génération de code par la parole, gagne du terrain. Pour les débutants, connaître les bonnes pratiques de sécurité est essentiel pour aborder cette approche innovante en toute sérénité.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 12.2,
+     "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Visiter le Tassili et le Hoggar",
-     "texte": "Découvrez quand partir, comment organiser votre séjour et quelles formalités remplir pour visiter les merveilles du Tassili et du Hoggar. Profitez des peintures rupestres et des paysages exceptionnels du Sud algérien.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 11.6,
+     "titre": "Maroc : Parlement sur le Sahara",
+     "texte": "Le Parlement marocain s'est réuni pour mobiliser et consolider une orientation nationale sur le dossier du Sahara occidental. Cette démarche fait suite aux récentes discussions au Conseil de sécurité des Nations Unies.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 11.4,
+     "pays": "DZ",
+     "source": "TSA Algérie"
+    },
+    {
+     "titre": "Formation pro : nouvelles spécialités",
+     "texte": "La rentrée de la formation professionnelle a accueilli plus de 400 000 nouveaux stagiaires. L'accent est mis sur l'analyse des nouvelles spécialités proposées, afin de mieux répondre aux besoins évolutifs du marché du travail.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 11.4,
+     "pays": "DZ",
+     "source": "Le Soir d'Algérie"
+    },
+    {
+     "titre": "Prix de l'iPhone : évolution",
+     "texte": "L'évolution du prix de l'iPhone est notable. Alors que de nouveaux modèles comme un potentiel iPhone pliable pourraient atteindre des sommes élevées, l'ensemble de la gamme a vu ses tarifs augmenter ces dernières années.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 10.3,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Communauté scientifique : siège à Alger",
+     "texte": "Le Haut conseil de la communauté scientifique nationale à l'étranger dispose désormais d'un siège officiel à Alger. Cette inauguration concrétise des engagements présidentiels pour soutenir et intégrer cette communauté essentielle.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 12.2,
+     "pays": "DZ",
+     "source": "Le Jeune Indépendant"
+    },
+    {
+     "titre": "Sécurité hydrique : Ouest alimenté",
+     "texte": "Près de 67 milliards de dinars ont été mobilisés pour assurer l'alimentation en eau potable de l'Ouest du pays. Ces fonds serviront notamment à renforcer les capacités des stations de dessalement.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 10.7,
      "pays": "DZ",
      "source": "Algérie360"
     },
     {
-     "titre": "Fonctionnalités exclusives Samsung One UI",
-     "texte": "Découvrez cinq fonctionnalités uniques de l'interface One UI de Samsung qui la distinguent des autres versions d'Android. De la personnalisation poussée à la gestion multi-appareils fluide, ces options enrichissent l'expérience utilisateur.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 12.6,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Tablette Lenovo deux fois moins chère",
-     "texte": "La tablette Lenovo Tab M11, vendue avec son stylet, s'impose comme une alternative très abordable à l'iPad. Son prix deux fois inférieur en fait un appareil attractif pour la prise de notes et le dessin.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 11.3,
-     "pays": "INT",
-     "source": "BFM Tech"
-    },
-    {
-     "titre": "Une IA hors ligne pour les urgences",
-     "texte": "Une nouvelle IA, Survival LLM, conçue pour fonctionner hors connexion, peut vous aider en cas d'urgence ou de panne de courant. Elle fournit des conseils de survie et de premiers secours à partir de sa base de données.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 11.4,
-     "pays": "INT",
-     "source": "Numerama"
-    },
-    {
-     "titre": "Centres de données spatiaux français",
-     "texte": "La start-up française Alatyr ambitionne de construire des centres de données géants dans l'espace. Avec une architecture modulaire, elle vise à concurrencer les acteurs majeurs et à assurer la souveraineté numérique dans l'orbite terrestre.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 12.1,
-     "pays": "INT",
-     "source": "BFM Tech"
-    },
-    {
-     "titre": "Offre internet Free qui surprend",
-     "texte": "Free se distingue avec une offre internet fibre particulièrement attractive. Son rapport qualité-prix semble effrayer la concurrence, répondant ainsi aux attentes de nombreux consommateurs à un tarif compétitif.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.4,
-     "pays": "INT",
-     "source": "BFM Tech"
-    },
-    {
-     "titre": "Choisir son Samsung Galaxy en 2026",
-     "texte": "Face à la vaste gamme de smartphones Samsung Galaxy, il peut être difficile de choisir. Découvrez nos recommandations personnalisées en fonction de votre budget pour trouver le modèle idéal en 2026.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.4,
-     "pays": "INT",
-     "source": "Frandroid"
-    },
-    {
-     "titre": "Jeu-concours pCloud pour le stockage",
-     "texte": "Pour le Black Friday, pCloud organise un jeu-concours offrant la possibilité de gagner jusqu'à 10 To de stockage à vie. Trois gagnants seront tirés au sort parmi les inscrits au service.",
+     "titre": "Raffinerie d'Augusta : chiffre d'affaires",
+     "texte": "Le rapport annuel 2025 de Sonatrach révèle un recul de 29% du chiffre d'affaires de sa filiale italienne, la raffinerie d'Augusta. CeThe post Raffinerie d’A",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 10.5,
-     "pays": "INT",
-     "source": "Clubic"
+     "duree": 9.9,
+     "pays": "DZ",
+     "source": "Algérie Éco"
     }
    ]
   },
