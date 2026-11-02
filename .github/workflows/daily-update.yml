@@ -43,5 +43,6 @@ jobs:
           mkdir -p archives
           cp revue_presse.json archives/$(date +%Y-%m-%d).json
           git add veille_data.json revue_presse.json articles.json archives/
+          git add i18n-titles-ar.json i18n-titles-en.json i18n/ 2>/dev/null || true
           git commit -m "🤖 Auto-update: Veille, Revue de Presse & Articles [$(date +%Y-%m-%d)]" || echo "Rien à commiter"
           git push

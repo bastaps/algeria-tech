@@ -1,0 +1,44 @@
+name: Pré-traduction AR/EN (titres + corps d'articles)
+
+# Remplit i18n-titles-ar/en.json et i18n/<langue>/<id>.json pour les articles pas encore traduits.
+# Incrémental : ne retraduit jamais un article déjà fait ; s'arrête proprement si Google limite l'IP.
+on:
+  schedule:
+    - cron: '20 */6 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: pretraduction
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  pretraduire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Traduire les articles manquants
+        env:
+          PRETR_BUDGET_MIN: '40'
+        run: node scripts/pretranslate-titles.js
+
+      - name: Commiter et pousser
+        run: |
+          git config user.name "Algeria Tech Bot"
+          git config user.email "bot@algeria-tech.dz"
+          git add i18n-titles-ar.json i18n-titles-en.json i18n/
+          if git diff --staged --quiet; then
+            echo "Rien de nouveau à traduire."
+          else
+            git commit -m "Automatique: pré-traduction AR/EN des articles"
+            git pull --rebase --autostash || true
+            git push
+          fi

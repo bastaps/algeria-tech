@@ -27,7 +27,62 @@ let cache = {};
   } catch (_) {}
 })();
 
+/* ─── Dictionnaire pré-traduit (i18n-titles-xx.json, généré au build) ─
+   Titres + chapeaux de tous les articles → bascule instantanée, sans API. */
+const norm = t => String(t || '').replace(/\s+/g, ' ').trim();
+const dicts = {}, dictLoads = {};
+function loadDict(tl) {
+  if (tl === 'fr') return Promise.resolve();
+  if (!dictLoads[tl]) {
+    dictLoads[tl] = fetch('/i18n-titles-' + tl + '.json')
+      .then(r => r.ok ? r.json() : {})
+      .then(d => { dicts[tl] = d || {}; })
+      .catch(() => { dicts[tl] = {}; });
+  }
+  return dictLoads[tl];
+}
+/* Corps d'article : i18n/<tl>/<id>.json, fusionné dans le dictionnaire de la langue. */
+const artLoads = {};
+function loadArticle(id, tl) {
+  tl = tl || document.documentElement.getAttribute('data-lang');
+  if (!id || !tl || tl === 'fr') return Promise.resolve();
+  const k = tl + ':' + id;
+  if (!artLoads[k]) {
+    artLoads[k] = Promise.all([
+      loadDict(tl),
+      fetch('/i18n/' + tl + '/' + encodeURIComponent(id) + '.json').then(r => r.ok ? r.json() : {}).catch(() => ({})),
+    ]).then(([, d]) => { dicts[tl] = Object.assign(dicts[tl] || {}, d); });
+  }
+  return artLoads[k];
+}
+// Précharge (au repos) les articles visibles en tête d'accueil + au survol/toucher d'une carte.
+function prefetchShown(tl) {
+  const idle = window.requestIdleCallback || (f => setTimeout(f, 800));
+  idle(() => {
+    const ids = [];
+    document.querySelectorAll('#heroGrid [onclick*="openArticle"], #newsGrid [onclick*="openArticle"]').forEach(el => {
+      const m = (el.getAttribute('onclick') || '').match(/openArticle\('([^']+)'/);
+      if (m && !ids.includes(m[1])) ids.push(m[1]);
+    });
+    ids.slice(0, 8).forEach(id => loadArticle(id, tl));
+  });
+}
+['mouseover', 'touchstart'].forEach(ev => document.addEventListener(ev, e => {
+  const tl = document.documentElement.getAttribute('data-lang');
+  if (!tl || tl === 'fr') return;
+  const el = e.target.closest && e.target.closest('[onclick*="openArticle"]');
+  const m = el && (el.getAttribute('onclick') || '').match(/openArticle\('([^']+)'/);
+  if (m) loadArticle(m[1], tl);
+}, { passive: true }));
+
+const dictGet = (text, tl) => (dicts[tl] && dicts[tl][norm(text)]) || null;
+
+let saveTimer = null;
 function saveCache() {
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(saveCacheNow, 1500);
+}
+function saveCacheNow() {
   try {
     const out = {};
     const now = Date.now();
@@ -54,6 +109,8 @@ function withLimit(fn) {
 async function apiTranslate(text, tl) {
   if (!text || text.length < 3) return text;
   if (tl === 'ar' && /[؀-ۿ]/.test(text)) return text;
+  const d = dictGet(text, tl);
+  if (d) return d;
   const cKey = `${tl}:${text}`;
   if (cache[cKey]) return cache[cKey];
 
@@ -155,6 +212,12 @@ function translateGrid(root, tl) {
     const orig = el.dataset.atOrig || el.textContent.trim();
     if (!orig || orig.length < 3) return;
     if (!el.dataset.atOrig) el.dataset.atOrig = orig;
+    const hit = dictGet(orig, tl);
+    if (hit) {                       // instantané : pas d'appel réseau
+      el.textContent = hit;
+      el.dir = tl === 'ar' ? 'rtl' : '';
+      return;
+    }
     el.style.transition = 'opacity .15s';
     el.style.opacity    = '.55';
     apiTranslate(orig, tl).then(translated => {
@@ -224,11 +287,15 @@ function applyLang(lang) {
 
   applyUiLang(lang);
   updateBtn(lang);
-  localStorage.setItem(LANG_KEY, lang);
+  try { localStorage.setItem(LANG_KEY, lang); } catch (_) {}
 
   if (lang !== 'fr') {
-    document.querySelectorAll(GRIDS).forEach(g => translateGrid(g, lang));
-    watchGrids(lang);
+    loadDict(lang).then(() => {
+      if (html.getAttribute('data-lang') !== lang) return;
+      document.querySelectorAll(GRIDS).forEach(g => translateGrid(g, lang));
+      watchGrids(lang);
+      prefetchShown(lang);
+    });
   } else {
     restoreArticles();
     if (obs) { obs.disconnect(); obs = null; }
@@ -242,18 +309,62 @@ window.AT_LANG = {
   get current() { return localStorage.getItem(LANG_KEY) || 'fr'; },
   cycle() {
     const idx = CYCLE.indexOf(this.current);
-    applyLang(CYCLE[(idx + 1) % CYCLE.length]);
+    this.set(CYCLE[(idx + 1) % CYCLE.length]);
   },
   toggle() { this.cycle(); },
-  set(lang) { applyLang(lang); },
+  set(lang) {                      // choix explicite du visiteur : prioritaire sur la détection pays
+    try { localStorage.setItem(USER_KEY, lang); } catch (_) {}
+    applyLang(lang);
+  },
+  detect: detectLang,
+  loadArticle: loadArticle,          // appelé par openArticle() avant l'affichage
   translate: apiTranslate,
 };
 
+/* ─── Langue de départ ─────────────────────────────────────────────
+   1) choix explicite du visiteur (bouton langue)  2) pays (Cloudflare)
+   3) langue du navigateur. Algérie → arabe ; francophones → français ;
+   reste du monde → anglais (sauf navigateur réglé en fr/ar). */
+const USER_KEY = 'at-lang-user';
+const GEO_KEY  = 'at-lang-geo';
+const AR_CC = 'DZ,SA,AE,QA,KW,BH,OM,YE,IQ,JO,SY,LB,PS,EG,LY,SD';
+const FR_CC = 'FR,BE,CH,LU,MC,MA,TN,MR,SN,CI,ML,BF,NE,TG,BJ,GN,CM,GA,CG,CD,CF,TD,MG,DJ,KM,HT,RE,GP,MQ,GF,YT,PF,NC,BI,RW';
+function langFromNavigator() {
+  const l = ((navigator.languages && navigator.languages[0]) || navigator.language || '').toLowerCase();
+  return l.startsWith('fr') ? 'fr' : l.startsWith('ar') ? 'ar' : 'en';
+}
+function langFromCountry(cc, nav) {
+  if (cc === 'DZ') return 'ar';
+  if (AR_CC.split(',').includes(cc)) return nav === 'fr' ? 'fr' : 'ar';
+  if (FR_CC.split(',').includes(cc)) return nav === 'ar' ? 'ar' : 'fr';
+  if (cc === 'CA') return nav === 'fr' ? 'fr' : 'en';
+  return nav === 'en' ? 'en' : nav;          // navigateur fr/ar hors zone : on le respecte
+}
+async function detectLang() {
+  const nav = langFromNavigator();
+  try {
+    const r = await fetch('/cdn-cgi/trace', { cache: 'no-store', signal: AbortSignal.timeout(2500) });
+    const m = r.ok && (await r.text()).match(/^loc=([A-Z]{2})$/m);
+    if (m) return langFromCountry(m[1], nav);
+  } catch (_) {}
+  return nav;
+}
+function startLang() {
+  let user = null, geo = null;
+  try { user = localStorage.getItem(USER_KEY); geo = localStorage.getItem(GEO_KEY); } catch (_) {}
+  if (CYCLE.includes(user)) return applyLang(user);
+  // ?lang=ar|en|fr dans l'URL : forçage ponctuel (liens partagés, tests)
+  const q = (location.search.match(/[?&]lang=(fr|ar|en)\b/) || [])[1];
+  if (q) return applyLang(q);
+  applyLang(CYCLE.includes(geo) ? geo : 'fr');   // visite suivante : instantané
+  detectLang().then(l => {
+    try { localStorage.setItem(GEO_KEY, l); } catch (_) {}
+    let u = null; try { u = localStorage.getItem(USER_KEY); } catch (_) {}
+    if (!u && l !== document.documentElement.getAttribute('data-lang')) applyLang(l);
+  });
+}
+
 /* ─── Démarrage ────────────────────────────────────────────────── */
-/* Toujours démarrer en français — réinitialise tout l'état i18n au chargement */
-document.addEventListener('DOMContentLoaded', () => {
-  applyLang('fr');
-  watchGrids();
-});
+document.addEventListener('DOMContentLoaded', startLang);
 
 })();

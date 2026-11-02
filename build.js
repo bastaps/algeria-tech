@@ -512,3 +512,7 @@ if (process.env.CF_PAGES === '1') {
     } catch (e) { console.warn('⚠️  Menu CV Massar non retiré :', e.message); }
     console.log('🔒 outils internes + CV Massar/Premium retirés du déploiement');
 }
+
+// ── Pré-traduction titres/chapeaux AR + EN (i18n-titles-xx.json) ──
+// Incrémental (seuls les nouveaux articles), plafonné à 90 s, n'interrompt jamais le build.
+require('./scripts/pretranslate-titles').run({ budgetMs: 90 * 1000 }).catch(e => console.warn('⚠️  pré-traduction ignorée :', e.message));

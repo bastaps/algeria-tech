@@ -611,6 +611,8 @@ window.openArticle = async function(id) {
     }
     // Charge le corps de l'article à la demande (liste d'accueil = sans rawContent)
     await ensureRawContent(art);
+    // Traduction pré-calculée du corps (i18n/<langue>/<id>.json) : chargée avant l'affichage → arabe/anglais immédiat
+    if (window.AT_LANG && AT_LANG.loadArticle) { try { await AT_LANG.loadArticle(id); } catch (_) {} }
     // Parse markdown à la demande (lazy) — non fait au chargement initial
     if (!art.contenu && art.rawContent) {
         art.contenu = (typeof marked !== 'undefined')

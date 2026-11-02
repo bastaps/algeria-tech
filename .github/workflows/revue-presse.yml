@@ -97,6 +97,7 @@ jobs:
           git rm -q --ignore-unmatch data/revue-demande.json || true   # demande déposée par le site : consommée
           git add revue_presse.json articles.json
           git add archives/ 2>/dev/null || true
+          git add i18n-titles-ar.json i18n-titles-en.json i18n/ 2>/dev/null || true
 
           if git diff --staged --quiet; then
             echo "Aucun changement détecté, pas de commit nécessaire."
