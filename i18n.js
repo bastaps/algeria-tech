@@ -78,9 +78,9 @@ function prefetchShown(tl) {
 /* Libellés fixes de l'accueil PC (desktop-home.js) */
 const UI = {
   ar: { "Plus d'actualités": 'مزيد من الأخبار', "Suite de l'actualité": 'تتمة الأخبار', 'Interactif': 'تفاعلي', 'Archives': 'الأرشيف',
-        'Brèves': 'موجزات', 'Les plus lus': 'الأكثر قراءة', 'Flash Info': 'موجز الأخبار', "L'info en 30 s": 'الخبر في 30 ثانية', 'À LA UNE': 'الأبرز' },
+        'Brèves': 'موجزات', 'Les plus lus': 'الأكثر قراءة', 'Flash Info': 'موجز الأخبار', "L'info en 30 s": 'الخبر في 30 ثانية', 'À LA UNE': 'الأبرز', 'IA': 'الذكاء الاصطناعي' },
   en: { "Plus d'actualités": 'More news', "Suite de l'actualité": 'More stories', 'Interactif': 'Interactive', 'Archives': 'Archives',
-        'Brèves': 'In brief', 'Les plus lus': 'Most read', 'Flash Info': 'News Flash', "L'info en 30 s": 'News in 30 s', 'À LA UNE': 'TOP STORY' },
+        'Brèves': 'In brief', 'Les plus lus': 'Most read', 'Flash Info': 'News Flash', "L'info en 30 s": 'News in 30 s', 'À LA UNE': 'TOP STORY', 'IA': 'AI' },
 };
 const fuzzy = {};
 function dictGet(text, tl) {
@@ -242,7 +242,7 @@ function translateGrid(root, tl) {
     if (el.dataset[doneKey]) return;
     el.dataset[doneKey] = '1';
     const orig = el.dataset.atOrig || el.textContent.trim();
-    if (!orig || orig.length < 3) return;
+    if (!orig || (orig.length < 3 && !(UI[tl] && UI[tl][orig]))) return;
     if (!el.dataset.atOrig) el.dataset.atOrig = orig;
     const hit = dictGet(orig, tl);
     if (hit) {                       // instantané : pas d'appel réseau

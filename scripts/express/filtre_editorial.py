@@ -92,7 +92,9 @@ THEMES = {
     "fintech": [
         "fintech", "paiement", "payment", "monetique", "e-paiement", "epaiement", "psp",
         "prestataire de services de paiement", "paiement electronique",
-        "carte bancaire", "banque", "bank", "portefeuille electronique", "wallet",
+        # « banque » / « bank » seuls retirés (2026-11-02) : une Banque africaine de l'énergie passait en Une comme « fintech »
+        "carte bancaire", "banque en ligne", "banque digitale", "banque numerique", "banque mobile",
+        "online banking", "digital bank", "mobile banking", "portefeuille electronique", "wallet",
         "neobanque", "mobile money", "stablecoin", "crypto", "bitcoin", "cbdc",
     ],
     "cybersécurité": [
