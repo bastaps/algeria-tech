@@ -74,6 +74,18 @@
       var visible = r && r.width > 0 && r.height > 0 && getComputedStyle(f).display !== 'none';
       var k = (box.offsetWidth && box.getBoundingClientRect().width / box.offsetWidth) || 1;   // zoom de page (panneau accessibilité)
       var left = 18, bottom = window.innerWidth <= 900 ? 76 : 18, w = 300;   // mobile : au-dessus de la barre du bas
+      if (document.body.classList.contains('ml')) {
+        // Smartphone (mobile-lite) : jamais par-dessus les barres du bas (Flash | 30 s, puis navigation) ; bouton compact 🎧, déployé au toucher
+        var barres = ['ml-media', 'ml-nav'].map(function (i) { return document.getElementById(i); }).filter(function (e) {
+          return e && e.getBoundingClientRect().height > 0 && getComputedStyle(e).display !== 'none';
+        });
+        var haut = barres.length ? Math.min.apply(null, barres.map(function (e) { return e.getBoundingClientRect().top; })) : vh - 76;
+        left = 12; bottom = vh - haut + 10;
+        w = (box.classList.contains('open') || box.classList.contains('on')) ? Math.min(320, window.innerWidth - 24) : 46;
+        box.style.left = left + 'px'; box.style.bottom = bottom + 'px'; box.style.width = w + 'px';
+        panel.style.left = left + 'px'; panel.style.width = Math.min(320, window.innerWidth - 24) + 'px'; panel.style.bottom = (bottom + 54) + 'px';
+        return;
+      }
       if (visible) {
         w = Math.max(200, Math.min(300, r.width)); left = Math.max(6, r.left); bottom = vh - r.top + 8;
         if (r.top < 60) bottom = vh - r.bottom - 52;
@@ -82,6 +94,20 @@
       box.style.left = left + 'px'; box.style.bottom = bottom + 'px'; box.style.width = w + 'px';
       panel.style.left = left + 'px'; panel.style.width = w + 'px'; panel.style.bottom = (bottom + 46) + 'px';
     }
+    // Smartphone : bouton compact 🎧 ; un toucher le déploie (lecture, langue, nombre d'infos) ; il se replie seul après 8 s d'inactivité
+    var repli = null;
+    function armer() {
+      clearTimeout(repli);
+      repli = setTimeout(function () { if (!box.classList.contains('on') && !panel.classList.contains('open')) box.classList.remove('open'); }, 8000);
+    }
+    box.addEventListener('click', function (e) {
+      if (!document.body.classList.contains('ml')) return;
+      if (!box.classList.contains('open') && !box.classList.contains('on')) { e.preventDefault(); e.stopPropagation(); box.classList.add('open'); place(); }
+      armer();
+    }, true);
+    panel.addEventListener('click', armer);
+    au.addEventListener('play', function () { box.classList.add('open'); });
+    au.addEventListener('pause', armer);
     build(); drawLangs(); place(); setInterval(place, 400); window.addEventListener('resize', place);
   }).catch(function () {});
 })();

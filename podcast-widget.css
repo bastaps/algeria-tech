@@ -26,3 +26,10 @@
 #atPodPanel a.tx{text-decoration:underline;cursor:pointer;opacity:.8;font-size:12px}
 #atPodPanel .txt{display:none;white-space:pre-line;font-size:12.5px;opacity:.9}
 @media(prefers-reduced-motion:reduce){#atPod .eq i,#atPodBar .fill{animation:none}}
+
+/* Smartphone (mobile-lite) : bouton compact 🎧 posé au-dessus des barres du bas ; déployé au toucher (classe .open) ou pendant l'écoute (.on) */
+body.ml #atPod:not(.open):not(.on){width:46px !important;height:46px;padding:0;gap:0;justify-content:center;border-radius:50%}
+body.ml #atPod:not(.open):not(.on) .pl,body.ml #atPod:not(.open):not(.on) .t,body.ml #atPod:not(.open):not(.on) .opt{display:none}
+body.ml #atPod:not(.open):not(.on)::before{content:"🎧";font-size:21px;line-height:1}
+body.ml:has(#flash-widget-root.fw-expanded) #atPod,body.ml:has(#flash-widget-root.fw-expanded) #atPodPanel,
+body.ml:has(#ml-30[style*="flex"]) #atPod{display:none !important}
