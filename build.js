@@ -18,6 +18,10 @@ try {
 } catch (e) { /* index.html illisible : valeurs par défaut */ }
 const OUTPUT       = path.join(__dirname, 'articles.json');
 
+// Pré-traduction AR/EN : module chargé MAINTENANT car le nettoyage Cloudflare (plus bas) supprime scripts/.
+let pretranslate = null;
+try { pretranslate = require('./scripts/pretranslate-titles'); } catch (e) { console.warn('⚠️  pré-traduction indisponible :', e.message); }
+
 function parseFrontmatter(text, fileName) {
     const parts = text.split('---');
     if (parts.length < 3) return null;
@@ -515,4 +519,4 @@ if (process.env.CF_PAGES === '1') {
 
 // ── Pré-traduction titres/chapeaux AR + EN (i18n-titles-xx.json) ──
 // Incrémental (seuls les nouveaux articles), plafonné à 90 s, n'interrompt jamais le build.
-require('./scripts/pretranslate-titles').run({ budgetMs: 90 * 1000 }).catch(e => console.warn('⚠️  pré-traduction ignorée :', e.message));
+if (pretranslate) pretranslate.run({ budgetMs: 90 * 1000 }).catch(e => console.warn('⚠️  pré-traduction ignorée :', e.message));

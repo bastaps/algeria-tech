@@ -48,7 +48,7 @@ async function translateBatch(texts, tl) {
 // Mêmes éléments que i18n.js traduit dans .article-text (p, h2, h3, li), texte tel que textContent le donne.
 const ENT = { amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', laquo: '«', raquo: '»', rsquo: '’', lsquo: '‘', hellip: '…', ndash: '–', mdash: '—', eacute: 'é', egrave: 'è', agrave: 'à', ccedil: 'ç' };
 const decode = s => s.replace(/&(#x?[0-9a-f]+|[a-z]+);/gi, (m, e) =>
-    e[0] === '#' ? String.fromCodePoint(e[1].toLowerCase() === 'x' ? parseInt(e.slice(2), 16) : +e.slice(1)) : (ENT[e.toLowerCase()] ?? m));
+    e[0] === '#' ? String.fromCodePoint(e[1].toLowerCase() === 'x' ? parseInt(e.slice(2), 16) : +e.slice(1)) : (ENT[e.toLowerCase()] !== undefined ? ENT[e.toLowerCase()] : m));
 let marked = null;
 function bodyTexts(md) {
     if (!marked) { const m = require(path.join(ROOT, 'libs/marked/marked.min.js')); marked = m.marked || m; }
