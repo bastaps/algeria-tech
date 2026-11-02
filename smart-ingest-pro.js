@@ -16,6 +16,21 @@ const API_BASE = (function () {
 })();
 const ENGINE_URL = `${API_BASE}/api/smart-generate`;
 
+// Import d'une page (/api/fetch-url). En ligne, la lecture est faite par Cloudflare, HORS d'Algérie : les sites joignables
+// seulement depuis l'Algérie (ex. fadaeldjazair.mf.gov.dz) expirent. Repli : le Hub local (localhost:3000) de l'éditeur,
+// qui lit la page sur sa connexion algérienne (CORS du Hub : algeriatechnews.com autorisé).
+async function fetchUrlDistant(init) {
+    let r = null, err = null;
+    try { r = await fetch(API_BASE + '/api/fetch-url', init); } catch (e) { err = e; }
+    if (isLocal || (r && r.ok)) { if (r) return r; throw err; }
+    try {
+        const h = await fetch('http://localhost:' + HUB_PORT + '/api/fetch-url', Object.assign({}, init, { signal: AbortSignal.timeout(90000) }));
+        if (h.ok) return h;
+    } catch (_) { /* Hub éteint ou accès au réseau local refusé : on garde l'erreur en ligne */ }
+    if (r) return r;
+    throw err;
+}
+
 // Une reponse HTML signifie « cette route n'existe pas ici ». On le dit en
 // clair plutot que de laisser JSON.parse echouer sur un chevron.
 async function lireJSON(res, quoi) {
@@ -214,7 +229,7 @@ async function fetchFromUrl() {
     }
     setStatus('urlBtn', 'loading');
     try {
-        const response = await fetch(`${API_BASE}/api/fetch-url`, {
+        const response = await fetchUrlDistant({
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ url })
@@ -734,7 +749,7 @@ async function applyEmbed() {
     let fetchedText = '', fetchedTitle = '', fetchedImage = '', fetchedVideo = '';
     if (sourceUrl) {
         try {
-            const r = await fetch(`${API_BASE}/api/fetch-url`, {
+            const r = await fetchUrlDistant({
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ url: sourceUrl })
@@ -1778,6 +1793,7 @@ async function fetchCarte(route, init) {
     if (route === '/api/render') {
         return _carteEnLigne ? reponse({ html: _carteEnLigne.html }) : reponse({ error: 'Carte non générée.' }, false);
     }
+    if (route === '/api/fetch-url') return fetchUrlDistant(init);       // en ligne : repli Hub local pour les sites joignables seulement d'Algérie
     if (route !== '/api/generate') return fetch(API_BASE + route, init);   // fetch-url (en ligne), upload / wilayas (message « Hub local »)
     const corps = JSON.parse(init.body);
     const note = document.getElementById('carteNote');
@@ -3656,7 +3672,7 @@ async function importerPourInteractif() {
         } catch (e1) {
             // Article Interactif éteint ou page coriace : le Hub sait aussi lire
             // une page (proxy lecteur puis navigateur complet).
-            const r2 = await fetch(API_BASE + '/api/fetch-url', {
+            const r2 = await fetchUrlDistant({
                 method: 'POST', headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ url: url })
             });

@@ -114,14 +114,21 @@ export async function onRequestPost({ request, env }) {
     erreur = new Error(streamed ? 'Page à contenu chargé côté client' : 'Contenu trop court (page rendue en JavaScript)');
   } catch (e) { erreur = e; }
 
-  try {
-    const { text, title } = await lireViaLecteur(url);
-    if (text.length >= MIN_LEN) return json({ text: text.substring(0, 8000), title, url });
-  } catch (e) { /* message final ci-dessous */ }
+  // Délai dépassé = site injoignable depuis l'étranger (Cloudflare n'est pas en Algérie ; ex. *.gov.dz) : le lecteur de secours,
+  // hors d'Algérie lui aussi, échouerait pareil → on répond tout de suite ; Smart Ingest PRO bascule sur le Hub local.
+  const expire = /timeout|timed out|aborted/i.test(String(erreur && (erreur.name + ' ' + erreur.message)));
+  if (!expire) {
+    try {
+      const { text, title } = await lireViaLecteur(url);
+      if (text.length >= MIN_LEN) return json({ text: text.substring(0, 8000), title, url });
+    } catch (e) { /* message final ci-dessous */ }
+  }
 
   const bloque = /403|401|429/.test(String(erreur && erreur.message));
   return json({
-    error: bloque
+    error: expire
+      ? "Ce site ne répond pas depuis l'étranger (il n'est souvent joignable que depuis l'Algérie). Lancez le Hub sur votre PC (Start App) puis réessayez, ou copiez-collez le texte dans la zone ci-dessous."
+      : bloque
       ? "Ce site bloque l'extraction automatique (anti-bot ou paywall). Ouvrez l'article et copiez-collez le texte directement dans la zone ci-dessous."
       : "Impossible d'extraire le contenu de cette page (" + (erreur ? erreur.message : 'inconnu') + "). Copiez-collez le texte manuellement.",
   }, 502);
