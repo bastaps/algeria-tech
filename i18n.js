@@ -75,7 +75,36 @@ function prefetchShown(tl) {
   if (m) loadArticle(m[1], tl);
 }, { passive: true }));
 
-const dictGet = (text, tl) => (dicts[tl] && dicts[tl][norm(text)]) || null;
+/* Libellés fixes de l'accueil PC (desktop-home.js) */
+const UI = {
+  ar: { "Plus d'actualités": 'مزيد من الأخبار', "Suite de l'actualité": 'تتمة الأخبار', 'Interactif': 'تفاعلي', 'Archives': 'الأرشيف',
+        'Brèves': 'موجزات', 'Les plus lus': 'الأكثر قراءة', 'Flash Info': 'موجز الأخبار', "L'info en 30 s": 'الخبر في 30 ثانية', 'À LA UNE': 'الأبرز' },
+  en: { "Plus d'actualités": 'More news', "Suite de l'actualité": 'More stories', 'Interactif': 'Interactive', 'Archives': 'Archives',
+        'Brèves': 'In brief', 'Les plus lus': 'Most read', 'Flash Info': 'News Flash', "L'info en 30 s": 'News in 30 s', 'À LA UNE': 'TOP STORY' },
+};
+const fuzzy = {};
+function dictGet(text, tl) {
+  const d = dicts[tl]; if (!d) return null;
+  const t = norm(text);
+  if (UI[tl] && UI[tl][t]) return UI[tl][t];
+  if (d[t]) return d[t];
+  // « À LA UNE · ENTREPRISES » : bandeau + catégorie
+  const b = t.match(/^À LA UNE · (.+)$/);
+  if (b) { const c = Object.keys(d).find(k => k.toUpperCase() === b[1]); return (UI[tl]['À LA UNE']) + ' · ' + (c ? d[c] : b[1]); }
+  // Chapeau raccourci par l'accueil PC (« … » en fin, « ALGER — » parfois retiré) : on retrouve le texte complet
+  if (!/…$/.test(t) || t.length < 25) return null;
+  const k = tl + ':' + t;
+  if (!(k in fuzzy)) {
+    const part = t.replace(/…$/, '').trim();
+    const full = Object.keys(d).find(x => x.length > part.length && x.includes(part));
+    fuzzy[k] = null;
+    if (full) {
+      const tr = d[full], n = Math.round(tr.length * part.length / full.length);
+      fuzzy[k] = tr.length > n + 10 ? tr.slice(0, n).replace(/\s+\S*$/, '') + '…' : tr;
+    }
+  }
+  return fuzzy[k];
+}
 
 let saveTimer = null;
 function saveCache() {
@@ -200,6 +229,9 @@ const ART_SEL = [
   '.article-body h1', '.article-text p', '.article-text h2',
   '.article-text h3', '.article-text li',
   '.related-card h4', '.trending-content h4',
+  // Accueil PC (desktop-home.js)
+  '.dh-une h1', '.dh-tx > p:not(.dh-m)', '.dh-tx h3', '.dh-cb h3', '.dh-st h4', '.dh-ex',
+  '.dh-t', '.dh-badge', '.dh-cat', '.dh-catl', '.dh-inter', '.dh-arch-t', '.dh-fl b', '.dh-tabs button',
 ].join(',');
 
 /* ─── Traduire une grille ──────────────────────────────────────── */
@@ -250,16 +282,24 @@ let obs = null;
 const GRIDS = [
   '#newsGrid','#heroGrid','#breakingTicker','#veilleCards','#revueContent',
   '.revue-cards-grid','#articleContent','#relatedGrid','#trendingList',
+  '#dhFlash','.dh-tabs','#pagination','#brevesList',
 ].join(', ');
 
+// Observe toute la page (les blocs de l'accueil PC sont créés après coup), regroupé en 1 passage par image.
+let obsQueued = false;
 function watchGrids(tl) {
   if (obs) obs.disconnect();
   obs = new MutationObserver(() => {
-    const cur = document.documentElement.getAttribute('data-lang');
-    if (cur === 'fr') return;
-    document.querySelectorAll(GRIDS).forEach(g => translateGrid(g, cur));
+    if (obsQueued) return;
+    obsQueued = true;
+    requestAnimationFrame(() => {
+      obsQueued = false;
+      const cur = document.documentElement.getAttribute('data-lang');
+      if (cur === 'fr') return;
+      document.querySelectorAll(GRIDS).forEach(g => translateGrid(g, cur));
+    });
   });
-  document.querySelectorAll(GRIDS).forEach(g => obs.observe(g, { childList: true, subtree: true }));
+  obs.observe(document.body, { childList: true, subtree: true });
 }
 
 /* ─── Mise à jour bouton(s) ────────────────────────────────────── */
