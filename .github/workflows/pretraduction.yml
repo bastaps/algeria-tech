@@ -28,6 +28,8 @@ jobs:
       - name: Traduire les articles manquants
         env:
           PRETR_BUDGET_MIN: '40'
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
         run: node scripts/pretranslate-titles.js
 
       - name: Commiter et pousser

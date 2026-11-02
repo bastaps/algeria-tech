@@ -285,19 +285,20 @@ const GRIDS = [
   '#dhFlash','.dh-tabs','#pagination','#brevesList',
 ].join(', ');
 
-// Observe toute la page (les blocs de l'accueil PC sont créés après coup), regroupé en 1 passage par image.
+// Observe toute la page (les blocs de l'accueil PC sont créés après coup), mutations regroupées en 1 passage.
 let obsQueued = false;
 function watchGrids(tl) {
   if (obs) obs.disconnect();
   obs = new MutationObserver(() => {
     if (obsQueued) return;
     obsQueued = true;
-    requestAnimationFrame(() => {
+    // setTimeout et non requestAnimationFrame : ce dernier ne tourne pas tant que l'onglet n'est pas affiché
+    setTimeout(() => {
       obsQueued = false;
       const cur = document.documentElement.getAttribute('data-lang');
       if (cur === 'fr') return;
       document.querySelectorAll(GRIDS).forEach(g => translateGrid(g, cur));
-    });
+    }, 30);
   });
   obs.observe(document.body, { childList: true, subtree: true });
 }
