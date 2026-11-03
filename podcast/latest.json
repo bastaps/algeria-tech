@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
- "date": "2026-11-02",
- "genere": "2026-11-02T21:44:46",
+ "date": "2026-11-03",
+ "genere": "2026-11-03T15:05:27",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
    "creneau": "soir",
-   "genere": "2026-11-02T21:46:45",
+   "genere": "2026-11-03T15:07:24",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 5.7,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les 10 infos à retenir de votre soirée."
+    "duree": 6.5,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Nous avons pour vous dix informations tech et télécoms de votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.1,
-    "texte": "C'était l'essentiel de l'actualité tech et économique. Merci de nous avoir suivis."
+    "duree": 5.8,
+    "texte": "C'était l'essentiel de l'actualité tech et télécoms. Retrouvez-nous demain pour un nouveau tour d'horizon."
    },
    "items": [
     {
-     "titre": "Archives locales et numérique",
-     "texte": "La gestion numérique des archives des collectivités locales était au cœur d'une rencontre régionale à Constantine. L'objectif est d'adapter ces documents cruciaux à l'ère de la transformation digitale pour une meilleure accessibilité et conservation.",
+     "titre": "Numérisation des archives locales",
+     "texte": "Une rencontre régionale se tient à Constantine pour discuter de la gestion des documents d'activité et des archives des collectivités locales à l'ère de la transformation numérique. Un sujet clé pour l'administration algérienne.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 12.8,
+     "duree": 11.7,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Réseau aérien algérien étendu",
-     "texte": "L'Algérie confirme son ambition de développement en élargissant significativement son réseau aérien. Cette initiative vise à renforcer la présence du pays sur les continents africain et asiatique, ouvrant de nouvelles perspectives de connexion.",
+     "titre": "La HATPLC à Vienne",
+     "texte": "La Haute Autorité de la Tamantit de la régulation des postes et télécommunications participe à Vienne aux travaux de la 17e session du Groupe d'examen de l'application de la Convention des Nations Unies sur les changements climatiques.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 12.7,
+     "duree": 10.6,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "InDrive en Algérie : publicité vs réalités",
-     "texte": "La société InDrive arbore fièrement son tramway aux couleurs de sa marque en Algérie. Pendant ce temps, les chauffeurs des applications de transport continuent de faire face à des contrôles fréquents et à des amendes sur la route.",
+     "titre": "Hadj 2027 : Délais prolongés",
+     "texte": "Sur décision du président de la République, les délais de paiement des frais pour le Hadj 2027 ont été prolongés. Les futurs pèlerins disposent ainsi de plus de temps pour accomplir cette démarche.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 11.2,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
-    },
-    {
-     "titre": "Sécurité en 'vibe coding'",
-     "texte": "Le 'vibe coding', nouvelle méthode de génération de code par la parole, gagne du terrain. Pour les débutants, connaître les bonnes pratiques de sécurité est essentiel pour aborder cette approche innovante en toute sérénité.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 12.2,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Maroc : Parlement sur le Sahara",
-     "texte": "Le Parlement marocain s'est réuni pour mobiliser et consolider une orientation nationale sur le dossier du Sahara occidental. Cette démarche fait suite aux récentes discussions au Conseil de sécurité des Nations Unies.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 11.4,
-     "pays": "DZ",
-     "source": "TSA Algérie"
-    },
-    {
-     "titre": "Formation pro : nouvelles spécialités",
-     "texte": "La rentrée de la formation professionnelle a accueilli plus de 400 000 nouveaux stagiaires. L'accent est mis sur l'analyse des nouvelles spécialités proposées, afin de mieux répondre aux besoins évolutifs du marché du travail.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 11.4,
+     "duree": 10.4,
      "pays": "DZ",
      "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "Prix de l'iPhone : évolution",
-     "texte": "L'évolution du prix de l'iPhone est notable. Alors que de nouveaux modèles comme un potentiel iPhone pliable pourraient atteindre des sommes élevées, l'ensemble de la gamme a vu ses tarifs augmenter ces dernières années.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 10.3,
+     "titre": "IRIS et Panasonic s'allient",
+     "texte": "Le groupe industriel algérien IRIS a annoncé un partenariat stratégique avec le géant japonais de l'électronique Panasonic. Une nouvelle alliance technologique signée à Alger pour renforcer l'industrie locale.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 11.3,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "IA et mode chez Meta",
+     "texte": "Meta lance discrètement une nouvelle application d'intelligence artificielle pour essayer virtuellement des vêtements. Pour l'instant, ce lancement est limité à certaines régions d'Asie.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 9.5,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Communauté scientifique : siège à Alger",
-     "texte": "Le Haut conseil de la communauté scientifique nationale à l'étranger dispose désormais d'un siège officiel à Alger. Cette inauguration concrétise des engagements présidentiels pour soutenir et intégrer cette communauté essentielle.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 12.2,
-     "pays": "DZ",
-     "source": "Le Jeune Indépendant"
-    },
-    {
-     "titre": "Sécurité hydrique : Ouest alimenté",
-     "texte": "Près de 67 milliards de dinars ont été mobilisés pour assurer l'alimentation en eau potable de l'Ouest du pays. Ces fonds serviront notamment à renforcer les capacités des stations de dessalement.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 10.7,
+     "titre": "Nouvelle ligne Air Algérie",
+     "texte": "Air Algérie ouvre une nouvelle destination européenne au départ d'Alger. La compagnie nationale desservira désormais la capitale grecque, Athènes, à partir du 24 décembre prochain.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 10.8,
      "pays": "DZ",
      "source": "Algérie360"
     },
     {
-     "titre": "Raffinerie d'Augusta : chiffre d'affaires",
-     "texte": "Le rapport annuel 2025 de Sonatrach révèle un recul de 29% du chiffre d'affaires de sa filiale italienne, la raffinerie d'Augusta. CeThe post Raffinerie d’A",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 9.9,
+     "titre": "Air Algérie relie Alger à Athènes",
+     "texte": "La compagnie Air Algérie étoffe son réseau international en lançant une nouvelle liaison aérienne. Alger sera désormais directement connectée à Athènes, la capitale de la Grèce.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 10.2,
      "pays": "DZ",
-     "source": "Algérie Éco"
+     "source": "TSA Algérie"
+    },
+    {
+     "titre": "Mises à jour et téléphones",
+     "texte": "Les mises à jour logicielles sur votre téléphone peuvent parfois avoir des effets inattendus. Nous explorons comment comprendre et gérer ces comportements après l'installation.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 8.9,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Cyberattaque sur des frigos",
+     "texte": "Une cyberattaque a perturbé la chaîne du froid dans plusieurs supermarchés européens. Des réfrigérateurs ont vu leur température augmenter, entraînant la perte de denrées alimentaires.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 10.0,
+     "pays": "DZ",
+     "source": "NTIC.dz"
+    },
+    {
+     "titre": "Metaview lève 60 millions $",
+     "texte": "La startup Metaview spécialisée dans les logiciels pour recruteurs a levé 60 millions de dollars. Ces fonds serviront à financer son développement et l'expansion de ses équipes.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 9.6,
+     "pays": "DZ",
+     "source": "AlgeriaTech.news"
     }
    ]
   },
