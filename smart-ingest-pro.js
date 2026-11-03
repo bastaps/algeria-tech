@@ -1037,22 +1037,39 @@ function setupVideoInput() {
             });
     };
 
-    videoIn.addEventListener('paste', e => {
-        const items = e.clipboardData?.items;
-        if (!items) return;
-        for (const item of items) {
-            if (item.kind === 'file' && item.type.startsWith('video/')) {
-                e.preventDefault();
-                sendToYoutube(item.getAsFile());
-                return;
-            }
-        }
-    });
+    // Un fichier vidéo collé / déposé peut arriver sous plusieurs formes : item « file » avec type vidéo, ou liste `files` dont le type est vide
+    // (fichier copié depuis l'Explorateur Windows). On reconnaît donc le type MIME OU l'extension.
+    const EXT_VIDEO = /\.(mp4|webm|mov|m4v|mkv|avi|ogv|ogg)$/i;
+    const trouverVideo = dt => {
+        if (!dt) return { file: null, autres: [] };
+        const fichiers = [...(dt.files || [])];
+        for (const it of (dt.items || [])) { if (it.kind === 'file') { const f = it.getAsFile(); if (f && !fichiers.includes(f)) fichiers.push(f); } }
+        return { file: fichiers.find(f => (f.type || '').startsWith('video/') || EXT_VIDEO.test(f.name || '')) || null, autres: fichiers };
+    };
+    const accueillir = (e, source) => {
+        const { file, autres } = trouverVideo(e.clipboardData || e.dataTransfer);
+        if (file) { e.preventDefault(); e.stopPropagation(); videoIn.focus(); sendToYoutube(file); return true; }
+        if (autres.length) setVideoStatus(`<span class="si-embed-video-link si-video-error"><i class="fas fa-exclamation-triangle"></i> Fichier ${source} non reconnu comme vidéo (${autres[0].name || 'sans nom'}, type « ${autres[0].type || 'inconnu'} »). Formats admis : mp4, webm, mov.</span>`);
+        return false;
+    };
+    videoIn.addEventListener('paste', e => { accueillir(e, 'collé'); });
     videoIn.addEventListener('dragover', e => e.preventDefault());
-    videoIn.addEventListener('drop', e => {
-        const f = [...(e.dataTransfer?.files || [])].find(x => x.type.startsWith('video/'));
-        if (f) { e.preventDefault(); sendToYoutube(f); }
-    });
+    videoIn.addEventListener('drop', e => { accueillir(e, 'déposé'); });
+    // Collage n'importe où sur la page (le curseur n'est pas toujours dans le champ vidéo) : une vidéo collée part dans l'espace vidéo
+    document.addEventListener('paste', e => {
+        if (e.target === videoIn || e.defaultPrevented) return;
+        const { file } = trouverVideo(e.clipboardData);
+        if (file) accueillir(e, 'collé');
+    }, true);
+    // Bouton « Parcourir » : choisir le fichier au lieu de le coller (le plus fiable)
+    if (!document.getElementById('siVideoBrowse')) {
+        const sel = document.createElement('input'); sel.type = 'file'; sel.accept = 'video/*,.mp4,.webm,.mov,.m4v,.mkv'; sel.hidden = true; sel.id = 'siVideoFile';
+        const bt = document.createElement('button'); bt.type = 'button'; bt.id = 'siVideoBrowse'; bt.className = 'si-btn-mini';
+        bt.innerHTML = '<i class="fas fa-folder-open"></i> Parcourir…'; bt.style.cssText = 'margin-top:6px;padding:6px 12px;border-radius:8px;cursor:pointer';
+        bt.onclick = () => sel.click();
+        sel.onchange = () => { if (sel.files && sel.files[0]) sendToYoutube(sel.files[0]); sel.value = ''; };
+        videoIn.insertAdjacentElement('afterend', bt); bt.insertAdjacentElement('afterend', sel);
+    }
 
     videoIn.addEventListener('change', () => handleVideoUrlEntered(videoIn.value));
     videoIn.addEventListener('blur', () => handleVideoUrlEntered(videoIn.value));
