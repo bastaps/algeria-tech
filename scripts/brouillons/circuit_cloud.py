@@ -172,7 +172,9 @@ def produire(slot, notif=True):
                 log(f"  ignoré (texte ou image manquant) : {c['titre'][:70]}")
                 continue
             if c.get("origine") not in ("officiel", "scoop"):
-                hp, pourquoi = C.P.hors_perimetre(c["titre"], corps, c["url"])
+                hp, pourquoi = C.P.hors_sujet(c["titre"], corps)   # le sujet doit être TIC / mobile / télécoms / IA / numérique
+                if not hp:
+                    hp, pourquoi = C.P.hors_perimetre(c["titre"], corps, c["url"])
                 if not hp and C.P.douteux(c["titre"], corps):
                     avis = C.P.avis_ia(c["titre"], corps[:400], lambda q: R.appeler_gemini(q, temperature=0))
                     if avis and not avis[0]:
@@ -207,6 +209,8 @@ def produire(slot, notif=True):
                 log(f"  doublon écarté (article rédigé) : {red['titre'][:60]} — {pourquoi}")
                 continue
             hp, pourquoi = C.P.hors_perimetre(red["titre"], red.get("extrait", ""), c["url"])
+            if not hp and not direct:
+                hp, pourquoi = C.P.hors_sujet(red["titre"], red.get("extrait", ""))
             if hp and not direct:
                 log(f"  hors périmètre écarté (article rédigé) : {red['titre'][:60]} — {pourquoi}")
                 continue

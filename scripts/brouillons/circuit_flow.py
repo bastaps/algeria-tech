@@ -195,8 +195,8 @@ def candidats_tous(slot, scoops=None):
         out += lot[:25]
     vus, uniques = set(), []
     for c in sorted(out, key=lambda c: -c["score"]):
-        if c.get("origine") in ("rss", "revue", "social") and P.hors_perimetre(c["titre"], "", c.get("url") or "")[0]:
-            continue   # sport, électroménager, offres étrangères… : écartés avant même d'être classés
+        if c.get("origine") in ("rss", "revue", "social") and (P.hors_perimetre(c["titre"], "", c.get("url") or "")[0] or P.non_tic_evident(c["titre"])):
+            continue   # sport, électroménager, offres étrangères, santé, politique, banque… : écartés avant même d'être classés
         if c.get("url") and c["url"] not in vus:
             vus.add(c["url"])
             uniques.append(c)
@@ -370,6 +370,10 @@ def choisir(slot):
                 log(f"  ignoré (texte ou image manquant) : {c['titre'][:70]}")
                 continue
             if c.get("origine") not in ("officiel", "scoop"):
+                hs, pourquoi = P.hors_sujet(f.get("title") or c["titre"], texte)
+                if hs:   # le sujet doit être TIC / mobile / télécoms / IA / numérique : sinon rien (ni rédaction, ni Flow)
+                    log(f"  hors sujet écarté : {c['titre'][:70]} — {pourquoi}")
+                    continue
                 hp, pourquoi = P.hors_perimetre(f.get("title") or c["titre"], texte, c["url"])
                 if not hp and P.douteux(c["titre"], texte):   # cas douteux (opérateur étranger cité) : avis de l'IA, sans avis on garde
                     avis = P.avis_ia(f.get("title") or c["titre"], texte[:400], lambda q: R.appeler_gemini(q, temperature=0))
@@ -510,6 +514,10 @@ def finaliser(ident, clip, sans_push):
     hp, pourquoi = P.hors_perimetre(g["titre"], g["lead"], job["article"]["url"])
     if hp and job["article"].get("origine") not in ("officiel", "scoop"):
         raise RuntimeError("hors périmètre : " + pourquoi)
+    if job["article"].get("origine") not in ("officiel", "scoop"):
+        hs, pourquoi = P.hors_sujet(g["titre"], g["lead"])
+        if hs:
+            raise RuntimeError("hors périmètre : " + pourquoi)
     g["contenu"] = str(g["contenu"]).strip() + "\n\n## Sources\n\n" + "\n".join(
         R.lignes_sources(officiels, src["nom"], src["url"], src["admin"], direct)) + "\n"
     cat = g.get("categorie") if g.get("categorie") in CATEGORIES else ("Algérie" if job["article"]["pays"] == "DZ" else "Monde")

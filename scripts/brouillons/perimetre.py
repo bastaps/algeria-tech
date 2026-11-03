@@ -95,3 +95,40 @@ JEUX = re.compile(
 def est_jeu(titre, extrait=""):
     """True si l'article parle de jeux vidéo : rubrique spéciale « Jeux vidéo » (catégorie Jeux), hors flux de l'accueil, JAMAIS en Une."""
     return bool(JEUX.search(f"{titre or ''} {(extrait or '')[:160]}"))
+
+
+# ── Sujet : TIC / mobile / télécoms / IA / numérique — exigé de TOUT article (Algérie comme international) ─────────────────────
+# 2026-11-03 : après l'ouverture aux médias algériens sans .dz et aux cas « ambigus » (1er novembre), le filtre thématique de l'express
+# (mots-clés faibles : « loi », « projet de loi » = régulation, vocabulaire de santé…) laissait passer un article sur la grippe, un sujet
+# bancaire et une dépêche politique sur le Sahara occidental (pour laquelle Google Flow a même généré une vidéo). Ici : un mot-clé TIC FORT est
+# obligatoire dans le titre (ou deux dans le résumé), et les sujets hors TIC sont refusés explicitement.
+TIC_FORT = re.compile(
+    r"t[ée]l[ée]com|op[ée]rateurs?" + chr(92) + "b|" + chr(92) + "b(?:mobilis|djezzy|ooredoo)" + chr(92) + "b|alg[ée]rie t[ée]l[ée]com|alg[ée]rie poste|arpce|" + chr(92) + "b[3456]g" + chr(92) + "b|fibre|ftth|"
+    r"internet|wi-?fi|haut d[ée]bit|smartphone|t[ée]l[ée]phon|mobile|applications?" + chr(92) + "b|appli" + chr(92) + "b|logiciel|software|plateforme num|num[ée]ri|"
+    r"digital|d[ée]mat[ée]rialis|cyber|piratage|donn[ée]es" + chr(92) + "b|" + chr(92) + "bdata" + chr(92) + "b|cloud|datacenter|intelligence artificielle|" + chr(92) + "bia" + chr(92) + "b|" + chr(92) + "bai" + chr(92) + "b|chatgpt|openai|"
+    r"" + chr(92) + "bllm" + chr(92) + "b|robot|start-?ups?|e-?paiement|paiement [ée]lectronique|mon[ée]tique|fintech|cashback|crypto|blockchain|satellite|spatial|puce|"
+    r"semi-?conducteur|processeur|serveur|informatique|technolog|innovation|r[ée]seau social|" + chr(92) + "btpe" + chr(92) + "b|e-?commerce|e-?gouvernement|"
+    r"" + chr(92) + "b(?:huawei|samsung|ericsson|nokia|zte|cisco|microsoft|google|apple|meta|nvidia|starlink|spacex|mistral|anthropic|oppo|xiaomi|honor|tecno|infinix)" + chr(92) + "b", re.I)
+NON_TIC = re.compile(
+    r"grippe|vaccin|sant[ée]\b|h[ôo]pital|m[ée]dic|cardiaque|cancer|maladie|[ée]pid[ée]mi|"
+    r"loi de finances|budget|\bapn\b|s[ée]nat|parlement|[ée]lection|pr[ée]sident de la r[ée]publique|d[ée]cret pr[ée]sidentiel|gr[âa]ce|"
+    r"diplomat|sahara|minurso|\bonu\b|conseil de s[ée]curit[ée]|guerre|gaza|palestin|isra[ée]l|arm[ée]e|d[ée]fense nationale|militaire|terroris|"
+    r"football|handball|championnat|agricult|c[ée]r[ée]ales|bl[ée]\b|p[ée]trole|hydrocarbure|\bgaz\b|logement|tourisme|immobili|assiettes? fonci|"
+    r"banque|bancaire|inflation|dinar|bourse|march[ée] financier|douane|saisie|drogue|accident|incendie|m[ée]t[ée]o|culture|cin[ée]ma|"
+    r"commémor|anniversaire|r[ée]volution du|f[êe]te|religieu|ramadan|hadj|omra", re.I)
+
+
+def hors_sujet(titre, resume=""):
+    """(True, raison) si l'article n'est pas du domaine TIC / mobile / télécoms / IA / numérique."""
+    t, r = titre or "", (resume or "")[:500]
+    fort_titre = TIC_FORT.search(t)
+    if NON_TIC.search(t) and not fort_titre:
+        return True, f"hors sujet TIC (« {NON_TIC.search(t).group(0)} » dans le titre, aucun mot-clé TIC)"
+    if not fort_titre and len(TIC_FORT.findall(r)) < 2:
+        return True, "aucun mot-clé TIC fort dans le titre (et moins de 2 dans le résumé)"
+    return False, ""
+
+
+def non_tic_evident(titre):
+    """Titre manifestement hors TIC (santé, politique, sport, banque, agriculture…) sans aucun mot-clé TIC : écarté avant tout classement."""
+    return bool(NON_TIC.search(titre or "")) and not TIC_FORT.search(titre or "")

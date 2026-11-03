@@ -158,6 +158,8 @@ def main():
                 continue
         if choix != "rejeter":
             hp, pourquoi = P.hors_perimetre(titre, champ(md, "extrait"), champ(md, "source"))
+            if not hp and not champ(md, "defaut") and not champ(md, "delai_min"):   # brouillons du circuit presse (pas ceux des pages Facebook)
+                hp, pourquoi = P.hors_sujet(titre, champ(md, "extrait"))
             if hp:
                 f.unlink()
                 log(f"{ident} : HORS PÉRIMÈTRE écarté ({titre[:60]}) — {pourquoi}")
