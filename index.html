@@ -641,6 +641,7 @@
     </div>
 
     <!-- marked.js chargé AVANT script.js (requis pour le rendu markdown des articles) -->
+    <script>if(window.AbortController&&!AbortSignal.timeout){AbortSignal.timeout=function(ms){var c=new AbortController();setTimeout(function(){c.abort()},ms);return c.signal}}</script>
     <script src="/libs/marked/marked.min.js"></script>
     <!-- vanilla-tilt.js : effet d'inclinaison 3D sur les cartes de la Une (hero) -->
     <script src="/libs/vanilla-tilt/vanilla-tilt.min.js"></script>

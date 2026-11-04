@@ -14,7 +14,7 @@
  * la rapidité des requêtes réseau sans contenu périmé.
  */
 
-const CACHE_VERSION = 'algeria-tech-v30';
+const CACHE_VERSION = 'algeria-tech-v31';
 const CACHE_IMAGES  = 'algeria-tech-images-v1';
 
 // ── Assets locaux pré-cachés (HTML et CDN exclus volontairement) ──────────────
@@ -119,6 +119,12 @@ self.addEventListener('fetch', event => {
     return;
   }
 
+  // ── 2 quater. Libs tierces figées : cache d'abord
+  if (url.pathname.startsWith('/libs/')) {
+    event.respondWith(cacheFirst(event.request, CACHE_VERSION));
+    return;
+  }
+
   // ── 3. Données JSON → Stale-While-Revalidate ─────────────────────────────
   const isDataFile = DATA_FILES.some(f => url.pathname === f) ||
                      url.pathname.endsWith('.json');
@@ -151,24 +157,28 @@ self.addEventListener('fetch', event => {
  */
 async function networkFirst(request) {
   const cache = await caches.open(CACHE_VERSION);
-  // Connexion instable (coupures fréquentes) : un 2e essai avant de basculer sur le cache.
+  const cachedNow = await cache.match(request) ||
+                    (request.mode === 'navigate' ? await cache.match('/') : null);
+  // Réseau lent (mobile) : après 3 s on sert la copie en cache si elle existe, sinon on attend le réseau.
+  const timeoutMs = cachedNow ? 3000 : 25000;
   for (let essai = 0; essai < 2; essai++) {
     try {
-      const response = await fetch(request);
+      const ctrl = new AbortController();
+      const t = setTimeout(() => ctrl.abort(), timeoutMs);
+      let response;
+      try { response = await fetch(request, { signal: ctrl.signal }); } finally { clearTimeout(t); }
       if (response && response.status === 200) {
-        cache.put(request, response.clone()); // stocké pour usage offline
+        cache.put(request, response.clone());
       }
       return response;
     } catch {
-      if (essai === 0) await new Promise(r => setTimeout(r, 1500));
+      if (cachedNow) return cachedNow;
+      if (essai === 0) await new Promise(r => setTimeout(r, 800));
     }
   }
-  // Hors ligne : fallback sur le cache si disponible (pour une navigation, à défaut l'accueil en cache)
-  const cached = await cache.match(request) ||
-                 (request.mode === 'navigate' ? await cache.match('/') : null);
-  return cached || new Response(
-    '<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="refresh" content="6">' +
-    '<h1>Algeria Tech — Hors ligne</h1><p>Vérifiez votre connexion. Nouvelle tentative automatique…</p>', {
+  return new Response(
+    '<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
+    '<h1>Algeria Tech — Hors ligne</h1><p>Vérifiez votre connexion puis <a href="/">réessayez</a>.</p>', {
     status: 503,
     headers: { 'Content-Type': 'text/html; charset=utf-8' },
   });
