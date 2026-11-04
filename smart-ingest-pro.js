@@ -1842,7 +1842,13 @@ function setupHubDeploiement() {
     // sélection. En ligne (pages.dev), il n'y a pas de localhost : l'enregistrement va directement sur GitHub, le bloc est masqué.
     document.getElementById('tgtLocal').checked = true;
     document.getElementById('tgtGithub').checked = true;
-    if (!isLocal) { const bloc = document.getElementById('deployTargets'); if (bloc) bloc.style.display = 'none'; }
+    if (!isLocal) {
+        // En ligne : GitHub toujours actif (coché, verrouillé) ; Localhost visible mais grisé (nécessite le Hub local).
+        const l = document.getElementById('tgtLocal'), g = document.getElementById('tgtGithub');
+        l.checked = false; l.disabled = true; g.checked = true; g.disabled = true;
+        const lab = l.closest('label'); if (lab) { lab.style.opacity = '.5'; lab.title = 'Nécessite le Hub local (localhost:3000)'; }
+        const lt = lab && lab.querySelector('small'); if (lt) lt.textContent = 'Hub local requis';
+    }
     document.querySelectorAll('[data-mode]').forEach(b => {
         b.addEventListener('click', () => {
             document.querySelectorAll('[data-mode]').forEach(x => x.classList.remove('active'));
