@@ -1,100 +1,100 @@
 {
  "creneau": "soir",
- "date": "2026-11-03",
- "genere": "2026-11-03T15:05:27",
+ "date": "2026-11-04",
+ "genere": "2026-11-04T15:24:47",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
    "creneau": "soir",
-   "genere": "2026-11-03T15:07:24",
+   "genere": "2026-11-04T15:26:45",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.5,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Nous avons pour vous dix informations tech et télécoms de votre soirée."
+    "duree": 6.6,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les 10 informations tech et télécoms à ne pas manquer ce soir."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.8,
-    "texte": "C'était l'essentiel de l'actualité tech et télécoms. Retrouvez-nous demain pour un nouveau tour d'horizon."
+    "duree": 5.5,
+    "texte": "C'était votre flash actu tech et télécoms. Merci de votre écoute sur Algeria Tech."
    },
    "items": [
     {
-     "titre": "Numérisation des archives locales",
-     "texte": "Une rencontre régionale se tient à Constantine pour discuter de la gestion des documents d'activité et des archives des collectivités locales à l'ère de la transformation numérique. Un sujet clé pour l'administration algérienne.",
+     "titre": "Cyberattaque : des frigos ciblés",
+     "texte": "Une nouvelle cyberattaque prend pour cible des appareils connectés, notamment des réfrigérateurs intelligents. Plus d'une dizaine de pays européens seraient concernés par cette menace qui souligne les vulnérabilités de l'Internet des objets.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 11.7,
-     "pays": "DZ",
-     "source": "APS"
-    },
-    {
-     "titre": "La HATPLC à Vienne",
-     "texte": "La Haute Autorité de la Tamantit de la régulation des postes et télécommunications participe à Vienne aux travaux de la 17e session du Groupe d'examen de l'application de la Convention des Nations Unies sur les changements climatiques.",
-     "mp3": "/podcast/fr/02.mp3",
-     "duree": 10.6,
-     "pays": "DZ",
-     "source": "APS"
-    },
-    {
-     "titre": "Hadj 2027 : Délais prolongés",
-     "texte": "Sur décision du président de la République, les délais de paiement des frais pour le Hadj 2027 ont été prolongés. Les futurs pèlerins disposent ainsi de plus de temps pour accomplir cette démarche.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 10.4,
+     "duree": 12.2,
      "pays": "DZ",
      "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "IRIS et Panasonic s'allient",
-     "texte": "Le groupe industriel algérien IRIS a annoncé un partenariat stratégique avec le géant japonais de l'électronique Panasonic. Une nouvelle alliance technologique signée à Alger pour renforcer l'industrie locale.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 11.3,
+     "titre": "Grève en France : vols Algérie affectés",
+     "texte": "La grève du 5 novembre en France risque de perturber les vols à destination de l'Algérie. Les compagnies aériennes pourraient connaître des annulations et des retards importants, impactant les voyageurs entre les deux pays.",
+     "mp3": "/podcast/fr/02.mp3",
+     "duree": 11.5,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Djezzy : forte croissance du CA",
+     "texte": "L'opérateur Djezzy annonce un chiffre d'affaires de 95,5 milliards de dinars à fin septembre 2026. Cette performance représente une hausse de 8,6% par rapport à la même période l'an passé, confirmant sa dynamique.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 13.4,
      "pays": "DZ",
      "source": "Algérie Éco"
     },
     {
-     "titre": "IA et mode chez Meta",
-     "texte": "Meta lance discrètement une nouvelle application d'intelligence artificielle pour essayer virtuellement des vêtements. Pour l'instant, ce lancement est limité à certaines régions d'Asie.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 9.5,
+     "titre": "Nouvel iPad Mini : quelles nouveautés ?",
+     "texte": "Apple dévoile son nouvel iPad Mini. Cette génération promet des mises à jour significatives, notamment avec l'intégration du nouveau SoC A20 Pro, offrant un bond de performance notable.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 10.3,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Nouvelle ligne Air Algérie",
-     "texte": "Air Algérie ouvre une nouvelle destination européenne au départ d'Alger. La compagnie nationale desservira désormais la capitale grecque, Athènes, à partir du 24 décembre prochain.",
+     "titre": "NESDA inaugure son siège à Alger",
+     "texte": "L'Agence nationale d'appui et de développement de l'entrepreneuriat, NESDA, a inauguré son nouveau siège pour son antenne d'Alger-Centre. L'événement s'est déroulé en présence du ministre de l'Économie de la connaissance.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 11.6,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "Djezzy affiche 95,5 milliards de dinars",
+     "texte": "À fin septembre 2026, Djezzy a généré 95,5 milliards de dinars de chiffre d'affaires. Cet opérateur mobile confirme sa bonne santé financière avec une croissance notable sur les neuf premiers mois de l'année.",
      "mp3": "/podcast/fr/06.mp3",
+     "duree": 12.6,
+     "pays": "DZ",
+     "source": "Le Soir d'Algérie"
+    },
+    {
+     "titre": "Usine JAC Motors : où en est le projet ?",
+     "texte": "Le projet de l'usine JAC Motors à Aïn Témouchent fait reparler de lui dans l'industrie automobile algérienne. Le ministre de l'Industrie a récemment échangé sur l'avancement de ce chantier important.",
+     "mp3": "/podcast/fr/07.mp3",
      "duree": 10.8,
      "pays": "DZ",
      "source": "Algérie360"
     },
     {
-     "titre": "Air Algérie relie Alger à Athènes",
-     "texte": "La compagnie Air Algérie étoffe son réseau international en lançant une nouvelle liaison aérienne. Alger sera désormais directement connectée à Athènes, la capitale de la Grèce.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 10.2,
+     "titre": "Renault Algérie : nouveau produit local",
+     "texte": "Renault Algérie continue d'enrichir sa gamme de pièces fabriquées localement. Après les filtres et les batteries, un nouveau produit Made in Algeria vient compléter l'offre de l'entreprise.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 9.8,
      "pays": "DZ",
-     "source": "TSA Algérie"
+     "source": "Algérie360"
     },
     {
-     "titre": "Mises à jour et téléphones",
-     "texte": "Les mises à jour logicielles sur votre téléphone peuvent parfois avoir des effets inattendus. Nous explorons comment comprendre et gérer ces comportements après l'installation.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 8.9,
+     "titre": "Meta protège les adolescents",
+     "texte": "Meta va désormais avertir les parents si des adolescents recherchent du contenu sur l'automutilation sur Facebook. Cette mesure s'étend aussi aux conversations avec Meta AI pour une meilleure protection.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 10.7,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Cyberattaque sur des frigos",
-     "texte": "Une cyberattaque a perturbé la chaîne du froid dans plusieurs supermarchés européens. Des réfrigérateurs ont vu leur température augmenter, entraînant la perte de denrées alimentaires.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 10.0,
-     "pays": "DZ",
-     "source": "NTIC.dz"
-    },
-    {
-     "titre": "Metaview lève 60 millions $",
-     "texte": "La startup Metaview spécialisée dans les logiciels pour recruteurs a levé 60 millions de dollars. Ces fonds serviront à financer son développement et l'expansion de ses équipes.",
+     "titre": "Temporal lève 550M$ pour l'appli",
+     "texte": "La société Temporal a levé 550 millions de dollars pour améliorer la fiabilité des applications. Cette importante levée de fonds valorise l'entreprise à plus de 12 milliards de dollars.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 9.6,
+     "duree": 10.2,
      "pays": "DZ",
      "source": "AlgeriaTech.news"
     }
