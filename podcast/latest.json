@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-04",
- "genere": "2026-11-04T19:36:11",
+ "genere": "2026-11-04T22:17:05",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
    "creneau": "soir",
-   "genere": "2026-11-04T19:38:58",
+   "genere": "2026-11-04T22:18:46",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 5.8,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici dix informations pour éclairer votre soirée."
+    "duree": 6.4,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici dix informations tech et télécoms qui ont marqué la semaine."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 4.9,
-    "texte": "C'était votre dose d'actualités tech. Rendez-vous bientôt sur Algeria Tech."
+    "duree": 5.0,
+    "texte": "C'est tout pour ce soir. Retrouvez-nous bientôt pour un nouveau tour de l'actualité tech."
    },
    "items": [
     {
-     "titre": "Contrôlez les autorisations de vos applications",
-     "texte": "Vos applications sur smartphone demandent-elles trop d'accès ? Il est crucial de vérifier régulièrement les informations auxquelles vos applications accèdent pour protéger votre vie privée et vos données personnelles. Soyez vigilant sur ce que vous installez.",
+     "titre": "Pangram détecte l'IA dans images et vidéos",
+     "texte": "L'entreprise Pangram, déjà connue pour son outil de détection de textes générés par intelligence artificielle, lance de nouvelles fonctionnalités. Ces mises à jour permettent désormais de repérer les contenus visuels et vidéo créés par l'IA, élargissant ainsi la portée de ses analyses.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 12.6,
+     "duree": 14.6,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Cyberattaque européenne sur des réfrigérateurs",
-     "texte": "Une nouvelle cyberattaque d'envergure inquiète l'Europe. Plus d'une dizaine de pays seraient concernés par cette menace qui cible spécifiquement les appareils électroménagers connectés, soulevant des questions sur la sécurité de nos objets du quotidien.",
+     "titre": "Tirsam lance un minibus 15 places",
+     "texte": "Le constructeur automobile algérien Tirsam enrichit son catalogue dédié au transport de voyageurs. La marque annonce la commercialisation et les premières livraisons de son nouveau minibus TIRSAM TOURING, un modèle conçu pour transporter quinze personnes.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 12.0,
+     "duree": 13.4,
+     "pays": "DZ",
+     "source": "Maghreb Emergent"
+    },
+    {
+     "titre": "Vérifiez les autorisations de vos apps",
+     "texte": "Sur smartphones, la gestion des autorisations accordées aux applications est essentielle pour la sécurité. Il est recommandé de vérifier régulièrement les accès que vos applications ont à vos données pour mieux maîtriser votre vie privée numérique.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 12.5,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Cyberattaque : des réfrigérateurs visés",
+     "texte": "Une nouvelle cyberattaque d'envergure a touché plusieurs pays européens. Les appareils ciblés cette fois sont des réfrigérateurs connectés, démontrant l'étendue des vulnérabilités dans l'Internet des objets et la nécessité de sécuriser tous les types d'appareils.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 12.7,
      "pays": "DZ",
      "source": "Le Soir d'Algérie"
     },
     {
      "titre": "Crédit auto halal chez Bank ABC Algérie",
-     "texte": "Bank ABC Algérie innove avec son guichet Buraq dédié à la finance islamique. Un nouveau crédit auto halal est lancé, permettant d'acquérir des véhicules fabriqués localement, avec des financements pouvant atteindre jusqu'à 4,5 millions de dinars.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 13.4,
+     "texte": "Bank ABC Algérie propose désormais un nouveau produit de financement islamique pour l'achat de véhicules. Le crédit auto halal, accessible jusqu'à 4,5 millions de dinars, concerne les voitures fabriquées ou assemblées localement.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 12.8,
      "pays": "DZ",
      "source": "TSA Algérie"
     },
     {
-     "titre": "Apple et Google sanctionnés en Corée du Sud",
-     "texte": "Apple et Google sont dans le viseur des régulateurs sud-coréens. Les deux géants technologiques ont enfreint la loi sur les télécommunications et ont reçu des amendes. Ils doivent également modifier leurs pratiques commerciales concernant leurs boutiques d'applications.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 13.4,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Grève en France affectant les vols vers l'Algérie",
-     "texte": "Une grève interprofessionnelle en France, prévue le 5 novembre, pourrait impacter significativement le secteur aérien. Les vols à destination de l'Algérie sont particulièrement menacés par des annulations et des retards importants.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 12.5,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Djezzy affiche une forte croissance",
-     "texte": "Djezzy confirme sa dynamique de croissance. L'opérateur mobile a annoncé un chiffre d'affaires de 95,5 milliards de dinars pour les neuf premiers mois de 2026, soit une hausse de 8,6% par rapport à la même période l'année précédente.",
+     "titre": "Meta rachète Conductor, une startup IA",
+     "texte": "Meta, la maison mère de Facebook, a annoncé l'acquisition de Conductor. Cette startup spécialisée dans l'intelligence artificielle développe des outils permettant aux développeurs de gérer simultanément plusieurs agents pour divers aspects d'un projet de codage.",
      "mp3": "/podcast/fr/06.mp3",
-     "duree": 13.3,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "Nouvel iPad Mini : nouveautés et coût",
-     "texte": "Apple dévoile son nouvel iPad Mini, doté de nombreuses mises à jour. Equipé d'une nouvelle puce performante, il marque un saut de génération important, mais son coût reste à considérer pour les acheteurs potentiels.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 11.2,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Transformez votre maison en jeu de grue",
-     "texte": "Imaginez transformer votre intérieur en un immense jeu de grue ! Un nouveau robot open source permet de suspendre une pince pilotée par intelligence artificielle au plafond pour attraper des objets.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 10.2,
+     "duree": 13.2,
      "pays": "INT",
-     "source": "The Register"
+     "source": "TechCrunch"
     },
     {
-     "titre": "Promotions sur les Google Pixel 11",
-     "texte": "Google propose des réductions intéressantes sur ses smartphones Pixel 11. Ces offres, disponibles avant le Black Friday, permettent de réaliser des économies allant jusqu'à 350 dollars sur les modèles les plus récents.",
+     "titre": "Zyxel corrige une faille critique",
+     "texte": "Le fabricant Zyxel a déployé un correctif pour une faille de sécurité critique non corrigée. Cette vulnérabilité zero-day avait été exploitée pour compromettre près d'un millier de commutateurs réseau et voler des données sensibles.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 12.1,
+     "pays": "INT",
+     "source": "BleepingComputer"
+    },
+    {
+     "titre": "Toyota modernise son réseau industriel",
+     "texte": "Toyota envisage une modernisation majeure de ses usines mondiales. L'entreprise compte investir massivement dans l'automatisation, la robotique et l'intelligence artificielle pour optimiser sa production, avec des dépenses annuelles estimées à plusieurs milliards de dollars.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 14.1,
+     "pays": "INT",
+     "source": "Hespress FR"
+    },
+    {
+     "titre": "Verizon et Ericsson déploient l'IA",
+     "texte": "Verizon étend l'utilisation de l'intelligence artificielle dans ses réseaux radio avec un nouveau déploiement. L'entreprise s'appuie sur une solution Ericsson pour améliorer la performance et la gestion de son infrastructure de communication.",
      "mp3": "/podcast/fr/09.mp3",
+     "duree": 12.3,
+     "pays": "INT",
+     "source": "Data Center Dynamics"
+    },
+    {
+     "titre": "Cyberattaque : près de 100M€ détournés",
+     "texte": "Une cyberattaque massive a visé le Crédit mutuel Arkéa, entraînant un détournement estimé à près de cent millions d'euros. Les fonds ont été convertis en cryptomonnaies après avoir été transférés vers d'autres acteurs bancaires.",
+     "mp3": "/podcast/fr/10.mp3",
      "duree": 11.8,
      "pays": "INT",
-     "source": "Wired"
-    },
-    {
-     "titre": "Nothing prépare un appareil IA sans écran",
-     "texte": "La société Nothing tease le lancement d'un nouvel appareil centré sur l'intelligence artificielle. Ce produit, qui promet d'être innovant, sera dévoilé en décembre et ne disposerait pas d'écran.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 10.6,
-     "pays": "INT",
-     "source": "The Verge"
+     "source": "Le Monde Pixels"
     }
    ]
   },
