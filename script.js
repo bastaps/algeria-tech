@@ -302,16 +302,28 @@ const API_BASE = isLocal ? '' : REMOTE_API;
 const YOUTUBE_CHANNEL_ID = 'UCyIYnT60oAg8iVZKoz8seAA';
 
 // ===== INITIALISATION AU CHARGEMENT =====
-window.addEventListener('load', () => {
+// Démarrage dès que le DOM est prêt (et non à l'événement 'load', qui attend TOUTES les images/polices
+// et n'arrive jamais sur une connexion très faible : l'écran « Chargement… » restait figé).
+function _atBoot() {
+    if (window._atBooted) return;
+    window._atBooted = true;
     setTimeout(() => {
         const loader = document.getElementById('loader');
         if (loader) loader.classList.add('hidden');
-    }, 600);
+    }, 150);
     loadTheme();
     loadArticles();
-    updateWeather();
-    initCurrencyWidget();
-    loadVeille();
+    // Widgets secondaires (météo, devises, veille) : après le chargement complet, ou au plus tard dans 5 s,
+    // pour laisser toute la bande passante aux articles sur un réseau lent.
+    let _secDone = false;
+    const _sec = () => {
+        if (_secDone) return; _secDone = true;
+        updateWeather();
+        initCurrencyWidget();
+        loadVeille();
+    };
+    if (document.readyState === 'complete') _sec();
+    else { window.addEventListener('load', _sec); setTimeout(_sec, 5000); }
 
     // Ouverture auto de section si retour depuis quick-nav d'une autre page
     const openSection = sessionStorage.getItem('openSection');
@@ -320,7 +332,13 @@ window.addEventListener('load', () => {
         if (openSection === 'veille' && typeof showVeille === 'function') showVeille();
         if (openSection === 'revue'  && typeof showRevue  === 'function') showRevue();
     }
-});
+}
+(function () {
+    const go = () => setTimeout(_atBoot, 0);   // après les autres écouteurs DOMContentLoaded (routeur…)
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go);
+    else go();
+    window.addEventListener('load', _atBoot);  // filet de sécurité
+})();
 
 const dateSpan = document.getElementById('currentDate');
 if (dateSpan) {

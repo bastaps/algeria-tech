@@ -14,7 +14,7 @@
  * la rapidité des requêtes réseau sans contenu périmé.
  */
 
-const CACHE_VERSION = 'algeria-tech-v31';
+const CACHE_VERSION = 'algeria-tech-v32';
 const CACHE_IMAGES  = 'algeria-tech-images-v1';
 
 // ── Assets locaux pré-cachés (HTML et CDN exclus volontairement) ──────────────
@@ -101,8 +101,9 @@ self.addEventListener('fetch', event => {
   // ── 2. HTML → Network First ───────────────────────────────────────────────
   //    Toujours récupéré depuis le réseau pour refléter le dernier déploiement.
   //    Le cache ne sert que de fallback si le réseau est indisponible (offline).
+  //    Connexion très faible : la copie en cache est servie TOUT DE SUITE et le réseau met à jour pour la visite suivante.
   if (url.pathname === '/' || url.pathname.endsWith('.html')) {
-    event.respondWith(networkFirst(event.request));
+    event.respondWith(swrShell(event));
     return;
   }
 
@@ -122,6 +123,12 @@ self.addEventListener('fetch', event => {
   // ── 2 quater. Libs tierces figées : cache d'abord
   if (url.pathname.startsWith('/libs/')) {
     event.respondWith(cacheFirst(event.request, CACHE_VERSION));
+    return;
+  }
+
+  // ── 2 quinquies. CSS/JS versionnés (?v=) : cache immédiat + mise à jour en fond (chaque changement change l'URL)
+  if (/\.(js|css)$/.test(url.pathname) && url.searchParams.has('v')) {
+    event.respondWith(swrShell(event));
     return;
   }
 
@@ -160,7 +167,7 @@ async function networkFirst(request) {
   const cachedNow = await cache.match(request) ||
                     (request.mode === 'navigate' ? await cache.match('/') : null);
   // Réseau lent (mobile) : après 3 s on sert la copie en cache si elle existe, sinon on attend le réseau.
-  const timeoutMs = cachedNow ? 3000 : 25000;
+  const timeoutMs = cachedNow ? 2000 : 25000;
   for (let essai = 0; essai < 2; essai++) {
     try {
       const ctrl = new AbortController();
@@ -182,6 +189,24 @@ async function networkFirst(request) {
     status: 503,
     headers: { 'Content-Type': 'text/html; charset=utf-8' },
   });
+}
+
+/**
+ * Cache immédiat + mise à jour en arrière-plan (le SW reste actif jusqu'à la fin de la mise à jour).
+ * Sans copie en cache (1re visite) : réseau avec repli propre.
+ */
+async function swrShell(event) {
+  const request = event.request;
+  const cache  = await caches.open(CACHE_VERSION);
+  const cached = await cache.match(request) ||
+                 (request.mode === 'navigate' ? await cache.match('/') : null);
+  if (!cached) return networkFirst(request);
+  event.waitUntil(
+    fetch(request)
+      .then(r => { if (r && r.status === 200 && !r.redirected) return cache.put(request, r.clone()); })
+      .catch(() => {})
+  );
+  return cached;
 }
 
 /**
