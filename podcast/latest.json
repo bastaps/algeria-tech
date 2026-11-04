@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-04",
- "genere": "2026-11-04T15:24:47",
+ "genere": "2026-11-04T19:36:11",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
    "creneau": "soir",
-   "genere": "2026-11-04T15:26:45",
+   "genere": "2026-11-04T19:38:58",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.6,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les 10 informations tech et télécoms à ne pas manquer ce soir."
+    "duree": 5.8,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici dix informations pour éclairer votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.5,
-    "texte": "C'était votre flash actu tech et télécoms. Merci de votre écoute sur Algeria Tech."
+    "duree": 4.9,
+    "texte": "C'était votre dose d'actualités tech. Rendez-vous bientôt sur Algeria Tech."
    },
    "items": [
     {
-     "titre": "Cyberattaque : des frigos ciblés",
-     "texte": "Une nouvelle cyberattaque prend pour cible des appareils connectés, notamment des réfrigérateurs intelligents. Plus d'une dizaine de pays européens seraient concernés par cette menace qui souligne les vulnérabilités de l'Internet des objets.",
+     "titre": "Contrôlez les autorisations de vos applications",
+     "texte": "Vos applications sur smartphone demandent-elles trop d'accès ? Il est crucial de vérifier régulièrement les informations auxquelles vos applications accèdent pour protéger votre vie privée et vos données personnelles. Soyez vigilant sur ce que vous installez.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 12.2,
+     "duree": 12.6,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Cyberattaque européenne sur des réfrigérateurs",
+     "texte": "Une nouvelle cyberattaque d'envergure inquiète l'Europe. Plus d'une dizaine de pays seraient concernés par cette menace qui cible spécifiquement les appareils électroménagers connectés, soulevant des questions sur la sécurité de nos objets du quotidien.",
+     "mp3": "/podcast/fr/02.mp3",
+     "duree": 12.0,
      "pays": "DZ",
      "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "Grève en France : vols Algérie affectés",
-     "texte": "La grève du 5 novembre en France risque de perturber les vols à destination de l'Algérie. Les compagnies aériennes pourraient connaître des annulations et des retards importants, impactant les voyageurs entre les deux pays.",
-     "mp3": "/podcast/fr/02.mp3",
-     "duree": 11.5,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Djezzy : forte croissance du CA",
-     "texte": "L'opérateur Djezzy annonce un chiffre d'affaires de 95,5 milliards de dinars à fin septembre 2026. Cette performance représente une hausse de 8,6% par rapport à la même période l'an passé, confirmant sa dynamique.",
+     "titre": "Crédit auto halal chez Bank ABC Algérie",
+     "texte": "Bank ABC Algérie innove avec son guichet Buraq dédié à la finance islamique. Un nouveau crédit auto halal est lancé, permettant d'acquérir des véhicules fabriqués localement, avec des financements pouvant atteindre jusqu'à 4,5 millions de dinars.",
      "mp3": "/podcast/fr/03.mp3",
      "duree": 13.4,
      "pays": "DZ",
-     "source": "Algérie Éco"
+     "source": "TSA Algérie"
     },
     {
-     "titre": "Nouvel iPad Mini : quelles nouveautés ?",
-     "texte": "Apple dévoile son nouvel iPad Mini. Cette génération promet des mises à jour significatives, notamment avec l'intégration du nouveau SoC A20 Pro, offrant un bond de performance notable.",
+     "titre": "Apple et Google sanctionnés en Corée du Sud",
+     "texte": "Apple et Google sont dans le viseur des régulateurs sud-coréens. Les deux géants technologiques ont enfreint la loi sur les télécommunications et ont reçu des amendes. Ils doivent également modifier leurs pratiques commerciales concernant leurs boutiques d'applications.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 10.3,
+     "duree": 13.4,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "NESDA inaugure son siège à Alger",
-     "texte": "L'Agence nationale d'appui et de développement de l'entrepreneuriat, NESDA, a inauguré son nouveau siège pour son antenne d'Alger-Centre. L'événement s'est déroulé en présence du ministre de l'Économie de la connaissance.",
+     "titre": "Grève en France affectant les vols vers l'Algérie",
+     "texte": "Une grève interprofessionnelle en France, prévue le 5 novembre, pourrait impacter significativement le secteur aérien. Les vols à destination de l'Algérie sont particulièrement menacés par des annulations et des retards importants.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 11.6,
+     "duree": 12.5,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Djezzy affiche une forte croissance",
+     "texte": "Djezzy confirme sa dynamique de croissance. L'opérateur mobile a annoncé un chiffre d'affaires de 95,5 milliards de dinars pour les neuf premiers mois de 2026, soit une hausse de 8,6% par rapport à la même période l'année précédente.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 13.3,
      "pays": "DZ",
      "source": "Algérie Éco"
     },
     {
-     "titre": "Djezzy affiche 95,5 milliards de dinars",
-     "texte": "À fin septembre 2026, Djezzy a généré 95,5 milliards de dinars de chiffre d'affaires. Cet opérateur mobile confirme sa bonne santé financière avec une croissance notable sur les neuf premiers mois de l'année.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 12.6,
-     "pays": "DZ",
-     "source": "Le Soir d'Algérie"
-    },
-    {
-     "titre": "Usine JAC Motors : où en est le projet ?",
-     "texte": "Le projet de l'usine JAC Motors à Aïn Témouchent fait reparler de lui dans l'industrie automobile algérienne. Le ministre de l'Industrie a récemment échangé sur l'avancement de ce chantier important.",
+     "titre": "Nouvel iPad Mini : nouveautés et coût",
+     "texte": "Apple dévoile son nouvel iPad Mini, doté de nombreuses mises à jour. Equipé d'une nouvelle puce performante, il marque un saut de génération important, mais son coût reste à considérer pour les acheteurs potentiels.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 10.8,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Renault Algérie : nouveau produit local",
-     "texte": "Renault Algérie continue d'enrichir sa gamme de pièces fabriquées localement. Après les filtres et les batteries, un nouveau produit Made in Algeria vient compléter l'offre de l'entreprise.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 9.8,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Meta protège les adolescents",
-     "texte": "Meta va désormais avertir les parents si des adolescents recherchent du contenu sur l'automutilation sur Facebook. Cette mesure s'étend aussi aux conversations avec Meta AI pour une meilleure protection.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 10.7,
+     "duree": 11.2,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Temporal lève 550M$ pour l'appli",
-     "texte": "La société Temporal a levé 550 millions de dollars pour améliorer la fiabilité des applications. Cette importante levée de fonds valorise l'entreprise à plus de 12 milliards de dollars.",
-     "mp3": "/podcast/fr/10.mp3",
+     "titre": "Transformez votre maison en jeu de grue",
+     "texte": "Imaginez transformer votre intérieur en un immense jeu de grue ! Un nouveau robot open source permet de suspendre une pince pilotée par intelligence artificielle au plafond pour attraper des objets.",
+     "mp3": "/podcast/fr/08.mp3",
      "duree": 10.2,
-     "pays": "DZ",
-     "source": "AlgeriaTech.news"
+     "pays": "INT",
+     "source": "The Register"
+    },
+    {
+     "titre": "Promotions sur les Google Pixel 11",
+     "texte": "Google propose des réductions intéressantes sur ses smartphones Pixel 11. Ces offres, disponibles avant le Black Friday, permettent de réaliser des économies allant jusqu'à 350 dollars sur les modèles les plus récents.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 11.8,
+     "pays": "INT",
+     "source": "Wired"
+    },
+    {
+     "titre": "Nothing prépare un appareil IA sans écran",
+     "texte": "La société Nothing tease le lancement d'un nouvel appareil centré sur l'intelligence artificielle. Ce produit, qui promet d'être innovant, sera dévoilé en décembre et ne disposerait pas d'écran.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 10.6,
+     "pays": "INT",
+     "source": "The Verge"
     }
    ]
   },
