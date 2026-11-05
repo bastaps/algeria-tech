@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-05",
- "genere": "2026-11-05T19:46:46",
+ "genere": "2026-11-05T22:28:09",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
    "creneau": "soir",
-   "genere": "2026-11-05T19:48:01",
+   "genere": "2026-11-05T22:29:21",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.7,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les 10 informations tech et actualités à retenir ce soir."
+    "duree": 6.4,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici dix informations tech et télécoms pour votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.2,
-    "texte": "C'était l'essentiel de l'actualité tech et télécoms algérienne. Restez connectés sur Algeria Tech."
+    "duree": 4.7,
+    "texte": "C'est la fin de ce bulletin. Retrouvez-nous bientôt pour plus d'actualités tech."
    },
    "items": [
     {
-     "titre": "Démantèlement de réseaux criminels",
-     "texte": "Les services de sécurité ont démantelé deux réseaux criminels transfrontaliers. Plus d'un million de comprimés psychotropes ont été saisis jeudi, marquant une victoire importante dans la lutte contre le trafic illégal et la criminalité organisée.",
+     "titre": "Réseaux criminels démantelés",
+     "texte": "Les services de sécurité ont réussi jeudi dernier à démanteler deux importants réseaux criminels transfrontaliers. Plus d'un million de comprimés psychotropes ont été saisis lors de ces opérations.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 12.5,
+     "duree": 10.2,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Appel à la recherche historique",
-     "texte": "Un appel a été lancé pour développer la recherche sur l'histoire du parti. La création d'une base de données des personnalités nationales historiques est également encouragée pour préserver la mémoire collective.",
+     "titre": "Recherche sur l'histoire nationale",
+     "texte": "Un appel a été lancé pour intensifier le développement de la recherche consacrée à l'histoire de notre parti. Il est également proposé de créer une base de données dédiée aux personnalités historiques nationales.",
      "mp3": "/podcast/fr/02.mp3",
      "duree": 10.7,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Expulsions : Algériens en tête",
-     "texte": "Au premier semestre 2026, les ressortissants algériens sont les plus concernés par les décisions d'éloignement dans l'Union Européenne. La France a prononcé le plus grand nombre de ces mesures selon Eurostat.",
+     "titre": "MacBook Pro M6 : Amélioration légère",
+     "texte": "Le nouveau MacBook Pro M6 offre une puissance accrue et un superbe écran Liquid Retina. Bien que le design n'évolue pas, il reste un excellent choix, malgré une légère hausse de prix.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 10.9,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "Algérie Ferries reprend la mer",
-     "texte": "Le ferry Tariq Ibn Ziyad d'Algérie Ferries a repris la navigation. Après plusieurs jours d'immobilisation à Alicante, le navire a été libéré par les autorités portuaires espagnoles ce jeudi.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 10.8,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "LFP fixe le Classico",
-     "texte": "La Ligue de Football Professionnel a annoncé la date du choc JSK-USMA. Ce match, prévu les 18, 19 ou 20 novembre, sera l'affiche de la dixième journée du championnat de Ligue 1 Mobilis.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 11.2,
-     "pays": "DZ",
-     "source": "Le Soir d'Algérie"
-    },
-    {
-     "titre": "Saisie de cocaïne à Oran",
-     "texte": "Près de 96 kilogrammes de cocaïne, en provenance du Maroc, ont été saisis à Oran. Douze personnes ont été arrêtées suite au démantèlement de deux réseaux internationaux spécialisés dans le trafic de drogues dures.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 11.8,
-     "pays": "DZ",
-     "source": "Crésus"
-    },
-    {
-     "titre": "Démantèlement de réseaux de drogue",
-     "texte": "Deux organisations criminelles internationales, opérant depuis le Maroc, ont été démantelées dans l'ouest du pays. Ces réseaux étaient spécialisés dans l'acheminement de drogues dures, avec des saisies évaluées à 200 milliards.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 12.1,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Début de campagne électorale",
-     "texte": "La campagne pour les élections locales du 28 novembre a officiellement débuté ce jeudi. Les candidats ont jusqu'au 24 novembre pour convaincre les électeurs en vue de leur mobilisation.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 10.0,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
-    },
-    {
-     "titre": "Plateforme de suivi des prix",
-     "texte": "Une réunion interministérielle, présidée par le Premier ministre Sifi Ghrieb, a été consacrée au lancement d'une plateforme numérique. Celle-ci permettra le suivi quotidien des prix et de la disponibilité des produits de base.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 12.3,
-     "pays": "DZ",
-     "source": "Crésus"
-    },
-    {
-     "titre": "Nouvelles fonctions iPhone",
-     "texte": "La mise à jour iOS 27 apporte de nouvelles fonctionnalités aux iPhones. Apple améliore ainsi la capacité de ses appareils, offrant une expérience utilisateur enrichie après une période de versions jugées capricieuses.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 12.1,
+     "duree": 10.1,
      "pays": "DZ",
      "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Algériens en tête des expulsions",
+     "texte": "Au premier semestre de cette année, les ressortissants algériens figurent en tête des décisions d'éloignement prononcées dans l'Union Européenne. La France enregistre le plus grand nombre de ces décisions.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 10.4,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "Tariq Ibn Ziyad reprend la mer",
+     "texte": "Le ferry Tariq Ibn Ziyad, de la compagnie Algérie Ferries, a été libéré par les autorités espagnoles. Le navire était immobilisé au port d'Alicante depuis fin octobre.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 10.4,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "Serve Robotics lance ses services cloud",
+     "texte": "Serve Robotics lance une nouvelle activité nommée Physical AI Services. Cette offre vise à fournir des outils de connectivité et de données pour les robots, un peu comme un cloud pour la robotique.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 10.5,
+     "pays": "INT",
+     "source": "TechCrunch"
+    },
+    {
+     "titre": "Test du RedMagic 12 Pro",
+     "texte": "Le nouveau RedMagic 12 Pro a été testé et se révèle être un smartphone Android ultra rapide. Son design discret cache des performances haut de gamme surprenantes pour sa catégorie.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 10.1,
+     "pays": "INT",
+     "source": "ZDNet FR"
+    },
+    {
+     "titre": "GPT-6 Cyber pour la sécurité",
+     "texte": "OpenAI a développé GPT-6 Cyber, un modèle d'intelligence artificielle. Il est utilisé pour traquer les failles de sécurité dans des logiciels comme Firefox et tester leur exploitation.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 10.9,
+     "pays": "INT",
+     "source": "Clubic"
+    },
+    {
+     "titre": "XPENG L03 arrive au Maroc",
+     "texte": "Le groupe Smeia se prépare à lancer la XPENG L03 au Maroc. Ce modèle intègre la technologie REEV, combinant électrique et prolongateur d'autonomie pour une mobilité étendue.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 10.5,
+     "pays": "INT",
+     "source": "Hespress FR"
+    },
+    {
+     "titre": "Taxe au gigaoctet rejetée",
+     "texte": "Le projet de loi de finances pour l'année prochaine a vu le rejet de la proposition de taxe au gigaoctet. Cette mesure visait à faire contribuer les géants du numérique.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 9.1,
+     "pays": "INT",
+     "source": "Next"
     }
    ]
   },
