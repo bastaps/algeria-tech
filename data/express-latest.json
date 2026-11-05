@@ -1,5 +1,17 @@
 [
  {
+  "id": "20261105-131032-3c535f",
+  "titre": "Faille critique non corrigée dans Claude Dispatch",
+  "texte": "Bonjour. Anthropic refuse de corriger une faille de Claude Dispatch. Une extension de navigateur peut exécuter du code distant sur les ordinateurs des utilisateurs. La sécurité des millions d'installations reste menacée par ce défaut de conception.",
+  "source": "The Register",
+  "url": "https://www.theregister.com/research/2026/11/05/anthropic-wont-fix-a-claude-dispatch-flaw-that-could-let-attackers-execute-remote-commands-across-corporate-boundaries/5307684",
+  "pays": "INT",
+  "duree": 21.64,
+  "mp4Url": "https://bastaps.github.io/algeria-tech-videos/express/20261105-131032-3c535f.mp4",
+  "poster": "https://bastaps.github.io/algeria-tech-videos/express/20261105-131032-3c535f.jpg",
+  "publishedAt": "2026-11-05T13:11:36Z"
+ },
+ {
   "id": "20261104-205005-07455c",
   "titre": "DreamHost : des hackers volent des données clients",
   "texte": "Bonjour. Des hackers ont volé des fichiers et des boîtes mail de DreamHost. L'attaque a duré plusieurs mois et a exploité une faille du gestionnaire de fichiers. L'entreprise enquête sur la durée de la compromission de ses systèmes.",
@@ -346,17 +358,5 @@
   "mp4Url": "https://bastaps.github.io/algeria-tech-videos/express/20261020-100011-5c3154.mp4",
   "poster": "https://bastaps.github.io/algeria-tech-videos/express/20261020-100011-5c3154.jpg",
   "publishedAt": "2026-10-20T10:01:26Z"
- },
- {
-  "id": "20261019-195612-53c6d5",
-  "titre": "Algérie : appel à financer la stratégie IA",
-  "texte": "Bonjour. Le ministre de l’Enseignement supérieur, Kamal Badari, a appelé les banques et les grands groupes algériens à financer la stratégie nationale d’IA. Le principal obstacle est de trouver les fonds et de décider qui possédera les GPU. Un comité mixte sera créé pour chiffrer les budgets, suivre les étapes et garantir la souveraineté technologique.",
-  "source": "ITMAG",
-  "url": "https://www.itmag.dz/2026/10/19/intelligence-artificielle-la-recherche-veut-des-puces-et-des-sous/",
-  "pays": "DZ",
-  "duree": 26.64,
-  "mp4Url": "https://bastaps.github.io/algeria-tech-videos/express/20261019-195612-53c6d5.mp4",
-  "poster": "https://bastaps.github.io/algeria-tech-videos/express/20261019-195612-53c6d5.jpg",
-  "publishedAt": "2026-10-19T19:57:01Z"
  }
 ]
