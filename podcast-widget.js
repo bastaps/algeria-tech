@@ -18,7 +18,8 @@
     var box = document.createElement('div'); box.id = 'atPod';
     box.innerHTML = '<button type="button" class="pl" aria-label="Écouter le podcast">▶</button>' +
       '<span class="t">🎧 Podcast<small></small></span><span class="eq"><i></i><i></i><i></i><i></i></span>' +
-      '<a role="button" tabindex="0" class="opt" aria-label="Options">⚙</a>';
+      '<a role="button" tabindex="0" class="opt" aria-label="Options">⚙</a>' +
+      '<a role="button" tabindex="0" class="min" aria-label="Réduire" title="Réduire">⌄</a>';
     var panel = document.createElement('div'); panel.id = 'atPodPanel';
     panel.innerHTML = '<div class="row langs"></div><div class="row"><label>Infos : <b class="nv"></b></label>' +
       '<input type="range" min="3" max="' + maxN + '" step="1"></div><div class="row"><a role="button" tabindex="0" class="tx">Voir le texte</a></div><div class="txt"></div>';
@@ -81,7 +82,7 @@
         });
         var haut = barres.length ? Math.min.apply(null, barres.map(function (e) { return e.getBoundingClientRect().top; })) : vh - 76;
         left = 12; bottom = vh - haut + 10;
-        w = (box.classList.contains('open') || box.classList.contains('on')) ? Math.min(320, window.innerWidth - 24) : 46;
+        w = ((box.classList.contains('open') || box.classList.contains('on')) && !box.classList.contains('mini')) ? Math.min(320, window.innerWidth - 24) : 46;
         box.style.left = left + 'px'; box.style.bottom = bottom + 'px'; box.style.width = w + 'px';
         panel.style.left = left + 'px'; panel.style.width = Math.min(320, window.innerWidth - 24) + 'px'; panel.style.bottom = (bottom + 54) + 'px';
         return;
@@ -102,11 +103,17 @@
     }
     box.addEventListener('click', function (e) {
       if (!document.body.classList.contains('ml')) return;
+      if (e.target.closest && e.target.closest('.min')) {   // réduire : la barre redevient la pastille 🎧 (la lecture continue)
+        e.preventDefault(); e.stopPropagation();
+        panel.classList.remove('open'); box.classList.remove('open'); box.classList.add('mini'); place();
+        return;
+      }
+      if (box.classList.contains('mini')) { e.preventDefault(); e.stopPropagation(); box.classList.remove('mini'); box.classList.add('open'); place(); armer(); return; }
       if (!box.classList.contains('open') && !box.classList.contains('on')) { e.preventDefault(); e.stopPropagation(); box.classList.add('open'); place(); }
       armer();
     }, true);
     panel.addEventListener('click', armer);
-    au.addEventListener('play', function () { box.classList.add('open'); });
+    au.addEventListener('play', function () { if (!box.classList.contains('mini')) box.classList.add('open'); });
     au.addEventListener('pause', armer);
     build(); drawLangs(); place(); setInterval(place, 400); window.addEventListener('resize', place);
   }).catch(function () {});

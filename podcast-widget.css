@@ -28,8 +28,14 @@
 @media(prefers-reduced-motion:reduce){#atPod .eq i,#atPodBar .fill{animation:none}}
 
 /* Smartphone (mobile-lite) : bouton compact 🎧 posé au-dessus des barres du bas ; déployé au toucher (classe .open) ou pendant l'écoute (.on) */
-body.ml #atPod:not(.open):not(.on){width:46px !important;height:46px;padding:0;gap:0;justify-content:center;border-radius:50%}
-body.ml #atPod:not(.open):not(.on) .pl,body.ml #atPod:not(.open):not(.on) .t,body.ml #atPod:not(.open):not(.on) .opt{display:none}
-body.ml #atPod:not(.open):not(.on)::before{content:"🎧";font-size:21px;line-height:1}
+body.ml #atPod:is(:not(.open):not(.on),.mini){width:46px !important;height:46px;padding:0;gap:0;justify-content:center;border-radius:50%}
+body.ml #atPod:is(:not(.open):not(.on),.mini) .pl,body.ml #atPod:is(:not(.open):not(.on),.mini) .t,body.ml #atPod:is(:not(.open):not(.on),.mini) .opt,body.ml #atPod:is(:not(.open):not(.on),.mini) .eq,body.ml #atPod:is(:not(.open):not(.on),.mini) .min{display:none}
+body.ml #atPod:is(:not(.open):not(.on),.mini)::before{content:"🎧";font-size:21px;line-height:1}
 body.ml:has(#flash-widget-root.fw-expanded) #atPod,body.ml:has(#flash-widget-root.fw-expanded) #atPodPanel,
 body.ml:has(#ml-30[style*="flex"]) #atPod{display:none !important}
+
+/* Bouton « réduire » (smartphone) : ramène la barre à la pastille 🎧, même pendant l'écoute */
+#atPod a.min{display:none;flex:none;font-size:18px;line-height:1;padding:4px 2px 0;cursor:pointer;opacity:.9}
+body.ml #atPod.open a.min,body.ml #atPod.on:not(.mini) a.min{display:block}
+body.ml #atPod.mini.on{animation:atPulse 1.6s ease-in-out infinite}
+@keyframes atPulse{0%,100%{box-shadow:0 0 0 0 rgba(200,150,46,.55)}50%{box-shadow:0 0 0 8px rgba(200,150,46,0)}}

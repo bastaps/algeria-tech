@@ -4845,3 +4845,9 @@ body.dark-mode .header.at-scrolled { background: color-mix(in srgb, var(--bg-whi
 
 /* Filet anti-débordement horizontal (arabe/RTL : un élément hors écran à gauche élargissait toute la page sur mobile) */
 html, body { overflow-x: clip; }
+
+/* Barre de langue visible dans l'en-tête sur smartphone/tablette, à côté du menu ☰ */
+@media (max-width: 768px) {
+  .at-utils .lang-toggle { display: inline-flex; height: 28px; padding: 0; flex: none; }
+  .at-utils .lang-toggle .lt-opt { padding: 0 7px; font-size: .68rem; }
+}
