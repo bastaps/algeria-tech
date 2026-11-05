@@ -4851,3 +4851,6 @@ html, body { overflow-x: clip; }
   .at-utils .lang-toggle { display: inline-flex; height: 28px; padding: 0; flex: none; }
   .at-utils .lang-toggle .lt-opt { padding: 0 7px; font-size: .68rem; }
 }
+
+/* Notification vide : elle dépassait à droite de l'écran (pastille noire coupée) */
+.premium-toast:not(.show) { visibility: hidden; pointer-events: none; }
