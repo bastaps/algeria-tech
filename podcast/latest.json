@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-05",
- "genere": "2026-11-05T15:33:18",
+ "genere": "2026-11-05T19:46:46",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
    "creneau": "soir",
-   "genere": "2026-11-05T15:34:43",
+   "genere": "2026-11-05T19:48:01",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.0,
-    "texte": "Bonsoir à vous, bienvenue sur Algeria Tech. Voici dix informations clés pour votre soirée."
+    "duree": 6.7,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les 10 informations tech et actualités à retenir ce soir."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.9,
-    "texte": "C'était l'essentiel de l'actualité sur Algeria Tech. Restez connectés pour plus d'informations."
+    "duree": 6.2,
+    "texte": "C'était l'essentiel de l'actualité tech et télécoms algérienne. Restez connectés sur Algeria Tech."
    },
    "items": [
     {
-     "titre": "Démantèlement de réseaux criminels transfrontaliers",
-     "texte": "Les services de sécurité ont démantelé jeudi deux importants réseaux criminels transfrontaliers. Une saisie massive de plus d'un million de comprimés psychotropes a été réalisée dans le cadre de cette opération.",
+     "titre": "Démantèlement de réseaux criminels",
+     "texte": "Les services de sécurité ont démantelé deux réseaux criminels transfrontaliers. Plus d'un million de comprimés psychotropes ont été saisis jeudi, marquant une victoire importante dans la lutte contre le trafic illégal et la criminalité organisée.",
      "mp3": "/podcast/fr/01.mp3",
+     "duree": 12.5,
+     "pays": "DZ",
+     "source": "APS"
+    },
+    {
+     "titre": "Appel à la recherche historique",
+     "texte": "Un appel a été lancé pour développer la recherche sur l'histoire du parti. La création d'une base de données des personnalités nationales historiques est également encouragée pour préserver la mémoire collective.",
+     "mp3": "/podcast/fr/02.mp3",
      "duree": 10.7,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Lancement campagne électorale locales",
-     "texte": "La campagne électorale pour les élections locales du 28 novembre débute officiellement ce jeudi. Les candidats ont désormais vingt jours pour convaincre les électeurs et mobiliser leurs soutiens avant le vote.",
-     "mp3": "/podcast/fr/02.mp3",
-     "duree": 10.6,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
-    },
-    {
-     "titre": "Plateforme suivi prix et disponibilité produits",
-     "texte": "Le Premier ministre a présidé une réunion interministérielle pour le lancement d'une plateforme numérique. Celle-ci permettra le suivi quotidien des prix et de la disponibilité des produits de première nécessité dans tout le pays.",
+     "titre": "Expulsions : Algériens en tête",
+     "texte": "Au premier semestre 2026, les ressortissants algériens sont les plus concernés par les décisions d'éloignement dans l'Union Européenne. La France a prononcé le plus grand nombre de ces mesures selon Eurostat.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 11.6,
+     "duree": 10.9,
      "pays": "DZ",
-     "source": "Crésus"
+     "source": "Algérie Éco"
     },
     {
-     "titre": "Nouvelles fonctionnalités iOS 27",
-     "texte": "La mise à jour vers iOS 27 apporte son lot de nouveautés sur votre iPhone. Découvrez cinq fonctionnalités inédites qui rendront votre appareil encore plus performant et intuitif.",
+     "titre": "Algérie Ferries reprend la mer",
+     "texte": "Le ferry Tariq Ibn Ziyad d'Algérie Ferries a repris la navigation. Après plusieurs jours d'immobilisation à Alicante, le navire a été libéré par les autorités portuaires espagnoles ce jeudi.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 10.2,
+     "duree": 10.8,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Algérie Éco"
     },
     {
-     "titre": "Premier ministre réunit walis prix produits",
-     "texte": "Le Premier ministre a tenu ce jeudi une réunion conjointe avec les walis. L'objectif était le lancement officiel d'une plateforme numérique pour le suivi des prix et de la disponibilité des produits de base.",
+     "titre": "LFP fixe le Classico",
+     "texte": "La Ligue de Football Professionnel a annoncé la date du choc JSK-USMA. Ce match, prévu les 18, 19 ou 20 novembre, sera l'affiche de la dixième journée du championnat de Ligue 1 Mobilis.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 10.6,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Plateforme numérique suivi produits de première nécessité",
-     "texte": "Ce jeudi, le Premier ministre Sifi Ghrieb a présidé une réunion interministérielle. Celle-ci était consacrée au lancement officiel d'une nouvelle plateforme numérique pour le suivi des prix des produits de première nécessité.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 11.6,
+     "duree": 11.2,
      "pays": "DZ",
      "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "Snap dépasse 30 millions abonnés payants",
-     "texte": "Snap atteint un nouveau cap avec plus de 30 millions d'abonnés payants pour ses services, incluant Snapchat+. Les utilisateurs semblent prêts à payer pour des fonctionnalités avancées, notamment celles liées à l'IA.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 11.3,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Rapprochement Algérie-Corée du Sud",
-     "texte": "L'Algérie et la Corée du Sud souhaitent renforcer leur partenariat économique. Automobile, énergie et technologies sont au cœur de ce rapprochement, qui vise à donner une nouvelle dimension à leurs relations bilatérales.",
-     "mp3": "/podcast/fr/08.mp3",
+     "titre": "Saisie de cocaïne à Oran",
+     "texte": "Près de 96 kilogrammes de cocaïne, en provenance du Maroc, ont été saisis à Oran. Douze personnes ont été arrêtées suite au démantèlement de deux réseaux internationaux spécialisés dans le trafic de drogues dures.",
+     "mp3": "/podcast/fr/06.mp3",
      "duree": 11.8,
      "pays": "DZ",
-     "source": "Algérie360"
+     "source": "Crésus"
     },
     {
-     "titre": "Stabilisation prix viande et banane",
-     "texte": "Face à la spéculation, l'État se mobilise pour stabiliser les prix de certains produits essentiels. Le ministère du Commerce a engagé des rencontres pour réguler le marché de la viande et de la banane.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 10.8,
+     "titre": "Démantèlement de réseaux de drogue",
+     "texte": "Deux organisations criminelles internationales, opérant depuis le Maroc, ont été démantelées dans l'ouest du pays. Ces réseaux étaient spécialisés dans l'acheminement de drogues dures, avec des saisies évaluées à 200 milliards.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 12.1,
      "pays": "DZ",
      "source": "Algérie360"
     },
     {
-     "titre": "Partis politiques en campagne pour les locales",
-     "texte": "Les partis politiques algériens investissent activement le terrain. La préparation des élections locales s'intensifie, avec des initiatives pour aller à la rencontre des citoyens et présenter leurs programmes.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 11.0,
+     "titre": "Début de campagne électorale",
+     "texte": "La campagne pour les élections locales du 28 novembre a officiellement débuté ce jeudi. Les candidats ont jusqu'au 24 novembre pour convaincre les électeurs en vue de leur mobilisation.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 10.0,
+     "pays": "DZ",
+     "source": "Maghreb Emergent"
+    },
+    {
+     "titre": "Plateforme de suivi des prix",
+     "texte": "Une réunion interministérielle, présidée par le Premier ministre Sifi Ghrieb, a été consacrée au lancement d'une plateforme numérique. Celle-ci permettra le suivi quotidien des prix et de la disponibilité des produits de base.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 12.3,
      "pays": "DZ",
      "source": "Crésus"
+    },
+    {
+     "titre": "Nouvelles fonctions iPhone",
+     "texte": "La mise à jour iOS 27 apporte de nouvelles fonctionnalités aux iPhones. Apple améliore ainsi la capacité de ses appareils, offrant une expérience utilisateur enrichie après une période de versions jugées capricieuses.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 12.1,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
     }
    ]
   },
