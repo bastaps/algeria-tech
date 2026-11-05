@@ -14,7 +14,7 @@
  * la rapidité des requêtes réseau sans contenu périmé.
  */
 
-const CACHE_VERSION = 'algeria-tech-v32';
+const CACHE_VERSION = 'algeria-tech-v33';
 const CACHE_IMAGES  = 'algeria-tech-images-v1';
 
 // ── Assets locaux pré-cachés (HTML et CDN exclus volontairement) ──────────────
@@ -165,7 +165,7 @@ self.addEventListener('fetch', event => {
 async function networkFirst(request) {
   const cache = await caches.open(CACHE_VERSION);
   const cachedNow = await cache.match(request) ||
-                    (request.mode === 'navigate' ? await cache.match('/') : null);
+                    (request.mode === 'navigate' && new URL(request.url).pathname === '/' ? await cache.match('/') : null);
   // Réseau lent (mobile) : après 3 s on sert la copie en cache si elle existe, sinon on attend le réseau.
   const timeoutMs = cachedNow ? 2000 : 25000;
   for (let essai = 0; essai < 2; essai++) {
@@ -198,8 +198,10 @@ async function networkFirst(request) {
 async function swrShell(event) {
   const request = event.request;
   const cache  = await caches.open(CACHE_VERSION);
+  // L'accueil en cache ne remplace QUE l'accueil : une iframe (carte interactive, .html) ne doit jamais recevoir la page d'accueil.
+  const isHome = new URL(request.url).pathname === '/';
   const cached = await cache.match(request) ||
-                 (request.mode === 'navigate' ? await cache.match('/') : null);
+                 (request.mode === 'navigate' && isHome ? await cache.match('/') : null);
   if (!cached) return networkFirst(request);
   event.waitUntil(
     fetch(request)
