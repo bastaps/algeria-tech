@@ -64,10 +64,10 @@
     <link rel="dns-prefetch" href="https://rss.app">
 
     <!-- CSS critique chargé en priorité -->
-    <link rel="preload" href="/style.css?v=16" as="style">
+    <link rel="preload" href="/style.css?v=17" as="style">
     <!-- Données des cartes : téléchargement lancé dès le <head> (avant l'exécution de script.js) -->
     <link rel="preload" href="/articles-list.json" as="fetch" crossorigin="anonymous">
-    <link rel="stylesheet" href="/style.css?v=16">
+    <link rel="stylesheet" href="/style.css?v=17">
     <link rel="stylesheet" href="/at-personnalisation.css?v=1">
 
     <!-- Font Awesome : async (non-bloquant) — icônes apparaissent après le contenu, évite les 7s de blocage CDN -->
@@ -246,7 +246,7 @@
                     <h3 class="widget-title" data-i18n-ar="النشرة الإخبارية"><i class="fas fa-envelope-open-text"></i> Newsletter</h3>
                     <p data-i18n-ar="احصل على أهم أخبار التكنولوجيا كل صباح.">Recevez l'essentiel de l'actualité tech chaque matin.</p>
                     <form class="newsletter-form" novalidate>
-                        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+                        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:0;top:0;pointer-events:none;width:1px;height:1px;opacity:0">
                         <input type="email" required aria-label="Votre adresse email" placeholder="Votre adresse email" data-i18n-ar="بريدك الإلكتروني">
                         <button type="submit" data-i18n-ar="اشترك">S'abonner</button>
                     </form>

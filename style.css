@@ -4842,3 +4842,6 @@ body.dark-mode .header.at-scrolled { background: color-mix(in srgb, var(--bg-whi
     .article-body p, .article-text p { margin-bottom: 10px; }
     .article-text ul, .article-text ol { margin-bottom: 10px; }
 }
+
+/* Filet anti-débordement horizontal (arabe/RTL : un élément hors écran à gauche élargissait toute la page sur mobile) */
+html, body { overflow-x: clip; }
