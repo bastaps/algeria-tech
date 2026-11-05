@@ -64,6 +64,8 @@
     <link rel="dns-prefetch" href="https://rss.app">
 
     <!-- CSS critique chargé en priorité -->
+    <script>try{var _q=location.search.match(/[?&]ui=(\w+)/);if(_q)localStorage.setItem('at-ui',_q[1]);if(localStorage.getItem('at-ui')!=='classic')document.documentElement.classList.add('ma')}catch(e){document.documentElement.classList.add('ma')}</script>
+    <link rel="stylesheet" href="/mobile-a.css?v=2" media="(max-width:640px)">
     <link rel="preload" href="/style.css?v=19" as="style">
     <!-- Données des cartes : téléchargement lancé dès le <head> (avant l'exécution de script.js) -->
     <link rel="preload" href="/articles-list.json" as="fetch" crossorigin="anonymous">
@@ -878,6 +880,7 @@
     <!-- Flash Info persistant (style BFM TV) — MP4 auto-hébergé, PiP natif -->
     <link rel="stylesheet" href="/mobile-lite.css?v=11">
     <script src="/mobile-lite.js?v=8" defer></script>
+    <script src="/mobile-a.js?v=3" defer></script>
     <link rel="stylesheet" href="/desktop-home.css?v=4">
     <script src="/desktop-home.js?v=9" defer></script>
     <link rel="stylesheet" href="/flash-widget.css?v=4">

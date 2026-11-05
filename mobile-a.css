@@ -1,0 +1,43 @@
+/* Habillage mobile « A · Rédaction » — essai réversible : html.ma (retrait : ?ui=classic, ou 3 lignes dans index.html) */
+html.ma body.ml{--ma-ink:#10201a;--ma-line:#dfe5e1;--ma-green:#0a6b43;--ma-red:#c4122f;background:#f6f7f5}
+/* En-tête : une ligne, fond plein, filet fin */
+html.ma body.ml #siteHeader{background:#fff;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:1px solid var(--ma-line);box-shadow:none}
+html.ma body.ml #siteHeader .logo-text h1{font:800 16px/1 'Bricolage Grotesque',system-ui,sans-serif;letter-spacing:-.01em;white-space:nowrap;margin:0}
+html.ma body.ml #siteHeader .logo-text h1 span{color:var(--ma-red)}
+html.ma body.ml #siteHeader .logo-text p{display:none}
+html.ma body.ml #siteHeader .at-logo img,html.ma body.ml #siteHeader .logo img{height:34px;width:auto}
+html.ma body.ml #siteHeader .lang-toggle{border-color:#cfd8d3;background:#fff}
+html.ma body.ml #siteHeader .lang-toggle .lt-active{background:var(--ma-green);color:#fff}
+/* Bandeau « en direct » */
+#ma-tick{display:none}
+html.ma body.ml #ma-tick{display:flex;align-items:center;gap:10px;background:var(--ma-ink);color:#e9f3ee;padding:6px 12px;font:500 11px/1.2 'JetBrains Mono',ui-monospace,monospace;overflow:hidden;white-space:nowrap}
+html.ma body.ml #ma-tick em{flex:none;background:var(--ma-red);color:#fff;font-style:normal;font-weight:600;padding:2px 7px;border-radius:3px;letter-spacing:.04em}
+html.ma body.ml #ma-tick .mw{flex:1;min-width:0;overflow:hidden}
+html.ma body.ml #ma-tick .mt{display:inline-block;padding-inline-start:100%;animation:maTick 38s linear infinite}
+@keyframes maTick{to{transform:translateX(-100%)}}
+html[dir=rtl].ma body.ml #ma-tick .mt{animation-name:maTickR}
+@keyframes maTickR{to{transform:translateX(100%)}}
+@media(prefers-reduced-motion:reduce){html.ma body.ml #ma-tick .mt{animation:none;padding:0;overflow:hidden;text-overflow:ellipsis}}
+/* Rubriques */
+html.ma body.ml #ml-chips{background:#fff;border-bottom:1px solid var(--ma-line)}
+html.ma body.ml #ml-chips button{font-weight:600;font-size:12.5px}
+html.ma body.ml #ml-chips button.on{background:var(--ma-ink);color:#fff}
+/* Une pleine largeur */
+html.ma body.ml #heroSection{padding-top:10px}
+html.ma body.ml .hero-main{border-radius:12px;overflow:hidden}
+html.ma body.ml .hero-main .hero-overlay{background:linear-gradient(180deg,rgba(0,0,0,0) 20%,rgba(0,0,0,.82))}
+html.ma body.ml .hero-main h2{font:700 17px/1.22 'Bricolage Grotesque',system-ui,sans-serif;text-wrap:balance}
+html.ma body.ml .hero-main p{display:none}
+/* Liste dense : titres forts, filets, sans extrait */
+html.ma body.ml #newsGrid .news-card{background:transparent;box-shadow:none;border-radius:0;border-bottom:1px solid var(--ma-line)}
+html.ma body.ml #newsGrid .news-card h3{font:700 13.5px/1.28 'Bricolage Grotesque',system-ui,sans-serif;text-wrap:balance}
+html.ma body.ml #newsGrid .news-card-body p{display:none}
+html.ma body.ml #newsGrid .card-meta{font:500 10px 'JetBrains Mono',ui-monospace,monospace;color:#58675f}
+/* Boutons flottants discrets : petits, translucides, rangés à droite */
+html.ma body.ml #adminBtn{width:40px !important;height:40px !important;font-size:16px;opacity:.88;padding:0}
+html.ma body.ml #ml-fab{width:40px;height:40px;opacity:.88;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+html.ma body.ml #atPod:is(:not(.open):not(.on),.mini){left:auto !important;right:12px;width:40px !important;height:40px;opacity:.9}
+html.ma body.ml #atPod:is(:not(.open):not(.on),.mini)::before{font-size:18px}
+/* Barres du bas */
+html.ma body.ml #ml-media{background:var(--ma-ink)}
+html.ma body.ml #ml-nav{background:#fff;border-top:1px solid var(--ma-line)}
