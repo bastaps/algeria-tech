@@ -1,7 +1,9 @@
 /* Habillage mobile « A · Rédaction » : bandeau « EN DIRECT » rempli avec les titres affichés (donc déjà traduits). Essai réversible. */
 (function () {
   'use strict';
-  if (!document.documentElement.classList.contains('ma')) return;
+  var _c = document.documentElement.classList;
+  if (!_c.contains('ma') && !_c.contains('mb')) return;
+  var _b = _c.contains('mb');
   var done = false;
   function build() {
     if (done) return;
@@ -10,7 +12,7 @@
     if (!hdr || titres.length < 2) return;
     done = true;
     var bar = document.createElement('div'); bar.id = 'ma-tick';
-    var em = document.createElement('em'); em.textContent = (document.documentElement.getAttribute('data-lang') === 'ar') ? 'مباشر' : 'EN DIRECT';
+    var em = document.createElement('em'); em.textContent = (document.documentElement.getAttribute('data-lang') === 'ar') ? 'مباشر' : (_b ? 'PULSE' : 'EN DIRECT');
     var mt = document.createElement('span'); mt.className = 'mt'; mt.textContent = titres.join('   ·   ');
     var mw = document.createElement('div'); mw.className = 'mw'; mw.appendChild(mt);
     bar.appendChild(em); bar.appendChild(mw);
@@ -22,7 +24,7 @@
     var mt = document.querySelector('#ma-tick .mt'); if (!mt) return;
     var ts = [].slice.call(document.querySelectorAll('#newsGrid .news-card h3')).slice(0, 6).map(function (h) { return h.textContent.trim(); }).filter(Boolean).join('   ·   ');
     if (ts && ts !== mt.textContent) mt.textContent = ts;
-    var em = document.querySelector('#ma-tick em'); if (em) em.textContent = (document.documentElement.getAttribute('data-lang') === 'ar') ? 'مباشر' : 'EN DIRECT';
+    var em = document.querySelector('#ma-tick em'); if (em) em.textContent = (document.documentElement.getAttribute('data-lang') === 'ar') ? 'مباشر' : (_b ? 'PULSE' : 'EN DIRECT');
   }, 4000);
   var obs = null;
   var grid = document.getElementById('newsGrid');

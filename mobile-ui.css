@@ -1,0 +1,11 @@
+/* Sélecteur d'interface mobile (Classique / A / B / C) — essai réversible */
+#ui-cycle{display:none}
+#ui-pop{display:none}
+@media (max-width:640px){
+  #ui-cycle{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;flex:none;border-radius:50%;border:1px solid var(--border,#cfd8d3);background:var(--bg-white,#fff);color:var(--text-dark,#10201a);font-size:13px;cursor:pointer;padding:0}
+  #ui-pop.open{display:grid;position:fixed;z-index:100001;top:var(--ui-top,60px);right:10px;left:10px;max-width:340px;margin-inline-start:auto;gap:6px;padding:12px;border-radius:14px;background:var(--bg-white,#fff);color:var(--text-dark,#10201a);border:1px solid var(--border,#cfd8d3);box-shadow:0 14px 34px rgba(0,0,0,.28)}
+  #ui-pop h6{margin:0 0 2px;font:700 12px 'Bricolage Grotesque',system-ui,sans-serif;letter-spacing:.02em}
+  #ui-pop button{display:flex;flex-direction:column;align-items:flex-start;gap:1px;text-align:start;padding:9px 11px;border-radius:10px;border:1px solid var(--border,#cfd8d3);background:transparent;color:inherit;font:600 13px system-ui,sans-serif;cursor:pointer}
+  #ui-pop button small{font:400 11px system-ui,sans-serif;opacity:.7}
+  #ui-pop button.on{border-color:#0a6b43;box-shadow:inset 0 0 0 1px #0a6b43;background:rgba(10,107,67,.08)}
+}

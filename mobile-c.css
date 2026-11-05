@@ -1,0 +1,34 @@
+/* Interface mobile « C · Briefing » : cartes à balayer (html.mc) — le carrousel est bâti par mobile-ui.js */
+html.mc body.ml{--mc-ink:#10201a;--mc-green:#0a6b43;background:linear-gradient(180deg,#e8f2ec,#f7f9f8 45%)}
+html.mc body.ml #siteHeader{background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border:0;box-shadow:none}
+html.mc body.ml #siteHeader .logo-text h1{font:800 16px/1 'Bricolage Grotesque',system-ui,sans-serif;white-space:nowrap;margin:0}
+html.mc body.ml #siteHeader .logo-text p{display:none}
+html.mc body.ml #heroSection{display:none}
+html.mc body.ml #ml-chips{background:transparent;border:0}
+#mc-wrap{display:none}
+html.mc body.ml #mc-wrap{display:block;padding:4px 0 6px}
+html.mc body.ml .mc-hello{padding:2px 16px 10px;display:grid;gap:3px}
+html.mc body.ml .mc-hello b{font:800 22px/1.1 'Bricolage Grotesque',system-ui,sans-serif;color:var(--mc-ink)}
+html.mc body.ml .mc-hello span{font:500 12px system-ui,sans-serif;color:#58675f;text-transform:capitalize}
+html.mc body.ml .mc-rail{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 16px 12px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+html.mc body.ml .mc-rail::-webkit-scrollbar{display:none}
+html.mc body.ml .mc-card{flex:0 0 82%;scroll-snap-align:center;display:flex;flex-direction:column;gap:9px;min-height:250px;padding:16px;border-radius:20px;background:rgba(255,255,255,.86);border:1px solid #d3e0d9;box-shadow:0 10px 24px rgba(10,60,40,.12);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);cursor:pointer;color:var(--mc-ink)}
+html.mc body.ml .mc-chip{align-self:flex-start;font:600 10px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;background:var(--mc-green);color:#fff;border-radius:999px;padding:3px 10px}
+html.mc body.ml .mc-card h3{margin:0;font:800 18px/1.18 'Bricolage Grotesque',system-ui,sans-serif;text-wrap:balance;color:var(--mc-ink)}
+html.mc body.ml .mc-card ul{margin:0;padding-inline-start:16px;display:grid;gap:5px;font:400 12.5px/1.4 system-ui,sans-serif;color:#2c3d35}
+html.mc body.ml .mc-ft{margin-top:auto;display:flex;justify-content:space-between;font:500 10.5px 'JetBrains Mono',ui-monospace,monospace;color:#58675f}
+html.mc body.ml .mc-ft b{color:var(--mc-green);font-weight:600}
+html.mc body.ml .mc-dots{display:flex;gap:5px;justify-content:center;padding:2px 0 8px}
+html.mc body.ml .mc-dots i{width:6px;height:6px;border-radius:50%;background:#bfd0c7;transition:width .2s}
+html.mc body.ml .mc-dots i.on{width:18px;border-radius:4px;background:var(--mc-green)}
+html.mc body.ml .mc-sub{padding:6px 16px 4px;font:700 13px 'Bricolage Grotesque',system-ui,sans-serif;color:#58675f;letter-spacing:.02em}
+/* liste sous le carrousel : compacte */
+html.mc body.ml #newsGrid .news-card p{display:none}
+html.mc body.ml #newsGrid .news-card h3{font:700 13.5px/1.28 'Bricolage Grotesque',system-ui,sans-serif}
+/* barre du bas en pastille sombre */
+html.mc body.ml #ml-nav{background:var(--mc-ink);border:0;border-radius:999px;left:12px;right:12px;bottom:10px;width:auto}
+html.mc body.ml #ml-nav button{color:#9fb6aa}
+html.mc body.ml #ml-nav button.on{color:#fff}
+html.mc body.ml #ml-fab,html.mc body.ml #adminBtn{width:40px !important;height:40px !important;opacity:.9;font-size:16px;padding:0}
+html.mc body.ml #atPod:is(:not(.open):not(.on),.mini){left:auto !important;right:12px;width:40px !important;height:40px}
+@media (prefers-reduced-motion:reduce){html.mc body.ml .mc-dots i{transition:none}}
