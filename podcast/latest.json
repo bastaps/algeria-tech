@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-06",
- "genere": "2026-11-06T15:11:35",
+ "genere": "2026-11-06T18:55:09",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
    "creneau": "soir",
-   "genere": "2026-11-06T15:12:52",
+   "genere": "2026-11-06T18:57:37",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 5.8,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici 10 informations pour éclairer votre soirée."
+    "duree": 6.9,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici 10 informations technologiques et d'actualité pour votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.0,
-    "texte": "C'était le récap' Algeria Tech. Retrouvez-nous bientôt pour d'autres nouvelles."
+    "duree": 5.2,
+    "texte": "C'est la fin de ce bulletin. Retrouvez-nous demain pour une nouvelle édition d'Algeria Tech."
    },
    "items": [
     {
-     "titre": "Réseaux criminels démantelés",
-     "texte": "Les services de sécurité ont mis fin jeudi à l'activité de deux réseaux criminels transfrontaliers. Une importante saisie de plus d'un million de comprimés psychotropes a été réalisée, marquant un coup dur porté à ces organisations.",
+     "titre": "Lutte transfrontalière contre les stupéfiants",
+     "texte": "Jeudi, une opération a mené au démantèlement de deux réseaux criminels internationaux. Plus d'un million de comprimés psychotropes ont été saisis, soulignant l'efficacité des efforts de sécurité dans la région.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 11.8,
+     "duree": 11.4,
      "pays": "DZ",
      "source": "APS"
     },
     {
      "titre": "Appel à la recherche historique",
-     "texte": "Il est lancé un appel au développement de la recherche sur l'histoire de notre parti. La création d'une base de données des personnalités nationales historiques est également encouragée pour préserver notre mémoire collective.",
+     "texte": "Un appel a été lancé pour développer la recherche sur l'histoire de notre parti. La création d'une base de données des personnalités nationales historiques est également encouragée pour préserver notre patrimoine.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 11.0,
+     "duree": 10.9,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "IA : la Méditerranée cherche sa voie",
-     "texte": "Lors du Forum Méditerranéen de l'IA à Marseille, un rapport a souligné la nécessité pour la rive Sud de tracer sa propre voie en intelligence artificielle, loin des approches purement financières et technologiques globales.",
+     "titre": "Airbnb prépare son agent IA",
+     "texte": "Airbnb envisage de lancer un agent de voyage basé sur l'intelligence artificielle l'année prochaine. Cette nouvelle technologie pourra créer des interfaces personnalisées en temps réel, s'adaptant aux requêtes des utilisateurs.",
      "mp3": "/podcast/fr/03.mp3",
+     "duree": 12.2,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Fin du développement pour Meta Quest",
+     "texte": "Meta met fin au développement de nouvelles fonctionnalités pour ses casques Quest 2 et Quest Pro. Les boutiques d'applications resteront cependant actives pour ces appareils VR après la fin du support.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 10.4,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Sécuriser les paiements par TPE",
+     "texte": "Algérie Poste rappelle les bonnes pratiques pour sécuriser vos transactions par terminal de paiement électronique. Ces réflexes sont essentiels pour assurer la sûreté de chaque paiement sans contact.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 10.2,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Arrestations pour fraude et blanchiment",
+     "texte": "Près de 163 milliards de centimes en biens ont été récupérés suite à une affaire de fraude fiscale et de blanchiment. Cinquante-neuf personnes ont été arrêtées par les services de lutte contre le crime organisé.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 10.8,
+     "pays": "DZ",
+     "source": "Le Soir d'Algérie"
+    },
+    {
+     "titre": "L'IA méditerranéenne trace sa voie",
+     "texte": "Lors du Forum Méditerranéen de l'IA, un rapport stratégique a été dévoilé. L'objectif est de définir une voie propre à la région, face à la domination financière et technologique mondiale.",
+     "mp3": "/podcast/fr/07.mp3",
      "duree": 10.9,
      "pays": "DZ",
      "source": "Maghreb Emergent"
     },
     {
-     "titre": "Fraude fiscale : 16 milliards de dinars",
-     "texte": "À Constantine, un réseau de criminalité financière organisée a été démantelé, causant un préjudice de 16 milliards de dinars au Trésor public. 59 personnes ont été interpellées et des biens saisis.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 11.7,
+     "titre": "Fraude fiscale à Constantine",
+     "texte": "Un réseau de criminalité financière organisé dans l'Est a été démantelé. L'affaire concerne un préjudice de 16 milliards de dinars et a mené à l'arrestation de 59 individus.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 10.1,
      "pays": "DZ",
      "source": "Maghreb Emergent"
     },
     {
-     "titre": "IA en santé : bénéfices et risques",
-     "texte": "L'intelligence artificielle en santé promet des gains de temps spectaculaires pour des diagnostics comme la mammographie. Cependant, il faut rester vigilant quant aux risques de biais potentiels dans ces technologies.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 11.0,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Algérie-Corée du Sud : partenariat",
-     "texte": "L'Algérie et la Corée du Sud célèbrent vingt ans de partenariat technologique. Le ministre Zerrouki a plaidé pour une coopération renforcée axée sur la cybersécurité et l'intelligence artificielle, visant des projets concrets.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 12.4,
-     "pays": "DZ",
-     "source": "ITMAG"
-    },
-    {
-     "titre": "Nouveaux agents IA au travail",
-     "texte": "Perplexity lance des agents d'IA personnels appelés 'Teammates'. Ces assistants sont conçus pour gérer des tâches quotidiennes au travail de manière autonome, avec une supervision minimale pour les utilisateurs.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 12.0,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Ajuster les AirPods pour petites oreilles",
-     "texte": "Pour une meilleure expérience audio, il est possible d'ajuster les AirPods Apple spécifiquement pour les petites oreilles. Cela peut nécessiter l'utilisation d'accessoires externes pour un ajustement optimal.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 10.5,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "PLF 2027 contre le marché parallèle",
-     "texte": "Le projet de loi de finances pour 2027 annonce une nouvelle stratégie pour lutter contre le marché parallèle. L'objectif est de mobiliser davantage de ressources sans augmenter la fiscalité des ménages.",
+     "titre": "L'IA révolutionne la santé",
+     "texte": "L'intelligence artificielle offre des gains de temps spectaculaires en santé, notamment pour l'analyse de mammographies ou de rétines. Cependant, des risques de biais sont à surveiller.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.1,
+     "duree": 10.0,
      "pays": "DZ",
      "source": "Algérie360"
     },
     {
-     "titre": "Classico JSK-USMA au programme",
-     "texte": "La dixième journée de la Ligue 1 Mobilis mettra aux prises la JS Kabylie et l'USM Alger. Ce classico très attendu se déroulera le 19 novembre au stade Hocine Aït Ahmed.",
+     "titre": "Agents IA pour le travail quotidien",
+     "texte": "Perplexity lance ses agents d'IA appelés \"Teammates\". Ces assistants autonomes sont conçus pour gérer les tâches professionnelles quotidiennes avec une supervision minimale, réservés aux abonnés de Perplexity Max.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 10.2,
+     "duree": 12.3,
      "pays": "DZ",
-     "source": "Crésus"
+     "source": "GeekyAlgeria"
     }
    ]
   },
