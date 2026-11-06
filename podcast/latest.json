@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-06",
- "genere": "2026-11-06T18:55:09",
+ "genere": "2026-11-06T21:52:20",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
    "creneau": "soir",
-   "genere": "2026-11-06T18:57:37",
+   "genere": "2026-11-06T21:53:58",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.9,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici 10 informations technologiques et d'actualité pour votre soirée."
+    "duree": 5.8,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici 10 informations pour débuter votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.2,
-    "texte": "C'est la fin de ce bulletin. Retrouvez-nous demain pour une nouvelle édition d'Algeria Tech."
+    "duree": 5.4,
+    "texte": "C'était l'essentiel de l'actualité tech, retrouvez-nous bientôt pour un nouveau point sur Algeria Tech."
    },
    "items": [
     {
-     "titre": "Lutte transfrontalière contre les stupéfiants",
-     "texte": "Jeudi, une opération a mené au démantèlement de deux réseaux criminels internationaux. Plus d'un million de comprimés psychotropes ont été saisis, soulignant l'efficacité des efforts de sécurité dans la région.",
+     "titre": "Lutte transfrontalière: Saisie de psychotropes",
+     "texte": "Jeudi dernier, les autorités ont réussi à démanteler deux réseaux criminels opérant au-delà des frontières. Lors de cette opération, plus d'un million de comprimés psychotropes ont été saisis, marquant une victoire significative dans la lutte contre le trafic.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 11.4,
+     "duree": 13.6,
      "pays": "DZ",
      "source": "APS"
     },
     {
      "titre": "Appel à la recherche historique",
-     "texte": "Un appel a été lancé pour développer la recherche sur l'histoire de notre parti. La création d'une base de données des personnalités nationales historiques est également encouragée pour préserver notre patrimoine.",
+     "texte": "Un appel a été lancé pour intensifier la recherche sur l'histoire du parti. L'objectif est de créer une base de données complète regroupant les personnalités nationales historiques afin de préserver et valoriser le patrimoine mémoriel du pays.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 10.9,
+     "duree": 12.3,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Airbnb prépare son agent IA",
-     "texte": "Airbnb envisage de lancer un agent de voyage basé sur l'intelligence artificielle l'année prochaine. Cette nouvelle technologie pourra créer des interfaces personnalisées en temps réel, s'adaptant aux requêtes des utilisateurs.",
+     "titre": "Algériens en France: 2ème communauté",
+     "texte": "L'Algérie se positionne à la deuxième place concernant le nombre d'étudiants étrangers en France. Les chiffres officiels de Campus France confirment l'importance de cette communauté dans le paysage universitaire français, témoignant de liens académiques forts.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 12.2,
+     "duree": 13.0,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Physicien algérien honoré aux USA",
+     "texte": "Le physicien algérien Noureddine Melikechi voit son nom gravé à jamais à l'Université du Massachusetts. L'institution américaine a choisi de reconnaître ses contributions innovantes en créant un programme portant son nom pour financer des professeurs audacieux.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 13.5,
+     "pays": "DZ",
+     "source": "TSA Algérie"
+    },
+    {
+     "titre": "Djezzy soutient la robotique",
+     "texte": "L'opérateur Djezzy s'est engagé auprès de l'École Nationale Supérieure des Technologies des Systèmes Autonomes pour le lancement de l'AST Festival. Cet événement, dédié à la robotique et à l'innovation technologique, met en lumière les avancées dans le domaine.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 13.4,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "Airbnb prépare un agent IA de voyage",
+     "texte": "Airbnb envisage de lancer l'année prochaine un agent de voyage basé sur l'intelligence artificielle. Cet outil novateur sera capable de construire une interface personnalisée en temps réel, répondant ainsi aux requêtes spécifiques des utilisateurs.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 13.5,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
      "titre": "Fin du développement pour Meta Quest",
-     "texte": "Meta met fin au développement de nouvelles fonctionnalités pour ses casques Quest 2 et Quest Pro. Les boutiques d'applications resteront cependant actives pour ces appareils VR après la fin du support.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 10.4,
+     "texte": "Meta a annoncé la fin du développement actif pour ses casques de réalité virtuelle Quest 2 et Quest Pro. Bien que les mises à jour cessent, les boutiques d'applications resteront opérationnelles pour ces appareils.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 11.1,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
      "titre": "Sécuriser les paiements par TPE",
-     "texte": "Algérie Poste rappelle les bonnes pratiques pour sécuriser vos transactions par terminal de paiement électronique. Ces réflexes sont essentiels pour assurer la sûreté de chaque paiement sans contact.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 10.2,
+     "texte": "Algérie Poste rappelle les bonnes pratiques à adopter pour sécuriser les transactions effectuées par Terminal de Paiement Électronique. Ces rappels visent à garantir la sûreté des paiements dématérialisés chez les commerçants.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 11.1,
      "pays": "DZ",
      "source": "Algérie360"
     },
     {
-     "titre": "Arrestations pour fraude et blanchiment",
-     "texte": "Près de 163 milliards de centimes en biens ont été récupérés suite à une affaire de fraude fiscale et de blanchiment. Cinquante-neuf personnes ont été arrêtées par les services de lutte contre le crime organisé.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 10.8,
+     "titre": "Fraude fiscale: 59 arrestations",
+     "texte": "Une vaste opération a permis d'arrêter 59 personnes dans une affaire de fraude fiscale et de blanchiment d'argent. Plus de 163 milliards de centimes de biens ont été récupérés par les services de lutte contre le crime organisé.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 12.0,
      "pays": "DZ",
      "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "L'IA méditerranéenne trace sa voie",
-     "texte": "Lors du Forum Méditerranéen de l'IA, un rapport stratégique a été dévoilé. L'objectif est de définir une voie propre à la région, face à la domination financière et technologique mondiale.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 10.9,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
-    },
-    {
-     "titre": "Fraude fiscale à Constantine",
-     "texte": "Un réseau de criminalité financière organisé dans l'Est a été démantelé. L'affaire concerne un préjudice de 16 milliards de dinars et a mené à l'arrestation de 59 individus.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 10.1,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
-    },
-    {
-     "titre": "L'IA révolutionne la santé",
-     "texte": "L'intelligence artificielle offre des gains de temps spectaculaires en santé, notamment pour l'analyse de mammographies ou de rétines. Cependant, des risques de biais sont à surveiller.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 10.0,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Agents IA pour le travail quotidien",
-     "texte": "Perplexity lance ses agents d'IA appelés \"Teammates\". Ces assistants autonomes sont conçus pour gérer les tâches professionnelles quotidiennes avec une supervision minimale, réservés aux abonnés de Perplexity Max.",
+     "titre": "IA détecte des failles critiques",
+     "texte": "Le nouveau modèle d'intelligence artificielle d'OpenAI a identifié un grand nombre de vulnérabilités. Il a découvert 81 failles sur Firefox et développé des exploitations pour 948 bugs du noyau Linux, signalant des risques de sécurité.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 12.3,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "duree": 13.3,
+     "pays": "INT",
+     "source": "BleepingComputer"
     }
    ]
   },
