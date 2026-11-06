@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
- "date": "2026-11-05",
- "genere": "2026-11-05T22:28:09",
+ "date": "2026-11-06",
+ "genere": "2026-11-06T15:11:35",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
    "creneau": "soir",
-   "genere": "2026-11-05T22:29:21",
+   "genere": "2026-11-06T15:12:52",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.4,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici dix informations tech et télécoms pour votre soirée."
+    "duree": 5.8,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici 10 informations pour éclairer votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 4.7,
-    "texte": "C'est la fin de ce bulletin. Retrouvez-nous bientôt pour plus d'actualités tech."
+    "duree": 5.0,
+    "texte": "C'était le récap' Algeria Tech. Retrouvez-nous bientôt pour d'autres nouvelles."
    },
    "items": [
     {
      "titre": "Réseaux criminels démantelés",
-     "texte": "Les services de sécurité ont réussi jeudi dernier à démanteler deux importants réseaux criminels transfrontaliers. Plus d'un million de comprimés psychotropes ont été saisis lors de ces opérations.",
+     "texte": "Les services de sécurité ont mis fin jeudi à l'activité de deux réseaux criminels transfrontaliers. Une importante saisie de plus d'un million de comprimés psychotropes a été réalisée, marquant un coup dur porté à ces organisations.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 10.2,
+     "duree": 11.8,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Recherche sur l'histoire nationale",
-     "texte": "Un appel a été lancé pour intensifier le développement de la recherche consacrée à l'histoire de notre parti. Il est également proposé de créer une base de données dédiée aux personnalités historiques nationales.",
+     "titre": "Appel à la recherche historique",
+     "texte": "Il est lancé un appel au développement de la recherche sur l'histoire de notre parti. La création d'une base de données des personnalités nationales historiques est également encouragée pour préserver notre mémoire collective.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 10.7,
+     "duree": 11.0,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "MacBook Pro M6 : Amélioration légère",
-     "texte": "Le nouveau MacBook Pro M6 offre une puissance accrue et un superbe écran Liquid Retina. Bien que le design n'évolue pas, il reste un excellent choix, malgré une légère hausse de prix.",
+     "titre": "IA : la Méditerranée cherche sa voie",
+     "texte": "Lors du Forum Méditerranéen de l'IA à Marseille, un rapport a souligné la nécessité pour la rive Sud de tracer sa propre voie en intelligence artificielle, loin des approches purement financières et technologiques globales.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 10.1,
+     "duree": 10.9,
+     "pays": "DZ",
+     "source": "Maghreb Emergent"
+    },
+    {
+     "titre": "Fraude fiscale : 16 milliards de dinars",
+     "texte": "À Constantine, un réseau de criminalité financière organisée a été démantelé, causant un préjudice de 16 milliards de dinars au Trésor public. 59 personnes ont été interpellées et des biens saisis.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 11.7,
+     "pays": "DZ",
+     "source": "Maghreb Emergent"
+    },
+    {
+     "titre": "IA en santé : bénéfices et risques",
+     "texte": "L'intelligence artificielle en santé promet des gains de temps spectaculaires pour des diagnostics comme la mammographie. Cependant, il faut rester vigilant quant aux risques de biais potentiels dans ces technologies.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 11.0,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Algérie-Corée du Sud : partenariat",
+     "texte": "L'Algérie et la Corée du Sud célèbrent vingt ans de partenariat technologique. Le ministre Zerrouki a plaidé pour une coopération renforcée axée sur la cybersécurité et l'intelligence artificielle, visant des projets concrets.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 12.4,
+     "pays": "DZ",
+     "source": "ITMAG"
+    },
+    {
+     "titre": "Nouveaux agents IA au travail",
+     "texte": "Perplexity lance des agents d'IA personnels appelés 'Teammates'. Ces assistants sont conçus pour gérer des tâches quotidiennes au travail de manière autonome, avec une supervision minimale pour les utilisateurs.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 12.0,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Algériens en tête des expulsions",
-     "texte": "Au premier semestre de cette année, les ressortissants algériens figurent en tête des décisions d'éloignement prononcées dans l'Union Européenne. La France enregistre le plus grand nombre de ces décisions.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 10.4,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "Tariq Ibn Ziyad reprend la mer",
-     "texte": "Le ferry Tariq Ibn Ziyad, de la compagnie Algérie Ferries, a été libéré par les autorités espagnoles. Le navire était immobilisé au port d'Alicante depuis fin octobre.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 10.4,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "Serve Robotics lance ses services cloud",
-     "texte": "Serve Robotics lance une nouvelle activité nommée Physical AI Services. Cette offre vise à fournir des outils de connectivité et de données pour les robots, un peu comme un cloud pour la robotique.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 10.5,
-     "pays": "INT",
-     "source": "TechCrunch"
-    },
-    {
-     "titre": "Test du RedMagic 12 Pro",
-     "texte": "Le nouveau RedMagic 12 Pro a été testé et se révèle être un smartphone Android ultra rapide. Son design discret cache des performances haut de gamme surprenantes pour sa catégorie.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 10.1,
-     "pays": "INT",
-     "source": "ZDNet FR"
-    },
-    {
-     "titre": "GPT-6 Cyber pour la sécurité",
-     "texte": "OpenAI a développé GPT-6 Cyber, un modèle d'intelligence artificielle. Il est utilisé pour traquer les failles de sécurité dans des logiciels comme Firefox et tester leur exploitation.",
+     "titre": "Ajuster les AirPods pour petites oreilles",
+     "texte": "Pour une meilleure expérience audio, il est possible d'ajuster les AirPods Apple spécifiquement pour les petites oreilles. Cela peut nécessiter l'utilisation d'accessoires externes pour un ajustement optimal.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 10.9,
-     "pays": "INT",
-     "source": "Clubic"
-    },
-    {
-     "titre": "XPENG L03 arrive au Maroc",
-     "texte": "Le groupe Smeia se prépare à lancer la XPENG L03 au Maroc. Ce modèle intègre la technologie REEV, combinant électrique et prolongateur d'autonomie pour une mobilité étendue.",
-     "mp3": "/podcast/fr/09.mp3",
      "duree": 10.5,
-     "pays": "INT",
-     "source": "Hespress FR"
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Taxe au gigaoctet rejetée",
-     "texte": "Le projet de loi de finances pour l'année prochaine a vu le rejet de la proposition de taxe au gigaoctet. Cette mesure visait à faire contribuer les géants du numérique.",
+     "titre": "PLF 2027 contre le marché parallèle",
+     "texte": "Le projet de loi de finances pour 2027 annonce une nouvelle stratégie pour lutter contre le marché parallèle. L'objectif est de mobiliser davantage de ressources sans augmenter la fiscalité des ménages.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 11.1,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Classico JSK-USMA au programme",
+     "texte": "La dixième journée de la Ligue 1 Mobilis mettra aux prises la JS Kabylie et l'USM Alger. Ce classico très attendu se déroulera le 19 novembre au stade Hocine Aït Ahmed.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 9.1,
-     "pays": "INT",
-     "source": "Next"
+     "duree": 10.2,
+     "pays": "DZ",
+     "source": "Crésus"
     }
    ]
   },
