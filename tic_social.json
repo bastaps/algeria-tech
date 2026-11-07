@@ -397,6 +397,24 @@
       "source_type": "rss"
     },
     {
+      "id": "66e7c68cbd0f6dad",
+      "source_name": "Mobilis",
+      "source_short": "MB",
+      "source_color": "#00A651",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOWkdPaVNyekxsbjBUdENOT3kwcktZcTJiSzJjaEtuRGlxYlZIWWlZeGtPOUo3Ul9IRnlpclRqd2J4SG80cGlrUlE5ZEhEMmNReDdTS0RORDNYMVQyNXJzdlZOMUJUYmNHeVplQkdlRFN1aEJfbGlEd3YxXzYzaWRyNm1LXzc1TDNXak43eHF2QUxKQjBhaklrV3VHSjRvU09Oa0huSGxqbS1VZ9IBsgFBVV95cUxOUzNxS2txYzVVLVVzRVJOcFppSjZtZDZ3cmItOWVHSWltSlRqUGJEVHNyc1VqTkppcWwtRUNPU0cwbHBGWVp2am9MTlAxamFydEllTmtUbmNHTkgwQkZjVEdyZ0RjQ2FjZm80Ykg5MUM1VWpKRGNpWnBUMk9MY2VvdHN6ajUwb3pLZGZOcjFLaUhMRlhLZXoxZWRtaUtnal9FejBkMzhVYzVuTTY0QkRmVzdn?oc=5",
+      "image": "",
+      "date": "Thu, 05 Nov 2026 22:19:49 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Ligue 1 Mobilis : le classico JS Kabylie-USM Alger à l’affiche de la 10e journée - Le Matin d'Algérie — Ligue 1 Mobilis : le classico JS Kabylie-USM Alger à l’affiche de la 10e journée Le Matin d'Algérie",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "c1dcc5ca10419cc8",
       "source_name": "Djezzy",
       "source_short": "DJ",
@@ -701,24 +719,6 @@
         "en": ""
       },
       "source_type": "youtube"
-    },
-    {
-      "id": "d1450286ea69b283",
-      "source_name": "Mobilis",
-      "source_short": "MB",
-      "source_color": "#00A651",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNWlYzU3VuWjh1QV9HdzIzQXN0OWFhcEhEbEU2cE9WTEdXc2tuTC1pcl8xOTdwV0M2WV8tODdCMUVucUxiWTBOQ0Z2ZHFSUDZSeExXaVdQWFByM0VlVEg1Z1p4bGVGZG9xdDQwY3c2RHZRM0hINy1NQ1NtZzN1dEVVME9hNVVSNllnZUhYbFRvSGNNc19FYVM5TTVLVWZzVnRFUGwyWWY0OExJOXBKZkNXVzlqb2FGNjcw?oc=5",
-      "image": "",
-      "date": "Sat, 31 Oct 2026 22:00:08 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "L’opérateur lance deux applications : Les nouvelles solutions de Mobilis - El Moudjahid — L’opérateur lance deux applications : Les nouvelles solutions de Mobilis El Moudjahid",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     },
     {
       "id": "3a6674e5d52c5ade",
@@ -1441,6 +1441,132 @@
       "source_type": "web"
     },
     {
+      "id": "be545ac37e7a75d7",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/11/07/after-the-midterms-things-are-looking-rocky-for-elon-musk-and-data-centers/",
+      "image": "",
+      "date": "Sat, 07 Nov 2026 22:07:22 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "After the midterms, things are looking rocky for Elon Musk and data centers — On Equity, we unpacked what the midterms mean for the tech industry.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "f4f061dd3e2b5811",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/11/07/chinese-exec-was-recruited-to-spy-on-nvidia-ceo-according-to-us-intelligence-memo/",
+      "image": "",
+      "date": "Sat, 07 Nov 2026 21:17:08 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Megaspeed exec was recruited to spy on Nvidia CEO, according to US intelligence memo — A memo circulated earlier this year reportedly claimed that China’s Ministry of State Security recruited a female technology executive to spy on Nvidia's CEO.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "fdccf51042718309",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/07/prix-des-carburants-ce-qua-dit-le-ministre-des-finances-sur-larticle-218-du-plf-2027/",
+      "image": "",
+      "date": "Sat, 07 Nov 2026 19:12:16 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Prix des carburants : ce qu’a dit le ministre des Finances sur l’article 218 du PLF 2027 — Le ministre des Finances, Mohammed Lamine Lebbou, en apporté des éclaircissements sur l‘article 218 du projet de loi de finances (PLF) 2027 relatif à la révision des prix des carburants, qui a suscité des interrogations parmi les députés lors de son examen à l’Assemblée populaire nationale (APN). In",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "274da77cbef37d71",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/11/07/parents-want-safer-phones-for-kids-these-companies-are-answering-the-call/",
+      "image": "",
+      "date": "Sat, 07 Nov 2026 19:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Parents want safer phones for kids. These companies are answering the call. — As parents look for alternatives to unrestricted smartphones, a growing number of companies are building phones designed specifically for kids, from feature-limited mobile devices to minimalist home phones.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "11a5a4773c0b9132",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/07/dessalement-le-pdg-sonatrach-inspecte-letat-davancement-du-projet-de-la-station-de-mostaganem/",
+      "image": "",
+      "date": "Sat, 07 Nov 2026 18:51:27 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Dessalement : Le PDG Sonatrach inspecte l’état d’avancement du projet de la station de Mostaganem — Le PDG du groupe Sonatrach, Nour Eddine Daoudi, accompagné de plusieurs hauts responsables du groupe, a effectué, samedi, une visite d’inspection du projet de réalisation de la station de dessalement de l’eau de mer de Sidi Laadjel, située dans la commune de Khadra, à l’est de Mostaganem, afin de s’",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "8ca0bf5d70eba8c4",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/07/industrie-automobile-kourtel-recoit-une-delegation-de-hyundai/",
+      "image": "",
+      "date": "Sat, 07 Nov 2026 15:21:01 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Industrie automobile : Kourtel reçoit une délégation de Hyundai — Le ministre de l’Industrie, Farid Kourtel, a reçu ce samedi 7 novembre, au siège de son département, une délégation de Hyundai Motor Manufacturing Algeria, dans le cadre du suivi du projet d’investissement du constructeur sud-coréen en Algérie, a indiqué le ministère dans un communiqué. Cette réunio",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "30e4f76924da5c4a",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/test-pratique-du-macbook-pro-a-ecran-tactile-un-ecran-oled-epoustouflant-meme-si-vous-ne-le-touchez-jamais-507496.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sat, 07 Nov 2026 14:17:22 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Test pratique du MacBook Pro à écran tactile : un écran OLED époustouflant, même si vous ne le touchez jamais — L'écran tactile est sympa, mais ce n'est pas la meilleure fonctionnalité du nouveau MacBook Pro M5 Max 16 pouces d'Apple.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "de7eb04e1bc1c7fb",
       "source_name": "NTIC-DZ",
       "source_short": "NTC",
@@ -1489,6 +1615,24 @@
       "lang_source": "fr",
       "text": {
         "fr": "J’ai essayé les dernières nouveautés de l’appli Sonos : ces 2 petites améliorations règlent de gros irritants — Diagnostic du système, préréglages de volume, balayage du mini-lecteur, guidage vocal sur l’Ace Ultra : Sonos multiplie les petites améliorations de son appli, en attendant son assistant vocal IA.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "fbf04844de2b0000",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/07/controle-de-la-qualite-aux-frontieres-deux-laboratoires-danalyse-inaugures-au-port-et-a-laeroport-dalger/",
+      "image": "",
+      "date": "Sat, 07 Nov 2026 10:44:14 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Contrôle de la qualité aux frontières : deux laboratoires d’analyse inaugurés au port et à l’aéroport d’Alger — Le Premier ministre, Sifi Ghrieb, a inauguré, ce samedi 7 novembre à Alger, deux laboratoires d’analyse de la qualité, implantés au port et à l’aéroport international d’Alger. Ces structures sont destinées à renforcer le contrôle des marchandises importées avant leur mise sur le marché national. Leu",
         "ar": "",
         "en": ""
       },
@@ -5255,160 +5399,16 @@
         "fr": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "4493a0ba237dbc00",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/11/02/les-prix-du-petrole-chutent-face-aux-espoirs-de-progres-diplomatiques/",
-      "image": "",
-      "date": "Mon, 02 Nov 2026 21:39:26 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Les prix du pétrole chutent face aux espoirs de progrès diplomatiques — Les prix du pétrole ont décroché lundi, les investisseurs misant sur une reprise des discussions entre Washington et Téhéran pour mettre fin au conflit au Moyen-Orient, plutôt que sur une escalade des tensions redoutée jusqu’ici. Le prix du baril de Brent de la mer du Nord, pour livraison en janvier",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "cfabcaf9ae8e2079",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/guide-achat/linux-pratique-essayez-spotifast-une-alternative-a-spotify-507052.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Mon, 02 Nov 2026 21:00:51 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Linux pratique : essayez Spotifast, une alternative à Spotify — Si vous en avez assez du programme officiel Spotify, il existe d'autres solutions. Voici en quoi ce logiciel gratuit est plus performant.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "45e9c31c241dd154",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/11/02/dessalement-lancement-des-projets-de-raccordement-en-aval-des-stations-de-tlemcen-mostaganem-et-chlef/",
-      "image": "",
-      "date": "Mon, 02 Nov 2026 20:58:43 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Dessalement : lancement des projets de raccordement en aval des stations de Tlemcen, Mostaganem et Chlef — Le ministre de l’Hydraulique, Lounes Bouzegza, a supervisé, lundi depuis la wilaya de Tlemcen, le lancement des projets de raccordement en aval des stations de dessalement d’eau de mer en cours de réalisation à Aïn-Ajroud (commune de Marsa Ben M’hidi, wilaya de Tlemcen), à Sidi El-Adjjal (commune de",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "41022d06cb5b6c53",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/11/02/apn-la-commission-des-finances-et-du-budget-propose-plusieurs-amendements-au-plf-2027/",
-      "image": "",
-      "date": "Mon, 02 Nov 2026 20:09:38 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "APN : La commission des finances et du budget propose plusieurs amendements au PLF 2027 — La commission des finances et du budget de l’Assemblée populaire nationale (APN) a proposé plusieurs amendements au projet de loi de finances (PLF) 2027, portant sur quinze (15) articles, ainsi que l’introduction de six (6) nouveaux articles, selon le rapport préliminaire de la commission présenté l",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c713d3bb72a79afe",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/11/02/el-tarf-2-473-quintaux-de-liege-recoltes-en-2026/",
-      "image": "",
-      "date": "Mon, 02 Nov 2026 19:31:59 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "El Tarf : 2 473 quintaux de liège récoltés en 2026 — La wilaya d’El Tarf a enregistré une production de 2473 quintaux de liège au titre de la campagne de récolte 2026, a-t-on appris lundi auprès du conservateur des forêts de Abdelaziz Belahdji. Cette production a été réalisée sur une superficie de 945 hectares, répartie à travers les communes d’El Kal",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "fb0e372c442dbfd8",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/02/web-host-squarespace-lays-off-19-of-its-employees/",
-      "image": "",
-      "date": "Mon, 02 Nov 2026 19:25:59 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Web host Squarespace lays off 19% of its employees — The website builder said that the job losses are part of a broader restructuring of its organization.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "05dc7d6b03392267",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/02/snap-settles-lawsuit-accusing-platform-of-fueling-teen-depression-and-eating-disorders/",
-      "image": "",
-      "date": "Mon, 02 Nov 2026 19:11:49 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Snap settles lawsuit accusing platform of fueling teen depression and eating disorders — The plaintiffs said they started using YouTube as young as age 3 and other social media platforms at around age 9 and developed compulsive usage habits that they attributed to features such as autoplay and infinite scrolling.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e132ccbcd89a1af9",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/cybersecurite-1371/binance-hack-230058",
-      "image": "",
-      "date": "Mon, 02 Nov 2026 18:29:33 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Binance piraté : ce qu’on sait sur l’origine de l’attaque et ses conséquences — Le scénario du hack à 6,3 milliards $ contre Binance se dessine, tandis que l'écosystème accompagne la gestion de la crise. The post Binance piraté : ce qu’on sait sur l’origine de l’attaque et ses conséquences appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-11-07T13:39:43.176100+00:00",
+  "lastUpdated": "2026-11-07T22:25:53.429669+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Médias TIC": 57,
-    "Tech International": 163
+    "Tech International": 163,
+    "Médias TIC": 57
   },
   "total": 300
 }
