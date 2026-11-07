@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-07",
- "genere": "2026-11-07T17:49:31",
+ "genere": "2026-11-07T20:24:05",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
    "creneau": "soir",
-   "genere": "2026-11-07T17:51:09",
+   "genere": "2026-11-07T20:25:14",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 8.5,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech, votre rendez-vous avec l'actualité numérique et technologique. Voici les 10 informations de votre soirée."
+    "duree": 7.1,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici dix informations pour votre soirée, spécialement sélectionnées pour vous."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.1,
-    "texte": "C'était l'essentiel de l'actualité tech pour ce soir. Merci de nous avoir suivis sur Algeria Tech."
+    "duree": 6.2,
+    "texte": "C'était l'essentiel de l'actualité tech. Restez connectés sur Algeria Tech pour plus d'informations."
    },
    "items": [
     {
-     "titre": "Qualité : nouveaux laboratoires inaugurés",
-     "texte": "Le Premier ministre a inauguré ce samedi deux laboratoires dédiés à l'analyse de la qualité. Ces nouvelles installations sont situées au port et à l'aéroport d'Alger, suite aux instructions du président de la République.",
+     "titre": "Nouveaux laboratoires d'Alger",
+     "texte": "Le Premier ministre a inauguré deux laboratoires dédiés à l'analyse de la qualité. Ces installations sont situées stratégiquement au port et à l'aéroport d'Alger, renforçant ainsi les contrôles essentiels.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 11.3,
+     "duree": 11.0,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Hyundai : projet d'investissement étudié",
-     "texte": "Le ministre de l'Industrie a eu un entretien avec une délégation de Hyundai. L'objectif était de discuter de l'avancement du projet d'investissement de ce constructeur automobile en Algérie.",
+     "titre": "Conférence africaine des start-up",
+     "texte": "Alger accueillera bientôt la Conférence africaine des start-up. Selon Ouadah, cet événement est appelé à devenir la plus grande manifestation technologique jamais organisée sur le continent africain.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 10.3,
+     "duree": 10.7,
      "pays": "DZ",
      "source": "Radio Algérie"
     },
     {
-     "titre": "Industrie automobile : suivi Hyundai",
-     "texte": "Farid Kourtel, ministre de l'Industrie, a reçu une délégation de Hyundai Motor Manufacturing Algeria. La rencontre a porté sur le suivi et l'état d'avancement du projet d'investissement du constructeur sud-coréen.",
+     "titre": "Gratuité carte consulaire",
+     "texte": "Une polémique a éclaté sur les réseaux sociaux concernant la potentielle suppression de la gratuité de la carte consulaire algérienne pour la diaspora. Le député Djamai Nedjah a clarifié la situation.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 12.0,
-     "pays": "DZ",
-     "source": "Crésus"
-    },
-    {
-     "titre": "Souveraineté technologique régionale",
-     "texte": "La députée écologiste Sabrina Sebaihi plaide pour une rupture avec le fantasme colonialiste du savoir. Elle souligne l'importance de l'éthique, la protection des infrastructures et l'alliance avec la jeunesse africaine pour la souveraineté technologique.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 13.3,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
-    },
-    {
-     "titre": "Accessoire utile du Samsung Galaxy S26",
-     "texte": "Malgré son statut de fleuron actuel, le Samsung Galaxy S26 présente un accessoire qui, bien que peu excitant, s'avère particulièrement utile pour les utilisateurs de la série actuelle du géant coréen.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 10.8,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Kourtel et Hyundai : point d'étape",
-     "texte": "Le ministre de l'Industrie, Farid Kourtel, a reçu une délégation de Hyundai Motor Manufacturing Algeria. Il a été fait le point sur l'avancement du projet d'investissement du constructeur sud-coréen en Algérie.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 11.8,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "L'IA dans la campagne électorale",
-     "texte": "L'intelligence artificielle s'invite dans la campagne pour les élections locales. Cet outil, déjà présent lors des législatives, facilite le travail des politiques et est de plus en plus utilisé pour les scrutins municipaux.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 11.9,
+     "duree": 10.7,
      "pays": "DZ",
      "source": "TSA Algérie"
     },
     {
-     "titre": "Ordinateur tactile vs tablette",
-     "texte": "Un ordinateur portable à écran tactile offre plus d'options qu'une tablette. Cet avantage est cependant secondaire par rapport aux fonctionnalités globales d'un ordinateur portable traditionnel, malgré les annonces récentes d'Apple.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 12.0,
+     "titre": "SpaceX investit dans l'IA",
+     "texte": "Le groupe d'Elon Musk accélère massivement ses investissements dans l'intelligence artificielle. SpaceX a notamment levé 40 milliards de dollars de dette pour acquérir des puces dédiées à l'IA.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 10.4,
+     "pays": "DZ",
+     "source": "ITMAG"
+    },
+    {
+     "titre": "Hyundai et l'industrie algérienne",
+     "texte": "Le ministre de l'Industrie a reçu une délégation de Hyundai. La discussion a porté sur l'avancement du projet d'investissement du constructeur sud-coréen, en présence de sous-traitants locaux et coréens.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 10.9,
+     "pays": "DZ",
+     "source": "Le Soir d'Algérie"
+    },
+    {
+     "titre": "Mise à jour iPad Mini",
+     "texte": "La petite tablette d'Apple, l'iPad Mini, reçoit une mise à jour majeure. Bien que son apparence reste similaire, l'appareil bénéficie d'améliorations significatives par rapport à son prédécesseur.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 11.2,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Sommet des médias à Pékin : l'IA",
-     "texte": "Le 7ème Sommet mondial des médias à Pékin place l'intelligence artificielle au cœur des débats. Près de 500 représentants de 112 pays examinent l'impact de l'IA comme outil décisionnel, notamment dans les rédactions.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.8,
+     "titre": "Souveraineté technologique régionale",
+     "texte": "La députée française Sabrina Sebaihi plaide pour rompre avec le fantasme d'un savoir venu du Nord. Elle souligne l'importance de la souveraineté technologique régionale et de l'alliance avec la jeunesse africaine.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 11.1,
      "pays": "DZ",
-     "source": "Le Jeune Indépendant"
+     "source": "Maghreb Emergent"
     },
     {
-     "titre": "Saisie de drogue à Oran",
-     "texte": "Les douanes d'Oran, en coordination avec l'ANP, ont saisi plus de 211 kg de kif traité. Sept personnes ont été arrêtées dans le cadre de cette opération de lutte contre le trafic de stupéfiants.",
-     "mp3": "/podcast/fr/10.mp3",
+     "titre": "Accessoire Galaxy S26 utile",
+     "texte": "Un accessoire spécifique à la série Samsung Galaxy S26 est mis en avant pour son utilité. Le fleuron coréen continue de proposer des fonctionnalités pratiques grâce à des années d'optimisation logicielle.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 11.6,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Kourtel et Hyundai : suivi",
+     "texte": "Le ministre de l'Industrie, Farid Kourtel, a rencontré une délégation de Hyundai. L'objectif était de faire le point sur l'état d'avancement du projet d'investissement du constructeur automobile en Algérie.",
+     "mp3": "/podcast/fr/09.mp3",
      "duree": 11.3,
      "pays": "DZ",
-     "source": "Crésus"
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "L'IA en campagne électorale",
+     "texte": "L'intelligence artificielle fait désormais partie intégrante des campagnes électorales locales en Algérie. Cet outil, déjà présent lors des législatives, est plus visible pour les scrutins municipaux et de wilayas.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 11.8,
+     "pays": "DZ",
+     "source": "TSA Algérie"
     }
    ]
   },
