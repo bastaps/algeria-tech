@@ -4854,3 +4854,6 @@ html, body { overflow-x: clip; }
 
 /* Notification vide : elle dépassait à droite de l'écran (pastille noire coupée) */
 .premium-toast:not(.show) { visibility: hidden; pointer-events: none; }
+
+/* « Synthèse IA » désactivée (redondante avec « À retenir », lente) : bouton masqué ; réversible en supprimant ces 2 lignes */
+.synthese-btn, #syntheseBox { display: none !important; }
