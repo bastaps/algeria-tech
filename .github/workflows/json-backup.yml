@@ -72,7 +72,7 @@ jobs:
       - name: Commit and push
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "📦 AUTO: JSON backup $(date -u +'%Y-%m-%d %H:%M UTC')"
+          commit_message: "[CF-Pages-Skip] 📦 AUTO: JSON backup"
           file_pattern: "*.json"
           skip_dirty: true
           skip_fetch: true

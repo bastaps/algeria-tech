@@ -15,7 +15,7 @@ export async function onRequestPost({ request, env }) {
   try { body = await request.json(); }
   catch { return json({ error: 'Requête invalide.' }, 400); }
 
-  if (!env.MISTRAL_API_KEY)
+  if (!env.MISTRAL_API_KEY && !env.GEMINI_API_KEY && !env.GROQ_API_KEY)
     return json({ error: "Service IA non configuré (clé API manquante)." }, 503);
 
   const { titre, contenu, historique, message, langue, longueur } = body || {};
@@ -55,27 +55,55 @@ ${String(contenu || '').substring(0, 4200)}
     { role: 'user',   content: String(message).trim().substring(0, 500) }
   ];
 
-  try {
-    const apiRes = await fetch('https://api.mistral.ai/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type':  'application/json',
-        'Authorization': `Bearer ${env.MISTRAL_API_KEY}`
-      },
+  // Chaîne de repli : Mistral → Gemini → Groq. Une limite de débit (429) ou une panne passe au suivant.
+  // Clés : variables d'environnement Cloudflare MISTRAL_API_KEY, GEMINI_API_KEY, GROQ_API_KEY (jamais dans le dépôt).
+  const withTimeout = (ms, fn) => {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), ms);
+    return fn(ctrl.signal).finally(() => clearTimeout(timer));
+  };
+  const providers = [];
+  if (env.MISTRAL_API_KEY) providers.push(['mistral', async (signal) => {
+    const r = await fetch('https://api.mistral.ai/v1/chat/completions', {
+      method: 'POST', signal,
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${env.MISTRAL_API_KEY}` },
+      body: JSON.stringify({ model: 'mistral-small-latest', messages, max_tokens: fmt.tokens, temperature: 0.5 })
+    });
+    const j = await r.json();
+    if (j.error || !r.ok) throw new Error('mistral ' + r.status);
+    return j.choices?.[0]?.message?.content;
+  }]);
+  if (env.GEMINI_API_KEY) providers.push(['gemini', async (signal) => {
+    const r = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent', {
+      method: 'POST', signal,
+      headers: { 'Content-Type': 'application/json', 'x-goog-api-key': env.GEMINI_API_KEY },
       body: JSON.stringify({
-        model: 'mistral-small-latest',
-        messages,
-        max_tokens: fmt.tokens,
-        temperature: 0.5
+        systemInstruction: { parts: [{ text: sysMsg }] },
+        contents: [...hist, { role: 'user', content: String(message).trim().substring(0, 500) }]
+          .map(m => ({ role: m.role === 'assistant' ? 'model' : 'user', parts: [{ text: String(m.content || '') }] })),
+        generationConfig: { maxOutputTokens: fmt.tokens + 300, temperature: 0.5 }
       })
     });
+    const j = await r.json();
+    if (j.error || !r.ok) throw new Error('gemini ' + r.status);
+    return j.candidates?.[0]?.content?.parts?.map(p => p.text || '').join('');
+  }]);
+  if (env.GROQ_API_KEY) providers.push(['groq', async (signal) => {
+    const r = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      method: 'POST', signal,
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${env.GROQ_API_KEY}`, 'User-Agent': 'Mozilla/5.0 (compatible; AlgeriaTech/1.0)' },
+      body: JSON.stringify({ model: 'openai/gpt-oss-120b', messages, max_tokens: fmt.tokens + 600, temperature: 0.5, reasoning_effort: 'low' })
+    });
+    const j = await r.json();
+    if (j.error || !r.ok) throw new Error('groq ' + r.status);
+    return j.choices?.[0]?.message?.content;
+  }]);
 
-    const result = await apiRes.json();
-    if (result.error) throw new Error(result.error.message || 'Erreur Mistral');
-    const reponse = result.choices?.[0]?.message?.content;
-    if (!reponse) throw new Error('Réponse Mistral vide');
-    return json({ reponse });
-  } catch (e) {
-    return json({ error: "Service IA momentanément indisponible, réessayez dans un instant." }, 503);
+  for (const [, call] of providers) {
+    try {
+      const reponse = await withTimeout(15000, call);
+      if (reponse && String(reponse).trim()) return json({ reponse: String(reponse).trim() });
+    } catch (e) { /* fournisseur suivant */ }
   }
+  return json({ error: "Service IA momentanément indisponible, réessayez dans un instant." }, 503);
 }

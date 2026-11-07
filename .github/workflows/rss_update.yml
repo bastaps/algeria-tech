@@ -34,5 +34,5 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add veille_data.json feeds/
-          git commit -m "Automatique: Mise à jour flux RSS + flux thématiques" || echo "Pas de changements"
+          git commit -m "[CF-Pages-Skip] Automatique: Mise à jour flux RSS + flux thématiques" || echo "Pas de changements"
           git push

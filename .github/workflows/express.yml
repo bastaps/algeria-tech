@@ -76,7 +76,7 @@ jobs:
           git config user.email "actions@github.com"
           git checkout -q --orphan tmp
           git add -A
-          git commit -q -m "Vidéos express (30 dernières) [$(date -u +%Y-%m-%d %H:%M) UTC]"
+          git commit -q -m "[CF-Pages-Skip] Vidéos express (30 dernières) [$(date -u +%Y-%m-%d %H:%M) UTC]"
           git push -q -f origin tmp:main
           cd ..
           # dépôt du site : liste des vidéos + historique

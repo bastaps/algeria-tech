@@ -62,5 +62,5 @@ jobs:
           git config user.email "action@github.com"
           git config user.name "Algeria Tech Bot"
           git add podcast
-          git commit -m "Auto: podcast ${{ steps.c.outputs.creneau }} [$(date +%d/%m %H:%M)]" || { echo "Rien à publier"; exit 0; }
+          git commit -m "[CF-Pages-Skip] Auto: podcast ${{ steps.c.outputs.creneau }} [$(date +%d/%m %H:%M)]" || { echo "Rien à publier"; exit 0; }
           for i in 1 2 3 4; do git pull --rebase -X theirs origin main && git push origin HEAD:main && break || sleep 6; done

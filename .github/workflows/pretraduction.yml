@@ -40,7 +40,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "Rien de nouveau à traduire."
           else
-            git commit -m "Automatique: pré-traduction AR/EN des articles"
+            git commit -m "[CF-Pages-Skip] Automatique: pré-traduction AR/EN des articles"
             git pull --rebase --autostash || true
             git push
           fi
