@@ -1,102 +1,102 @@
 {
- "creneau": "midi",
+ "creneau": "soir",
  "date": "2026-11-07",
- "genere": "2026-11-07T13:54:18",
+ "genere": "2026-11-07T17:49:31",
  "langs": {
   "fr": {
    "voix": "fr-FR-RemyMultilingualNeural",
-   "creneau": "midi",
-   "genere": "2026-11-07T13:56:58",
+   "creneau": "soir",
+   "genere": "2026-11-07T17:51:09",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 5.8,
-    "texte": "Bonjour après-midi et bienvenue sur Algeria Tech. Voici 10 informations à suivre."
+    "duree": 8.5,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech, votre rendez-vous avec l'actualité numérique et technologique. Voici les 10 informations de votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 4.3,
-    "texte": "C'était votre mise à jour rapide Algeria Tech. À très bientôt."
+    "duree": 6.1,
+    "texte": "C'était l'essentiel de l'actualité tech pour ce soir. Merci de nous avoir suivis sur Algeria Tech."
    },
    "items": [
     {
-     "titre": "Appel recherche histoire du parti",
-     "texte": "Un appel a été lancé pour le développement de la recherche sur l'histoire du parti. Il est également demandé la création d'une base de données dédiée aux personnalités historiques nationales. Ces initiatives visent à préserver et valoriser le patrimoine mémoriel.",
+     "titre": "Qualité : nouveaux laboratoires inaugurés",
+     "texte": "Le Premier ministre a inauguré ce samedi deux laboratoires dédiés à l'analyse de la qualité. Ces nouvelles installations sont situées au port et à l'aéroport d'Alger, suite aux instructions du président de la République.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 14.1,
+     "duree": 11.3,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Galaxy Ring et apnée du sommeil",
-     "texte": "La nouvelle bague connectée de Samsung, le Galaxy Ring, a obtenu l'approbation de la FDA américaine. Cette validation concerne sa capacité à détecter l'apnée du sommeil grâce à une intelligence artificielle analysant les perturbations respiratoires nocturnes.",
+     "titre": "Hyundai : projet d'investissement étudié",
+     "texte": "Le ministre de l'Industrie a eu un entretien avec une délégation de Hyundai. L'objectif était de discuter de l'avancement du projet d'investissement de ce constructeur automobile en Algérie.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 14.2,
+     "duree": 10.3,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Radio Algérie"
     },
     {
-     "titre": "GNL algérien en Allemagne",
-     "texte": "L'Allemagne a réceptionné en octobre une deuxième cargaison de gaz naturel liquéfié algérien. Ce chargement, le deuxième après celui de juillet, s'élève à soixante-quatorze mille tonnes, soulevant des questions sur les stocks allemands.",
+     "titre": "Industrie automobile : suivi Hyundai",
+     "texte": "Farid Kourtel, ministre de l'Industrie, a reçu une délégation de Hyundai Motor Manufacturing Algeria. La rencontre a porté sur le suivi et l'état d'avancement du projet d'investissement du constructeur sud-coréen.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 12.3,
+     "duree": 12.0,
+     "pays": "DZ",
+     "source": "Crésus"
+    },
+    {
+     "titre": "Souveraineté technologique régionale",
+     "texte": "La députée écologiste Sabrina Sebaihi plaide pour une rupture avec le fantasme colonialiste du savoir. Elle souligne l'importance de l'éthique, la protection des infrastructures et l'alliance avec la jeunesse africaine pour la souveraineté technologique.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 13.3,
      "pays": "DZ",
      "source": "Maghreb Emergent"
     },
     {
-     "titre": "Chercheur Noureddine Melikechi honoré",
-     "texte": "Le physicien algérien Noureddine Melikechi est mis à l'honneur par une université américaine. L'Université du Massachusetts Lowell crée un programme permanent d'innovation scientifique portant son nom en reconnaissance de ses travaux.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 12.1,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Algérie et la deeptech africaine",
-     "texte": "Alger accueillera la cinquième Conférence africaine des startups en décembre. L'Algérie y mettra l'accent sur la 'deeptech', cherchant à fédérer les jeunes entreprises innovantes du continent sous ce thème prometteur.",
+     "titre": "Accessoire utile du Samsung Galaxy S26",
+     "texte": "Malgré son statut de fleuron actuel, le Samsung Galaxy S26 présente un accessoire qui, bien que peu excitant, s'avère particulièrement utile pour les utilisateurs de la série actuelle du géant coréen.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 11.3,
+     "duree": 10.8,
      "pays": "DZ",
-     "source": "ITMAG"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Projet texan de NRG",
-     "texte": "Le projet de production d'énergie et de centres de données de NRG au Texas progresse sous condition. La classification 'Batch Zero' a été obtenue, mais des études de réseau et des étapes de connexion restent nécessaires.",
+     "titre": "Kourtel et Hyundai : point d'étape",
+     "texte": "Le ministre de l'Industrie, Farid Kourtel, a reçu une délégation de Hyundai Motor Manufacturing Algeria. Il a été fait le point sur l'avancement du projet d'investissement du constructeur sud-coréen en Algérie.",
      "mp3": "/podcast/fr/06.mp3",
-     "duree": 12.5,
+     "duree": 11.8,
      "pays": "DZ",
-     "source": "AlgeriaTech.news"
+     "source": "Algérie Éco"
     },
     {
-     "titre": "Miter lève 40 millions de dollars",
-     "texte": "La société Miter a levé quarante millions de dollars pour son logiciel destiné à la gestion de la main-d'œuvre dans la construction. Aucune information sur une conformité à la paie algérienne ou une disponibilité locale n'a été communiquée.",
+     "titre": "L'IA dans la campagne électorale",
+     "texte": "L'intelligence artificielle s'invite dans la campagne pour les élections locales. Cet outil, déjà présent lors des législatives, facilite le travail des politiques et est de plus en plus utilisé pour les scrutins municipaux.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 12.2,
+     "duree": 11.9,
      "pays": "DZ",
-     "source": "AlgeriaTech.news"
+     "source": "TSA Algérie"
     },
     {
-     "titre": "Alliance pour la demande flexible",
-     "texte": "Google, NVIDIA et Emerald AI lancent une alliance pour la demande d'énergie flexible. Cette coalition vise à gérer la demande énergétique, mais il ne s'agit pas d'une nouvelle capacité de production directe.",
+     "titre": "Ordinateur tactile vs tablette",
+     "texte": "Un ordinateur portable à écran tactile offre plus d'options qu'une tablette. Cet avantage est cependant secondaire par rapport aux fonctionnalités globales d'un ordinateur portable traditionnel, malgré les annonces récentes d'Apple.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.6,
+     "duree": 12.0,
      "pays": "DZ",
-     "source": "AlgeriaTech.news"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Flex finalise l'acquisition d'EPC Power",
-     "texte": "Flex a finalisé l'acquisition d'EPC Power en octobre, après un accord en septembre. Cette opération valorisée à 4,4 milliards de dollars renforce ses capacités dans la conversion de puissance pour les centres de données.",
+     "titre": "Sommet des médias à Pékin : l'IA",
+     "texte": "Le 7ème Sommet mondial des médias à Pékin place l'intelligence artificielle au cœur des débats. Près de 500 représentants de 112 pays examinent l'impact de l'IA comme outil décisionnel, notamment dans les rédactions.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 12.5,
+     "duree": 11.8,
      "pays": "DZ",
-     "source": "AlgeriaTech.news"
+     "source": "Le Jeune Indépendant"
     },
     {
-     "titre": "Symbole H+ sur téléphone Samsung",
-     "texte": "Le symbole H+ sur votre téléphone Samsung indique une connexion réseau améliorée, plus rapide que le 3G classique. Il assure une meilleure expérience pour rester connecté et naviguer sur internet.",
+     "titre": "Saisie de drogue à Oran",
+     "texte": "Les douanes d'Oran, en coordination avec l'ANP, ont saisi plus de 211 kg de kif traité. Sept personnes ont été arrêtées dans le cadre de cette opération de lutte contre le trafic de stupéfiants.",
      "mp3": "/podcast/fr/10.mp3",
      "duree": 11.3,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Crésus"
     }
    ]
   },
