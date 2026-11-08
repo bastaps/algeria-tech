@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-08",
- "genere": "2026-11-08T18:00:46",
+ "genere": "2026-11-08T20:37:33",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-08T18:01:13",
+   "genere": "2026-11-08T20:37:58",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 8.7,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Ce soir, nous allons décortiquer pour vous dix informations importantes de l'actualité algérienne."
+    "duree": 7.1,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les 10 informations tech et télécoms qui ont marqué la soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.2,
-    "texte": "C'était le tour de l'actualité tech et plus encore sur Algeria Tech. Restez connectés."
+    "duree": 6.7,
+    "texte": "C'était les informations tech et télécoms de la soirée. Merci de nous avoir suivis sur Algeria Tech."
    },
    "items": [
     {
-     "titre": "Réseau criminel démantelé",
-     "texte": "Dans la 5ème Région militaire, les forces de sécurité ont réussi à démanteler un réseau criminel organisé. Ce dernier était spécialisé dans les opérations de blanchiment d'argent, démontrant l'efficacité des services de sécurité du pays.",
+     "titre": "Nouveaux laboratoires d'analyse ouverts",
+     "texte": "Suite aux instructions du président, le Premier ministre a inauguré deux laboratoires d'analyse de la qualité. Ils sont situés au port et à l'aéroport d'Alger, renforçant ainsi les contrôles.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 13.8,
+     "duree": 10.8,
+     "pays": "DZ",
+     "source": "APS"
+    },
+    {
+     "titre": "Réseau de blanchiment démantelé",
+     "texte": "Un réseau criminel organisé spécialisé dans le blanchiment d'argent a été démantelé. Les autorités ont mis fin aux activités illégales de ce groupe.",
+     "mp3": "/podcast/fr/02.mp3",
+     "duree": 8.7,
+     "pays": "DZ",
+     "source": "APS"
+    },
+    {
+     "titre": "Opération anti-blanchiment réussie",
+     "texte": "La 5ème Région militaire a mené à bien une opération de démantèlement. Elle visait un réseau criminel organisé spécialisé dans le blanchiment d'argent.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 8.8,
      "pays": "DZ",
      "source": "Radio Algérie"
     },
     {
-     "titre": "Laboratoires d'analyse inaugurés",
-     "texte": "Le Premier ministre a inauguré ce samedi deux nouveaux laboratoires d'analyse de la qualité. Ces infrastructures importantes sont situées au port et à l'aéroport d'Alger, renforçant ainsi le contrôle des produits.",
-     "mp3": "/podcast/fr/02.mp3",
-     "duree": 11.3,
-     "pays": "DZ",
-     "source": "APS"
-    },
-    {
-     "titre": "Lutte contre le blanchiment",
-     "texte": "Dimanche dernier, les autorités ont annoncé le démantèlement d'un autre réseau criminel organisé. Cette fois, l'opération visait des activités de blanchiment d'argent, soulignant la détermination du pays à assainir son économie.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 13.3,
-     "pays": "DZ",
-     "source": "APS"
-    },
-    {
-     "titre": "Origine des appels indésirables",
-     "texte": "Vous recevez trop d'appels ou SMS indésirables ? Comprendre comment les spammeurs obtiennent votre numéro est la première étape. Les appels robotisés utilisent souvent des méthodes bien précises pour collecter vos données.",
+     "titre": "Problème applications Samsung Galaxy",
+     "texte": "Les téléphones Samsung Galaxy continuent de présenter un problème récurrent avec les applications préinstallées. Ces logiciels inutiles peuvent être une source de frustration pour les utilisateurs.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 12.0,
+     "duree": 10.8,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Spéculation sur l'huile subventionnée",
+     "texte": "Une entreprise de fabrication de chips est impliquée dans une affaire de spéculation sur l'huile subventionnée en Algérie. Plusieurs individus ont été arrêtés et placés en détention.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 9.9,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Financement startups et Banque Mondiale",
+     "texte": "L'Algérie discute avec la Banque Mondiale pour un dispositif de financement destiné aux startups locales. L'objectif est de mobiliser plus de dix millions de dollars.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 9.5,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "Origine des numéros spam",
+     "texte": "Vous recevez des appels indésirables ? Ce texte explique comment les spammeurs obtiennent vos numéros. Le monde moderne est envahi par les arnaques téléphoniques.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 9.6,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
      "titre": "Mobilis lance MU Champions",
-     "texte": "Mobilis lance son nouveau challenge national 'MU Champions'. Chaque semaine, les abonnés de l'offre Revolution peuvent gagner jusqu'à un million de dinars et six smartphones. Une belle initiative pour récompenser la fidélité.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 13.2,
+     "texte": "Mobilis lance son nouveau challenge national, MU Champions, lié à son offre Revolution. Douze abonnés seront récompensés chaque semaine avec des prix pouvant atteindre un million de dinars.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 10.8,
      "pays": "DZ",
      "source": "Algérie360 Tech"
     },
     {
-     "titre": "Mobilis et son challenge",
-     "texte": "Avec le challenge national 'MU Champions', Mobilis propose à ses clients de l'offre Revolution de gagner gros. Jusqu'à cent millions de centimes par semaine, c'est une occasion unique de récompenser l'interactivité des abonnés.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 12.5,
+     "titre": "Nouveau challenge Mobilis : MU Champions",
+     "texte": "Mobilis récompense la fidélité de ses clients avec le challenge MU Champions. Chaque jeudi, douze abonnés peuvent gagner jusqu'à cent millions de centimes et des smartphones.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 9.7,
      "pays": "DZ",
      "source": "NTIC.dz"
     },
     {
-     "titre": "Réseau domestique hors-courant",
-     "texte": "Comment assurer la continuité de votre réseau domestique en cas de coupure de courant ? Une bonne planification et du matériel de sauvegarde adapté, comme des onduleurs, peuvent vous permettre de rester connecté.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 11.7,
+     "titre": "Réseau domestique fonctionnel sans électricité",
+     "texte": "Maintenez votre réseau domestique opérationnel même en cas de panne d'électricité. Ce guide explique comment avec le matériel de sauvegarde adapté et une bonne planification.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 9.9,
      "pays": "DZ",
      "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "La pomme de terre se fait rare",
-     "texte": "La pomme de terre, aliment de base, devient difficile à trouver dans plusieurs régions d'Algérie. Cette pénurie contraint les consommateurs à multiplier les déplacements pour trouver ce tubercule devenu rare.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.6,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
-    },
-    {
-     "titre": "Startups : négociations financements",
-     "texte": "L'Algérie est en pleine négociation avec la Banque mondiale pour obtenir des financements destinés aux startups. La prochaine conférence africaine des startups sera une occasion de lever des fonds pour les jeunes porteurs de projets.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.9,
-     "pays": "DZ",
-     "source": "TSA Algérie"
-    },
-    {
-     "titre": "Principes pour musulmans en France",
-     "texte": "Face à l'islamophobie, le recteur de la Grande mosquée de Paris a énoncé sept principes essentiels. Ces recommandations s'adressent aux musulmans vivant en France pour renforcer leur intégration et leur coexistence.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 11.8,
-     "pays": "DZ",
-     "source": "TSA Algérie"
     }
    ]
   },
