@@ -176,6 +176,30 @@
     .av-ask input { flex: 1; min-width: 0; padding: 11px 14px; border: 1px solid var(--av-border); border-radius: 12px; background: var(--av-surface); color: var(--av-text); font: inherit; font-size: 14px; }
     .av-ask input:focus { outline: 2px solid var(--av-accent); outline-offset: 1px; }
     .av-ask button { width: 46px; flex: 0 0 auto; border: none; border-radius: 12px; background: var(--av-accent); color: #fff; cursor: pointer; font-size: 15px; }
+    .av-alerts { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; padding: 10px 14px; border-radius: 12px; font-size: 13px; background: #fef3c7; border: 1px solid #fde68a; color: #92400e; }
+    .av-alerts[hidden] { display: none; }
+    .av-alerts button { margin-left: auto; border: none; border-radius: 999px; padding: 6px 12px; background: #92400e; color: #fff; font-weight: 700; cursor: pointer; }
+    .av-seg { display: flex; gap: 6px; }
+    .av-seg button { flex: 1; padding: 9px 6px; border: 1px solid var(--av-border); border-radius: 10px; background: var(--av-surface); color: var(--av-text); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+    .av-seg button.on { background: var(--av-accent); border-color: var(--av-accent); color: #fff; }
+    .av-dict .dict-txt { white-space: pre-wrap; font-style: italic; }
+    .av-dict-btns { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    .av-dict-btns button { border: 1px solid var(--av-border); background: var(--av-surface); color: var(--av-text); border-radius: 999px; padding: 7px 12px; font: inherit; font-size: 12.5px; font-weight: 700; cursor: pointer; }
+    .av-dict-btns button:first-child { background: var(--av-accent); border-color: var(--av-accent); color: #fff; }
+    .av-draft h4 { margin: 4px 0 6px; font-size: 16px; line-height: 1.35; }
+    .av-draft .chapo { font-weight: 600; margin: 0 0 8px; }
+    .av-draft .corps { font-size: 13.5px; max-height: 260px; overflow-y: auto; padding-right: 4px; }
+    .av-draft .tags { font-size: 12px; color: var(--av-muted); margin: 8px 0 0; }
+    .av-msg[dir="rtl"], .av-msg .rtl { text-align: right; }
+    .av-reader { position: sticky; bottom: 10px; z-index: 30; display: flex; align-items: center; gap: 6px; margin-top: 14px; padding: 8px 10px; border-radius: 16px; background: var(--av-accent); color: #fff; box-shadow: 0 10px 28px rgba(0,0,0,.25); }
+    .av-reader[hidden] { display: none; }
+    .av-reader .rt { flex: 1; min-width: 0; font-size: 12.5px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .av-reader button { width: 38px; height: 38px; flex: 0 0 auto; border: none; border-radius: 50%; background: rgba(255,255,255,.18); color: #fff; cursor: pointer; font-size: 14px; }
+    @media (max-width: 600px) {
+      .av-chips { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; margin: 0 -16px 16px; padding: 0 16px 4px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+      .av-chips::-webkit-scrollbar { display: none; }
+      .av-chip { flex: 0 0 auto; }
+    }
     .av-msg.interim { color: var(--av-muted); font-style: italic; background: transparent; border-left: 3px dashed var(--av-border); }
     @keyframes av-fade { from{ opacity:0; transform:translateY(6px) } to{ opacity:1; transform:translateY(0) } }
 
@@ -251,7 +275,7 @@
       <div class="av-hero">
         <span class="av-kicker"><i class="fas fa-wand-magic-sparkles"></i> Actus Algeria Tech + IA</span>
         <h1>Assistant Vocal</h1>
-        <p>Demandez les dernières actus, cherchez un sujet, faites-vous lire un article ou posez n'importe quelle question.</p>
+        <p>Briefing, revue de presse, météo, prières, change, podcast, dictée d'articles… à la voix, en français, en arabe ou en derja.</p>
       </div>
 
       <div class="av-card">
@@ -282,11 +306,18 @@
         </div>
 
         <!-- Suggestions -->
+        <div id="alerts" class="av-alerts" hidden></div>
         <div id="chips" class="av-chips">
           <button class="av-chip" data-cmd="Briefing">☀️ Briefing</button>
           <button class="av-chip" data-cmd="La revue de presse">🗞️ Revue de presse</button>
           <button class="av-chip" data-cmd="Le point du jour">⏱️ Point du jour</button>
           <button class="av-chip" data-cmd="Météo demain">🌤️ Météo demain</button>
+          <button class="av-chip" data-cmd="Heures de prière">🕌 Prières</button>
+          <button class="av-chip" data-cmd="Taux de change">💱 Change</button>
+          <button class="av-chip" data-cmd="Joue le podcast">🎧 Podcast</button>
+          <button class="av-chip" data-cmd="Dicter un article">🎙️ Dicter un article</button>
+          <button class="av-chip" data-cmd="Mes alertes">🔔 Mes alertes</button>
+          <button class="av-chip" data-cmd="État du site">🩺 État du site</button>
           <button class="av-chip" data-cmd="Quelles sont les dernières actualités ?">📰 Dernières actus</button>
           <button class="av-chip" data-cmd="Que sais-tu faire ?">❓ Aide</button>
         </div>
@@ -317,6 +348,11 @@
               <polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>
             </svg>
           </button>
+          <button id="handsBtn" class="av-ctrl" title="Mains libres (mot d'activation « Algeria Tech »)" aria-label="Mains libres">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 8.5a6 6 0 0 1 12 0c0 3.5-3 4.5-3 7.5a3 3 0 0 1-6 0"/><path d="M9.5 8.5a2.5 2.5 0 0 1 5 0"/>
+            </svg>
+          </button>
           <button id="speakerBtn" class="av-ctrl active" title="Activer / couper la voix" aria-label="Synthèse vocale">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
@@ -327,6 +363,14 @@
 
         <!-- Réglages -->
         <div class="av-settings">
+          <div class="av-field">
+            <label>Langue</label>
+            <div id="langSeg" class="av-seg" role="group" aria-label="Langue de l'assistant">
+              <button type="button" data-l="fr">Français</button>
+              <button type="button" data-l="ar">العربية</button>
+              <button type="button" data-l="derja">Derja</button>
+            </div>
+          </div>
           <div class="av-field">
             <label for="voiceSelect">Voix</label>
             <select id="voiceSelect" class="av-select" aria-label="Choisir une voix française">
@@ -358,6 +402,14 @@
             <span>Télécharger</span>
           </button>
         </div>
+      </div>
+
+      <div id="reader" class="av-reader" hidden>
+        <button id="readerPrev" type="button" aria-label="Précédent"><i class="fas fa-backward-step"></i></button>
+        <button id="readerPlay" type="button" aria-label="Lecture / pause"><i class="fas fa-pause"></i></button>
+        <button id="readerNext" type="button" aria-label="Suivant"><i class="fas fa-forward-step"></i></button>
+        <span id="readerTitle" class="rt"></span>
+        <button id="readerClose" type="button" aria-label="Arrêter la lecture"><i class="fas fa-xmark"></i></button>
       </div>
 
       <p class="av-foot">
@@ -418,6 +470,7 @@
       let history = [];               // contexte envoyé à l'IA
       let articles = null;            // cache articles-list.json
       let lastList = [], lastQuery = null, listOffset = 0;
+      let langue = store.get('langue', 'fr'), recMode = 'command', cityOverride = null;
 
       // ---- Helpers ----
       function setStatus(type, text) { statusDot.className = 'av-dot' + (type ? ' ' + type : ''); statusText.textContent = text; }
@@ -584,7 +637,7 @@
         return c;
       }
       async function geocode(name) {
-        const d = await loadJSON('https://geocoding-api.open-meteo.com/v1/search?count=5&language=fr&name=' + encodeURIComponent(name));
+        const d = await loadJSON('https://geocoding-api.open-meteo.com/v1/search?count=5&language=' + (/[؀-ۿ]/.test(name) ? 'ar' : 'fr') + '&name=' + encodeURIComponent(name));
         const r = d && d.results || [];
         const p = r.find(x => x.country_code === 'DZ') || r[0];
         return p ? { name: p.name, lat: p.latitude, lon: p.longitude } : null;
@@ -596,10 +649,8 @@
         });
       }
       async function meteo(s) {
-        let place = null;
-        const c = cityFrom(s);
-        if (c) { place = await geocode(c); if (!place) return { text: 'Je ne trouve pas la ville « ' + c + ' ».' }; }
-        else place = store.get('city', null) || await myPosition() || ALGER;
+        const place = await resolvePlace(s);
+        if (place.error) return { text: 'Je ne trouve pas la ville « ' + place.error + ' ».' };
         const d = await loadJSON('https://api.open-meteo.com/v1/forecast?timezone=auto&forecast_days=7&latitude=' + place.lat + '&longitude=' + place.lon +
           '&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max');
         if (!d || !d.daily) return { text: 'La météo ne répond pas pour l\'instant, réessayez dans un moment.' };
@@ -626,28 +677,485 @@
         const [m, list, rv, day] = await Promise.all([meteo('').catch(() => null), loadArticles(), revueItems(), dayItems(startOfToday() - 12 * 3600e3)]);
         if (m && m.text) parts.push('Météo. ' + m.text);
         if (list.length) parts.push('À la une sur Algeria Tech : ' + list.slice(0, 3).map(a => a.titre).join(' ; ') + '.');
-        if (rv && rv.d.synthese) parts.push('Revue de presse. ' + firstSentence(rv.d.synthese));
+        if (rv && rv.d.synthese) parts.push('Revue de presse. ' + (String(rv.d.synthese).match(/^[\s\S]*?[.!?](?=\s|$)/) || [rv.d.synthese])[0]);
         const veille = day.filter(x => x.cat !== 'Algeria Tech');
         if (veille.length) parts.push('Veille : ' + veille.length + ' nouvelle' + (veille.length > 1 ? 's' : '') + ' publication' + (veille.length > 1 ? 's' : '') + ' des institutions, opérateurs et entreprises depuis hier soir.');
+        try {
+          const pl = store.get('city', null) || ALGER, n = nextPrayer(prayerTimes(new Date(), pl.lat, pl.lon));
+          if (n) parts.push('Prochaine prière : ' + PRIERES[n.k] + ' à ' + n.at + '.');
+        } catch (e) {}
+        if (suivis.length) {
+          const al = await nouveautesSuivis(store.get('vuLe', Date.now() - 24 * 3600e3));
+          const nb = al.reduce((x, r) => x + r.items.length, 0);
+          parts.push(nb ? 'Vos sujets suivis : ' + al.map(r => r.sujet + ', ' + r.items.length + ' nouveauté' + (r.items.length > 1 ? 's' : '')).join(' ; ') + '. Dites « mes alertes » pour les écouter.' : 'Rien de nouveau sur vos sujets suivis.');
+        }
         parts.push('Dites « la revue de presse », « le point du jour » ou « lis le 1 » pour le détail.');
         lastList = list.slice(0, 5); listOffset = 0;
         return { text: parts.join('\n'), links: list.slice(0, 3).map(a => ({ href: articleUrl(a), label: a.titre })) };
       }
 
+      // ======================================================================
+      // 1. Heures de prière (calcul astronomique local, méthode algérienne : Fajr 18°, Icha 17°, Asr chafiite,
+      //    Dohr +1 min, Maghreb +3 min) + date hégirienne (calendrier du navigateur). Aucun réseau nécessaire.
+      // ======================================================================
+      const PRIERES = { fajr: 'Fajr', chourouk: 'Chourouk', dhohr: 'Dohr', asr: 'Asr', maghrib: 'Maghreb', icha: 'Icha' };
+      function prayerTimes(date, lat, lng) {
+        const tz = -date.getTimezoneOffset() / 60;
+        const d2r = Math.PI / 180, r2d = 180 / Math.PI;
+        const sin = x => Math.sin(x * d2r), cos = x => Math.cos(x * d2r), tan = x => Math.tan(x * d2r);
+        const asin = x => r2d * Math.asin(x), acos = x => r2d * Math.acos(x), atan2 = (y, x) => r2d * Math.atan2(y, x), acot = x => r2d * Math.atan(1 / x);
+        const fix = (a, b) => { a = a - b * Math.floor(a / b); return a < 0 ? a + b : a; };
+        let y = date.getFullYear(), m = date.getMonth() + 1; const dd = date.getDate();
+        if (m <= 2) { y -= 1; m += 12; }
+        const A = Math.floor(y / 100), B = 2 - A + Math.floor(A / 4);
+        const jd = Math.floor(365.25 * (y + 4716)) + Math.floor(30.6001 * (m + 1)) + dd + B - 1524.5 - lng / (15 * 24);
+        const sun = (j) => { const D = j - 2451545.0, g = fix(357.529 + 0.98560028 * D, 360), q = fix(280.459 + 0.98564736 * D, 360), L = fix(q + 1.915 * sin(g) + 0.020 * sin(2 * g), 360), e = 23.439 - 0.00000036 * D, RA = atan2(cos(e) * sin(L), cos(L)) / 15; return { decl: asin(sin(e) * sin(L)), eqt: q / 15 - fix(RA, 24) }; };
+        const mid = (t) => fix(12 - sun(jd + t).eqt, 24);
+        const angleT = (ang, t, ccw) => { const decl = sun(jd + t).decl; const T = acos((-sin(ang) - sin(decl) * sin(lat)) / (cos(decl) * cos(lat))) / 15; return mid(t) + (ccw ? -T : T); };
+        const asrT = (f, t) => { const decl = sun(jd + t).decl; return angleT(-acot(f + tan(Math.abs(lat - decl))), t); };
+        const calc = (g) => ({ fajr: angleT(18, g.fajr / 24, true), chourouk: angleT(0.833, g.chourouk / 24, true), dhohr: mid(g.dhohr / 24), asr: asrT(1, g.asr / 24), maghrib: angleT(0.833, g.maghrib / 24), icha: angleT(17, g.icha / 24) });
+        let t = calc({ fajr: 5, chourouk: 6, dhohr: 12, asr: 13, maghrib: 18, icha: 18 });
+        t = calc(calc(t));
+        const off = { fajr: 0, chourouk: 0, dhohr: 1, asr: 0, maghrib: 3, icha: 0 }, out = {};
+        for (const k in t) { const mn = Math.round(fix(t[k] + tz - lng / 15 + off[k] / 60, 24) * 60); out[k] = String(Math.floor(mn / 60) % 24).padStart(2, '0') + ':' + String(mn % 60).padStart(2, '0'); }
+        return out;
+      }
+      function hijri(d) {
+        try { return new Intl.DateTimeFormat('fr-FR-u-ca-islamic-umalqura', { day: 'numeric', month: 'long', year: 'numeric' }).format(d || new Date()).replace(/\s*AH$/, ' de l\'Hégire'); }
+        catch (e) { return null; }
+      }
+      async function resolvePlace(s) {
+        if (cityOverride) { const p = await geocode(cityOverride); cityOverride = null; if (p) return p; }
+        const c = cityFrom(s);
+        if (c) return (await geocode(c)) || { error: c };
+        return store.get('city', null) || await myPosition() || ALGER;
+      }
+      function nextPrayer(times) {
+        const now = new Date(), nowMn = now.getHours() * 60 + now.getMinutes();
+        for (const k of ['fajr', 'dhohr', 'asr', 'maghrib', 'icha']) {
+          const [h, m] = times[k].split(':').map(Number), mn = h * 60 + m;
+          if (mn > nowMn) return { k, at: times[k], dans: mn - nowMn };
+        }
+        return null;
+      }
+      const duree = (mn) => mn < 60 ? mn + ' minute' + (mn > 1 ? 's' : '') : Math.floor(mn / 60) + ' h ' + String(mn % 60).padStart(2, '0');
+      async function prieres(s) {
+        // Retire les mots de prière avant de chercher une ville (sinon « heures de prière » → ville « Prière »).
+        const place = await resolvePlace(s.replace(/\b(heures?|horaires?|l heure|a quelle heure|c est quand)\b|\b(de |des |du |le |la |l )?(prieres?|salat|salah|adhan|athan|azan|fajr|sobh|dohr|dhohr|dhuhr|asr|maghreb|maghrib|icha|isha|imsak|ftour|iftar)\b/g, ' ').replace(/\s+/g, ' ').trim());
+        if (place.error) return { text: 'Je ne trouve pas la ville « ' + place.error + ' ».' };
+        const i = dayOffset(s), d = new Date(); d.setDate(d.getDate() + i);
+        const t = prayerTimes(d, place.lat, place.lon);
+        const lieu = place.name === 'votre position' ? 'chez vous' : 'à ' + place.name;
+        for (const k of ['fajr', 'dhohr', 'asr', 'maghrib', 'icha']) {
+          if (new RegExp(k === 'maghrib' ? 'maghre?b' : k === 'dhohr' ? '(dhohr|dohr|dhuhr|zohr|dhor)' : k === 'icha' ? '(icha|isha|aicha)' : k === 'fajr' ? '(fajr|sobh|sbah|fadjr)' : '\\basr\\b').test(s))
+            return { text: (i === 0 ? 'Aujourd\'hui' : i === 1 ? 'Demain' : 'Le ' + JOURS[d.getDay()]) + ', ' + PRIERES[k] + ' ' + lieu + ' est à ' + t[k] + '.' };
+        }
+        let txt = 'Heures de prière ' + lieu + (i === 0 ? ' aujourd\'hui' : i === 1 ? ' demain' : ' ' + JOURS[d.getDay()]) + ' :\n' +
+          Object.keys(PRIERES).map(k => PRIERES[k] + ' ' + t[k]).join(', ') + '.';
+        const n = i === 0 && nextPrayer(t);
+        if (n) txt += '\nProchaine prière : ' + PRIERES[n.k] + ' à ' + n.at + ', dans ' + duree(n.dans) + '.';
+        const h = hijri(d); if (h) txt += '\nDate hégirienne : ' + h + '.';
+        return { text: txt + '\n(Calcul astronomique, à une ou deux minutes près du calendrier officiel.)' };
+      }
+
+      // ======================================================================
+      // 2. Taux de change (open.er-api.com, gratuit, sans clé — taux OFFICIELS, pas le marché parallèle)
+      // ======================================================================
+      const DEVISES = [
+        [/dollars? canadiens?/, 'CAD', 'dollar canadien'], [/dirhams? (des )?emirat|dirhams? emirati/, 'AED', 'dirham des Émirats'],
+        [/dinars? tunisiens?/, 'TND', 'dinar tunisien'], [/livres? turques?/, 'TRY', 'livre turque'], [/francs? suisses?/, 'CHF', 'franc suisse'],
+        [/euros?|€/, 'EUR', 'euro'], [/dollars?|\$|usd/, 'USD', 'dollar'], [/livres?( sterling)?|sterling/, 'GBP', 'livre sterling'],
+        [/dirhams?/, 'MAD', 'dirham marocain'], [/riyals?|rials?/, 'SAR', 'riyal saoudien'], [/yuans?|renminbi/, 'CNY', 'yuan'],
+        [/roubles?/, 'RUB', 'rouble'], [/dinars?|da\b|dzd/, 'DZD', 'dinar']
+      ];
+      let ratesCache = null;
+      async function rates() {
+        if (ratesCache) return ratesCache;
+        const d = await loadJSON('https://open.er-api.com/v6/latest/DZD');
+        if (d && d.rates) ratesCache = d;
+        return ratesCache;
+      }
+      const fmt = (n, dec) => n.toLocaleString('fr-FR', { maximumFractionDigits: dec, minimumFractionDigits: 0 });
+      async function change(s) {
+        const d = await rates();
+        if (!d) return { text: 'Le service de taux de change ne répond pas pour l\'instant.' };
+        const dzd = (code) => 1 / d.rates[code];                 // valeur d'une unité en dinars
+        const found = [];
+        let rest = s;
+        for (const [re, code, nom] of DEVISES) { const m = rest.match(re); if (m) { found.push({ code, nom, pos: m.index }); rest = rest.replace(re, ' '.repeat(m[0].length)); } }
+        found.sort((a, b) => a.pos - b.pos);
+        const amt = (s.replace(/(\d)\s+(?=\d{3}\b)/g, '$1').match(/(\d+(?:[.,]\d+)?)/) || [])[1];
+        const montant = amt ? parseFloat(amt.replace(',', '.')) : null;
+        const date = new Date(d.time_last_update_utc).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' });
+        const note = '\nCe sont les taux officiels du ' + date + '. Le marché parallèle, le square, est nettement plus élevé.';
+        const from = found[0], to = found[1];
+        if (montant && from) {
+          const cible = to || (from.code === 'DZD' ? { code: 'EUR', nom: 'euro' } : { code: 'DZD', nom: 'dinar' });
+          const res = montant * dzd(from.code) / dzd(cible.code);
+          return { text: fmt(montant, 2) + ' ' + from.nom + (montant > 1 ? 's' : '') + ' = ' + fmt(res, res < 10 ? 2 : 0) + ' ' + cible.nom + (res > 1 ? 's' : '') + '.' + note };
+        }
+        const liste = (from && from.code !== 'DZD' ? [from] : [{ code: 'EUR', nom: 'euro' }, { code: 'USD', nom: 'dollar' }, { code: 'GBP', nom: 'livre sterling' }]);
+        return { text: liste.map(x => '1 ' + x.nom + ' = ' + fmt(dzd(x.code), 2) + ' dinars').join('\n') + '.' + note };
+      }
+
+      // ======================================================================
+      // 3. Sujets suivis + alertes (mémorisés sur l'appareil)
+      // ======================================================================
+      const alertsBox = $('alerts');
+      let suivis = store.get('suivis', []);
+      async function nouveautesSuivis(since) {
+        if (!suivis.length) return [];
+        const [day, rv, list] = await Promise.all([dayItems(since), revueItems(), loadArticles()]);
+        const pool = day.concat(rv ? rv.items.map(x => ({ ...x, t: Date.now(), cat: 'Revue de presse' })) : []);
+        const out = [];
+        suivis.forEach(sujet => {
+          const res = searchArticles(pool.map(x => ({ ...x, categorie: x.cat || '', tags: [] })), sujet);
+          if (res.length) out.push({ sujet, items: res });
+        });
+        return out;
+      }
+      async function checkAlertes(silencieux) {
+        if (!suivis.length) { alertsBox.hidden = true; return; }
+        const since = store.get('vuLe', Date.now() - 24 * 3600e3);
+        const res = await nouveautesSuivis(since);
+        const n = res.reduce((a, r) => a + r.items.length, 0);
+        if (!n) { alertsBox.hidden = true; document.title = 'Assistant Vocal — Algeria Tech'; return; }
+        alertsBox.innerHTML = '🔔 <b>' + n + ' nouveauté' + (n > 1 ? 's' : '') + '</b> sur vos sujets : ' + res.map(r => escapeHtml(r.sujet) + ' (' + r.items.length + ')').join(', ') + ' <button type="button" data-cmd="Mes alertes">Écouter</button>';
+        alertsBox.hidden = false;
+        document.title = '(' + n + ') Assistant Vocal — Algeria Tech';
+        if (!silencieux && navigator.vibrate) navigator.vibrate([80, 60, 80]);
+      }
+      async function mesAlertes() {
+        if (!suivis.length) return { text: 'Vous ne suivez aucun sujet. Dites par exemple « suis Djezzy » ou « suis la 5G ».' };
+        const res = await nouveautesSuivis(store.get('vuLe', Date.now() - 24 * 3600e3));
+        store.set('vuLe', Date.now()); alertsBox.hidden = true; document.title = 'Assistant Vocal — Algeria Tech';
+        if (!res.length) return { text: 'Rien de nouveau sur vos sujets (' + suivis.join(', ') + ') depuis votre dernier passage.' };
+        const items = [];
+        res.forEach(r => r.items.forEach(x => { if (!items.includes(x)) items.push(x); }));
+        listOffset = 0;
+        return listReply(items, 'Nouveautés sur ' + res.map(r => r.sujet + ' (' + r.items.length + ')').join(', ') + ' :');
+      }
+      function suivre(sujet) {
+        sujet = sujet.replace(/^(le |la |les |l'|l’|du |de la |des )/i, '').trim();
+        if (suivis.some(x => norm(x) === norm(sujet))) return { text: 'Vous suivez déjà « ' + sujet + ' ».' };
+        if (!sujet) return { text: 'Quel sujet voulez-vous suivre ?' };
+        suivis.push(sujet);
+        store.set('suivis', suivis); if (!store.get('vuLe', 0)) store.set('vuLe', Date.now() - 24 * 3600e3);
+        checkAlertes(true);
+        return { text: 'C\'est noté, je suis « ' + sujet + ' ». Vous suivez : ' + suivis.join(', ') + '. Je vous préviens à chaque ouverture, et dans le briefing.' };
+      }
+      function nePlusSuivre(sujet) {
+        const avant = suivis.length;
+        suivis = sujet === 'tout' ? [] : suivis.filter(x => norm(x) !== norm(sujet.replace(/^(le |la |les |l )/, '')));
+        store.set('suivis', suivis); checkAlertes(true);
+        return { text: avant === suivis.length ? 'Je ne suivais pas « ' + sujet + ' ».' : 'Je ne suis plus « ' + sujet + ' ».' + (suivis.length ? ' Il reste : ' + suivis.join(', ') + '.' : '') };
+      }
+      alertsBox.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) handleUserInput(b.dataset.cmd); });
+      setInterval(() => { if (!document.hidden) checkAlertes(false); }, 10 * 60e3);
+
+      // ======================================================================
+      // 4. Dictée → article mis en forme par l'IA → brouillon admin (jamais publié sans vous)
+      // ======================================================================
+      let dictating = false, dictBuf = '', dictCard = null, draft = null;
+      function dictRender() {
+        if (!dictCard) return;
+        dictCard.querySelector('.dict-txt').textContent = dictBuf || '…';
+        transcript.scrollTop = transcript.scrollHeight;
+      }
+      function startDictation() {
+        dictating = true; dictBuf = ''; draft = null;
+        // La carte de dictée s'affiche sous le message d'accueil (ajouté juste après ce retour).
+        setTimeout(() => {
+          clearPlaceholder();
+          dictCard = document.createElement('div');
+          dictCard.className = 'av-msg bot av-dict';
+          dictCard.innerHTML = '<div class="lbl">🎙️ Dictée en cours</div><div class="dict-txt">…</div><div class="av-dict-btns"><button type="button" data-act="fin">✔ Terminer</button><button type="button" data-act="annuler">✖ Annuler</button></div>';
+          transcript.appendChild(dictCard); dictRender();
+        }, 0);
+        return { text: 'Je vous écoute. Dictez votre article ; vous pouvez aussi l\'écrire ci-dessous. Dites « fin de la dictée » quand vous avez terminé.', after: () => { recMode = 'dictation'; startListening(); } };
+      }
+      function dictAppend(t) { dictBuf = (dictBuf + ' ' + t).trim(); dictRender(); }
+      async function endDictation(cancel) {
+        dictating = false; recMode = handsFree ? 'handsfree' : 'command';
+        if (isListening) stopListening();
+        if (dictCard) dictCard.querySelector('.av-dict-btns').remove();
+        if (cancel || dictBuf.split(' ').length < 12) {
+          if (dictCard) dictCard.querySelector('.lbl').textContent = '🎙️ Dictée annulée';
+          dictCard = null;
+          return { text: cancel ? 'Dictée annulée.' : 'La dictée est trop courte pour en faire un article. Dites « dicter un article » pour recommencer.' };
+        }
+        dictCard.querySelector('.lbl').textContent = '🎙️ Dictée terminée';
+        dictCard = null;
+        showThinking(true); setStatus('', '✍️ Je rédige l\'article…');
+        try {
+          const r = await fetch('/api/assistant', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ mode: 'redaction', message: dictBuf }) });
+          const j = await r.json().catch(() => ({}));
+          showThinking(false);
+          if (r.status === 401) return { text: 'Votre session admin a expiré.', links: [{ href: '/admin-login.html?next=/assistant-vocal', label: 'Se reconnecter' }] };
+          if (!j.article) return { text: 'La rédaction a échoué. Votre texte est conservé : dites « réessaie la rédaction ».', keepBuf: true };
+          draft = j.article;
+          showDraft(draft);
+          return { text: 'Voici l\'article : « ' + draft.titre + ' ». Dites « envoie le brouillon » pour l\'enregistrer dans vos brouillons, « réessaie la rédaction » pour une autre version, ou « annule ».', silentList: true };
+        } catch (e) { showThinking(false); return { text: 'La rédaction a échoué, réessayez.' }; }
+      }
+      function showDraft(a) {
+        clearPlaceholder();
+        const div = document.createElement('div');
+        div.className = 'av-msg bot av-draft';
+        const corps = escapeHtml(a.corps).replace(/^## (.*)$/gm, '<b>$1</b>').replace(/\n{2,}/g, '<br><br>').replace(/\n/g, '<br>');
+        div.innerHTML = '<div class="lbl">📝 Aperçu — ' + escapeHtml(a.categorie || '') + '</div><h4>' + escapeHtml(a.titre) + '</h4><p class="chapo">' + escapeHtml(a.extrait || '') + '</p><div class="corps">' + corps + '</div>' +
+          (a.tags && a.tags.length ? '<p class="tags">' + a.tags.map(t => '#' + escapeHtml(t)).join(' ') + '</p>' : '') +
+          '<div class="av-dict-btns"><button type="button" data-cmd="Envoie le brouillon">📝 Envoyer en brouillon</button><button type="button" data-cmd="Réessaie la rédaction">🔁 Autre version</button><button type="button" data-cmd="Annule le brouillon">✖ Annuler</button></div>';
+        transcript.appendChild(div); transcript.scrollTop = transcript.scrollHeight;
+      }
+      async function saveDraft() {
+        if (!draft) return { text: 'Il n\'y a pas d\'article en attente. Dites « dicter un article » pour commencer.' };
+        try {
+          const r = await fetch('/api/admin/dictee', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(draft) });
+          const j = await r.json().catch(() => ({}));
+          if (r.status === 401) return { text: 'Votre session admin a expiré : reconnectez-vous, l\'aperçu reste affiché.', links: [{ href: '/admin-login.html?next=/assistant-vocal', label: 'Se reconnecter' }] };
+          if (!j.success) return { text: 'L\'enregistrement a échoué : ' + String(j.error || 'erreur inconnue').replace(/\.$/, '') + '.' };
+          draft = null; dictBuf = '';
+          return { text: 'Brouillon enregistré. Il vous attend dans vos brouillons, rien n\'est publié sans votre validation.', links: [{ href: '/admin-brouillons', label: 'Ouvrir mes brouillons' }] };
+        } catch (e) { return { text: 'L\'enregistrement a échoué, vérifiez la connexion.' }; }
+      }
+      transcript.addEventListener('click', (e) => {
+        const b = e.target.closest('.av-dict-btns button'); if (!b) return;
+        if (b.dataset.act === 'fin') handleUserInput('fin de la dictée');
+        else if (b.dataset.act === 'annuler') handleUserInput('annule la dictée');
+        else handleUserInput(b.dataset.cmd);
+      });
+
+      // ======================================================================
+      // 5. État du site : fraîcheur des données + workflows GitHub
+      // ======================================================================
+      const fmtAge = (h) => h < 1 ? Math.max(1, Math.round(h * 60)) + ' minutes' : h < 48 ? Math.round(h) + ' heure' + (Math.round(h) > 1 ? 's' : '') : Math.round(h / 24) + ' jours';
+      async function etatSite() {
+        try {
+          const r = await fetch('/api/etat-site', { cache: 'no-store' });
+          if (r.status === 401) return { text: 'Votre session admin a expiré.', links: [{ href: '/admin-login.html?next=/assistant-vocal', label: 'Se reconnecter' }] };
+          const j = await r.json();
+          const pb = j.items.filter(x => x.etat !== 'ok');
+          const lignes = j.items.map(x => (x.etat === 'ok' ? '✅ ' : x.etat === 'alerte' ? '🟠 ' : '🔴 ') + x.nom + (x.heures !== undefined ? ' : il y a ' + fmtAge(x.heures) : ' : ' + x.detail));
+          let txt;
+          if (!pb.length && !j.echecs.length) txt = 'Tout tourne. Les ' + j.items.length + ' flux sont à jour' + (j.workflows.length ? ' et les ' + j.workflows.length + ' robots GitHub ont réussi leur dernier passage' : '') + '.';
+          else {
+            txt = (pb.length + j.echecs.length) + ' point' + (pb.length + j.echecs.length > 1 ? 's' : '') + ' à surveiller. ';
+            if (pb.length) txt += pb.map(x => x.nom + ' : ' + (x.heures !== undefined ? 'pas de mise à jour depuis ' + fmtAge(x.heures) : x.detail)).join(' ; ') + '. ';
+            if (j.echecs.length) txt += 'Robot' + (j.echecs.length > 1 ? 's' : '') + ' en échec : ' + j.echecs.map(w => w.nom + ' il y a ' + fmtAge(w.heures)).join(' ; ') + '.';
+          }
+          return { text: txt + '\n' + lignes.join('\n'), spoken: txt, links: j.echecs.slice(0, 4).map(w => ({ href: w.url, label: 'Voir l\'échec : ' + w.nom })) };
+        } catch (e) { return { text: 'Je n\'arrive pas à vérifier l\'état du site pour l\'instant.' }; }
+      }
+
+      // ======================================================================
+      // 6. Lecture mains libres : podcast du jour (vraie voix, écran éteint possible) ou articles enchaînés
+      // ======================================================================
+      const readerBar = $('reader'), readerTitle = $('readerTitle'), readerPlay = $('readerPlay');
+      const reader = { kind: null, items: [], i: 0, audio: null, paused: false };
+      let wakeLock = null;
+      async function keepAwake(on) {
+        try {
+          if (on && !wakeLock && 'wakeLock' in navigator) { wakeLock = await navigator.wakeLock.request('screen'); wakeLock.addEventListener('release', () => { wakeLock = null; }); }
+          if (!on && wakeLock) { await wakeLock.release(); wakeLock = null; }
+        } catch (e) { wakeLock = null; }
+      }
+      function readerUI() {
+        readerBar.hidden = !reader.kind;
+        if (!reader.kind) return;
+        const it = reader.items[reader.i] || {};
+        readerTitle.textContent = (reader.i + 1) + '/' + reader.items.length + ' · ' + (it.titre || '');
+        readerPlay.innerHTML = reader.paused ? '<i class="fas fa-play"></i>' : '<i class="fas fa-pause"></i>';
+        if ('mediaSession' in navigator && reader.kind === 'podcast') {
+          navigator.mediaSession.metadata = new MediaMetadata({ title: it.titre || 'Algeria Tech', artist: 'Algeria Tech — podcast du jour', artwork: [{ src: '/images/logo_v2.jpeg', sizes: '512x512', type: 'image/jpeg' }] });
+          navigator.mediaSession.playbackState = reader.paused ? 'paused' : 'playing';
+        }
+      }
+      function readerPlayItem() {
+        const it = reader.items[reader.i];
+        if (!it) return readerStop(true);
+        reader.paused = false; readerUI();
+        if (reader.kind === 'podcast') {
+          reader.audio.src = it.mp3; reader.audio.playbackRate = parseFloat(rate.value) || 1;
+          reader.audio.play().catch(() => { reader.paused = true; readerUI(); });
+        } else {
+          const txt = (reader.i ? 'Article suivant. ' : '') + it.titre + '. ' + (it.extrait || '') + (it.aretenir && it.aretenir !== it.extrait ? ' À retenir : ' + it.aretenir : '');
+          speakText(txt, () => { if (reader.kind === 'tts' && !reader.paused) { reader.i++; readerPlayItem(); } });
+        }
+      }
+      function readerStop(fini) {
+        if (reader.audio) { reader.audio.pause(); }
+        if (reader.kind === 'tts') stopSpeaking();
+        reader.kind = null; readerUI(); keepAwake(handsFree);
+        setStatus('', READY);
+        if (fini) addMessage('bot', 'Fin de la lecture.');
+      }
+      function readerToggle() {
+        if (!reader.kind) return;
+        reader.paused = !reader.paused;
+        if (reader.kind === 'podcast') { if (reader.paused) reader.audio.pause(); else reader.audio.play(); }
+        else if (reader.paused) stopSpeaking(); else readerPlayItem();
+        readerUI();
+      }
+      function readerSkip(d) { if (!reader.kind) return; if (reader.kind === 'tts') stopSpeaking(); reader.i = Math.max(0, Math.min(reader.items.length - 1, reader.i + d)); readerPlayItem(); }
+      async function startPodcast() {
+        const d = await loadJSON('/podcast/latest.json');
+        const L = d && d.langs && (d.langs[langue === 'fr' ? 'fr' : 'ar'] || d.langs.fr);
+        if (!L) return { text: 'Le podcast n\'est pas disponible pour l\'instant.' };
+        stopSpeaking();
+        if (!reader.audio) {
+          reader.audio = new Audio();
+          reader.audio.addEventListener('ended', () => { if (reader.kind === 'podcast') { reader.i++; readerPlayItem(); } });
+          if ('mediaSession' in navigator) {
+            navigator.mediaSession.setActionHandler('play', () => { if (reader.paused) readerToggle(); });
+            navigator.mediaSession.setActionHandler('pause', () => { if (!reader.paused) readerToggle(); });
+            navigator.mediaSession.setActionHandler('nexttrack', () => readerSkip(1));
+            navigator.mediaSession.setActionHandler('previoustrack', () => readerSkip(-1));
+          }
+        }
+        Object.assign(reader, { kind: 'podcast', i: 0, items: [{ titre: 'Introduction', mp3: L.intro.mp3 }, ...L.items.map(x => ({ titre: x.titre, mp3: x.mp3 })), { titre: 'Conclusion', mp3: L.outro.mp3 }] });
+        keepAwake(true); readerPlayItem();
+        const quand = d.date ? (d.date === new Date().toISOString().slice(0, 10) ? 'aujourd\'hui' : new Date(d.date + 'T12:00').toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' })) : '';
+        return { text: 'Lecture du podcast ' + ({ matin: 'du matin', midi: 'de midi', soir: 'du soir' }[d.creneau] || '') + ', ' + quand + ' : ' + L.items.length + ' infos, avec une vraie voix. Vous pouvez éteindre l\'écran : les commandes restent sur l\'écran de verrouillage.', silent: true };
+      }
+      async function startLectureArticles() {
+        let items = lastList.length ? lastList.slice(listOffset) : [];
+        if (!items.length) { const day = (await loadArticles()).filter(a => +new Date(a.date + 'T00:00') >= startOfToday() - 24 * 3600e3); items = (day.length ? day : (await loadArticles())).slice(0, 8); }
+        if (!items.length) return { text: 'Aucun article à lire.' };
+        if (!speakerEnabled) { speakerEnabled = true; syncSpeaker(); }   // la lecture enchaînée a besoin de la voix
+        stopSpeaking();
+        Object.assign(reader, { kind: 'tts', i: 0, items: items.slice(0, 12), paused: false });
+        keepAwake(true);
+        setTimeout(readerPlayItem, 50);
+        return { text: 'Lecture enchaînée de ' + reader.items.length + ' article' + (reader.items.length > 1 ? 's' : '') + '. Utilisez la barre en bas pour passer ou mettre en pause. Pour une vraie voix d\'annonceur, dites « joue le podcast ».', silent: true };
+      }
+      $('readerPrev').addEventListener('click', () => readerSkip(-1));
+      $('readerNext').addEventListener('click', () => readerSkip(1));
+      readerPlay.addEventListener('click', readerToggle);
+      $('readerClose').addEventListener('click', () => readerStop(false));
+
+      // ======================================================================
+      // 7. Mains libres : écoute permanente, réveil par « Algeria Tech, … » (ou « Assistant, … »)
+      // ======================================================================
+      const handsBtn = $('handsBtn');
+      let handsFree = false, awakeUntil = 0;
+      const WAKE = /^(?:ok |dis |he |hey |allo |eh )?(?:algeria tech|algerie tech|algeria|algerie|alger tech|assistant|l assistant)\b[ ,]*(.*)$/;
+      const WAKE_AR = /^(?:يا\s*)?(?:المساعد|مساعد|الجيريا تك|ألجيريا تك|الجيريا)[\s،,]*(.*)$/;
+      const WAKE_RAW = /^\s*(?:ok|dis|hé|he|hey|allo|allô|eh)?[\s,]*(?:alg[ée]ri[ae]?[\s-]*tech|alg[ée]rie|algeria|alger[\s-]*tech|l['’]?\s*assistant|assistant)[\s,.!:;-]*/i;
+      function wakeMatch(raw) {
+        raw = String(raw).trim();
+        const ar = raw.match(WAKE_AR);
+        if (ar) return ar[1] || '';
+        if (!WAKE.test(norm(raw))) return null;
+        return raw.replace(WAKE_RAW, '').trim();
+      }
+      function setHandsFree(on) {
+        handsFree = on; store.set('hands', on);
+        handsBtn.classList.toggle('active', on);
+        handsBtn.title = on ? 'Mains libres activé : dites « Algeria Tech, … »' : 'Mains libres (mot d\'activation « Algeria Tech »)';
+        recMode = dictating ? 'dictation' : on ? 'handsfree' : 'command';
+        keepAwake(on || !!reader.kind);
+        if (on) { addMessage('bot', 'Mains libres activé. Dites « Algeria Tech » suivi de votre demande, par exemple « Algeria Tech, la météo de demain ». L\'écran reste allumé.'); if (isListening) stopListening(); setTimeout(startListening, 300); }
+        else if (isListening) stopListening();
+      }
+      handsBtn.addEventListener('click', () => setHandsFree(!handsFree));
+
+      // ======================================================================
+      // 8. Langue : français, arabe ou derja algérienne (reconnaissance ar-DZ, réponses traduites par l'IA)
+      // ======================================================================
+      const AR_DIGITS = { '٠': '0', '١': '1', '٢': '2', '٣': '3', '٤': '4', '٥': '5', '٦': '6', '٧': '7', '٨': '8', '٩': '9' };
+      const AR_ORD = { 'الأول': 1, 'الاول': 1, 'لول': 1, 'الثاني': 2, 'الثانية': 2, 'التاني': 2, 'الثالث': 3, 'التالت': 3, 'الرابع': 4, 'الخامس': 5 };
+      const AR_INTENTS = [
+        [/(توقف|بركا|اسكت|سكت|حبس|ستوب)/, () => 'stop'],
+        [/(ملخص|بريفينغ|بريفينج|موجز)/, () => 'briefing'],
+        [/(الطقس|الجو|الميتيو|السخانة|البرد|الشتا|المطر|درجة الحرارة)/, (t) => 'météo ' + arDay(t)],
+        [/(صلا|الأذان|الاذان|آذان|المغرب|الفجر|العصر|الظهر|العشاء|لعشا)/, (t) => 'heures de prière ' + arDay(t) + ({ 'الفجر': ' fajr', 'الظهر': ' dohr', 'العصر': ' asr', 'المغرب': ' maghreb', 'العشاء': ' icha' }[(t.match(/الفجر|الظهر|العصر|المغرب|العشاء/) || [])[0]] || '')],
+        [/(الهجري|التاريخ الهجري)/, () => 'date hégirienne'],
+        [/(الصرف|الدوفيز|الأورو|الاورو|اليورو|الدولار|العملة|الأورو|الاورو)/, (t) => 'change ' + (t.match(/\d+(?:[.,]\d+)?/) || [''])[0] + (/(أورو|اورو|يورو)/.test(t) ? ' euros' : '') + (/دولار/.test(t) ? ' dollars' : '') + (/دينار/.test(t) ? ' en dinars' : '')],
+        [/(مراجعة الصحافة|الصحافة|الجرايد|الجرائد)/, () => 'la revue de presse'],
+        [/(واش كاين جديد|واش كاين|جديد اليوم|أخبار اليوم|اخبار اليوم|واش صرا|واش صار)/, () => 'le point du jour'],
+        [/(آخر الأخبار|اخر الاخبار|آخر الاخبار|الأخبار|الاخبار|لخبار)/, () => 'dernières actus'],
+        [/(حالة الموقع|الموقع يخدم|كلش يخدم|كلشي يخدم)/, () => 'état du site'],
+        [/(البودكاست|البودكاسط|الجورنال|النشرة)/, () => 'joue le podcast'],
+        [/(اقرأ|اقرا|إقرأ|أقرأ|قرالي|اقرالي)/, (t) => { const n = (t.match(/\d+/) || [])[0] || AR_ORD[(t.match(/الأول|الاول|لول|الثاني|الثانية|التاني|الثالث|التالت|الرابع|الخامس/) || [])[0]]; return n ? 'lis le ' + n : 'lis-moi les articles du jour'; }],
+        [/(التالي|اللي بعدو|الباقي|زيد)/, () => 'la suite'],
+        [/(افتح|حل)\s*(الخبر|المقال)?\s*(رقم)?\s*\d/, (t) => 'ouvre le ' + (t.match(/\d+/) || ['1'])[0]]
+      ];
+      function arDay(t) { return /بعد غد/.test(t) ? 'après-demain' : /(غدا|غدوة|غدوا|غذوة)/.test(t) ? 'demain' : /(الأسبوع|السمانة|الجمعة الجاية)/.test(t) ? 'cette semaine' : ''; }
+      function arToCmd(raw) {
+        const t = String(raw).replace(/[٠-٩]/g, c => AR_DIGITS[c]).replace(/[؟?!.,،:؛]+/g, ' ').replace(/\s+/g, ' ').trim();
+        if (!/[؀-ۿ]/.test(t)) return null;
+        for (const [re, f] of AR_INTENTS) if (re.test(t)) {
+          const city = t.match(/(?:\sفي|\sف|\sب|^في)\s*([؀-ۿ]+(?:\s[؀-ۿ]+)?)\s*$/);
+          if (city && /(الطقس|الجو|الميتيو|صلا|الأذان|الاذان|المغرب|الفجر|العصر|الظهر|العشاء)/.test(t) && !/^(غدا|غدوة|اليوم|الأسبوع)/.test(city[1])) cityOverride = city[1];
+          return f(t).trim();
+        }
+        return null;
+      }
+      const langSeg = $('langSeg');
+      let arWarned = false;
+      function setLangue(l) {
+        langue = l; store.set('langue', l);
+        langSeg.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.l === l));
+        if (recognition) recognition.lang = l === 'fr' ? 'fr-FR' : 'ar-DZ';
+        askInput.placeholder = l === 'fr' ? '…ou écrivez votre question ici' : '…أو اكتب سؤالك هنا';
+        askInput.dir = l === 'fr' ? 'ltr' : 'auto';
+        if (l !== 'fr' && !arWarned && synth && !synth.getVoices().some(v => /^ar/i.test(v.lang)) && (arWarned = true))
+          addMessage('bot', 'Aucune voix arabe n\'est installée sur cet appareil : les réponses s\'afficheront en arabe mais seront lues avec la voix par défaut. Sur Android : Paramètres › Synthèse vocale › Google › installer l\'arabe.');
+      }
+      langSeg.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) setLangue(b.dataset.l); });
+      async function traduire(text) {
+        try {
+          const r = await fetch('/api/assistant', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ mode: 'traduire', langue, message: text }) });
+          const j = await r.json(); return j.reponse || text;
+        } catch (e) { return text; }
+      }
+
       // ---- Intentions locales ----
       async function localIntent(input) {
         const s = norm(input);
-        if (/^(stop|arrete|silence|tais toi|chut|ca suffit|pause)\b/.test(s)) { stopSpeaking(); return { text: 'D\'accord.', silent: true }; }
+        if (reader.kind && /^pause\b/.test(s)) { if (!reader.paused) readerToggle(); return { text: 'En pause.', silent: true }; }
+        if (/^(stop|arrete|silence|tais toi|chut|ca suffit|pause)\b/.test(s)) { if (reader.kind) readerStop(false); stopSpeaking(); return { text: 'D\'accord.', silent: true }; }
         if (/^(bonjour|salut|coucou|hello|bonsoir|hey|salam|saha)\b/.test(s) && s.split(' ').length <= 3 && !/brief/.test(s)) return { text: 'Bonjour ! Demandez-moi les dernières actus, un sujet à chercher, ou posez votre question.' };
         if (/^(merci|thanks|saha|barak allah)/.test(s)) return { text: 'Avec plaisir !' };
         if (/^(au revoir|bye|a bientot|ciao|bonne nuit)/.test(s)) { convMode = false; syncConv(); return { text: 'Au revoir et à bientôt sur Algeria Tech !' }; }
-        if (/(quelle heure|il est quelle heure|l heure qu il est)/.test(s)) return { text: 'Il est ' + new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }) + '.' };
+        if (/(quelle heure|il est quelle heure|l heure qu il est)/.test(s) && !/(priere|salat|maghre?b|fajr|sobh|dh?ohr|dhuhr|\basr\b|icha|isha|imsak|ftour|iftar|adhan)/.test(s)) return { text: 'Il est ' + new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }) + '.' };
         if (/(quel jour|quelle date|on est le combien|date d aujourd hui)/.test(s)) return { text: 'Nous sommes le ' + new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) + '.' };
-        if (/(aide|que sais tu faire|tu sais faire quoi|tu peux faire quoi|comment ca marche)/.test(s)) return { text: 'Dites « briefing » pour le point complet du matin. Je peux aussi vous lire la revue de presse, le point du jour des institutions, opérateurs et entreprises, les dernières actus, chercher un sujet avec « cherche Djezzy », vous lire un article avec « lis le 1 », donner la météo, par exemple « météo à Oran demain », ouvrir une page du site et répondre à vos questions. Dites « ma ville est Oran » pour régler la météo, et « stop » pour me couper.' };
+        if (/(aide|que sais tu faire|tu sais faire quoi|tu peux faire quoi|comment ca marche)/.test(s)) return { text: 'Dites « briefing » pour le point complet du matin : météo, prière, actus, revue de presse et vos sujets suivis. Je connais aussi la revue de presse, le point du jour, « cherche Djezzy », « lis le 1 », « météo à Oran demain », « heures de prière », « 100 euros en dinars », « suis Djezzy » puis « mes alertes », « dicter un article », « état du site », « joue le podcast » et « lis-moi les articles ». Le bouton oreille active les mains libres : dites alors « Algeria Tech » avant chaque demande. Les réglages proposent l\'arabe et la derja. Dites « stop » pour me couper.' };
         if (/(blague|fais moi rire)/.test(s)) {
           const j = ['Pourquoi les développeurs préfèrent le mode sombre ? Parce que la lumière attire les bugs !', 'Comment appelle-t-on un algorithme qui chante ? Un algo-rythme !', 'Mon Wi-Fi et moi, c\'est compliqué : dès que je m\'éloigne, il ne capte plus rien.'];
           return { text: j[Math.floor(Math.random() * j.length)] };
         }
+
+        // Lecteur en cours : commandes de lecture
+        if (reader.kind) {
+          if (/^(stop|arrete|ca suffit)/.test(s)) { readerStop(false); return { text: 'Lecture arrêtée.', silent: true }; }
+          if (/^(pause|attends)/.test(s)) { if (!reader.paused) readerToggle(); return { text: 'En pause.', silent: true }; }
+          if (/^(reprends|reprendre|continue|lecture)$/.test(s)) { if (reader.paused) readerToggle(); return { text: 'Je reprends.', silent: true }; }
+          if (/^(suivant|la suite|passe|next)$/.test(s)) { readerSkip(1); return { text: 'Suivant.', silent: true }; }
+          if (/^(precedent|reviens|retour)$/.test(s)) { readerSkip(-1); return { text: 'Précédent.', silent: true }; }
+        }
+        // Dictée et brouillon
+        if (/(dicter|dictee|nouvel article|redige[rz]? un article|ecrire un article|je veux ecrire)/.test(s) && !/fin de/.test(s)) return startDictation();
+        if (/(envoie|enregistre|sauvegarde|valide|garde)( le| mon| ce| en)? brouillon/.test(s)) return saveDraft();
+        if (/(reessaie|refais|recommence|autre version)( la redaction| l article)?/.test(s) && dictBuf) { dictating = true; dictCard = null; return endDictation(false); }
+        if (/annule (le |ce )?brouillon/.test(s)) { draft = null; return { text: 'Brouillon abandonné.' }; }
+        // Prières, date hégirienne, change
+        if (/(priere|salat|salah|adhan|athan|azan|\bfajr\b|\bsobh\b|\bdohr\b|\bdhohr\b|\bdhuhr\b|\basr\b|maghreb|maghrib|\bicha\b|\bisha\b|imsak|ftour|iftar)/.test(s)) return prieres(s);
+        if (/(hegir|hijri|calendrier (musulman|islamique)|date (islamique|musulmane))/.test(s)) { const h = hijri(); return { text: h ? 'Nous sommes le ' + h + ', soit le ' + new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) + '. Le calendrier officiel algérien peut différer d\'un jour selon l\'observation du croissant.' : 'Votre navigateur ne connaît pas le calendrier hégirien.' }; }
+        if (/(taux de change|^change\b|devises?|convertis|convertir|square|cours (de l|du) (euro|dollar)|(combien|que) (vaut|valent|fait|font|coute|coutent).*(euro|dollar|dinar|livre|dirham|riyal|yuan|rouble|franc)|\d.*\b(euros?|dollars?|dinars?|livres?|dirhams?|riyals?|yuans?)\b|^(l euro|le dollar)\b)/.test(s)) return change(s);
+        // Sujets suivis
+        const sv = s.match(/^(?:suis|suivre|suis moi|abonne moi a|alerte moi (?:sur|pour)|previens moi (?:sur|pour|quand on parle de))\s+(.+)$/);
+        if (sv) return suivre(input.trim().replace(/[?.!]+$/, '').split(/\s+/).slice(-sv[1].split(' ').length).join(' '));
+        const nsv = s.match(/^(?:ne suis plus|ne plus suivre|arrete de suivre|desabonne moi de|oublie)\s+(.+)$/);
+        if (nsv) return nePlusSuivre(/^(tout|tous|tous les sujets|mes sujets)$/.test(nsv[1]) ? 'tout' : nsv[1]);
+        if (/^(mes sujets|quels sujets|liste de mes sujets|qu est ce que je suis)/.test(s)) return { text: suivis.length ? 'Vous suivez : ' + suivis.join(', ') + '.' : 'Vous ne suivez aucun sujet. Dites par exemple « suis Djezzy ».' };
+        if (/(mes alertes|alertes|sur mes sujets|mes notifications)/.test(s)) return mesAlertes();
+        // État du site
+        if (/(etat du site|tout (tourne|marche|fonctionne)|sante du site|les robots|workflows?|le site (marche|fonctionne|tourne)|probleme sur le site|pipelines?)/.test(s)) return etatSite();
+        // Lecture mains libres
+        if (/(podcast|journal audio|joue le journal|lis moi le journal|flash audio|bulletin)/.test(s)) return startPodcast();
+        if (/(lis moi (les|tous|tout)|lecture (continue|enchainee)|lis tout|lis les articles|lis moi la liste)/.test(s)) return startLectureArticles();
 
         // Suite d'une liste
         if (/^(la suite|suite|suivant|encore|d autres|autres titres|plus)$/.test(s) && lastList.length) {
@@ -723,7 +1231,7 @@
         try {
           const r = await fetch('/api/assistant', {
             method: 'POST', signal: ctrl.signal, headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message: text, historique: history.slice(-8) })
+            body: JSON.stringify({ message: text, historique: history.slice(-8), langue })
           });
           const j = await r.json().catch(() => ({}));
           if (r.status === 401) { const e = new Error('session'); e.session = true; throw e; }
@@ -742,6 +1250,10 @@
         const fr = (synth ? synth.getVoices() : []).filter(v => /^fr/i.test(v.lang));
         return fr.find(v => /natural|online/i.test(v.name)) || fr.find(v => /google/i.test(v.name)) || fr.find(v => /fr[-_]FR/i.test(v.lang)) || fr[0] || null;
       }
+      function pickArVoice() {
+        const ar = (synth ? synth.getVoices() : []).filter(v => /^ar/i.test(v.lang));
+        return ar.find(v => /ar[-_]DZ/i.test(v.lang)) || ar.find(v => /natural|online/i.test(v.name)) || ar.find(v => /google/i.test(v.name)) || ar[0] || null;
+      }
       function speakable(text) { return String(text).replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, '').replace(/[«»"]/g, '').replace(/\n+/g, '. ').replace(/\.\s*\./g, '.'); }
       let speakToken = 0;
       function speakText(text, after) {
@@ -749,13 +1261,14 @@
         synth.cancel();
         const token = ++speakToken;
         if (isListening) { resumeAfterSpeak = true; try { recognition.abort(); } catch (e) {} }
-        const parts = speakable(text).match(/[^.!?…]+[.!?…]*/g) || [text];
-        const voice = (voiceSelect.value && synth.getVoices().find(v => v.name === voiceSelect.value)) || pickDefaultVoice();
+        const isAr = /[\u0600-\u06FF]/.test(text);
+        const parts = speakable(text).match(/[^.!?…؟]+[.!?…؟]*/g) || [text];
+        const voice = isAr ? pickArVoice() : ((voiceSelect.value && synth.getVoices().find(v => v.name === voiceSelect.value)) || pickDefaultVoice());
         micBtn.classList.add('speaking'); setStatus('speaking', '🔊 Je réponds… (dites « stop » ou touchez ■)');
         parts.forEach((p, i) => {
           if (!p.trim()) return;
           const u = new SpeechSynthesisUtterance(p.trim());
-          u.lang = LANG; u.rate = parseFloat(rate.value) || 1; u.pitch = parseFloat(pitch.value) || 1;
+          u.lang = isAr ? (voice ? voice.lang : 'ar-SA') : LANG; u.rate = parseFloat(rate.value) || 1; u.pitch = parseFloat(pitch.value) || 1;
           if (voice) u.voice = voice;
           if (i === parts.length - 1) u.onend = () => { if (token === speakToken) doneSpeaking(after); };
           u.onerror = () => { if (token === speakToken && i === parts.length - 1) doneSpeaking(after); };
@@ -767,6 +1280,7 @@
         micBtn.classList.remove('speaking');
         if (after) return after();
         setStatus('', READY);
+        if (handsFree || dictating) { resumeAfterSpeak = false; setTimeout(startListening, 250); return; }
         if (resumeAfterSpeak || convMode) { resumeAfterSpeak = false; if (convMode && recognition) setTimeout(startListening, 250); }
       }
       function stopSpeaking() { speakToken++; if (synth) synth.cancel(); micBtn.classList.remove('speaking'); resumeAfterSpeak = false; if (!isListening) setStatus('', READY); }
@@ -775,11 +1289,24 @@
       async function handleUserInput(text, fromVoice) {
         text = String(text || '').trim();
         if (!text || busy) return;
+        // Pendant une dictée, tout ce qui est dit ou écrit va dans le texte, sauf les phrases de fin.
+        if (dictating) {
+          const n = norm(text);
+          if (/(fin de (la )?dictee|j ai (fini|termine)|c est (fini|termine)|termine la dictee|terminer)$/.test(n)) { text = 'fin de la dictée'; }
+          else if (/^(annule|annuler) (la )?dictee$/.test(n)) { text = 'annule la dictée'; }
+          else { dictAppend(text.replace(/\s*(point [aà] la ligne|[aà] la ligne)\s*/gi, '\n')); return; }
+        }
         busy = true;
         addMessage('user', text);
         let out;
         try {
-          out = await localIntent(text);
+          if (text === 'fin de la dictée' || text === 'annule la dictée') out = await endDictation(text === 'annule la dictée');
+          else if (langue !== 'fr') {
+            const cmd = arToCmd(text);
+            out = cmd ? await localIntent(cmd) : (/[\u0600-\u06FF]/.test(text) ? undefined : await localIntent(text));
+            if (out && out.text && !out.silent && !out.nav) { setStatus('', '🌐 Traduction…'); out.text = await traduire(out.text); out.spoken = null; }
+          }
+          else out = await localIntent(text);
           if (out && out.nav) { busy = false; return; }   // navigation en cours
           if (out === undefined || (out && out.ai)) {
             if (out && out.ai) addMessage('bot', out.text);
@@ -790,12 +1317,14 @@
           }
         } catch (e) { out = { text: 'Oups, une erreur est survenue. Réessayez.' }; }
         busy = false;
+        if (out.keepBuf) dictating = false;
         addMessage('bot', out.text, out.links);
+        if (/[\u0600-\u06FF]/.test(out.text)) transcript.lastElementChild.setAttribute('dir', 'rtl');
         history.push({ role: 'user', content: text }, { role: 'assistant', content: out.text });
         history = history.slice(-12);
-        if (out.silent) { setStatus('', READY); return; }
-        const spoke = speakText(out.text);
-        if (!spoke) { setStatus('', READY); if (fromVoice && convMode) setTimeout(startListening, 300); }
+        if (out.silent) { setStatus('', READY); if (handsFree && !reader.kind) setTimeout(startListening, 300); return; }
+        const spoke = speakText(out.spoken || out.text, out.after);
+        if (!spoke) { setStatus('', READY); if (handsFree || (fromVoice && convMode)) setTimeout(startListening, 300); }
       }
 
       // ---- Reconnaissance vocale ----
@@ -811,7 +1340,7 @@
         recognition.interimResults = true;
         recognition.maxAlternatives = 1;
 
-        recognition.onstart = () => { isListening = true; micBtn.classList.add('listening'); eq.classList.add('on'); setStatus('listening', '🎙️ Je vous écoute…'); };
+        recognition.onstart = () => { isListening = true; micBtn.classList.add('listening'); eq.classList.add('on'); setStatus('listening', dictating ? '🎙️ Dictée en cours… dites « fin de la dictée »' : recMode === 'handsfree' ? '👂 Mains libres — dites « Algeria Tech, … »' : '🎙️ Je vous écoute…'); };
         recognition.onresult = (event) => {
           let interim = '', finalTxt = '';
           for (let i = event.resultIndex; i < event.results.length; i++) {
@@ -825,9 +1354,19 @@
             el.textContent = '✎ ' + interim;
           } else if (el) el.remove();
           transcript.scrollTop = transcript.scrollHeight;
-          if (finalTxt.trim()) handleUserInput(finalTxt.trim(), true);
+          finalTxt = finalTxt.trim();
+          if (!finalTxt) return;
+          if (recMode === 'handsfree' && !dictating) {
+            if (Date.now() < awakeUntil) { awakeUntil = 0; return handleUserInput(finalTxt, true); }
+            const w = wakeMatch(finalTxt);
+            if (w === null) return;                                  // pas pour moi : on ignore
+            if (!w) { awakeUntil = Date.now() + 9000; speakText(langue === 'fr' ? 'Oui ?' : 'نعم ؟'); return; }
+            return handleUserInput(w, true);
+          }
+          handleUserInput(finalTxt, true);
         };
         recognition.onerror = (event) => {
+          if ((handsFree || dictating) && event.error === 'no-speech') return;
           if (event.error === 'aborted' || event.error === 'no-speech') { if (event.error === 'no-speech') setStatus('', 'Je n\'ai rien entendu — touchez le micro pour réessayer'); return; }
           let msg = 'Une erreur est survenue';
           if (event.error === 'not-allowed' || event.error === 'service-not-allowed') { msg = '🎤 Accès au micro refusé. Autorisez-le dans le navigateur.'; convMode = false; syncConv(); }
@@ -837,9 +1376,15 @@
         recognition.onend = () => {
           isListening = false; micBtn.classList.remove('listening'); eq.classList.remove('on'); clearInterim();
           if (!busy && !(synth && synth.speaking) && statusDot.classList.contains('listening')) setStatus('', READY);
+          if ((handsFree || dictating) && !busy && !(synth && synth.speaking) && !document.hidden) setTimeout(startListening, 300);
         };
       }
-      function startListening() { if (!recognition || isListening || busy || document.hidden) return; try { recognition.start(); } catch (e) {} }
+      function startListening() {
+        if (!recognition || isListening || busy || document.hidden || (synth && synth.speaking)) return;
+        recognition.continuous = recMode !== 'command';               // dictée et mains libres : écoute continue
+        recognition.lang = langue === 'fr' ? 'fr-FR' : 'ar-DZ';
+        try { recognition.start(); } catch (e) {}
+      }
       function stopListening() { try { recognition.stop(); } catch (e) {} }
 
       // ---- Voix (TTS) ----
@@ -879,7 +1424,7 @@
       });
       chips.addEventListener('click', (e) => { const b = e.target.closest('.av-chip'); if (b) handleUserInput(b.dataset.cmd); });
       askForm.addEventListener('submit', (e) => { e.preventDefault(); const v = askInput.value; askInput.value = ''; handleUserInput(v); });
-      stopBtn.addEventListener('click', () => { stopSpeaking(); if (isListening) stopListening(); });
+      stopBtn.addEventListener('click', () => { if (reader.kind) readerStop(false); stopSpeaking(); if (isListening && !handsFree) stopListening(); });
       convBtn.addEventListener('click', () => { convMode = !convMode; syncConv(); });
       clearBtn.addEventListener('click', () => {
         transcript.innerHTML = '<div class="av-placeholder">Vos échanges apparaîtront ici…</div>';
@@ -909,9 +1454,15 @@
         URL.revokeObjectURL(url);
       });
 
-      document.addEventListener('visibilitychange', () => { if (document.hidden) { if (isListening) stopListening(); stopSpeaking(); } });
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) { if (isListening) stopListening(); if (reader.kind !== 'podcast') { if (reader.kind) readerStop(false); stopSpeaking(); } }
+        else { if (handsFree || dictating) setTimeout(startListening, 400); if (handsFree || reader.kind) keepAwake(true); checkAlertes(true); }
+      });
       setStatus(recognition ? '' : 'error', recognition ? READY : 'Micro indisponible — écrivez votre question');
+      langSeg.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.l === langue));
+      if (langue !== 'fr') { askInput.placeholder = '…أو اكتب سؤالك هنا'; askInput.dir = 'auto'; }
       loadArticles();
+      checkAlertes(true);
     })();
   </script>
 </body>

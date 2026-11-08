@@ -52,7 +52,7 @@ export async function onRequest({ request, env, next, waitUntil }) {
   // Assistant vocal : outil privé (future version Pro) → page et API réservées à la session admin.
   // En local (wrangler pages dev), pas de connexion admin configurée : accès libre. En ligne, l'hôte n'est jamais localhost.
   const local = url.hostname === 'localhost' || url.hostname === '127.0.0.1';
-  if (!local && (url.pathname === '/api/assistant' || url.pathname === '/api/assistant/')) {
+  if (!local && /^\/api\/(assistant|etat-site)\/?$/.test(url.pathname)) {
     if (!(await readSession(request, env)))
       return new Response(JSON.stringify({ error: 'Connexion requise.' }), { status: 401, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' } });
   }
