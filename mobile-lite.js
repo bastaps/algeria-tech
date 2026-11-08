@@ -161,9 +161,8 @@
     [].forEach.call(document.querySelectorAll('#newsGrid .news-card'), function (c) {
       var h = c.querySelector('h3'); c.classList.toggle('ml-dup', !!h && hero.indexOf(h.textContent.trim()) !== -1);
     });
-    // bandeau URGENT : masqué tant qu'il ne fait que répéter la une
-    var brk = document.getElementById('breakingNewsSection'), tk = document.querySelector('#breakingTicker .ticker-item');
-    if (brk && tk && hero.length) brk.classList.toggle('ml-hide', tk.textContent.trim() === hero[0]);
+    // bandeau URGENT : toujours visible (la barre rouge défilante fait partie de l'identité du site)
+    var brk = document.getElementById('breakingNewsSection'); if (brk) brk.classList.remove('ml-hide');
     vue(); buildFlashStrip(); compactExpress(); shortDates(); tabs();
     // colonne latérale : Flash Info / info en 30 s / onglets (Brèves, Plus lus) / Newsletter / Tags
     var tb = document.getElementById('ml-tabs'); if (tb) tb.style.order = 2;

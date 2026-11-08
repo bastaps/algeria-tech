@@ -2,7 +2,6 @@
    Actif uniquement quand desktop-home.js pose html.dh. Pour revenir en arrière : retirer les 2 lignes
    desktop-home.* d'index.html (et de build.js) — l'ancienne accueil reprend telle quelle. */
 html.dh body { zoom: .92; }
-html.dh #breakingNewsSection { display: none; }               /* barre rouge « URGENT » désactivée */
 
 /* ── En-tête : une seule barre (logo · navigation · Revue de presse · Explorer · recherche · langue) ── */
 html.dh .at-hub-track, html.dh .at-hub .at-hub-sep { display: none; }

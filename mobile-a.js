@@ -4,7 +4,7 @@
   var _c = document.documentElement.classList;
   if (!_c.contains('ma') && !_c.contains('mb')) return;
   var _b = _c.contains('mb');
-  var done = false;
+  var done = !!document.getElementById('breakingNewsSection');   // la barre rouge URGENT existe : pas de second bandeau
   function build() {
     if (done) return;
     var hdr = document.getElementById('siteHeader');

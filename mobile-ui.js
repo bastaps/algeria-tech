@@ -58,7 +58,7 @@
     dark(); setTimeout(dark, 600); window.addEventListener('load', dark);
     var tries = 0, t = setInterval(function () {
       if (++tries > 40) clearInterval(t);
-      var tick = document.getElementById('ma-tick');
+      var tick = document.getElementById('ma-tick') || document.getElementById('breakingNewsSection') || document.getElementById('siteHeader');
       if (!tick || document.getElementById('mb-search')) return;
       var s = document.createElement('button'); s.type = 'button'; s.id = 'mb-search';
       s.innerHTML = '<span></span><kbd>⌘K</kbd>';
