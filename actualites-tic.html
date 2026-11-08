@@ -642,6 +642,14 @@
     .tic-official small { flex-basis:100%; font-size:.7rem; opacity:.7; }
     .tic-press-tag { display:inline-block; font-size:.62rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; padding:1px 7px; border-radius:999px; border:1px solid currentColor; opacity:.75; margin-inline-start:6px; }
     .tic-official-link { font-size:.72rem; text-decoration:underline; margin-inline-start:10px; }
+    /* Panneau des pages officielles d'une catégorie */
+    .tic-official-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:10px; margin:10px 0 6px; }
+    .tic-official-card { border:1px solid var(--tic-border, rgba(128,128,128,.3)); border-radius:12px; padding:10px 12px; display:grid; gap:8px; }
+    .tic-official-card b { font-size:.82rem; }
+    .tic-official-card .tic-official-links { display:flex; flex-wrap:wrap; gap:6px; }
+    .tic-official-card a { display:inline-flex; align-items:center; gap:5px; padding:5px 10px; border-radius:999px; font-size:.72rem; font-weight:600; text-decoration:none; background:var(--tic-primary,#006233); color:#fff; }
+    .tic-official-card a:hover { filter:brightness(1.1); }
+    .tic-official-title { grid-column:1/-1; font-size:.8rem; font-weight:700; }
     .tic-card-source a { color:inherit; text-decoration:none; }
     .tic-card-source a:hover { text-decoration:underline; }
 
@@ -689,7 +697,7 @@
                 <li><a href="/infographies/index.html">Infographies</a></li>
                 <li><a href="/#veille">Veille</a></li>
                 <li><a href="/#revue">Revue de Presse</a></li>
-                <li><a href="/actualites-tic"><i class="fas fa-share-alt" style="color:#E30613;margin-right:5px;"></i>Veille Réseaux Sociaux</a></li>
+                <li><a href="/actualites-tic"><i class="fas fa-share-alt" style="color:#E30613;margin-right:5px;"></i>Veille institutions &amp; médias</a></li>
                 <li><a href="/operateurs"><i class="fas fa-signal" style="margin-right:5px;color:#00C853;"></i>Opérateurs Mobiles</a></li>
                 <li><a href="/barometre"><i class="fas fa-chart-line" style="margin-right:5px;color:#fbbf24;"></i>Observatoire du Numérique</a></li>
               </ul>
@@ -714,7 +722,7 @@
   <nav class="quick-nav" id="quickNav">
     <div class="container">
       <a class="qn-link" href="/#veille"><i class="fas fa-rss"></i> Veille</a>
-      <a class="qn-link" href="/actualites-tic"><i class="fas fa-share-alt"></i> Veille Réseaux Sociaux</a>
+      <a class="qn-link" href="/actualites-tic"><i class="fas fa-share-alt"></i> Veille institutions &amp; médias</a>
       <a class="qn-link" href="/#revue"><i class="fas fa-newspaper"></i> Revue de Presse</a>
       <a class="qn-link qn-new" href="/barometre"><i class="fas fa-chart-line"></i> Observatoire <span class="qn-badge">NEW</span></a>
     </div>
@@ -741,7 +749,7 @@
       <li class="mobile-nav-divider"></li>
       <li><a href="/#veille"><i class="fas fa-rss"></i> Veille</a></li>
       <li><a href="/#revue"><i class="fas fa-newspaper"></i> Revue de Presse</a></li>
-      <li><a href="/actualites-tic"><i class="fas fa-share-alt" style="color:#E30613;"></i> Veille Réseaux Sociaux</a></li>
+      <li><a href="/actualites-tic"><i class="fas fa-share-alt" style="color:#E30613;"></i> Veille institutions &amp; médias</a></li>
       <li><a href="/barometre"><i class="fas fa-chart-line" style="color:#fbbf24;"></i> Observatoire du Numérique</a></li>
     </ul>
     <div class="mobile-menu-footer">
@@ -753,7 +761,7 @@
   <div class="rs-masthead">
     <div class="rs-masthead-left">
       <a href="/" class="rs-back-link"><i class="fas fa-satellite-dish"></i> Algeria Tech</a>
-      <div class="rs-masthead-title">Veille Réseaux <span>Sociaux</span></div>
+      <div class="rs-masthead-title">Veille institutions <span>&amp; médias</span></div>
       <div class="rs-masthead-subtitle">Opérateurs · Ministère · Régulateurs · Équipementiers · International</div>
     </div>
     <div class="rs-masthead-right">
@@ -915,14 +923,33 @@
     return out;
   }
   function isAggregator(url) { return /(^|\.)news\.google\.com$/i.test((() => { try { return new URL(url).hostname; } catch (e) { return ''; } })()); }
+  const PANEL_CATS = ['Ministère', 'Opérateurs', 'Infrastructure', 'Équipementiers', 'Régulateurs'];
+  function pillLinks(links) {
+    return links.map(l => `<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer"><i class="${l.icon}"></i> ${l.label}</a>`).join('');
+  }
   function renderOfficialBar() {
     const bar = document.getElementById('officialBar'); if (!bar) return;
+    // 1) Une source choisie : ses pages officielles
     const links = currentSource ? officialLinks(currentSource) : [];
-    if (!links.length) { bar.style.display = 'none'; bar.innerHTML = ''; return; }
-    bar.innerHTML = '<b>' + esc(currentSource) + ' : pages officielles</b>' +
-      links.map(l => `<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer"><i class="${l.icon}"></i> ${l.label}</a>`).join('') +
-      '<small>Les cartes ci-dessous viennent de la presse ou des flux publics suivis ; les liens ci-dessus ouvrent les canaux officiels de l’institution.</small>';
-    bar.style.display = 'flex';
+    if (links.length) {
+      bar.className = 'tic-official';
+      bar.innerHTML = '<b>' + esc(currentSource) + ' : pages officielles</b>' + pillLinks(links) +
+        '<small>Les cartes ci-dessous viennent de la presse ou des flux publics suivis ; les liens ci-dessus ouvrent les canaux officiels de l’institution.</small>';
+      bar.style.display = 'flex';
+      return;
+    }
+    // 2) Une catégorie institutionnelle : toutes ses pages officielles d'un coup d'œil
+    if (!currentSource && PANEL_CATS.includes(currentCat)) {
+      const items = Object.values(OFFICIAL).filter(s => s.category === currentCat && s.enabled !== false && officialLinks(s.name).length);
+      if (items.length) {
+        bar.className = 'tic-official-grid';
+        bar.innerHTML = '<div class="tic-official-title">Pages officielles — ' + esc(currentCat) + '</div>' +
+          items.map(s => `<div class="tic-official-card"><b>${esc(s.icon || '')} ${esc(s.name)}</b><div class="tic-official-links">${pillLinks(officialLinks(s.name))}</div></div>`).join('');
+        bar.style.display = 'grid';
+        return;
+      }
+    }
+    bar.style.display = 'none'; bar.innerHTML = '';
   }
 
   function buildCard(post) {

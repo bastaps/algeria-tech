@@ -3720,8 +3720,8 @@ const HUB_MODULES = [
     },
     {
         id: 'veille-rs',
-        name: 'Veille Réseaux Sociaux',
-        desc: 'Tendances TIC sur Twitter, LinkedIn et Facebook algériens',
+        name: 'Veille institutions & médias',
+        desc: 'Ministères, opérateurs, infrastructures, équipementiers et médias : sites et pages officielles',
         icon: 'fas fa-share-alt',
         color: '#fb7185',
         glow: 'rgba(251,113,133,0.18)',
