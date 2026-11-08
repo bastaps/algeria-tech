@@ -1,102 +1,102 @@
 {
- "creneau": "soir",
- "date": "2026-11-07",
- "genere": "2026-11-07T20:24:05",
+ "creneau": "midi",
+ "date": "2026-11-08",
+ "genere": "2026-11-08T14:16:10",
  "langs": {
   "fr": {
-   "voix": "fr-FR-RemyMultilingualNeural",
-   "creneau": "soir",
-   "genere": "2026-11-07T20:25:14",
+   "voix": "fr-FR-HenriNeural",
+   "creneau": "midi",
+   "genere": "2026-11-08T14:16:30",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.1,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici dix informations pour votre soirée, spécialement sélectionnées pour vous."
+    "duree": 7.7,
+    "texte": "Bon après-midi et bienvenue sur Algeria Tech, votre rendez-vous tech et télécoms. Voici les 10 infos du jour."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.2,
-    "texte": "C'était l'essentiel de l'actualité tech. Restez connectés sur Algeria Tech pour plus d'informations."
+    "duree": 6.4,
+    "texte": "C'était l'essentiel de l'actualité tech et télécoms. Rendez-vous bientôt sur Algeria Tech."
    },
    "items": [
     {
-     "titre": "Nouveaux laboratoires d'Alger",
-     "texte": "Le Premier ministre a inauguré deux laboratoires dédiés à l'analyse de la qualité. Ces installations sont situées stratégiquement au port et à l'aéroport d'Alger, renforçant ainsi les contrôles essentiels.",
+     "titre": "Nouveaux laboratoires d'analyse ouverts",
+     "texte": "Le Premier ministre a inauguré ce samedi deux laboratoires dédiés à l'analyse de la qualité au port et à l'aéroport d'Alger, suite aux instructions du président de la République.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 11.0,
+     "duree": 8.8,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Conférence africaine des start-up",
-     "texte": "Alger accueillera bientôt la Conférence africaine des start-up. Selon Ouadah, cet événement est appelé à devenir la plus grande manifestation technologique jamais organisée sur le continent africain.",
+     "titre": "Réseau criminel démantelé",
+     "texte": "Les autorités ont annoncé le démantèlement d'un réseau criminel organisé spécialisé dans le blanchiment d'argent, une opération menée ce dimanche.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 10.7,
+     "duree": 8.0,
+     "pays": "DZ",
+     "source": "APS"
+    },
+    {
+     "titre": "ASC en IATF pour start-up",
+     "texte": "Salah Eddine Bouzerd souhaite transformer l'ASC en une plateforme d'innovation et de transfert de technologie pour les jeunes entreprises algériennes.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 7.5,
      "pays": "DZ",
      "source": "Radio Algérie"
     },
     {
-     "titre": "Gratuité carte consulaire",
-     "texte": "Une polémique a éclaté sur les réseaux sociaux concernant la potentielle suppression de la gratuité de la carte consulaire algérienne pour la diaspora. Le député Djamai Nedjah a clarifié la situation.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 10.7,
-     "pays": "DZ",
-     "source": "TSA Algérie"
-    },
-    {
-     "titre": "SpaceX investit dans l'IA",
-     "texte": "Le groupe d'Elon Musk accélère massivement ses investissements dans l'intelligence artificielle. SpaceX a notamment levé 40 milliards de dollars de dette pour acquérir des puces dédiées à l'IA.",
+     "titre": "Blanchiment d'argent: réseau arrêté",
+     "texte": "La 5ème Région militaire a réussi à démanteler un réseau criminel organisé impliqué dans des activités de blanchiment d'argent.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 10.4,
+     "duree": 7.0,
      "pays": "DZ",
-     "source": "ITMAG"
+     "source": "Radio Algérie"
     },
     {
-     "titre": "Hyundai et l'industrie algérienne",
-     "texte": "Le ministre de l'Industrie a reçu une délégation de Hyundai. La discussion a porté sur l'avancement du projet d'investissement du constructeur sud-coréen, en présence de sous-traitants locaux et coréens.",
+     "titre": "Synchronisation Apple Music facile",
+     "texte": "Gardez votre musique Apple Music synchronisée sur tous vos appareils Apple sans effort. La plateforme offre une excellente expérience aux utilisateurs.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 10.9,
+     "duree": 9.1,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Sécurité: réseau criminel stoppé",
+     "texte": "Les services de sécurité de la 5ème Région militaire ont réussi, ce samedi, à démanteler un réseau criminel organisé.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 7.4,
      "pays": "DZ",
      "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "Mise à jour iPad Mini",
-     "texte": "La petite tablette d'Apple, l'iPad Mini, reçoit une mise à jour majeure. Bien que son apparence reste similaire, l'appareil bénéficie d'améliorations significatives par rapport à son prédécesseur.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 11.2,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Souveraineté technologique régionale",
-     "texte": "La députée française Sabrina Sebaihi plaide pour rompre avec le fantasme d'un savoir venu du Nord. Elle souligne l'importance de la souveraineté technologique régionale et de l'alliance avec la jeunesse africaine.",
+     "titre": "Bêta One UI 9.5 bientôt",
+     "texte": "La bêta de Samsung One UI 9.5, prévue pour le Galaxy S26 Ultra, sera bientôt disponible. Les inscriptions au programme devraient ouvrir prochainement.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 11.1,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
-    },
-    {
-     "titre": "Accessoire Galaxy S26 utile",
-     "texte": "Un accessoire spécifique à la série Samsung Galaxy S26 est mis en avant pour son utilité. Le fleuron coréen continue de proposer des fonctionnalités pratiques grâce à des années d'optimisation logicielle.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.6,
+     "duree": 10.3,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Kourtel et Hyundai : suivi",
-     "texte": "Le ministre de l'Industrie, Farid Kourtel, a rencontré une délégation de Hyundai. L'objectif était de faire le point sur l'état d'avancement du projet d'investissement du constructeur automobile en Algérie.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.3,
+     "titre": "Nouvelle affaire de blanchiment",
+     "texte": "Une nouvelle opération ciblée a permis de mettre au jour une affaire de blanchiment d'argent, avec la saisie d'euros, de centimes et d'or.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 7.3,
      "pays": "DZ",
-     "source": "Algérie Éco"
+     "source": "Algérie360"
     },
     {
-     "titre": "L'IA en campagne électorale",
-     "texte": "L'intelligence artificielle fait désormais partie intégrante des campagnes électorales locales en Algérie. Cet outil, déjà présent lors des législatives, est plus visible pour les scrutins municipaux et de wilayas.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 11.8,
+     "titre": "Opération anti-blanchiment réussie",
+     "texte": "Un réseau criminel spécialisé dans le blanchiment d'argent a été démantelé en 5ème Région militaire, avec la saisie de 50 millions DA, de devises et d'armes.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 9.0,
      "pays": "DZ",
      "source": "TSA Algérie"
+    },
+    {
+     "titre": "Algérie dénonce crimes coloniaux",
+     "texte": "L'Algérie présente des preuves de crimes coloniaux affectant l'environnement, allant au-delà des essais nucléaires pour inclure des destructions naturelles.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 7.4,
+     "pays": "DZ",
+     "source": "Crésus"
     }
    ]
   },
