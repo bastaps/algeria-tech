@@ -24,9 +24,10 @@ const age = (d) => (Date.now() - new Date(d).getTime()) / H;
 const plusRecent = (arr, f) => arr.map(f).filter(Boolean).map(d => new Date(d)).filter(d => !isNaN(d)).sort((a, b) => b - a)[0];
 
 export async function onRequestGet({ request, env }) {
-  const [arts, revue, veille, fb, podcast, express] = await Promise.all([
+  const [arts, revue, veille, fb, podcast, express, flash] = await Promise.all([
     asset(request, env, '/articles-list.json'), asset(request, env, '/revue_presse.json'), asset(request, env, '/tic_social.json'),
-    asset(request, env, '/data/fb-posts.json'), asset(request, env, '/podcast/latest.json'), asset(request, env, '/data/express-latest.json')
+    asset(request, env, '/data/fb-posts.json'), asset(request, env, '/podcast/latest.json'), asset(request, env, '/data/express-latest.json'),
+    asset(request, env, '/data/flash-latest.json')
   ]);
   const items = [];
   const check = (nom, date, alerteH, panneH) => {
@@ -40,6 +41,7 @@ export async function onRequestGet({ request, env }) {
   check('Veille institutions & médias', veille?.lastUpdated, 6, 24);
   check('Facebook des entreprises', plusRecent(Array.isArray(fb) ? fb : [], p => p.date), 24, 72);
   check('Podcast', podcast?.genere && podcast.genere + '+01:00', 14, 36);
+  check('Flash Info (vidéo)', plusRecent(Array.isArray(flash) ? flash : [], f => f.publishedAt || (f.id && f.id.replace(/^(\d{4})(\d{2})(\d{2})-(\d{2})(\d{2})(\d{2}).*/, '$1-$2-$3T$4:$5:$6+01:00'))), 24, 72);
   check('L\'info en 30 s', plusRecent(Array.isArray(express) ? express : [], e => e.publishedAt || e.date || (e.id && e.id.replace(/^(\d{4})(\d{2})(\d{2})-(\d{2})(\d{2})(\d{2}).*/, '$1-$2-$3T$4:$5:$6Z'))), 24, 72);
 
   // Workflows GitHub : dernier passage terminé de chacun.

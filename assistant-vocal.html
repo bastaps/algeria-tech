@@ -7,6 +7,10 @@
   <meta name="theme-color" content="#006233" />
   <meta name="description" content="Assistant vocal francophone d'Algeria Tech — dernières actus, recherche, lecture d'articles et questions libres à la voix." />
   <title>Assistant Vocal — Algeria Tech</title>
+  <link rel="manifest" href="/assistant.webmanifest" />
+  <link rel="apple-touch-icon" href="/images/assistant-icon-192.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Assistant AT" />
   <link rel="stylesheet" href="/style.css" />
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
@@ -200,6 +204,10 @@
       .av-chips::-webkit-scrollbar { display: none; }
       .av-chip { flex: 0 0 auto; }
     }
+    .av-tap { position: fixed; left: 12px; right: 12px; bottom: 16px; z-index: 50; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px; border: none; border-radius: 18px; background: var(--av-accent-2); color: #fff; font: inherit; font-size: 16px; font-weight: 800; box-shadow: 0 12px 30px rgba(0,0,0,.3); cursor: pointer; }
+    .av-tap[hidden] { display: none; }
+    .av-install { display: none; }
+    .av-install.show { display: inline-flex; }
     .av-msg.interim { color: var(--av-muted); font-style: italic; background: transparent; border-left: 3px dashed var(--av-border); }
     @keyframes av-fade { from{ opacity:0; transform:translateY(6px) } to{ opacity:1; transform:translateY(0) } }
 
@@ -264,6 +272,7 @@
         <span><b>Algeria Tech</b><span>Assistant Vocal</span></span>
       </a>
       <div class="av-top-actions">
+        <button id="installBtn" class="av-back av-install" type="button" title="Installer l'application sur ce téléphone"><i class="fas fa-download"></i><span>Installer</span></button>
         <button id="themeBtn" class="av-icon-btn" title="Changer le thème" aria-label="Changer le thème">
           <i class="fas fa-moon"></i>
         </button>
@@ -404,6 +413,7 @@
         </div>
       </div>
 
+      <button id="tapSpeak" class="av-tap" type="button" hidden><i class="fas fa-volume-high"></i> Touchez pour écouter la réponse</button>
       <div id="reader" class="av-reader" hidden>
         <button id="readerPrev" type="button" aria-label="Précédent"><i class="fas fa-backward-step"></i></button>
         <button id="readerPlay" type="button" aria-label="Lecture / pause"><i class="fas fa-pause"></i></button>
@@ -977,6 +987,7 @@
         reader.paused = false; readerUI();
         if (reader.kind === 'podcast') {
           reader.audio.src = it.mp3; reader.audio.playbackRate = parseFloat(rate.value) || 1;
+          spokenNorm = norm(it.titre || ''); if (!bargeIn) startBargeIn();
           reader.audio.play().catch(() => { reader.paused = true; readerUI(); });
         } else {
           const txt = (reader.i ? 'Article suivant. ' : '') + it.titre + '. ' + (it.extrait || '') + (it.aretenir && it.aretenir !== it.extrait ? ' À retenir : ' + it.aretenir : '');
@@ -986,14 +997,14 @@
       function readerStop(fini) {
         if (reader.audio) { reader.audio.pause(); }
         if (reader.kind === 'tts') stopSpeaking();
-        reader.kind = null; readerUI(); keepAwake(handsFree);
+        reader.kind = null; readerUI(); keepAwake(handsFree); endBargeIn();
         setStatus('', READY);
         if (fini) addMessage('bot', 'Fin de la lecture.');
       }
       function readerToggle() {
         if (!reader.kind) return;
         reader.paused = !reader.paused;
-        if (reader.kind === 'podcast') { if (reader.paused) reader.audio.pause(); else reader.audio.play(); }
+        if (reader.kind === 'podcast') { if (reader.paused) { reader.audio.pause(); endBargeIn(); } else { reader.audio.play(); startBargeIn(); } }
         else if (reader.paused) stopSpeaking(); else readerPlayItem();
         readerUI();
       }
@@ -1011,6 +1022,7 @@
             navigator.mediaSession.setActionHandler('pause', () => { if (!reader.paused) readerToggle(); });
             navigator.mediaSession.setActionHandler('nexttrack', () => readerSkip(1));
             navigator.mediaSession.setActionHandler('previoustrack', () => readerSkip(-1));
+            try { navigator.mediaSession.setActionHandler('stop', () => stopAll(true)); } catch (e) {}
           }
         }
         Object.assign(reader, { kind: 'podcast', i: 0, items: [{ titre: 'Introduction', mp3: L.intro.mp3 }, ...L.items.map(x => ({ titre: x.titre, mp3: x.mp3 })), { titre: 'Conclusion', mp3: L.outro.mp3 }] });
@@ -1111,11 +1123,43 @@
         } catch (e) { return text; }
       }
 
+      // ======================================================================
+      // Interruption vocale : pendant que l'assistant parle (ou lit le podcast), le micro reste ouvert
+      // et ne réagit QU'AUX mots d'arrêt. On ignore un mot d'arrêt prononcé par l'assistant lui-même (écho).
+      // ======================================================================
+      const STOP_WORDS = /\b(arrete|arretez|arrete toi|stop|stoppe|stopper|tais toi|taisez vous|silence|chut|ca suffit|coupe|pause)\b/;
+      const STOP_AR = /(توقف|بركا|اسكت|سكت|حبس|ستوب|كفى|خلاص)/;
+      let bargeIn = false, bargeInOff = false, spokenNorm = '', muteNext = false;
+      function startBargeIn() {
+        if (!recognition || dictating || bargeInOff || (bargeIn && isListening)) return;
+        bargeIn = true; recMode = 'bargein';
+        if (isListening) { try { recognition.abort(); } catch (e) {} isListening = false; }
+        setTimeout(() => {
+          if (!bargeIn || isListening) return;
+          recognition.continuous = true; recognition.lang = langue === 'fr' ? 'fr-FR' : 'ar-DZ';
+          try { recognition.start(); } catch (e) {}
+        }, 350);
+      }
+      function endBargeIn() {
+        if (!bargeIn) return;
+        bargeIn = false; recMode = dictating ? 'dictation' : handsFree ? 'handsfree' : 'command';
+        if (isListening) { try { recognition.abort(); } catch (e) {} isListening = false; }
+      }
+      // « Arrête » : coupe TOUTE diffusion (voix, podcast, lecture enchaînée, réponse en préparation).
+      function stopAll(dit) {
+        if (busy) muteNext = true;
+        if (reader.kind) readerStop(false);
+        stopSpeaking(); endBargeIn();
+        if (dit) addMessage('bot', '⏹ Arrêté.');
+        setStatus('', READY);
+        if (handsFree) setTimeout(startListening, 400);
+      }
+
       // ---- Intentions locales ----
       async function localIntent(input) {
         const s = norm(input);
         if (reader.kind && /^pause\b/.test(s)) { if (!reader.paused) readerToggle(); return { text: 'En pause.', silent: true }; }
-        if (/^(stop|arrete|silence|tais toi|chut|ca suffit|pause)\b/.test(s)) { if (reader.kind) readerStop(false); stopSpeaking(); return { text: 'D\'accord.', silent: true }; }
+        if (/^(stop|arrete|silence|tais toi|chut|ca suffit|pause|coupe)\b/.test(s)) { stopAll(false); return { text: 'D\'accord.', silent: true }; }
         if (/^(bonjour|salut|coucou|hello|bonsoir|hey|salam|saha)\b/.test(s) && s.split(' ').length <= 3 && !/brief/.test(s)) return { text: 'Bonjour ! Demandez-moi les dernières actus, un sujet à chercher, ou posez votre question.' };
         if (/^(merci|thanks|saha|barak allah)/.test(s)) return { text: 'Avec plaisir !' };
         if (/^(au revoir|bye|a bientot|ciao|bonne nuit)/.test(s)) { convMode = false; syncConv(); return { text: 'Au revoir et à bientôt sur Algeria Tech !' }; }
@@ -1260,7 +1304,9 @@
         if (!speakerEnabled || !synth) { if (after) after(); return false; }
         synth.cancel();
         const token = ++speakToken;
-        if (isListening) { resumeAfterSpeak = true; try { recognition.abort(); } catch (e) {} }
+        if (isListening && recMode !== 'bargein') resumeAfterSpeak = true;
+        if (needsTap(text, after)) return true;
+        spokenNorm = norm(text); startBargeIn();
         const isAr = /[\u0600-\u06FF]/.test(text);
         const parts = speakable(text).match(/[^.!?…؟]+[.!?…؟]*/g) || [text];
         const voice = isAr ? pickArVoice() : ((voiceSelect.value && synth.getVoices().find(v => v.name === voiceSelect.value)) || pickDefaultVoice());
@@ -1278,12 +1324,13 @@
       }
       function doneSpeaking(after) {
         micBtn.classList.remove('speaking');
+        if (!(reader.kind === 'podcast' && !reader.paused) && !(reader.kind === 'tts' && after)) endBargeIn();
         if (after) return after();
         setStatus('', READY);
-        if (handsFree || dictating) { resumeAfterSpeak = false; setTimeout(startListening, 250); return; }
+        if (handsFree || dictating) { resumeAfterSpeak = false; setTimeout(startListening, 450); return; }
         if (resumeAfterSpeak || convMode) { resumeAfterSpeak = false; if (convMode && recognition) setTimeout(startListening, 250); }
       }
-      function stopSpeaking() { speakToken++; if (synth) synth.cancel(); micBtn.classList.remove('speaking'); resumeAfterSpeak = false; if (!isListening) setStatus('', READY); }
+      function stopSpeaking() { speakToken++; if (synth) synth.cancel(); if (!(reader.kind === 'podcast' && !reader.paused)) endBargeIn(); micBtn.classList.remove('speaking'); resumeAfterSpeak = false; if (!isListening) setStatus('', READY); }
 
       // ---- Entrée unifiée : voix, suggestions, clavier ----
       async function handleUserInput(text, fromVoice) {
@@ -1323,6 +1370,7 @@
         history.push({ role: 'user', content: text }, { role: 'assistant', content: out.text });
         history = history.slice(-12);
         if (out.silent) { setStatus('', READY); if (handsFree && !reader.kind) setTimeout(startListening, 300); return; }
+        if (muteNext) { muteNext = false; setStatus('', READY); return; }
         const spoke = speakText(out.spoken || out.text, out.after);
         if (!spoke) { setStatus('', READY); if (handsFree || (fromVoice && convMode)) setTimeout(startListening, 300); }
       }
@@ -1340,8 +1388,15 @@
         recognition.interimResults = true;
         recognition.maxAlternatives = 1;
 
-        recognition.onstart = () => { isListening = true; micBtn.classList.add('listening'); eq.classList.add('on'); setStatus('listening', dictating ? '🎙️ Dictée en cours… dites « fin de la dictée »' : recMode === 'handsfree' ? '👂 Mains libres — dites « Algeria Tech, … »' : '🎙️ Je vous écoute…'); };
+        recognition.onstart = () => { isListening = true; if (recMode === 'bargein') return; micBtn.classList.add('listening'); eq.classList.add('on'); setStatus('listening', dictating ? '🎙️ Dictée en cours… dites « fin de la dictée »' : recMode === 'handsfree' ? '👂 Mains libres — dites « Algeria Tech, … »' : '🎙️ Je vous écoute…'); };
         recognition.onresult = (event) => {
+          if (recMode === 'bargein') {
+            let heard = '';
+            for (let i = event.resultIndex; i < event.results.length; i++) heard += ' ' + event.results[i][0].transcript;
+            const m = norm(heard).match(STOP_WORDS) || heard.match(STOP_AR);
+            if (m && !spokenNorm.includes(m[0])) stopAll(true);
+            return;
+          }
           let interim = '', finalTxt = '';
           for (let i = event.resultIndex; i < event.results.length; i++) {
             const r = event.results[i];
@@ -1366,6 +1421,7 @@
           handleUserInput(finalTxt, true);
         };
         recognition.onerror = (event) => {
+          if (recMode === 'bargein') { if (event.error === 'not-allowed' || event.error === 'service-not-allowed') bargeInOff = true; return; }
           if ((handsFree || dictating) && event.error === 'no-speech') return;
           if (event.error === 'aborted' || event.error === 'no-speech') { if (event.error === 'no-speech') setStatus('', 'Je n\'ai rien entendu — touchez le micro pour réessayer'); return; }
           let msg = 'Une erreur est survenue';
@@ -1374,7 +1430,9 @@
           setStatus('error', msg);
         };
         recognition.onend = () => {
-          isListening = false; micBtn.classList.remove('listening'); eq.classList.remove('on'); clearInterim();
+          isListening = false;
+          if (bargeIn) { if ((synth && synth.speaking) || (reader.kind === 'podcast' && !reader.paused)) setTimeout(() => { if (bargeIn && !isListening) { try { recognition.start(); } catch (e) {} } }, 300); return; }
+          micBtn.classList.remove('listening'); eq.classList.remove('on'); clearInterim();
           if (!busy && !(synth && synth.speaking) && statusDot.classList.contains('listening')) setStatus('', READY);
           if ((handsFree || dictating) && !busy && !(synth && synth.speaking) && !document.hidden) setTimeout(startListening, 300);
         };
@@ -1424,7 +1482,7 @@
       });
       chips.addEventListener('click', (e) => { const b = e.target.closest('.av-chip'); if (b) handleUserInput(b.dataset.cmd); });
       askForm.addEventListener('submit', (e) => { e.preventDefault(); const v = askInput.value; askInput.value = ''; handleUserInput(v); });
-      stopBtn.addEventListener('click', () => { if (reader.kind) readerStop(false); stopSpeaking(); if (isListening && !handsFree) stopListening(); });
+      stopBtn.addEventListener('click', () => { stopAll(false); if (isListening && !handsFree) stopListening(); });
       convBtn.addEventListener('click', () => { convMode = !convMode; syncConv(); });
       clearBtn.addEventListener('click', () => {
         transcript.innerHTML = '<div class="av-placeholder">Vos échanges apparaîtront ici…</div>';
@@ -1459,6 +1517,33 @@
         else { if (handsFree || dictating) setTimeout(startListening, 400); if (handsFree || reader.kind) keepAwake(true); checkAlertes(true); }
       });
       setStatus(recognition ? '' : 'error', recognition ? READY : 'Micro indisponible — écrivez votre question');
+      // Les navigateurs mobiles interdisent de parler avant le premier toucher (application ouverte par « Ok Google »
+      // ou par un raccourci) : on garde la réponse et un grand bouton « Touchez pour écouter » la lit.
+      const tapSpeak = $('tapSpeak');
+      let pending = null;
+      function needsTap(text, after) {
+        if (!navigator.userActivation || navigator.userActivation.hasBeenActive) return false;
+        pending = { text, after }; tapSpeak.hidden = false; setStatus('', '🔊 Touchez le bouton rouge pour écouter');
+        return true;
+      }
+      tapSpeak.addEventListener('click', () => { tapSpeak.hidden = true; const p = pending; pending = null; if (p) speakText(p.text, p.after); });
+
+      const installBtn = $('installBtn');
+      let installEvt = null;
+      window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); installEvt = e; installBtn.classList.add('show'); });
+      installBtn.addEventListener('click', async () => { if (!installEvt) return; installEvt.prompt(); await installEvt.userChoice.catch(() => {}); installEvt = null; installBtn.classList.remove('show'); });
+      window.addEventListener('appinstalled', () => { installBtn.classList.remove('show'); addMessage('bot', 'Application installée ✅ Vous la retrouvez sur l\'écran d\'accueil (« Assistant AT »). Dites « Ok Google, ouvre Assistant AT » pour la lancer à la voix.'); });
+
+      // Raccourcis de l'icône (appui long) et lancement depuis l'application : /assistant-vocal?cmd=…
+      const qs = new URLSearchParams(location.search);
+      const CMDS = { briefing: 'Briefing', revue: 'La revue de presse', point: 'Le point du jour', alertes: 'Mes alertes', podcast: 'Joue le podcast', dicter: 'Dicter un article', etat: 'État du site', meteo: 'Météo demain', prieres: 'Heures de prière' };
+      if (qs.get('cmd') && CMDS[qs.get('cmd')]) setTimeout(() => handleUserInput(CMDS[qs.get('cmd')]), 400);
+      else if (qs.get('source') === 'app' && recognition && navigator.permissions) {
+        // Ouverte comme application : si le micro est déjà autorisé, on écoute tout de suite.
+        navigator.permissions.query({ name: 'microphone' }).then(st => { if (st.state === 'granted') setTimeout(startListening, 500); }).catch(() => {});
+      }
+      if (qs.has('cmd') || qs.has('source')) window.history.replaceState(null, '', location.pathname);
+
       langSeg.querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.l === langue));
       if (langue !== 'fr') { askInput.placeholder = '…أو اكتب سؤالك هنا'; askInput.dir = 'auto'; }
       loadArticles();
