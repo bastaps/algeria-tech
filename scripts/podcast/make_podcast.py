@@ -14,7 +14,7 @@ CRENEAU = args[0] if args else ('matin' if datetime.now().hour < 11 else 'midi' 
 LANGS = (sys.argv[sys.argv.index('--langs') + 1] if '--langs' in sys.argv else ('fr,ar,en' if CRENEAU == 'matin' else 'fr')).split(',')   # midi/soir : français seul (taille du dépôt)
 FENETRE_H = {'matin': 24, 'midi': 8, 'soir': 6}[CRENEAU]
 MAX = 10
-VOIX = {'fr': 'fr-FR-RemyMultilingualNeural', 'ar': 'ar-DZ-AminaNeural', 'en': 'en-US-AndrewMultilingualNeural'}
+VOIX = {'fr': 'fr-FR-HenriNeural', 'ar': 'ar-SA-HamedNeural', 'en': 'en-US-AndrewMultilingualNeural'}
 LANGNOM = {'fr': 'français', 'ar': 'arabe (standard simple, compréhensible en Algérie)', 'en': 'anglais'}
 SUJETS = re.compile(r'télécom|telecom|numériqu|numeriqu|digital|internet|fibre|5g|4g|mobile|smartphone|\bia\b|intelligence artificielle|'
   r'artificial intelligence|\bai\b|startup|start-up|cyber|donnée|data|technolog|satellite|djezzy|mobilis|ooredoo|algérie télécom|arpce|'
