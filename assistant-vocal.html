@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#006233" />
-  <meta name="description" content="Assistant vocal francophone d'Algeria Tech — reconnaissance et synthèse vocale 100% dans le navigateur, aucune donnée envoyée." />
+  <meta name="description" content="Assistant vocal francophone d'Algeria Tech — dernières actus, recherche, lecture d'articles et questions libres à la voix." />
   <title>Assistant Vocal — Algeria Tech</title>
   <link rel="stylesheet" href="/style.css" />
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -167,6 +167,15 @@
     .av-msg .lbl { font-size: 10.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .6px; color: var(--av-muted); margin-bottom: 3px; }
     .av-msg.user { background: rgba(0,98,51,.10); border-left: 3px solid var(--av-accent); }
     .av-msg.bot { background: rgba(210,16,52,.08); border-left: 3px solid var(--av-accent-2); }
+    .av-msg.bot .src { display: block; margin-top: 6px; font-size: 12.5px; }
+    .av-msg.bot .src a { color: var(--av-accent); font-weight: 700; text-decoration: none; }
+    .av-msg.bot .src a:hover { text-decoration: underline; }
+    .av-msg.thinking span { display: inline-block; width: 6px; height: 6px; margin-right: 4px; border-radius: 50%; background: var(--av-muted); animation: av-pulse 1s infinite; }
+    .av-msg.thinking span:nth-child(2) { animation-delay: .2s } .av-msg.thinking span:nth-child(3) { animation-delay: .4s }
+    .av-ask { display: flex; gap: 8px; margin-bottom: 16px; }
+    .av-ask input { flex: 1; min-width: 0; padding: 11px 14px; border: 1px solid var(--av-border); border-radius: 12px; background: var(--av-surface); color: var(--av-text); font: inherit; font-size: 14px; }
+    .av-ask input:focus { outline: 2px solid var(--av-accent); outline-offset: 1px; }
+    .av-ask button { width: 46px; flex: 0 0 auto; border: none; border-radius: 12px; background: var(--av-accent); color: #fff; cursor: pointer; font-size: 15px; }
     .av-msg.interim { color: var(--av-muted); font-style: italic; background: transparent; border-left: 3px dashed var(--av-border); }
     @keyframes av-fade { from{ opacity:0; transform:translateY(6px) } to{ opacity:1; transform:translateY(0) } }
 
@@ -240,9 +249,9 @@
 
     <main class="av-main">
       <div class="av-hero">
-        <span class="av-kicker"><i class="fas fa-shield-halved"></i> 100% local · aucune donnée envoyée</span>
+        <span class="av-kicker"><i class="fas fa-wand-magic-sparkles"></i> Actus Algeria Tech + IA</span>
         <h1>Assistant Vocal</h1>
-        <p>Parlez, il vous répond. Reconnaissance et synthèse vocale directement dans votre navigateur, en français.</p>
+        <p>Demandez les dernières actus, cherchez un sujet, faites-vous lire un article ou posez n'importe quelle question.</p>
       </div>
 
       <div class="av-card">
@@ -269,16 +278,17 @@
         <!-- Statut -->
         <div class="av-status">
           <span id="statusDot" class="av-dot"></span>
-          <span id="statusText">Prêt — touchez le micro pour parler</span>
+          <span id="statusText">Prêt — touchez le micro ou écrivez votre question</span>
         </div>
 
         <!-- Suggestions -->
         <div id="chips" class="av-chips">
-          <button class="av-chip" data-cmd="Bonjour">👋 Bonjour</button>
-          <button class="av-chip" data-cmd="Quelle heure est-il ?">🕐 L'heure</button>
-          <button class="av-chip" data-cmd="Quel jour sommes-nous ?">📅 La date</button>
-          <button class="av-chip" data-cmd="Qui es-tu ?">🤖 Qui es-tu ?</button>
-          <button class="av-chip" data-cmd="Raconte-moi une blague">😄 Une blague</button>
+          <button class="av-chip" data-cmd="Briefing">☀️ Briefing</button>
+          <button class="av-chip" data-cmd="La revue de presse">🗞️ Revue de presse</button>
+          <button class="av-chip" data-cmd="Le point du jour">⏱️ Point du jour</button>
+          <button class="av-chip" data-cmd="Météo demain">🌤️ Météo demain</button>
+          <button class="av-chip" data-cmd="Quelles sont les dernières actualités ?">📰 Dernières actus</button>
+          <button class="av-chip" data-cmd="Que sais-tu faire ?">❓ Aide</button>
         </div>
 
         <!-- Transcription -->
@@ -286,11 +296,25 @@
           <div class="av-placeholder">Vos échanges apparaîtront ici…</div>
         </div>
 
+        <!-- Saisie clavier (sans micro, ou dans un lieu bruyant) -->
+        <form id="askForm" class="av-ask" autocomplete="off">
+          <input id="askInput" type="text" maxlength="500" placeholder="…ou écrivez votre question ici" aria-label="Écrire une question" />
+          <button type="submit" aria-label="Envoyer"><i class="fas fa-paper-plane"></i></button>
+        </form>
+
         <!-- Contrôles -->
         <div class="av-controls">
           <button id="clearBtn" class="av-ctrl" title="Effacer la conversation" aria-label="Effacer">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="3 6 5 6 21 6"/><path d="M19 6l-2 14H7L5 6"/><path d="M10 11v6M14 11v6"/>
+            </svg>
+          </button>
+          <button id="stopBtn" class="av-ctrl" title="Arrêter la lecture" aria-label="Arrêter la lecture">
+            <svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
+          </button>
+          <button id="convBtn" class="av-ctrl" title="Mode conversation : le micro se relance après chaque réponse" aria-label="Mode conversation">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>
             </svg>
           </button>
           <button id="speakerBtn" class="av-ctrl active" title="Activer / couper la voix" aria-label="Synthèse vocale">
@@ -337,7 +361,7 @@
       </div>
 
       <p class="av-foot">
-        Propulsé par <code>Web Speech API</code> · aucune donnée envoyée<br>
+        Micro et voix : <code>Web Speech API</code> du navigateur · questions libres : IA Algeria Tech (texte seulement, jamais l'audio)<br>
         <a href="/">← Retour à l'accueil Algeria Tech</a>
       </p>
     </main>
@@ -358,158 +382,464 @@
     })();
 
     // ===== Assistant vocal =====
+    // Intentions locales (instantanées, sans réseau) : actus, recherche, lecture d'article, navigation, heure…
+    // Tout le reste part vers /api/assistant (IA Mistral → Gemini → Groq, nourrie des derniers articles).
+    // Anti-écho : le micro est coupé pendant que l'assistant parle, puis relancé en mode conversation.
     (function () {
       'use strict';
 
-      const micBtn = document.getElementById('micBtn');
-      const clearBtn = document.getElementById('clearBtn');
-      const copyBtn = document.getElementById('copyBtn');
-      const downloadBtn = document.getElementById('downloadBtn');
-      const speakerBtn = document.getElementById('speakerBtn');
-      const voiceSelect = document.getElementById('voiceSelect');
-      const transcript = document.getElementById('transcript');
-      const statusDot = document.getElementById('statusDot');
-      const statusText = document.getElementById('statusText');
-      const warning = document.getElementById('warning');
-      const iosHint = document.getElementById('iosHint');
-      const eq = document.getElementById('eq');
-      const rate = document.getElementById('rate');
-      const pitch = document.getElementById('pitch');
-      const rateVal = document.getElementById('rateVal');
-      const pitchVal = document.getElementById('pitchVal');
-      const chips = document.getElementById('chips');
+      const $ = (id) => document.getElementById(id);
+      const micBtn = $('micBtn'), clearBtn = $('clearBtn'), copyBtn = $('copyBtn'), downloadBtn = $('downloadBtn');
+      const speakerBtn = $('speakerBtn'), stopBtn = $('stopBtn'), convBtn = $('convBtn');
+      const voiceSelect = $('voiceSelect'), transcript = $('transcript');
+      const statusDot = $('statusDot'), statusText = $('statusText');
+      const warning = $('warning'), iosHint = $('iosHint'), eq = $('eq');
+      const rate = $('rate'), pitch = $('pitch'), rateVal = $('rateVal'), pitchVal = $('pitchVal');
+      const chips = $('chips'), askForm = $('askForm'), askInput = $('askInput');
 
-      let recognition = null;
-      let isListening = false;
-      let speakerEnabled = true;
-      let conversation = [];
       const LANG = 'fr-FR';
-
+      const READY = 'Prêt — touchez le micro ou écrivez votre question';
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
       const synth = window.speechSynthesis;
-
       const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
       if (isIOS) iosHint.classList.add('show');
 
+      // ---- Préférences (par navigateur, facultatives) ----
+      const store = {
+        get(k, d) { try { const v = localStorage.getItem('av-' + k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } },
+        set(k, v) { try { localStorage.setItem('av-' + k, JSON.stringify(v)); } catch (e) {} }
+      };
+      let speakerEnabled = store.get('speaker', true);
+      let convMode = store.get('conv', true);
+      rate.value = store.get('rate', 1); pitch.value = store.get('pitch', 1);
+
+      let recognition = null, isListening = false, busy = false, resumeAfterSpeak = false;
+      let conversation = [];          // pour copier / télécharger
+      let history = [];               // contexte envoyé à l'IA
+      let articles = null;            // cache articles-list.json
+      let lastList = [], lastQuery = null, listOffset = 0;
+
       // ---- Helpers ----
-      function setStatus(type, text) {
-        statusDot.className = 'av-dot' + (type ? ' ' + type : '');
-        statusText.textContent = text;
-      }
-      function escapeHtml(s) {
-        return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
-      }
+      function setStatus(type, text) { statusDot.className = 'av-dot' + (type ? ' ' + type : ''); statusText.textContent = text; }
+      function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])); }
       function clearInterim() { const el = transcript.querySelector('.interim'); if (el) el.remove(); }
       function clearPlaceholder() { const el = transcript.querySelector('.av-placeholder'); if (el) el.remove(); }
+      function norm(s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[’']/g, ' ').replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim(); }
+      function articleUrl(a) { return a.href || '/article/' + encodeURIComponent(a.id); }
 
-      function addMessage(role, text) {
+      function addMessage(role, text, links) {
         clearPlaceholder(); clearInterim();
         const div = document.createElement('div');
         div.className = 'av-msg ' + (role === 'user' ? 'user' : 'bot');
-        div.innerHTML = '<div class="lbl">' + (role === 'user' ? 'Vous' : 'Assistant') + '</div><div>' + escapeHtml(text) + '</div>';
+        let html = '<div class="lbl">' + (role === 'user' ? 'Vous' : 'Assistant') + '</div><div>' + escapeHtml(text).replace(/\n/g, '<br>') + '</div>';
+        if (links && links.length) html += links.map(l => '<span class="src">→ <a href="' + escapeHtml(l.href) + '">' + escapeHtml(l.label) + '</a></span>').join('');
+        div.innerHTML = html;
         transcript.appendChild(div);
         transcript.scrollTop = transcript.scrollHeight;
         conversation.push({ role, text, ts: new Date().toISOString() });
       }
+      function showThinking(on) {
+        let el = transcript.querySelector('.thinking');
+        if (on && !el) { clearPlaceholder(); el = document.createElement('div'); el.className = 'av-msg bot thinking'; el.innerHTML = '<span></span><span></span><span></span>'; transcript.appendChild(el); transcript.scrollTop = transcript.scrollHeight; }
+        if (!on && el) el.remove();
+      }
 
-      // Réponses locales (démo). Branchez un backend via callYourAI(text) pour une vraie IA.
-      function generateLocalReply(input) {
-        const s = input.toLowerCase().trim();
-        if (/^(bonjour|salut|coucou|hello|bonsoir|hey)\b/.test(s)) return 'Bonjour ! Comment puis-je vous aider aujourd’hui ?';
-        if (/(merci|thanks|thank you)/.test(s)) return 'Avec plaisir ! 😊';
-        if (/(au revoir|bye|à bientôt|ciao|adieu)/.test(s)) return 'Au revoir et à bientôt sur Algeria Tech !';
-        if (/(qui es-tu|tu es qui|comment tu t’appelles|comment t’appelles|ton nom)/.test(s)) return 'Je suis l’assistant vocal d’Algeria Tech, propulsé par la Web Speech API de votre navigateur.';
-        if (/(quelle heure|il est quelle heure|l’heure)/.test(s)) return 'Il est ' + new Date().toLocaleTimeString('fr-FR') + '.';
-        if (/(quel jour|quelle date|la date|aujourd’hui)/.test(s)) return 'Nous sommes le ' + new Date().toLocaleDateString('fr-FR', { weekday:'long', day:'numeric', month:'long', year:'numeric' }) + '.';
-        if (/(blague|rigoler|drôle|fais-moi rire)/.test(s)) {
-          const jokes = [
-            'Pourquoi les développeurs préfèrent le noir ? Parce que la lumière attire les bugs !',
-            'Un octet entre dans un bar… le barman dit : « désolé, on ne sert pas les demi-octets ».',
-            'Comment appelle-t-on un algorithme qui chante ? Un algo-rythme !'
-          ];
-          return jokes[Math.floor(Math.random() * jokes.length)];
+      // ---- Articles du site ----
+      async function loadArticles() {
+        if (articles) return articles;
+        try {
+          const r = await fetch('/articles-list.json', { cache: 'no-cache' });
+          const d = await r.json();
+          articles = (Array.isArray(d) ? d : (d.articles || [])).filter(a => a && a.titre);
+        } catch (e) { articles = []; }
+        return articles;
+      }
+      const STOP = new Set('le la les un une des de du d l et en a au aux sur pour par avec sans dans ce ces cet cette mes moi me les actu actus actualite actualites info infos news nouvelles article articles dernieres derniere recentes quoi est sont donne parle parler cherche chercher recherche trouve trouver concernant propos sujet quel quels quelle quelles sont y il t aujourd hui donne dis peux tu je veux moi nous neuf cote niveau chez sujet'.split(' '));
+      function keywords(q) { return norm(q).split(' ').filter(w => w.length > 1 && !STOP.has(w)); }
+      function searchArticles(list, q) {
+        const kws = keywords(q);
+        if (!kws.length) return [];
+        return list.map(a => {
+          const t = norm(a.titre), c = norm(a.categorie), g = norm((a.tags || []).join(' ')), e = norm(a.extrait);
+          let sc = 0;
+          kws.forEach(k => {
+            const re = new RegExp('\\b' + k + (k.length > 3 ? '' : '\\b'));
+            if (re.test(t)) sc += 4; if (re.test(c)) sc += 3; if (re.test(g)) sc += 3; if (re.test(e)) sc += 1;
+          });
+          return { a, sc };
+        }).filter(x => x.sc > 0).sort((x, y) => y.sc - x.sc).map(x => x.a);
+      }
+      const ORD = { premier: 1, premiere: 1, un: 1, une: 1, deuxieme: 2, second: 2, seconde: 2, deux: 2, troisieme: 3, trois: 3, quatrieme: 4, quatre: 4, cinquieme: 5, cinq: 5, dernier: -1, derniere: -1 };
+      function pickIndex(s) {
+        const m = s.match(/\b(\d{1,2})\b/); if (m) return parseInt(m[1], 10);
+        for (const w of s.split(' ')) if (ORD[w] !== undefined) return ORD[w];
+        return null;
+      }
+      function listReply(items, intro) {
+        lastList = items;
+        const top = items.slice(listOffset, listOffset + 5);
+        const spoken = top.map((a, i) => (listOffset + i + 1) + '. ' + a.titre).join('\n');
+        const more = items.length > listOffset + 5 ? '\nDites « la suite » pour d\'autres titres, ou « lis le 2 » pour écouter un article.' : '\nDites « lis le 1 » pour écouter un article, ou « ouvre le 1 ».';
+        return { text: intro + '\n' + spoken + more, links: top.map(a => ({ href: articleUrl(a), label: a.titre })) };
+      }
+
+      // ---- Pages du site (navigation vocale) ----
+      const PAGES = [
+        [/accueil|page d accueil|une du site/, '/', 'l\'accueil'],
+        [/barometre/, '/barometre', 'le baromètre'],
+        [/comparateur|forfait|offres? (mobile|internet)/, '/comparateur/', 'le comparateur d\'offres'],
+        [/revue de presse|revue/, '/revue/', 'la revue de presse'],
+        [/operateur/, '/operateurs', 'la page des opérateurs'],
+        [/entreprise/, '/entreprises', 'la page des entreprises'],
+        [/wiki|lexique|glossaire/, '/wiki', 'le wiki'],
+        [/podcast/, '/podcast', 'le podcast'],
+        [/telephone|smartphone|dzphone/, '/dzphones/', 'DZPhones'],
+        [/legislation|journal officiel|constitution|code/, '/jo-interactif/', 'la législation'],
+        [/actualites tic|actus tic/, '/actualites-tic', 'les actualités TIC'],
+        [/infographie/, '/infographies/index.html', 'les infographies']
+      ];
+      function goTo(href, label) {
+        addMessage('bot', 'J\'ouvre ' + label + '.');
+        speakText('J\'ouvre ' + label + '.', () => { location.href = href; });
+        return { nav: true };
+      }
+
+      // ---- Sources du jour : revue de presse, veille institutions & médias, Facebook entreprises ----
+      async function loadJSON(u) { try { const r = await fetch(u, { cache: 'no-cache' }); return r.ok ? await r.json() : null; } catch (e) { return null; } }
+      function firstSentence(s) {
+        s = String(s || '').replace(/\s+/g, ' ').trim();
+        const m = s.match(/^(.{30,170}?[.!?])(\s|$)/);
+        return m ? m[1] : (s.length > 150 ? s.slice(0, 147) + '…' : s);
+      }
+      async function revueItems() {
+        const d = await loadJSON('/revue_presse.json');
+        if (!d || !Array.isArray(d.articles)) return null;
+        return { d, items: d.articles.map(a => ({ titre: a.titre + (a.source ? ' (' + a.source + ')' : ''), extrait: a.resume, href: a.url })) };
+      }
+      // Les pages scrapées remontent aussi des menus (« Explore More », « Offres Internet »…) : on ne garde que de vraies phrases.
+      const NOISE = /^(explore more|news|offres?|select a country|accueil|en savoir plus|lire la suite|voir plus|contact|nos offres|decouvrir)/;
+      const CAT_ORDER = ['Algeria Tech', 'Ministère', 'Opérateurs', 'Infrastructure', 'Entreprises', 'Équipementiers', 'Médias TIC', 'Tech International'];
+      async function dayItems(since) {
+        const [t, fb, arts] = await Promise.all([loadJSON('/tic_social.json'), loadJSON('/data/fb-posts.json'), loadArticles()]);
+        const out = [];
+        // Garde les vraies phrases en français (pas les menus, titres de site ni posts en arabe, mal lus par une voix française).
+        const keep = (txt) => {
+          const n = norm(txt), latin = (String(txt).match(/[a-zà-ÿ]/gi) || []).length / Math.max(1, String(txt).replace(/\s/g, '').length);
+          return n.length >= 35 && n.split(' ').length >= 6 && latin >= 0.6 && !NOISE.test(n) && !(txt.length < 70 && / [-–|] /.test(txt));
+        };
+        const shortName = (n) => String(n || '').replace(/\s*[—(].*$/, '').trim();
+        arts.forEach(a => { const d = new Date((a.date || '') + 'T' + (a.heure || '12:00') + ':00'); if (+d >= since) out.push({ cat: 'Algeria Tech', titre: a.titre, extrait: a.extrait, aretenir: a.aretenir, id: a.id, t: +d }); });
+        ((t && t.posts) || []).forEach(p => {
+          const d = new Date(p.date), tx = (p.text && (p.text.fr || Object.values(p.text)[0])) || '';
+          if (+d >= since && keep(tx)) {
+            const [tt, ...rest] = tx.split(' — '), corps = rest.join(' — ').replace(/^feed\s+/i, '').trim();
+            const titre = tt.length >= 20 && corps ? tt.trim() : firstSentence(tx);
+            out.push({ cat: p.category || 'Veille', titre: shortName(p.source_name || p.source_short) + ' : ' + titre, extrait: (corps || tx).slice(0, 600), href: p.url, t: +d });
+          }
+        });
+        (Array.isArray(fb) ? fb : []).forEach(p => {
+          const d = new Date(p.date), tx = p.texte || '';
+          if (+d >= since && keep(tx)) out.push({ cat: 'Entreprises', titre: (p.page || '') + ' : ' + firstSentence(tx), extrait: tx.slice(0, 600), href: p.url, t: +d });
+        });
+        const seen = new Set();
+        return out.sort((a, b) => b.t - a.t).filter(x => { const k = norm(x.titre.replace(/^[^:]*: /, '')).slice(0, 45); if (seen.has(k)) return false; seen.add(k); return true; });
+      }
+      // Mélange équitable : un titre par catégorie et par tour, pour couvrir tous les sujets.
+      function roundRobin(items) {
+        const g = {}; items.forEach(x => (g[x.cat] = g[x.cat] || []).push(x));
+        const cats = Object.keys(g).sort((a, b) => (CAT_ORDER.indexOf(a) + 99) % 99 - (CAT_ORDER.indexOf(b) + 99) % 99);
+        const out = []; let i = 0;
+        while (out.length < items.length) { cats.forEach(c => { if (g[c][i]) out.push(g[c][i]); }); i++; }
+        return out;
+      }
+      function startOfToday() { const d = new Date(); d.setHours(0, 0, 0, 0); return +d; }
+      async function pointDuJour(kws) {
+        let since = startOfToday(), when = 'Depuis ce matin';
+        let items = await dayItems(since);
+        if (kws.length) items = searchArticles(items.map(x => ({ ...x, categorie: x.cat, tags: [] })), kws.join(' '));
+        if (items.length < 3) { since = Date.now() - 24 * 3600e3; when = 'Sur les dernières 24 heures'; items = await dayItems(since); if (kws.length) items = searchArticles(items.map(x => ({ ...x, categorie: x.cat, tags: [] })), kws.join(' ')); }
+        if (!items.length) return null;
+        const counts = {}; items.forEach(x => counts[x.cat] = (counts[x.cat] || 0) + 1);
+        const LBL = { 'Algeria Tech': ['article Algeria Tech', 'articles Algeria Tech'], 'Ministère': ['info des ministères', 'infos des ministères'], 'Opérateurs': ['info des opérateurs', 'infos des opérateurs'], 'Infrastructure': ['info infrastructures', 'infos infrastructures'], 'Entreprises': ['post d\'entreprise', 'posts d\'entreprises'], 'Équipementiers': ['info équipementiers', 'infos équipementiers'], 'Médias TIC': ['article de la presse tech', 'articles de la presse tech'], 'Tech International': ['info tech internationale', 'infos tech internationales'] };
+        const resume = Object.keys(counts).sort((a, b) => CAT_ORDER.indexOf(a) - CAT_ORDER.indexOf(b)).map(c => counts[c] + ' ' + ((LBL[c] || [c, c])[counts[c] > 1 ? 1 : 0])).join(', ');
+        listOffset = 0;
+        return listReply(roundRobin(items), when + (kws.length ? ' sur « ' + kws.join(' ') + ' »' : '') + ' : ' + resume + '.');
+      }
+
+      // ---- Météo (Open-Meteo : gratuit, sans clé) ----
+      const WMO = { 0: 'ciel dégagé', 1: 'ciel plutôt dégagé', 2: 'partiellement nuageux', 3: 'ciel couvert', 45: 'brouillard', 48: 'brouillard givrant', 51: 'bruine légère', 53: 'bruine', 55: 'forte bruine', 56: 'bruine verglaçante', 57: 'bruine verglaçante', 61: 'pluie faible', 63: 'pluie', 65: 'forte pluie', 66: 'pluie verglaçante', 67: 'pluie verglaçante', 71: 'neige faible', 73: 'neige', 75: 'forte neige', 77: 'grains de neige', 80: 'averses', 81: 'averses', 82: 'fortes averses', 85: 'averses de neige', 86: 'fortes averses de neige', 95: 'orages', 96: 'orages avec grêle', 99: 'violents orages avec grêle' };
+      const JOURS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+      const ALGER = { name: 'Alger', lat: 36.7538, lon: 3.0588 };
+      function dayOffset(s) {
+        if (/apres demain/.test(s)) return 2;
+        if (/demain/.test(s)) return 1;
+        for (let i = 0; i < 7; i++) if (new RegExp('\\b' + JOURS[i] + '\\b').test(s)) return (i - new Date().getDay() + 7) % 7;
+        return 0;
+      }
+      function cityFrom(s) {
+        const m = s.match(/\b(?:a|sur|pour|de|du cote de|vers)\s+([a-z][a-z -]{1,30}?)(?:\s+(?:demain|apres demain|aujourd hui|ce soir|ce matin|cette semaine|la semaine|lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche))?\s*$/);
+        if (!m) return null;
+        const c = m[1].trim();
+        if (/^(la|le|les|l|cette|ce|demain|apres|aujourd|quel|quelle|semaine|maintenant)\b/.test(c)) return null;
+        return c;
+      }
+      async function geocode(name) {
+        const d = await loadJSON('https://geocoding-api.open-meteo.com/v1/search?count=5&language=fr&name=' + encodeURIComponent(name));
+        const r = d && d.results || [];
+        const p = r.find(x => x.country_code === 'DZ') || r[0];
+        return p ? { name: p.name, lat: p.latitude, lon: p.longitude } : null;
+      }
+      function myPosition() {
+        return new Promise(res => {
+          if (!navigator.geolocation) return res(null);
+          navigator.geolocation.getCurrentPosition(p => res({ name: 'votre position', lat: p.coords.latitude, lon: p.coords.longitude }), () => res(null), { timeout: 8000, maximumAge: 30 * 60e3 });
+        });
+      }
+      async function meteo(s) {
+        let place = null;
+        const c = cityFrom(s);
+        if (c) { place = await geocode(c); if (!place) return { text: 'Je ne trouve pas la ville « ' + c + ' ».' }; }
+        else place = store.get('city', null) || await myPosition() || ALGER;
+        const d = await loadJSON('https://api.open-meteo.com/v1/forecast?timezone=auto&forecast_days=7&latitude=' + place.lat + '&longitude=' + place.lon +
+          '&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max,wind_speed_10m_max');
+        if (!d || !d.daily) return { text: 'La météo ne répond pas pour l\'instant, réessayez dans un moment.' };
+        const D = d.daily, R = Math.round;
+        const lieu = place.name === 'votre position' ? 'Chez vous' : 'À ' + place.name;
+        const label = (i) => i === 0 ? 'aujourd\'hui' : i === 1 ? 'demain' : i === 2 ? 'après-demain' : JOURS[new Date(D.time[i] + 'T12:00').getDay()];
+        const jour = (i, court) => {
+          let t = (court ? label(i).replace(/^./, x => x.toUpperCase()) + ' : ' : '') + (WMO[D.weather_code[i]] || 'temps variable') + ', ' + R(D.temperature_2m_min[i]) + ' à ' + R(D.temperature_2m_max[i]) + ' degrés';
+          if (D.precipitation_probability_max[i] >= 20) t += ', ' + D.precipitation_probability_max[i] + ' % de risque de pluie';
+          if (D.wind_speed_10m_max[i] >= 40) t += ', vent fort jusqu\'à ' + R(D.wind_speed_10m_max[i]) + ' km/h';
+          return t + '.';
+        };
+        if (/(semaine|prochains jours|7 jours|cinq jours|5 jours)/.test(s)) return { text: lieu + ', les prochains jours :\n' + [0, 1, 2, 3, 4].map(i => jour(i, true)).join('\n') };
+        const i = dayOffset(s);
+        let txt = lieu + ' ' + label(i) + ' : ' + jour(i);
+        if (i === 0 && d.current) txt = lieu + ', il fait actuellement ' + R(d.current.temperature_2m) + ' degrés. Aujourd\'hui : ' + jour(0);
+        return { text: txt };
+      }
+
+      // ---- Briefing du matin : météo + actus + revue + veille, en une seule commande ----
+      async function briefing() {
+        const h = new Date().getHours();
+        const parts = [(h < 12 ? 'Bonjour' : h < 18 ? 'Bon après-midi' : 'Bonsoir') + ', voici votre briefing du ' + new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' }) + '.'];
+        const [m, list, rv, day] = await Promise.all([meteo('').catch(() => null), loadArticles(), revueItems(), dayItems(startOfToday() - 12 * 3600e3)]);
+        if (m && m.text) parts.push('Météo. ' + m.text);
+        if (list.length) parts.push('À la une sur Algeria Tech : ' + list.slice(0, 3).map(a => a.titre).join(' ; ') + '.');
+        if (rv && rv.d.synthese) parts.push('Revue de presse. ' + firstSentence(rv.d.synthese));
+        const veille = day.filter(x => x.cat !== 'Algeria Tech');
+        if (veille.length) parts.push('Veille : ' + veille.length + ' nouvelle' + (veille.length > 1 ? 's' : '') + ' publication' + (veille.length > 1 ? 's' : '') + ' des institutions, opérateurs et entreprises depuis hier soir.');
+        parts.push('Dites « la revue de presse », « le point du jour » ou « lis le 1 » pour le détail.');
+        lastList = list.slice(0, 5); listOffset = 0;
+        return { text: parts.join('\n'), links: list.slice(0, 3).map(a => ({ href: articleUrl(a), label: a.titre })) };
+      }
+
+      // ---- Intentions locales ----
+      async function localIntent(input) {
+        const s = norm(input);
+        if (/^(stop|arrete|silence|tais toi|chut|ca suffit|pause)\b/.test(s)) { stopSpeaking(); return { text: 'D\'accord.', silent: true }; }
+        if (/^(bonjour|salut|coucou|hello|bonsoir|hey|salam|saha)\b/.test(s) && s.split(' ').length <= 3 && !/brief/.test(s)) return { text: 'Bonjour ! Demandez-moi les dernières actus, un sujet à chercher, ou posez votre question.' };
+        if (/^(merci|thanks|saha|barak allah)/.test(s)) return { text: 'Avec plaisir !' };
+        if (/^(au revoir|bye|a bientot|ciao|bonne nuit)/.test(s)) { convMode = false; syncConv(); return { text: 'Au revoir et à bientôt sur Algeria Tech !' }; }
+        if (/(quelle heure|il est quelle heure|l heure qu il est)/.test(s)) return { text: 'Il est ' + new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }) + '.' };
+        if (/(quel jour|quelle date|on est le combien|date d aujourd hui)/.test(s)) return { text: 'Nous sommes le ' + new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) + '.' };
+        if (/(aide|que sais tu faire|tu sais faire quoi|tu peux faire quoi|comment ca marche)/.test(s)) return { text: 'Dites « briefing » pour le point complet du matin. Je peux aussi vous lire la revue de presse, le point du jour des institutions, opérateurs et entreprises, les dernières actus, chercher un sujet avec « cherche Djezzy », vous lire un article avec « lis le 1 », donner la météo, par exemple « météo à Oran demain », ouvrir une page du site et répondre à vos questions. Dites « ma ville est Oran » pour régler la météo, et « stop » pour me couper.' };
+        if (/(blague|fais moi rire)/.test(s)) {
+          const j = ['Pourquoi les développeurs préfèrent le mode sombre ? Parce que la lumière attire les bugs !', 'Comment appelle-t-on un algorithme qui chante ? Un algo-rythme !', 'Mon Wi-Fi et moi, c\'est compliqué : dès que je m\'éloigne, il ne capte plus rien.'];
+          return { text: j[Math.floor(Math.random() * j.length)] };
         }
-        if (/(ça va|comment vas-tu|comment ça va)/.test(s)) return 'Je fonctionne parfaitement, merci ! Et vous ?';
-        if (/(aide|help|que sais-tu faire|tu sais faire quoi)/.test(s)) return 'Je peux vous donner l’heure, la date, raconter une blague… Essayez les suggestions sous le micro.';
-        return 'J’ai bien entendu : « ' + input + ' ». Pour une vraie réponse IA, branchez l’assistant sur votre backend.';
+
+        // Suite d'une liste
+        if (/^(la suite|suite|suivant|encore|d autres|autres titres|plus)$/.test(s) && lastList.length) {
+          if (listOffset + 5 >= lastList.length) return { text: 'C\'est tout pour cette liste.' };
+          listOffset += 5; return listReply(lastList, 'Suite :');
+        }
+        // Lire / ouvrir un article de la dernière liste
+        const read = /^(lis|lire|lit|raconte|resume|ecouter|ecoute)\b/.test(s), open = /^(ouvre|ouvrir|affiche|montre)\b/.test(s);
+        if ((read || open) && lastList.length && /(article|le|la|numero|\d|premier|deuxieme|troisieme|quatrieme|cinquieme|dernier)/.test(s)) {
+          let n = pickIndex(s);
+          if (n !== null) {
+            const a = n === -1 ? lastList[lastList.length - 1] : lastList[n - 1];
+            if (!a) return { text: 'Je n\'ai pas d\'article numéro ' + n + ' dans la liste.' };
+            if (open) return goTo(articleUrl(a), 'l\'article');
+            const body = [a.titre + '.', a.extrait, a.aretenir ? 'À retenir : ' + a.aretenir : ''].filter(Boolean).join(' ');
+            return { text: body + '\nDites « ouvre le ' + (n === -1 ? lastList.length : n) + ' » pour lire l\'article complet.', links: [{ href: articleUrl(a), label: 'Lire l\'article complet' }] };
+          }
+        }
+        // Navigation
+        if (open || /^(va|aller|emmene|direction|je veux voir)\b/.test(s)) {
+          for (const [re, href, label] of PAGES) if (re.test(s)) return goTo(href, label);
+        }
+        // Ville par défaut pour la météo
+        const city = s.match(/^(?:ma ville (?:est|c est)|j habite a|je suis a|je vis a)\s+(.+)$/);
+        if (city) {
+          const p = await geocode(city[1]);
+          if (!p) return { text: 'Je ne trouve pas la ville « ' + city[1] + ' ».' };
+          store.set('city', p); return { text: 'C\'est noté : ' + p.name + ' sera votre ville par défaut pour la météo.' };
+        }
+        if (/(briefing|brief\b|point du matin|mon point|resume de ma journee)/.test(s)) return briefing();
+        if (/(meteo|quel temps|temps fait il|temps fera|temps va t il|temperature|va t il pleuvoir|il va pleuvoir|pleuvra|fait il (beau|chaud|froid)|il fait combien)/.test(s)) return meteo(s);
+        // Revue de presse du jour
+        if (/revue( de presse)?|la presse/.test(s)) {
+          const rv = await revueItems();
+          if (!rv) return { text: 'La revue de presse n\'est pas disponible pour l\'instant.' };
+          if (/(resume|synthese|en bref|l essentiel)/.test(s)) return { text: 'Revue de presse du ' + (rv.d.date || rv.d.edition) + '. ' + rv.d.synthese, links: [{ href: '/revue/', label: 'Ouvrir la revue de presse' }] };
+          listOffset = 0;
+          return listReply(rv.items, 'Revue de presse du ' + (rv.d.date || rv.d.edition) + ', ' + rv.items.length + ' titres :');
+        }
+        // Point de la journée (nos articles + veille institutions/opérateurs + entreprises)
+        if (/(point (de la journee|du jour)|quoi de neuf|infos? du jour|actus? du jour|depuis ce matin|nouveautes|qu est ce qui s est passe|il s est passe quoi|ce qui se passe)/.test(s)) {
+          const kws = keywords(s.replace(/(point (de la journee|du jour)|quoi de neuf|infos? du jour|actus? du jour|depuis ce matin|nouveautes|qu est ce qui s est passe|il s est passe quoi|ce qui se passe|aujourd hui|ce matin|journee)/g, ' '));
+          const r = await pointDuJour(kws);
+          if (r) return r;
+          if (!kws.length) return { text: 'Rien de nouveau depuis hier pour l\'instant.' };
+        }
+        // Dernières actus (éventuellement filtrées par thème)
+        const list = await loadArticles();
+        const wantsNews = /(dernieres? (actu|info|nouvelle|article)|quoi de neuf|a la une|les actus|les infos|actualites?|les nouvelles|derniers articles|actus?\b|infos?\b)/.test(s);
+        const search = s.match(/^(cherche|recherche|trouve|trouver|chercher)\s+(.+)$/);
+        if (search) {
+          listOffset = 0;
+          const label = input.trim().replace(/^\S+\s+/, '').replace(/[?.!]+$/, '');
+          const res = searchArticles(list, search[2]);
+          if (!res.length) return { text: 'Je n\'ai trouvé aucun article sur « ' + label + ' ». Je vous réponds avec l\'IA :', ai: true };
+          return listReply(res, res.length + ' article' + (res.length > 1 ? 's' : '') + ' sur « ' + label + ' » :');
+        }
+        if (wantsNews && list.length) {
+          listOffset = 0;
+          const kws = keywords(s.replace(/(intelligence artificielle)/, 'ia').replace(/telecoms?/, 'telecom'));
+          if (kws.length) {
+            const res = searchArticles(list, kws.join(' '));
+            if (res.length) return listReply(res, 'Les dernières actus « ' + kws.join(' ') + ' » :');
+          }
+          return listReply(list, 'Voici les dernières actus d\'Algeria Tech :');
+        }
+        return undefined;
       }
 
-      function speakText(text) {
-        if (!speakerEnabled || !synth) return;
+      // ---- IA (questions libres) ----
+      async function askAI(text) {
+        const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), 25000);
+        try {
+          const r = await fetch('/api/assistant', {
+            method: 'POST', signal: ctrl.signal, headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: text, historique: history.slice(-8) })
+          });
+          const j = await r.json().catch(() => ({}));
+          if (r.status === 401) { const e = new Error('session'); e.session = true; throw e; }
+          if (!r.ok || !j.reponse) throw new Error(j.error || 'IA indisponible');
+          return j.reponse;
+        } finally { clearTimeout(t); }
+      }
+      async function offlineFallback(text) {
+        const res = searchArticles(await loadArticles(), text);
+        if (res.length) { listOffset = 0; return listReply(res, 'L\'IA ne répond pas pour l\'instant, mais voici les articles liés :'); }
+        return { text: 'L\'IA ne répond pas pour l\'instant. Essayez « dernières actus » ou « cherche » suivi d\'un sujet.' };
+      }
+
+      // ---- Synthèse vocale (découpée en phrases : Chrome coupe les textes longs) ----
+      function pickDefaultVoice() {
+        const fr = (synth ? synth.getVoices() : []).filter(v => /^fr/i.test(v.lang));
+        return fr.find(v => /natural|online/i.test(v.name)) || fr.find(v => /google/i.test(v.name)) || fr.find(v => /fr[-_]FR/i.test(v.lang)) || fr[0] || null;
+      }
+      function speakable(text) { return String(text).replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, '').replace(/[«»"]/g, '').replace(/\n+/g, '. ').replace(/\.\s*\./g, '.'); }
+      let speakToken = 0;
+      function speakText(text, after) {
+        if (!speakerEnabled || !synth) { if (after) after(); return false; }
         synth.cancel();
-        const u = new SpeechSynthesisUtterance(text);
-        u.lang = LANG;
-        u.rate = parseFloat(rate.value) || 1;
-        u.pitch = parseFloat(pitch.value) || 1;
-        const sel = voiceSelect.value;
-        if (sel) { const v = synth.getVoices().find(v => v.name === sel); if (v) u.voice = v; }
-        u.onstart = () => { if (!isListening) { statusDot.className = 'av-dot speaking'; statusText.textContent = '🔊 Je réponds…'; } micBtn.classList.toggle('speaking', !isListening); };
-        u.onend = () => { micBtn.classList.remove('speaking'); if (!isListening) setStatus('', 'Prêt — touchez le micro pour parler'); };
-        synth.speak(u);
+        const token = ++speakToken;
+        if (isListening) { resumeAfterSpeak = true; try { recognition.abort(); } catch (e) {} }
+        const parts = speakable(text).match(/[^.!?…]+[.!?…]*/g) || [text];
+        const voice = (voiceSelect.value && synth.getVoices().find(v => v.name === voiceSelect.value)) || pickDefaultVoice();
+        micBtn.classList.add('speaking'); setStatus('speaking', '🔊 Je réponds… (dites « stop » ou touchez ■)');
+        parts.forEach((p, i) => {
+          if (!p.trim()) return;
+          const u = new SpeechSynthesisUtterance(p.trim());
+          u.lang = LANG; u.rate = parseFloat(rate.value) || 1; u.pitch = parseFloat(pitch.value) || 1;
+          if (voice) u.voice = voice;
+          if (i === parts.length - 1) u.onend = () => { if (token === speakToken) doneSpeaking(after); };
+          u.onerror = () => { if (token === speakToken && i === parts.length - 1) doneSpeaking(after); };
+          synth.speak(u);
+        });
+        return true;
       }
+      function doneSpeaking(after) {
+        micBtn.classList.remove('speaking');
+        if (after) return after();
+        setStatus('', READY);
+        if (resumeAfterSpeak || convMode) { resumeAfterSpeak = false; if (convMode && recognition) setTimeout(startListening, 250); }
+      }
+      function stopSpeaking() { speakToken++; if (synth) synth.cancel(); micBtn.classList.remove('speaking'); resumeAfterSpeak = false; if (!isListening) setStatus('', READY); }
 
-      // Entrée unifiée : reconnaissance vocale + suggestions cliquables
-      function handleUserInput(text) {
-        if (!text) return;
+      // ---- Entrée unifiée : voix, suggestions, clavier ----
+      async function handleUserInput(text, fromVoice) {
+        text = String(text || '').trim();
+        if (!text || busy) return;
+        busy = true;
         addMessage('user', text);
-        const reply = generateLocalReply(text);
-        addMessage('bot', reply);
-        if (speakerEnabled) speakText(reply);
+        let out;
+        try {
+          out = await localIntent(text);
+          if (out && out.nav) { busy = false; return; }   // navigation en cours
+          if (out === undefined || (out && out.ai)) {
+            if (out && out.ai) addMessage('bot', out.text);
+            showThinking(true); setStatus('', '💭 Je réfléchis…');
+            try { const rep = await askAI(text); out = { text: rep, isAI: true }; }
+            catch (e) { out = e.session ? { text: 'Votre session admin a expiré. Reconnectez-vous pour utiliser l\'IA.', links: [{ href: '/admin-login.html?next=/assistant-vocal', label: 'Se reconnecter' }] } : await offlineFallback(text); }
+            showThinking(false);
+          }
+        } catch (e) { out = { text: 'Oups, une erreur est survenue. Réessayez.' }; }
+        busy = false;
+        addMessage('bot', out.text, out.links);
+        history.push({ role: 'user', content: text }, { role: 'assistant', content: out.text });
+        history = history.slice(-12);
+        if (out.silent) { setStatus('', READY); return; }
+        const spoke = speakText(out.text);
+        if (!spoke) { setStatus('', READY); if (fromVoice && convMode) setTimeout(startListening, 300); }
       }
 
       // ---- Reconnaissance vocale ----
       if (!SpeechRecognition) {
+        warning.innerHTML = '⚠️ Votre navigateur ne prend pas en charge la reconnaissance vocale (essayez <b>Chrome</b>, <b>Edge</b> ou <b>Safari</b>). Vous pouvez quand même <b>écrire</b> vos questions ci-dessous : l\'assistant vous répondra à voix haute.';
         warning.classList.add('show');
         micBtn.disabled = true;
-        setStatus('error', 'Reconnaissance vocale indisponible');
+        setStatus('error', 'Micro indisponible — écrivez votre question');
       } else {
         recognition = new SpeechRecognition();
         recognition.lang = LANG;
-        recognition.continuous = true;
+        recognition.continuous = false;     // une phrase = une question (évite d'entendre sa propre réponse)
         recognition.interimResults = true;
         recognition.maxAlternatives = 1;
 
-        recognition.onstart = () => {
-          isListening = true;
-          micBtn.classList.add('listening');
-          eq.classList.add('on');
-          setStatus('listening', 'Je vous écoute…');
-        };
+        recognition.onstart = () => { isListening = true; micBtn.classList.add('listening'); eq.classList.add('on'); setStatus('listening', '🎙️ Je vous écoute…'); };
         recognition.onresult = (event) => {
-          let interim = '';
+          let interim = '', finalTxt = '';
           for (let i = event.resultIndex; i < event.results.length; i++) {
             const r = event.results[i];
-            if (r.isFinal) {
-              const txt = r[0].transcript.trim();
-              if (txt) handleUserInput(txt);
-            } else { interim += r[0].transcript; }
+            if (r.isFinal) finalTxt += r[0].transcript; else interim += r[0].transcript;
           }
           clearPlaceholder();
           let el = transcript.querySelector('.interim');
-          if (interim) {
+          if (interim && !finalTxt) {
             if (!el) { el = document.createElement('div'); el.className = 'av-msg interim'; transcript.appendChild(el); }
             el.textContent = '✎ ' + interim;
-          } else if (el) { el.remove(); }
+          } else if (el) el.remove();
           transcript.scrollTop = transcript.scrollHeight;
+          if (finalTxt.trim()) handleUserInput(finalTxt.trim(), true);
         };
         recognition.onerror = (event) => {
+          if (event.error === 'aborted' || event.error === 'no-speech') { if (event.error === 'no-speech') setStatus('', 'Je n\'ai rien entendu — touchez le micro pour réessayer'); return; }
           let msg = 'Une erreur est survenue';
-          if (event.error === 'not-allowed' || event.error === 'service-not-allowed') msg = '🎤 Accès au micro refusé. Autorisez-le dans le navigateur.';
-          else if (event.error === 'no-speech') msg = 'Aucun son détecté. Réessayez.';
-          else if (event.error === 'network') msg = 'Erreur réseau. Vérifiez votre connexion.';
-          else if (event.error === 'aborted') return;
+          if (event.error === 'not-allowed' || event.error === 'service-not-allowed') { msg = '🎤 Accès au micro refusé. Autorisez-le dans le navigateur.'; convMode = false; syncConv(); }
+          else if (event.error === 'network') msg = 'Erreur réseau de la reconnaissance vocale. Vérifiez votre connexion.';
           setStatus('error', msg);
         };
         recognition.onend = () => {
-          isListening = false;
-          micBtn.classList.remove('listening');
-          eq.classList.remove('on');
-          clearInterim();
-          if (!synth || !synth.speaking) setStatus('', 'Prêt — touchez le micro pour parler');
+          isListening = false; micBtn.classList.remove('listening'); eq.classList.remove('on'); clearInterim();
+          if (!busy && !(synth && synth.speaking) && statusDot.classList.contains('listening')) setStatus('', READY);
         };
       }
-
-      function startListening() { try { recognition.start(); } catch (e) {} }
+      function startListening() { if (!recognition || isListening || busy || document.hidden) return; try { recognition.start(); } catch (e) {} }
       function stopListening() { try { recognition.stop(); } catch (e) {} }
 
       // ---- Voix (TTS) ----
@@ -517,53 +847,48 @@
         if (!synth) return;
         const voices = synth.getVoices();
         if (!voices.length) return;
-        const fr = voices.filter(v => /fr[-_]/i.test(v.lang));
-        const cur = voiceSelect.value;
-        voiceSelect.innerHTML = '<option value="">Voix française par défaut</option>';
+        const fr = voices.filter(v => /^fr/i.test(v.lang));
+        const saved = voiceSelect.value || store.get('voice', '');
+        const def = pickDefaultVoice();
+        voiceSelect.innerHTML = '<option value="">Automatique' + (def ? ' (' + def.name + ')' : '') + '</option>';
         fr.forEach(v => {
           const o = document.createElement('option');
           o.value = v.name;
-          o.textContent = v.name + ' (' + v.lang + ')' + (v.localService ? ' — local' : '');
+          o.textContent = v.name + ' (' + v.lang + ')' + (/natural|online/i.test(v.name) ? ' — naturelle' : '');
           voiceSelect.appendChild(o);
         });
-        if (!fr.length) {
-          const o = document.createElement('option'); o.textContent = 'Aucune voix française détectée'; o.disabled = true; voiceSelect.appendChild(o);
-        }
-        if (cur) voiceSelect.value = cur;
+        if (!fr.length) { const o = document.createElement('option'); o.textContent = 'Aucune voix française détectée'; o.disabled = true; voiceSelect.appendChild(o); }
+        if (saved && fr.some(v => v.name === saved)) voiceSelect.value = saved;
       }
       loadVoices();
       if (synth && synth.onvoiceschanged !== undefined) synth.onvoiceschanged = loadVoices;
 
-      // ---- Événements ----
+      // ---- Boutons ----
+      function syncConv() { convBtn.classList.toggle('active', convMode); convBtn.title = convMode ? 'Mode conversation activé : le micro se relance après chaque réponse' : 'Mode conversation désactivé'; store.set('conv', convMode); }
+      function syncSpeaker() { speakerBtn.classList.toggle('active', speakerEnabled); speakerBtn.title = speakerEnabled ? 'Couper la voix' : 'Activer la voix'; store.set('speaker', speakerEnabled); }
+      syncConv(); syncSpeaker();
+      rateVal.textContent = parseFloat(rate.value).toFixed(1) + '×'; pitchVal.textContent = parseFloat(pitch.value).toFixed(1);
+
       micBtn.addEventListener('click', () => {
         if (!recognition) return;
+        if (synth && synth.speaking) { stopSpeaking(); startListening(); return; }   // couper la parole à l'assistant
         if (!isListening) {
           if (isIOS && synth) { const u = new SpeechSynthesisUtterance(' '); u.volume = 0; synth.speak(u); }
           startListening();
-        } else { stopListening(); }
+        } else stopListening();
       });
-
-      chips.addEventListener('click', (e) => {
-        const b = e.target.closest('.av-chip');
-        if (b) handleUserInput(b.dataset.cmd);
-      });
-
+      chips.addEventListener('click', (e) => { const b = e.target.closest('.av-chip'); if (b) handleUserInput(b.dataset.cmd); });
+      askForm.addEventListener('submit', (e) => { e.preventDefault(); const v = askInput.value; askInput.value = ''; handleUserInput(v); });
+      stopBtn.addEventListener('click', () => { stopSpeaking(); if (isListening) stopListening(); });
+      convBtn.addEventListener('click', () => { convMode = !convMode; syncConv(); });
       clearBtn.addEventListener('click', () => {
         transcript.innerHTML = '<div class="av-placeholder">Vos échanges apparaîtront ici…</div>';
-        conversation = [];
-        if (synth) synth.cancel();
+        conversation = []; history = []; lastList = []; stopSpeaking();
       });
-
-      speakerBtn.addEventListener('click', () => {
-        speakerEnabled = !speakerEnabled;
-        speakerBtn.classList.toggle('active', speakerEnabled);
-        speakerBtn.title = speakerEnabled ? 'Couper la voix' : 'Activer la voix';
-        if (!speakerEnabled && synth) synth.cancel();
-      });
-
-      rate.addEventListener('input', () => { rateVal.textContent = parseFloat(rate.value).toFixed(1) + '×'; });
-      pitch.addEventListener('input', () => { pitchVal.textContent = parseFloat(pitch.value).toFixed(1); });
-      voiceSelect.addEventListener('change', () => { if (speakerEnabled) speakText('Bonjour, je suis votre assistant vocal.'); });
+      speakerBtn.addEventListener('click', () => { speakerEnabled = !speakerEnabled; syncSpeaker(); if (!speakerEnabled) stopSpeaking(); });
+      rate.addEventListener('input', () => { rateVal.textContent = parseFloat(rate.value).toFixed(1) + '×'; store.set('rate', rate.value); });
+      pitch.addEventListener('input', () => { pitchVal.textContent = parseFloat(pitch.value).toFixed(1); store.set('pitch', pitch.value); });
+      voiceSelect.addEventListener('change', () => { store.set('voice', voiceSelect.value); if (speakerEnabled) speakText('Bonjour, je suis votre assistant vocal.', () => setStatus('', READY)); });
 
       copyBtn.addEventListener('click', async () => {
         const text = conversation.map(m => '[' + (m.role === 'user' ? 'Vous' : 'Assistant') + '] ' + m.text).join('\n');
@@ -574,7 +899,6 @@
           span.textContent = '✓ Copié'; setTimeout(() => span.textContent = old, 1500);
         } catch (e) { alert('Copie impossible. Sélectionnez le texte manuellement.'); }
       });
-
       downloadBtn.addEventListener('click', () => {
         const text = conversation.map(m => '[' + new Date(m.ts).toLocaleString('fr-FR') + '] ' + (m.role === 'user' ? 'Vous' : 'Assistant') + ' : ' + m.text).join('\n');
         if (!text) return;
@@ -585,7 +909,9 @@
         URL.revokeObjectURL(url);
       });
 
-      document.addEventListener('visibilitychange', () => { if (document.hidden && isListening) stopListening(); });
+      document.addEventListener('visibilitychange', () => { if (document.hidden) { if (isListening) stopListening(); stopSpeaking(); } });
+      setStatus(recognition ? '' : 'error', recognition ? READY : 'Micro indisponible — écrivez votre question');
+      loadArticles();
     })();
   </script>
 </body>
