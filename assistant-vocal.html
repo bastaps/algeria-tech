@@ -1369,7 +1369,8 @@
           const j = await r.json().catch(() => ({}));
           if (!r.ok) throw new Error(j.error || 'stt');
           ecoute.erreurs = 0;
-          if (j.text) onHeard(j.text);
+          // Double sécurité : jamais de texte dans une écriture ou des lettres étrangères (son mal compris).
+          if (j.text && !/[Ѐ-ӿͰ-Ͽ֐-׿ऀ-ॿ぀-ヿ一-鿿가-힯]|[ąćęłńśźżřěůőűğışčšžđøåæãõñ]/i.test(j.text)) onHeard(j.text);
         } catch (e) {
           // Transcription indisponible à répétition : on repasse sur la reconnaissance de Google (avec ses bips).
           if (++ecoute.erreurs >= 3 && ecoute.on) {
