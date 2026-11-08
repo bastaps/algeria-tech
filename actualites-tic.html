@@ -634,6 +634,17 @@
       /* Sur mobile le header du site fait 68px → filtre colle à 68px */
       .tic-tabs-wrap { top: 68px; }
     }
+      /* Pages officielles de la source sélectionnée + étiquettes « presse » */
+    .tic-official { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin:10px 0 4px; padding:10px 12px; border:1px solid var(--tic-border, rgba(128,128,128,.3)); border-radius:12px; }
+    .tic-official b { font-size:.8rem; margin-inline-end:4px; }
+    .tic-official a { display:inline-flex; align-items:center; gap:6px; padding:6px 12px; border-radius:999px; font-size:.78rem; font-weight:600; text-decoration:none; background:var(--tic-primary,#006233); color:#fff; }
+    .tic-official a:hover { filter:brightness(1.1); }
+    .tic-official small { flex-basis:100%; font-size:.7rem; opacity:.7; }
+    .tic-press-tag { display:inline-block; font-size:.62rem; font-weight:700; letter-spacing:.04em; text-transform:uppercase; padding:1px 7px; border-radius:999px; border:1px solid currentColor; opacity:.75; margin-inline-start:6px; }
+    .tic-official-link { font-size:.72rem; text-decoration:underline; margin-inline-start:10px; }
+    .tic-card-source a { color:inherit; text-decoration:none; }
+    .tic-card-source a:hover { text-decoration:underline; }
+
   </style>
 </head>
 <body>
@@ -832,6 +843,7 @@
 
     <!-- Source filter chips -->
     <div class="tic-sources-bar" id="sourcesBar" style="display:none;"></div>
+    <div class="tic-official" id="officialBar" style="display:none;"></div>
 
     <!-- Cards grid -->
     <div class="tic-grid" id="ticGrid">
@@ -887,6 +899,32 @@
   function esc(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
   // ── Build card HTML ────────────────────────────────────────────────────────
+  // ── Pages officielles (depuis social_config.json) ─────────────────────────
+  let OFFICIAL = {};
+  function officialLinks(name) {
+    const s = OFFICIAL[name]; if (!s) return [];
+    const out = [];
+    const site = s.website || s.news_url;
+    if (site) out.push({ k:'site', icon:'fas fa-globe', label:'Site officiel', url:site });
+    const fb = s.fb_page_url || (s.fb_page_id ? 'https://www.facebook.com/' + s.fb_page_id : '');
+    if (fb) out.push({ k:'fb', icon:'fab fa-facebook-f', label:'Facebook', url:fb });
+    if (s.ig_user) out.push({ k:'ig', icon:'fab fa-instagram', label:'Instagram', url:'https://www.instagram.com/' + s.ig_user });
+    if (s.x_handle) out.push({ k:'x', icon:'fab fa-x-twitter', label:'X', url:'https://x.com/' + s.x_handle });
+    if (s.youtube_channel_id) out.push({ k:'yt', icon:'fab fa-youtube', label:'YouTube', url:'https://www.youtube.com/channel/' + s.youtube_channel_id });
+    if (s.telegram_channel) out.push({ k:'tg', icon:'fab fa-telegram', label:'Telegram', url:'https://t.me/' + String(s.telegram_channel).replace(/^@/, '') });
+    return out;
+  }
+  function isAggregator(url) { return /(^|\.)news\.google\.com$/i.test((() => { try { return new URL(url).hostname; } catch (e) { return ''; } })()); }
+  function renderOfficialBar() {
+    const bar = document.getElementById('officialBar'); if (!bar) return;
+    const links = currentSource ? officialLinks(currentSource) : [];
+    if (!links.length) { bar.style.display = 'none'; bar.innerHTML = ''; return; }
+    bar.innerHTML = '<b>' + esc(currentSource) + ' : pages officielles</b>' +
+      links.map(l => `<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer"><i class="${l.icon}"></i> ${l.label}</a>`).join('') +
+      '<small>Les cartes ci-dessous viennent de la presse ou des flux publics suivis ; les liens ci-dessus ouvrent les canaux officiels de l’institution.</small>';
+    bar.style.display = 'flex';
+  }
+
   function buildCard(post) {
     const id   = post.id;
     const col  = post.source_color || '#006233';
@@ -907,16 +945,23 @@
       ? `<img class="tic-card-img" src="${esc(post.image)}" alt="${esc(post.source_name)}" loading="lazy" onerror="this.style.display='none'">`
       : `<div class="tic-card-img-placeholder">${post.category_icon||'🏢'}</div>`;
 
+    const press = post.url && isAggregator(post.url);
+    const off = officialLinks(post.source_name);
+    const offMain = off.find(l => l.k === 'site') || off[0];
     const footerLink = post.url
-      ? `<a class="tic-read-link" href="${esc(post.url)}" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Voir l'original</a>`
+      ? `<a class="tic-read-link" href="${esc(post.url)}" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> ${press ? "Lire l'article de presse" : "Voir l'original"}</a>` +
+        (press && offMain ? `<a class="tic-official-link" href="${esc(offMain.url)}" target="_blank" rel="noopener noreferrer">Page officielle</a>` : '')
       : `<span class="tic-no-link"><i class="fas fa-clock"></i> Source en attente</span>`;
+    const srcName = offMain
+      ? `<a href="${esc(offMain.url)}" target="_blank" rel="noopener noreferrer" title="Ouvrir le site officiel">${esc(post.source_name)}</a>`
+      : esc(post.source_name);
 
     return `<div class="tic-card" style="--card-color:${col}">
   ${imgHtml}
   <div class="tic-card-header">
     <div class="tic-card-avatar" style="background:${col}">${esc(post.source_short||'?')}</div>
     <div class="tic-card-meta">
-      <div class="tic-card-source">${esc(post.source_name)}</div>
+      <div class="tic-card-source">${srcName}${press ? '<span class="tic-press-tag">Presse</span>' : ''}</div>
       <div class="tic-card-date"><i class="fas fa-clock"></i> ${relDate(post.date)}</div>
     </div>
     <span class="tic-cat-badge">${esc(post.category_icon||'')} ${esc(post.category)}</span>
@@ -1040,6 +1085,7 @@
     document.querySelectorAll('.tic-tab').forEach(t => t.classList.remove('active'));
     if (btn) btn.classList.add('active');
     buildSourceChips();
+    renderOfficialBar();
     renderGrid();
   };
 
@@ -1048,6 +1094,7 @@
     currentSource = name;
     shownCount = PAGE_SIZE;
     buildSourceChips();
+    renderOfficialBar();
     renderGrid();
   };
 
@@ -1064,6 +1111,10 @@
       const res = await fetch(`/tic_social.json?t=${Date.now()}`);
       if (!res.ok) throw new Error('HTTP ' + res.status);
       const data = await res.json();
+      try {
+        const cr = await fetch('/social_config.json');
+        if (cr.ok) { const cj = await cr.json(); OFFICIAL = {}; (cj.sources || []).forEach(s => { if (s && s.name) OFFICIAL[s.name] = s; }); }
+      } catch (e) { /* sans la config : pas de liens officiels, le reste fonctionne */ }
       allPosts = data.posts || [];
       allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
       updateKPIs(data);
