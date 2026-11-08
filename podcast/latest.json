@@ -1,102 +1,102 @@
 {
- "creneau": "midi",
+ "creneau": "soir",
  "date": "2026-11-08",
- "genere": "2026-11-08T14:16:10",
+ "genere": "2026-11-08T18:00:46",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
-   "creneau": "midi",
-   "genere": "2026-11-08T14:16:30",
+   "creneau": "soir",
+   "genere": "2026-11-08T18:01:13",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.7,
-    "texte": "Bon après-midi et bienvenue sur Algeria Tech, votre rendez-vous tech et télécoms. Voici les 10 infos du jour."
+    "duree": 8.7,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Ce soir, nous allons décortiquer pour vous dix informations importantes de l'actualité algérienne."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.4,
-    "texte": "C'était l'essentiel de l'actualité tech et télécoms. Rendez-vous bientôt sur Algeria Tech."
+    "duree": 6.2,
+    "texte": "C'était le tour de l'actualité tech et plus encore sur Algeria Tech. Restez connectés."
    },
    "items": [
     {
-     "titre": "Nouveaux laboratoires d'analyse ouverts",
-     "texte": "Le Premier ministre a inauguré ce samedi deux laboratoires dédiés à l'analyse de la qualité au port et à l'aéroport d'Alger, suite aux instructions du président de la République.",
-     "mp3": "/podcast/fr/01.mp3",
-     "duree": 8.8,
-     "pays": "DZ",
-     "source": "APS"
-    },
-    {
      "titre": "Réseau criminel démantelé",
-     "texte": "Les autorités ont annoncé le démantèlement d'un réseau criminel organisé spécialisé dans le blanchiment d'argent, une opération menée ce dimanche.",
+     "texte": "Dans la 5ème Région militaire, les forces de sécurité ont réussi à démanteler un réseau criminel organisé. Ce dernier était spécialisé dans les opérations de blanchiment d'argent, démontrant l'efficacité des services de sécurité du pays.",
+     "mp3": "/podcast/fr/01.mp3",
+     "duree": 13.8,
+     "pays": "DZ",
+     "source": "Radio Algérie"
+    },
+    {
+     "titre": "Laboratoires d'analyse inaugurés",
+     "texte": "Le Premier ministre a inauguré ce samedi deux nouveaux laboratoires d'analyse de la qualité. Ces infrastructures importantes sont situées au port et à l'aéroport d'Alger, renforçant ainsi le contrôle des produits.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 8.0,
+     "duree": 11.3,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "ASC en IATF pour start-up",
-     "texte": "Salah Eddine Bouzerd souhaite transformer l'ASC en une plateforme d'innovation et de transfert de technologie pour les jeunes entreprises algériennes.",
+     "titre": "Lutte contre le blanchiment",
+     "texte": "Dimanche dernier, les autorités ont annoncé le démantèlement d'un autre réseau criminel organisé. Cette fois, l'opération visait des activités de blanchiment d'argent, soulignant la détermination du pays à assainir son économie.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 7.5,
+     "duree": 13.3,
      "pays": "DZ",
-     "source": "Radio Algérie"
+     "source": "APS"
     },
     {
-     "titre": "Blanchiment d'argent: réseau arrêté",
-     "texte": "La 5ème Région militaire a réussi à démanteler un réseau criminel organisé impliqué dans des activités de blanchiment d'argent.",
+     "titre": "Origine des appels indésirables",
+     "texte": "Vous recevez trop d'appels ou SMS indésirables ? Comprendre comment les spammeurs obtiennent votre numéro est la première étape. Les appels robotisés utilisent souvent des méthodes bien précises pour collecter vos données.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 7.0,
+     "duree": 12.0,
      "pays": "DZ",
-     "source": "Radio Algérie"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Synchronisation Apple Music facile",
-     "texte": "Gardez votre musique Apple Music synchronisée sur tous vos appareils Apple sans effort. La plateforme offre une excellente expérience aux utilisateurs.",
+     "titre": "Mobilis lance MU Champions",
+     "texte": "Mobilis lance son nouveau challenge national 'MU Champions'. Chaque semaine, les abonnés de l'offre Revolution peuvent gagner jusqu'à un million de dinars et six smartphones. Une belle initiative pour récompenser la fidélité.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 9.1,
+     "duree": 13.2,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Algérie360 Tech"
     },
     {
-     "titre": "Sécurité: réseau criminel stoppé",
-     "texte": "Les services de sécurité de la 5ème Région militaire ont réussi, ce samedi, à démanteler un réseau criminel organisé.",
+     "titre": "Mobilis et son challenge",
+     "texte": "Avec le challenge national 'MU Champions', Mobilis propose à ses clients de l'offre Revolution de gagner gros. Jusqu'à cent millions de centimes par semaine, c'est une occasion unique de récompenser l'interactivité des abonnés.",
      "mp3": "/podcast/fr/06.mp3",
-     "duree": 7.4,
+     "duree": 12.5,
      "pays": "DZ",
-     "source": "Le Soir d'Algérie"
+     "source": "NTIC.dz"
     },
     {
-     "titre": "Bêta One UI 9.5 bientôt",
-     "texte": "La bêta de Samsung One UI 9.5, prévue pour le Galaxy S26 Ultra, sera bientôt disponible. Les inscriptions au programme devraient ouvrir prochainement.",
+     "titre": "Réseau domestique hors-courant",
+     "texte": "Comment assurer la continuité de votre réseau domestique en cas de coupure de courant ? Une bonne planification et du matériel de sauvegarde adapté, comme des onduleurs, peuvent vous permettre de rester connecté.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 10.3,
+     "duree": 11.7,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Nouvelle affaire de blanchiment",
-     "texte": "Une nouvelle opération ciblée a permis de mettre au jour une affaire de blanchiment d'argent, avec la saisie d'euros, de centimes et d'or.",
+     "titre": "La pomme de terre se fait rare",
+     "texte": "La pomme de terre, aliment de base, devient difficile à trouver dans plusieurs régions d'Algérie. Cette pénurie contraint les consommateurs à multiplier les déplacements pour trouver ce tubercule devenu rare.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 7.3,
+     "duree": 11.6,
      "pays": "DZ",
-     "source": "Algérie360"
+     "source": "Maghreb Emergent"
     },
     {
-     "titre": "Opération anti-blanchiment réussie",
-     "texte": "Un réseau criminel spécialisé dans le blanchiment d'argent a été démantelé en 5ème Région militaire, avec la saisie de 50 millions DA, de devises et d'armes.",
+     "titre": "Startups : négociations financements",
+     "texte": "L'Algérie est en pleine négociation avec la Banque mondiale pour obtenir des financements destinés aux startups. La prochaine conférence africaine des startups sera une occasion de lever des fonds pour les jeunes porteurs de projets.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 9.0,
+     "duree": 11.9,
      "pays": "DZ",
      "source": "TSA Algérie"
     },
     {
-     "titre": "Algérie dénonce crimes coloniaux",
-     "texte": "L'Algérie présente des preuves de crimes coloniaux affectant l'environnement, allant au-delà des essais nucléaires pour inclure des destructions naturelles.",
+     "titre": "Principes pour musulmans en France",
+     "texte": "Face à l'islamophobie, le recteur de la Grande mosquée de Paris a énoncé sept principes essentiels. Ces recommandations s'adressent aux musulmans vivant en France pour renforcer leur intégration et leur coexistence.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 7.4,
+     "duree": 11.8,
      "pays": "DZ",
-     "source": "Crésus"
+     "source": "TSA Algérie"
     }
    ]
   },
