@@ -10,7 +10,7 @@
   <link rel="manifest" href="/assistant.webmanifest" />
   <link rel="apple-touch-icon" href="/images/assistant-icon-192.png" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-title" content="Assistant AT" />
+  <meta name="apple-mobile-web-app-title" content="Basta Info" />
   <link rel="stylesheet" href="/style.css" />
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
@@ -1679,7 +1679,7 @@
       let installEvt = null;
       window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); installEvt = e; installBtn.classList.add('show'); });
       installBtn.addEventListener('click', async () => { if (!installEvt) return; installEvt.prompt(); await installEvt.userChoice.catch(() => {}); installEvt = null; installBtn.classList.remove('show'); });
-      window.addEventListener('appinstalled', () => { installBtn.classList.remove('show'); addMessage('bot', 'Application installée ✅ Vous la retrouvez sur l\'écran d\'accueil (« Assistant AT »). Dites « Ok Google, ouvre Assistant AT » pour la lancer à la voix.'); });
+      window.addEventListener('appinstalled', () => { installBtn.classList.remove('show'); addMessage('bot', 'Application installée ✅ Vous la retrouvez sur l\'écran d\'accueil (« Basta Info »). Dites « Ok Google, ouvre Basta Info » pour la lancer à la voix, directement en mode conduite.'); });
 
       // Raccourcis de l'icône (appui long) et lancement depuis l'application : /assistant-vocal?cmd=…
       const qs = new URLSearchParams(location.search);
