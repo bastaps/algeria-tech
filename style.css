@@ -4857,3 +4857,10 @@ html, body { overflow-x: clip; }
 
 /* « Synthèse IA » désactivée (redondante avec « À retenir », lente) : bouton masqué ; réversible en supprimant ces 2 lignes */
 .synthese-btn, #syntheseBox { display: none !important; }
+
+/* Barre rouge URGENT : hauteur réduite de moitié */
+.breaking-news { padding: 3px 0; }
+.breaking-news .container { gap: 10px; }
+.breaking-label { padding: 1px 8px; font-size: 0.62rem; line-height: 1.5; }
+.breaking-live-dot { width: 5px; height: 5px; }
+.ticker-item { font-size: 0.74rem; line-height: 1.5; padding: 0 22px; }
