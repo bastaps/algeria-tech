@@ -467,6 +467,13 @@ def fetch_apify_cache(source: dict) -> list:
     try:
         cache = json.loads(cache_file.read_text(encoding='utf-8'))
         posts = cache.get('pages', {}).get(page_id, [])
+        # Cache périmé (plus de 7 jours) : on l'ignore, pour ne pas republier d'anciennes infos comme si elles étaient neuves
+        try:
+            _gen = datetime.fromisoformat(cache.get('generated', '')[:10]).replace(tzinfo=timezone.utc)
+            if (datetime.now(timezone.utc) - _gen).days > 7:
+                return []
+        except Exception:
+            return []
         if posts:
             generated = cache.get('generated', '')[:10]
             print(f"  [APIFY] ✓ {len(posts)} posts ← cache du {generated} ({page_id})")
@@ -1060,6 +1067,45 @@ TIC_KEYWORDS = [
     'ericsson', 'huawei', 'nokia', 'arpce', 'arpt', 'algersat'
 ]
 
+# ─── Importance : on ne garde que les annonces utiles, pas les publications de routine ────────────────
+IMPORTANT_RX = re.compile(
+    r"lanc|annonc|nouveau|nouvelle|accord|convention|signature|signe|inaugur|licence|tarif|offre|promotion|5g|4g|fibre|ftth|"
+    r"panne|perturbation|coupure|maintenance|incident|décision|décret|arrêté|nomination|nomm|appel à|recrut|résultat|calendrier|"
+    r"cyber|alerte|attaque|lancement|déploie|extension|couverture|investi|partenariat|startup|innovation|intelligence artificielle|"
+    r"satellite|data center|datacenter|câble|cable|paiement|plateforme|application|"
+    r"إطلاق|يطلق|تطلق|اتفاقية|توقيع|تعيين|قرار|مرسوم|عرض|تخفيض|انقطاع|اضطراب|ألياف|تغطية|منصة|تطبيق|شراكة|مؤسسة ناشئة|ذكاء اصطناعي|رخصة|قمر")
+ROUTINE_RX = re.compile(
+    r"vœux|voeux|bonne (année|fête)|joyeux|condoléances|félicit|meilleurs voeux|horaires? d'ouverture|bonjour|bonsoir|"
+    r"photo du jour|citation|rappel quotidien|programme du jour|"
+    r"تهنئة|تعازي|مبروك|صباح الخير|مساء الخير|كل عام وأنتم")
+MAX_PER_SOURCE = 3          # au plus 3 informations par source et par passage (2 passages par jour)
+INSTITUTIONAL = ('Ministère', 'Opérateurs', 'Infrastructure', 'Régulateurs')
+
+
+def _norm_title(s: str) -> str:
+    return re.sub(r'[^a-z0-9؀-ۿ ]+', ' ', (s or '').lower()).strip()
+
+
+def is_important(post: dict, source: dict, recent_titles: list) -> bool:
+    """Garde seulement les annonces nouvelles et utiles : pas de routine, pas de doublon des 7 derniers jours."""
+    if source.get('category') not in INSTITUTIONAL:
+        return True
+    txt = post.get('text', {}) or {}
+    body = ' '.join(v for v in txt.values() if isinstance(v, str))
+    if not body.strip():
+        return False
+    if ROUTINE_RX.search(body.lower()) and not IMPORTANT_RX.search(body.lower()):
+        return False
+    if not IMPORTANT_RX.search(body.lower()):
+        return False
+    title = _norm_title((txt.get('fr') or txt.get('ar') or txt.get('en') or body)[:140])
+    import difflib
+    for old in recent_titles:
+        if difflib.SequenceMatcher(None, title, old).ratio() >= 0.82:
+            return False
+    return True
+
+
 def is_tic_relevant(post: dict, source: dict) -> bool:
     """
     Filtre les posts non pertinents TIC.
@@ -1095,6 +1141,11 @@ def main():
     existing  = load_existing()
     seen_ids  = {p['id'] for p in existing.get('posts', [])}
     new_posts = []
+    # Titres déjà publiés (7 derniers jours) pour écarter les infos qui reviennent
+    recent_titles = []
+    for _p in existing.get('posts', [])[:150]:
+        _tx = _p.get('text', {}) or {}
+        recent_titles.append(_norm_title((_tx.get('fr') or _tx.get('ar') or _tx.get('en') or '')[:140]))
 
     sources = [s for s in config.get('sources', [])
                if s.get('name') and s.get('enabled', True)]
@@ -1107,40 +1158,42 @@ def main():
         print(f"\n▶ {src['name']} [{src['category']}]")
         raw_items = []
 
-        # ── Méthode 1 : Flux RSS officiel direct ─────────────────────────────
-        if src.get('rss_url'):
+        # ── Ordre de priorité : canaux OFFICIELS d'abord, agrégateur Google News seulement en secours ──
+        rss = src.get('rss_url', '')
+        rss_is_aggregator = 'news.google.com' in rss
+        official_items = []
+
+        # 1. Telegram public (canal officiel : gratuit, sans compte, stable)
+        if src.get('telegram_channel'):
+            official_items.extend(fetch_telegram(src))
+
+        # 2. Flux RSS officiel direct (hors agrégateur)
+        if rss and not rss_is_aggregator:
+            official_items.extend(fetch_rss(src))
+
+        # 3. Page « actualités » du site officiel
+        if len(official_items) < 2 and src.get('news_url'):
+            official_items.extend(fetch_news_page(src))
+
+        # 4. Facebook / Instagram via cookie de session (facultatif, seulement si les cookies sont fournis)
+        if len(official_items) < 2 and src.get('fb_page_id') and FB_COOKIE:
+            official_items.extend(fetch_facebook_cookie(src))
+        if len(official_items) < 2 and src.get('ig_user') and IG_COOKIE:
+            official_items.extend(fetch_instagram_cookie(src))
+
+        raw_items.extend(official_items)
+
+        # 5. Secours : RSSHub auto-hébergé, cache Apify, puis Google News (presse) — uniquement si l'officiel est vide
+        if len(raw_items) < 2:
+            raw_items.extend(fetch_rsshub(src))
+        if len(raw_items) < 2 and src.get('fb_page_id'):
+            raw_items.extend(fetch_apify_cache(src))
+        if len(raw_items) < 2 and rss and rss_is_aggregator:
             raw_items.extend(fetch_rss(src))
 
-        # ── Méthode 2 : RSSHub auto-hébergé ──────────────────────────────────
-        if not raw_items:
-            raw_items.extend(fetch_rsshub(src))
-
-        # ── Méthode 3 : YouTube RSS — toujours tenté en complément ───────────
-        #    Gratuit, sans authentification, flux Atom officiel Google.
-        #    Ajoute des vidéos récentes même quand le RSS renvoie déjà des articles.
+        # YouTube : complément (flux Atom officiel Google), conservé tel quel
         if src.get('youtube_channel_id') or src.get('youtube_user'):
             raw_items.extend(fetch_youtube(src))
-
-        # ── Méthode 4 : Telegram public — toujours tenté en complément ───────
-        #    t.me/s/ zéro-auth, stable, gratuit. Canaux publics DZ très actifs.
-        if src.get('telegram_channel'):
-            raw_items.extend(fetch_telegram(src))
-
-        # ── Méthode 5a : Facebook via cookie de session Chrome ───────────────
-        if not raw_items and src.get('fb_page_id') and FB_COOKIE:
-            raw_items.extend(fetch_facebook_cookie(src))
-
-        # ── Méthode 5b : Instagram via cookie de session Chrome ──────────────
-        if not raw_items and src.get('ig_user') and IG_COOKIE:
-            raw_items.extend(fetch_instagram_cookie(src))
-
-        # ── Méthode 6 : Cache Apify ───────────────────────────────────────────
-        if not raw_items and src.get('fb_page_id'):
-            raw_items.extend(fetch_apify_cache(src))
-
-        # ── Méthode 7 : Scraping du site officiel (dernier recours) ──────────
-        if not raw_items and src.get('news_url'):
-            raw_items.extend(fetch_news_page(src))
 
         # ── Dédupliquer par URL (sources multiples peuvent retourner le même lien)
         seen_links: set = set()
@@ -1156,15 +1209,23 @@ def main():
             print(f"  [—] Aucune donnée disponible pour cette source")
             continue
 
-        # Construire les posts
+        # Construire les posts (importance + anti-doublon + plafond par source)
+        kept = 0
         for raw in raw_items:
+            if kept >= MAX_PER_SOURCE:
+                break
             post = build_post(raw, src, do_translate)
             if post['id'] in seen_ids:
                 continue
             if not is_tic_relevant(post, src):
                 continue
+            if not is_important(post, src, recent_titles):
+                continue
             seen_ids.add(post['id'])
+            ptxt = post.get('text', {}) or {}
+            recent_titles.append(_norm_title((ptxt.get('fr') or ptxt.get('ar') or ptxt.get('en') or '')[:140]))
             new_posts.append(post)
+            kept += 1
 
         print(f"  → {len([p for p in new_posts if p['source_name'] == src['name']])} nouveaux posts")
 
