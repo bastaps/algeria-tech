@@ -210,7 +210,7 @@
         '<a role="menuitem" class="dh-added" href="#" onclick="showComparateur();return false;" style="--chip:#fb923c"><i class="fas fa-mobile-alt"></i><span>Comparateur mobile</span></a>' +
         '<a role="menuitem" class="dh-added" href="/operateurs" style="--chip:#34d399"><i class="fas fa-signal"></i><span>Opérateurs</span></a>' +
         '<a role="menuitem" class="dh-added" href="/infographies/index.html" style="--chip:#f87171"><i class="fas fa-chart-pie"></i><span>Infographies</span></a>' +
-        (document.documentElement.classList.contains('is-admin') ? '<a role="menuitem" class="dh-added" href="/assistant-vocal" style="--chip:#8b5cf6"><i class="fas fa-microphone-lines"></i><span>Assistant vocal</span></a>' : '') +
+        (document.documentElement.classList.contains('is-admin') ? '<a role="menuitem" class="dh-added" href="/assistant-vocal" style="--chip:#8b5cf6"><i class="fas fa-microphone-lines"></i><span>Assistant AT</span></a>' : '') +
         '<div class="at-explore-sep dh-added" aria-hidden="true"></div>');
     }
   }

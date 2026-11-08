@@ -3,7 +3,7 @@
 // connexion — le code de l'éditeur n'est même pas envoyé au navigateur.
 // (_routes.json limite ce middleware à /smart-ingest-pro*, /assistant-vocal*, /admin-brouillons*, /brouillons/* et /api/*.)
 // Les brouillons non publiés ne sont donc pas lisibles publiquement non plus.
-import { readSession, ghGet, ghPut } from './_lib/admin.js';
+import { readSession, ghGet, ghPut, uiCookie } from './_lib/admin.js';
 
 // Filet de sécurité de la revue de presse : GitHub retarde les exécutions planifiées de plusieurs heures. Si, à partir de
 // 06h00 heure d'Alger, quelqu'un charge la revue et que l'édition du jour n'est pas là, le site dépose data/revue-demande.json
@@ -65,6 +65,8 @@ export async function onRequest({ request, env, next, waitUntil }) {
     const out = new Response(res.body, res);
     out.headers.set('Cache-Control', 'no-store');
     out.headers.set('X-Frame-Options', 'SAMEORIGIN');
+    // Session valide : (re)pose l'indicateur non secret qui affiche les liens « Assistant Vocal » sur le site.
+    if (!/(?:^|;\s*)at_ui=1/.test(request.headers.get('Cookie') || '')) out.headers.append('Set-Cookie', uiCookie(30 * 24 * 3600));
     return out;
   }
   return next();
