@@ -1,4 +1,4 @@
-import { json, makeSessionCookie, verifyPassword, timingSafeText, failures, addFailure, clearFailures, notifier } from '../../_lib/admin.js';
+import { json, makeSessionCookie, uiCookie, SESSION_TTL_LONG, verifyPassword, timingSafeText, failures, addFailure, clearFailures, notifier } from '../../_lib/admin.js';
 
 export async function onRequestPost({ request, env, waitUntil }) {
   if (!env.ADMIN_USER || !env.ADMIN_PASSWORD_HASH || !env.SESSION_SECRET) return json({ error: 'Administration non configurée.' }, 503);
@@ -23,5 +23,9 @@ export async function onRequestPost({ request, env, waitUntil }) {
   }
   await clearFailures(env, ip);
   notifier(env, waitUntil, 'Admin : connexion', 'Connexion réussie (' + ((request.cf && request.cf.country) || '?') + ').', 'key');
-  return json({ success: true }, 200, { 'Set-Cookie': await makeSessionCookie(env, env.ADMIN_USER) });
+  const ttl = body.remember ? SESSION_TTL_LONG : 8 * 3600;
+  const res = json({ success: true });
+  res.headers.append('Set-Cookie', await makeSessionCookie(env, env.ADMIN_USER, ttl));
+  res.headers.append('Set-Cookie', uiCookie(ttl));
+  return res;
 }

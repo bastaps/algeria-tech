@@ -28,7 +28,7 @@ async function verifierRevue(res, env) {
 
 // Anti-abus des endpoints qui consomment des crédits IA/voix (Mistral, ElevenLabs, Workers AI, YouTube) :
 // seul le site lui-même (même origine) peut les appeler ; un curl/script externe est refusé.
-const COUT = /^\/api\/(debat|synthese|kateb|assistant|tts|voices|outpaint|youtube|newsletter)\/?$/;
+const COUT = /^\/api\/(debat|synthese|kateb|assistant|voix|etat-site|tts|voices|outpaint|youtube|newsletter)\/?$/;
 function memeOrigine(request, url) {
   const sfs = request.headers.get('Sec-Fetch-Site');
   if (sfs) return sfs === 'same-origin';
@@ -52,7 +52,7 @@ export async function onRequest({ request, env, next, waitUntil }) {
   // Assistant vocal : outil privé (future version Pro) → page et API réservées à la session admin.
   // En local (wrangler pages dev), pas de connexion admin configurée : accès libre. En ligne, l'hôte n'est jamais localhost.
   const local = url.hostname === 'localhost' || url.hostname === '127.0.0.1';
-  if (!local && /^\/api\/(assistant|etat-site)\/?$/.test(url.pathname)) {
+  if (!local && /^\/api\/(assistant|etat-site|voix)\/?$/.test(url.pathname)) {
     if (!(await readSession(request, env)))
       return new Response(JSON.stringify({ error: 'Connexion requise.' }), { status: 401, headers: { 'Content-Type': 'application/json; charset=utf-8', 'Cache-Control': 'no-store' } });
   }

@@ -29,13 +29,19 @@ async function hmacKey(secret, usage) {
   return crypto.subtle.importKey('raw', enc.encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, usage);
 }
 
-export async function makeSessionCookie(env, user) {
-  const payload = b64u(enc.encode(JSON.stringify({ u: user, exp: Math.floor(Date.now() / 1000) + SESSION_TTL })));
+export const SESSION_TTL_LONG = 30 * 24 * 3600; // « Rester connecté » (téléphone personnel) : 30 jours
+// SameSite=Lax (et non Strict) : la session doit suivre l'ouverture de l'application installée (icône, « Ok Google »),
+// qui arrive comme une navigation externe. Les écritures restent protégées par la vérification d'Origin (requireAdmin).
+export async function makeSessionCookie(env, user, ttl = SESSION_TTL) {
+  const payload = b64u(enc.encode(JSON.stringify({ u: user, exp: Math.floor(Date.now() / 1000) + ttl })));
   const sig = b64u(await crypto.subtle.sign('HMAC', await hmacKey(env.SESSION_SECRET, ['sign']), enc.encode(payload)));
-  return `${COOKIE}=${payload}.${sig}; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=${SESSION_TTL}`;
+  return `${COOKIE}=${payload}.${sig}; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=${ttl}`;
 }
+// Indicateur NON secret (lisible par la page) : sert seulement à afficher les liens réservés à l'admin.
+// La vraie protection reste le cookie de session ci-dessus, vérifié côté serveur.
+export const uiCookie = (ttl) => `at_ui=1; Secure; SameSite=Lax; Path=/; Max-Age=${ttl}`;
 
-export const clearCookie = () => `${COOKIE}=; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=0`;
+export const clearCookie = () => `${COOKIE}=; HttpOnly; Secure; SameSite=Lax; Path=/; Max-Age=0`;
 
 export async function readSession(request, env) {
   if (!env.SESSION_SECRET || env.SESSION_SECRET.length < 32) return null;

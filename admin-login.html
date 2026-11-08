@@ -19,6 +19,8 @@
   button { margin-top:20px; width:100%; padding:12px; border:0; border-radius:10px; background:var(--accent); color:#fff; font:600 1rem system-ui; cursor:pointer; }
   button:disabled { opacity:.6; cursor:wait; }
   #err { margin-top:14px; color:var(--bad); font-size:.85rem; min-height:1.2em; }
+  label.rem { display:flex; align-items:center; gap:8px; margin-top:16px; font-size:.82rem; color:var(--text); }
+  label.rem input { width:auto; }
   a { color:var(--muted); font-size:.8rem; display:block; text-align:center; margin-top:16px; }
 </style>
 </head>
@@ -30,6 +32,7 @@
   <input id="u" name="username" autocomplete="username" required>
   <label for="p">Mot de passe</label>
   <input id="p" name="password" type="password" autocomplete="current-password" required>
+  <label class="rem"><input id="r" type="checkbox" checked> Rester connecté 30 jours (mon téléphone ou mon PC personnel)</label>
   <button id="b" type="submit">Se connecter</button>
   <div id="err" role="alert"></div>
   <a href="/">← Retour au site</a>
@@ -43,7 +46,7 @@
     e.preventDefault(); err.textContent = ''; b.disabled = true;
     fetch('/api/admin/login', {
       method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ user: document.getElementById('u').value, password: document.getElementById('p').value })
+      body: JSON.stringify({ user: document.getElementById('u').value, password: document.getElementById('p').value, remember: document.getElementById('r').checked })
     }).then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
       .then(function (x) { if (x.ok) location.replace(next); else { err.textContent = x.d.error || 'Connexion refusée.'; b.disabled = false; document.getElementById('p').value = ''; } })
       .catch(function () { err.textContent = 'Erreur réseau.'; b.disabled = false; });

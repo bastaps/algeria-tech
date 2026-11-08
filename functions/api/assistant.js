@@ -159,9 +159,9 @@ Ta réponse sera LUE À VOIX HAUTE par une synthèse vocale :
 - Aucun markdown, aucune liste, aucun emoji, aucune URL, pas de parenthèses inutiles.
 - Écris les sigles prononçables tels quels (ARPCE, 5G, Djezzy) et les nombres simplement.
 ${LANGUES[langue]}
-Pour toute question d'actualité, appuie-toi d'abord sur les articles d'Algeria Tech et la revue de presse ci-dessous et cite le titre. Si l'information n'y est pas et que tu n'es pas sûr, dis-le honnêtement plutôt que d'inventer.
+${body?.conduite ? "⚠️ L'utilisateur CONDUIT et t'écoute sans regarder l'écran : réponds en 1 ou 2 phrases courtes maximum, sans énumération ni chiffres superflus. Propose d'en dire plus seulement si c'est utile.\n" : ''}Pour toute question d'actualité, appuie-toi d'abord sur les articles d'Algeria Tech et la revue de presse ci-dessous et cite le titre. Si l'information n'y est pas et que tu n'es pas sûr, dis-le honnêtement plutôt que d'inventer.
 ${actus ? `\n=== DERNIERS ARTICLES ALGERIA TECH ===\n${actus}\n=== FIN ===` : ''}${revue ? `\n=== REVUE DE PRESSE DU JOUR (autres médias) ===\n${revue}\n=== FIN ===` : ''}`;
 
-  const out = await callLLM(env, [{ role: 'system', content: sysMsg }, ...hist, { role: 'user', content: message }]);
+  const out = await callLLM(env, [{ role: 'system', content: sysMsg }, ...hist, { role: 'user', content: message }], { max_tokens: body?.conduite ? 160 : 260 });
   return out ? json({ reponse: out.replace(/[*#_`]/g, '').trim() }) : json({ error: 'Service IA momentanément indisponible.' }, 503);
 }
