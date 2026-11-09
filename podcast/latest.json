@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
- "date": "2026-11-08",
- "genere": "2026-11-08T20:37:33",
+ "date": "2026-11-09",
+ "genere": "2026-11-09T17:05:20",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-08T20:37:58",
+   "genere": "2026-11-09T17:05:48",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.1,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les 10 informations tech et télécoms qui ont marqué la soirée."
+    "duree": 7.7,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Retrouvez ce soir dix informations tech et économie qui ont marqué l'actualité."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
     "duree": 6.7,
-    "texte": "C'était les informations tech et télécoms de la soirée. Merci de nous avoir suivis sur Algeria Tech."
+    "texte": "C'était l'essentiel de l'actualité tech et économie. Merci de nous avoir suivis sur Algeria Tech."
    },
    "items": [
     {
-     "titre": "Nouveaux laboratoires d'analyse ouverts",
-     "texte": "Suite aux instructions du président, le Premier ministre a inauguré deux laboratoires d'analyse de la qualité. Ils sont situés au port et à l'aéroport d'Alger, renforçant ainsi les contrôles.",
+     "titre": "Algérie pionnière innovation tech Afrique",
+     "texte": "L'Algérie est reconnue pour son rôle pionnier dans le soutien à l'innovation technologique sur le continent africain. M. Ouadah souligne l'engagement du pays à promouvoir les avancées dans ce domaine crucial pour l'avenir.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 10.8,
-     "pays": "DZ",
-     "source": "APS"
-    },
-    {
-     "titre": "Réseau de blanchiment démantelé",
-     "texte": "Un réseau criminel organisé spécialisé dans le blanchiment d'argent a été démantelé. Les autorités ont mis fin aux activités illégales de ce groupe.",
-     "mp3": "/podcast/fr/02.mp3",
-     "duree": 8.7,
-     "pays": "DZ",
-     "source": "APS"
-    },
-    {
-     "titre": "Opération anti-blanchiment réussie",
-     "texte": "La 5ème Région militaire a mené à bien une opération de démantèlement. Elle visait un réseau criminel organisé spécialisé dans le blanchiment d'argent.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 8.8,
+     "duree": 11.5,
      "pays": "DZ",
      "source": "Radio Algérie"
     },
     {
-     "titre": "Problème applications Samsung Galaxy",
-     "texte": "Les téléphones Samsung Galaxy continuent de présenter un problème récurrent avec les applications préinstallées. Ces logiciels inutiles peuvent être une source de frustration pour les utilisateurs.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 10.8,
+     "titre": "Caméra anti-IA",
+     "texte": "Une nouvelle caméra prototype est développée pour lutter contre la photographie générée par intelligence artificielle. Son objectif est de restaurer la confiance dans l'authenticité des images face à la prolifération des créations par IA.",
+     "mp3": "/podcast/fr/02.mp3",
+     "duree": 12.2,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Spéculation sur l'huile subventionnée",
-     "texte": "Une entreprise de fabrication de chips est impliquée dans une affaire de spéculation sur l'huile subventionnée en Algérie. Plusieurs individus ont été arrêtés et placés en détention.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 9.9,
+     "titre": "Réseau crypto démantelé",
+     "texte": "Un réseau spécialisé dans le commerce de cryptomonnaies a été démantelé à Batna. Les autorités ont saisi plus de 2 milliards de centimes, marquant une opération significative contre les activités illégales liées aux monnaies numériques.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 12.6,
      "pays": "DZ",
      "source": "Algérie360"
     },
     {
-     "titre": "Financement startups et Banque Mondiale",
-     "texte": "L'Algérie discute avec la Banque Mondiale pour un dispositif de financement destiné aux startups locales. L'objectif est de mobiliser plus de dix millions de dollars.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 9.5,
+     "titre": "Trafic de visas Alger",
+     "texte": "Une enquête sur un trafic de visas au consulat d'Espagne à Alger révèle de nouveaux développements. L'épouse d'un ancien chancelier est suspectée d'avoir acquis des biens immobiliers pour près de 800 000 euros.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 10.6,
      "pays": "DZ",
      "source": "Algérie Éco"
     },
     {
-     "titre": "Origine des numéros spam",
-     "texte": "Vous recevez des appels indésirables ? Ce texte explique comment les spammeurs obtiennent vos numéros. Le monde moderne est envahi par les arnaques téléphoniques.",
+     "titre": "386 MW pour le réseau",
+     "texte": "Le réseau électrique national algérien s'enrichit de 386 mégawatts supplémentaires, principalement destinés au Sud. Cette augmentation de capacité vise à renforcer l'approvisionnement énergétique du pays.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 12.2,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Export GNL en hausse",
+     "texte": "Les exportations algériennes de gaz naturel liquéfié ont bondi de 51 % en octobre. La France se positionne comme le premier client, reflétant une dynamique positive pour les livraisons de GNL.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 12.2,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "Conférence IEEE à Oran",
+     "texte": "La 5e Conférence internationale IEEE sur les systèmes embarqués et distribués s'est tenue à Oran. Quatre travaux de l'ESI-SBA, axés sur la cybersécurité, y ont été présentés par des chercheurs algériens et internationaux.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 9.6,
+     "duree": 13.1,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "ITMAG"
     },
     {
-     "titre": "Mobilis lance MU Champions",
-     "texte": "Mobilis lance son nouveau challenge national, MU Champions, lié à son offre Revolution. Douze abonnés seront récompensés chaque semaine avec des prix pouvant atteindre un million de dinars.",
+     "titre": "Politique et valeurs tech",
+     "texte": "Les résultats des élections américaines ont impacté négativement les valeurs technologiques. Les géants des puces et les entreprises liées à l'IA ont vu leurs cours chuter suite aux incertitudes politiques.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 10.8,
+     "duree": 10.5,
      "pays": "DZ",
-     "source": "Algérie360 Tech"
+     "source": "ITMAG"
     },
     {
-     "titre": "Nouveau challenge Mobilis : MU Champions",
-     "texte": "Mobilis récompense la fidélité de ses clients avec le challenge MU Champions. Chaque jeudi, douze abonnés peuvent gagner jusqu'à cent millions de centimes et des smartphones.",
+     "titre": "58 laboratoires contrôle produits",
+     "texte": "Le réseau national de laboratoires pour le contrôle des produits importés passera à 58 structures d'ici 2027. Dix-sept nouveaux centres seront mis en place dans les ports, aéroports et postes frontaliers.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 9.7,
+     "duree": 11.9,
      "pays": "DZ",
-     "source": "NTIC.dz"
+     "source": "Algérie Éco"
     },
     {
-     "titre": "Réseau domestique fonctionnel sans électricité",
-     "texte": "Maintenez votre réseau domestique opérationnel même en cas de panne d'électricité. Ce guide explique comment avec le matériel de sauvegarde adapté et une bonne planification.",
+     "titre": "Lutte anti-drogue bilan",
+     "texte": "Plus de 25 000 arrestations et 186 réseaux de stupéfiants démantelés : tel est le bilan de la lutte contre la drogue. Des saisies importantes de médicaments ont été réalisées.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 9.9,
+     "duree": 10.3,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Crésus"
     }
    ]
   },
