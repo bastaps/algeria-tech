@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-09",
- "genere": "2026-11-09T17:05:20",
+ "genere": "2026-11-09T22:24:57",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-09T17:05:48",
+   "genere": "2026-11-09T22:25:23",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.7,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Retrouvez ce soir dix informations tech et économie qui ont marqué l'actualité."
+    "duree": 6.2,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici 10 infos pour démarrer votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.7,
-    "texte": "C'était l'essentiel de l'actualité tech et économie. Merci de nous avoir suivis sur Algeria Tech."
+    "duree": 5.9,
+    "texte": "C'était 10 infos tech pour bien finir votre soirée. À demain sur Algeria Tech."
    },
    "items": [
     {
-     "titre": "Algérie pionnière innovation tech Afrique",
-     "texte": "L'Algérie est reconnue pour son rôle pionnier dans le soutien à l'innovation technologique sur le continent africain. M. Ouadah souligne l'engagement du pays à promouvoir les avancées dans ce domaine crucial pour l'avenir.",
+     "titre": "IA locale : le matériel nécessaire",
+     "texte": "Faire tourner un modèle d'intelligence artificielle sur votre PC, c'est possible avec Ollama ou LM Studio. Pas besoin d'une configuration hors norme, mais 16 Go de RAM montrent vite leurs limites. Lancez votre chatbot sans abonnement ni connexion Internet.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 11.5,
-     "pays": "DZ",
-     "source": "Radio Algérie"
-    },
-    {
-     "titre": "Caméra anti-IA",
-     "texte": "Une nouvelle caméra prototype est développée pour lutter contre la photographie générée par intelligence artificielle. Son objectif est de restaurer la confiance dans l'authenticité des images face à la prolifération des créations par IA.",
-     "mp3": "/podcast/fr/02.mp3",
-     "duree": 12.2,
+     "duree": 15.5,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Réseau crypto démantelé",
-     "texte": "Un réseau spécialisé dans le commerce de cryptomonnaies a été démantelé à Batna. Les autorités ont saisi plus de 2 milliards de centimes, marquant une opération significative contre les activités illégales liées aux monnaies numériques.",
+     "titre": "Algériens expulsables au Royaume-Uni",
+     "texte": "Le Royaume-Uni compte près de 20 000 délinquants étrangers expulsables. Parmi eux, 569 citoyens algériens font l'objet d'une procédure d'expulsion, mais leur présence continue sur le territoire soulève des questions.",
+     "mp3": "/podcast/fr/02.mp3",
+     "duree": 12.5,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Huawei Algérie et l'ENSIA renforcent le partenariat",
+     "texte": "Huawei Algérie visite l'École Nationale Supérieure en Intelligence Artificielle. L'objectif est de consolider le partenariat technologique et de discuter de l'avenir du numérique et de l'innovation dans le pays.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 12.6,
+     "duree": 11.3,
      "pays": "DZ",
-     "source": "Algérie360"
+     "source": "ITMAG"
     },
     {
-     "titre": "Trafic de visas Alger",
-     "texte": "Une enquête sur un trafic de visas au consulat d'Espagne à Alger révèle de nouveaux développements. L'épouse d'un ancien chancelier est suspectée d'avoir acquis des biens immobiliers pour près de 800 000 euros.",
+     "titre": "AirPods : réduction de bruit vs adaptative",
+     "texte": "Les AirPods offrent une réduction de bruit efficace, mais l'isolement total peut être problématique. Découvrez les différences entre les modes de réduction de bruit et audio adaptatif pour une meilleure expérience.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 10.6,
+     "duree": 11.6,
      "pays": "DZ",
-     "source": "Algérie Éco"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "386 MW pour le réseau",
-     "texte": "Le réseau électrique national algérien s'enrichit de 386 mégawatts supplémentaires, principalement destinés au Sud. Cette augmentation de capacité vise à renforcer l'approvisionnement énergétique du pays.",
+     "titre": "Algérie-Chine : projet de Data Center",
+     "texte": "L'Algérie et la Chine envisagent la création d'un centre de données stratégique à Sidi Abdellah. Ce projet vise à renforcer les capacités en matière d'intelligence artificielle dans le pays.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 12.2,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Export GNL en hausse",
-     "texte": "Les exportations algériennes de gaz naturel liquéfié ont bondi de 51 % en octobre. La France se positionne comme le premier client, reflétant une dynamique positive pour les livraisons de GNL.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 12.2,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "Conférence IEEE à Oran",
-     "texte": "La 5e Conférence internationale IEEE sur les systèmes embarqués et distribués s'est tenue à Oran. Quatre travaux de l'ESI-SBA, axés sur la cybersécurité, y ont été présentés par des chercheurs algériens et internationaux.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 13.1,
-     "pays": "DZ",
-     "source": "ITMAG"
-    },
-    {
-     "titre": "Politique et valeurs tech",
-     "texte": "Les résultats des élections américaines ont impacté négativement les valeurs technologiques. Les géants des puces et les entreprises liées à l'IA ont vu leurs cours chuter suite aux incertitudes politiques.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 10.5,
-     "pays": "DZ",
-     "source": "ITMAG"
-    },
-    {
-     "titre": "58 laboratoires contrôle produits",
-     "texte": "Le réseau national de laboratoires pour le contrôle des produits importés passera à 58 structures d'ici 2027. Dix-sept nouveaux centres seront mis en place dans les ports, aéroports et postes frontaliers.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.9,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "Lutte anti-drogue bilan",
-     "texte": "Plus de 25 000 arrestations et 186 réseaux de stupéfiants démantelés : tel est le bilan de la lutte contre la drogue. Des saisies importantes de médicaments ont été réalisées.",
-     "mp3": "/podcast/fr/10.mp3",
      "duree": 10.3,
      "pays": "DZ",
-     "source": "Crésus"
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Sécurité des projets énergétiques avec le Niger",
+     "texte": "Le Chef d'état-major de l'ANP, Saïd Chanegriha, confirme la mobilisation pour sécuriser les projets énergétiques communs avec le Niger. Cela inclut le déploiement d'une formation militaire au nord du Niger.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 12.1,
+     "pays": "DZ",
+     "source": "Le Jeune Indépendant"
+    },
+    {
+     "titre": "IA au service de la ville de demain",
+     "texte": "Le symposium 'UrbanAIzation 2026' à l'USTHB explore comment l'intelligence artificielle peut transformer les villes. L'IA est au cœur des discussions pour la planification urbaine et la gestion des ressources.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 12.1,
+     "pays": "DZ",
+     "source": "Le Jeune Indépendant"
+    },
+    {
+     "titre": "Point bleu sur Android : signification",
+     "texte": "Ce petit point bleu qui apparaît sur votre téléphone Android indique qu'une application vient d'accéder à votre localisation. Il signale une utilisation discrète de vos données de position.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 9.9,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "ENSIA : un centre de données IA avec la Chine",
+     "texte": "Un projet de centre de données dédié à l'intelligence artificielle pourrait voir le jour à l'ENSIA en partenariat avec la Chine. Le ministre de l'Enseignement supérieur a discuté de cette initiative.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 10.8,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "Caméra contre la photographie par IA",
+     "texte": "Une nouvelle caméra prototype est développée pour contrer la photographie générée par intelligence artificielle. L'objectif est de rétablir la confiance dans la validité et l'authenticité des images.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 10.9,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
     }
    ]
   },
