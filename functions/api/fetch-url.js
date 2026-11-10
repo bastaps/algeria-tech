@@ -31,7 +31,33 @@ function extractMainText(html) {
     .replace(/&amp;/gi, '&').replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&nbsp;/gi, ' ').replace(/&eacute;/gi, 'é')
     .replace(/&agrave;/gi, 'à').replace(/&egrave;/gi, 'è').replace(/&ecirc;/gi, 'ê').replace(/&ccedil;/gi, 'ç').replace(/&ugrave;/gi, 'ù')
     .replace(/&ocirc;/gi, 'ô').replace(/&quot;/gi, '"').replace(/&#(\d+);/g, (_, n) => String.fromCharCode(+n))
+    .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCharCode(parseInt(n, 16)))
     .replace(/&[a-z]{2,8};/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+// Sites Next.js (ex. aps.dz) : le corps de l'article n'est pas dans le HTML visible mais dans le flux de données joint à la page
+// (self.__next_f.push). Les blocs « id:T<longueur hexa>,<texte> » portent le texte HTML ; on récupère ceux qui contiennent des paragraphes.
+function textesNext(html) {
+  let flux = '';
+  for (const m of String(html).matchAll(/self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)/g)) {
+    try { flux += JSON.parse(m[1]); } catch { /* fragment illisible : ignoré */ }
+  }
+  if (!flux) return '';
+  const enc = new TextEncoder(), dec = new TextDecoder();
+  const morceaux = [];
+  const re = /(?:^|\n)[0-9a-f]+:T([0-9a-f]+),/g;
+  let m;
+  while ((m = re.exec(flux))) {
+    const n = parseInt(m[1], 16);
+    const debut = m.index + m[0].length;
+    const brut = dec.decode(enc.encode(flux.slice(debut, debut + n * 3)).subarray(0, n));
+    if (n > 150 && /<p[\s>]/i.test(brut)) morceaux.push(brut);
+  }
+  return morceaux.join('\n\n')
+    .replace(/<\/p>/gi, '\n\n').replace(/<br\s*\/?>/gi, '\n').replace(/<[^>]+>/g, ' ')
+    .replace(/&amp;/gi, '&').replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&nbsp;/gi, ' ').replace(/&quot;/gi, '"')
+    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCharCode(parseInt(h, 16))).replace(/&#(\d+);/g, (_, d) => String.fromCharCode(+d))
+    .replace(/[ \t]+/g, ' ').replace(/\n{3,}/g, '\n\n').trim();
 }
 
 // Photos et vidéos de l'article (pour le « Hub médias » de Smart Ingest PRO) : zone <article>/<main>, images assez grandes,
@@ -99,13 +125,19 @@ export async function onRequestPost({ request, env }) {
   let erreur = null;
   try {
     const html = await lireHtml(url);
-    const titre = ((html.match(/<title[^>]*>([^<]{1,200})<\/title>/i) || [])[1] || '').replace(/\s+/g, ' ').trim();
+    const titre = ((html.match(/<title[^>]*>([^<]{1,200})<\/title>/i) || [])[1] || '').replace(/&#x27;|&#39;/g, "'").replace(/&amp;/g, '&')
+      .replace(/&quot;/g, '"').replace(/\s+/g, ' ').trim();
     const og = (p) => (html.match(new RegExp(`<meta\\s+(?:property|name)=["']${p}["']\\s+content=["']([^"']+)["']`, 'i')) ||
       html.match(new RegExp(`content=["']([^"']+)["']\\s+(?:property|name)=["']${p}["']`, 'i')) || [])[1] || '';
     const image = og('og:image') || og('twitter:image');
     const video = og('og:video:url') || og('og:video');
-    const text = extractMainText(html);
-    const streamed = /self\.__next_f\.push/.test(html);
+    let text = extractMainText(html);
+    const avecFlux = /self\.__next_f\.push/.test(html);
+    if (avecFlux) {                                   // Next.js : le texte complet est dans le flux de la page
+      const extra = textesNext(html);
+      if (extra && extra.length > 150) text = (text + '\n\n' + extra).trim();
+    }
+    const streamed = avecFlux && !(text.length >= 900);   // flux non exploitable et peu de texte : vraiment chargé côté client
     if (text.length >= MIN_LEN && !streamed) {
       const medias = extraireMedias(html, url, image, video);
       return json({ text: text.substring(0, 8000), title: titre, url, image: image || undefined, video: video || undefined,
