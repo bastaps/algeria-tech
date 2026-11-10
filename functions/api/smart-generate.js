@@ -131,6 +131,68 @@ function aplatir(c) {
   return String(c == null ? '' : c);
 }
 
+// Extrait l'objet JSON d'une réponse (tolère ```json … ``` et du texte autour).
+function jsonDeReponse(txt) {
+    const s = String(txt || '').trim().replace(/^```(?:json)?\s*|\s*```$/g, '');
+    try { return JSON.parse(s); } catch { /* texte autour : on isole l'objet */ }
+    const m = s.match(/\{[\s\S]*\}/);
+    return m ? JSON.parse(m[0]) : null;
+}
+
+// Rédaction avec repli : Mistral (Small, puis 8B) → Gemini → Groq → OpenRouter (modèle gratuit). Une limite de débit, une panne
+// ou un texte trop court passent au fournisseur suivant au lieu d'afficher « Rédaction trop courte, réessayez ».
+async function redigerAvecRepli(prompt, { temperature, maxTokens, minMots }) {
+    const compat = (url, cle, modele, extra = {}) => async () => {
+        const r = await fetch(url, {
+            method: 'POST', signal: AbortSignal.timeout(55000),
+            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${cle}`, 'User-Agent': 'Mozilla/5.0 (compatible; AlgeriaTech/1.0)' },
+            body: JSON.stringify({ model: modele, messages: [{ role: 'user', content: prompt }], temperature, max_tokens: maxTokens, ...extra }),
+        });
+        const j = await r.json();
+        if (!r.ok || j.error || !j.choices) throw new Error(`${modele} HTTP ${r.status}`);
+        return j.choices[0].message.content;
+    };
+    const fournisseurs = [];
+    if (ENV.MISTRAL_API_KEY) {
+        for (const modele of ['mistral-small-latest', 'ministral-8b-latest']) {
+            fournisseurs.push(async () => {
+                const data = await callMistral(JSON.stringify({ model: modele, messages: [{ role: 'user', content: prompt }],
+                    response_format: { type: 'json_object' }, temperature, max_tokens: maxTokens }));
+                const j = JSON.parse(data);
+                if (j.error || j.object === 'error' || !j.choices) throw new Error((j.error && j.error.message) || j.message || 'Réponse IA invalide');
+                return j.choices[0].message.content;
+            });
+        }
+    }
+    if (ENV.GEMINI_API_KEY) fournisseurs.push(async () => {
+        const r = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent', {
+            method: 'POST', signal: AbortSignal.timeout(55000),
+            headers: { 'Content-Type': 'application/json', 'x-goog-api-key': ENV.GEMINI_API_KEY },
+            body: JSON.stringify({ contents: [{ role: 'user', parts: [{ text: prompt }] }],
+                generationConfig: { temperature, maxOutputTokens: maxTokens, responseMimeType: 'application/json' } }),
+        });
+        const j = await r.json();
+        if (!r.ok || j.error) throw new Error('gemini HTTP ' + r.status);
+        return (j.candidates && j.candidates[0] && j.candidates[0].content.parts.map(p => p.text || '').join('')) || '';
+    });
+    if (ENV.GROQ_API_KEY) fournisseurs.push(compat('https://api.groq.com/openai/v1/chat/completions', ENV.GROQ_API_KEY, 'openai/gpt-oss-120b',
+        { reasoning_effort: 'low', max_tokens: maxTokens + 800 }));
+    if (ENV.OPENROUTER_API_KEY) fournisseurs.push(compat('https://openrouter.ai/api/v1/chat/completions', ENV.OPENROUTER_API_KEY,
+        'nvidia/nemotron-3-ultra-550b-a55b:free'));
+
+    let derniere = null;
+    for (const appeler of fournisseurs) {
+        try {
+            const article = jsonDeReponse(await appeler());
+            if (!article || typeof article !== 'object') throw new Error('Réponse IA invalide');
+            article.contenu = aplatir(article.contenu);
+            if (String(article.contenu).split(/\s+/).filter(Boolean).length < minMots) throw new Error('Rédaction trop courte');
+            return article;
+        } catch (e) { derniere = e; }
+    }
+    throw derniere || new Error('Aucun fournisseur IA disponible');
+}
+
 async function generer(req, res) {
     const { text, style, breve, source_url } = req.body || {};
     if (!text) return res.status(400).json({ error: 'Texte source requis' });
@@ -355,21 +417,15 @@ ${text.substring(0, 4000)}`;
         + '"contenu" est UNE SEULE chaîne Markdown (intertitres « ## », paragraphes séparés par une ligne vide, tableau Markdown, puis « ## À retenir » avec des puces « - »). '
         + 'Jamais d\'objet ni de liste JSON dans "contenu".';
 
-    const payload = JSON.stringify({
-        model: 'ministral-8b-latest',
-        messages: [{ role: "user", content: prompt }],
-        response_format: { type: "json_object" },
-        temperature: effectiveStyle === 'pro' ? 0.3 : 0.35,
-        max_tokens: effectiveStyle === 'pro' ? 4500 : 3500
-    });
-
     try {
-        const data = await callMistral(payload);
-        const result = JSON.parse(data);
-        if (result.error || result.object === 'error' || !result.choices) throw new Error((result.error && result.error.message) || result.message || 'Réponse IA invalide');
-        const article = JSON.parse(result.choices[0].message.content);
-        article.contenu = aplatir(article.contenu);
-        if (String(article.contenu).split(/\s+/).length < 80) throw new Error('Rédaction trop courte, réessayez');
+        // Seuil de longueur adapté à la source : un court communiqué ne donne pas un article de 80 mots minimum.
+        const motsSource = String(text).split(/\s+/).filter(Boolean).length;
+        const minMots = Math.min(120, Math.max(40, Math.round(motsSource * 0.45)));
+        const article = await redigerAvecRepli(prompt, {
+            temperature: effectiveStyle === 'pro' ? 0.3 : 0.35,
+            maxTokens: effectiveStyle === 'pro' ? 4500 : 3500,
+            minMots,
+        });
 
         // Section "Pour rappel" construite par code à partir de vrais articles du jour —
         // jamais par le LLM, pour garantir zéro invention (voir getArticlesComplementairesDuJour).
@@ -387,7 +443,7 @@ ${text.substring(0, 4000)}`;
 export async function onRequestPost({ request, env }) {
   const auth = await requireAdmin(request, env);
   if (auth.error) return auth.error;
-  if (!env.MISTRAL_API_KEY) return json({ error: 'Rédaction IA non configurée (MISTRAL_API_KEY manquante).' }, 503);
+  if (!env.MISTRAL_API_KEY && !env.GEMINI_API_KEY && !env.GROQ_API_KEY && !env.OPENROUTER_API_KEY) return json({ error: 'Rédaction IA non configurée (aucune clé IA).' }, 503);
   ENV = env;
   let corps;
   try { corps = await request.json(); } catch { return json({ error: 'Requête invalide' }, 400); }
