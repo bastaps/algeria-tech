@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-10",
- "genere": "2026-11-10T19:38:22",
+ "genere": "2026-11-10T22:16:51",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-10T19:38:51",
+   "genere": "2026-11-10T22:17:14",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.9,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les 10 infos tech et télécoms à ne pas manquer ce soir."
+    "duree": 7.5,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech, retrouvez toute l'actualité tech et télécoms avec 10 infos importantes pour débuter la soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.0,
-    "texte": "C'était l'essentiel de l'actualité tech. Rendez-vous demain pour un nouveau tour d'horizon."
+    "duree": 6.3,
+    "texte": "C'était toute l'actualité tech et télécoms de ce soir sur Algeria Tech. À très bientôt."
    },
    "items": [
     {
      "titre": "Forum sur l'économie numérique",
-     "texte": "Alger accueillera un forum international ce mercredi. L'objectif est d'explorer les opportunités de partenariat et d'investissement en Afrique dans le domaine de l'économie numérique, soulignant son importance croissante pour le continent.",
+     "texte": "Un forum international se tiendra mercredi à Alger. L'objectif est d'examiner les opportunités de partenariat et d'investissement dans le domaine de l'économie numérique en Afrique. L'événement abordera les perspectives de croissance.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 12.4,
+     "duree": 13.6,
      "pays": "DZ",
      "source": "Radio Algérie"
     },
     {
-     "titre": "Signature électronique pour l'administration",
-     "texte": "La numérisation de l'administration algérienne peine à franchir un cap décisif. La signature électronique, pourtant promise pour simplifier les démarches, reste un verrou qui bloque de nombreux dossiers administratifs malgré les efforts en cours.",
+     "titre": "Forfaits IA pour Apple Creator Studio",
+     "texte": "Apple propose de nouveaux forfaits d'utilisation prolongée à cinquante dollars pour les fonctionnalités IA dans Creator Studio. L'accès à l'assistant IA de Logic Pro sera payant après avoir atteint la limite mensuelle.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 13.6,
+     "duree": 11.5,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Sahara Occidental : mobilisation générale",
+     "texte": "Le Front Polisario décrète la mobilisation générale ce mardi. Il accuse le Maroc de masser des troupes et équipements militaires le long du mur de séparation au Sahara Occidental pour affronter l'occupant.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 11.0,
+     "pays": "DZ",
+     "source": "TSA Algérie"
+    },
+    {
+     "titre": "Spotify enrichit son DJ IA",
+     "texte": "Spotify ajoute de nouvelles voix pour son DJ IA. Il est désormais possible d'écouter un mix sans commentaire. La fonctionnalité vise une expérience d'écoute personnalisée, comme une radio adaptée aux goûts de chacun.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 12.8,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Mobilisation générale dans le Sahara",
+     "texte": "Le Front Polisario annonce la mobilisation générale suite à une réunion d'urgence. Cette décision intervient dans un contexte de tensions avec le Maroc, notamment après le non-renouvellement de la mission de l'ONU.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 11.6,
+     "pays": "DZ",
+     "source": "24H Algérie"
+    },
+    {
+     "titre": "Inspection de la raffinerie de Hassi Messaoud",
+     "texte": "Le ministre des Hydrocarbures a inspecté la nouvelle raffinerie de Hassi Messaoud. Il a insisté sur la mobilisation de tous les moyens pour respecter les délais de ce projet stratégique, visant à renforcer les capacités de raffinage.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 12.5,
+     "pays": "DZ",
+     "source": "Le Jeune Indépendant"
+    },
+    {
+     "titre": "Plus de 900 000 documents numériques",
+     "texte": "Plus de 900 000 documents administratifs ont été délivrés via le portail Dzair Digital Services en quatre mois. Ces documents sont dotés d'une signature électronique, marquant une avancée dans la numérisation des services.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 12.2,
+     "pays": "DZ",
+     "source": "Le Jeune Indépendant"
+    },
+    {
+     "titre": "Signature électronique pour l'administration",
+     "texte": "La signature électronique est présentée comme un atout majeur pour les services publics algériens. Une journée d'information a souligné son importance pour simplifier les procédures administratives via le portail Dzaïr Digital Services.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 12.6,
      "pays": "DZ",
      "source": "ITMAG"
     },
     {
-     "titre": "Ooredoo leader 5G en Afrique",
-     "texte": "Ooredoo Algérie se distingue en Afrique du Nord, se classant première pour son débit descendant 5G. Au niveau mondial, l'opérateur se positionne à la quatrième place, une belle performance pour le pays.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 12.1,
+     "titre": "Ooredoo leader 5G",
+     "texte": "Ooredoo Algérie se classe première en Afrique du Nord et quatrième mondial pour le débit descendant 5G. Ce résultat souligne les performances du réseau de l'opérateur sur la scène internationale.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 10.7,
      "pays": "DZ",
      "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "Stocker son portable durablement",
-     "texte": "Besoin de ranger votre ordinateur portable pour une longue période ? Une planification attentive est essentielle pour un stockage sûr. Cela s'applique que ce soit pour des vacances ou l'attente d'une nouvelle machine.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 12.2,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Lutte contre les passeurs internationaux",
-     "texte": "Dans le cadre de l'opération 'Communis Maris' menée par Interpol, l'Algérie a arrêté six suspects. Cette action internationale, visant les réseaux de passeurs, a mené à de nombreuses interpellations à travers le monde.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 12.4,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
-    },
-    {
-     "titre": "Adobe Firefly, IA pour tâches récurrentes",
-     "texte": "Adobe élargit l'intégration de son assistant IA, Firefly, dans sa suite Creative Cloud. L'objectif est de gérer plus efficacement les tâches récurrentes pour les créateurs, renforçant la présence de l'IA chez l'éditeur.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 12.9,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Rentrée scolaire bloquée en Libye",
-     "texte": "La rentrée scolaire en Libye est sérieusement perturbée. Depuis septembre, une grève des enseignants paralyse le système éducatif. Près d'un million six cent mille élèves sont directement concernés par cette situation difficile.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 13.3,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
-    },
-    {
-     "titre": "Coopération judiciaire arabe à Alger",
-     "texte": "Alger sera le théâtre de la coopération judiciaire arabe. Les ministres de la Justice discuteront demain des menaces transnationales comme le terrorisme, le blanchiment et la cybercriminalité pour renforcer l'entraide.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 12.1,
-     "pays": "DZ",
-     "source": "Crésus"
-    },
-    {
-     "titre": "Certification simplifiée pièces auto",
-     "texte": "L'industrie automobile algérienne explore une nouvelle voie pour la qualité. Une simplification de la certification des pièces de rechange produites localement pourrait être mise en place pour soutenir la production nationale.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.7,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Mises à jour cumulatives Windows 11",
-     "texte": "Microsoft a déployé de nouvelles mises à jour cumulatives pour Windows 11. Ces mises à jour visent à corriger des vulnérabilités de sécurité, résoudre des bugs et introduire de nouvelles fonctionnalités.",
+     "titre": "Stocker son ordinateur portable",
+     "texte": "Pour stocker votre ordinateur portable en toute sécurité sur le long terme, une planification est nécessaire. Que ce soit pour des vacances ou une migration, de nombreuses raisons poussent à le mettre de côté.",
      "mp3": "/podcast/fr/10.mp3",
      "duree": 11.5,
-     "pays": "INT",
-     "source": "BleepingComputer"
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
     }
    ]
   },
