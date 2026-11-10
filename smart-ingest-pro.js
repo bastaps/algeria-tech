@@ -50,16 +50,20 @@ async function verifierHub() {
     const dot = document.getElementById('hubDot');
     const lab = document.getElementById('hubLabel');
     if (!dot) return;
+    // En local : le Hub (port 3000). En ligne : le serveur Cloudflare (/api/health) ; le Hub de votre PC n'est pas joignable depuis le site.
+    const url = isLocal ? `${API_BASE}/health` : '/api/health';
+    const nomOk = isLocal ? ('Hub :' + HUB_PORT) : 'En ligne';
+    const nomKo = isLocal ? 'Hub hors ligne' : 'Serveur injoignable';
     try {
-        const r = await fetch(`${API_BASE}/health`, { cache: 'no-store' });
+        const r = await fetch(url, { cache: 'no-store' });
         const ok = r.ok;
         dot.classList.toggle('online', ok);
         dot.style.background = ok ? '' : 'var(--bad)';
-        if (lab) lab.textContent = ok ? ('Hub :' + HUB_PORT) : 'Hub hors ligne';
+        if (lab) lab.textContent = ok ? nomOk : nomKo;
     } catch (e) {
         dot.classList.remove('online');
         dot.style.background = 'var(--bad)';
-        if (lab) lab.textContent = 'Hub hors ligne';
+        if (lab) lab.textContent = nomKo;
     }
 }
 
