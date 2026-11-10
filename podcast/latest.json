@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
- "date": "2026-11-09",
- "genere": "2026-11-09T22:24:57",
+ "date": "2026-11-10",
+ "genere": "2026-11-10T15:55:54",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-09T22:25:23",
+   "genere": "2026-11-10T15:56:16",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.2,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici 10 infos pour démarrer votre soirée."
+    "duree": 7.3,
+    "texte": "Bonsoir et bienvenue dans votre podcast Algeria Tech. Nous abordons ce soir dix informations tech et télécoms."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.9,
-    "texte": "C'était 10 infos tech pour bien finir votre soirée. À demain sur Algeria Tech."
+    "duree": 6.0,
+    "texte": "C'est tout pour ce soir. Merci de votre écoute et à très bientôt sur Algeria Tech."
    },
    "items": [
     {
-     "titre": "IA locale : le matériel nécessaire",
-     "texte": "Faire tourner un modèle d'intelligence artificielle sur votre PC, c'est possible avec Ollama ou LM Studio. Pas besoin d'une configuration hors norme, mais 16 Go de RAM montrent vite leurs limites. Lancez votre chatbot sans abonnement ni connexion Internet.",
+     "titre": "Pièces auto: certification simplifiée",
+     "texte": "L'industrie automobile algérienne explore une simplification de la certification pour les producteurs locaux de pièces de rechange. L'objectif est d'améliorer la qualité et de soutenir la production nationale.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 15.5,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Algériens expulsables au Royaume-Uni",
-     "texte": "Le Royaume-Uni compte près de 20 000 délinquants étrangers expulsables. Parmi eux, 569 citoyens algériens font l'objet d'une procédure d'expulsion, mais leur présence continue sur le territoire soulève des questions.",
-     "mp3": "/podcast/fr/02.mp3",
-     "duree": 12.5,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Huawei Algérie et l'ENSIA renforcent le partenariat",
-     "texte": "Huawei Algérie visite l'École Nationale Supérieure en Intelligence Artificielle. L'objectif est de consolider le partenariat technologique et de discuter de l'avenir du numérique et de l'innovation dans le pays.",
-     "mp3": "/podcast/fr/03.mp3",
      "duree": 11.3,
      "pays": "DZ",
-     "source": "ITMAG"
-    },
-    {
-     "titre": "AirPods : réduction de bruit vs adaptative",
-     "texte": "Les AirPods offrent une réduction de bruit efficace, mais l'isolement total peut être problématique. Découvrez les différences entre les modes de réduction de bruit et audio adaptatif pour une meilleure expérience.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 11.6,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Algérie-Chine : projet de Data Center",
-     "texte": "L'Algérie et la Chine envisagent la création d'un centre de données stratégique à Sidi Abdellah. Ce projet vise à renforcer les capacités en matière d'intelligence artificielle dans le pays.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 10.3,
-     "pays": "DZ",
      "source": "Algérie360"
     },
     {
-     "titre": "Sécurité des projets énergétiques avec le Niger",
-     "texte": "Le Chef d'état-major de l'ANP, Saïd Chanegriha, confirme la mobilisation pour sécuriser les projets énergétiques communs avec le Niger. Cela inclut le déploiement d'une formation militaire au nord du Niger.",
+     "titre": "Campagne pour un numérique sûr",
+     "texte": "L'Autorité nationale de protection des données personnelles a lancé une nouvelle campagne de sensibilisation. Elle vise à promouvoir un espace numérique sécurisé et respectueux de la vie privée de tous.",
+     "mp3": "/podcast/fr/02.mp3",
+     "duree": 11.0,
+     "pays": "DZ",
+     "source": "Le Soir d'Algérie"
+    },
+    {
+     "titre": "Google Home et résultats personnalisés",
+     "texte": "Google Home intègre Voice Match pour des résultats personnalisés par utilisateur. L'enceinte recevra bientôt une mise à jour avec Gemini pour une expérience plus conversationnelle.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 10.2,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Incident Google Cloud Iowa",
+     "texte": "Un incident est survenu sur Google Cloud en Iowa. Il souligne la nécessité de procédures de maintenance robustes pour garantir la redondance et la disponibilité des services.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 10.1,
+     "pays": "DZ",
+     "source": "AlgeriaTech.news"
+    },
+    {
+     "titre": "WIOCC investit 300 millions $",
+     "texte": "WIOCC a conclu un accord de trois cents millions de dollars pour connecter ses infrastructures fibre, sous-marines et centres de données, un modèle potentiellement inspirant pour l'Algérie.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 9.1,
+     "pays": "DZ",
+     "source": "AlgeriaTech.news"
+    },
+    {
+     "titre": "Meta et la mémoire d'agent",
+     "texte": "Meta introduit Muse Wonder, intégrant la mémoire des agents et des voies d'accès distinctes. Il faut comparer l'API et les abonnements avant un lancement pilote.",
      "mp3": "/podcast/fr/06.mp3",
-     "duree": 12.1,
+     "duree": 9.0,
      "pays": "DZ",
-     "source": "Le Jeune Indépendant"
+     "source": "AlgeriaTech.news"
     },
     {
-     "titre": "IA au service de la ville de demain",
-     "texte": "Le symposium 'UrbanAIzation 2026' à l'USTHB explore comment l'intelligence artificielle peut transformer les villes. L'IA est au cœur des discussions pour la planification urbaine et la gestion des ressources.",
+     "titre": "Fintech Wafr lève des fonds",
+     "texte": "La fintech émiratie Wafr a obtenu un financement d'amorçage pour sa plateforme de finance islamique. Elle vise à numériser l'émission et le règlement des sukuks.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 12.1,
-     "pays": "DZ",
-     "source": "Le Jeune Indépendant"
+     "duree": 9.4,
+     "pays": "INT",
+     "source": "Wamda"
     },
     {
-     "titre": "Point bleu sur Android : signification",
-     "texte": "Ce petit point bleu qui apparaît sur votre téléphone Android indique qu'une application vient d'accéder à votre localisation. Il signale une utilisation discrète de vos données de position.",
+     "titre": "Multipolitan lève 2 millions $",
+     "texte": "La startup Multipolitan, spécialisée dans la mobilité internationale, a levé deux millions de dollars. Sa plateforme combine gestion des visas, voyages et documents personnels.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 9.9,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "ENSIA : un centre de données IA avec la Chine",
-     "texte": "Un projet de centre de données dédié à l'intelligence artificielle pourrait voir le jour à l'ENSIA en partenariat avec la Chine. Le ministre de l'Enseignement supérieur a discuté de cette initiative.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 10.8,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "Caméra contre la photographie par IA",
-     "texte": "Une nouvelle caméra prototype est développée pour contrer la photographie générée par intelligence artificielle. L'objectif est de rétablir la confiance dans la validité et l'authenticité des images.",
-     "mp3": "/podcast/fr/10.mp3",
      "duree": 10.9,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "pays": "INT",
+     "source": "Wamda"
+    },
+    {
+     "titre": "Mawsool développe une plateforme IA",
+     "texte": "La startup saoudienne Mawsool a clôturé une levée de fonds pour sa plateforme d'intelligence commerciale basée sur l'IA. Elle aide les entreprises à identifier des clients potentiels.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 9.8,
+     "pays": "INT",
+     "source": "Wamda"
+    },
+    {
+     "titre": "Le SEO devient optimisation du sentiment",
+     "texte": "Au-delà de la visibilité, le SEO évolue vers le Sentiment Engine Optimization. Il s'agit d'analyser la perception d'une marque par les intelligences artificielles.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 9.6,
+     "pays": "INT",
+     "source": "Journal du Net"
     }
    ]
   },
