@@ -15,7 +15,7 @@ export async function onRequestPost({ request, env }) {
   try { body = await request.json(); }
   catch { return json({ error: 'Requête invalide.' }, 400); }
 
-  if (!env.MISTRAL_API_KEY && !env.GEMINI_API_KEY && !env.GROQ_API_KEY)
+  if (!env.MISTRAL_API_KEY && !env.GEMINI_API_KEY && !env.GROQ_API_KEY && !env.OPENROUTER_API_KEY)
     return json({ error: "Service IA non configuré (clé API manquante)." }, 503);
 
   const { titre, contenu, historique, message, langue, longueur } = body || {};
@@ -96,6 +96,17 @@ ${String(contenu || '').substring(0, 4200)}
     });
     const j = await r.json();
     if (j.error || !r.ok) throw new Error('groq ' + r.status);
+    return j.choices?.[0]?.message?.content;
+  }]);
+
+  if (env.OPENROUTER_API_KEY) providers.push(['openrouter', async (signal) => {
+    const r = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      method: 'POST', signal,
+      headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${env.OPENROUTER_API_KEY}` },
+      body: JSON.stringify({ model: 'nvidia/nemotron-3-ultra-550b-a55b:free', messages, max_tokens: fmt.tokens + 600, temperature: 0.5 })
+    });
+    const j = await r.json();
+    if (j.error || !r.ok) throw new Error('openrouter ' + r.status);
     return j.choices?.[0]?.message?.content;
   }]);
 

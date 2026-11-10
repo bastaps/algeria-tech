@@ -341,6 +341,48 @@ def appeler_freellmapi(texte: str, json_mode: bool, temperature: float, images: 
     return None
 
 
+# ── Fournisseurs de repli (gratuits) quand Gemini est saturé ou sans quota ───────────────────────
+# Clés lues dans l'environnement (secrets GitHub / .env du poste) : un fournisseur sans clé est simplement ignoré.
+# Pas de vision ici (images : Gemini seul). XAI_API_KEY (Grok) est pris en charge si une clé existe un jour ; non testé.
+_AUTRES_FOURNISSEURS = [
+    ("groq", "https://api.groq.com/openai/v1/chat/completions", "GROQ_API_KEY", ["openai/gpt-oss-120b"], {"reasoning_effort": "low"}),
+    ("mistral", "https://api.mistral.ai/v1/chat/completions", "MISTRAL_API_KEY", ["mistral-small-latest"], {}),
+    ("openrouter", "https://openrouter.ai/api/v1/chat/completions", "OPENROUTER_API_KEY",
+     ["nvidia/nemotron-3-ultra-550b-a55b:free", "google/gemma-4-31b-it:free", "google/gemma-4-26b-a4b-it:free"], {}),
+    ("xai", "https://api.x.ai/v1/chat/completions", "XAI_API_KEY", ["grok-4-fast", "grok-3-mini"], {}),
+]
+
+
+def appeler_autres(texte: str, json_mode: bool, temperature: float):
+    """Essaie Groq, Mistral, OpenRouter (modèles gratuits), xAI dans l'ordre ; renvoie le JSON décodé ou le texte, None si tout échoue."""
+    for nom, url, var, modeles, extra in _AUTRES_FOURNISSEURS:
+        cle = (os.environ.get(var) or "").strip()
+        if not cle:
+            continue
+        for modele in modeles:
+            corps = {"model": modele, "temperature": temperature, "max_tokens": 6000,
+                     "messages": [{"role": "user", "content": texte}], **extra}
+            req = urllib.request.Request(url, data=json.dumps(corps).encode(), headers={
+                "Content-Type": "application/json", "Authorization": f"Bearer {cle}",
+                "User-Agent": "Mozilla/5.0 (compatible; AlgeriaTech/1.0)"})
+            try:
+                with urllib.request.urlopen(req, timeout=90) as rep:
+                    data = json.load(rep)
+                sortie = (data["choices"][0]["message"].get("content") or "").strip()
+                if not sortie:
+                    continue
+                r = _json_du_texte(sortie) if json_mode else sortie
+                if r is None or r == "":
+                    continue
+                print(f"[repli] réponse de {nom} ({modele})")
+                return r
+            except urllib.error.HTTPError as e:
+                print(f"[repli] {nom} {modele} indisponible : HTTP {e.code}")
+            except Exception as e:  # noqa: BLE001 — on passe au modèle / fournisseur suivant
+                print(f"[repli] {nom} {modele} indisponible : {type(e).__name__} {str(e)[:100]}")
+    return None
+
+
 def appeler_gemini(texte: str, json_mode: bool = True, temperature: float = 0, images: list = ()):
     """Appel IA : d'abord le routeur FreeLLMAPI s'il tourne (FREELLMAPI_URL),
     sinon Gemini en direct avec bascule de modèle et nouvelle tentative.
@@ -351,7 +393,7 @@ def appeler_gemini(texte: str, json_mode: bool = True, temperature: float = 0, i
         return r
     cle = _gemini_cle()
     if not cle:
-        return None
+        return None if images else appeler_autres(texte, json_mode, temperature)
     config = {"temperature": temperature}
     if json_mode:
         config["responseMimeType"] = "application/json"
@@ -382,7 +424,7 @@ def appeler_gemini(texte: str, json_mode: bool = True, temperature: float = 0, i
                 time.sleep(20)
         except Exception as e:
             print(f"[gemini] {modele} indisponible : {type(e).__name__} {str(e)[:120]}")
-    return None
+    return None if images else appeler_autres(texte, json_mode, temperature)   # Gemini épuisé : Groq, Mistral, OpenRouter…
 
 
 def arbitrer_gemini(articles: list, deja: list = ()) -> dict:
