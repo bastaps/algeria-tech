@@ -25,6 +25,20 @@ export async function onRequestPost({ request, env }) {
       imagePath = `images/${Date.now()}.${ext}`;
       await ghPut(env, imagePath, await img.arrayBuffer(), 'Admin : image ' + id);
     }
+    // Image donnée par une adresse externe (ex. CDN Facebook, qui expire en quelques jours) : on la rapatrie sur le site.
+    if (/^https?:\/\//i.test(imagePath)) {
+      try {
+        const rimg = await fetch(imagePath, { headers: { 'User-Agent': 'Mozilla/5.0 (compatible; AlgeriaTech/1.0)' }, signal: AbortSignal.timeout(20000) });
+        const type = (rimg.headers.get('content-type') || '').toLowerCase();
+        const data = rimg.ok && type.startsWith('image/') ? await rimg.arrayBuffer() : null;
+        if (data && data.byteLength > 3000 && data.byteLength < 12 * 1024 * 1024) {
+          const ext = type.includes('png') ? 'png' : type.includes('webp') ? 'webp' : type.includes('gif') ? 'gif' : type.includes('avif') ? 'avif' : 'jpg';
+          const local = `images/${Date.now()}.${ext}`;
+          await ghPut(env, local, data, 'Admin : image rapatriée ' + id);
+          imagePath = local;
+        }
+      } catch (e) { /* adresse inaccessible : on garde l'adresse d'origine plutôt que de perdre l'image */ }
+    }
     let pdfPath = g('existingPdf');
     const pdf = f.get('pdf');
     if (pdf && typeof pdf === 'object' && pdf.size > 0) {
