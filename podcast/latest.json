@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-10",
- "genere": "2026-11-10T15:55:54",
+ "genere": "2026-11-10T19:38:22",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-10T15:56:16",
+   "genere": "2026-11-10T19:38:51",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.3,
-    "texte": "Bonsoir et bienvenue dans votre podcast Algeria Tech. Nous abordons ce soir dix informations tech et télécoms."
+    "duree": 6.9,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les 10 infos tech et télécoms à ne pas manquer ce soir."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
     "duree": 6.0,
-    "texte": "C'est tout pour ce soir. Merci de votre écoute et à très bientôt sur Algeria Tech."
+    "texte": "C'était l'essentiel de l'actualité tech. Rendez-vous demain pour un nouveau tour d'horizon."
    },
    "items": [
     {
-     "titre": "Pièces auto: certification simplifiée",
-     "texte": "L'industrie automobile algérienne explore une simplification de la certification pour les producteurs locaux de pièces de rechange. L'objectif est d'améliorer la qualité et de soutenir la production nationale.",
+     "titre": "Forum sur l'économie numérique",
+     "texte": "Alger accueillera un forum international ce mercredi. L'objectif est d'explorer les opportunités de partenariat et d'investissement en Afrique dans le domaine de l'économie numérique, soulignant son importance croissante pour le continent.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 11.3,
+     "duree": 12.4,
      "pays": "DZ",
-     "source": "Algérie360"
+     "source": "Radio Algérie"
     },
     {
-     "titre": "Campagne pour un numérique sûr",
-     "texte": "L'Autorité nationale de protection des données personnelles a lancé une nouvelle campagne de sensibilisation. Elle vise à promouvoir un espace numérique sécurisé et respectueux de la vie privée de tous.",
+     "titre": "Signature électronique pour l'administration",
+     "texte": "La numérisation de l'administration algérienne peine à franchir un cap décisif. La signature électronique, pourtant promise pour simplifier les démarches, reste un verrou qui bloque de nombreux dossiers administratifs malgré les efforts en cours.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 11.0,
+     "duree": 13.6,
+     "pays": "DZ",
+     "source": "ITMAG"
+    },
+    {
+     "titre": "Ooredoo leader 5G en Afrique",
+     "texte": "Ooredoo Algérie se distingue en Afrique du Nord, se classant première pour son débit descendant 5G. Au niveau mondial, l'opérateur se positionne à la quatrième place, une belle performance pour le pays.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 12.1,
      "pays": "DZ",
      "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "Google Home et résultats personnalisés",
-     "texte": "Google Home intègre Voice Match pour des résultats personnalisés par utilisateur. L'enceinte recevra bientôt une mise à jour avec Gemini pour une expérience plus conversationnelle.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 10.2,
+     "titre": "Stocker son portable durablement",
+     "texte": "Besoin de ranger votre ordinateur portable pour une longue période ? Une planification attentive est essentielle pour un stockage sûr. Cela s'applique que ce soit pour des vacances ou l'attente d'une nouvelle machine.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 12.2,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Incident Google Cloud Iowa",
-     "texte": "Un incident est survenu sur Google Cloud en Iowa. Il souligne la nécessité de procédures de maintenance robustes pour garantir la redondance et la disponibilité des services.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 10.1,
-     "pays": "DZ",
-     "source": "AlgeriaTech.news"
-    },
-    {
-     "titre": "WIOCC investit 300 millions $",
-     "texte": "WIOCC a conclu un accord de trois cents millions de dollars pour connecter ses infrastructures fibre, sous-marines et centres de données, un modèle potentiellement inspirant pour l'Algérie.",
+     "titre": "Lutte contre les passeurs internationaux",
+     "texte": "Dans le cadre de l'opération 'Communis Maris' menée par Interpol, l'Algérie a arrêté six suspects. Cette action internationale, visant les réseaux de passeurs, a mené à de nombreuses interpellations à travers le monde.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 9.1,
+     "duree": 12.4,
      "pays": "DZ",
-     "source": "AlgeriaTech.news"
+     "source": "Maghreb Emergent"
     },
     {
-     "titre": "Meta et la mémoire d'agent",
-     "texte": "Meta introduit Muse Wonder, intégrant la mémoire des agents et des voies d'accès distinctes. Il faut comparer l'API et les abonnements avant un lancement pilote.",
+     "titre": "Adobe Firefly, IA pour tâches récurrentes",
+     "texte": "Adobe élargit l'intégration de son assistant IA, Firefly, dans sa suite Creative Cloud. L'objectif est de gérer plus efficacement les tâches récurrentes pour les créateurs, renforçant la présence de l'IA chez l'éditeur.",
      "mp3": "/podcast/fr/06.mp3",
-     "duree": 9.0,
+     "duree": 12.9,
      "pays": "DZ",
-     "source": "AlgeriaTech.news"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Fintech Wafr lève des fonds",
-     "texte": "La fintech émiratie Wafr a obtenu un financement d'amorçage pour sa plateforme de finance islamique. Elle vise à numériser l'émission et le règlement des sukuks.",
+     "titre": "Rentrée scolaire bloquée en Libye",
+     "texte": "La rentrée scolaire en Libye est sérieusement perturbée. Depuis septembre, une grève des enseignants paralyse le système éducatif. Près d'un million six cent mille élèves sont directement concernés par cette situation difficile.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 9.4,
-     "pays": "INT",
-     "source": "Wamda"
+     "duree": 13.3,
+     "pays": "DZ",
+     "source": "Maghreb Emergent"
     },
     {
-     "titre": "Multipolitan lève 2 millions $",
-     "texte": "La startup Multipolitan, spécialisée dans la mobilité internationale, a levé deux millions de dollars. Sa plateforme combine gestion des visas, voyages et documents personnels.",
+     "titre": "Coopération judiciaire arabe à Alger",
+     "texte": "Alger sera le théâtre de la coopération judiciaire arabe. Les ministres de la Justice discuteront demain des menaces transnationales comme le terrorisme, le blanchiment et la cybercriminalité pour renforcer l'entraide.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 10.9,
-     "pays": "INT",
-     "source": "Wamda"
+     "duree": 12.1,
+     "pays": "DZ",
+     "source": "Crésus"
     },
     {
-     "titre": "Mawsool développe une plateforme IA",
-     "texte": "La startup saoudienne Mawsool a clôturé une levée de fonds pour sa plateforme d'intelligence commerciale basée sur l'IA. Elle aide les entreprises à identifier des clients potentiels.",
+     "titre": "Certification simplifiée pièces auto",
+     "texte": "L'industrie automobile algérienne explore une nouvelle voie pour la qualité. Une simplification de la certification des pièces de rechange produites localement pourrait être mise en place pour soutenir la production nationale.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 9.8,
-     "pays": "INT",
-     "source": "Wamda"
+     "duree": 11.7,
+     "pays": "DZ",
+     "source": "Algérie360"
     },
     {
-     "titre": "Le SEO devient optimisation du sentiment",
-     "texte": "Au-delà de la visibilité, le SEO évolue vers le Sentiment Engine Optimization. Il s'agit d'analyser la perception d'une marque par les intelligences artificielles.",
+     "titre": "Mises à jour cumulatives Windows 11",
+     "texte": "Microsoft a déployé de nouvelles mises à jour cumulatives pour Windows 11. Ces mises à jour visent à corriger des vulnérabilités de sécurité, résoudre des bugs et introduire de nouvelles fonctionnalités.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 9.6,
+     "duree": 11.5,
      "pays": "INT",
-     "source": "Journal du Net"
+     "source": "BleepingComputer"
     }
    ]
   },
