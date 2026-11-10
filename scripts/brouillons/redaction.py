@@ -82,6 +82,12 @@ Voici un extrait d'une page du site officiel de l'organisation concernée :
 Cette page rapporte-t-elle LE MÊME fait précis (même annonce, même événement, même sujet), et pas seulement la même entreprise ?
 Réponds UNIQUEMENT par un JSON : {{"meme_fait": true|false}}"""
 
+PROMPT_FB = """Un article de presse rapporte ceci : « {titre} » — {resume}
+Voici des publications récentes des pages Facebook OFFICIELLES d'institutions et d'entreprises (numérotées) :
+{liste}
+L'une d'elles rapporte-t-elle LE MÊME fait précis (même annonce, même événement), même si elle est rédigée en arabe ?
+Réponds UNIQUEMENT par un JSON : {{"index": <numéro de la publication ou -1 si aucune>}}"""
+
 PROMPT_IMAGE = """Cette image illustre un article de presse intitulé : « {titre} ».
 Réponds UNIQUEMENT par un JSON : {{"personnes": true|false, "texte_visible": true|false, "raison": "une phrase"}}
 personnes = true si l'image montre une ou plusieurs PERSONNES RÉELLES (visages, responsables, ministre, président, dirigeants,
@@ -317,6 +323,54 @@ def sources_officielles(titre, corps, url_source, max_entites=3):
     return trouves
 
 
+def sources_facebook(titre, corps, jours=4):
+    """Publications des pages Facebook OFFICIELLES (institutions, entreprises) déjà collectées dans data/fb-posts.json.
+    Renvoie [{nom, url, extrait}] si l'une d'elles rapporte le même fait que l'article (jugé par l'IA, toutes langues).
+    Règle éditoriale : la publication d'origine de l'institution passe avant le média relais."""
+    import json as _j
+    from datetime import datetime, timezone
+    racine = Path(__file__).resolve().parents[2]
+    try:
+        posts = _j.loads((racine / "data" / "fb-posts.json").read_text(encoding="utf-8"))
+        pages = _j.loads((racine / "scripts" / "apify" / "pages.json").read_text(encoding="utf-8"))
+        noms = {x["id"]: x["nom"] for k in ("institutions", "entreprises") for x in pages.get(k, [])}
+    except (OSError, ValueError):
+        return []
+    maintenant = datetime.now(timezone.utc)
+    recents = []
+    for p in posts:
+        texte = (p.get("texte") or "").strip()
+        if len(texte) < 60 or not p.get("url"):
+            continue
+        brut = str(p.get("date") or p.get("vu") or "")
+        try:
+            if brut.replace(".", "", 1).isdigit():
+                v = float(brut)
+                d = datetime.fromtimestamp(v / 1000 if v > 1e11 else v, timezone.utc)
+            else:
+                d = datetime.fromisoformat(brut.replace("Z", "+00:00"))
+                if d.tzinfo is None:
+                    d = d.replace(tzinfo=timezone.utc)
+        except ValueError:
+            d = None
+        if d and (maintenant - d).days > jours:
+            continue
+        recents.append((d or maintenant, p))
+    recents = [p for _, p in sorted(recents, key=lambda x: x[0], reverse=True)[:30]]
+    if not recents:
+        return []
+    liste = "\n".join("%d. [%s] %s" % (i, noms.get(p.get("page_id"), p.get("page") or p.get("page_id")),
+                                       re.sub(r"\s+", " ", p["texte"])[:240]) for i, p in enumerate(recents))
+    rep = appeler_gemini(PROMPT_FB.format(titre=titre, resume=re.sub(r"\s+", " ", corps[:600]), liste=liste), temperature=0)
+    i = rep.get("index") if isinstance(rep, dict) else None
+    if not isinstance(i, int) or not 0 <= i < len(recents):
+        return []
+    p = recents[i]
+    nom = noms.get(p.get("page_id"), p.get("page") or p.get("page_id"))
+    log(f"publication Facebook officielle retrouvée : {nom} — {p['url']}")
+    return [{"nom": f"{nom} (page Facebook)", "url": p["url"], "extrait": re.sub(r"\s+", " ", p["texte"])[:900]}]
+
+
 _RECHERCHE = {"epuisee": False}   # quota « recherche Google » de Gemini atteint : on n'insiste plus pendant ce passage
 
 
@@ -463,7 +517,8 @@ def resoudre_sources(titre, corps, url_media, nom_media, origine_officielle=Fals
     repli = aps if (aps and aps.get("url")) else None
     if origine_officielle:                      # la source lue EST la page officielle (communiqué, scoop)
         return sortie
-    sortie["officiels"] = sources_officielles(titre, corps, url_media)
+    # 1) site officiel de l'organisation ; 2) sa page Facebook officielle (publications déjà collectées) : les deux sont consultés
+    sortie["officiels"] = sources_officielles(titre, corps, url_media) + sources_facebook(titre, corps)
     if sortie["officiels"]:
         return sortie
     texte, urls = _gemini_recherche_texte(PROMPT_ORIGINE.format(
