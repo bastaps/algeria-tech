@@ -1081,6 +1081,60 @@
       "source_type": "youtube"
     },
     {
+      "id": "96dffdbb854e1c45",
+      "source_name": "Stream System",
+      "source_short": "SS",
+      "source_color": "#37474F",
+      "category": "Équipementiers",
+      "category_icon": "💻",
+      "url": "https://www.streamsystem.com/webos-hub/",
+      "image": "",
+      "date": "2026-11-10T15:19:47.146299+00:00",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Magical Experience",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "web"
+    },
+    {
+      "id": "9dc613f74c04a772",
+      "source_name": "Stream System",
+      "source_short": "SS",
+      "source_color": "#37474F",
+      "category": "Équipementiers",
+      "category_icon": "💻",
+      "url": "https://www.streamsystem.com/smart-easy/",
+      "image": "",
+      "date": "2026-11-10T15:19:47.146172+00:00",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Simply Smart. Simply Better.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "web"
+    },
+    {
+      "id": "8ab94753ba54b3f8",
+      "source_name": "Stream System",
+      "source_short": "SS",
+      "source_color": "#37474F",
+      "category": "Équipementiers",
+      "category_icon": "💻",
+      "url": "https://www.streamsystem.com/google-tv/",
+      "image": "",
+      "date": "2026-11-10T15:19:47.146033+00:00",
+      "lang_source": "fr",
+      "text": {
+        "fr": "An Interface Tailored For Your Needs",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "web"
+    },
+    {
       "id": "35f544b0186a7ad8",
       "source_name": "Stream System",
       "source_short": "SS",
@@ -1387,58 +1441,292 @@
       "source_type": "rss"
     },
     {
-      "id": "691b2ec836e53898",
-      "source_name": "Stream System",
-      "source_short": "SS",
-      "source_color": "#37474F",
-      "category": "Équipementiers",
-      "category_icon": "💻",
-      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPaGVPYzNaR2ZhbHJCaFNobng2eE84YUV2ZHMzRVdzWURGQy1aLTJ6QUJGOW9CS05VY0ZsOFZzS3o4dVFLQjgweURETWF1dExjT1hmQjVZcllOSDY2bGhrXzB5TEFrWHdqQXR5TEdONkhhSmZoRmxZVHFkTGxSNG4zWGhGZklCdEpoY1hPMnZWRnN4V2FOQS1XeFBXM3g2OHlhVEpjUDVocEhEb01KdnhKbkpkTElUYUtoeTdtU29kQ3Y3TDh6bi01Y0hOdXNLOUJpdkZhNQ?oc=5",
+      "id": "906867629eba750f",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/11/10/reddit-is-turning-user-conversations-into-ai-powered-product-reviews/",
       "image": "",
-      "date": "Thu, 08 Oct 2026 14:59:15 GMT",
+      "date": "Tue, 10 Nov 2026 15:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Reddit is turning user conversations into AI-powered product reviews — Reddit's new AI-powered reviews summarize what users like and dislike about 10,000 products, helping shoppers research purchases ahead of the holidays.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "086a8b8d2c3a89d0",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/11/10/new-whatsapp-head-wants-to-make-the-app-easier-to-use-give-its-ai-more-chops/",
+      "image": "",
+      "date": "Tue, 10 Nov 2026 15:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "New WhatsApp head wants to make the app easier to use, give its AI more chops — Kunal Shah said that AI on WhatsApp will remind people of their appointment than booking",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c01808c9d8a9f095",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/cybersecurite/cybersecurite-faut-il-vraiment-combattre-lia-par-lia-507479.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 10 Nov 2026 14:56:32 +0000",
       "lang_source": "fr",
       "text": {
-        "fr": "Appareils électriques : le PLF prévoit une incitation fiscale pour booster les exportations « Made in Algeria » - Maghreb Émergent — Appareils électriques : le PLF prévoit une incitation fiscale pour booster les exportations « Made in Algeria » Maghreb Émergent",
+        "fr": "Cybersécurité : faut-il vraiment combattre l'IA par l'IA ? — L'intelligence artificielle renforce les capacités des cybercriminels, mais ne révolutionne pas nécessairement leurs méthodes. Face à cette évolution, la réponse ne consiste pas toujours à déployer davantage d'IA, mais à détecter plus efficacement les mécanismes des attaques. D'un côté, il y a les c",
         "ar": "",
         "en": ""
       },
       "source_type": "rss"
     },
     {
-      "id": "8d361f4453aad79d",
-      "source_name": "Huawei Global",
-      "source_short": "HW",
-      "source_color": "#B71C1C",
-      "category": "Équipementiers",
-      "category_icon": "🔧",
-      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE1XSnk1UFBaeDFLeVdiM01DU3FpR1JaV1hvZlZfMjQ1ak8zVmpKTDZKTVF4dUMtYWg1d241MUpyNkU4NzlfSWlFb003aDhiaUJLYjRITTg1LU1NelBLN3k5WnBNYw?oc=5",
+      "id": "4f5d2b962a6b2b51",
+      "source_name": "Le Monde Informatique",
+      "source_short": "LMI",
+      "source_color": "#1565C0",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.lemondeinformatique.fr/cybersecurite-conformite/scality-devient-autorite-de-numerotation-cve-sous-",
       "image": "",
-      "date": "Wed, 07 Oct 2026 16:43:50 GMT",
+      "date": "Tue, 10 Nov 2026 14:56:07 GMT",
       "lang_source": "fr",
       "text": {
-        "fr": "Huawei et Qualcomm signent un vaste accord de brevets autour de la 5G, de l’IA et des réseaux - Planet Sans Fil — Huawei et Qualcomm signent un vaste accord de brevets autour de la 5G, de l’IA et des réseaux Planet Sans Fil",
+        "fr": "Scality devient autorité de numérotation CVE sous l’égide de l’ENISA — Scality a annoncé le 10 novembre 2026 son entrée dans le programme CVE en tant qu’autorité de numérotation, ou CNA (CVE Numbering Authority). L’éditeur peut désormais attribuer directement des identifiants aux vulnérabilités de ses logiciels et publier les enregistrements associés. Cette évolution i",
         "ar": "",
         "en": ""
       },
       "source_type": "rss"
     },
     {
-      "id": "51128a07acd65342",
-      "source_name": "Condor Electronics",
-      "source_short": "CD",
-      "source_color": "#E65100",
-      "category": "Équipementiers",
-      "category_icon": "📺",
-      "url": "https://www.facebook.com/Condor.Electromenager",
+      "id": "fd0412ba6ff9ec85",
+      "source_name": "Le Monde Informatique",
+      "source_short": "LMI",
+      "source_color": "#1565C0",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.lemondeinformatique.fr/infrastructure-cloud/siemens-envisage-le-rachat-de-lauterbach-pour-rapp",
       "image": "",
-      "date": "2026-10-03T19:14:27+00:00",
-      "lang_source": "ar",
+      "date": "Tue, 10 Nov 2026 14:09:17 GMT",
+      "lang_source": "fr",
       "text": {
-        "ar": "ألذ غراتان ذهبية و مقرمشة ! 🥔🧀🔥  مع وظيفة الشواية في ميكروويف Power Wave بسعة 25 لتر من كوندور، حضّروا غراتان شهيًا بسطح ذهبي و مق… — ألذ غراتان ذهبية و مقرمشة ! 🥔🧀🔥\n\nمع وظيفة الشواية في ميكروويف Power Wave بسعة 25 لتر من كوندور، حضّروا غراتان شهيًا بسطح ذهبي و مقرمش، مع الحفاظ على طراوة البطاطا من الداخل. ✨🍽️\n\nمتوفر على المتجر الإلكتروني بروكسيما عبر الرابط: https://shorturl.at/0EDX8\nUn gratin de pommes de terre bien doré et déli",
-        "fr": "",
+        "fr": "Siemens envisage le rachat de Lauterbach pour rapprocher la vérification des puces et des logiciels — Siemens a annoncé le 10 novembre 2026 un accord pour acquérir Lauterbach, spécialiste allemand des outils de débogage et de traçage des logiciels embarqués. Le groupe entend renforcer son offre de conception électronique et permettre aux développeurs de tester ensemble les puces et leurs logiciels a",
+        "ar": "",
         "en": ""
       },
-      "source_type": "facebook"
+      "source_type": "rss"
+    },
+    {
+      "id": "2691bfd505194ce6",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/11/10/adobe-adds-more-ai-to-its-products-and-launches-an-mcp/",
+      "image": "",
+      "date": "Tue, 10 Nov 2026 14:05:10 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Adobe brings AI agents and new creative tools to Photoshop, Premiere, and Firefly — Adobe is taking on Figma with a new prototype builder tool in Firefly.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "af342d1d981a91cb",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/business-1367/anthropic-vise-jusqua-1-400-milliards-de-valorisation-a-wall-street-230210",
+      "image": "",
+      "date": "Tue, 10 Nov 2026 13:52:59 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Anthropic vise jusqu’à 1 400 milliards $ de valorisation à Wall Street — Anthropic a dévoilé sa fourchette de prix et ouvre sa tournée de présentation aux investisseurs. L'opération, l'une des plus importantes de l'histoire de Wall Street, est scrutée comme un test de l'appétit des marchés pour l'IA. The post Anthropic vise jusqu’à 1 400 milliards $ de valorisation à Wal",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "2cb9894a23f1fa2c",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/10/algerie-la-recolte-du-safran-demarre-sous-de-bons-auspices-a-khenchela/",
+      "image": "",
+      "date": "Tue, 10 Nov 2026 13:37:28 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Algérie : la récolte du safran démarre sous de bons auspices à Khenchela — Le coup d’envoi officiel de la campagne de récolte du safran au titre de la saison agricole en cours a été donné, mardi dans la wilaya de Khenchela, avec des prévisions faisant état d’une production abondante et de haute qualité. Samir Ghodbane, secrétaire général de l’Association algérienne pour la",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "dd358cca3da16c26",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/peut-on-encore-faire-confiance-a-proton-507684.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 10 Nov 2026 13:30:40 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Peut-on encore faire confiance à Proton ? — Cette entreprise suisse de logiciels a bâti sa réputation sur son engagement en faveur de la protection de la vie privée. Son PDG vient-il de saper la confiance de sa clientèle ?",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "5919e9611f7155d2",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/10/terres-agricoles-un-expert-appelle-a-remettre-en-production-plus-de-3-millions-dhectares-en-jachere/",
+      "image": "",
+      "date": "Tue, 10 Nov 2026 13:25:27 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Terres agricoles : un expert appelle à remettre en production plus de 3 millions d’hectares en jachère — La modernisation de l’agriculture algérienne passe par une meilleure organisation des structures, la remise en exploitation des terres agricoles inexploitées et le renforcement de la mécanisation. Plusieurs orientations ont été retenues lors du dernier Conseil des ministres. Elles portent également",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "12be04bc3cabab54",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/vous-pouvez-desormais-modifier-les-parametres-de-windows-directement-depuis-la-barre-de-recherche-voici-comment-faire-507681.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Tue, 10 Nov 2026 13:14:54 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Vous pouvez désormais modifier les paramètres de Windows directement depuis la barre de recherche, voici comment faire — La dernière version de Windows 11 Insiders Preview améliore la fonctionnalité de recherche afin que vous puissiez accéder à des paramètres spécifiques directement depuis la fenêtre de recherche.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "4aa2517dff7313d1",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/10/controle-des-importations-en-algerie-une-entreprise-francaise-voit-son-chiffre-daffaires-trimestriel-chuter-56/",
+      "image": "",
+      "date": "Tue, 10 Nov 2026 12:46:30 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Contrôle des importations en Algérie : Une entreprise française voit son chiffre d’affaires trimestriel chuter de près de 56% — Le fabricant français d’ingrédients naturels Vinpai a enregistré une forte baisse de son chiffre d’affaires au troisième trimestre 2026, qu’il attribue à l’interruption de ses livraisons vers le marché algérien. L’entreprise pointe le contrôle des importations mis en place par l’Algérie. Dans ses ré",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "cc5cef4acdf4e8e9",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/data-ia-1372/atos-rejoint-maestro-la-robotique-europeenne-mise-sur-lopen-source-et-lia-physique-230208",
+      "image": "",
+      "date": "Tue, 10 Nov 2026 11:34:21 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Atos rejoint MAESTRO : la robotique européenne mise sur l’open source et l’IA physique — MAESTRO s’appuie sur plusieurs logiciels issus des travaux menés par Inria et le CNRS. The post Atos rejoint MAESTRO : la robotique européenne mise sur l’open source et l’IA physique appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "34b2c6da35050a02",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/business-1367/singapour-nouveau-centre-de-gravite-fiscal-dapple-230205",
+      "image": "",
+      "date": "Tue, 10 Nov 2026 11:08:56 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Singapour, nouveau centre de gravité fiscal d’Apple — Singapour dépasse désormais l’Irlande comme première source d’économie fiscale nette pour Apple. The post Singapour, nouveau centre de gravité fiscal d’Apple appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "12ed51d9de300814",
+      "source_name": "Le Monde Informatique",
+      "source_short": "LMI",
+      "source_color": "#1565C0",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.lemondeinformatique.fr/cybersecurite-conformite/cisco-et-ibm-vont-integrer-mythos-a-leurs-outils-d",
+      "image": "",
+      "date": "Tue, 10 Nov 2026 10:58:58 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Cisco et IBM vont intégrer Mythos à leurs outils de cybersécurité — Cisco et IBM préparent l’intégration de Claude Mythos dans leurs produits de sécurité. Le premier utilisera le modèle d’Anthropic pour renforcer les tests offensifs des systèmes d’IA. Le second vise la détection et la correction de vulnérabilités logicielles. Ces projets élargissent l’accès aux capa",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "db0a2007d4bde421",
+      "source_name": "Algérie 360",
+      "source_short": "A360",
+      "source_color": "#1565C0",
+      "category": "Médias TIC",
+      "category_icon": "📰",
+      "url": "https://www.algerie360.com/lelectronique-algerienne-face-au-defi-de-lexport-bomare-company-montre-la-voie/",
+      "image": "",
+      "date": "Tue, 10 Nov 2026 10:09:57 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "L’électronique algérienne face au défi de l’export : Bomare Company montre la voie — Bomare Company a réuni la presse hier, 9 novembre, à Alger, pour la deuxième édition de son Afterwork. Cette rencontre était consacrée à l’exportation, envisagée […] L’article L’électronique algérienne face au défi de l’export : Bomare Company montre la voie est apparu en premier sur .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
     },
     {
       "id": "55ff5cbc62ee713f",
@@ -5111,297 +5399,9 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "e86c663966a4ab8b",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/cybersecurite-1371/llmjacking-comment-les-pirates-detournent-les-acces-aux-modeles-ia-230098",
-      "image": "",
-      "date": "Wed, 04 Nov 2026 09:53:31 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "LLMJacking : comment les pirates détournent les accès aux modèles d’IA — Une activité criminelle en pleine structuration vise les accès cloud et les clés d'API donnant accès aux LLM avec des factures frauduleuses qui peuvent atteindre le million de dollars. Son nom : le LLMJacking. The post LLMJacking : comment les pirates détournent les accès aux modèles d’IA appeared f",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "3a2f73ff0c506a99",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/11/04/selon-luit-63-milliards-de-personnes-en-ligne-dans-le-monde-en-2026-mais-la-fracture-numerique-persiste/",
-      "image": "",
-      "date": "Wed, 04 Nov 2026 08:50:48 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Selon l’UIT : 6,3 milliards de personnes en ligne dans le Monde en 2026, mais la fracture numérique persiste — Les faits et chiffres 2026 de l’UIT montrent une croissance de l’utilisation mondiale d’Internet, tandis que 2 milliards restent non connectés.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "f32a4d2c6cce90c5",
-      "source_name": "Algérie 360",
-      "source_short": "A360",
-      "source_color": "#1565C0",
-      "category": "Médias TIC",
-      "category_icon": "📰",
-      "url": "https://www.algerie360.com/panasonic-algerie-iris-televiseurs-fabriques-localement/",
-      "image": "",
-      "date": "Wed, 04 Nov 2026 08:49:44 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Panasonic arrive en Algérie avec IRIS : cinq gammes de téléviseurs fabriqués localement — Le géant japonais Panasonic fait son entrée officielle sur le marché algérien des téléviseurs. Il s’associe au groupe algérien IRIS, qui fabriquera localement cinq gammes […] L’article Panasonic arrive en Algérie avec IRIS : cinq gammes de téléviseurs fabriqués localement est apparu en premier sur .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e99cc1b4c7b154ed",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/11/04/sante-publique-en-algerie-lagence-nationale-du-sang-ans-engage-la-revolution-du-zero-papier-pour-securiser-la-chaine-transfusionnelle/",
-      "image": "",
-      "date": "Wed, 04 Nov 2026 08:11:52 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Santé publique  : L’Agence Nationale du Sang (ANS) engage la révolution du «zéro papier» pour sécuriser la chaîne transfusionnelle — Face au défi critique de la disponibilité des produits sanguins, l’ANS accélère la digitalisation de son réseau à travers le pays. Sous l'impulsion de son directeur général, le Pr Issam Frigaa, et en accord avec les orientations du ministère de la Santé, cette transformation vise à éradiquer la bure",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "0f7c4d6a5dc8b2a7",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/zdnet-morning-04-11-2026-recommandations-netflix-avec-ia-gen-anatomie-du-piratage-de-binance-canva-restructure-507252.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 04 Nov 2026 08:08:29 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "ZDNET Morning 04/11/2026 : Recommandations Netflix avec IA Gen, Anatomie du piratage de Binance, Canva restructure,... — Le ZDNET Morning le brief de l'actu tech pour les pros tous les matins à 9h00. Transformation numérique, IA, matériel, logiciels,... ne passez pas à côté de ce qui fait la Une du secteur.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "3263ac956bbe7159",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/03/indias-eloelo-nabs-80m-from-nbc-universal-to-bet-on-the-countrys-rising-microdrama-market/",
-      "image": "",
-      "date": "Wed, 04 Nov 2026 04:45:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "India’s EloElo nabs $80M from NBCUniversal to bet on the country’s rising microdrama market — StoryTV has more than 33 million monthly active users according to Sensor Tower figures",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "bf81805a5ae860b9",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/03/anthropic-is-working-on-a-system-to-prove-ai-models-identity/",
-      "image": "",
-      "date": "Tue, 03 Nov 2026 22:41:03 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Anthropic is working on a system to prove AI models’ identity — Called FlashProve, the system would let anyone check that an AI response really came from the model it claims to be from.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "4970a06a586ccae0",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/03/data-centers-are-turning-to-old-jet-engines-as-the-wait-for-power-grows/",
-      "image": "",
-      "date": "Tue, 03 Nov 2026 22:19:53 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Data centers are turning to old jet engines as the wait for power grows — The years-long wait for access to the grid and new turbines is causing data center builders to turn to an unusual, less-efficient and less environmentally friendly solution: once-discarded jet engines.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "0835e4c1adb39f7f",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/03/ted-schleins-ballistic-ventures-seeks-490m-for-new-funds-amid-ai-driven-cybersecurity-boom/",
-      "image": "",
-      "date": "Tue, 03 Nov 2026 21:43:08 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Ted Schlein’s Ballistic Ventures seeks $490M for new funds amid AI-driven cybersecurity boom — Cybersecurity-focused Ballistic Ventures is seeking to raise $360 million for a new flagship fund and another $130 million for a separate investment vehicle.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "656673d20b5c101d",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/03/hiding-inside-palantirs-skyrocketing-quarter-is-a-foreboding-signal/",
-      "image": "",
-      "date": "Tue, 03 Nov 2026 21:05:55 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Hiding inside Palantir’s skyrocketing quarter is a foreboding signal — Palantir's U.S. commercial revenue surpassed U.S. government revenue for the first time ever.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "0631743616b33b50",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/pratique/web-pratique-la-nouvelle-fonctionnalite-mini-fenetre-de-firefox-est-le-reve-de-tout-utilisateur-multitache-507142.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Tue, 03 Nov 2026 21:00:19 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Web pratique : la nouvelle fonctionnalité « Mini-fenêtre » de Firefox est le rêve de tout utilisateur multitâche — Même Chrome n'en est pas encore capable. L’une des dernières trouvailles mises en œuvre dans le navigateur open source de Mozilla vous permet d'afficher une page (ou une partie d'une page) dans une mini-fenêtre séparée. Géniale.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "6eee28ac063d9458",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/03/orbital-matter-3d-printed-the-first-rigid-beam-in-the-vacuum-of-space/",
-      "image": "",
-      "date": "Tue, 03 Nov 2026 20:57:17 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Orbital Matter 3D-printed the first rigid beam in the vacuum of space — An in-space construction first could be an enabler for the space data centers of the future.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "9e5414dc7791fe39",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/03/researchers-warned-of-north-korean-hacking-tactics-years-before-record-6-3b-binance-heist/",
-      "image": "",
-      "date": "Tue, 03 Nov 2026 19:45:48 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Researchers warned of North Korean hacking tactics years before record $6.3B Binance heist — Cybersecurity experts have long warned of the persistent and patient threat from North Korea's long-running hacks. The world's largest crypto exchange was still caught off-guard.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "0018ea6e4618a3fe",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/03/ai-inference-startup-fal-doubles-its-valuation-to-16b-as-demand-surges/",
-      "image": "",
-      "date": "Tue, 03 Nov 2026 19:34:43 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "AI inference startup Fal doubles its valuation to $16B as demand surges — The five-year-old startup raised a $1.3 billion round led by Bessemer.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c212bbe8ed1bd56e",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/11/03/reduction-du-torchage-de-gaz-et-des-emissions-de-methane-sonatrach-signe-un-protocole-dentente-avec-deux-institutions-de-la-banque-mondiale/",
-      "image": "",
-      "date": "Tue, 03 Nov 2026 19:33:50 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Réduction du torchage de gaz et des émissions de méthane : Sonatrach signe un protocole d’entente avec deux institutions de la Banque mondiale — Le groupe Sonatrach a signé, ce mardi 3 novembre à Alger, un protocole d’entente avec la Banque internationale pour la reconstruction et le développement (BIRD) et la Société financière internationale (SFI), deux institutions du Groupe de la Banque mondiale (BM), visant à identifier et développer de",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "a6f623d2e8059b3c",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/03/reddit-tests-ads-in-search-results-as-traffic-declines-and-growth-concerns-mount/",
-      "image": "",
-      "date": "Tue, 03 Nov 2026 19:24:37 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Reddit tests ads in search results as traffic declines and growth concerns mount — The new ad placements could help Reddit squeeze more revenue from existing users as Google's AI search changes how people discover its content.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-11-10T01:51:07.363273+00:00",
+  "lastUpdated": "2026-11-10T15:20:01.978534+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
