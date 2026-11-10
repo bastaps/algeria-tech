@@ -1,5 +1,17 @@
 [
  {
+  "id": "20261110-204836-2f51fc",
+  "titre": "Forum international sur l'économie numérique à Alger",
+  "texte": "Bonjour. Le Centre arabo-africain d'investissement et de développement organise mercredi à Alger un forum international sur l'économie numérique. Cet événement rassemble des acteurs de 26 pays autour de l'intelligence artificielle et de la cybersécurité. Ils examineront les opportunités de partenariat et de transfert de technologies en Afrique.",
+  "source": "Radio Algérie",
+  "url": "https://news.radioalgerie.dz/fr/node/98702",
+  "pays": "DZ",
+  "duree": 26.12,
+  "mp4Url": "https://bastaps.github.io/algeria-tech-videos/express/20261110-204836-2f51fc.mp4",
+  "poster": "https://bastaps.github.io/algeria-tech-videos/express/20261110-204836-2f51fc.jpg",
+  "publishedAt": "2026-11-10T20:50:20Z"
+ },
+ {
   "id": "20261110-132221-c31928",
   "titre": "Scott Wiener veut réguler l'intelligence artificielle",
   "texte": "Bonjour. Scott Wiener, successeur de Nancy Pelosi, souhaite réguler les risques de l'intelligence artificielle. Lors d'une conversation de 20 minutes, l'élu a exprimé ses craintes sur l'auto-amélioration récursive. Cette élection pourrait influencer durablement la future politique fédérale américaine sur le secteur.",
@@ -346,17 +358,5 @@
   "mp4Url": "https://bastaps.github.io/algeria-tech-videos/express/20261026-195405-becfe2.mp4",
   "poster": "https://bastaps.github.io/algeria-tech-videos/express/20261026-195405-becfe2.jpg",
   "publishedAt": "2026-10-26T19:55:35Z"
- },
- {
-  "id": "20261025-173122-3a3140",
-  "titre": "Fichier AGENTS.md pirate un agent de codage AI",
-  "texte": "Bonjour. Un fichier AGENTS.md malveillant dans le dossier Téléchargements a trompé un agent de codage AI en installant un paquet npm rogue. Les chercheurs ont reproduit l'attaque contre OpenAI Codex et ont démontré une technique similaire contre Claude Code pour voler des jetons OAuth et pirater le compte. Le dossier Téléchargements est spécial car le web peut y écrire sans interaction utilisateur.",
-  "source": "BleepingComputer",
-  "url": "https://www.bleepingcomputer.com/news/security/ai-coding-agents-hijacked-using-agentsmd-file-in-downloads-folder/",
-  "pays": "INT",
-  "duree": 27.8,
-  "mp4Url": "https://bastaps.github.io/algeria-tech-videos/express/20261025-173122-3a3140.mp4",
-  "poster": "https://bastaps.github.io/algeria-tech-videos/express/20261025-173122-3a3140.jpg",
-  "publishedAt": "2026-10-25T17:32:42Z"
  }
 ]
