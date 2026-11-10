@@ -505,6 +505,16 @@ if (process.env.CF_PAGES === '1') {
         'smart-ingest.html', 'smart-ingest-pro.html.bak', 'studio-tech.html', 'video-downloader.html', 'flash-vertical.html',
         'at-voice.html', 'at-personnalisation-demo.html'];
     PRIVE.forEach(rm);
+    // Cartes interactives : Font Awesome local (même fichier que le site, déjà en cache) au lieu du CDN cdnjs, plus lent
+    try {
+        const dCartes = path.join(__dirname, 'interactifs');
+        for (const f of fs.readdirSync(dCartes)) {
+            if (!f.endsWith('.html')) continue;
+            const pc = path.join(dCartes, f), h = fs.readFileSync(pc, 'utf8');
+            const h2 = h.split('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/').join('/libs/font-awesome/6.4.0/');
+            if (h2 !== h) fs.writeFileSync(pc, h2, 'utf8');
+        }
+    } catch (e) { console.warn('⚠️  Font Awesome local non appliqué aux cartes :', e.message); }
     for (const f of fs.readdirSync(__dirname)) {
         if (/^(prototype-|test-|backup_local_)/i.test(f)) rm(f);
     }

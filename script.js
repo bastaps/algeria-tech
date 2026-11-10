@@ -673,6 +673,7 @@ window.openArticle = async function(id) {
     }
     let pdfLink = art.pdf ? `<div style="margin: 20px 0; padding: 15px; background: var(--bg-light); border-radius: 10px; display: flex; align-items: center; gap: 15px;"><i class="fas fa-file-pdf" style="font-size: 2rem; color: #D21034;"></i><div><p style="margin:0; font-weight:600;">Document d'accompagnement</p><a href="${art.pdf}" target="_blank" class="tag-filter" style="display:inline-block; margin-top:5px; text-decoration:none;"><i class="fas fa-download"></i> TÃ©lÃ©charger le PDF</a></div></div>` : '';
     const immersiveBtn = hasImmersive(art) ? `<button class="at-immersive-btn" onclick="openImmersiveMode('${art.id}')"><i class="fas fa-layer-group"></i> Version Interactive</button>` : '';
+    if (hasImmersive(art)) atPrefetchCard(art.id);
     // « À retenir » : uniquement en bas d'article. Si le corps contient déjà sa section « ## À retenir », rien d'autre ;
     // sinon (anciens articles) l'encadré est ajouté après le texte, jamais sous le titre.
     const aDejaRetenir = /<h[1-6][^>]*>\s*(?:À|A|&Agrave;)\s*retenir/i.test(String(art.contenu || ''));
@@ -844,19 +845,30 @@ window.openImmersiveMode = async function(id) {
     document.body.style.overflow = 'hidden';
 
     const closeBtn = '<div class="at-imm-bar"><button type="button" class="at-imm-back" onclick="closeImmersiveMode()"><i class="fas fa-arrow-left"></i> Retour à l’article</button><button type="button" class="at-imm-x" onclick="closeImmersiveMode()" aria-label="Fermer la version interactive"><i class="fas fa-times"></i> Fermer</button></div>';
-    const url = `/interactifs/${id}.html`;
-    try {
-        const res = await fetch(url, { method: 'HEAD' });
-        if (!res.ok) throw new Error('not found');
-        body.innerHTML = closeBtn +
-            `<iframe src="${url}" title="Version interactive de l'article" ` +
-            `style="width:100%;height:calc(100vh - 48px);border:0;background:transparent;display:block;" ` +
-            `allow="fullscreen; clipboard-write"></iframe>`;
-    } catch (e) {
-        body.innerHTML = closeBtn +
-            '<p style="padding:60px;text-align:center;color:var(--text-muted);">' +
-            'Aucune version interactive n’a encore été publiée pour cet article.</p>';
-    }
+    // Adresse finale (sans « .html » : pas de redirection 308) et chargement immédiat de l'iframe : plus de requête HEAD préalable.
+    const url = `/interactifs/${id}`;
+    const msgAbsent = '<p style="padding:60px;text-align:center;color:var(--text-muted);">' +
+        'Aucune version interactive n’a encore été publiée pour cet article.</p>';
+    body.innerHTML = closeBtn +
+        '<div id="immLoad" style="position:absolute;left:0;right:0;top:90px;text-align:center;color:var(--text-muted);"><i class="fas fa-spinner fa-spin"></i> Chargement…</div>' +
+        `<iframe src="${url}" title="Version interactive de l'article" ` +
+        `style="width:100%;height:calc(100vh - 48px);border:0;background:transparent;display:block;" ` +
+        `allow="fullscreen; clipboard-write"></iframe>`;
+    const fr = body.querySelector('iframe');
+    fr.addEventListener('load', () => {
+        document.getElementById('immLoad')?.remove();
+        try {
+            if (/404|introuvable|not found/i.test(fr.contentDocument.title || '')) { fr.remove(); body.insertAdjacentHTML('beforeend', msgAbsent); }
+        } catch (e) { /* même origine : ne devrait pas arriver */ }
+    });
+};
+
+// Précharge la carte interactive dès que l'article s'affiche : à l'ouverture elle est déjà dans le cache du navigateur.
+window.atPrefetchCard = function (id) {
+    if (!id) return;
+    const u = `/interactifs/${id}`;
+    if (document.querySelector(`link[rel="prefetch"][href="${u}"]`)) return;
+    const l = document.createElement('link'); l.rel = 'prefetch'; l.as = 'document'; l.href = u; document.head.appendChild(l);
 };
 
 window.closeImmersiveMode = function() {

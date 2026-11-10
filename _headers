@@ -68,6 +68,10 @@
 /libs/*
   Cache-Control: public, max-age=31536000, immutable
 
+# ── Cartes interactives (adresse sans .html) : cache 10 min, le préchargement les rend instantanées ───────────
+/interactifs/*
+  Cache-Control: public, max-age=600
+
 # ── Vidéos (flash, articles) : cache 7 jours ──────────────────────────────────
 /videos/*
   Cache-Control: public, max-age=604800
