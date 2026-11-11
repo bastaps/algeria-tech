@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
- "date": "2026-11-10",
- "genere": "2026-11-10T22:16:51",
+ "date": "2026-11-11",
+ "genere": "2026-11-11T19:38:28",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-10T22:17:14",
+   "genere": "2026-11-11T19:38:52",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.5,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech, retrouvez toute l'actualité tech et télécoms avec 10 infos importantes pour débuter la soirée."
+    "duree": 6.0,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech, voici les 10 infos tech et télécoms à retenir ce soir."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.3,
-    "texte": "C'était toute l'actualité tech et télécoms de ce soir sur Algeria Tech. À très bientôt."
+    "duree": 5.5,
+    "texte": "C'était l'essentiel de l'actualité tech pour ce soir. Retrouvez-nous demain."
    },
    "items": [
     {
-     "titre": "Forum sur l'économie numérique",
-     "texte": "Un forum international se tiendra mercredi à Alger. L'objectif est d'examiner les opportunités de partenariat et d'investissement dans le domaine de l'économie numérique en Afrique. L'événement abordera les perspectives de croissance.",
+     "titre": "Transport maritime et paiements électroniques prioritaires",
+     "texte": "Le gouvernement algérien a tenu une réunion axée sur des sujets cruciaux. Le développement du transport maritime et la modernisation des moyens de paiement électronique étaient au cœur des discussions et des priorités.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 13.6,
+     "duree": 11.4,
      "pays": "DZ",
      "source": "Radio Algérie"
     },
     {
-     "titre": "Forfaits IA pour Apple Creator Studio",
-     "texte": "Apple propose de nouveaux forfaits d'utilisation prolongée à cinquante dollars pour les fonctionnalités IA dans Creator Studio. L'accès à l'assistant IA de Logic Pro sera payant après avoir atteint la limite mensuelle.",
+     "titre": "Réseau arabe contre les drogues de synthèse",
+     "texte": "L'Algérie a proposé la création d'un réseau arabe dédié à la lutte contre les drogues de synthèse. Cette initiative souligne l'engagement du pays dans la coopération régionale pour faire face à ce fléau.",
      "mp3": "/podcast/fr/02.mp3",
+     "duree": 10.9,
+     "pays": "DZ",
+     "source": "APS"
+    },
+    {
+     "titre": "Claude Sheets pour les feuilles de calcul",
+     "texte": "Anthropic lance Claude Sheets, un nouvel outil qui permet à son intelligence artificielle de générer et modifier des feuilles de calcul. Cela élargit considérablement les capacités de productivité de Claude.",
+     "mp3": "/podcast/fr/03.mp3",
      "duree": 11.5,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Sahara Occidental : mobilisation générale",
-     "texte": "Le Front Polisario décrète la mobilisation générale ce mardi. Il accuse le Maroc de masser des troupes et équipements militaires le long du mur de séparation au Sahara Occidental pour affronter l'occupant.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 11.0,
+     "titre": "Gouvernement : priorités maritimes et paiements",
+     "texte": "La mer est redevenue une priorité pour le gouvernement algérien. Lors d'une réunion, le développement du transport maritime, incluant les navires, ainsi que les paiements électroniques ont été examinés.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 11.5,
      "pays": "DZ",
-     "source": "TSA Algérie"
+     "source": "Algérie360"
     },
     {
-     "titre": "Spotify enrichit son DJ IA",
-     "texte": "Spotify ajoute de nouvelles voix pour son DJ IA. Il est désormais possible d'écouter un mix sans commentaire. La fonctionnalité vise une expérience d'écoute personnalisée, comme une radio adaptée aux goûts de chacun.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 12.8,
+     "titre": "Ligue 1 Mobilis : turnover record d'entraîneurs",
+     "texte": "Le championnat de Ligue 1 Mobilis connaît déjà une instabilité notable. Huit entraîneurs ont été limogés, représentant la moitié des clubs, seulement quelques semaines après le début de la saison.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 10.9,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Google Wallet : flux de notifications",
+     "texte": "Découvrez le fonctionnement du flux de notifications de Google Wallet et apprenez comment le désactiver si nécessaire. Une mise à jour récente enrichit les fonctionnalités de votre portefeuille numérique.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 10.9,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Mobilisation générale dans le Sahara",
-     "texte": "Le Front Polisario annonce la mobilisation générale suite à une réunion d'urgence. Cette décision intervient dans un contexte de tensions avec le Maroc, notamment après le non-renouvellement de la mission de l'ONU.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 11.6,
-     "pays": "DZ",
-     "source": "24H Algérie"
-    },
-    {
-     "titre": "Inspection de la raffinerie de Hassi Messaoud",
-     "texte": "Le ministre des Hydrocarbures a inspecté la nouvelle raffinerie de Hassi Messaoud. Il a insisté sur la mobilisation de tous les moyens pour respecter les délais de ce projet stratégique, visant à renforcer les capacités de raffinage.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 12.5,
-     "pays": "DZ",
-     "source": "Le Jeune Indépendant"
-    },
-    {
-     "titre": "Plus de 900 000 documents numériques",
-     "texte": "Plus de 900 000 documents administratifs ont été délivrés via le portail Dzair Digital Services en quatre mois. Ces documents sont dotés d'une signature électronique, marquant une avancée dans la numérisation des services.",
+     "titre": "ANPDP encadre les données des CV",
+     "texte": "L'Autorité nationale de protection des données à caractère personnel encadre désormais le traitement des informations présentes dans les CV. Cette mesure vise à renforcer la sécurité des données personnelles.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 12.2,
-     "pays": "DZ",
-     "source": "Le Jeune Indépendant"
-    },
-    {
-     "titre": "Signature électronique pour l'administration",
-     "texte": "La signature électronique est présentée comme un atout majeur pour les services publics algériens. Une journée d'information a souligné son importance pour simplifier les procédures administratives via le portail Dzaïr Digital Services.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 12.6,
-     "pays": "DZ",
-     "source": "ITMAG"
-    },
-    {
-     "titre": "Ooredoo leader 5G",
-     "texte": "Ooredoo Algérie se classe première en Afrique du Nord et quatrième mondial pour le débit descendant 5G. Ce résultat souligne les performances du réseau de l'opérateur sur la scène internationale.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 10.7,
+     "duree": 11.0,
      "pays": "DZ",
      "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "Stocker son ordinateur portable",
-     "texte": "Pour stocker votre ordinateur portable en toute sécurité sur le long terme, une planification est nécessaire. Que ce soit pour des vacances ou une migration, de nombreuses raisons poussent à le mettre de côté.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 11.5,
+     "titre": "NVIDIA DLSS 4.5 : optimiser le jeu",
+     "texte": "Pour les joueurs PC, les technologies d'upscaling comme NVIDIA DLSS sont essentielles. Découvrez les préréglages de la version 4.5 pour optimiser les performances graphiques de vos jeux AAA.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 11.4,
      "pays": "DZ",
      "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Investissements auto : Algérie et Maroc",
+     "texte": "Alors que le Maroc craint de voir des investissements automobiles filer vers l'Europe, l'Algérie, en phase de reconstruction de son industrie, pourrait aussi être concernée par ces réorganisations.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 10.3,
+     "pays": "DZ",
+     "source": "Maghreb Emergent"
+    },
+    {
+     "titre": "Transport maritime et paiements, focus gouvernement",
+     "texte": "Le Premier ministre a présidé une réunion clé sur le développement du transport maritime et la modernisation des moyens de paiement électronique. La flotte et les systèmes de paiement sont au cœur des réformes.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 10.8,
+     "pays": "DZ",
+     "source": "Algérie Éco"
     }
    ]
   },
