@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-11",
- "genere": "2026-11-11T19:38:28",
+ "genere": "2026-11-11T22:55:30",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-11T19:38:52",
+   "genere": "2026-11-11T22:55:49",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
     "duree": 6.0,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech, voici les 10 infos tech et télécoms à retenir ce soir."
+    "texte": "Bonsoir et bienvenue sur Algeria Tech, voici les 10 infos qui font l'actualité tech et télécoms."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.5,
-    "texte": "C'était l'essentiel de l'actualité tech pour ce soir. Retrouvez-nous demain."
+    "duree": 5.6,
+    "texte": "C'était l'essentiel de l'actualité tech sur Algeria Tech. À très bientôt."
    },
    "items": [
     {
-     "titre": "Transport maritime et paiements électroniques prioritaires",
-     "texte": "Le gouvernement algérien a tenu une réunion axée sur des sujets cruciaux. Le développement du transport maritime et la modernisation des moyens de paiement électronique étaient au cœur des discussions et des priorités.",
+     "titre": "Réseau arabe contre drogues de synthèse",
+     "texte": "L'Algérie a proposé la création d'un réseau arabe dédié à la lutte contre les drogues de synthèse. Cette initiative vise à renforcer la coopération régionale face à ce fléau.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 11.4,
-     "pays": "DZ",
-     "source": "Radio Algérie"
-    },
-    {
-     "titre": "Réseau arabe contre les drogues de synthèse",
-     "texte": "L'Algérie a proposé la création d'un réseau arabe dédié à la lutte contre les drogues de synthèse. Cette initiative souligne l'engagement du pays dans la coopération régionale pour faire face à ce fléau.",
-     "mp3": "/podcast/fr/02.mp3",
-     "duree": 10.9,
+     "duree": 9.8,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Claude Sheets pour les feuilles de calcul",
-     "texte": "Anthropic lance Claude Sheets, un nouvel outil qui permet à son intelligence artificielle de générer et modifier des feuilles de calcul. Cela élargit considérablement les capacités de productivité de Claude.",
+     "titre": "Transport maritime et paiement électronique",
+     "texte": "Le développement du transport maritime et des moyens de paiement électronique était au cœur des discussions lors d'une récente réunion du gouvernement algérien.",
+     "mp3": "/podcast/fr/02.mp3",
+     "duree": 7.5,
+     "pays": "DZ",
+     "source": "Radio Algérie"
+    },
+    {
+     "titre": "Cache webcam MacBook : prudence",
+     "texte": "Attention, les caches de webcam sur les MacBooks, bien qu'utiles pour la vie privée, pourraient potentiellement endommager l'écran. Il est conseillé de vérifier la compatibilité.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 11.5,
+     "duree": 10.4,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Gouvernement : priorités maritimes et paiements",
-     "texte": "La mer est redevenue une priorité pour le gouvernement algérien. Lors d'une réunion, le développement du transport maritime, incluant les navires, ainsi que les paiements électroniques ont été examinés.",
+     "titre": "Apple TV: interprétation langue des signes",
+     "texte": "Apple intègre une nouvelle fonctionnalité d'accessibilité sur Apple TV avec l'interprétation en langue des signes pour certains contenus originaux, pensée par des personnes sourdes.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 11.5,
+     "duree": 9.1,
      "pays": "DZ",
-     "source": "Algérie360"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Ligue 1 Mobilis : turnover record d'entraîneurs",
-     "texte": "Le championnat de Ligue 1 Mobilis connaît déjà une instabilité notable. Huit entraîneurs ont été limogés, représentant la moitié des clubs, seulement quelques semaines après le début de la saison.",
+     "titre": "Smartphones Xiaomi sans support HyperOS",
+     "texte": "Certains anciens modèles de smartphones Xiaomi ne bénéficieront plus du support après la mise à jour vers HyperOS 4, limitant leur accès aux nouvelles fonctionnalités.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 10.9,
+     "duree": 8.5,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Justice arabe: front commun antidrogue",
+     "texte": "Lors de la 42e session du Conseil ministériel arabe de la Justice, un front commun s'est dessiné dans la lutte contre la drogue, incluant la proposition algérienne.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 9.0,
+     "pays": "DZ",
+     "source": "Le Jeune Indépendant"
+    },
+    {
+     "titre": "Anthropic lance Claude Sheets",
+     "texte": "La société Anthropic enrichit ses outils de productivité avec Claude Sheets, une fonctionnalité permettant à son intelligence artificielle de générer et modifier des feuilles de calcul.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 9.6,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Priorité gouvernementale : mer et paiements",
+     "texte": "Le gouvernement algérien a réaffirmé sa priorité au développement du secteur maritime et des paiements électroniques, plaçant la mer au centre de ses préoccupations.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 8.4,
      "pays": "DZ",
      "source": "Algérie360"
     },
     {
-     "titre": "Google Wallet : flux de notifications",
-     "texte": "Découvrez le fonctionnement du flux de notifications de Google Wallet et apprenez comment le désactiver si nécessaire. Une mise à jour récente enrichit les fonctionnalités de votre portefeuille numérique.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 10.9,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "ANPDP encadre les données des CV",
-     "texte": "L'Autorité nationale de protection des données à caractère personnel encadre désormais le traitement des informations présentes dans les CV. Cette mesure vise à renforcer la sécurité des données personnelles.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 11.0,
-     "pays": "DZ",
-     "source": "Le Soir d'Algérie"
-    },
-    {
-     "titre": "NVIDIA DLSS 4.5 : optimiser le jeu",
-     "texte": "Pour les joueurs PC, les technologies d'upscaling comme NVIDIA DLSS sont essentielles. Découvrez les préréglages de la version 4.5 pour optimiser les performances graphiques de vos jeux AAA.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.4,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Investissements auto : Algérie et Maroc",
-     "texte": "Alors que le Maroc craint de voir des investissements automobiles filer vers l'Europe, l'Algérie, en phase de reconstruction de son industrie, pourrait aussi être concernée par ces réorganisations.",
+     "titre": "Ligue 1 : Vague de changements d'entraîneurs",
+     "texte": "Le championnat de Ligue 1 Mobilis connaît une instabilité record avec déjà huit entraîneurs limogés, soit la moitié des clubs ayant changé de coach.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 10.3,
+     "duree": 7.8,
      "pays": "DZ",
-     "source": "Maghreb Emergent"
+     "source": "Algérie360"
     },
     {
-     "titre": "Transport maritime et paiements, focus gouvernement",
-     "texte": "Le Premier ministre a présidé une réunion clé sur le développement du transport maritime et la modernisation des moyens de paiement électronique. La flotte et les systèmes de paiement sont au cœur des réformes.",
+     "titre": "Google Wallet : notifications à gérer",
+     "texte": "Découvrez le fonctionnement des notifications sur Google Wallet et apprenez comment les gérer ou les désactiver selon vos préférences pour une meilleure expérience.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 10.8,
+     "duree": 8.1,
      "pays": "DZ",
-     "source": "Algérie Éco"
+     "source": "GeekyAlgeria"
     }
    ]
   },
