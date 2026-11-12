@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-12",
- "genere": "2026-11-12T19:50:06",
+ "genere": "2026-11-12T22:51:19",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-12T19:50:26",
+   "genere": "2026-11-12T22:51:40",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.8,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici dix informations tech et télécoms pour votre soirée."
+    "duree": 7.8,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech, votre rendez-vous tech et télécoms. Voici les dix informations de votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.6,
-    "texte": "C'était Algeria Tech. Rendez-vous demain pour une nouvelle salve d'actualités."
+    "duree": 5.8,
+    "texte": "C'est tout pour l'instant. Retrouvez-nous demain pour une nouvelle édition d'Algeria Tech."
    },
    "items": [
     {
      "titre": "Transport maritime et paiements électroniques",
-     "texte": "Le développement du transport maritime et des moyens de paiement électronique était au cœur d'une récente réunion gouvernementale. Ces secteurs sont considérés comme prioritaires pour l'économie nationale.",
+     "texte": "Le gouvernement algérien a tenu une réunion axée sur le développement du transport maritime et l'amélioration des moyens de paiement électronique. Ces secteurs sont jugés cruciaux pour l'économie nationale et la modernisation des services.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 10.8,
+     "duree": 12.4,
      "pays": "DZ",
      "source": "Radio Algérie"
     },
     {
-     "titre": "Faille Grok chez SpaceXSI",
-     "texte": "Un défaut dans l'agent Grok Vibe-Coding de SpaceXSI a entraîné la fuite de données sensibles. Cette vulnérabilité, liée à la gestion des liens d'applications, a exposé des informations d'utilisateurs et de l'entreprise.",
+     "titre": "Données sensibles divulguées par Grok",
+     "texte": "Un agent Grok Vibe-Coding de SpaceXSI a involontairement exposé des données sensibles. La faille exploitée concerne la gestion des liens vers des applications, permettant une fuite d'informations à grande échelle pour de nombreux utilisateurs.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 12.3,
+     "duree": 12.9,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Protection des données personnelles CV",
-     "texte": "En Algérie, de nouvelles mesures visent à protéger les données personnelles présentes dans les CV. L'Autorité nationale de protection des données a officiellement adopté une délibération pour encadrer cette démarche.",
+     "titre": "Protection des données personnelles dans les CV",
+     "texte": "L'Algérie renforce la protection des données personnelles des candidats. L'Autorité nationale de protection des données a adopté une nouvelle délibération visant à sécuriser les informations contenues dans les CV lors des recrutements.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 11.5,
+     "duree": 12.0,
      "pays": "DZ",
      "source": "Algérie360"
     },
     {
-     "titre": "Puce M6 face aux GPU NVIDIA",
-     "texte": "Malgré les annonces d'Apple concernant sa nouvelle puce M6, celle-ci ne rivaliserait pas encore avec les performances des GPU NVIDIA. Les améliorations promises par Apple n'atteindraient pas ce niveau.",
+     "titre": "Puce M6 d'Apple face aux GPU NVIDIA",
+     "texte": "Apple dévoile sa nouvelle puce M6, mais elle peine à rivaliser avec les performances des GPU NVIDIA. Malgré les annonces d'améliorations significatives, elle ne peut toujours pas concurrencer les solutions dédiées au calcul graphique.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 11.3,
+     "duree": 13.3,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
      "titre": "CPA : Paiement en ligne depuis l'étranger",
-     "texte": "Le Crédit Populaire d'Algérie lance un nouveau service de paiement en ligne à l'international. Les clients commerciaux peuvent désormais accepter des paiements par cartes Visa et Mastercard étrangères.",
+     "texte": "Le Crédit Populaire d'Algérie lance CPAzonepay, un service de paiement en ligne international. Les clients commerciaux peuvent désormais accepter des paiements via cartes Visa et Mastercard émises à l'étranger.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 10.5,
+     "duree": 11.3,
      "pays": "DZ",
      "source": "Algérie Éco"
     },
     {
-     "titre": "Stellantis : Alger pilote l'Afrique",
-     "texte": "Le constructeur automobile Stellantis confie à Alger la direction de dix marchés africains. Ce nouveau périmètre opérationnel regroupe l'Algérie, la Tunisie, la Libye et sept pays d'Afrique de l'Ouest et Centrale.",
+     "titre": "Stellantis : Alger pilote dix marchés africains",
+     "texte": "Le constructeur automobile Stellantis confie à Alger la direction de dix marchés en Afrique. Cette nouvelle organisation régionale inclut l'Algérie, la Tunisie, la Libye et sept pays d'Afrique de l'Ouest et du Centre.",
      "mp3": "/podcast/fr/06.mp3",
-     "duree": 12.3,
+     "duree": 12.4,
      "pays": "DZ",
      "source": "Maghreb Emergent"
     },
     {
-     "titre": "Expansion du vol de bétail",
-     "texte": "Le vol de bétail prend de l'ampleur en Algérie. Des éleveurs témoignent de pertes importantes, soulignant la gravité croissante de ce phénomène qui affecte le secteur agricole.",
+     "titre": "Le vol de bétail s'étend en Algérie",
+     "texte": "Le vol de bétail est devenu un phénomène inquiétant en Algérie. Des témoignages d'éleveurs font état de pertes importantes, soulignant l'ampleur croissante de ce problème qui affecte le secteur rural.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 9.9,
+     "duree": 10.8,
      "pays": "DZ",
      "source": "TSA Algérie"
     },
     {
-     "titre": "Renouvellement flotte maritime nationale",
-     "texte": "Le gouvernement algérien souhaite moderniser le transport maritime. Le renouvellement de la flotte nationale devient une priorité face aux perturbations actuelles causées par des navires immobilisés.",
+     "titre": "Modernisation de la flotte maritime nationale",
+     "texte": "Le gouvernement algérien priorise le renouvellement de sa flotte maritime. Face aux annulations de traversées et aux navires immobilisés, des mesures sont prises pour moderniser le transport national.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 10.8,
+     "duree": 11.2,
      "pays": "DZ",
      "source": "Maghreb Emergent"
     },
     {
-     "titre": "Téléphone : Wi-Fi ou données mobiles ?",
-     "texte": "Votre téléphone bascule-t-il parfois du Wi-Fi aux données mobiles sans raison apparente ? Plusieurs facteurs, des signaux faibles aux réglages réseau, peuvent expliquer ce comportement.",
+     "titre": "Scandale Jensen Huang : chronologie",
+     "texte": "Jensen Huang, dirigeant de Nvidia, a démissionné suite à une liaison. Cette affaire soulève des questions de sécurité nationale dans la course mondiale au développement de l'intelligence artificielle entre les États-Unis et la Chine.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 10.2,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "duree": 12.5,
+     "pays": "INT",
+     "source": "TechCrunch"
     },
     {
-     "titre": "Importateurs : localisation GPS exigée",
-     "texte": "Les importateurs algériens doivent désormais fournir les données GPS exactes de leurs entrepôts. Cette nouvelle exigence concerne aussi bien les matières premières que les marchandises destinées à la revente.",
+     "titre": "Nebius investit massivement dans l'IA",
+     "texte": "Nebius prévoit de dépenser 40 milliards de dollars pour son infrastructure IA. Le financement reposera sur des prépaiements clients et des prêts, malgré des retards observés chez un partenaire de Microsoft.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 10.8,
-     "pays": "DZ",
-     "source": "TSA Algérie"
+     "duree": 11.6,
+     "pays": "INT",
+     "source": "TechCrunch"
     }
    ]
   },
