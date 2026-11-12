@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
- "date": "2026-11-11",
- "genere": "2026-11-11T22:55:30",
+ "date": "2026-11-12",
+ "genere": "2026-11-12T16:04:47",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-11T22:55:49",
+   "genere": "2026-11-12T16:05:40",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.0,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech, voici les 10 infos qui font l'actualité tech et télécoms."
+    "duree": 9.8,
+    "texte": "Bonsoir à toutes et à tous, bienvenue sur Algeria Tech. Voici votre édition du soir, avec dix actualités incontournables pour rester connectés."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
     "duree": 5.6,
-    "texte": "C'était l'essentiel de l'actualité tech sur Algeria Tech. À très bientôt."
+    "texte": "Merci d'avoir écouté Algeria Tech. Bonne soirée à toutes et à tous."
    },
    "items": [
     {
-     "titre": "Réseau arabe contre drogues de synthèse",
-     "texte": "L'Algérie a proposé la création d'un réseau arabe dédié à la lutte contre les drogues de synthèse. Cette initiative vise à renforcer la coopération régionale face à ce fléau.",
+     "titre": "Réunion gouvernementale sur le numérique",
+     "texte": "Le gouvernement s'est réuni aujourd'hui pour aborder deux sujets prioritaires. Les discussions se sont concentrées sur le développement du transport maritime national, mais aussi sur l'accélération de la transition vers les moyens de paiement électronique. Une étape clé pour moderniser l'économie et faciliter les transactions numériques pour tous les citoyens.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 9.8,
-     "pays": "DZ",
-     "source": "APS"
-    },
-    {
-     "titre": "Transport maritime et paiement électronique",
-     "texte": "Le développement du transport maritime et des moyens de paiement électronique était au cœur des discussions lors d'une récente réunion du gouvernement algérien.",
-     "mp3": "/podcast/fr/02.mp3",
-     "duree": 7.5,
+     "duree": 18.7,
      "pays": "DZ",
      "source": "Radio Algérie"
     },
     {
-     "titre": "Cache webcam MacBook : prudence",
-     "texte": "Attention, les caches de webcam sur les MacBooks, bien qu'utiles pour la vie privée, pourraient potentiellement endommager l'écran. Il est conseillé de vérifier la compatibilité.",
+     "titre": "Nouvelles règles de recrutement",
+     "texte": "L'Autorité nationale de protection des données à caractère personnel vient d'instaurer de nouvelles limites légales pour le recrutement. Désormais, les employeurs ne pourront plus exiger d'informations relatives à la religion ou aux opinions politiques des candidats. Cette mesure renforce la protection de la vie privée durant les processus de sélection.",
+     "mp3": "/podcast/fr/02.mp3",
+     "duree": 18.4,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Fermeture de la communauté Apple",
+     "texte": "C'est une page qui se tourne pour les utilisateurs de la marque à la pomme. Apple a annoncé la fermeture de sa plateforme d'assistance communautaire en ligne pour le 20 novembre. Les forums cesseront d'accepter de nouveaux messages, incitant désormais les utilisateurs à se tourner vers les réseaux sociaux habituels.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 10.4,
+     "duree": 16.8,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Apple TV: interprétation langue des signes",
-     "texte": "Apple intègre une nouvelle fonctionnalité d'accessibilité sur Apple TV avec l'interprétation en langue des signes pour certains contenus originaux, pensée par des personnes sourdes.",
+     "titre": "ByteDance développe son agent IA",
+     "texte": "La course à l'intelligence artificielle s'intensifie. Le géant chinois ByteDance prépare activement son propre agent IA, selon plusieurs sources proches du dossier. L'objectif est clair, il s'agit de rivaliser directement avec Muse de Meta. Un lancement pourrait avoir lieu dans les prochaines semaines pour ce nouvel assistant technologique très attendu.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 9.1,
+     "duree": 19.6,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Smartphones Xiaomi sans support HyperOS",
-     "texte": "Certains anciens modèles de smartphones Xiaomi ne bénéficieront plus du support après la mise à jour vers HyperOS 4, limitant leur accès aux nouvelles fonctionnalités.",
+     "titre": "Démantèlement d'un réseau de drogue",
+     "texte": "Les services de sécurité de la wilaya de Djelfa ont réussi une opération d'envergure. La brigade de lutte contre les stupéfiants a démantelé un réseau criminel spécialisé dans le trafic de substances psychotropes. Huit individus ont été arrêtés lors de cette intervention, marquant un coup dur pour les trafiquants de la région.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 8.5,
+     "duree": 17.6,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "Justice arabe: front commun antidrogue",
-     "texte": "Lors de la 42e session du Conseil ministériel arabe de la Justice, un front commun s'est dessiné dans la lutte contre la drogue, incluant la proposition algérienne.",
+     "titre": "Désactiver le coach Google Health",
+     "texte": "Si les conseils du coach IA de Google Health ne vous convainquent pas, sachez qu'il est possible de s'en séparer facilement. Pour ceux qui souhaitent faire une pause face à ces notifications constantes, il suffit de résilier votre abonnement Google Health Premium afin de désactiver cette fonctionnalité de coaching personnel définitivement.",
      "mp3": "/podcast/fr/06.mp3",
-     "duree": 9.0,
+     "duree": 16.5,
      "pays": "DZ",
-     "source": "Le Jeune Indépendant"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Anthropic lance Claude Sheets",
-     "texte": "La société Anthropic enrichit ses outils de productivité avec Claude Sheets, une fonctionnalité permettant à son intelligence artificielle de générer et modifier des feuilles de calcul.",
+     "titre": "Lutte contre les drogues de synthèse",
+     "texte": "L'Algérie monte au créneau face à la menace croissante des drogues de synthèse. Lors du Conseil des ministres arabes, notre pays a proposé la mise en place d'un réseau arabe de lutte coordonnée. L'objectif est d'harmoniser la coopération judiciaire régionale pour contrer efficacement cette nouvelle forme de criminalité qui inquiète.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 9.6,
+     "duree": 18.1,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Crésus"
     },
     {
-     "titre": "Priorité gouvernementale : mer et paiements",
-     "texte": "Le gouvernement algérien a réaffirmé sa priorité au développement du secteur maritime et des paiements électroniques, plaçant la mer au centre de ses préoccupations.",
+     "titre": "Réseau d'espionnage démantelé à Tipasa",
+     "texte": "Un réseau clandestin de télécommunications a été mis hors d'état de nuire à Tipasa. Soupçonnées d'espionnage pour le compte d'entités étrangères, ces activités illégales ont été stoppées. La présence d'un ressortissant étranger parmi les suspects souligne l'importance des enjeux de sécurité nationale dans un contexte régional complexe et sous haute surveillance.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 8.4,
+     "duree": 19.4,
      "pays": "DZ",
-     "source": "Algérie360"
+     "source": "Crésus"
     },
     {
-     "titre": "Ligue 1 : Vague de changements d'entraîneurs",
-     "texte": "Le championnat de Ligue 1 Mobilis connaît une instabilité record avec déjà huit entraîneurs limogés, soit la moitié des clubs ayant changé de coach.",
+     "titre": "Visa Schengen en ligne dès 2030",
+     "texte": "Le voyage vers l'Europe se numérise. D'ici 2030, toutes les procédures de demande de visa Schengen seront accessibles entièrement en ligne. Cette transition vers le tout numérique promet de simplifier drastiquement les démarches administratives pour les voyageurs, marquant une révolution technologique majeure dans la gestion des flux migratoires légaux.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 7.8,
+     "duree": 19.0,
      "pays": "DZ",
      "source": "Algérie360"
     },
     {
-     "titre": "Google Wallet : notifications à gérer",
-     "texte": "Découvrez le fonctionnement des notifications sur Google Wallet et apprenez comment les gérer ou les désactiver selon vos préférences pour une meilleure expérience.",
+     "titre": "La 5G avec Mobilis",
+     "texte": "La technologie 5G devient une réalité concrète en Algérie grâce aux déploiements de Mobilis. Cette nouvelle norme de réseau mobile ne se limite pas à booster les débits de connexion internet. Elle permet surtout de réduire drastiquement la latence, offrant une réactivité optimale pour tous les usages numériques les plus exigeants.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 8.1,
+     "duree": 18.1,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "ITMAG"
     }
    ]
   },
