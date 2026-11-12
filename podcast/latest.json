@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-12",
- "genere": "2026-11-12T16:04:47",
+ "genere": "2026-11-12T19:50:06",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-12T16:05:40",
+   "genere": "2026-11-12T19:50:26",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 9.8,
-    "texte": "Bonsoir à toutes et à tous, bienvenue sur Algeria Tech. Voici votre édition du soir, avec dix actualités incontournables pour rester connectés."
+    "duree": 6.8,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici dix informations tech et télécoms pour votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
     "duree": 5.6,
-    "texte": "Merci d'avoir écouté Algeria Tech. Bonne soirée à toutes et à tous."
+    "texte": "C'était Algeria Tech. Rendez-vous demain pour une nouvelle salve d'actualités."
    },
    "items": [
     {
-     "titre": "Réunion gouvernementale sur le numérique",
-     "texte": "Le gouvernement s'est réuni aujourd'hui pour aborder deux sujets prioritaires. Les discussions se sont concentrées sur le développement du transport maritime national, mais aussi sur l'accélération de la transition vers les moyens de paiement électronique. Une étape clé pour moderniser l'économie et faciliter les transactions numériques pour tous les citoyens.",
+     "titre": "Transport maritime et paiements électroniques",
+     "texte": "Le développement du transport maritime et des moyens de paiement électronique était au cœur d'une récente réunion gouvernementale. Ces secteurs sont considérés comme prioritaires pour l'économie nationale.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 18.7,
+     "duree": 10.8,
      "pays": "DZ",
      "source": "Radio Algérie"
     },
     {
-     "titre": "Nouvelles règles de recrutement",
-     "texte": "L'Autorité nationale de protection des données à caractère personnel vient d'instaurer de nouvelles limites légales pour le recrutement. Désormais, les employeurs ne pourront plus exiger d'informations relatives à la religion ou aux opinions politiques des candidats. Cette mesure renforce la protection de la vie privée durant les processus de sélection.",
+     "titre": "Faille Grok chez SpaceXSI",
+     "texte": "Un défaut dans l'agent Grok Vibe-Coding de SpaceXSI a entraîné la fuite de données sensibles. Cette vulnérabilité, liée à la gestion des liens d'applications, a exposé des informations d'utilisateurs et de l'entreprise.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 18.4,
+     "duree": 12.3,
      "pays": "DZ",
-     "source": "Algérie360"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Fermeture de la communauté Apple",
-     "texte": "C'est une page qui se tourne pour les utilisateurs de la marque à la pomme. Apple a annoncé la fermeture de sa plateforme d'assistance communautaire en ligne pour le 20 novembre. Les forums cesseront d'accepter de nouveaux messages, incitant désormais les utilisateurs à se tourner vers les réseaux sociaux habituels.",
+     "titre": "Protection des données personnelles CV",
+     "texte": "En Algérie, de nouvelles mesures visent à protéger les données personnelles présentes dans les CV. L'Autorité nationale de protection des données a officiellement adopté une délibération pour encadrer cette démarche.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 16.8,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "ByteDance développe son agent IA",
-     "texte": "La course à l'intelligence artificielle s'intensifie. Le géant chinois ByteDance prépare activement son propre agent IA, selon plusieurs sources proches du dossier. L'objectif est clair, il s'agit de rivaliser directement avec Muse de Meta. Un lancement pourrait avoir lieu dans les prochaines semaines pour ce nouvel assistant technologique très attendu.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 19.6,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Démantèlement d'un réseau de drogue",
-     "texte": "Les services de sécurité de la wilaya de Djelfa ont réussi une opération d'envergure. La brigade de lutte contre les stupéfiants a démantelé un réseau criminel spécialisé dans le trafic de substances psychotropes. Huit individus ont été arrêtés lors de cette intervention, marquant un coup dur pour les trafiquants de la région.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 17.6,
-     "pays": "DZ",
-     "source": "Le Soir d'Algérie"
-    },
-    {
-     "titre": "Désactiver le coach Google Health",
-     "texte": "Si les conseils du coach IA de Google Health ne vous convainquent pas, sachez qu'il est possible de s'en séparer facilement. Pour ceux qui souhaitent faire une pause face à ces notifications constantes, il suffit de résilier votre abonnement Google Health Premium afin de désactiver cette fonctionnalité de coaching personnel définitivement.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 16.5,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Lutte contre les drogues de synthèse",
-     "texte": "L'Algérie monte au créneau face à la menace croissante des drogues de synthèse. Lors du Conseil des ministres arabes, notre pays a proposé la mise en place d'un réseau arabe de lutte coordonnée. L'objectif est d'harmoniser la coopération judiciaire régionale pour contrer efficacement cette nouvelle forme de criminalité qui inquiète.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 18.1,
-     "pays": "DZ",
-     "source": "Crésus"
-    },
-    {
-     "titre": "Réseau d'espionnage démantelé à Tipasa",
-     "texte": "Un réseau clandestin de télécommunications a été mis hors d'état de nuire à Tipasa. Soupçonnées d'espionnage pour le compte d'entités étrangères, ces activités illégales ont été stoppées. La présence d'un ressortissant étranger parmi les suspects souligne l'importance des enjeux de sécurité nationale dans un contexte régional complexe et sous haute surveillance.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 19.4,
-     "pays": "DZ",
-     "source": "Crésus"
-    },
-    {
-     "titre": "Visa Schengen en ligne dès 2030",
-     "texte": "Le voyage vers l'Europe se numérise. D'ici 2030, toutes les procédures de demande de visa Schengen seront accessibles entièrement en ligne. Cette transition vers le tout numérique promet de simplifier drastiquement les démarches administratives pour les voyageurs, marquant une révolution technologique majeure dans la gestion des flux migratoires légaux.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 19.0,
+     "duree": 11.5,
      "pays": "DZ",
      "source": "Algérie360"
     },
     {
-     "titre": "La 5G avec Mobilis",
-     "texte": "La technologie 5G devient une réalité concrète en Algérie grâce aux déploiements de Mobilis. Cette nouvelle norme de réseau mobile ne se limite pas à booster les débits de connexion internet. Elle permet surtout de réduire drastiquement la latence, offrant une réactivité optimale pour tous les usages numériques les plus exigeants.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 18.1,
+     "titre": "Puce M6 face aux GPU NVIDIA",
+     "texte": "Malgré les annonces d'Apple concernant sa nouvelle puce M6, celle-ci ne rivaliserait pas encore avec les performances des GPU NVIDIA. Les améliorations promises par Apple n'atteindraient pas ce niveau.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 11.3,
      "pays": "DZ",
-     "source": "ITMAG"
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "CPA : Paiement en ligne depuis l'étranger",
+     "texte": "Le Crédit Populaire d'Algérie lance un nouveau service de paiement en ligne à l'international. Les clients commerciaux peuvent désormais accepter des paiements par cartes Visa et Mastercard étrangères.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 10.5,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "Stellantis : Alger pilote l'Afrique",
+     "texte": "Le constructeur automobile Stellantis confie à Alger la direction de dix marchés africains. Ce nouveau périmètre opérationnel regroupe l'Algérie, la Tunisie, la Libye et sept pays d'Afrique de l'Ouest et Centrale.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 12.3,
+     "pays": "DZ",
+     "source": "Maghreb Emergent"
+    },
+    {
+     "titre": "Expansion du vol de bétail",
+     "texte": "Le vol de bétail prend de l'ampleur en Algérie. Des éleveurs témoignent de pertes importantes, soulignant la gravité croissante de ce phénomène qui affecte le secteur agricole.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 9.9,
+     "pays": "DZ",
+     "source": "TSA Algérie"
+    },
+    {
+     "titre": "Renouvellement flotte maritime nationale",
+     "texte": "Le gouvernement algérien souhaite moderniser le transport maritime. Le renouvellement de la flotte nationale devient une priorité face aux perturbations actuelles causées par des navires immobilisés.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 10.8,
+     "pays": "DZ",
+     "source": "Maghreb Emergent"
+    },
+    {
+     "titre": "Téléphone : Wi-Fi ou données mobiles ?",
+     "texte": "Votre téléphone bascule-t-il parfois du Wi-Fi aux données mobiles sans raison apparente ? Plusieurs facteurs, des signaux faibles aux réglages réseau, peuvent expliquer ce comportement.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 10.2,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Importateurs : localisation GPS exigée",
+     "texte": "Les importateurs algériens doivent désormais fournir les données GPS exactes de leurs entrepôts. Cette nouvelle exigence concerne aussi bien les matières premières que les marchandises destinées à la revente.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 10.8,
+     "pays": "DZ",
+     "source": "TSA Algérie"
     }
    ]
   },
