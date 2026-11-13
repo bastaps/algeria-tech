@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-12T15:49:10.033Z",
+  "generated": "2026-11-13T15:09:45.068Z",
   "mode": "monthly",
   "period": "2026-11",
   "period_label": "Novembre 2026",
@@ -14,18 +14,18 @@
     {
       "key": "Intelligence Artificielle",
       "emoji": "🤖",
-      "count": 92,
+      "count": 88,
       "prev_count": 92,
-      "trend": 0,
-      "trend_pct": 0
+      "trend": -4,
+      "trend_pct": -4
     },
     {
       "key": "Operateurs & Telecom",
       "emoji": "📶",
-      "count": 42,
-      "prev_count": 41,
-      "trend": 1,
-      "trend_pct": 2
+      "count": 40,
+      "prev_count": 42,
+      "trend": -2,
+      "trend_pct": -5
     },
     {
       "key": "5G & Reseaux Mobiles",
@@ -36,44 +36,52 @@
       "trend_pct": 0
     },
     {
-      "key": "Startups & Innovation",
-      "emoji": "🚀",
-      "count": 16,
-      "prev_count": 15,
-      "trend": 1,
-      "trend_pct": 7
-    },
-    {
       "key": "Cybersecurite",
       "emoji": "🔒",
       "count": 15,
-      "prev_count": 18,
-      "trend": -3,
-      "trend_pct": -17
+      "prev_count": 15,
+      "trend": 0,
+      "trend_pct": 0
     },
     {
-      "key": "Formation & Emploi TIC",
-      "emoji": "🎓",
-      "count": 11,
-      "prev_count": 13,
+      "key": "Startups & Innovation",
+      "emoji": "🚀",
+      "count": 14,
+      "prev_count": 16,
       "trend": -2,
-      "trend_pct": -15
+      "trend_pct": -12
     },
     {
       "key": "Cloud & Data Center",
       "emoji": "☁️",
-      "count": 8,
-      "prev_count": 10,
-      "trend": -2,
-      "trend_pct": -20
+      "count": 12,
+      "prev_count": 8,
+      "trend": 4,
+      "trend_pct": 50
     },
     {
       "key": "E-commerce & Paiement",
       "emoji": "🛒",
-      "count": 7,
-      "prev_count": 8,
-      "trend": -1,
-      "trend_pct": -12
+      "count": 10,
+      "prev_count": 7,
+      "trend": 3,
+      "trend_pct": 43
+    },
+    {
+      "key": "Formation & Emploi TIC",
+      "emoji": "🎓",
+      "count": 9,
+      "prev_count": 11,
+      "trend": -2,
+      "trend_pct": -18
+    },
+    {
+      "key": "Fibre Optique",
+      "emoji": "🔌",
+      "count": 3,
+      "prev_count": 2,
+      "trend": 1,
+      "trend_pct": 50
     },
     {
       "key": "Satellite & Spatial",
@@ -82,50 +90,42 @@
       "prev_count": 3,
       "trend": 0,
       "trend_pct": 0
-    },
-    {
-      "key": "Fibre Optique",
-      "emoji": "🔌",
-      "count": 2,
-      "prev_count": null,
-      "trend": null,
-      "trend_pct": null
     }
   ],
   "sentiment": {
-    "positive": 104,
-    "negative": 25,
-    "neutral": 333,
-    "positive_pct": 23,
-    "negative_pct": 5,
-    "neutral_pct": 72
+    "positive": 110,
+    "negative": 35,
+    "neutral": 317,
+    "positive_pct": 24,
+    "negative_pct": 8,
+    "neutral_pct": 69
   },
   "top_sources": [
     {
       "source": "Wired",
-      "count": 72
+      "count": 77
     },
     {
       "source": "TechCrunch",
-      "count": 71
+      "count": 58
     },
     {
       "source": "ZDNet France",
-      "count": 53
+      "count": 55
     },
     {
       "source": "Algérie Éco",
       "count": 48
     },
     {
-      "source": "ZDNet FR",
-      "count": 30
+      "source": "Silicon.fr",
+      "count": 29
     }
   ],
   "highlights": [
-    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 92 occurrences dans les publications.",
-    "\"Cloud & Data Center\" en recul : -20% par rapport a le mois precedent.",
-    "Sentiment equilibre ce mois : 23% positif, 5% negatif sur 462 publications."
+    "\"Intelligence Artificielle\" est le sujet dominant ce mois avec 88 occurrences dans les publications.",
+    "\"Cloud & Data Center\" en forte hausse : +50% par rapport a le mois precedent.",
+    "Sentiment equilibre ce mois : 24% positif, 8% negatif sur 462 publications."
   ],
   "previous_period": {
     "period": "2026-11",
