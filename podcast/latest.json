@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-13",
- "genere": "2026-11-13T15:29:47",
+ "genere": "2026-11-13T19:29:57",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-13T15:30:11",
+   "genere": "2026-11-13T19:30:21",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.0,
-    "texte": "Bonsoir et bienvenue dans ce nouveau rendez-vous d'Algeria Tech. Voici 10 infos clés pour démarrer la soirée."
+    "duree": 7.5,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech, votre rendez-vous tech de la soirée. Voici 10 informations à découvrir."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.9,
-    "texte": "C'était l'essentiel de l'actualité tech. Restez connectés avec Algeria Tech !"
+    "duree": 8.0,
+    "texte": "C'était votre dose d'actualités tech et télécoms. Retrouvez-nous demain pour un nouveau briefing. Bonne soirée !"
    },
    "items": [
     {
-     "titre": "Transport maritime et paiements électroniques",
-     "texte": "Le gouvernement algérien s'est réuni pour discuter du développement du transport maritime dans le pays. Les moyens de paiement électronique ont également été abordés, signe de l'importance accordée à ces secteurs stratégiques pour l'économie nationale.",
+     "titre": "Transport et Paiement Électronique",
+     "texte": "Le gouvernement algérien a tenu une réunion axée sur le développement des transports maritimes. La question des moyens de paiement électronique était également au cœur des discussions, soulignant l'importance de la modernisation des infrastructures.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 13.1,
+     "duree": 13.0,
      "pays": "DZ",
      "source": "Radio Algérie"
     },
     {
-     "titre": "Microsoft Outlook : pas de cyberattaque",
-     "texte": "Microsoft a écarté l'hypothèse d'une cyberattaque suite à la panne mondiale de sa messagerie Outlook. Le géant américain du logiciel a affirmé percevoir des résultats positifs en vue d'un retour à la normale pour ses services.",
+     "titre": "Dzair Digital Services s'agrandit",
+     "texte": "Le portail national des services numériques, Dzair Digital Services, intègre trois nouvelles offres. Ces ajouts visent à enrichir l'écosystème numérique algérien et à faciliter l'accès à des services publics variés pour les citoyens.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 12.2,
+     "duree": 12.9,
+     "pays": "DZ",
+     "source": "Radio Algérie"
+    },
+    {
+     "titre": "Changement de Direction à l'UIT",
+     "texte": "L'Union Internationale des Télécommunications a renouvelé la direction de ses trois bureaux sectoriels clés. Trois nominations importantes ont eu lieu pour façonner l'avenir de la connectivité mondiale au sein de l'institution onusienne.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 12.0,
+     "pays": "DZ",
+     "source": "ITMAG"
+    },
+    {
+     "titre": "Nouveau Challenge Mobilis",
+     "texte": "Mobilis lance son concours national «MU Champions» pour ses abonnés «Révolution». Chaque semaine, douze gagnants seront récompensés dans deux catégories, mettant en avant les meilleurs consommateurs des offres de l'opérateur.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 12.9,
      "pays": "DZ",
      "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "Dix applications iPad pour le quotidien",
-     "texte": "Pour faciliter votre quotidien, découvrez dix applications iPad utiles. Elles sont conçues pour améliorer vos routines et mettre votre tablette au service de votre vie de tous les jours, sans nécessiter d'abonnements coûteux.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 11.9,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Stellantis fait d'Alger un hub",
-     "texte": "Stellantis, l'un des plus grands constructeurs automobiles mondiaux, a choisi Alger comme centre de pilotage pour dix marchés africains. La capitale algérienne devient ainsi un pilier opérationnel majeur pour le groupe dans la région.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 12.7,
+     "titre": "Dzair Digital Services : Plus de services",
+     "texte": "Le portail gouvernemental Dzair Digital Services continue de s'enrichir. Trois nouveaux services numériques ont été ajoutés, renforçant l'offre du Haut Commissariat à la Numérisation pour les citoyens algériens.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 11.7,
      "pays": "DZ",
      "source": "Algérie360"
     },
     {
-     "titre": "Stellantis : Alger coordonne l'Afrique",
-     "texte": "Le groupe automobile Stellantis confie à Alger la coordination d'un nouveau périmètre opérationnel couvrant dix marchés africains. Cette décision renforce le rôle de l'Algérie comme plateforme stratégique pour le constructeur en Afrique.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 12.5,
+     "titre": "Guerre Cerveau Numérique USA Chine",
+     "texte": "Washington et Pékin s'affrontent pour le contrôle du cerveau numérique mondial. Cette guerre invisible se joue sur les technologies clés comme les semi-conducteurs et l'intelligence artificielle, déterminantes pour l'avenir.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 11.7,
      "pays": "DZ",
-     "source": "Algérie Éco"
+     "source": "Crésus"
     },
     {
-     "titre": "Éviter les arnaques sur cartes graphiques",
-     "texte": "Face à la hausse des prix des GPU, attention aux arnaques sur les cartes graphiques contrefaites. Il est essentiel de rester vigilant pour éviter les mauvaises surprises et s'assurer de faire un achat fiable.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 10.9,
+     "titre": "Algérie aux Urnes Numériques UIT",
+     "texte": "L'Algérie participe à Doha à l'élection des sièges africains au Conseil de l'Union Internationale des Télécommunications. Dix-neuf prétendants s'affrontent pour treize sièges, un enjeu crucial pour la gouvernance mondiale des télécoms.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 12.5,
+     "pays": "DZ",
+     "source": "Crésus"
+    },
+    {
+     "titre": "Motorola Signature 27 Prometteur",
+     "texte": "Le Motorola Signature 27 s'annonce comme un smartphone puissant. Il sera le premier vendu aux États-Unis avec le prochain processeur haut de gamme de Qualcomm, le Snapdragon 8 Elite Extreme Gen 6.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 11.5,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Nairobi étoffe sa capacité numérique",
-     "texte": "Le nouveau centre de données Digital Realty NBO2 à Nairobi renforce la capacité et les connexions de la ville. Ce campus élargit les options réseaux et d'échanges, améliorant ainsi l'infrastructure numérique de la région.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 12.5,
-     "pays": "DZ",
-     "source": "AlgeriaTech.news"
-    },
-    {
-     "titre": "Projet de centre de données au Nigeria",
-     "texte": "Le projet AFRIDATA au Nigeria est toujours en attente d'une étude de faisabilité financée et d'un accord sur le financement de la construction. La capacité et la mise en œuvre restent des points à clarifier.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.1,
-     "pays": "DZ",
-     "source": "AlgeriaTech.news"
-    },
-    {
-     "titre": "Compétences IA recherchées au Royaume-Uni",
-     "texte": "Les intentions d'embauche dans la tech au Royaume-Uni soulignent une demande croissante pour les compétences en supervision de l'IA. Ces plans indiquent une tendance du marché britannique, sans prévision pour l'Algérie.",
+     "titre": "Produits Français sous Embargo ?",
+     "texte": "La France se plaint auprès de Bruxelles de possibles restrictions sur ses produits en Algérie. Paris demande à la Commission européenne d'examiner la situation, Alger n'ayant pas officiellement annoncé ces mesures.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.0,
+     "duree": 11.5,
      "pays": "DZ",
-     "source": "AlgeriaTech.news"
+     "source": "Maghreb Emergent"
     },
     {
-     "titre": "Mastercard simplifie les paiements mobiles",
-     "texte": "Mastercard lance Wallet Pay pour connecter divers portefeuilles numériques sur différents réseaux de paiement. Cette initiative vise à unifier les transactions sans contact, QR et en ligne.",
+     "titre": "Adel Darwish numéro 2 de l'UIT",
+     "texte": "Après un scrutin serré, le Bahreïni Adel Darwish a été élu Vice-Secrétaire général de l'UIT. Il l'emporte de justesse sur son rival, marquant une étape importante pour l'institution internationale.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 10.4,
+     "duree": 11.9,
      "pays": "DZ",
-     "source": "AlgeriaTech.news"
+     "source": "ITMAG"
     }
    ]
   },
