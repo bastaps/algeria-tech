@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-13",
- "genere": "2026-11-13T19:29:57",
+ "genere": "2026-11-13T22:25:28",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-13T19:30:21",
+   "genere": "2026-11-13T22:25:54",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.5,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech, votre rendez-vous tech de la soirée. Voici 10 informations à découvrir."
+    "duree": 6.8,
+    "texte": "Bonsoir à tous et bienvenue sur Algeria Tech. Voici 10 infos tech et télécoms pour ce soir."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 8.0,
-    "texte": "C'était votre dose d'actualités tech et télécoms. Retrouvez-nous demain pour un nouveau briefing. Bonne soirée !"
+    "duree": 6.0,
+    "texte": "C'était l'essentiel de l'actualité tech et télécoms sur Algeria Tech. Bonne soirée."
    },
    "items": [
     {
-     "titre": "Transport et Paiement Électronique",
-     "texte": "Le gouvernement algérien a tenu une réunion axée sur le développement des transports maritimes. La question des moyens de paiement électronique était également au cœur des discussions, soulignant l'importance de la modernisation des infrastructures.",
+     "titre": "Transport maritime et paiement électronique",
+     "texte": "Le développement du transport maritime et des moyens de paiement électronique était au cœur d'une récente réunion du gouvernement. Ces secteurs clés sont considérés comme prioritaires pour la modernisation de l'économie algérienne.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 13.0,
+     "duree": 11.7,
      "pays": "DZ",
      "source": "Radio Algérie"
     },
     {
-     "titre": "Dzair Digital Services s'agrandit",
-     "texte": "Le portail national des services numériques, Dzair Digital Services, intègre trois nouvelles offres. Ces ajouts visent à enrichir l'écosystème numérique algérien et à faciliter l'accès à des services publics variés pour les citoyens.",
+     "titre": "Nouveaux services sur Dzair Digital",
+     "texte": "Dzair Digital Services intègre trois nouveaux services numériques importants. Ces ajouts visent à simplifier les démarches administratives et à renforcer la couverture des assurances contre les risques pour les citoyens.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 12.9,
+     "duree": 11.2,
      "pays": "DZ",
      "source": "Radio Algérie"
     },
     {
-     "titre": "Changement de Direction à l'UIT",
-     "texte": "L'Union Internationale des Télécommunications a renouvelé la direction de ses trois bureaux sectoriels clés. Trois nominations importantes ont eu lieu pour façonner l'avenir de la connectivité mondiale au sein de l'institution onusienne.",
+     "titre": "Refus d'un document numérique",
+     "texte": "Une administration refuse votre document numérique officiel ? La Haute-Commission à la numérisation a précisé la procédure à suivre par les citoyens. Il est important de connaître les démarches à effectuer.",
      "mp3": "/podcast/fr/03.mp3",
      "duree": 12.0,
-     "pays": "DZ",
-     "source": "ITMAG"
-    },
-    {
-     "titre": "Nouveau Challenge Mobilis",
-     "texte": "Mobilis lance son concours national «MU Champions» pour ses abonnés «Révolution». Chaque semaine, douze gagnants seront récompensés dans deux catégories, mettant en avant les meilleurs consommateurs des offres de l'opérateur.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 12.9,
-     "pays": "DZ",
-     "source": "Le Soir d'Algérie"
-    },
-    {
-     "titre": "Dzair Digital Services : Plus de services",
-     "texte": "Le portail gouvernemental Dzair Digital Services continue de s'enrichir. Trois nouveaux services numériques ont été ajoutés, renforçant l'offre du Haut Commissariat à la Numérisation pour les citoyens algériens.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 11.7,
      "pays": "DZ",
      "source": "Algérie360"
     },
     {
-     "titre": "Guerre Cerveau Numérique USA Chine",
-     "texte": "Washington et Pékin s'affrontent pour le contrôle du cerveau numérique mondial. Cette guerre invisible se joue sur les technologies clés comme les semi-conducteurs et l'intelligence artificielle, déterminantes pour l'avenir.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 11.7,
-     "pays": "DZ",
-     "source": "Crésus"
-    },
-    {
-     "titre": "Algérie aux Urnes Numériques UIT",
-     "texte": "L'Algérie participe à Doha à l'élection des sièges africains au Conseil de l'Union Internationale des Télécommunications. Dix-neuf prétendants s'affrontent pour treize sièges, un enjeu crucial pour la gouvernance mondiale des télécoms.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 12.5,
-     "pays": "DZ",
-     "source": "Crésus"
-    },
-    {
-     "titre": "Motorola Signature 27 Prometteur",
-     "texte": "Le Motorola Signature 27 s'annonce comme un smartphone puissant. Il sera le premier vendu aux États-Unis avec le prochain processeur haut de gamme de Qualcomm, le Snapdragon 8 Elite Extreme Gen 6.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.5,
+     "titre": "Chine et puces IA",
+     "texte": "Bloomberg révèle un réseau d'entreprises chinoises impliquées dans la contrebande de puces NVIDIA destinées à l'intelligence artificielle. Ces puces sont pourtant interdites à l'exportation vers la Chine.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 10.6,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Produits Français sous Embargo ?",
-     "texte": "La France se plaint auprès de Bruxelles de possibles restrictions sur ses produits en Algérie. Paris demande à la Commission européenne d'examiner la situation, Alger n'ayant pas officiellement annoncé ces mesures.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.5,
+     "titre": "Paiement en devises par Visa/Mastercard",
+     "texte": "Le Crédit Populaire d'Algérie lance CPAzonepay pour les commerçants en ligne. Cet outil permet désormais d'accepter les paiements en devises via les cartes Visa et Mastercard.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 9.7,
      "pays": "DZ",
-     "source": "Maghreb Emergent"
+     "source": "Algérie360"
     },
     {
-     "titre": "Adel Darwish numéro 2 de l'UIT",
-     "texte": "Après un scrutin serré, le Bahreïni Adel Darwish a été élu Vice-Secrétaire général de l'UIT. Il l'emporte de justesse sur son rival, marquant une étape importante pour l'institution internationale.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 11.9,
+     "titre": "Votre vieil iPod devient clé USB",
+     "texte": "Un ancien iPod peut se transformer en clé USB. Si vous avez encore un appareil de cette ancienne gamme Apple, une astuce permet de lui donner une nouvelle vie pratique.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 9.7,
      "pays": "DZ",
-     "source": "ITMAG"
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Mobilis lance MU Champions",
+     "texte": "Mobilis a lancé son nouveau challenge national MU Champions. Destiné aux abonnés des offres Révolution, ce concours récompense chaque semaine douze heureux gagnants.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 9.6,
+     "pays": "DZ",
+     "source": "Le Soir d'Algérie"
+    },
+    {
+     "titre": "Dzair Digital : encore plus de services",
+     "texte": "Le portail national Dzair Digital Services enrichit son offre avec trois nouveaux services gouvernementaux numériques. Cette évolution confirme la volonté de numériser davantage les interactions citoyennes.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 11.4,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Guerre invisible: Washington et Pékin",
+     "texte": "Washington et Pékin s'affrontent dans une guerre invisible pour le contrôle du cerveau numérique mondial. Les semi-conducteurs et l'intelligence artificielle sont au cœur de cette rivalité.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 10.1,
+     "pays": "DZ",
+     "source": "Crésus"
+    },
+    {
+     "titre": "Algérie et l'UIT à Doha",
+     "texte": "L'Algérie est en lice pour dix-neuf sièges africains au Conseil de l'Union Internationale des Télécommunications. Le pays est à l'épreuve des urnes numériques lors de la conférence de Doha.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 9.9,
+     "pays": "DZ",
+     "source": "Crésus"
     }
    ]
   },
