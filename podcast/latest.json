@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-14",
- "genere": "2026-11-14T18:00:23",
+ "genere": "2026-11-14T20:54:13",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-14T18:00:47",
+   "genere": "2026-11-14T20:54:37",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 8.2,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech, votre rendez-vous actu tech du soir. Voici les 10 infos de votre veille technologique."
+    "duree": 7.5,
+    "texte": "Bonsoir et bienvenue dans ce nouveau rendez-vous d'Algeria Tech. Voici 10 informations pour bien commencer votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.6,
-    "texte": "C'était le récap' tech de la soirée. Retrouvez-nous demain pour plus d'actualités sur Algeria Tech."
+    "duree": 5.6,
+    "texte": "C'est tout pour ce soir. Retrouvez-nous demain pour d'autres actualités tech."
    },
    "items": [
     {
-     "titre": "Transport maritime et paiements électroniques à l'étude",
-     "texte": "Le gouvernement algérien s'est réuni pour discuter de l'avenir du transport maritime. Le développement des moyens de paiement électronique était également au cœur des échanges pour moderniser les transactions.",
+     "titre": "Apple TV 4K : retrouver sa télécommande",
+     "texte": "Vous avez égaré votre télécommande Apple TV 4K ? Une astuce simple permet de la localiser. Quelques étapes rapides suffisent pour la retrouver avant qu'elle ne disparaisse dans les coussins du canapé. Une fonction bien pratique pour le quotidien.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 11.0,
-     "pays": "DZ",
-     "source": "Radio Algérie"
-    },
-    {
-     "titre": "Sodium-ion vs Lithium-ion : comprendre la différence",
-     "texte": "Les batteries sodium-ion et lithium-ion fonctionnent de manière similaire en déplaçant des particules chargées. La principale différence réside dans leur composition et leurs caractéristiques spécifiques, impactant leur usage.",
-     "mp3": "/podcast/fr/02.mp3",
-     "duree": 11.8,
+     "duree": 14.5,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Lutte contre l'immigration clandestine à Alger",
-     "texte": "Les services de police à Alger ont démantelé un réseau d'immigration clandestine. Sept suspects ont été arrêtés et plus de 4 milliards de centimes ont été saisis lors de cette opération.",
+     "titre": "Somiz veut s'étendre en Italie",
+     "texte": "La filiale de Sonatrach, Somiz, ambitionne de devenir un fournisseur pour la raffinerie d'Augusta en Sicile. Cette démarche vise à développer ses activités à l'international, notamment en Italie, renforçant ainsi la présence du groupe algérien sur le marché européen.",
+     "mp3": "/podcast/fr/02.mp3",
+     "duree": 15.4,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "Samsung pourrait supprimer une fonction",
+     "texte": "Samsung envisage de retirer l'agrégateur d'actualités de sa surcouche logicielle One UI. Cette fonctionnalité, qui affiche des titres d'informations en balayant l'écran d'accueil, pourrait disparaître, modifiant l'expérience utilisateur sur les appareils Galaxy.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 10.4,
+     "duree": 14.7,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Microsoft s'excuse pour la panne mondiale",
+     "texte": "Microsoft a présenté ses excuses suite à une panne mondiale ayant affecté ses logiciels en ligne comme Outlook. L'entreprise a annoncé une reprise progressive des services, regrettant les perturbations causées aux utilisateurs et aux organisations à travers le monde.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 14.1,
+     "pays": "DZ",
+     "source": "NTIC.dz"
+    },
+    {
+     "titre": "Batteries sodium-ion vs lithium-ion",
+     "texte": "Les batteries sodium-ion présentent des similitudes de fonctionnement avec les batteries lithium-ion, stockant et libérant de l'énergie via le déplacement de particules chargées. La différence majeure réside dans leur composition chimique.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 12.3,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Lutte contre l'immigration clandestine",
+     "texte": "Les services de la Sûreté d'Alger ont démantelé un réseau d'aide à l'immigration clandestine par voie maritime. Sept suspects ont été arrêtés et plus de 4 milliards de centimes ont été saisis lors de cette opération.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 11.4,
      "pays": "DZ",
      "source": "Algérie360"
     },
     {
-     "titre": "Samsung s'inspire des Pixel pour One UI",
-     "texte": "Samsung pourrait intégrer des fonctionnalités similaires aux Pixel dans sa future One UI 9.5. L'objectif est de mieux agréger les informations dispersées sur le téléphone grâce à l'IA.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 10.8,
+     "titre": "Guerre du silicium : Taïwan au centre",
+     "texte": "La rivalité sino-américaine s'étend désormais aux technologies clés, incluant Taïwan, leader des semi-conducteurs, et les data centers. Cette bataille stratégique pour le contrôle des infrastructures numériques a des répercussions mondiales.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 13.8,
+     "pays": "DZ",
+     "source": "ITMAG"
+    },
+    {
+     "titre": "One UI 9.5 s'inspire des Pixel",
+     "texte": "Samsung semble s'inspirer de Google pour sa prochaine surcouche One UI 9.5. L'objectif est de mieux regrouper les informations fragmentées provenant de diverses applications, à l'image des fonctionnalités IA des appareils Pixel.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 13.1,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "La Douane se dote d'un Centre opérationnel",
-     "texte": "La Direction générale des douanes a inauguré un nouveau Centre opérationnel à Alger. Il permettra le suivi en temps réel des activités douanières et une meilleure exploitation des données.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 9.9,
-     "pays": "DZ",
-     "source": "Crésus"
-    },
-    {
-     "titre": "Douanes algériennes : suivi temps réel activé",
-     "texte": "Les douanes algériennes se modernisent avec un nouveau Centre opérationnel. Cet outil assure le suivi en temps réel des activités et aide à la prise de décision grâce aux données actualisées.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 10.1,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "Campagne électorale locale : calme et mobilisation",
-     "texte": "La campagne pour les élections locales a bouclé sa première semaine. Plus de 27 000 réunions ont été organisées, axées sur le développement local et la mobilisation des citoyens.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 10.3,
-     "pays": "DZ",
-     "source": "Crésus"
-    },
-    {
-     "titre": "Réclamation en ligne pour Dzair Digital Services",
-     "texte": "Le Haut-Commissariat à la numérisation annonce une nouvelle procédure. Les citoyens peuvent désormais faire une réclamation en ligne en cas de refus de documents par l'administration via Dzair Digital Services.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.2,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "Fnac Darty : Offres Black Friday Tech",
-     "texte": "À l'occasion du Black Friday, Fnac et Darty proposent des réductions sur de nombreux produits tech. Smartphones, téléviseurs et ordinateurs portables sont concernés par ces promotions.",
+     "titre": "La DGD inaugure son Centre opérationnel",
+     "texte": "La Direction générale des douanes algériennes s'est dotée d'un nouveau Centre opérationnel. Inauguré ce samedi à Alger, il permettra le suivi en temps réel des activités douanières et l'exploitation des données pour une meilleure décision.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 10.7,
-     "pays": "INT",
-     "source": "Frandroid"
+     "duree": 12.5,
+     "pays": "DZ",
+     "source": "Crésus"
     },
     {
-     "titre": "Réactions asiatiques à la sortie de Jensen Huang",
-     "texte": "Certains gouvernements asiatiques réagissent à la sortie de Jensen Huang. Ils confirment leurs engagements sur l'approvisionnement en puces et suivent l'impact sur leurs projets locaux.",
+     "titre": "Douanes : suivi temps réel des activités",
+     "texte": "Un Centre opérationnel dédié au suivi en temps réel a été inauguré pour les Douanes algériennes. Cet outil moderne facilitera l'exploitation des données et soutiendra la prise de décision au sein de l'administration.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 9.4,
-     "pays": "INT",
-     "source": "TechCrunch"
+     "duree": 11.4,
+     "pays": "DZ",
+     "source": "Algérie Éco"
     }
    ]
   },
