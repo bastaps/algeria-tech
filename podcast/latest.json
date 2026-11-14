@@ -1,102 +1,102 @@
 {
- "creneau": "midi",
+ "creneau": "soir",
  "date": "2026-11-14",
- "genere": "2026-11-14T14:26:13",
+ "genere": "2026-11-14T18:00:23",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
-   "creneau": "midi",
-   "genere": "2026-11-14T14:26:38",
+   "creneau": "soir",
+   "genere": "2026-11-14T18:00:47",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.9,
-    "texte": "Bon après-midi et bienvenue sur Algeria Tech. Voici les 10 informations tech et télécoms du jour."
+    "duree": 8.2,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech, votre rendez-vous actu tech du soir. Voici les 10 infos de votre veille technologique."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.0,
-    "texte": "C'est tout pour aujourd'hui sur Algeria Tech. Restez connectés pour plus d'actualités."
+    "duree": 6.6,
+    "texte": "C'était le récap' tech de la soirée. Retrouvez-nous demain pour plus d'actualités sur Algeria Tech."
    },
    "items": [
     {
-     "titre": "Transport et paiements numériques au Gouvernement",
-     "texte": "Le développement du transport maritime et des moyens de paiement électronique était au centre d'une récente réunion gouvernementale. Ces sujets sont cruciaux pour l'économie algérienne.",
+     "titre": "Transport maritime et paiements électroniques à l'étude",
+     "texte": "Le gouvernement algérien s'est réuni pour discuter de l'avenir du transport maritime. Le développement des moyens de paiement électronique était également au cœur des échanges pour moderniser les transactions.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 10.0,
+     "duree": 11.0,
      "pays": "DZ",
      "source": "Radio Algérie"
     },
     {
-     "titre": "Lutte contre la clandestinité maritime",
-     "texte": "Sept individus ont été arrêtés à Alger pour leur implication dans l'organisation de traversées clandestines. Plus de 4 milliards de centimes ont été saisis lors de cette opération.",
+     "titre": "Sodium-ion vs Lithium-ion : comprendre la différence",
+     "texte": "Les batteries sodium-ion et lithium-ion fonctionnent de manière similaire en déplaçant des particules chargées. La principale différence réside dans leur composition et leurs caractéristiques spécifiques, impactant leur usage.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 9.9,
+     "duree": 11.8,
      "pays": "DZ",
-     "source": "Le Soir d'Algérie"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Campagne électorale locale en Algérie",
-     "texte": "La campagne pour les élections locales s'est terminée après une semaine marquée par plus de 27 000 rencontres. Les programmes présentés se sont concentrés sur le développement local.",
+     "titre": "Lutte contre l'immigration clandestine à Alger",
+     "texte": "Les services de police à Alger ont démantelé un réseau d'immigration clandestine. Sept suspects ont été arrêtés et plus de 4 milliards de centimes ont été saisis lors de cette opération.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 10.0,
+     "duree": 10.4,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Samsung s'inspire des Pixel pour One UI",
+     "texte": "Samsung pourrait intégrer des fonctionnalités similaires aux Pixel dans sa future One UI 9.5. L'objectif est de mieux agréger les informations dispersées sur le téléphone grâce à l'IA.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 10.8,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "La Douane se dote d'un Centre opérationnel",
+     "texte": "La Direction générale des douanes a inauguré un nouveau Centre opérationnel à Alger. Il permettra le suivi en temps réel des activités douanières et une meilleure exploitation des données.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 9.9,
      "pays": "DZ",
      "source": "Crésus"
     },
     {
-     "titre": "Réclamations en ligne pour Dzair Digital",
-     "texte": "Les citoyens peuvent désormais déposer une réclamation en ligne en cas de refus de documents par l'administration via le portail Dzair Digital Services. Une nouvelle procédure pour simplifier les démarches.",
-     "mp3": "/podcast/fr/04.mp3",
+     "titre": "Douanes algériennes : suivi temps réel activé",
+     "texte": "Les douanes algériennes se modernisent avec un nouveau Centre opérationnel. Cet outil assure le suivi en temps réel des activités et aide à la prise de décision grâce aux données actualisées.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 10.1,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "Campagne électorale locale : calme et mobilisation",
+     "texte": "La campagne pour les élections locales a bouclé sa première semaine. Plus de 27 000 réunions ont été organisées, axées sur le développement local et la mobilisation des citoyens.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 10.3,
+     "pays": "DZ",
+     "source": "Crésus"
+    },
+    {
+     "titre": "Réclamation en ligne pour Dzair Digital Services",
+     "texte": "Le Haut-Commissariat à la numérisation annonce une nouvelle procédure. Les citoyens peuvent désormais faire une réclamation en ligne en cas de refus de documents par l'administration via Dzair Digital Services.",
+     "mp3": "/podcast/fr/08.mp3",
      "duree": 11.2,
      "pays": "DZ",
      "source": "Algérie Éco"
     },
     {
-     "titre": "ChatGPT accepte vos informations bancaires",
-     "texte": "OpenAI lance ChatGPT Wallet, permettant à l'IA d'effectuer des achats pour vous. Cela implique de partager vos données bancaires, soulevant des questions de sécurité pour les utilisateurs.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 11.0,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Carte CHIFA: Fin du tiers payant Saidal",
-     "texte": "La CNAS a décidé de suspendre le tiers payant dans les pharmacies du réseau Saidal à partir du 15 novembre. Une mesure qui impactera les bénéficiants de la carte CHIFA.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 9.7,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Numérique dans la santé en Algérie",
-     "texte": "Le forum Algeria Mindray Lab a exploré la transformation numérique au cœur du secteur de la santé. L'objectif est d'améliorer les services grâce aux nouvelles technologies.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 9.5,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "ChipMango lève 1,9 million de dollars",
-     "texte": "La startup ChipMango a obtenu un financement de 1,9 million de dollars. Ces fonds soutiendront ses services d'ingénierie et de formation dans le domaine des semi-conducteurs.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 10.1,
-     "pays": "DZ",
-     "source": "AlgeriaTech.news"
-    },
-    {
-     "titre": "Digital Realty construit à Osaka",
-     "texte": "Digital Realty annonce la construction de son centre de données KIX15 à Osaka. L'objectif est d'atteindre une mise en service opérationnelle d'ici 2028.",
+     "titre": "Fnac Darty : Offres Black Friday Tech",
+     "texte": "À l'occasion du Black Friday, Fnac et Darty proposent des réductions sur de nombreux produits tech. Smartphones, téléviseurs et ordinateurs portables sont concernés par ces promotions.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 9.9,
-     "pays": "DZ",
-     "source": "AlgeriaTech.news"
+     "duree": 10.7,
+     "pays": "INT",
+     "source": "Frandroid"
     },
     {
-     "titre": "Paiements en ligne depuis l'étranger au CPA",
-     "texte": "Le Crédit Populaire d'Algérie lance CPAzonepay, permettant les paiements en ligne depuis l'étranger via Visa et Mastercard. Un pas de plus vers la transformation digitale.",
+     "titre": "Réactions asiatiques à la sortie de Jensen Huang",
+     "texte": "Certains gouvernements asiatiques réagissent à la sortie de Jensen Huang. Ils confirment leurs engagements sur l'approvisionnement en puces et suivent l'impact sur leurs projets locaux.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 10.1,
-     "pays": "DZ",
-     "source": "TSA Algérie"
+     "duree": 9.4,
+     "pays": "INT",
+     "source": "TechCrunch"
     }
    ]
   },
