@@ -2257,7 +2257,14 @@ ${String(contenu || '').substring(0, 4200)}
 // tout autre article qui le détenait, pour éviter les conflits d'affichage.
 async function clearPositionConflicts(position, excludeFileName) {
     if (position !== '1' && position !== '2') return;
-    const posRe = new RegExp(`^position:\\s*${position}\\s*$`, 'm');
+    // Rotation : nouvelle Une (1) -> l'ancienne Une passe en 2e position, l'ancien article de 2e position est libéré ;
+    // nouvelle 2e position (2) -> l'ancien titulaire de la 2e position est libéré.
+    const re1 = /^position:\s*1\s*$/m, re2 = /^position:\s*2\s*$/m;
+    const transformer = (text) => {
+        if (re2.test(text)) return text.replace(re2, 'position: ');
+        if (position === '1' && re1.test(text)) return text.replace(re1, 'position: 2');
+        return null;
+    };
 
     if (isCloud) {
         const { data } = await octokit.repos.getContent({ owner: OWNER, repo: REPO, path: 'articles' });
@@ -2266,7 +2273,8 @@ async function clearPositionConflicts(position, excludeFileName) {
             try {
                 const { data: fileData } = await octokit.repos.getContent({ owner: OWNER, repo: REPO, path: `articles/${entry.name}` });
                 const text = Buffer.from(fileData.content, 'base64').toString('utf-8');
-                if (posRe.test(text)) await pushToGithub(`articles/${entry.name}`, text.replace(posRe, 'position: '), `Libère la position ${position}`);
+                const nouveau = transformer(text);
+                if (nouveau !== null) await pushToGithub(`articles/${entry.name}`, nouveau, `Rotation des positions (${position})`);
             } catch (e) { console.warn(`clearPositionConflicts (cloud) ${entry.name}:`, e.message); }
         }
     } else {
@@ -2274,7 +2282,8 @@ async function clearPositionConflicts(position, excludeFileName) {
         for (const f of files.filter(f => f.endsWith('.md') && f !== excludeFileName)) {
             const filePath = path.join('articles', f);
             const text = await fs.readFile(filePath, 'utf-8');
-            if (posRe.test(text)) await fs.writeFile(filePath, text.replace(posRe, 'position: '));
+            const nouveau = transformer(text);
+            if (nouveau !== null) await fs.writeFile(filePath, nouveau);
         }
     }
 }

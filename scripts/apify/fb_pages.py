@@ -145,11 +145,16 @@ def repetitif(p, posts):
 
 
 def liberer_une(sauf):
+    """Rotation : l'ancienne Une passe en 2e position, l'ancien article de 2e position retombe dans l'ordre chronologique."""
+    p1 = re.compile(r'^position:[ \t]*1[ \t]*$', re.M)
+    p2 = re.compile(r'^position:[ \t]*2[ \t]*$', re.M)
     for f in (ROOT / 'articles').glob('*.md'):
         if f.name == sauf: continue
         t = f.read_text(encoding='utf-8')
-        if re.search(r'^position:[ \t]*1[ \t]*$', t, re.M):
-            f.write_text(re.sub(r'^position:[ \t]*1[ \t]*$', 'position: ', t, count=1, flags=re.M), encoding='utf-8')
+        if p2.search(t):
+            f.write_text(p2.sub('position: ', t, count=1), encoding='utf-8')
+        elif p1.search(t):
+            f.write_text(p1.sub('position: 2', t, count=1), encoding='utf-8')
 
 
 def ntfy(titre, message, clic, actions):

@@ -70,13 +70,17 @@ mediaPriority: ${g('mediaPriority') || 'video'}
 ${g('contenu')}
 `;
 
-    // Une seule Une par position : on libère l'ancien titulaire (via la liste publiée).
+    // Rotation des places : un nouvel article en Une (position 1) fait passer l'ancienne Une en 2e position et libère l'ancien
+    // article de 2e position (il retrouve sa place chronologique). Un nouvel article en 2e position libère l'ancien titulaire.
     if (position === '1' || position === '2') {
       try {
         const list = JSON.parse((await ghText(env, 'articles-list.json')) || '[]');
-        for (const a of list.filter(a => String(a.position) === position && String(a.id) !== id).slice(0, 3)) {
+        const re = (n) => new RegExp(`^position:\\s*${n}\\s*$`, 'm');
+        for (const a of list.filter(a => String(a.id) !== id && (String(a.position) === '2' || (position === '1' && String(a.position) === '1'))).slice(0, 4)) {
           const old = await ghText(env, `articles/${a.id}.md`);
-          if (old) await ghPut(env, `articles/${a.id}.md`, old.replace(new RegExp(`^position:\\s*${position}\\s*$`, 'm'), 'position: '), 'Admin : libère la position ' + position);
+          if (!old) continue;
+          const nouveau = String(a.position) === '2' ? old.replace(re(2), 'position: ') : old.replace(re(1), 'position: 2');
+          await ghPut(env, `articles/${a.id}.md`, nouveau, 'Admin : rotation des positions (' + a.position + ')');
         }
       } catch (_) { /* non bloquant */ }
     }

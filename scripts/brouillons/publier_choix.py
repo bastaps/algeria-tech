@@ -76,15 +76,22 @@ def notifier(titre, message, clic):
 
 
 def liberer_position(p, sauf):
-    """Une seule Une / une seule 2e position : on libère l'ancienne."""
-    motif = re.compile(rf"^position:[ \t]*{p}[ \t]*$", re.M)
+    """Rotation des places : un nouvel article en Une (position 1) fait passer l'ancienne Une en 2e position, et l'ancien
+    article de 2e position retombe dans l'ordre chronologique. Un nouvel article en 2e position libère simplement l'ancien."""
+    motif1 = re.compile(r"^position:[ \t]*1[ \t]*$", re.M)
+    motif2 = re.compile(r"^position:[ \t]*2[ \t]*$", re.M)
     for f in (RACINE / "articles").glob("*.md"):
         if f.name == sauf:
             continue
         t = f.read_text(encoding="utf-8")
-        if motif.search(t):
-            f.write_text(motif.sub("position: ", t, count=1), encoding="utf-8")
-            log(f"  position {p} libérée : {f.name}")
+        if motif2.search(t):                       # ancien titulaire de la 2e position : libéré (retour à son horaire)
+            f.write_text(motif2.sub("position: ", t, count=1), encoding="utf-8")
+            log(f"  position 2 libérée : {f.name}")
+        elif p == "1" and motif1.search(t):       # ancienne Une : descend en 2e position
+            f.write_text(motif1.sub("position: 2", t, count=1), encoding="utf-8")
+            log(f"  ancienne Une passée en 2e position : {f.name}")
+        elif p == "2" and motif1.search(t):       # une nouvelle 2e position ne touche pas la Une
+            pass
 
 
 def publier(ident, action, md):
