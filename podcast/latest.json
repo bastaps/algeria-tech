@@ -1,102 +1,102 @@
 {
- "creneau": "soir",
- "date": "2026-11-14",
- "genere": "2026-11-14T20:54:13",
+ "creneau": "midi",
+ "date": "2026-11-15",
+ "genere": "2026-11-15T14:52:56",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
-   "creneau": "soir",
-   "genere": "2026-11-14T20:54:37",
+   "creneau": "midi",
+   "genere": "2026-11-15T14:53:17",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
     "duree": 7.5,
-    "texte": "Bonsoir et bienvenue dans ce nouveau rendez-vous d'Algeria Tech. Voici 10 informations pour bien commencer votre soirée."
+    "texte": "Bonjour et bienvenue dans votre flash info de l'après-midi avec Algeria Tech. Voici dix informations à ne pas manquer."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.6,
-    "texte": "C'est tout pour ce soir. Retrouvez-nous demain pour d'autres actualités tech."
+    "duree": 5.8,
+    "texte": "C'est tout pour ce flash info. Retrouvez-nous bientôt pour plus d'actualités tech."
    },
    "items": [
     {
-     "titre": "Apple TV 4K : retrouver sa télécommande",
-     "texte": "Vous avez égaré votre télécommande Apple TV 4K ? Une astuce simple permet de la localiser. Quelques étapes rapides suffisent pour la retrouver avant qu'elle ne disparaisse dans les coussins du canapé. Une fonction bien pratique pour le quotidien.",
+     "titre": "Smartphones Android ressemblant au OnePlus",
+     "texte": "Le Vivo X500 Pro est une option intéressante avec son écran AMOLED de 6,36 pouces, son processeur MediaTek Dimensity 9600 Pro, d'excellentes caméras Zeiss et une batterie de 5300 mAh.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 14.5,
+     "duree": 12.9,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Somiz veut s'étendre en Italie",
-     "texte": "La filiale de Sonatrach, Somiz, ambitionne de devenir un fournisseur pour la raffinerie d'Augusta en Sicile. Cette démarche vise à développer ses activités à l'international, notamment en Italie, renforçant ainsi la présence du groupe algérien sur le marché européen.",
+     "titre": "Portail numérique: deux millions d'inscrits",
+     "texte": "Le Portail national des services numériques gouvernementaux, Dzair Digital Services, atteint près de deux millions d'inscrits quatre mois après son lancement. La plateforme séduit de plus en plus d'Algériens.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 15.4,
+     "duree": 11.4,
+     "pays": "DZ",
+     "source": "Maghreb Emergent"
+    },
+    {
+     "titre": "Dzair Digital Services: chiffres clés",
+     "texte": "Dzair Digital Services compte près de deux millions d'inscrits depuis sa mise en service le 5 juillet 2026. La plateforme a enregistré onze millions de visites et plus de 900 000 documents téléchargés.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 11.5,
      "pays": "DZ",
      "source": "Algérie Éco"
     },
     {
-     "titre": "Samsung pourrait supprimer une fonction",
-     "texte": "Samsung envisage de retirer l'agrégateur d'actualités de sa surcouche logicielle One UI. Cette fonctionnalité, qui affiche des titres d'informations en balayant l'écran d'accueil, pourrait disparaître, modifiant l'expérience utilisateur sur les appareils Galaxy.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 14.7,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Microsoft s'excuse pour la panne mondiale",
-     "texte": "Microsoft a présenté ses excuses suite à une panne mondiale ayant affecté ses logiciels en ligne comme Outlook. L'entreprise a annoncé une reprise progressive des services, regrettant les perturbations causées aux utilisateurs et aux organisations à travers le monde.",
+     "titre": "CPA lance son paiement international",
+     "texte": "Le Crédit Populaire d’Algérie lance CPAzonapay, un nouveau service de paiement électronique international. Cette initiative marque une étape dans sa transformation numérique et son accompagnement des entreprises à l'export.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 14.1,
+     "duree": 12.1,
      "pays": "DZ",
-     "source": "NTIC.dz"
+     "source": "Maghreb Emergent"
     },
     {
-     "titre": "Batteries sodium-ion vs lithium-ion",
-     "texte": "Les batteries sodium-ion présentent des similitudes de fonctionnement avec les batteries lithium-ion, stockant et libérant de l'énergie via le déplacement de particules chargées. La différence majeure réside dans leur composition chimique.",
+     "titre": "Avis: le puissant Surface Laptop Ultra",
+     "texte": "Le Surface Laptop Ultra est présenté comme le Surface le plus puissant à ce jour. Son design professionnel tout métal et son écran 15 pouces au ratio 3:2 sont notables.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 12.3,
+     "duree": 10.2,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Lutte contre l'immigration clandestine",
-     "texte": "Les services de la Sûreté d'Alger ont démantelé un réseau d'aide à l'immigration clandestine par voie maritime. Sept suspects ont été arrêtés et plus de 4 milliards de centimes ont été saisis lors de cette opération.",
+     "titre": "Élections locales: plaider pour l'action",
+     "texte": "La campagne pour les élections locales du 28 novembre s'intensifie. Les formations politiques multiplient meetings et rencontres pour gagner la confiance des électeurs et les inciter à voter.",
      "mp3": "/podcast/fr/06.mp3",
-     "duree": 11.4,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Guerre du silicium : Taïwan au centre",
-     "texte": "La rivalité sino-américaine s'étend désormais aux technologies clés, incluant Taïwan, leader des semi-conducteurs, et les data centers. Cette bataille stratégique pour le contrôle des infrastructures numériques a des répercussions mondiales.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 13.8,
-     "pays": "DZ",
-     "source": "ITMAG"
-    },
-    {
-     "titre": "One UI 9.5 s'inspire des Pixel",
-     "texte": "Samsung semble s'inspirer de Google pour sa prochaine surcouche One UI 9.5. L'objectif est de mieux regrouper les informations fragmentées provenant de diverses applications, à l'image des fonctionnalités IA des appareils Pixel.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 13.1,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "La DGD inaugure son Centre opérationnel",
-     "texte": "La Direction générale des douanes algériennes s'est dotée d'un nouveau Centre opérationnel. Inauguré ce samedi à Alger, il permettra le suivi en temps réel des activités douanières et l'exploitation des données pour une meilleure décision.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 12.5,
+     "duree": 10.4,
      "pays": "DZ",
      "source": "Crésus"
     },
     {
-     "titre": "Douanes : suivi temps réel des activités",
-     "texte": "Un Centre opérationnel dédié au suivi en temps réel a été inauguré pour les Douanes algériennes. Cet outil moderne facilitera l'exploitation des données et soutiendra la prise de décision au sein de l'administration.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 11.4,
+     "titre": "Green light for UK Apple-Amazon claim",
+     "texte": "Un tribunal britannique a donné son feu vert conditionnel à la plainte On-Amazon. La certification Off-Amazon a été refusée, laissant les mérites de l'affaire en suspens.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 10.0,
      "pays": "DZ",
-     "source": "Algérie Éco"
+     "source": "AlgeriaTech.news"
+    },
+    {
+     "titre": "Égypte: expansion des data centres",
+     "texte": "L'Égypte vise une capacité de 200 mégawatts pour ses data centres. Un accord séparé concerne les services IA et GPU hébergés localement.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 8.7,
+     "pays": "DZ",
+     "source": "AlgeriaTech.news"
+    },
+    {
+     "titre": "IA dans les universités: usage dépasse stratégie",
+     "texte": "L'usage de l'intelligence artificielle dans les universités dépasse souvent l'adoption de stratégies formelles, selon une étude de l'UNESCO IESALC.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 7.8,
+     "pays": "DZ",
+     "source": "AlgeriaTech.news"
+    },
+    {
+     "titre": "Apple tracking: 2 milliards recherchés",
+     "texte": "Une action collective au Royaume-Uni réclame 2 milliards de livres sterling à Apple concernant le suivi des utilisateurs.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 6.6,
+     "pays": "DZ",
+     "source": "AlgeriaTech.news"
     }
    ]
   },
