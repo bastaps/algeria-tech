@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-15",
- "genere": "2026-11-15T18:40:01",
+ "genere": "2026-11-15T21:22:23",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-15T18:40:22",
+   "genere": "2026-11-15T21:22:47",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.4,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici dix informations pour éclairer votre soirée."
+    "duree": 6.8,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici 10 informations tech et télécoms pour votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
     "duree": 5.9,
-    "texte": "C'est tout pour ce soir sur Algeria Tech. Rendez-vous demain pour plus d'actualités."
+    "texte": "C'est tout pour ce soir. Retrouvez-nous demain pour une nouvelle dose d'actualités tech."
    },
    "items": [
     {
-     "titre": "Trump critique la gestion du trafic aérien",
-     "texte": "Donald Trump a pointé du doigt l'administration Biden pour l'arrêt général du trafic aérien. Selon l'ancien président, cette situation a directement perturbé les voyages des citoyens et la fluidité du transport aérien national.",
+     "titre": "Documents fonciers certifiés en ligne",
+     "texte": "Les documents fonciers délivrés par l'administration des domaines sont désormais certifiés électroniquement. La troisième version du portail numérique Fada El Djazair, lancée début novembre, rend ces documents PDF signés électroniquement officiellement reconnus par l'État algérien.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 12.7,
+     "duree": 14.8,
+     "pays": "DZ",
+     "source": "TSA Algérie"
+    },
+    {
+     "titre": "Mises à jour majeures pour anciens Galaxy",
+     "texte": "Certains anciens téléphones Galaxy, y compris des modèles phares de 2023, ne recevront plus de mises à jour majeures après Android 17. Cependant, leurs correctifs de sécurité seront assurés jusqu'en 2028.",
+     "mp3": "/podcast/fr/02.mp3",
+     "duree": 13.3,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Trafic aérien : Trump blâme Biden",
+     "texte": "Donald Trump attribue à l'administration de Joe Biden la responsabilité de l'arrêt général du trafic aérien. Cette situation a considérablement perturbé les déplacements et les voyages lors de son premier mandat.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 11.7,
      "pays": "DZ",
      "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "L'IA révolutionne l'équipement musical",
-     "texte": "L'intelligence artificielle commence à transformer le matériel musical. Vibe Coding explore de nouvelles voies, allant au-delà de la simple génération de chansons pour influencer concrètement les instruments et équipements des musiciens.",
-     "mp3": "/podcast/fr/02.mp3",
-     "duree": 12.6,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Qui est la nouvelle dirigeante de NVIDIA ?",
-     "texte": "Colette Kress prend les rênes par intérim de NVIDIA. Après 33 ans, le fondateur Jensen Huang a quitté le géant de l'IA. Kress, forte de 25 ans d'expérience financière, assure désormais la direction de l'entreprise.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 13.9,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Algérie : vigilance sur les kits d'urgence",
-     "texte": "Face aux risques croissants, la constitution de kits d'urgence devient une préoccupation en Algérie. Intempéries, cyberattaques ou séismes, les autorités évaluent les menaces pour mieux préparer la population à ces événements.",
+     "titre": "Algérie, 2ème fournisseur GNL de l'UE",
+     "texte": "En octobre dernier, l'Algérie est devenue le deuxième fournisseur de gaz naturel liquéfié de l'Union Européenne. Elle devance ainsi la Russie grâce à une forte augmentation de ses exportations vers le marché européen.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 12.7,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
-    },
-    {
-     "titre": "Maroc et Europe : tensions industrielles",
-     "texte": "Le Maroc pourrait revoir ses alliances industrielles avec l'Europe. Le ministre de l'Industrie menace de construire de nouveaux partenariats si le projet européen de préférence industrielle exclut le royaume, critiquant cette démarche.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 12.4,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
-    },
-    {
-     "titre": "Optimiser votre Smart TV Samsung",
-     "texte": "Des ralentissements sur vos applications ou menus ? Vider le cache de votre téléviseur Samsung pourrait résoudre le problème. C'est une manipulation simple pour améliorer la fluidité de votre expérience télévisuelle.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 12.5,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Tebboune insiste sur le contrôle économique",
-     "texte": "Le président Tebboune appelle à renforcer le contrôle de l'économie et met en garde contre la corruption. Il a souligné le rôle de la justice dans la lutte contre ce fléau et la protection du pouvoir d'achat.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 10.5,
-     "pays": "DZ",
-     "source": "24H Algérie"
-    },
-    {
-     "titre": "Smartphones Android inspirés du OnePlus 16",
-     "texte": "Le Vivo X500 Pro se profile comme une alternative intéressante. Avec son écran AMOLED, son processeur MediaTek et ses caméras Zeiss, il offre des caractéristiques comparables aux nouveaux modèles haut de gamme.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 12.2,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Succès du portail numérique algérien",
-     "texte": "Le Portail national des services numériques séduit les Algériens. Dzair Digital Services enregistre près de deux millions d'inscrits en seulement quatre mois, témoignant de son adoption rapide par la population.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.3,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
-    },
-    {
-     "titre": "Dzair Digital Services : 2 millions d'inscrits",
-     "texte": "En quatre mois, Dzair Digital Services, le portail des services numériques gouvernementaux, compte près de deux millions d'inscrits. Lancée en juillet, la plateforme a déjà vu onze millions de visites et 900 000 téléchargements.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 13.0,
+     "duree": 12.0,
      "pays": "DZ",
      "source": "Algérie Éco"
+    },
+    {
+     "titre": "Les trous carrés des connecteurs USB",
+     "texte": "Ces deux petits trous carrés sur les connecteurs USB-A avaient une fonction précise. Bien que l'USB-C soit dominant aujourd'hui, ces éléments étaient essentiels sur les premières versions de l'Universal Serial Bus.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 11.6,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "L'IA personnalise l'équipement musical",
+     "texte": "Vibe Coding utilise l'intelligence artificielle pour révolutionner la personnalisation du matériel des musiciens. Cette technologie promet de transformer l'univers de la création musicale, allant au-delà de la simple génération de chansons.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 13.0,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Qui est la nouvelle PDG de NVIDIA ?",
+     "texte": "Suite à la démission de Jensen Huang, Colette Kress prend la direction par intérim de NVIDIA. Elle a rejoint le géant de l'IA et du jeu vidéo en 2013 après une solide expérience dans la finance.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 11.2,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Risques et kits d'urgence en Algérie",
+     "texte": "Face aux risques croissants, la constitution de kits d'urgence est une préoccupation. L'Algérie évalue les menaces, des intempéries aux cyberattaques, et les recommandations internationales portent sur la préparation des populations.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 12.8,
+     "pays": "DZ",
+     "source": "Maghreb Emergent"
+    },
+    {
+     "titre": "Automobile : Le Maroc critique l'Europe",
+     "texte": "Le Maroc menace de revoir ses alliances industrielles avec l'Europe. Le ministre de l'Industrie critique le projet européen de préférence industrielle et envisage de nouveaux partenariats s'il est exclu.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 10.8,
+     "pays": "DZ",
+     "source": "Maghreb Emergent"
+    },
+    {
+     "titre": "Vider le cache de votre TV Samsung",
+     "texte": "Si votre téléviseur Samsung présente des lenteurs dans ses applications ou menus, vider son cache peut résoudre le problème. Cette manipulation simple est souvent efficace pour améliorer la fluidité.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 11.1,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
     }
    ]
   },
