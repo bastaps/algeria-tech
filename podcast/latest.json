@@ -1,197 +1,197 @@
 {
- "creneau": "soir",
- "date": "2026-11-16",
- "genere": "2026-11-16T21:57:19",
+ "creneau": "matin",
+ "date": "2026-11-17",
+ "genere": "2026-11-17T00:44:13",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
-   "creneau": "soir",
-   "genere": "2026-11-16T21:57:37",
+   "creneau": "matin",
+   "genere": "2026-11-17T00:44:29",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.3,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Retrouvez dès maintenant les 10 infos tech et économie qui font l'actualité."
+    "duree": 8.0,
+    "texte": "Bonjour et bienvenue sur Algeria Tech pour votre récap' matinal. Voici les 10 infos tech et économie à ne pas manquer aujourd'hui."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 7.0,
-    "texte": "C'était les 10 informations clés de la soirée sur Algeria Tech. À très bientôt pour de nouvelles actualités."
+    "duree": 6.8,
+    "texte": "C'était votre dose d'infos Algeria Tech. Retrouvez-nous plus tard pour un nouveau point sur l'actu tech."
    },
    "items": [
     {
-     "titre": "KBR étudie une présence accrue en Algérie",
-     "texte": "L'entreprise américaine KBR envisage de renforcer sa présence en Algérie. La création d'une structure dédiée à l'ingénierie et à la gestion de projets est à l'étude pour accompagner Sonatrach dans ses développements.",
+     "titre": "eGPU : une puissance limitée sur portable",
+     "texte": "Les cartes graphiques externes pour ordinateurs portables offrent une puissance accrue, mais attention aux contraintes. Câbles, bande passante réduite et coûts supplémentaires peuvent sérieusement limiter leur avantage par rapport aux puces graphiques intégrées.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 11.4,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "Votre Android, nouvelle enceinte pour PC",
-     "texte": "Saviez-vous que votre téléphone Android peut servir d'enceinte externe pour votre ordinateur ? Quelques étapes simples suffisent pour transformer votre appareil, même d'entrée de gamme, en haut-parleur supplémentaire.",
-     "mp3": "/podcast/fr/02.mp3",
-     "duree": 11.7,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Nouvelle mobilisation sociale en France",
-     "texte": "La France s'apprête à connaître une nouvelle journée de manifestations et de grèves. Ces mouvements sociaux se poursuivent pour protester contre la hausse du coût de la vie et la baisse du pouvoir d'achat.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 10.0,
-     "pays": "DZ",
-     "source": "Le Soir d'Algérie"
-    },
-    {
-     "titre": "Dépannage écran noir MacBook simplifié",
-     "texte": "Un écran noir sur votre MacBook n'est pas toujours synonyme de problème matériel. Les ordinateurs Apple, bien que fiables, peuvent rencontrer des bugs. Ce problème est souvent plus facile à résoudre qu'il n'y paraît.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 12.8,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Google Gemini intègre 66 dialectes",
-     "texte": "Google enrichit son IA Gemini avec 66 dialectes régionaux supplémentaires. Cette évolution vise à préserver la diversité linguistique face à l'uniformisation potentielle des accents par les intelligences artificielles conversationnelles.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 13.2,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Baisse des échanges Algérie-France",
-     "texte": "Les échanges commerciaux entre l'Algérie et la France continuent de diminuer. Les exportations françaises vers l'Algérie ont notamment enregistré un nouveau recul, dans un contexte de tensions diplomatiques persistantes.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 11.9,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "Test de l'écran intelligent Apple HomeView",
-     "texte": "Le nouvel écran intelligent Apple HomeView se révèle un hub domestique polyvalent, piloté par Siri. Ses enceintes sont idéales pour la musique, mais son écran est moins adapté à la vidéo pour l'instant.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 11.1,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Baleària étoffe ses lignes vers l'Algérie",
-     "texte": "Bonne nouvelle pour les voyageurs ! La compagnie maritime espagnole Baleària renforce son réseau en Méditerranée. Deux nouvelles lignes viennent d'être inaugurées pour faciliter les voyages entre l'Espagne et l'Algérie.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 12.1,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Centres de données américains gourmands en électricité",
-     "texte": "Les grands centres de données hyperscale consomment 2% de l'électricité aux États-Unis. Une étude récente tente de quantifier leur consommation énergétique et leurs émissions de carbone.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 10.3,
-     "pays": "INT",
-     "source": "Ars Technica"
-    },
-    {
-     "titre": "Intel et son PDG poursuivis en justice",
-     "texte": "Des actionnaires poursuivent Intel, son PDG et son directeur financier. Leur plainte fait suite à une chute de 28,6% de l'action en une journée, les ventes de PC ayant compensé les gains de l'IA.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 11.9,
-     "pays": "INT",
-     "source": "Ars Technica"
-    }
-   ]
-  },
-  "ar": {
-   "voix": "ar-DZ-AminaNeural",
-   "creneau": "matin",
-   "genere": "2026-10-29T10:33:38",
-   "intro": {
-    "mp3": "/podcast/ar/intro.mp3",
-    "duree": 8.1,
-    "texte": "صباح الخير، هنا ألكاس تيك، نستعرض معكم آخر الأخبار التكنولوجية لهذا الصباح."
-   },
-   "outro": {
-    "mp3": "/podcast/ar/outro.mp3",
-    "duree": 6.6,
-    "texte": "كانت هذه أهم أخبار التكنولوجيا لهذا الصباح، نلقاكم في نشرة الغد."
-   },
-   "items": [
-    {
-     "titre": "نصوص تطبيقية لقطاع الاتصالات قريبا",
-     "texte": "سيتم قريبا إصدار النصوص التطبيقية للقوانين التي تنظم قطاع الاتصالات. هذا الإجراء سيمهد الطريق لتحديثات هامة في هذا المجال الحيوي للبلاد.",
-     "mp3": "/podcast/ar/01.mp3",
-     "duree": 13.6,
-     "pays": "DZ",
-     "source": "APS"
-    },
-    {
-     "titre": "تطبيقات آبل HomeView و CarPlay",
-     "texte": "آبل تطلق HomeView، جهاز التحكم بالمنزل الذكي. رغم عدم وجود متجر تطبيقات، يمكن استخدام برامج خارجية. تعرفوا على العلاقة بينه وبين CarPlay.",
-     "mp3": "/podcast/ar/02.mp3",
-     "duree": 15.6,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "حماية الأطفال من روبوتات الدردشة",
-     "texte": "حاكم نيويورك يوقع قانونا لحماية الأطفال من روبوتات الدردشة بالذكاء الاصطناعي. يلزم الشركات بالتحقق من أعمار المستخدمين بطرق مبتكرة.",
-     "mp3": "/podcast/ar/03.mp3",
      "duree": 13.0,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "آبل تحدث iPad mini بشاشة OLED",
-     "texte": "آبل تكشف عن iPad mini الجديد بمعالج A20 وشاشة OLED مقاس 8.5 بوصة. الشاشة الجديدة تقدم تحسينات ملحوظة في الجودة والأداء.",
+     "titre": "Apple TV 4K : toujours bon mais cher",
+     "texte": "La nouvelle Apple TV 4K conserve ses qualités mais affiche un tarif plus élevé. Seuls des ajustements subtils sont à noter, comme le déplacement du voyant lumineux. Le design reste quasiment identique.",
+     "mp3": "/podcast/fr/02.mp3",
+     "duree": 12.7,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "KBR s'implante en Algérie",
+     "texte": "L'entreprise américaine KBR envisage de créer une structure spécialisée dans l'ingénierie et la gestion de projets en Algérie. L'objectif est de soutenir les programmes de développement de Sonatrach.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 10.8,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "Android en haut-parleur PC",
+     "texte": "Votre téléphone Android peut facilement servir d'enceinte pour votre ordinateur. Quelques étapes simples suffisent pour transformer même un modèle économique en haut-parleur externe.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 9.9,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "MacBook : écran noir, solution simple",
+     "texte": "Un écran noir sur votre MacBook n'indique pas forcément un problème matériel grave. Il existe des solutions de dépannage relativement faciles pour résoudre ce souci fréquent.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 10.0,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Gemini parle 66 dialectes",
+     "texte": "Google enrichit son IA Gemini en ajoutant 66 dialectes régionaux. L'objectif est de préserver la richesse linguistique face à la tendance à l'uniformisation des assistants vocaux.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 10.5,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Baisse des échanges Algérie-France",
+     "texte": "Les relations commerciales entre l'Algérie et la France continuent de baisser. Les exportations françaises vers l'Algérie ont notamment connu un nouveau recul récent.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 8.9,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "HomeView : bel écran, peu de vidéo",
+     "texte": "L'écran intelligent Apple HomeView est polyvalent pour la musique et les podcasts, mais limité pour la vidéo. Seule l'application Apple TV est pour l'instant disponible.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 9.8,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Baleària : nouvelles lignes maritimes",
+     "texte": "Bonne nouvelle pour les voyageurs ! La compagnie maritime espagnole Baleària renforce son réseau en Méditerranée avec l'ouverture de deux nouvelles lignes vers l'Algérie.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 9.3,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Anker ou Belkin pour batteries ?",
+     "texte": "Pour vos batteries externes et accessoires mobiles, Anker et Belkin sont deux marques majeures. Chacune propose des avantages distincts en termes de puissance et d'originalité.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 9.6,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    }
+   ]
+  },
+  "ar": {
+   "voix": "ar-SA-HamedNeural",
+   "creneau": "matin",
+   "genere": "2026-11-17T00:45:05",
+   "intro": {
+    "mp3": "/podcast/ar/intro.mp3",
+    "duree": 9.3,
+    "texte": "صباح الخير، معكم في نشرة الأخبار التقنية من ألكجريا تك. نستعرض لكم اليوم عشر أخبار هامة."
+   },
+   "outro": {
+    "mp3": "/podcast/ar/outro.mp3",
+    "duree": 7.8,
+    "texte": "كانت هذه أبرز الأخبار التقنية لهذا الصباح. تابعونا للمزيد من التحديثات."
+   },
+   "items": [
+    {
+     "titre": "حدود بطاقات الرسوميات الخارجية",
+     "texte": "بطاقات الرسوميات الخارجية يمكنها تحسين أداء الألعاب على الحاسوب المحمول، لكن استخدامها يواجه قيودًا تتعلق بالكابلات، سرعة نقل البيانات، والتكاليف الإضافية. هذه العوامل قد تقلل من الفائدة المرجوة مقارنة ببطاقات الرسوميات المدمجة.",
+     "mp3": "/podcast/ar/01.mp3",
+     "duree": 20.7,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "مراجعة Apple TV 4K الجديدة",
+     "texte": "جهاز Apple TV 4K الجديد يقدم تحسينات طفيفة في التصميم، أبرزها نقل مؤشر الإضاءة. على الرغم من أنه لا يزال جهازًا جيدًا، إلا أن سعره أصبح أعلى بكثير مقارنة بالإصدارات السابقة.",
+     "mp3": "/podcast/ar/02.mp3",
+     "duree": 16.7,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "شركة أمريكية تستثمر في الجزائر",
+     "texte": "شركة KBR الأمريكية تدرس إنشاء هيكل متخصص في الهندسة وإدارة المشاريع بالجزائر. الهدف هو تعزيز تواجد الشركة ودعم شركة سوناطراك في برامجها التطويرية المستقبلية.",
+     "mp3": "/podcast/ar/03.mp3",
+     "duree": 15.0,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "الهاتف الذكي كمكبر صوت للحاسوب",
+     "texte": "يمكن تحويل هاتفك الأندرويد بسهولة ليصبح مكبر صوت إضافي لجهاز الكمبيوتر الخاص بك. هذه الميزة تفتح آفاقًا جديدة لاستخدامات الهاتف الذكي المتعددة.",
      "mp3": "/podcast/ar/04.mp3",
-     "duree": 14.2,
+     "duree": 14.0,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "تسريبات عن iPhone 18e",
-     "texte": "تسريبات تشير إلى أن iPhone 18e سيأتي بمعالج A20 بتقنية 2 نانومتر وشاشة 60 هرتز. قد تشهد الكاميرا الأمامية أيضا تحسينات.",
+     "titre": "حل مشكلة شاشة الماك بوك السوداء",
+     "texte": "إذا واجهت شاشة سوداء في جهاز الماك بوك الخاص بك، فلا داعي للقلق. في كثير من الأحيان، لا يتعلق الأمر بمشكلة في المكونات بل بأخطاء برمجية يمكن حلها بسهولة.",
      "mp3": "/podcast/ar/05.mp3",
-     "duree": 14.1,
+     "duree": 15.0,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "إعلانات آبل لهذا الأسبوع",
-     "texte": "آبل تعلن عن أجهزة جديدة تشمل MacBook Pro بشاشة PROLED XDR. الشركة توسع نطاق منتجاتها الموجهة للمحترفين.",
+     "titre": "غوغل يضيف 66 لهجة لـ Gemini",
+     "texte": "أضافت غوغل 66 لهجة إقليمية جديدة إلى مساعدها الذكي Gemini. هذه الخطوة تهدف إلى الحفاظ على التنوع اللغوي والثقافي وتعزيز قدرة الذكاء الاصطناعي على فهم اللهجات المختلفة.",
      "mp3": "/podcast/ar/06.mp3",
-     "duree": 11.9,
+     "duree": 15.8,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "OpenAI تتيح الرسائل النصية لـ Dot Agent",
-     "texte": "أصبح بإمكان المستخدمين الآن إرسال رسائل نصية إلى Dot Agent من OpenAI. هذه الميزة متاحة عبر iMessage و RCS.",
+     "titre": "تراجع التبادل التجاري بين الجزائر وفرنسا",
+     "texte": "تشهد المبادلات التجارية بين الجزائر وفرنسا انخفاضًا مستمرًا. تعود أسباب هذا التراجع جزئيًا إلى التوترات الدبلوماسية المستمرة بين البلدين، مما أثر على الصادرات الفرنسية للجزائر.",
      "mp3": "/podcast/ar/07.mp3",
-     "duree": 11.7,
+     "duree": 15.5,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Algérie Éco"
     },
     {
-     "titre": "مايكروسوفت وخيارات المغادرة المبكرة",
-     "texte": "مايكروسوفت تفكر في تقديم خيارات المغادرة المبكرة لنحو 60 ألف موظف. الهدف هو تقليل التكاليف ضمن هيكل الشركة العالمي.",
+     "titre": "مراجعة شاشة Apple HomeView الذكية",
+     "texte": "شاشة Apple HomeView الذكية هي جهاز متعدد الاستخدامات ومركز تحكم منزلي يعتمد على Siri. جودة الصوت ممتازة للموسيقى والبودكاست، لكنها ليست مثالية لمشاهدة الفيديو.",
      "mp3": "/podcast/ar/08.mp3",
-     "duree": 12.1,
+     "duree": 15.1,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "ميزات جديدة لـ CarPlay في iOS 27.2",
-     "texte": "إصدار iOS 27.2 يجلب ميزتين جديدتين لـ CarPlay، منها تحسينات لتطبيق البودكاست وذكاء Siri. هذه التحديثات ستعزز تجربة القيادة.",
+     "titre": "خطوط بحرية جديدة بين إسبانيا والجزائر",
+     "texte": "تعمل شركة Baleària الإسبانية على توسيع شبكتها البحرية. أضافت الشركة خطين جديدين لربط إسبانيا بالجزائر، مما يسهل حركة المسافرين والبضائع.",
      "mp3": "/podcast/ar/09.mp3",
-     "duree": 14.9,
+     "duree": 13.2,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Algérie360"
     },
     {
-     "titre": "سبب كره FCC لموجهات Minions",
-     "texte": "هيئة الاتصالات الفيدرالية الأمريكية تمنع موجهات Wi-Fi على شكل شخصيات Minions. هذه الأجهزة تواجه نفس القيود المفروضة على أجهزة أخرى.",
+     "titre": "مقارنة بين Anker و Belkin",
+     "texte": "عند اختيار بطاريات خارجية وملحقات الهواتف، تبرز شركتان: Anker و Belkin. تقدم Anker منتجات قوية، بينما تتميز Belkin بمنتجات فريدة. الاختيار يعتمد على احتياجاتك.",
      "mp3": "/podcast/ar/10.mp3",
-     "duree": 13.3,
+     "duree": 17.2,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     }
@@ -200,95 +200,95 @@
   "en": {
    "voix": "en-US-AndrewMultilingualNeural",
    "creneau": "matin",
-   "genere": "2026-10-29T10:37:05",
+   "genere": "2026-11-17T00:48:09",
    "intro": {
     "mp3": "/podcast/en/intro.mp3",
-    "duree": 7.9,
-    "texte": "Good morning and welcome to the Algeria Tech morning update. We have ten major technology news stories to cover for you today."
+    "duree": 6.4,
+    "texte": "Good morning and welcome to Algeria Tech's morning tech update. We have 10 key stories for you today."
    },
    "outro": {
     "mp3": "/podcast/en/outro.mp3",
-    "duree": 4.5,
-    "texte": "That concludes our morning tech update. Join us again tomorrow for more."
+    "duree": 4.2,
+    "texte": "That's all for today's Algeria Tech morning briefing. Stay informed!"
    },
    "items": [
     {
-     "titre": "New Legal Framework for Telecoms",
-     "texte": "The Algerian government is moving forward with its regulatory agenda. Official texts and application decrees governing the telecommunications and technology sector are scheduled for promulgation very soon. This legislative update aims to clarify the legal landscape for all tech operators currently active within the national market across the country.",
+     "titre": "eGPUs vs Laptop Integrated Graphics",
+     "texte": "External GPUs can boost laptop graphics, but consider potential bandwidth limitations, cable needs, and added costs. While connecting a desktop card offers a sleek solution, these factors can impact the overall advantage for portable computing.",
      "mp3": "/podcast/en/01.mp3",
-     "duree": 21.5,
+     "duree": 15.9,
      "pays": "DZ",
-     "source": "APS"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Apple HomeView and Third-Party Apps",
-     "texte": "Apple has officially introduced HomeView, its new multimedia hub designed for smart home control. While the device runs on an iOS-based operating system, it does not feature a traditional App Store. However, users can still access and run various third-party applications through a specialized configuration on the new hardware.",
+     "titre": "Apple TV 4K Review",
+     "texte": "The latest Apple TV 4K offers subtle design tweaks, like a repositioned indicator light. While its performance remains strong, the unit is now slightly larger, and pricing reflects its premium features and capabilities.",
      "mp3": "/podcast/en/02.mp3",
-     "duree": 19.3,
+     "duree": 14.5,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "New York AI Safety Law",
-     "texte": "Governor Kathy Hochul has signed a new law in New York to protect children from risks associated with AI chatbots. Companies are now required to implement robust age verification methods that do not rely solely on government identification, ensuring a safer digital environment for young users across the entire state.",
+     "titre": "KBR Explores Algerian Presence",
+     "texte": "American company KBR is considering establishing a specialized engineering and project management entity in Algeria. Discussions with the Minister of Hydrocarbons explored enhancing KBR's role in supporting Sonatrach's development initiatives.",
      "mp3": "/podcast/en/03.mp3",
-     "duree": 21.1,
+     "duree": 16.0,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Algérie Éco"
     },
     {
-     "titre": "Apple Announces New iPad Mini",
-     "texte": "Apple has unveiled the 2026 iPad Mini ahead of its main event. The refreshed tablet features a significant upgrade with an eight point five inch OLED display and the powerful A20 processor. Customers will also have the option to configure the screen with a premium nano-textured coating for better visibility.",
+     "titre": "Android Phone as PC Speaker",
+     "texte": "You can surprisingly use your Android phone as a computer speaker with a few simple steps. This highlights the versatility of modern smartphones, making them capable of performing various functions beyond their primary use.",
      "mp3": "/podcast/en/04.mp3",
-     "duree": 20.0,
+     "duree": 13.0,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Leaked Details on iPhone 18e",
-     "texte": "Emerging leaks suggest that the upcoming iPhone 18e could be equipped with a high-performance A20 chip built on a two nanometer process. Reports also indicate the device might retain a 60 Hertz refresh rate, while the front-facing camera is expected to receive a substantial boost in image quality and overall performance.",
+     "titre": "Fixing MacBook Black Screen",
+     "texte": "A black screen on your MacBook might not always indicate a hardware failure. Troubleshooting this common issue is often easier than expected, and many solutions can be implemented without professional technical assistance.",
      "mp3": "/podcast/en/05.mp3",
-     "duree": 20.5,
+     "duree": 13.6,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Apple Hardware Announcements This Week",
-     "texte": "Apple expanded its product lineup this week with several hardware releases. The highlight is the new MacBook Pro featuring a high-end PROLED XDR display. This powerful laptop aims to bridge the gap for professionals seeking top-tier performance, reinforcing Apple's commitment to delivering high-quality visual technology for creators and power users.",
+     "titre": "Google Gemini Adds Dialects",
+     "texte": "Google's Gemini AI now supports 66 regional dialects and accents. This expansion aims to preserve linguistic diversity, ensuring the AI can better understand and respond to a wider range of human expression.",
      "mp3": "/podcast/en/06.mp3",
-     "duree": 22.4,
+     "duree": 15.3,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "OpenAI Dot Agent Text Support",
-     "texte": "OpenAI is rolling out new text messaging capabilities for its Dot Agents. Users can now send instructions directly via iMessage or RCS messaging services. This update, promised last month, allows for a more seamless and interactive experience, enabling users to manage their AI agents effortlessly through simple, direct text communications.",
+     "titre": "Algeria-France Trade Declines",
+     "texte": "Commercial exchanges between Algeria and France continue to fall amid ongoing diplomatic tensions. Latest French customs data shows a further decrease in exports to the Algerian market over the past twelve months.",
      "mp3": "/podcast/en/07.mp3",
-     "duree": 23.8,
+     "duree": 14.0,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Algérie Éco"
     },
     {
-     "titre": "Microsoft Voluntary Departure Program",
-     "texte": "Microsoft is reportedly offering voluntary departure packages to approximately sixty thousand employees. This move represents more than a quarter of its global workforce, targeting staff at the vice president level and below. The initiative is part of a broader strategy to streamline operations and effectively reduce costs within the company.",
+     "titre": "Apple HomeView Smart Display",
+     "texte": "Apple's HomeView smart display is a versatile home hub with Siri integration. Its speakers are excellent for audio content, though video playback is limited, making it more suited for music than movie watching.",
      "mp3": "/podcast/en/08.mp3",
-     "duree": 21.7,
+     "duree": 12.6,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "iOS 27.2 Updates for CarPlay",
-     "texte": "Apple has released iOS 27.2, which brings significant improvements to the CarPlay experience. The update features a redesigned Podcasts application and enhanced artificial intelligence capabilities for Siri. Since CarPlay relies on the connected iPhone's software, these new features are now instantly available to drivers using the updated system on roads.",
+     "titre": "Baleària Expands Spain-Algeria Routes",
+     "texte": "Spanish ferry company Baleària is boosting its Mediterranean network. Two new maritime routes have been launched, offering travelers enhanced connectivity and more options for journeys between Spain and Algeria.",
      "mp3": "/podcast/en/09.mp3",
-     "duree": 23.7,
+     "duree": 13.5,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Algérie360"
     },
     {
-     "titre": "The FCC and Minion Routers",
-     "texte": "The US Federal Communications Commission is cracking down on viral Wi-Fi routers shaped like Minions. Manufactured by the Korean firm Davolink, these devices are facing the same regulatory bans as other non-compliant hardware like TP-Link. Officials are emphasizing that all network equipment must strictly adhere to established safety and certification standards.",
+     "titre": "Anker vs. Belkin Power Brands",
+     "texte": "Choosing between Anker and Belkin for power banks and accessories involves trade-offs. While one brand offers greater market dominance, the other often introduces unique and innovative product features for mobile devices.",
      "mp3": "/podcast/en/10.mp3",
-     "duree": 23.9,
+     "duree": 13.8,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     }
