@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-16",
- "genere": "2026-11-16T16:36:15",
+ "genere": "2026-11-16T21:57:19",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-16T16:36:47",
+   "genere": "2026-11-16T21:57:37",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 9.0,
-    "texte": "Bonsoir à toutes et à tous, bienvenue sur Algeria Tech. Voici dix informations essentielles pour conclure votre journée en toute sérénité."
+    "duree": 7.3,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Retrouvez dès maintenant les 10 infos tech et économie qui font l'actualité."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.3,
-    "texte": "Merci de nous avoir écoutés. Restez connectés pour plus d'actualités sur Algeria Tech."
+    "duree": 7.0,
+    "texte": "C'était les 10 informations clés de la soirée sur Algeria Tech. À très bientôt pour de nouvelles actualités."
    },
    "items": [
     {
-     "titre": "Nouveaux sentiers dans le Djurdjura",
-     "texte": "Le Parc national du Djurdjura vient de publier la carte officielle de ses sentiers de randonnée écotouristique. Les autorités appellent les visiteurs à faire preuve de responsabilité. Il est impératif de respecter strictement les consignes de sécurité sur place pour préserver cet espace naturel exceptionnel et garantir une expérience sans aucun risque.",
+     "titre": "KBR étudie une présence accrue en Algérie",
+     "texte": "L'entreprise américaine KBR envisage de renforcer sa présence en Algérie. La création d'une structure dédiée à l'ingénierie et à la gestion de projets est à l'étude pour accompagner Sonatrach dans ses développements.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 19.1,
+     "duree": 11.4,
      "pays": "DZ",
-     "source": "Radio Algérie"
+     "source": "Algérie Éco"
     },
     {
-     "titre": "Trump critique la gestion aérienne",
-     "texte": "Donald Trump a réagi dimanche au récent blocage du trafic aérien aux États-Unis. Dans ses premiers commentaires officiels, l'ancien président a directement imputé la responsabilité de cette paralysie à l'administration Biden. Il dénonce une mauvaise gestion lors du mandat précédent, responsable selon lui des perturbations majeures qui ont affecté les voyageurs américains.",
+     "titre": "Votre Android, nouvelle enceinte pour PC",
+     "texte": "Saviez-vous que votre téléphone Android peut servir d'enceinte externe pour votre ordinateur ? Quelques étapes simples suffisent pour transformer votre appareil, même d'entrée de gamme, en haut-parleur supplémentaire.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 20.4,
-     "pays": "DZ",
-     "source": "Le Soir d'Algérie"
-    },
-    {
-     "titre": "Baleària renforce ses liaisons maritimes",
-     "texte": "Bonne nouvelle pour les passagers reliant l'Espagne à l'Algérie. La compagnie maritime Baleària annonce l'élargissement de son réseau en Méditerranée avec l'ouverture de deux nouvelles lignes. Cette extension vise à améliorer les capacités de transport et à proposer davantage d'options de mobilité aux voyageurs effectuant régulièrement des trajets entre les deux rives.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 18.4,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "La DGSN face aux cybermenaces",
-     "texte": "La Direction générale de la Sûreté nationale organise un séminaire d'envergure sur la prévention des cybermenaces liées à l'intelligence artificielle. Cet événement, qui s'est ouvert ce lundi à l'École supérieure de police Ali-Tounsi à Alger, réunit des experts pour aborder les enjeux sécuritaires cruciaux face à l'évolution rapide des nouvelles technologies numériques.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 18.9,
-     "pays": "DZ",
-     "source": "Le Soir d'Algérie"
-    },
-    {
-     "titre": "L'Algérie intègre le Conseil de l'UIT",
-     "texte": "L'Algérie renforce sa position sur la scène technologique internationale. Le pays a officiellement décroché un siège au Conseil de l'Union internationale des télécommunications pour le mandat allant de 2027 à 2030. Cette élection, actée lors de la Conférence de plénipotentiaires, confirme le rôle actif de l'Algérie au sein des instances mondiales numériques.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 20.2,
-     "pays": "DZ",
-     "source": "Crésus"
-    },
-    {
-     "titre": "Anker contre Belkin : le comparatif",
-     "texte": "Vous hésitez entre Anker et Belkin pour vos accessoires mobiles ? Ces deux leaders du marché dominent le secteur des batteries externes. Alors qu'Anker mise sur une puissance technologique accrue, Belkin propose des solutions uniques et très fiables. Le choix final dépendra surtout de vos besoins spécifiques en matière de charge rapide mobile.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 19.0,
+     "duree": 11.7,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Vingt nouveaux services pour le tourisme",
-     "texte": "Le portail Dzair Digital Services continue son expansion numérique. Le Haut-Commissariat à la Numérisation a annoncé l'intégration de vingt nouveaux services dédiés au secteur du tourisme. Ce développement, mené avec le ministère du Tourisme et de l'Artisanat, facilite désormais de nombreuses démarches administratives liées à la formation, aux hôtels et aux agences.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 20.0,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
-    },
-    {
-     "titre": "Siège diplomatique aux télécoms mondiales",
-     "texte": "Le ministère de la Poste et des Télécommunications a confirmé ce lundi une avancée majeure pour notre pays. L'Algérie siégera au Conseil de l'UIT pour la région Afrique sur la période 2027-2030. Cette reconnaissance internationale souligne les efforts continus de l'Algérie pour structurer et promouvoir le développement du secteur des télécommunications à l'échelle mondiale.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 20.3,
+     "titre": "Nouvelle mobilisation sociale en France",
+     "texte": "La France s'apprête à connaître une nouvelle journée de manifestations et de grèves. Ces mouvements sociaux se poursuivent pour protester contre la hausse du coût de la vie et la baisse du pouvoir d'achat.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 10.0,
      "pays": "DZ",
      "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "Certification majeure pour LG Electronics",
-     "texte": "Le géant LG Electronics franchit une étape technologique importante dans le secteur automobile. La firme a obtenu la certification Asil D pour son système de passerelle centrale CCU 2.0. Ce label de sécurité très exigeant, délivré par TÜV Rheinland, récompense l'excellence des équipements développés pour le nouveau modèle Genesis GV90 haut de gamme.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 21.0,
+     "titre": "Dépannage écran noir MacBook simplifié",
+     "texte": "Un écran noir sur votre MacBook n'est pas toujours synonyme de problème matériel. Les ordinateurs Apple, bien que fiables, peuvent rencontrer des bugs. Ce problème est souvent plus facile à résoudre qu'il n'y paraît.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 12.8,
      "pays": "DZ",
-     "source": "NTIC.dz"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Digitalisation accrue du tourisme algérien",
-     "texte": "La modernisation des services publics se poursuit avec l'ajout de vingt nouvelles prestations sur la plateforme Dzair Digital Services. Cette mise à jour, ordonnée par les plus hautes autorités, simplifie l'accès au secteur touristique pour les citoyens. Ces outils numériques visent à offrir une expérience plus fluide et efficace pour tous les professionnels.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 18.7,
+     "titre": "Google Gemini intègre 66 dialectes",
+     "texte": "Google enrichit son IA Gemini avec 66 dialectes régionaux supplémentaires. Cette évolution vise à préserver la diversité linguistique face à l'uniformisation potentielle des accents par les intelligences artificielles conversationnelles.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 13.2,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Baisse des échanges Algérie-France",
+     "texte": "Les échanges commerciaux entre l'Algérie et la France continuent de diminuer. Les exportations françaises vers l'Algérie ont notamment enregistré un nouveau recul, dans un contexte de tensions diplomatiques persistantes.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 11.9,
      "pays": "DZ",
      "source": "Algérie Éco"
+    },
+    {
+     "titre": "Test de l'écran intelligent Apple HomeView",
+     "texte": "Le nouvel écran intelligent Apple HomeView se révèle un hub domestique polyvalent, piloté par Siri. Ses enceintes sont idéales pour la musique, mais son écran est moins adapté à la vidéo pour l'instant.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 11.1,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Baleària étoffe ses lignes vers l'Algérie",
+     "texte": "Bonne nouvelle pour les voyageurs ! La compagnie maritime espagnole Baleària renforce son réseau en Méditerranée. Deux nouvelles lignes viennent d'être inaugurées pour faciliter les voyages entre l'Espagne et l'Algérie.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 12.1,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Centres de données américains gourmands en électricité",
+     "texte": "Les grands centres de données hyperscale consomment 2% de l'électricité aux États-Unis. Une étude récente tente de quantifier leur consommation énergétique et leurs émissions de carbone.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 10.3,
+     "pays": "INT",
+     "source": "Ars Technica"
+    },
+    {
+     "titre": "Intel et son PDG poursuivis en justice",
+     "texte": "Des actionnaires poursuivent Intel, son PDG et son directeur financier. Leur plainte fait suite à une chute de 28,6% de l'action en une journée, les ventes de PC ayant compensé les gains de l'IA.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 11.9,
+     "pays": "INT",
+     "source": "Ars Technica"
     }
    ]
   },
