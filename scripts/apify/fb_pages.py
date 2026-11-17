@@ -251,11 +251,14 @@ def main():
     else:
         # Coût ≈ 0,008 $ par page et par run : entreprises chaque jour, institutions un jour sur deux -> ≈ 4,3 $/mois (plan gratuit = 5 $)
         g = sys.argv[sys.argv.index('--groupe') + 1] if '--groupe' in sys.argv else 'auto'
-        inst = g == 'institutions' or (g == 'auto' and datetime.now().timetuple().tm_yday % 2 == 0)
-        pages = [p for p in tous if p['type'] == 'entreprise' or (inst and p['type'] == 'institution')]
+        # Institutions (ministères, régulateurs…) CHAQUE jour : leurs communiqués sont la source primaire des articles ;
+        # entreprises un jour sur deux (même budget gratuit mensuel).
+        inst = True
+        entreprises_ce_jour = g == 'entreprises' or (g == 'auto' and datetime.now().timetuple().tm_yday % 2 == 1)
+        pages = [p for p in tous if p['type'] == 'institution' or (entreprises_ce_jour and p['type'] == 'entreprise')]
         if g == 'institutions': pages = [p for p in tous if p['type'] == 'institution']
         par_page, newer = 1, '1 day'      # le post le plus récent de chaque page, s'il date de moins de 24 h
-        print('Pages ce jour :', len(pages), '(institutions incluses)' if inst else '(entreprises seulement)')
+        print('Pages ce jour :', len(pages), '(entreprises incluses)' if entreprises_ce_jour else '(institutions seulement)')
     items = collecter(pages, par_page, newer)
     items = [i for i in items if not i.get('error')]
     print('%d posts reçus' % len(items))

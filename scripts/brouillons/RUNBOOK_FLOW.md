@@ -21,7 +21,8 @@ après 90 min sans choix. **Ne rien publier toi-même.** Dossier : `E:\algeria-t
    - code 0 → la dernière ligne JSON donne `ident` et `job`. Lire `job` (image_weserv, image_source, prompt_flow, dossier).
    - `choisir` prend D'ABORD les communiqués publiés par les entreprises / institutions (Djezzy, Algérie Télécom, ministères…), puis
      la presse ; il écarte tout fait déjà publié, en brouillon ou produit par l'autre circuit (anti-doublon). Rien à faire de plus.
-   - **On n'anime JAMAIS une image qui montre des personnes réelles** (ministre, président, responsables : la photo EST l'information).
+   - **On n'anime JAMAIS une image qui montre des personnes réelles** (ministre, président, responsables : la photo EST l'information) ;
+     pour ces articles, si le sujet n'est pas sensible, on génère à la place une vidéo **sans personnage** (mode `sans_personnes`).
      Lire `job.video_mode` :
      - `aucune` ou `source` → **ne pas ouvrir Flow** : aller directement à l'étape 9 avec `none` (`source` : la vidéo YouTube du média
        qui accompagne l'article est reprise automatiquement ; `raison_video` explique le choix) ;
@@ -30,7 +31,12 @@ après 90 min sans choix. **Ne rien publier toi-même.** Dossier : `E:\algeria-t
        texte soit **affiché à l'écran ET lu à voix haute** par une voix off. Ne rien retirer ni raccourcir de ce prompt ;
      - `image_anime` (l'image contient déjà du texte) → **importer l'image** et taper `prompt_flow` TEL QUEL (animation seule, texte de l'image
        conservé, pas de voix off).
-     Après génération, **vérifier avec ffprobe qu'il y a bien une piste audio** pour `image_texte` (la voix off) ; si la vidéo est muette ou
+     - `sans_personnes` (image avec des responsables, sujet NON sensible : présidence, ministre, dirigeant, signature…) → vidéo d'illustration
+       **sans aucun personnage** : **ne PAS importer l'image** (étapes 4-5 ignorées), ouvrir un nouveau projet et taper `prompt_flow` TEL QUEL
+       (texte seul : décor sans personne + titre affiché et lu en voix off). Si la vidéo générée montre une personne, un visage ou une silhouette,
+       la rejeter et relancer UNE fois, sinon `none`. Les sujets sensibles (décès, accident, armée, élections, justice, corruption, santé
+       publique…) restent en `aucune`.
+     Après génération, **vérifier avec ffprobe qu'il y a bien une piste audio** pour `image_texte` et `sans_personnes` (la voix off) ; si la vidéo est muette ou
      sans le texte, relancer UNE fois (même prompt) si les crédits le permettent, sinon `none`. Jamais d'autre prompt avec des personnes.
 2. Chrome : `tabs_context_mcp`, `tabs_create_mcp`, aller sur `https://flow.google.com/u/1/`. Ouvrir le menu du compte (avatar en haut à droite) :
    l'e-mail doit être bastaps2024@gmail.com ; **lire le solde** (« N crédits Google Flow »). Si l'e-mail est autre : « Changer de compte » →

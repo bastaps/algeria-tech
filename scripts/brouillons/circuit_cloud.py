@@ -167,7 +167,14 @@ def produire(slot, notif=True):
             if doublon:
                 log(f"  doublon écarté : {c['titre'][:60]} — {pourquoi}")
                 continue
-            corps, image = lire_page(c["url"])
+            corps, image = lire_page(c["url"], c.get("resume", ""))
+            if c.get("origine") not in ("officiel", "scoop"):
+                # règle éditoriale : aller à la source primaire (site officiel, puis page Facebook officielle) avant de rédiger depuis un relais
+                prim = R.aller_a_la_source(c["titre"], corps or c.get("resume", ""), c["url"], c["source"])
+                if prim:
+                    log(f"  source primaire retrouvée : {prim['nom']} — {prim['url']} (relais écarté : {c['source']})")
+                    corps, image = prim["texte"], prim["image"]
+                    c = dict(c, url=prim["url"], source=prim["nom"], origine="officiel", url_relais=c["url"])
             if len(corps) < 400 or not image.startswith("http"):
                 log(f"  ignoré (texte ou image manquant) : {c['titre'][:70]}")
                 continue

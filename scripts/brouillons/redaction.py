@@ -105,7 +105,35 @@ PROMPT_FLOW_TEXTE = ("Génère une vidéo en 16/9 illustrant le texte suivant : 
 PROMPT_FLOW_ANIMER = ("Anime cette image en une vidéo de 8 secondes au format 16:9. Mouvements naturels et discrets, léger travelling "
                       "avant. Conserve exactement le texte déjà présent dans l'image, sans rien ajouter ni modifier. "
                       "Ambiance sonore naturelle et discrète, sans voix off.")
-VIDEO_MODES = ("image_texte", "image_anime")   # modes qui exigent une génération Flow
+# Vidéo SANS personnage : on ne montre ni responsable ni visage ; texte du titre affiché et lu en voix off, décor décrit par {scene}
+PROMPT_FLOW_SANS_PERSONNES = ("Génère une vidéo en 16/9, sans importer d'image, illustrant le texte suivant : « {phrase} ». Décor : {scene}. "
+                              "RÈGLES ABSOLUES : AUCUNE personne, aucun visage, aucune silhouette, aucune foule, aucune main ; que des lieux, "
+                              "des objets, des infrastructures, des écrans de données et de la lumière. Le texte « {phrase} » doit apparaître "
+                              "à l'écran, bien lisible, en sous-titre incrusté, ET être lu à voix haute en français par une voix off claire "
+                              "et posée, du début à la fin. Mouvements de caméra lents, aucune autre inscription, aucun logo.")
+SENSIBLE = re.compile(r"décès|mort\b|morts\b|meurt|accident|attentat|guerre|conflit|armée|\bANP\b|militaire|défense nationale|élection|scrutin|"
+                      r"parti politique|opposition|tribunal|justice|procès|arrest|corruption|détourn|grève|manifestation|émeute|incendie|"
+                      r"séisme|inondation|noyade|suicide|agression|viol|drogue|santé publique|épidémie|"
+                      r"وفاة|حادث|حرب|انتخابات|محكمة|فساد|إضراب", re.I)
+VIDEO_MODES = ("image_texte", "image_anime", "sans_personnes")   # modes qui exigent une génération Flow
+
+
+def sujet_sensible(titre, resume=""):
+    """Décès, accident, guerre, armée, élections, justice, corruption, santé publique… : jamais de vidéo générée."""
+    return bool(SENSIBLE.search(f"{titre} {resume}"))
+
+
+def scene_sans_personnes(titre, resume=""):
+    """Décor sans personnage pour illustrer l'article (une phrase). Repli neutre si l'IA est indisponible."""
+    defaut = "plans lents d'infrastructures numériques : réseaux de fibre optique lumineux, salle de serveurs, écrans de données, façades de bâtiments modernes"
+    try:
+        rep = appeler_gemini("Décris en UNE phrase (25 mots max) un décor de vidéo illustrant cet article, SANS aucune personne, aucun visage, "
+                             "aucune silhouette : lieux, objets, infrastructures, écrans de données, paysages. "
+                             f"Article : « {titre} » — {str(resume)[:300]}\nRéponds UNIQUEMENT par un JSON : {{\"decor\": \"...\"}}", temperature=0.4)
+        d = str(rep.get("decor") or "").strip() if isinstance(rep, dict) else ""
+        return d[:220] if len(d) > 15 else defaut
+    except Exception:  # noqa: BLE001
+        return defaut
 
 
 def phrase_video(titre):
@@ -230,9 +258,20 @@ def _hote(url):
     return urlparse(url).netloc.lower().removeprefix("www.")
 
 
+def _requete(url, timeout):
+    try:
+        return requests.get(url, timeout=timeout, headers=UA, allow_redirects=True)
+    except requests.exceptions.SSLError:
+        if urlparse(url).netloc.lower().endswith(".dz"):   # sites officiels algériens : certificat souvent incomplet
+            import urllib3
+            urllib3.disable_warnings()
+            return requests.get(url, timeout=timeout, headers=UA, allow_redirects=True, verify=False)
+        raise
+
+
 def _get(url, timeout=12):
     try:
-        r = requests.get(url, timeout=timeout, headers=UA, allow_redirects=True)
+        r = _requete(url, timeout)
         if r.status_code != 200 or "html" not in r.headers.get("content-type", "") or len(r.content) > 2_500_000:
             return None
         soup = BeautifulSoup(r.text, "html.parser")
@@ -251,11 +290,74 @@ def _jetons(titre, corps):
     return {j for j in jetons if j not in banals}
 
 
+def _og_image(soup):
+    for prop in ("og:image", "twitter:image"):
+        m = soup.find("meta", attrs={"property": prop}) or soup.find("meta", attrs={"name": prop})
+        if m and str(m.get("content", "")).startswith("http"):
+            return m["content"].strip()
+    return ""
+
+
+def _texte_page(soup):
+    """Texte des paragraphes de la page (corps de l'article), pour rédiger directement depuis la source."""
+    paras = [" ".join(p.get_text(" ").split()) for p in soup.find_all("p")]
+    return "\n\n".join(p for p in paras if len(p) > 60)[:6000]
+
+
+def aller_a_la_source(titre, texte_relais, url_relais, nom_relais):
+    """RÈGLE ÉDITORIALE : avant de rédiger depuis un site relais, aller à la source primaire (site officiel de l'institution ou de
+    l'entreprise, puis sa page Facebook officielle) et rédiger depuis elle. Renvoie {nom, url, texte, image, officiels} ou None
+    (alors l'article est rédigé depuis le relais, qui reste cité)."""
+    try:
+        officiels = sources_officielles(titre, texte_relais, url_relais)
+    except Exception as e:  # noqa: BLE001 — la recherche de source ne doit jamais bloquer le circuit
+        log(f"recherche de la source officielle impossible ({type(e).__name__})")
+        officiels = []
+    try:
+        officiels += sources_facebook(titre, texte_relais)
+    except Exception as e:  # noqa: BLE001
+        log(f"lecture des pages Facebook officielles impossible ({type(e).__name__})")
+    for o in officiels:   # priorité : page de site officiel complète (texte + image), puis publication Facebook
+        if len(o.get("texte", "")) >= 400 and str(o.get("image", "")).startswith("http") and "facebook" not in o["nom"].lower():
+            return {"nom": o["nom"], "url": o["url"], "texte": o["texte"], "image": o["image"], "officiels": officiels}
+    for o in officiels:
+        if len(o.get("texte", "")) >= 200 and str(o.get("image", "")).startswith("http"):
+            return {"nom": o["nom"], "url": o["url"], "texte": o["texte"], "image": o["image"], "officiels": officiels}
+    return None
+
+
+# Annuaire : entité reconnue dans l'article -> son site officiel et ses pages d'actualités (pas de devinette de l'IA, pas de quota).
+# "sur": True = le site est certainement celui de l'entité (pas de vérification du nom sur la page d'accueil).
+ENTITES_FIXES = [
+    (r"\bUIT\b|Union internationale des télécommunications|\bITU\b",
+     {"nom": "Union internationale des télécommunications (UIT)", "site": "https://www.itu.int",
+      "pages": ["/fr/mediacentre/Pages/default.aspx", "/en/mediacentre/Pages/default.aspx", "/hub/news/"], "sur": True}),
+    (r"Haut-Commissariat à la numérisation|\bHCN\b|Dzair Digital",
+     {"nom": "Haut-Commissariat à la numérisation", "site": "https://hcn.gov.dz", "pages": [], "sur": True}),
+    (r"ministre de la Poste|ministère de la Poste|\bMPT\b|Zerrouki",
+     {"nom": "Ministère de la Poste et des Télécommunications", "site": "https://www.mpt.gov.dz", "pages": ["/fr/", "/"], "sur": True}),
+    (r"\bARPCE\b", {"nom": "ARPCE", "site": "https://www.arpce.dz", "pages": ["/fr/news"], "sur": True}),
+    (r"Algérie Télécom", {"nom": "Algérie Télécom", "site": "https://www.algerietelecom.dz", "pages": ["/fr/espace-presse"], "sur": True}),
+    (r"Djezzy", {"nom": "Djezzy", "site": "https://www.djezzy.dz",
+                 "pages": ["/djezzy/actualite-et-nouveautes/communiques-de-presse/"], "sur": True}),
+    (r"Ooredoo", {"nom": "Ooredoo Algérie", "site": "https://www.ooredoo.dz", "pages": [], "sur": True}),
+    (r"Mobilis", {"nom": "Mobilis", "site": "https://www.mobilis.dz", "pages": [], "sur": True}),
+    (r"Enseignement supérieur|\bMESRS\b|Baddari", {"nom": "Ministère de l'Enseignement supérieur et de la Recherche scientifique",
+                                                    "site": "https://www.mesrs.dz", "pages": ["/fr/accueil/"], "sur": True}),
+]
+
+
+def _entites_fixes(texte):
+    return [dict(e) for rx, e in ENTITES_FIXES if re.search(rx, texte, re.I)]
+
+
 def sources_officielles(titre, corps, url_source, max_entites=3):
     """Cherche sur le SITE OFFICIEL des acteurs de l'article une page qui parle du même fait.
     Renvoie [{nom, url, extrait}] vérifiés (page réellement lue, au moins 3 éléments distinctifs retrouvés)."""
-    rep = appeler_gemini(PROMPT_ENTITES.format(titre=titre, corps=corps[:3000]), temperature=0)
-    entites = rep.get("entites") if isinstance(rep, dict) else None
+    entites = _entites_fixes(f"{titre}\n{corps[:3000]}")   # annuaire d'abord : fonctionne même sans IA
+    if not entites:
+        rep = appeler_gemini(PROMPT_ENTITES.format(titre=titre, corps=corps[:3000]), temperature=0)
+        entites = rep.get("entites") if isinstance(rep, dict) else None
     if not entites:
         return []
     hote_src = _hote(url_source)
@@ -275,7 +377,7 @@ def sources_officielles(titre, corps, url_source, max_entites=3):
         url_accueil, soup = accueil
         texte_acc = soup.get_text(" ", strip=True).lower()
         titre_acc = (soup.title.string or "").lower() if soup.title else ""
-        if nom.split()[0].lower() not in (titre_acc + " " + texte_acc[:4000]):
+        if not e.get("sur") and nom.split()[0].lower() not in (titre_acc + " " + texte_acc[:4000]):
             continue  # le site ne semble pas être celui de l'entité
         candidats = []
         for chemin in (e.get("pages") or [])[:3]:
@@ -301,13 +403,13 @@ def sources_officielles(titre, corps, url_source, max_entites=3):
                 bons = [p for p in paras if any(h in p.lower() for h in hits) and len(p) > 40][:4]
                 extrait = " ".join(bons)[:900]
                 if extrait:
-                    meilleur = (len(hits), page[0], extrait)
+                    meilleur = (len(hits), page[0], extrait, _texte_page(page[1]), _og_image(page[1]))
         if meilleur:
             resume = corps[:600].replace("\n", " ")
             verdict = appeler_gemini(PROMPT_MEME_FAIT.format(titre=titre, resume=resume, extrait=meilleur[2]),
                                      temperature=0)
             if isinstance(verdict, dict) and verdict.get("meme_fait") is True:
-                trouves.append({"nom": nom, "url": meilleur[1], "extrait": meilleur[2]})
+                trouves.append({"nom": nom, "url": meilleur[1], "extrait": meilleur[2], "texte": meilleur[3], "image": meilleur[4]})
                 log(f"source officielle retrouvée : {nom} — {meilleur[1]}")
             else:
                 log(f"page officielle écartée (autre sujet) : {nom} — {meilleur[1]}")
@@ -368,7 +470,8 @@ def sources_facebook(titre, corps, jours=4):
     p = recents[i]
     nom = noms.get(p.get("page_id"), p.get("page") or p.get("page_id"))
     log(f"publication Facebook officielle retrouvée : {nom} — {p['url']}")
-    return [{"nom": f"{nom} (page Facebook)", "url": p["url"], "extrait": re.sub(r"\s+", " ", p["texte"])[:900]}]
+    return [{"nom": f"{nom} (page Facebook)", "url": p["url"], "extrait": re.sub(r"\s+", " ", p["texte"])[:900],
+             "texte": p["texte"].strip(), "image": p.get("image") or ""}]
 
 
 _RECHERCHE = {"epuisee": False}   # quota « recherche Google » de Gemini atteint : on n'insiste plus pendant ce passage
@@ -596,8 +699,13 @@ def politique_video(jpg_bytes, titre, resume, html_page=""):
     if not isinstance(rep, dict):
         return {"mode": "aucune", "raison": "analyse d'image indisponible", "video_url": "", "prompt": ""}
     raison = str(rep.get("raison") or "")[:200]
-    if rep.get("personnes") is not False:  # personnes réelles (ou doute) : la photo est l'information, on n'anime jamais
-        return {"mode": "aucune", "raison": "personnes réelles sur l'image — jamais d'animation. " + raison, "video_url": "", "prompt": ""}
+    if rep.get("personnes") is not False:  # personnes réelles (ou doute) : jamais d'animation de la photo
+        if sujet_sensible(titre, resume):
+            return {"mode": "aucune", "raison": "personnes réelles et sujet sensible : pas de vidéo. " + raison, "video_url": "", "prompt": ""}
+        # sujet non sensible (présidence, ministre, dirigeant d'entreprise, signature…) : vidéo qui illustre l'article SANS aucun personnage
+        scene = scene_sans_personnes(titre, resume)
+        return {"mode": "sans_personnes", "raison": "personnes sur l'image : vidéo d'illustration sans personnage. " + raison,
+                "video_url": "", "prompt": PROMPT_FLOW_SANS_PERSONNES.format(phrase=phrase_video(titre), scene=scene)}
     if rep.get("texte_visible") is True:
         return {"mode": "image_anime", "raison": "l'image contient déjà du texte : animation seule. " + raison, "video_url": "",
                 "prompt": PROMPT_FLOW_ANIMER}

@@ -366,6 +366,14 @@ def choisir(slot):
                 log(f"  lecture impossible ({type(e).__name__}) : {c['titre'][:60]}")
                 continue
             texte, image = (f.get("text") or "").strip(), f.get("image") or ""
+            if c.get("origine") not in ("officiel", "scoop"):
+                # règle éditoriale : aller à la source primaire (site officiel, puis page Facebook officielle) avant de rédiger depuis un relais
+                prim = R.aller_a_la_source(c["titre"], texte or c.get("resume", ""), c["url"], c["source"])
+                if prim:
+                    log(f"  source primaire retrouvée : {prim['nom']} — {prim['url']} (relais écarté : {c['source']})")
+                    texte, image = prim["texte"], prim["image"]
+                    f = dict(f, title=c["titre"])
+                    c = dict(c, url=prim["url"], source=prim["nom"], origine="officiel", url_relais=c["url"])
             if len(texte) < 400 or not image.startswith("http"):
                 log(f"  ignoré (texte ou image manquant) : {c['titre'][:70]}")
                 continue
@@ -486,7 +494,7 @@ def finaliser(ident, clip, sans_push):
         info = json.loads(sonde.stdout or "{}")
         if not any(s.get("codec_type") == "video" for s in info.get("streams", [])) or float(info.get("format", {}).get("duration", 0)) < 3:
             raise RuntimeError("clip Flow invalide (pas de vidéo ou trop court)")
-        if job.get("video_mode") == "image_texte" and not any(s.get("codec_type") == "audio" for s in info.get("streams", [])):
+        if job.get("video_mode") in ("image_texte", "sans_personnes") and not any(s.get("codec_type") == "audio" for s in info.get("streams", [])):
             # la vidéo « image + texte » existe pour que le texte soit LU à voix haute : sans piste audio, elle est hors sujet
             log("clip sans voix off : vidéo écartée (le brouillon est produit sans vidéo)")
             avec_video = False
