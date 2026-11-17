@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-17",
- "genere": "2026-11-17T16:55:45",
+ "genere": "2026-11-17T20:46:55",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-17T16:56:10",
+   "genere": "2026-11-17T20:47:20",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.0,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici 10 informations tech et télécoms qui ont marqué la soirée."
+    "duree": 8.5,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les actualités technologiques de votre soirée, avec dix informations à découvrir."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
     "duree": 6.4,
-    "texte": "C'était votre flash actu tech et télécoms de la soirée. Rendez-vous bientôt sur Algeria Tech."
+    "texte": "C'était votre revue de presse tech Algeria Tech. Rendez-vous demain pour de nouvelles informations."
    },
    "items": [
     {
-     "titre": "Carte graphique dédiée : quand est-ce utile ?",
-     "texte": "Les puces graphiques intégrées aux processeurs sont performantes, mais ont leurs limites. Une carte graphique dédiée reste souvent la plus coûteuse pour un ordinateur, utile pour le jeu et certaines tâches accélérées.",
+     "titre": "Ports USB jaunes, l'explication",
+     "texte": "Les ports USB-A de couleur jaune se distinguent souvent. Ils indiquent généralement une fonction de charge dite 'Always On', permettant de recharger même quand l'ordinateur est éteint. Les spécificités peuvent varier selon les fabricants.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 11.5,
+     "duree": 13.0,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Djurdjura : rappel des règles de randonnée",
-     "texte": "Le Parc national du Djurdjura rappelle les consignes de randonnée et alerte sur les dérives de certains visiteurs. Une carte des itinéraires autorisés a été publiée pour mieux encadrer les activités et protéger l'environnement.",
+     "titre": "Réseau d'escroquerie électronique démantelé",
+     "texte": "Le Service central de lutte contre le crime organisé a neutralisé un réseau criminel spécialisé dans l'escroquerie électronique. Sept membres ont été arrêtés, et plus de six cents victimes seraient recensées dans cette affaire.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 12.0,
+     "duree": 12.2,
      "pays": "DZ",
-     "source": "Algérie Éco"
+     "source": "Crésus"
     },
     {
-     "titre": "Apple renforce le contrôle IA sur Mac",
-     "texte": "Apple intègre de nouveaux contrôles de disque pour les utilisateurs de Mac. L'objectif est de mieux avertir des risques liés à l'octroi d'un accès disque complet aux agents d'intelligence artificielle.",
+     "titre": "France: le silence administratif sanctionné",
+     "texte": "En France, un juge a récemment sanctionné l'administration pour son silence prolongé face à une demande de titre de séjour. Ce cas illustre les difficultés rencontrées par les usagers face à la lenteur des préfectures.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 10.7,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Art pour les enfants de la Lune",
-     "texte": "L'exposition caritative 'Lumière d'Espoir' a réuni 60 artistes et 96 œuvres à Alger. L'initiative vise à collecter des fonds pour les associations accompagnant les enfants atteints de maladies de peau graves.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 11.9,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
-    },
-    {
-     "titre": "Machines plastiques : l'Italie cible l'Algérie",
-     "texte": "Les fabricants italiens de machines pour l'industrie plastique s'intéressent au marché algérien. Une rencontre B2B est organisée pour promouvoir les technologies italiennes dans ce secteur dynamique d'Afrique du Nord.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 11.5,
+     "duree": 12.2,
      "pays": "DZ",
      "source": "TSA Algérie"
     },
     {
-     "titre": "OVHcloud lance son premier modèle IA",
-     "texte": "Le français OVHcloud entre dans la course de l'intelligence artificielle avec 'Olala'. L'entreprise européenne souhaite devenir un acteur majeur dans ce domaine en s'appuyant sur son infrastructure cloud.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 10.7,
-     "pays": "DZ",
-     "source": "NTIC.dz"
-    },
-    {
-     "titre": "Ooredoo célèbre l'excellence journalistique",
-     "texte": "La 19ème édition du concours Media Star, dédié à l'excellence journalistique, s'est achevée à Alger. Ooredoo a récompensé les meilleurs travaux lors d'une cérémonie prestigieuse.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 10.7,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Vérifier la version iOS de votre iPhone",
-     "texte": "Il suffit de quelques manipulations pour connaître la version iOS de votre iPhone. Accédez à Réglages, Général, puis Mise à jour logicielle pour vérifier ou installer les dernières nouveautés.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.3,
+     "titre": "Lunettes IA de Meta, attention à l'eau",
+     "texte": "Meta alerte sur un risque de surchauffe de ses lunettes connectées à intelligence artificielle. L'humidité peut provoquer une élévation de température. L'entreprise propose des remplacements gratuits pour les appareils concernés.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 13.0,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Refroidissement des data centers : sujets clés",
-     "texte": "Le supplément sur le refroidissement des data centers aborde les sujets les plus importants pour maintenir les centres de données à des températures optimales et performantes.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 8.4,
-     "pays": "INT",
-     "source": "Data Center Dynamics"
+     "titre": "Appel à témoins pour réseau d'escrocs",
+     "texte": "La police lance un appel à témoins. Le Service central de lutte contre la criminalité organisée recherche des individus sur des photographies. Ils sont suspectés d'appartenir à un réseau criminel spécialisé.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 12.5,
+     "pays": "DZ",
+     "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "Cyberattaques IA : alerte du FBI",
-     "texte": "Le FBI tire la sonnette d'alarme sur des outils IA comme Artex. Ces outils, disponibles librement, pourraient pirater des entreprises en moins de trois heures, causant de nombreuses attaques.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 10.9,
+     "titre": "Disney+ et Hulu bientôt réunis",
+     "texte": "L'application unifiée Disney+ et Hulu sera disponible en décembre. Disney concrétise son projet de fusionner ses deux plateformes de streaming. Les abonnés profiteront ainsi d'une expérience centralisée pour accéder aux contenus.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 13.5,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Quand une carte graphique dédiée est utile",
+     "texte": "Les cartes graphiques intégrées sont performantes, mais ont leurs limites. Une carte graphique dédiée, souvent coûteuse, s'avère essentielle pour les jeux et certaines tâches professionnelles exigeantes en puissance graphique.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 12.1,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Djurdjura: rappel des règles de randonnée",
+     "texte": "Le Parc national du Djurdjura publie une carte des itinéraires autorisés et rappelle les consignes de sécurité et de respect de l'environnement. L'objectif est d'encadrer la randonnée et de prévenir les dérives.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 11.3,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "ChatGPT: Sol ou Astra, lequel choisir ?",
+     "texte": "OpenAI met à jour ses modèles pour ChatGPT et Codex. Sol est idéal pour le travail quotidien et le développement. Astra se révèle plus pertinent pour l'analyse de dossiers complets et complexes.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 11.8,
      "pays": "INT",
-     "source": "BFM Tech"
+     "source": "Clubic"
+    },
+    {
+     "titre": "Cyberattaque ou simple panne ?",
+     "texte": "Face à de nombreuses pannes touchant emails ou services, il est difficile de distinguer une cyberattaque d'une simple défaillance technique. Des enquêtes permettent d'identifier l'origine réelle des interruptions.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 11.0,
+     "pays": "INT",
+     "source": "Wired"
     }
    ]
   },
