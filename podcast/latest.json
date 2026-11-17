@@ -1,102 +1,102 @@
 {
- "creneau": "matin",
+ "creneau": "soir",
  "date": "2026-11-17",
- "genere": "2026-11-17T00:44:13",
+ "genere": "2026-11-17T16:55:45",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
-   "creneau": "matin",
-   "genere": "2026-11-17T00:44:29",
+   "creneau": "soir",
+   "genere": "2026-11-17T16:56:10",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 8.0,
-    "texte": "Bonjour et bienvenue sur Algeria Tech pour votre récap' matinal. Voici les 10 infos tech et économie à ne pas manquer aujourd'hui."
+    "duree": 7.0,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici 10 informations tech et télécoms qui ont marqué la soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.8,
-    "texte": "C'était votre dose d'infos Algeria Tech. Retrouvez-nous plus tard pour un nouveau point sur l'actu tech."
+    "duree": 6.4,
+    "texte": "C'était votre flash actu tech et télécoms de la soirée. Rendez-vous bientôt sur Algeria Tech."
    },
    "items": [
     {
-     "titre": "eGPU : une puissance limitée sur portable",
-     "texte": "Les cartes graphiques externes pour ordinateurs portables offrent une puissance accrue, mais attention aux contraintes. Câbles, bande passante réduite et coûts supplémentaires peuvent sérieusement limiter leur avantage par rapport aux puces graphiques intégrées.",
+     "titre": "Carte graphique dédiée : quand est-ce utile ?",
+     "texte": "Les puces graphiques intégrées aux processeurs sont performantes, mais ont leurs limites. Une carte graphique dédiée reste souvent la plus coûteuse pour un ordinateur, utile pour le jeu et certaines tâches accélérées.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 13.0,
+     "duree": 11.5,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Apple TV 4K : toujours bon mais cher",
-     "texte": "La nouvelle Apple TV 4K conserve ses qualités mais affiche un tarif plus élevé. Seuls des ajustements subtils sont à noter, comme le déplacement du voyant lumineux. Le design reste quasiment identique.",
+     "titre": "Djurdjura : rappel des règles de randonnée",
+     "texte": "Le Parc national du Djurdjura rappelle les consignes de randonnée et alerte sur les dérives de certains visiteurs. Une carte des itinéraires autorisés a été publiée pour mieux encadrer les activités et protéger l'environnement.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 12.7,
+     "duree": 12.0,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Algérie Éco"
     },
     {
-     "titre": "KBR s'implante en Algérie",
-     "texte": "L'entreprise américaine KBR envisage de créer une structure spécialisée dans l'ingénierie et la gestion de projets en Algérie. L'objectif est de soutenir les programmes de développement de Sonatrach.",
+     "titre": "Apple renforce le contrôle IA sur Mac",
+     "texte": "Apple intègre de nouveaux contrôles de disque pour les utilisateurs de Mac. L'objectif est de mieux avertir des risques liés à l'octroi d'un accès disque complet aux agents d'intelligence artificielle.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 10.8,
+     "duree": 10.7,
      "pays": "DZ",
-     "source": "Algérie Éco"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Android en haut-parleur PC",
-     "texte": "Votre téléphone Android peut facilement servir d'enceinte pour votre ordinateur. Quelques étapes simples suffisent pour transformer même un modèle économique en haut-parleur externe.",
+     "titre": "Art pour les enfants de la Lune",
+     "texte": "L'exposition caritative 'Lumière d'Espoir' a réuni 60 artistes et 96 œuvres à Alger. L'initiative vise à collecter des fonds pour les associations accompagnant les enfants atteints de maladies de peau graves.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 9.9,
+     "duree": 11.9,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Maghreb Emergent"
     },
     {
-     "titre": "MacBook : écran noir, solution simple",
-     "texte": "Un écran noir sur votre MacBook n'indique pas forcément un problème matériel grave. Il existe des solutions de dépannage relativement faciles pour résoudre ce souci fréquent.",
+     "titre": "Machines plastiques : l'Italie cible l'Algérie",
+     "texte": "Les fabricants italiens de machines pour l'industrie plastique s'intéressent au marché algérien. Une rencontre B2B est organisée pour promouvoir les technologies italiennes dans ce secteur dynamique d'Afrique du Nord.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 10.0,
+     "duree": 11.5,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "TSA Algérie"
     },
     {
-     "titre": "Gemini parle 66 dialectes",
-     "texte": "Google enrichit son IA Gemini en ajoutant 66 dialectes régionaux. L'objectif est de préserver la richesse linguistique face à la tendance à l'uniformisation des assistants vocaux.",
+     "titre": "OVHcloud lance son premier modèle IA",
+     "texte": "Le français OVHcloud entre dans la course de l'intelligence artificielle avec 'Olala'. L'entreprise européenne souhaite devenir un acteur majeur dans ce domaine en s'appuyant sur son infrastructure cloud.",
      "mp3": "/podcast/fr/06.mp3",
-     "duree": 10.5,
+     "duree": 10.7,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "NTIC.dz"
     },
     {
-     "titre": "Baisse des échanges Algérie-France",
-     "texte": "Les relations commerciales entre l'Algérie et la France continuent de baisser. Les exportations françaises vers l'Algérie ont notamment connu un nouveau recul récent.",
+     "titre": "Ooredoo célèbre l'excellence journalistique",
+     "texte": "La 19ème édition du concours Media Star, dédié à l'excellence journalistique, s'est achevée à Alger. Ooredoo a récompensé les meilleurs travaux lors d'une cérémonie prestigieuse.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 8.9,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "HomeView : bel écran, peu de vidéo",
-     "texte": "L'écran intelligent Apple HomeView est polyvalent pour la musique et les podcasts, mais limité pour la vidéo. Seule l'application Apple TV est pour l'instant disponible.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 9.8,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Baleària : nouvelles lignes maritimes",
-     "texte": "Bonne nouvelle pour les voyageurs ! La compagnie maritime espagnole Baleària renforce son réseau en Méditerranée avec l'ouverture de deux nouvelles lignes vers l'Algérie.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 9.3,
+     "duree": 10.7,
      "pays": "DZ",
      "source": "Algérie360"
     },
     {
-     "titre": "Anker ou Belkin pour batteries ?",
-     "texte": "Pour vos batteries externes et accessoires mobiles, Anker et Belkin sont deux marques majeures. Chacune propose des avantages distincts en termes de puissance et d'originalité.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 9.6,
+     "titre": "Vérifier la version iOS de votre iPhone",
+     "texte": "Il suffit de quelques manipulations pour connaître la version iOS de votre iPhone. Accédez à Réglages, Général, puis Mise à jour logicielle pour vérifier ou installer les dernières nouveautés.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 11.3,
      "pays": "DZ",
      "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Refroidissement des data centers : sujets clés",
+     "texte": "Le supplément sur le refroidissement des data centers aborde les sujets les plus importants pour maintenir les centres de données à des températures optimales et performantes.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 8.4,
+     "pays": "INT",
+     "source": "Data Center Dynamics"
+    },
+    {
+     "titre": "Cyberattaques IA : alerte du FBI",
+     "texte": "Le FBI tire la sonnette d'alarme sur des outils IA comme Artex. Ces outils, disponibles librement, pourraient pirater des entreprises en moins de trois heures, causant de nombreuses attaques.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 10.9,
+     "pays": "INT",
+     "source": "BFM Tech"
     }
    ]
   },
