@@ -1,0 +1,64 @@
+name: Contrôle du déploiement — republie si le site est en retard sur le dépôt
+
+# Constat du 2026-11-17 : un article publié depuis Smart Ingest PRO (commit présent dans le dépôt) n'est pas apparu sur le site, le déploiement
+# Cloudflare correspondant n'ayant pas eu lieu (commit suivant marqué [CF-Pages-Skip]). Ce contrôle compare les articles du dépôt aux articles
+# en ligne et, s'il en manque, pousse un commit SANS drapeau de saut pour relancer un déploiement. Rien ne se passe quand tout est à jour.
+# GARDE-FOU : déclenchement automatique seulement si le dépôt est public (minutes illimitées).
+on:
+  schedule:
+    - cron: "*/20 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: controle-deploiement
+  cancel-in-progress: false
+
+jobs:
+  controle:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.repository_visibility == 'public' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Articles du dépôt absents du site ?
+        id: q
+        run: |
+          python3 - <<'PY'
+          import json, os, re, urllib.request
+          def a_un_titre(f):   # le site ignore les fichiers sans titre : ils ne sont jamais « absents »
+              try:
+                  return re.search(r"^titre:\s*\S", open("articles/" + f, encoding="utf-8").read(3000), re.M) is not None
+              except OSError:
+                  return False
+          depot = sorted(f[:-3] for f in os.listdir("articles") if re.fullmatch(r"\d+\.md", f) and a_un_titre(f))
+          # on ignore les articles de moins de 15 minutes : le déploiement normal est peut-être en cours
+          import time
+          recents = {i for i in depot if len(i) >= 13 and time.time() * 1000 - int(i) < 15 * 60 * 1000}
+          try:
+              req = urllib.request.Request("https://algeriatechnews.com/articles-list.json", headers={"User-Agent": "Mozilla/5.0 controle-deploiement"})
+              en_ligne = {str(a["id"]) for a in json.load(urllib.request.urlopen(req, timeout=40))}
+          except Exception as e:
+              print("site injoignable, aucun déclenchement :", e)
+              en_ligne = None
+          manquants = [] if en_ligne is None else [i for i in depot if i not in en_ligne and i not in recents]
+          print("manquants :", manquants[:10])
+          open(os.environ["GITHUB_OUTPUT"], "a").write("n=%d\n" % len(manquants))
+          PY
+
+      - name: Relancer un déploiement
+        if: steps.q.outputs.n != '0'
+        run: |
+          # au plus un déclenchement toutes les 40 minutes (quota gratuit de déploiements)
+          if [ -f .deploy-ping ] && [ $(( $(date +%s) - $(date -d "$(cat .deploy-ping)" +%s) )) -lt 2400 ]; then echo "déjà relancé récemment"; exit 0; fi
+          git config user.name "Algeria Tech Bot"
+          git config user.email "bot@algeria-tech.dz"
+          date -u +%FT%TZ > .deploy-ping
+          git add .deploy-ping
+          git commit -q -m "Contrôle : déploiement relancé (articles du dépôt absents du site)"
+          for i in 1 2 3 4; do git pull --rebase -q origin main && git push -q origin HEAD:main && break || sleep 6; done
