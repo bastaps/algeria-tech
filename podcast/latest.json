@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-17",
- "genere": "2026-11-17T20:46:55",
+ "genere": "2026-11-17T23:52:34",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-17T20:47:20",
+   "genere": "2026-11-17T23:52:58",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 8.5,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les actualités technologiques de votre soirée, avec dix informations à découvrir."
+    "duree": 6.8,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les 10 infos tech et télécoms qui ont marqué la soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.4,
-    "texte": "C'était votre revue de presse tech Algeria Tech. Rendez-vous demain pour de nouvelles informations."
+    "duree": 5.8,
+    "texte": "C'était votre dose d'actualités tech. Restez connectés sur Algeria Tech."
    },
    "items": [
     {
-     "titre": "Ports USB jaunes, l'explication",
-     "texte": "Les ports USB-A de couleur jaune se distinguent souvent. Ils indiquent généralement une fonction de charge dite 'Always On', permettant de recharger même quand l'ordinateur est éteint. Les spécificités peuvent varier selon les fabricants.",
+     "titre": "Google Gemini pour la santé",
+     "texte": "Google Cloud lance officiellement Gemini pour le secteur de la santé. L'objectif est de réunir les systèmes cliniques, opérationnels et administratifs pour améliorer la prestation des soins grâce à l'intelligence artificielle.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 13.0,
+     "duree": 12.4,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Réseau d'escroquerie électronique démantelé",
-     "texte": "Le Service central de lutte contre le crime organisé a neutralisé un réseau criminel spécialisé dans l'escroquerie électronique. Sept membres ont été arrêtés, et plus de six cents victimes seraient recensées dans cette affaire.",
+     "titre": "Manifestations sociales en France",
+     "texte": "Plus de 500 000 personnes ont manifesté en France pour diverses revendications sociales. La mobilisation a rassemblé lycéens, étudiants et salariés, appelant à de meilleures rémunérations dans le secteur public.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 12.2,
+     "duree": 12.1,
+     "pays": "DZ",
+     "source": "Le Jeune Indépendant"
+    },
+    {
+     "titre": "Panne réseau NSA",
+     "texte": "Un important réseau de communication interne de l'Agence nationale de sécurité américaine a connu une panne. Ce réseau confidentiel est utilisé pour la transmission d'informations classifiées par ses employés.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 11.7,
+     "pays": "DZ",
+     "source": "Le Jeune Indépendant"
+    },
+    {
+     "titre": "Blocage numéro iPhone",
+     "texte": "Identifier un blocage de numéro sur iPhone peut être complexe. Un accusé de lecture manquant ou un appel FaceTime sans réponse ne sont pas toujours des preuves formelles.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 9.7,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Prix chercheur innovant 2027",
+     "texte": "Le ministre de l'Enseignement supérieur a ouvert la plateforme pour le Prix du chercheur innovant 2027. Les conditions, défis et calendrier de soumission des projets innovants sont désormais disponibles.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 11.4,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Mystère des ports USB jaunes",
+     "texte": "Les ports USB-A jaunes ne sont pas si courants. Ils indiquent généralement une fonction de chargement 'Always On', continuant d'alimenter les appareils même si l'ordinateur est éteint.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 9.7,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Réseau d'escroquerie démantelé",
+     "texte": "La police a démantelé un réseau criminel spécialisé dans l'escroquerie électronique. Sept membres ont été arrêtés, et plus de 600 victimes ont été recensées dans cette affaire.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 10.4,
      "pays": "DZ",
      "source": "Crésus"
     },
     {
-     "titre": "France: le silence administratif sanctionné",
-     "texte": "En France, un juge a récemment sanctionné l'administration pour son silence prolongé face à une demande de titre de séjour. Ce cas illustre les difficultés rencontrées par les usagers face à la lenteur des préfectures.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 12.2,
+     "titre": "Sanction pour silence administratif",
+     "texte": "Un juge français a sanctionné le silence prolongé d'une préfecture face à une demande de titre de séjour. L'engorgement administratif continue de mobiliser les tribunaux.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 9.8,
      "pays": "DZ",
      "source": "TSA Algérie"
     },
     {
-     "titre": "Lunettes IA de Meta, attention à l'eau",
-     "texte": "Meta alerte sur un risque de surchauffe de ses lunettes connectées à intelligence artificielle. L'humidité peut provoquer une élévation de température. L'entreprise propose des remplacements gratuits pour les appareils concernés.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 13.0,
+     "titre": "Lunettes IA Meta chauffent",
+     "texte": "Meta avertit que certaines de ses lunettes dotées d'IA peuvent surchauffer si elles sont mouillées. L'entreprise propose des remplacements gratuits pour les appareils concernés par ce problème rare.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 10.0,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Appel à témoins pour réseau d'escrocs",
-     "texte": "La police lance un appel à témoins. Le Service central de lutte contre la criminalité organisée recherche des individus sur des photographies. Ils sont suspectés d'appartenir à un réseau criminel spécialisé.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 12.5,
+     "titre": "Appel à témoins escroquerie",
+     "texte": "La police lance un appel à témoins concernant un réseau d'escroquerie. Des individus figurant sur des photographies sont recherchés, soupçonnés d'appartenir à cette organisation criminelle.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 10.7,
      "pays": "DZ",
      "source": "Le Soir d'Algérie"
-    },
-    {
-     "titre": "Disney+ et Hulu bientôt réunis",
-     "texte": "L'application unifiée Disney+ et Hulu sera disponible en décembre. Disney concrétise son projet de fusionner ses deux plateformes de streaming. Les abonnés profiteront ainsi d'une expérience centralisée pour accéder aux contenus.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 13.5,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Quand une carte graphique dédiée est utile",
-     "texte": "Les cartes graphiques intégrées sont performantes, mais ont leurs limites. Une carte graphique dédiée, souvent coûteuse, s'avère essentielle pour les jeux et certaines tâches professionnelles exigeantes en puissance graphique.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 12.1,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Djurdjura: rappel des règles de randonnée",
-     "texte": "Le Parc national du Djurdjura publie une carte des itinéraires autorisés et rappelle les consignes de sécurité et de respect de l'environnement. L'objectif est d'encadrer la randonnée et de prévenir les dérives.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.3,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "ChatGPT: Sol ou Astra, lequel choisir ?",
-     "texte": "OpenAI met à jour ses modèles pour ChatGPT et Codex. Sol est idéal pour le travail quotidien et le développement. Astra se révèle plus pertinent pour l'analyse de dossiers complets et complexes.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.8,
-     "pays": "INT",
-     "source": "Clubic"
-    },
-    {
-     "titre": "Cyberattaque ou simple panne ?",
-     "texte": "Face à de nombreuses pannes touchant emails ou services, il est difficile de distinguer une cyberattaque d'une simple défaillance technique. Des enquêtes permettent d'identifier l'origine réelle des interruptions.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 11.0,
-     "pays": "INT",
-     "source": "Wired"
     }
    ]
   },
