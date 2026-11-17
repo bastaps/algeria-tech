@@ -2,7 +2,8 @@
  "institutions": [
   {
    "id": "mpt.gov.dz",
-   "nom": "Ministère de la Poste et des TIC"
+   "nom": "Ministère de la Poste et des TIC",
+   "quotidien": true
   },
   {
    "id": "mesrs.dz",
@@ -18,11 +19,13 @@
   },
   {
    "id": "AlgerieTelecom",
-   "nom": "Algérie Télécom"
+   "nom": "Algérie Télécom",
+   "quotidien": true
   },
   {
    "id": "algerieposteofficiel",
-   "nom": "Algérie Poste"
+   "nom": "Algérie Poste",
+   "quotidien": true
   },
   {
    "id": "mkesme.dz",
