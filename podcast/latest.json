@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-18",
- "genere": "2026-11-18T20:23:24",
+ "genere": "2026-11-18T23:34:55",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-18T20:23:54",
+   "genere": "2026-11-18T23:35:21",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.7,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Au programme ce soir, dix informations clés pour votre veille technologique."
+    "duree": 6.8,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les 10 informations tech et télécoms de votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.2,
-    "texte": "C'est tout pour ce soir. Retrouvez-nous demain pour une nouvelle sélection d'informations tech."
+    "duree": 5.7,
+    "texte": "C'était votre brief Algeria Tech. Retrouvez-nous demain pour une nouvelle édition."
    },
    "items": [
     {
-     "titre": "Gouvernement et numérisation",
-     "texte": "Ce mercredi, le gouvernement a examiné plusieurs dossiers importants. Au menu : la numérisation, les paiements électroniques et les infrastructures, des sujets cruciaux pour l'avenir technologique du pays.",
+     "titre": "Numérisation et infrastructures examinées",
+     "texte": "Le gouvernement a étudié plusieurs dossiers importants. Ces discussions portaient sur les avancées dans la numérisation, l'expansion des paiements électroniques et l'amélioration des infrastructures techniques du pays.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 12.0,
+     "duree": 11.4,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Avancées numériques examinées",
-     "texte": "Une réunion gouvernementale a permis d'étudier en détail les progrès dans la numérisation, les systèmes de paiement électronique et le développement des infrastructures nécessaires pour une économie moderne.",
+     "titre": "Gouvernement : dossiers tech à l'ordre du jour",
+     "texte": "Une réunion gouvernementale s'est tenue pour examiner des dossiers cruciaux. L'accent a été mis sur les projets de numérisation, le développement des solutions de paiement électronique et le renforcement des infrastructures technologiques.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 9.9,
+     "duree": 12.4,
      "pays": "DZ",
      "source": "Radio Algérie"
     },
     {
-     "titre": "Pannes des services Apple",
-     "texte": "Plusieurs services Apple, dont iCloud et l'App Store, ont connu une interruption apparente. L'étendue complète de cette panne n'est pas encore totalement déterminée par les utilisateurs.",
+     "titre": "Téléphones Nothing : comment les avoir",
+     "texte": "Les derniers smartphones Nothing, appréciés pour leur design épuré, arrivent sur le marché américain. Bien que non disponibles chez certains grands opérateurs, des partenariats permettent de les acquérir via des distributeurs spécialisés.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 10.5,
+     "duree": 13.2,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Robots chinois à l'IA",
-     "texte": "En Chine, les robots intègrent de plus en plus l'intelligence artificielle. Qu'il s'agisse de préparer du café ou de trier des colis, ces machines deviennent plus performantes.",
+     "titre": "La NPU : un composant méconnu des portables",
+     "texte": "Les ordinateurs portables récents intègrent souvent une NPU, une unité de traitement neuronal dédiée à l'intelligence artificielle. Bien que son usage soit encore limité, cette puce est conçue pour des tâches d'IA spécifiques.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 10.1,
-     "pays": "DZ",
-     "source": "NTIC.dz"
-    },
-    {
-     "titre": "Ooredoo récompense le journalisme",
-     "texte": "La 19ème édition de Media Star par Ooredoo a célébré ses lauréats. Ce concours met en lumière et valorise le travail journalistique en Algérie, soulignant son importance.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 10.3,
-     "pays": "DZ",
-     "source": "NTIC.dz"
-    },
-    {
-     "titre": "Appel à projets IA en Algérie",
-     "texte": "L'ATRST lance un appel à projets pour l'intelligence artificielle jusqu'en janvier 2027. L'objectif est de financer des algorithmes capables de résoudre des défis socio-économiques concrets.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 11.2,
-     "pays": "DZ",
-     "source": "ITMAG"
-    },
-    {
-     "titre": "Pixel contre Galaxy",
-     "texte": "Un comparatif s'intéresse aux similitudes entre les Google Pixel et le Samsung Galaxy S26+. Les deux gammes proposent des expériences Android parfois étonnamment proches.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 10.3,
+     "duree": 12.6,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Paiements en ligne en forte hausse",
-     "texte": "Les paiements en ligne en Algérie ont connu une augmentation spectaculaire de 63%. Sur neuf mois, leur valeur a atteint 391 milliards de dinars, signe de la numérisation.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.1,
+     "titre": "Mobilis lance MobilisTransfer pour entreprises",
+     "texte": "Mobilis innove avec une nouvelle application nommée MobilisTransfer, spécifiquement conçue pour les entreprises. Ce nouvel outil vise à simplifier la gestion des services mobiles professionnels.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 10.8,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Inatel exporte des TPE vers le Nigeria",
+     "texte": "L'entreprise publique Inatel a effectué sa première exportation vers le Nigeria. Vingt-cinq mille terminaux de paiement électronique ont été expédiés, marquant une étape importante pour l'entreprise algérienne.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 11.4,
      "pays": "DZ",
      "source": "Algérie Éco"
     },
     {
-     "titre": "Dépistage du diabète",
-     "texte": "Face à 4,7 millions de diabétiques, Novo Algérie et le ministère de la Santé lancent un dépistage gratuit. Ces actions ciblent les wilayas de Naâma et d'El Bayadh.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 10.1,
+     "titre": "Sept navires algériens vers l'Asie",
+     "texte": "Sept navires transportant du pétrole et des dérivés ont quitté les ports algériens. Ces cargaisons sont en route vers quatre pays asiatiques, renforçant les échanges commerciaux dans la région.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 10.5,
      "pays": "DZ",
-     "source": "Maghreb Emergent"
+     "source": "Algérie Éco"
     },
     {
-     "titre": "Assurance auto facilitée",
-     "texte": "Alliance Assurance et la BDL s'associent pour faciliter le paiement des assurances auto. Les clients peuvent désormais régler leurs contrats tous risques sans frais ni intérêt.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 9.2,
+     "titre": "MobilisTransfer : nouvelle application pro",
+     "texte": "Dans le cadre de sa stratégie digitale, Mobilis dévoile MobilisTransfer. Cette application permet aux entreprises de gérer à distance les lignes de leurs employés et de répartir des unités de service.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 11.8,
      "pays": "DZ",
-     "source": "Maghreb Emergent"
+     "source": "NTIC.dz"
+    },
+    {
+     "titre": "Services Apple frappés par une panne",
+     "texte": "Plusieurs services d'Apple, dont iCloud, l'App Store et Apple Pay, ont rencontré des interruptions. Cette panne généralisée a affecté une partie de l'infrastructure en ligne de la marque à la pomme.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 11.2,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Recensement scolaire : modalités fixées",
+     "texte": "Le ministère de l'Éducation nationale a défini les modalités et délais pour le recensement statistique scolaire 2026-2027. Cette opération vise à collecter des données fiables pour améliorer le secteur.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 12.0,
+     "pays": "DZ",
+     "source": "Le Jeune Indépendant"
     }
    ]
   },
