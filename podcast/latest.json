@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-18",
- "genere": "2026-11-18T16:33:06",
+ "genere": "2026-11-18T20:23:24",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-18T16:33:30",
+   "genere": "2026-11-18T20:23:54",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.8,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici 10 infos tech et télécoms pour éclairer votre soirée."
+    "duree": 7.7,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Au programme ce soir, dix informations clés pour votre veille technologique."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.3,
-    "texte": "C'était Algeria Tech. Retrouvez-nous demain pour plus d'actualités."
+    "duree": 6.2,
+    "texte": "C'est tout pour ce soir. Retrouvez-nous demain pour une nouvelle sélection d'informations tech."
    },
    "items": [
     {
-     "titre": "Gouvernement : cap sur la numérisation",
-     "texte": "Le gouvernement algérien s'est réuni pour examiner plusieurs dossiers cruciaux. Au menu, les avancées en matière de numérisation, le développement des paiements électroniques et l'amélioration des infrastructures de télécommunication.",
+     "titre": "Gouvernement et numérisation",
+     "texte": "Ce mercredi, le gouvernement a examiné plusieurs dossiers importants. Au menu : la numérisation, les paiements électroniques et les infrastructures, des sujets cruciaux pour l'avenir technologique du pays.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 12.6,
-     "pays": "DZ",
-     "source": "Radio Algérie"
-    },
-    {
-     "titre": "Numérisation et paiements : dossiers gouvernementaux",
-     "texte": "Mercredi dernier, le gouvernement algérien s'est penché sur des dossiers clés. Il s'agissait notamment de la numérisation de l'économie, de l'expansion des solutions de paiement électronique et du renforcement des infrastructures technologiques.",
-     "mp3": "/podcast/fr/02.mp3",
-     "duree": 13.0,
+     "duree": 12.0,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Paiements en ligne : forte hausse",
-     "texte": "Les paiements en ligne en Algérie ont connu une augmentation spectaculaire de 63 % en 2026. Le gouvernement examine ce secteur, essentiel pour la modernisation économique, afin de surmonter les obstacles à sa généralisation.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 13.8,
+     "titre": "Avancées numériques examinées",
+     "texte": "Une réunion gouvernementale a permis d'étudier en détail les progrès dans la numérisation, les systèmes de paiement électronique et le développement des infrastructures nécessaires pour une économie moderne.",
+     "mp3": "/podcast/fr/02.mp3",
+     "duree": 9.9,
      "pays": "DZ",
-     "source": "TSA Algérie"
+     "source": "Radio Algérie"
     },
     {
-     "titre": "Oregon poursuit OpenAI",
-     "texte": "L'État de l'Oregon aux États-Unis poursuit en justice la société OpenAI. L'accusation porte sur la protection des mineurs face aux risques potentiels des intelligences artificielles, demandant des dédommagements considérables.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 12.4,
+     "titre": "Pannes des services Apple",
+     "texte": "Plusieurs services Apple, dont iCloud et l'App Store, ont connu une interruption apparente. L'étendue complète de cette panne n'est pas encore totalement déterminée par les utilisateurs.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 10.5,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Avocats marocains : mobilisation",
-     "texte": "Au Maroc, les avocats annoncent deux journées de mobilisation les 29 et 30 novembre. Ils protestent contre une nouvelle loi régissant leur profession, appelant à des rassemblements et des arrêts de travail.",
+     "titre": "Robots chinois à l'IA",
+     "texte": "En Chine, les robots intègrent de plus en plus l'intelligence artificielle. Qu'il s'agisse de préparer du café ou de trier des colis, ces machines deviennent plus performantes.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 10.1,
+     "pays": "DZ",
+     "source": "NTIC.dz"
+    },
+    {
+     "titre": "Ooredoo récompense le journalisme",
+     "texte": "La 19ème édition de Media Star par Ooredoo a célébré ses lauréats. Ce concours met en lumière et valorise le travail journalistique en Algérie, soulignant son importance.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 11.4,
+     "duree": 10.3,
+     "pays": "DZ",
+     "source": "NTIC.dz"
+    },
+    {
+     "titre": "Appel à projets IA en Algérie",
+     "texte": "L'ATRST lance un appel à projets pour l'intelligence artificielle jusqu'en janvier 2027. L'objectif est de financer des algorithmes capables de résoudre des défis socio-économiques concrets.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 11.2,
+     "pays": "DZ",
+     "source": "ITMAG"
+    },
+    {
+     "titre": "Pixel contre Galaxy",
+     "texte": "Un comparatif s'intéresse aux similitudes entre les Google Pixel et le Samsung Galaxy S26+. Les deux gammes proposent des expériences Android parfois étonnamment proches.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 10.3,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Paiements en ligne en forte hausse",
+     "texte": "Les paiements en ligne en Algérie ont connu une augmentation spectaculaire de 63%. Sur neuf mois, leur valeur a atteint 391 milliards de dinars, signe de la numérisation.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 11.1,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "Dépistage du diabète",
+     "texte": "Face à 4,7 millions de diabétiques, Novo Algérie et le ministère de la Santé lancent un dépistage gratuit. Ces actions ciblent les wilayas de Naâma et d'El Bayadh.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 10.1,
      "pays": "DZ",
      "source": "Maghreb Emergent"
     },
     {
-     "titre": "Défense du droit sahraoui",
-     "texte": "Une large mobilisation est lancée pour défendre le droit du peuple sahraoui à l'autodétermination. Cet engagement souligne l'importance de ce dossier sur la scène internationale et régionale.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 10.3,
-     "pays": "DZ",
-     "source": "Le Soir d'Algérie"
-    },
-    {
-     "titre": "Journée mondiale du diabète",
-     "texte": "À l'occasion de la Journée mondiale du diabète, la clinique mobile Driving Change a été relancée en Algérie. Ce partenariat avec le ministère de la Santé vise à améliorer le suivi des patients.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 11.1,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Algérie Poste : TPE vs Pin Pad",
-     "texte": "Algérie Poste clarifie la distinction entre un terminal de paiement électronique, le TPE, et un Pin Pad. Ces explications visent à mieux informer les utilisateurs sur les outils de paiement par carte.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.5,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Ligue 1 Mobilis : Choc et leader",
-     "texte": "La 10e journée de la Ligue 1 Mobilis promet un grand spectacle. Le match JSK-USMA est très attendu, tandis que le leader, le CR Belouizdad, défie l'invincibilité à Ouargla.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.1,
-     "pays": "DZ",
-     "source": "Crésus"
-    },
-    {
-     "titre": "Automobile : inquiétude au Maroc",
-     "texte": "Le Maroc s'inquiète face au nouveau pacte industriel européen. Ce dernier pourrait impacter négativement son industrie automobile, pilier de ses exportations et un secteur vital pour l'économie du royaume.",
+     "titre": "Assurance auto facilitée",
+     "texte": "Alliance Assurance et la BDL s'associent pour faciliter le paiement des assurances auto. Les clients peuvent désormais régler leurs contrats tous risques sans frais ni intérêt.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 11.6,
+     "duree": 9.2,
      "pays": "DZ",
-     "source": "TSA Algérie"
+     "source": "Maghreb Emergent"
     }
    ]
   },
