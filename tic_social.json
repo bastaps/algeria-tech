@@ -721,6 +721,24 @@
       "source_type": "youtube"
     },
     {
+      "id": "f8c55b895228379d",
+      "source_name": "Algérie Poste",
+      "source_short": "AP",
+      "source_color": "#F9A825",
+      "category": "Infrastructure",
+      "category_icon": "✉️",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPdnVvc3ZyVUpPZHhndEFMeklxSWJqZTdQTjdRU2FFdDFia0FxX01jWEVFZmxiOUZZUGM2OVZSYkpzUmRPbEg3MDlsa0ZtVEUya0ZSOXYwWjdEbVlSakFjamQxU3MxWUtaMlpoZFBMdGF3d2RzNWU1MG5fTmFSU3ZYZW9NdHJsYTdOcHhHbTZBUzZ5QXEtRGVXdw?oc=5",
+      "image": "",
+      "date": "Wed, 18 Nov 2026 08:52:00 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Ramadan 2027 en Algérie : la date du 1er jour annoncée par l’astronome Loth Bounatiro - Algérie Zoom — Ramadan 2027 en Algérie : la date du 1er jour annoncée par l’astronome Loth Bounatiro Algérie Zoom",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "5ad807027942c968",
       "source_name": "Algérie Poste",
       "source_short": "AP",
@@ -1057,24 +1075,6 @@
       "lang_source": "fr",
       "text": {
         "fr": "Béjaïa : Algérie Télécom renforce la prévention contre les arnaques en ligne - La patrie news — Béjaïa : Algérie Télécom renforce la prévention contre les arnaques en ligne La patrie news",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c9c6c572c1823e51",
-      "source_name": "Algérie Poste",
-      "source_short": "AP",
-      "source_color": "#F9A825",
-      "category": "Infrastructure",
-      "category_icon": "✉️",
-      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPaTFKMjN5NGFkMWx0a3FUNG54UjF4bWpvMFJKLUxseTljbG9CRGcxVTNPLTZnSmdreUxNN2g0YTQ0aUREZ2EzaDJ6YVg5Zmhnb0g5Qm5DN3hMN3phRXFoUWE0S3lPMTRiV0lzV09rSWtyOEh6YjVrVUtsbVBUSVB6RDYzNEFtN3k1Ym1HRm5WXzZkQlJVaVE?oc=5",
-      "image": "",
-      "date": "Wed, 28 Oct 2026 14:44:06 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Paiement des amendes routières via BaridiMob: Gare à l’arnaque ! - L'Algérie Aujourd'hui — Paiement des amendes routières via BaridiMob: Gare à l’arnaque ! L'Algérie Aujourd'hui",
         "ar": "",
         "en": ""
       },
@@ -1441,6 +1441,204 @@
       "source_type": "facebook"
     },
     {
+      "id": "0f46293e3612b41e",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/11/18/microsoft-ceo-satya-nadella-explains-why-he-asked-60k-employees-to-quit/",
+      "image": "",
+      "date": "Thu, 19 Nov 2026 00:42:56 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Microsoft CEO Satya Nadella explains why he asked 60K employees to quit — Microsoft CEO Satya Nadella explained why he offered buyouts to 60,000 of his employees in October, essentially urging them to voluntarily quit, rather than reducing the workforce via another massive layoff. The short answer is AI, but not in the way you might expect.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e8bf936643ddea41",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/11/18/elon-musk-says-im-not-maga/",
+      "image": "",
+      "date": "Thu, 19 Nov 2026 00:40:49 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Elon Musk says: ‘I’m not MAGA’ — During his appearance Wednesday at the Dealbook Summit conference, Elon Musk said that he wasn't sure what the term \"MAGA\" meant and also commented that he felt \"pretty foolish\" for having spent so much money during the U.S. midterms.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "5d67ac67da7b88b9",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/11/18/amidst-fears-of-ai-cyberattacks-satya-nadella-says-lots-of-critical-infrastructure-is-unpatchable/",
+      "image": "",
+      "date": "Wed, 18 Nov 2026 23:45:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Amidst fears of AI cyberattacks, Satya Nadella says lots of critical infrastructure is ‘unpatchable’ — The Microsoft CEO downplayed the recent Outlook outage while noting that AI was causing both opportunities and new challenges for securing much of the connected world.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "849294612ba08ea3",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/pratique/ia-pratique-demandez-a-gemini-notebook-de-vous-creer-un-site-web-a-partir-de-vos-notes-508075.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 18 Nov 2026 21:00:01 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "IA pratique : demandez à Gemini Notebook de vous créer un site Web à partir de vos notes — Cette nouvelle fonctionnalité du service d’intelligence artificielle de Google vous permet de créer des sites interactifs à l’aide de données complexes.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "b7848c121cc9281b",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/18/le-president-tebboune-preside-une-reunion-de-travail-consacree-a-linstallation-de-lagence-nationale-darcheologie/",
+      "image": "",
+      "date": "Wed, 18 Nov 2026 20:45:20 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Le président Tebboune préside une réunion de travail consacrée à l’installation de l’Agence nationale d’archéologie — Le président de la République, M. Abdelmadjid Tebboune, a présidé, mercredi, une réunion de travail consacrée à l’installation de l’Agence nationale d’archéologie. Dans une déclaration à la presse à l’issue de la réunion, le directeur général de l’Agence, M. Slimane Hachi a souligné que « Monsieur l",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "5e8e78f24e5b6756",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/18/inatel-exporte-25-000-tpe-vers-le-nigeria/",
+      "image": "",
+      "date": "Wed, 18 Nov 2026 20:27:05 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Inatel exporte 25.000 TPE vers le Nigeria — L’entreprise publique économique de l’Industrie algérienne des technologies électroniques « INATEL », dont le siège est situé à Tlemcen, a lancé mercredi sa première opération d’exportation de terminaux de paiement électronique (TPE) vers le Nigeria. Cette première cargaison comprend 25.000 TPE, ach",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "9936e9678bcbad31",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/18/algerie-sept-navires-transportant-du-petrole-et-des-produits-petroliers-en-route-vers-quatre-marches-asiatiques/",
+      "image": "",
+      "date": "Wed, 18 Nov 2026 19:24:48 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Algérie : sept navires transportant du pétrole et des produits pétroliers en route vers quatre marchés asiatiques — Sept navires transportant du pétrole brut et des produits pétroliers ont quitté les ports algériens de Skikda et d’Arzew à destination de plusieurs marchés asiatiques. Selon des données de navigation publiées mardi 17 novembre par le média qatari Al Jazeera, les cargaisons sont destinées à quatre pa",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "676057066b100e07",
+      "source_name": "NTIC-DZ",
+      "source_short": "NTC",
+      "source_color": "#01579B",
+      "category": "Médias TIC",
+      "category_icon": "🌐",
+      "url": "https://www.ntic-dz.com/mobilis-lance-lapplication-mobilistransfer-dediee-au-secteur-des-entreprises/?utm_source=rss&utm_medium=rss&utm_campaign=mobilis-lance-lapplication-mobilistransfer-dediee-au-secteur-des-entreprises",
+      "image": "",
+      "date": "Wed, 18 Nov 2026 19:24:38 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Mobilis lance l’application « MobilisTransfer » dédiée au secteur des entreprises — feed Dans le cadre de sa stratégie visant à promouvoir l’innovation et à diversifier ses services et solutions digitales, Mobilis lance une application dédiée aux entreprises dénommée : « MobilisTransfer ». Cette application permet aux gestionnaires d’entreprises de gérer à distance les lignes de le",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "87b0678b74c3bf1b",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/test-microsoft-surface-laptop-ultra-cette-machine-prefigure-un-avenir-sous-windows-tres-tres-exclusif-508072.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 18 Nov 2026 18:57:32 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Test Microsoft Surface Laptop Ultra : cette machine préfigure un avenir sous Windows très très exclusif — Ce ordinateur est conçu pour les utilisateurs expérimentés et les développeurs, tirant pleinement parti des dernières avancées en matière de flux de travail basés sur l'IA. Pour tous les autres, la bête est surpuissante.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "6f92fdb9f0798cce",
+      "source_name": "NTIC-DZ",
+      "source_short": "NTC",
+      "source_color": "#01579B",
+      "category": "Médias TIC",
+      "category_icon": "🌐",
+      "url": "https://www.ntic-dz.com/du-cafe-aux-colis-les-robots-chinois-passent-a-lintelligence-artificielle/?utm_source=rss&utm_medium=rss&utm_campaign=du-cafe-aux-colis-les-robots-chinois-passent-a-lintelligence-artificielle",
+      "image": "",
+      "date": "Wed, 18 Nov 2026 18:27:53 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Du café aux colis, les robots chinois passent à l’intelligence artificielle — feed Ils préparent cafés et glaces, trient des colis, travaillent à l’usine : encore limités mais en progrès, les robots utilisant l’intelligence artificielle (IA) se déploient en Chine, notamment à Shenzhen, sa capitale technologique. Hérissée de gratte-ciel, la ville de 18 millions d’habitants, vo",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "d3130e51a0d584aa",
+      "source_name": "NTIC-DZ",
+      "source_short": "NTC",
+      "source_color": "#01579B",
+      "category": "Médias TIC",
+      "category_icon": "🌐",
+      "url": "https://www.ntic-dz.com/ooredoo-prime-les-laureats-de-la-19eme-edition-de-media-star/?utm_source=rss&utm_medium=rss&utm_campaign=ooredoo-prime-les-laureats-de-la-19eme-edition-de-media-star",
+      "image": "",
+      "date": "Wed, 18 Nov 2026 17:45:03 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Ooredoo prime les lauréats de la 19ème édition de Media Star — feed Ooredoo a dévoilé les noms des lauréats de la 19ème édition de son concours phare, « Media Star » lors d’une prestigieuse cérémonie de remise des prix qui s’est tenue dans la soirée du lundi 16 novembre 2026 à l’hôtel Sheraton d’Alger, marquant un nouveau jalon dans la valorisation du travail j",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "d5373fa6c67896b7",
       "source_name": "TechCrunch",
       "source_short": "TC",
@@ -1693,6 +1891,24 @@
       "source_type": "rss"
     },
     {
+      "id": "c986fbbec339d1e0",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/apple-devoile-les-limites-quotidiennes-dutilisation-de-lia-siri-voici-combien-cela-vous-coutera-508115.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 18 Nov 2026 11:16:23 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Apple dévoile les limites quotidiennes d'utilisation de l'IA Siri, voici combien cela vous coûtera — Plus vous payez cher pour un forfait iCloud+, plus vous pourrez utiliser l'IA de Siri et Apple Intelligence pour des tâches avancées côté serveur.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "c6c3f92f1d758e03",
       "source_name": "ItMag DZ",
       "source_short": "ITM",
@@ -1759,6 +1975,24 @@
       "lang_source": "fr",
       "text": {
         "fr": "Black Friday 2026 : Mac Mini à -120 €, les meilleures offres tech — Le Black Friday 2026 s'installe pour de bon, et les remises sur les produits Apple atteignent des niveaux rarement vus. Mac Mini, MacBook, AirPods : voici ce qu'il faut surveiller avant le 27 novembre.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "5e3e1b61abf4d5c1",
+      "source_name": "Android DZ",
+      "source_short": "ADZ",
+      "source_color": "#33691E",
+      "category": "Médias TIC",
+      "category_icon": "🤖",
+      "url": "https://www.android-dz.com/apple-microsoft-jpmorgan-une-semaine-noire-pour-la-tech-mondiale/",
+      "image": "",
+      "date": "2026-11-18T06:27:00.039Z",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Apple, Microsoft, JPMorgan : une semaine noire pour la tech mondiale — En l'espace de quelques jours, Apple, Microsoft, JPMorgan Chase, la FAA et United Airlines ont tous subi des pannes majeures. Un enchaînement rare qui a secoué les marchés et semé la pagaille pour des millions d'utilisateurs.",
         "ar": "",
         "en": ""
       },
@@ -2227,6 +2461,42 @@
       "lang_source": "fr",
       "text": {
         "fr": "La Californie attaque OpenAI après l’incident Hugging Face — La Californie a déposé une plainte contre OpenAI après une série d’incidents incluant une attaque de plusieurs centaines d’agents autonomes contre Hugging Face. The post La Californie attaque OpenAI après l’incident Hugging Face appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "ca963814fdeb130d",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/business-1367/qluster-leve-47-millions-e-pour-un-ordinateur-quantique-photonique-230429",
+      "image": "",
+      "date": "Tue, 17 Nov 2026 10:01:49 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Qluster lève 4,7 millions € pour un ordinateur quantique photonique — Qluster mise sur la photonique à variables continues et vise un calculateur intermédiaire en 2032, puis un ordinateur universel tolérant aux fautes en 2036. The post Qluster lève 4,7 millions € pour un ordinateur quantique photonique appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "66dadb4b06dd19ff",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/business-1367/lvmh-medias-met-chatgpt-dans-les-redactions-des-echos-et-du-parisien-230424",
+      "image": "",
+      "date": "Tue, 17 Nov 2026 09:19:29 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "LVMH médias met ChatGPT dans les rédactions des Echos et du Parisien — LVMH médias déploie ChatGPT Enterprise dans ses rédactions et ouvre ses articles à ChatGPT. Les conditions de l’accord restent inconnues. The post LVMH médias met ChatGPT dans les rédactions des Echos et du Parisien appeared first on Silicon.fr .",
         "ar": "",
         "en": ""
       },
@@ -5129,279 +5399,9 @@
         "fr": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "bf9a8df53a7ffea1",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/11/nvidias-stock-drops-as-board-reportedly-preps-to-oust-ceo-jensen-huang/",
-      "image": "",
-      "date": "Wed, 11 Nov 2026 23:28:45 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Nvidia’s stock drops as board reportedly preps to oust CEO Jensen Huang — As soon as Wednesday evening, Nvidia's board could decide to remove its founder and CEO of 33 years.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "514b502da5e28df4",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/11/jensen-huang-accused-of-having-another-affair-with-a-nvidia-exec/",
-      "image": "",
-      "date": "Wed, 11 Nov 2026 23:17:05 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Jensen Huang accused of having another affair — with an Nvidia exec — Jensen Huang, who has come under fire for admitting to an affair with a woman accused of being a Chinese intelligence agent, has been accused of having a separate affair with an Nvidia subordinate.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "6e88c6c660c23e79",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/guide-achat/sony-wh-1000xm6-vs-sonos-ace-ultra-quelles-differences-entre-ces-casques-haut-de-gamme-507749.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 11 Nov 2026 21:03:21 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Sony WH-1000XM6 vs. Sonos Ace Ultra : quelles différences entre ces casques haut de gamme ? — Ces deux produits s'adressent à des profils d'utilisateurs exigeants mais pas exactement identiques. Découvrez ici lequel vous convient le mieux pour bien écouter votre musique.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c0eaf43c546341b1",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/11/11/le-salon-international-des-dattes-ouvre-a-alger-avec-234-exposants/",
-      "image": "",
-      "date": "Wed, 11 Nov 2026 20:28:09 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Le Salon international des dattes ouvre à Alger avec 234 exposants — La 4e édition du Salon international des dattes a ouvert ses portes mercredi 11 novembre au Palais des expositions des Pins maritimes, à Alger. Organisé par la Chambre nationale d’agriculture (CNA), sous l’égide du ministère de l’Agriculture, du Développement rural et de la Pêche, cet événement réun",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "66b6a5c01412fe6c",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/11/11/lalgerie-achete-plus-de-700-000-tonnes-de-ble-tendre/",
-      "image": "",
-      "date": "Wed, 11 Nov 2026 20:02:52 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "L’Algérie achète plus de 700 000 tonnes de blé tendre — L’Algérie, par l’intermédiaire de l’Office algérien interprofessionnel des céréales (OAIC), a acheté plus de 700 000 tonnes de blé tendre destiné à la meunerie, à l’issue d’un appel d’offres international clôturé ce mercredi 11 novembre. L’information a été rapportée par l’agence Reuters, sur la bas",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "7f3ae986dea28aef",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/pratique/retour-dexperience-jai-cree-mon-premier-jeu-avec-twine-sans-avoir-besoin-de-coder-ni-dia-507699.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 11 Nov 2026 17:02:29 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Retour d’expérience : j’ai créé mon premier jeu avec Twine, sans avoir besoin de coder ni d'IA — Cet outil de développement gratuit et open source permet de réaliser des fictions interactives et des jeux textuels. Il s'avère qu'il est parfait pour les débutants comme moi.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "76937588e6b6d652",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/11/11/guerre-dinfluence-et-regles-du-jeu-numerique-les-coulisses-de-la-pp-26-a-doha/",
-      "image": "",
-      "date": "Wed, 11 Nov 2026 15:38:21 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "GUERRE D’INFLUENCE ET RÈGLES DU JEU NUMÉRIQUE : LES COULISSES DE LA PP-26 À DOHA (MAJ) — Dans les travées du Doha Exhibition and Convention Center (DECC), la tension diplomatique monte d'un cran. Du 9 au 27 novembre 2026, la 22ᵉ Conférence de plénipotentiaires de l’Union internationale des télécommunications (UIT) transforme la capitale qatarie en échiquier géopolitique. Derrière le déc",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "585bdb3570cb743b",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/tribune/dejan-grofelnik-pelzel-bunny-net-souverainete-numerique-les-entreprises-europeennes-doivent-pouvoir-rester-maitresses-de-leurs-choix-507617.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 11 Nov 2026 15:32:50 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Dejan Grofelnik Pelzel, bunny.net : Souveraineté numérique : les entreprises européennes doivent pouvoir rester maîtresses de leurs choix — Localisation des données, nationalité des fournisseurs : selon Dejan Grofelnik Pelzel, CEO de bunny.net, le débat sur la souveraineté numérique passe à côté de l’essentiel. A l’heure où Bruxelles s’apprête à statuer sur le statut de “gatekeeper” d’AWS et Microsoft Azure, il propose un autre critère,",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "de7fb978fe857220",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/11/11/reunion-du-gouvernement-le-transport-maritime-et-le-paiement-electronique-au-menu/",
-      "image": "",
-      "date": "Wed, 11 Nov 2026 15:26:43 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Réunion du gouvernement : le transport maritime et le paiement électronique au menu — Le Premier ministre, M. Sifi Ghrieb, a présidé, ce mercredi 11 novembre, une réunion du gouvernement consacrée à l’étude d’exposés relatifs au développement du transport maritime et la modernisation de sa flotte, ainsi qu’à la modernisation des moyens de paiement électronique, indique un communiqué",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "02f602e4e28e3e53",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/11/11/bilal-achacha-nouveau-directeur-general-du-fni/",
-      "image": "",
-      "date": "Wed, 11 Nov 2026 14:39:16 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Bilal Achacha, nouveau directeur général du FNI — Le secrétaire général du ministère des Finances, Kamel Meraghni, a procédé à l’installation de Bilal Achacha dans ses fonctions de directeur général du Fonds national d’investissement (FNI), indique mercredi un communiqué du FNI. La cérémonie d’installation de M. Achacha tenue mardi au siège de la d",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c469d7bbc40ab142",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/11/plurai-wants-to-help-ai-agents-work-better-using-the-same-approach-that-helped-get-self-driving-cars-to-roads/",
-      "image": "",
-      "date": "Wed, 11 Nov 2026 14:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Plurai wants to help AI agents work better using the same approach that helped get self-driving cars to roads — Like the end-to-end models trained to drive cars, AI agents are probabilistic systems operating in unpredictable environments.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "48b82e99669b6bb0",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/11/11/importation-de-semences-de-pomme-de-terre-une-cargaison-de-3-220-tonnes-receptionnee-au-port-de-mostaganem/",
-      "image": "",
-      "date": "Wed, 11 Nov 2026 13:37:00 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Importation de semences de pomme de terre : une cargaison de 3 220 tonnes réceptionnée au port de Mostaganem — Le port de Mostaganem a accueilli, mardi 10 novembre, la première cargaison de semences de pomme de terre destinée à la campagne agricole 2026/2027. Cette opération marque le lancement officiel, à l’échelle nationale, de la campagne d’importation de ces semences, selon un communiqué de l’Entreprise",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "701473adbccac08c",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/11/11/lambassadeur-dargentine-en-algerie-effectue-une-visite-a-la-laiterie-soummam/",
-      "image": "",
-      "date": "Wed, 11 Nov 2026 12:45:14 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "L’ambassadeur d’Argentine en Algérie effectue une visite à la Laiterie Soummam — L’ambassadeur de l’Argentine en Algérie, Atilio Berardi Hueda, a effectué, mardi 10 novembre, une visite de courtoisie à la Laiterie Soummam, à Akbou, dans la wilaya de Béjaïa, indique l’entreprise dans un communiqué. À cette occasion, le diplomate argentin a assisté « à une présentation détaillée d",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "b47fdaaa4f5241f8",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/le-cianum-alerte-sur-les-dangers-emotionnels-lies-a-lia-generative-507696.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 11 Nov 2026 09:30:30 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Le CIANum alerte sur les dangers émotionnels liés à l'IA générative — Saisi par la ministre Anne Le Henanf, le Conseil alerte sur notre dépendance affective aux chatbots. Pour endiguer ces risques cognitifs, le rapport réclame des contrôles stricts avant la mise sur le marché, en écho aux futurs règlements européens AI Act et EU Kids Act.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "3ddbb145609db8d6",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/semi-conducteurs-la-gravure-alcaline-comme-solution-pour-fabriquer-des-puces-plus-complexes-507708.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 11 Nov 2026 09:00:37 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Semi-conducteurs : la gravure alcaline comme solution pour fabriquer des puces plus complexes — L'allemand RENA Technologies développe une technique de gravure chimique permettant de percer des trous microscopiques dans les substrats en verre. L'idée est de multiplier les connexions électriques entre les composants et ainsi répondre aux besoins croissants des processeurs pour l'intelligence ar",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-11-18T16:04:40.291209+00:00",
+  "lastUpdated": "2026-11-19T00:52:27.299516+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
