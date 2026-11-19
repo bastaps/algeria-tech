@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-19",
- "genere": "2026-11-19T20:28:21",
+ "genere": "2026-11-19T23:40:11",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-19T20:28:45",
+   "genere": "2026-11-19T23:40:33",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.4,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici aujourd'hui 10 informations tech et télécoms qui ont marqué la journée."
+    "duree": 8.0,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Nous abordons aujourd'hui dix informations marquantes de l'actualité numérique et technologique."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.4,
-    "texte": "C'est tout pour ce soir. Retrouvez-nous demain pour un nouveau tour de l'actualité tech algérienne."
+    "duree": 6.5,
+    "texte": "C'est tout pour ce soir sur Algeria Tech. Retrouvez-nous demain pour un nouveau tour de l'actualité."
    },
    "items": [
     {
-     "titre": "Gouvernement et numérisation",
-     "texte": "Le gouvernement s'est réuni pour examiner des dossiers cruciaux portant sur la numérisation, le développement des paiements électroniques et l'amélioration des infrastructures.",
+     "titre": "Numérisation : dossiers examinés",
+     "texte": "Le gouvernement a passé en revue plusieurs dossiers cruciaux lors d'une réunion mercredi. Les sujets abordés concernaient la numérisation de nos services, le développement des paiements électroniques et l'amélioration de nos infrastructures.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 8.6,
+     "duree": 12.3,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Numérisation : réunion gouvernementale",
-     "texte": "Plusieurs dossiers essentiels concernant la transition numérique, les systèmes de paiement électronique et les infrastructures de télécommunications ont été étudiés lors d'une récente réunion du gouvernement.",
+     "titre": "Gouvernement et numérisation",
+     "texte": "Une réunion gouvernementale s'est tenue pour examiner des dossiers essentiels. Au programme, des avancées significatives dans la numérisation, le renforcement des paiements électroniques et le développement des infrastructures stratégiques.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 10.1,
+     "duree": 12.9,
      "pays": "DZ",
      "source": "Radio Algérie"
     },
     {
      "titre": "Cyber vigilance : nouvelle cellule",
-     "texte": "L'Office National des Postes et des Paiements Électroniques, l'ONPPE, a mis en place une nouvelle cellule dédiée à la vigilance cybernétique pour renforcer la sécurité.",
+     "texte": "L'Office National des Publications Officielles met en place une nouvelle structure. Une cellule de vigilance cybernétique vient d'être installée pour renforcer la sécurité de nos systèmes numériques.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 8.8,
+     "duree": 10.7,
      "pays": "DZ",
      "source": "Radio Algérie"
     },
     {
-     "titre": "Circulation nocturne interrompue",
-     "texte": "Attention, la route entre Chevalley et l'entrée du stade du 5-Juillet sera fermée à la circulation durant les nuits des 20 et 21 novembre.",
+     "titre": "Université et pépinière d'innovation",
+     "texte": "À El-Oued, le ministre Baddari a visité une pépinière innovante. Capable de produire cent mille plants, elle vise à lier recherche scientifique et applications économiques dans le secteur agricole du Sud.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 7.6,
+     "duree": 11.4,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "Google et l'IA à l'école",
+     "texte": "Des employés d'Alphabet s'inquiètent. Google est pointé du doigt pour son exigence d'intégrer ses outils d'intelligence artificielle dans la recherche proposée aux élèves des écoles.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 9.8,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Route du 5-Juillet fermée",
+     "texte": "Attention, la circulation sera perturbée. La route entre Chevalley et l'entrée du stade du 5-Juillet sera fermée toutes les nuits des 20 et 21 novembre.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 9.4,
      "pays": "DZ",
      "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "Djezzy lance Djezzy Solutions",
-     "texte": "L'opérateur Djezzy dévoile sa nouvelle marque Djezzy Solutions, offrant 15 services numériques conçus pour répondre aux besoins des entreprises algériennes.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 8.1,
+     "titre": "CarPlay : 5 applications musicales",
+     "texte": "Améliorez votre expérience sur CarPlay. Découvrez cinq applications recommandées pour écouter votre musique et vos podcasts préférés, que ce soit en streaming ou hors ligne.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 10.1,
      "pays": "DZ",
-     "source": "Algérie360 Tech"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Djezzy diversifie ses offres",
-     "texte": "Au-delà des télécommunications classiques, Djezzy lance Djezzy Solutions avec 15 nouveaux services numériques, développés en partenariat avec des start-up locales.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 8.7,
+     "titre": "BaridiMob : problèmes signalés",
+     "texte": "Des soucis avec votre application BaridiMob ? Algérie Poste explique que l'application mobile de la banque postale connaît actuellement des ralentissements et des dysfonctionnements.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 9.6,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Djezzy lance ses solutions entreprises",
+     "texte": "Djezzy se diversifie. L'opérateur mobile a dévoilé sa nouvelle marque « Djezzy Solutions », proposant quinze services numériques conçus spécifiquement pour répondre aux besoins des entreprises.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 10.9,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Djezzy : 15 solutions numériques",
+     "texte": "Djezzy élargit son offre. L'opérateur lance quinze solutions numériques, incluant cloud, IA et cybersécurité, développées en partenariat avec des start-up algériennes pour les entreprises.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 11.4,
      "pays": "DZ",
      "source": "TSA Algérie"
-    },
-    {
-     "titre": "Disque dur externe non reconnu",
-     "texte": "Votre PC refuse de lire votre disque dur externe ? Découvrez des solutions et étapes de dépannage pour tenter de résoudre le problème.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 8.3,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Le Pixel Tag de Google",
-     "texte": "Découvrez le Pixel Tag de Google, un outil simple à installer pour améliorer le suivi numérique, offrant une intégration rapide et efficace.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 8.0,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Djezzy Solutions pour entreprises",
-     "texte": "Djezzy lance officiellement sa nouvelle marque commerciale Djezzy Solutions, destinée à accompagner les entreprises dans leur transformation numérique.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 7.6,
-     "pays": "DZ",
-     "source": "NTIC.dz"
-    },
-    {
-     "titre": "Exportation de TPE vers Nigeria",
-     "texte": "L'Algérie effectue sa première exportation de terminaux de paiement électronique vers le Nigeria, avec un envoi de 25 000 appareils.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 7.4,
-     "pays": "DZ",
-     "source": "NTIC.dz"
     }
    ]
   },
