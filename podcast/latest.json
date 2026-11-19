@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-19",
- "genere": "2026-11-19T16:48:07",
+ "genere": "2026-11-19T20:28:21",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-19T16:48:34",
+   "genere": "2026-11-19T20:28:45",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.9,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici 10 informations tech et télécoms à suivre ce soir."
+    "duree": 7.4,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici aujourd'hui 10 informations tech et télécoms qui ont marqué la journée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.8,
-    "texte": "C'était votre dose d'actualités Algeria Tech. Merci de nous avoir écoutés."
+    "duree": 6.4,
+    "texte": "C'est tout pour ce soir. Retrouvez-nous demain pour un nouveau tour de l'actualité tech algérienne."
    },
    "items": [
     {
      "titre": "Gouvernement et numérisation",
-     "texte": "Mercredi 18 novembre 2026, le gouvernement a examiné plusieurs dossiers cruciaux. L'ordre du jour incluait des points importants sur la numérisation, les paiements électroniques et le développement des infrastructures essentielles pour l'Algérie.",
+     "texte": "Le gouvernement s'est réuni pour examiner des dossiers cruciaux portant sur la numérisation, le développement des paiements électroniques et l'amélioration des infrastructures.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 13.6,
+     "duree": 8.6,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Numérisation et infrastructures",
-     "texte": "Lors d'une réunion gouvernementale, des avancées significatives ont été discutées concernant la numérisation. L'accent a été mis sur l'amélioration des paiements électroniques et le renforcement des infrastructures technologiques du pays.",
+     "titre": "Numérisation : réunion gouvernementale",
+     "texte": "Plusieurs dossiers essentiels concernant la transition numérique, les systèmes de paiement électronique et les infrastructures de télécommunications ont été étudiés lors d'une récente réunion du gouvernement.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 12.6,
+     "duree": 10.1,
      "pays": "DZ",
      "source": "Radio Algérie"
     },
     {
-     "titre": "Facilité du Pixel Tag Google",
-     "texte": "L'installation du Pixel Tag de Google est simplifiée. Il suffit de le placer près du téléphone, de retirer l'onglet à l'arrière de la batterie pour l'activer, puis de suivre les instructions sur le téléphone pour l'intégration.",
+     "titre": "Cyber vigilance : nouvelle cellule",
+     "texte": "L'Office National des Postes et des Paiements Électroniques, l'ONPPE, a mis en place une nouvelle cellule dédiée à la vigilance cybernétique pour renforcer la sécurité.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 12.3,
+     "duree": 8.8,
+     "pays": "DZ",
+     "source": "Radio Algérie"
+    },
+    {
+     "titre": "Circulation nocturne interrompue",
+     "texte": "Attention, la route entre Chevalley et l'entrée du stade du 5-Juillet sera fermée à la circulation durant les nuits des 20 et 21 novembre.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 7.6,
+     "pays": "DZ",
+     "source": "Le Soir d'Algérie"
+    },
+    {
+     "titre": "Djezzy lance Djezzy Solutions",
+     "texte": "L'opérateur Djezzy dévoile sa nouvelle marque Djezzy Solutions, offrant 15 services numériques conçus pour répondre aux besoins des entreprises algériennes.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 8.1,
+     "pays": "DZ",
+     "source": "Algérie360 Tech"
+    },
+    {
+     "titre": "Djezzy diversifie ses offres",
+     "texte": "Au-delà des télécommunications classiques, Djezzy lance Djezzy Solutions avec 15 nouveaux services numériques, développés en partenariat avec des start-up locales.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 8.7,
+     "pays": "DZ",
+     "source": "TSA Algérie"
+    },
+    {
+     "titre": "Disque dur externe non reconnu",
+     "texte": "Votre PC refuse de lire votre disque dur externe ? Découvrez des solutions et étapes de dépannage pour tenter de résoudre le problème.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 8.3,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Le Pixel Tag de Google",
+     "texte": "Découvrez le Pixel Tag de Google, un outil simple à installer pour améliorer le suivi numérique, offrant une intégration rapide et efficace.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 8.0,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
      "titre": "Djezzy Solutions pour entreprises",
-     "texte": "L'opérateur Djezzy lance sa nouvelle marque commerciale Djezzy Solutions. Cette initiative vise à accompagner les entreprises dans leur transformation numérique et à renforcer sa position de partenaire technologique sur le marché algérien.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 12.2,
-     "pays": "DZ",
-     "source": "NTIC.dz"
-    },
-    {
-     "titre": "Exportation de TPE algériens",
-     "texte": "L'Algérie exporte pour la première fois 25 000 terminaux de paiement électronique vers le Nigeria. Cette opération d'INATEL, basée à Tlemcen, marque une étape importante pour l'industrie électronique nationale.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 12.2,
-     "pays": "DZ",
-     "source": "NTIC.dz"
-    },
-    {
-     "titre": "Subventions pour AgriTech",
-     "texte": "Soixante-cinq entrepreneurs algériens spécialisés en AgriTech ont été sélectionnés pour le programme Ecosystem Builders Algeria. Ils recevront un accompagnement et des subventions pour développer leurs projets innovants.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 11.5,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "Géopolitique des semi-conducteurs",
-     "texte": "Trois entreprises dominent l'industrie mondiale des semi-conducteurs, essentiels à l'intelligence artificielle. La Chine cherche à contester cet équilibre, tandis que Taïwan reste au centre des tensions géopolitiques.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 12.0,
-     "pays": "DZ",
-     "source": "ITMAG"
-    },
-    {
-     "titre": "Fusil de l'Émir Abdelkader",
-     "texte": "Un fusil ayant appartenu à l'Émir Abdelkader a été offert à la Grande Mosquée de Paris. Cette pièce historique datant des années 1840 enrichit le patrimoine culturel exposé dans l'édifice.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.2,
-     "pays": "DZ",
-     "source": "TSA Algérie"
-    },
-    {
-     "titre": "Blocage titres de séjour France",
-     "texte": "Des difficultés persistent pour obtenir un titre de séjour en France. Près de 930 000 dossiers sont bloqués, touchant de nombreux primo-arrivants et demandeurs de renouvellement en raison d'un engorgement administratif.",
+     "texte": "Djezzy lance officiellement sa nouvelle marque commerciale Djezzy Solutions, destinée à accompagner les entreprises dans leur transformation numérique.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 12.3,
+     "duree": 7.6,
      "pays": "DZ",
-     "source": "TSA Algérie"
+     "source": "NTIC.dz"
     },
     {
-     "titre": "Djezzy accélère sa transformation",
-     "texte": "Djezzy a officiellement lancé sa nouvelle marque Djezzy Solutions mercredi 18 novembre. Cette initiative confirme sa volonté de devenir un acteur technologique de référence pour les entreprises en Algérie.",
+     "titre": "Exportation de TPE vers Nigeria",
+     "texte": "L'Algérie effectue sa première exportation de terminaux de paiement électronique vers le Nigeria, avec un envoi de 25 000 appareils.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 11.2,
+     "duree": 7.4,
      "pays": "DZ",
-     "source": "Algérie Éco"
+     "source": "NTIC.dz"
     }
    ]
   },
