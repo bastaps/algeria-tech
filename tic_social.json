@@ -361,6 +361,24 @@
       "source_type": "web"
     },
     {
+      "id": "58cd34e525d9ba17",
+      "source_name": "Mobilis",
+      "source_short": "MB",
+      "source_color": "#00A651",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://mobilis.dz/application_mobilistransfer",
+      "image": "",
+      "date": "2026-11-19",
+      "lang_source": "ar",
+      "text": {
+        "ar": "موبيليس يطلق تطبيق MobilisTransfer المخصّص لقطاع المؤسسات",
+        "fr": "",
+        "en": ""
+      },
+      "source_type": "web"
+    },
+    {
       "id": "853179b643385836",
       "source_name": "Ooredoo Algérie",
       "source_short": "OR",
@@ -701,24 +719,6 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "689a1bd9ca629d7c",
-      "source_name": "Mobilis",
-      "source_short": "MB",
-      "source_color": "#00A651",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://www.youtube.com/watch?v=BKGONvTU5v8",
-      "image": "",
-      "date": "2026-11-03T20:07:04+00:00",
-      "lang_source": "ar",
-      "text": {
-        "ar": "هكذا احتفل عمال موبيليس وأبناؤهم بالذكرى الـ72 لاندلاع الثورة التحريرية المجيدة",
-        "fr": "",
-        "en": ""
-      },
-      "source_type": "youtube"
     },
     {
       "id": "f8c55b895228379d",
@@ -1441,6 +1441,330 @@
       "source_type": "facebook"
     },
     {
+      "id": "6b464a07f860950d",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/19/habitat-rural-le-decret-fixant-la-liste-des-communes-concernees-par-le-relevement-de-laide-a-11-million-de-dinars-publie-prochainement/",
+      "image": "",
+      "date": "Thu, 19 Nov 2026 16:10:31 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Habitat rural : le décret fixant la liste des communes concernées par le relèvement de l’aide à 1,1 million de dinars publié prochainement — Le ministre de l’Habitat, de l’Urbanisme, de la Ville et de l’Aménagement du territoire, Mohamed Tarek Belaribi, a annoncé jeudi, la publication prochaine du décret ministériel fixant la liste des communes classées dans les zones montagneuses des wilayas du Nord et des Hauts-Plateaux, dans le cadre",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "68696ee6ce4eca95",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/tribune/alexandre-diehl-avocat-jean-baptiste-artignan-bluesecure-nis2-apres-deux-ans-dattente-ne-faisons-pas-de-la-cybersecurite-une-conformite-de-plus-508054.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 19 Nov 2026 15:36:05 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Alexandre Diehl, avocat, Jean-Baptiste Artignan, BlueSecure : NIS2 : après deux ans d’attente, ne faisons pas de la cybersécurité une conformité de plus — Deux ans après le délai initial de transposition, la directive NIS2 s’apprête enfin à entrer dans le droit français. Pour Alexandre Diehl, avocat à la Cour, et Jean-Baptiste Artignan, CEO et fondateur de BlueSecure, l’enjeu dépasse la simple mise en conformité réglementaire : il s’agit de faire de l",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "2722caab8a8aa29c",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/11/19/u-k-government-forced-to-disclose-secret-apple-backdoor-order/",
+      "image": "",
+      "date": "Thu, 19 Nov 2026 15:32:20 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "U.K government forced to disclose secret Apple backdoor order — The U.K. tribunal's ruling rejected London's claim that disclosing the order would be damaging to national security.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "2a55c610e341aaee",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/panne-mondiale-microsoft-un-bug-dormant-de-juillet-a-lorigine-du-crash-508233.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 19 Nov 2026 15:01:36 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Panne mondiale Microsoft : un bug dormant de juillet à l'origine du crash — L'éditeur détaille l'enchaînement de défaillances ayant paralysé ses services Cloud pendant 24 heures la semaine dernière.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "6dbad1140452d6c7",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/11/19/anthropics-ipo-puts-ais-circular-financing-boom-to-the-test/",
+      "image": "",
+      "date": "Thu, 19 Nov 2026 14:54:39 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Anthropic’s IPO puts AI’s circular financing boom to the test — Anthropic faces enormous compute commitments as it goes public, but its biggest infrastructure partners, including Amazon and Google, could continue profiting from AI even if Anthropic loses its lead.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "bd7b05d2ae28ecc4",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/faille-java4shell-execution-de-code-a-distance-sur-les-infrastructures-openjdk-508232.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Thu, 19 Nov 2026 14:50:18 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Faille Java4Shell : exécution de code à distance sur les infrastructures OpenJDK — Une faille critique baptisée Java4Shell (CVE-2026-114938) expose les systèmes d'information à des attaques par exécution de code à distance. Cette vulnérabilité impose le déploiement des correctifs logiciels sur les serveurs concernés.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "be645002df5f7d61",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/19/gazoduc-transsaharien-tsgp-lalgerie-et-le-niger-accelerent-le-processus-de-realisation-du-projet/",
+      "image": "",
+      "date": "Thu, 19 Nov 2026 14:21:12 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Gazoduc transsaharien-TSGP : L’Algérie et le Niger accélèrent le processus de réalisation du projet — Une délégation algérienne a été reçue, mardi 17 novembre à Niamey (Niger), par le secrétaire général du ministère nigérien du Pétrole, Abdoulkarim Mohamed Ali, dans le cadre de la mise en œuvre du processus de réalisation du projet de Gazoduc transsaharien « Trans Saharan Gas Pipeline (TSGP) » dans",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "9db8c677c713736c",
+      "source_name": "NTIC-DZ",
+      "source_short": "NTC",
+      "source_color": "#01579B",
+      "category": "Médias TIC",
+      "category_icon": "🌐",
+      "url": "https://www.ntic-dz.com/djezzy-lance-sa-nouvelle-marque-commerciale-djezzy-solutions-au-profit-des-entreprises/?utm_source=rss&utm_medium=rss&utm_campaign=djezzy-lance-sa-nouvelle-marque-commerciale-djezzy-solutions-au-profit-des-entreprises",
+      "image": "",
+      "date": "Thu, 19 Nov 2026 14:17:43 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Djezzy lance sa nouvelle marque commerciale « Djezzy Solutions » au profit des entreprises — feed L’opérateur de téléphonie mobile Djezzy a lancé sa nouvelle marque « Djezzy Solutions », destinée aux entreprises et aux établissements, visant à renforcer sa position de partenaire technologique et à accompagner la transformation numérique du secteur économique en Algérie. La cérémonie de lanc",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "bba274b5674ae069",
+      "source_name": "NTIC-DZ",
+      "source_short": "NTC",
+      "source_color": "#01579B",
+      "category": "Médias TIC",
+      "category_icon": "🌐",
+      "url": "https://www.ntic-dz.com/lalgerie-exporte-25-000-terminaux-de-paiement-electronique-vers-le-nigeria/?utm_source=rss&utm_medium=rss&utm_campaign=lalgerie-exporte-25-000-terminaux-de-paiement-electronique-vers-le-nigeria",
+      "image": "",
+      "date": "Thu, 19 Nov 2026 14:08:27 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "L’Algérie exporte 25.000 terminaux de paiement électronique vers le Nigeria — feed L’entreprise publique économique de l’Industrie algérienne des technologies électroniques « INATEL », dont le siège est situé à Tlemcen, a lancé mercredi 18 novembre 2026 sa première opération d’exportation de terminaux de paiement électronique (TPE) vers le Nigeria. Cette première cargaison co",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "5a6f8aeeabb2dc74",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/11/19/nimble-enters-the-item-tracking-market-with-eco-friendly-luggage-tags-and-keychains/",
+      "image": "",
+      "date": "Thu, 19 Nov 2026 14:00:00 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Nimble enters the item-tracking market with eco-friendly luggage tags and keychains — As Google takes on Apple in the item-tracking market, Nimble is hoping its trackable wallets, keychains, luggage tags, and passport covers stand out.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "4cbd5339e411c069",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/19/cote-divoire-sonelgaz-signe-trois-contrats-pour-des-projets-energetiques-dont-une-centrale-electrique-de-40-mw/",
+      "image": "",
+      "date": "Thu, 19 Nov 2026 13:57:39 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Côte d’Ivoire : Sonelgaz signe trois contrats pour des projets énergétiques, dont une centrale électrique de 40 MW — La société Sonelgaz International, filiale du groupe Sonelgaz, et la Compagnie ivoirienne de l’énergie (CI-Energies) ont signé, à Abidjan (Côte d’Ivoire), trois contrats stratégiques de coopération dans les domaines de la production et de la distribution d’électricité, en vue de réaliser de nouveaux",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "40b1e7bce7b53b23",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/business-1367/palo-alto-mise-45-milliards-sur-applied-compute-230541",
+      "image": "",
+      "date": "Thu, 19 Nov 2026 13:42:58 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Palo Alto mise 4,5 milliards $ sur Applied Compute — Palo Alto mise 4,5 milliards $ sur Applied Compute, spécialiste des modèles d’IA ouverts, pour accélérer dans la sécurité de l’IA en entreprise. The post Palo Alto mise 4,5 milliards $ sur Applied Compute appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "fccf8428f8c3c1a4",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/11/19/analyse-geopolitique-des-semi-conducteurs-03-entreprises-tiennent-les-cles-de-lindustrie-mondiale/",
+      "image": "",
+      "date": "Thu, 19 Nov 2026 12:33:28 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Analyse – GÉOPOLITIQUE DES SEMI-CONDUCTEURS: 03 ENTREPRISES TIENNENT LES CLÉS DE L’INDUSTRIE MONDIALE — Derrière l'essor de l'intelligence artificielle se cache une dépendance industrielle que peu de pays maîtrisent. Trois entreprises contrôlent des étapes essentielles de la fabrication des puces les plus avancées. Un équilibre stratégique que la Chine cherche à remettre en cause, tandis que Taïwan re",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "10b39150172557d7",
+      "source_name": "Le Monde Informatique",
+      "source_short": "LMI",
+      "source_color": "#1565C0",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.lemondeinformatique.fr/applications-developpement/logiciel-de-gestion-commerciale-quels-criteres-examiner-avant-de-choisir",
+      "image": "",
+      "date": "Thu, 19 Nov 2026 11:27:05 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Logiciel de gestion commerciale, quels critères examiner avant de choisir ? — Une démonstration convaincante ne dit pas tout d’un logiciel de gestion commerciale. Pour les responsables informatiques comme pour les dirigeants de PME, le choix se joue dans le traitement des ventes et l’intégration aux applications existantes.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "84b7f6e20f930be8",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/business-1367/anthropic-en-bourse-ce-quil-faut-savoir-dune-ipo-hors-norme-230539",
+      "image": "",
+      "date": "Thu, 19 Nov 2026 09:42:51 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Anthropic en Bourse : ce qu’il faut savoir d’une IPO hors norme — Plus de 81 milliards $ levés, 1 500 milliards de valorisation : l'entrée au Nasdaq d'Anthropic bat tous les records, mais dans un climat tendu pour l'IA. The post Anthropic en Bourse : ce qu’il faut savoir d’une IPO hors norme appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "a8d63225202a9103",
+      "source_name": "Le Monde Informatique",
+      "source_short": "LMI",
+      "source_color": "#1565C0",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.lemondeinformatique.fr/cybersecurite-conformite/presidentielle-2027-numeum-propose-cinq-mesures-pour-renforcer-la-souverainete-numerique-francaise",
+      "image": "",
+      "date": "Thu, 19 Nov 2026 09:27:33 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Présidentielle 2027 : Numeum propose cinq mesures pour renforcer la souveraineté numérique française — À l’approche de l’élection présidentielle de 2027, Numeum présente cinq propositions pour faire de la France et de l’Europe une puissance industrielle numérique. Le syndicat professionnel appelle notamment à porter les dépenses de recherche et développement à 4 % du PIB d’ici 2035, à mobiliser davan",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "b9356029b845f966",
+      "source_name": "Android DZ",
+      "source_short": "ADZ",
+      "source_color": "#33691E",
+      "category": "Médias TIC",
+      "category_icon": "🤖",
+      "url": "https://www.android-dz.com/pixel-12-tout-ce-qu-on-sait-sur-les-prochains-telephones-google/",
+      "image": "",
+      "date": "2026-11-19T06:42:00.110Z",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Pixel 12 : tout ce qu'on sait sur les prochains téléphones Google — La série Pixel 11 est à peine sortie que les premières informations sur les Pixel 12 commencent déjà à circuler. Quatre modèles en vue, une fenêtre de lancement en août 2027 et quelques specs d'écran qui en disent déjà long sur la stratégie de Google.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "b47ccdc6a55cba78",
+      "source_name": "Android DZ",
+      "source_short": "ADZ",
+      "source_color": "#33691E",
+      "category": "Médias TIC",
+      "category_icon": "🤖",
+      "url": "https://www.android-dz.com/motorola-edge-70-neo-ecran-6-8-pouces-et-batterie-7000-mah/",
+      "image": "",
+      "date": "2026-11-19T06:35:00.041Z",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Motorola Edge 70 Neo : écran 6,8 pouces et batterie 7000 mAh — Motorola lance l'Edge 70 Neo en Inde le 24 novembre 2026, avec un écran AMOLED de 6,8 pouces et une batterie de 7000 mAh. Un virage assumé vers le grand format, au prix de quelques sacrifices qui méritent d'être pesés.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "0f46293e3612b41e",
       "source_name": "TechCrunch",
       "source_short": "TC",
@@ -1633,6 +1957,24 @@
       "lang_source": "fr",
       "text": {
         "fr": "Ooredoo prime les lauréats de la 19ème édition de Media Star — feed Ooredoo a dévoilé les noms des lauréats de la 19ème édition de son concours phare, « Media Star » lors d’une prestigieuse cérémonie de remise des prix qui s’est tenue dans la soirée du lundi 16 novembre 2026 à l’hôtel Sheraton d’Alger, marquant un nouveau jalon dans la valorisation du travail j",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "ec85354821bbcd5f",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/11/18/recherche-scientifique-latrst-lance-un-appel-a-projets-de-recherche-thematiques-pour-relever-les-defis-socio-economiques/",
+      "image": "",
+      "date": "Wed, 18 Nov 2026 17:17:46 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "RECHERCHE SCIENTIFIQUE : L’ATRST LANCE UN APPEL À PROJETS DE RECHERCHE THÉMATIQUES POUR RELEVER LES DÉFIS SOCIO-ÉCONOMIQUES — Les chercheurs algériens ont jusqu’au 15 janvier 2027 pour soumettre leurs dossiers. L’Agence Thématique de Recherche en Sciences et Technologie (ATRST) ouvre, depuis le 15 novembre, un appel à projets national dédié à l’intelligence artificielle (IA). L’objectif est clair : financer des algorithmes",
         "ar": "",
         "en": ""
       },
@@ -1903,6 +2245,24 @@
       "lang_source": "fr",
       "text": {
         "fr": "Apple dévoile les limites quotidiennes d'utilisation de l'IA Siri, voici combien cela vous coûtera — Plus vous payez cher pour un forfait iCloud+, plus vous pourrez utiliser l'IA de Siri et Apple Intelligence pour des tâches avancées côté serveur.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "4ec77867fd524ebb",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/11/18/panne-du-reseau-ultra-secret-de-la-nsa-lagence-americaine-evoque-une-operation-de-maintenance/",
+      "image": "",
+      "date": "Wed, 18 Nov 2026 07:53:00 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "PANNE DU RÉSEAU ULTRA-SECRET DE LA NSA : L’AGENCE AMÉRICAINE ÉVOQUE UNE OPÉRATION DE MAINTENANCE — Mardi 17 novembre 2026, le système interne NSANet a brusquement cessé de fonctionner, paralysant les échanges classifiés des espions américains. Alors que Washington plaide l'erreur technique, cet incident clôt une semaine noire pour les infrastructures numériques des États-Unis.",
         "ar": "",
         "en": ""
       },
@@ -5039,376 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "f559bf6355b3fa49",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/gboard-rambler-absent-sur-pixel-10-voici-comment-l-activer/",
-      "image": "",
-      "date": "2026-11-12T12:01:20.382Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Gboard Rambler absent sur Pixel 10 ? Voici comment l'activer — Google a étendu Rambler, sa saisie vocale IA, aux Pixel 10 avec le Pixel Drop de novembre 2026. Mais si la fonction n'apparaît pas après la mise à jour système, une manipulation rapide suffit à débloquer la situation.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "45a3fa6463b1387c",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/cybersecurite-1371/projet-loi-resilience-nis-2-230228",
-      "image": "",
-      "date": "Thu, 12 Nov 2026 12:00:48 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "NIS 2 : la situation se débloque… sur un statu quo — Les députés ont supprimé l'article qui a longtemps retardé leur examen du projet de loi « résilience », destiné à transposer la NIS 2. The post NIS 2 : la situation se débloque… sur un statu quo appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "afc6e06c5cf1eaae",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/one-ui-9-5-l-app-telephone-se-refait-une-beaute-discrete/",
-      "image": "",
-      "date": "2026-11-12T11:56:00.097Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "One UI 9.5 : l'app Téléphone se refait une beauté discrète — Samsung prépare un petit lifting de son application Téléphone dans One UI 9.5 : la loupe de recherche migre vers le bas de l'écran, là où votre pouce peut enfin l'atteindre. Un changement anodin en apparence, mais qui change vraiment la vie sur un Galaxy grand format.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e6845431e1d60c2c",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/changer-l-app-par-defaut-sur-android-guide-complet-2026/",
-      "image": "",
-      "date": "2026-11-12T11:53:00.039Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Changer l'app par défaut sur Android : guide complet 2026 — Android vous laisse choisir librement l'application qui s'ouvre pour chaque action : navigateur, SMS, appels, liens. Voici comment modifier ces réglages, étape par étape, sur n'importe quel téléphone Android.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "fc40eb053132e851",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/oppo-a7-pro-prix-et-disponibilite-en-europe/",
-      "image": "",
-      "date": "2026-11-12T11:53:00.027Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Oppo A7 Pro : prix et disponibilité en Europe — L'Oppo A7 Pro débarque officiellement en Europe via Oppo Belgique, avec un tarif de lancement de 499 € réduit à 429 € grâce à une remise promotionnelle. Le smartphone embarque Android 16 et une batterie de 7 400 mAh.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "b108f69e4a841ef0",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/galaxy-ai-bientot-payant-les-fans-samsung-disent-non-merci/",
-      "image": "",
-      "date": "2026-11-12T11:52:00.076Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Galaxy AI bientôt payant ? Les fans Samsung disent non merci — Une fuite récente suggère que Samsung envisage de faire passer certaines fonctions Galaxy AI derrière un abonnement payant. Problème : même les utilisateurs les plus fidèles de la marque doutent que ces outils en valent vraiment le prix.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "7c706b30736f6a82",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/one-ui-9-5-samsung-prepare-une-ia-boostee-pour-le-galaxy-s26/",
-      "image": "",
-      "date": "2026-11-12T11:45:00.092Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "One UI 9.5 : Samsung prépare une IA boostée pour le Galaxy S26 — Samsung travaille déjà sur One UI 9.5, la prochaine mise à jour intermédiaire de sa surcouche, et elle arriverait en avance sur les Galaxy S26. Au programme, une interface redessinée et une intelligence artificielle nettement plus ambitieuse.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "4ca20efccb5674d9",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/one-ui-9-5-liste-des-samsung-compatibles-et-calendrier-de-deploiement/",
-      "image": "",
-      "date": "2026-11-12T11:44:00.034Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "One UI 9.5 : liste des Samsung compatibles et calendrier de déploiement — Samsung prépare activement One UI 9.5, sa prochaine mise à jour logicielle majeure pour les smartphones Galaxy. Voici ce que l'on sait déjà sur les modèles compatibles, les nouveautés attendues et le calendrier de déploiement.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "7ef2b5b080182818",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/samsung-galaxy-s27-pro-design-camera-prix-et-ce-qu-on-sait/",
-      "image": "",
-      "date": "2026-11-12T11:36:00.050Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Samsung Galaxy S27 Pro : design, caméra, prix et ce qu'on sait — Samsung prépare un Galaxy S27 Pro qui s'intercalerait entre le S27+ et le S27 Ultra, avec un appareil photo principal de 200 mégapixels et une fiche technique taillée pour le haut de gamme. Les premières fuites donnent déjà envie, même si tout reste à confirmer.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "66ec738683d1935b",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/business-1367/nvidia-les-trois-failles-qui-fragilisent-jensen-huang-230236",
-      "image": "",
-      "date": "Thu, 12 Nov 2026 11:25:42 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Nvidia : les trois failles qui fragilisent Jensen Huang — Deux liaisons, une enquête et une gouvernance sans filet : le patron fondateur du géant des puces d'IA joue son poste. Le conseil d'administration s'est réuni mercredi soir. The post Nvidia : les trois failles qui fragilisent Jensen Huang appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "aae4528243e8bf62",
-      "source_name": "Le Monde Informatique",
-      "source_short": "LMI",
-      "source_color": "#1565C0",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.lemondeinformatique.fr/cybersecurite-conformite/zoom-workplace-une-faille-critique-et-une-faille-e",
-      "image": "",
-      "date": "Thu, 12 Nov 2026 10:46:15 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Zoom Workplace : une faille critique et une faille élevée corrigées sous Windows — Zoom a publié des correctifs pour deux vulnérabilités affectant Workplace sous Windows, dont une faille critique d’élévation de privilèges notée 9,6 sur l’échelle CVSS. Référencées CVE-2026-108186 et CVE-2026-108187, elles pourraient permettre à un attaquant non authentifié d’obtenir des privilèges",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "152ee91caad05673",
-      "source_name": "Le Monde Informatique",
-      "source_short": "LMI",
-      "source_color": "#1565C0",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.lemondeinformatique.fr/donnees-ia/puces-nvidia-les-entreprises-chinoises-d-ia-antici",
-      "image": "",
-      "date": "Thu, 12 Nov 2026 10:32:37 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Puces Nvidia : les entreprises chinoises d’IA anticipent de nouvelles restrictions américaines — Les entreprises chinoises spécialisées dans l’intelligence artificielle cherchent à réserver davantage de puissance de calcul équipée de GPU Nvidia dans des centres de données situés à l’étranger, selon Reuters. Elles redoutent que l’affaire entourant Jensen Huang, directeur général du fabricant amé",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "9412290540111708",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/contre-vents-et-marees-faire-de-la-france-la-premiere-terre-daccueil-des-datacenters-en-europe-507769.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Thu, 12 Nov 2026 10:30:55 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Contre vents et marées, « faire de la France la première terre d’accueil des datacenters en Europe » — Lobby du secteur, France Datacenter entend faire de l’Hexagone la destination privilégiée des centres de données en Europe. Une ambition forte alors que le mouvement de protestation contre l’implantation des fermes de serveurs s’intensifie.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "5c90d64b5626166b",
-      "source_name": "Le Monde Informatique",
-      "source_short": "LMI",
-      "source_color": "#1565C0",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.lemondeinformatique.fr/donnees-ia/ia-meta-lance-muse-ember-un-modele-leger-pour-redu",
-      "image": "",
-      "date": "Thu, 12 Nov 2026 10:10:38 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "IA : Meta lance Muse Ember, un modèle léger pour réduire les coûts des agents — Meta enrichit sa gamme de modèles d’intelligence artificielle avec Muse Ember, conçu pour automatiser à grande échelle les tâches répétitives des agents IA. Doté d’une fenêtre de contexte d’un million de tokens, ce modèle multimodal mise sur son coût par tâche pour concurrencer Claude Haiku 5.5 d’An",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "7d3c37f074bf262b",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/11/12/la-5g-en-algerie-pourquoi-mobilis-prend-une-longueur-davance-et-ce-que-cela-change-concretement-pour-vous/",
-      "image": "",
-      "date": "Thu, 12 Nov 2026 09:33:15 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "La 5G en Algérie : pourquoi Mobilis prend une longueur d’avance et ce que cela change concrètement pour vous — Le paysage des télécommunications algériennes vient de franchir une étape majeure. Pour bien comprendre ce qui se joue, commençons par définir la 5G (cinquième génération de réseau mobile, norme de téléphonie cellulaire succédant à la 4G) car elle ne se contente pas d'augmenter le débit, elle réduit",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "8ca4416f798d99a9",
-      "source_name": "Le Monde Informatique",
-      "source_short": "LMI",
-      "source_color": "#1565C0",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.lemondeinformatique.fr/donnees-ia/introduction-en-bourse-d-anthropic-les-particulier",
-      "image": "",
-      "date": "Thu, 12 Nov 2026 09:02:09 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Anthropic en Bourse : les particuliers pourraient acheter 250 M$ d’actions dès le premier jour — L’introduction en Bourse d’Anthropic pourrait provoquer un afflux exceptionnel d’investisseurs particuliers. Selon une note de Vanda Research publiée le 11 novembre 2026, le développeur de Claude pourrait enregistrer environ 250 millions de dollars d’achats nets de particuliers lors de sa première s",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c6cc4e5ea8ecddd2",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/robots-humanoides-pourquoi-samsung-privilegie-les-roues-aux-jambes-507757.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Thu, 12 Nov 2026 09:00:55 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Robots humanoïdes : pourquoi Samsung privilégie les roues aux jambes — Samsung mise sur des robots humanoïdes à roues pour les applications industrielles. Sa filiale Rainbow Robotics privilégie la stabilité et les coûts d'exploitation, sans abandonner la recherche sur les robots bipèdes.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "d4b565136106d60b",
-      "source_name": "Le Monde Informatique",
-      "source_short": "LMI",
-      "source_color": "#1565C0",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.lemondeinformatique.fr/donnees-ia/chatgpt-enterprise-arrive-sur-aws-marketplace-pour",
-      "image": "",
-      "date": "Thu, 12 Nov 2026 08:09:30 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "ChatGPT Enterprise arrive sur AWS Marketplace pour simplifier les achats IT — OpenAI a rendu ChatGPT Enterprise disponible sur AWS Marketplace le 9 novembre 2026. Les entreprises clientes d’Amazon Web Services peuvent désormais acheter et gérer la solution d’intelligence artificielle via leurs circuits d’achat existants, et imputer les dépenses éligibles sur leurs engagements",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "ea7b0072bca4ca32",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/11/12/conference-de-plenipotentiaires-de-luit-a-doha-doreen-bogdan-martin-rempile-a-la-tete-des-telecoms-mondiales/",
-      "image": "",
-      "date": "Thu, 12 Nov 2026 07:37:02 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Conférence de plénipotentiaires de l’UIT à Doha : Doreen Bogdan-Martin rempile à la tête des télécoms mondiales (Maj) — Seule en lice, l’Américaine Doreen Bogdan-Martin a été réélue ce jeudi 12 novembre 2026 à Doha pour un second mandat de quatre ans à la tête de l’Union internationale des télécommunications. Le scrutin se poursuit désormais pour le poste de vice-secrétaire général, les trois directions sectorielles",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "4d80da40d446e621",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/11/nvidia-ceo-jensen-huangs-affair-with-alleged-chinese-spy-a-timeline/",
-      "image": "",
-      "date": "Wed, 11 Nov 2026 23:50:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "The unfolding Jensen Huang scandal: a timeline — The affair could have ramifications for national security as the U.S. and China race to develop the most advanced AI infrastructure.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-11-19T00:52:27.299516+00:00",
+  "lastUpdated": "2026-11-19T16:11:55.428970+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Tech International": 125,
-    "Médias TIC": 95
+    "Médias TIC": 95,
+    "Tech International": 125
   },
   "total": 300
 }
