@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-20",
- "genere": "2026-11-20T16:22:22",
+ "genere": "2026-11-20T20:04:49",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-20T16:22:43",
+   "genere": "2026-11-20T20:05:15",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.8,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les 10 informations tech et télécoms de votre soirée."
+    "duree": 6.2,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les dix informations tech de votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.3,
-    "texte": "C'était votre briefing Algeria Tech. Retrouvez-nous demain pour une nouvelle sélection d'infos."
+    "duree": 5.7,
+    "texte": "C'était votre dose d'actualités tech sur Algeria Tech. Retrouvez-nous demain."
    },
    "items": [
     {
-     "titre": "Numérisation et paiements examinés",
-     "texte": "Le gouvernement a récemment étudié plusieurs dossiers cruciaux pour le développement du pays. Ces discussions portaient spécifiquement sur les avancées en matière de numérisation, l'expansion des paiements électroniques et l'amélioration des infrastructures technologiques.",
+     "titre": "Numérisation et infrastructures examinées",
+     "texte": "Le gouvernement algérien s'est réuni pour examiner plusieurs dossiers cruciaux. Les sujets abordés comprenaient la numérisation de l'économie, le développement des paiements électroniques et l'amélioration des infrastructures nationales pour soutenir ces avancées.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 13.8,
+     "duree": 13.4,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Réunion gouvernementale clé",
-     "texte": "Une réunion du gouvernement a permis d'examiner en détail des sujets importants pour l'Algérie. L'accent a été mis sur la numérisation des services, la promotion des paiements électroniques et le renforcement des infrastructures numériques nationales.",
+     "titre": "Gouvernement : numérisation au programme",
+     "texte": "Une importante réunion du gouvernement a eu lieu pour passer en revue des points clés. L'accent a été mis sur des dossiers concernant la numérisation des services, la promotion des paiements électroniques et le renforcement des infrastructures stratégiques du pays.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 12.9,
+     "duree": 13.4,
      "pays": "DZ",
      "source": "Radio Algérie"
     },
     {
-     "titre": "Tensions en mer Rouge",
-     "texte": "Au Yémen, les rebelles Houthis lancent une menace sérieuse. Ils pourraient frapper les ports saoudiens sur la mer Rouge si leurs propres ports sont visés par la coalition. La situation reste tendue.",
+     "titre": "Motorola Razr pliable : images volées",
+     "texte": "De nouvelles images fuitées donnent un aperçu du futur téléphone pliable de Motorola. Ce smartphone au format large, rappelant un livre, apparaît dans des coloris élégants, offrant une réponse potentielle du fabricant à l'iPhone Duo.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 11.3,
+     "duree": 12.9,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Algériennes qualifiées pour la finale mondiale",
+     "texte": "Quatre étudiantes algériennes ont brillamment atteint la phase mondiale du NASA Space Apps Challenge. Leur projet innovant, axé sur l'utilisation des données satellitaires, les place parmi les meilleurs talents mondiaux en technologie et science.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 13.3,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Google Home : Gemini plus visible",
+     "texte": "La dernière mise à jour de la page d'accueil de Google intègre davantage son intelligence artificielle Gemini. Une nouvelle barre latérale rétractable met en avant vos recherches récentes, renforçant la présence de l'IA dans l'expérience utilisateur.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 13.2,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Sécurité Gmail : paramètres essentiels",
+     "texte": "Il est crucial de sécuriser votre compte Gmail, car il sert souvent de passerelle vers de nombreux services en ligne. L'activation de certains paramètres de sécurité est vivement recommandée pour protéger vos données personnelles et professionnelles.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 13.0,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Yémen : menaces des Houthis sur ports",
+     "texte": "Les Houthis du Yémen ont menacé d'attaquer les ports saoudiens sur la mer Rouge. Cette riposte est conditionnée à une action de la coalition dirigée par Riyad contre le port yéménite de Hodeïda.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 10.2,
      "pays": "DZ",
      "source": "Maghreb Emergent"
     },
     {
-     "titre": "Optimisez vos écouteurs Bose",
-     "texte": "Pour tirer le meilleur parti de vos écouteurs Bose, quelques réglages sont essentiels. L'application compagnon offre des paramètres personnalisables. Activez ces options pour une expérience audio véritablement unique et adaptée à vos besoins.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 13.9,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Agents IA pour les abonnés Plus",
-     "texte": "OpenAI expérimente de nouveaux agents IA nommés Dots. Ces assistants proactifs sont testés sur son offre payante à 20 dollars par mois. Ils visent à automatiser certaines tâches pour les utilisateurs de ChatGPT.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 12.5,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Soutien européen à l'entrepreneuriat féminin",
-     "texte": "L'Union Européenne lance une nouvelle édition de son Innovation Challenge ESS. Les entrepreneuses algériennes peuvent y candidater pour concrétiser leurs projets, avec la possibilité de recevoir jusqu'à 320 millions de centimes.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 12.9,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Cellule de vigilance cyber pour enfants",
-     "texte": "Face aux risques croissants sur Internet, l'Algérie met en place une cellule dédiée. Son rôle est d'assurer la protection des enfants contre le cyberharcèlement, le chantage et les interactions dangereuses en ligne.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 11.5,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Franco-Algérienne distinguée en IA",
-     "texte": "Mona Khelifi, entrepreneure franco-algérienne, reçoit une reconnaissance majeure. Elle a été récompensée à Paris par le Grand Prix Makeda dans la catégorie Intelligence Artificielle et Innovation.",
+     "titre": "Anthropic : entrée en bourse par peur",
+     "texte": "L'introduction en Bourse d'Anthropic serait motivée par la peur plutôt que par la confiance en l'avenir de l'IA. Ce mouvement viserait à transférer les risques du secteur vers les investisseurs et la société, selon un expert.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.5,
-     "pays": "DZ",
-     "source": "TSA Algérie"
+     "duree": 11.8,
+     "pays": "INT",
+     "source": "Le Monde Pixels"
     },
     {
-     "titre": "Le mot \"humain\" sacré par Cambridge",
-     "texte": "Face à l'essor de l'intelligence artificielle, le dictionnaire Cambridge élit \"humain\" mot de l'année 2026. Ce choix souligne l'importance de l'intelligence naturelle dans un monde de plus en plus automatisé.",
+     "titre": "Bell Canada : données clients volées",
+     "texte": "Bell Canada confirme une brèche de sécurité ayant mené au vol de données d'entreprise. Un acteur malveillant a accédé à un système de commande et de provisionnement de circuits de télécommunications, compromettant les informations clients.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.9,
-     "pays": "DZ",
-     "source": "ITMAG"
+     "duree": 12.7,
+     "pays": "INT",
+     "source": "BleepingComputer"
     },
     {
-     "titre": "Meta teste une nouvelle appli Instagram",
-     "texte": "Meta développe une application de messagerie autonome pour Instagram appelée Direct. Actuellement en phase de test en Turquie et en Thaïlande, elle vise à offrir une expérience de messagerie séparée.",
+     "titre": "Trump et les centres de données IA",
+     "texte": "Donald Trump a annoncé l'intention d'imposer une taxe significative aux entreprises délocalisant leurs centres de données IA hors des États-Unis. Il souhaite ainsi encourager le maintien de ces infrastructures sur le territoire national.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 11.0,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "duree": 12.1,
+     "pays": "INT",
+     "source": "The Verge"
     }
    ]
   },
