@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-20",
- "genere": "2026-11-20T20:04:49",
+ "genere": "2026-11-20T23:15:15",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-20T20:05:15",
+   "genere": "2026-11-20T23:15:37",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.2,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les dix informations tech de votre soirée."
+    "duree": 8.7,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les actualités tech et télécoms de votre soirée, avec dix informations à découvrir."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.7,
-    "texte": "C'était votre dose d'actualités tech sur Algeria Tech. Retrouvez-nous demain."
+    "duree": 6.9,
+    "texte": "C'était votre dose d'actualités tech et télécoms. Restez connectés sur Algeria Tech pour ne rien manquer."
    },
    "items": [
     {
-     "titre": "Numérisation et infrastructures examinées",
-     "texte": "Le gouvernement algérien s'est réuni pour examiner plusieurs dossiers cruciaux. Les sujets abordés comprenaient la numérisation de l'économie, le développement des paiements électroniques et l'amélioration des infrastructures nationales pour soutenir ces avancées.",
+     "titre": "Numérisation et infrastructures au menu",
+     "texte": "Mercredi dernier, le gouvernement algérien s'est réuni pour examiner plusieurs dossiers importants. Au cœur des discussions, les sujets de la numérisation, des paiements électroniques et des infrastructures de communication ont été abordés.",
      "mp3": "/podcast/fr/01.mp3",
      "duree": 13.4,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Gouvernement : numérisation au programme",
-     "texte": "Une importante réunion du gouvernement a eu lieu pour passer en revue des points clés. L'accent a été mis sur des dossiers concernant la numérisation des services, la promotion des paiements électroniques et le renforcement des infrastructures stratégiques du pays.",
+     "titre": "Gouvernement examine la numérisation",
+     "texte": "Le gouvernement algérien s'est penché sur des dossiers cruciaux lors de sa dernière réunion. L'accent a été mis sur l'avancement de la numérisation, le développement des paiements électroniques et l'amélioration des infrastructures nationales.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 13.4,
+     "duree": 12.3,
      "pays": "DZ",
      "source": "Radio Algérie"
     },
     {
-     "titre": "Motorola Razr pliable : images volées",
-     "texte": "De nouvelles images fuitées donnent un aperçu du futur téléphone pliable de Motorola. Ce smartphone au format large, rappelant un livre, apparaît dans des coloris élégants, offrant une réponse potentielle du fabricant à l'iPhone Duo.",
+     "titre": "Paiements internationaux avec CPAzonepay",
+     "texte": "Le Crédit populaire d’Algérie détaille les conditions d'accès à CPAzonepay, sa solution pour encaisser des paiements internationaux. Cette offre destinée aux commerçants nécessite le respect d'exigences administratives, bancaires et techniques précises pour accepter cartes Visa et Mastercard.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 12.9,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Algériennes qualifiées pour la finale mondiale",
-     "texte": "Quatre étudiantes algériennes ont brillamment atteint la phase mondiale du NASA Space Apps Challenge. Leur projet innovant, axé sur l'utilisation des données satellitaires, les place parmi les meilleurs talents mondiaux en technologie et science.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 13.3,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Google Home : Gemini plus visible",
-     "texte": "La dernière mise à jour de la page d'accueil de Google intègre davantage son intelligence artificielle Gemini. Une nouvelle barre latérale rétractable met en avant vos recherches récentes, renforçant la présence de l'IA dans l'expérience utilisateur.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 13.2,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Sécurité Gmail : paramètres essentiels",
-     "texte": "Il est crucial de sécuriser votre compte Gmail, car il sert souvent de passerelle vers de nombreux services en ligne. L'activation de certains paramètres de sécurité est vivement recommandée pour protéger vos données personnelles et professionnelles.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 13.0,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Yémen : menaces des Houthis sur ports",
-     "texte": "Les Houthis du Yémen ont menacé d'attaquer les ports saoudiens sur la mer Rouge. Cette riposte est conditionnée à une action de la coalition dirigée par Riyad contre le port yéménite de Hodeïda.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 10.2,
+     "duree": 15.5,
      "pays": "DZ",
      "source": "Maghreb Emergent"
     },
     {
-     "titre": "Anthropic : entrée en bourse par peur",
-     "texte": "L'introduction en Bourse d'Anthropic serait motivée par la peur plutôt que par la confiance en l'avenir de l'IA. Ce mouvement viserait à transférer les risques du secteur vers les investisseurs et la société, selon un expert.",
+     "titre": "La foi comme résistance moderne",
+     "texte": "Face à la désinformation ambiante, la préservation de sa foi est présentée comme un acte de résistance. L'article souligne la prédominance des mensonges et des rumeurs, suggérant un retour à une loi de la jungle quand les repères moraux s'effondrent.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 13.5,
+     "pays": "DZ",
+     "source": "TSA Algérie"
+    },
+    {
+     "titre": "Motorola prépare un nouveau Razr pliable",
+     "texte": "Des images non officielles, récemment apparues, suggèrent la réponse de Motorola à l'iPhone Duo. Ce nouveau smartphone pliable, qui se plie en livre, serait proposé en deux coloris élégants, laissant entrevoir un design soigné.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 13.4,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Quatre étudiantes algériennes au NASA Space Apps Challenge",
+     "texte": "L'innovation algérienne brille à l'international. Quatre étudiantes se sont qualifiées pour la phase mondiale du NASA Space Apps Challenge, l'un des plus grands hackathons technologiques, grâce à un projet prometteur associant données satellitaires.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 13.2,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Google met Gemini en avant",
+     "texte": "La nouvelle page d'accueil de Google intègre davantage l'intelligence artificielle Gemini. Une barre latérale dédiée affiche l'historique des recherches IA, renforçant l'engagement de Google envers cette technologie malgré quelques réserves d'utilisateurs.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 13.4,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Google simplifie l'accès à l'IA",
+     "texte": "Google facilite l'accès à ses outils d'intelligence artificielle directement depuis la page de recherche. Une nouvelle barre latérale IA regroupe l'historique des conversations, marquant une évolution notable dans l'expérience utilisateur.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.8,
+     "duree": 13.0,
      "pays": "INT",
-     "source": "Le Monde Pixels"
+     "source": "Ars Technica"
     },
     {
-     "titre": "Bell Canada : données clients volées",
-     "texte": "Bell Canada confirme une brèche de sécurité ayant mené au vol de données d'entreprise. Un acteur malveillant a accédé à un système de commande et de provisionnement de circuits de télécommunications, compromettant les informations clients.",
+     "titre": "Meta revoit ses objectifs climatiques",
+     "texte": "Face à des émissions records de ses centres de données dédiés à l'IA, Meta réévalue ses objectifs de neutralité carbone pour 2030. Cette décision pourrait inciter d'autres entreprises technologiques à reconsidérer leurs engagements écologiques.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 12.7,
+     "duree": 13.5,
      "pays": "INT",
-     "source": "BleepingComputer"
+     "source": "Ars Technica"
     },
     {
-     "titre": "Trump et les centres de données IA",
-     "texte": "Donald Trump a annoncé l'intention d'imposer une taxe significative aux entreprises délocalisant leurs centres de données IA hors des États-Unis. Il souhaite ainsi encourager le maintien de ces infrastructures sur le territoire national.",
+     "titre": "Android : l'appli Essentials",
+     "texte": "Pour étendre les fonctionnalités de votre smartphone Android, l'application Essentials propose plus de 30 options supplémentaires. Notez qu'elle n'est pas disponible sur le Play Store officiel de Google, nécessitant une installation alternative.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 12.1,
+     "duree": 13.5,
      "pays": "INT",
-     "source": "The Verge"
+     "source": "ZDNet FR"
     }
    ]
   },
