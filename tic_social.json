@@ -361,6 +361,24 @@
       "source_type": "web"
     },
     {
+      "id": "aad7e285b0363760",
+      "source_name": "Djezzy",
+      "source_short": "DJ",
+      "source_color": "#FF6B00",
+      "category": "Opérateurs",
+      "category_icon": "📱",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPc0R4UlFTeUEyOC1NWk96N25UZjB3ak5IN0UxSkhIUGRhOEQzVl9zSzROQkRYRE5EUHN3UjgxamN0QTI0S3BYRkRONTVmNHFFT0tZMEpsT0E4R2ZIWWw4c0NnMU1Ib085Z0h5SHc2LUo5OEdNVTdrMlNybXdmWWltR1lUQUIzbVg1VjA2SVBWNWwzdklseTFJX2pENlJBQQ?oc=5",
+      "image": "",
+      "date": "Sat, 21 Nov 2026 09:41:07 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Des télécoms à un acteur technologique : Lancement officiel de «Djezzy Solutions» - El Watan — Des télécoms à un acteur technologique : Lancement officiel de «Djezzy Solutions» El Watan",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "5e6ec47316f81c14",
       "source_name": "Djezzy",
       "source_short": "DJ",
@@ -697,24 +715,6 @@
       "lang_source": "ar",
       "text": {
         "ar": "Ligue 1 Mobilis : le classico JS Kabylie-USM Alger à l'affiche de la 10e journée - الإذاعة الجزائرية | — Ligue 1 Mobilis : le classico JS Kabylie-USM Alger à l'affiche de la 10e journée الإذاعة الجزائرية |",
-        "fr": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e7534641dbf20bd8",
-      "source_name": "Mobilis",
-      "source_short": "MB",
-      "source_color": "#00A651",
-      "category": "Opérateurs",
-      "category_icon": "📱",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5Hc2JPeFR4WGNYZDlkeUVGRy1oWUl6NkJiVUxXdU1pWnpzS2JTWjBEVHZmVWpZX1hyMkZHNWRFTVJ0M3ZjLXoyNHRPajBidjVxbHRj?oc=5",
-      "image": "",
-      "date": "Wed, 04 Nov 2026 11:00:00 GMT",
-      "lang_source": "ar",
-      "text": {
-        "ar": "Ligue 1 Mobilis - MAJ : le MCA domine le MCO (2-0) et rejoint la JSK à la 2e place - الإذاعة الجزائرية | — Ligue 1 Mobilis - MAJ : le MCA domine le MCO (2-0) et rejoint la JSK à la 2e place الإذاعة الجزائرية |",
         "fr": "",
         "en": ""
       },
@@ -1441,6 +1441,150 @@
       "source_type": "facebook"
     },
     {
+      "id": "f8ce89f0a31be533",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/11/21/signal-restricts-mobile-screenshots-as-it-confronts-existential-threat-of-ai-surveillance/",
+      "image": "",
+      "date": "Sat, 21 Nov 2026 21:37:10 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Signal restricts mobile screenshots as it confronts ‘existential threat’ of AI surveillance — Signal is limiting users' ability to take screenshots in both its Android and iOS apps.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "3fcd2a63a2035b13",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/21/passeport-algerien-les-nouveaux-tarifs-appliques-au-canada-et-aux-etats-unis/",
+      "image": "",
+      "date": "Sat, 21 Nov 2026 21:30:35 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Passeport algérien : les nouveaux tarifs appliqués au Canada et aux États-Unis — Les ressortissants algériens établis au Canada et aux États-Unis peuvent désormais bénéficier de la nouvelle tarification des passeports biométriques. Les consulats d’Algérie dans ces deux pays ont communiqué les montants des droits de timbre applicables à la délivrance et au renouvellement de ce do",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "6572e082b9017ee1",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/11/21/a-tale-of-two-nvidias/",
+      "image": "",
+      "date": "Sat, 21 Nov 2026 21:07:42 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "A tale of two Nvidias — We got two very different pictures of Nvidia — the company’s latest earnings report vs. the tech executives loudly calling for Jensen Huang’s return.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "554c995adbc44944",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/blogs/l-esprit-libre/github-et-microsoft-envoient-des-correctifs-a-six-projets-open-source-508383.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sat, 21 Nov 2026 20:14:48 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "GitHub et Microsoft envoient des correctifs à six projets open source — Face à l’afflux de signalements de sécurité générés par IA, le projet Codename MDASH modifie des rapports de vulnérabilité en y incluant des propositions de correctifs.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "57e31d4a98e88b65",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/11/21/paiement-electronique-580-milliards-de-dinars-en-09-mois-lalgerie-accelere-la-sortie-du-cash/",
+      "image": "",
+      "date": "Sat, 21 Nov 2026 18:47:26 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Paiement électronique : 580 milliards de dinars en 09 mois, l’Algérie accélère la sortie du cash — Le gouvernement a passé en revue, mercredi 18 novembre, les résultats de sa feuille de route sur la modernisation des moyens de paiement. Les chiffres tombent : 391 milliards de dinars de paiements en ligne (+63%), 133 milliards sur terminaux de paiement électronique (+48%) et 56,4 milliards via le",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "6a6fe18fbb7362a3",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/11/21/trump-says-reported-fbi-database-hack-is-not-good/",
+      "image": "",
+      "date": "Sat, 21 Nov 2026 18:44:53 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Trump says reported FBI database hack is ‘not good’ — The FBI is reportedly investigating a hack of the National Crime Information Center.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e934fca1b28d490b",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/21/algerie-poste-baridimob-depasse-les-six-millions-dabonnes/",
+      "image": "",
+      "date": "Sat, 21 Nov 2026 18:41:24 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Algérie Poste : BaridiMob dépasse les six millions d’abonnés — L’application BaridiMob d’Algérie Poste a franchi le seuil des six millions d’abonnés, selon les chiffres communiqués jeudi par l’établissement public. Cette progression intervient alors que certains utilisateurs continuent de signaler des difficultés dans l’utilisation de la plateforme. Algérie Pos",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "dfffca689ad4edec",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/21/saidal-lance-un-nouveau-medicament-destine-aux-patients-atteints-de-diabete-de-type-2/",
+      "image": "",
+      "date": "Sat, 21 Nov 2026 17:18:14 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Saidal lance un nouveau médicament destiné aux patients atteints de diabète de type 2 — Le groupe pharmaceutique public Saidal a annoncé, vendredi 20 novembre, le lancement officiel de Dapaflux, un nouveau médicament destiné à la prise en charge du diabète de type 2. Le produit est également présenté comme un moyen de prévenir certaines complications cardiovasculaires et rénales associ",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "d6a3f176540e5567",
       "source_name": "Algérie Éco",
       "source_short": "AEC",
@@ -1543,6 +1687,42 @@
       "lang_source": "fr",
       "text": {
         "fr": "J'ai testé PowerDirector, et c'est un excellent logiciel de montage vidéo pour débutants, doté de (quelques) outils d'IA bien pratiques — Grâce à ses fonctionnalités basées sur l'IA, PowerDirector est l'une des applications de montage vidéo les plus conviviales que j'ai utilisées.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c6db51d18f0143cf",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/publicite/achats-du-black-friday-comment-avast-aide-a-eviter-les-pieges-en-ligne-507880.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sat, 21 Nov 2026 08:30:47 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Achats du Black Friday : comment Avast aide à éviter les pièges en ligne — Entre faux sites marchands, e-mails piégés et réseaux Wi-Fi peu sûrs, les achats en ligne comportent des risques. Avast rassemble plusieurs outils pour mieux protéger ses utilisateurs.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "9b6ba671430aaf54",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/besoin-dune-tablette-android-robuste-pour-votre-entreprise-celle-ci-a-fait-mieux-que-les-autres-lors-de-nos-tests-en-laboratoire-508177.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Sat, 21 Nov 2026 08:01:09 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Besoin d’une tablette Android durcie pour votre entreprise ? Celle-ci a fait mieux que les autres lors de nos tests en laboratoire — La tablette Oukitel RT10 est conçue pour la durabilité, et elle a remporté un ZDNET Lab Award pour l’autonomie de sa batterie en environnement chaud.",
         "ar": "",
         "en": ""
       },
@@ -1777,6 +1957,24 @@
       "lang_source": "fr",
       "text": {
         "fr": "NASA Space Challenge: 4 étudiants algériennes décrochent la 1ère place — feed Quatre étudiantes en troisième année à l’Ecole supérieure en informatique de Sidi Bel-Abbès, réunies dans l’équipe « Vito 4 », ont décroché la première place lors de l’étape locale de la compétition internationale NASA Space Apps Challenge 2026, organisée récemment dans la wilaya de Boumerdès,",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "2ff30b281ab89ce7",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/11/20/agriculture-nais-le-guichet-unique-numerique-qui-veut-traquer-les-fausses-declarations/",
+      "image": "",
+      "date": "Fri, 20 Nov 2026 18:12:59 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Agriculture : NAIS, le guichet unique numérique qui veut traquer les fausses déclarations — Un clic remplace la file d'attente. Depuis le portail nais.madr.gov.dz, les agriculteurs algériens gèrent leurs registres fonciers, déposent une demande de subvention ou obtiennent une certification sans quitter leur exploitation.",
         "ar": "",
         "en": ""
       },
@@ -5201,214 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "902d6b96f05f20db",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/11/14/cybersecurite-infrastructures-critiques-03-jours-pour-blinder-les-reseaux-strategiques-algeriens/",
-      "image": "",
-      "date": "Sat, 14 Nov 2026 14:13:02 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "CYBERSÉCURITÉ & INFRASTRUCTURES CRITIQUES : 03 JOURS POUR BLINDER LES RÉSEAUX STRATÉGIQUES ALGÉRIENS — Pétrole, transport, pharmacie. Dès lundi, 150 décideurs, selon les organisateurs, des secteurs stratégiques algériens s'enferment 03 jours durant pour verrouiller leurs systèmes face à la menace numérique. Objectif: anticiper la prochaine cyberattaque avant qu'elle ne paralyse les infrastructures cr",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "be7dc9d29c9347c4",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/11/14/le-deficit-commercial-de-lafrique-avec-la-chine-depasse-les-100-milliards-de-dollars-en-dix-mois/",
-      "image": "",
-      "date": "Sat, 14 Nov 2026 13:52:38 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Le déficit commercial de l’Afrique avec la Chine dépasse les 100 milliards de dollars en dix mois — Le déséquilibre des échanges commerciaux entre l’Afrique et la Chine continue de se creuser. Sur les dix premiers mois de 2026, le déficit du continent vis-à-vis de son partenaire asiatique a atteint 101,4 milliards de dollars, en hausse de 27,73 % par rapport à la même période de l’année précédente",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c73e5575e5bdafde",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/11/14/dzair-digital-services-les-citoyens-peuvent-introduire-une-reclamation-en-ligne-en-cas-de-refus-de-documents-par-ladministration/",
-      "image": "",
-      "date": "Sat, 14 Nov 2026 12:03:16 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Dzair Digital Services : les citoyens peuvent introduire une réclamation en ligne en cas de refus de documents par l’administration — Les citoyens dont les documents délivrés via le Portail national des services numériques gouvernementaux (Dzair Digital Services) ont été refusés par l’administration, peuvent introduire une réclamation en ligne via l’espace dédié à cet effet et accessible sur le portail, a indiqué, vendredi dans un",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "53e73315955f360b",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/guide-achat/le-das-de-256-to-de-lacie-est-une-veritable-bete-de-course-mais-je-ne-le-recommande-qua-un-seul-type-dutilisateur-507720.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Sat, 14 Nov 2026 08:00:13 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Le DAS de 256 To de LaCie est une véritable bête de course, mais je ne le recommande qu’à un seul type d’utilisateur — Ce boîtier DAC RAID Thunderbolt 5 est idéal pour les monteurs vidéo 8K, mais ne convient pratiquement à personne d'autre. Voici comment savoir s'il vous convient.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "38a1ffb4e49bf800",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/11/14/astronomie-03-medailles-dargent-pour-lalgerie-aux-olympiades-internationales-2026-en-russie/",
-      "image": "",
-      "date": "Sat, 14 Nov 2026 07:26:58 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "ASTRONOMIE : 03 MÉDAILLES D’ARGENT POUR L’ALGÉRIE AUX OLYMPIADES INTERNATIONALES 2026 EN RUSSIE — Trois jeunes Algériens ont décroché une médaille d’argent chacun aux Olympiades mondiales d’astronomie 2026, organisées dans la région de Sotchi, en Russie. Une performance qui récompense leur préparation scientifique et relance la question de la formation des jeunes talents dans cette discipline.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "8d23e88a0f9bcd33",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/13/jensen-huangs-departure-blasts-big-hole-in-ai-startup-funding-vcs-and-founders-say/",
-      "image": "",
-      "date": "Fri, 13 Nov 2026 22:43:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Jensen Huang’s departure blasts big hole in AI startup funding, VCs and founders say — Nvidia poured tens of billions into AI startups under Huang. Without him at the helm, founders and VCs are bracing for smaller checks and lower valuations.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "82af9bd88d179039",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/11/13/hsbc-va-mettre-fin-a-ses-activites-en-algerie/",
-      "image": "",
-      "date": "Fri, 13 Nov 2026 21:59:45 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "HSBC va mettre fin à ses activités en Algérie — La banque britannique HSBC a annoncé son intention de cesser progressivement ses activités en Algérie, à l’issue d’un examen stratégique de sa présence sur le marché national. Cette décision concerne sa succursale locale, spécialisée dans les services bancaires destinés aux entreprises et aux instit",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "2fd1b18314fc7d48",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/13/u-s-government-grounds-all-flights-across-the-united-states-due-to-extraordinary-cirumstances/",
-      "image": "",
-      "date": "Fri, 13 Nov 2026 21:44:38 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "US government grounds all flights across the United States ‘due to extraordinary circumstances’ — A spokesperson for the FAA told TechCrunch that it issued the ground stop \"following communication issues impacting multiple Air Route Traffic Control Centers,\" which manage the airspace across the United States.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "1daffe88a5c2a844",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/pratique/ia-pratique-laissez-gemini-prendre-le-controle-de-votre-boite-e-mails-pendant-quelques-jours-et-voyez-le-resultat-507837.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Fri, 13 Nov 2026 21:12:56 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "IA pratique : laissez Gemini prendre le contrôle de votre boîte e-mails pendant quelques jours et voyez le résultat — Vous utilisez Gmail pour le travail ou les études ? L’assistant de Google peut désormais vous aider à rédiger votre courrier. Voici comment cela fonctionne.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "3aa052d7b58639d1",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/11/13/visa-pour-la-roumanie-les-demandes-des-algeriens-desormais-traitees-a-tunis/",
-      "image": "",
-      "date": "Fri, 13 Nov 2026 20:09:50 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Visa pour la Roumanie : les demandes des Algériens désormais traitées à Tunis — Les ressortissants algériens souhaitant obtenir un visa pour la Roumanie devront désormais s’adresser à la représentation diplomatique roumaine en Tunisie pour le traitement de leurs dossiers. L’ambassade de Roumanie à Alger a annoncé le transfert de cette activité vers son ambassade à Tunis, à la s",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "3f072eacd83ebab4",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/13/this-young-startup-wants-to-power-floating-data-centers-with-the-oceans-heat-and-investors-are-already-on-board/",
-      "image": "",
-      "date": "Fri, 13 Nov 2026 20:07:24 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "This young startup wants to power floating data centers with the ocean’s heat, and investors are already on board — Drogue is harvesting heat from the ocean to power data centers on floating vessels. The first prototype should be bobbing around the ocean, crunching bits, in less than two years.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-11-21T15:01:39.596049+00:00",
+  "lastUpdated": "2026-11-21T23:40:52.647611+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Médias TIC": 95,
-    "Tech International": 125
+    "Tech International": 126,
+    "Médias TIC": 94
   },
   "total": 300
 }
