@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
- "date": "2026-11-20",
- "genere": "2026-11-20T23:15:15",
+ "date": "2026-11-21",
+ "genere": "2026-11-21T15:34:11",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-20T23:15:37",
+   "genere": "2026-11-21T15:34:32",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 8.7,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les actualités tech et télécoms de votre soirée, avec dix informations à découvrir."
+    "duree": 7.5,
+    "texte": "Bonsoir et bienvenue dans votre rendez-vous Algeria Tech. Au programme ce soir, dix informations à ne pas manquer."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.9,
-    "texte": "C'était votre dose d'actualités tech et télécoms. Restez connectés sur Algeria Tech pour ne rien manquer."
+    "duree": 6.4,
+    "texte": "C'était votre bulletin Algeria Tech. Retrouvez-nous demain pour d'autres nouvelles technologiques."
    },
    "items": [
     {
-     "titre": "Numérisation et infrastructures au menu",
-     "texte": "Mercredi dernier, le gouvernement algérien s'est réuni pour examiner plusieurs dossiers importants. Au cœur des discussions, les sujets de la numérisation, des paiements électroniques et des infrastructures de communication ont été abordés.",
+     "titre": "Numérisation et paiements électroniques examinés",
+     "texte": "Mercredi dernier, plusieurs dossiers cruciaux ont été passés en revue. Ils concernaient la numérisation, les paiements électroniques et le développement des infrastructures nécessaires pour ces avancées technologiques.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 13.4,
+     "duree": 11.6,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Gouvernement examine la numérisation",
-     "texte": "Le gouvernement algérien s'est penché sur des dossiers cruciaux lors de sa dernière réunion. L'accent a été mis sur l'avancement de la numérisation, le développement des paiements électroniques et l'amélioration des infrastructures nationales.",
+     "titre": "Saisie de kif et arrestations",
+     "texte": "La sécurité de l'Armée a réussi cette semaine à démanteler un réseau criminel. Près de 19 quintaux de kif traité ont été saisis, en provenance du Maroc, et 17 trafiquants ont été arrêtés.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 12.3,
+     "duree": 11.4,
      "pays": "DZ",
-     "source": "Radio Algérie"
+     "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "Paiements internationaux avec CPAzonepay",
-     "texte": "Le Crédit populaire d’Algérie détaille les conditions d'accès à CPAzonepay, sa solution pour encaisser des paiements internationaux. Cette offre destinée aux commerçants nécessite le respect d'exigences administratives, bancaires et techniques précises pour accepter cartes Visa et Mastercard.",
+     "titre": "Mobilisation pour la jeunesse et contre la vie chère",
+     "texte": "La jeunesse algérienne continue de se mobiliser. Ce samedi marquait le sixième samedi consécutif de manifestation pour exprimer des revendications sociales et protester contre le coût de la vie.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 15.5,
+     "duree": 10.8,
+     "pays": "DZ",
+     "source": "Le Soir d'Algérie"
+    },
+    {
+     "titre": "Satellites pour vérifier les aides agricoles",
+     "texte": "Dans la wilaya d'El Oued, les satellites vérifient désormais les déclarations des agriculteurs. Ce dispositif, utilisant la plateforme NAIS, vise à améliorer le suivi des productions et la gestion des filières agricoles.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 12.7,
      "pays": "DZ",
      "source": "Maghreb Emergent"
     },
     {
-     "titre": "La foi comme résistance moderne",
-     "texte": "Face à la désinformation ambiante, la préservation de sa foi est présentée comme un acte de résistance. L'article souligne la prédominance des mensonges et des rumeurs, suggérant un retour à une loi de la jungle quand les repères moraux s'effondrent.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 13.5,
-     "pays": "DZ",
-     "source": "TSA Algérie"
-    },
-    {
-     "titre": "Motorola prépare un nouveau Razr pliable",
-     "texte": "Des images non officielles, récemment apparues, suggèrent la réponse de Motorola à l'iPhone Duo. Ce nouveau smartphone pliable, qui se plie en livre, serait proposé en deux coloris élégants, laissant entrevoir un design soigné.",
+     "titre": "Conditions pour payer depuis l'étranger",
+     "texte": "Le Crédit populaire d'Algérie, CPA, a précisé les conditions d'accès à sa nouvelle solution. CPAzonepay permet désormais d'effectuer des paiements depuis l'étranger, facilitant ainsi les transactions internationales.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 13.4,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Quatre étudiantes algériennes au NASA Space Apps Challenge",
-     "texte": "L'innovation algérienne brille à l'international. Quatre étudiantes se sont qualifiées pour la phase mondiale du NASA Space Apps Challenge, l'un des plus grands hackathons technologiques, grâce à un projet prometteur associant données satellitaires.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 13.2,
+     "duree": 12.5,
      "pays": "DZ",
      "source": "Algérie360"
     },
     {
-     "titre": "Google met Gemini en avant",
-     "texte": "La nouvelle page d'accueil de Google intègre davantage l'intelligence artificielle Gemini. Une barre latérale dédiée affiche l'historique des recherches IA, renforçant l'engagement de Google envers cette technologie malgré quelques réserves d'utilisateurs.",
+     "titre": "Vider le cache des applications Mac",
+     "texte": "Les applications sur votre Mac stockent des fichiers temporaires pour améliorer l'expérience. Vider le cache peut ne pas toujours rendre votre machine plus rapide, mais c'est une pratique courante pour la gestion des données.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 11.4,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Gemini améliore les tâches répétitives sur Mac",
+     "texte": "Google Gemini sur Mac gagne en autonomie. La fonctionnalité peut désormais effectuer des tâches répétitives seule, après avoir été disponible sur PC. Cela inclut des actions sur les plateformes de commerce électronique.",
      "mp3": "/podcast/fr/07.mp3",
      "duree": 13.4,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Google simplifie l'accès à l'IA",
-     "texte": "Google facilite l'accès à ses outils d'intelligence artificielle directement depuis la page de recherche. Une nouvelle barre latérale IA regroupe l'historique des conversations, marquant une évolution notable dans l'expérience utilisateur.",
+     "titre": "Diaspora sollicitée pour le tourisme",
+     "texte": "L'Algérie souhaite développer son secteur touristique. Le pays fait appel aux investisseurs de la diaspora pour atteindre l'objectif de 8 millions de touristes d'ici 2029.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 13.0,
-     "pays": "INT",
-     "source": "Ars Technica"
+     "duree": 10.2,
+     "pays": "DZ",
+     "source": "Algérie Éco"
     },
     {
-     "titre": "Meta revoit ses objectifs climatiques",
-     "texte": "Face à des émissions records de ses centres de données dédiés à l'IA, Meta réévalue ses objectifs de neutralité carbone pour 2030. Cette décision pourrait inciter d'autres entreprises technologiques à reconsidérer leurs engagements écologiques.",
+     "titre": "Fonctionnalité Apple Maps pour CarPlay",
+     "texte": "Saviez-vous qu'Apple Maps sur CarPlay permet de partager votre heure d'arrivée prévue ? Une fonction simple mais pratique pour informer vos proches pendant la conduite et améliorer l'expérience de navigation.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 13.5,
-     "pays": "INT",
-     "source": "Ars Technica"
+     "duree": 10.5,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Android : l'appli Essentials",
-     "texte": "Pour étendre les fonctionnalités de votre smartphone Android, l'application Essentials propose plus de 30 options supplémentaires. Notez qu'elle n'est pas disponible sur le Play Store officiel de Google, nécessitant une installation alternative.",
+     "titre": "L'Algérie vise 8 millions de touristes",
+     "texte": "L'Algérie fixe un objectif ambitieux : attirer 8 millions de touristes d'ici 2029. Pour y parvenir, le pays compte sur le développement du secteur et mobilise activement sa diaspora.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 13.5,
-     "pays": "INT",
-     "source": "ZDNet FR"
+     "duree": 11.3,
+     "pays": "DZ",
+     "source": "TSA Algérie"
     }
    ]
   },
