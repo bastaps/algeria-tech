@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-21",
- "genere": "2026-11-21T18:57:37",
+ "genere": "2026-11-21T21:54:23",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-21T18:58:00",
+   "genere": "2026-11-21T21:54:43",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.2,
-    "texte": "Bonsoir à tous et bienvenue sur Algeria Tech. Voici les 10 informations tech et économie de votre soirée."
+    "duree": 7.6,
+    "texte": "Bonsoir et bienvenue dans votre rendez-vous tech de la soirée avec Algeria Tech. Nous avons dix informations pour vous ce soir."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.5,
-    "texte": "C'était l'essentiel de l'actualité tech et économique. Retrouvez-nous demain pour un nouveau résumé."
+    "duree": 7.3,
+    "texte": "C'est tout pour ce soir. Retrouvez-nous demain pour un nouveau tour de l'actualité tech. Merci."
    },
    "items": [
     {
-     "titre": "Numérisation et paiements électroniques",
-     "texte": "Mercredi prochain, plusieurs dossiers cruciaux concernant la numérisation, les paiements électroniques et le développement des infrastructures feront l'objet d'un examen attentif. L'objectif est de dynamiser ces secteurs clés pour l'économie.",
+     "titre": "Numérisation et paiements examinés",
+     "texte": "Plusieurs dossiers cruciaux concernant la numérisation, les paiements électroniques et les infrastructures ont été examinés mercredi. Ces discussions visent à faire avancer les projets technologiques importants pour le pays.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 13.0,
+     "duree": 11.6,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "La drogue, une arme de guerre",
-     "texte": "La question de la drogue dépasse le simple cadre sanitaire ou criminel. De l'Algérie à l'Arabie saoudite, une interrogation émerge : la drogue est-elle devenue une arme de guerre stratégique pour affaiblir les États ?",
+     "titre": "Contestation contre la vie chère en France",
+     "texte": "La France est le théâtre de manifestations pour la sixième semaine consécutive. Les citoyens expriment leur mécontentement face à la hausse du coût de la vie, notamment à Paris et dans d'autres grandes villes.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 11.8,
+     "duree": 10.9,
      "pays": "DZ",
-     "source": "Crésus"
+     "source": "Le Jeune Indépendant"
     },
     {
-     "titre": "Massive saisie de kif",
-     "texte": "Les forces de l'Armée nationale populaire ont réalisé une opération majeure en démantelant un important réseau de trafic de drogue. Près de 19 quintaux de kif ont été saisis aux frontières ouest.",
+     "titre": "Danger batterie portable déchargée",
+     "texte": "Une batterie d'ordinateur portable complètement déchargée pourrait causer plus de dommages que l'on imagine. Ne pas anticiper cette panne est source de complications, surtout loin d'une prise électrique.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 10.6,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Microsoft abandonne des applications",
-     "texte": "Microsoft va cesser le support de trois applications complémentaires de Microsoft 365. Les applications People, Files et Calendar seront arrêtées, seulement quatorze mois après leur lancement. Une décision surprenante de l'entreprise.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 14.8,
+     "duree": 10.9,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Centre informatique national chinois",
-     "texte": "L'Algérie confie à un consortium chinois, incluant Huawei, la création d'un centre national de reprise informatique. Ce projet majeur, d'un montant de 290 millions de dollars, renforcera la résilience des systèmes numériques.",
+     "titre": "BaridiMob dépasse six millions d'abonnés",
+     "texte": "L'application BaridiMob d'Algérie Poste a franchi un cap important, atteignant six millions d'abonnés. Malgré cette réussite, certains utilisateurs signalent encore des difficultés techniques passagères.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 11.8,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "La drogue, arme de guerre?",
+     "texte": "Au-delà du fléau sanitaire, la question se pose de savoir si la drogue est devenue une arme de guerre de cinquième génération. Elle pourrait servir à affaiblir les États dans leur structure.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 14.2,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "Arrestations pour trafic de psychotropes",
-     "texte": "Les services de la sûreté d'Alger ont réussi à démanteler un réseau spécialisé dans le trafic de psychotropes. Sept individus ont été arrêtés lors de cette opération qui a permis la saisie de plus de deux mille cinq cents comprimés.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 11.8,
-     "pays": "DZ",
-     "source": "Le Soir d'Algérie"
-    },
-    {
-     "titre": "Paiement international pour les commerçants",
-     "texte": "Le Crédit Populaire d'Algérie détaille les modalités d'accès à sa solution CPAzonepay. Destinée aux commerçants souhaitant vendre à l'international, elle permet d'encaisser des paiements par cartes Visa et Mastercard.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 11.8,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "Démantèlement d'un réseau de stupéfiants",
-     "texte": "Une saisie record de 19 quintaux de kif traité, en provenance du Maroc, a été effectuée. Dix-sept narcotrafiquants ont été arrêtés par les services de sécurité de l'Armée dans la deuxième région militaire.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.8,
+     "duree": 10.4,
      "pays": "DZ",
      "source": "Crésus"
     },
     {
-     "titre": "Nouvelle saisie de kif",
-     "texte": "Dans la deuxième région militaire, les services de l'Armée ont démantelé un réseau criminel. Près de 19 quintaux de kif traité, importé du Maroc, ont été saisis, et 17 individus interpellés.",
+     "titre": "19 quintaux de kif saisis",
+     "texte": "Les services de sécurité de l'Armée nationale populaire ont réussi à saisir près de 19 quintaux de kif. Cette opération a permis de démanteler un important réseau de trafic de drogue aux frontières ouest.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 11.4,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Microsoft abandonne des applications 365",
+     "texte": "Microsoft va arrêter trois applications complémentaires de Microsoft 365, après seulement quatorze mois. Les applications People, Files et Calendar cesseront de fonctionner pour des raisons non spécifiées.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 12.4,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Centre informatique : 290 millions $",
+     "texte": "Un consortium chinois a remporté un contrat de 290 millions de dollars pour un centre national de reprise informatique en Algérie. Ce projet vise à assurer la continuité des systèmes numériques.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 11.4,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "Trafic de psychotropes démantelé",
+     "texte": "Les services de la Sûreté d'Alger ont arrêté sept individus impliqués dans le trafic de substances psychotropes. Plus de 2 500 comprimés ont été saisis lors de cette opération.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.9,
+     "duree": 9.9,
      "pays": "DZ",
      "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "Mobilisation contre la vie chère",
-     "texte": "Ce samedi marque le sixième samedi consécutif de mobilisation. La jeunesse algérienne continue de se mobiliser pour exprimer ses préoccupations face à la hausse du coût de la vie.",
+     "titre": "CPAzonepay : paiement international",
+     "texte": "Le Crédit populaire d'Algérie détaille les conditions d'accès à sa solution de paiement international CPAzonepay. Elle permet aux commerçants d'encaisser des paiements par Visa et Mastercard.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 10.1,
+     "duree": 10.3,
      "pays": "DZ",
-     "source": "Le Soir d'Algérie"
+     "source": "Algérie Éco"
     }
    ]
   },
