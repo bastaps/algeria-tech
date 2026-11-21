@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-21",
- "genere": "2026-11-21T15:34:11",
+ "genere": "2026-11-21T18:57:37",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-21T15:34:32",
+   "genere": "2026-11-21T18:58:00",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.5,
-    "texte": "Bonsoir et bienvenue dans votre rendez-vous Algeria Tech. Au programme ce soir, dix informations à ne pas manquer."
+    "duree": 7.2,
+    "texte": "Bonsoir à tous et bienvenue sur Algeria Tech. Voici les 10 informations tech et économie de votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.4,
-    "texte": "C'était votre bulletin Algeria Tech. Retrouvez-nous demain pour d'autres nouvelles technologiques."
+    "duree": 6.5,
+    "texte": "C'était l'essentiel de l'actualité tech et économique. Retrouvez-nous demain pour un nouveau résumé."
    },
    "items": [
     {
-     "titre": "Numérisation et paiements électroniques examinés",
-     "texte": "Mercredi dernier, plusieurs dossiers cruciaux ont été passés en revue. Ils concernaient la numérisation, les paiements électroniques et le développement des infrastructures nécessaires pour ces avancées technologiques.",
+     "titre": "Numérisation et paiements électroniques",
+     "texte": "Mercredi prochain, plusieurs dossiers cruciaux concernant la numérisation, les paiements électroniques et le développement des infrastructures feront l'objet d'un examen attentif. L'objectif est de dynamiser ces secteurs clés pour l'économie.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 11.6,
+     "duree": 13.0,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Saisie de kif et arrestations",
-     "texte": "La sécurité de l'Armée a réussi cette semaine à démanteler un réseau criminel. Près de 19 quintaux de kif traité ont été saisis, en provenance du Maroc, et 17 trafiquants ont été arrêtés.",
+     "titre": "La drogue, une arme de guerre",
+     "texte": "La question de la drogue dépasse le simple cadre sanitaire ou criminel. De l'Algérie à l'Arabie saoudite, une interrogation émerge : la drogue est-elle devenue une arme de guerre stratégique pour affaiblir les États ?",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 11.4,
+     "duree": 11.8,
      "pays": "DZ",
-     "source": "Le Soir d'Algérie"
+     "source": "Crésus"
     },
     {
-     "titre": "Mobilisation pour la jeunesse et contre la vie chère",
-     "texte": "La jeunesse algérienne continue de se mobiliser. Ce samedi marquait le sixième samedi consécutif de manifestation pour exprimer des revendications sociales et protester contre le coût de la vie.",
+     "titre": "Massive saisie de kif",
+     "texte": "Les forces de l'Armée nationale populaire ont réalisé une opération majeure en démantelant un important réseau de trafic de drogue. Près de 19 quintaux de kif ont été saisis aux frontières ouest.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 10.8,
-     "pays": "DZ",
-     "source": "Le Soir d'Algérie"
-    },
-    {
-     "titre": "Satellites pour vérifier les aides agricoles",
-     "texte": "Dans la wilaya d'El Oued, les satellites vérifient désormais les déclarations des agriculteurs. Ce dispositif, utilisant la plateforme NAIS, vise à améliorer le suivi des productions et la gestion des filières agricoles.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 12.7,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
-    },
-    {
-     "titre": "Conditions pour payer depuis l'étranger",
-     "texte": "Le Crédit populaire d'Algérie, CPA, a précisé les conditions d'accès à sa nouvelle solution. CPAzonepay permet désormais d'effectuer des paiements depuis l'étranger, facilitant ainsi les transactions internationales.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 12.5,
+     "duree": 10.6,
      "pays": "DZ",
      "source": "Algérie360"
     },
     {
-     "titre": "Vider le cache des applications Mac",
-     "texte": "Les applications sur votre Mac stockent des fichiers temporaires pour améliorer l'expérience. Vider le cache peut ne pas toujours rendre votre machine plus rapide, mais c'est une pratique courante pour la gestion des données.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 11.4,
+     "titre": "Microsoft abandonne des applications",
+     "texte": "Microsoft va cesser le support de trois applications complémentaires de Microsoft 365. Les applications People, Files et Calendar seront arrêtées, seulement quatorze mois après leur lancement. Une décision surprenante de l'entreprise.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 14.8,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Gemini améliore les tâches répétitives sur Mac",
-     "texte": "Google Gemini sur Mac gagne en autonomie. La fonctionnalité peut désormais effectuer des tâches répétitives seule, après avoir été disponible sur PC. Cela inclut des actions sur les plateformes de commerce électronique.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 13.4,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Diaspora sollicitée pour le tourisme",
-     "texte": "L'Algérie souhaite développer son secteur touristique. Le pays fait appel aux investisseurs de la diaspora pour atteindre l'objectif de 8 millions de touristes d'ici 2029.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 10.2,
+     "titre": "Centre informatique national chinois",
+     "texte": "L'Algérie confie à un consortium chinois, incluant Huawei, la création d'un centre national de reprise informatique. Ce projet majeur, d'un montant de 290 millions de dollars, renforcera la résilience des systèmes numériques.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 14.2,
      "pays": "DZ",
      "source": "Algérie Éco"
     },
     {
-     "titre": "Fonctionnalité Apple Maps pour CarPlay",
-     "texte": "Saviez-vous qu'Apple Maps sur CarPlay permet de partager votre heure d'arrivée prévue ? Une fonction simple mais pratique pour informer vos proches pendant la conduite et améliorer l'expérience de navigation.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 10.5,
+     "titre": "Arrestations pour trafic de psychotropes",
+     "texte": "Les services de la sûreté d'Alger ont réussi à démanteler un réseau spécialisé dans le trafic de psychotropes. Sept individus ont été arrêtés lors de cette opération qui a permis la saisie de plus de deux mille cinq cents comprimés.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 11.8,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "L'Algérie vise 8 millions de touristes",
-     "texte": "L'Algérie fixe un objectif ambitieux : attirer 8 millions de touristes d'ici 2029. Pour y parvenir, le pays compte sur le développement du secteur et mobilise activement sa diaspora.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 11.3,
+     "titre": "Paiement international pour les commerçants",
+     "texte": "Le Crédit Populaire d'Algérie détaille les modalités d'accès à sa solution CPAzonepay. Destinée aux commerçants souhaitant vendre à l'international, elle permet d'encaisser des paiements par cartes Visa et Mastercard.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 11.8,
      "pays": "DZ",
-     "source": "TSA Algérie"
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "Démantèlement d'un réseau de stupéfiants",
+     "texte": "Une saisie record de 19 quintaux de kif traité, en provenance du Maroc, a été effectuée. Dix-sept narcotrafiquants ont été arrêtés par les services de sécurité de l'Armée dans la deuxième région militaire.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 11.8,
+     "pays": "DZ",
+     "source": "Crésus"
+    },
+    {
+     "titre": "Nouvelle saisie de kif",
+     "texte": "Dans la deuxième région militaire, les services de l'Armée ont démantelé un réseau criminel. Près de 19 quintaux de kif traité, importé du Maroc, ont été saisis, et 17 individus interpellés.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 11.9,
+     "pays": "DZ",
+     "source": "Le Soir d'Algérie"
+    },
+    {
+     "titre": "Mobilisation contre la vie chère",
+     "texte": "Ce samedi marque le sixième samedi consécutif de mobilisation. La jeunesse algérienne continue de se mobiliser pour exprimer ses préoccupations face à la hausse du coût de la vie.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 10.1,
+     "pays": "DZ",
+     "source": "Le Soir d'Algérie"
     }
    ]
   },
