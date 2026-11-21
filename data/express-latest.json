@@ -1,5 +1,17 @@
 [
  {
+  "id": "20261121-132816-aea9da",
+  "titre": "Pannes informatiques : la pression de l'IA",
+  "texte": "Bonjour. De nombreuses pannes informatiques mondiales s'expliquent désormais par la pression croissante de l'intelligence artificielle. Cette technologie accélère la découverte de failles, forçant les équipes à déployer des correctifs précipités. L'instabilité des systèmes informatiques risque donc de s'aggraver face à ce rythme de mises à jour.",
+  "source": "Wired",
+  "url": "https://www.wired.com/story/brace-yourself-for-years-of-outage-chaos/",
+  "pays": "INT",
+  "duree": 25.52,
+  "mp4Url": "https://bastaps.github.io/algeria-tech-videos/express/20261121-132816-aea9da.mp4",
+  "poster": "https://bastaps.github.io/algeria-tech-videos/express/20261121-132816-aea9da.jpg",
+  "publishedAt": "2026-11-21T13:30:53Z"
+ },
+ {
   "id": "20261120-215023-d76e81",
   "titre": "Nvidia visée par une enquête de la SEC",
   "texte": "Bonjour. L'autorité des marchés financiers américains enquête sur de potentiels problèmes comptables chez Nvidia. Son action a déjà perdu 46 % en six semaines. Les marchés restent très inquiets dans l'attente du rapport trimestriel détaillé.",
@@ -346,17 +358,5 @@
   "mp4Url": "https://bastaps.github.io/algeria-tech-videos/express/20261105-210834-cbac09.mp4",
   "poster": "https://bastaps.github.io/algeria-tech-videos/express/20261105-210834-cbac09.jpg",
   "publishedAt": "2026-11-05T21:10:04Z"
- },
- {
-  "id": "20261105-131032-3c535f",
-  "titre": "Faille critique non corrigée dans Claude Dispatch",
-  "texte": "Bonjour. Anthropic refuse de corriger une faille de Claude Dispatch. Une extension de navigateur peut exécuter du code distant sur les ordinateurs des utilisateurs. La sécurité des millions d'installations reste menacée par ce défaut de conception.",
-  "source": "The Register",
-  "url": "https://www.theregister.com/research/2026/11/05/anthropic-wont-fix-a-claude-dispatch-flaw-that-could-let-attackers-execute-remote-commands-across-corporate-boundaries/5307684",
-  "pays": "INT",
-  "duree": 21.64,
-  "mp4Url": "https://bastaps.github.io/algeria-tech-videos/express/20261105-131032-3c535f.mp4",
-  "poster": "https://bastaps.github.io/algeria-tech-videos/express/20261105-131032-3c535f.jpg",
-  "publishedAt": "2026-11-05T13:11:36Z"
  }
 ]
