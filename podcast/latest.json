@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
- "date": "2026-11-21",
- "genere": "2026-11-21T21:54:23",
+ "date": "2026-11-22",
+ "genere": "2026-11-22T15:29:18",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-21T21:54:43",
+   "genere": "2026-11-22T15:29:39",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.6,
-    "texte": "Bonsoir et bienvenue dans votre rendez-vous tech de la soirée avec Algeria Tech. Nous avons dix informations pour vous ce soir."
+    "duree": 6.3,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici 10 informations à découvrir ce soir."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 7.3,
-    "texte": "C'est tout pour ce soir. Retrouvez-nous demain pour un nouveau tour de l'actualité tech. Merci."
+    "duree": 5.8,
+    "texte": "C'était votre dose d'actualité tech sur Algeria Tech. Retrouvez-nous bientôt."
    },
    "items": [
     {
-     "titre": "Numérisation et paiements examinés",
-     "texte": "Plusieurs dossiers cruciaux concernant la numérisation, les paiements électroniques et les infrastructures ont été examinés mercredi. Ces discussions visent à faire avancer les projets technologiques importants pour le pays.",
+     "titre": "Diaspora : potentiel économique exploré",
+     "texte": "Alger accueille un atelier dédié à la mobilisation du potentiel économique de la diaspora. L'événement, qui s'est tenu dimanche, vise à exploiter les ressources de la communauté algérienne à l'étranger pour le développement économique national.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 11.6,
+     "duree": 13.0,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Contestation contre la vie chère en France",
-     "texte": "La France est le théâtre de manifestations pour la sixième semaine consécutive. Les citoyens expriment leur mécontentement face à la hausse du coût de la vie, notamment à Paris et dans d'autres grandes villes.",
+     "titre": "Numérisation et paiements sous examen",
+     "texte": "Plusieurs dossiers importants ont été examinés. Ils concernaient la numérisation de nos services, le développement des paiements électroniques et l'amélioration de nos infrastructures, des avancées cruciales pour l'économie.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 10.9,
-     "pays": "DZ",
-     "source": "Le Jeune Indépendant"
-    },
-    {
-     "titre": "Danger batterie portable déchargée",
-     "texte": "Une batterie d'ordinateur portable complètement déchargée pourrait causer plus de dommages que l'on imagine. Ne pas anticiper cette panne est source de complications, surtout loin d'une prise électrique.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 10.9,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "BaridiMob dépasse six millions d'abonnés",
-     "texte": "L'application BaridiMob d'Algérie Poste a franchi un cap important, atteignant six millions d'abonnés. Malgré cette réussite, certains utilisateurs signalent encore des difficultés techniques passagères.",
-     "mp3": "/podcast/fr/04.mp3",
      "duree": 11.8,
+     "pays": "DZ",
+     "source": "APS"
+    },
+    {
+     "titre": "Agrodrive soutient les agriculteurs",
+     "texte": "Pour la campagne labours-semailles 2026-2027, Agrodrive déploie son parc de matériel agricole. L'objectif est d'accompagner au mieux les agriculteurs, notamment par le renforcement des capacités de récolte et la création de coopératives.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 14.3,
      "pays": "DZ",
      "source": "Algérie Éco"
     },
     {
-     "titre": "La drogue, arme de guerre?",
-     "texte": "Au-delà du fléau sanitaire, la question se pose de savoir si la drogue est devenue une arme de guerre de cinquième génération. Elle pourrait servir à affaiblir les États dans leur structure.",
+     "titre": "Chery accélère au Maroc",
+     "texte": "Le constructeur chinois Chery intensifie le développement de ses marques OMODA et JAECOO au Maroc. Une nouvelle étape avec le lancement du SUV hybride J5 HEV pour renforcer sa présence sur le marché.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 11.2,
+     "pays": "DZ",
+     "source": "Maghreb Emergent"
+    },
+    {
+     "titre": "Samsung retire des applications Galaxy",
+     "texte": "Samsung va retirer certaines applications de réalité augmentée du Galaxy Store en décembre. Si vous utilisez des outils comme Quick Measure ou AR Doodle, il est temps de les récupérer.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 10.4,
+     "duree": 10.6,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Campagne électorale : mobilisation demandée",
+     "texte": "À l'approche de la clôture de la campagne électorale locale, les partis insistent sur la mobilisation. Le renforcement des prérogatives locales et la promotion du développement territorial sont au cœur des discours.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 11.6,
      "pays": "DZ",
      "source": "Crésus"
     },
     {
-     "titre": "19 quintaux de kif saisis",
-     "texte": "Les services de sécurité de l'Armée nationale populaire ont réussi à saisir près de 19 quintaux de kif. Cette opération a permis de démanteler un important réseau de trafic de drogue aux frontières ouest.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 11.4,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Microsoft abandonne des applications 365",
-     "texte": "Microsoft va arrêter trois applications complémentaires de Microsoft 365, après seulement quatorze mois. Les applications People, Files et Calendar cesseront de fonctionner pour des raisons non spécifiées.",
+     "titre": "Nouvelle télécommande Apple TV",
+     "texte": "Apple a dévoilé son dernier boîtier Apple TV 4K. Il est accompagné d'une nouvelle télécommande dont les fonctionnalités et la compatibilité avec les anciens modèles méritent d'être connues.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 12.4,
+     "duree": 10.2,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Centre informatique : 290 millions $",
-     "texte": "Un consortium chinois a remporté un contrat de 290 millions de dollars pour un centre national de reprise informatique en Algérie. Ce projet vise à assurer la continuité des systèmes numériques.",
+     "titre": "Quand remplacer sa protection d'écran",
+     "texte": "Votre protection d'écran est-elle cassée ? Apprenez à identifier les signes indiquant qu'il est temps de la remplacer pour continuer à protéger efficacement votre smartphone au quotidien.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.4,
+     "duree": 9.7,
      "pays": "DZ",
-     "source": "Algérie Éco"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Trafic de psychotropes démantelé",
-     "texte": "Les services de la Sûreté d'Alger ont arrêté sept individus impliqués dans le trafic de substances psychotropes. Plus de 2 500 comprimés ont été saisis lors de cette opération.",
+     "titre": "Kevel lève 52 millions de dollars",
+     "texte": "Kevel annonce une nouvelle levée de fonds de 52 millions de dollars. Cet investissement vise à renforcer son infrastructure pour le commerce média, promettant des innovations dans ce secteur en pleine croissance.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 9.9,
+     "duree": 11.7,
      "pays": "DZ",
-     "source": "Le Soir d'Algérie"
+     "source": "AlgeriaTech.news"
     },
     {
-     "titre": "CPAzonepay : paiement international",
-     "texte": "Le Crédit populaire d'Algérie détaille les conditions d'accès à sa solution de paiement international CPAzonepay. Elle permet aux commerçants d'encaisser des paiements par Visa et Mastercard.",
+     "titre": "Marklo lève 5 millions de dollars",
+     "texte": "Marklo boucle une levée de fonds de 5 millions de dollars. L'entreprise lance également une version bêta de ses outils marketing pour les marques sur Shopify, axée sur les données d'inventaire et de vente.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 10.3,
+     "duree": 11.1,
      "pays": "DZ",
-     "source": "Algérie Éco"
+     "source": "AlgeriaTech.news"
     }
    ]
   },
