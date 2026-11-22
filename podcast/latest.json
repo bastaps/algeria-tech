@@ -1,100 +1,100 @@
 {
  "creneau": "soir",
  "date": "2026-11-22",
- "genere": "2026-11-22T19:27:57",
+ "genere": "2026-11-22T22:02:07",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-22T19:28:20",
+   "genere": "2026-11-22T22:02:30",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.4,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici 10 informations pour éclairer votre soirée."
+    "duree": 7.2,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les 10 informations tech et télécoms à ne pas manquer ce soir."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.0,
-    "texte": "C'était Algeria Tech. Restez connectés pour vos prochaines mises à jour technologiques."
+    "duree": 6.1,
+    "texte": "C'était votre résumé de l'actualité tech. Restez connectés sur Algeria Tech."
    },
    "items": [
     {
-     "titre": "Attention faux site Naftal",
-     "texte": "Un nouveau piège numérique menace les automobilistes algériens détenteurs de cartes bancaires. Himayatec alerte sur un faux site Naftal qui pourrait vider votre compte. Restez vigilants face à ces arnaques en ligne.",
+     "titre": "Rencontre sur la science",
+     "texte": "Le ministre Chaib a reçu le coordinateur du Haut conseil de la communauté scientifique nationale à l'étranger. Cette rencontre s'est tenue dimanche dernier et visait à renforcer les liens.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 12.7,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Hausse plafonds paiement CIB",
-     "texte": "Le ministre des Finances demande le relèvement des plafonds de paiement par carte CIB. L'Association des banques et SATIM ont été chargées de préparer une proposition pour augmenter ces limites pour particuliers et entreprises.",
-     "mp3": "/podcast/fr/02.mp3",
-     "duree": 11.8,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "Alertes radars sur CarPlay",
-     "texte": "Il est désormais possible de recevoir des alertes sur les radars de vitesse directement dans Apple CarPlay. Votre application de navigation gère le travail, transformant votre système en messager d'informations routières utiles.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 12.3,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Ministère des Finances ordonne hausse plafonds",
-     "texte": "Le ministre des Finances a donné quinze jours à l'association des banques et à la SATIM pour proposer une augmentation des plafonds de paiement par carte CIB, tant pour les professionnels que pour les particuliers.",
-     "mp3": "/podcast/fr/04.mp3",
      "duree": 10.0,
      "pays": "DZ",
-     "source": "Maghreb Emergent"
+     "source": "APS"
     },
     {
-     "titre": "Arnaques AADL et BaridiMob",
-     "texte": "Justice rendue dans une affaire d'escroquerie liée à l'AADL et BaridiMob. Vingt-et-un membres d'un réseau ont été placés en détention, tandis que huit femmes ont été libérées par le juge d'instruction.",
+     "titre": "Mobilisation économique à l'étranger",
+     "texte": "Chaib a également présidé l'ouverture du second workshop sur la mobilisation du potentiel économique des Algériens établis à l'étranger. L'objectif est de valoriser ces compétences.",
+     "mp3": "/podcast/fr/02.mp3",
+     "duree": 10.3,
+     "pays": "DZ",
+     "source": "APS"
+    },
+    {
+     "titre": "180 000 TPE déployés",
+     "texte": "Près de 180 000 terminaux de paiement électronique seront déployés sur le territoire national. Cette opération vise à faciliter les transactions et à moderniser les paiements.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 9.8,
+     "pays": "DZ",
+     "source": "Radio Algérie"
+    },
+    {
+     "titre": "Banques, action sur les TPE",
+     "texte": "Les banques publiques ont reçu l'ordre de déployer 180 000 terminaux de paiement électronique dans les deux prochains mois, soit un rythme soutenu pour accélérer la digitalisation.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 9.0,
+     "pays": "DZ",
+     "source": "TSA Algérie"
+    },
+    {
+     "titre": "Conseil des ministres et startups",
+     "texte": "Le président Tebboune a présidé un Conseil des ministres. Il a donné des orientations sur la préparation de la Conférence africaine sur les startups, soulignant leur importance.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 10.9,
+     "duree": 10.1,
+     "pays": "DZ",
+     "source": "TSA Algérie"
+    },
+    {
+     "titre": "Instruction pour les banques",
+     "texte": "Le ministre des Finances a instruit les banques publiques. Elles doivent déployer 180 000 terminaux de paiement électronique à travers le pays avant janvier prochain.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 9.0,
+     "pays": "DZ",
+     "source": "Le Soir d'Algérie"
+    },
+    {
+     "titre": "Enquête sur l'entrée à Ceuta",
+     "texte": "L'implication des services marocains dans l'entrée massive de migrants à Ceuta est confirmée. Une enquête a révélé des connexions entre les coordinateurs et des corps sécuritaires.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 9.7,
+     "pays": "DZ",
+     "source": "Le Jeune Indépendant"
+    },
+    {
+     "titre": "Attention au faux site Naftal",
+     "texte": "Un faux site Naftal circule actuellement, visant à voler les données bancaires des automobilistes. L'association Himayatec met en garde contre ce nouveau piège numérique.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 9.7,
      "pays": "DZ",
      "source": "Algérie360"
     },
     {
-     "titre": "180 000 TPE pour banques publiques",
-     "texte": "Pour encourager le paiement électronique, 180 000 terminaux de paiement seront déployés dans les banques publiques d'ici deux mois. Chaque banque devra en installer 30 000, accélérant la transition numérique.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 11.6,
+     "titre": "Paiement par carte CIB",
+     "texte": "Le ministre des Finances demande le relèvement des plafonds de paiement par carte interbancaire. Une proposition sera préparée pour les particuliers et les professionnels.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 9.2,
      "pays": "DZ",
      "source": "Algérie Éco"
     },
     {
-     "titre": "Plafonds carte bancaire bientôt relevés",
-     "texte": "Afin de promouvoir les paiements dématérialisés, le ministère des Finances annonce une prochaine revalorisation des plafonds de paiement par carte bancaire. Une mesure pour réduire l'usage du cash.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 11.0,
-     "pays": "DZ",
-     "source": "TSA Algérie"
-    },
-    {
-     "titre": "Son surround Apple TV 4K",
-     "texte": "Découvrez comment configurer le son surround avec l'Apple TV 4K et vos HomePods pour une expérience cinéma premium à la maison. Profitez de capacités audio améliorées pour vos divertissements.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 10.9,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Chute des prix de l'or",
-     "texte": "Après avoir atteint des sommets, le prix de l'or a fortement baissé ces derniers jours. Une opportunité pour les acheteurs potentiels de métal jaune, mais la durée de cette tendance reste incertaine.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.1,
-     "pays": "DZ",
-     "source": "TSA Algérie"
-    },
-    {
-     "titre": "Détecteurs de métaux sur smartphone",
-     "texte": "Votre smartphone peut se transformer en détecteur de métaux grâce à certaines applications. Bien qu'elles ne remplacent pas les appareils dédiés, elles peuvent offrir une utilité surprenante pour des usages limités.",
+     "titre": "Alertes radars dans CarPlay",
+     "texte": "Découvrez comment recevoir des alertes sur les radars de vitesse directement dans Apple CarPlay. Les applications de navigation gèrent cette fonctionnalité pour vous informer.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 11.4,
+     "duree": 9.5,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     }
