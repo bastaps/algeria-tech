@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-22",
- "genere": "2026-11-22T15:29:18",
+ "genere": "2026-11-22T19:27:57",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-22T15:29:39",
+   "genere": "2026-11-22T19:28:20",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.3,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici 10 informations à découvrir ce soir."
+    "duree": 6.4,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici 10 informations pour éclairer votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.8,
-    "texte": "C'était votre dose d'actualité tech sur Algeria Tech. Retrouvez-nous bientôt."
+    "duree": 6.0,
+    "texte": "C'était Algeria Tech. Restez connectés pour vos prochaines mises à jour technologiques."
    },
    "items": [
     {
-     "titre": "Diaspora : potentiel économique exploré",
-     "texte": "Alger accueille un atelier dédié à la mobilisation du potentiel économique de la diaspora. L'événement, qui s'est tenu dimanche, vise à exploiter les ressources de la communauté algérienne à l'étranger pour le développement économique national.",
+     "titre": "Attention faux site Naftal",
+     "texte": "Un nouveau piège numérique menace les automobilistes algériens détenteurs de cartes bancaires. Himayatec alerte sur un faux site Naftal qui pourrait vider votre compte. Restez vigilants face à ces arnaques en ligne.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 13.0,
+     "duree": 12.7,
      "pays": "DZ",
-     "source": "APS"
+     "source": "Algérie360"
     },
     {
-     "titre": "Numérisation et paiements sous examen",
-     "texte": "Plusieurs dossiers importants ont été examinés. Ils concernaient la numérisation de nos services, le développement des paiements électroniques et l'amélioration de nos infrastructures, des avancées cruciales pour l'économie.",
+     "titre": "Hausse plafonds paiement CIB",
+     "texte": "Le ministre des Finances demande le relèvement des plafonds de paiement par carte CIB. L'Association des banques et SATIM ont été chargées de préparer une proposition pour augmenter ces limites pour particuliers et entreprises.",
      "mp3": "/podcast/fr/02.mp3",
      "duree": 11.8,
-     "pays": "DZ",
-     "source": "APS"
-    },
-    {
-     "titre": "Agrodrive soutient les agriculteurs",
-     "texte": "Pour la campagne labours-semailles 2026-2027, Agrodrive déploie son parc de matériel agricole. L'objectif est d'accompagner au mieux les agriculteurs, notamment par le renforcement des capacités de récolte et la création de coopératives.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 14.3,
      "pays": "DZ",
      "source": "Algérie Éco"
     },
     {
-     "titre": "Chery accélère au Maroc",
-     "texte": "Le constructeur chinois Chery intensifie le développement de ses marques OMODA et JAECOO au Maroc. Une nouvelle étape avec le lancement du SUV hybride J5 HEV pour renforcer sa présence sur le marché.",
+     "titre": "Alertes radars sur CarPlay",
+     "texte": "Il est désormais possible de recevoir des alertes sur les radars de vitesse directement dans Apple CarPlay. Votre application de navigation gère le travail, transformant votre système en messager d'informations routières utiles.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 12.3,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Ministère des Finances ordonne hausse plafonds",
+     "texte": "Le ministre des Finances a donné quinze jours à l'association des banques et à la SATIM pour proposer une augmentation des plafonds de paiement par carte CIB, tant pour les professionnels que pour les particuliers.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 11.2,
+     "duree": 10.0,
      "pays": "DZ",
      "source": "Maghreb Emergent"
     },
     {
-     "titre": "Samsung retire des applications Galaxy",
-     "texte": "Samsung va retirer certaines applications de réalité augmentée du Galaxy Store en décembre. Si vous utilisez des outils comme Quick Measure ou AR Doodle, il est temps de les récupérer.",
+     "titre": "Arnaques AADL et BaridiMob",
+     "texte": "Justice rendue dans une affaire d'escroquerie liée à l'AADL et BaridiMob. Vingt-et-un membres d'un réseau ont été placés en détention, tandis que huit femmes ont été libérées par le juge d'instruction.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 10.6,
+     "duree": 10.9,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Algérie360"
     },
     {
-     "titre": "Campagne électorale : mobilisation demandée",
-     "texte": "À l'approche de la clôture de la campagne électorale locale, les partis insistent sur la mobilisation. Le renforcement des prérogatives locales et la promotion du développement territorial sont au cœur des discours.",
+     "titre": "180 000 TPE pour banques publiques",
+     "texte": "Pour encourager le paiement électronique, 180 000 terminaux de paiement seront déployés dans les banques publiques d'ici deux mois. Chaque banque devra en installer 30 000, accélérant la transition numérique.",
      "mp3": "/podcast/fr/06.mp3",
      "duree": 11.6,
      "pays": "DZ",
-     "source": "Crésus"
+     "source": "Algérie Éco"
     },
     {
-     "titre": "Nouvelle télécommande Apple TV",
-     "texte": "Apple a dévoilé son dernier boîtier Apple TV 4K. Il est accompagné d'une nouvelle télécommande dont les fonctionnalités et la compatibilité avec les anciens modèles méritent d'être connues.",
+     "titre": "Plafonds carte bancaire bientôt relevés",
+     "texte": "Afin de promouvoir les paiements dématérialisés, le ministère des Finances annonce une prochaine revalorisation des plafonds de paiement par carte bancaire. Une mesure pour réduire l'usage du cash.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 10.2,
+     "duree": 11.0,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "TSA Algérie"
     },
     {
-     "titre": "Quand remplacer sa protection d'écran",
-     "texte": "Votre protection d'écran est-elle cassée ? Apprenez à identifier les signes indiquant qu'il est temps de la remplacer pour continuer à protéger efficacement votre smartphone au quotidien.",
+     "titre": "Son surround Apple TV 4K",
+     "texte": "Découvrez comment configurer le son surround avec l'Apple TV 4K et vos HomePods pour une expérience cinéma premium à la maison. Profitez de capacités audio améliorées pour vos divertissements.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 9.7,
+     "duree": 10.9,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Kevel lève 52 millions de dollars",
-     "texte": "Kevel annonce une nouvelle levée de fonds de 52 millions de dollars. Cet investissement vise à renforcer son infrastructure pour le commerce média, promettant des innovations dans ce secteur en pleine croissance.",
+     "titre": "Chute des prix de l'or",
+     "texte": "Après avoir atteint des sommets, le prix de l'or a fortement baissé ces derniers jours. Une opportunité pour les acheteurs potentiels de métal jaune, mais la durée de cette tendance reste incertaine.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.7,
-     "pays": "DZ",
-     "source": "AlgeriaTech.news"
-    },
-    {
-     "titre": "Marklo lève 5 millions de dollars",
-     "texte": "Marklo boucle une levée de fonds de 5 millions de dollars. L'entreprise lance également une version bêta de ses outils marketing pour les marques sur Shopify, axée sur les données d'inventaire et de vente.",
-     "mp3": "/podcast/fr/10.mp3",
      "duree": 11.1,
      "pays": "DZ",
-     "source": "AlgeriaTech.news"
+     "source": "TSA Algérie"
+    },
+    {
+     "titre": "Détecteurs de métaux sur smartphone",
+     "texte": "Votre smartphone peut se transformer en détecteur de métaux grâce à certaines applications. Bien qu'elles ne remplacent pas les appareils dédiés, elles peuvent offrir une utilité surprenante pour des usages limités.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 11.4,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
     }
    ]
   },
