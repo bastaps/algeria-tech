@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
- "date": "2026-11-22",
- "genere": "2026-11-22T22:02:07",
+ "date": "2026-11-23",
+ "genere": "2026-11-23T18:58:25",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-22T22:02:30",
+   "genere": "2026-11-23T18:58:49",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.2,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici les 10 informations tech et télécoms à ne pas manquer ce soir."
+    "duree": 7.6,
+    "texte": "Bonsoir à toutes et à tous et bienvenue sur Algeria Tech. Voici dix informations tech et télécoms pour votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.1,
-    "texte": "C'était votre résumé de l'actualité tech. Restez connectés sur Algeria Tech."
+    "duree": 6.0,
+    "texte": "C'est tout pour ce soir. Retrouvez-nous demain pour un nouveau point sur l'actualité tech."
    },
    "items": [
     {
-     "titre": "Rencontre sur la science",
-     "texte": "Le ministre Chaib a reçu le coordinateur du Haut conseil de la communauté scientifique nationale à l'étranger. Cette rencontre s'est tenue dimanche dernier et visait à renforcer les liens.",
+     "titre": "Communauté algérienne à l'étranger",
+     "texte": "Le ministre Chaib a présidé l'ouverture du second atelier de haut niveau axé sur la mobilisation du potentiel économique de la communauté algérienne résidant à l'étranger. L'événement s'est tenu le dimanche 22 novembre 2026.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 10.0,
+     "duree": 12.7,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Mobilisation économique à l'étranger",
-     "texte": "Chaib a également présidé l'ouverture du second workshop sur la mobilisation du potentiel économique des Algériens établis à l'étranger. L'objectif est de valoriser ces compétences.",
+     "titre": "Rencontre scientifique internationale",
+     "texte": "Le ministre Chaib s'est entretenu avec le coordinateur du Haut conseil de la communauté scientifique nationale à l'étranger. Cette rencontre a eu lieu le dimanche 22 novembre 2026, renforçant les liens avec la diaspora savante.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 10.3,
+     "duree": 13.1,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "180 000 TPE déployés",
-     "texte": "Près de 180 000 terminaux de paiement électronique seront déployés sur le territoire national. Cette opération vise à faciliter les transactions et à moderniser les paiements.",
+     "titre": "Innovation et intégration continentale",
+     "texte": "Les orientations présidentielles visent à consolider l'intégration continentale dans le domaine de l'innovation. Ces directives, annoncées le lundi 23 novembre 2026, ouvrent la voie à une coopération technologique accrue.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 9.8,
+     "duree": 12.9,
      "pays": "DZ",
-     "source": "Radio Algérie"
+     "source": "APS"
     },
     {
-     "titre": "Banques, action sur les TPE",
-     "texte": "Les banques publiques ont reçu l'ordre de déployer 180 000 terminaux de paiement électronique dans les deux prochains mois, soit un rythme soutenu pour accélérer la digitalisation.",
+     "titre": "Recrutement et intelligence artificielle",
+     "texte": "L'intelligence artificielle est une aide précieuse pour le recrutement en Algérie, mais elle ne remplacera pas l'humain. La compétence prime sur les relations personnelles pour conserver un poste, selon les acteurs du secteur.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 9.0,
-     "pays": "DZ",
-     "source": "TSA Algérie"
-    },
-    {
-     "titre": "Conseil des ministres et startups",
-     "texte": "Le président Tebboune a présidé un Conseil des ministres. Il a donné des orientations sur la préparation de la Conférence africaine sur les startups, soulignant leur importance.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 10.1,
-     "pays": "DZ",
-     "source": "TSA Algérie"
-    },
-    {
-     "titre": "Instruction pour les banques",
-     "texte": "Le ministre des Finances a instruit les banques publiques. Elles doivent déployer 180 000 terminaux de paiement électronique à travers le pays avant janvier prochain.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 9.0,
+     "duree": 12.0,
      "pays": "DZ",
      "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "Enquête sur l'entrée à Ceuta",
-     "texte": "L'implication des services marocains dans l'entrée massive de migrants à Ceuta est confirmée. Une enquête a révélé des connexions entre les coordinateurs et des corps sécuritaires.",
+     "titre": "Offensive pour le paiement électronique",
+     "texte": "L'Algérie lance une opération d'envergure pour généraliser le paiement électronique. L'objectif est de réduire l'usage du cash grâce au relèvement des plafonds et au déploiement de nouveaux terminaux.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 10.4,
+     "pays": "DZ",
+     "source": "TSA Algérie"
+    },
+    {
+     "titre": "DAC ampli casque: choix cornélien",
+     "texte": "Faut-il choisir un ensemble tout-en-un DAC et ampli casque, ou des composants séparés ? La réponse dépend de vos besoins. Les deux solutions peuvent offrir une excellente expérience audio pour vos écouteurs.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 12.3,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Nouveaux titres de séjour France",
+     "texte": "La France a instauré une nouvelle règle sur les titres de séjour suite à un décret du 30 octobre 2026. Le délai de réponse des préfectures est désormais limité à quatre-vingt-dix jours.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 9.7,
+     "duree": 10.7,
+     "pays": "DZ",
+     "source": "TSA Algérie"
+    },
+    {
+     "titre": "Icône clé sur Android expliquée",
+     "texte": "Une petite icône en forme de clé sur votre appareil Android est une bonne nouvelle. Elle indique une connexion sécurisée, offrant ainsi une couche de protection supplémentaire pour vos données.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 10.3,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Direction de Nvidia confirmée",
+     "texte": "Jensen Huang a été réintégré à son poste de directeur général et président de Nvidia. Le conseil d'administration a officialisé son retour le lundi suivant sa démission pour raisons personnelles.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 11.2,
      "pays": "DZ",
      "source": "Le Jeune Indépendant"
     },
     {
-     "titre": "Attention au faux site Naftal",
-     "texte": "Un faux site Naftal circule actuellement, visant à voler les données bancaires des automobilistes. L'association Himayatec met en garde contre ce nouveau piège numérique.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 9.7,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Paiement par carte CIB",
-     "texte": "Le ministre des Finances demande le relèvement des plafonds de paiement par carte interbancaire. Une proposition sera préparée pour les particuliers et les professionnels.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 9.2,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "Alertes radars dans CarPlay",
-     "texte": "Découvrez comment recevoir des alertes sur les radars de vitesse directement dans Apple CarPlay. Les applications de navigation gèrent cette fonctionnalité pour vous informer.",
+     "titre": "Classement ONU administration numérique",
+     "texte": "L'Algérie progresse au classement mondial du développement de l'administration électronique. Le pays se maintient à la 117e position sur 194 nations, selon le rapport des Nations unies 2026.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 9.5,
+     "duree": 12.4,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Maghreb Emergent"
     }
    ]
   },
