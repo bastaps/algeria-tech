@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-23",
- "genere": "2026-11-23T18:58:25",
+ "genere": "2026-11-23T23:34:37",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-23T18:58:49",
+   "genere": "2026-11-23T23:34:58",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.6,
-    "texte": "Bonsoir à toutes et à tous et bienvenue sur Algeria Tech. Voici dix informations tech et télécoms pour votre soirée."
+    "duree": 7.0,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Nous avons pour vous dix informations tech et télécoms pour votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.0,
-    "texte": "C'est tout pour ce soir. Retrouvez-nous demain pour un nouveau point sur l'actualité tech."
+    "duree": 5.7,
+    "texte": "C'est tout pour ce soir. Restez connectés à Algeria Tech pour vos actualités."
    },
    "items": [
     {
-     "titre": "Communauté algérienne à l'étranger",
-     "texte": "Le ministre Chaib a présidé l'ouverture du second atelier de haut niveau axé sur la mobilisation du potentiel économique de la communauté algérienne résidant à l'étranger. L'événement s'est tenu le dimanche 22 novembre 2026.",
+     "titre": "Forum économique communauté algérienne",
+     "texte": "Les travaux du workshop de haut niveau sur la mobilisation du potentiel économique de la communauté nationale à l'étranger se sont achevés. L'objectif était de renforcer les liens économiques.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 12.7,
-     "pays": "DZ",
-     "source": "APS"
-    },
-    {
-     "titre": "Rencontre scientifique internationale",
-     "texte": "Le ministre Chaib s'est entretenu avec le coordinateur du Haut conseil de la communauté scientifique nationale à l'étranger. Cette rencontre a eu lieu le dimanche 22 novembre 2026, renforçant les liens avec la diaspora savante.",
-     "mp3": "/podcast/fr/02.mp3",
-     "duree": 13.1,
-     "pays": "DZ",
-     "source": "APS"
-    },
-    {
-     "titre": "Innovation et intégration continentale",
-     "texte": "Les orientations présidentielles visent à consolider l'intégration continentale dans le domaine de l'innovation. Ces directives, annoncées le lundi 23 novembre 2026, ouvrent la voie à une coopération technologique accrue.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 12.9,
-     "pays": "DZ",
-     "source": "APS"
-    },
-    {
-     "titre": "Recrutement et intelligence artificielle",
-     "texte": "L'intelligence artificielle est une aide précieuse pour le recrutement en Algérie, mais elle ne remplacera pas l'humain. La compétence prime sur les relations personnelles pour conserver un poste, selon les acteurs du secteur.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 12.0,
-     "pays": "DZ",
-     "source": "Le Soir d'Algérie"
-    },
-    {
-     "titre": "Offensive pour le paiement électronique",
-     "texte": "L'Algérie lance une opération d'envergure pour généraliser le paiement électronique. L'objectif est de réduire l'usage du cash grâce au relèvement des plafonds et au déploiement de nouveaux terminaux.",
-     "mp3": "/podcast/fr/05.mp3",
      "duree": 10.4,
      "pays": "DZ",
-     "source": "TSA Algérie"
+     "source": "APS"
     },
     {
-     "titre": "DAC ampli casque: choix cornélien",
-     "texte": "Faut-il choisir un ensemble tout-en-un DAC et ampli casque, ou des composants séparés ? La réponse dépend de vos besoins. Les deux solutions peuvent offrir une excellente expérience audio pour vos écouteurs.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 12.3,
+     "titre": "Intégration continentale et innovation",
+     "texte": "Les directives présidentielles visent à consolider l'intégration continentale dans le domaine de l'innovation. Cela devrait favoriser de nouvelles avancées technologiques et économiques sur le continent.",
+     "mp3": "/podcast/fr/02.mp3",
+     "duree": 10.5,
+     "pays": "DZ",
+     "source": "APS"
+    },
+    {
+     "titre": "Écran partagé sur Android sans pliable",
+     "texte": "Il est désormais possible d'utiliser la fonction écran partagé sur Android sans posséder de smartphone pliable. Les téléphones classiques peuvent également réaliser cet effet visuel.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 10.2,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Nouveaux titres de séjour France",
-     "texte": "La France a instauré une nouvelle règle sur les titres de séjour suite à un décret du 30 octobre 2026. Le délai de réponse des préfectures est désormais limité à quatre-vingt-dix jours.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 10.7,
+     "titre": "Startup Challenge récompense des projets",
+     "texte": "Quatorze start-up algériennes ont été primées lors de la huitième édition de l'Algeria Startup Challenge. Elles ont présenté des solutions technologiques innovantes pour relever des défis majeurs.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 10.3,
      "pays": "DZ",
-     "source": "TSA Algérie"
+     "source": "Algérie Éco"
     },
     {
-     "titre": "Icône clé sur Android expliquée",
-     "texte": "Une petite icône en forme de clé sur votre appareil Android est une bonne nouvelle. Elle indique une connexion sécurisée, offrant ainsi une couche de protection supplémentaire pour vos données.",
-     "mp3": "/podcast/fr/08.mp3",
+     "titre": "Samsung lance un moniteur 1100 Hz",
+     "texte": "Samsung dévoile le Odyssey G6, le premier moniteur de jeu au monde offrant un taux de rafraîchissement de 1100 Hz. Ce nouveau modèle promet une expérience visuelle inédite.",
+     "mp3": "/podcast/fr/05.mp3",
      "duree": 10.3,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Direction de Nvidia confirmée",
-     "texte": "Jensen Huang a été réintégré à son poste de directeur général et président de Nvidia. Le conseil d'administration a officialisé son retour le lundi suivant sa démission pour raisons personnelles.",
+     "titre": "Fiat Grande Panda arrive en Algérie",
+     "texte": "La Fiat Grande Panda est désormais commercialisée en Algérie. Son prix de lancement suscite déjà des réactions sur les réseaux sociaux, certains la jugeant élevée.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 9.2,
+     "pays": "DZ",
+     "source": "TSA Algérie"
+    },
+    {
+     "titre": "Filtrer le contenu IA sur réseaux",
+     "texte": "Certaines plateformes sociales développent des outils pour bloquer le contenu indésirable généré par l'intelligence artificielle. Une réponse à l'invasion de ces contenus sur les flux.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 9.8,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Uber : chauffeurs avec trajets enregistrés",
+     "texte": "Uber déploie une nouvelle option permettant aux passagers de privilégier les chauffeurs qui enregistrent leurs trajets. Une mesure visant à renforcer la sécurité des utilisateurs.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 9.8,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Campagne électorale exemplaire et jeune",
+     "texte": "L'Autorité nationale indépendante des élections salue une campagne électorale exemplaire pour les locales 2026. Une forte participation des jeunes et des listes est constatée.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.2,
+     "duree": 10.2,
      "pays": "DZ",
      "source": "Le Jeune Indépendant"
     },
     {
-     "titre": "Classement ONU administration numérique",
-     "texte": "L'Algérie progresse au classement mondial du développement de l'administration électronique. Le pays se maintient à la 117e position sur 194 nations, selon le rapport des Nations unies 2026.",
+     "titre": "IA et recrutement : une aide humaine",
+     "texte": "L'intelligence artificielle est une aide précieuse pour le recrutement en Algérie, mais elle ne remplace pas l'humain. La compétence et la méritocratie restent essentielles.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 12.4,
+     "duree": 9.5,
      "pays": "DZ",
-     "source": "Maghreb Emergent"
+     "source": "Le Soir d'Algérie"
     }
    ]
   },
