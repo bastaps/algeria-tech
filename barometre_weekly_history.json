@@ -1,57 +1,6 @@
 {
   "months": [
     {
-      "period": "2026-W40",
-      "period_label": "Semaine du 28 Septembre au 4 Octobre 2026",
-      "generated": "2026-09-28T12:50:51.739Z",
-      "articles_total": 412,
-      "topics": [
-        {
-          "key": "Intelligence Artificielle",
-          "count": 96
-        },
-        {
-          "key": "Operateurs & Telecom",
-          "count": 34
-        },
-        {
-          "key": "Cybersecurite",
-          "count": 19
-        },
-        {
-          "key": "Cloud & Data Center",
-          "count": 18
-        },
-        {
-          "key": "5G & Reseaux Mobiles",
-          "count": 14
-        },
-        {
-          "key": "Startups & Innovation",
-          "count": 14
-        },
-        {
-          "key": "E-commerce & Paiement",
-          "count": 13
-        },
-        {
-          "key": "Formation & Emploi TIC",
-          "count": 11
-        },
-        {
-          "key": "Regulation & Politique",
-          "count": 3
-        },
-        {
-          "key": "Fibre Optique",
-          "count": 1
-        }
-      ],
-      "sentiment_pos_pct": 21,
-      "sentiment_neg_pct": 7,
-      "top_topic": "Intelligence Artificielle"
-    },
-    {
       "period": "2026-W41",
       "period_label": "Semaine du 5 au 11 Octobre 2026",
       "generated": "2026-10-05T14:17:14.271Z",
@@ -406,6 +355,57 @@
       ],
       "sentiment_pos_pct": 23,
       "sentiment_neg_pct": 11,
+      "top_topic": "Intelligence Artificielle"
+    },
+    {
+      "period": "2026-W48",
+      "period_label": "Semaine du 23 au 29 Novembre 2026",
+      "generated": "2026-11-23T17:50:52.377Z",
+      "articles_total": 359,
+      "topics": [
+        {
+          "key": "Intelligence Artificielle",
+          "count": 86
+        },
+        {
+          "key": "Cloud & Data Center",
+          "count": 18
+        },
+        {
+          "key": "Cybersecurite",
+          "count": 17
+        },
+        {
+          "key": "5G & Reseaux Mobiles",
+          "count": 15
+        },
+        {
+          "key": "Operateurs & Telecom",
+          "count": 14
+        },
+        {
+          "key": "Startups & Innovation",
+          "count": 13
+        },
+        {
+          "key": "Formation & Emploi TIC",
+          "count": 13
+        },
+        {
+          "key": "E-commerce & Paiement",
+          "count": 6
+        },
+        {
+          "key": "Regulation & Politique",
+          "count": 5
+        },
+        {
+          "key": "Fibre Optique",
+          "count": 2
+        }
+      ],
+      "sentiment_pos_pct": 25,
+      "sentiment_neg_pct": 8,
       "top_topic": "Intelligence Artificielle"
     }
   ]

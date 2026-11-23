@@ -1,135 +1,135 @@
 {
-  "generated": "2026-11-16T15:27:20.954Z",
+  "generated": "2026-11-23T17:50:52.377Z",
   "mode": "weekly",
-  "period": "2026-W47",
-  "period_label": "Semaine du 16 au 22 Novembre 2026",
+  "period": "2026-W48",
+  "period_label": "Semaine du 23 au 29 Novembre 2026",
   "stats": {
-    "articles_total": 368,
+    "articles_total": 359,
     "veille_articles": 150,
-    "social_posts": 206,
+    "social_posts": 197,
     "presse_articles": 12,
-    "sources_count": 23
+    "sources_count": 26
   },
   "top_topics": [
     {
       "key": "Intelligence Artificielle",
       "emoji": "🤖",
-      "count": 85,
-      "prev_count": 73,
-      "trend": 12,
-      "trend_pct": 16
-    },
-    {
-      "key": "Cybersecurite",
-      "emoji": "🔒",
-      "count": 24,
-      "prev_count": 17,
-      "trend": 7,
-      "trend_pct": 41
+      "count": 86,
+      "prev_count": 85,
+      "trend": 1,
+      "trend_pct": 1
     },
     {
       "key": "Cloud & Data Center",
       "emoji": "☁️",
-      "count": 15,
+      "count": 18,
       "prev_count": 15,
-      "trend": 0,
-      "trend_pct": 0
+      "trend": 3,
+      "trend_pct": 20
     },
     {
-      "key": "Startups & Innovation",
-      "emoji": "🚀",
-      "count": 14,
-      "prev_count": 11,
-      "trend": 3,
-      "trend_pct": 27
+      "key": "Cybersecurite",
+      "emoji": "🔒",
+      "count": 17,
+      "prev_count": 24,
+      "trend": -7,
+      "trend_pct": -29
     },
     {
       "key": "5G & Reseaux Mobiles",
       "emoji": "📡",
-      "count": 11,
-      "prev_count": 19,
-      "trend": -8,
-      "trend_pct": -42
+      "count": 15,
+      "prev_count": 11,
+      "trend": 4,
+      "trend_pct": 36
     },
     {
       "key": "Operateurs & Telecom",
       "emoji": "📶",
-      "count": 7,
-      "prev_count": 42,
-      "trend": -35,
-      "trend_pct": -83
+      "count": 14,
+      "prev_count": 7,
+      "trend": 7,
+      "trend_pct": 100
+    },
+    {
+      "key": "Startups & Innovation",
+      "emoji": "🚀",
+      "count": 13,
+      "prev_count": 14,
+      "trend": -1,
+      "trend_pct": -7
     },
     {
       "key": "Formation & Emploi TIC",
       "emoji": "🎓",
-      "count": 6,
-      "prev_count": 13,
-      "trend": -7,
-      "trend_pct": -54
+      "count": 13,
+      "prev_count": 6,
+      "trend": 7,
+      "trend_pct": 117
     },
     {
       "key": "E-commerce & Paiement",
       "emoji": "🛒",
+      "count": 6,
+      "prev_count": 5,
+      "trend": 1,
+      "trend_pct": 20
+    },
+    {
+      "key": "Regulation & Politique",
+      "emoji": "⚖️",
       "count": 5,
-      "prev_count": 7,
-      "trend": -2,
-      "trend_pct": -29
+      "prev_count": 1,
+      "trend": 4,
+      "trend_pct": 400
     },
     {
       "key": "Fibre Optique",
       "emoji": "🔌",
       "count": 2,
-      "prev_count": null,
-      "trend": null,
-      "trend_pct": null
-    },
-    {
-      "key": "Regulation & Politique",
-      "emoji": "⚖️",
-      "count": 1,
       "prev_count": 2,
-      "trend": -1,
-      "trend_pct": -50
+      "trend": 0,
+      "trend_pct": 0
     }
   ],
   "sentiment": {
-    "positive": 84,
-    "negative": 40,
-    "neutral": 244,
-    "positive_pct": 23,
-    "negative_pct": 11,
-    "neutral_pct": 66
+    "positive": 88,
+    "negative": 28,
+    "neutral": 243,
+    "positive_pct": 25,
+    "negative_pct": 8,
+    "neutral_pct": 68
   },
   "top_sources": [
     {
       "source": "Wired",
-      "count": 55
+      "count": 57
     },
     {
       "source": "TechCrunch",
-      "count": 54
+      "count": 49
     },
     {
       "source": "Algérie Éco",
-      "count": 43
+      "count": 42
     },
     {
       "source": "ZDNet France",
-      "count": 33
+      "count": 37
     },
     {
-      "source": "Le Monde Pixels",
-      "count": 32
+      "source": "ZDNet FR",
+      "count": 36
     }
   ],
   "highlights": [
-    "\"Intelligence Artificielle\" est le sujet dominant cette semaine avec 85 occurrences dans les publications.",
-    "\"Cybersecurite\" en forte hausse : +41% par rapport a la semaine precedente.",
-    "\"5G & Reseaux Mobiles\" en recul : -42% par rapport a la semaine precedente.",
-    "Sentiment equilibre cette semaine : 23% positif, 11% negatif sur 368 publications."
+    "\"Intelligence Artificielle\" est le sujet dominant cette semaine avec 86 occurrences dans les publications.",
+    "\"Cloud & Data Center\" en forte hausse : +20% par rapport a la semaine precedente.",
+    "\"Cybersecurite\" en recul : -29% par rapport a la semaine precedente.",
+    "Sentiment equilibre cette semaine : 25% positif, 8% negatif sur 359 publications."
   ],
   "previous_period": {
-    "period": "2026-W46",
-    "period_label": "Semaine du 9 au 15 Novembre 2026"
+    "period": "2026-W47",
+    "period_label": "Semaine du 16 au 22 Novembre 2026"
   }
 }
