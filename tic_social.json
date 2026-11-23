@@ -1081,6 +1081,24 @@
       "source_type": "rss"
     },
     {
+      "id": "19a419ece4f12cbf",
+      "source_name": "Huawei Mobile DZ",
+      "source_short": "HMD",
+      "source_color": "#CF0A2C",
+      "category": "Équipementiers",
+      "category_icon": "📲",
+      "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNM3hFeUgwcGpGOE1RUWVfVXRfWG00c3dJSjYyc25VS0lsTjMycTZjLVRsVUw0UlFJZFhTT2FCQU96Y0NFY19KeDhaaEpNRmhYSkgtMWZEZ3MtbmZyWHlDQWZ0VDQ1NWJIdWxBMWd5MDdqbm5CVXc2dmpEb0hGWnVrTkRrMmtOb2RETl9zVUVMNW1wTFRMYUlfem5CUjhKTFh5Wm51bTZfTjdweVpqdkRpYWtvOGFWYlhWZEtuTlRNV2lYZjJkWXF2QUg2dldiSENRVC1qVFFRYXlnbEhYU2NWdlExT3FSdE83c1RfeGQ2Qk5ubW1I?oc=5",
+      "image": "",
+      "date": "Sat, 21 Nov 2026 16:03:55 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Algérie : un contrat de 290 millions de dollars attribué à un consortium chinois pour un centre national de reprise informatique - Algerie Eco — Algérie : un contrat de 290 millions de dollars attribué à un consortium chinois pour un centre national de reprise informatique Algerie Eco",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "51128a07acd65342",
       "source_name": "Condor Electronics",
       "source_short": "CD",
@@ -1423,22 +1441,292 @@
       "source_type": "web"
     },
     {
-      "id": "08149cef1cb5357a",
-      "source_name": "Ericsson",
-      "source_short": "ER",
-      "source_color": "#009999",
-      "category": "Équipementiers",
-      "category_icon": "🔧",
-      "url": "https://www.facebook.com/ericsson",
+      "id": "4eec8977b6a96a50",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/11/23/jensen-huang-scheduled-to-testify-next-week-in-senate-following-reinstatement-as-nvidia-ceo/",
       "image": "",
-      "date": "2026-11-06T15:45:14+00:00",
+      "date": "Mon, 23 Nov 2026 18:12:22 +0000",
       "lang_source": "en",
       "text": {
-        "en": "We launched the Ericsson ISAC system this week, bringing sensing capability directly into live 5G networks. The same infrastructur… — We launched the Ericsson ISAC system this week, bringing sensing capability directly into live 5G networks. The same infrastructure connecting people can now detect drones, monitor critical sites, and build real-time awareness of low-altitude airspace.\n\nNoman Alam spoke with Lindsey Ames on the show",
+        "en": "Jensen Huang scheduled to testify next week in Senate following reinstatement as Nvidia CEO — The public hearing follows bipartisan calls for Huang to testify about the affair with the suspected Chinese spy.",
         "ar": "",
         "fr": ""
       },
-      "source_type": "facebook"
+      "source_type": "rss"
+    },
+    {
+      "id": "9fce9fd59ee51e9c",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/le-chu-de-la-guadeloupe-vise-par-une-attaque-par-rancongiciel-508447.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Mon, 23 Nov 2026 17:33:26 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Le CHU de la Guadeloupe visé par une attaque par rançongiciel — L’établissement de santé a activé son « Plan blanc » pour faire face à ce piratage informatique.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "81fc4ecedd783d38",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/23/lalgerie-va-construire-une-usine-de-batteries-au-lithium-le-professeur-karim-zaghib-nomme-chef-du-projet/",
+      "image": "",
+      "date": "Mon, 23 Nov 2026 17:21:24 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "L’Algérie va construire une usine de batteries au lithium de 5 GWh, le professeur Karim Zaghib nommé chef du projet — L’Algérie va construire une usine de fabrication de batteries au lithium. Le projet sera piloté par le chercheur algérien, le professeur Karim Zaghib. En effet, le lancement du projet de construction d’une usine de batteries au lithium a été l’objet d’une réunion de travail présidée, ce lundi 23 nov",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "fafefae191a15547",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/actualites/lia-peut-elle-aider-a-planifier-des-attentats-terroristes-les-etats-unis-ont-teste-chatgpt-claude-gemini-et-grok-pour-le-savoir-508439.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Mon, 23 Nov 2026 17:15:13 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "L'IA peut-elle aider à planifier des attentats terroristes ? Les États-Unis ont testé ChatGPT, Claude, Gemini et Grok pour le savoir — Les chercheurs ont tenté de contourner les mécanismes de protection de l'IA pour générer des plans d'attaque terroriste. Les résultats mettent en évidence des failles de sécurité préoccupantes et soulèvent des questions quant à la prévention des utilisations abusives.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "e483a880095260a7",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/",
+      "image": "",
+      "date": "Mon, 23 Nov 2026 17:14:23 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Amazon snaps up Decart’s AI optimization tech for $7.5B as it prepares to sell Trainium chips — Amazon is acquiring Decart’s AI optimization technology and research team in a reported $7.5 billion deal.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c522f730f4a3b728",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/11/23/meta-throws-out-its-net-zero-goal-its-competitors-should-be-furious/",
+      "image": "",
+      "date": "Mon, 23 Nov 2026 17:13:45 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "Meta throws out its net-zero goal. Its competitors should be furious — Meta walked back its 2030 net zero goal in its 2026 sustainability report, a decision that could send ripples throughout the tech industry.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c062fd0d80799929",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/test-ugreen-magflow-pro-ce-chargeur-3-en-1-dedie-aux-utilisateurs-dapple-limite-la-chaleur-degagee-508393.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Mon, 23 Nov 2026 17:05:56 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Test Ugreen Magflow Pro : ce chargeur 3-en-1 dédié aux utilisateurs d’Apple limite la chaleur dégagée — En associant un refroidisseur thermoélectrique et un ventilateur, il maintient votre iPhone à une température optimale pendant qu'il se recharge, préservant ainsi sa batterie.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "5ae9acd072362e9a",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/11/23/btph-warchatic-parie-sur-le-numerique-pour-verrouiller-les-etudes-et-couper-dans-les-couts/",
+      "image": "",
+      "date": "Mon, 23 Nov 2026 17:03:33 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "BTPH : Warcha’TIC parie sur le numérique pour verrouiller les études et couper dans les coûts — Warcha'TIC annonce jusqu'à 35 % d'économies sur les prestations externes du bâtiment. Cet annuaire numérique professionnel, développé par Building Network Integral Solutions (BNI), société labellisée startup, vise à structurer la sous-traitance technique. Sur les chantiers, le recours aux compétence",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "df96e0012afd190b",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/23/logements-lpl-lenpi-ouvre-les-inscriptions-dans-21-wilayas-la-diaspora-concernee/",
+      "image": "",
+      "date": "Mon, 23 Nov 2026 16:52:03 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Logements LPL : l’ENPI ouvre les inscriptions dans 21 wilayas, la diaspora concernée — L’Entreprise nationale de promotion immobilière (ENPI) poursuit la commercialisation de ses logements promotionnels libres (LPL) à travers plusieurs régions du pays. Les inscriptions sont actuellement ouvertes dans 21 wilayas et peuvent être effectuées entièrement à distance, y compris par les Algér",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "d4966cbd3ad64504",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/23/industrie-pharmaceutique-un-partenariat-algero-chinois-pour-fabriquer-des-emballages-medicaux-en-verre-en-algerie/",
+      "image": "",
+      "date": "Mon, 23 Nov 2026 16:24:18 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Industrie pharmaceutique : un partenariat algéro-chinois pour fabriquer des emballages médicaux en verre en Algérie — Le ministre de l’Industrie pharmaceutique, Wassim Kouidri, a présidé, ce lundi 23 novembre 2026, au siège de son département, la cérémonie de signature d’un protocole de coopération entre l’entreprise privée algérienne DzMedSupplies et la société chinoise Shanxi Hongjin Medical Glass Co., LTD. Cet a",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "003fdb6b30d08657",
+      "source_name": "Le Monde Informatique",
+      "source_short": "LMI",
+      "source_color": "#1565C0",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.lemondeinformatique.fr/it-direction/nvidia-reinstalle-jensen-huang-au-poste-de-ceo",
+      "image": "",
+      "date": "Mon, 23 Nov 2026 15:03:43 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Nvidia réinstalle Jensen Huang au poste de CEO — Après avoir accepté sa démission, le conseil d’administration de Nvidia revient sur sa décision et réinstalle son cofondateur Jensen Huang à la tête du groupe.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "af5155e0b20eaa31",
+      "source_name": "Le Monde Informatique",
+      "source_short": "LMI",
+      "source_color": "#1565C0",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.lemondeinformatique.fr/donnees-ia/amazon-proche-d-un-accord-pour-acquerir-la-start-up-israelienne-decart",
+      "image": "",
+      "date": "Mon, 23 Nov 2026 14:23:37 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Amazon proche d'un accord pour acquérir la start-up israélienne Decart — Amazon serait proche d'un accord pour acquérir Decart, une jeune pousse spécialisée dans l'optimisation de l'exécution des modèles IA. Estimée à environ 7,5 Md$, l'opération permettrait à AWS de renforcer son offre de calcul IA et de mieux concurrencer Nvidia.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "ed1c34c3e4929372",
+      "source_name": "Le Monde Informatique",
+      "source_short": "LMI",
+      "source_color": "#1565C0",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.lemondeinformatique.fr/infrastructure-cloud/cloud-souverain-l-europe-cherche-a-reduire-sa-dependance-aux-geants-americains",
+      "image": "",
+      "date": "Mon, 23 Nov 2026 14:05:25 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Cloud souverain : l’Europe cherche à réduire sa dépendance aux géants américains — Face aux enjeux de souveraineté numérique, les entreprises et administrations européennes se tournent davantage vers les fournisseurs locaux de cloud. Mais AWS, Microsoft et Google restent largement dominants sur le marché européen.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "66b98b40a9bccfbe",
+      "source_name": "NTIC-DZ",
+      "source_short": "NTC",
+      "source_color": "#01579B",
+      "category": "Médias TIC",
+      "category_icon": "🌐",
+      "url": "https://www.ntic-dz.com/lg-devoile-sa-reorganisation-pour-2027-et-renforce-ses-ambitions-dans-lia-la-robotique-et-la-mobilite/?utm_source=rss&utm_medium=rss&utm_campaign=lg-devoile-sa-reorganisation-pour-2027-et-renforce-ses-ambitions-dans-lia-la-robotique-et-la-mobilite",
+      "image": "",
+      "date": "Mon, 23 Nov 2026 12:26:20 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "LG dévoile sa réorganisation pour 2027 et renforce ses ambitions dans l’IA, la robotique et la mobilité — feed Le groupe sud-coréen LG Electronics a annoncé une importante réorganisation de ses structures ainsi qu’une série de nominations et de promotions à des postes de direction pour 2027. Cette nouvelle configuration vise à accélérer le développement de ses activités stratégiques, notamment la roboti",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "8a3b649c88e76e76",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/11/23/linnovation-au-coeur-de-lagenda-continental-tebboune-fixe-le-cap-de-la-conference-africaine-des-start-up/",
+      "image": "",
+      "date": "Mon, 23 Nov 2026 07:29:00 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "L’innovation au cœur de l’agenda continental : Tebboune fixe le cap de la Conférence africaine des start-up — Pas question de faire moins bien que la Foire commerciale intra-africaine (IATF). Réuni en Conseil des ministres, le président de la République Abdelmadjid Tebboune fixe une exigence claire pour la prochaine Conférence africaine des start-up à savoir égaler, voire dépasser, le niveau atteint lors de",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "1f0e95647ce94437",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/11/23/ddr6-bande-passante-en-hausse-de-50-mais-pas-de-calendrier/",
+      "image": "",
+      "date": "Mon, 23 Nov 2026 06:55:07 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "DDR6 : Bande passante en hausse de 50%, mais pas de calendrier — Le JEDEC (Joint Electron Device Engineering Council) a dévoilé les contours de la DDR6, six ans après les premières révélations sur la DDR5. L'annonce tombe en pleine crise du secteur. La nouvelle norme mise sur une architecture repensée pour gagner en bande passante, en capacité, en efficacité éner",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
     },
     {
       "id": "591cffa1433f50ba",
@@ -5111,304 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "b157540d4bfd1fa9",
-      "source_name": "Le Monde Informatique",
-      "source_short": "LMI",
-      "source_color": "#1565C0",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.lemondeinformatique.fr/donnees-ia/nvidia-jensen-huang-envisage-un-retour-a-la-direct",
-      "image": "",
-      "date": "Mon, 16 Nov 2026 07:41:26 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Nvidia : Jensen Huang envisage un retour à la direction — Quelques jours après son départ de Nvidia, Jensen Huang envisagerait déjà de reprendre ses fonctions. Selon le Financial Times, plusieurs de ses proches se mobilisent pour soutenir son retour, tandis que le secrétaire américain au Trésor, Scott Bessent, appelle le fabricant de puces à recruter un di",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "47462eb3ac613d72",
-      "source_name": "Le Monde Informatique",
-      "source_short": "LMI",
-      "source_color": "#1565C0",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.lemondeinformatique.fr/donnees-ia/openai-lance-chatgpt-wallet-pour-les-paiements-par",
-      "image": "",
-      "date": "Mon, 16 Nov 2026 07:40:55 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "OpenAI lance ChatGPT Wallet pour les paiements par agents IA — OpenAI a présenté, le 13 novembre 2026, ChatGPT Wallet, un portefeuille de paiement permettant aux agents d'intelligence artificielle d'effectuer des achats pour le compte des utilisateurs. Développée en partenariat avec American Express, Mastercard et Visa, la solution repose sur la tokenisation de",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "9757edd362b732ae",
-      "source_name": "Le Monde Informatique",
-      "source_short": "LMI",
-      "source_color": "#1565C0",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.lemondeinformatique.fr/infrastructure-cloud/cloudflare-ouvre-kitesurf-et-securise-l-acces-aux-",
-      "image": "",
-      "date": "Mon, 16 Nov 2026 07:40:26 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Cloudflare ouvre Kitesurf et sécurise l’accès aux réseaux privés — Cloudflare a annoncé deux évolutions de son infrastructure destinées aux développeurs et aux entreprises. Le fournisseur a rendu open source Kitesurf, son moteur de navigation conçu pour les agents IA, et généralisé Application Services for Private Origins, une solution permettant d’accéder à des ap",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "d386f90975883bcf",
-      "source_name": "Le Monde Informatique",
-      "source_short": "LMI",
-      "source_color": "#1565C0",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.lemondeinformatique.fr/cybersecurite-conformite/cursor-une-cle-volee-chez-fireworks-ai-a-l-origine",
-      "image": "",
-      "date": "Mon, 16 Nov 2026 07:39:57 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Cursor : une clé volée chez Fireworks AI à l’origine d’une cyberattaque — Cursor a détaillé les circonstances de la cyberattaque ayant permis la diffusion d’une version malveillante de l’extension Claude Code sur sa marketplace. Dans un rapport publié le 13 novembre 2026, l’éditeur affirme qu’une clé d’accès compromise chez son fournisseur Fireworks AI a permis aux attaqu",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "88fe546c3fbfa9db",
-      "source_name": "Le Monde Informatique",
-      "source_short": "LMI",
-      "source_color": "#1565C0",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.lemondeinformatique.fr/donnees-ia/anthropic-ouvre-l-auto-hebergement-de-claude-manag",
-      "image": "",
-      "date": "Mon, 16 Nov 2026 07:39:17 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Anthropic ouvre l'auto-hébergement de Claude Managed Agents — Anthropic a annoncé, le 12 novembre 2026, la disponibilité en bêta privée d'une version auto-hébergée de Claude Managed Agents. Les entreprises peuvent désormais exécuter l'infrastructure d'orchestration de leurs agents IA dans leur propre environnement cloud ou sur site. La solution permet de conse",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "ef85da145465c0f0",
-      "source_name": "Le Monde Informatique",
-      "source_short": "LMI",
-      "source_color": "#1565C0",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.lemondeinformatique.fr/cybersecurite-conformite/postgresql-corrige-52-failles-dont-une-vieille-de-",
-      "image": "",
-      "date": "Mon, 16 Nov 2026 07:38:50 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "PostgreSQL corrige 52 failles, dont une vieille de 22 ans — Le PostgreSQL Global Development Group a publié, le 12 novembre 2026, des mises à jour corrigeant 52 vulnérabilités de sécurité, dont 32 affichent un score CVSS de 8,8. Parmi elles, CVE-2026-6460 permet une exécution de code arbitraire sur le serveur. Cette publication marque également la fin du sup",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "51f1b117a4821269",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/samsung-gallery-la-sync-google-qui-fait-oublier-google-photos/",
-      "image": "",
-      "date": "2026-11-16T06:26:00.036Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Samsung Gallery : la sync Google qui fait oublier Google Photos — Samsung Gallery abandonne OneDrive au profit de Google pour la sauvegarde cloud, et le résultat est convaincant. De quoi pousser les utilisateurs Galaxy à reconsidérer leur fidélité à Google Photos.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "378eac4d7c45b123",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/google-fi-super-network-le-reseau-mobile-qui-se-choisit-tout-seul/",
-      "image": "",
-      "date": "2026-11-16T06:26:00.021Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Google Fi Super Network : le réseau mobile qui se choisit tout seul — Google Fi vient d'annoncer son « super réseau », une technologie qui bascule automatiquement entre deux réseaux 5G pour toujours vous offrir la meilleure connexion disponible. Réservé aux Pixel 9 et versions ultérieures, ce service ne coûte pas un centime de plus sur les abonnements compatibles.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "7cb441683cac8de1",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/xiaomi-18-pro-rachats-d-actions-et-nouveaux-modeles-devoiles/",
-      "image": "",
-      "date": "2026-11-16T06:25:00.054Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Xiaomi 18 Pro : rachats d'actions et nouveaux modèles dévoilés — Xiaomi a racheté 3,4 millions d'actions en deux jours et levé le voile sur sa gamme Xiaomi 18 Pro. Un double signal fort, entre solidité financière et ambitions haut de gamme.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "b95b24505d9f9fa9",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/15/is-bad-news-for-jensen-huang-also-bad-news-for-the-ai-industry/",
-      "image": "",
-      "date": "Sun, 15 Nov 2026 21:56:35 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Is bad news for Jensen Huang also bad news for the AI industry? — \"Jensen is Nvidia, right? And so much of this economy is riding on Nvidia.\"",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "8f95ae1b72354ba4",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/11/15/ferries-espagne-algerie-balearia-ouvre-deux-nouvelles-lignes-au-depart-dalmeria/",
-      "image": "",
-      "date": "Sun, 15 Nov 2026 21:44:39 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Ferries Espagne-Algérie : Baleària ouvre deux nouvelles lignes au départ d’Almería — La compagnie maritime espagnole Baleària élargit son offre de transport entre l’Espagne et l’Algérie avec le lancement de deux nouvelles liaisons au départ du port d’Almería. Elles desservent les villes algériennes d’Oran et de Ghazaouet, portant à sept le nombre de lignes proposées par l’opérateur",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "b6e2388a9924cef8",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/11/15/tunisie-176-seulement-des-touristes-algeriens-sejournent-dans-les-hotels/",
-      "image": "",
-      "date": "Sun, 15 Nov 2026 21:34:01 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Tunisie : 17,6 % seulement des touristes algériens séjournent dans les hôtels — Les touristes algériens continuent de représenter une part importante des visiteurs étrangers en Tunisie. Toutefois, la majorité d’entre eux ne choisissent pas les établissements hôteliers pour leur séjour. Selon les données communiquées par les autorités tunisiennes, moins d’un touriste algérien su",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "a63866f99390729a",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/15/snl-gathers-all-the-tech-tycoons-for-a-lesson-in-dating-and-spycraft/",
-      "image": "",
-      "date": "Sun, 15 Nov 2026 20:20:57 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "SNL gathers all the tech tycoons for a lesson in dating and spycraft — While awkward, creepy tech executives have become a recurring theme on Saturday Night Live, this week’s episode gave the cast a chance to show off all their impressions at once.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "6d045c77a9be191e",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/15/flaming-hydras-new-kickstarter-campaign-rethinks-e-book-ownership-and-digital-lending/",
-      "image": "",
-      "date": "Sun, 15 Nov 2026 18:29:14 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Flaming Hydra’s new Kickstarter campaign rethinks e-book ownership and digital lending — A new Kickstarter campaign aims to usher in the “return of the human internet.”",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "a5a0c02df0514c84",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/11/15/gnl-algerie-devient-le-deuxieme-fournisseur-de-lue-en-octobre/",
-      "image": "",
-      "date": "Sun, 15 Nov 2026 18:15:15 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "GNL : Algérie devient le deuxième fournisseur de l’UE en octobre — L’Algérie a occupé, pour la première fois sur une base mensuelle, la deuxième place parmi les fournisseurs de gaz naturel liquéfié (GNL) de l’Union européenne (UE) en octobre 2026. Elle a ainsi devancé la Russie, grâce à une forte progression de ses expéditions vers le marché européen, selon les don",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "2e6be08813e8cd36",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/11/15/le-president-tebboune-annonce-des-lois-plus-strictes-contre-les-pratiques-negatives-qui-nuisent-au-pouvoir-dachat/",
-      "image": "",
-      "date": "Sun, 15 Nov 2026 17:41:43 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Le président Tebboune annonce des lois « plus strictes » contre les pratiques négatives qui nuisent au pouvoir d’achat — Le président de la République, Abdelmadjid Tebboune, a annoncé, ce dimanche 15 novembre à Alger, que de nouvelles lois « plus strictes » seront instituées pour mettre fin à certaines pratiques négatives portant préjudice aux Algériens et à leur pouvoir d’achat. « Nous allons instituer de nouvelles l",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-11-22T23:58:23.994982+00:00",
+  "lastUpdated": "2026-11-23T18:53:11.622702+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Médias TIC": 92,
-    "Tech International": 128
+    "Tech International": 128,
+    "Médias TIC": 92
   },
   "total": 300
 }
