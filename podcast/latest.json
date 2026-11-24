@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-24",
- "genere": "2026-11-24T18:34:50",
+ "genere": "2026-11-24T22:07:08",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-24T18:35:14",
+   "genere": "2026-11-24T22:07:34",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.8,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Retrouvez ce soir 10 informations clés du monde de la technologie et des télécoms."
+    "duree": 8.2,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Retrouvez ce soir l'essentiel de l'actualité tech et télécoms avec dix informations clés."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.3,
-    "texte": "C'est tout pour ce soir. Retrouvez-nous demain pour un nouveau tour d'horizon de l'actualité tech."
+    "duree": 6.6,
+    "texte": "C'était l'essentiel de l'actualité sur Algeria Tech. Retrouvez-nous demain pour un nouveau résumé."
    },
    "items": [
     {
-     "titre": "Potentiel économique des Algériens de l'étranger",
-     "texte": "Les travaux du workshop de haut niveau sur la mobilisation du potentiel économique de la communauté nationale à l'étranger se sont achevés ce lundi. L'objectif était de renforcer les liens économiques avec les Algériens résidant hors du territoire national.",
+     "titre": "Communauté nationale à l'étranger",
+     "texte": "Les travaux du workshop de haut niveau sur la mobilisation du potentiel économique de la communauté nationale à l'étranger se sont achevés le lundi 23 novembre. L'événement visait à explorer les leviers de développement économique grâce aux compétences algériennes à l'international.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 13.1,
+     "duree": 14.2,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Jensen Huang de retour chez Nvidia",
-     "texte": "Le feuilleton Nvidia prend une nouvelle tournure. Jensen Huang a été réintégré à la tête du géant des puces électroniques. Il avait démissionné suite à un scandale, mais le conseil d'administration a décidé de son retour.",
+     "titre": "Diaspora et jeunes entrepreneurs",
+     "texte": "Des experts de la diaspora algérienne via l'association Djazpora et le CREA sont à Ouargla pour accompagner de jeunes porteurs de projets. Cette collaboration, lancée lors de la Semaine mondiale de l'entrepreneuriat, vise à stimuler l'innovation locale.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 13.3,
+     "duree": 13.5,
+     "pays": "DZ",
+     "source": "TSA Algérie"
+    },
+    {
+     "titre": "Raccourcis Apple Watch",
+     "texte": "Découvrez cinq raccourcis pour votre Apple Watch qui nécessitent peu de configuration. Ils peuvent simplifier la gestion des directions, des messages, des lumières ou même des siestes, rendant votre expérience plus fluide.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 12.0,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Protection mémoire nationale",
+     "texte": "Un plaidoyer a été formulé pour le renforcement du bouclier juridique de la mémoire nationale. Les participants à une session sur l'histoire ont recommandé de réviser les textes et de lutter contre la réécriture mensongère sur internet.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 12.3,
+     "pays": "DZ",
+     "source": "Le Jeune Indépendant"
+    },
+    {
+     "titre": "Tidal bannit la musique IA",
+     "texte": "Le service de streaming Tidal prend une position ferme en interdisant totalement la musique générée par l'intelligence artificielle. Dès le 9 décembre, les morceaux entièrement créés par IA seront retirés de son catalogue.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 12.3,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Personnaliser One UI Samsung",
+     "texte": "Il n'est pas possible de supprimer complètement One UI sur un smartphone Samsung, mais il existe des méthodes pour rendre cette interface logicielle moins présente et plus adaptée à vos besoins.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 9.6,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Jensen Huang revient chez Nvidia",
+     "texte": "Le patron de Nvidia, Jensen Huang, a été réintégré à la tête du géant des puces électroniques. Cette décision intervient dix jours après sa démission suite à un scandale médiatique.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 11.1,
      "pays": "DZ",
      "source": "NTIC.dz"
     },
     {
-     "titre": "Insolite dans la campagne électorale",
-     "texte": "La campagne pour les élections locales du 28 novembre touche à sa fin. Elle a été marquée par des comportements insolites de certains candidats, captant l'attention des Algériens et illustrant le meilleur de cette campagne politique.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 12.2,
-     "pays": "DZ",
-     "source": "TSA Algérie"
-    },
-    {
-     "titre": "Vorssaint, un outil gratuit pour macOS",
-     "texte": "Découvrez Vorssaint, un couteau suisse gratuit pour macOS. Cette suite utilitaire modulaire offre un contrôle granulaire du bureau. Elle peut remplacer plusieurs applications natives pour une gestion plus poussée de votre Mac.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 13.1,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Employé d'OpenAI sous enquête",
-     "texte": "Un employé d'OpenAI est accusé d'avoir secrètement enregistré des réunions et transmis des documents confidentiels. Des procureurs indiquent qu'il aurait eu des liens avec le gouvernement saoudien.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 10.3,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Karim Zaghib pilote le projet lithium",
-     "texte": "Le scientifique algérien Karim Zaghib a été choisi par le président Tebboune pour diriger le projet de batteries au lithium. Son expertise acquise dans des laboratoires internationaux le place au cœur de cette initiative stratégique.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 12.4,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Le Métro d'Alger se développe",
-     "texte": "Le Métro d'Alger prévoit d'importantes extensions. Des projets sont en cours ou en préparation, notamment vers l'aéroport et l'ouest de la capitale, pour améliorer le réseau de transport urbain.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 10.8,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "Sound Glow sur les HomePod",
-     "texte": "Apple a introduit une nouvelle fonctionnalité pour ses enceintes HomePod. La mise à jour active 'Sound Glow', faisant scintiller le dessus de l'enceinte en synchronisation avec la musique jouée.",
+     "titre": "Campagne locale insolite",
+     "texte": "La campagne pour les élections locales a été marquée par des moments forts, dont des méthodes de garde du corps façon FBI ou des références à la Panthère Rose. L'IA a aussi fait des apparitions, captant l'attention.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 10.4,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Extension Ouest du Métro d'Alger",
-     "texte": "L'extension majeure du Métro d'Alger vers l'ouest de la capitale se prépare activement. Le directeur de l'Entreprise du Métro d'Alger a fait le point sur ces avancées significatives.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 10.2,
+     "duree": 11.7,
      "pays": "DZ",
      "source": "TSA Algérie"
     },
     {
-     "titre": "Rouïba et Réghaïa bientôt desservies ?",
-     "texte": "Le directeur général de l'Entreprise du Métro d'Alger a abordé l'extension potentielle du réseau vers Rouïba et Réghaïa. Ces banlieues pourraient prochainement bénéficier de nouvelles lignes de métro.",
+     "titre": "Utilitaire macOS gratuit",
+     "texte": "Découvrez Vorssaint, un couteau suisse gratuit pour macOS. Cette suite utilitaire modulaire offre des fonctionnalités avancées pour un contrôle plus granulaire de votre bureau, si les autorisations sont bien gérées.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 11.9,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Employé OpenAI et l'Arabie Saoudite",
+     "texte": "Un employé d'OpenAI, soupçonné d'avoir secrètement enregistré des réunions et photographié des documents, aurait eu des liens avec le gouvernement saoudien, selon les procureurs l'accusant d'espionnage.",
      "mp3": "/podcast/fr/10.mp3",
      "duree": 10.4,
      "pays": "DZ",
-     "source": "Algérie360"
+     "source": "GeekyAlgeria"
     }
    ]
   },
