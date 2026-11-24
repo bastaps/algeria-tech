@@ -292,7 +292,7 @@ Rien d'autre."""
 
 
 def _gemini_cle() -> str:
-    return (os.environ.get("GEMINI_API_KEY") or "").strip()
+    return (os.environ.get("GEMINI_API_KEY") or _cle_du_fichier_env("GEMINI_API_KEY")).strip()
 
 
 _QUOTA_EPUISE = set()  # modèles dont le quota gratuit du jour est atteint
@@ -353,10 +353,23 @@ _AUTRES_FOURNISSEURS = [
 ]
 
 
+def _cle_du_fichier_env(nom: str) -> str:
+    """Clé lue dans le fichier .env du dépôt quand elle n'est pas dans l'environnement (tâches planifiées du PC)."""
+    try:
+        racine = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        with open(os.path.join(racine, ".env"), encoding="utf-8") as f:
+            for ligne in f:
+                if ligne.startswith(nom + "="):
+                    return ligne.split("=", 1)[1].strip().strip('"\'')
+    except OSError:
+        pass
+    return ""
+
+
 def appeler_autres(texte: str, json_mode: bool, temperature: float):
     """Essaie Groq, Mistral, OpenRouter (modèles gratuits), xAI dans l'ordre ; renvoie le JSON décodé ou le texte, None si tout échoue."""
     for nom, url, var, modeles, extra in _AUTRES_FOURNISSEURS:
-        cle = (os.environ.get(var) or "").strip()
+        cle = (os.environ.get(var) or _cle_du_fichier_env(var)).strip()
         if not cle:
             continue
         for modele in modeles:
