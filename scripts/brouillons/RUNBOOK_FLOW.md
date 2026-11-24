@@ -9,8 +9,8 @@ après 90 min sans choix. **Ne rien publier toi-même.** Dossier : `E:\algeria-t
 - Compte Flow : **bastaps2024@gmail.com uniquement** (décision de l'utilisateur du 2026-11-24 ; dans son Chrome il apparaît sous `https://flow.google.com/u/3/`, vérifier l'e-mail dans le menu du compte). Jamais bastaps@gmail.com (l'utilisateur en a besoin ailleurs).
 - Ne **jamais** saisir de mot de passe ni de code. Si Google demande une connexion : arrêt + alerte (voir « Échec »).
 - Budget : 1 génération par créneau, **15 crédits maximum** (une vidéo de 10 s coûte 15 crédits). Si Flow annonce plus de 15 crédits : **refuser**.
-- Accepter sans demander : dialogue « Droits d'utilisation de cette image » (J'accepte), « Approuver » (une fois, jamais
-  « Toujours approuver »), téléchargement du clip. Rien d'autre (pas de paiement, pas de mise à niveau).
+- Accepter sans demander : dialogue « Droits d'utilisation de cette image » (J'accepte), « Toujours approuver dans le projet » (consigne
+  de l'utilisateur du 2026-11-24 ; à défaut « Approuver »), téléchargement du clip. Rien d'autre (pas de paiement, pas de mise à niveau).
 - Navigateur : extension **Claude in Chrome** (`mcp__claude-in-chrome__*`, charger via ToolSearch). Ouvrir un nouvel onglet, le fermer à la fin.
 - Console : toujours `PYTHONUTF8=1 python ...`.
 
@@ -49,7 +49,7 @@ après 90 min sans choix. **Ne rien publier toi-même.** Dossier : `E:\algeria-t
    Cliquer « J'accepte » dans le dialogue des droits.
 5. Panneau droit : bouton « Ajouter des ingrédients au champ du prompt » → choisir l'image → « Ajouter au prompt ».
    Cliquer dans « Que voulez-vous créer ? », taper `prompt_flow` (texte entier, sans le modifier), envoyer. Flow demande « 1 vidéo, X crédits » :
-   cliquer **Approuver** si X ≤ 10, sinon **Refuser** (→ étape 9 avec `none`).
+   cliquer **Toujours approuver dans le projet** (consigne de l'utilisateur du 2026-11-24 ; à défaut **Approuver**) si X ≤ 15, sinon **Refuser** (→ étape 9 avec `none`).
 6. Attendre la fin (pourcentage → tuile avec ▶), contrôle toutes les ~20 s, 12 min maximum (sinon → étape 9 avec `none`).
 7. Ouvrir la vidéo (clic sur la tuile) → icône téléchargement (haut droite) → **720p** (le 1080p est payant : ne pas cliquer « Mettre à niveau »).
 8. Le fichier arrive dans `E:\Mon_Profil\Telechargements` (gestionnaire de téléchargement : un `.tmp` est un mp4 valide).
