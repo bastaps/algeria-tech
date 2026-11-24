@@ -179,7 +179,8 @@ def rediger(source, titre, corps, officiel=None):
     red = None
     tableau_demande = False
     for essai in range(5):
-        consigne = base + ("\n\nRAPPEL : ajoute un tableau Markdown avec les chiffres du texte." if tableau_demande else "")
+        consigne = base + "\n\nLONGUEUR : le champ \"contenu\" doit faire AU MOINS 250 mots (intertitres « ## » inclus, hors « À retenir »)." \
+            + ("\n\nRAPPEL : ajoute un tableau Markdown avec les chiffres du texte." if tableau_demande else "")
         if essai:
             time.sleep(8)  # pointes de charge de l'IA : courte pause avant de réessayer
         r = appeler_gemini(consigne, temperature=0.35)
