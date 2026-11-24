@@ -190,15 +190,28 @@ async function callMistral(payload, { timeout = 25000, retries = 2, retryDelay =
             return JSON.stringify({ choices: [{ message: { content: extractJsonMaybe(text, jsonMode) } }] });
         } catch (e) { console.warn(`[ai-chain] Gemini indisponible (${e.message.slice(0, 150)}) — moteur suivant.`); }
     }
-    if (OPENROUTER_API_KEY) {
+    // Groq (gratuit) : Gemini sature souvent (503/429) ; User-Agent obligatoire, modèle de raisonnement -> marge de jetons
+    if (process.env.GROQ_API_KEY) {
         try {
             const text = await callOpenAICompatRaw(messages, {
-                baseUrl: 'https://openrouter.ai/api/v1/chat/completions', apiKey: OPENROUTER_API_KEY,
-                model: 'meta-llama/llama-3.3-70b-instruct', jsonMode: false, temperature, maxTokens: max_tokens,
-                extraHeaders: { 'HTTP-Referer': 'https://algeria-tech.pages.dev', 'X-Title': 'Algeria Tech' }
+                baseUrl: 'https://api.groq.com/openai/v1/chat/completions', apiKey: process.env.GROQ_API_KEY,
+                model: 'openai/gpt-oss-120b', jsonMode: false, temperature, maxTokens: (max_tokens || 3000) + 800,
+                extraHeaders: { 'User-Agent': 'Mozilla/5.0 (compatible; AlgeriaTech/1.0)' }
             });
             return JSON.stringify({ choices: [{ message: { content: extractJsonMaybe(text, jsonMode) } }] });
-        } catch (e) { console.warn(`[ai-chain] OpenRouter indisponible (${e.message.slice(0, 150)}) — moteur suivant.`); }
+        } catch (e) { console.warn(`[ai-chain] Groq indisponible (${e.message.slice(0, 150)}) — moteur suivant.`); }
+    }
+    if (OPENROUTER_API_KEY) {
+        for (const modeleOR of ['nvidia/nemotron-3-ultra-550b-a55b:free', 'google/gemma-4-31b-it:free']) {
+            try {
+                const text = await callOpenAICompatRaw(messages, {
+                    baseUrl: 'https://openrouter.ai/api/v1/chat/completions', apiKey: OPENROUTER_API_KEY,
+                    model: modeleOR, jsonMode: false, temperature, maxTokens: max_tokens,
+                    extraHeaders: { 'HTTP-Referer': 'https://algeria-tech.pages.dev', 'X-Title': 'Algeria Tech' }
+                });
+                return JSON.stringify({ choices: [{ message: { content: extractJsonMaybe(text, jsonMode) } }] });
+            } catch (e) { console.warn(`[ai-chain] OpenRouter ${modeleOR} indisponible (${e.message.slice(0, 150)}) — suivant.`); }
+        }
     }
     if (OPENAI_CHAT_KEY) {
         try {
