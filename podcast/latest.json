@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
- "date": "2026-11-23",
- "genere": "2026-11-23T23:34:37",
+ "date": "2026-11-24",
+ "genere": "2026-11-24T18:34:50",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-23T23:34:58",
+   "genere": "2026-11-24T18:35:14",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.0,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Nous avons pour vous dix informations tech et télécoms pour votre soirée."
+    "duree": 7.8,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Retrouvez ce soir 10 informations clés du monde de la technologie et des télécoms."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.7,
-    "texte": "C'est tout pour ce soir. Restez connectés à Algeria Tech pour vos actualités."
+    "duree": 6.3,
+    "texte": "C'est tout pour ce soir. Retrouvez-nous demain pour un nouveau tour d'horizon de l'actualité tech."
    },
    "items": [
     {
-     "titre": "Forum économique communauté algérienne",
-     "texte": "Les travaux du workshop de haut niveau sur la mobilisation du potentiel économique de la communauté nationale à l'étranger se sont achevés. L'objectif était de renforcer les liens économiques.",
+     "titre": "Potentiel économique des Algériens de l'étranger",
+     "texte": "Les travaux du workshop de haut niveau sur la mobilisation du potentiel économique de la communauté nationale à l'étranger se sont achevés ce lundi. L'objectif était de renforcer les liens économiques avec les Algériens résidant hors du territoire national.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 10.4,
+     "duree": 13.1,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Intégration continentale et innovation",
-     "texte": "Les directives présidentielles visent à consolider l'intégration continentale dans le domaine de l'innovation. Cela devrait favoriser de nouvelles avancées technologiques et économiques sur le continent.",
+     "titre": "Jensen Huang de retour chez Nvidia",
+     "texte": "Le feuilleton Nvidia prend une nouvelle tournure. Jensen Huang a été réintégré à la tête du géant des puces électroniques. Il avait démissionné suite à un scandale, mais le conseil d'administration a décidé de son retour.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 10.5,
+     "duree": 13.3,
      "pays": "DZ",
-     "source": "APS"
+     "source": "NTIC.dz"
     },
     {
-     "titre": "Écran partagé sur Android sans pliable",
-     "texte": "Il est désormais possible d'utiliser la fonction écran partagé sur Android sans posséder de smartphone pliable. Les téléphones classiques peuvent également réaliser cet effet visuel.",
+     "titre": "Insolite dans la campagne électorale",
+     "texte": "La campagne pour les élections locales du 28 novembre touche à sa fin. Elle a été marquée par des comportements insolites de certains candidats, captant l'attention des Algériens et illustrant le meilleur de cette campagne politique.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 10.2,
+     "duree": 12.2,
+     "pays": "DZ",
+     "source": "TSA Algérie"
+    },
+    {
+     "titre": "Vorssaint, un outil gratuit pour macOS",
+     "texte": "Découvrez Vorssaint, un couteau suisse gratuit pour macOS. Cette suite utilitaire modulaire offre un contrôle granulaire du bureau. Elle peut remplacer plusieurs applications natives pour une gestion plus poussée de votre Mac.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 13.1,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Startup Challenge récompense des projets",
-     "texte": "Quatorze start-up algériennes ont été primées lors de la huitième édition de l'Algeria Startup Challenge. Elles ont présenté des solutions technologiques innovantes pour relever des défis majeurs.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 10.3,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "Samsung lance un moniteur 1100 Hz",
-     "texte": "Samsung dévoile le Odyssey G6, le premier moniteur de jeu au monde offrant un taux de rafraîchissement de 1100 Hz. Ce nouveau modèle promet une expérience visuelle inédite.",
+     "titre": "Employé d'OpenAI sous enquête",
+     "texte": "Un employé d'OpenAI est accusé d'avoir secrètement enregistré des réunions et transmis des documents confidentiels. Des procureurs indiquent qu'il aurait eu des liens avec le gouvernement saoudien.",
      "mp3": "/podcast/fr/05.mp3",
      "duree": 10.3,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Fiat Grande Panda arrive en Algérie",
-     "texte": "La Fiat Grande Panda est désormais commercialisée en Algérie. Son prix de lancement suscite déjà des réactions sur les réseaux sociaux, certains la jugeant élevée.",
+     "titre": "Karim Zaghib pilote le projet lithium",
+     "texte": "Le scientifique algérien Karim Zaghib a été choisi par le président Tebboune pour diriger le projet de batteries au lithium. Son expertise acquise dans des laboratoires internationaux le place au cœur de cette initiative stratégique.",
      "mp3": "/podcast/fr/06.mp3",
-     "duree": 9.2,
+     "duree": 12.4,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Le Métro d'Alger se développe",
+     "texte": "Le Métro d'Alger prévoit d'importantes extensions. Des projets sont en cours ou en préparation, notamment vers l'aéroport et l'ouest de la capitale, pour améliorer le réseau de transport urbain.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 10.8,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "Sound Glow sur les HomePod",
+     "texte": "Apple a introduit une nouvelle fonctionnalité pour ses enceintes HomePod. La mise à jour active 'Sound Glow', faisant scintiller le dessus de l'enceinte en synchronisation avec la musique jouée.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 10.4,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Extension Ouest du Métro d'Alger",
+     "texte": "L'extension majeure du Métro d'Alger vers l'ouest de la capitale se prépare activement. Le directeur de l'Entreprise du Métro d'Alger a fait le point sur ces avancées significatives.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 10.2,
      "pays": "DZ",
      "source": "TSA Algérie"
     },
     {
-     "titre": "Filtrer le contenu IA sur réseaux",
-     "texte": "Certaines plateformes sociales développent des outils pour bloquer le contenu indésirable généré par l'intelligence artificielle. Une réponse à l'invasion de ces contenus sur les flux.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 9.8,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Uber : chauffeurs avec trajets enregistrés",
-     "texte": "Uber déploie une nouvelle option permettant aux passagers de privilégier les chauffeurs qui enregistrent leurs trajets. Une mesure visant à renforcer la sécurité des utilisateurs.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 9.8,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Campagne électorale exemplaire et jeune",
-     "texte": "L'Autorité nationale indépendante des élections salue une campagne électorale exemplaire pour les locales 2026. Une forte participation des jeunes et des listes est constatée.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 10.2,
-     "pays": "DZ",
-     "source": "Le Jeune Indépendant"
-    },
-    {
-     "titre": "IA et recrutement : une aide humaine",
-     "texte": "L'intelligence artificielle est une aide précieuse pour le recrutement en Algérie, mais elle ne remplace pas l'humain. La compétence et la méritocratie restent essentielles.",
+     "titre": "Rouïba et Réghaïa bientôt desservies ?",
+     "texte": "Le directeur général de l'Entreprise du Métro d'Alger a abordé l'extension potentielle du réseau vers Rouïba et Réghaïa. Ces banlieues pourraient prochainement bénéficier de nouvelles lignes de métro.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 9.5,
+     "duree": 10.4,
      "pays": "DZ",
-     "source": "Le Soir d'Algérie"
+     "source": "Algérie360"
     }
    ]
   },
