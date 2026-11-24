@@ -296,6 +296,7 @@ def _gemini_cle() -> str:
 
 
 _QUOTA_EPUISE = set()  # modèles dont le quota gratuit du jour est atteint
+_SATURE = {}         # modèle -> heure jusqu'à laquelle on l'ignore (surcharge 503 / délai dépassé) : évite des minutes d'attente par appel
 
 
 def _json_du_texte(sortie: str):
@@ -414,7 +415,7 @@ def appeler_gemini(texte: str, json_mode: bool = True, temperature: float = 0, i
     corps = json.dumps({"contents": [{"role": "user", "parts": parts}],
                         "generationConfig": config}).encode()
     for modele in [m for m in GEMINI_MODELES for _ in range(2)]:  # 2 essais par modèle
-        if modele in _QUOTA_EPUISE:
+        if modele in _QUOTA_EPUISE or _SATURE.get(modele, 0) > time.time():
             continue
         req = urllib.request.Request(
             GEMINI_URL.format(m=modele), data=corps,
@@ -434,8 +435,10 @@ def appeler_gemini(texte: str, json_mode: bool = True, temperature: float = 0, i
             if e.code == 429 and "quota" in msg.lower():
                 _QUOTA_EPUISE.add(modele)  # quota du jour : inutile d'insister
             elif e.code in (429, 500, 503):
-                time.sleep(20)
+                _SATURE[modele] = time.time() + 300   # modèle surchargé : on passe au suivant puis aux autres fournisseurs
+                time.sleep(2)
         except Exception as e:
+            _SATURE[modele] = time.time() + 300
             print(f"[gemini] {modele} indisponible : {type(e).__name__} {str(e)[:120]}")
     return None if images else appeler_autres(texte, json_mode, temperature)   # Gemini épuisé : Groq, Mistral, OpenRouter…
 

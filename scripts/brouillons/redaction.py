@@ -309,7 +309,7 @@ def aller_a_la_source(titre, texte_relais, url_relais, nom_relais):
     l'entreprise, puis sa page Facebook officielle) et rédiger depuis elle. Renvoie {nom, url, texte, image, officiels} ou None
     (alors l'article est rédigé depuis le relais, qui reste cité)."""
     try:
-        officiels = sources_officielles(titre, texte_relais, url_relais)
+        officiels = sources_officielles(titre, texte_relais, url_relais, rapide=True)
     except Exception as e:  # noqa: BLE001 — la recherche de source ne doit jamais bloquer le circuit
         log(f"recherche de la source officielle impossible ({type(e).__name__})")
         officiels = []
@@ -351,11 +351,11 @@ def _entites_fixes(texte):
     return [dict(e) for rx, e in ENTITES_FIXES if re.search(rx, texte, re.I)]
 
 
-def sources_officielles(titre, corps, url_source, max_entites=3):
+def sources_officielles(titre, corps, url_source, max_entites=3, rapide=False):
     """Cherche sur le SITE OFFICIEL des acteurs de l'article une page qui parle du même fait.
     Renvoie [{nom, url, extrait}] vérifiés (page réellement lue, au moins 3 éléments distinctifs retrouvés)."""
     entites = _entites_fixes(f"{titre}\n{corps[:3000]}")   # annuaire d'abord : fonctionne même sans IA
-    if not entites:
+    if not entites and not rapide:
         rep = appeler_gemini(PROMPT_ENTITES.format(titre=titre, corps=corps[:3000]), temperature=0)
         entites = rep.get("entites") if isinstance(rep, dict) else None
     if not entites:
@@ -415,7 +415,7 @@ def sources_officielles(titre, corps, url_source, max_entites=3):
                 log(f"page officielle écartée (autre sujet) : {nom} — {meilleur[1]}")
     # 2e stratégie : recherche web (Gemini + Google Search) de la page officielle, puis lecture et vérification
     deja = {o["nom"] for o in trouves}
-    for e in entites[:1]:   # une seule recherche Google par article (l'acteur principal) : le quota de la recherche est limité
+    for e in ([] if rapide else entites[:1]):   # une seule recherche Google par article (l'acteur principal) : le quota de la recherche est limité
         nom = str(e.get("nom") or "").strip()
         if not nom or nom in deja:
             continue
