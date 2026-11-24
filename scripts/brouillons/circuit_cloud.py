@@ -50,9 +50,16 @@ def registre():
         return {}
 
 
+def jour_du_creneau():
+    """Jour auquel appartient le créneau : celui où il était PRÉVU (variable CIRCUIT_JOUR posée par le workflow), pas celui où GitHub
+    l'exécute. Un déclenchement retardé de plusieurs heures (constaté : 19h15 exécuté à 5h le lendemain) inscrivait sinon le créneau
+    « soir » sur le jour suivant et empêchait le circuit du PC de produire son créneau de 18h09."""
+    return os.environ.get("CIRCUIT_JOUR", "").strip() or C.aujourd_hui()
+
+
 def marquer(slot, origine):
     r = registre()
-    jour = C.aujourd_hui()
+    jour = jour_du_creneau()
     r.setdefault(jour, {})[slot] = origine
     for j in sorted(r)[:-10]:  # on garde 10 jours
         del r[j]
@@ -149,8 +156,8 @@ def video_pexels(requetes, sortie: Path):
 
 # ── Brouillon ───────────────────────────────────────────────────────────────
 def produire(slot, notif=True):
-    if slot != "test" and registre().get(C.aujourd_hui(), {}).get(slot):
-        log(f"créneau « {slot} » déjà fait aujourd'hui ({registre()[C.aujourd_hui()][slot]})")
+    if slot != "test" and registre().get(jour_du_creneau(), {}).get(slot):
+        log(f"créneau « {slot} » déjà fait ({registre()[jour_du_creneau()][slot]})")
         return 2
     vus = sources_deja_utilisees()
     ctx = C.D.contexte(RACINE, None, brouillons_locaux=True)   # publiés récents + brouillons en attente (dont ceux du PC, lus sur GitHub)

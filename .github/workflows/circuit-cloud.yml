@@ -63,10 +63,21 @@ jobs:
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
           SLOT_SAISI: ${{ inputs.slot }}
+          PLANIF: ${{ github.event.schedule }}
+          TZ: Africa/Algiers
         run: |
           set +e
           if [ -n "$SLOT_SAISI" ]; then SLOT="$SLOT_SAISI"; else
-            case "$(date -u +%H)" in 08|09) SLOT=matin;; 13|14) SLOT=midi;; *) SLOT=soir;; esac
+            # Créneau d'après l'horaire PRÉVU (cron), pas l'heure d'exécution : GitHub retarde parfois de plusieurs heures
+            case "$PLANIF" in
+              "45 8 * * *")  SLOT=matin; H_PREVUE=8;;
+              "15 13 * * *") SLOT=midi;  H_PREVUE=13;;
+              *)             SLOT=soir;  H_PREVUE=18;;
+            esac
+            # exécuté après minuit pour un créneau prévu la veille : le créneau appartient à la veille
+            if [ -n "$PLANIF" ] && [ "$((10#$(date -u +%H)))" -lt "$H_PREVUE" ]; then
+              export CIRCUIT_JOUR="$(TZ=Africa/Algiers date -d 'yesterday' +%F)"
+            fi
           fi
           echo "Créneau : $SLOT"
           python scripts/brouillons/circuit_cloud.py --slot "$SLOT"
