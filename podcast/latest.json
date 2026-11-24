@@ -1,296 +1,296 @@
 {
- "creneau": "soir",
- "date": "2026-11-24",
- "genere": "2026-11-24T22:07:08",
+ "creneau": "matin",
+ "date": "2026-11-25",
+ "genere": "2026-11-25T00:52:42",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
-   "creneau": "soir",
-   "genere": "2026-11-24T22:07:34",
+   "creneau": "matin",
+   "genere": "2026-11-25T00:53:06",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
     "duree": 8.2,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Retrouvez ce soir l'essentiel de l'actualité tech et télécoms avec dix informations clés."
+    "texte": "Bonjour et bienvenue sur Algeria Tech, votre rendez-vous matinal. Voici 10 infos tech et télécoms pour bien démarrer la journée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.6,
-    "texte": "C'était l'essentiel de l'actualité sur Algeria Tech. Retrouvez-nous demain pour un nouveau résumé."
+    "duree": 6.7,
+    "texte": "C'est tout pour ce matin sur Algeria Tech. Retrouvez-nous plus tard pour une nouvelle dose d'actualités."
    },
    "items": [
     {
      "titre": "Communauté nationale à l'étranger",
-     "texte": "Les travaux du workshop de haut niveau sur la mobilisation du potentiel économique de la communauté nationale à l'étranger se sont achevés le lundi 23 novembre. L'événement visait à explorer les leviers de développement économique grâce aux compétences algériennes à l'international.",
+     "texte": "Les travaux d'un atelier de haut niveau sur la mobilisation du potentiel économique de la communauté nationale à l'étranger se sont achevés. L'objectif était de mieux exploiter ces ressources précieuses pour le développement économique du pays.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 14.2,
+     "duree": 12.2,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Diaspora et jeunes entrepreneurs",
-     "texte": "Des experts de la diaspora algérienne via l'association Djazpora et le CREA sont à Ouargla pour accompagner de jeunes porteurs de projets. Cette collaboration, lancée lors de la Semaine mondiale de l'entrepreneuriat, vise à stimuler l'innovation locale.",
+     "titre": "Pixel 11 : Faut-il changer ?",
+     "texte": "Les propriétaires de smartphones Google Pixel sont invités à évaluer la pertinence d'une mise à niveau vers le nouveau Pixel 11. La décision est particulièrement importante pour les possesseurs de Pixel 9, tandis que les utilisateurs de Pixel 10 ont une transition plus évidente.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 13.5,
+     "duree": 15.3,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Nettoyer son PC Windows",
+     "texte": "Certaines applications sur votre PC Windows méritent une désinstallation. Le bloatware et les logiciels publicitaires prennent de la place précieuse sur votre stockage et peuvent ralentir votre machine.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 10.8,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Diaspora et jeunes entrepreneurs",
+     "texte": "Des experts issus de la diaspora algérienne vont accompagner de jeunes porteurs de projets à Ouargla. Cette initiative vise à stimuler l'entrepreneuriat local grâce à des compétences venues de l'étranger.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 10.9,
      "pays": "DZ",
      "source": "TSA Algérie"
     },
     {
-     "titre": "Raccourcis Apple Watch",
-     "texte": "Découvrez cinq raccourcis pour votre Apple Watch qui nécessitent peu de configuration. Ils peuvent simplifier la gestion des directions, des messages, des lumières ou même des siestes, rendant votre expérience plus fluide.",
-     "mp3": "/podcast/fr/03.mp3",
+     "titre": "Raccourcis Apple Watch utiles",
+     "texte": "Découvrez cinq raccourcis peu connus pour votre Apple Watch qui peuvent être configurés en quelques minutes. Ils permettent de gérer des tâches comme les directions ou les messages plus efficacement.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 10.2,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Protection de la mémoire nationale",
+     "texte": "Un plaidoyer pour renforcer le bouclier juridique de la mémoire nationale a été formulé. Il appelle à la révision des textes, à la protection des archives et à la lutte contre la réécriture de l'histoire.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 10.8,
+     "pays": "DZ",
+     "source": "Le Jeune Indépendant"
+    },
+    {
+     "titre": "Tidal rejette la musique IA",
+     "texte": "Le service de streaming musical Tidal prend une position ferme contre la musique générée par intelligence artificielle. La plateforme va retirer de son catalogue tous les morceaux entièrement créés par IA dès le 9 décembre.",
+     "mp3": "/podcast/fr/07.mp3",
      "duree": 12.0,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Protection mémoire nationale",
-     "texte": "Un plaidoyer a été formulé pour le renforcement du bouclier juridique de la mémoire nationale. Les participants à une session sur l'histoire ont recommandé de réviser les textes et de lutter contre la réécriture mensongère sur internet.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 12.3,
-     "pays": "DZ",
-     "source": "Le Jeune Indépendant"
-    },
-    {
-     "titre": "Tidal bannit la musique IA",
-     "texte": "Le service de streaming Tidal prend une position ferme en interdisant totalement la musique générée par l'intelligence artificielle. Dès le 9 décembre, les morceaux entièrement créés par IA seront retirés de son catalogue.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 12.3,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Personnaliser One UI Samsung",
-     "texte": "Il n'est pas possible de supprimer complètement One UI sur un smartphone Samsung, mais il existe des méthodes pour rendre cette interface logicielle moins présente et plus adaptée à vos besoins.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 9.6,
+     "titre": "One UI sur Samsung",
+     "texte": "Il n'est pas possible de supprimer complètement l'interface One UI des smartphones Samsung. Cependant, des méthodes existent pour la rendre moins présente et ainsi améliorer l'expérience utilisateur sur certains appareils.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 12.0,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
      "titre": "Jensen Huang revient chez Nvidia",
-     "texte": "Le patron de Nvidia, Jensen Huang, a été réintégré à la tête du géant des puces électroniques. Cette décision intervient dix jours après sa démission suite à un scandale médiatique.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 11.1,
+     "texte": "Suite à un scandale, Jensen Huang avait démissionné. Il est désormais réintégré à la tête du géant des puces électroniques Nvidia, une décision annoncée par le conseil d'administration.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 10.9,
      "pays": "DZ",
      "source": "NTIC.dz"
     },
     {
-     "titre": "Campagne locale insolite",
-     "texte": "La campagne pour les élections locales a été marquée par des moments forts, dont des méthodes de garde du corps façon FBI ou des références à la Panthère Rose. L'IA a aussi fait des apparitions, captant l'attention.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.7,
+     "titre": "Campagne électorale insolite",
+     "texte": "La campagne pour les élections locales a été marquée par des moments mémorables. Entre garde du corps façon FBI et références à la Panthère Rose, certains candidats ont su capter l'attention.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 10.6,
      "pays": "DZ",
      "source": "TSA Algérie"
-    },
-    {
-     "titre": "Utilitaire macOS gratuit",
-     "texte": "Découvrez Vorssaint, un couteau suisse gratuit pour macOS. Cette suite utilitaire modulaire offre des fonctionnalités avancées pour un contrôle plus granulaire de votre bureau, si les autorisations sont bien gérées.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.9,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Employé OpenAI et l'Arabie Saoudite",
-     "texte": "Un employé d'OpenAI, soupçonné d'avoir secrètement enregistré des réunions et photographié des documents, aurait eu des liens avec le gouvernement saoudien, selon les procureurs l'accusant d'espionnage.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 10.4,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
     }
    ]
   },
   "ar": {
    "voix": "ar-SA-HamedNeural",
    "creneau": "matin",
-   "genere": "2026-11-17T00:45:05",
+   "genere": "2026-11-25T00:53:52",
    "intro": {
     "mp3": "/podcast/ar/intro.mp3",
-    "duree": 9.3,
-    "texte": "صباح الخير، معكم في نشرة الأخبار التقنية من ألكجريا تك. نستعرض لكم اليوم عشر أخبار هامة."
+    "duree": 9.5,
+    "texte": "صباح الخير مستمعينا الكرام في أثير الجزائر تيك، نستهل صباحنا بعشر أخبار هامة في عالم التكنولوجيا والأعمال."
    },
    "outro": {
     "mp3": "/podcast/ar/outro.mp3",
-    "duree": 7.8,
-    "texte": "كانت هذه أبرز الأخبار التقنية لهذا الصباح. تابعونا للمزيد من التحديثات."
+    "duree": 6.5,
+    "texte": "إلى هنا نصل لنهاية فقرتنا الإخبارية، نلقاكم لاحقاً في الجزائر تيك."
    },
    "items": [
     {
-     "titre": "حدود بطاقات الرسوميات الخارجية",
-     "texte": "بطاقات الرسوميات الخارجية يمكنها تحسين أداء الألعاب على الحاسوب المحمول، لكن استخدامها يواجه قيودًا تتعلق بالكابلات، سرعة نقل البيانات، والتكاليف الإضافية. هذه العوامل قد تقلل من الفائدة المرجوة مقارنة ببطاقات الرسوميات المدمجة.",
+     "titre": "اختتام ورشة حول الاقتصاد الوطني",
+     "texte": "اختتمت أعمال ورشة عمل رفيعة المستوى تناولت كيفية تعبئة الإمكانيات الاقتصادية للجالية الوطنية المقيمة بالخارج. هذه الورشة تهدف إلى تعزيز دور المغتربين في التنمية الاقتصادية للوطن.",
      "mp3": "/podcast/ar/01.mp3",
-     "duree": 20.7,
+     "duree": 16.2,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "APS"
     },
     {
-     "titre": "مراجعة Apple TV 4K الجديدة",
-     "texte": "جهاز Apple TV 4K الجديد يقدم تحسينات طفيفة في التصميم، أبرزها نقل مؤشر الإضاءة. على الرغم من أنه لا يزال جهازًا جيدًا، إلا أن سعره أصبح أعلى بكثير مقارنة بالإصدارات السابقة.",
+     "titre": "نصيحة لمالكي هواتف بيكسل",
+     "texte": "أصدرت جوجل هاتف بيكسل 11 الجديد. يشير الخبراء إلى أن ملاك بيكسل 10 قد يفكرون في الترقية، بينما يواجه مالكو بيكسل 9 قراراً أصعب بشأن الاستبدال.",
      "mp3": "/podcast/ar/02.mp3",
-     "duree": 16.7,
+     "duree": 13.7,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "شركة أمريكية تستثمر في الجزائر",
-     "texte": "شركة KBR الأمريكية تدرس إنشاء هيكل متخصص في الهندسة وإدارة المشاريع بالجزائر. الهدف هو تعزيز تواجد الشركة ودعم شركة سوناطراك في برامجها التطويرية المستقبلية.",
+     "titre": "تطبيقات ويندوز ينصح بحذفها",
+     "texte": "اكتشف ثمانية تطبيقات لأنظمة ويندوز يُنصح بحذفها من جهازك. هذه التطبيقات قد تشغل مساحة كبيرة وتؤثر على أداء الجهاز، لذا وجب التخلص منها.",
      "mp3": "/podcast/ar/03.mp3",
-     "duree": 15.0,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "الهاتف الذكي كمكبر صوت للحاسوب",
-     "texte": "يمكن تحويل هاتفك الأندرويد بسهولة ليصبح مكبر صوت إضافي لجهاز الكمبيوتر الخاص بك. هذه الميزة تفتح آفاقًا جديدة لاستخدامات الهاتف الذكي المتعددة.",
-     "mp3": "/podcast/ar/04.mp3",
      "duree": 14.0,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "حل مشكلة شاشة الماك بوك السوداء",
-     "texte": "إذا واجهت شاشة سوداء في جهاز الماك بوك الخاص بك، فلا داعي للقلق. في كثير من الأحيان، لا يتعلق الأمر بمشكلة في المكونات بل بأخطاء برمجية يمكن حلها بسهولة.",
+     "titre": "خبراء مغتربون يدعمون الشباب في ورقلة",
+     "texte": "تشارك جمعية \"دجزبور\" ومجلس تجديد الاقتصاد الجزائري في أسبوع ريادة الأعمال بورقلة. خبراء من الجالية سيقدمون الدعم والتوجيه للشباب حاملي المشاريع في الجامعة.",
+     "mp3": "/podcast/ar/04.mp3",
+     "duree": 14.1,
+     "pays": "DZ",
+     "source": "TSA Algérie"
+    },
+    {
+     "titre": "حيل مفيدة لساعة آبل",
+     "texte": "اكتشف خمسة اختصارات لتطبيق ساعة آبل أقل شهرة يمكنك إعدادها بسرعة. هذه الحيل تجعل استخدام ساعتك أكثر فعالية لإدارة المهام اليومية.",
      "mp3": "/podcast/ar/05.mp3",
-     "duree": 15.0,
+     "duree": 12.6,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "غوغل يضيف 66 لهجة لـ Gemini",
-     "texte": "أضافت غوغل 66 لهجة إقليمية جديدة إلى مساعدها الذكي Gemini. هذه الخطوة تهدف إلى الحفاظ على التنوع اللغوي والثقافي وتعزيز قدرة الذكاء الاصطناعي على فهم اللهجات المختلفة.",
+     "titre": "تعزيز الحماية القانونية للذاكرة الوطنية",
+     "texte": "توصيات لتعزيز الحماية القانونية للذاكرة التاريخية الوطنية. شملت المطالب مراجعة النصوص، حماية الأرشيف، وتوضيح المسؤوليات لمواجهة إعادة كتابة التاريخ المشوهة.",
      "mp3": "/podcast/ar/06.mp3",
      "duree": 15.8,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Le Jeune Indépendant"
     },
     {
-     "titre": "تراجع التبادل التجاري بين الجزائر وفرنسا",
-     "texte": "تشهد المبادلات التجارية بين الجزائر وفرنسا انخفاضًا مستمرًا. تعود أسباب هذا التراجع جزئيًا إلى التوترات الدبلوماسية المستمرة بين البلدين، مما أثر على الصادرات الفرنسية للجزائر.",
+     "titre": "تيدال تمنع الموسيقى المصنعة بالذكاء الاصطناعي",
+     "texte": "تيدال، خدمة البث الموسيقي، ستكون أول من يمنع الموسيقى المولدة بالذكاء الاصطناعي. سيتم حذف هذه الأعمال من كتالوج المنصة اعتباراً من التاسع من ديسمبر.",
      "mp3": "/podcast/ar/07.mp3",
-     "duree": 15.5,
+     "duree": 13.9,
      "pays": "DZ",
-     "source": "Algérie Éco"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "مراجعة شاشة Apple HomeView الذكية",
-     "texte": "شاشة Apple HomeView الذكية هي جهاز متعدد الاستخدامات ومركز تحكم منزلي يعتمد على Siri. جودة الصوت ممتازة للموسيقى والبودكاست، لكنها ليست مثالية لمشاهدة الفيديو.",
+     "titre": "إزالة واجهة سامسونج ون يو آي",
+     "texte": "على الرغم من صعوبة الإزالة الكاملة لواجهة ون يو آي على هواتف سامسونج، إلا أن هناك طرقاً لجعلها أقل ظهورا. يوفر ذلك خيارات تخصيص إضافية للمستخدمين.",
      "mp3": "/podcast/ar/08.mp3",
-     "duree": 15.1,
+     "duree": 14.4,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "خطوط بحرية جديدة بين إسبانيا والجزائر",
-     "texte": "تعمل شركة Baleària الإسبانية على توسيع شبكتها البحرية. أضافت الشركة خطين جديدين لربط إسبانيا بالجزائر، مما يسهل حركة المسافرين والبضائع.",
+     "titre": "عودة جينسن هوانغ لقيادة إنفيديا",
+     "texte": "بعد فضيحة أدت لاستقالته، أعيد جينسن هوانغ لمنصبه كرئيس تنفيذي لشركة إنفيديا. يأتي هذا القرار من مجلس إدارة الشركة بعد عشرة أيام من الاستقالة.",
      "mp3": "/podcast/ar/09.mp3",
-     "duree": 13.2,
+     "duree": 14.0,
      "pays": "DZ",
-     "source": "Algérie360"
+     "source": "NTIC.dz"
     },
     {
-     "titre": "مقارنة بين Anker و Belkin",
-     "texte": "عند اختيار بطاريات خارجية وملحقات الهواتف، تبرز شركتان: Anker و Belkin. تقدم Anker منتجات قوية، بينما تتميز Belkin بمنتجات فريدة. الاختيار يعتمد على احتياجاتك.",
+     "titre": "الحملة الانتخابية للانتخابات المحلية",
+     "texte": "شهدت الحملة الانتخابية للانتخابات المحلية نشاطاً مكثفاً. برز بعض المرشحين بسلوكيات لافتة، مما جذب اهتمام الجزائريين خلال فترة الدعاية المكثفة.",
      "mp3": "/podcast/ar/10.mp3",
-     "duree": 17.2,
+     "duree": 13.9,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "TSA Algérie"
     }
    ]
   },
   "en": {
    "voix": "en-US-AndrewMultilingualNeural",
    "creneau": "matin",
-   "genere": "2026-11-17T00:48:09",
+   "genere": "2026-11-25T00:56:12",
    "intro": {
     "mp3": "/podcast/en/intro.mp3",
-    "duree": 6.4,
-    "texte": "Good morning and welcome to Algeria Tech's morning tech update. We have 10 key stories for you today."
+    "duree": 6.8,
+    "texte": "Good morning and welcome to Algeria Tech's morning briefing, where we bring you ten key tech and telecom updates."
    },
    "outro": {
     "mp3": "/podcast/en/outro.mp3",
-    "duree": 4.2,
-    "texte": "That's all for today's Algeria Tech morning briefing. Stay informed!"
+    "duree": 5.6,
+    "texte": "That's all for today's Algeria Tech morning news. Join us tomorrow for more updates."
    },
    "items": [
     {
-     "titre": "eGPUs vs Laptop Integrated Graphics",
-     "texte": "External GPUs can boost laptop graphics, but consider potential bandwidth limitations, cable needs, and added costs. While connecting a desktop card offers a sleek solution, these factors can impact the overall advantage for portable computing.",
+     "titre": "National Community Economic Potential Workshop Concludes",
+     "texte": "A high-level workshop focused on mobilizing the economic potential of the national community abroad successfully concluded on Monday. The event aimed to foster economic engagement and leverage the expertise of Algerians living overseas.",
      "mp3": "/podcast/en/01.mp3",
-     "duree": 15.9,
+     "duree": 15.8,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "APS"
     },
     {
-     "titre": "Apple TV 4K Review",
-     "texte": "The latest Apple TV 4K offers subtle design tweaks, like a repositioned indicator light. While its performance remains strong, the unit is now slightly larger, and pricing reflects its premium features and capabilities.",
+     "titre": "Pixel 11 Upgrade Decision For Users",
+     "texte": "Google's new Pixel 11 has arrived, but should you upgrade? Pixel 10 owners can make the switch, while Pixel 9 users face a more significant decision regarding the new features and performance.",
      "mp3": "/podcast/en/02.mp3",
-     "duree": 14.5,
+     "duree": 12.2,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "KBR Explores Algerian Presence",
-     "texte": "American company KBR is considering establishing a specialized engineering and project management entity in Algeria. Discussions with the Minister of Hydrocarbons explored enhancing KBR's role in supporting Sonatrach's development initiatives.",
+     "titre": "Windows PC Cleanup Recommendations",
+     "texte": "Not all software on your Windows PC is essential. Experts recommend removing certain applications, including bloatware and adware, to free up valuable storage space and improve performance.",
      "mp3": "/podcast/en/03.mp3",
-     "duree": 16.0,
+     "duree": 12.8,
      "pays": "DZ",
-     "source": "Algérie Éco"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Android Phone as PC Speaker",
-     "texte": "You can surprisingly use your Android phone as a computer speaker with a few simple steps. This highlights the versatility of modern smartphones, making them capable of performing various functions beyond their primary use.",
+     "titre": "Diaspora Experts Support Ouargla Entrepreneurs",
+     "texte": "Algerian diaspora experts are mentoring young project leaders in Ouargla. Through a collaboration involving Djazpora and CREA, these international talents are supporting entrepreneurship during the Global Entrepreneurship Week.",
      "mp3": "/podcast/en/04.mp3",
-     "duree": 13.0,
+     "duree": 14.6,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "TSA Algérie"
     },
     {
-     "titre": "Fixing MacBook Black Screen",
-     "texte": "A black screen on your MacBook might not always indicate a hardware failure. Troubleshooting this common issue is often easier than expected, and many solutions can be implemented without professional technical assistance.",
+     "titre": "Hidden Apple Watch Shortcuts Revealed",
+     "texte": "Discover five lesser-known Apple Watch shortcuts that can be set up in minutes. These quick configurations can help manage directions, messages, smart home devices, and even naps efficiently.",
      "mp3": "/podcast/en/05.mp3",
-     "duree": 13.6,
+     "duree": 12.4,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Google Gemini Adds Dialects",
-     "texte": "Google's Gemini AI now supports 66 regional dialects and accents. This expansion aims to preserve linguistic diversity, ensuring the AI can better understand and respond to a wider range of human expression.",
+     "titre": "Strengthen Legal Shield for National Memory",
+     "texte": "Participants at a national session on memory and history advocated for strengthening Algeria's legal shield. Recommendations include revising texts, protecting archives, and combating historical revisionism online.",
      "mp3": "/podcast/en/06.mp3",
-     "duree": 15.3,
+     "duree": 14.3,
+     "pays": "DZ",
+     "source": "Le Jeune Indépendant"
+    },
+    {
+     "titre": "Tidal Bans AI-Generated Music",
+     "texte": "Tidal is taking a firm stance against artificial intelligence. The music streaming service will begin removing fully AI-generated tracks from its catalog starting December ninth, becoming a pioneer in this area.",
+     "mp3": "/podcast/en/07.mp3",
+     "duree": 13.2,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Algeria-France Trade Declines",
-     "texte": "Commercial exchanges between Algeria and France continue to fall amid ongoing diplomatic tensions. Latest French customs data shows a further decrease in exports to the Algerian market over the past twelve months.",
-     "mp3": "/podcast/en/07.mp3",
-     "duree": 14.0,
+     "titre": "Managing Samsung's One UI",
+     "texte": "While Samsung's One UI is a core feature on its devices, it may not be perfect for everyone. There are ways to make this interface less prominent on your Samsung smartphone.",
+     "mp3": "/podcast/en/08.mp3",
+     "duree": 10.4,
      "pays": "DZ",
-     "source": "Algérie Éco"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Apple HomeView Smart Display",
-     "texte": "Apple's HomeView smart display is a versatile home hub with Siri integration. Its speakers are excellent for audio content, though video playback is limited, making it more suited for music than movie watching.",
-     "mp3": "/podcast/en/08.mp3",
+     "titre": "Nvidia CEO Reinstated Amid Scandal",
+     "texte": "Nvidia's CEO, Jensen Huang, has been reinstated to his leadership position following a scandal. The chip giant's board announced his return just days after his initial resignation from the company.",
+     "mp3": "/podcast/en/09.mp3",
      "duree": 12.6,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "NTIC.dz"
     },
     {
-     "titre": "Baleària Expands Spain-Algeria Routes",
-     "texte": "Spanish ferry company Baleària is boosting its Mediterranean network. Two new maritime routes have been launched, offering travelers enhanced connectivity and more options for journeys between Spain and Algeria.",
-     "mp3": "/podcast/en/09.mp3",
-     "duree": 13.5,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Anker vs. Belkin Power Brands",
-     "texte": "Choosing between Anker and Belkin for power banks and accessories involves trade-offs. While one brand offers greater market dominance, the other often introduces unique and innovative product features for mobile devices.",
+     "titre": "Local Election Campaign Highlights",
+     "texte": "The campaign for local elections is wrapping up with notable moments. From FBI-style security to pop culture references and AI discussions, candidates have employed unique tactics to capture public attention.",
      "mp3": "/podcast/en/10.mp3",
-     "duree": 13.8,
+     "duree": 14.2,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "TSA Algérie"
     }
    ]
   }
