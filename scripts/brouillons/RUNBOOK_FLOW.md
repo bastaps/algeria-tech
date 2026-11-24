@@ -6,7 +6,7 @@ interactive**. Le résultat est déposé sur GitHub ; le téléphone reçoit une
 après 90 min sans choix. **Ne rien publier toi-même.** Dossier : `E:\algeria-tech`.
 
 ## Règles
-- Compte Flow : **bastaps2024@gmail.com uniquement** (URL `https://flow.google.com/u/1/`). Jamais bastaps@gmail.com.
+- Compte Flow : **bastaps@gmail.com uniquement** (compte Gemini Pro, décision de l'utilisateur du 2026-11-24 ; URL `https://flow.google.com/u/0/`). Jamais bastaps2024@gmail.com.
 - Ne **jamais** saisir de mot de passe ni de code. Si Google demande une connexion : arrêt + alerte (voir « Échec »).
 - Budget : 1 génération par créneau, **10 crédits maximum**. Si Flow annonce plus de 10 crédits : **refuser**.
 - Accepter sans demander : dialogue « Droits d'utilisation de cette image » (J'accepte), « Approuver » (une fois, jamais
@@ -39,8 +39,8 @@ après 90 min sans choix. **Ne rien publier toi-même.** Dossier : `E:\algeria-t
      Après génération, **vérifier avec ffprobe qu'il y a bien une piste audio** pour `image_texte` et `sans_personnes` (la voix off) ; si la vidéo est muette ou
      sans le texte, relancer UNE fois (même prompt) si les crédits le permettent, sinon `none`. Jamais d'autre prompt avec des personnes.
 2. Chrome : `tabs_context_mcp`, `tabs_create_mcp`, aller sur `https://flow.google.com/u/1/`. Ouvrir le menu du compte (avatar en haut à droite) :
-   l'e-mail doit être bastaps2024@gmail.com ; **lire le solde** (« N crédits Google Flow »). Si l'e-mail est autre : « Changer de compte » →
-   choisir bastaps2024 dans la liste (déjà connecté), sans mot de passe.
+   l'e-mail doit être bastaps@gmail.com ; **lire le solde** (« N crédits Google Flow »). Si l'e-mail est autre : « Changer de compte » →
+   choisir bastaps@gmail.com dans la liste (déjà connecté), sans mot de passe.
    **Si N < 10 : pas de vidéo** → passer directement à l'étape 9 avec `none` à la place du clip.
 3. « Nouveau projet ». Les réglages de l'agent sont déjà : vidéo 16:9, ×1, Veo 3.1 Lite (à vérifier via l'icône réglages du panneau de droite).
 4. Importer l'image (le sélecteur de fichiers natif est inaccessible) : dans l'onglet Flow, `javascript_tool` :
