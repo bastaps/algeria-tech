@@ -1,102 +1,102 @@
 {
- "creneau": "matin",
+ "creneau": "soir",
  "date": "2026-11-25",
- "genere": "2026-11-25T00:52:42",
+ "genere": "2026-11-25T18:07:00",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
-   "creneau": "matin",
-   "genere": "2026-11-25T00:53:06",
+   "creneau": "soir",
+   "genere": "2026-11-25T18:07:24",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 8.2,
-    "texte": "Bonjour et bienvenue sur Algeria Tech, votre rendez-vous matinal. Voici 10 infos tech et télécoms pour bien démarrer la journée."
+    "duree": 8.7,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Retrouvez ce soir 10 informations importantes pour rester à la pointe de l'actualité tech et télécoms."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.7,
-    "texte": "C'est tout pour ce matin sur Algeria Tech. Retrouvez-nous plus tard pour une nouvelle dose d'actualités."
+    "duree": 7.4,
+    "texte": "C'est tout pour ce soir. Merci de nous avoir suivi, et à très bientôt pour une nouvelle édition d'Algeria Tech."
    },
    "items": [
     {
-     "titre": "Communauté nationale à l'étranger",
-     "texte": "Les travaux d'un atelier de haut niveau sur la mobilisation du potentiel économique de la communauté nationale à l'étranger se sont achevés. L'objectif était de mieux exploiter ces ressources précieuses pour le développement économique du pays.",
+     "titre": "Nothing lance ses écouteurs IA",
+     "texte": "Nothing a officiellement annoncé son premier appareil 'IA-native', baptisé Ear (Note). Ces écouteurs innovants intègrent une intelligence artificielle dédiée à la prise de notes, promettant une nouvelle expérience utilisateur.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 12.2,
+     "duree": 12.8,
      "pays": "DZ",
-     "source": "APS"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Pixel 11 : Faut-il changer ?",
-     "texte": "Les propriétaires de smartphones Google Pixel sont invités à évaluer la pertinence d'une mise à niveau vers le nouveau Pixel 11. La décision est particulièrement importante pour les possesseurs de Pixel 9, tandis que les utilisateurs de Pixel 10 ont une transition plus évidente.",
+     "titre": "Record de transferts d'argent au Maroc",
+     "texte": "En 2025, les Marocains résidant en Espagne ont envoyé un montant record de près de 1,6 milliard d'euros vers leur pays d'origine. Ces transferts financiers témoignent de liens solides.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 15.3,
+     "duree": 11.0,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Maghreb Emergent"
     },
     {
-     "titre": "Nettoyer son PC Windows",
-     "texte": "Certaines applications sur votre PC Windows méritent une désinstallation. Le bloatware et les logiciels publicitaires prennent de la place précieuse sur votre stockage et peuvent ralentir votre machine.",
+     "titre": "Optimiser l'autonomie de l'Apple Watch",
+     "texte": "Besoin de prolonger l'autonomie de votre Apple Watch ? Quelques réglages simples peuvent vous aider à gagner des heures précieuses pour rester connecté toute la journée.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 10.8,
+     "duree": 8.7,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Diaspora et jeunes entrepreneurs",
-     "texte": "Des experts issus de la diaspora algérienne vont accompagner de jeunes porteurs de projets à Ouargla. Cette initiative vise à stimuler l'entrepreneuriat local grâce à des compétences venues de l'étranger.",
+     "titre": "Huawei renforce ses liens universitaires",
+     "texte": "Huawei Algérie s'associe à huit universités et grandes écoles algériennes via des mémorandums d'entente. L'objectif est de rapprocher le monde académique des entreprises technologiques et de développer les compétences.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 10.9,
+     "duree": 11.5,
      "pays": "DZ",
-     "source": "TSA Algérie"
+     "source": "Maghreb Emergent"
     },
     {
-     "titre": "Raccourcis Apple Watch utiles",
-     "texte": "Découvrez cinq raccourcis peu connus pour votre Apple Watch qui peuvent être configurés en quelques minutes. Ils permettent de gérer des tâches comme les directions ou les messages plus efficacement.",
+     "titre": "100 assiettes foncières pour investisseurs",
+     "texte": "L'AAPI mettra bientôt à disposition 100 nouvelles assiettes foncières sur sa plateforme numérique. Ces terrains, répartis dans 13 wilayas, sont destinés à la réalisation de futurs projets d'investissement.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 10.2,
+     "duree": 11.7,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Algérie Éco"
     },
     {
-     "titre": "Protection de la mémoire nationale",
-     "texte": "Un plaidoyer pour renforcer le bouclier juridique de la mémoire nationale a été formulé. Il appelle à la révision des textes, à la protection des archives et à la lutte contre la réécriture de l'histoire.",
+     "titre": "Algérie : meilleur score numérique",
+     "texte": "L'Algérie confirme son bon niveau de développement en administration numérique. Le pays maintient son classement élevé selon le récent rapport des Nations unies sur le sujet.",
      "mp3": "/podcast/fr/06.mp3",
-     "duree": 10.8,
+     "duree": 9.5,
      "pays": "DZ",
-     "source": "Le Jeune Indépendant"
+     "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "Tidal rejette la musique IA",
-     "texte": "Le service de streaming musical Tidal prend une position ferme contre la musique générée par intelligence artificielle. La plateforme va retirer de son catalogue tous les morceaux entièrement créés par IA dès le 9 décembre.",
+     "titre": "Quotas sur les voitures hybrides",
+     "texte": "L'Union Européenne impose des quotas provisoires sur les voitures hybrides importées, incluant celles du Maroc. Cette mesure inquiète Rabat face à la progression des exportations marocaines.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 12.0,
+     "duree": 10.6,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Maghreb Emergent"
     },
     {
-     "titre": "One UI sur Samsung",
-     "texte": "Il n'est pas possible de supprimer complètement l'interface One UI des smartphones Samsung. Cependant, des méthodes existent pour la rendre moins présente et ainsi améliorer l'expérience utilisateur sur certains appareils.",
+     "titre": "Diagnostic : moniteur qui clignote",
+     "texte": "Votre moniteur clignote au démarrage ? Ce symptôme peut indiquer un problème avec votre écran d'ordinateur. Comprendre la cause est la première étape pour résoudre le souci.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 12.0,
+     "duree": 10.5,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Jensen Huang revient chez Nvidia",
-     "texte": "Suite à un scandale, Jensen Huang avait démissionné. Il est désormais réintégré à la tête du géant des puces électroniques Nvidia, une décision annoncée par le conseil d'administration.",
+     "titre": "Huawei et les universités algériennes",
+     "texte": "Huawei Algérie intensifie sa collaboration avec l'enseignement supérieur. Des accords ont été signés avec huit universités et grandes écoles pour renforcer les liens avec le secteur des TIC.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 10.9,
+     "duree": 10.8,
      "pays": "DZ",
      "source": "NTIC.dz"
     },
     {
-     "titre": "Campagne électorale insolite",
-     "texte": "La campagne pour les élections locales a été marquée par des moments mémorables. Entre garde du corps façon FBI et références à la Panthère Rose, certains candidats ont su capter l'attention.",
+     "titre": "Tunisie : frais d'arbitrage non payés",
+     "texte": "La procédure d'arbitrage entre Zenith Energy et la Tunisie est suspendue. La non-paie des frais par l'État tunisien pourrait avoir des conséquences importantes sur le dossier.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 10.6,
+     "duree": 9.5,
      "pays": "DZ",
-     "source": "TSA Algérie"
+     "source": "Maghreb Emergent"
     }
    ]
   },
