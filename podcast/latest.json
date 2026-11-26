@@ -1,296 +1,296 @@
 {
- "creneau": "soir",
- "date": "2026-11-26",
- "genere": "2026-11-26T21:06:39",
+ "creneau": "matin",
+ "date": "2026-11-27",
+ "genere": "2026-11-27T00:48:05",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
-   "creneau": "soir",
-   "genere": "2026-11-26T21:06:58",
+   "creneau": "matin",
+   "genere": "2026-11-27T00:48:27",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.9,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech, votre rendez-vous tech et télécoms. Voici 10 infos à ne pas manquer ce soir."
+    "duree": 8.5,
+    "texte": "Bonjour et bienvenue sur Algeria Tech, votre rendez-vous tech et télécoms matinal. Voici 10 informations pour bien démarrer la journée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 7.0,
-    "texte": "C'était l'essentiel de l'actualité tech et télécoms. Merci de nous avoir suivis, et à très bientôt."
+    "duree": 6.4,
+    "texte": "C'est tout pour ce matin. Retrouvez-nous demain pour une nouvelle dose d'actualités tech et télécoms."
    },
    "items": [
     {
-     "titre": "Connectivité régionale : l'Algérie avance",
-     "texte": "L'Algérie continue de développer des projets d'envergure pour améliorer la connectivité régionale. Ces initiatives visent à renforcer les liens entre les différentes régions, conformément aux directives récentes du président de la République.",
+     "titre": "Connectivité régionale, Algérie investit",
+     "texte": "L'Algérie continue de développer ses projets d'infrastructure pour améliorer la connectivité régionale. Ces initiatives s'inscrivent dans les directives présidentielles visant à renforcer les échanges et le développement à travers le territoire.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 12.6,
+     "duree": 12.5,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "LG Algérie : vision 2027 dévoilée",
-     "texte": "LG Electronics Algérie a présenté ses stratégies pour 2027 à ses distributeurs. Sous le slogan \"Let’s Shape the Future Together\", la marque partage ses perspectives de développement, d'innovation et de partenariats pour les années à venir.",
+     "titre": "PC : Ne pas utiliser d'aspirateur",
+     "texte": "Attention, n'aspirez jamais l'intérieur de votre ordinateur avec un aspirateur domestique. Les risques de dommages sont élevés. Privilégiez des outils adaptés comme l'air comprimé ou les dépoussiéreurs électriques spécifiques pour l'électronique.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 13.9,
+     "duree": 13.8,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Trafic aérien France-Algérie dynamique",
+     "texte": "Entre janvier et octobre, près de 4,9 millions de passagers ont voyagé entre la France et l'Algérie. Ces chiffres confirment le poids de cette liaison aérienne majeure dans les échanges entre les deux pays.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 11.1,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "Sonelgaz exporte en Côte d'Ivoire",
+     "texte": "Sonelgaz International expédie depuis Alger des équipements pour une nouvelle centrale électrique en Côte d'Ivoire. Ce projet renforce la coopération et soutient le développement du réseau électrique local.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 11.2,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "iPad Air vs Pro : la différence",
+     "texte": "Pour 450 dollars de plus, l'iPad Pro offre des fonctionnalités avancées. Cependant, pour de nombreux usages, l'iPad Air reste une excellente option, plus accessible et souvent suffisante pour les besoins quotidiens.",
+     "mp3": "/podcast/fr/05.mp3",
+     "duree": 13.4,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "29 kg de cocaïne saisis à Tipaza",
+     "texte": "La police a démantelé un réseau de trafic de drogues à Tipaza, saisissant 29 kilogrammes de cocaïne et des milliers de comprimés. L'opération vise à lutter contre le crime organisé.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 10.7,
+     "pays": "DZ",
+     "source": "TSA Algérie"
+    },
+    {
+     "titre": "LG Algérie présente ses vues 2027",
+     "texte": "LG Electronics Algérie partage ses orientations stratégiques pour 2027 avec son réseau. L'objectif est d'innover et de renforcer les partenariats sous le slogan « Let’s Shape the Future Together ».",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 11.6,
      "pays": "DZ",
      "source": "NTIC.dz"
     },
     {
-     "titre": "New York : fin des jouets IA pour enfants",
-     "texte": "L'État de New York interdit la vente de jouets intégrant des chatbots IA pendant cinq ans. Cette loi vise à protéger les enfants des conversations avec des dispositifs connectés qui utilisent internet pour interagir.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 11.6,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Google abandonne six services en 2026",
-     "texte": "Google met fin à plusieurs de ses outils et services cette année. L'entreprise, axée sur les données, retire ceux qu'elle juge ne plus être pertinents ou suffisamment utilisés par ses utilisateurs.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 11.2,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Tunisie : diplomatie en suspens",
-     "texte": "La Tunisie fait face à une crise diplomatique avec près de 30 ambassades sans ambassadeur, dont Alger. Cette situation pourrait paralyser ses relations internationales, selon des députés examinant le budget des affaires étrangères.",
-     "mp3": "/podcast/fr/05.mp3",
-     "duree": 12.9,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
-    },
-    {
-     "titre": "Screens transforme votre iPhone en MacBook",
-     "texte": "L'application Screens permet désormais de transformer deux iPhones en un ordinateur portable. Une mise à jour récente ajoute un clavier virtuel sur l'un des écrans, offrant une expérience de saisie sur mobile.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 11.6,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Circulation restreinte avant le scrutin",
-     "texte": "La Gendarmerie nationale a annoncé des restrictions de circulation pour certains véhicules. Ces mesures, effectives du vendredi 27 au dimanche 29 novembre, concernent principalement le transport de fret avant le scrutin.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 12.9,
-     "pays": "DZ",
-     "source": "Algérie360"
-    },
-    {
-     "titre": "Ooredoo sensibilise au cancer de la prostate",
-     "texte": "Dans le cadre de Novembre Bleu, Ooredoo organise une journée de sensibilisation et de dépistage du cancer de la prostate. L'opération vise à informer et à protéger la santé de ses employés.",
+     "titre": "ALGEST : Digitaliser sans organiser",
+     "texte": "Au salon ALGEST, l'accent est mis sur l'organisation avant la digitalisation. Automatiser des processus désorganisés ne fait qu'amplifier les erreurs. Une approche prudente est recommandée pour l'industrie 4.0.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 11.2,
+     "duree": 13.2,
      "pays": "DZ",
-     "source": "Algeria Tech"
+     "source": "ITMAG"
     },
     {
-     "titre": "Nvidia stoppe les livraisons de puces",
-     "texte": "Nvidia a suspendu l'expédition de puces vers l'Asie du Sud-Est, incluant la Malaisie et Singapour. Cette décision intervient dans le cadre du renforcement des contrôles américains sur les exportations vers la Chine.",
+     "titre": "New York interdit les jouets IA",
+     "texte": "L'État de New York interdit la vente de jouets connectés utilisant des chatbots IA. Cette mesure vise à protéger les enfants des risques liés à ces technologies pendant cinq ans.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 12.1,
-     "pays": "INT",
-     "source": "TechCrunch"
+     "duree": 9.5,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Acer Aspire 14 AI : OLED abordable",
-     "texte": "L'Acer Aspire 14 AI, équipé d'un écran OLED, est désormais disponible sous la barre des 700 euros. Cet ultraportable allie technologie d'affichage de qualité et prix compétitif, notamment pendant le Black Friday.",
+     "titre": "Google abandonne six services",
+     "texte": "Google a mis fin à six produits et services cette année. Le géant de la technologie continue de restructurer son offre, supprimant les outils jugés moins pertinents ou performants.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 13.0,
-     "pays": "INT",
-     "source": "Frandroid"
+     "duree": 9.8,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
     }
    ]
   },
   "ar": {
    "voix": "ar-SA-HamedNeural",
    "creneau": "matin",
-   "genere": "2026-11-25T00:53:52",
+   "genere": "2026-11-27T00:49:24",
    "intro": {
     "mp3": "/podcast/ar/intro.mp3",
-    "duree": 9.5,
-    "texte": "صباح الخير مستمعينا الكرام في أثير الجزائر تيك، نستهل صباحنا بعشر أخبار هامة في عالم التكنولوجيا والأعمال."
+    "duree": 8.1,
+    "texte": "صباح الخير، إليكم آخر أخبار Algeria Tech، إليكم عشرة عناوين مهمة لهذا الصباح."
    },
    "outro": {
     "mp3": "/podcast/ar/outro.mp3",
-    "duree": 6.5,
-    "texte": "إلى هنا نصل لنهاية فقرتنا الإخبارية، نلقاكم لاحقاً في الجزائر تيك."
+    "duree": 6.0,
+    "texte": "شكراً لمتابعتكم، نلقاكم في موجز أخبار Algeria Tech القادم."
    },
    "items": [
     {
-     "titre": "اختتام ورشة حول الاقتصاد الوطني",
-     "texte": "اختتمت أعمال ورشة عمل رفيعة المستوى تناولت كيفية تعبئة الإمكانيات الاقتصادية للجالية الوطنية المقيمة بالخارج. هذه الورشة تهدف إلى تعزيز دور المغتربين في التنمية الاقتصادية للوطن.",
+     "titre": "الجزائر تعزز الربط الإقليمي",
+     "texte": "تواصل الجزائر جهودها لتحقيق مشاريع هيكلية هامة بهدف تعزيز الربط الإقليمي. تأتي هذه الخطوات تنفيذاً لقرارات رئيس الجمهورية الهادفة إلى تطوير البنية التحتية للاتصالات عبر البلاد.",
      "mp3": "/podcast/ar/01.mp3",
-     "duree": 16.2,
+     "duree": 16.0,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "نصيحة لمالكي هواتف بيكسل",
-     "texte": "أصدرت جوجل هاتف بيكسل 11 الجديد. يشير الخبراء إلى أن ملاك بيكسل 10 قد يفكرون في الترقية، بينما يواجه مالكو بيكسل 9 قراراً أصعب بشأن الاستبدال.",
+     "titre": "تحذير: لا تستخدم المكنسة الكهربائية في حاسوبك",
+     "texte": "ينصح الخبراء بتجنب شفط غبار الكمبيوتر بالمكنسة الكهربائية العادية. هناك مخاطر عديدة قد تلحق بمكونات الجهاز الحساسة. يفضل استخدام أدوات متخصصة مثل علب الهواء المضغوط.",
      "mp3": "/podcast/ar/02.mp3",
-     "duree": 13.7,
+     "duree": 16.7,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "تطبيقات ويندوز ينصح بحذفها",
-     "texte": "اكتشف ثمانية تطبيقات لأنظمة ويندوز يُنصح بحذفها من جهازك. هذه التطبيقات قد تشغل مساحة كبيرة وتؤثر على أداء الجهاز، لذا وجب التخلص منها.",
+     "titre": "حركة المسافرين بين فرنسا والجزائر",
+     "texte": "سجلت حركة المسافرين بين فرنسا والجزائر حوالي 4.9 مليون مسافر خلال الأشهر العشرة الأولى من عام 2026. تؤكد هذه الأرقام الأهمية الكبيرة لهذه الرحلات الجوية في العلاقات الثنائية.",
      "mp3": "/podcast/ar/03.mp3",
-     "duree": 14.0,
+     "duree": 17.5,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "سونلغاز تصدر معدات لكوت ديفوار",
+     "texte": "أصدرت شركة سونلغاز الدولية مؤخراً توربينات ومعدات كهربائية من ميناء الجزائر. هذه الشحنة موجهة لإنشاء محطة كهرباء وتعزيز شبكة التوزيع في كوت ديفوار، ضمن عقود تعاون استراتيجية.",
+     "mp3": "/podcast/ar/04.mp3",
+     "duree": 16.7,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "مقارنة بين iPad Air و iPad Pro",
+     "texte": "عند اختيار جهاز آيباد، يطرح السؤال حول الفرق الحقيقي بين موديل Air و Pro. تبرز الاختلافات في القوة والميزات المتقدمة، حيث يكلف طراز Pro مبلغاً إضافياً يقدر بـ 450 دولاراً.",
+     "mp3": "/podcast/ar/05.mp3",
+     "duree": 16.2,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "خبراء مغتربون يدعمون الشباب في ورقلة",
-     "texte": "تشارك جمعية \"دجزبور\" ومجلس تجديد الاقتصاد الجزائري في أسبوع ريادة الأعمال بورقلة. خبراء من الجالية سيقدمون الدعم والتوجيه للشباب حاملي المشاريع في الجامعة.",
-     "mp3": "/podcast/ar/04.mp3",
-     "duree": 14.1,
+     "titre": "ضبط كمية كبيرة من الكوكايين بتيبازة",
+     "texte": "تمكنت شرطة تيبازة من تفكيك شبكة إجرامية وضبطت حوالي 29 كيلوغراماً من الكوكايين. كما تم العثور على آلاف الأقراص المخدرة خلال العملية الأمنية.",
+     "mp3": "/podcast/ar/06.mp3",
+     "duree": 13.5,
      "pays": "DZ",
      "source": "TSA Algérie"
     },
     {
-     "titre": "حيل مفيدة لساعة آبل",
-     "texte": "اكتشف خمسة اختصارات لتطبيق ساعة آبل أقل شهرة يمكنك إعدادها بسرعة. هذه الحيل تجعل استخدام ساعتك أكثر فعالية لإدارة المهام اليومية.",
-     "mp3": "/podcast/ar/05.mp3",
-     "duree": 12.6,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "تعزيز الحماية القانونية للذاكرة الوطنية",
-     "texte": "توصيات لتعزيز الحماية القانونية للذاكرة التاريخية الوطنية. شملت المطالب مراجعة النصوص، حماية الأرشيف، وتوضيح المسؤوليات لمواجهة إعادة كتابة التاريخ المشوهة.",
-     "mp3": "/podcast/ar/06.mp3",
-     "duree": 15.8,
-     "pays": "DZ",
-     "source": "Le Jeune Indépendant"
-    },
-    {
-     "titre": "تيدال تمنع الموسيقى المصنعة بالذكاء الاصطناعي",
-     "texte": "تيدال، خدمة البث الموسيقي، ستكون أول من يمنع الموسيقى المولدة بالذكاء الاصطناعي. سيتم حذف هذه الأعمال من كتالوج المنصة اعتباراً من التاسع من ديسمبر.",
+     "titre": "آفاق LG Electronics في الجزائر 2027",
+     "texte": "كشفت LG Electronics الجزائر عن رؤيتها الاستراتيجية لعام 2027. تهدف الشركة إلى تعزيز الابتكار والشراكات مع موزعيها عبر الوطن تحت شعار \"لنصنع المستقبل معاً\".",
      "mp3": "/podcast/ar/07.mp3",
-     "duree": 13.9,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "إزالة واجهة سامسونج ون يو آي",
-     "texte": "على الرغم من صعوبة الإزالة الكاملة لواجهة ون يو آي على هواتف سامسونج، إلا أن هناك طرقاً لجعلها أقل ظهورا. يوفر ذلك خيارات تخصيص إضافية للمستخدمين.",
-     "mp3": "/podcast/ar/08.mp3",
-     "duree": 14.4,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "عودة جينسن هوانغ لقيادة إنفيديا",
-     "texte": "بعد فضيحة أدت لاستقالته، أعيد جينسن هوانغ لمنصبه كرئيس تنفيذي لشركة إنفيديا. يأتي هذا القرار من مجلس إدارة الشركة بعد عشرة أيام من الاستقالة.",
-     "mp3": "/podcast/ar/09.mp3",
-     "duree": 14.0,
+     "duree": 15.6,
      "pays": "DZ",
      "source": "NTIC.dz"
     },
     {
-     "titre": "الحملة الانتخابية للانتخابات المحلية",
-     "texte": "شهدت الحملة الانتخابية للانتخابات المحلية نشاطاً مكثفاً. برز بعض المرشحين بسلوكيات لافتة، مما جذب اهتمام الجزائريين خلال فترة الدعاية المكثفة.",
-     "mp3": "/podcast/ar/10.mp3",
-     "duree": 13.9,
+     "titre": "رقمنة المصانع: نصائح قبل الاستثمار",
+     "texte": "خلال معرض ALGEST، تم التنبيه بأن رقمنة مصنع غير منظم يؤدي إلى أتمتة الأخطاء. يجب على المصانع الجزائرية تحسين طرق عملها قبل الاستثمار في برامج باهظة الثمن.",
+     "mp3": "/podcast/ar/08.mp3",
+     "duree": 15.0,
      "pays": "DZ",
-     "source": "TSA Algérie"
+     "source": "ITMAG"
+    },
+    {
+     "titre": "حظر ألعاب الدردشة الآلية للأطفال بنيويورك",
+     "texte": "منعت ولاية نيويورك بيع الألعاب التي تعتمد على تقنيات الذكاء الاصطناعي والروبوتات التفاعلية للأطفال. يهدف هذا الحظر إلى حماية الأطفال من المخاطر المحتملة لهذه التقنيات.",
+     "mp3": "/podcast/ar/09.mp3",
+     "duree": 14.5,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "خدمات جوجل التي توقفت عام 2026",
+     "texte": "أوقفت جوجل عن تقديم ست خدمات ومنتجات خلال عام 2026. غالباً ما تتخذ الشركة هذا القرار عندما ترى أن هذه الخدمات لم تعد تحقق الأهداف المرجوة منها.",
+     "mp3": "/podcast/ar/10.mp3",
+     "duree": 14.3,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
     }
    ]
   },
   "en": {
    "voix": "en-US-AndrewMultilingualNeural",
    "creneau": "matin",
-   "genere": "2026-11-25T00:56:12",
+   "genere": "2026-11-27T00:52:13",
    "intro": {
     "mp3": "/podcast/en/intro.mp3",
-    "duree": 6.8,
-    "texte": "Good morning and welcome to Algeria Tech's morning briefing, where we bring you ten key tech and telecom updates."
+    "duree": 5.6,
+    "texte": "Good morning and welcome to Algeria Tech! Here are ten key updates to start your day."
    },
    "outro": {
     "mp3": "/podcast/en/outro.mp3",
-    "duree": 5.6,
-    "texte": "That's all for today's Algeria Tech morning news. Join us tomorrow for more updates."
+    "duree": 5.8,
+    "texte": "That's all for today's tech news. Join us tomorrow for more updates from Algeria and the world."
    },
    "items": [
     {
-     "titre": "National Community Economic Potential Workshop Concludes",
-     "texte": "A high-level workshop focused on mobilizing the economic potential of the national community abroad successfully concluded on Monday. The event aimed to foster economic engagement and leverage the expertise of Algerians living overseas.",
+     "titre": "Algeria Boosts Regional Connectivity",
+     "texte": "Algeria is actively pursuing significant projects aimed at enhancing regional connectivity. These initiatives align with directives from the President, focusing on strengthening infrastructure and improving communication links across the region.",
      "mp3": "/podcast/en/01.mp3",
-     "duree": 15.8,
+     "duree": 15.2,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Pixel 11 Upgrade Decision For Users",
-     "texte": "Google's new Pixel 11 has arrived, but should you upgrade? Pixel 10 owners can make the switch, while Pixel 9 users face a more significant decision regarding the new features and performance.",
+     "titre": "Avoid Vacuuming Your PC",
+     "texte": "Never use a standard vacuum cleaner inside your computer. The risks of static discharge are too high. Specialized compressed air cans or electric dusters designed for electronics are much safer alternatives to prevent damage.",
      "mp3": "/podcast/en/02.mp3",
-     "duree": 12.2,
+     "duree": 14.4,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Windows PC Cleanup Recommendations",
-     "texte": "Not all software on your Windows PC is essential. Experts recommend removing certain applications, including bloatware and adware, to free up valuable storage space and improve performance.",
+     "titre": "France-Algeria Air Traffic Soars",
+     "texte": "Between January and October, nearly 4.9 million passengers traveled between France and Algeria. This significant figure highlights the strong demand and importance of this air route in the bilateral exchanges between the two nations.",
      "mp3": "/podcast/en/03.mp3",
-     "duree": 12.8,
+     "duree": 15.0,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "Sonelgaz Exports Power Plant Equipment",
+     "texte": "Sonelgaz International has begun exporting turbines and equipment from Algiers port to Côte d'Ivoire. This shipment is destined for the construction of a new power plant and the reinforcement of the local electricity distribution network.",
+     "mp3": "/podcast/en/04.mp3",
+     "duree": 14.5,
+     "pays": "DZ",
+     "source": "Algérie Éco"
+    },
+    {
+     "titre": "iPad Air vs. iPad Pro Costs",
+     "texte": "Choosing between the iPad Air and iPad Pro involves understanding what justifies the significant price difference. While the Pro offers more power, carefully assess if its advanced features are necessary for your specific usage needs.",
+     "mp3": "/podcast/en/05.mp3",
+     "duree": 14.7,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Diaspora Experts Support Ouargla Entrepreneurs",
-     "texte": "Algerian diaspora experts are mentoring young project leaders in Ouargla. Through a collaboration involving Djazpora and CREA, these international talents are supporting entrepreneurship during the Global Entrepreneurship Week.",
-     "mp3": "/podcast/en/04.mp3",
-     "duree": 14.6,
+     "titre": "Cocaine Seized in Tipaza",
+     "texte": "Algerian police in Tipaza have dismantled an organized drug trafficking network. During the operation, nearly 29 kilograms of cocaine and thousands of prescription pills were confiscated, showcasing a major law enforcement success.",
+     "mp3": "/podcast/en/06.mp3",
+     "duree": 16.2,
      "pays": "DZ",
      "source": "TSA Algérie"
     },
     {
-     "titre": "Hidden Apple Watch Shortcuts Revealed",
-     "texte": "Discover five lesser-known Apple Watch shortcuts that can be set up in minutes. These quick configurations can help manage directions, messages, smart home devices, and even naps efficiently.",
-     "mp3": "/podcast/en/05.mp3",
-     "duree": 12.4,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Strengthen Legal Shield for National Memory",
-     "texte": "Participants at a national session on memory and history advocated for strengthening Algeria's legal shield. Recommendations include revising texts, protecting archives, and combating historical revisionism online.",
-     "mp3": "/podcast/en/06.mp3",
-     "duree": 14.3,
-     "pays": "DZ",
-     "source": "Le Jeune Indépendant"
-    },
-    {
-     "titre": "Tidal Bans AI-Generated Music",
-     "texte": "Tidal is taking a firm stance against artificial intelligence. The music streaming service will begin removing fully AI-generated tracks from its catalog starting December ninth, becoming a pioneer in this area.",
+     "titre": "LG Algeria Outlines 2027 Vision",
+     "texte": "LG Electronics Algeria has presented its strategic outlook for 2027 to its distributors nationwide. Under the theme 'Let's Shape the Future Together,' the company emphasized innovation and partnership for future growth.",
      "mp3": "/podcast/en/07.mp3",
-     "duree": 13.2,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Managing Samsung's One UI",
-     "texte": "While Samsung's One UI is a core feature on its devices, it may not be perfect for everyone. There are ways to make this interface less prominent on your Samsung smartphone.",
-     "mp3": "/podcast/en/08.mp3",
-     "duree": 10.4,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Nvidia CEO Reinstated Amid Scandal",
-     "texte": "Nvidia's CEO, Jensen Huang, has been reinstated to his leadership position following a scandal. The chip giant's board announced his return just days after his initial resignation from the company.",
-     "mp3": "/podcast/en/09.mp3",
-     "duree": 12.6,
+     "duree": 14.6,
      "pays": "DZ",
      "source": "NTIC.dz"
     },
     {
-     "titre": "Local Election Campaign Highlights",
-     "texte": "The campaign for local elections is wrapping up with notable moments. From FBI-style security to pop culture references and AI discussions, candidates have employed unique tactics to capture public attention.",
-     "mp3": "/podcast/en/10.mp3",
-     "duree": 14.2,
+     "titre": "Digitalization Needs Factory Cleanup",
+     "texte": "At the ALGEST exhibition, experts warned that digitizing a poorly organized factory only automates existing errors. They stressed the importance of optimizing internal processes before investing heavily in new digital technologies.",
+     "mp3": "/podcast/en/08.mp3",
+     "duree": 15.9,
      "pays": "DZ",
-     "source": "TSA Algérie"
+     "source": "ITMAG"
+    },
+    {
+     "titre": "NY Bans AI Chatbot Toys",
+     "texte": "New York State has enacted a five-year ban on AI chatbot toys for children. This legislation prohibits the sale of internet-connected toys that converse with kids, citing privacy and safety concerns.",
+     "mp3": "/podcast/en/09.mp3",
+     "duree": 13.3,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Google Axes Six Services in 2026",
+     "texte": "Google continues its trend of discontinuing products and services. This year saw the closure of six more offerings, as the tech giant focuses its resources on initiatives deemed more data-driven and strategically aligned.",
+     "mp3": "/podcast/en/10.mp3",
+     "duree": 13.8,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
     }
    ]
   }
