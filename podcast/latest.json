@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-26",
- "genere": "2026-11-26T17:47:32",
+ "genere": "2026-11-26T21:06:39",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-26T17:47:52",
+   "genere": "2026-11-26T21:06:58",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.3,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Nous avons pour vous dix informations tech et télécoms à ne pas manquer ce soir."
+    "duree": 7.9,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech, votre rendez-vous tech et télécoms. Voici 10 infos à ne pas manquer ce soir."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 7.1,
-    "texte": "C'était l'essentiel de l'actualité tech et télécoms sur Algeria Tech. Retrouvez-nous demain pour un nouveau point."
+    "duree": 7.0,
+    "texte": "C'était l'essentiel de l'actualité tech et télécoms. Merci de nous avoir suivis, et à très bientôt."
    },
    "items": [
     {
-     "titre": "Protection des données à l'étranger",
-     "texte": "L'ANPDP salue l'initiative de l'OPGI de Chlef. L'organisme demande une autorisation préalable pour tout transfert de données vers l'étranger, renforçant ainsi la sécurité des informations sensibles.",
+     "titre": "Connectivité régionale : l'Algérie avance",
+     "texte": "L'Algérie continue de développer des projets d'envergure pour améliorer la connectivité régionale. Ces initiatives visent à renforcer les liens entre les différentes régions, conformément aux directives récentes du président de la République.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 11.7,
+     "duree": 12.6,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Connectivité régionale renforcée",
-     "texte": "L'Algérie poursuit ses efforts pour concrétiser des projets majeurs. Ces initiatives visent à améliorer la connectivité régionale, conformément aux décisions présidentielles récentes.",
+     "titre": "LG Algérie : vision 2027 dévoilée",
+     "texte": "LG Electronics Algérie a présenté ses stratégies pour 2027 à ses distributeurs. Sous le slogan \"Let’s Shape the Future Together\", la marque partage ses perspectives de développement, d'innovation et de partenariats pour les années à venir.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 10.7,
+     "duree": 13.9,
      "pays": "DZ",
-     "source": "APS"
+     "source": "NTIC.dz"
     },
     {
-     "titre": "Radio Algérie couvre les élections",
-     "texte": "La Radio algérienne se mobilise pour les élections locales. Des dizaines de journalistes sont mobilisés pour assurer une couverture complète et détaillée du scrutin.",
+     "titre": "New York : fin des jouets IA pour enfants",
+     "texte": "L'État de New York interdit la vente de jouets intégrant des chatbots IA pendant cinq ans. Cette loi vise à protéger les enfants des conversations avec des dispositifs connectés qui utilisent internet pour interagir.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 9.2,
-     "pays": "DZ",
-     "source": "Radio Algérie"
-    },
-    {
-     "titre": "Google abandonne des services",
-     "texte": "Six produits et services ont été abandonnés par Google cette année. Le géant technologique, axé sur les données, met fin à ceux qu'il juge moins pertinents.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 9.1,
+     "duree": 11.6,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Diplomatie tunisienne en attente",
-     "texte": "Près de trente ambassades tunisiennes sont sans ambassadeur, dont Alger. Cette situation suscite des inquiétudes quant à une possible paralysie diplomatique du pays.",
+     "titre": "Google abandonne six services en 2026",
+     "texte": "Google met fin à plusieurs de ses outils et services cette année. L'entreprise, axée sur les données, retire ceux qu'elle juge ne plus être pertinents ou suffisamment utilisés par ses utilisateurs.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 11.2,
+     "pays": "DZ",
+     "source": "GeekyAlgeria"
+    },
+    {
+     "titre": "Tunisie : diplomatie en suspens",
+     "texte": "La Tunisie fait face à une crise diplomatique avec près de 30 ambassades sans ambassadeur, dont Alger. Cette situation pourrait paralyser ses relations internationales, selon des députés examinant le budget des affaires étrangères.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 9.5,
+     "duree": 12.9,
      "pays": "DZ",
      "source": "Maghreb Emergent"
     },
     {
-     "titre": "L'iPhone se transforme en MacBook",
-     "texte": "L'application Screens permet désormais de transformer un duo d'iPhone en un mini MacBook. Une mise à jour ajoute un clavier virtuel pour une saisie simplifiée.",
+     "titre": "Screens transforme votre iPhone en MacBook",
+     "texte": "L'application Screens permet désormais de transformer deux iPhones en un ordinateur portable. Une mise à jour récente ajoute un clavier virtuel sur l'un des écrans, offrant une expérience de saisie sur mobile.",
      "mp3": "/podcast/fr/06.mp3",
-     "duree": 9.1,
+     "duree": 11.6,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Résilience numérique en focus",
-     "texte": "La DGSN organise une journée d'étude sur la résilience numérique. Plusieurs secteurs sont mobilisés pour discuter des stratégies de renforcement de la sécurité des systèmes.",
+     "titre": "Circulation restreinte avant le scrutin",
+     "texte": "La Gendarmerie nationale a annoncé des restrictions de circulation pour certains véhicules. Ces mesures, effectives du vendredi 27 au dimanche 29 novembre, concernent principalement le transport de fret avant le scrutin.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 10.2,
+     "duree": 12.9,
      "pays": "DZ",
-     "source": "Le Soir d'Algérie"
+     "source": "Algérie360"
     },
     {
-     "titre": "Circulation restreinte pour certains véhicules",
-     "texte": "La Gendarmerie nationale a annoncé une circulation interdite pour certains véhicules. Cette mesure concerne le transport de fret du 27 au 29 novembre.",
+     "titre": "Ooredoo sensibilise au cancer de la prostate",
+     "texte": "Dans le cadre de Novembre Bleu, Ooredoo organise une journée de sensibilisation et de dépistage du cancer de la prostate. L'opération vise à informer et à protéger la santé de ses employés.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 9.5,
+     "duree": 11.2,
      "pays": "DZ",
-     "source": "Algérie360"
+     "source": "Algeria Tech"
     },
     {
-     "titre": "Fiat Grande Panda : mise en garde",
-     "texte": "Une importante mise en garde du constructeur concerne les inscriptions pour la Fiat Grande Panda. L'ouverture a déclenché une forte demande auprès des automobilistes algériens.",
+     "titre": "Nvidia stoppe les livraisons de puces",
+     "texte": "Nvidia a suspendu l'expédition de puces vers l'Asie du Sud-Est, incluant la Malaisie et Singapour. Cette décision intervient dans le cadre du renforcement des contrôles américains sur les exportations vers la Chine.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 9.8,
-     "pays": "DZ",
-     "source": "Algérie360"
+     "duree": 12.1,
+     "pays": "INT",
+     "source": "TechCrunch"
     },
     {
-     "titre": "Algériens, 2ème immigration francophone",
-     "texte": "Au Canada, les Algériens sont la deuxième nationalité de l'immigration francophone hors Québec. Ils représentent une part significative des admissions en 2025.",
+     "titre": "Acer Aspire 14 AI : OLED abordable",
+     "texte": "L'Acer Aspire 14 AI, équipé d'un écran OLED, est désormais disponible sous la barre des 700 euros. Cet ultraportable allie technologie d'affichage de qualité et prix compétitif, notamment pendant le Black Friday.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 10.1,
-     "pays": "DZ",
-     "source": "Algérie Éco"
+     "duree": 13.0,
+     "pays": "INT",
+     "source": "Frandroid"
     }
    ]
   },
