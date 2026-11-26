@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
- "date": "2026-11-25",
- "genere": "2026-11-25T21:27:48",
+ "date": "2026-11-26",
+ "genere": "2026-11-26T17:47:32",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-25T21:28:09",
+   "genere": "2026-11-26T17:47:52",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 6.7,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Nous avons pour vous dix informations tech et télécoms ce soir."
+    "duree": 7.3,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Nous avons pour vous dix informations tech et télécoms à ne pas manquer ce soir."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.4,
-    "texte": "C'est tout pour ce soir sur Algeria Tech. Retrouvez-nous demain pour une nouvelle veille d'information."
+    "duree": 7.1,
+    "texte": "C'était l'essentiel de l'actualité tech et télécoms sur Algeria Tech. Retrouvez-nous demain pour un nouveau point."
    },
    "items": [
     {
-     "titre": "ANPDP salue initiative OPGI Chlef",
-     "texte": "L'Autorité Nationale de Protection des Données Personnelles a salué l'initiative de l'OPGI de Chlef. Cette dernière a sollicité une autorisation préalable pour le transfert de données à l'étranger, marquant une étape dans la conformité réglementaire.",
+     "titre": "Protection des données à l'étranger",
+     "texte": "L'ANPDP salue l'initiative de l'OPGI de Chlef. L'organisme demande une autorisation préalable pour tout transfert de données vers l'étranger, renforçant ainsi la sécurité des informations sensibles.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 13.3,
+     "duree": 11.7,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Honor Magic 9 Pro Max et Arri",
-     "texte": "Honor s'associe à Arri pour son nouveau smartphone Magic 9 Pro Max. L'objectif est de repousser les limites de la cinématographie mobile. Cette collaboration vise à offrir une expérience de prise de vue avancée aux utilisateurs.",
+     "titre": "Connectivité régionale renforcée",
+     "texte": "L'Algérie poursuit ses efforts pour concrétiser des projets majeurs. Ces initiatives visent à améliorer la connectivité régionale, conformément aux décisions présidentielles récentes.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 13.6,
+     "duree": 10.7,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "APS"
     },
     {
-     "titre": "Première moto connectée en Algérie",
-     "texte": "Une première en Algérie : un tableau de bord de moto connecté au téléphone. Conçu par la start-up Fibonova, il sera fabriqué localement. Le projet est présenté au salon ALGEST à Alger, soulignant les progrès et les défis de l'industrie locale.",
+     "titre": "Radio Algérie couvre les élections",
+     "texte": "La Radio algérienne se mobilise pour les élections locales. Des dizaines de journalistes sont mobilisés pour assurer une couverture complète et détaillée du scrutin.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 14.7,
+     "duree": 9.2,
      "pays": "DZ",
-     "source": "Maghreb Emergent"
+     "source": "Radio Algérie"
     },
     {
-     "titre": "Avantages des stations d'accueil USB-C",
-     "texte": "Avec les ordinateurs portables de plus en plus fins et puissants, les stations d'accueil USB-C deviennent essentielles. Elles offrent une connectivité étendue, transformant un appareil mobile en une station de travail complète et polyvalente.",
+     "titre": "Google abandonne des services",
+     "texte": "Six produits et services ont été abandonnés par Google cette année. Le géant technologique, axé sur les données, met fin à ceux qu'il juge moins pertinents.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 12.9,
+     "duree": 9.1,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Nothing Ear : écouteurs avec IA",
-     "texte": "Nothing lance ses premiers écouteurs \"IA-native\", les Ear (Note). Cet appareil intègre une intelligence artificielle dédiée à la prise de notes. L'annonce fait suite à de nombreuses fuites et suscite un vif intérêt dans le secteur.",
+     "titre": "Diplomatie tunisienne en attente",
+     "texte": "Près de trente ambassades tunisiennes sont sans ambassadeur, dont Alger. Cette situation suscite des inquiétudes quant à une possible paralysie diplomatique du pays.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 13.6,
+     "duree": 9.5,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Maghreb Emergent"
     },
     {
-     "titre": "Marocains d'Espagne : record de transferts",
-     "texte": "Les Marocains résidant en Espagne ont battu un record en 2025. Ils ont envoyé près de 1,59 milliard d'euros vers le Maroc. Ces transferts d'argent témoignent des liens forts entre la diaspora et son pays d'origine.",
+     "titre": "L'iPhone se transforme en MacBook",
+     "texte": "L'application Screens permet désormais de transformer un duo d'iPhone en un mini MacBook. Une mise à jour ajoute un clavier virtuel pour une saisie simplifiée.",
      "mp3": "/podcast/fr/06.mp3",
-     "duree": 13.4,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
-    },
-    {
-     "titre": "5 réglages Apple Watch autonomie",
-     "texte": "Prolongez l'autonomie de votre Apple Watch avec cinq réglages simples. Ces ajustements peuvent vous aider à maintenir votre appareil opérationnel toute la journée. Un guide pratique pour optimiser l'utilisation quotidienne de votre montre connectée.",
-     "mp3": "/podcast/fr/07.mp3",
-     "duree": 13.4,
+     "duree": 9.1,
      "pays": "DZ",
      "source": "GeekyAlgeria"
     },
     {
-     "titre": "Huawei et universités algériennes",
-     "texte": "Huawei renforce sa présence dans l'enseignement supérieur algérien. L'entreprise a signé des accords avec huit universités. L'objectif est de rapprocher le monde académique des technologies et de développer les compétences numériques des étudiants.",
-     "mp3": "/podcast/fr/08.mp3",
-     "duree": 13.4,
+     "titre": "Résilience numérique en focus",
+     "texte": "La DGSN organise une journée d'étude sur la résilience numérique. Plusieurs secteurs sont mobilisés pour discuter des stratégies de renforcement de la sécurité des systèmes.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 10.2,
      "pays": "DZ",
-     "source": "Maghreb Emergent"
+     "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "Problème dalle TV LG OLED",
-     "texte": "Un problème de dalle sur un TV LG OLED. La pièce neuve reçue en remplacement présentait déjà des pixels morts. Ce défaut, connu sous le nom d'edge rot, affecterait certains téléviseurs OLED.",
+     "titre": "Circulation restreinte pour certains véhicules",
+     "texte": "La Gendarmerie nationale a annoncé une circulation interdite pour certains véhicules. Cette mesure concerne le transport de fret du 27 au 29 novembre.",
+     "mp3": "/podcast/fr/08.mp3",
+     "duree": 9.5,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Fiat Grande Panda : mise en garde",
+     "texte": "Une importante mise en garde du constructeur concerne les inscriptions pour la Fiat Grande Panda. L'ouverture a déclenché une forte demande auprès des automobilistes algériens.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 12.3,
-     "pays": "INT",
-     "source": "Frandroid"
+     "duree": 9.8,
+     "pays": "DZ",
+     "source": "Algérie360"
     },
     {
-     "titre": "Black Friday 2026 : offres",
-     "texte": "Le Black Friday 2026 est déjà là avant sa date officielle. Profitez dès maintenant de réductions exceptionnelles chez de nombreuses enseignes. Une sélection de promotions sur vos produits high-tech préférés est à découvrir.",
+     "titre": "Algériens, 2ème immigration francophone",
+     "texte": "Au Canada, les Algériens sont la deuxième nationalité de l'immigration francophone hors Québec. Ils représentent une part significative des admissions en 2025.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 12.9,
-     "pays": "INT",
-     "source": "BFM Tech"
+     "duree": 10.1,
+     "pays": "DZ",
+     "source": "Algérie Éco"
     }
    ]
   },
