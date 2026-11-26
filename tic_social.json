@@ -1081,6 +1081,42 @@
       "source_type": "rss"
     },
     {
+      "id": "1a63556f138e5d33",
+      "source_name": "Stream System",
+      "source_short": "SS",
+      "source_color": "#37474F",
+      "category": "Équipementiers",
+      "category_icon": "💻",
+      "url": "https://www.streamsystem.com/mini-led",
+      "image": "",
+      "date": "2026-11-26T02:01:29.734998+00:00",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Discover a new way to watch your content",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "web"
+    },
+    {
+      "id": "c45b8ebf40a3149f",
+      "source_name": "Huawei Global",
+      "source_short": "HW",
+      "source_color": "#B71C1C",
+      "category": "Équipementiers",
+      "category_icon": "🔧",
+      "url": "https://www.huawei.com/en/corporate-information",
+      "image": "",
+      "date": "2026-11-26T02:01:22.655855+00:00",
+      "lang_source": "fr",
+      "text": {
+        "fr": "About Huawei",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "web"
+    },
+    {
       "id": "3e86a073619c03dd",
       "source_name": "Huawei Global",
       "source_short": "HW",
@@ -1405,40 +1441,184 @@
       "source_type": "web"
     },
     {
-      "id": "8046d1d97e599481",
-      "source_name": "Stream System",
-      "source_short": "SS",
-      "source_color": "#37474F",
-      "category": "Équipementiers",
-      "category_icon": "💻",
-      "url": "https://www.streamsystem.com/gaming-zone",
+      "id": "bf17d49ef61f9fcb",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/11/25/sp-considers-nvidia-credit-downgrade-over-governance-and-key-man-risks/",
       "image": "",
-      "date": "2026-11-08T22:37:40.701981+00:00",
-      "lang_source": "fr",
+      "date": "Wed, 25 Nov 2026 22:44:32 +0000",
+      "lang_source": "en",
       "text": {
-        "fr": "Join us in our gaming space",
+        "en": "S&P considers Nvidia credit downgrade over governance and ‘key man’ risks — The credit rating agency may lower Nvidia's credit rating to AA-, the fourth-highest rating.",
         "ar": "",
-        "en": ""
+        "fr": ""
       },
-      "source_type": "web"
+      "source_type": "rss"
     },
     {
-      "id": "0df78b9ee93ac4cf",
-      "source_name": "Stream System",
-      "source_short": "SS",
-      "source_color": "#37474F",
-      "category": "Équipementiers",
-      "category_icon": "💻",
-      "url": "https://www.streamsystem.com/smart-easy",
+      "id": "b3d167ded7edf5f3",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/guide-achat/test-expressvpn-fortify-une-protection-rapide-dans-toute-la-maison-508570.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
       "image": "",
-      "date": "2026-11-08T22:37:40.701914+00:00",
+      "date": "Wed, 25 Nov 2026 21:00:48 +0000",
       "lang_source": "fr",
       "text": {
-        "fr": "Simply Smart. Simply Better.",
+        "fr": "Test ExpressVPN Fortify : une protection rapide dans toute la maison — Côté matériel, c’est un routeur Wifi re-designé. Côté logiciel, c’est un service VPN performant proposé sans frais supplémentaire durant les 12 premiers mois.",
         "ar": "",
         "en": ""
       },
-      "source_type": "web"
+      "source_type": "rss"
+    },
+    {
+      "id": "3155b4590a8da101",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/11/25/fcc-approves-spacex-plan-to-put-ai-data-centers-in-space/",
+      "image": "",
+      "date": "Wed, 25 Nov 2026 20:56:44 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "FCC approves SpaceX plan to put AI data centers in space — The FCC dismissed some of the key concerns raised by opponents, including potential threats to scientific research, because the agency determined they fell outside its regulatory authority.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "1ce2c296fa373dd3",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/11/25/exportations-hors-hydrocarbures-lindustrie-electronique-algerienne-a-la-conquete-du-marche-africain/",
+      "image": "",
+      "date": "Wed, 25 Nov 2026 20:40:19 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Exportations hors hydrocarbures : L’industrie électronique algérienne à la conquête du marché africain — Depuis son siège de Tlemcen, l’entreprise publique économique de l’Industrie algérienne des technologies électroniques (INATEL) a amorcé, mercredi, la livraison d’une commande de 02 millions de terminaux de paiement électronique (TPE) destinés au Nigeria.",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "b33ae349af35f46a",
+      "source_name": "TSA Algérie",
+      "source_short": "TSA",
+      "source_color": "#C62828",
+      "category": "Médias TIC",
+      "category_icon": "📰",
+      "url": "https://www.facebook.com/TSAlgerie",
+      "image": "",
+      "date": "2026-11-25T20:39:41+00:00",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Chems-Eddine Hafiz, recteur de la Grande Mosquée de Paris : « Aucune violence envers une femme ne trouve de justification dans l'i… — Chems-Eddine Hafiz, recteur de la Grande Mosquée de Paris : « Aucune violence envers une femme ne trouve de justification dans l'islam. »",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "facebook"
+    },
+    {
+      "id": "68617ed988fe883b",
+      "source_name": "TechCrunch",
+      "source_short": "TC",
+      "source_color": "#1D8348",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/",
+      "image": "",
+      "date": "Wed, 25 Nov 2026 20:03:27 +0000",
+      "lang_source": "en",
+      "text": {
+        "en": "OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work — OpenAI will introduce a single usage meter across ChatGPT as it combines the Chat and Work experiences.",
+        "ar": "",
+        "fr": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "b1c88a329c7fe5ce",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/11/25/amling-engineering-accompagner-la-performance-industrielle-et-la-transition-climatique-depuis-alger/",
+      "image": "",
+      "date": "Wed, 25 Nov 2026 19:57:03 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Amling Engineering : Accompagner la performance industrielle et la transition climatique depuis Alger — nstallé à Alger, le cabinet d'ingénierie et de conseil Amling Engineering s'est donné un cap précis : accompagner les industriels et les institutions face à l'urgence de la transition climatique et aux exigences d'optimisation de leurs outils de production. Cette initiative a constitué une occasion",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "863112567c83ca85",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/25/saidal-signe-un-contrat-de-6-millions-de-dollars-pour-lexportation-de-produits-pharmaceutiques-vers-le-niger/",
+      "image": "",
+      "date": "Wed, 25 Nov 2026 19:03:43 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Saidal signe un contrat de 6 millions de dollars pour l’exportation de produits pharmaceutiques vers le Niger — Le groupe « Saidal » a signé, mercredi à Niamey (Niger), un contrat préliminaire d’exportation d’une valeur de 6 millions de dollars avec l’Office national des produits pharmaceutiques et chimiques (ONPPC) du Niger, portant sur l’exportation de produits pharmaceutiques algériens fabriqués par 11 lab",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "644cac79d1472928",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/25/bejaia-le-projet-de-telepherique-franchit-une-nouvelle-etape/",
+      "image": "",
+      "date": "Wed, 25 Nov 2026 18:25:46 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Béjaïa : le projet de téléphérique franchit une nouvelle étape — Le projet de téléphérique de Béjaïa avance dans sa phase d’études. Les autorités locales ont approuvé les deux tracés proposés pour cette future infrastructure de transport, dont le taux d’avancement de l’étude a atteint 60 %. En parallèle, les démarches pour préparer le cahier des charges relatif a",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "de1b8be55c73284f",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/business-1367/pourquoi-crowdstrike-casse-sa-tirelire-pour-zscaler-230674",
+      "image": "",
+      "date": "Wed, 25 Nov 2026 18:18:04 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Pourquoi CrowdStrike casse sa tirelire pour Zscaler — L’opération de près de 44 milliards $ est entièrement réglée en actions. Le nouvek ensemble va dépasser les 10 milliards $ de revenus récurrents annuels. The post Pourquoi CrowdStrike casse sa tirelire pour Zscaler appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
     },
     {
       "id": "a07adeabc9e7c59f",
@@ -1567,6 +1747,24 @@
       "source_type": "rss"
     },
     {
+      "id": "af962f218b91a808",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/publicite/teletravail-deplacements-wi-fi-public-comment-proteger-les-connexions-de-tous-les-collaborateurs-dune-equipe-508623.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 25 Nov 2026 15:52:12 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Télétravail, déplacements, Wi-Fi public : comment protéger les connexions de tous les collaborateurs d’une équipe ? — Une PME dont les salariés travaillent depuis leur domicile, un hôtel ou un espace de coworking multiplie les réseaux qu'elle ne contrôle pas réellement, et ce sont précisément ces réseaux qui peuvent causer des soucis de sécurité auprès du tout-venant, et a fortiori dans le cadre d’une entreprise. U",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "eb695fc3528e929a",
       "source_name": "Le Monde Informatique",
       "source_short": "LMI",
@@ -1579,6 +1777,24 @@
       "lang_source": "fr",
       "text": {
         "fr": "Black Friday : les cybermenaces dopées à l'IA mettent les distributeurs sous pression — À l'approche du Black Friday, les enseignes doivent se préparer à une hausse des attaques visant leurs sites, leurs comptes clients et leurs infrastructures de paiement. L'IA accélère les capacités des attaquants, tandis qu'une part importante des petits et moyens distributeurs reste dépourvue d'ass",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "c0c63241e61d9450",
+      "source_name": "ZDNet France",
+      "source_short": "ZD",
+      "source_color": "#283593",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.zdnet.fr/tribune/alexandra-bejan-synology-france-cyberattaque-contre-un-hopital-la-continuite-des-soins-se-prepare-aussi-dans-les-systemes-informatiques-508507.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
+      "image": "",
+      "date": "Wed, 25 Nov 2026 15:30:11 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Alexandra Bejan, Synology France : Cyberattaque contre un hôpital : la continuité des soins se prépare aussi dans les systèmes informatiques — Après la cyberattaque ayant forcé le CHU de Guadeloupe à déclencher son plan blanc, Alexandra Bejan, Marketing Director chez Synology France, détaille les leviers de résilience : maîtrise des prestataires, sauvegardes immuables et tests réguliers de reprise d'activité.",
         "ar": "",
         "en": ""
       },
@@ -1693,6 +1909,24 @@
       "source_type": "rss"
     },
     {
+      "id": "54fd9b8136671167",
+      "source_name": "Algérie Éco",
+      "source_short": "AEC",
+      "source_color": "#2E7D32",
+      "category": "Médias TIC",
+      "category_icon": "📊",
+      "url": "https://algerie-eco.com/2026/11/25/fertial-investit-35-millions-de-dollars-pour-moderniser-ses-unites-et-augmenter-sa-production-dammoniac/",
+      "image": "",
+      "date": "Wed, 25 Nov 2026 14:00:13 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Fertial investit 35 millions de dollars pour moderniser ses unités et augmenter sa production d’ammoniac — Le complexe Fertial, spécialisé dans la production d’ammoniac et d’engrais azotés, a engagé un programme de rénovation de ses installations industrielles pour améliorer ses performances et réduire sa consommation de gaz naturel. L’investissement, estimé à 35 millions de dollars, selon les informatio",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "527d995a8da7d96e",
       "source_name": "Silicon.fr",
       "source_short": "SI",
@@ -1705,6 +1939,42 @@
       "lang_source": "fr",
       "text": {
         "fr": "Dépendances cyber : la souveraineté s’invite dans les stratégies, pas encore dans les outils — Une étude du CESIN et du Campus Cyber révèle un décalage : la souveraineté numérique est largement affichée comme un axe stratégique mais la dépendance aux fournisseurs est peu mesurée. The post Dépendances cyber : la souveraineté s’invite dans les stratégies, pas encore dans les outils appeared fir",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "4cee0c81fe535dd6",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/business-1367/comment-jensen-huang-a-repris-les-cles-de-nvidia-230664",
+      "image": "",
+      "date": "Wed, 25 Nov 2026 13:04:56 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Comment Jensen Huang a repris les clés de Nvidia — Onze jours après sa démission, Jensen Huang a retrouvé son poste. Entre cellule de crise dans la Silicon Valley, pression de la Maison-Blanche et chute boursière, récit d'un retour hautement politique. The post Comment Jensen Huang a repris les clés de Nvidia appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "4304c946b9117fc3",
+      "source_name": "Le Monde Informatique",
+      "source_short": "LMI",
+      "source_color": "#1565C0",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.lemondeinformatique.fr/donnees-ia/yann-lecun-accuse-le-patron-d-anthropic-de-vouloir-freiner-les-modeles-d-ia-ouverts",
+      "image": "",
+      "date": "Wed, 25 Nov 2026 12:36:13 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Yann LeCun accuse le patron d’Anthropic de vouloir freiner les modèles d’IA ouverts — Yann LeCun, pionnier de l’intelligence artificielle, professeur à l’université de New York et cofondateur d’Advanced Machine Intelligence Labs, s’en prend à Dario Amodei, directeur général d’Anthropic, qu’il accuse d’exagérer les dangers des modèles ouverts pour préserver son contrôle sur le secteur",
         "ar": "",
         "en": ""
       },
@@ -1729,6 +1999,42 @@
       "source_type": "rss"
     },
     {
+      "id": "c6bb070920603da1",
+      "source_name": "Silicon.fr",
+      "source_short": "SI",
+      "source_color": "#558B2F",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.silicon.fr/data-ia-1372/lia-augmente-lindividu-mais-pas-lorganisation-230656",
+      "image": "",
+      "date": "Wed, 25 Nov 2026 12:01:20 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "L’IA augmente l’individu, mais pas l’organisation — { Tribune Expert } - Une entreprise sur cinq tire un gain de l’IA. Les quatre autres ont un problème d’organisation, et elles le savent. Leur compteur d’heures gagnées les rassure sans les faire avancer. The post L’IA augmente l’individu, mais pas l’organisation appeared first on Silicon.fr .",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "6bc778770036d879",
+      "source_name": "Le Monde Informatique",
+      "source_short": "LMI",
+      "source_color": "#1565C0",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.lemondeinformatique.fr/donnees-ia/l-ia-generative-risque-d-amplifier-l-infobesite-au-travail",
+      "image": "",
+      "date": "Wed, 25 Nov 2026 11:45:32 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "L'IA générative risque d'amplifier l'infobésité au travail — Capable de synthétiser des documents et d'accélérer la rédaction, l'IA générative est présentée comme un moyen de réduire la surcharge informationnelle. Mais ces gains peuvent aussi alimenter une intensification du travail et réduire les interactions entre collaborateurs, alerte l'Observatoire de l'",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
       "id": "d3d8902da92202c8",
       "source_name": "ItMag DZ",
       "source_short": "ITM",
@@ -1741,6 +2047,24 @@
       "lang_source": "fr",
       "text": {
         "fr": "VUREST 2026 à l’USTHB : Réparer plutôt que démolir, le pari des nouvelles technologies — Et si, au lieu de raser un vieux bâtiment, on le consolidait pour le rendre plus solide face aux séismes et aux incendies ? C'est l'idée défendue par des chercheurs réunis cette semaine à Alger, à l'Université des sciences et de la technologie Houari-Boumediene (USTHB).",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "8d951d766e72a5ba",
+      "source_name": "Le Monde Informatique",
+      "source_short": "LMI",
+      "source_color": "#1565C0",
+      "category": "Tech International",
+      "category_icon": "🌍",
+      "url": "https://www.lemondeinformatique.fr/it-direction/quantum-act-l-ue-veut-soutenir-son-industrie-quantique-avec-un-fonds-souverain",
+      "image": "",
+      "date": "Wed, 25 Nov 2026 09:38:28 GMT",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Quantum Act : l’UE veut soutenir son industrie quantique avec un fonds souverain — La Commission européenne a présenté le 25 novembre 2026 son projet de Quantum Act, destiné à renforcer la recherche, la production et la sécurité des technologies quantiques dans l’Union européenne. Bruxelles souhaite notamment privilégier les fournisseurs européens dans certains marchés publics et",
         "ar": "",
         "en": ""
       },
@@ -2245,6 +2569,24 @@
       "lang_source": "fr",
       "text": {
         "fr": "Nvidia : Jensen Huang revient, Wall Street s’embrase, Trump revendique le «deal» — En une seule séance, le fabricant de puces a regagné 950 milliards de dollars de valorisation. Le retour de son fondateur, poussé vers la sortie douze jours plus tôt dans une affaire d'espionnage présumé, a été imposé par l'exécutif américain. L'action a clôturé lundi à 165,05 dollars, en hausse de",
+        "ar": "",
+        "en": ""
+      },
+      "source_type": "rss"
+    },
+    {
+      "id": "44f24392efb361c3",
+      "source_name": "ItMag DZ",
+      "source_short": "ITM",
+      "source_color": "#00695C",
+      "category": "Médias TIC",
+      "category_icon": "💡",
+      "url": "https://www.itmag.dz/2026/11/24/renforcement-du-partenariat-entre-le-ministere-de-lenseignement-superieur-et-le-conseil-supreme-de-la-communaute-scientifique-nationale-a-letranger/",
+      "image": "",
+      "date": "Tue, 24 Nov 2026 07:13:01 +0000",
+      "lang_source": "fr",
+      "text": {
+        "fr": "Renforcement du partenariat entre le ministère de l’Enseignement supérieur et le Conseil suprême de la Communauté scientifique nationale à l’étranger — Le ministre de l'Enseignement supérieur et de la Recherche scientifique, M. Kamal Badari, a accueilli, au siège du ministère, M. Elias Zerhouni, président du Conseil suprême de la Communauté scientifique nationale à l'étranger. Cette rencontre, qui s'est tenue le 23 novembre 2026, traduit la volonté",
         "ar": "",
         "en": ""
       },
@@ -5057,358 +5399,16 @@
         "en": ""
       },
       "source_type": "rss"
-    },
-    {
-      "id": "7f90fba6e337fd7d",
-      "source_name": "Le Monde Informatique",
-      "source_short": "LMI",
-      "source_color": "#1565C0",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.lemondeinformatique.fr/donnees-ia/ia-en-entreprise-databricks-revele-l-essor-des-mod",
-      "image": "",
-      "date": "Wed, 18 Nov 2026 14:04:19 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "IA en entreprise : Databricks révèle l’essor des modèles ouverts et du multi-fournisseur — Databricks dévoile son AI Index, un observatoire consacré à l’adoption, aux performances et aux coûts des modèles d’intelligence artificielle en entreprise. Fondée sur les données anonymisées de plus de 10 000 organisations utilisant Unity Gateway, cette étude met en évidence une diversification des",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "71ecfa4f554e7606",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/emploi-formation-1373/employeurs-it-de-lannee-2026-airbus-intel-et-mozilla-en-tete-230502",
-      "image": "",
-      "date": "Wed, 18 Nov 2026 13:56:24 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Employeurs IT de l’année 2026 : Airbus, Intel et Mozilla en tête — Airbus est l’Employeur IT de l’année 2026, devant Intel et Mozilla. Établi par Consumer Guidance France pour Silicon, ce classement s’appuie sur 33 073 avis de professionnels IT : 643 entreprises ont été évaluées sur leur attractivité et sur la confiance qu’elles inspirent. Parmi elles, 253 entrepri",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "40a7d55c45817476",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/11/18/antibiotiques-lalgerie-pourra-economiser-555-millions-de-dollars-grace-a-la-relance-dun-complexe-pharmaceutique/",
-      "image": "",
-      "date": "Wed, 18 Nov 2026 13:51:56 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Antibiotiques : l’Algérie pourra économiser 555 millions de dollars grâce à la relance d’un complexe pharmaceutique — L’Algérie pourra réduire fortement sa dépendance aux importations de produits antibiotiques grâce à la relance du complexe pharmaceutique de Médéa. À l’arrêt depuis plus de vingt ans, cette usine devrait reprendre ses activités dans près de deux ans et permettre la fabrication locale de matières pre",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e7538a8185820206",
-      "source_name": "Le Monde Informatique",
-      "source_short": "LMI",
-      "source_color": "#1565C0",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.lemondeinformatique.fr/donnees-ia/qluster-leve-4-7-millions-d-euros-pour-developper-",
-      "image": "",
-      "date": "Wed, 18 Nov 2026 13:41:39 GMT",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Qluster lève 4,7 millions d’euros pour développer des ordinateurs quantiques photoniques — La start-up française Qluster, spécialisée dans l’informatique quantique, a annoncé le 17 novembre 2026 une levée de fonds de pré-amorçage de 4,7 millions d’euros menée par Quantonation, avec le soutien de Quantum Launchpad et de Bpifrance. Issue du Laboratoire Kastler Brossel, la jeune entreprise d",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "30ab2d71409a9b1f",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/workspace-1376/microsoft-copilot-ignite-2026-230497",
-      "image": "",
-      "date": "Wed, 18 Nov 2026 13:34:32 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Face à Claude et ChatGPT, Office devient un argument pour Copilot — L'intégration d'Office dans Copilot passe en phase commerciale à l'heure où OpenAI et Anthropic creusent l'aspect « suite collaborative ». The post Face à Claude et ChatGPT, Office devient un argument pour Copilot appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "7a951edac54233b3",
-      "source_name": "Silicon.fr",
-      "source_short": "SI",
-      "source_color": "#558B2F",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.silicon.fr/uncategorized/microsoft-copilot-ignite-2026-230497",
-      "image": "",
-      "date": "Wed, 18 Nov 2026 13:34:32 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Face à Claude et ChatGPT, Office devient un argument pour Copilot — L'intégration d'Office dans Copilot passe en phase commerciale à l'heure où OpenAI et Anthropic creusent l'aspect « suite collaborative ». The post Face à Claude et ChatGPT, Office devient un argument pour Copilot appeared first on Silicon.fr .",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "95decb137b3af601",
-      "source_name": "Algérie Éco",
-      "source_short": "AEC",
-      "source_color": "#2E7D32",
-      "category": "Médias TIC",
-      "category_icon": "📊",
-      "url": "https://algerie-eco.com/2026/11/18/algerie-les-exportations-agricoles-francaises-passent-de-127-milliard-a-93-millions-deuros/",
-      "image": "",
-      "date": "Wed, 18 Nov 2026 13:12:46 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Algérie : Les exportations agricoles françaises passent de 1,27 milliard à 93 millions d’euros — Les exportations françaises de produits agricoles et agroalimentaires vers l’Algérie ont enregistré une forte baisse ces dernières années. Elles sont passées de 1,27 milliard d’euros en 2020 à seulement 93 millions d’euros au cours des douze derniers mois, (soit un recul de près de 92,7 %, NDLR). Ce",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "5b7aff406793653b",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/18/nvidia-clarifies-when-it-will-and-wont-keep-financing-neoclouds/",
-      "image": "",
-      "date": "Wed, 18 Nov 2026 13:00:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Nvidia clarifies when it will — and won’t —keep financing neoclouds — If Nvidia is backstopping a data center loan, it won't be on the hook unless the neocould has independent financing and gets the facility built, with Nvidia gear installed, interim CEO Colette Kress explained.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "4ef3cf9623168c91",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/google-facilite-le-refus-de-participer-a-lentrainement-du-modele-dia-gemini-voici-comment-proceder-508118.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 18 Nov 2026 11:30:31 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Google facilite le refus de participer à l'entraînement du modèle d'IA Gemini, voici comment procéder — Vous pourrez bientôt désactiver l'entraînement du modèle Gemini tout en conservant l'accès à vos conversations précédentes avec l'IA de Google.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c986fbbec339d1e0",
-      "source_name": "ZDNet France",
-      "source_short": "ZD",
-      "source_color": "#283593",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://www.zdnet.fr/actualites/apple-devoile-les-limites-quotidiennes-dutilisation-de-lia-siri-voici-combien-cela-vous-coutera-508115.htm?utm_source=rss_feed&utm_medium=link&utm_campaign=unknown",
-      "image": "",
-      "date": "Wed, 18 Nov 2026 11:16:23 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Apple dévoile les limites quotidiennes d'utilisation de l'IA Siri, voici combien cela vous coûtera — Plus vous payez cher pour un forfait iCloud+, plus vous pourrez utiliser l'IA de Siri et Apple Intelligence pour des tâches avancées côté serveur.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "4ec77867fd524ebb",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/11/18/panne-du-reseau-ultra-secret-de-la-nsa-lagence-americaine-evoque-une-operation-de-maintenance/",
-      "image": "",
-      "date": "Wed, 18 Nov 2026 07:53:00 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "PANNE DU RÉSEAU ULTRA-SECRET DE LA NSA : L’AGENCE AMÉRICAINE ÉVOQUE UNE OPÉRATION DE MAINTENANCE — Mardi 17 novembre 2026, le système interne NSANet a brusquement cessé de fonctionner, paralysant les échanges classifiés des espions américains. Alors que Washington plaide l'erreur technique, cet incident clôt une semaine noire pour les infrastructures numériques des États-Unis.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "c6c3f92f1d758e03",
-      "source_name": "ItMag DZ",
-      "source_short": "ITM",
-      "source_color": "#00695C",
-      "category": "Médias TIC",
-      "category_icon": "💡",
-      "url": "https://www.itmag.dz/2026/11/18/panne-geante-chez-apple-plus-de-05-heures-dinterruption-pour-lecosysteme/",
-      "image": "",
-      "date": "Wed, 18 Nov 2026 07:30:21 +0000",
-      "lang_source": "fr",
-      "text": {
-        "fr": "PANNE GÉANTE CHEZ APPLE : PLUS DE 05 HEURES D’INTERRUPTION POUR L’ÉCOSYSTÈME — Touché par une mise à jour interne défectueuse mardi 17 novembre 2026, le géant de Cupertino a vu plusieurs de ses services clés, d'iCloud à Apple Pay, paralysés à travers le monde. Un incident rapidement circonscrit, mais qui ravive les inquiétudes sur la fragilité des infrastructures numériques.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "e918be5f0514ed66",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/pannes-mondiales-quand-des-startups-inconnues-font-tomber-jpmorgan-et-zoom/",
-      "image": "",
-      "date": "2026-11-18T06:43:00.092Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Pannes mondiales : quand des startups inconnues font tomber JPMorgan et Zoom — Des pannes majeures ont frappé simultanément JPMorgan, Apple Pay, Zoom, la FAA et pas moins de 178 grands sites web. Derrière ces incidents, rarement les géants eux-mêmes : des logiciels tiers discrets, que personne ou presque ne connaît.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "b310b621417ae564",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/pannes-apple-chase-et-united-ce-qui-se-passe-vraiment/",
-      "image": "",
-      "date": "2026-11-18T06:33:00.072Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Pannes Apple, Chase et United : ce qui se passe vraiment — Depuis quelques semaines, les pannes de services numériques s'accumulent à un rythme inhabituel : Apple Pay, Chase Bank, United Airlines, la FAA. Derrière ce chaos apparent, une réalité plus structurelle que conjoncturelle.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "ee6ccefac0ede416",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/black-friday-2026-mac-mini-a-120-les-meilleures-offres-tech/",
-      "image": "",
-      "date": "2026-11-18T06:30:00.069Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Black Friday 2026 : Mac Mini à -120 €, les meilleures offres tech — Le Black Friday 2026 s'installe pour de bon, et les remises sur les produits Apple atteignent des niveaux rarement vus. Mac Mini, MacBook, AirPods : voici ce qu'il faut surveiller avant le 27 novembre.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "5e3e1b61abf4d5c1",
-      "source_name": "Android DZ",
-      "source_short": "ADZ",
-      "source_color": "#33691E",
-      "category": "Médias TIC",
-      "category_icon": "🤖",
-      "url": "https://www.android-dz.com/apple-microsoft-jpmorgan-une-semaine-noire-pour-la-tech-mondiale/",
-      "image": "",
-      "date": "2026-11-18T06:27:00.039Z",
-      "lang_source": "fr",
-      "text": {
-        "fr": "Apple, Microsoft, JPMorgan : une semaine noire pour la tech mondiale — En l'espace de quelques jours, Apple, Microsoft, JPMorgan Chase, la FAA et United Airlines ont tous subi des pannes majeures. Un enchaînement rare qui a secoué les marchés et semé la pagaille pour des millions d'utilisateurs.",
-        "ar": "",
-        "en": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "1bbe22dae05f83ed",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/17/nvidia-promises-that-revenue-will-keep-soaring-for-now/",
-      "image": "",
-      "date": "Wed, 18 Nov 2026 00:16:50 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Nvidia promises that revenue will keep soaring — for now — Despite the turmoil Nvidia is in after the departure of its disgraced founder and CEO Jensen Huang, the company projected that its streak of record-breaking revenue isn't about to stop.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "eef1411c3f55e17e",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/17/stripe-backer-atomico-calls-for-europe-to-own-its-success-stories/",
-      "image": "",
-      "date": "Wed, 18 Nov 2026 00:01:00 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Stripe backer Atomico calls for Europe to own its success stories — Europe is home to many of the world's fastest growing companies of all time, veteran VC firm Atomico highlighted in its latest annual State of European Tech report.",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
-    },
-    {
-      "id": "a91e4c81d566a6ac",
-      "source_name": "TechCrunch",
-      "source_short": "TC",
-      "source_color": "#1D8348",
-      "category": "Tech International",
-      "category_icon": "🌍",
-      "url": "https://techcrunch.com/2026/11/17/nvidia-is-abandoning-china-after-jensen-huangs-ouster/",
-      "image": "",
-      "date": "Tue, 17 Nov 2026 23:37:48 +0000",
-      "lang_source": "en",
-      "text": {
-        "en": "Nvidia is abandoning China after Jensen Huang’s ouster — Nvidia's interim CEO says the company is done selling chips to China. How much will that cost?",
-        "ar": "",
-        "fr": ""
-      },
-      "source_type": "rss"
     }
   ],
-  "lastUpdated": "2026-11-25T17:43:34.563237+00:00",
+  "lastUpdated": "2026-11-26T02:01:42.174576+00:00",
   "stats": {
     "Ministère": 20,
     "Opérateurs": 20,
     "Infrastructure": 20,
     "Équipementiers": 20,
-    "Tech International": 132,
-    "Médias TIC": 88
+    "Tech International": 133,
+    "Médias TIC": 87
   },
   "total": 300
 }
