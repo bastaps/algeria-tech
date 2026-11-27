@@ -1,102 +1,102 @@
 {
- "creneau": "matin",
+ "creneau": "soir",
  "date": "2026-11-27",
- "genere": "2026-11-27T00:48:05",
+ "genere": "2026-11-27T17:33:49",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
-   "creneau": "matin",
-   "genere": "2026-11-27T00:48:27",
+   "creneau": "soir",
+   "genere": "2026-11-27T17:34:14",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 8.5,
-    "texte": "Bonjour et bienvenue sur Algeria Tech, votre rendez-vous tech et télécoms matinal. Voici 10 informations pour bien démarrer la journée."
+    "duree": 7.5,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici ce qui fait l'actualité ce soir, avec dix informations clés."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 6.4,
-    "texte": "C'est tout pour ce matin. Retrouvez-nous demain pour une nouvelle dose d'actualités tech et télécoms."
+    "duree": 5.9,
+    "texte": "C'était l'essentiel de l'actualité tech pour ce soir. Merci de nous avoir écoutés."
    },
    "items": [
     {
-     "titre": "Connectivité régionale, Algérie investit",
-     "texte": "L'Algérie continue de développer ses projets d'infrastructure pour améliorer la connectivité régionale. Ces initiatives s'inscrivent dans les directives présidentielles visant à renforcer les échanges et le développement à travers le territoire.",
+     "titre": "Démantèlement d'un réseau criminel",
+     "texte": "Les services de sécurité ont mis fin aux activités d'un réseau criminel impliqué dans le trafic de drogues et de substances psychotropes. Cette opération a couvert plusieurs wilayas du pays, marquant une victoire significative contre le crime organisé.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 12.5,
+     "duree": 13.4,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "PC : Ne pas utiliser d'aspirateur",
-     "texte": "Attention, n'aspirez jamais l'intérieur de votre ordinateur avec un aspirateur domestique. Les risques de dommages sont élevés. Privilégiez des outils adaptés comme l'air comprimé ou les dépoussiéreurs électriques spécifiques pour l'électronique.",
+     "titre": "Projets structurants pour la connectivité",
+     "texte": "L'Algérie intensifie ses efforts pour la concrétisation de projets structurants. L'objectif est de renforcer la connectivité régionale, conformément aux directives présidentielles, assurant ainsi un développement continu des infrastructures.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 13.8,
-     "pays": "DZ",
-     "source": "GeekyAlgeria"
-    },
-    {
-     "titre": "Trafic aérien France-Algérie dynamique",
-     "texte": "Entre janvier et octobre, près de 4,9 millions de passagers ont voyagé entre la France et l'Algérie. Ces chiffres confirment le poids de cette liaison aérienne majeure dans les échanges entre les deux pays.",
-     "mp3": "/podcast/fr/03.mp3",
-     "duree": 11.1,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "Sonelgaz exporte en Côte d'Ivoire",
-     "texte": "Sonelgaz International expédie depuis Alger des équipements pour une nouvelle centrale électrique en Côte d'Ivoire. Ce projet renforce la coopération et soutient le développement du réseau électrique local.",
-     "mp3": "/podcast/fr/04.mp3",
-     "duree": 11.2,
-     "pays": "DZ",
-     "source": "Algérie Éco"
-    },
-    {
-     "titre": "iPad Air vs Pro : la différence",
-     "texte": "Pour 450 dollars de plus, l'iPad Pro offre des fonctionnalités avancées. Cependant, pour de nombreux usages, l'iPad Air reste une excellente option, plus accessible et souvent suffisante pour les besoins quotidiens.",
-     "mp3": "/podcast/fr/05.mp3",
      "duree": 13.4,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "APS"
     },
     {
-     "titre": "29 kg de cocaïne saisis à Tipaza",
-     "texte": "La police a démantelé un réseau de trafic de drogues à Tipaza, saisissant 29 kilogrammes de cocaïne et des milliers de comprimés. L'opération vise à lutter contre le crime organisé.",
-     "mp3": "/podcast/fr/06.mp3",
-     "duree": 10.7,
+     "titre": "Saisie massive de drogue",
+     "texte": "Une opération d'envergure a conduit à l'arrestation de 31 individus et à la saisie de plus de 310 kilogrammes de drogue, dont 160 kg de cocaïne. Le réseau démantelé opérait dans cinq wilayas clés.",
+     "mp3": "/podcast/fr/03.mp3",
+     "duree": 12.0,
      "pays": "DZ",
-     "source": "TSA Algérie"
+     "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "LG Algérie présente ses vues 2027",
-     "texte": "LG Electronics Algérie partage ses orientations stratégiques pour 2027 avec son réseau. L'objectif est d'innover et de renforcer les partenariats sous le slogan « Let’s Shape the Future Together ».",
-     "mp3": "/podcast/fr/07.mp3",
+     "titre": "Stop aux abus sur la bande d'arrêt",
+     "texte": "La police algérienne lance un avertissement ferme concernant l'utilisation abusive de la bande d'arrêt d'urgence sur les autoroutes. Ce comportement dangereux sera désormais sanctionné pour assurer la sécurité de tous.",
+     "mp3": "/podcast/fr/04.mp3",
+     "duree": 11.8,
+     "pays": "DZ",
+     "source": "Algérie360"
+    },
+    {
+     "titre": "Sonelgaz exporte vers la Côte d'Ivoire",
+     "texte": "Sonelgaz International exporte des turbines et équipements vers la Côte d'Ivoire. Ces matériels serviront à la construction d'une centrale électrique et au renforcement du réseau de distribution dans ce pays africain.",
+     "mp3": "/podcast/fr/05.mp3",
      "duree": 11.6,
      "pays": "DZ",
-     "source": "NTIC.dz"
+     "source": "Le Soir d'Algérie"
     },
     {
-     "titre": "ALGEST : Digitaliser sans organiser",
-     "texte": "Au salon ALGEST, l'accent est mis sur l'organisation avant la digitalisation. Automatiser des processus désorganisés ne fait qu'amplifier les erreurs. Une approche prudente est recommandée pour l'industrie 4.0.",
+     "titre": "IA chinoise freinée par les USA",
+     "texte": "Les restrictions américaines sur les puces électroniques pourraient ralentir les avancées des laboratoires chinois d'intelligence artificielle. Ces entreprises se rapprochaient de leurs concurrents américains, mais font face à de nouveaux obstacles.",
+     "mp3": "/podcast/fr/06.mp3",
+     "duree": 12.4,
+     "pays": "DZ",
+     "source": "Le Soir d'Algérie"
+    },
+    {
+     "titre": "Escroquerie électronique déjouée à Alger",
+     "texte": "Les services de la Sûreté d'Alger ont neutralisé des réseaux spécialisés dans l'escroquerie électronique. Ces opérations ont permis d'identifier 740 victimes, démontrant l'ampleur des fraudes constatées.",
+     "mp3": "/podcast/fr/07.mp3",
+     "duree": 11.3,
+     "pays": "DZ",
+     "source": "Le Soir d'Algérie"
+    },
+    {
+     "titre": "Arrestations dans l'affaire BaridiMob",
+     "texte": "Trente-cinq personnes ont été arrêtées suite au démantèlement de réseaux d'escroquerie en ligne ciblant les utilisateurs de BaridiMob. Le préjudice financier s'élève à 41 milliards de centimes.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 13.2,
+     "duree": 10.8,
      "pays": "DZ",
-     "source": "ITMAG"
+     "source": "Maghreb Emergent"
     },
     {
-     "titre": "New York interdit les jouets IA",
-     "texte": "L'État de New York interdit la vente de jouets connectés utilisant des chatbots IA. Cette mesure vise à protéger les enfants des risques liés à ces technologies pendant cinq ans.",
+     "titre": "35 suspects arrêtés pour escroquerie",
+     "texte": "Des réseaux spécialisés dans l'escroquerie électronique ont été démantelés par la Sûreté d'Alger. 35 individus, dont huit femmes, ont été appréhendés, suite à des signalements de 740 victimes.",
      "mp3": "/podcast/fr/09.mp3",
-     "duree": 9.5,
+     "duree": 11.5,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "Crésus"
     },
     {
-     "titre": "Google abandonne six services",
-     "texte": "Google a mis fin à six produits et services cette année. Le géant de la technologie continue de restructurer son offre, supprimant les outils jugés moins pertinents ou performants.",
+     "titre": "41 milliards détournés via BaridiMob",
+     "texte": "Des réseaux criminels spécialisés dans la fraude électronique et l'usurpation d'identité ont été démantelés à Alger. L'arnaque sur BaridiMob a causé un détournement de 41 milliards de centimes.",
      "mp3": "/podcast/fr/10.mp3",
-     "duree": 9.8,
+     "duree": 11.0,
      "pays": "DZ",
-     "source": "GeekyAlgeria"
+     "source": "NTIC.dz"
     }
    ]
   },
