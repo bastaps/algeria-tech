@@ -200,6 +200,22 @@ def git(*a, cwd):
     return r.stdout
 
 
+def nettoyer_dossier_temp(tmp, depot):
+    """Supprime un dossier temporaire de dépôt resté en place (worktree verrouillé, ou dossier orphelin sans .git après un
+    échec de suppression) : `git worktree add` refuse un dossier existant. Les fichiers en lecture seule (Windows) sont gérés."""
+    import shutil
+    import stat
+    tmp = Path(tmp)
+    if not tmp.exists():
+        subprocess.run(["git", "worktree", "prune"], cwd=depot, capture_output=True)
+        return
+    subprocess.run(["git", "worktree", "unlock", str(tmp)], cwd=depot, capture_output=True)
+    subprocess.run(["git", "worktree", "remove", "--force", "--force", str(tmp)], cwd=depot, capture_output=True)
+    if tmp.exists():
+        shutil.rmtree(tmp, onerror=lambda f, p, e: (os.chmod(p, stat.S_IWRITE), f(p)))
+    subprocess.run(["git", "worktree", "prune"], cwd=depot, capture_output=True)
+
+
 def local():
     """Sur le PC : clone temporaire d'origin/main → publication → commit → push (les JSON locaux restent intouchés)."""
     global RACINE
@@ -215,9 +231,7 @@ def local():
     if not a_publier and not a_completer:
         return 0  # aucun brouillon en attente ni carte interactive à ajouter : rien à faire
     tmp = Path("E:/algeria-tech-push-publish")
-    if tmp.exists():
-        subprocess.run(["git", "worktree", "unlock", str(tmp)], cwd=depot, capture_output=True)
-        subprocess.run(["git", "worktree", "remove", "--force", "--force", str(tmp)], cwd=depot, capture_output=True)
+    nettoyer_dossier_temp(tmp, depot)
     git("worktree", "add", "-q", "--detach", str(tmp), "origin/main", cwd=depot)
     try:
         if not os.environ.get("NTFY_TOPIC"):

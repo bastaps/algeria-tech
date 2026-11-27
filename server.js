@@ -172,6 +172,28 @@ function extractJsonMaybe(text, jsonMode) {
     return text;
 }
 
+// JSON renvoyé par un modèle : tolère les retours à la ligne / tabulations bruts à l'intérieur des chaînes et les clôtures ```json.
+function parseJsonTolerant(text) {
+    try { return JSON.parse(text); } catch (e) {}
+    let t = String(text || '').replace(/^\uFEFF/, '').replace(/```(?:json)?/gi, '').trim();
+    const m = /\{[\s\S]*\}/.exec(t);
+    if (m) t = m[0];
+    let out = '', dansChaine = false, echappe = false;
+    for (const ch of t) {
+        if (dansChaine) {
+            if (echappe) { out += ch; echappe = false; }
+            else if (ch === '\\') { out += ch; echappe = true; }
+            else if (ch === '"') { out += ch; dansChaine = false; }
+            else if (ch === '\n') out += '\\n';
+            else if (ch === '\r') out += '\\r';
+            else if (ch === '\t') out += '\\t';
+            else if (ch < ' ') out += ' ';
+            else out += ch;
+        } else { if (ch === '"') dansChaine = true; out += ch; }
+    }
+    return JSON.parse(out);
+}
+
 // ── Orchestrateur : Mistral → Gemini → OpenRouter → OpenAI → DeepSeek ───────────
 // Contrat inchangé pour tous les appelants existants (débat, synthèse, traduction,
 // comparateur, transcription, Smart Ingest) : reçoit le même payload JSON qu'avant
@@ -1808,10 +1830,23 @@ ${text.substring(0, 4000)}`;
     });
 
     try {
-        const data = await callMistral(payload, { timeout: 45000 });
-        const result = JSON.parse(data);
-        if (result.error || result.object === 'error' || !result.choices) throw new Error((result.error && result.error.message) || result.message || 'Réponse IA invalide');
-        const article = JSON.parse(result.choices[0].message.content);
+        // Jusqu'à 3 tentatives : les moteurs de repli (Groq, OpenRouter) renvoient parfois un JSON invalide (retours à la ligne bruts
+        // dans une chaîne) ou une réponse vide ; une relance suffit presque toujours (500 « Bad control character » du 2026-11-27).
+        let article, derniereErreur;
+        for (let essai = 1; essai <= 3 && !article; essai++) {
+            try {
+                const data = await callMistral(payload, { timeout: 45000 });
+                const result = JSON.parse(data);
+                if (result.error || result.object === 'error' || !result.choices) throw new Error((result.error && result.error.message) || result.message || 'Réponse IA invalide');
+                const candidat = parseJsonTolerant(result.choices[0].message.content);
+                if (!candidat || !candidat.titre || !candidat.contenu) throw new Error('Réponse IA incomplète (titre ou contenu manquant)');
+                article = candidat;
+            } catch (e) {
+                derniereErreur = e;
+                console.warn(`[smart-generate] tentative ${essai}/3 : ${String(e.message).slice(0, 160)}`);
+            }
+        }
+        if (!article) throw derniereErreur;
 
         // Section "Pour rappel" construite par code à partir de vrais articles du jour —
         // jamais par le LLM, pour garantir zéro invention (voir getArticlesComplementairesDuJour).

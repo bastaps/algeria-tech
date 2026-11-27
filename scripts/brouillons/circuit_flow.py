@@ -513,8 +513,18 @@ def finaliser(ident, clip, sans_push):
     bloc_officiel = "".join(f"\n\nSOURCE OFFICIELLE — {o['nom']} ({o['url']}) :\n{o['extrait']}" for o in officiels if o.get("extrait"))
     corps_source = (f"{job['titre_page']}\n\n{job['texte']}{bloc_officiel}"
                     f"\n\nSource : {job['article']['source']} — {job['article']['url']}")
-    g = requests.post(f"{HUB}/api/smart-generate", json={"text": corps_source[:9000], "style": "pro",
-                                                          "source_url": job["article"]["url"]}, timeout=240).json()
+    g = {}
+    for essai in range(3):   # IA saturée ou JSON invalide (500 du Hub) : jusqu'à 3 essais espacés avant de renoncer
+        try:
+            g = requests.post(f"{HUB}/api/smart-generate", json={"text": corps_source[:9000], "style": "pro",
+                                                                  "source_url": job["article"]["url"]}, timeout=240).json()
+        except (requests.RequestException, ValueError) as e:
+            g = {"error": f"{type(e).__name__}"}
+        if g.get("titre") and g.get("lead") and len(str(g.get("contenu", "")).split()) >= 150:
+            break
+        log(f"rédaction IA : essai {essai + 1}/3 sans résultat exploitable ({str(g.get('error', 'réponse incomplète'))[:120]})")
+        if essai < 2:
+            time.sleep(25)
     # mode IA uniquement : sans rédaction IA exploitable, le brouillon n'est PAS produit (jamais de repli heuristique)
     if not (g.get("titre") and g.get("lead") and len(str(g.get("contenu", "")).split()) >= 150):
         raise RuntimeError("rédaction IA insuffisante")
@@ -684,13 +694,24 @@ def maj_registre(tmp, slot):
     git("add", "data/circuit-slots.json", cwd=tmp)
 
 
+def nettoyer_dossier_temp(tmp):
+    """Dossier temporaire de dépôt resté en place (worktree verrouillé ou dossier orphelin sans .git) : `git worktree add` le refuse."""
+    import shutil
+    import stat
+    tmp = Path(tmp)
+    if tmp.exists():
+        subprocess.run(["git", "worktree", "unlock", str(tmp)], cwd=RACINE, capture_output=True)
+        subprocess.run(["git", "worktree", "remove", "--force", "--force", str(tmp)], cwd=RACINE, capture_output=True)
+        if tmp.exists():
+            shutil.rmtree(tmp, onerror=lambda f, p, e: (os.chmod(p, stat.S_IWRITE), f(p)))
+    subprocess.run(["git", "worktree", "prune"], cwd=RACINE, capture_output=True)
+
+
 def deposer(ident, sortie, titre, avec_video, slot=None):
     """Dépôt via un dossier temporaire cloné depuis origin/main (le dépôt local a du retard)."""
     tmp = Path(r"E:\algeria-tech-push-circuit")
     git("fetch", "-q", "origin", cwd=RACINE)
-    if tmp.exists():
-        subprocess.run(["git", "worktree", "unlock", str(tmp)], cwd=RACINE, capture_output=True)
-        subprocess.run(["git", "worktree", "remove", "--force", "--force", str(tmp)], cwd=RACINE, capture_output=True)
+    nettoyer_dossier_temp(tmp)
     git("worktree", "add", "-q", "--detach", str(tmp), "origin/main", cwd=RACINE)
     try:
         fichiers = [f"brouillons/{ident}.md", f"images/{ident}.jpg", f"interactifs/{ident}.html"]

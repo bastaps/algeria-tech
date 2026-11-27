@@ -13,6 +13,11 @@ on:
     - cron: "45 8 * * *"    # 09:45 Alger → créneau matin
     - cron: "15 13 * * *"   # 14:15 Alger → créneau midi
     - cron: "15 18 * * *"   # 19:15 Alger → créneau soir
+    # Déclencheurs de secours (2026-11-27) : GitHub saute souvent les exécutions planifiées (aucun run entre 01:41 et 18:00 UTC constaté).
+    # Le registre data/circuit-slots.json empêche tout doublon : un créneau déjà produit (PC ou cloud) sort avec « rien à faire ».
+    - cron: "38 10 * * *"   # secours matin
+    - cron: "27 15 * * *"   # secours midi
+    - cron: "33 20 * * *"   # secours soir
   workflow_dispatch:
     inputs:
       slot:
@@ -71,8 +76,8 @@ jobs:
           if [ -n "$SLOT_SAISI" ]; then SLOT="$SLOT_SAISI"; else
             # Créneau d'après l'horaire PRÉVU (cron), pas l'heure d'exécution : GitHub retarde parfois de plusieurs heures
             case "$PLANIF" in
-              "45 8 * * *")  SLOT=matin; H_PREVUE=8;;
-              "15 13 * * *") SLOT=midi;  H_PREVUE=13;;
+              "45 8 * * *"|"38 10 * * *")  SLOT=matin; H_PREVUE=8;;
+              "15 13 * * *"|"27 15 * * *") SLOT=midi;  H_PREVUE=13;;
               *)             SLOT=soir;  H_PREVUE=18;;
             esac
             # exécuté après minuit pour un créneau prévu la veille : le créneau appartient à la veille
