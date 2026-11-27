@@ -216,7 +216,8 @@ def local():
         return 0  # aucun brouillon en attente ni carte interactive à ajouter : rien à faire
     tmp = Path("E:/algeria-tech-push-publish")
     if tmp.exists():
-        subprocess.run(["git", "worktree", "remove", "--force", str(tmp)], cwd=depot, capture_output=True)
+        subprocess.run(["git", "worktree", "unlock", str(tmp)], cwd=depot, capture_output=True)
+        subprocess.run(["git", "worktree", "remove", "--force", "--force", str(tmp)], cwd=depot, capture_output=True)
     git("worktree", "add", "-q", "--detach", str(tmp), "origin/main", cwd=depot)
     try:
         if not os.environ.get("NTFY_TOPIC"):

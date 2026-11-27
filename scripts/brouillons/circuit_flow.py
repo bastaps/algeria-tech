@@ -43,7 +43,7 @@ SITE = "https://algeria-tech.pages.dev"
 NTFY_FICHIER = Path(r"E:\01-flash-infos\flash_auto\ntfy_canal.txt")
 CATEGORIES = ["Algérie", "Télécoms", "Mobile", "Startups", "IA", "Fintech", "Innovation", "Monde", "Entreprises"]
 SLOTS = ("matin", "midi", "soir")
-DELAI_DEFAUT_MIN = 0
+DELAI_DEFAUT_MIN = 5   # décision de l'utilisateur (2026-11-27) : publication automatique si aucun choix ntfy sous 5 min
 
 # Liste de suivi (marques, opérateurs, institutions, événements TIC) : bonus de score
 SUIVI = re.compile(r"huawei|ericsson|samsung|\blg\b|nokia|zte|ooredoo|mobilis|djezzy|alg[ée]rie t[ée]l[ée]com|"
@@ -94,15 +94,20 @@ def repond(url):
         return False
 
 
-def lancer(cmd, cwd):
+def lancer(cmd, cwd, journal_sortie=None):
+    # journal_sortie : fichier (hors dépôt) qui garde la sortie du serveur, pour diagnostiquer les pannes (ex. repli IA)
+    sortie = subprocess.DEVNULL
+    if journal_sortie:
+        Path(journal_sortie).parent.mkdir(parents=True, exist_ok=True)
+        sortie = open(journal_sortie, "ab")
     subprocess.Popen(cmd, cwd=cwd, creationflags=0x00000008 | 0x08000000,  # DETACHED_PROCESS | CREATE_NO_WINDOW
-                     stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, stdin=subprocess.DEVNULL)
+                     stdout=sortie, stderr=subprocess.STDOUT if journal_sortie else subprocess.DEVNULL, stdin=subprocess.DEVNULL)
 
 
 def serveurs():
     if not repond(HUB):
         log("démarrage du Hub (port 3000)…")
-        lancer(["node", "server.js"], str(RACINE))
+        lancer(["node", "server.js"], str(RACINE), r"E:\MonStudioIA\circuit-flow\hub.log")
     if not repond(AI):
         log("démarrage d'Article Interactif (port 5000)…")
         lancer([sys.executable, "app.py"], str(RACINE / "article-interactif"))
@@ -505,7 +510,7 @@ def finaliser(ident, clip, sans_push):
     src = R.resoudre_sources(job["titre_page"] or job["article"]["titre"], job["texte"], job["article"]["url"],
                              job["article"]["source"], origine_officielle=direct, aps=job["article"].get("aps"))
     officiels = src["officiels"]
-    bloc_officiel = "".join(f"\n\nSOURCE OFFICIELLE — {o['nom']} ({o['url']}) :\n{o['extrait']}" for o in officiels)
+    bloc_officiel = "".join(f"\n\nSOURCE OFFICIELLE — {o['nom']} ({o['url']}) :\n{o['extrait']}" for o in officiels if o.get("extrait"))
     corps_source = (f"{job['titre_page']}\n\n{job['texte']}{bloc_officiel}"
                     f"\n\nSource : {job['article']['source']} — {job['article']['url']}")
     g = requests.post(f"{HUB}/api/smart-generate", json={"text": corps_source[:9000], "style": "pro",
@@ -600,7 +605,7 @@ choix_canal: "{canal_choix}"
         return 0
     deposer(ident, sortie, g["titre"], avec_video, job.get("slot"))
     notifier(f"À placer : {g['titre'][:60]}",
-             f"{g['lead'][:230]}\n\nPublication automatique À LA UNE, position 1 (sauf choix de place ci-dessous). Vous pouvez modifier ou supprimer ensuite."
+             f"{g['lead'][:230]}\n\nSans choix sous {DELAI_DEFAUT_MIN} min : publication automatique À LA UNE, position 1 (ou choisissez la place ci-dessous). Vous pouvez modifier ou supprimer ensuite."
              f"\n{'Vidéo Flow + ' if avec_video else ''}version interactive prête.",
              clic=f"{SITE}/interactifs/{ident}.html", actions=actions_choix(ident, canal_choix))
     notifier("Corriger ou rejeter ce brouillon ?", f"« {g['titre'][:80]} » — Corriger ouvre l'éditeur en ligne (connexion admin) ; "
@@ -608,7 +613,21 @@ choix_canal: "{canal_choix}"
              tags="pencil2", priorite=1, clic=f"{SITE}/",
              actions=f"view, Corriger, {SITE}/smart-ingest-pro.html?edit={ident}&draft=1; "
                      f"http, Rejeter, https://ntfy.sh/{canal_choix}, method=POST, body={ident}:rejeter, clear=true")
+    publier_apres_delai()
     return 0
+
+
+def publier_apres_delai():
+    """Fenêtre de choix ntfy écoulée (DELAI_DEFAUT_MIN), publie le brouillon depuis le PC sans attendre le planificateur de GitHub
+    (servi parfois avec des heures de retard). Un échec n'est pas bloquant : le workflow « brouillons-publier » reste le filet."""
+    time.sleep(DELAI_DEFAUT_MIN * 60 + 30)
+    try:
+        r = subprocess.run([sys.executable, str(Path(__file__).with_name("publier_choix.py")), "--local"], cwd=RACINE,
+                           env=dict(os.environ, DELAI_MIN=str(DELAI_DEFAUT_MIN), PYTHONUTF8="1"),
+                           capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=600)
+        log("publication après délai : " + ((r.stdout or "").strip().splitlines() or ["terminée"])[-1][:200] + f" (code {r.returncode})")
+    except Exception as e:  # noqa: BLE001
+        log(f"publication après délai impossible ({type(e).__name__}) : le planificateur GitHub prendra le relais")
 
 
 def completer_carte(racine_clone, md_path):
@@ -670,7 +689,8 @@ def deposer(ident, sortie, titre, avec_video, slot=None):
     tmp = Path(r"E:\algeria-tech-push-circuit")
     git("fetch", "-q", "origin", cwd=RACINE)
     if tmp.exists():
-        subprocess.run(["git", "worktree", "remove", "--force", str(tmp)], cwd=RACINE, capture_output=True)
+        subprocess.run(["git", "worktree", "unlock", str(tmp)], cwd=RACINE, capture_output=True)
+        subprocess.run(["git", "worktree", "remove", "--force", "--force", str(tmp)], cwd=RACINE, capture_output=True)
     git("worktree", "add", "-q", "--detach", str(tmp), "origin/main", cwd=RACINE)
     try:
         fichiers = [f"brouillons/{ident}.md", f"images/{ident}.jpg", f"interactifs/{ident}.html"]
@@ -701,7 +721,8 @@ def deposer(ident, sortie, titre, avec_video, slot=None):
                 git("rebase", "-q", "origin/main", cwd=tmp)
         log("brouillon déposé sur GitHub (déploiement Cloudflare en cours)")
     finally:
-        subprocess.run(["git", "worktree", "remove", "--force", str(tmp)], cwd=RACINE, capture_output=True)
+        subprocess.run(["git", "worktree", "unlock", str(tmp)], cwd=RACINE, capture_output=True)
+        subprocess.run(["git", "worktree", "remove", "--force", "--force", str(tmp)], cwd=RACINE, capture_output=True)
         subprocess.run(["git", "worktree", "prune"], cwd=RACINE, capture_output=True)
 
 

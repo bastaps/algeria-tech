@@ -68,10 +68,13 @@ Ne pas recommencer plus d'une fois.
 ## Consignes de l'utilisateur (2026-10-21, permanentes)
 - Autorisation permanente d'utiliser Google Flow pour générer la vidéo quand elle est requise.
 - Si l'image montre un haut responsable algérien (président, ministre, PDG) : garder l'image, PAS de vidéo (`none`), sauf si l'article/communiqué fournit déjà une vidéo.
-- Plus de demande de validation par ntfy : l'article est publié automatiquement À LA UNE, position 1 (décision du 2026-10-28), délai 0. La notification ntfy sert seulement à informer ; l'utilisateur modifie/supprime après coup si besoin.
+- **Décision du 2026-11-27 (remplace « délai 0 »)** : la notification ntfy à boutons (Une / 2e position / Brève / Rejeter) est envoyée et l'utilisateur dispose de **5 minutes** ; sans réponse l'article est publié À LA UNE (position 1). `finaliser` attend la fin de la fenêtre puis lance `publier_choix.py --local` ; les workflows GitHub `brouillons-publier` et `circuit-cloud` (DELAI_MIN=5) servent de filet.
+- **Chrome / Flow** : l'invite d'approbation de l'extension Claude in Chrome pour `flow.google.com` ne peut PAS être validée par la session (c'est l'utilisateur qui doit choisir « toujours autoriser ce site » dans les réglages de l'extension). Sans cela, aucune vidéo : le brouillon part sans vidéo. Les boutons DANS Flow (droits de l'image, « Toujours approuver dans le projet », téléchargement 720p) restent autorisés.
+- **PC éteint** : Flow exige le Chrome du PC connecté au compte bastaps2024 ; le circuit de repli cloud (GitHub) publie alors l'article SANS vidéo Flow.
 
 ## Règles éditoriales ajoutées le 2026-10-28
 - Format = Smart Ingest PRO « Générer avec IA » : le corps commence par « Alger, <date> (Algeria Tech) — <chapô> », puis le développement, « À retenir », « Sources ». Position 1.
+- **Sources (règle du 2026-11-27)** : toute information tirée de la revue de presse ou de la veille réseaux sociaux se vérifie d'abord à la SOURCE (site de l'entreprise / institution : `redaction.sources_officielles` suit les liens de l'article du média vers le site officiel, puis lit la page) et l'article cite directement l'entreprise ou l'institution, jamais le média seul ; le média n'apparaît que comme « Article relayé par ». Communiqué exact introuvable mais site de l'entité confirmé : on cite son site officiel (`citation_seule`).
 - Sources : on cite d'abord la publication d'ORIGINE (site de l'entreprise / institution ou page Facebook officielle). Origine introuvable avec
   plusieurs sites qui publient → « Source : Admin ». Un seul site a publié et les autres le reprennent → on cite ce site.
 - Fraîcheur : toute source dont les dates citées en tête sont de plus de 5 jours est écartée (communiqués anciens listés en tête d'un site).

@@ -171,6 +171,7 @@ def _nb_chiffres(t):
 def rediger(source, titre, corps, officiel=None):
     """Article IA au format Algeria Tech, ou None si l'IA est indisponible / insuffisante (jamais de repli mécanique)."""
     bloc = ""
+    officiel = [o for o in (officiel or []) if o.get("extrait")]   # « citation seule » : pas de texte, rien à faire primer
     if officiel:
         bloc = "SOURCE OFFICIELLE (faits prioritaires) :\n" + "\n\n".join(
             f"[{o['nom']} — {o['url']}]\n{o['extrait']}" for o in officiel) + "\n\n"
@@ -257,6 +258,11 @@ def lignes_sources(officiels, nom_media, url_media, admin=False, direct=False):
 # ── Sources officielles ───────────────────────────────────────────────────
 def _hote(url):
     return urlparse(url).netloc.lower().removeprefix("www.")
+
+
+def _racine(hote):
+    """xpeng.com pour www.xpeng.com / ir.xpeng.com (deux derniers libellés)."""
+    return ".".join(hote.split(".")[-2:])
 
 
 def _requete(url, timeout):
@@ -357,13 +363,18 @@ def sources_officielles(titre, corps, url_source, max_entites=3, rapide=False):
     Renvoie [{nom, url, extrait}] vérifiés (page réellement lue, au moins 3 éléments distinctifs retrouvés)."""
     entites = _entites_fixes(f"{titre}\n{corps[:3000]}")   # annuaire d'abord : fonctionne même sans IA
     if not entites and not rapide:
-        rep = appeler_gemini(PROMPT_ENTITES.format(titre=titre, corps=corps[:3000]), temperature=0)
-        entites = rep.get("entites") if isinstance(rep, dict) else None
+        for essai in range(2):   # IA parfois saturée : une 2e tentative évite de citer le média faute d'avoir identifié l'entreprise
+            rep = appeler_gemini(PROMPT_ENTITES.format(titre=titre, corps=corps[:3000]), temperature=0)
+            entites = rep.get("entites") if isinstance(rep, dict) else None
+            if entites:
+                break
+            time.sleep(4)
     if not entites:
         return []
     hote_src = _hote(url_source)
     jetons = _jetons(titre, corps)
-    trouves = []
+    trouves, confirmees = [], []
+    relais = _get(url_source) if url_source else None   # le média relais cite souvent lui-même le communiqué de l'entreprise
     for e in entites[:max_entites]:
         nom, site = str(e.get("nom") or "").strip(), str(e.get("site") or "").strip()
         if not nom or not site.startswith("http"):
@@ -388,9 +399,16 @@ def sources_officielles(titre, corps, url_source, max_entites=3, rapide=False):
             lien = urljoin(url_accueil, a["href"])
             if _hote(lien) == hote and re.search(r"press|news|actu|blog|communiqu|media|newsroom|presse", lien + " " + a.get_text(" "), re.I):
                 candidats.append(lien.split("#")[0])
+        sortants = []   # liens de l'article relais qui pointent vers le site de l'entité : meilleure piste vers la publication d'origine
+        if relais:
+            for a in relais[1].find_all("a", href=True):
+                lien = urljoin(relais[0], a["href"]).split("#")[0]
+                if _racine(_hote(lien)) == _racine(hote) and lien not in sortants and urlparse(lien).path.strip("/"):
+                    sortants.append(lien)
+        confirmees.append({"nom": nom, "url": next((c for c in candidats if re.search(r"press|news|actu|newsroom|presse", c, re.I)), url_accueil)})
         vus, meilleur = set(), None
-        for lien in [url_accueil] + candidats:
-            if lien in vus or len(vus) >= 6:
+        for lien in sortants[:4] + [url_accueil] + candidats:
+            if lien in vus or len(vus) >= 8:
                 continue
             vus.add(lien)
             page = _get(lien) if lien != url_accueil else accueil
@@ -423,6 +441,12 @@ def sources_officielles(titre, corps, url_source, max_entites=3, rapide=False):
         o = _via_recherche(nom, titre, corps, url_source, jetons)
         if o:
             trouves.append(o)
+    if not trouves and confirmees:
+        # RÈGLE (2026-11-27) : on cite l'entreprise / l'institution à la place du média. Page exacte du communiqué introuvable :
+        # on cite son site officiel (page réellement lue, nom vérifié sur sa page d'accueil), le média restant « relayé par ».
+        c = confirmees[0]
+        trouves.append({"nom": c["nom"], "url": c["url"], "extrait": "", "texte": "", "image": "", "citation_seule": True})
+        log(f"communiqué exact introuvable : site officiel cité — {c['nom']} — {c['url']}")
     return trouves
 
 

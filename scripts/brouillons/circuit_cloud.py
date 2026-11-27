@@ -290,7 +290,7 @@ choix_canal: "{canal_choix}"
     if not notif:
         return
     C.notifier(f"À placer : {red['titre'][:60]}",
-               f"{red.get('extrait', '')[:230]}\n\nChoisissez la place. Sans choix sous {C.DELAI_DEFAUT_MIN} min : à la Une (position 1)."
+               f"{red.get('extrait', '')[:230]}\n\nChoisissez la place. Sans choix sous {C.DELAI_DEFAUT_MIN} min : publié à la Une (position 1)."
                f"\n(Brouillon automatique du cloud — {'source officielle citée, ' if officiels else ''}carte interactive ajoutée plus tard par le PC.)",
                clic=f"{C.SITE}/images/{ident}.jpg", actions=C.actions_choix(ident, canal_choix))
     C.notifier("Corriger ou rejeter ce brouillon ?", f"« {red['titre'][:80]} » — Corriger ouvre l'éditeur en ligne (connexion admin) ; "

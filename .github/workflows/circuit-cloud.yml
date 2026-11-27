@@ -100,18 +100,19 @@ jobs:
             sleep 5
           done
 
-      - name: Publication immédiate du brouillon
+      - name: Publication après la fenêtre de choix ntfy (5 min)
         # Le workflow « brouillons-publier » (toutes les 15 min) est servi irrégulièrement par GitHub (parfois 5 à 10 h d'écart) :
-        # le brouillon restait en attente. Ici on publie tout de suite (délai de relecture 0, comme dans l'autre workflow).
+        # le brouillon restait en attente. Ici on attend la fenêtre de choix (5 min, décision du 2026-11-27) puis on publie.
         if: steps.fab.outputs.publier == 'oui'
         env:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
-          DELAI_MIN: "0"
+          DELAI_MIN: "5"
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: |
+          sleep 330
           python scripts/brouillons/publier_choix.py || true
           git add -A
           git diff --cached --quiet && { echo "Rien à publier."; exit 0; }
