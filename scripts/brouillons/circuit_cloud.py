@@ -34,6 +34,7 @@ sys.path.insert(0, str(RACINE / "scripts" / "express"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import circuit_flow as C  # noqa: E402  (choix des infos, image, ntfy : même logique que sur le PC)
 import redaction as R  # noqa: E402  (format éditorial commun)
+import video_cloud as VC  # noqa: E402  (vidéo image + titre + voix off sans le PC ; inactive hors VIDEO_CLOUD=1)
 from sources import UA  # noqa: E402
 
 REGISTRE = RACINE / "data" / "circuit-slots.json"
@@ -236,12 +237,30 @@ def produire(slot, notif=True):
                 c["video"] = R.video_source(requests.get(c["url"], headers=UA, timeout=25).text, red["titre"], red.get("extrait", ""))
             except requests.RequestException:
                 c["video"] = ""
+            if not c["video"]:
+                c["video"] = video_cloud_pour(red, jpg, ident)
             ecrire_brouillon(ident, c, red, officiels, slot, notif, src, direct)
             if slot != "test":
                 marquer(slot, "cloud")
             return 0
     log("rien de neuf (aucune info avec texte et image exploitables)")
     return 2
+
+
+def video_cloud_pour(red, jpg, ident):
+    """Vidéo « image + titre + voix off » (PC éteint, pas de Flow) : seulement si VIDEO_CLOUD=1 et si l'image ne montre aucune personne
+    ni texte (mode « image_texte » de la politique éditoriale). Tout échec = pas de vidéo, le brouillon part comme avant."""
+    if not VC.actif():
+        return ""
+    try:
+        pol = R.politique_video(jpg, red["titre"], red.get("extrait", ""))
+        if pol["mode"] != "image_texte":
+            log(f"vidéo cloud non produite ({pol['mode']}) : {pol['raison'][:120]}")
+            return ""
+        return VC.fabriquer(ident, red["titre"], red.get("lead") or red.get("extrait", ""), jpg, RACINE)
+    except Exception as e:  # noqa: BLE001 — jamais bloquant
+        log(f"vidéo cloud ignorée ({type(e).__name__}) : {str(e)[:120]}")
+        return ""
 
 
 def ecrire_brouillon(ident, c, red, officiels, slot, notif, src=None, direct=False):

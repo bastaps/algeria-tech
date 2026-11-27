@@ -44,7 +44,7 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq ffmpeg fonts-dejavu-core > /dev/null
-          pip install -q requests beautifulsoup4 feedparser pillow
+          pip install -q requests beautifulsoup4 feedparser pillow edge-tts gTTS
 
       - name: Routeur IA gratuit (FreeLLMAPI)
         continue-on-error: true  # en cas d'échec : appel direct à Gemini
@@ -65,6 +65,7 @@ jobs:
           SLOT_SAISI: ${{ inputs.slot }}
           PLANIF: ${{ github.event.schedule }}
           TZ: Africa/Algiers
+          VIDEO_CLOUD: "1"
         run: |
           set +e
           if [ -n "$SLOT_SAISI" ]; then SLOT="$SLOT_SAISI"; else
