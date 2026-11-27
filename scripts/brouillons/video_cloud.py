@@ -57,7 +57,30 @@ def _voix(texte, mp3):
         return False
 
 
-def _bandeau(titre, png):
+def mode_fond(mode_politique):
+    """Politique vidéo de l'article → type de fond. image_texte : photo sans personne ni texte → photo + bandeau titre ;
+    image_anime : photo qui porte déjà du texte → photo seule ; sans_personnes : photo de personnes réelles → JAMAIS animée,
+    fond aux couleurs du site avec le titre. Autre mode (aucune, source) : pas de vidéo."""
+    return {"image_texte": "image", "image_anime": "image_seule", "sans_personnes": "fond"}.get(mode_politique)
+
+
+def _fond_marque():
+    """Image de fond sans personne : dégradé brun / or du site."""
+    import io
+    from PIL import Image, ImageDraw
+    im = Image.new("RGB", (1920, 1080))
+    d = ImageDraw.Draw(im)
+    for y in range(1080):
+        t = y / 1079
+        d.line([(0, y), (1920, y)], fill=(int(44 + 70 * t), int(26 + 38 * t), int(14 + 12 * t)))
+    d.ellipse([1150, -250, 2250, 850], outline=(176, 125, 60), width=6)
+    d.ellipse([1300, -100, 2100, 700], outline=(120, 85, 42), width=3)
+    b = io.BytesIO()
+    im.save(b, "JPEG", quality=90)
+    return b.getvalue()
+
+
+def _bandeau(titre, png, mode="image"):
     from PIL import Image, ImageDraw, ImageFont
     police = next((p for p in POLICES if Path(p).exists()), None)
     if not police:
@@ -65,28 +88,36 @@ def _bandeau(titre, png):
     img = Image.new("RGBA", (L, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
     f_titre, f_marque = ImageFont.truetype(police, 40), ImageFont.truetype(police, 26)
-    lignes = textwrap.wrap(titre.strip(), width=44)[:3]
-    haut = 36 + 52 * len(lignes)
-    d.rectangle([0, H - haut - 24, L, H], fill=(20, 12, 6, 205))
-    for i, ligne in enumerate(lignes):
-        d.text((48, H - haut - 6 + 52 * i), ligne, font=f_titre, fill=(255, 255, 255, 255))
+    if mode == "fond":   # pas de photo : titre grand, centré verticalement
+        f_grand = ImageFont.truetype(police, 56)
+        lignes = textwrap.wrap(titre.strip(), width=30)[:5]
+        y0 = (H - 70 * len(lignes)) // 2
+        for i, ligne in enumerate(lignes):
+            d.text((90, y0 + 70 * i), ligne, font=f_grand, fill=(255, 255, 255, 255))
+    elif mode != "image_seule":
+        lignes = textwrap.wrap(titre.strip(), width=44)[:3]
+        haut = 36 + 52 * len(lignes)
+        d.rectangle([0, H - haut - 24, L, H], fill=(20, 12, 6, 205))
+        for i, ligne in enumerate(lignes):
+            d.text((48, H - haut - 6 + 52 * i), ligne, font=f_titre, fill=(255, 255, 255, 255))
     d.rounded_rectangle([36, 30, 36 + 214, 74], radius=10, fill=(176, 125, 60, 235))
     d.text((52, 38), "Algeria Tech", font=f_marque, fill=(255, 255, 255, 255))
     img.save(png)
 
 
-def fabriquer(ident, titre, lead, jpg_bytes, racine):
-    """Chemin web « /videos/articles/<ident>.mp4 » de la vidéo produite, ou "" (inactif, échec, vidéo trop lourde)."""
+def fabriquer(ident, titre, lead, jpg_bytes, racine, mode="image"):
+    """Chemin web « /videos/articles/<ident>.mp4 » de la vidéo produite, ou "" (inactif, échec, vidéo trop lourde).
+    mode : « image » (photo + bandeau titre), « image_seule » (la photo porte déjà du texte), « fond » (aucune photo : personnes réelles)."""
     if not actif():
         return ""
     try:
         racine = Path(racine)
         with tempfile.TemporaryDirectory() as t:
             t = Path(t)
-            (t / "img.jpg").write_bytes(jpg_bytes)
+            (t / "img.jpg").write_bytes(_fond_marque() if mode == "fond" else jpg_bytes)
             if not _voix(_texte_voix(titre, lead), t / "voix.mp3"):
                 return ""
-            _bandeau(titre, t / "bandeau.png")
+            _bandeau(titre, t / "bandeau.png", mode)
             sonde = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "default=nw=1:nk=1",
                                     str(t / "voix.mp3")], capture_output=True, text=True)
             duree = float(sonde.stdout.strip()) + 1.5

@@ -30,6 +30,7 @@ import requests
 
 sys.stdout.reconfigure(encoding="utf-8")
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import video_cloud as VC  # noqa: E402  (vidéo de repli titre + voix off sans Flow)
 import redaction as R  # noqa: E402  (format éditorial commun : À retenir, tableau, sources officielles, vidéo pertinente)
 import dedup as D  # noqa: E402  (anti-doublons : même fait déjà publié, en brouillon, ou produit par l'autre circuit)
 import officiels as O  # noqa: E402  (communiqués publiés par les entreprises / institutions : source prioritaire)
@@ -552,6 +553,15 @@ def finaliser(ident, clip, sans_push):
     if P.est_jeu(g["titre"], g["lead"]):   # jeux vidéo : rubrique spéciale « Jeux vidéo », hors flux de l'accueil, JAMAIS en Une
         cat, promo = "Jeux", False
         extra_promo = "hors_une: true\n"
+    # Flow indisponible (Chrome déconnecté, approbation sans réponse, crédits…) : vidéo de repli « titre + voix off » fabriquée en local
+    video_repli = False
+    mode_repli = VC.mode_fond(job.get("video_mode", ""))
+    if not avec_video and mode_repli and os.environ.get("VIDEO_REPLI", "1") == "1":
+        os.environ["VIDEO_CLOUD"] = "1"
+        if VC.fabriquer(ident, g["titre"], g["lead"], (dossier / "image.jpg").read_bytes(), dossier / "repli", mode_repli):
+            clip = dossier / "repli" / "videos" / "articles" / f"{ident}.mp4"
+            avec_video = video_repli = True
+            log(f"vidéo de repli produite (mode {mode_repli}) : Flow n'a pas fourni de clip")
     # vidéo : clip Flow local (image + texte, ou image animée), ou vidéo YouTube du média qui accompagne l'article (reprise telle quelle)
     video_url = (f"/videos/articles/{ident}.mp4" if avec_video
                  else (job.get("video_url", "") if job.get("video_mode") == "source" else ""))
@@ -616,7 +626,7 @@ choix_canal: "{canal_choix}"
     deposer(ident, sortie, g["titre"], avec_video, job.get("slot"))
     notifier(f"À placer : {g['titre'][:60]}",
              f"{g['lead'][:230]}\n\nSans choix sous {DELAI_DEFAUT_MIN} min : publication automatique À LA UNE, position 1 (ou choisissez la place ci-dessous). Vous pouvez modifier ou supprimer ensuite."
-             f"\n{'Vidéo Flow + ' if avec_video else ''}version interactive prête.",
+             f"\n{('Vidéo (titre + voix off) + ' if video_repli else 'Vidéo Flow + ') if avec_video else ''}version interactive prête.",
              clic=f"{SITE}/interactifs/{ident}.html", actions=actions_choix(ident, canal_choix))
     notifier("Corriger ou rejeter ce brouillon ?", f"« {g['titre'][:80]} » — Corriger ouvre l'éditeur en ligne (connexion admin) ; "
              "Rejeter supprime le brouillon avant publication.",

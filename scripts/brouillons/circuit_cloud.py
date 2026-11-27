@@ -248,16 +248,17 @@ def produire(slot, notif=True):
 
 
 def video_cloud_pour(red, jpg, ident):
-    """Vidéo « image + titre + voix off » (PC éteint, pas de Flow) : seulement si VIDEO_CLOUD=1 et si l'image ne montre aucune personne
-    ni texte (mode « image_texte » de la politique éditoriale). Tout échec = pas de vidéo, le brouillon part comme avant."""
+    """Vidéo « titre + voix off » (PC éteint, pas de Flow) : seulement si VIDEO_CLOUD=1. Photo de personnes réelles : jamais animée
+    (fond aux couleurs du site). Tout échec = pas de vidéo, le brouillon part comme avant."""
     if not VC.actif():
         return ""
     try:
         pol = R.politique_video(jpg, red["titre"], red.get("extrait", ""))
-        if pol["mode"] != "image_texte":
+        fond = VC.mode_fond(pol["mode"])
+        if not fond:
             log(f"vidéo cloud non produite ({pol['mode']}) : {pol['raison'][:120]}")
             return ""
-        return VC.fabriquer(ident, red["titre"], red.get("lead") or red.get("extrait", ""), jpg, RACINE)
+        return VC.fabriquer(ident, red["titre"], red.get("lead") or red.get("extrait", ""), jpg, RACINE, fond)
     except Exception as e:  # noqa: BLE001 — jamais bloquant
         log(f"vidéo cloud ignorée ({type(e).__name__}) : {str(e)[:120]}")
         return ""
