@@ -1,102 +1,102 @@
 {
  "creneau": "soir",
  "date": "2026-11-27",
- "genere": "2026-11-27T17:33:49",
+ "genere": "2026-11-27T20:53:53",
  "langs": {
   "fr": {
    "voix": "fr-FR-HenriNeural",
    "creneau": "soir",
-   "genere": "2026-11-27T17:34:14",
+   "genere": "2026-11-27T20:54:13",
    "intro": {
     "mp3": "/podcast/fr/intro.mp3",
-    "duree": 7.5,
-    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici ce qui fait l'actualité ce soir, avec dix informations clés."
+    "duree": 6.9,
+    "texte": "Bonsoir et bienvenue sur Algeria Tech. Voici 10 informations tech et actualités pour votre soirée."
    },
    "outro": {
     "mp3": "/podcast/fr/outro.mp3",
-    "duree": 5.9,
-    "texte": "C'était l'essentiel de l'actualité tech pour ce soir. Merci de nous avoir écoutés."
+    "duree": 5.4,
+    "texte": "C'était l'essentiel de l'actualité sur Algeria Tech. Bonne soirée."
    },
    "items": [
     {
-     "titre": "Démantèlement d'un réseau criminel",
-     "texte": "Les services de sécurité ont mis fin aux activités d'un réseau criminel impliqué dans le trafic de drogues et de substances psychotropes. Cette opération a couvert plusieurs wilayas du pays, marquant une victoire significative contre le crime organisé.",
+     "titre": "Réseau criminel démantelé",
+     "texte": "Vendredi dernier, les services de la Gendarmerie nationale ont réussi à démanteler un important réseau criminel. Activant dans le trafic de drogues et de substances psychotropes, il opérait à travers plusieurs wilayas du territoire national.",
      "mp3": "/podcast/fr/01.mp3",
-     "duree": 13.4,
+     "duree": 13.2,
      "pays": "DZ",
      "source": "APS"
     },
     {
-     "titre": "Projets structurants pour la connectivité",
-     "texte": "L'Algérie intensifie ses efforts pour la concrétisation de projets structurants. L'objectif est de renforcer la connectivité régionale, conformément aux directives présidentielles, assurant ainsi un développement continu des infrastructures.",
+     "titre": "Renforcement de la connectivité régionale",
+     "texte": "L'Algérie continue d'avancer dans la concrétisation de projets structurants. Ces initiatives visent à renforcer la connectivité régionale, conformément aux directives présidentielles pour le développement du pays.",
      "mp3": "/podcast/fr/02.mp3",
-     "duree": 13.4,
+     "duree": 11.5,
      "pays": "DZ",
-     "source": "APS"
+     "source": "Radio Algérie"
     },
     {
-     "titre": "Saisie massive de drogue",
-     "texte": "Une opération d'envergure a conduit à l'arrestation de 31 individus et à la saisie de plus de 310 kilogrammes de drogue, dont 160 kg de cocaïne. Le réseau démantelé opérait dans cinq wilayas clés.",
+     "titre": "Charge USB, même PC éteint",
+     "texte": "Saviez-vous que le port USB de votre ordinateur peut charger votre téléphone, même lorsque le PC est éteint ? Une fonction 'Always On' cachée sur certains ports pourrait bien vous surprendre.",
      "mp3": "/podcast/fr/03.mp3",
-     "duree": 12.0,
+     "duree": 10.5,
      "pays": "DZ",
-     "source": "Le Soir d'Algérie"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Stop aux abus sur la bande d'arrêt",
-     "texte": "La police algérienne lance un avertissement ferme concernant l'utilisation abusive de la bande d'arrêt d'urgence sur les autoroutes. Ce comportement dangereux sera désormais sanctionné pour assurer la sécurité de tous.",
+     "titre": "Trois nouveaux organismes pour la numérisation",
+     "texte": "Dans le cadre de la stratégie de numérisation du pays, l'Algérie se dote de trois nouveaux organismes publics. Leur création a été officialisée par décrets présidentiels, renforçant la tutelle du Haut-Commissariat à la numérisation.",
      "mp3": "/podcast/fr/04.mp3",
-     "duree": 11.8,
+     "duree": 13.2,
      "pays": "DZ",
      "source": "Algérie360"
     },
     {
-     "titre": "Sonelgaz exporte vers la Côte d'Ivoire",
-     "texte": "Sonelgaz International exporte des turbines et équipements vers la Côte d'Ivoire. Ces matériels serviront à la construction d'une centrale électrique et au renforcement du réseau de distribution dans ce pays africain.",
+     "titre": "Mise en garde sur jeux vidéo",
+     "texte": "Le ministère de la Solidarité nationale met en garde les parents contre les contenus violents et sexuels dans les jeux vidéo. Face à la multiplication de ces divertissements, la vigilance est de mise.",
      "mp3": "/podcast/fr/05.mp3",
-     "duree": 11.6,
+     "duree": 10.9,
      "pays": "DZ",
-     "source": "Le Soir d'Algérie"
+     "source": "Algérie360"
     },
     {
-     "titre": "IA chinoise freinée par les USA",
-     "texte": "Les restrictions américaines sur les puces électroniques pourraient ralentir les avancées des laboratoires chinois d'intelligence artificielle. Ces entreprises se rapprochaient de leurs concurrents américains, mais font face à de nouveaux obstacles.",
+     "titre": "Saisie massive de stupéfiants",
+     "texte": "Un vaste réseau criminel spécialisé dans le trafic de stupéfiants a été démantelé. Les autorités ont saisi 160 kg de cocaïne, un million de pilules et procédé à 31 arrestations.",
      "mp3": "/podcast/fr/06.mp3",
-     "duree": 12.4,
+     "duree": 11.4,
      "pays": "DZ",
-     "source": "Le Soir d'Algérie"
+     "source": "Algérie360"
     },
     {
-     "titre": "Escroquerie électronique déjouée à Alger",
-     "texte": "Les services de la Sûreté d'Alger ont neutralisé des réseaux spécialisés dans l'escroquerie électronique. Ces opérations ont permis d'identifier 740 victimes, démontrant l'ampleur des fraudes constatées.",
+     "titre": "Hackers ciblent l'Armée de l'Air US",
+     "texte": "Des pirates informatiques auraient réussi à infiltrer les systèmes cloud de l'Armée de l'Air américaine. La faille aurait été découverte lors de récentes opérations de mise à niveau du système.",
      "mp3": "/podcast/fr/07.mp3",
-     "duree": 11.3,
+     "duree": 10.4,
      "pays": "DZ",
-     "source": "Le Soir d'Algérie"
+     "source": "GeekyAlgeria"
     },
     {
-     "titre": "Arrestations dans l'affaire BaridiMob",
-     "texte": "Trente-cinq personnes ont été arrêtées suite au démantèlement de réseaux d'escroquerie en ligne ciblant les utilisateurs de BaridiMob. Le préjudice financier s'élève à 41 milliards de centimes.",
+     "titre": "Lutte contre la criminalité organisée",
+     "texte": "La Gendarmerie nationale a mis un coup d'arrêt à un réseau criminel organisé et armé. Ce dernier était spécialisé dans le trafic de drogues et de substances psychotropes à travers plusieurs wilayas.",
      "mp3": "/podcast/fr/08.mp3",
-     "duree": 10.8,
-     "pays": "DZ",
-     "source": "Maghreb Emergent"
-    },
-    {
-     "titre": "35 suspects arrêtés pour escroquerie",
-     "texte": "Des réseaux spécialisés dans l'escroquerie électronique ont été démantelés par la Sûreté d'Alger. 35 individus, dont huit femmes, ont été appréhendés, suite à des signalements de 740 victimes.",
-     "mp3": "/podcast/fr/09.mp3",
-     "duree": 11.5,
+     "duree": 10.6,
      "pays": "DZ",
      "source": "Crésus"
     },
     {
-     "titre": "41 milliards détournés via BaridiMob",
-     "texte": "Des réseaux criminels spécialisés dans la fraude électronique et l'usurpation d'identité ont été démantelés à Alger. L'arnaque sur BaridiMob a causé un détournement de 41 milliards de centimes.",
-     "mp3": "/podcast/fr/10.mp3",
-     "duree": 11.0,
+     "titre": "Réseau de blanchiment démantelé",
+     "texte": "Les autorités ont démantelé un réseau criminel organisé. Spécialisé dans le blanchiment d'argent et le trafic de drogues, il visait des transferts de devises vers les Émirats arabes unis.",
+     "mp3": "/podcast/fr/09.mp3",
+     "duree": 10.4,
      "pays": "DZ",
-     "source": "NTIC.dz"
+     "source": "TSA Algérie"
+    },
+    {
+     "titre": "Opération qualitative contre le trafic",
+     "texte": "Plus de 310 kg de drogue, dont 160 kg de cocaïne, ont été saisis. L'opération a permis l'arrestation de 31 individus et le démantèlement d'un réseau actif dans cinq wilayas.",
+     "mp3": "/podcast/fr/10.mp3",
+     "duree": 11.6,
+     "pays": "DZ",
+     "source": "Le Soir d'Algérie"
     }
    ]
   },
